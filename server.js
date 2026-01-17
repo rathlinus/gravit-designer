@@ -178,18 +178,18 @@ app.get("/user", (req, res) => {
     state: "",
     country: "",
     trial_created: "2021-09-22T19:58:35.018Z",
-    trial_expire: "2026-10-07T19:58:35.018Z",
+    trial_expire: "2099-10-07T19:58:35.018Z",
     pro_created: null,
     pro_expire: null,
     created: "2021-09-22T19:58:32.748Z",
-    last_name: "Rath",
+    last_name: "",
     settings: {
       flags: {
         welcomeMessage: false,
-        proOfferSpecialPrice: true,
+        proOfferSpecialPrice: false,
         windowsStoreAnnouncement: false,
-        proOfferInTrialExpireSoon: true,
-        proOfferInTrialLastWarning: true,
+        proOfferInTrialExpireSoon: false,
+        proOfferInTrialLastWarning: false,
       },
       quotas: {
         pro: null,
