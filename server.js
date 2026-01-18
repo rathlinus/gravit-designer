@@ -8,8 +8,13 @@ const http = require("http");
 const app = express();
 const port = 3100;
 const publicDir = path.join(__dirname, "public");
+const docsDir = path.join(__dirname, "docs");
 
+// Serve static files from public
 app.use(express.static(publicDir));
+
+// Serve docs at /docs
+app.use('/docs', express.static(docsDir));
 app.use(express.json());
 
 const server = http.createServer(app);

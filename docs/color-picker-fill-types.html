@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/css/main.css' type='text/css' media='screen' />
+    <link rel="icon" href="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/favicon.ico" type="image/x-icon" />
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    
+    <title>Color picker and fill types - Gravit Designer Help</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Color picker and fill types - Gravit Designer Help" />
+    <meta property="og:site_name" content="Gravit Designer Help" />
+
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+    <style>
+        .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}
+        .wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+    </style>
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/style.css' type='text/css' media='all' />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="wp-singular page-template-default page wp-theme-gravit-documentation">
+<div class="full-wrapper">
+    <section class="sidebar">
+        <header>
+            <a href="javascript:void(0);" id="menu-trigger"></a>
+            <a href="index.html" title="Home" class="site-title">Corel <br>
+            Vector <br>
+            Help</a>
+        </header>
+        <div class="search-box">
+            <form role="search" method="get" action="index.html">
+                <div class="search-wrapper">
+                    <input type="search" id="search" placeholder="Search docs" value="" name="s" />
+                    <button type="submit"></button>
+                </div>
+            </form>
+            <!-- menu here -->
+            <div class="menu-nested-pages-container"><ul id="menu-nested-pages" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="welcome.html">Welcome</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="introduction.html">Introduction</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="quickstart.html">Quickstart</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="tools.html">Tools and menus</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-menu.html">Modify menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menu-bar.html">Menu bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-menu.html">File menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="edit-menu.html">Edit menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-menu.html">View menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="help-menu.html">Help menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shape-tools.html">Shape tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selection-tools.html">Selection tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="drawing-tools.html">Drawing tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-tools.html">Other tools</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="basics.html">Basics</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shapes-paths.html">Shapes and paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-files.html">Working with files</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="new-document.html">Starting a new document</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="starting-new-document-with-a-template.html">Starting a new document with a template</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="save-and-open-files.html">Saving and opening files</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="working-with-corel-vector-cloud.html">Working with Gravit Designer Cloud</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-tabs.html">File tabs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="creating-basic-shapes.html">Creating basic shapes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selecting-objects.html">Selecting objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="moving-transforming-and-arranging-objects.html">Moving, transforming, and arranging objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="tools-toolbar.html">Tools on the toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-anatomy.html">Vector anatomy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchor-points.html">Anchor points</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-paths.html">Modify paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="property-panel.html">Property panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="transform-panel.html">Transform panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="compound-shapes-boolean-operations.html">Compound shapes / Boolean operations</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="colors-gradients-textures.html">Colors, gradients, and textures</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item"><a href="color-picker-fill-types.html" aria-current="page">Color picker and fill types</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blending-modes.html">Blending modes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-palettes.html">Color palettes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="fills.html">Fills</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="borders.html">Borders</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-images.html">Working with images</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-vs-bitmap.html">Vector images vs bitmap images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="insert-images.html">Inserting images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="images-toolbox.html">Images toolbox</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="removing-parts-of-the-image.html">Removing parts of the image</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="image-manipulation.html">Image manipulation</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="effects.html">Effects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="adjust-effects.html">Adjust effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="artistic-group-of-effects.html">Artistic effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blur-group-of-effects.html">Blur effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distort-group-of-effects.html">Distortion effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shadow-group-of-effects.html">Shadow effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-effects.html">Other effects</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-text.html">Working with text</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-properties-and-text-appearance-panel.html">Text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="advanced-text-properties.html">Advanced text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-on-path-2.html">Text on paths</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="organizing-your-designs.html">Organizing your designs</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="documents.html">Documents</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="pages.html">Pages</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="layer-groups.html">Layer groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="groups.html">Groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="symbols.html">Symbols</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="clipping-masking.html">Clipping and masking</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shared-styles.html">Shared Styles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="swatches.html">Swatches</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="arrange-objects.html">Arranging objects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="align.html">Aligning</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distribute.html">Distributing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="stacking-order.html">Stacking order</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="design-aids.html">Design aids</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="grid.html">Grid</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="rulers.html">Rulers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="guides.html">Guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distance-guides.html">Distance guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="smart-guides.html">Smart guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="snaping.html">Snapping</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-aids.html">View aids</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchoring.html">Anchoring</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="import-export.html">Importing and exporting</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="import.html">Importing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="export.html">Exporting</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="touch-interface.html">Touch interface</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menus-and-toolbar.html">Menus and toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="panels.html">Panels</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="assistant-bar.html">Assistant bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="main-differences-between-touch-and-normal-version.html">Touch and standard version differences</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="collaboration.html">Collaboration</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="share-dialog.html">Share dialog box</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="comments-panel.html">Comments panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="collaborator-roles.html">Collaborator roles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="design-review-and-approval-flow.html">Review and approval flow</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="account.html">Account</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resources.html">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="library.html">Library</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kb.corel.com/?q=Corel%20Vector%20" target="_blank">Knowledge Base</a></li>
+</ul></div>
+        </div>
+    </section>
+    
+    <div class="content-wrapper">
+        <header>
+            <span class="update">updated on 05 August 2022 | reading time: 7 minutes</span>
+            <div class="headings-socials">
+                <div class="headings">
+                    <h1>Color picker and fill types</h1>
+                </div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=color-picker-fill-types.html" title="Share Color picker and fill types on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20color-picker-fill-types.html" title="Tweet Color picker and fill types" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </header>
+        <article class="content">
+            <p>The <strong>Inspector</strong> panel in Gravit Designer includes a color picker to help you choose and manage colors.</p>
+<p>To change color, you click the colored circle beside the eyedropper icon in the Inspector panel.</p>
+<p><img alt="" class="aligncenter size-full wp-image-228" decoding="async" height="159" loading="lazy" sizes="auto, (max-width: 223px) 100vw, 223px" src="images/color-chip.png" srcset="images/color-chip.png 223w, images/color-chip-30x21.png 30w" width="223"/></p>
+<p>The pop-up Color Picker will appear to let you choose different fill options, such as colors, gradients, and textures.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/17.png" title=""/><img alt="" class="size-full wp-image-230 alignnone" decoding="async" height="742" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/17.png" srcset="images/17.png 900w, images/17-442x364.png 442w, images/17-30x25.png 30w" width="900"/></p>
+<div class="note"><strong><em>Note: </em></strong>Borders, effects, and fills have similar options.</div>
+<p> </p>
+<h3 id="color-models-rgb-hsb-cmyk">Color models (RGB, HSB, CMYK)</h3>
+<p>Gravit Designer supports three color spaces – RGB, HSB, and CMYK.</p>
+<p><strong>RGB</strong> – uses R, G, B components to define the amounts of Red, Green, and Blue light in a color. It is suitable for designs that will be viewed onscreen. RGB is an additive color model. <a href="https://en.wikipedia.org/wiki/RGB_color_model" rel="noopener noreferrer" target="_blank">Learn more about RGB here</a>.</p>
+<p><strong>HSB</strong> – uses H, S, B, components to define the Hue, Saturation, and Brightness of the color. HSB allows for more intuitive modification of color components than RGB. This color model is also used mostly for onscreen images. <a href="https://en.wikipedia.org/wiki/HSL_and_HSV" rel="noopener noreferrer" target="_blank">Learn more about HSB.</a></p>
+<p><strong>CMYK</strong> – uses C, M, Y, K components to define the Cyan, Magenta, Yellow, and Key (Black) of colors. CMYK is widely used in the print industry. This is a subtractive color model. <a href="https://en.wikipedia.org/wiki/CMYK_color_model" rel="noopener noreferrer" target="_blank">Learn more about CMYK.</a></p>
+<p class="p1">You can change the color mode of the document between RGB, HSB, or CMYK as a general setting at the bottom of the inspector panel:</p>
+<p class="p1"><img alt="" class="aligncenter wp-image-1590 size-full" decoding="async" height="722" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Group-8.png" srcset="images/Group-8.png 400w, images/Group-8-17x30.png 17w" width="400"/></p>
+<p class="p1">You can also change the mode for each element individually on the Color Picker.</p>
+<h3 id="solid-colors">Solid colors</h3>
+<h3 id=""><img alt="flat color picker" class="aligncenter size-full wp-image-231" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Page-31.png" srcset="images/Page-31.png 400w, images/Page-31-30x14.png 30w" width="400"/></h3>
+<p>Color Fill is the default option on the Color Picker. The object will be filled with a single solid (flat) color.</p>
+<p><img alt="color picker solid color" class="aligncenter size-full wp-image-232" decoding="async" height="430" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/color-picker-solid-color.png" srcset="images/color-picker-solid-color.png 400w, images/color-picker-solid-color-28x30.png 28w" width="400"/></p>
+<p>To choose a color, make sure that the selector <strong>(1)</strong> is set at Color Fill. Move the small dot <strong>(3)</strong> in the main pick area to choose the desired color. While dragging the color selector dot, you can preview the color difference with the current color applied in the small color-swatch <strong>(6)</strong>. You can change the hue of the main Color Picker area with the hue slider <strong>(4)</strong>. You can change how transparent the color will be with the Opacity slider <strong>(5)</strong>.</p>
+<p>Alternatively, you can change values directly in the fields (8) or choose predefined colors from pallets <strong>(9)</strong>.</p>
+<p>You can also sample a color from anywhere on the canvas by clicking the Eyedropper icon <strong>(7)</strong>.</p>
+<p>You can change the color mode to RGB, HSB, or CMYK in the selector at the top right corner of the popover <strong>(2)</strong>.</p>
+<div class="wp-video" style="width: 400px;"><video class="wp-video-shortcode" controls="controls" height="492" id="video-220-40" preload="metadata" width="400"><source src="images/color-picker-solid.mp4" type="video/mp4"/><a href="https://documentation.corelvector.com/wp-content/uploads/2019/01/color-picker-solid.mp4">https://documentation.corelvector.com/wp-content/uploads/2019/01/color-picker-solid.mp4</a></video></div>
+<h3 id="linear-gradients">Linear gradients</h3>
+<p>You can use a simple gradient between two colors, or add in multiple color points for a rainbow-like multi-color effect.</p>
+<p><img alt="multi color effect" class="aligncenter size-full wp-image-234" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Page-42.png" srcset="images/Page-42.png 400w, images/Page-42-30x14.png 30w" width="400"/></p>
+<p>In the Color Picker, choose Linear Gradient from the selector.</p>
+<p>To add a gradient stop point, click somewhere on the gradient bar at the top of the pop-up Color Picker.</p>
+<p>To move the color stop point, drag it to the left or to the right.</p>
+<p>To delete a gradient stop point, drag it off the gradient bar.</p>
+<p>To change the color/opacity of a gradient stop point, click the stop point to select it. Then change the color/opacity within the Color Picker.</p>
+<div class="wp-video" style="width: 400px;"><video class="wp-video-shortcode" controls="controls" height="338" id="video-220-41" preload="metadata" width="400"><source src="images/color-picker-gradient-add-color.mp4" type="video/mp4"/><a href="https://documentation.corelvector.com/wp-content/uploads/2019/01/color-picker-gradient-add-color.mp4">https://documentation.corelvector.com/wp-content/uploads/2019/01/color-picker-gradient-add-color.mp4</a></video></div>
+<p><img alt="gradient reverse rotate" class="aligncenter size-full wp-image-236" decoding="async" height="37" loading="lazy" sizes="auto, (max-width: 335px) 100vw, 335px" src="images/gradient-reverse-and-rotate.png" srcset="images/gradient-reverse-and-rotate.png 335w, images/gradient-reverse-and-rotate-30x3.png 30w" width="335"/></p>
+<p>To reverse the gradient, change the order of stops.</p>
+<p>You can also rotate the gradient to the left and to the right (45 degrees). The default gradient is created horizontally. These controls change it to a 45-degree gradient in a single click, and a vertical gradient in two clicks.</p>
+<p>Alternatively, you can move the end handles of the gradient, and gradient color “stop points” interactively within the object. You can also rotate gradients interactively. Hold <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> to constrain to 45 degree angles.</p>
+<p><img alt="rotate gradient" class="size-full wp-image-237 alignnone" decoding="async" height="704" loading="lazy" src="images/Handles.gif" width="900"/></p>
+<h3 id="radial-elliptical-gradients">Radial (Elliptical) gradients</h3>
+<p><img alt="radial gradient" class="aligncenter size-full wp-image-238" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Page-53.png" srcset="images/Page-53.png 400w, images/Page-53-30x14.png 30w" width="400"/></p>
+<p>You can use the radial gradient in Gravit Designer to create objects with creative color effects. Radial gradients have a circular, light to dark shape.</p>
+<p>You can add, remove, reverse, or change gradient stop points in the same way as linear gradients <em>(see above)</em>.</p>
+<p>By default, the two gradient handles start from the center of the object and extend to its ends. At any point, there is only one active handle. It is white and all color stops are displayed on it. The other (inactive) handle will be represented as a thin blue line.</p>
+<p>You can adjust handles interactively to achieve different effects. You can also move handles inside or outside the shape.</p>
+<p>You can adjust the gradient center by moving the inactive (blue) handle. This can produce some interesting dome effects. The center cannot move outside the ellipse indicated by the other handles.<img alt="" class="aligncenter size-large wp-image-239" decoding="async" height="271" loading="lazy" src="images/color-picker-radial-gradient-onscreen.gif" width="400"/></p>
+<h3 id="angular-gradients">Angular gradients</h3>
+<p><img alt="angular gradient" class="aligncenter size-full wp-image-240" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Page-61.png" srcset="images/Page-61.png 400w, images/Page-61-30x14.png 30w" width="400"/></p>
+<p>Angular gradients produce a circular, sweeping color effect, similar to a DVD surface.</p>
+<p>You can add, remove, reverse, or change gradient stop points in the same way as linear gradients <em>(see above)</em>.</p>
+<p>The handle at the center of the gradient lets you position the the angular sweep.</p>
+<p><img alt="radial gradient" class="aligncenter size-full wp-image-241" decoding="async" height="440" loading="lazy" src="images/Radial.gif" width="400"/></p>
+<p>The handles for the gradient start and end points lets you change the angle of the gradient.</p>
+<p><img alt="gradient handles" class="aligncenter size-full wp-image-242" decoding="async" height="440" loading="lazy" src="images/Handles1.gif" width="400"/></p>
+<h3 id="texture-fills">Texture fills</h3>
+<p><img alt="texture fill" class="aligncenter size-full wp-image-243" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Page-72.png" srcset="images/Page-72.png 400w, images/Page-72-30x14.png 30w" width="400"/>You can use texture fills to produce a variety of effects. While images are often used for textures, Gravit Designer also supports any object as a texture source.</p>
+<p>When you select Texture Fill from the Fill type selector, you will be presented with the following interface:</p>
+<p><img alt="texture fill" class="aligncenter size-full wp-image-244" decoding="async" height="508" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Texture.png" srcset="images/Texture.png 400w, images/Texture-24x30.png 24w" width="400"/></p>
+<p><strong>(1)</strong> Image preview</p>
+<p><strong>(2)</strong> Choose Image – lets you browse local computer storage</p>
+<p><strong>(3)</strong> Paste an image from the clipboard, which is useful for copying from an image viewer or website (as well as any object in Gravit Designer)</p>
+<p><strong>(4)</strong> Tile – lets you define how the image fits into the shape’s bounding box</p>
+<ul class="c15 lst-kix_8v6e54g202gi-0 start">
+<li>Fill – zoom to fill shape bounding box, crop off any parts that do not fit</li>
+<li>Fit – fit image within the shape bounding box, do not fill parts that are not covered by the image</li>
+<li>Stretch – fit image within the shape’s bounding box, distort to fit the whole image</li>
+<li>Tile – defined by the Advanced settings (see below).</li>
+</ul>
+<p><strong>(5)</strong> Zoom image size – 10% minimum, 200% maximum. Zoom image is active only in Tile mode.</p>
+<p><strong>(6)</strong> Set as transparency mask – use the alpha/transparency in the (PNG) texture image as a mask. This is useful if you have used two or more layered fills for the shape.</p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>Transparency mask is different than standard grayscale matting where black is fully transparent and white is fully opaque.</div>
+<p> </p>
+<p><strong>(7)</strong> Advanced – closely resembles the CSS background model, which is ideal for web development</p>
+<p><strong>(a)</strong> Repeat: Both, Horizontal, Vertical, None – defines how the image repeats in a tiled effect</p>
+<p><strong>(b)</strong> Position: Auto, Top, Left, Center, Right, Bottom – defines how the image is positioned in relation to the shape</p>
+<p><strong>(c)</strong> Size: Auto, Contain, Cover, Percent, Length – defines how much of the shape is covered by the image</p>
+<p><strong>(d)</strong> Width, Height, Unit – resizes the image by measurements rather than a size percentage</p>
+<p><strong>Fill preset</strong></p>
+<ul>
+<li>Repeat – None; Position – Center; Size – Cover</li>
+</ul>
+<p><strong>Fit preset</strong></p>
+<ul>
+<li>Repeat – None; Position – Center; Size – Contain</li>
+</ul>
+<p><strong>Stretch preset</strong></p>
+<ul>
+<li>Repeat – None; Position – Center; Size – 100%</li>
+</ul>
+<p><strong>Tile preset</strong></p>
+<ul class="c15 lst-kix_91lrt7lwvlwi-0 start">
+<li>Repeat – Both; Position – Auto; Size – Auto</li>
+</ul>
+<h3 id="tile">Tile<img alt="color picker texture resize" class="aligncenter size-full wp-image-245" decoding="async" height="299" loading="lazy" src="images/color-picker-texture-tile-resize.gif" width="400"/></h3>
+<p>An example of a texture fill with the <strong>Tile</strong> preset applied. The texture will repeat horizontally and vertically. You can change the size of tiles in the pop-up Color Picker.</p>
+<h3 id="fill">Fill<img alt="fill resize" class="aligncenter size-full wp-image-246" decoding="async" height="299" loading="lazy" src="images/color-picker-texture-fill-resize.gif" width="400"/></h3>
+<p>An example of a texture fill with the <strong>Fill</strong> preset applied. The texture fill will cover the entire object, which is useful for responsive UI design. The result is similar to CSS background-size: <strong>cover</strong>.</p>
+<h3>Fit<br/>
+<img alt="" class="aligncenter size-full wp-image-247" decoding="async" height="299" loading="lazy" src="images/color-picker-texture-fit-resize.gif" width="400"/></h3>
+<p>An example of a texture fill with the Fit preset applied. The texture will fully fit inside the object and will be completely visible if the object is resized. The result is similar to CSS background-size: <strong>contain</strong>.</p>
+<p><em>Note: The pink was added for clarity.</em></p>
+<h3 id="stretch">Stretch<img alt="" class="aligncenter size-full wp-image-248" decoding="async" height="299" loading="lazy" src="images/color-picker-texture-strech-resize.gif" width="400"/></h3>
+<p>An example of a texture fill with the <strong>Stretch</strong> preset applied. The texture will stretch with the object, which lead to distortion of the texture.</p>
+<h3 id="noise-fills">Noise fills</h3>
+<p><img alt="" class="aligncenter size-full wp-image-249" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Page-82.png" srcset="images/Page-82.png 400w, images/Page-82-30x14.png 30w" width="400"/></p>
+<p>A noise fill adds random (black/white or color) pixels to an object, producing an effect similar to grain textures such as speckles or sand.</p>
+<p>There are several types of noise fills:</p>
+<ul class="c15 lst-kix_oon5gixk9nak-0 start">
+<li><strong>Original</strong> – adds transparent pixels, so the objects or fills behind the object are visible</li>
+<li><strong>Black</strong> – adds black pixels on white background</li>
+<li><strong>White</strong> – adds white pixels on black background</li>
+<li><strong>Color</strong> – adds random colored pixels</li>
+</ul>
+<p><img alt="color picker noise" class="aligncenter size-full wp-image-250" decoding="async" height="376" loading="lazy" src="images/color-picker-noise.gif" width="400"/></p>
+<p>Noise is often used as a second fill layer, with transparency or blending to add subtle grain to a shape.</p>
+<p>Here are some examples of a noise fill:</p>
+<p><img alt="noise fill examples" class="aligncenter size-full wp-image-251" decoding="async" height="315" loading="lazy" sizes="auto, (max-width: 560px) 100vw, 560px" src="images/noise-fill-examples.png" srcset="images/noise-fill-examples.png 560w, images/noise-fill-examples-442x249.png 442w, images/noise-fill-examples-30x17.png 30w" width="560"/></p>
+<h3 id="background-fills">Background fills</h3>
+<p><img alt="background fill" class="aligncenter size-full wp-image-252" decoding="async" height="180" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/Background-fill.png" srcset="images/Background-fill.png 400w, images/Background-fill-30x14.png 30w" width="400"/></p>
+<p>You can use a background fill to create objects that appear transparent. You can apply background fills non-destructively.</p>
+<p>For example, you can quickly change the hue or contrast of the whole page by making a rectangle to cover all other objects. Then you can apply a background fill and add a color adjust effect to the rectangle.</p>
+<p>You can also produce a dynamic background blur by making a rectangle with a background fill, adding a blur effect, and enabling the clip option. The result is that everything that is underneath this rectangle will be blurred.</p>
+<p>In addition, you can quickly hide sensitive information from a screenshot by placing a rectangle to cover the portion you want to hide, and then adding a blur or hexagon effect.</p>
+<p>You can create a DIY liquified effect by creating a circular object with a bulge effect.</p>
+<p>You can also use background fills to make color adjustments to parts of an image.</p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>As of version 2021.i5, you can apply fills to both bitmap images and vector objects.</div>
+<p> </p>
+
+            
+            <div class="article-footer">
+                <div class='reaction_buttons'>
+                    <div class="reaction_buttons_tagline">What do you think?</div>
+                    <ul>
+                        <li class='reaction_button reaction_button_0'><div><span class='button_name'>Awful</span></div></li>
+                        <li class='reaction_button reaction_button_1'><div><span class='button_name'>Average</span></div></li>
+                        <li class='reaction_button reaction_button_2'><div><span class='button_name'>Awesome</span></div></li>
+                    </ul>
+                </div>
+                
+                <div class="socials">
+                    <span>Share this chapter</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=color-picker-fill-types.html" title="Share Color picker and fill types on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20color-picker-fill-types.html" title="Tweet Color picker and fill types" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<footer>
+    <p>Copyright © 2018 - 2026 Corel Corporation. All rights reserved.</p>
+    <div class="menu-footer-menu-container">
+        <ul id="menu-footer-menu" class="menu">
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Gravit Designer Website</a></li>
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Sign In</a></li>
+            <li class="menu-item"><a href="https://corelvector.com/blog/">Blog</a></li>
+            <li class="menu-item"><a href="https://discuss.corelvector.com">Community</a></li>
+            <li class="menu-item"><a href="https://www.facebook.com/GravitDesigner">Facebook</a></li>
+            <li class="menu-item"><a href="https://twitter.com/GravitDesigner">Twitter</a></li>
+            <li class="menu-item"><a href="https://www.youtube.com/c/GravitDesigner">YouTube</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/cookies">Cookies</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/terms-of-use">Terms of Use</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/corel-privacy-policy">Privacy Policy</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/js/main.min.js"></script>
+</body>
+</html>

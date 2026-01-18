@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/css/main.css' type='text/css' media='screen' />
+    <link rel="icon" href="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/favicon.ico" type="image/x-icon" />
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    
+    <title>Blending modes - Gravit Designer Help</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Blending modes - Gravit Designer Help" />
+    <meta property="og:site_name" content="Gravit Designer Help" />
+
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+    <style>
+        .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}
+        .wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+    </style>
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/style.css' type='text/css' media='all' />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="wp-singular page-template-default page wp-theme-gravit-documentation">
+<div class="full-wrapper">
+    <section class="sidebar">
+        <header>
+            <a href="javascript:void(0);" id="menu-trigger"></a>
+            <a href="index.html" title="Home" class="site-title">Corel <br>
+            Vector <br>
+            Help</a>
+        </header>
+        <div class="search-box">
+            <form role="search" method="get" action="index.html">
+                <div class="search-wrapper">
+                    <input type="search" id="search" placeholder="Search docs" value="" name="s" />
+                    <button type="submit"></button>
+                </div>
+            </form>
+            <!-- menu here -->
+            <div class="menu-nested-pages-container"><ul id="menu-nested-pages" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="welcome.html">Welcome</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="introduction.html">Introduction</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="quickstart.html">Quickstart</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="tools.html">Tools and menus</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-menu.html">Modify menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menu-bar.html">Menu bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-menu.html">File menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="edit-menu.html">Edit menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-menu.html">View menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="help-menu.html">Help menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shape-tools.html">Shape tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selection-tools.html">Selection tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="drawing-tools.html">Drawing tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-tools.html">Other tools</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="basics.html">Basics</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shapes-paths.html">Shapes and paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-files.html">Working with files</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="new-document.html">Starting a new document</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="starting-new-document-with-a-template.html">Starting a new document with a template</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="save-and-open-files.html">Saving and opening files</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="working-with-corel-vector-cloud.html">Working with Gravit Designer Cloud</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-tabs.html">File tabs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="creating-basic-shapes.html">Creating basic shapes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selecting-objects.html">Selecting objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="moving-transforming-and-arranging-objects.html">Moving, transforming, and arranging objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="tools-toolbar.html">Tools on the toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-anatomy.html">Vector anatomy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchor-points.html">Anchor points</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-paths.html">Modify paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="property-panel.html">Property panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="transform-panel.html">Transform panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="compound-shapes-boolean-operations.html">Compound shapes / Boolean operations</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="colors-gradients-textures.html">Colors, gradients, and textures</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-picker-fill-types.html">Color picker and fill types</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item"><a href="blending-modes.html" aria-current="page">Blending modes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-palettes.html">Color palettes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="fills.html">Fills</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="borders.html">Borders</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-images.html">Working with images</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-vs-bitmap.html">Vector images vs bitmap images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="insert-images.html">Inserting images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="images-toolbox.html">Images toolbox</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="removing-parts-of-the-image.html">Removing parts of the image</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="image-manipulation.html">Image manipulation</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="effects.html">Effects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="adjust-effects.html">Adjust effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="artistic-group-of-effects.html">Artistic effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blur-group-of-effects.html">Blur effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distort-group-of-effects.html">Distortion effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shadow-group-of-effects.html">Shadow effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-effects.html">Other effects</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-text.html">Working with text</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-properties-and-text-appearance-panel.html">Text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="advanced-text-properties.html">Advanced text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-on-path-2.html">Text on paths</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="organizing-your-designs.html">Organizing your designs</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="documents.html">Documents</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="pages.html">Pages</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="layer-groups.html">Layer groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="groups.html">Groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="symbols.html">Symbols</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="clipping-masking.html">Clipping and masking</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shared-styles.html">Shared Styles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="swatches.html">Swatches</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="arrange-objects.html">Arranging objects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="align.html">Aligning</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distribute.html">Distributing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="stacking-order.html">Stacking order</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="design-aids.html">Design aids</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="grid.html">Grid</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="rulers.html">Rulers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="guides.html">Guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distance-guides.html">Distance guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="smart-guides.html">Smart guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="snaping.html">Snapping</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-aids.html">View aids</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchoring.html">Anchoring</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="import-export.html">Importing and exporting</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="import.html">Importing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="export.html">Exporting</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="touch-interface.html">Touch interface</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menus-and-toolbar.html">Menus and toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="panels.html">Panels</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="assistant-bar.html">Assistant bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="main-differences-between-touch-and-normal-version.html">Touch and standard version differences</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="collaboration.html">Collaboration</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="share-dialog.html">Share dialog box</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="comments-panel.html">Comments panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="collaborator-roles.html">Collaborator roles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="design-review-and-approval-flow.html">Review and approval flow</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="account.html">Account</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resources.html">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="library.html">Library</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kb.corel.com/?q=Corel%20Vector%20" target="_blank">Knowledge Base</a></li>
+</ul></div>
+        </div>
+    </section>
+    
+    <div class="content-wrapper">
+        <header>
+            <span class="update">updated on 05 August 2022 | reading time: 12 minutes</span>
+            <div class="headings-socials">
+                <div class="headings">
+                    <h1>Blending modes</h1>
+                </div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=blending-modes.html" title="Share Blending modes on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20blending-modes.html" title="Tweet Blending modes" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </header>
+        <article class="content">
+            <p>Blending modes in Gravit Designer let you achieve many effects, such as making an image darker or brighter, adding textures, removing colors, or bringing an underlying image forward.</p>
+<h3 id="the-basics-of-blending-modes">The basics of blending modes</h3>
+<p>In Gravit Designer, you can choose a blending mode for an entire <strong>object (1)</strong>, a <strong>Fill(2)</strong>, and a <strong>Border(3)</strong>. Conveniently, you can access blending modes from various places in the Gravit Designer interface.<img alt="Blending modes options in Gravit Designer" class="size-full wp-image-906 aligncenter" decoding="async" src="images/01_Blending_modes_dropdowns-in-Gravit-Designer.png"/><br/>
+There are an infinite number of possible blending variations available for each fill or stroke that you apply to an object.<br/>
+<img alt="Multiple blending modes for multiple fields" class="size-full wp-image-907 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/02_Multiple-Blending-Modes-for_multiple-fields.png" srcset="images/02_Multiple-Blending-Modes-for_multiple-fields.png 400w, images/02_Multiple-Blending-Modes-for_multiple-fields-30x26.png 30w" width="400"/></p>
+<p>Blending modes are non-destructive, so you can reverse them at any time by using the <em><strong>Blending</strong></em> drop-down.<br/>
+<img alt="Blending modes are non-destructive" class="size-full wp-image-908 aligncenter" decoding="async" height="340" loading="lazy" src="images/03_Non-Destructive-Blending-Modes.gif" width="400"/></p>
+<p>Blending modes are based on mathematical equations and calculate the color levels of both objects.</p>
+<ol>
+<li>The first object with the original color that you want to change is a <strong>base color</strong>.</li>
+<li>The second object with the blend mode applied is called a <strong>blend color</strong>.</li>
+<li>The <strong>result color</strong> is the effect of the objects blending.<br/>
+<img alt="Blend Color Base Color Result Color Gravit Designer" class="size-full wp-image-911 aligncenter" decoding="async" src="images/04_Blend_Color-Base-Color-Result-Color_Gravit.png"/></li>
+</ol>
+<div class="note"><strong><em>Note: </em></strong>For all examples in this section, we are using an eye image as the<strong> base color</strong>, a circle with a gradient fill as the <strong>blend color</strong>, and the intersection both objects is the<strong> result color</strong>.<strong><br/>
+<img alt="Blend mode Examples" class="size-full wp-image-919 aligncenter" decoding="async" height="479" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/07_Blend_Modes_Examples.png" srcset="images/07_Blend_Modes_Examples.png 400w, images/07_Blend_Modes_Examples-25x30.png 25w" width="400"/><br/>
+</strong></div>
+<p>Most of the blending options have a <strong>neutral color</strong>, which has no effect on the base color. For example, applying the <em><strong>Multiply</strong></em> blending mode with a white blend color produces no result because white is the neutral color for the <em><strong>Multiply</strong></em> blending mode.<br/>
+<img alt="White is neutral for multiply blending mode" class="size-full wp-image-912 aligncenter" decoding="async" height="276" loading="lazy" src="images/05_Multiply-Blend-Mode-White-is-Neutral.gif" width="400"/></p>
+<h3 id="neutral-colors-and-blend-mode-groups">Neutral colors and blend mode groups</h3>
+<p>It’s easy to determine the neutral color for a blend mode because Gravit Designer combines blend modes with the same neutral color intro groups.</p>
+<p><img alt="" class="aligncenter size-full wp-image-1830" decoding="async" height="1412" loading="lazy" src="images/Blending-modes-1.png" width="400"/></p>
+<ul>
+<li>The <strong>Darken image</strong> group has a neutral color of white. This group includes the Multiply, Darken, Color Burn, Linear Burn, and Subtract blend modes. The darker the blend color, the stronger the effect of the blend.</li>
+<li>The <strong>Lighten image </strong>group has a neutral color of black. This group includes the Lighten, Screen, Color Dodge, Linear Dodge, and Add blend modes. The lighter the blend color, the stronger the effect of the blend.</li>
+<li>The <strong>Boost contrast</strong> group has a neutral color of 50% grey. This group includes the Linear Light, Overlay, Soft Light, Hard Light, Vivid Light, Pin Light, and Hard Mix. These blend modes compare pixels with the mid-tone and then darken the darker pixels while lightening the lighter pixels.</li>
+<li>The <strong>Adjust colors</strong> group has no neutral color. This group includes the Hue, Saturation, Color, and Luminosity blend modes.</li>
+<li>The <strong>Invert colors</strong> group looks for variations between the base and blend layers to create the final blend. This group includes the Difference, Exclusion, Divide, Power, Harmonic, and Sine modes.</li>
+<li>The <strong>Masking</strong> group transforms a normal layer into something similar to a clipping mask but without actually placing one layer inside the other.</li>
+</ul>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>Blending modes marked with an asterisk (*) are not compatible with CSS/SVG/PDF.</div>
+<p> </p>
+<h3 id="multiply">Multiply</h3>
+<p><strong>Formula:</strong> Base x Blend</p>
+<p>The <strong>Multiply </strong>blend mode multiplies the luminance levels of the blend color and the base color pixels. The resulting color is always darker.</p>
+<p><img alt="Multiply blending mode" class="size-full wp-image-921 aligncenter" decoding="async" height="299" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/10_Multiply-dlending-Mode.png" srcset="images/10_Multiply-dlending-Mode.png 400w, images/10_Multiply-dlending-Mode-30x22.png 30w" width="400"/></p>
+<p>Because white has a luminosity of 1, it has no effect on the pixels of the base color. Black has a luminosity of 0, so the result color would always be 0.</p>
+<p><img alt="Multiply by black and white colors" class="size-full wp-image-922 aligncenter" decoding="async" height="257" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/11_Multiply-By-White-Black.png" srcset="images/11_Multiply-By-White-Black.png 400w, images/11_Multiply-By-White-Black-30x19.png 30w" width="400"/></p>
+<div class="note"><strong>Tip</strong>: The Multiply blend mode is useful for creating shadows.<strong><em><br/>
+</em></strong></div>
+<h3 id="screen">Screen</h3>
+<p><strong>Formula:</strong> 1 – ( 1-Base ) x ( 1-Blend )</p>
+<p>The <strong>Screen</strong> blend mode multiplies the reverse values of the luminosity of the blend color and the base color. Then it subtracts that value from the luminosity of white (1). The result is the opposite of the Multiply mode, so the brighter the blend color, the brighter the result color.</p>
+<p><img alt="Screen blend mode example" class="size-full wp-image-924 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/12-Screen-Blend-Mode-Example.png" srcset="images/12-Screen-Blend-Mode-Example.png 400w, images/12-Screen-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<p>Black has no effect on the base color.</p>
+<div class="note"><strong><em>Tip: </em></strong>Along with the Multiply Blend mode, the <em><strong>Screen mode</strong></em> is one of the most popular blend modes in graphic design and photo manipulations. It is a perfect choice for highlights.</div>
+<div>
+<h3 id="overlay">Overlay</h3>
+<p>The <strong>Overlay</strong> blend mode boosts the contrast of the base image. It uses 50% of gray as the threshold. If the pixels are brighter than 50%, it will brighten them even more and it would multiply the darker pixels.</p>
+<p><img alt="Overlay blend mode example" class="size-full wp-image-937 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/19_Overlay-Blend-Mode-Example.png" srcset="images/19_Overlay-Blend-Mode-Example.png 400w, images/19_Overlay-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+</div>
+<h3 id="darken">Darken</h3>
+<p>The <strong>Darken</strong> blend mode doesn’t blend colors. It makes a selection of the darkest pixels from both images, choosing either the base color or the blend color.</p>
+<p><img alt="Darken blend mode example" class="size-full wp-image-925 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/13_Darken-Blend-Mode-Example.png" srcset="images/13_Darken-Blend-Mode-Example.png 400w, images/13_Darken-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="lighten">Lighten</h3>
+<p>The <strong>Lighten </strong>blend mode compares the brighter pixels in both colors. If the pixels of the base color are darker than those in the blend color, they would be replaced. Thus, it would remove the darker pixels.</p>
+<p><img alt="Lighten blend modes" class="size-full wp-image-938 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/14_Lighten-Blend-Mode-Example-1.png" srcset="images/14_Lighten-Blend-Mode-Example-1.png 400w, images/14_Lighten-Blend-Mode-Example-1-30x26.png 30w" width="400"/></p>
+<p>The result color is always lighter, but the selection and comparison of the pixels happens for each RGB channel separately.</p>
+<h3 id="color-dodge">Color Dodge</h3>
+<p><strong>Formula:</strong> Blend / ( 1 – Base )</p>
+<p>The <strong>Color Dodge</strong> blend mode lightens the bright pixels of the base color while for the dark pixels the result would be very moderate. The end result would be higher contrast.</p>
+<p><img alt="Color dodge example" class="size-full wp-image-929 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/15_Color-Dodge-Example.png" srcset="images/15_Color-Dodge-Example.png 400w, images/15_Color-Dodge-Example-30x26.png 30w" width="400"/></p>
+<h3 id="color-burn">Color Burn</h3>
+<p><strong>Formula:</strong> 1 – ( 1 – Blend ) / Base</p>
+<p>The <strong>Color Burn</strong> blend mode divides the inverted blend color luminosity by the luminosity of the base color. Then it inverts the result. The darker the base color, the more it is used in the result color.</p>
+<p>The result color is always darker with more contrast between light and dark pixels.</p>
+<p><img alt="Color Burn Example" class="size-full wp-image-931 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/16-Color-Burn-Blend-Example-1.png" srcset="images/16-Color-Burn-Blend-Example-1.png 400w, images/16-Color-Burn-Blend-Example-1-30x26.png 30w" width="400"/></p>
+<h3 id="hard-light">Hard Light</h3>
+<p>The <strong>Hard Light</strong> blend mode uses the color dodge formula for bright pixels and the color burn formula for darker pixels, boosting the contrast between them. Both formulas are at half strength.</p>
+<p><img alt="Hard light blend mode example" class="size-full wp-image-934 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/17-Hard-Light-blend-mode-example.png" srcset="images/17-Hard-Light-blend-mode-example.png 400w, images/17-Hard-Light-blend-mode-example-30x26.png 30w" width="400"/></p>
+<h3 id="soft-light">Soft Light</h3>
+<p>The <strong>Soft Light</strong> blend mode applies the screen blend mode formula for pixels that are brighter than 50% gray and multiplies the pixels that are darker.</p>
+<p>Both formulas are used in the half strength, resulting in more soft and organic fusion.</p>
+<p><img alt="Soft light blend mode" class="size-full wp-image-935 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/18_Soft-Light-Blend-mode.png" srcset="images/18_Soft-Light-Blend-mode.png 400w, images/18_Soft-Light-Blend-mode-30x26.png 30w" width="400"/></p>
+<div class="note"><strong><em>Tip: </em></strong>Use the soft light blend mode to introduce a diffused spotlight to the image.</div>
+<h3 id="difference">Difference</h3>
+<p><strong>Formula:</strong> Brightest pixels – Darkest pixels</p>
+<p>The<strong> Difference</strong> blend mode subtracts the darker pixels from the lighter pixels.</p>
+<p><img alt="Difference blend mode example" class="size-full wp-image-939 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/20_Differrence-Blend-Mode-Example.png" srcset="images/20_Differrence-Blend-Mode-Example.png 400w, images/20_Differrence-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<p>Black doesn’t have any impact on the color: <strong>Color – 0</strong>.</p>
+<p>White makes 100% inversion of the color: <strong>1 – Color</strong>.</p>
+<h3 id="exclusion">Exclusion</h3>
+<p><strong>Formula:</strong> Brightest pixels – Darkest pixels</p>
+<p>The <strong>Exclusion</strong> blend mode uses the difference blend mode formula, but ignores the results close to zero, rendering them into the mid tones as if the result is 0.5. For similar colors, it produces gray instead of black, so the result in color is similar to those in the difference blend mode but less saturated.</p>
+<p><img alt="Exclusion blend mode example" class="size-full wp-image-941 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/21_Exclusion-Blend-Mode-Example.png" srcset="images/21_Exclusion-Blend-Mode-Example.png 400w, images/21_Exclusion-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<div class="note"><strong><em>Note: </em></strong>Here are examples of the math behind the Difference and Exclusion blend modes.<br/>
+Luminosity: base color = 0.451, blend color = 0.450<br/>
+<strong><em>Difference</em></strong> blend mode: 0.451 – 0.450 = 0.001. The result color is black<br/>
+<strong><em>Exclusion</em></strong> blend mode: 0.451 – 0.450=0.001 =~ 0.5. The result is gray.</div>
+<h3 id="hue">Hue</h3>
+<p>The <strong>Hue </strong>blend mode creates a result color with a hue of the blend layer combined with the luminance and saturation of the base color.</p>
+<p>This is what we call “true recoloring” since the only hue is changed.</p>
+<p><img alt="Hue blend mode example" class="size-full wp-image-943 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/22_Hue-Blend-Mode-Example.png" srcset="images/22_Hue-Blend-Mode-Example.png 400w, images/22_Hue-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="saturation">Saturation</h3>
+<p>The <strong>Saturation</strong> blend mode combines the saturation from the blend color with the hue and luminosity from the base color.</p>
+<p><img alt="Saturation blend mode example" class="size-full wp-image-945 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/22_Saturation-Blend-Mode-Example.png" srcset="images/22_Saturation-Blend-Mode-Example.png 400w, images/22_Saturation-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>The Saturation blend mode produces a grayscale effect when the blend color, black or white, has a saturation value of 0.</div>
+<h3 id="color">Color</h3>
+<p>The <strong>Color</strong> blend mode combines the hue and saturation from the blend color with the luminosity from the base color.</p>
+<p><img alt="Color blend mode example" class="size-full wp-image-947 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/23_Color-Blend-Mode-Example.png" srcset="images/23_Color-Blend-Mode-Example.png 400w, images/23_Color-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>The Color blend mode is an excellent choice for coloring monochromatic images or for tinting color images.</div>
+<h3 id="luminosity">Luminosity</h3>
+<p>The<strong> Luminosity</strong> blend mode combines the luminosity from the blend color with the hue and saturation from the base color.</p>
+<p><img alt="Luminosity blend mode example" class="size-full wp-image-948 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/24_Luminosity-Blend-Mode-Example.png" srcset="images/24_Luminosity-Blend-Mode-Example.png 400w, images/24_Luminosity-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="linear-burn">Linear Burn</h3>
+<p><strong>Formula:</strong> Base + Blend – 1</p>
+<p>The<strong> Linear Burn</strong> blend mode subtracts the luminosity of white from the sum of the luminosity of the base color and the luminosity of the blend color.</p>
+<p>The result color is always darker than the base color, except if you are using white for the blend color.</p>
+<p>The linear burn is darker than the color burn and multiply blend modes with low contrast and saturation because most of the negative and low values are rendered black.</p>
+<p><img alt="Linear burn blend mode example" class="size-full wp-image-949 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/25_Linear_Burn-Blend-mode-Example.png" srcset="images/25_Linear_Burn-Blend-mode-Example.png 400w, images/25_Linear_Burn-Blend-mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="linear-dodge">Linear Dodge</h3>
+<p><strong>Formula:</strong> Base + Blend</p>
+<p>The <strong>Linear Dodge</strong> blend mode adds of the luminosity of both colors. For bright colors, the sum might exceed 1, so it would be rendered into white.</p>
+<p>The result color is usually very bright with low saturation and contrast.</p>
+<p><img alt="Liner dodge blend mode example" class="size-full wp-image-951 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/26_Linear_Dodge-Blend-mode-Example.png" srcset="images/26_Linear_Dodge-Blend-mode-Example.png 400w, images/26_Linear_Dodge-Blend-mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="linear-light">Linear Light</h3>
+<p>The<strong> Linear Light</strong> blend mode uses the linear dodge formula for pixels that are brighter than 50% gray, and the linear burn formula for darker pixels. Both equations are used in half strength.</p>
+<p>The selections and calculations are based on the luminosity of the blend color.</p>
+<p><img alt="Linear light blend mode example" class="size-full wp-image-952 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/27_Linear-Light-Blend-Mode-Example.png" srcset="images/27_Linear-Light-Blend-Mode-Example.png 400w, images/27_Linear-Light-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="vivid-light">Vivid Light</h3>
+<p>The<strong> Vivid Light</strong> blend mode uses a combination of the color burn for darker pixels and color dodge for lighter pixels.</p>
+<p>It selects pixels to burn or dodge based on the luminosity of pixels of the blend color. If pixels are lighter than 50% gray, it dodges them; if they are darker, it burns them. Both equations are applied in the half of the strength.</p>
+<p><img alt="Vivid light blend mode example" class="size-full wp-image-953 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/28_Vivid-Light-Blend-Mode-Example.png" srcset="images/28_Vivid-Light-Blend-Mode-Example.png 400w, images/28_Vivid-Light-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="pin-light">Pin Light</h3>
+<p>The <strong>Pin Light</strong> blend mode can darken or lighten images depending on the luminosity of the blend color.</p>
+<p>If the luminosity of the blend color is more than 50% gray, it applies the algorithm of the lighten blend mode, and then replaces all the darker pixels of the base color with corresponding pixels of the blend color.</p>
+<p>If the luminosity of the blend color is less than 50%, it applies the algorithm of the darken blend mode, replacing light pixels of the base color with the corresponding pixels of the blend color.</p>
+<p><img alt="Pin light blend mode example" class="size-full wp-image-955 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/29_Pin-Light-Blend-Mode-Example.png" srcset="images/29_Pin-Light-Blend-Mode-Example.png 400w, images/29_Pin-Light-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<div class="note"><strong><em>Note:</em></strong> The Pin Light blend mode is a good choice for textures and special effects. Since you are in control of the luminosity of the blend color, you can choose what is going to happen with the base color.<strong><em><br/>
+</em></strong></div>
+<div><img alt="Pin light special effects" class="size-full wp-image-961 aligncenter" decoding="async" height="298" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/34_Pin-Light-Special-Effects.png" srcset="images/34_Pin-Light-Special-Effects.png 400w, images/34_Pin-Light-Special-Effects-30x22.png 30w" width="400"/></div>
+<div>
+<h3 id="divide">Divide</h3>
+<p><em><strong>Formula:</strong></em> Blend / Base</p>
+<p>The <strong>Divide</strong> blend mode divides the luminosity of the pixels of the blend color by the luminosity of the corresponding pixels of the base color.</p>
+<p>It produces an extreme spotlight effect, lightening the blend color dramatically and producing a nearly white result color.</p>
+<p><img alt="Divide blend mode example" class="size-full wp-image-957 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/30_Divide-Blend-Mode-Example.png" srcset="images/30_Divide-Blend-Mode-Example.png 400w, images/30_Divide-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="add">Add</h3>
+<p><strong>Formula:</strong> Base + Blend</p>
+<p>The <strong>Add</strong> blend mode sums up the luminosity values of both colors, resulting in the lighter color. Because the result color is always brighter, add blend mode is usually referred to as “plus light” mode.</p>
+<p><img alt="Add blend mode example" class="size-full wp-image-958 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/31_Add-Blend-Mode-Example.png" srcset="images/31_Add-Blend-Mode-Example.png 400w, images/31_Add-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="subtract">Subtract</h3>
+<p><strong>Formula:</strong> Blend – Base</p>
+<p>The <strong>Subtract</strong> blend mode subtracts pixel values of the base color from the corresponding values of the blend color. if the values are negative, black is displayed. Resulting color is always darker.</p>
+<p><img alt="Subtract blend mode example" class="size-full wp-image-959 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/32_Subtract-Blend-Mode-Example.png" srcset="images/32_Subtract-Blend-Mode-Example.png 400w, images/32_Subtract-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<h3 id="hard-mix">Hard Mix</h3>
+<p>The <strong>Hard Mix</strong> blend mode uses only eight colors to render a result color: red, green, magenta, blue, cyan, black, and white.</p>
+<p>It goes through all RGB channels of the blend color and the base color, rounding the values of the luminosity either to 1 or 0:</p>
+<ul>
+<li>lightens the light pixels to white</li>
+<li>darkens the dark pixels to black</li>
+</ul>
+<p>Then, it turns all 8 channels into the composite channel and scatters eight colors according to the composite channel luminosity values.</p>
+</div>
+<p><img alt="Hard mix blend mode example" class="size-full wp-image-960 aligncenter" decoding="async" height="347" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/33_Hard-Mix-Blend-Mode-Example.png" srcset="images/33_Hard-Mix-Blend-Mode-Example.png 400w, images/33_Hard-Mix-Blend-Mode-Example-30x26.png 30w" width="400"/></p>
+<div class="note"><strong><em>Note: </em></strong>Lowering the fill opacity of the blend color brings up more colors and eliminates the posterization.<strong><em><br/>
+</em></strong></div>
+<div><img alt="Hard mix fill opacity example" class="size-full wp-image-963 aligncenter" decoding="async" height="990" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/35_Hard-Mix-Fill-Opacity.png" srcset="images/35_Hard-Mix-Fill-Opacity.png 400w, images/35_Hard-Mix-Fill-Opacity-12x30.png 12w" width="400"/></div>
+<div>
+<h3 id="unique-blend-modes">Unique blend modes</h3>
+<p>The following blend modes are unique to Gravit Designer. They are distinguished from conventional blend modes because they are based on more eloquent math equations, such as quadratic or harmonic mean.</p>
+<h3 id="power">Power <img alt="" class="size-full wp-image-966 aligncenter" decoding="async" height="362" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/36_Power-Blend-Mode-Example-1.png" srcset="images/36_Power-Blend-Mode-Example-1.png 400w, images/36_Power-Blend-Mode-Example-1-30x27.png 30w" width="400"/></h3>
+<p><strong>Formula:</strong> √ ( Base² + Blend² ) / 2</p>
+<p>The <strong>Power</strong> blend mode uses a quadratic mean to blend colors. It is useful if you want the result color to be equidistant from the base and the blend colors.</p>
+<p>It doesn’t have neutral colors. The black color makes the image darker, while white makes the image brighter.</p>
+<h3 id="harmonic">Harmonic</h3>
+<p><img alt="Harmonic blend mode example" class="size-full wp-image-967 aligncenter" decoding="async" height="362" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/37_Harmonic-Blend-Modes-Example.png" srcset="images/37_Harmonic-Blend-Modes-Example.png 400w, images/37_Harmonic-Blend-Modes-Example-30x27.png 30w" width="400"/></p>
+<p><strong>Formula:</strong> 2 / ( 1/Base + 1/Blend )</p>
+<p>The <strong>Harmonic</strong> blend mode uses harmonic mean to blend colors. In this equation, two is divided by the sum of the reciprocal values of the blend color and the base color.</p>
+<p>This blend mode doesn’t have neutral colors. White makes things whiter, while black doesn’t produce a result because you cannot divide by zero.</p>
+<p>Less aggressive than the power blend mode, it can be used to add a subtle accent of one color over the other.</p>
+<h3 id="sine">Sine</h3>
+<p><strong>Formula:</strong> sin( Blend + Base ) x π/2</p>
+<p><img alt="Sine blend mode example" class="size-full wp-image-968 aligncenter" decoding="async" height="362" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/38_Sine-Blend-Mode-Example.png" srcset="images/38_Sine-Blend-Mode-Example.png 400w, images/38_Sine-Blend-Mode-Example-30x27.png 30w" width="400"/></p>
+<p>The first blend mode uses the trigonometric function for blending colors. The <em><strong>Sine</strong></em> blend mode is a sine of the sum of the blend and base colors, divided by two and multiplied by π (3.141828….).</p>
+<p>The result color is very unique and can be used for special effects.</p>
+<p>Black makes the base color appear brighter, while white inverts the base color.</p>
+<p><img alt="Sine black and white colors example" class="size-full wp-image-970 aligncenter" decoding="async" height="703" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="images/40_Sine-blend-mode-Black-and-White-1.png" srcset="images/40_Sine-blend-mode-Black-and-White-1.png 400w, images/40_Sine-blend-mode-Black-and-White-1-17x30.png 17w" width="400"/></p>
+<h3 id="the-special-8-blend-modes">The “<em>Special 8</em>” blend modes</h3>
+<p>There are eight blend modes that would respond differently to 40% of the <strong>Opacity</strong> and 40% of the <strong>Fill Opacity</strong>. This special group of blending modes gives you more options to explore creative effects. The “Special 8” blending modes includes:</p>
+<ul>
+<li>Color Burn</li>
+<li>Linear Burn</li>
+<li>Color Dodge</li>
+<li>Linear Dodge (Add)</li>
+<li>Vivid Light</li>
+<li>Linear Light</li>
+<li>Hard Mix</li>
+<li>Difference</li>
+</ul>
+<p>For these blend modes, you can experiment with the <strong>Fill Opacity</strong> of the blend color and see how it changes the result color.</p>
+<h3 id="mask-blend-modes">Mask blend modes</h3>
+<p>The mask blend modes transform a normal layer into something similar to a clipping mask but without actually placing one layer inside the other. The element itself is transformed into a mask.</p>
+<h3 id="mask">Mask</h3>
+<p class="p1">The <strong>Mask</strong> mode clips everything under the selected element inside the boundaries of this element, including the whole background.</p>
+<div class="wp-video" style="width: 900px;"><video autoplay="" class="wp-video-shortcode" controls="controls" height="794" id="video-756-20" loop="" preload="metadata" width="900"><source src="images/Mask-ex.mp4" type="video/mp4"/><a href="https://documentation.corelvector.com/wp-content/uploads/2021/02/Mask-ex.mp4">https://documentation.corelvector.com/wp-content/uploads/2021/02/Mask-ex.mp4</a></video></div>
+<h3 id="inverse-mask">Inverse Mask</h3>
+<p class="p1">The <strong>Inverse Mask</strong> blend mode clips everything under the selected element outside the boundaries of this element, leaving the inner shape empty.</p>
+<div class="wp-video" style="width: 900px;"><video autoplay="" class="wp-video-shortcode" controls="controls" height="794" id="video-756-21" loop="" preload="metadata" width="900"><source src="images/Inverse-mask-ex.mp4" type="video/mp4"/><a href="https://documentation.corelvector.com/wp-content/uploads/2021/02/Inverse-mask-ex.mp4">https://documentation.corelvector.com/wp-content/uploads/2021/02/Inverse-mask-ex.mp4</a></video></div>
+<p class="p1">A very common use case of the mask and inverse mask blend modes is using a transparent PNG texture, with a few dots or scratches, and applying it over a design to produce a distressed look. This technique is often used Print On Demand T-shirt services.</p>
+<p class="p1">Let’s take this design and combine it with a distressed texture:</p>
+<p class="p1"><img alt="" class="aligncenter size-full wp-image-1729" decoding="async" height="457" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/Ex1.png" srcset="images/Ex1.png 900w, images/Ex1-442x224.png 442w, images/Ex1-30x15.png 30w" width="900"/></p>
+<p class="p1">By placing the texture layer above the design and choosing the Mask blend mode, we get a much more interesting look to our design.<span class="Apple-converted-space"> </span></p>
+<p class="p1"><img alt="" class="aligncenter size-full wp-image-1730" decoding="async" height="771" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/Ex2.png" srcset="images/Ex2.png 900w, images/Ex2-442x379.png 442w, images/Ex2-30x26.png 30w" width="900"/></p>
+<p class="p1">The same thing can be done by combining the same design with another kind of texture, this one with much less negative space, and then choosing the Inverse Mask blend mode:</p>
+<p class="p1"><img alt="" class="aligncenter size-full wp-image-1731" decoding="async" height="457" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/Ex3.png" srcset="images/Ex3.png 900w, images/Ex3-442x224.png 442w, images/Ex3-30x15.png 30w" width="900"/></p>
+<p class="p1">Place the texture layer above the design as well, but this time apply Inverse Mask:</p>
+<p class="p1"><img alt="" class="aligncenter size-full wp-image-1732" decoding="async" height="771" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/ex4.png" srcset="images/ex4.png 900w, images/ex4-442x379.png 442w, images/ex4-30x26.png 30w" width="900"/></p>
+<div class="note"><strong><em>Note: </em></strong><em>The PNG image used as a texture must be transparent for this technique to work, just as your design needs to have 0% opacity behind it before you apply this as a print on top of another colored layer.</em></div>
+<p class="p1">You can place the finished design, exported as a PNG image, over one of Gravit Designer’s Print on Demand templates to preview the finished product.</p>
+<p><img alt="" class="aligncenter wp-image-1733 size-large" decoding="async" height="645" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/Final-ex-900x645.png" srcset="images/Final-ex-900x645.png 900w, images/Final-ex-442x317.png 442w, images/Final-ex-1536x1101.png 1536w, images/Final-ex-2048x1467.png 2048w, images/Final-ex-30x21.png 30w" width="900"/></p>
+<p class="p1">
+</p></div>
+
+            
+            <div class="article-footer">
+                <div class='reaction_buttons'>
+                    <div class="reaction_buttons_tagline">What do you think?</div>
+                    <ul>
+                        <li class='reaction_button reaction_button_0'><div><span class='button_name'>Awful</span></div></li>
+                        <li class='reaction_button reaction_button_1'><div><span class='button_name'>Average</span></div></li>
+                        <li class='reaction_button reaction_button_2'><div><span class='button_name'>Awesome</span></div></li>
+                    </ul>
+                </div>
+                
+                <div class="socials">
+                    <span>Share this chapter</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=blending-modes.html" title="Share Blending modes on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20blending-modes.html" title="Tweet Blending modes" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<footer>
+    <p>Copyright © 2018 - 2026 Corel Corporation. All rights reserved.</p>
+    <div class="menu-footer-menu-container">
+        <ul id="menu-footer-menu" class="menu">
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Gravit Designer Website</a></li>
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Sign In</a></li>
+            <li class="menu-item"><a href="https://corelvector.com/blog/">Blog</a></li>
+            <li class="menu-item"><a href="https://discuss.corelvector.com">Community</a></li>
+            <li class="menu-item"><a href="https://www.facebook.com/GravitDesigner">Facebook</a></li>
+            <li class="menu-item"><a href="https://twitter.com/GravitDesigner">Twitter</a></li>
+            <li class="menu-item"><a href="https://www.youtube.com/c/GravitDesigner">YouTube</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/cookies">Cookies</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/terms-of-use">Terms of Use</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/corel-privacy-policy">Privacy Policy</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/js/main.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/css/main.css' type='text/css' media='screen' />
+    <link rel="icon" href="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/favicon.ico" type="image/x-icon" />
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    
+    <title>Selection tools - Gravit Designer Help</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Selection tools - Gravit Designer Help" />
+    <meta property="og:site_name" content="Gravit Designer Help" />
+
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+    <style>
+        .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}
+        .wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+    </style>
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/style.css' type='text/css' media='all' />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="wp-singular page-template-default page wp-theme-gravit-documentation">
+<div class="full-wrapper">
+    <section class="sidebar">
+        <header>
+            <a href="javascript:void(0);" id="menu-trigger"></a>
+            <a href="index.html" title="Home" class="site-title">Corel <br>
+            Vector <br>
+            Help</a>
+        </header>
+        <div class="search-box">
+            <form role="search" method="get" action="index.html">
+                <div class="search-wrapper">
+                    <input type="search" id="search" placeholder="Search docs" value="" name="s" />
+                    <button type="submit"></button>
+                </div>
+            </form>
+            <!-- menu here -->
+            <div class="menu-nested-pages-container"><ul id="menu-nested-pages" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="welcome.html">Welcome</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="introduction.html">Introduction</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="quickstart.html">Quickstart</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="tools.html">Tools and menus</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-menu.html">Modify menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menu-bar.html">Menu bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-menu.html">File menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="edit-menu.html">Edit menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-menu.html">View menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="help-menu.html">Help menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shape-tools.html">Shape tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item"><a href="selection-tools.html" aria-current="page">Selection tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="drawing-tools.html">Drawing tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-tools.html">Other tools</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="basics.html">Basics</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shapes-paths.html">Shapes and paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-files.html">Working with files</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="new-document.html">Starting a new document</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="starting-new-document-with-a-template.html">Starting a new document with a template</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="save-and-open-files.html">Saving and opening files</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="working-with-corel-vector-cloud.html">Working with Gravit Designer Cloud</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-tabs.html">File tabs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="creating-basic-shapes.html">Creating basic shapes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selecting-objects.html">Selecting objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="moving-transforming-and-arranging-objects.html">Moving, transforming, and arranging objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="tools-toolbar.html">Tools on the toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-anatomy.html">Vector anatomy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchor-points.html">Anchor points</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-paths.html">Modify paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="property-panel.html">Property panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="transform-panel.html">Transform panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="compound-shapes-boolean-operations.html">Compound shapes / Boolean operations</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="colors-gradients-textures.html">Colors, gradients, and textures</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-picker-fill-types.html">Color picker and fill types</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blending-modes.html">Blending modes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-palettes.html">Color palettes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="fills.html">Fills</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="borders.html">Borders</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-images.html">Working with images</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-vs-bitmap.html">Vector images vs bitmap images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="insert-images.html">Inserting images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="images-toolbox.html">Images toolbox</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="removing-parts-of-the-image.html">Removing parts of the image</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="image-manipulation.html">Image manipulation</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="effects.html">Effects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="adjust-effects.html">Adjust effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="artistic-group-of-effects.html">Artistic effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blur-group-of-effects.html">Blur effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distort-group-of-effects.html">Distortion effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shadow-group-of-effects.html">Shadow effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-effects.html">Other effects</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-text.html">Working with text</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-properties-and-text-appearance-panel.html">Text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="advanced-text-properties.html">Advanced text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-on-path-2.html">Text on paths</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="organizing-your-designs.html">Organizing your designs</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="documents.html">Documents</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="pages.html">Pages</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="layer-groups.html">Layer groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="groups.html">Groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="symbols.html">Symbols</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="clipping-masking.html">Clipping and masking</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shared-styles.html">Shared Styles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="swatches.html">Swatches</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="arrange-objects.html">Arranging objects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="align.html">Aligning</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distribute.html">Distributing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="stacking-order.html">Stacking order</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="design-aids.html">Design aids</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="grid.html">Grid</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="rulers.html">Rulers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="guides.html">Guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distance-guides.html">Distance guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="smart-guides.html">Smart guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="snaping.html">Snapping</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-aids.html">View aids</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchoring.html">Anchoring</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="import-export.html">Importing and exporting</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="import.html">Importing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="export.html">Exporting</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="touch-interface.html">Touch interface</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menus-and-toolbar.html">Menus and toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="panels.html">Panels</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="assistant-bar.html">Assistant bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="main-differences-between-touch-and-normal-version.html">Touch and standard version differences</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="collaboration.html">Collaboration</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="share-dialog.html">Share dialog box</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="comments-panel.html">Comments panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="collaborator-roles.html">Collaborator roles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="design-review-and-approval-flow.html">Review and approval flow</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="account.html">Account</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resources.html">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="library.html">Library</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kb.corel.com/?q=Corel%20Vector%20" target="_blank">Knowledge Base</a></li>
+</ul></div>
+        </div>
+    </section>
+    
+    <div class="content-wrapper">
+        <header>
+            <span class="update">updated on 05 August 2022 | reading time: 4 minutes</span>
+            <div class="headings-socials">
+                <div class="headings">
+                    <h1>Selection tools</h1>
+                </div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=selection-tools.html" title="Share Selection tools on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20selection-tools.html" title="Tweet Selection tools" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </header>
+        <article class="content">
+            <p><img alt="" class="aligncenter size-full wp-image-508" decoding="async" height="195" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="/wp-content/uploads/2019/01/Page-83.png" srcset="images/Page-83.png 400w, images/Page-83-30x15.png 30w" width="400"/><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Page 8(3).png" title=""/></p>
+<ol class="c15 lst-kix_824i63wh2ukr-0 start" start="1">
+<li>Pointer tool – allows you to select and manipulate an entire object or group of objects</li>
+<li>Subselect tool – allows you to select and manipulate parts of an object</li>
+<li>Lasso tool – allows you to select a custom set of anchor points within an object</li>
+<li>Layer tool – allows you to select all objects within a particular Layer Group.</li>
+<li>Slice tool – allows you to select a custom area of your canvas. You can then export this area as PNG, JPEG, SVG, or PDF document</li>
+</ol>
+<h3 id="pointer-tool">Pointer Tool</h3>
+<p>You can use the Pointer Tool <span class="shortcut-button" contenteditable="false">V</span> to select, drag, copy, rotate or resize an entire object or a group of objects.</p>
+<h4 id="select-an-object-with-the-pointer-tool">Select an Object with the Pointer Tool</h4>
+<p>Move your cursor towards an object you want to select and click the Left Mouse Button key.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-with-pointer-tool.gif" title=""/><img alt="" class="size-full wp-image-509 alignnone" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Select-with-pointer-tool.gif" width="900"/></p>
+<p>By default, it brings up a bounding box with transform handles.</p>
+<p>Note: if you want to select a particular anchor point use the Subselect Tool.</p>
+<h4 id="select-multiple-objects-with-the-pointer-tool">Select Multiple Objects with the Pointer Tool</h4>
+<p>Hold down <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> key on your keyboard to add more objects to your selection.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-multiple-objects-pointer-tool.gif" title=""/><img alt="" class="size-full wp-image-510 alignnone" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Select-multiple-objects-pointer-tool.gif" width="900"/></p>
+<div class="note"><strong><em>Tip:  </em></strong>you can select multiple objects within a particular area by holding the Left Mouse Button key and drawing a marquee around these objects.</div>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-Objects-Marque-pointer-tool.gif" title=""/></p>
+<p> </p>
+<p><img alt="" class="size-full wp-image-511 alignnone" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Select-Objects-Marque-pointer-tool.gif" width="900"/></p>
+<p>Hold <span class="shortcut-button alt" contenteditable="false"> / ALT </span> while drawing the marquee to select only objects completely enclosed in the marquee.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Marquee-Alt-pointer-Tool.gif" title=""/><img alt="" class="size-full wp-image-512 alignnone" decoding="async" height="450" loading="lazy" src="/wp-content/uploads/2019/01/Marquee-Alt-pointer-Tool.gif" width="900"/></p>
+<h4 id="move-with-the-pointer-tool">Move with the Pointer Tool</h4>
+<p>Hold the Left Mouse Button key to drag an object or a group of objects.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Drag-pointer-tool.gif" title=""/><img alt="" class="size-full wp-image-513 alignnone" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Drag-pointer-tool.gif" width="900"/></p>
+<div class="note"><strong><em>Note: </em></strong>If you want to move an object to a specific distance use the <a href="/basics/transform-panel/">Transform Panel</a> instead.</div>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>Hold <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> key to keep things perfectly straight down.</div>
+<p> </p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Drag-Straight-pointer-tool.gif" title=""/><img alt="" class="size-full wp-image-514 alignnone" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Drag-Straight-pointer-tool.gif" width="900"/></p>
+<h4 id="copy-an-object-with-the-pointer-tool">Copy an Object with the Pointer Tool</h4>
+<p>Hold <span class="shortcut-button alt" contenteditable="false"> / ALT </span> key and drag an object to produce a copy.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Duplicate-pointer-tool.gif" title=""/><img alt="" class="size-full wp-image-515 alignnone" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Duplicate-pointer-tool.gif" width="900"/></p>
+<h4 id="rotate-an-object-with-the-pointer-tool">Rotate an Object With the Pointer Tool</h4>
+<ol class="c15 lst-kix_fwi0xs13oes-0 start" start="1">
+<li>Select an object to bring up a bounding box.</li>
+<li>Head over to the small bullet point on top of it. Notice that the cursor is changed to the rotation arrow.</li>
+<li>Hold the Left Mouse Button key to rotate an object.</li>
+</ol>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Roatate-pointer-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-516" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Roatate-pointer-tool.gif" width="900"/></p>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>Hold <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> to constrain the angle of the rotation to 15 degrees. Use <a href="/basics/transform-panel/">Transform Panel</a> to set a custom angle or a reference point of transformation.</div>
+<p> </p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Rotate-Constrain-pointer-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-517" decoding="async" height="391" loading="lazy" src="/wp-content/uploads/2019/01/Rotate-Constrain-pointer-tool.gif" width="900"/></p>
+<h4 id="scale-an-object-with-the-pointer-tool">Scale an object with the Pointer Tool</h4>
+<ol class="c15 lst-kix_3fdd05i7q6ns-0 start" start="1">
+<li>Select an object to bring up a bounding box.</li>
+<li>Head over to any of the blue bullet points (called Transform handles) within the bounding box. Notice that your cursor is changed to the double arrow.</li>
+<li>Hold the Left Mouse Button key to scale an object.</li>
+</ol>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Scale-pointer-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-518" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Scale-pointer-tool.gif" width="900"/></p>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>Hold <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> key to constrain the proportions between width and height.</div>
+<p> </p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Scale-Constrain-pointer-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-519" decoding="async" height="462" loading="lazy" src="/wp-content/uploads/2019/01/Scale-Constrain-pointer-tool.gif" width="900"/></p>
+<h3 id="subselect-tool">Subselect Tool</h3>
+<p>Use the Subselect Tool <span class="shortcut-button" contenteditable="false">D</span> to select, edit, add and delete anchor points within the path.</p>
+<h4 id="select-anchor-points-with-subselect-tool">Select Anchor Points with Subselect Tool</h4>
+<p>To select an anchor point follow two simple steps:</p>
+<p>Select the path to reveal all available anchor points. All anchor points are depicted by a white shape (rectangle, circle, or diamond) with a blue outline.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-Anchor-Points-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-520" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Select-Anchor-Points-subselect-tool.gif" width="900"/></p>
+<p>Click on the particular anchor point to select it. Notice, that the selected anchor point is depicted with blue in Gravit Designer.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-Particular-Anchor-Points-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-521" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Select-Particular-Anchor-Points-subselect-tool.gif" width="900"/></p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>To select anchor points within the basic shape, such as rectangle, ellipse or polygon, it should be first converted to path <span class="shortcut-button cmd" contenteditable="false"> / CTRL </span>+ <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> + <span class="shortcut-button" contenteditable="false">P</span>.</div>
+<p> </p>
+<h4 id="select-multiple-anchor-points-with-the-subselect-tool">Select Multiple Anchor Points with the Subselect Tool</h4>
+<p>Hold Shift to add more anchor points to your selection.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-Multiple_Anchor-Points-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-522" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Select-Multiple_Anchor-Points-subselect-tool.gif" width="900"/></p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>To select multiple anchor points within a particular area hold the Left Mouse Button key to draw a marquee around.</div>
+<p> </p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-Multiple_Anchor-Points-With-Marquee-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-523" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Select-Multiple_Anchor-Points-With-Marquee-subselect-tool.gif" width="900"/></p>
+<p><em><strong>Small Tip</strong></em>: use the<a href="/tools/selection-tools/"> Lasso Tool</a> for more complex selections.</p>
+<h4 id="edit-anchor-points-with-the-subselect-tool">Edit Anchor Points with the Subselect Tool</h4>
+<p>Holding the Left Mouse Button key you can drag the anchor point and reshape the path.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Edit-Anchor-Points-With-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-524" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Edit-Anchor-Points-With-subselect-tool.gif" width="900"/></p>
+<p>Click <span class="shortcut-button backspace" contenteditable="false"> / BACKSPACE </span> or  <span class="shortcut-button" contenteditable="false">Delete </span>key to get rid of selected anchor points.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Delete-Anchor-Points-With-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-525" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Delete-Anchor-Points-With-subselect-tool.gif" width="900"/></p>
+<h4 id="adding-new-points-to-the-path-with-the-subselect-tool">Adding New Points to the Path with the Subselect Tool</h4>
+<p>To add an anchor point to the existing path, you need to follow these steps:</p>
+<ol class="c15 lst-kix_f6zhgpn8e8db-0 start" start="1">
+<li>Head over to the segment you want to add an anchor point to.</li>
+<li>Select the path. Notice a slight change in the cursor appearance. Now it has a small Tilda in the right bottom corner.</li>
+<li>Click with the Left Mouse Button Key to add a new anchor point</li>
+</ol>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Add-Anchor-Points-With-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-526" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Add-Anchor-Points-With-subselect-tool.gif" width="900"/></p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>You can also edit direction handles with the Subselect Tool. Please visit<a href="/basics/vector-anatomy/"> vector anatomy</a> topic to learn more about anchor points and direction handles.</div>
+<p> </p>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>You can edit a segment of the path directly with the Subselect Tool. Hold the Left Mouse Button key to drag the segment in and out and create awesome curvy lines.</div>
+<p> </p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Curve-Segment-Away-Anchor-Points-With-subselect-tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-527" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Curve-Segment-Away-Anchor-Points-With-subselect-tool.gif" width="900"/></p>
+<h3 id="lasso-tool">Lasso Tool</h3>
+<p>Use Lasso Tool <span class="shortcut-button" contenteditable="false">O</span> for freehand selection of objects or their parts.</p>
+<p>To create a freehand selection hold the Left Mouse Button key and draw an area around the objects.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Freehand-Selection-Lasso-Tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-528" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Freehand-Selection-Lasso-Tool.gif" width="900"/></p>
+<p>Hold <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> key to add more objects to your selection.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Add-To-Freehand-Selection-Lasso-Tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-529" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Add-To-Freehand-Selection-Lasso-Tool.gif" width="900"/></p>
+<p> </p>
+<div class="note"><strong><em>Tip: </em></strong>Hold <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> key and draw an area within the selected object to exclude this portion from your selection.</div>
+<p> </p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Exclude-From-Freehand-Selection-Lasso-Tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-530" decoding="async" height="496" loading="lazy" src="/wp-content/uploads/2019/01/Exclude-From-Freehand-Selection-Lasso-Tool.gif" width="900"/></p>
+<h3 id="layer-tool">Layer Tool</h3>
+<p>You can use Layer Tool <span class="shortcut-button" contenteditable="false">M</span> to select all objects within the Layer Group. Take a look at the image below to see a Layer Tool in action.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-Leyers-Layer-Tool.gif" title=""/><img alt="" class="alignnone size-full wp-image-531" decoding="async" height="577" loading="lazy" src="/wp-content/uploads/2019/01/Select-Leyers-Layer-Tool.gif" width="900"/></p>
+<p>To learn more about how the Layer Groups work, please visit the <a href="/organizing-your-designs/layer-groups/">Layer Group </a>section within the <a href="/organizing-your-designs/">Organizing your design</a> topic.</p>
+<h3 id="slice-tool">Slice Tool</h3>
+<p>Use the Slice Tool <span class="shortcut-button" contenteditable="false">S</span> to define a specific area of your artwork for export in any of the supported formats.</p>
+<p>To learn more about the supported file formats, please, visit <a href="/organizing-your-designs/documents/">the Document</a> section within the General topic.</p>
+<p>To prepare and export the slice follow these simple steps.</p>
+<p>Grab the Slice Tool and holding the Left Mouse Button key select the area for export.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Select-The-Slice.gif" title=""/><img alt="" class="alignnone size-full wp-image-532" decoding="async" height="492" loading="lazy" src="/wp-content/uploads/2019/01/Select-The-Slice.gif" width="900"/></p>
+<p>Click the tiny Plus icon opposite the Make Exportable in the lower left corner of the document.</p>
+<p><img alt="" class="size-full wp-image-533 aligncenter" decoding="async" height="89" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="/wp-content/uploads/2019/01/Plus-Icon.png" srcset="images/Plus-Icon.png 400w, images/Plus-Icon-30x7.png 30w" width="400"/></p>
+<p>Select the format and dimensions of the slice. Type a suffix if you are planning to make more slices of the same area.<img alt="" class="size-full wp-image-534 aligncenter" decoding="async" height="90" loading="lazy" sizes="auto, (max-width: 400px) 100vw, 400px" src="/wp-content/uploads/2019/01/Format-Name-Siffix.png" srcset="images/Format-Name-Siffix.png 400w, images/Format-Name-Siffix-30x7.png 30w" width="400"/></p>
+<p>Click the Export icon on the left of the Plus icon and give a name to your design.</p>
+<p><img alt="" decoding="async" src="./Gravit Designer User Guide_files/Save-The-Slice.gif" title=""/><img alt="" class="alignnone size-full wp-image-535" decoding="async" height="492" loading="lazy" src="/wp-content/uploads/2019/01/Save-The-Slice.gif" width="900"/></p>
+
+            
+            <div class="article-footer">
+                <div class='reaction_buttons'>
+                    <div class="reaction_buttons_tagline">What do you think?</div>
+                    <ul>
+                        <li class='reaction_button reaction_button_0'><div><span class='button_name'>Awful</span></div></li>
+                        <li class='reaction_button reaction_button_1'><div><span class='button_name'>Average</span></div></li>
+                        <li class='reaction_button reaction_button_2'><div><span class='button_name'>Awesome</span></div></li>
+                    </ul>
+                </div>
+                
+                <div class="socials">
+                    <span>Share this chapter</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=selection-tools.html" title="Share Selection tools on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20selection-tools.html" title="Tweet Selection tools" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<footer>
+    <p>Copyright © 2018 - 2026 Corel Corporation. All rights reserved.</p>
+    <div class="menu-footer-menu-container">
+        <ul id="menu-footer-menu" class="menu">
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Gravit Designer Website</a></li>
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Sign In</a></li>
+            <li class="menu-item"><a href="https://corelvector.com/blog/">Blog</a></li>
+            <li class="menu-item"><a href="https://discuss.corelvector.com">Community</a></li>
+            <li class="menu-item"><a href="https://www.facebook.com/GravitDesigner">Facebook</a></li>
+            <li class="menu-item"><a href="https://twitter.com/GravitDesigner">Twitter</a></li>
+            <li class="menu-item"><a href="https://www.youtube.com/c/GravitDesigner">YouTube</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/cookies">Cookies</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/terms-of-use">Terms of Use</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/corel-privacy-policy">Privacy Policy</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/js/main.min.js"></script>
+</body>
+</html>

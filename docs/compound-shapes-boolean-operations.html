@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/css/main.css' type='text/css' media='screen' />
+    <link rel="icon" href="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/favicon.ico" type="image/x-icon" />
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    
+    <title>Compound shapes and Boolean operations - Gravit Designer Help</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Compound shapes and Boolean operations - Gravit Designer Help" />
+    <meta property="og:site_name" content="Gravit Designer Help" />
+
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+    <style>
+        .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}
+        .wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+    </style>
+    <link rel='stylesheet' href='https://documentation.corelvector.com/wp-content/themes/gravit-documentation/style.css' type='text/css' media='all' />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="wp-singular page-template-default page wp-theme-gravit-documentation">
+<div class="full-wrapper">
+    <section class="sidebar">
+        <header>
+            <a href="javascript:void(0);" id="menu-trigger"></a>
+            <a href="index.html" title="Home" class="site-title">Corel <br>
+            Vector <br>
+            Help</a>
+        </header>
+        <div class="search-box">
+            <form role="search" method="get" action="index.html">
+                <div class="search-wrapper">
+                    <input type="search" id="search" placeholder="Search docs" value="" name="s" />
+                    <button type="submit"></button>
+                </div>
+            </form>
+            <!-- menu here -->
+            <div class="menu-nested-pages-container"><ul id="menu-nested-pages" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="welcome.html">Welcome</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="introduction.html">Introduction</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="quickstart.html">Quickstart</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="tools.html">Tools and menus</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-menu.html">Modify menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menu-bar.html">Menu bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-menu.html">File menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="edit-menu.html">Edit menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-menu.html">View menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="help-menu.html">Help menu</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shape-tools.html">Shape tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selection-tools.html">Selection tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="drawing-tools.html">Drawing tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-tools.html">Other tools</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="basics.html">Basics</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shapes-paths.html">Shapes and paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-files.html">Working with files</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="new-document.html">Starting a new document</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="starting-new-document-with-a-template.html">Starting a new document with a template</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="save-and-open-files.html">Saving and opening files</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="working-with-corel-vector-cloud.html">Working with Gravit Designer Cloud</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="file-tabs.html">File tabs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="creating-basic-shapes.html">Creating basic shapes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="selecting-objects.html">Selecting objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="moving-transforming-and-arranging-objects.html">Moving, transforming, and arranging objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="tools-toolbar.html">Tools on the toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-anatomy.html">Vector anatomy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchor-points.html">Anchor points</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="modify-paths.html">Modify paths</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="property-panel.html">Property panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="transform-panel.html">Transform panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item"><a href="compound-shapes-boolean-operations.html" aria-current="page">Compound shapes / Boolean operations</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="colors-gradients-textures.html">Colors, gradients, and textures</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-picker-fill-types.html">Color picker and fill types</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blending-modes.html">Blending modes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="color-palettes.html">Color palettes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="fills.html">Fills</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="borders.html">Borders</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-images.html">Working with images</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="vector-vs-bitmap.html">Vector images vs bitmap images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="insert-images.html">Inserting images</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="images-toolbox.html">Images toolbox</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="removing-parts-of-the-image.html">Removing parts of the image</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="image-manipulation.html">Image manipulation</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="effects.html">Effects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="adjust-effects.html">Adjust effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="artistic-group-of-effects.html">Artistic effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blur-group-of-effects.html">Blur effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distort-group-of-effects.html">Distortion effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shadow-group-of-effects.html">Shadow effects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="other-effects.html">Other effects</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="working-with-text.html">Working with text</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-properties-and-text-appearance-panel.html">Text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="advanced-text-properties.html">Advanced text properties</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="text-on-path-2.html">Text on paths</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="organizing-your-designs.html">Organizing your designs</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="documents.html">Documents</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="pages.html">Pages</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="layer-groups.html">Layer groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="objects.html">Objects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="groups.html">Groups</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="symbols.html">Symbols</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="clipping-masking.html">Clipping and masking</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="shared-styles.html">Shared Styles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="swatches.html">Swatches</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="arrange-objects.html">Arranging objects</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="align.html">Aligning</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distribute.html">Distributing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="stacking-order.html">Stacking order</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="design-aids.html">Design aids</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="grid.html">Grid</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="rulers.html">Rulers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="guides.html">Guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="distance-guides.html">Distance guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="smart-guides.html">Smart guides</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="snaping.html">Snapping</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="view-aids.html">View aids</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="anchoring.html">Anchoring</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="import-export.html">Importing and exporting</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="import.html">Importing</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="export.html">Exporting</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="touch-interface.html">Touch interface</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="menus-and-toolbar.html">Menus and toolbar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="panels.html">Panels</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="assistant-bar.html">Assistant bar</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="main-differences-between-touch-and-normal-version.html">Touch and standard version differences</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="collaboration.html">Collaboration</a>
+<ul class="sub-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="share-dialog.html">Share dialog box</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="comments-panel.html">Comments panel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="collaborator-roles.html">Collaborator roles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="design-review-and-approval-flow.html">Review and approval flow</a></li>
+</ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="account.html">Account</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resources.html">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="library.html">Library</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kb.corel.com/?q=Corel%20Vector%20" target="_blank">Knowledge Base</a></li>
+</ul></div>
+        </div>
+    </section>
+    
+    <div class="content-wrapper">
+        <header>
+            <span class="update">updated on 05 August 2022 | reading time: 1 minute</span>
+            <div class="headings-socials">
+                <div class="headings">
+                    <h1>Compound shapes and Boolean operations</h1>
+                </div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=compound-shapes-boolean-operations.html" title="Share Compound shapes and Boolean operations on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20compound-shapes-boolean-operations.html" title="Tweet Compound shapes and Boolean operations" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </header>
+        <article class="content">
+            <p>You can combine two or more shapes in a variety of ways. For example, you can join two shapes together (union) or use one shape as a “cookie-cutter” to remove pieces from another shape (subtraction). The new combined shape has a single fill and border.</p>
+<p>Compound shapes are a result of Boolean operations. The result is fully editable at any time. All shapes retain their special properties like round corners or sides. Compound shapes are also known as Boolean groups.</p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>Compound shapes are not compound paths, which are paths with more than one closed contour.</div>
+<p> </p>
+<p>Elements within compound shapes have an icon displaying their effect on the elements below them.</p>
+<p><img alt="compound shapes" class="size-full wp-image-157 alignnone" decoding="async" height="220" loading="lazy" sizes="auto, (max-width: 900px) 100vw, 900px" src="images/Compound-shapes.png" srcset="images/Compound-shapes.png 900w, images/Compound-shapes-442x108.png 442w, images/Compound-shapes-30x7.png 30w" width="900"/></p>
+<h3 id="union">Union</h3>
+<p>Combine two or more objects together so they become a single shape, which is the sum of the objects’ areas.</p>
+<h3 id="subtract">Subtract</h3>
+<p>Use the upper object as a “cookie cutter” to remove an area from the lower object.</p>
+<h3 id="intersect">Intersect</h3>
+<p>Uses the area where the original objects overlap.</p>
+<h3 id="difference">Difference</h3>
+<p>Uses the area where the original objects do not overlap.</p>
+<p>To make a compound shape:</p>
+<ol class="c15 lst-kix_j59s99chzod4-0 start" start="1">
+<li>Select 2 or more vector objects.</li>
+<li>Click<span class="menu_path" contenteditable="false">Modify &gt; Create Compound Shape</span> or click the <strong>Create Compound Shape</strong> button on the toolbar.</li>
+<li>Choose a Boolean operation (Union, Subtract, Intersect or Difference).</li>
+</ol>
+<p>You can split the compound shape to its original parts by pressing <span class="shortcut-button cmd" contenteditable="false"> / CTRL </span> + <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> + <span class="shortcut-button" contenteditable="false">G</span> to ungroup. All properties of the original objects are restored.</p>
+<p>Compound shapes are non-destructive and can be changed to a different merge operation:</p>
+<p><strong>Create Compound Shape</strong> drop-down on the toolbar, or <strong>Compound</strong> options in the Inspector panel.</p>
+<p><img alt="" class="aligncenter size-full wp-image-159" decoding="async" height="54" loading="lazy" sizes="auto, (max-width: 296px) 100vw, 296px" src="images/compound-in-inspector.png" srcset="images/compound-in-inspector.png 296w, images/compound-in-inspector-30x5.png 30w" width="296"/></p>
+<p>Compound shapes are cumulative, so you can have multiple Boolean operations (Union, Subtract, Intersect, or Difference) in one compound shape.</p>
+<p><img alt="multiple compound shapes" class="size-full wp-image-160 alignnone" decoding="async" height="548" loading="lazy" src="images/Multiple-Compounds.gif" width="900"/></p>
+<p>You can 2 or more compound shapes that have been combined by clicking <span class="menu_path" contenteditable="false">Modify &gt; Create Nested Compound</span> or pressing <span class="shortcut-button cmd" contenteditable="false"> / CTRL </span> + <span class="shortcut-button alt" contenteditable="false"> / ALT </span> + <span class="shortcut-button" contenteditable="false">M</span>.</p>
+<p><img alt="nested compound shapes" class="size-full wp-image-161 alignnone" decoding="async" height="548" loading="lazy" src="images/Nested-Compounds.gif" width="900"/></p>
+<p>After you create the nested compound shape, you can change the Boolean operation type in the <strong>Compound</strong> section of the Inspector panel.</p>
+<p><img alt="compound shape inspector" class="aligncenter size-full wp-image-159" decoding="async" height="54" loading="lazy" sizes="auto, (max-width: 296px) 100vw, 296px" src="images/compound-in-inspector.png" srcset="images/compound-in-inspector.png 296w, images/compound-in-inspector-30x5.png 30w" width="296"/></p>
+<p> </p>
+<div class="note"><strong><em>Note: </em></strong>If you didn’t get the results you were expecting, try pressing <span class="shortcut-button cmd" contenteditable="false"> / CTRL </span> + <span class="shortcut-button shift" contenteditable="false"> / SHIFT </span> + <span class="shortcut-button" contenteditable="false">P</span>to convert shapes to paths before the next Boolean operation or change the Fill in the Inspector panel.</div>
+<p> </p>
+<p><img alt="winding fill" class="size-full wp-image-162 alignnone" decoding="async" height="548" loading="lazy" src="images/Winding-Fill.gif" width="900"/></p>
+
+            
+            <div class="article-footer">
+                <div class='reaction_buttons'>
+                    <div class="reaction_buttons_tagline">What do you think?</div>
+                    <ul>
+                        <li class='reaction_button reaction_button_0'><div><span class='button_name'>Awful</span></div></li>
+                        <li class='reaction_button reaction_button_1'><div><span class='button_name'>Average</span></div></li>
+                        <li class='reaction_button reaction_button_2'><div><span class='button_name'>Awesome</span></div></li>
+                    </ul>
+                </div>
+                
+                <div class="socials">
+                    <span>Share this chapter</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=compound-shapes-boolean-operations.html" title="Share Compound shapes and Boolean operations on Facebook" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/home?status=Check%20this%20out%20compound-shapes-boolean-operations.html" title="Tweet Compound shapes and Boolean operations" target="_blank" class="twitter"></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<footer>
+    <p>Copyright © 2018 - 2026 Corel Corporation. All rights reserved.</p>
+    <div class="menu-footer-menu-container">
+        <ul id="menu-footer-menu" class="menu">
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Gravit Designer Website</a></li>
+            <li class="menu-item"><a target="_blank" href="https://www.coreldraw.com/vector/">Sign In</a></li>
+            <li class="menu-item"><a href="https://corelvector.com/blog/">Blog</a></li>
+            <li class="menu-item"><a href="https://discuss.corelvector.com">Community</a></li>
+            <li class="menu-item"><a href="https://www.facebook.com/GravitDesigner">Facebook</a></li>
+            <li class="menu-item"><a href="https://twitter.com/GravitDesigner">Twitter</a></li>
+            <li class="menu-item"><a href="https://www.youtube.com/c/GravitDesigner">YouTube</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/cookies">Cookies</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/terms-of-use">Terms of Use</a></li>
+            <li class="menu-item"><a href="https://www.corel.com/en/corel-privacy-policy">Privacy Policy</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/js/main.min.js"></script>
+</body>
+</html>
