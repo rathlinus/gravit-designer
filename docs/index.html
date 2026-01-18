@@ -214,5 +214,18 @@
 </footer>
 
 <script src="https://documentation.corelvector.com/wp-content/themes/gravit-documentation/assets/js/main.min.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful:', registration);
+                })
+                .catch(function(error) {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+        });
+    }
+</script>
 </body>
 </html>
