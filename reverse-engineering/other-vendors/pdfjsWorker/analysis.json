@@ -1,0 +1,17 @@
+{
+  "name": "pdfjsWorker",
+  "size": 757108,
+  "sizeFormatted": "0.72 MB",
+  "lineCount": 2,
+  "isWebpack": true,
+  "hasSourceMap": false,
+  "features": [
+    "PDF parsing and rendering",
+    "Web Worker implementation",
+    "PDF.js by Mozilla",
+    "Document structure extraction"
+  ],
+  "hasPDFSupport": true,
+  "isWorker": true,
+  "hasESModules": true
+}

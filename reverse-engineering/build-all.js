@@ -19,7 +19,9 @@ const path = require('path');
 const STEPS = [
   { name: 'Beautify', script: 'beautify.js', desc: 'Format minified code' },
   { name: 'Extract Modules', script: 'extract-modules.js', desc: 'Extract module mappings' },
-  { name: 'Unbundle', script: 'unbundle.js', desc: 'Extract individual modules' },
+  { name: 'Extract Vendor Modules (AST)', script: 'extract-modules-ast.js', desc: 'Extract all vendor modules using AST parsing' },
+  { name: 'Process Other Vendors', script: 'process-other-vendors.js', desc: 'Process heic2any and pdfjsWorker chunks' },
+  { name: 'Unbundle', script: 'unbundle.js', desc: 'Extract individual modules (legacy)' },
   { name: 'Analyze Classes', script: 'analyze-classes.js', desc: 'Analyze class structure' },
   { name: 'Reconstruct', script: 'reconstruct-source.js', desc: 'Reconstruct source code' },
   { name: 'Rename Variables', script: 'rename-variables.js', desc: 'Improve variable names' },

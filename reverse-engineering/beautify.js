@@ -42,6 +42,8 @@ async function beautify() {
   const files = [
     { name: 'chunk.vendor.js', desc: 'Core engine (GObject, GScene, etc.)' },
     { name: 'designer.browser.js', desc: 'Application code' },
+    { name: 'chunk.vendors~heic2any.js', desc: 'HEIC image format support' },
+    { name: 'chunk.vendors~pdfjsWorker.js', desc: 'PDF.js library' },
   ];
   
   for (const file of files) {
