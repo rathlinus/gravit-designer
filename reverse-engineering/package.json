@@ -6,6 +6,8 @@
   "scripts": {
     "beautify": "node beautify.js",
     "extract": "node extract-modules.js",
+    "extract-vendor": "node extract-modules-ast.js",
+    "extract-vendors": "node process-other-vendors.js",
     "unbundle": "node unbundle.js",
     "compare": "node compare-sources.js",
     "reconstruct": "node reconstruct-source.js",
@@ -16,7 +18,8 @@
     "rename": "node rename-variables.js",
     "all": "node build-all.js",
     "build-all": "node build-all.js",
-    "quick": "npm run beautify && npm run unbundle && npm run analyze"
+    "quick": "npm run beautify && npm run extract-vendor && npm run extract-vendors",
+    "full-extract": "npm run extract && npm run extract-vendor && npm run extract-vendors"
   },
   "keywords": ["gravit", "reverse-engineering", "decompiler"],
   "author": "",
