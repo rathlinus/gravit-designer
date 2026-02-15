@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(124) /* module_124 */,
-      i = require(29) /* isCallable */,
-      a = require(37) /* toString_default */,
+      isCallable = require(29) /* isCallable */,
+      toString_default = require(37) /* toString_default */,
       r = require(185) /* module_185 */,
       s = require(305) /* module_305 */,
       l = require(101) /* stub_requires_117 */,
@@ -39,7 +39,7 @@ function (exports, module, require) {
         },
         D = function (e) {
           return S
-            ? (a(e), T ? G(e[0], e[1], P) : G(e[0], e[1]))
+            ? (toString_default(e), T ? G(e[0], e[1], P) : G(e[0], e[1]))
             : T
             ? G(e, P)
             : G(e);
@@ -55,7 +55,7 @@ function (exports, module, require) {
         }
         m = d(e, y);
       }
-      for (w = E ? e.next : m.next; !(C = i(w, m)).done; ) {
+      for (w = E ? e.next : m.next; !(C = isCallable(w, m)).done; ) {
         try {
           b = D(C.value);
         } catch (e) {

@@ -8,11 +8,11 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */;
     var o,
       i,
-      a = require(25) /* core_export */,
-      r = require(29) /* isCallable */,
-      s = require(35) /* anObject */,
-      l = require(37) /* toString_default */,
-      c = require(62) /* requireObjectCoercible */,
+      core_export = require(25) /* core_export */,
+      isCallable = require(29) /* isCallable */,
+      anObject = require(35) /* anObject */,
+      toString_default = require(37) /* toString_default */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
       d =
         ((o = false),
         ((i = /[ac]/).exec = function () {
@@ -20,16 +20,16 @@ function (exports, module, require) {
         }),
         true === i.test("abc") && o),
       u = /./.test;
-    a(
+    core_export(
       { target: "RegExp", proto: true, forced: !d },
       {
         test: function (e) {
-          var t = l(this),
-            n = c(e),
+          var t = toString_default(this),
+            n = requireObjectCoercible(e),
             o = t.exec;
-          if (!s(o)) return r(u, t, n);
-          var i = r(o, t, n);
-          return null !== i && (l(i), true);
+          if (!anObject(o)) return isCallable(u, t, n);
+          var i = isCallable(o, t, n);
+          return null !== i && (toString_default(i), true);
         },
       }
     );

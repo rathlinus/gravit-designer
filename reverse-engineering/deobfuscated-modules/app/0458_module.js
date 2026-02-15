@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* tryCall */,
-      i = require(23) /* globalThis */.RegExp;
-    exports.exports = o(function () {
-      var e = i(".", "s");
+    var tryCall = require(21) /* tryCall */,
+      globalThis = require(23) /* globalThis */.RegExp;
+    exports.exports = tryCall(function () {
+      var e = globalThis(".", "s");
       return !(e.dotAll && e.test("\n") && "s" === e.flags);
     });
   }

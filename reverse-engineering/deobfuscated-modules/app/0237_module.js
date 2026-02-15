@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */;
-    var i = require(1) /* module */,
-      a = require(10) /* AppSettings */,
-      r = o(require(1091) /* module_1091 */),
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
+      r = _interopRequireDefault(require(1091) /* module_1091 */),
       s = require(165) /* module_165 */,
       l = require(219) /* module_219 */,
-      c = require(9) /* GLocale */,
-      d = require(47) /* GLocaleKey */;
+      GLocale = require(9) /* GLocale */,
+      GLocaleKey = require(47) /* GLocaleKey */;
     function u() {}
     (u.Directory = function (e) {
       this._storage = e;
@@ -34,7 +34,7 @@ function (exports, module, require) {
       (u.Item = function (e) {
         this._storage = e;
       }),
-      i.GObject.inherit(u.Item, i.GObject),
+      GCore.GObject.inherit(u.Item, GCore.GObject),
       (u.Item.prototype._storage = null),
       (u.Item.prototype._fileFormatVersion = null),
       (u.Item.prototype.isRegistrable = function () {
@@ -89,7 +89,7 @@ function (exports, module, require) {
       (u.Item.prototype.read = function (e, t, n) {
         throw new Error("Not implemented.");
       }),
-      (u.Item.prototype.write = function (e, t, n, o, i) {
+      (u.Item.prototype.write = function (e, t, n, _interopRequireDefault, GCore) {
         throw new Error("Not implemented.");
       }),
       (u.Item.prototype.createOrUpdateFileWithMetadata = async function (e, t) {
@@ -155,9 +155,9 @@ function (exports, module, require) {
       }),
       (u.Item.prototype._verifyFileNotTooSmall = function (e, t) {
         try {
-          e < a.UN_BELIVEVABLE_FEW_BYTES_TO_SAVE &&
+          e < AppSettings.UN_BELIVEVABLE_FEW_BYTES_TO_SAVE &&
             !this.isSaveCounterMeasureEnabled() &&
-            new l(c.get(new d("GDocument", "text.saveing-error"))).open(),
+            new l(GLocale.get(new GLocaleKey("GDocument", "text.saveing-error"))).open(),
             this.getDocumentRealSizeAfterSave(t);
         } catch (e) {
           console.error(e);
@@ -171,19 +171,19 @@ function (exports, module, require) {
               this.getFileSizeAfterSaved())() &&
             this.getFileSizeAfterSaved() &&
             this.getFileSizeAfterSaved() > 0 &&
-            new l(c.get(new d("GDocument", "text.saveing-error"))).open();
+            new l(GLocale.get(new GLocaleKey("GDocument", "text.saveing-error"))).open();
         } catch (e) {
           console.error(e);
         }
       }),
       (u.Item.prototype.notEnoughDiskSpace = function () {
-        new l(c.get(new d("GDocument", "text.save-no-space"))).open();
+        new l(GLocale.get(new GLocaleKey("GDocument", "text.save-no-space"))).open();
       }),
       (u.Item.prototype.getDocumentRealSizeAfterSave = function (e) {
         let module = null;
         e = e || gDesigner.getActiveDocument();
         try {
-          module = i.GNode.serialize(e.getScene(), { save: true, singleton: false });
+          module = GCore.GNode.serialize(e.getScene(), { save: true, singleton: false });
         } catch (e) {
           return (
             console.error(e),
@@ -217,10 +217,10 @@ function (exports, module, require) {
       (u.prototype.chooseDirectory = function (e, t) {
         throw new Error("Not implemented.");
       }),
-      (u.prototype.openPrompt = function (e, t, n, o) {
+      (u.prototype.openPrompt = function (e, t, n, _interopRequireDefault) {
         throw new Error("Not implemented.");
       }),
-      (u.prototype.savePrompt = function (e, t, n, o) {
+      (u.prototype.savePrompt = function (e, t, n, _interopRequireDefault) {
         throw new Error("Not implemented.");
       }),
       (u.prototype.download = function (e, t) {
@@ -231,7 +231,7 @@ function (exports, module, require) {
       }),
       (u.prototype.getLastDirectory = function () {
         var e =
-          i.GSystem.operatingSystem === i.GSystem.OperatingSystem.Windows
+          GCore.GSystem.operatingSystem === GCore.GSystem.OperatingSystem.Windows
             ? "\\"
             : "/";
         if (gDesigner.getSetting("lastDirectory"))

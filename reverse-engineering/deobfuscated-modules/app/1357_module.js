@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(19) /* polyfill_Array_iterator */, require(71) /* polyfill_String_includes */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(15) /* module */,
+    var GEditor = require(15) /* module */,
       i = require(882) /* module_882 */;
-    const a = require(44) /* GSystemDialog */,
+    const GSystemDialog = require(44) /* GSystemDialog */,
       { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = require(1) /* module */,
       u = require(1191) /* module_1191 */,
       { getAnnotationType: p } = require(40) /* CollaborationMergeUtils */;
@@ -17,16 +17,16 @@ function (exports, module, require) {
       let {
         container: module,
         annotation: require,
-        onSubmit: o,
+        onSubmit: GEditor,
         onCancel: i,
-        onAssignTo: a,
+        onAssignTo: GSystemDialog,
         mentionData: r,
       } = e;
       (this._containter = module),
         (this._annotation = require),
-        (this._onSubmit = o),
+        (this._onSubmit = GEditor),
         (this._onCancel = i),
-        (this._onAssignTo = a),
+        (this._onAssignTo = GSystemDialog),
         (this._shouldAssign = false),
         (this._assignees = []),
         (this._mentionsCollection = []),
@@ -64,7 +64,7 @@ function (exports, module, require) {
           if (e.find(n.relatedTarget).length)
             return n.stopPropagation(), n.preventDefault(), false;
           $(n.target).val() ||
-            a.isDialogOpen(".g-system-dialog.g-confirm-dialog") ||
+            GSystemDialog.isDialogOpen(".g-system-dialog.g-confirm-dialog") ||
             ($(n.target).attr("rows", 1), t.hide());
         })
           .on("keydown", function (e) {
@@ -153,7 +153,7 @@ function (exports, module, require) {
           e.attr("draggable", false);
         const g =
           c &&
-          o.GPlatform.webBrowser !== o.GPlatform.constructor.WebBrowser.Safari;
+          GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari;
         (this._input = $("<textarea>")
           .attr(
             "placeholder",
@@ -188,7 +188,7 @@ function (exports, module, require) {
           this._input
             .mentionsInput({
               onDataRequest: (e, t, n) => {
-                let o = this._data.filter(
+                let GEditor = this._data.filter(
                   (e) =>
                     e
                       .getFullUserName()
@@ -197,7 +197,7 @@ function (exports, module, require) {
                     (e.getEmail() &&
                       e.getEmail().toLowerCase().includes(t.toLowerCase()))
                 );
-                o.push(...this._additionalMentions), n.call(this, o);
+                GEditor.push(...this._additionalMentions), n.call(this, GEditor);
               },
               onSelectItem: () => {
                 gDesigner.stats("replydocker_mention_select-user", n);

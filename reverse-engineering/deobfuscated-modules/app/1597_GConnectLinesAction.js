@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "modify.connect-lines"),
-      (s.TITLE = new o.GLocaleKey("GConnectLinesAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GConnectLinesAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,71 +22,71 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (s.prototype.getGroup = function () {
         return "structure/path";
       }),
       (s.prototype.isEnabled = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
           for (var module = 0; module < e.length; ++module)
-            if (e[module] instanceof o.GPath) return true;
+            if (e[module] instanceof GCore.GPath) return true;
         return false;
       }),
       (s.prototype.execute = function () {
         var e = gDesigner.getActiveDocument(),
           t = e ? e.getEditor() : null,
           n = t ? t.getSelection() : null,
-          a = [],
-          r = null;
+          MenuItemBuilder = [],
+          GElementAction = null;
         if (n)
           for (var s = 0; s < n.length; ++s) {
             var l = n[s];
-            l instanceof o.GPath &&
-              (r
-                ? r === l.getParent() && a.push(l)
-                : (r = l.getParent()) && a.push(l));
+            l instanceof GCore.GPath &&
+              (GElementAction
+                ? GElementAction === l.getParent() && MenuItemBuilder.push(l)
+                : (GElementAction = l.getParent()) && MenuItemBuilder.push(l));
           }
-        if (a.length) {
+        if (MenuItemBuilder.length) {
           t.beginTransaction();
           try {
-            if (1 == a.length) a[0].setProperty("closed", true);
+            if (1 == MenuItemBuilder.length) MenuItemBuilder[0].setProperty("closed", true);
             else
               try {
-                (0, i.blockChanges)(t, null, null, r);
+                (0, CollaborationMergeUtils.blockChanges)(t, null, null, GElementAction);
                 var c,
-                  d = (a = o.GNode.order(a))[a.length - 1],
+                  d = (MenuItemBuilder = GCore.GNode.order(MenuItemBuilder))[MenuItemBuilder.length - 1],
                   u = d.getProperty("trf"),
                   p = u ? u.inverted() : null,
                   g = d.getNext(),
                   h = [];
-                for (s = 0; s < a.length - 1; ++s)
-                  (c = a[s]).removeFlag(o.GNode.Flag.Selected),
+                for (s = 0; s < MenuItemBuilder.length - 1; ++s)
+                  (c = MenuItemBuilder[s]).removeFlag(GCore.GNode.Flag.Selected),
                     c.setProperty("closed", false),
-                    r.removeChild(c),
+                    GElementAction.removeChild(c),
                     (u = (u = c.getProperty("trf"))
                       ? p
                         ? u.multiplied(p)
                         : u
                       : p),
                     (h = h.concat(c.getAnchorPoints().serialize(u)));
-                d.removeFlag(o.GNode.Flag.Selected),
-                  r.removeChild(d),
+                d.removeFlag(GCore.GNode.Flag.Selected),
+                  GElementAction.removeChild(d),
                   (h = h.concat(d.getAnchorPoints().serialize()));
-                var f = new o.GPath();
+                var f = new GCore.GPath();
                 f.getAnchorPoints().deserialize(h),
                   f.assignFrom(d),
-                  r.insertChild(f, g);
+                  GElementAction.insertChild(f, g);
               } finally {
-                (0, i.releaseChanges)(t, null, null, r),
+                (0, CollaborationMergeUtils.releaseChanges)(t, null, null, GElementAction),
                   t.updateSelection(false, [f]);
               }
           } finally {
-            t.commitTransaction(o.GLocale.get(this.getTitle()));
+            t.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),

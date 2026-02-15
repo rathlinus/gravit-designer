@@ -7,12 +7,12 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(123) /* GProperties */;
+    var GCore = require(1) /* module */,
+      GProperties = require(123) /* GProperties */;
     function a() {
       this._items = [];
     }
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, GProperties),
       (a.prototype._panel = null),
       (a.prototype._document = null),
       (a.prototype._items = null),
@@ -40,14 +40,14 @@ function (exports, module, require) {
                             "frm",
                             t,
                             t
-                              ? o.GLocale.get(
-                                  new o.GLocaleKey(
+                              ? GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GGroupFrameProperties",
                                     "text.switch-frame"
                                   )
                                 )
-                              : o.GLocale.get(
-                                  new o.GLocaleKey(
+                              : GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GGroupFrameProperties",
                                     "text.switch-group"
                                   )
@@ -59,8 +59,8 @@ function (exports, module, require) {
                       $("<option></option>")
                         .attr("value", "0")
                         .text(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GGroupFrameProperties",
                               "text.group"
                             )
@@ -71,8 +71,8 @@ function (exports, module, require) {
                       $("<option></option>")
                         .attr("value", "1")
                         .text(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GGroupFrameProperties",
                               "text.frame"
                             )
@@ -90,7 +90,7 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             (this._document = null)),
@@ -98,7 +98,7 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require) {
-            t[require] instanceof o.GGroup && this._items.push(t[require]);
+            t[require] instanceof GCore.GGroup && this._items.push(t[require]);
           }
           if (this._items.length && this._items.length === t.length)
             return (
@@ -106,7 +106,7 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
@@ -132,15 +132,15 @@ function (exports, module, require) {
       }),
       (a.prototype._assignProperty = function (e, t, n) {
         if ("frm" == e) {
-          var o = this._document.getEditor();
-          o.beginTransaction();
+          var GCore = this._document.getEditor();
+          GCore.beginTransaction();
           try {
-            for (var i = 0; i < this._items.length; ++i) {
-              var a = this._items[i];
+            for (var GProperties = 0; GProperties < this._items.length; ++GProperties) {
+              var a = this._items[GProperties];
               a.setFrame && a.setFrame(t);
             }
           } finally {
-            o.commitTransaction(n);
+            GCore.commitTransaction(n);
           }
         }
       }),

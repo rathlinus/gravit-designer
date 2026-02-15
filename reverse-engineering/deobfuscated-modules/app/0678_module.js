@@ -5,27 +5,27 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(21) /* tryCall */,
-      a = require(27) /* uncurryThis */,
-      r = require(62) /* requireObjectCoercible */,
+    var globalThis = require(23) /* globalThis */,
+      tryCall = require(21) /* tryCall */,
+      uncurryThis = require(27) /* uncurryThis */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
       s = require(262) /* module_262 */.trim,
       l = require(248) /* module_248 */,
-      c = o.parseInt,
-      d = o.Symbol,
+      c = globalThis.parseInt,
+      d = globalThis.Symbol,
       u = d && d.iterator,
       p = /^[+-]?0x/i,
-      g = a(p.exec),
+      g = uncurryThis(p.exec),
       h =
         8 !== c(l + "08") ||
         22 !== c(l + "0x16") ||
         (u &&
-          !i(function () {
+          !tryCall(function () {
             c(Object(u));
           }));
     exports.exports = h
       ? function (e, t) {
-          var n = s(r(e));
+          var n = s(requireObjectCoercible(e));
           return c(n, t >>> 0 || (g(p, n) ? 16 : 10));
         }
       : c;

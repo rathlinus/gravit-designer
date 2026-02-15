@@ -5,54 +5,54 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var i = o(require(78) /* GDocumentEvent */),
-      a = o(require(86) /* module_86 */),
-      r = o(require(449) /* GFitAllAction */),
-      s = o(require(85) /* GContainer */),
-      l = o(require(237) /* Item */),
-      c = require(1) /* module */;
+    var GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
+      a = _interopRequireDefault(require(86) /* module_86 */),
+      GFitAllAction = _interopRequireDefault(require(449) /* GFitAllAction */),
+      GContainer = _interopRequireDefault(require(85) /* GContainer */),
+      l = _interopRequireDefault(require(237) /* Item */),
+      GCore = require(1) /* module */;
     exports.exports = class {
       static handleOpenFileRequest(e, t) {
         gContainer.openStorageFile(e, t, function (n) {
-          let o =
+          let _interopRequireDefault =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
           const d = t.getType();
           function u(t) {
             const n = (t) => {
-              if (t.type === i.default.Type.Activated && t.document === e) {
+              if (t.type === GDocumentEvent.default.Type.Activated && t.document === e) {
                 let e = t.document.getStatus();
                 e === a.default.LoadFailed ||
                   e === a.default.LoadCancelled ||
-                  gDesigner.executeAction(r.default.ID, undefined, undefined, true),
-                  gDesigner.removeEventListener(i.default, n);
+                  gDesigner.executeAction(GFitAllAction.default.ID, undefined, undefined, true),
+                  gDesigner.removeEventListener(GDocumentEvent.default, n);
               }
             };
             if (
-              (d !== s.default.OpenFileRequest.Type.Preset &&
-                gDesigner.addEventListener(i.default, n),
+              (d !== GContainer.default.OpenFileRequest.Type.Preset &&
+                gDesigner.addEventListener(GDocumentEvent.default, n),
               t instanceof l.default.Item)
             ) {
               if (
                 (e.setStorageItem(t),
                 e.setIsShared(true),
-                e.load(null, o && o.loadingData),
-                gDesigner.trigger(new i.default(i.default.Type.Modified, e)),
-                d === s.default.OpenFileRequest.Type.Template)
+                e.load(null, _interopRequireDefault && _interopRequireDefault.loadingData),
+                gDesigner.trigger(new GDocumentEvent.default(GDocumentEvent.default.Type.Modified, e)),
+                d === GContainer.default.OpenFileRequest.Type.Template)
               ) {
                 e.setDocumentFromTemplate(true);
-                let t = o.category,
+                let t = _interopRequireDefault.category,
                   n = t && t.split(".");
                 n.length > 1 && (t = n.splice(1).join("."));
-                let i = t.toLowerCase().replace(/\./g, "-");
+                let GDocumentEvent = t.toLowerCase().replace(/\./g, "-");
                 gDesigner.stats(
-                  "directlink_template_".concat(i),
-                  "".concat(o.file.name, " [").concat(o.content.id, "]")
+                  "directlink_template_".concat(GDocumentEvent),
+                  "".concat(_interopRequireDefault.file.name, " [").concat(_interopRequireDefault.content.id, "]")
                 );
-              } else if (d === s.default.OpenFileRequest.Type.Preset) {
+              } else if (d === GContainer.default.OpenFileRequest.Type.Preset) {
                 e.setDocumentFromTemplate(true);
-                let t = o.preset.presetCategory
+                let t = _interopRequireDefault.preset.presetCategory
                   .toLowerCase()
                   .replace(
                     /[\t-\r \/\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/g,
@@ -60,27 +60,27 @@ function (exports, module, require) {
                   );
                 gDesigner.stats(
                   "directlink_preset_".concat(t),
-                  o.preset.presetLayout.name
+                  _interopRequireDefault.preset.presetLayout.name
                 );
               }
             } else if (t && t.presetLayout) {
               let n = gDesigner.createScene(),
-                { unit: o, dpi: i, width: a, height: r } = t.presetLayout,
-                s = t.presetCategory
+                { unit: _interopRequireDefault, dpi: GDocumentEvent, width: a, height: GFitAllAction } = t.presetLayout,
+                GContainer = t.presetCategory
                   .toLowerCase()
                   .replace(
                     /[\t-\r \/\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/g,
                     "-"
                   );
-              n.setProperties(["ut", "dpi"], [o, i || c.GLength.DPI]),
+              n.setProperties(["ut", "dpi"], [_interopRequireDefault, GDocumentEvent || GCore.GLength.DPI]),
                 n
                   .getActivePage()
                   .setProperties(
                     ["bck", "w", "h"],
                     [
-                      c.GRGBColor.WHITE,
-                      new c.GLength(a, o).toPoint(),
-                      new c.GLength(r, o).toPoint(),
+                      GCore.GRGBColor.WHITE,
+                      new GCore.GLength(a, _interopRequireDefault).toPoint(),
+                      new GCore.GLength(GFitAllAction, _interopRequireDefault).toPoint(),
                     ]
                   ),
                 e.setTitle(t.presetLayout.id),
@@ -88,7 +88,7 @@ function (exports, module, require) {
                 e.setDocumentFromTemplate(true),
                 e.setIsShared(true),
                 gDesigner.stats(
-                  "directlink_preset_".concat(s),
+                  "directlink_preset_".concat(GContainer),
                   t.presetLayout.name
                 );
             }

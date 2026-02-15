@@ -23,16 +23,16 @@ function (exports, module, require) {
       require(41) /* stub_requires_682 */,
       require(32) /* stub_requires_670 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       a = require(381) /* module_381 */;
     function r(e) {
       if (r._instance)
         throw new Error("This class cannot be instantiated multiple times");
       (r._instance = this), a.call(this, e);
     }
-    o.GObject.inherit(r, a);
-    var s = o.GUtil.uuid();
+    GCore.GObject.inherit(r, a);
+    var s = GCore.GUtil.uuid();
     (r.DEFAULT_PORT = 32119),
       (r.START_PORT_SPAN = 1),
       (r.PORT_SPAN = 5),
@@ -175,19 +175,19 @@ function (exports, module, require) {
         var t = e.data;
         if (t instanceof Blob) {
           var require = t.slice(0, 1),
-            o = t.slice(1, 5);
+            GCore = t.slice(1, 5);
           t = t.slice(5);
-          var i = null,
+          var AppSettings = null,
             a = null,
             s = new FileReader();
           s.addEventListener(
             "loadend",
             function () {
               var e = false;
-              if (null === i)
-                (i = s.result),
-                  (i = (i = new Uint8Array(i))[0]),
-                  s.readAsArrayBuffer(o);
+              if (null === AppSettings)
+                (AppSettings = s.result),
+                  (AppSettings = (AppSettings = new Uint8Array(AppSettings))[0]),
+                  s.readAsArrayBuffer(GCore);
               else if (null === a) {
                 a = s.result;
                 var require = new Uint8Array(a),
@@ -198,7 +198,7 @@ function (exports, module, require) {
                       ((this._doReverse = true), (e = true)))
                   : (e = true),
                   e && s.readAsArrayBuffer(t);
-              } else this._handleCmd(i, s.result);
+              } else this._handleCmd(AppSettings, s.result);
             }.bind(this)
           );
           try {
@@ -263,12 +263,12 @@ function (exports, module, require) {
             case r.Cmd.probe:
               var require;
               if (this._doReverse) {
-                var o = new Uint8Array(t);
-                o.reverse(), (require = new Uint32Array(o.buffer));
+                var GCore = new Uint8Array(t);
+                GCore.reverse(), (require = new Uint32Array(GCore.buffer));
               } else require = new Uint32Array(t);
               this._fontListLength = require[0];
-              var i = new Uint8Array(13);
-              this._setData(i, r.Cmd.list), this._connection.send(i.buffer);
+              var AppSettings = new Uint8Array(13);
+              this._setData(AppSettings, r.Cmd.list), this._connection.send(AppSettings.buffer);
               break;
             case r.Cmd.list:
               if ((w = (b = new Uint8Array(t))[0]) == r.Cmd.success) {
@@ -376,10 +376,10 @@ function (exports, module, require) {
         "http://127.0.0.1:9000" === r.HOST &&
           (r.HOST =
             "https://" +
-            (i.domain.startsWith("corelvector") ? "app-" : "") +
+            (AppSettings.domain.startsWith("corelvector") ? "app-" : "") +
             gDesigner.getEnv().split(".")[0] +
             "." +
-            i.domain);
+            AppSettings.domain);
         var e = document.createElement("object");
         e.data = r.LAUNCHER_PATH;
         var t = document.createElement("div");
@@ -441,10 +441,10 @@ function (exports, module, require) {
               : this._connect(r.DEFAULT_PORT))
           : this._cbFatal();
       }),
-      (r.prototype.load = function (e, t, n, o) {
+      (r.prototype.load = function (e, t, n, GCore) {
         if (!this._isInitialized())
-          return this._listCallbacks.push(o), void this._initialize();
-        o.done(
+          return this._listCallbacks.push(GCore), void this._initialize();
+        GCore.done(
           this._fontList
             .filter(function (t) {
               return e.indexOf("%") >= 0
@@ -463,24 +463,24 @@ function (exports, module, require) {
             : this._fontListLength
           : (this._initialize(), 0);
       }),
-      (r.prototype.resolveFont = function (e, t, n, o) {
+      (r.prototype.resolveFont = function (e, t, n, GCore) {
         if (!this._isInitialized())
           return (
-            (this._resolveCallback = function (i) {
-              i ? o.fail() : this.resolveFont(e, t, n, o);
+            (this._resolveCallback = function (AppSettings) {
+              AppSettings ? GCore.fail() : this.resolveFont(e, t, n, GCore);
             }.bind(this)),
             void this._initialize()
           );
         if (!this._taskLock) {
-          var i = e.length;
-          this._resolveCallback = o;
-          var a = new Uint8Array(9 + i + 4);
+          var AppSettings = e.length;
+          this._resolveCallback = GCore;
+          var a = new Uint8Array(9 + AppSettings + 4);
           this._setData(a, r.Cmd.font),
-            (a[5] = (4278190080 & i) >> 24),
-            (a[6] = (16711680 & i) >> 16),
-            (a[7] = (65280 & i) >> 8),
-            (a[8] = (255 & i) >> 0);
-          for (var s = 9; s < 9 + i; s++) a[s] = e.charCodeAt(s - 9);
+            (a[5] = (4278190080 & AppSettings) >> 24),
+            (a[6] = (16711680 & AppSettings) >> 16),
+            (a[7] = (65280 & AppSettings) >> 8),
+            (a[8] = (255 & AppSettings) >> 0);
+          for (var s = 9; s < 9 + AppSettings; s++) a[s] = e.charCodeAt(s - 9);
           var l = parseInt(n);
           (a[s] = (65280 & l) >> 8),
             (a[s + 1] = (255 & l) >> 0),

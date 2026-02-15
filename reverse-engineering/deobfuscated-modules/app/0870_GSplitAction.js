@@ -7,20 +7,20 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(18) /* MenuItemBuilder */,
-      l = require(106) /* GElementAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GSplitAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GSplitAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GSplitAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GSplitAction", "tooltip-description")
           ),
           shortcut: c.SHORTCUT,
           learnMore:
@@ -28,10 +28,10 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(c, l),
+    GCore.GObject.inherit(c, GElementAction),
       (c.ID = "modify.split"),
-      (c.TITLE = new o.GLocaleKey("GSplitAction", "title")),
-      (c.SHORTCUT = [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "G"]),
+      (c.TITLE = new GCore.GLocaleKey("GSplitAction", "title")),
+      (c.SHORTCUT = [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "G"]),
       (c.TOOLTIP_CONFIG = null),
       (c.prototype.getId = function () {
         return c.ID;
@@ -43,7 +43,7 @@ function (exports, module, require) {
         return "gravit-icon-ungroup";
       }),
       (c.prototype.getCategory = function () {
-        return s.CATEGORY_MODIFY;
+        return MenuItemBuilder.CATEGORY_MODIFY;
       }),
       (c.prototype.getGroup = function () {
         return "structure-group";
@@ -52,18 +52,18 @@ function (exports, module, require) {
         return c.SHORTCUT;
       }),
       (c.prototype.isEnabled = function () {
-        if (!l.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getIndividualSelection();
           if (module)
             for (var require = 0; require < module.length; ++require) {
-              var i = module[require];
+              var GEditor = module[require];
               if (
-                i instanceof o.GGroup ||
-                i instanceof o.GCompoundShape ||
-                (i instanceof o.GSymbol && !i.getMasterSymbol()) ||
-                (i instanceof o.GShape && null !== i.getFirstChild())
+                GEditor instanceof GCore.GGroup ||
+                GEditor instanceof GCore.GCompoundShape ||
+                (GEditor instanceof GCore.GSymbol && !GEditor.getMasterSymbol()) ||
+                (GEditor instanceof GCore.GShape && null !== GEditor.getFirstChild())
               )
                 return true;
             }
@@ -76,24 +76,24 @@ function (exports, module, require) {
         e.beginTransaction();
         try {
           var require,
-            i,
+            GEditor,
             r = [],
-            s = gDesigner.getActiveDocument().getScene();
+            MenuItemBuilder = gDesigner.getActiveDocument().getScene();
           e.clearSelection();
           try {
-            i = new Set();
-            for (var l = 0; l < t.length; ++l)
-              (((require = t[l]) instanceof o.GShape && null !== require.getFirstChild()) ||
-                require instanceof o.GGroup ||
-                require instanceof o.GCompoundShape ||
-                (require instanceof o.GSymbol && !require.getMasterSymbol())) &&
-                i.add(require.getParent());
-            (0, a.blockChanges)(e, i, s);
-            for (l = 0; l < t.length; ++l)
+            GEditor = new Set();
+            for (var GElementAction = 0; GElementAction < t.length; ++GElementAction)
+              (((require = t[GElementAction]) instanceof GCore.GShape && null !== require.getFirstChild()) ||
+                require instanceof GCore.GGroup ||
+                require instanceof GCore.GCompoundShape ||
+                (require instanceof GCore.GSymbol && !require.getMasterSymbol())) &&
+                GEditor.add(require.getParent());
+            (0, CollaborationMergeUtils.blockChanges)(e, GEditor, MenuItemBuilder);
+            for (GElementAction = 0; GElementAction < t.length; ++GElementAction)
               if (
-                (require = t[l]) instanceof o.GGroup ||
-                require instanceof o.GCompoundShape ||
-                (require instanceof o.GSymbol && !require.getMasterSymbol())
+                (require = t[GElementAction]) instanceof GCore.GGroup ||
+                require instanceof GCore.GCompoundShape ||
+                (require instanceof GCore.GSymbol && !require.getMasterSymbol())
               ) {
                 var d = require.getParent(),
                   u = require.getChildren();
@@ -107,7 +107,7 @@ function (exports, module, require) {
                   require.endUpdate();
                 }
                 d.removeChild(require);
-              } else if (require instanceof o.GShape && null !== require.getFirstChild()) {
+              } else if (require instanceof GCore.GShape && null !== require.getFirstChild()) {
                 (d = require.getParent()), (u = require.getChildren());
                 try {
                   require.beginUpdate();
@@ -121,11 +121,11 @@ function (exports, module, require) {
                 r.push(require);
               } else r.push(require);
           } finally {
-            (0, a.releaseChanges)(e, i, s);
+            (0, CollaborationMergeUtils.releaseChanges)(e, GEditor, MenuItemBuilder);
           }
           r.length > 0 && e.updateSelection(false, r);
         } finally {
-          e.commitTransaction(o.GLocale.get(c.TITLE));
+          e.commitTransaction(GCore.GLocale.get(c.TITLE));
         }
       }),
       (c.prototype.getTooltipConfig = function (e) {

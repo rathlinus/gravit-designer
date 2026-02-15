@@ -6,21 +6,21 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(26) /* polyfill_DOMCollection_iterator */;
-    const o = require(255) /* barrel_sidebars */;
+    const barrel_sidebars = require(255) /* barrel_sidebars */;
     exports.exports = class {
       constructor() {
         this._missingFonts = [];
       }
       start() {
-        o.getInstance().addEventListener(
-          o.MissingFontEvent,
+        barrel_sidebars.getInstance().addEventListener(
+          barrel_sidebars.MissingFontEvent,
           this._missingFontEvent,
           this
         );
       }
       stop() {
-        o.getInstance().removeEventListener(
-          o.MissingFontEvent,
+        barrel_sidebars.getInstance().removeEventListener(
+          barrel_sidebars.MissingFontEvent,
           this._missingFontEvent,
           this
         );

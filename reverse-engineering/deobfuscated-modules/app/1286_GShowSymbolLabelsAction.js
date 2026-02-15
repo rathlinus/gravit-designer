@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(18) /* MenuItemBuilder */),
-      a = require(31) /* GAction */;
+      GAction = require(31) /* GAction */;
     function r() {}
-    o.GObject.inherit(r, a),
+    GCore.GObject.inherit(r, GAction),
       (r.ID = "view.canvas.show-symbol-labels"),
-      (r.TITLE = new o.GLocaleKey("GShowSymbolLabelsAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GShowSymbolLabelsAction", "title")),
       (r.prototype.getId = function () {
         return r.ID;
       }),

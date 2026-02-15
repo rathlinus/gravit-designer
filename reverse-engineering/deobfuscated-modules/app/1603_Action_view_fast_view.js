@@ -6,25 +6,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(1339) /* GPageProperties */),
-      r = o(require(31) /* GAction */),
-      s = o(require(18) /* MenuItemBuilder */);
+    var GCore = require(1) /* module */,
+      GPageProperties = _interopRequireDefault(require(1339) /* GPageProperties */),
+      r = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
     function l() {}
-    i.GObject.inherit(l, r.default),
+    GCore.GObject.inherit(l, r.default),
       (l.ID = "view.fast-view"),
-      (l.TITLE = new i.GLocaleKey("GFastViewAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GFastViewAction", "title")),
       (l.GroupID = "view"),
       (l.prototype.getId = function () {
         return l.ID;
       }),
       (l.prototype.getTitle = function () {
-        return i.GLocale.get(l.TITLE);
+        return GCore.GLocale.get(l.TITLE);
       }),
       (l.prototype.getCategory = function () {
-        return s.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }),
       (l.prototype.getGroup = function () {
         return l.GroupID;
@@ -41,7 +41,7 @@ function (exports, module, require) {
         if (module) {
           var require = module.getView().getViewConfiguration();
           return (
-            !!require && require.paintMode === i.GScenePaintConfiguration.PaintMode.Fast
+            !!require && require.paintMode === GCore.GScenePaintConfiguration.PaintMode.Fast
           );
         }
         return false;
@@ -53,20 +53,20 @@ function (exports, module, require) {
             .getActiveWindow()
             .getView()
             .getViewConfiguration();
-        if (t.paintMode === i.GScenePaintConfiguration.PaintMode.Fast) {
+        if (t.paintMode === GCore.GScenePaintConfiguration.PaintMode.Fast) {
           var require = gDesigner.getActiveDocument().getScene().getActivePage();
           if (((t.defaultEffectDetailLevel = null), require && !require.isFixedSized()))
-            e = i.GScenePaintConfiguration.PaintMode.Full;
+            e = GCore.GScenePaintConfiguration.PaintMode.Full;
           else
             e =
-              (require.getProperty(a.default.CLIP_PROPERTY_NAME, true) ||
-                a.default.CLIP_CONTENT_ENABLED) ===
-              a.default.CLIP_CONTENT_ENABLED
-                ? i.GScenePaintConfiguration.PaintMode.Output
-                : i.GScenePaintConfiguration.PaintMode.Full;
+              (require.getProperty(GPageProperties.default.CLIP_PROPERTY_NAME, true) ||
+                GPageProperties.default.CLIP_CONTENT_ENABLED) ===
+              GPageProperties.default.CLIP_CONTENT_ENABLED
+                ? GCore.GScenePaintConfiguration.PaintMode.Output
+                : GCore.GScenePaintConfiguration.PaintMode.Full;
         } else
-          (t.defaultEffectDetailLevel = 0.5 / i.GPaintCanvas.getScreenDPI()),
-            (e = i.GScenePaintConfiguration.PaintMode.Fast);
+          (t.defaultEffectDetailLevel = 0.5 / GCore.GPaintCanvas.getScreenDPI()),
+            (e = GCore.GScenePaintConfiguration.PaintMode.Fast);
         gDesigner.setPaintMode(e),
           gDesigner.updateGEditorSceneConfigurationPaintMode(e);
       }),

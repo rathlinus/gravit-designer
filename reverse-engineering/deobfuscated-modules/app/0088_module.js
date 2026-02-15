@@ -5,35 +5,35 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* hasOwnProperty_wrapper */,
+    var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       i = require(399) /* module_399 */,
       a = require(400) /* module_400 */,
-      r = require(37) /* toString_default */,
+      toString_default = require(37) /* toString_default */,
       s = require(294) /* module_294 */,
       l = TypeError,
       c = Object.defineProperty,
       d = Object.getOwnPropertyDescriptor;
-    module.f = o
+    module.f = hasOwnProperty_wrapper
       ? a
         ? function (e, t, n) {
             if (
-              (r(e),
+              (toString_default(e),
               (t = s(t)),
-              r(n),
+              toString_default(n),
               "function" == typeof e &&
                 "prototype" === t &&
                 "value" in n &&
                 "writable" in n &&
                 !n.writable)
             ) {
-              var o = d(e, t);
-              o &&
-                o.writable &&
+              var hasOwnProperty_wrapper = d(e, t);
+              hasOwnProperty_wrapper &&
+                hasOwnProperty_wrapper.writable &&
                 ((e[t] = n.value),
                 (n = {
                   configurable:
-                    "configurable" in n ? n.configurable : o.configurable,
-                  enumerable: "enumerable" in n ? n.enumerable : o.enumerable,
+                    "configurable" in n ? n.configurable : hasOwnProperty_wrapper.configurable,
+                  enumerable: "enumerable" in n ? n.enumerable : hasOwnProperty_wrapper.enumerable,
                   writable: false,
                 }));
             }
@@ -41,7 +41,7 @@ function (exports, module, require) {
           }
         : c
       : function (e, t, n) {
-          if ((r(e), (t = s(t)), r(n), i))
+          if ((toString_default(e), (t = s(t)), toString_default(n), i))
             try {
               return c(e, t, n);
             } catch (e) {}

@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(123) /* GProperties */;
+    var GCore = require(1) /* module */,
+      GProperties = require(123) /* GProperties */;
     require(173) /* stub_requires_1 */;
     function a() {
       this._ellipses = [];
     }
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, GProperties),
       (a.prototype._panel = null),
       (a.prototype._document = null),
       (a.prototype._ellipses = null),
@@ -23,15 +23,15 @@ function (exports, module, require) {
           var t = this;
           if (0 === e.indexOf("etp-")) {
             var require = "",
-              i = parseInt(e.substr("etp-".length));
-            switch (i) {
-              case o.GEllipse.Type.Pie:
+              GProperties = parseInt(e.substr("etp-".length));
+            switch (GProperties) {
+              case GCore.GEllipse.Type.Pie:
                 require = "gravit-icon-circle-pie";
                 break;
-              case o.GEllipse.Type.Chord:
+              case GCore.GEllipse.Type.Chord:
                 require = "gravit-icon-ellipse-chord";
                 break;
-              case o.GEllipse.Type.Arc:
+              case GCore.GEllipse.Type.Arc:
                 require = "gravit-icon-ellipse-arc";
                 break;
               default:
@@ -41,18 +41,18 @@ function (exports, module, require) {
               .attr("data-property", e)
               .addClass("g-button g-icon")
               .on("click", function () {
-                gDesigner.stats("ellipse_change_type", i),
+                gDesigner.stats("ellipse_change_type", GProperties),
                   t._assignProperty(
                     "etp",
-                    i,
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GProperties,
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GEllipseProperties",
                         "action.change-shape"
                       )
                     )
                   ),
-                  i === o.GEllipse.Type.Arc && t._setBorderAlignmentCenter();
+                  GProperties === GCore.GEllipse.Type.Arc && t._setBorderAlignmentCenter();
               })
               .append($("<span></span>").addClass(require));
           }
@@ -62,16 +62,16 @@ function (exports, module, require) {
               .attr("data-property", e)
               .on("change", function () {
                 gDesigner.stats("ellipse_change_angle");
-                var n = o.GLength.parseEquationValue(
+                var n = GCore.GLength.parseEquationValue(
                   $(this).gInputBox("value")
                 );
                 null !== n
-                  ? ((n = o.GMath.normalizeAngleRadians(o.GMath.toRadians(n))),
+                  ? ((n = GCore.GMath.normalizeAngleRadians(GCore.GMath.toRadians(n))),
                     t._assignProperty(
                       e,
-                      o.GMath.PI2 - n,
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GMath.PI2 - n,
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GEllipseProperties",
                           "action.change-angle"
                         )
@@ -85,8 +85,8 @@ function (exports, module, require) {
         $("<div></div>")
           .addClass("ellipse-angles-property")
           .gPropertyRow({
-            label: o.GLocale.get(
-              new o.GLocaleKey("GCommonNames", "text.angles")
+            label: GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "text.angles")
             ),
             columns: [
               { width: "50%", content: t("sa") },
@@ -97,33 +97,33 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("ellipse-shape-property")
             .gPropertyRow({
-              label: o.GLocale.get(
-                new o.GLocaleKey("GEllipseProperties", "text.shape")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GEllipseProperties", "text.shape")
               ),
               columns: [
                 {
                   width: "33.3%",
                   clazz: "shape-type-chooser shape-arc",
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GEllipse", "type.arc")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GEllipse", "type.arc")
                   ),
-                  content: t("etp-" + o.GEllipse.Type.Arc),
+                  content: t("etp-" + GCore.GEllipse.Type.Arc),
                 },
                 {
                   width: "33.3%",
                   clazz: "shape-type-chooser shape-chord",
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GEllipse", "type.chord")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GEllipse", "type.chord")
                   ),
-                  content: t("etp-" + o.GEllipse.Type.Chord),
+                  content: t("etp-" + GCore.GEllipse.Type.Chord),
                 },
                 {
                   width: "33.3%",
                   clazz: "shape-type-chooser shape-pie",
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GEllipse", "type.pie")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GEllipse", "type.pie")
                   ),
-                  content: t("etp-" + o.GEllipse.Type.Pie),
+                  content: t("etp-" + GCore.GEllipse.Type.Pie),
                 },
               ],
             })
@@ -135,7 +135,7 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             (this._document = null)),
@@ -143,14 +143,14 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require)
-            t[require] instanceof o.GEllipse && this._ellipses.push(t[require]);
+            t[require] instanceof GCore.GEllipse && this._ellipses.push(t[require]);
           if (this._ellipses.length && this._ellipses.length === t.length)
             return (
               (this._document = e),
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
@@ -170,20 +170,20 @@ function (exports, module, require) {
         var e,
           t,
           n = ["_ba"],
-          i = [o.GStylable.BorderAlignment.Center],
+          GProperties = [GCore.GStylable.BorderAlignment.Center],
           a = this._document.getEditor();
         a.beginTransaction();
         try {
           for (var r = 0, s = this._ellipses.length; r < s; ++r) {
             e = this._ellipses[r].getPaintLayers().getBorderLayers();
             for (var l = 0, c = e.length; l < c; l++)
-              (t = e[l]) instanceof o.GStylable.BorderPaintLayer &&
-                t.setProperties(n, i);
+              (t = e[l]) instanceof GCore.GStylable.BorderPaintLayer &&
+                t.setProperties(n, GProperties);
           }
         } finally {
           a.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey("GEllipseProperties", "text.ellipse-to-center")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GEllipseProperties", "text.ellipse-to-center")
             )
           );
         }
@@ -191,23 +191,23 @@ function (exports, module, require) {
       (a.prototype._updateProperties = function () {
         var e = this._ellipses[0];
         this._panel.find('[data-property^="etp"]').each(function (t, n) {
-          var o = $(n),
-            i = o.attr("data-property").substr("etp-".length);
-          o.toggleClass("g-active", e.getProperty("etp").toString() === i);
+          var GCore = $(n),
+            GProperties = GCore.attr("data-property").substr("etp-".length);
+          GCore.toggleClass("g-active", e.getProperty("etp").toString() === GProperties);
         }),
           this._panel
             .find('input[data-property="sa"]')
             .val(
-              o.GUtil.formatNumber(
-                o.GMath.toDegrees(o.GMath.PI2 - e.getProperty("sa")),
+              GCore.GUtil.formatNumber(
+                GCore.GMath.toDegrees(GCore.GMath.PI2 - e.getProperty("sa")),
                 2
               )
             ),
           this._panel
             .find('input[data-property="ea"]')
             .val(
-              o.GUtil.formatNumber(
-                o.GMath.toDegrees(o.GMath.PI2 - e.getProperty("ea")),
+              GCore.GUtil.formatNumber(
+                GCore.GMath.toDegrees(GCore.GMath.PI2 - e.getProperty("ea")),
                 2
               )
             );
@@ -216,13 +216,13 @@ function (exports, module, require) {
         this._assignProperties([e], [t], n);
       }),
       (a.prototype._assignProperties = function (e, t, n) {
-        var o = this._document.getEditor();
-        o.beginTransaction();
+        var GCore = this._document.getEditor();
+        GCore.beginTransaction();
         try {
-          for (var i = 0; i < this._ellipses.length; ++i)
-            this._ellipses[i].setProperties(e, t);
+          for (var GProperties = 0; GProperties < this._ellipses.length; ++GProperties)
+            this._ellipses[GProperties].setProperties(e, t);
         } finally {
-          o.commitTransaction(n);
+          GCore.commitTransaction(n);
         }
       }),
       (a.prototype.toString = function () {

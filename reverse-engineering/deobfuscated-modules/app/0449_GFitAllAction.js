@@ -7,28 +7,28 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GFitAllAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GFitAllAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GFitAllAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GFitAllAction", "tooltip-description")
           ),
           shortcut: l.SHORTCUT,
         }),
       };
     }
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "view.zoom.fit.all"),
-      (l.TITLE = new o.GLocaleKey("GFitAllAction", "title")),
-      (l.SHORTCUT = [i.GKey.Constant.OPTION, i.GKey.Constant.META, "0"]),
+      (l.TITLE = new GCore.GLocaleKey("GFitAllAction", "title")),
+      (l.SHORTCUT = [GEditor.GKey.Constant.OPTION, GEditor.GKey.Constant.META, "0"]),
       (l.TOOLTIP_CONFIG = null),
       (l.prototype.getId = function () {
         return l.ID;
@@ -37,7 +37,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_VIEW;
+        return MenuItemBuilder.CATEGORY_VIEW;
       }),
       (l.prototype.getIcon = function () {
         return gDesigner.isTouchEnabled() ? "gravit-icon-fit-all" : null;
@@ -57,14 +57,14 @@ function (exports, module, require) {
         var e,
           t = gDesigner.getActiveDocument(),
           n = t.getScene(),
-          i = t
+          GEditor = t
             .getActiveWindow()
             .getView()
             .getViewConfiguration().multiPageView;
-        if (n.isFixedSized() && !i) {
+        if (n.isFixedSized() && !GEditor) {
           var a = n.getActivePage();
-          e = new o.GRect(0, 0, a.getProperty("w"), a.getProperty("h"));
-        } else e = n.getPaintBBox(i);
+          e = new GCore.GRect(0, 0, a.getProperty("w"), a.getProperty("h"));
+        } else e = n.getPaintBBox(GEditor);
         e && !e.isEmpty() && t.getActiveWindow().getView().zoomAll(e, false);
       }),
       (l.prototype.getTooltipConfig = function (e) {

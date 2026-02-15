@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
-    var i = require(10) /* AppSettings */,
-      a = require(1) /* module */,
-      r = o(require(1187) /* module_1187 */);
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */,
+      r = _interopRequireDefault(require(1187) /* module_1187 */);
     function s() {}
-    a.GObject.inherit(s, i.GPaywallDialog.Impl),
+    GCore.GObject.inherit(s, AppSettings.GPaywallDialog.Impl),
       (s.prototype.open = function (e) {
         let { dialog: module } = e;
         this._dialog = module
@@ -54,15 +54,15 @@ function (exports, module, require) {
         return gDesigner.getSyncUser();
       }),
       (s.prototype.getLanguage = function () {
-        return a.GLocale.getLanguage();
+        return GCore.GLocale.getLanguage();
       });
     class l extends r.default {
       constructor(e) {
         super(), (this._dialogOptions = e);
       }
       async open() {
-        new i.GPaywallDialog(
-          Object.assign(this._dialogOptions, { impl: new s(), gApi: i.gApi })
+        new AppSettings.GPaywallDialog(
+          Object.assign(this._dialogOptions, { impl: new s(), gApi: AppSettings.gApi })
         ).open();
       }
     }

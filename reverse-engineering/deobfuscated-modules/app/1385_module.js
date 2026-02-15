@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       a = require(237) /* Item */,
       r = require(220) /* Item */,
-      s = require(40) /* CollaborationMergeUtils */.decrypt;
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */.decrypt;
     require(173) /* stub_requires_1 */;
     function l() {}
-    o.GObject.inherit(l, a),
+    GCore.GObject.inherit(l, a),
       (l.prototype.canPromptOpen = function () {
         return false;
       }),
@@ -26,26 +26,26 @@ function (exports, module, require) {
       (l.prototype.canDownload = function () {
         return false;
       }),
-      (l.Item = function (e, t, n, o) {
-        r.CommercialProduct.call(this, e, t, n, o);
+      (l.Item = function (e, t, n, GCore) {
+        r.CommercialProduct.call(this, e, t, n, GCore);
       }),
-      o.GObject.inherit(l.Item, r.CommercialProduct),
+      GCore.GObject.inherit(l.Item, r.CommercialProduct),
       (l.Item.prototype.getPrice = async function () {
         return Promise.resolve(this._file.price);
       }),
       (l.Item.prototype.getName = function () {
         return this._filename
           ? this._filename
-          : o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.image"));
+          : GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.image"));
       }),
       (l.Item.prototype.getFullName = function () {
         return this._filename
           ? this._filename
-          : o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.image"));
+          : GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.image"));
       }),
       (l.Item.prototype.getFormattedPrice = async function () {
         const exports = await this.getPrice(),
-          module = o.GLocale.toLocaleCurrency(exports, "USD");
+          module = GCore.GLocale.toLocaleCurrency(exports, "USD");
         return new Promise((e) => e(module));
       }),
       (l.Item.prototype.setFile = function (e) {
@@ -56,8 +56,8 @@ function (exports, module, require) {
         return this._file;
       }),
       (l.Item.prototype.read = async function (e, t, n) {
-        var o = await i.gApi.getProviderContentFile(this._file.hash);
-        return e(new TextEncoder().encode(s(o)));
+        var GCore = await AppSettings.gApi.getProviderContentFile(this._file.hash);
+        return e(new TextEncoder().encode(CollaborationMergeUtils(GCore)));
       }),
       (l.Item.prototype.getExtension = function () {
         return this._file.extension && this._file.extension.toUpperCase();

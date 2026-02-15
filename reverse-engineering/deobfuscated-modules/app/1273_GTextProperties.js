@@ -29,16 +29,16 @@ function (exports, module, require) {
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(40) /* CollaborationMergeUtils */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       s = require(67) /* GRichTooltipConfig */,
-      l = require(123) /* GProperties */,
-      c = require(255) /* barrel_sidebars */,
-      d = require(590) /* barrel_editor_actions */,
-      u = require(135) /* GSettingChangedEvent */,
-      p = require(44) /* GSystemDialog */;
+      GProperties = require(123) /* GProperties */,
+      barrel_sidebars = require(255) /* barrel_sidebars */,
+      barrel_editor_actions = require(590) /* barrel_editor_actions */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
+      GSystemDialog = require(44) /* GSystemDialog */;
     const g = require(148) /* module */,
       { toCapitalize: h } = require(40) /* CollaborationMergeUtils */,
       { LISTS_FEATURE: f } = require(10) /* AppSettings */;
@@ -46,46 +46,46 @@ function (exports, module, require) {
     const y = {
       None: {
         get label() {
-          return i.GLocale.get(
-            new i.GLocaleKey("GTextProperties", "text.marker-none")
+          return GCore.GLocale.get(
+            new GCore.GLocaleKey("GTextProperties", "text.marker-none")
           );
         },
         value: "none",
       },
       Bullet: {
         get label() {
-          return i.GLocale.get(
-            new i.GLocaleKey("GTextProperties", "text.marker-bulleted")
+          return GCore.GLocale.get(
+            new GCore.GLocaleKey("GTextProperties", "text.marker-bulleted")
           );
         },
         value: "bulleted",
         types: [
-          { icon: "gravit-icon-bullets-1", value: i.GText.Markers.Bullet },
-          { icon: "gravit-icon-bullets-2", value: i.GText.Markers.Check },
-          { icon: "gravit-icon-bullets-3", value: i.GText.Markers.Square },
+          { icon: "gravit-icon-bullets-1", value: GCore.GText.Markers.Bullet },
+          { icon: "gravit-icon-bullets-2", value: GCore.GText.Markers.Check },
+          { icon: "gravit-icon-bullets-3", value: GCore.GText.Markers.Square },
         ],
       },
       Number: {
         get label() {
-          return i.GLocale.get(
-            new i.GLocaleKey("GTextProperties", "text.marker-numbered")
+          return GCore.GLocale.get(
+            new GCore.GLocaleKey("GTextProperties", "text.marker-numbered")
           );
         },
         value: "numbered",
         types: [
-          { icon: "gravit-icon-numbers-1", value: i.GText.Markers.RomanDot },
+          { icon: "gravit-icon-numbers-1", value: GCore.GText.Markers.RomanDot },
           {
             icon: "gravit-icon-numbers-2",
-            value: i.GText.Markers.RomanBracket,
+            value: GCore.GText.Markers.RomanBracket,
           },
-          { icon: "gravit-icon-numbers-3", value: i.GText.Markers.Number },
+          { icon: "gravit-icon-numbers-3", value: GCore.GText.Markers.Number },
         ],
       },
     };
     function v() {
       (this._text = []), (this._weightsAvailable = []);
     }
-    i.GObject.inherit(v, l),
+    GCore.GObject.inherit(v, GProperties),
       (v.prototype._panel = null),
       (v.prototype._document = null),
       (v.prototype._text = null),
@@ -109,7 +109,7 @@ function (exports, module, require) {
                 .addClass("list-type-options")
                 .append(
                   Object.values(y).map((e) => {
-                    let { label: t, value: n, types: o } = e;
+                    let { label: t, value: n, types: GTools } = e;
                     return $("<div></div>")
                       .addClass("list-type-group")
                       .attr("value", n)
@@ -119,13 +119,13 @@ function (exports, module, require) {
                           .append($("<span/>").addClass("gravit-icon-check"))
                           .append($("<span/>").text(t))
                       )
-                      .on("click", o ? null : () => this._assignMarker(null))
+                      .on("click", GTools ? null : () => this._assignMarker(null))
                       .append(
                         $("<div/>")
                           .addClass("list-type-group-container")
                           .append(
-                            o
-                              ? o.map((e) => {
+                            GTools
+                              ? GTools.map((e) => {
                                   let { value: t, icon: n } = e;
                                   return $("<div></div>")
                                     .addClass("list-type-option")
@@ -161,7 +161,7 @@ function (exports, module, require) {
               .append($("<span/>"))
               .on(
                 "click",
-                r.watchDog.trap(
+                CollaborationMergeUtils.watchDog.trap(
                   (e) => {
                     this._listTypeSettings.gOverlay("open", $(e.target));
                   },
@@ -181,7 +181,7 @@ function (exports, module, require) {
               .attr("data-property", e)
               .on(
                 "click",
-                r.watchDog.trap(
+                CollaborationMergeUtils.watchDog.trap(
                   (e) => {
                     gDesigner.stats("textproperties_change_typography", n),
                       t._toggleFormatting(n);
@@ -208,7 +208,7 @@ function (exports, module, require) {
               .attr("data-property", e)
               .on(
                 "click",
-                r.watchDog.trap(
+                CollaborationMergeUtils.watchDog.trap(
                   (e) => {
                     gDesigner.stats("textproperties_change_typography", n),
                       t._assignProperty(
@@ -239,8 +239,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "auto")
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.auto")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.auto")
                     )
                   )
               ),
@@ -259,7 +259,7 @@ function (exports, module, require) {
               .attr("data-property", "_tv")
               .on(
                 "change",
-                r.watchDog.trap(
+                CollaborationMergeUtils.watchDog.trap(
                   (e) => {
                     var n = $(e.target).text();
                     gDesigner.stats("textproperties_change_variation", n),
@@ -277,20 +277,20 @@ function (exports, module, require) {
             var a = "",
               s = e.substr("_ttrf-".length);
             switch (s) {
-              case i.GStylable.TextTransformation.Uppercase:
+              case GCore.GStylable.TextTransformation.Uppercase:
                 a = "gravit-icon-text-transform-uppercase";
                 break;
-              case i.GStylable.TextTransformation.Lowercase:
+              case GCore.GStylable.TextTransformation.Lowercase:
                 a = "gravit-icon-text-transform-lowercase";
                 break;
-              case i.GStylable.TextTransformation.Capitalize:
+              case GCore.GStylable.TextTransformation.Capitalize:
                 a = "gravit-icon-text-transform-capitalize";
                 break;
-              case i.GStylable.TextTransformation.SmallCaps:
+              case GCore.GStylable.TextTransformation.SmallCaps:
                 a = "gravit-icon-text-transform-smallcaps";
             }
-            var l = Object.keys(i.GStylable.TextTransformation).find(
-              (e) => i.GStylable.TextTransformation[e] === s
+            var GProperties = Object.keys(GCore.GStylable.TextTransformation).find(
+              (e) => GCore.GStylable.TextTransformation[e] === s
             );
             return $("<button></button>")
               .addClass("g-button")
@@ -298,11 +298,11 @@ function (exports, module, require) {
               .attr("data-property", e)
               .on(
                 "click",
-                r.watchDog.trap(
+                CollaborationMergeUtils.watchDog.trap(
                   (e) => {
                     gDesigner.stats(
                       "textproperties_change_transformation",
-                      l ? l.toLowerCase() : ""
+                      GProperties ? GProperties.toLowerCase() : ""
                     ),
                       t._assignProperty(
                         "_ttrf",
@@ -323,14 +323,14 @@ function (exports, module, require) {
           }
           if (0 === e.indexOf("va-")) {
             a = "";
-            switch ((d = e.substr("va-".length))) {
-              case i.GText.VerticalAlign.Top:
+            switch ((barrel_editor_actions = e.substr("va-".length))) {
+              case GCore.GText.VerticalAlign.Top:
                 a = "gravit-icon-text-align-top";
                 break;
-              case i.GText.VerticalAlign.Middle:
+              case GCore.GText.VerticalAlign.Middle:
                 a = "gravit-icon-text-align-middle";
                 break;
-              case i.GText.VerticalAlign.Bottom:
+              case GCore.GText.VerticalAlign.Bottom:
                 a = "gravit-icon-text-align-bottom";
             }
             return $("<button></button>")
@@ -340,33 +340,33 @@ function (exports, module, require) {
               .on("click", function () {
                 gDesigner.stats(
                   "textproperties_change_vertical-align",
-                  d === i.GText.VerticalAlign.Top
+                  barrel_editor_actions === GCore.GText.VerticalAlign.Top
                     ? "top"
-                    : i.GText.VerticalAlign.Middle
+                    : GCore.GText.VerticalAlign.Middle
                     ? "middle"
                     : "bottom"
                 ),
                   t._assignProperty(
                     "va",
-                    $(this).hasClass("g-active") ? null : d
+                    $(this).hasClass("g-active") ? null : barrel_editor_actions
                   );
               })
               .append($("<span></span>").addClass(a));
           }
           if (0 === e.indexOf("_pal-")) {
-            var d;
+            var barrel_editor_actions;
             a = "";
-            switch ((d = e.substr("_pal-".length))) {
-              case i.GStylable.ParagraphAlignment.Left:
+            switch ((barrel_editor_actions = e.substr("_pal-".length))) {
+              case GCore.GStylable.ParagraphAlignment.Left:
                 a = "gravit-icon-text-align-left";
                 break;
-              case i.GStylable.ParagraphAlignment.Center:
+              case GCore.GStylable.ParagraphAlignment.Center:
                 a = "gravit-icon-text-align-center";
                 break;
-              case i.GStylable.ParagraphAlignment.Right:
+              case GCore.GStylable.ParagraphAlignment.Right:
                 a = "gravit-icon-text-align-right";
                 break;
-              case i.GStylable.ParagraphAlignment.Justify:
+              case GCore.GStylable.ParagraphAlignment.Justify:
                 a = "gravit-icon-text-justify";
             }
             return $("<button></button>")
@@ -376,19 +376,19 @@ function (exports, module, require) {
               .on("click", function () {
                 gDesigner.stats(
                   "textproperties_change_paragraph-align",
-                  d === i.GStylable.ParagraphAlignment.Left
+                  barrel_editor_actions === GCore.GStylable.ParagraphAlignment.Left
                     ? "left"
-                    : d === i.GStylable.ParagraphAlignment.Right
+                    : barrel_editor_actions === GCore.GStylable.ParagraphAlignment.Right
                     ? "right"
-                    : d === i.GStylable.ParagraphAlignment.Justify
+                    : barrel_editor_actions === GCore.GStylable.ParagraphAlignment.Justify
                     ? "justify"
-                    : d === i.GStylable.ParagraphAlignment.Center
+                    : barrel_editor_actions === GCore.GStylable.ParagraphAlignment.Center
                     ? "center"
                     : "unkn"
                 ),
                   t._assignProperty(
                     "_pal",
-                    $(this).hasClass("g-active") ? null : d
+                    $(this).hasClass("g-active") ? null : barrel_editor_actions
                   );
               })
               .append($("<span></span>").addClass(a));
@@ -408,8 +408,8 @@ function (exports, module, require) {
                       t._assignProperty(e, true);
                   })
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.auto")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.auto")
                     )
                   )
               )
@@ -425,8 +425,8 @@ function (exports, module, require) {
                       t._assignProperty(e, false);
                   })
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.fix")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.fix")
                     )
                   )
               );
@@ -435,27 +435,27 @@ function (exports, module, require) {
               .prop("disabled", true)
               .attr("data-property", "_fc")
               .attr("id", "text-color")
-              .gPatternChooser({ types: [i.GColor], hasOpacity: false })
+              .gPatternChooser({ types: [GCore.GColor], hasOpacity: false })
               .on("chooseropen", function () {
                 t._document.getEditor().hideSelection(),
                   (t._chooserElem = $(this));
               })
-              .on("chooserclose", function (e, n, o) {
+              .on("chooserclose", function (e, n, GTools) {
                 t._document && t._document.getEditor().resetHideSelection(),
                   (t._chooserElem = null);
               })
               .on(
                 "patternchange",
-                function (e, n, i, a, r) {
-                  for (var s = [], l = 0; l < this._text.length; l++) {
-                    var c = o.GElementEditor.getEditor(this._text[l]);
-                    s.push(c || this._text[l]);
+                function (e, n, GCore, a, CollaborationMergeUtils) {
+                  for (var s = [], GProperties = 0; GProperties < this._text.length; GProperties++) {
+                    var barrel_sidebars = GTools.GElementEditor.getEditor(this._text[GProperties]);
+                    s.push(barrel_sidebars || this._text[GProperties]);
                   }
-                  var d = null;
-                  r && (d = { chooserOn: true, textPattern: true });
-                  var u = this._getProperty("_fc", s);
-                  u || (u = this._getFontColor(s)),
-                    t._assignProperty("_fc", n, a, d);
+                  var barrel_editor_actions = null;
+                  CollaborationMergeUtils && (barrel_editor_actions = { chooserOn: true, textPattern: true });
+                  var GSettingChangedEvent = this._getProperty("_fc", s);
+                  GSettingChangedEvent || (GSettingChangedEvent = this._getFontColor(s)),
+                    t._assignProperty("_fc", n, a, barrel_editor_actions);
                 }.bind(this)
               );
           if ("_tff" === e)
@@ -482,9 +482,9 @@ function (exports, module, require) {
                 .on("change", function () {
                   gDesigner.stats("textproperties_change_size");
                   var n = $(this).gUnitBox("value"),
-                    o = n ? n.toUnit(i.GLength.Unit.PT) : null;
-                  null === o || ("number" == typeof o && o >= 0)
-                    ? t._assignProperty(e, o)
+                    GTools = n ? n.toUnit(GCore.GLength.Unit.PT) : null;
+                  null === GTools || ("number" == typeof GTools && GTools >= 0)
+                    ? t._assignProperty(e, GTools)
                     : t._updateProperties();
                 })
                 .gUnitBox({ source: "text" })
@@ -499,9 +499,9 @@ function (exports, module, require) {
                   : gDesigner.stats("textproperties_change_charspacing");
                 var n = t._document;
                 if (n) {
-                  var o = n.getScene().stringToPoint($(this).val());
-                  null === o || "number" == typeof o
-                    ? t._assignProperty(e, o)
+                  var GTools = n.getScene().stringToPoint($(this).val());
+                  null === GTools || "number" == typeof GTools
+                    ? t._assignProperty(e, GTools)
                     : t._updateProperties();
                 }
               })
@@ -517,15 +517,15 @@ function (exports, module, require) {
                       .getWorkspace()
                       .getFontManager()
                       .getDefaultFont(),
-                    o = e.split(m);
-                  o[0] = parseInt(o[0]) || 400;
-                  var i = [o[0], o[1]],
+                    GTools = e.split(m);
+                  GTools[0] = parseInt(GTools[0]) || 400;
+                  var GCore = [GTools[0], GTools[1]],
                     a = ["_tfw", "_tfs"];
-                  o[2] &&
-                    o[2].length &&
-                    o[2] !== n.getFamily() &&
-                    (a.push("_tff"), i.push(o[2])),
-                    t._assignProperties(a, i);
+                  GTools[2] &&
+                    GTools[2].length &&
+                    GTools[2] !== n.getFamily() &&
+                    (a.push("_tff"), GCore.push(GTools[2])),
+                    t._assignProperties(a, GCore);
                 }
                 t._document.getActiveWindow().getView().focus();
               });
@@ -541,14 +541,14 @@ function (exports, module, require) {
                     .on("change", function () {
                       gDesigner.stats("textproperties_change_line-height");
                       var n = $(this).val(),
-                        o = t._document.getScene(),
+                        GTools = t._document.getScene(),
                         a = t._panel
                           .find('button[data-property="_plh_unit"]')
                           .text();
                       if ("%" !== a) {
-                        let e = i.GLength.parseEquation(n, o.getProperty("ut"));
-                        e && (n = e.toUnit(i.GLength.Unit.PX));
-                      } else n = i.GUtil.parseNumber(n);
+                        let e = GCore.GLength.parseEquation(n, GTools.getProperty("ut"));
+                        e && (n = e.toUnit(GCore.GLength.Unit.PX));
+                      } else n = GCore.GUtil.parseNumber(n);
                       null === n || n > 0 || ("%" !== a && 0 === n)
                         ? ("number" == typeof n &&
                             ("%" === a ? (n /= 100) : (n = String(n))),
@@ -567,33 +567,33 @@ function (exports, module, require) {
                       gDesigner.stats("textproperties_change_size");
                       var n = $(this).text(),
                         a = t._document.getScene(),
-                        r = t._panel.find('input[data-property="_plh"]').val(),
+                        CollaborationMergeUtils = t._panel.find('input[data-property="_plh"]').val(),
                         s = t._document.getEditor();
                       if ("%" !== n) {
-                        let e = i.GLength.parseEquation(r, a.getProperty("ut"));
-                        e && (r = e.toUnit(i.GLength.Unit.PX));
-                      } else r = i.GUtil.parseNumber(r);
-                      if (null !== r && "%" === n) {
-                        var l = a.getProperty("ut") || "px";
-                        if (($(this).text(l), "number" == typeof r))
+                        let e = GCore.GLength.parseEquation(CollaborationMergeUtils, a.getProperty("ut"));
+                        e && (CollaborationMergeUtils = e.toUnit(GCore.GLength.Unit.PX));
+                      } else CollaborationMergeUtils = GCore.GUtil.parseNumber(CollaborationMergeUtils);
+                      if (null !== CollaborationMergeUtils && "%" === n) {
+                        var GProperties = a.getProperty("ut") || "px";
+                        if (($(this).text(GProperties), "number" == typeof CollaborationMergeUtils))
                           try {
                             s.beginTransaction();
-                            for (var c = 0; c < t._text.length; c++) {
-                              var d =
-                                  o.GElementEditor.getEditor(t._text[c]) ||
-                                  t._text[c],
-                                u = (
-                                  ((r / 100) *
-                                    (p = t._getProperty("_tfi", [d]) || 20) *
+                            for (var barrel_sidebars = 0; barrel_sidebars < t._text.length; barrel_sidebars++) {
+                              var barrel_editor_actions =
+                                  GTools.GElementEditor.getEditor(t._text[barrel_sidebars]) ||
+                                  t._text[barrel_sidebars],
+                                GSettingChangedEvent = (
+                                  ((CollaborationMergeUtils / 100) *
+                                    (GSystemDialog = t._getProperty("_tfi", [barrel_editor_actions]) || 20) *
                                     4) /
                                   3
                                 ).toString();
-                              d.setProperties([e], [u]);
+                              barrel_editor_actions.setProperties([e], [GSettingChangedEvent]);
                             }
                           } finally {
                             s.commitTransaction(
-                              i.GLocale.get(
-                                new i.GLocaleKey(
+                              GCore.GLocale.get(
+                                new GCore.GLocaleKey(
                                   "GTextProperties",
                                   "action.modify-text-properties"
                                 )
@@ -601,26 +601,26 @@ function (exports, module, require) {
                             );
                           }
                       } else if (
-                        null !== r &&
-                        ($(this).text("%"), "number" == typeof r)
+                        null !== CollaborationMergeUtils &&
+                        ($(this).text("%"), "number" == typeof CollaborationMergeUtils)
                       )
                         try {
                           s.beginTransaction();
-                          for (c = 0; c < t._text.length; c++) {
-                            d =
-                              o.GElementEditor.getEditor(t._text[c]) ||
-                              t._text[c];
-                            var p = t._getProperty("_tfi", [d]) || 20;
-                            u =
+                          for (barrel_sidebars = 0; barrel_sidebars < t._text.length; barrel_sidebars++) {
+                            barrel_editor_actions =
+                              GTools.GElementEditor.getEditor(t._text[barrel_sidebars]) ||
+                              t._text[barrel_sidebars];
+                            var GSystemDialog = t._getProperty("_tfi", [barrel_editor_actions]) || 20;
+                            GSettingChangedEvent =
                               Math.round(
-                                100 * Math.max(r / ((4 * p) / 3), 0.01)
+                                100 * Math.max(CollaborationMergeUtils / ((4 * GSystemDialog) / 3), 0.01)
                               ) / 100;
-                            d.setProperties([e], [u]);
+                            barrel_editor_actions.setProperties([e], [GSettingChangedEvent]);
                           }
                         } finally {
                           s.commitTransaction(
-                            i.GLocale.get(
-                              new i.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GTextProperties",
                                 "action.modify-text-properties"
                               )
@@ -638,7 +638,7 @@ function (exports, module, require) {
                   var t = $(this).prop("checked");
                   gDesigner.setSetting("font-set", t);
                   var n = gContainer.getSystemFontsProvider();
-                  t ? c.enableProviders([n]) : c.disableProviders([n]);
+                  t ? barrel_sidebars.enableProviders([n]) : barrel_sidebars.disableProviders([n]);
                 });
             if ("sc" === e)
               return $("<label></label>")
@@ -657,13 +657,13 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<span></span>").text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.scale-content")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.scale-content")
                     )
                   )
                 );
             if (0 === e.indexOf("decoration-")) {
-              var u = e.substr("decoration-".length);
+              var GSettingChangedEvent = e.substr("decoration-".length);
               return $("<button></button>")
                 .addClass("g-button")
                 .addClass("decoration-buttons")
@@ -671,21 +671,21 @@ function (exports, module, require) {
                 .attr(
                   "data-title",
                   h(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GTextProperties",
-                        "text.decoration-".concat(u)
+                        "text.decoration-".concat(GSettingChangedEvent)
                       )
                     )
                   )
                 )
                 .on("click", function () {
-                  gDesigner.stats("textproperties_change_decoration", u),
-                    t._toggleFormatting(u);
+                  gDesigner.stats("textproperties_change_decoration", GSettingChangedEvent),
+                    t._toggleFormatting(GSettingChangedEvent);
                 })
                 .append(
                   $("<span></span>").addClass(
-                    "gravit-icon-text-decoration-".concat(u)
+                    "gravit-icon-text-decoration-".concat(GSettingChangedEvent)
                   )
                 );
             }
@@ -699,7 +699,7 @@ function (exports, module, require) {
                     .attr("data-property", e)
                     .on(
                       "click",
-                      r.watchDog.trap(null, null, (t) => {
+                      CollaborationMergeUtils.watchDog.trap(null, null, (t) => {
                         t.stopPropagation(),
                           t.preventDefault(),
                           gDesigner.stats(
@@ -710,31 +710,31 @@ function (exports, module, require) {
                     )
                     .on(
                       "change",
-                      r.watchDog.trap(
+                      CollaborationMergeUtils.watchDog.trap(
                         (n) => {
-                          const o = t._document;
-                          if (!o) return;
+                          const GTools = t._document;
+                          if (!GTools) return;
                           gDesigner.stats(
                             "textproperties_change_paragraph-spacing"
                           );
                           const a = t._advancedSettings
                             .find('button[data-property="_pas_unit"]')
                             .text();
-                          let r = null;
+                          let CollaborationMergeUtils = null;
                           if ("%" !== a) {
-                            let e = i.GLength.parseEquation(
+                            let e = GCore.GLength.parseEquation(
                               $(n.target).closest("input").val(),
-                              o.getScene().getProperty("ut")
+                              GTools.getScene().getProperty("ut")
                             );
-                            e && (r = e.toUnit(i.GLength.Unit.PX));
+                            e && (CollaborationMergeUtils = e.toUnit(GCore.GLength.Unit.PX));
                           } else
-                            r = i.GUtil.parseNumber(
+                            CollaborationMergeUtils = GCore.GUtil.parseNumber(
                               $(n.target).closest("input").val()
                             );
-                          null === r || ("number" == typeof r && r >= 0)
-                            ? ("number" == typeof r &&
-                                ("%" === a ? (r /= 100) : (r = String(r))),
-                              t._assignProperty(e, r))
+                          null === CollaborationMergeUtils || ("number" == typeof CollaborationMergeUtils && CollaborationMergeUtils >= 0)
+                            ? ("number" == typeof CollaborationMergeUtils &&
+                                ("%" === a ? (CollaborationMergeUtils /= 100) : (CollaborationMergeUtils = String(CollaborationMergeUtils))),
+                              t._assignProperty(e, CollaborationMergeUtils))
                             : t._updateProperties();
                         },
                         null,
@@ -755,46 +755,46 @@ function (exports, module, require) {
                     .text("px")
                     .on(
                       "click",
-                      r.watchDog.trap(
+                      CollaborationMergeUtils.watchDog.trap(
                         (e) => {
                           const n = t._document;
                           if (!n) return;
                           const a = n.getScene(),
-                            r = $(e.target).text(),
-                            s = "%" === r ? a.getProperty("ut") || "px" : "%";
+                            CollaborationMergeUtils = $(e.target).text(),
+                            s = "%" === CollaborationMergeUtils ? a.getProperty("ut") || "px" : "%";
                           gDesigner.stats(
                             "textproperties_change_paragraph-spacing-unit",
                             s
                           ),
                             $(e.target).text(s);
-                          let l = null;
-                          if ("%" !== r) {
-                            let e = i.GLength.parseEquation(
+                          let GProperties = null;
+                          if ("%" !== CollaborationMergeUtils) {
+                            let e = GCore.GLength.parseEquation(
                               t._advancedSettings
                                 .find('input[data-property="_pas"]')
                                 .val(),
                               a.getProperty("ut")
                             );
-                            e && (l = e.toUnit(i.GLength.Unit.PX));
+                            e && (GProperties = e.toUnit(GCore.GLength.Unit.PX));
                           } else
-                            l = i.GUtil.parseNumber(
+                            GProperties = GCore.GUtil.parseNumber(
                               t._advancedSettings
                                 .find('input[data-property="_pas"]')
                                 .val()
                             );
-                          if (!isNaN(l)) {
+                          if (!isNaN(GProperties)) {
                             const e = t._text.map(
-                                (e) => o.GElementEditor.getEditor(e) || e
+                                (e) => GTools.GElementEditor.getEditor(e) || e
                               ),
                               n = t._getProperty("_tfi", e) || 20;
-                            let i;
-                            (i =
+                            let GCore;
+                            (GCore =
                               "%" === s
                                 ? Math.round(
-                                    100 * parseFloat(l / ((4 * n) / 3))
+                                    100 * parseFloat(GProperties / ((4 * n) / 3))
                                   ) / 100
-                                : String(((l / 100) * n * 4) / 3)),
-                              t._assignProperties(["_pas"], [i]);
+                                : String(((GProperties / 100) * n * 4) / 3)),
+                              t._assignProperties(["_pas"], [GCore]);
                           }
                         },
                         null,
@@ -812,7 +812,7 @@ function (exports, module, require) {
                 .attr("data-property", e)
                 .on(
                   "click",
-                  r.watchDog.trap(null, null, (t) => {
+                  CollaborationMergeUtils.watchDog.trap(null, null, (t) => {
                     t.stopPropagation(),
                       t.preventDefault(),
                       gDesigner.stats(
@@ -823,16 +823,16 @@ function (exports, module, require) {
                 )
                 .on(
                   "change",
-                  r.watchDog.trap(
+                  CollaborationMergeUtils.watchDog.trap(
                     (n) => {
-                      const o = t._document;
-                      if (!o) return;
+                      const GTools = t._document;
+                      if (!GTools) return;
                       gDesigner.stats("textproperties_change_paragraph-indent");
-                      const i = o
+                      const GCore = GTools
                         .getScene()
                         .stringToPoint($(n.target).closest("input").val());
-                      null === i || ("number" == typeof i && i >= 0)
-                        ? t._assignProperty(e, i)
+                      null === GCore || ("number" == typeof GCore && GCore >= 0)
+                        ? t._assignProperty(e, GCore)
                         : t._updateProperties();
                     },
                     null,
@@ -849,10 +849,10 @@ function (exports, module, require) {
                 .attr("data-property", "dir")
                 .append(
                   $("<option></option>")
-                    .attr("value", i.GTLDirectionTextTransformer.LTR)
+                    .attr("value", GCore.GTLDirectionTextTransformer.LTR)
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GTextProperties",
                           "text.orientation-ltr"
                         )
@@ -861,10 +861,10 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", i.GTLDirectionTextTransformer.RTL)
+                    .attr("value", GCore.GTLDirectionTextTransformer.RTL)
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GTextProperties",
                           "text.orientation-rtl"
                         )
@@ -873,10 +873,10 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", i.GTLDirectionTextTransformer.TTB)
+                    .attr("value", GCore.GTLDirectionTextTransformer.TTB)
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GTextProperties",
                           "text.orientation-ttb"
                         )
@@ -886,16 +886,16 @@ function (exports, module, require) {
                 .on("change", function (e) {
                   var n = "";
                   switch (parseInt($(e.target).val())) {
-                    case i.GTLDirectionTextTransformer.LTR:
+                    case GCore.GTLDirectionTextTransformer.LTR:
                       n = "ltr";
                       break;
-                    case i.GTLDirectionTextTransformer.RTL:
+                    case GCore.GTLDirectionTextTransformer.RTL:
                       n = "rtl";
                       break;
-                    case i.GTLDirectionTextTransformer.TTB:
+                    case GCore.GTLDirectionTextTransformer.TTB:
                       n = "ttb";
                       break;
-                    case i.GTLDirectionTextTransformer.BTT:
+                    case GCore.GTLDirectionTextTransformer.BTT:
                       n = "btt";
                   }
                   gDesigner.stats("textproperties_change_orientation", n),
@@ -920,8 +920,8 @@ function (exports, module, require) {
                         t._assignProperty(
                           e,
                           $(this).is(":checked")
-                            ? i.GTLPathTextTransformer.DIRECTION_OUTWARDS
-                            : i.GTLPathTextTransformer.DIRECTION_INWARDS
+                            ? GCore.GTLPathTextTransformer.DIRECTION_OUTWARDS
+                            : GCore.GTLPathTextTransformer.DIRECTION_INWARDS
                         );
                     })
                 )
@@ -941,8 +941,8 @@ function (exports, module, require) {
                         t._assignProperty(
                           e,
                           $(this).is(":checked")
-                            ? i.GTLPathTextTransformer.OUTSIDE
-                            : i.GTLPathTextTransformer.INSIDE
+                            ? GCore.GTLPathTextTransformer.OUTSIDE
+                            : GCore.GTLPathTextTransformer.INSIDE
                         );
                     })
                 )
@@ -967,24 +967,24 @@ function (exports, module, require) {
         $("<div></div>")
           .addClass("typography-properties")
           .gPropertyRow({
-            label: i.GLocale.get(
-              new i.GLocaleKey("GTextProperties", "text.typography")
+            label: GCore.GLocale.get(
+              new GCore.GLocaleKey("GTextProperties", "text.typography")
             ),
             columns: [
               {
                 width: "100%",
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GTextProperties", "text.typography")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GTextProperties", "text.typography")
                 ),
                 content: $("<div></div>")
                   .addClass("typography")
                   .append(
-                    n("_ttsc-" + i.GStylable.TypographyScript.Subscript)
+                    n("_ttsc-" + GCore.GStylable.TypographyScript.Subscript)
                       .addClass("g-group-start")
                       .attr(
                         "data-title",
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GTextProperties",
                             "text.typography-subscript"
                           )
@@ -992,12 +992,12 @@ function (exports, module, require) {
                       )
                   )
                   .append(
-                    n("_ttsc-" + i.GStylable.TypographyScript.Superscript)
+                    n("_ttsc-" + GCore.GStylable.TypographyScript.Superscript)
                       .addClass("g-group-end")
                       .attr(
                         "data-title",
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GTextProperties",
                             "text.typography-superscript"
                           )
@@ -1007,8 +1007,8 @@ function (exports, module, require) {
                   .append(
                     n("typography-ligatures").attr(
                       "data-title",
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GTextProperties",
                           "text.typography-ligatures"
                         )
@@ -1018,8 +1018,8 @@ function (exports, module, require) {
                   .append(
                     n("typography-fractions").attr(
                       "data-title",
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GTextProperties",
                           "text.typography-fractions"
                         )
@@ -1033,23 +1033,23 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("transform-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.transform")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.transform")
               ),
               columns: [
                 {
                   width: "100%",
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.transform")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.transform")
                   ),
                   content: $("<div></div>")
                     .append(
-                      n("_ttrf-" + i.GStylable.TextTransformation.Uppercase)
+                      n("_ttrf-" + GCore.GStylable.TextTransformation.Uppercase)
                         .addClass("g-group-start")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GTextProperties",
                               "text.transform-uppercase"
                             )
@@ -1057,12 +1057,12 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      n("_ttrf-" + i.GStylable.TextTransformation.Capitalize)
+                      n("_ttrf-" + GCore.GStylable.TextTransformation.Capitalize)
                         .addClass("g-group-element")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GTextProperties",
                               "text.transform-capitalize"
                             )
@@ -1070,12 +1070,12 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      n("_ttrf-" + i.GStylable.TextTransformation.Lowercase)
+                      n("_ttrf-" + GCore.GStylable.TextTransformation.Lowercase)
                         .addClass("g-group-element")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GTextProperties",
                               "text.transform-lowercase"
                             )
@@ -1083,12 +1083,12 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      n("_ttrf-" + i.GStylable.TextTransformation.SmallCaps)
+                      n("_ttrf-" + GCore.GStylable.TextTransformation.SmallCaps)
                         .addClass("g-group-end")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GTextProperties",
                               "text.transform-smallcaps"
                             )
@@ -1103,14 +1103,14 @@ function (exports, module, require) {
             ($("<div></div>")
               .addClass("list-type-properties")
               .gPropertyRow({
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GTextProperties", "text.list-type")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GTextProperties", "text.list-type")
                 ),
                 columns: [
                   {
                     width: "100%",
-                    label: i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.list-type")
+                    label: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.list-type")
                     ),
                     content: n("_pm"),
                   },
@@ -1121,21 +1121,21 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("paragraph-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.paragraph")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.paragraph")
               ),
               columns: [
                 {
                   width: "50%",
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.paragraph-indent")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.paragraph-indent")
                   ),
                   content: n("_pai"),
                 },
                 {
                   width: "50%",
-                  label: i.GLocale.get(
-                    new i.GLocaleKey(
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GTextProperties",
                       "text.paragraph-spacing"
                     )
@@ -1149,8 +1149,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("language-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.language")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.language")
               ),
               columns: [{ width: "100%", content: n("_tlocl") }],
             })
@@ -1159,8 +1159,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("stylistic-set-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.stylisticset")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.stylisticset")
               ),
               columns: [{ width: "100%", content: n("_tstyls") }],
             })
@@ -1185,8 +1185,8 @@ function (exports, module, require) {
                   clazz: "color-title-label",
                   content: $(
                     "<span>".concat(
-                      i.GLocale.get(
-                        new i.GLocaleKey("GTextProperties", "text.color")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GTextProperties", "text.color")
                       ),
                       "</span>"
                     )
@@ -1195,15 +1195,15 @@ function (exports, module, require) {
                 {
                   width: "auto",
                   content: n("style"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.weight")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.weight")
                   ),
                 },
                 {
                   width: "25%",
                   content: n("_tfi"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.size")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.size")
                   ),
                 },
               ],
@@ -1213,8 +1213,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("decoration-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.decoration")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.decoration")
               ),
               columns: [
                 { width: "25%", content: n("decoration-bold") },
@@ -1228,30 +1228,30 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("alignment-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.alignment")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.alignment")
               ),
               columns: [
                 {
                   width: "100%",
                   content: $("<div></div>")
                     .append(
-                      n("_pal-" + i.GStylable.ParagraphAlignment.Left)
+                      n("_pal-" + GCore.GStylable.ParagraphAlignment.Left)
                         .addClass("g-group-start")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey("GAlignAction", "title.align-left")
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey("GAlignAction", "title.align-left")
                           )
                         )
                     )
                     .append(
-                      n("_pal-" + i.GStylable.ParagraphAlignment.Center)
+                      n("_pal-" + GCore.GStylable.ParagraphAlignment.Center)
                         .addClass("g-group-element")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAlignAction",
                               "title.align-center"
                             )
@@ -1259,12 +1259,12 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      n("_pal-" + i.GStylable.ParagraphAlignment.Right)
+                      n("_pal-" + GCore.GStylable.ParagraphAlignment.Right)
                         .addClass("g-group-element")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAlignAction",
                               "title.align-right"
                             )
@@ -1272,12 +1272,12 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      n("_pal-" + i.GStylable.ParagraphAlignment.Justify)
+                      n("_pal-" + GCore.GStylable.ParagraphAlignment.Justify)
                         .addClass("g-group-end")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GTextProperties",
                               "action.justify"
                             )
@@ -1291,30 +1291,30 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("vertical-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.vertical")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.vertical")
               ),
               columns: [
                 {
                   width: "auto",
                   content: $("<div></div>")
                     .append(
-                      n("va-" + i.GText.VerticalAlign.Top)
+                      n("va-" + GCore.GText.VerticalAlign.Top)
                         .addClass("g-group-start")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey("GAlignAction", "title.align-top")
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey("GAlignAction", "title.align-top")
                           )
                         )
                     )
                     .append(
-                      n("va-" + i.GText.VerticalAlign.Middle)
+                      n("va-" + GCore.GText.VerticalAlign.Middle)
                         .addClass("g-group-element")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAlignAction",
                               "title.align-middle"
                             )
@@ -1322,12 +1322,12 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      n("va-" + i.GText.VerticalAlign.Bottom)
+                      n("va-" + GCore.GText.VerticalAlign.Bottom)
                         .addClass("g-group-end")
                         .attr(
                           "data-title",
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAlignAction",
                               "title.align-bottom"
                             )
@@ -1341,27 +1341,27 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("spacing-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.spacing")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.spacing")
               ),
               columns: [
                 {
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.char")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.char")
                   ),
                   width: "30%",
                   content: n("_tcs"),
                 },
                 {
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.word")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.word")
                   ),
                   width: "30%",
                   content: n("_tws"),
                 },
                 {
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.line")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.line")
                   ),
                   width: "40%",
                   content: n("_plh"),
@@ -1373,22 +1373,22 @@ function (exports, module, require) {
           (this._sizingBlock = $("<div></div>")
             .addClass("sizing-properties")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.sizing")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.sizing")
               ),
               columns: [
                 {
                   width: "50%",
                   content: n("aw"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GCommonNames", "text.width")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.width")
                   ),
                 },
                 {
                   width: "50%",
                   content: n("ah"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GCommonNames", "text.height")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.height")
                   ),
                 },
               ],
@@ -1396,8 +1396,8 @@ function (exports, module, require) {
             .appendTo(e)),
           (this._scriptBlock = $("<div></div>")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.script")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.script")
               ),
               columns: [
                 { width: "50%", content: n("dir") },
@@ -1412,29 +1412,29 @@ function (exports, module, require) {
             .appendTo(this._panel)),
           $("<div></div>")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTextProperties", "text.on-path")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTextProperties", "text.on-path")
               ),
               columns: [
                 {
                   width: "30%",
                   content: n("tpths"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GCommonNames", "text.outside")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.outside")
                   ),
                 },
                 {
                   width: "30%",
                   content: n("tpthd"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.reverse")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.reverse")
                   ),
                 },
                 {
                   width: "40%",
                   content: n("tptho"),
-                  label: i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.distance")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.distance")
                   ),
                 },
               ],
@@ -1444,16 +1444,16 @@ function (exports, module, require) {
             $(t).attr("tabindex", -1);
           }),
           this._reInitLayout(),
-          gDesigner.addEventListener(u, this._touchChanged, this);
+          gDesigner.addEventListener(GSettingChangedEvent, this._touchChanged, this);
       }),
       (v.prototype._createLanguageSelector = function () {
         return $("<select/>")
           .attr("data-property", "_tlocl")
           .gPro()
-          .on("mousedown", r.watchDog.trap())
+          .on("mousedown", CollaborationMergeUtils.watchDog.trap())
           .on(
             "change",
-            r.watchDog.trap((e) => {
+            CollaborationMergeUtils.watchDog.trap((e) => {
               const module = $(e.target).closest("select").val();
               this._assignProperties(["_tlocl"], [module || null]),
                 gDesigner.stats("textproperties_change_language");
@@ -1464,10 +1464,10 @@ function (exports, module, require) {
         return $("<select/>")
           .attr("data-property", "_tstyls")
           .gPro()
-          .on("mousedown", r.watchDog.trap())
+          .on("mousedown", CollaborationMergeUtils.watchDog.trap())
           .on(
             "change",
-            r.watchDog.trap((e) => {
+            CollaborationMergeUtils.watchDog.trap((e) => {
               const module = $(e.target).closest("select").val();
               this._assignProperties(["_tstyls"], [module || null]),
                 gDesigner.stats("textproperties_change_stylistic-set");
@@ -1493,8 +1493,8 @@ function (exports, module, require) {
           .attr("data-action", "text-settings")
           .attr(
             "data-title",
-            i.GLocale.get(
-              new i.GLocaleKey("GTextProperties", "text.advanced-text-settings")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GTextProperties", "text.advanced-text-settings")
             )
           )
           .append($("<span></span>").addClass("gravit-icon-settings"))
@@ -1508,14 +1508,14 @@ function (exports, module, require) {
           .gPro()
           .gRichTooltip(
             s.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTextProperties",
                   "text.advanced-properties-icon-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTextProperties",
                   "text.advanced-properties-icon-tooltip-description"
                 )
@@ -1536,58 +1536,58 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                i.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                o.GEditor.InlineEditorEvent,
+                GTools.GEditor.InlineEditorEvent,
                 this._inlineEditorEvent
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                o.GEditor.HotkeyEvent,
+                GTools.GEditor.HotkeyEvent,
                 this._hotKeyEvent,
                 this
               ),
-            gDesigner.removeEventListener(u, this._settingChanged),
+            gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged),
             (this._document = null)),
           (this._text = []),
           e)
         ) {
-          for (var a = false, r = 0; r < t.length; ++r)
-            t[r] instanceof i.GText
-              ? this._text.push(t[r])
-              : t[r] instanceof i.GStyle &&
-                t[r].getProperty("_sdf") === i.GObject.getTypeId(i.GText) &&
-                (this._text.push(t[r]), (a = true));
+          for (var a = false, CollaborationMergeUtils = 0; CollaborationMergeUtils < t.length; ++CollaborationMergeUtils)
+            t[CollaborationMergeUtils] instanceof GCore.GText
+              ? this._text.push(t[CollaborationMergeUtils])
+              : t[CollaborationMergeUtils] instanceof GCore.GStyle &&
+                t[CollaborationMergeUtils].getProperty("_sdf") === GCore.GObject.getTypeId(GCore.GText) &&
+                (this._text.push(t[CollaborationMergeUtils]), (a = true));
           if ((this._text.length && this._text.length === t.length) || a)
             return (
               (this._document = e),
               this._document
                 .getScene()
                 .addEventListener(
-                  i.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
               this._document
                 .getEditor()
                 .addEventListener(
-                  o.GEditor.InlineEditorEvent,
+                  GTools.GEditor.InlineEditorEvent,
                   this._inlineEditorEvent,
                   this
                 ),
               this._document
                 .getEditor()
                 .addEventListener(
-                  o.GEditor.HotkeyEvent,
+                  GTools.GEditor.HotkeyEvent,
                   this._hotKeyEvent,
                   this
                 ),
-              gDesigner.addEventListener(u, this._settingChanged, this),
+              gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
               this._updateProperties(n),
               this._advancedSettingsButton.css("display", ""),
               true
@@ -1622,34 +1622,34 @@ function (exports, module, require) {
         !e.temporary &&
           module &&
           (module === e.node ||
-            module instanceof i.GStyle ||
-            (module instanceof i.GText && module.getContent() === e.node)) &&
+            module instanceof GCore.GStyle ||
+            (module instanceof GCore.GText && module.getContent() === e.node)) &&
           (this._updateProperties(),
-          module instanceof i.GText &&
+          module instanceof GCore.GText &&
             module.hasEmbeddedFonts() &&
             this._document.getEditor().closeInlineEditor());
       }),
       (v.prototype._hotKeyEvent = function (e) {
         const module = { B: "bold", I: "italic", U: "underline", S: "strikeout" },
-          [require, o, ...i] = e.keys;
+          [require, GTools, ...i] = e.keys;
         !require ||
           require !== a.GKey.Constant.CONTROL ||
-          !(o in module) ||
-          (i && i.length) ||
-          gDesigner.stats("textproperties_hotkey_change-decoration", module[o]);
+          !(GTools in module) ||
+          (GCore && GCore.length) ||
+          gDesigner.stats("textproperties_hotkey_change-decoration", module[GTools]);
       }),
       (v.prototype._inlineEditorEvent = function (e) {
         switch (e.type) {
-          case o.GEditor.InlineEditorEvent.Type.AfterOpen:
-          case o.GEditor.InlineEditorEvent.Type.AfterClose:
-          case o.GEditor.InlineEditorEvent.Type.SelectionChanged:
+          case GTools.GEditor.InlineEditorEvent.Type.AfterOpen:
+          case GTools.GEditor.InlineEditorEvent.Type.AfterClose:
+          case GTools.GEditor.InlineEditorEvent.Type.SelectionChanged:
             this._updateProperties();
             break;
-          case o.GEditor.InlineEditorEvent.Type.TryOpen:
+          case GTools.GEditor.InlineEditorEvent.Type.TryOpen:
             this._tryOpenInlineEditor();
             break;
-          case o.GEditor.InlineEditorEvent.Type.BeforeClose:
-          case o.GEditor.InlineEditorEvent.Type.TextEdited:
+          case GTools.GEditor.InlineEditorEvent.Type.BeforeClose:
+          case GTools.GEditor.InlineEditorEvent.Type.TextEdited:
             this._tryModifyingInitialFont(
               e.type,
               e.data && e.data.wasModifiedBefore
@@ -1660,16 +1660,16 @@ function (exports, module, require) {
         if (this._document && this._text && 1 === this._text.length) {
           var require = this._text[0];
           if (!require.getProperty("_we")) {
-            var a = require instanceof i.GText && require.getTLCore();
+            var a = require instanceof GCore.GText && require.getTLCore();
             if (
               a &&
-              ((e === o.GEditor.InlineEditorEvent.Type.BeforeClose &&
+              ((e === GTools.GEditor.InlineEditorEvent.Type.BeforeClose &&
                 a.getWasEdited()) ||
-                (e === o.GEditor.InlineEditorEvent.Type.TextEdited && !t))
+                (e === GTools.GEditor.InlineEditorEvent.Type.TextEdited && !t))
             ) {
-              var r = a.getDocumentRange().plainText(),
-                s = c.getProviderInstance(d).getDefaultFamilyForString(r),
-                l =
+              var CollaborationMergeUtils = a.getDocumentRange().plainText(),
+                s = barrel_sidebars.getProviderInstance(barrel_editor_actions).getDefaultFamilyForString(CollaborationMergeUtils),
+                GProperties =
                   gDesigner.getWorkspace() &&
                   gDesigner.getWorkspace().getFontManager() &&
                   gDesigner.getWorkspace().getFontManager().getDefaultFont() &&
@@ -1678,10 +1678,10 @@ function (exports, module, require) {
                     .getFontManager()
                     .getDefaultFont()
                     .getFamily();
-              if (s && l && l !== s) {
-                var u = i.GOpenTypeFont.getDirectionForString(r);
-                u !== i.GTLDirectionTextTransformer.LTR
-                  ? require.setProperties(["_tff", "dir"], [s, u])
+              if (s && GProperties && GProperties !== s) {
+                var GSettingChangedEvent = GCore.GOpenTypeFont.getDirectionForString(CollaborationMergeUtils);
+                GSettingChangedEvent !== GCore.GTLDirectionTextTransformer.LTR
+                  ? require.setProperties(["_tff", "dir"], [s, GSettingChangedEvent])
                   : require.setProperty("_tff", s);
               }
             }
@@ -1697,11 +1697,11 @@ function (exports, module, require) {
         ) {
           var exports = this._text[0];
           exports.isFakeText() &&
-            p.confirm(
-              i.GLocale.get(new i.GLocaleKey("GTextProperties", "text.edit")),
+            GSystemDialog.confirm(
+              GCore.GLocale.get(new GCore.GLocaleKey("GTextProperties", "text.edit")),
               (t) => {
                 if (t) {
-                  o.GEditor.tryRunTransaction(
+                  GTools.GEditor.tryRunTransaction(
                     exports,
                     () => {
                       exports.replaceFonts(
@@ -1727,8 +1727,8 @@ function (exports, module, require) {
                   }
                 }
               },
-              i.GLocale.get(new i.GLocaleKey("GLocale", "no")),
-              i.GLocale.get(new i.GLocaleKey("GLocale", "yes"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "no")),
+              GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "yes"))
             );
         }
       }),
@@ -1747,41 +1747,41 @@ function (exports, module, require) {
         const a = function (t) {
           let require;
           if (
-            (t instanceof o.GTextEditor
+            (t instanceof GTools.GTextEditor
               ? (require = t.getElement())
-              : t instanceof i.GText && (require = t),
+              : t instanceof GCore.GText && (require = t),
             require)
           ) {
             const t = require.getTLCore();
             if (t) {
-              let i;
-              const a = o.GElementEditor.getEditor(require);
+              let GCore;
+              const a = GTools.GElementEditor.getEditor(require);
               if (
-                ((i =
+                ((GCore =
                   a && a.isInlineEdit()
                     ? t.selectedRange()
                     : t.getDocumentRange()),
-                i)
+                GCore)
               )
-                return i.getFormatting()[e];
+                return GCore.getFormatting()[e];
             }
           }
           return null;
         };
-        let r = a(t[0]);
-        for (let e = 1; e < require; e++) if (a(t[e]) !== r) return null;
-        return r;
+        let CollaborationMergeUtils = a(t[0]);
+        for (let e = 1; e < require; e++) if (a(t[e]) !== CollaborationMergeUtils) return null;
+        return CollaborationMergeUtils;
       }),
       (v.prototype._getProperty = function (e, t, n) {
-        var o = t.length;
-        if (0 == o) return null;
-        for (var i = t[0].getProperty(e), a = 1; a < o; a++)
-          if (t[a].getProperty(e) !== i) return null;
-        return i || !isNaN(i) ? i : 3 === arguments.length ? n : i;
+        var GTools = t.length;
+        if (0 == GTools) return null;
+        for (var GCore = t[0].getProperty(e), a = 1; a < GTools; a++)
+          if (t[a].getProperty(e) !== GCore) return null;
+        return GCore || !isNaN(GCore) ? GCore : 3 === arguments.length ? n : GCore;
       }),
       (v.prototype._getFontColor = function (e) {
-        var t = e[0] instanceof o.GElementEditor ? e[0].getElement() : e[0];
-        if (!(t && t instanceof i.GText)) return null;
+        var t = e[0] instanceof GTools.GElementEditor ? e[0].getElement() : e[0];
+        if (!(t && t instanceof GCore.GText)) return null;
         var n = t.getTLCore().getRichContent();
         return n && n.length
           ? t._getGravitValue("fontColor", n[0].fontColor)
@@ -1791,28 +1791,28 @@ function (exports, module, require) {
         var t,
           n = (ye = gDesigner.getWorkspace().getFontManager()).getDefaultFont(),
           a = null,
-          r = null;
+          CollaborationMergeUtils = null;
         if (!n) return;
         t = [];
         for (var s = 0; s < this._text.length; s++) {
-          var l = o.GElementEditor.getEditor(this._text[s]);
-          t.push(l || this._text[s]);
+          var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
+          t.push(GProperties || this._text[s]);
         }
-        var c = this._panel.find('input[data-property="fontSet"]');
-        c.length && c.prop("checked", gDesigner.getSetting("font-set"), false);
-        var d = this._getFormatting("underline", t) || null,
-          u = this._getFormatting("strikeout", t) || null,
-          p = this._getFormatting("fractions", t) || false,
+        var barrel_sidebars = this._panel.find('input[data-property="fontSet"]');
+        barrel_sidebars.length && barrel_sidebars.prop("checked", gDesigner.getSetting("font-set"), false);
+        var barrel_editor_actions = this._getFormatting("underline", t) || null,
+          GSettingChangedEvent = this._getFormatting("strikeout", t) || null,
+          GSystemDialog = this._getFormatting("fractions", t) || false,
           h = this._getFormatting("listMarker", t) || null,
           f = this._getProperty(
             "_pai",
             t,
-            i.GStylable.PropertySetInfo.P.geometryProperties._pai
+            GCore.GStylable.PropertySetInfo.P.geometryProperties._pai
           ),
           v = this._getProperty(
             "_pas",
             t,
-            i.GStylable.PropertySetInfo.P.geometryProperties._pas
+            GCore.GStylable.PropertySetInfo.P.geometryProperties._pas
           ),
           _ = (this._getProperty("_tv", t), this._getProperty("_tlsc", t)),
           b = this._getProperty("_ttsc", t),
@@ -1841,7 +1841,7 @@ function (exports, module, require) {
           K =
             j &&
             j.isInlineEditing() &&
-            j.getCurrentInlineEditorNode() instanceof i.GText,
+            j.getCurrentInlineEditorNode() instanceof GCore.GText,
           V = t.every(function (e) {
             return e.hasPathAttached && e.hasPathAttached();
           });
@@ -1849,15 +1849,15 @@ function (exports, module, require) {
           .find('[data-property^="_ttsc"]')
           .each(function (e, t) {
             var n = $(t),
-              o = n.attr("data-property").substr("_ttsc-".length);
-            n.toggleClass("g-active", b === o);
+              GTools = n.attr("data-property").substr("_ttsc-".length);
+            n.toggleClass("g-active", b === GTools);
           }),
           this._advancedSettings
             .find('[data-property^="_ttrf"]')
             .each(function (e, t) {
               var n = $(t),
-                o = n.attr("data-property").substr("_ttrf-".length);
-              n.toggleClass("g-active", w === o);
+                GTools = n.attr("data-property").substr("_ttrf-".length);
+              n.toggleClass("g-active", w === GTools);
             }),
           this._advancedSettings
             .find('[data-property="_pai"]')
@@ -1880,7 +1880,7 @@ function (exports, module, require) {
             this._advancedSettings
               .find('[data-property="_pas"]')
               .val(
-                i.GUtil.formatNumber(
+                GCore.GUtil.formatNumber(
                   100 * v,
                   this._document.getScene().getOptimalDecimalsCount()
                 )
@@ -1892,7 +1892,7 @@ function (exports, module, require) {
               .find('[data-property="_pas"]')
               .val(e.pointToString(v, e.getOptimalDecimalsCount()));
         } else this._advancedSettings.find('[data-property="_pas"]').val("");
-        var W = T || i.GText.VerticalAlign.Top,
+        var W = T || GCore.GText.VerticalAlign.Top,
           z = this._panel.find('button[data-property^="va"]');
         z.each(function (e, t) {
           var n = $(t);
@@ -1926,10 +1926,10 @@ function (exports, module, require) {
           q.closest(".g-property-row").css("display", V ? "none" : ""),
           this._panel
             .find('input[data-property="tpthd"]')
-            .prop("checked", O === i.GTLPathTextTransformer.DIRECTION_OUTWARDS),
+            .prop("checked", O === GCore.GTLPathTextTransformer.DIRECTION_OUTWARDS),
           this._panel
             .find('input[data-property="tpths"]')
-            .prop("checked", F === i.GTLPathTextTransformer.OUTSIDE),
+            .prop("checked", F === GCore.GTLPathTextTransformer.OUTSIDE),
           this._panel
             .find('input[data-property="tptho"]')
             .val(R)
@@ -1949,13 +1949,13 @@ function (exports, module, require) {
           let a;
           if (
             ((a =
-              e instanceof o.GTextEditor
+              e instanceof GTools.GTextEditor
                 ? e.getFonts()
                 : [e.getProperty("_tff")]),
             1 == t.length)
           ) {
-            var ie = e instanceof o.GTextEditor ? e.getElement() : e;
-            if (ie instanceof i.GText) {
+            var ie = e instanceof GTools.GTextEditor ? e.getElement() : e;
+            if (ie instanceof GCore.GText) {
               var ae = ie.hasFontsToResolve();
               if (ae && ae.length && ie.isFakeText()) {
                 var re = ae[0].getFamily();
@@ -1988,7 +1988,7 @@ function (exports, module, require) {
             ce = null;
           let e;
           e =
-            t[s] instanceof o.GTextEditor
+            t[s] instanceof GTools.GTextEditor
               ? t[s].getFonts()
               : [t[s].getProperty("_tff") || n.getFamily()];
           for (se = 0; se < e.length; se++) {
@@ -1996,7 +1996,7 @@ function (exports, module, require) {
             let t;
             de === n.getFamily()
               ? ((le = ye.getDefaultFontWeights()),
-                (le = i.GUtil.unique(le)),
+                (le = GCore.GUtil.unique(le)),
                 (ce = le.map(function (e) {
                   return {
                     weight: e,
@@ -2010,26 +2010,26 @@ function (exports, module, require) {
                   (le = await J.gFontsPanel("weightsForFont", de, X)) &&
                   (X = null),
                 (le = le || []),
-                (le = i.GUtil.unique(le)),
+                (le = GCore.GUtil.unique(le)),
                 (ce = le.map(function (e) {
                   for (
                     var t = J.gFontsPanel("stylesForWeight", e, de),
                       n = J.gFontsPanel("subfamiliesForWeight", e, de),
-                      o = 0;
-                    o < n.length;
-                    o++
+                      GTools = 0;
+                    GTools < n.length;
+                    GTools++
                   )
-                    t[o] =
-                      t[o] +
+                    t[GTools] =
+                      t[GTools] +
                       m +
-                      (ee ? n[o].realName : "") +
+                      (ee ? n[GTools].realName : "") +
                       m +
-                      (n[o].subFamily || "");
+                      (n[GTools].subFamily || "");
                   return { weight: e, styles: t };
                 }))),
-              (a = i.GUtil.unique(this._intersectArrays(a, le))),
-              r
-                ? ((t = r),
+              (a = GCore.GUtil.unique(this._intersectArrays(a, le))),
+              CollaborationMergeUtils
+                ? ((t = CollaborationMergeUtils),
                   (t = t.filter((e) => {
                     if (a.indexOf(e.weight) >= 0) {
                       var t = ce.find((t) => t.weight === e.weight);
@@ -2037,14 +2037,14 @@ function (exports, module, require) {
                       var n = [];
                       if (
                         ((e.styles = e.styles.filter((e) => {
-                          var o = e.split(m)[0];
-                          if (o && o.length) {
-                            var i = t.styles.find((e) => {
-                              if (e.startsWith(o)) return true;
+                          var GTools = e.split(m)[0];
+                          if (GTools && GTools.length) {
+                            var GCore = t.styles.find((e) => {
+                              if (e.startsWith(GTools)) return true;
                             });
-                            if (i)
-                              return i !== e
-                                ? (n.push(o + m + m), true)
+                            if (GCore)
+                              return GCore !== e
+                                ? (n.push(GTools + m + m), true)
                                 : (n.push(e), true);
                           }
                         })),
@@ -2056,7 +2056,7 @@ function (exports, module, require) {
                     return false;
                   })))
                 : (t = ce.filter((e) => a.indexOf(e.weight) >= 0)),
-              (r = t);
+              (CollaborationMergeUtils = t);
           }
         }
         Z ? Q.val(Z) : Q.val(ne),
@@ -2066,36 +2066,36 @@ function (exports, module, require) {
             .gUnitBox({
               unit:
                 this._document &&
-                this._document.getScene().$ut === i.GLength.Unit.PX
-                  ? i.GLength.Unit.PX
-                  : i.GLength.Unit.PT,
+                this._document.getScene().$ut === GCore.GLength.Unit.PX
+                  ? GCore.GLength.Unit.PX
+                  : GCore.GLength.Unit.PT,
               list: [6, 7, 8, 9, 10, 11, 12, 14, 18, 21, 24, 36, 48, 60, 72],
               source: "text",
             })
             .gUnitBox(
               "value",
-              null !== G ? new i.GLength(G, i.GLength.Unit.PT) : null
+              null !== G ? new GCore.GLength(G, GCore.GLength.Unit.PT) : null
             ),
           this._panel.find('[data-property="_fc"]').gPatternChooser("value", P);
         var ue = this._panel.find('select[data-property="style"]');
         ue.empty(),
-          (r && r.length) ||
-            (r = [{ weight: 400, styles: [i.GFont.Style.Normal] }]),
+          (CollaborationMergeUtils && CollaborationMergeUtils.length) ||
+            (CollaborationMergeUtils = [{ weight: 400, styles: [GCore.GFont.Style.Normal] }]),
           (a && a.length) || (a = [400]);
         for (s = 100; s <= 900; s += 100)
           if (a.indexOf(s) >= 0) {
-            for (var pe = null, ge = 0; ge < r.length; ge++)
-              if (r[ge].weight === s) {
-                pe = r[ge].styles;
+            for (var pe = null, ge = 0; ge < CollaborationMergeUtils.length; ge++)
+              if (CollaborationMergeUtils[ge].weight === s) {
+                pe = CollaborationMergeUtils[ge].styles;
                 break;
               }
             for (ge = 0; pe && ge < pe.length; ge++) {
               let e;
               var he = pe[ge].split(m);
               (e =
-                he[0] === i.GFont.Style.Italic
-                  ? i.GLocale.get(i.GFont.WeightNameItalic[s])
-                  : i.GLocale.get(i.GFont.WeightName[s])),
+                he[0] === GCore.GFont.Style.Italic
+                  ? GCore.GLocale.get(GCore.GFont.WeightNameItalic[s])
+                  : GCore.GLocale.get(GCore.GFont.WeightName[s])),
                 he[2] &&
                   he[2].length &&
                   0 != e.indexOf(he[2]) &&
@@ -2107,7 +2107,7 @@ function (exports, module, require) {
         this._advancedSettings
           .find(
             '[data-property="_ttrf-'.concat(
-              i.GStylable.TextTransformation.SmallCaps,
+              GCore.GStylable.TextTransformation.SmallCaps,
               '"]'
             )
           )
@@ -2120,14 +2120,14 @@ function (exports, module, require) {
             .toggleClass("g-active", true === U),
           this._advancedSettings
             .find('[data-property="typography-fractions"]')
-            .toggleClass("g-active", true === p);
+            .toggleClass("g-active", true === GSystemDialog);
         var me = this._panel.find('select[data-property="_tlsc"]');
         me.empty(),
           me.append(
             $("<option></option>")
               .attr("value", "auto")
               .text(
-                i.GLocale.get(new i.GLocaleKey("GTextProperties", "text.auto"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GTextProperties", "text.auto"))
               )
           );
         var ye,
@@ -2137,11 +2137,11 @@ function (exports, module, require) {
             C
           );
         if (ve.isResolved()) {
-          ve.hasFeature(i.GFont.Features.SmallCaps) ||
+          ve.hasFeature(GCore.GFont.Features.SmallCaps) ||
             this._advancedSettings
               .find(
                 '[data-property="_ttrf-'.concat(
-                  i.GStylable.TextTransformation.SmallCaps,
+                  GCore.GStylable.TextTransformation.SmallCaps,
                   '"]'
                 )
               )
@@ -2157,8 +2157,8 @@ function (exports, module, require) {
                   $("<option></option>")
                     .attr("value", _e[s])
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GTextProperties",
                           "text.".concat(be.toLowerCase())
                         ),
@@ -2176,31 +2176,31 @@ function (exports, module, require) {
                 let t = [],
                   n = e.getProperty("_tff"),
                   a = e.getProperty("_tfs"),
-                  r = e.getProperty("_tfw");
-                if (e instanceof o.GTextEditor && !n) {
-                  const o = e.getElement().getContent();
-                  if (o) {
-                    const s = i.GText.PropertyMapping._tff,
-                      l = i.GText.PropertyMapping._tfs,
-                      c = i.GText.PropertyMapping._tfw;
-                    t = o
+                  CollaborationMergeUtils = e.getProperty("_tfw");
+                if (e instanceof GTools.GTextEditor && !n) {
+                  const GTools = e.getElement().getContent();
+                  if (GTools) {
+                    const s = GCore.GText.PropertyMapping._tff,
+                      GProperties = GCore.GText.PropertyMapping._tfs,
+                      barrel_sidebars = GCore.GText.PropertyMapping._tfw;
+                    t = GTools
                       .map(
                         (t) => (
                           (n = e.getElement()._getGravitValue(s, t[s])),
-                          (a = e.getElement()._getGravitValue(l, t[l])),
-                          (r = e.getElement()._getGravitValue(c, t[c])),
-                          n && a && r ? ye.getFont(n, a, r, false) : null
+                          (a = e.getElement()._getGravitValue(GProperties, t[GProperties])),
+                          (CollaborationMergeUtils = e.getElement()._getGravitValue(barrel_sidebars, t[barrel_sidebars])),
+                          n && a && CollaborationMergeUtils ? ye.getFont(n, a, CollaborationMergeUtils, false) : null
                         )
                       )
                       .filter((e) => !!e);
                   }
-                } else n && a && r && (t = [ye.getFont(n, a, r, false)]);
+                } else n && a && CollaborationMergeUtils && (t = [ye.getFont(n, a, CollaborationMergeUtils, false)]);
                 return t;
               })
               .reduce((e, t) => e.concat(t), [])
           ),
         ].every(
-          (e) => e && e.isResolved() && e.hasFeature(i.GFont.Features.Fractions)
+          (e) => e && e.isResolved() && e.hasFeature(GCore.GFont.Features.Fractions)
         ) ||
           this._advancedSettings
             .find('[data-property="typography-fractions"]')
@@ -2217,61 +2217,61 @@ function (exports, module, require) {
         ue.val()) ||
           (this._text.some(
             (e) =>
-              e instanceof i.GText &&
+              e instanceof GCore.GText &&
               (g.multipleValues ===
                 e.getTLCore().getDocumentRange().getFormatting()[
-                  i.GText.PropertyMapping._tfw
+                  GCore.GText.PropertyMapping._tfw
                 ] ||
                 g.multipleValues ===
                   e.getTLCore().getDocumentRange().getFormatting()[
-                    i.GText.PropertyMapping._tfs
+                    GCore.GText.PropertyMapping._tfs
                   ])
           )
             ? ($("<option></option>")
                 .attr("value", "mixed")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GTextProperties", "text.mixed")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GTextProperties", "text.mixed")
                   )
                 )
                 .appendTo(ue),
               ue.val("mixed"))
             : ue.val(Ce));
-        let xe = a.indexOf(i.GFont.Weight.Bold) >= 0;
-        (C && parseInt(C) === i.GFont.Weight.Bold) ||
+        let xe = a.indexOf(GCore.GFont.Weight.Bold) >= 0;
+        (C && parseInt(C) === GCore.GFont.Weight.Bold) ||
           (x &&
-            x === i.GFont.Style.Italic &&
-            (xe = r.some((e) => {
+            x === GCore.GFont.Style.Italic &&
+            (xe = CollaborationMergeUtils.some((e) => {
               let { weight: t, styles: n } = e;
               return (
-                t === i.GFont.Weight.Bold &&
-                n.some((e) => 0 === e.indexOf(i.GFont.Style.Italic))
+                t === GCore.GFont.Weight.Bold &&
+                n.some((e) => 0 === e.indexOf(GCore.GFont.Style.Italic))
               );
             }))),
           this._panel
             .find('[data-property="decoration-bold"]')
             .toggleClass(
               "g-active",
-              xe && !!C && parseInt(C) === i.GFont.Weight.Bold
+              xe && !!C && parseInt(C) === GCore.GFont.Weight.Bold
             )
             .prop("disabled", !xe);
-        const Se = r.some((e) => {
+        const Se = CollaborationMergeUtils.some((e) => {
           let { weight: t, styles: n } = e;
           return (
-            t === parseInt(C || i.GFont.Weight.Regular) &&
-            n.some((e) => 0 === e.indexOf(i.GFont.Style.Italic))
+            t === parseInt(C || GCore.GFont.Weight.Regular) &&
+            n.some((e) => 0 === e.indexOf(GCore.GFont.Style.Italic))
           );
         });
         this._panel
           .find('[data-property="decoration-italic"]')
-          .toggleClass("g-active", Se && !!x && x === i.GFont.Style.Italic)
+          .toggleClass("g-active", Se && !!x && x === GCore.GFont.Style.Italic)
           .prop("disabled", !Se),
           this._panel
             .find('[data-property="decoration-underline"]')
-            .toggleClass("g-active", 1 == d),
+            .toggleClass("g-active", 1 == barrel_editor_actions),
           this._panel
             .find('[data-property="decoration-strikeout"]')
-            .toggleClass("g-active", 1 == u),
+            .toggleClass("g-active", 1 == GSettingChangedEvent),
           this._panel
             .find('input[data-property="_tws"]')
             .val(
@@ -2296,7 +2296,7 @@ function (exports, module, require) {
                     )
                 : "0"
             );
-        var Ee = I || i.GStylable.ParagraphAlignment.Left,
+        var Ee = I || GCore.GStylable.ParagraphAlignment.Left,
           Ae = this._panel.find('button[data-property^="_pal"]');
         Ae.each(function (e, t) {
           var n = $(t);
@@ -2309,7 +2309,7 @@ function (exports, module, require) {
           Ge.text("%"),
             this._panel
               .find('input[data-property="_plh"]')
-              .val(i.GUtil.formatNumber(100 * Te));
+              .val(GCore.GUtil.formatNumber(100 * Te));
         else if ("string" == typeof Te || Te instanceof String) {
           const e = this._document.getScene();
           var Pe = e.getProperty("ut");
@@ -2320,8 +2320,8 @@ function (exports, module, require) {
         } else this._panel.find('input[data-property="_plh"]').val("");
         if (
           (e &&
-            (e.evtType == o.GEditor.ModifiedEvent.Type.Undo ||
-              e.evtType == o.GEditor.ModifiedEvent.Type.Redo) &&
+            (e.evtType == GTools.GEditor.ModifiedEvent.Type.Undo ||
+              e.evtType == GTools.GEditor.ModifiedEvent.Type.Redo) &&
             e.chooserOn &&
             e.textPattern &&
             this._panel
@@ -2366,38 +2366,38 @@ function (exports, module, require) {
           this._updateStylisticSetSelector(ve, _, B);
       }),
       (v.prototype._updateLanguageSelector = function (e, t, n) {
-        const o = this._advancedSettings
+        const GTools = this._advancedSettings
           .find('select[data-property="_tlocl"]')
           .empty()
           .attr("disabled", true)
           .addClass("g-disabled");
-        if (!e.isResolved() || !e.hasFeature(i.GFont.Features.LocalizedForm))
+        if (!e.isResolved() || !e.hasFeature(GCore.GFont.Features.LocalizedForm))
           return;
         let a = null;
         t &&
           "auto" !== t &&
-          (a = i.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
-        const r = e.getAvailableLanguageSystemTags(a);
-        if (r && 0 !== r.length)
+          (a = GCore.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
+        const CollaborationMergeUtils = e.getAvailableLanguageSystemTags(a);
+        if (CollaborationMergeUtils && 0 !== CollaborationMergeUtils.length)
           if (
-            (o.attr("disabled", false).removeClass("g-disabled"),
-            o.append(
+            (GTools.attr("disabled", false).removeClass("g-disabled"),
+            GTools.append(
               $("<option/>")
                 .attr("value", "")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GCommonNames", "text.default")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.default")
                   )
                 )
             ),
-            o.append(
-              r
+            GTools.append(
+              CollaborationMergeUtils
                 .map((e) => {
                   const t =
-                    i.GOpenTypeFont.openTypeLanguageSystemTagStringToBCP47(e);
+                    GCore.GOpenTypeFont.openTypeLanguageSystemTagStringToBCP47(e);
                   return {
-                    name: i.GLocale.get(
-                      new i.GLocaleKey(
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBCP47LanguageTags",
                         "text.lang.".concat(t)
                       )
@@ -2413,103 +2413,103 @@ function (exports, module, require) {
             ),
             n)
           )
-            o.val(n);
+            GTools.val(n);
           else {
             this._hasMultipleLanguages() &&
-              (o.append(
+              (GTools.append(
                 $("<option/>")
                   .attr("value", "mixed")
                   .attr("hidden", true)
                   .attr("disabled", true)
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.mixed")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.mixed")
                     )
                   )
               ),
-              o.val("mixed"));
+              GTools.val("mixed"));
           }
       }),
       (v.prototype._updateStylisticSetSelector = function (e, t, n) {
-        const o = this._advancedSettings
+        const GTools = this._advancedSettings
           .find('select[data-property="_tstyls"]')
           .empty()
           .attr("disabled", true)
           .addClass("g-disabled");
-        if (!e.isResolved() || !e.hasFeature(i.GFont.Features.StylisticSet))
+        if (!e.isResolved() || !e.hasFeature(GCore.GFont.Features.StylisticSet))
           return;
         let a = null;
         t &&
           "auto" !== t &&
-          (a = i.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
-        const r = e.getAvailableStylisticSets(a);
-        if (r && 0 !== r.length)
+          (a = GCore.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
+        const CollaborationMergeUtils = e.getAvailableStylisticSets(a);
+        if (CollaborationMergeUtils && 0 !== CollaborationMergeUtils.length)
           if (
-            (o.attr("disabled", false).removeClass("g-disabled"),
-            o.append(
+            (GTools.attr("disabled", false).removeClass("g-disabled"),
+            GTools.append(
               $("<option/>")
                 .attr("value", "")
                 .text(
-                  i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.none"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.none"))
                 )
             ),
-            o.append(
-              r.map((e) =>
+            GTools.append(
+              CollaborationMergeUtils.map((e) =>
                 $("<option/>").attr("value", e).text(e.toUpperCase())
               )
             ),
             n)
           )
-            o.val(n);
+            GTools.val(n);
           else {
             this._hasMultipleStylisticSets() &&
-              (o.append(
+              (GTools.append(
                 $("<option/>")
                   .attr("value", "mixed")
                   .attr("hidden", true)
                   .attr("disabled", true)
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GTextProperties", "text.mixed")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GTextProperties", "text.mixed")
                     )
                   )
               ),
-              o.val("mixed"));
+              GTools.val("mixed"));
           }
       }),
       (v.prototype._hasMultipleLanguages = function () {
-        return this._hasMultipleValues(i.GText.PropertyMapping._tlocl);
+        return this._hasMultipleValues(GCore.GText.PropertyMapping._tlocl);
       }),
       (v.prototype._hasMultipleStylisticSets = function () {
-        return this._hasMultipleValues(i.GText.PropertyMapping._tstyls);
+        return this._hasMultipleValues(GCore.GText.PropertyMapping._tstyls);
       }),
       (v.prototype._hasMultipleValues = function (e) {
         return this._text.some((t) => {
-          if (t instanceof i.GText) {
+          if (t instanceof GCore.GText) {
             const n = t.getTLCore().getDocumentRange().getFormatting()[e];
             return g.multipleValues === n;
           }
         });
       }),
       (v.prototype._correctStyleAndWeight = async function (e, t, n) {
-        var o = null,
+        var GTools = null,
           a = null,
-          r = gDesigner.getWorkspace().getFontManager(),
-          s = r.getDefaultFont(),
-          l = this._panel
+          CollaborationMergeUtils = gDesigner.getWorkspace().getFontManager(),
+          s = CollaborationMergeUtils.getDefaultFont(),
+          GProperties = this._panel
             .find('input[data-property="_tff"]')
             .gFontsButton("getFontList"),
-          c = false;
+          barrel_sidebars = false;
         if (
           (e === s.getFamily()
             ? (a =
-                (o = r.getDefaultFontWeights()) &&
-                o.map(function (e) {
-                  return { weight: e, styles: r.getDefaultFontStyles() };
+                (GTools = CollaborationMergeUtils.getDefaultFontWeights()) &&
+                GTools.map(function (e) {
+                  return { weight: e, styles: CollaborationMergeUtils.getDefaultFontStyles() };
                 }))
-            : l &&
+            : GProperties &&
               (a =
-                (o = await l.gFontsPanel(
+                (GTools = await GProperties.gFontsPanel(
                   "weightsForFont",
                   e,
                   function () {
@@ -2517,10 +2517,10 @@ function (exports, module, require) {
                   },
                   true
                 )) &&
-                o.map(function (t) {
+                GTools.map(function (t) {
                   return {
                     weight: t,
-                    styles: l.gFontsPanel(
+                    styles: GProperties.gFontsPanel(
                       "stylesForWeight",
                       t,
                       e,
@@ -2531,58 +2531,58 @@ function (exports, module, require) {
                     ),
                   };
                 })),
-          o && o.indexOf(n[0]) < 0)
+          GTools && GTools.indexOf(n[0]) < 0)
         ) {
-          for (var d = 0, u = 0; u < o.length; u++)
-            Math.abs(n[0] - o[u]) < Math.abs(n[0] - o[d]) && (d = u);
-          (n[0] = o[d]), (c = true);
+          for (var barrel_editor_actions = 0, GSettingChangedEvent = 0; GSettingChangedEvent < GTools.length; GSettingChangedEvent++)
+            Math.abs(n[0] - GTools[GSettingChangedEvent]) < Math.abs(n[0] - GTools[barrel_editor_actions]) && (barrel_editor_actions = GSettingChangedEvent);
+          (n[0] = GTools[barrel_editor_actions]), (barrel_sidebars = true);
         }
-        var p =
+        var GSystemDialog =
           (a || []).filter(function (e) {
             if (e.weight === n[0]) return true;
           }) || [];
         return (
-          p.length &&
-            p[0].styles.indexOf(t[0]) < 0 &&
-            (t[0] === i.GFont.Style.Normal && p[0].styles.length
-              ? (t[0] = i.GFont.Style.Italic)
-              : (t[0] = i.GFont.Style.Normal),
-            (c = true)),
-          c
+          GSystemDialog.length &&
+            GSystemDialog[0].styles.indexOf(t[0]) < 0 &&
+            (t[0] === GCore.GFont.Style.Normal && GSystemDialog[0].styles.length
+              ? (t[0] = GCore.GFont.Style.Italic)
+              : (t[0] = GCore.GFont.Style.Normal),
+            (barrel_sidebars = true)),
+          barrel_sidebars
         );
       }),
       (v.prototype._toggleFormatting = function (e) {
         if (this._text && this._text.length) {
-          const n = this._text.map((e) => o.GElementEditor.getEditor(e) || e),
+          const n = this._text.map((e) => GTools.GElementEditor.getEditor(e) || e),
             a = this._getFormatting("underline", n) || null,
-            r = this._getFormatting("strikeout", n) || null;
+            CollaborationMergeUtils = this._getFormatting("strikeout", n) || null;
           var module = this._getFormatting("ligatures", n);
           const s = {
               underline: a,
-              strikeout: r,
+              strikeout: CollaborationMergeUtils,
               ligatures: (module =
                 "auto" === module ? !this._getProperty("_tcs", n) : !!module),
               fractions: this._getFormatting("fractions", n),
             },
-            l = this._getProperty("_tfw", n) || "",
-            c = this._getProperty("_tfs", n) || "";
+            GProperties = this._getProperty("_tfw", n) || "",
+            barrel_sidebars = this._getProperty("_tfs", n) || "";
           if ("bold" === e) {
             let e;
-            parseInt(l) === i.GFont.Weight.Bold
+            parseInt(GProperties) === GCore.GFont.Weight.Bold
               ? ((e =
-                  this._weightsAvailable.indexOf(i.GFont.Weight.Regular) >= 0
-                    ? i.GFont.Weight.Regular
+                  this._weightsAvailable.indexOf(GCore.GFont.Weight.Regular) >= 0
+                    ? GCore.GFont.Weight.Regular
                     : Math.min.apply(null, this._weightsAvailable)),
-                (e = e || i.GFont.Style.Regular))
-              : (e = i.GFont.Weight.Bold),
+                (e = e || GCore.GFont.Style.Regular))
+              : (e = GCore.GFont.Weight.Bold),
               this._assignProperties(["_tfw"], [e]);
           } else if ("italic" === e)
             this._assignProperties(
               ["_tfs"],
               [
-                c === i.GFont.Style.Italic
-                  ? i.GFont.Style.Normal
-                  : i.GFont.Style.Italic,
+                barrel_sidebars === GCore.GFont.Style.Italic
+                  ? GCore.GFont.Style.Normal
+                  : GCore.GFont.Style.Italic,
               ]
             );
           else {
@@ -2591,25 +2591,25 @@ function (exports, module, require) {
               t.beginTransaction(),
                 this._text.forEach((t) => {
                   if (
-                    (t instanceof o.GTextEditor && (t = t.getElement()),
-                    t instanceof i.GText)
+                    (t instanceof GTools.GTextEditor && (t = t.getElement()),
+                    t instanceof GCore.GText)
                   ) {
                     const n = t.getTLCore();
                     if (n) {
-                      let i;
-                      const a = o.GElementEditor.getEditor(t);
-                      (i =
+                      let GCore;
+                      const a = GTools.GElementEditor.getEditor(t);
+                      (GCore =
                         a && a.isInlineEdit()
                           ? n.selectedRange()
                           : n.getDocumentRange()),
-                        i && i.setFormatting(e, 1 != s[e]);
+                        GCore && GCore.setFormatting(e, 1 != s[e]);
                     }
                   }
                 });
             } finally {
               t.commitTransaction(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GTextProperties",
                     "action.modify-text-properties"
                   )
@@ -2648,25 +2648,25 @@ function (exports, module, require) {
         try {
           this._text.forEach((t) => {
             if (
-              (t instanceof o.GTextEditor && (t = t.getElement()),
-              t instanceof i.GText)
+              (t instanceof GTools.GTextEditor && (t = t.getElement()),
+              t instanceof GCore.GText)
             ) {
               const n = t.getTLCore();
               if (n) {
-                let i;
-                const a = o.GElementEditor.getEditor(t);
-                (i =
+                let GCore;
+                const a = GTools.GElementEditor.getEditor(t);
+                (GCore =
                   a && a.isInlineEdit()
                     ? n.selectedRange()
                     : n.getDocumentRange()),
-                  i && i.toggleList(e);
+                  GCore && GCore.toggleList(e);
               }
             }
           });
         } finally {
           module.commitTransaction(
-            i.GLocale.get(
-              new i.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTextProperties",
                 "action.modify-text-properties"
               )
@@ -2681,42 +2681,42 @@ function (exports, module, require) {
           a = gDesigner.getWorkspace().getFontManager();
         a.getDefaultFont();
         if (this._document) {
-          var r = this._document.getEditor();
+          var CollaborationMergeUtils = this._document.getEditor();
           if (this._text.length) {
-            r.beginTransaction();
+            CollaborationMergeUtils.beginTransaction();
             try {
               for (var s = 0; s < this._text.length; ++s) {
-                var l = o.GElementEditor.getEditor(this._text[s]);
+                var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
                 if (
-                  this._text[s] instanceof i.GText &&
+                  this._text[s] instanceof GCore.GText &&
                   this._text[s].isFakeText()
                 ) {
-                  var c = this._text[s].getContent(),
-                    d = {};
-                  c &&
-                    c.forEach((t) => {
-                      d[t.fontFamily] = e;
+                  var barrel_sidebars = this._text[s].getContent(),
+                    barrel_editor_actions = {};
+                  barrel_sidebars &&
+                    barrel_sidebars.forEach((t) => {
+                      barrel_editor_actions[t.fontFamily] = e;
                     });
-                  var u = this._text[s].getProperty("_tff");
-                  (d[u] = e), this._text[s].replaceFonts(d, true);
+                  var GSettingChangedEvent = this._text[s].getProperty("_tff");
+                  (barrel_editor_actions[GSettingChangedEvent] = e), this._text[s].replaceFonts(barrel_editor_actions, true);
                 } else {
-                  var p = l || this._text[s],
+                  var GSystemDialog = GProperties || this._text[s],
                     g = ["_tff"],
                     h = [e],
                     f =
-                      this._text[s] instanceof i.GText &&
+                      this._text[s] instanceof GCore.GText &&
                       this._text[s].getTLCore();
                   if (f) {
-                    let o;
-                    o =
-                      l && l.isInlineEdit()
+                    let GTools;
+                    GTools =
+                      GProperties && GProperties.isInlineEdit()
                         ? f.selectedRange()
                         : f.getDocumentRange();
                     for (
-                      var m = o.save(),
-                        y = i.GText.PropertyMapping._tfs,
-                        v = i.GText.PropertyMapping._tfw,
-                        _ = (i.GText.PropertyMapping._tff, false),
+                      var m = GTools.save(),
+                        y = GCore.GText.PropertyMapping._tfs,
+                        v = GCore.GText.PropertyMapping._tfw,
+                        _ = (GCore.GText.PropertyMapping._tff, false),
                         b = false,
                         w = 0;
                       w < m.length;
@@ -2724,8 +2724,8 @@ function (exports, module, require) {
                     ) {
                       var C =
                           "italic" === m[w][y]
-                            ? i.GFont.Style.Italic
-                            : i.GFont.Style.Normal,
+                            ? GCore.GFont.Style.Italic
+                            : GCore.GFont.Style.Normal,
                         x = ~~m[w][v];
                       if (
                         ((t = [C]),
@@ -2760,8 +2760,8 @@ function (exports, module, require) {
                     }
                   } else {
                     if (
-                      ((t = [p.getProperty("_tfs") || i.GFont.Style.Normal]),
-                      (n = [p.getProperty("_tfw") || i.GFont.Weight.Regular]),
+                      ((t = [GSystemDialog.getProperty("_tfs") || GCore.GFont.Style.Normal]),
+                      (n = [GSystemDialog.getProperty("_tfw") || GCore.GFont.Weight.Regular]),
                       await this._correctStyleAndWeight(e, t, n),
                       !a.getFont(e, t[0], n[0]))
                     )
@@ -2769,18 +2769,18 @@ function (exports, module, require) {
                     Array.prototype.push.apply(g, ["_tfs", "_tfw"]),
                       Array.prototype.push.apply(h, [t[0], n[0]]);
                   }
-                  p.setProperties(g, h);
+                  GSystemDialog.setProperties(g, h);
                 }
-                if (l) {
-                  var A = l.getDefaultStyle();
+                if (GProperties) {
+                  var A = GProperties.getDefaultStyle();
                   A && A.assignStyleFrom(this._text[s]);
                 }
-                this._text[s] instanceof i.GStyle && this._updateProperties();
+                this._text[s] instanceof GCore.GStyle && this._updateProperties();
               }
             } finally {
-              r.commitTransaction(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+              CollaborationMergeUtils.commitTransaction(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GTextProperties",
                     "action.modify-text-properties"
                   )
@@ -2790,24 +2790,24 @@ function (exports, module, require) {
           }
         }
       }),
-      (v.prototype._assignProperty = function (e, t, n, o) {
-        this._assignProperties([e], [t], n, o);
+      (v.prototype._assignProperty = function (e, t, n, GTools) {
+        this._assignProperties([e], [t], n, GTools);
       }),
       (v.prototype._assignProperties = function (e, t, n, a) {
         if (this._document) {
-          var r = this._document.getEditor();
-          n || ((this._ownChange = true), r.beginTransaction());
+          var CollaborationMergeUtils = this._document.getEditor();
+          n || ((this._ownChange = true), CollaborationMergeUtils.beginTransaction());
           try {
             for (var s = 0; s < this._text.length; ++s) {
-              (l = o.GElementEditor.getEditor(this._text[s]))
-                ? l.setProperties(e, t, n)
+              (GProperties = GTools.GElementEditor.getEditor(this._text[s]))
+                ? GProperties.setProperties(e, t, n)
                 : this._text[s].setProperties(e, t, false, false, n);
             }
           } finally {
             n ||
-              (r.commitTransaction(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+              (CollaborationMergeUtils.commitTransaction(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GTextProperties",
                     "action.modify-text-properties"
                   )
@@ -2818,9 +2818,9 @@ function (exports, module, require) {
           }
           if (e.includes("sc"))
             for (s = 0; s < this._text.length; ++s) {
-              var l;
-              (l = o.GElementEditor.getEditor(this._text[s])) &&
-                l.requestInvalidation();
+              var GProperties;
+              (GProperties = GTools.GElementEditor.getEditor(this._text[s])) &&
+                GProperties.requestInvalidation();
             }
         }
       }),

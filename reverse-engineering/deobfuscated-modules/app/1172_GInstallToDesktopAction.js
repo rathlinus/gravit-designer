@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = (require(15) /* module */, o(require(31) /* GAction */)),
-      r = (o(require(85) /* GContainer */), o(require(18) /* MenuItemBuilder */)),
-      s = o(require(1173) /* module_1173 */);
+    var GCore = require(1) /* module */,
+      a = (require(15) /* module */, _interopRequireDefault(require(31) /* GAction */)),
+      r = (_interopRequireDefault(require(85) /* GContainer */), _interopRequireDefault(require(18) /* MenuItemBuilder */)),
+      s = _interopRequireDefault(require(1173) /* module_1173 */);
     function l() {}
-    i.GObject.inherit(l, a.default),
+    GCore.GObject.inherit(l, a.default),
       (l.ID = "file.install-to-desktop"),
-      (l.TITLE = new i.GLocaleKey("GInstallToDesktopAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GInstallToDesktopAction", "title")),
       (l.closedInstallPWADialogDatePropName =
         "pwa.closed-install-pwa-dialog-date"),
       (l.installPWA3timesAWeekPropName =

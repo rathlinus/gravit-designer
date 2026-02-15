@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(31) /* GAction */),
-      s = o(require(18) /* MenuItemBuilder */);
-    class l extends r.default {
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
+    class l extends GAction.default {
       getId() {
         return l.ID;
       }
@@ -19,13 +19,13 @@ function (exports, module, require) {
         return l.TITLE;
       }
       getCategory() {
-        return s.default.CATEGORY_FILE;
+        return MenuItemBuilder.default.CATEGORY_FILE;
       }
       isVisible() {
         return false;
       }
       getShortcut() {
-        return [a.GKey.Constant.OPTION, a.GKey.Constant.Q];
+        return [GEditor.GKey.Constant.OPTION, GEditor.GKey.Constant.Q];
       }
       isEnabled() {
         const exports = gDesigner.getActiveDocument(),
@@ -43,6 +43,6 @@ function (exports, module, require) {
       }
     }
     (l.ID = "file.close-active-window"),
-      (l.TITLE = new i.GLocaleKey("GCloseActiveWindowAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GCloseActiveWindowAction", "title")),
       (exports.exports = l);
   }

@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var i = require(1) /* module */,
-      a = o(require(18) /* MenuItemBuilder */),
-      r = o(require(163) /* module_163 */),
-      s = o(require(85) /* GContainer */),
-      l = o(require(106) /* GElementAction */);
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      r = _interopRequireDefault(require(163) /* module_163 */),
+      GContainer = _interopRequireDefault(require(85) /* GContainer */),
+      GElementAction = _interopRequireDefault(require(106) /* GElementAction */);
     function c(e) {
       this._source = e;
     }
-    i.GObject.inherit(c, l.default),
+    GCore.GObject.inherit(c, GElementAction.default),
       (c.getId = function (e) {
         return "file.import-image-from-ios-".concat(e);
       }),
@@ -26,22 +26,22 @@ function (exports, module, require) {
         return c.getId(this._source);
       }),
       (c.prototype.getTitle = function () {
-        return new i.GLocaleKey(
+        return new GCore.GLocaleKey(
           "GImportImageFromIOSAction",
           "text.ios-".concat(this._source)
         );
       }),
       (c.prototype.getCategory = function () {
-        return a.default.CATEGORY_FILE_IMPORT_IMAGE;
+        return MenuItemBuilder.default.CATEGORY_FILE_IMPORT_IMAGE;
       }),
       (c.prototype.getGroup = function () {
         return "import/image-type/".concat(this._source);
       }),
       (c.prototype.isAvailable = function () {
-        return gContainer.getRuntime() === s.default.Runtime.IPad;
+        return gContainer.getRuntime() === GContainer.default.Runtime.IPad;
       }),
       (c.prototype.isEnabled = function (e) {
-        if (!l.default.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.default.prototype.isEnabled.call(this)) return false;
         const module = gDesigner.getActiveDocument();
         return (
           !!module &&
@@ -54,14 +54,14 @@ function (exports, module, require) {
         const require = gDesigner.getActiveDocument();
         if (!require) return false;
         e = e || require.getStorage() || gDesigner.getDefaultStorage();
-        const o = r.default.FileTypes.filter((e) => e.import_image);
+        const _interopRequireDefault = r.default.FileTypes.filter((e) => e.import_image);
         try {
-          let i;
-          (i =
+          let GCore;
+          (GCore =
             this._source === c.Source.FILES
-              ? await e.openFromFiles(o)
-              : await e.openFromPhotos(o)),
-            require.placeOrImport(i),
+              ? await e.openFromFiles(_interopRequireDefault)
+              : await e.openFromPhotos(_interopRequireDefault)),
+            require.placeOrImport(GCore),
             t && t();
         } catch (e) {
           console.warn("GImportImageFromIOSAction.prototype.execute", e);

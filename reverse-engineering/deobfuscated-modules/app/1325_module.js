@@ -6,13 +6,13 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(527) /* module_527 */, require(107) /* polyfill_RegExp_test */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(10) /* AppSettings */;
+    var AppSettings = require(10) /* AppSettings */;
     const i = require(1326) /* module_1326 */,
       a = require(1578) /* module_1578 */,
-      r = require(256) /* GOfflineDialog */,
+      GOfflineDialog = require(256) /* GOfflineDialog */,
       s = require(441) /* module_441 */,
       l = {
-        offlineWarning: () => r.openOfflineWarning(),
+        offlineWarning: () => GOfflineDialog.openOfflineWarning(),
         trialExpired: () => a.openTrialExpired(),
         proExpireSoon: () => a.openProExpireSoon(),
         proExpireToday: () => a.openProExpireSoon(),
@@ -29,7 +29,7 @@ function (exports, module, require) {
       constructor() {
         (this._settings = Object.assign(
           {},
-          o.defaultUserSettings.defaultUserSettings
+          AppSettings.defaultUserSettings.defaultUserSettings
         )),
           (this._intervalId = null),
           (this._flags = {
@@ -39,7 +39,7 @@ function (exports, module, require) {
       }
       async start() {
         try {
-          let e = await o.gApi.getUserSettings().catch(() => null);
+          let e = await AppSettings.gApi.getUserSettings().catch(() => null);
           e && (this._settings = Object.assign(this._settings, e));
         } catch (e) {
           console.info("GReminderManager", "exception", e);
@@ -47,10 +47,10 @@ function (exports, module, require) {
         this._settings &&
           this._settings.reminders &&
           (this._settings.reminders.proOfferInTrialExpireSoon =
-            o.DateAPI.daysToMilliseconds(1)),
+            AppSettings.DateAPI.daysToMilliseconds(1)),
           setInterval(
             this.checkReminders.bind(this),
-            o.DateAPI.daysToMilliseconds(1)
+            AppSettings.DateAPI.daysToMilliseconds(1)
           ),
           await this.checkReminders(),
           gDesigner.addEventListener(s, this.checkReminders, this);
@@ -82,8 +82,8 @@ function (exports, module, require) {
             const { reminders: { proOfferInFree: exports = 15 } = {} } =
               this._settings;
             if (module.getCreationDate()) {
-              const i = o.DateAPI.addTime(module.getCreationDate(), exports);
-              o.DateAPI.gte(require, i) &&
+              const i = AppSettings.DateAPI.addTime(module.getCreationDate(), exports);
+              AppSettings.DateAPI.gte(require, i) &&
                 this.execute("proOfferInFree") &&
                 this.reset("proOfferInTrial", require);
             }
@@ -106,18 +106,18 @@ function (exports, module, require) {
       _isAllowedToShowReminders() {
         const exports = new Date(gDesigner.now()).getTime(),
           module = gDesigner.getLicense();
-        return !module.isTrial() || !o.DateAPI.lte(exports, module.getCreationDate());
+        return !module.isTrial() || !AppSettings.DateAPI.lte(exports, module.getCreationDate());
       }
       execute(e, t) {
         const require = gDesigner.now();
-        t && (t = o.DateAPI.addTime(t, -this._settings.reminders[e] || 0));
+        t && (t = AppSettings.DateAPI.addTime(t, -this._settings.reminders[e] || 0));
         const i = gDesigner.getSetting(e);
         return (
           !(
             i &&
-            !o.DateAPI.isExpired(require, new Date(i), this._settings.reminders[e])
+            !AppSettings.DateAPI.isExpired(require, new Date(i), this._settings.reminders[e])
           ) &&
-          !(t && !o.DateAPI.isExpired(require, t)) &&
+          !(t && !AppSettings.DateAPI.isExpired(require, t)) &&
           this._executeReminder(e)
         );
       }
@@ -126,8 +126,8 @@ function (exports, module, require) {
         if (gDesigner.getSetting(e)) return false;
         const i = gDesigner.now();
         return (
-          t && (t = o.DateAPI.addTime(t, -this._settings.reminders[e] || 0)),
-          !t || (!require && o.DateAPI.isExpired(i, t)) || (require && o.DateAPI.eq(i, t))
+          t && (t = AppSettings.DateAPI.addTime(t, -this._settings.reminders[e] || 0)),
+          !t || (!require && AppSettings.DateAPI.isExpired(i, t)) || (require && AppSettings.DateAPI.eq(i, t))
             ? this._executeReminder(e)
             : undefined
         );
@@ -167,20 +167,20 @@ function (exports, module, require) {
                   gDesigner
                     .getAmplitudeHelper()
                     .logEvent(
-                      o.AmplitudeData.Events.ACCOUNT_TRIAL_EXPIRED_SCREEN,
+                      AppSettings.AmplitudeData.Events.ACCOUNT_TRIAL_EXPIRED_SCREEN,
                       {
                         ACCOUNT_TOTAL_TRIAL_DAYS_GIVEN: e.trial_created
-                          ? o.DateAPI.millisecondsToDays(
-                              o.DateAPI.diff(
+                          ? AppSettings.DateAPI.millisecondsToDays(
+                              AppSettings.DateAPI.diff(
                                 new Date(e.trial_created),
                                 new Date(e.trial_expire)
                               )
                             )
                           : null,
                         ACCOUNT_TOTAL_SUBSCRIPTION_DAYS_GIVEN:
-                          await o.gApi.license.totalSubscriptionDays(e),
+                          await AppSettings.gApi.license.totalSubscriptionDays(e),
                         ACCOUNT_EVER_SUBSCRIBED:
-                          await o.gApi.license.everSubscribed(),
+                          await AppSettings.gApi.license.everSubscribed(),
                       }
                     );
                 })
@@ -188,9 +188,9 @@ function (exports, module, require) {
             break;
           case "proExpireSoon":
             (module = gDesigner.getLicense()),
-              (require = o.DateAPI.millisecondsToDays(
-                o.DateAPI.diff(
-                  o.DateAPI.toUTCZone(gDesigner.now()),
+              (require = AppSettings.DateAPI.millisecondsToDays(
+                AppSettings.DateAPI.diff(
+                  AppSettings.DateAPI.toUTCZone(gDesigner.now()),
                   module.getExpirationDate()
                 )
               )),
@@ -210,9 +210,9 @@ function (exports, module, require) {
             break;
           case "proOfferInTrialExpireSoon":
             (module = gDesigner.getLicense()),
-              (require = o.DateAPI.millisecondsToDays(
-                o.DateAPI.diff(
-                  o.DateAPI.toUTCZone(gDesigner.now()),
+              (require = AppSettings.DateAPI.millisecondsToDays(
+                AppSettings.DateAPI.diff(
+                  AppSettings.DateAPI.toUTCZone(gDesigner.now()),
                   module.getExpirationDate()
                 )
               )),
@@ -246,14 +246,14 @@ function (exports, module, require) {
                 (clearInterval(this._intervalId),
                 (this._intervalId = null),
                 this.checkReminders());
-            }, o.ACTIVE_USAGE_IDLE_TIME)),
+            }, AppSettings.ACTIVE_USAGE_IDLE_TIME)),
           false)
         );
       }
       async _getShowTrialMessage() {
         try {
           const { showTrialMessage: exports } =
-            (await o.gApi.client.getConfiguration()) || {};
+            (await AppSettings.gApi.client.getConfiguration()) || {};
           return !!exports;
         } catch (e) {
           console.error(

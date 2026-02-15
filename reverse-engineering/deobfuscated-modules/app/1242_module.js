@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
-    var i = require(1) /* module */,
+    var GCore = require(1) /* module */,
       a = require(1479) /* module_1479 */,
-      r = o(require(44) /* GSystemDialog */),
-      s = o(require(443) /* module_443 */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      s = _interopRequireDefault(require(443) /* module_443 */),
       l = require(1243) /* Exports_SHAREPOINT_COMMAND */,
-      c = require(40) /* CollaborationMergeUtils */;
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const { getAuthenticator: d, getTeamsContext: u } = s.default;
     function p() {}
     (p.Error = {
@@ -51,15 +51,15 @@ function (exports, module, require) {
         if (this._authenticated) return true;
         const module = this;
         return new Promise(
-          async (n, o) => (
+          async (n, _interopRequireDefault) => (
             await module._authenticateCommand(exports),
             module
               ._authWithCorelCloud(await module.getOrFetchMSTeamsAccessToken())
               .then((e) => {
-                e ? ((module._authenticated = true), n(true)) : o();
+                e ? ((module._authenticated = true), n(true)) : _interopRequireDefault();
               })
               .catch(() => {
-                o();
+                _interopRequireDefault();
               })
           )
         );
@@ -81,24 +81,24 @@ function (exports, module, require) {
       (p.prototype._authenticateCommand = async function (e) {
         const module = this,
           require = await this._getValidCachedTokens(),
-          o = {};
-        let i = [];
+          _interopRequireDefault = {};
+        let GCore = [];
         if (!require || !Object.values(require).length)
           return this._processAuthenticationCommands(e);
         for (let module = 0, a = e.length; module < a; module++)
-          require[e[module]] ? (o[e[module]] = require[e[module]]) : i.push(e[module]);
-        return 0 === i.length
-          ? (await module.setTokens(o, false), o)
-          : this._processAuthenticationCommands(e, o);
+          require[e[module]] ? (_interopRequireDefault[e[module]] = require[e[module]]) : GCore.push(e[module]);
+        return 0 === GCore.length
+          ? (await module.setTokens(_interopRequireDefault, false), _interopRequireDefault)
+          : this._processAuthenticationCommands(e, _interopRequireDefault);
       }),
       (p.prototype._processAuthenticationCommands = function (e) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         const require = this;
-        return new Promise((o, a) => {
+        return new Promise((_interopRequireDefault, a) => {
           d()
-            .then((r) =>
-              r.authenticate({
+            .then((GSystemDialog) =>
+              GSystemDialog.authenticate({
                 url: ""
                   .concat(window.location.origin, "/msteams-sp.html#")
                   .concat(l.COMMAND_QUERY_PARAM, "=")
@@ -106,19 +106,19 @@ function (exports, module, require) {
                 width: 600,
                 height: 535,
                 successCallback: async function (e) {
-                  const i = {};
+                  const GCore = {};
                   for (let module in e) {
-                    const { expires: require, accessToken: o } = e[module];
-                    i[module] = { token: o, expires: Number(require) };
+                    const { expires: require, accessToken: _interopRequireDefault } = e[module];
+                    GCore[module] = { token: _interopRequireDefault, expires: Number(require) };
                   }
-                  await require.setTokens(Object.assign(module, i)), o(i);
+                  await require.setTokens(Object.assign(module, GCore)), _interopRequireDefault(GCore);
                 },
                 failureCallback: function (t) {
                   t === p.FAIL_REASONS.POPUP_WINDOW_BLOCKED
                     ? require._handleError(
                         p.Error.FAILED_TO_OPEN_WINDOW,
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GMSTeamsAuthenticator",
                             "text.authenticate"
                           )
@@ -128,7 +128,7 @@ function (exports, module, require) {
                             require
                               ._processAuthenticationCommands(e)
                               .then((e) => {
-                                o(e);
+                                _interopRequireDefault(e);
                               })
                               .catch((e) => {
                                 console.error(">>>reautherror", e), a(e);
@@ -138,8 +138,8 @@ function (exports, module, require) {
                     : t === p.FAIL_REASONS.CANCELLED_BY_USER
                     ? (require._handleError(
                         p.Error.CANCELLED_BY_USER,
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GMSTeamsAuthenticator",
                             "text.try-again"
                           )
@@ -162,10 +162,10 @@ function (exports, module, require) {
         const module = await u(),
           require = {};
         if (exports.userId !== module.loginHint) return require;
-        const o = Object.keys(exports);
-        for (let module = 0, i = o.length; module < i; module++) {
-          const i = exports[o[module]];
-          this.isTokenValid(i) && (require[o[module]] = i);
+        const _interopRequireDefault = Object.keys(exports);
+        for (let module = 0, GCore = _interopRequireDefault.length; module < GCore; module++) {
+          const GCore = exports[_interopRequireDefault[module]];
+          this.isTokenValid(GCore) && (require[_interopRequireDefault[module]] = GCore);
         }
         return require;
       }),
@@ -174,7 +174,7 @@ function (exports, module, require) {
         if (!exports) return null;
         let module = null;
         try {
-          module = JSON.parse((0, c.base64StringToString)(exports));
+          module = JSON.parse((0, CollaborationMergeUtils.base64StringToString)(exports));
         } catch (e) {
           console.error("Cant decode cache tokens");
         }
@@ -184,12 +184,12 @@ function (exports, module, require) {
         let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         const require = (await u()).loginHint,
-          o = await this._getValidCachedTokens();
-        (this._tokens = Object.assign({ userId: require }, o, e)),
+          _interopRequireDefault = await this._getValidCachedTokens();
+        (this._tokens = Object.assign({ userId: require }, _interopRequireDefault, e)),
           module &&
             localStorage.setItem(
               p.CACHED_TOKENS_PROPERTY_NAME,
-              (0, c.stringToBase64String)(JSON.stringify(this._tokens))
+              (0, CollaborationMergeUtils.stringToBase64String)(JSON.stringify(this._tokens))
             );
       }),
       (p.prototype.getOrFetchMSTeamsAccessToken = async function () {
@@ -204,64 +204,64 @@ function (exports, module, require) {
         );
       }),
       (p.prototype._handleError = function (e, t, n) {
-        let o = null;
+        let _interopRequireDefault = null;
         switch (e) {
           case p.Error.OFFLINE:
-            o = i.GLocale.get(
-              new i.GLocaleKey("GMSTeamsAuthenticator", "text.offline")
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey("GMSTeamsAuthenticator", "text.offline")
             );
             break;
           case p.Error.ONEDRIVE_BUSINESS_ERROR:
-            o = i.GLocale.get(
-              new i.GLocaleKey(
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GMSTeamsAuthenticator",
                 "text.onedrive-business-error"
               )
             );
             break;
           case p.Error.SHAREPOINT_ERROR:
-            o = i.GLocale.get(
-              new i.GLocaleKey("GMSTeamsAuthenticator", "text.sharepoint-error")
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey("GMSTeamsAuthenticator", "text.sharepoint-error")
             );
             break;
           case p.Error.SHAREPOINT_ONEDRIVE_BUSINESS_ERROR:
-            o = i.GLocale.get(
-              new i.GLocaleKey(
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GMSTeamsAuthenticator",
                 "text.sharepoint-onedrive-business-error"
               )
             );
             break;
           case p.Error.NOT_REGISTERED:
-            o = i.GLocale.get(
-              new i.GLocaleKey("GMSTeamsAuthenticator", "text.not_registered")
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey("GMSTeamsAuthenticator", "text.not_registered")
             );
             break;
           case p.Error.FAILED_TO_OPEN_WINDOW:
-            o = i.GLocale.get(
-              new i.GLocaleKey(
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GMSTeamsAuthenticator",
                 "text.failed-to-open-window"
               )
             );
             break;
           case p.Error.CANCELLED_BY_USER:
-            o = i.GLocale.get(
-              new i.GLocaleKey(
+            _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GMSTeamsAuthenticator",
                 "text.cancelled-by-user"
               )
             );
             break;
           default:
-            o =
+            _interopRequireDefault =
               e && e.message
                 ? e.message
-                : i.GLocale.get(
-                    new i.GLocaleKey("GMSTeamsAuthenticator", "text.unknown")
+                : GCore.GLocale.get(
+                    new GCore.GLocaleKey("GMSTeamsAuthenticator", "text.unknown")
                   );
         }
-        r.default.splashScreenError(o, t, n);
+        GSystemDialog.default.splashScreenError(_interopRequireDefault, t, n);
       }),
       (p.prototype._validateAuthenticatedUser = async function () {
         const exports = await this.getUser();

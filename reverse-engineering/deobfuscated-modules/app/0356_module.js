@@ -5,37 +5,37 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* hasOwnProperty_wrapper */,
-      i = require(23) /* globalThis */,
-      a = require(27) /* uncurryThis */,
+    var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      globalThis = require(23) /* globalThis */,
+      uncurryThis = require(27) /* uncurryThis */,
       r = require(277) /* module_277 */,
       s = require(288) /* module_288 */,
-      l = require(100) /* createProperty */,
+      createProperty = require(100) /* createProperty */,
       c = require(136) /* module_136 */,
       d = require(243) /* module_243 */.f,
       u = require(144) /* stub_requires_27 */,
       p = require(454) /* module_454 */,
-      g = require(62) /* requireObjectCoercible */,
-      h = require(460) /* regexpStickyHelpers */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      regexpStickyHelpers = require(460) /* regexpStickyHelpers */,
       f = require(344) /* module_344 */,
       m = require(1040) /* module_1040 */,
-      y = require(79) /* defineBuiltIn */,
-      v = require(21) /* tryCall */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
+      tryCall = require(21) /* tryCall */,
       _ = require(61) /* module_61 */,
-      b = require(80) /* internalState */.enforce,
+      internalState = require(80) /* internalState */.enforce,
       w = require(260) /* module_260 */,
-      C = require(43) /* wellKnownSymbol */,
+      wellKnownSymbol = require(43) /* wellKnownSymbol */,
       x = require(458) /* module_458 */,
       S = require(459) /* module_459 */,
-      E = C("match"),
-      A = i.RegExp,
+      E = wellKnownSymbol("match"),
+      A = globalThis.RegExp,
       T = A.prototype,
-      G = i.SyntaxError,
-      P = a(T.exec),
-      D = a("".charAt),
-      L = a("".replace),
-      I = a("".indexOf),
-      k = a("".slice),
+      G = globalThis.SyntaxError,
+      P = uncurryThis(T.exec),
+      D = uncurryThis("".charAt),
+      L = uncurryThis("".replace),
+      I = uncurryThis("".indexOf),
+      k = uncurryThis("".slice),
       O = /^\?<[^\s\d!#%&*+<=>@^][^\s!#%&*+<=>@^]*>/,
       F = /a/g,
       R = /a/g,
@@ -43,12 +43,12 @@ function (exports, module, require) {
       N = f.MISSED_STICKY,
       B = f.UNSUPPORTED_Y,
       U =
-        o &&
+        hasOwnProperty_wrapper &&
         (!M ||
           N ||
           x ||
           S ||
-          v(function () {
+          tryCall(function () {
             return (
               (R[E] = false),
               A(F) !== F || A(R) === R || "/a/i" !== String(A(F, "i"))
@@ -58,49 +58,49 @@ function (exports, module, require) {
       for (
         var $ = function (e, t) {
             var n,
-              o,
-              i,
-              a,
+              hasOwnProperty_wrapper,
+              globalThis,
+              uncurryThis,
               r,
               d,
               f = u(T, this),
               m = p(e),
-              y = undefined === t,
-              v = [],
+              defineBuiltIn = undefined === t,
+              tryCall = [],
               w = e;
-            if (!f && m && y && e.constructor === $) return e;
+            if (!f && m && defineBuiltIn && e.constructor === $) return e;
             if (
-              ((m || u(T, e)) && ((e = e.source), y && (t = h(w))),
-              (e = undefined === e ? "" : g(e)),
-              (t = undefined === t ? "" : g(t)),
+              ((m || u(T, e)) && ((e = e.source), defineBuiltIn && (t = regexpStickyHelpers(w))),
+              (e = undefined === e ? "" : requireObjectCoercible(e)),
+              (t = undefined === t ? "" : requireObjectCoercible(t)),
               (w = e),
               x &&
                 ("dotAll" in F) &&
-                (o = !!t && I(t, "s") > -1) &&
+                (hasOwnProperty_wrapper = !!t && I(t, "s") > -1) &&
                 (t = L(t, /s/g, "")),
               (n = t),
               N &&
                 ("sticky" in F) &&
-                (i = !!t && I(t, "y") > -1) &&
+                (globalThis = !!t && I(t, "y") > -1) &&
                 B &&
                 (t = L(t, /y/g, "")),
               S &&
-                ((e = (a = (function (e) {
+                ((e = (uncurryThis = (function (e) {
                   for (
                     var t,
                       n = e.length,
-                      o = 0,
-                      i = "",
-                      a = [],
+                      hasOwnProperty_wrapper = 0,
+                      globalThis = "",
+                      uncurryThis = [],
                       r = c(null),
                       s = false,
-                      l = false,
+                      createProperty = false,
                       d = 0,
                       u = "";
-                    o <= n;
-                    o++
+                    hasOwnProperty_wrapper <= n;
+                    hasOwnProperty_wrapper++
                   ) {
-                    if ("\\" === (t = D(e, o))) t += D(e, ++o);
+                    if ("\\" === (t = D(e, hasOwnProperty_wrapper))) t += D(e, ++hasOwnProperty_wrapper);
                     else if ("]" === t) s = false;
                     else if (!s)
                       switch (true) {
@@ -108,51 +108,51 @@ function (exports, module, require) {
                           s = true;
                           break;
                         case "(" === t:
-                          if (((i += t), "?:" === k(e, o + 1, o + 3))) continue;
-                          P(O, k(e, o + 1)) && ((o += 2), (l = true)), d++;
+                          if (((globalThis += t), "?:" === k(e, hasOwnProperty_wrapper + 1, hasOwnProperty_wrapper + 3))) continue;
+                          P(O, k(e, hasOwnProperty_wrapper + 1)) && ((hasOwnProperty_wrapper += 2), (createProperty = true)), d++;
                           continue;
                         case ">" === t && l:
                           if ("" === u || _(r, u))
                             throw new G("Invalid capture group name");
                           (r[u] = true),
-                            (a[a.length] = [u, d]),
-                            (l = false),
+                            (uncurryThis[uncurryThis.length] = [u, d]),
+                            (createProperty = false),
                             (u = "");
                           continue;
                       }
-                    l ? (u += t) : (i += t);
+                    createProperty ? (u += t) : (globalThis += t);
                   }
-                  return [i, a];
+                  return [globalThis, uncurryThis];
                 })(e))[0]),
-                (v = a[1])),
+                (tryCall = uncurryThis[1])),
               (r = s(A(e, t), f ? this : T, $)),
-              (o || i || v.length) &&
-                ((d = b(r)),
-                o &&
+              (hasOwnProperty_wrapper || globalThis || tryCall.length) &&
+                ((d = internalState(r)),
+                hasOwnProperty_wrapper &&
                   ((d.dotAll = true),
                   (d.raw = $(
                     (function (e) {
                       for (
-                        var t, n = e.length, o = 0, i = "", a = false;
-                        o <= n;
-                        o++
+                        var t, n = e.length, hasOwnProperty_wrapper = 0, globalThis = "", uncurryThis = false;
+                        hasOwnProperty_wrapper <= n;
+                        hasOwnProperty_wrapper++
                       )
-                        "\\" !== (t = D(e, o))
-                          ? a || "." !== t
-                            ? ("[" === t ? (a = true) : "]" === t && (a = false),
-                              (i += t))
-                            : (i += "[\\s\\S]")
-                          : (i += t + D(e, ++o));
-                      return i;
+                        "\\" !== (t = D(e, hasOwnProperty_wrapper))
+                          ? uncurryThis || "." !== t
+                            ? ("[" === t ? (uncurryThis = true) : "]" === t && (uncurryThis = false),
+                              (globalThis += t))
+                            : (globalThis += "[\\s\\S]")
+                          : (globalThis += t + D(e, ++hasOwnProperty_wrapper));
+                      return globalThis;
                     })(e),
                     n
                   ))),
-                i && (d.sticky = true),
-                v.length && (d.groups = v)),
+                globalThis && (d.sticky = true),
+                tryCall.length && (d.groups = tryCall)),
               e !== w)
             )
               try {
-                l(r, "source", "" === w ? "(?:)" : w);
+                createProperty(r, "source", "" === w ? "(?:)" : w);
               } catch (e) {}
             return r;
           },
@@ -164,7 +164,7 @@ function (exports, module, require) {
         m($, A, j[K++]);
       (T.constructor = $),
         ($.prototype = T),
-        y(i, "RegExp", $, { constructor: true });
+        defineBuiltIn(globalThis, "RegExp", $, { constructor: true });
     }
     w("RegExp");
   }

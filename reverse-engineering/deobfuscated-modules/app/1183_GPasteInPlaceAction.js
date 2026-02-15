@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */,
-      s = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
+      GElementAction = require(106) /* GElementAction */;
     function l() {}
-    o.GObject.inherit(l, r),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "edit.paste.in-place"),
-      (l.TITLE = new o.GLocaleKey("GPasteInPlaceAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GPasteInPlaceAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,21 +23,21 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT_PASTE;
+        return MenuItemBuilder.CATEGORY_EDIT_PASTE;
       }),
       (l.prototype.getGroup = function () {
         return "ccp/paste";
       }),
       (l.prototype.getShortcut = function () {
-        return [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "V"];
+        return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "V"];
       }),
       (l.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e && e.getEditor().getSelection()) {
           if (document.queryCommandSupported("paste")) return true;
           var module = gDesigner.getClipboardMimeTypes();
-          if (module && module.indexOf(o.GNode.MIME_TYPE) >= 0)
+          if (module && module.indexOf(GCore.GNode.MIME_TYPE) >= 0)
             return !!gDesigner.getActiveDocument();
         }
         return false;
@@ -47,33 +47,33 @@ function (exports, module, require) {
           (!gDesigner.isTouchDevice() && document.execCommand("paste")) ||
             (gDesigner.getPaste().assignCallback(null),
             this._paste(
-              o.GNode.deserialize(
-                gDesigner.getClipboardContent(o.GNode.MIME_TYPE)
+              GCore.GNode.deserialize(
+                gDesigner.getClipboardContent(GCore.GNode.MIME_TYPE)
               )
             ));
       }),
       (l.prototype._paste = function (e, t) {
         if (e && e.length > 0) {
-          for (var require = [], i = 0; i < e.length; ++i)
-            e[i] instanceof o.GElement && require.push(e[i]);
+          for (var require = [], GEditor = 0; GEditor < e.length; ++GEditor)
+            e[GEditor] instanceof GCore.GElement && require.push(e[GEditor]);
           if (
             (require = gDesigner
               .getActiveDocument()
               .filterUnrestrictedCommercialFileElements(require)).length > 0
           ) {
-            var a = gDesigner.getActiveDocument().getEditor();
+            var MenuItemBuilder = gDesigner.getActiveDocument().getEditor();
             require.forEach((e) => {
-              e instanceof o.GText &&
+              e instanceof GCore.GText &&
                 !e.getProperty("content") &&
-                (a.insertElements([e], false, true, true),
+                (MenuItemBuilder.insertElements([e], false, true, true),
                 e.getParent().removeChild(e));
             });
-            var r = null,
-              s = null,
-              l = a.getSelectionBBox(true);
-            l && ((r = l.getX()), (s = l.getY())), a.beginTransaction();
+            var GAction = null,
+              GElementAction = null,
+              l = MenuItemBuilder.getSelectionBBox(true);
+            l && ((GAction = l.getX()), (GElementAction = l.getY())), MenuItemBuilder.beginTransaction();
             try {
-              a.insertElements(require, !t, true, true, true);
+              MenuItemBuilder.insertElements(require, !t, true, true, true);
               var c = null;
               require.forEach((e) => {
                 var t = e.getGeometryBBox();
@@ -83,18 +83,18 @@ function (exports, module, require) {
                 u = c ? c.getY() : null,
                 p = null;
               if (
-                (null === r ||
+                (null === GAction ||
                   null === d ||
-                  (o.GMath.isEqualEps(r, d) && o.GMath.isEqualEps(s, u)) ||
-                  (p = new o.GTransform(1, 0, 0, 1, r - d, s - u)),
+                  (GCore.GMath.isEqualEps(GAction, d) && GCore.GMath.isEqualEps(GElementAction, u)) ||
+                  (p = new GCore.GTransform(1, 0, 0, 1, GAction - d, GElementAction - u)),
                 p)
               )
-                for (i = 0; i < require.length; ++i) {
-                  var g = require[i];
-                  g.hasMixin(o.GElement.Transform) && g.transform(p, true);
+                for (GEditor = 0; GEditor < require.length; ++GEditor) {
+                  var g = require[GEditor];
+                  g.hasMixin(GCore.GElement.Transform) && g.transform(p, true);
                 }
             } finally {
-              a.commitTransaction(o.GLocale.get(this.getTitle()));
+              MenuItemBuilder.commitTransaction(GCore.GLocale.get(this.getTitle()));
             }
           }
         }

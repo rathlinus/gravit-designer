@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* tryCall */,
-      i = require(35) /* anObject */,
+    var tryCall = require(21) /* tryCall */,
+      anObject = require(35) /* anObject */,
       a = /#|\.prototype\./,
       r = function (e, t) {
         var n = l[s(e)];
-        return n === d || (n !== c && (i(t) ? o(t) : !!t));
+        return n === d || (n !== c && (anObject(t) ? tryCall(t) : !!t));
       },
       s = (r.normalize = function (e) {
         return String(e).replace(a, ".").toLowerCase();

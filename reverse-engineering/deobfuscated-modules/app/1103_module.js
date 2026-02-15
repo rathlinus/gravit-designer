@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(116) /* module_116 */,
-      i = require(184) /* toIndexedObject */,
+      toIndexedObject = require(184) /* toIndexedObject */,
       a = require(243) /* module_243 */.f,
       r = require(157) /* stub_requires_27 */,
       s =
@@ -22,6 +22,6 @@ function (exports, module, require) {
               return r(s);
             }
           })(e)
-        : a(i(e));
+        : a(toIndexedObject(e));
     };
   }

@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "edit.select-all"),
-      (s.TITLE = new o.GLocaleKey("GSelectAllAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GSelectAllAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (s.prototype.getGroup = function () {
         return "select";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "A"];
+        return [GEditor.GKey.Constant.META, "A"];
       }),
       (s.prototype.isEnabled = function () {
         return (
@@ -50,35 +50,35 @@ function (exports, module, require) {
           var exports = gDesigner.getActiveDocument().getEditor(),
             module = gDesigner.getActiveDocument().getScene(),
             require = module.getActivePage(),
-            i = gDesigner
+            GEditor = gDesigner
               .getActiveDocument()
               .getActiveWindow()
               .getView()
               .getViewConfiguration().multiPageView,
-            a = [];
+            MenuItemBuilder = [];
           module.accept(function (e) {
             if (
-              e instanceof o.GItem &&
-              !e.hasMixin(o.GAnnotation) &&
-              !(e.getParent() instanceof o.GItem) &&
-              (e.getPage() === require || i) &&
+              e instanceof GCore.GItem &&
+              !e.hasMixin(GCore.GAnnotation) &&
+              !(e.getParent() instanceof GCore.GItem) &&
+              (e.getPage() === require || GEditor) &&
               !e.isLocked()
             ) {
               var module =
                   !e.getProperty("vis") ||
                   e.findParent(function (e) {
-                    return e instanceof o.GBlock && !e.getProperty("vis");
+                    return e instanceof GCore.GBlock && !e.getProperty("vis");
                   }),
-                r = e.getProperty("plkt"),
+                GAction = e.getProperty("plkt"),
                 s =
-                  r & o.GBlock.ProgramLck.NoEdit &&
-                  r & o.GBlock.ProgramLck.NoSizeChanges &&
-                  r & o.GBlock.ProgramLck.NoMove &&
-                  r & o.GBlock.ProgramLck.NoDelete;
-              module || s || a.push(e);
+                  GAction & GCore.GBlock.ProgramLck.NoEdit &&
+                  GAction & GCore.GBlock.ProgramLck.NoSizeChanges &&
+                  GAction & GCore.GBlock.ProgramLck.NoMove &&
+                  GAction & GCore.GBlock.ProgramLck.NoDelete;
+              module || s || MenuItemBuilder.push(e);
             }
           }),
-            exports.updateSelection(false, a);
+            exports.updateSelection(false, MenuItemBuilder);
         }
       }),
       (s.prototype.toString = function () {

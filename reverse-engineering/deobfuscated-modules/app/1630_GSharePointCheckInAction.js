@@ -6,21 +6,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var i = require(1) /* module */,
-      a = o(require(443) /* module_443 */);
+    var GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
-    var s = require(18) /* MenuItemBuilder */,
-      l = require(31) /* GAction */;
+    var MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     const c = require(1152) /* Item */,
-      d = require(44) /* GSystemDialog */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       u = require(1631) /* module_1631 */,
-      p = require(78) /* GDocumentEvent */;
+      GDocumentEvent = require(78) /* GDocumentEvent */;
     function g() {}
-    i.GObject.inherit(g, l),
+    GCore.GObject.inherit(g, GAction),
       (g.ID = "file.sharepoint-checkin"),
-      (g.TITLE = new i.GLocaleKey("GSharePointCheckInAction", "title")),
+      (g.TITLE = new GCore.GLocaleKey("GSharePointCheckInAction", "title")),
       (g.prototype.getId = function () {
         return g.ID;
       }),
@@ -28,7 +28,7 @@ function (exports, module, require) {
         return g.TITLE;
       }),
       (g.prototype.getCategory = function () {
-        return s.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (g.prototype.getGroup = function () {
         return "file";
@@ -53,9 +53,9 @@ function (exports, module, require) {
         try {
           const e = gDesigner.getActiveDocument();
           if (e.isModified())
-            return void d.alert(
-              i.GLocale.get(
-                new i.GLocaleKey(
+            return void GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSharePointCheckInAction",
                   "text.doc-modified-save-before-check-in"
                 )
@@ -63,15 +63,15 @@ function (exports, module, require) {
             );
           const t = e.getStorageItem(),
             n = t.getCloudClient(),
-            o = await n.getLibrarySettings();
-          await u.openCheckInDialog(o).then(async (n) => {
-            let { ok: o, comment: i, type: a } = n;
-            o &&
-              (await t.checkIn(i, a),
-              gDesigner.trigger(new p(p.Type.SynchronismUpdated, e)));
+            _interopRequireDefault = await n.getLibrarySettings();
+          await u.openCheckInDialog(_interopRequireDefault).then(async (n) => {
+            let { ok: _interopRequireDefault, comment: GCore, type: a } = n;
+            _interopRequireDefault &&
+              (await t.checkIn(GCore, a),
+              gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.SynchronismUpdated, e)));
           });
         } catch (e) {
-          d.alert(e.message);
+          GSystemDialog.alert(e.message);
         }
       }),
       (g.prototype.toString = function () {

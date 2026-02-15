@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(38) /* stub_requires_680 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     require(1150) /* module_1150 */;
     function i(e) {
       let module = [
@@ -17,32 +17,32 @@ function (exports, module, require) {
                 "• "
                   .concat(
                     ((e) =>
-                      e instanceof o.GNode
+                      e instanceof GCore.GNode
                         ? e.getNodeNameTranslated()
-                        : e instanceof o.GNoisePattern
-                        ? o.GLocale.get(
-                            new o.GLocaleKey(
+                        : e instanceof GCore.GNoisePattern
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GPatternChooser",
                               "pattern-type.noise"
                             )
                           )
-                        : e instanceof o.GTexturePattern
-                        ? o.GLocale.get(
-                            new o.GLocaleKey(
+                        : e instanceof GCore.GTexturePattern
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GPatternChooser",
                               "pattern-type.texture"
                             )
                           )
-                        : e instanceof o.GBackground
-                        ? o.GLocale.get(
-                            new o.GLocaleKey(
+                        : e instanceof GCore.GBackground
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GPatternChooser",
                               "pattern-type.backgroundfill"
                             )
                           )
-                        : e instanceof o.GAngularGradient
-                        ? o.GLocale.get(
-                            new o.GLocaleKey(
+                        : e instanceof GCore.GAngularGradient
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GPatternChooser",
                               "pattern-type.angulargradient"
                             )
@@ -61,7 +61,7 @@ function (exports, module, require) {
         buttons: [
           $(
             "<button>" +
-              o.GLocale.get(new o.GLocaleKey("GLocale", "ok")) +
+              GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")) +
               "</button>"
           ).on("click", () => this.close()),
         ],
@@ -71,8 +71,8 @@ function (exports, module, require) {
           .css({ lineHeight: "1.5em", maxHeight: "60%", overflow: "auto" })
           .append(
             $("<span/>").html(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GUnsupportedFeaturesDialog",
                   "text.title-unsupported"
                 )
@@ -100,8 +100,8 @@ function (exports, module, require) {
               )
               .append(
                 $("<span></span>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GUnsupportedFeaturesDialog",
                       "text.checked-unsupported"
                     )
@@ -111,7 +111,7 @@ function (exports, module, require) {
           )
           .appendTo(this._dialog);
     }
-    o.GObject.inherit(i, o.GObject),
+    GCore.GObject.inherit(i, GCore.GObject),
       (i.prototype.open = function () {
         this._dialog.gDialog("open");
       }),

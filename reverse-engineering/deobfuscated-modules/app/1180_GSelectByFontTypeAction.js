@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    i.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "edit.selectbyfonttype"),
-      (s.TITLE = new i.GLocaleKey("GSelectByFontTypeAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GSelectByFontTypeAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -25,10 +25,10 @@ function (exports, module, require) {
         return "edit/select-by-font";
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT_SELECT_SAME;
+        return MenuItemBuilder.CATEGORY_EDIT_SELECT_SAME;
       }),
       (s.prototype.isEnabled = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e && e.getEditor() && e.getEditor().getSelection()) {
           var module = this._getFontFamily();
@@ -40,13 +40,13 @@ function (exports, module, require) {
         var e = gDesigner.getActiveDocument(),
           t = this._getFontFamily(),
           n = gDesigner.getWorkspace().getFontManager().getDefaultFont(),
-          o = [];
+          GTools = [];
         e.getScene().acceptChildren(function (e) {
-          (e.removeFlag(i.GNode.Flag.Selected), e instanceof i.GText) &&
+          (e.removeFlag(GCore.GNode.Flag.Selected), e instanceof GCore.GText) &&
             (e.getProperty("_tff") || (n && n.getFamily())) === t &&
-            o.push(e);
+            GTools.push(e);
         }),
-          e.getEditor().updateSelection(true, o);
+          e.getEditor().updateSelection(true, GTools);
       }),
       (s.prototype.getIcon = function () {
         return gDesigner.isTouchEnabled() ? "gravit-icon-select-by-font" : "";
@@ -59,13 +59,13 @@ function (exports, module, require) {
           var exports,
             module = gDesigner.getActiveDocument().getEditor().getSelection(),
             require = gDesigner.getWorkspace().getFontManager().getDefaultFont(),
-            a = 0;
-          a < module.length;
-          a++
+            MenuItemBuilder = 0;
+          MenuItemBuilder < module.length;
+          MenuItemBuilder++
         ) {
-          var r = module[a];
-          if (r instanceof i.GText) {
-            var s = (o.GElementEditor.getEditor(r) || r).getProperty("_tff");
+          var GElementAction = module[MenuItemBuilder];
+          if (GElementAction instanceof GCore.GText) {
+            var s = (GTools.GElementEditor.getEditor(GElementAction) || GElementAction).getProperty("_tff");
             if ((s || (s = require && require.getFamily()), exports)) {
               if (exports !== s) {
                 exports = "";

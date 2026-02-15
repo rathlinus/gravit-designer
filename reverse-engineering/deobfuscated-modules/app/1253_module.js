@@ -19,10 +19,10 @@ function (exports, module, require) {
       require(41) /* stub_requires_682 */,
       require(13) /* stub_requires_679 */,
       require(38) /* stub_requires_680 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(797) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
-      r = require(10) /* AppSettings */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
       s = require(237) /* Item */,
       l = require(163) /* module_163 */,
       c = require(442) /* module_442 */;
@@ -35,38 +35,38 @@ function (exports, module, require) {
       (zip.useWebWorkers = false),
       (u.generateExportables = function (e, t, n) {
         var i = e instanceof Array ? e : [e];
-        e instanceof o.GScene &&
+        e instanceof GCore.GScene &&
           (i = e
             .getChildren()
-            .filter((e) => e instanceof o.GPage && e.isVisible()));
-        var a = [],
-          r = {};
+            .filter((e) => e instanceof GCore.GPage && e.isVisible()));
+        var CollaborationMergeUtils = [],
+          AppSettings = {};
         function s(e) {
           var t = e.getProperty("name");
           if (!t) {
-            var n = o.GObject.getTypeId(e);
-            r.hasOwnProperty(n) || (r[n] = 0), (t = e.getNodeNameTranslated());
-            var i = ++r[n];
+            var n = GCore.GObject.getTypeId(e);
+            AppSettings.hasOwnProperty(n) || (AppSettings[n] = 0), (t = e.getNodeNameTranslated());
+            var i = ++AppSettings[n];
             i > 1 && (t += "_" + i);
           }
           return t;
         }
         function l(e) {
           if (t)
-            a.push(
-              o.GUtil.extend({}, t, {
+            CollaborationMergeUtils.push(
+              GCore.GUtil.extend({}, t, {
                 element: e,
                 name: 1 === i.length && t.name ? t.name : s(e),
               })
             );
-          else if (e.hasMixin(o.GNode.Properties)) {
-            var r = e.getProperty(c.EXPORT_PROPERTY_NAME, true);
-            if (r && r instanceof Array && r.length)
-              for (var d = s(e), u = 0; u < r.length; ++u) {
-                var p = r[u];
+          else if (e.hasMixin(GCore.GNode.Properties)) {
+            var AppSettings = e.getProperty(c.EXPORT_PROPERTY_NAME, true);
+            if (AppSettings && AppSettings instanceof Array && AppSettings.length)
+              for (var d = s(e), u = 0; u < AppSettings.length; ++u) {
+                var p = AppSettings[u];
                 p.fm &&
-                  a.push(
-                    o.GUtil.extend(
+                  CollaborationMergeUtils.push(
+                    GCore.GUtil.extend(
                       {},
                       {
                         size: p.sz,
@@ -79,14 +79,14 @@ function (exports, module, require) {
                   );
               }
           }
-          if (n && e.hasMixin(o.GNode.Container))
+          if (n && e.hasMixin(GCore.GNode.Container))
             for (var g = e.getFirstChild(); null !== g; g = g.getNext())
-              g instanceof o.GElement && l(g);
+              g instanceof GCore.GElement && l(g);
         }
         for (var d = 0; d < i.length; ++d) {
           l(i[d]);
         }
-        return a;
+        return CollaborationMergeUtils;
       }),
       (u._validateCommercialDocument = function () {
         const exports = gDesigner.getActiveDocument();
@@ -101,13 +101,13 @@ function (exports, module, require) {
               p = null;
             switch (c) {
               case "png":
-                u = o.GBitmap.ImageType.PNG;
+                u = GCore.GBitmap.ImageType.PNG;
                 break;
               case "jpg":
-                (u = o.GBitmap.ImageType.JPEG),
+                (u = GCore.GBitmap.ImageType.JPEG),
                   (p = (e.jpegQuality || 100) / 100);
             }
-            var g = o.GLength.DPI,
+            var g = GCore.GLength.DPI,
               h = i.GBitmapExport.export(
                 e.element,
                 e.size,
@@ -123,11 +123,11 @@ function (exports, module, require) {
               l,
               {
                 convertTextToPath: e.convertTextToPath,
-                decimalPlacesPrecision: a.watchDog.check(
+                decimalPlacesPrecision: CollaborationMergeUtils.watchDog.check(
                   e.decimalPlacesPrecision,
                   3
                 ),
-                preserveEditingCapabilities: a.watchDog.check(
+                preserveEditingCapabilities: CollaborationMergeUtils.watchDog.check(
                   e.preserveEditingCapabilities,
                   false
                 ),
@@ -137,7 +137,7 @@ function (exports, module, require) {
                   !e.configuration ||
                   e.configuration.sceneBackground ||
                   !!e.backgroundColor,
-                layerNamesAsId: a.watchDog.check(e.layerNamesAsId, false),
+                layerNamesAsId: CollaborationMergeUtils.watchDog.check(e.layerNamesAsId, false),
               },
               function (e, n) {
                 !e && n && t(new Blob([n], { type: "image/svg+xml" }));
@@ -150,19 +150,19 @@ function (exports, module, require) {
               u =
                 c && c.getFullUserName()
                   ? c.getFullUserName()
-                  : o.GLocale.get(
-                      new o.GLocaleKey(
+                  : GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GDocument",
                         "text.default-export-author"
                       )
                     );
               var p = {
-                  dpi: a.watchDog.check(
-                    o.GUtil.parseNumber(e.size),
-                    o.GUtil.parseNumber("72dpi")
+                  dpi: CollaborationMergeUtils.watchDog.check(
+                    GCore.GUtil.parseNumber(e.size),
+                    GCore.GUtil.parseNumber("72dpi")
                   ),
                   colorSpace: e.colorSpace,
-                  jpegQuality: e.jpegQuality || r.JPEG_EXPORT_QUALITY_DEFAULT,
+                  jpegQuality: e.jpegQuality || AppSettings.JPEG_EXPORT_QUALITY_DEFAULT,
                   configuration: e.configuration,
                   backgroundColor: e.backgroundColor,
                   backgroundOpacity: e.backgroundOpacity,
@@ -191,19 +191,19 @@ function (exports, module, require) {
         }
       }),
       (u.generateExportName = function (e, t, n) {
-        var i = o.GUtil.sanitizeFilename(t || e.name) + (e.suffix || "");
+        var i = GCore.GUtil.sanitizeFilename(t || e.name) + (e.suffix || "");
         if (n) {
-          var a = n.filter(function (t) {
+          var CollaborationMergeUtils = n.filter(function (t) {
             return t.name === i && t.format === e.format;
           });
           n.push({ name: i, format: e.format }),
-            a.length && (i += "(" + (a.length + 1) + ")");
+            CollaborationMergeUtils.length && (i += "(" + (CollaborationMergeUtils.length + 1) + ")");
         }
         return (i += "." + e.format);
       }),
       (u.exportToDirectory = async function (e, t, n, i) {
         if (this._validateCommercialDocument())
-          for (var a = {}, r = 0, s = [], l = 0; l < e.length; ++l) {
+          for (var CollaborationMergeUtils = {}, AppSettings = 0, s = [], l = 0; l < e.length; ++l) {
             var c = null,
               d = t;
             if ((c = e[l].name)) {
@@ -211,7 +211,7 @@ function (exports, module, require) {
                 var p = c.split("/"),
                   g = [];
                 for (let e = 0; e < p.length; ++e) {
-                  var h = o.GUtil.sanitizeFilename(p[e].trim());
+                  var h = GCore.GUtil.sanitizeFilename(p[e].trim());
                   h && g.push(h);
                 }
                 if (g.length > 1) {
@@ -220,42 +220,42 @@ function (exports, module, require) {
                   for (let e = 0; e < g.length; ++e) {
                     var m = g[e];
                     f && (f += "/");
-                    var y = a[(f += m.toLowerCase())];
+                    var y = CollaborationMergeUtils[(f += m.toLowerCase())];
                     if (y) d = y;
                     else
                       try {
-                        (d = await d.addDirectory(m)), (a[f] = d);
+                        (d = await d.addDirectory(m)), (CollaborationMergeUtils[f] = d);
                       } catch (e) {}
                   }
                 } else g.length && (c = g[0]);
-              } else c = o.GUtil.sanitizeFilename(c.trim());
+              } else c = GCore.GUtil.sanitizeFilename(c.trim());
               c &&
                 d &&
                 u.exportExportable(
                   e[l],
-                  (function (t, o) {
+                  (function (t, GCore) {
                     return function (i) {
-                      var a = new FileReader();
+                      var CollaborationMergeUtils = new FileReader();
                       if (
-                        ((a.onload = () => {
-                          t.addFile(o)
+                        ((CollaborationMergeUtils.onload = () => {
+                          t.addFile(GCore)
                             .then((t) => {
-                              t.write(new Uint8Array(a.result), () => {
-                                ++r === e.length && n && n();
+                              t.write(new Uint8Array(CollaborationMergeUtils.result), () => {
+                                ++AppSettings === e.length && n && n();
                               });
                             })
                             .catch(() => {
-                              ++r === e.length && n && n();
+                              ++AppSettings === e.length && n && n();
                             });
                         }),
                         i instanceof Blob || i instanceof File)
                       )
                         try {
-                          a.readAsArrayBuffer(i);
+                          CollaborationMergeUtils.readAsArrayBuffer(i);
                         } catch (t) {
-                          ++r === e.length && n && n();
+                          ++AppSettings === e.length && n && n();
                         }
-                      else ++r === e.length && n && n();
+                      else ++AppSettings === e.length && n && n();
                     };
                   })(d, u.generateExportName(e[l], c, s)),
                   i
@@ -263,34 +263,34 @@ function (exports, module, require) {
             }
           }
       }),
-      (u.export = function (e, t, n, i, a, r, c, p, g, h) {
+      (u.export = function (e, t, n, i, CollaborationMergeUtils, AppSettings, c, p, g, h) {
         if (this._validateCommercialDocument()) {
           var f = (e, t, n) => {
-              var o = new FileReader();
-              (o.onload = () => {
-                t.write(new Uint8Array(o.result), () => (n ? n() : undefined), g);
+              var GCore = new FileReader();
+              (GCore.onload = () => {
+                t.write(new Uint8Array(GCore.result), () => (n ? n() : undefined), g);
               }),
-                o.readAsArrayBuffer(e);
+                GCore.readAsArrayBuffer(e);
             },
-            m = (e, n, o, i, r, l) => {
+            m = (e, n, GCore, i, AppSettings, l) => {
               t instanceof s.Item
-                ? f(e, t, o)
+                ? f(e, t, GCore)
                 : t instanceof s &&
-                  (!r && t.canPromptSave()
+                  (!AppSettings && t.canPromptSave()
                     ? t.savePrompt(
                         n,
                         [i],
                         (t) => {
-                          f(e, t, o);
+                          f(e, t, GCore);
                         },
-                        a,
+                        CollaborationMergeUtils,
                         l
                       )
                     : t.canDownload() &&
                       t.download(
                         n,
                         (t) => {
-                          f(e, t, o);
+                          f(e, t, GCore);
                         },
                         l
                       ));
@@ -301,9 +301,9 @@ function (exports, module, require) {
           if (
             (v &&
               (y.format !== d.PDF.ext ||
-                r ||
+                AppSettings ||
                 ((v = false),
-                ((y = o.GUtil.extend({}, y)).name = n),
+                ((y = GCore.GUtil.extend({}, y)).name = n),
                 (y.element = e.map((e) => e.element)))),
             v)
           )
@@ -312,7 +312,7 @@ function (exports, module, require) {
                 (t) => {
                   u.exportToDirectory(e, t, i, c);
                 },
-                a,
+                CollaborationMergeUtils,
                 () => {
                   var t = new u.ZipDirectory();
                   u.exportToDirectory(
@@ -365,7 +365,7 @@ function (exports, module, require) {
           (this._zipRoot = t ? null : new zip.fs.FS()),
           (this._zipDirectory = t || this._zipRoot.root);
       }),
-      o.GObject.inherit(u.ZipDirectory, s.Directory),
+      GCore.GObject.inherit(u.ZipDirectory, s.Directory),
       (u.ZipDirectory.prototype.addDirectory = async function (e) {
         return new u.ZipDirectory(
           this._storage,

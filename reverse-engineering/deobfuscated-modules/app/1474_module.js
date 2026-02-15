@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(71) /* polyfill_String_includes */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */;
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function a(e, t) {
       let require =
         arguments.length > 2 && undefined !== arguments[2]
@@ -15,7 +15,7 @@ function (exports, module, require) {
           : "file.save";
       (this._document = e), (this._user = t), (this._action = require), this._init();
     }
-    o.GObject.inherit(a, o.GObject),
+    GCore.GObject.inherit(a, GCore.GObject),
       (a.prototype._init = function () {
         (this._dialog = $("<div></div>").gDialog({
           releaseOnClose: true,
@@ -29,24 +29,24 @@ function (exports, module, require) {
         let module,
           require = "save";
         exports.getId().includes("save")
-          ? (module = o.GLocale.get(
-              new o.GLocaleKey("GConfirmationDialog", "text.confirm-save")
+          ? (module = GCore.GLocale.get(
+              new GCore.GLocaleKey("GConfirmationDialog", "text.confirm-save")
             ))
           : exports.getId().includes("export")
-          ? ((module = o.GLocale.get(
-              new o.GLocaleKey("GConfirmationDialog", "text.confirm-export")
+          ? ((module = GCore.GLocale.get(
+              new GCore.GLocaleKey("GConfirmationDialog", "text.confirm-export")
             )),
             (require = "export"))
           : (module =
-              exports.getTitle() instanceof o.GLocaleKey
-                ? o.GLocale.get(exports.getTitle())
+              exports.getTitle() instanceof GCore.GLocaleKey
+                ? GCore.GLocale.get(exports.getTitle())
                 : exports.getTitle()),
           $("<div></div>")
             .addClass("content")
             .append(
               $("<span></span>").text(
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GConfirmationDialog",
                     "text.confirm-info-" + require
                   )
@@ -76,7 +76,7 @@ function (exports, module, require) {
       }),
       (a.prototype.open = async function () {
         this._dialog.gDialog("open", true),
-          await (0, i.sleep)(100),
+          await (0, CollaborationMergeUtils.sleep)(100),
           this._dialog.closest(".g-dialog").addClass("slide-up");
       }),
       (a.prototype.close = function () {

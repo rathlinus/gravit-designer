@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(240) /* module_240 */,
-      i = require(92) /* classof */;
+      classof = require(92) /* classof */;
     exports.exports = function (e) {
-      return o(i(e));
+      return o(classof(e));
     };
   }

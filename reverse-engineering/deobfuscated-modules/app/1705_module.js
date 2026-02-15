@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = {
         value: function (e) {
           var t = i.options.call(this).unit;
@@ -16,7 +16,7 @@ function (exports, module, require) {
                 a = require ? require.getScene() : null;
               $(this).gInputBox(
                 "value",
-                o.GUtil.formatNumber(
+                GCore.GUtil.formatNumber(
                   e.toUnit(t),
                   a ? a.getOptimalDecimalsCount(t) : 2
                 )
@@ -24,8 +24,8 @@ function (exports, module, require) {
             } else $(this).val("");
             return this;
           }
-          var r = o.GLength.parseEquation($(this).val(), t);
-          return r ? r.convert(t) : new o.GLength(0, t);
+          var r = GCore.GLength.parseEquation($(this).val(), t);
+          return r ? r.convert(t) : new GCore.GLength(0, t);
         },
         list: function (e) {
           i.options.call(this).list = e;
@@ -36,7 +36,7 @@ function (exports, module, require) {
         init: function (e) {
           return (
             ((e = $.extend(
-              { unit: o.GLength.Unit.PX, created: false },
+              { unit: GCore.GLength.Unit.PX, created: false },
               e
             )).postfix = e.unit),
             this.each(function () {
@@ -51,8 +51,8 @@ function (exports, module, require) {
                   n = $(".g-unitbox.option-list").find(".option-item");
                 if ((n.removeClass("g-selected"), e))
                   for (let t = 0; t < n.length; ++t) {
-                    let o = n[t];
-                    $(o).data("value") == e && $(o).addClass("g-selected");
+                    let GCore = n[t];
+                    $(GCore).data("value") == e && $(GCore).addClass("g-selected");
                   }
               };
               t.on("change", function () {
@@ -78,7 +78,7 @@ function (exports, module, require) {
                         .on("mousedown", function () {
                           i.value.call(
                             n,
-                            new o.GLength($(this).data("value"), e.unit)
+                            new GCore.GLength($(this).data("value"), e.unit)
                           ),
                             t.trigger("change"),
                             l.gOverlay("close");
@@ -94,7 +94,7 @@ function (exports, module, require) {
                         a.length > 0 &&
                           (i.value.call(
                             n,
-                            new o.GLength($(a).data("value"), e.unit)
+                            new GCore.GLength($(a).data("value"), e.unit)
                           ),
                           t.trigger("change")),
                           l.gOverlay("close");

@@ -7,18 +7,18 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(38) /* stub_requires_680 */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
-      r = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
       s = require(357) /* module_357 */;
     function l(e, t, n) {
-      const a = (e) => {
-        if (i.GKey.translateKey(e.keyCode) === i.GKey.Constant.ESC)
+      const CollaborationMergeUtils = (e) => {
+        if (GEditor.GKey.translateKey(e.keyCode) === GEditor.GKey.Constant.ESC)
           return (
             e.preventDefault(),
             e.stopPropagation(),
-            $(document).off("keydown", a),
+            $(document).off("keydown", CollaborationMergeUtils),
             this._dialog.gDialog("close"),
             false
           );
@@ -27,9 +27,9 @@ function (exports, module, require) {
         releaseOnClose: true,
         className: "g-offline-dialog",
         alwaysCloseable: true,
-        closeCallback: () => $(document).off("keydown", a),
+        closeCallback: () => $(document).off("keydown", CollaborationMergeUtils),
       })),
-        $(document).on("keydown", a),
+        $(document).on("keydown", CollaborationMergeUtils),
         $("<div></div>")
           .addClass("g-btn-close")
           .append($("<span></span>").addClass("gravit-icon-close"))
@@ -45,10 +45,10 @@ function (exports, module, require) {
             .addClass("buttons")
             .append(
               n.map((e) => {
-                let { label: t, onclick: n, highlighted: o } = e;
+                let { label: t, onclick: n, highlighted: GCore } = e;
                 return $("<button></button>")
                   .append($("<span></span>").text(t))
-                  .addClass("g-pro-button " + (o ? "highlighted" : ""))
+                  .addClass("g-pro-button " + (GCore ? "highlighted" : ""))
                   .on("click", () => n(this));
               })
             )
@@ -58,34 +58,34 @@ function (exports, module, require) {
           $("<span></span>")
             .addClass("footer")
             .html(
-              o.GLocale.getValue(
+              GCore.GLocale.getValue(
                 "GOfflineDialog",
                 "text.offline-footer"
-              ).replace("%link", r.gApi.link.getSupportUrl())
+              ).replace("%link", AppSettings.gApi.link.getSupportUrl())
             )
         ),
         l.appendTo(this._dialog);
     }
-    o.GObject.inherit(l, o.GObject),
+    GCore.GObject.inherit(l, GCore.GObject),
       (l.openOfflineWarning = async function () {
         const exports = await gDesigner.getUser();
         if (!exports) return;
         const module = gDesigner.getLicense(),
           require = gDesigner.now();
-        let i = r.DateAPI.millisecondsToDays(
-          r.DateAPI.diff(r.DateAPI.toUTCZone(require), module.getOfflineExpirationDate())
+        let GEditor = AppSettings.DateAPI.millisecondsToDays(
+          AppSettings.DateAPI.diff(AppSettings.DateAPI.toUTCZone(require), module.getOfflineExpirationDate())
         );
         new l(
-          o.GLocale.get(
-            new o.GLocaleKey("GOfflineDialog", "text.offline-title")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GOfflineDialog", "text.offline-title")
           ).replace("%name", exports.getFullUserName()),
-          o.GLocale.get(
-            new o.GLocaleKey("GOfflineDialog", "text.offline-subtitle")
-          ).replace("%days", i),
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GOfflineDialog", "text.offline-subtitle")
+          ).replace("%days", GEditor),
           [
             {
-              label: o.GLocale.get(
-                new o.GLocaleKey("GOfflineDialog", "text.offline-check")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GOfflineDialog", "text.offline-check")
               ),
               onclick: (e) => e.close(),
             },
@@ -95,8 +95,8 @@ function (exports, module, require) {
       (l.openUnavailableFeature = function (e) {
         l.openRetryConnection(
           e,
-          o.GLocale.get(
-            new o.GLocaleKey("GOfflineDialog", "title.unavailable-feature")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GOfflineDialog", "title.unavailable-feature")
           )
         );
       }),
@@ -105,14 +105,14 @@ function (exports, module, require) {
         const require = await gDesigner.getUser();
         new l(
           t ||
-            o.GLocale.get(
-              new o.GLocaleKey("GOfflineDialog", "text.offline-title-retry")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GOfflineDialog", "text.offline-title-retry")
             ).replace(
               "%name",
               require
                 ? require.getFullUserName()
-                : o.GLocale.get(
-                    new o.GLocaleKey(
+                : GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GOfflineDialog",
                       "text.display-name-in-case-missing"
                     )
@@ -121,21 +121,21 @@ function (exports, module, require) {
           "",
           [
             {
-              label: o.GLocale.get(
-                new o.GLocaleKey("GOfflineDialog", "text.offline-retry")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GOfflineDialog", "text.offline-retry")
               ),
               highlighted: true,
               onclick: async (t) => {
                 gDesigner.stats("offline-dialog_retry"),
                   t._dialog.addClass("g-loading"),
-                  await (0, a.sleep)(500),
+                  await (0, CollaborationMergeUtils.sleep)(500),
                   t._dialog.removeClass("g-loading"),
                   (await gDesigner.isOfflineAsync()) || (e && e(), t.close());
               },
             },
             {
-              label: o.GLocale.get(
-                new o.GLocaleKey("GOfflineDialog", "text.offline-cancel")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GOfflineDialog", "text.offline-cancel")
               ),
               onclick: (e) => {
                 gDesigner.stats("offline-dialog_cancel"), e.close();

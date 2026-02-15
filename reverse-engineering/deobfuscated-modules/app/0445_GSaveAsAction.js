@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(16) /* _interopRequireDefault */,
-      i = o(require(1504) /* module_1504 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      i = _interopRequireDefault(require(1504) /* module_1504 */);
     require(58) /* polyfill_Array_includes */,
       require(30) /* polyfill_Object_assign */,
       require(8) /* polyfill_bundle_ES6 */,
@@ -21,20 +21,20 @@ function (exports, module, require) {
       require(41) /* stub_requires_682 */,
       require(13) /* stub_requires_679 */,
       require(38) /* stub_requires_680 */;
-    var a = require(1) /* module */,
-      r = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       s = require(67) /* GRichTooltipConfig */,
-      l = o(require(1248) /* module_1248 */),
-      c = require(10) /* AppSettings */;
+      l = _interopRequireDefault(require(1248) /* module_1248 */),
+      AppSettings = require(10) /* AppSettings */;
     function d(e, t) {
       var n = Object.keys(e);
       if (Object.getOwnPropertySymbols) {
-        var o = Object.getOwnPropertySymbols(e);
+        var _interopRequireDefault = Object.getOwnPropertySymbols(e);
         t &&
-          (o = o.filter(function (t) {
+          (_interopRequireDefault = _interopRequireDefault.filter(function (t) {
             return Object.getOwnPropertyDescriptor(e, t).enumerable;
           })),
-          n.push.apply(n, o);
+          n.push.apply(n, _interopRequireDefault);
       }
       return n;
     }
@@ -58,14 +58,14 @@ function (exports, module, require) {
       return e;
     }
     var p = require(163) /* module_163 */,
-      g = require(18) /* MenuItemBuilder */,
-      h = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       f = require(446) /* module_446 */,
       m = require(86) /* module_86 */;
-    const y = require(44) /* GSystemDialog */,
+    const GSystemDialog = require(44) /* GSystemDialog */,
       v = require(389) /* module_389 */;
-    var _ = c.FILE_FORMATS.map((e) => e.ext);
-    const b = c.FILE_FORMATS.find((e) => e.default).ext;
+    var _ = AppSettings.FILE_FORMATS.map((e) => e.ext);
+    const b = AppSettings.FILE_FORMATS.find((e) => e.default).ext;
     function w(e) {
       let module =
         arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
@@ -76,8 +76,8 @@ function (exports, module, require) {
         (this._options = module),
         (w.TOOLTIP_CONFIG = {
           [s.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: s.GRichTooltipConfig.from({
-            title: a.GLocale.get(
-              new a.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GSaveAsAction",
                 "text.try-this-feature-pro-tooltip-title"
               )
@@ -89,7 +89,7 @@ function (exports, module, require) {
           }),
         });
     }
-    a.GObject.inherit(w, h),
+    GCore.GObject.inherit(w, GAction),
       (w.ID = "file.save-as"),
       (w.TOOLTIP_CONFIG = null),
       (w.DEFAULT_SAVE_OPTIONS = {}),
@@ -108,44 +108,44 @@ function (exports, module, require) {
       (w.prototype.getTitle = function () {
         if (this._isNativeExt)
           return gDesigner.getDefaultStorage().canSave()
-            ? a.GLocale.get(this._title)
-            : a.GLocale.get(
-                new a.GLocaleKey("GDocument", "title.download-" + this._fileExt)
+            ? GCore.GLocale.get(this._title)
+            : GCore.GLocale.get(
+                new GCore.GLocaleKey("GDocument", "title.download-" + this._fileExt)
               );
         if ("pdf" === this._fileExt) {
           var exports = this._options.dpi ? this._options.dpi : 72;
-          return a.GLocale.get(
-            new a.GLocaleKey("GSaveAsAction", "text.dpi-value")
+          return GCore.GLocale.get(
+            new GCore.GLocaleKey("GSaveAsAction", "text.dpi-value")
           )
             .replace("%dpiValue", exports)
             .replace(
               "%dpiString",
-              a.GLocale.get(new a.GLocaleKey("GSaveAsAction", "text.dpi"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GSaveAsAction", "text.dpi"))
             );
         }
         {
           const { dpi: exports = 72 } = this._options;
-          return a.GLocale.get(
-            new a.GLocaleKey(
+          return GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GSaveAsAction",
               "pdf" === this._fileExt ? "text.save-pdf" : "text.save-common"
             )
           )
-            .replace("%title", a.GLocale.get(this._title))
+            .replace("%title", GCore.GLocale.get(this._title))
             .replace("%fileExtension", this._fileExt)
             .replace("%dpiValue", exports)
             .replace(
               "%dpiString",
-              a.GLocale.get(new a.GLocaleKey("GSaveAsAction", "text.dpi"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GSaveAsAction", "text.dpi"))
             );
         }
       }),
       (w.prototype.getCategory = function () {
         return this._isNativeExt
-          ? g.CATEGORY_FILE
+          ? MenuItemBuilder.CATEGORY_FILE
           : "pdf" === this._fileExt
-          ? g.CATEGORY_FILE_EXPORT_PDF
-          : g.CATEGORY_FILE_EXPORT;
+          ? MenuItemBuilder.CATEGORY_FILE_EXPORT_PDF
+          : MenuItemBuilder.CATEGORY_FILE_EXPORT;
       }),
       (w.prototype.getGroup = function () {
         return this._isNativeExt
@@ -171,9 +171,9 @@ function (exports, module, require) {
       (w.prototype.getShortcut = function () {
         return this._isNativeExt
           ? [
-              r.GKey.Constant.SHIFT,
-              r.GKey.Constant.META,
-              r.GKey.Constant.OPTION,
+              GEditor.GKey.Constant.SHIFT,
+              GEditor.GKey.Constant.META,
+              GEditor.GKey.Constant.OPTION,
               "S",
             ]
           : null;
@@ -194,17 +194,17 @@ function (exports, module, require) {
         );
       }),
       (w.prototype.execute = function (e, t, n) {
-        let o =
+        let _interopRequireDefault =
             arguments.length > 3 && undefined !== arguments[3]
               ? arguments[3]
               : w.DEFAULT_SAVE_OPTIONS,
           i = arguments.length > 4 ? arguments[4] : undefined;
-        const a = t || gDesigner.getActiveDocument();
-        if (a && a.isCommercialProductFile())
-          return a.openPaywall(this.getId()), false;
+        const GCore = t || gDesigner.getActiveDocument();
+        if (GCore && GCore.isCommercialProductFile())
+          return GCore.openPaywall(this.getId()), false;
         new f(
           () => {
-            this._performSave(e, a, n, o, i);
+            this._performSave(e, GCore, n, _interopRequireDefault, i);
           },
           () => {
             gDesigner.stats("action_cancelled_anonymous", this.getId());
@@ -212,15 +212,15 @@ function (exports, module, require) {
         );
       }),
       (w.prototype._performSave = async function (e, t, n) {
-        let o =
+        let _interopRequireDefault =
             arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
           i = arguments.length > 4 ? arguments[4] : undefined,
-          r = i;
+          GEditor = i;
         if (
           (t.isCloudFile() &&
             (this._fileExt === b &&
               t.getScene().setCloudSynchronization(t.getStorageItem().getId()),
-            (o.lastModifiedDate = t.isModified()
+            (_interopRequireDefault.lastModifiedDate = t.isModified()
               ? undefined
               : t.getScene().getLastSavedTime())),
           (e =
@@ -231,33 +231,33 @@ function (exports, module, require) {
           !(await this._checkWriteAccess(e)))
         )
           return;
-        o.referer = this.getId();
+        _interopRequireDefault.referer = this.getId();
         const s = !e.canDownload() || this._fileExt !== v.PDF.ext;
         if (e.canPromptSave() && s) {
           const i = t.getStorageItem();
-          !r && i && (r = i.getName()),
-            r || (r = t.getTitle()),
-            r &&
-              !r.endsWith(this._fileExt) &&
-              (r += ".".concat(this._fileExt.toLowerCase())),
+          !GEditor && i && (GEditor = i.getName()),
+            GEditor || (GEditor = t.getTitle()),
+            GEditor &&
+              !GEditor.endsWith(this._fileExt) &&
+              (GEditor += ".".concat(this._fileExt.toLowerCase())),
             e.savePrompt(
-              r,
+              GEditor,
               this._getFileTypes(t, e),
               async (e) => {
                 _.includes((e.getExtension() || "").toLowerCase()) &&
                   t.setStorageItem(e);
                 let i = this._fileExt !== b || !t.isCloudFile();
                 await t.saveAnnotations(i),
-                  (o = t.updateSaveOptionsLastModifiedDate(o)),
-                  (o.singleton = !t.isCloudFile()),
-                  (o = this._updateSaveOptions(o, t, e)),
+                  (_interopRequireDefault = t.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
+                  (_interopRequireDefault.singleton = !t.isCloudFile()),
+                  (_interopRequireDefault = this._updateSaveOptions(_interopRequireDefault, t, e)),
                   t.store(
                     e,
                     n,
                     this._showError,
-                    o instanceof l.default
-                      ? o
-                      : Object.assign({}, this._options, o)
+                    _interopRequireDefault instanceof l.default
+                      ? _interopRequireDefault
+                      : Object.assign({}, this._options, _interopRequireDefault)
                   );
               },
               () => {
@@ -266,28 +266,28 @@ function (exports, module, require) {
             );
         } else if (e.canDownload()) {
           if (
-            (r || (t.getStorageItem() && (r = t.getStorageItem().getName())),
-            (r = r || t.getTitle() || "Design"),
+            (GEditor || (t.getStorageItem() && (GEditor = t.getStorageItem().getName())),
+            (GEditor = GEditor || t.getTitle() || "Design"),
             !this._isNativeExt && t.hasPagesWithInfiniteEmptyCanvas())
           )
-            return void y.alert(
-              a.GLocale.get(
-                new a.GLocaleKey(
+            return void GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GCommonNames",
                   "text.error-emtpy-infinite-canvas"
                 )
               )
             );
-          (o = t.updateSaveOptionsLastModifiedDate(o)),
-            (o.singleton = !t.isCloudFile()),
-            (o = u(u({}, w.DEFAULT_SAVE_OPTIONS), o)),
-            e.download(r + "." + this._fileExt, (e) => {
+          (_interopRequireDefault = t.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
+            (_interopRequireDefault.singleton = !t.isCloudFile()),
+            (_interopRequireDefault = u(u({}, w.DEFAULT_SAVE_OPTIONS), _interopRequireDefault)),
+            e.download(GEditor + "." + this._fileExt, (e) => {
               e &&
                 t.store(
                   e,
                   n,
                   this._showError,
-                  Object.assign({}, this._options, o, { filename: r })
+                  Object.assign({}, this._options, _interopRequireDefault, { filename: GEditor })
                 );
             });
         }
@@ -296,15 +296,15 @@ function (exports, module, require) {
         const module = gContainer.getDefaultStorageDestination(this._fileExt);
         if (module) {
           const n = await e.getWritePermission(module),
-            o = n.isAuthorized();
+            _interopRequireDefault = n.isAuthorized();
           return (
-            !o && n.getStatusText() && this._showError(n.getStatusText()), o
+            !_interopRequireDefault && n.getStatusText() && this._showError(n.getStatusText()), _interopRequireDefault
           );
         }
         return true;
       }),
       (w.prototype._showError = function (e) {
-        e && y.error(e, { showTitle: false });
+        e && GSystemDialog.error(e, { showTitle: false });
       }),
       (w.prototype._getFileTypes = function () {
         return [{ ext: this._fileExt, mime: this._mime }];

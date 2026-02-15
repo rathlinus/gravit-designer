@@ -6,25 +6,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(1) /* module */,
-      a = require(53) /* module */,
-      r = require(40) /* CollaborationMergeUtils */,
-      s = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
       l = require(67) /* GRichTooltipConfig */,
-      c = o(require(340) /* GTouchTool */),
-      d = require(123) /* GProperties */,
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      GProperties = require(123) /* GProperties */,
       u = require(1153) /* module_1153 */,
-      p = require(135) /* GSettingChangedEvent */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       g = require(603) /* WindowEvent */,
       h = require(1328) /* module_1328 */,
       f = require(442) /* module_442 */;
-    const m = require(44) /* GSystemDialog */,
+    const GSystemDialog = require(44) /* GSystemDialog */,
       y = require(1604) /* module_1604 */,
-      v = require(78) /* GDocumentEvent */;
+      GDocumentEvent = require(78) /* GDocumentEvent */;
     function _() {}
-    i.GObject.inherit(_, d),
+    GCore.GObject.inherit(_, GProperties),
       (_.prototype._panel = null),
       (_.prototype._canvasPropertiesRowInTouch = null),
       (_.prototype._canvasPropertiesRowInNormal = null),
@@ -50,7 +50,7 @@ function (exports, module, require) {
           return $("<div></div>")
             .attr("data-property", e)
             .gPatternChooser({
-              types: [i.GColor, i.GGradient, i.GTexturePattern],
+              types: [GCore.GColor, GCore.GGradient, GCore.GTexturePattern],
             })
             .on("chooseropen", function () {
               gDesigner
@@ -63,17 +63,17 @@ function (exports, module, require) {
                   gDesigner.getActiveDocument().getScene().getActivePage()
                 );
             })
-            .on("chooserclose", function (e, t, o) {
+            .on("chooserclose", function (e, t, _interopRequireDefault) {
               if (
-                gDesigner.getWorkspace().getStyleEdManager().getOverlayLock(o)
+                gDesigner.getWorkspace().getStyleEdManager().getOverlayLock(_interopRequireDefault)
               )
                 t();
               else {
                 if (n._document && n._document.hasCDR()) {
-                  var a = gPatternChooser.getPattern();
-                  !a ||
-                    a instanceof i.GRGBColor ||
-                    m.showCDRUnsupportedObjectWarning();
+                  var GTools = gPatternChooser.getPattern();
+                  !GTools ||
+                    GTools instanceof GCore.GRGBColor ||
+                    GSystemDialog.showCDRUnsupportedObjectWarning();
                 }
                 (n._styleEdOn = false),
                   gDesigner
@@ -83,33 +83,33 @@ function (exports, module, require) {
               }
               n._chooserElem = null;
             })
-            .on("patternchange", function (e, t, o, a, r, s) {
+            .on("patternchange", function (e, t, _interopRequireDefault, GTools, CollaborationMergeUtils, AppSettings) {
               var l = [],
-                c = [];
+                GTouchTool = [];
               if (
-                (undefined !== t && (l.push("bck"), c.push(t)),
-                "number" == typeof o && (l.push("bop"), c.push(o)),
+                (undefined !== t && (l.push("bck"), GTouchTool.push(t)),
+                "number" == typeof _interopRequireDefault && (l.push("bop"), GTouchTool.push(_interopRequireDefault)),
                 n._pages)
               )
-                if (a)
+                if (GTools)
                   n._pages.forEach(function (e) {
-                    e.setProperties(l, c, false, false, a);
+                    e.setProperties(l, GTouchTool, false, false, GTools);
                   });
                 else {
-                  var d = null;
-                  r &&
-                    ((d = { chooserOn: true, pagePattern: true }),
-                    null !== s && (d.activeStopIdx = s)),
+                  var GProperties = null;
+                  CollaborationMergeUtils &&
+                    ((GProperties = { chooserOn: true, pagePattern: true }),
+                    null !== AppSettings && (GProperties.activeStopIdx = AppSettings)),
                     n._assignProperties(
                       l,
-                      c,
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GTouchTool,
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPageProperties",
                           "action.change-background"
                         )
                       ),
-                      d
+                      GProperties
                     );
                 }
             });
@@ -120,14 +120,14 @@ function (exports, module, require) {
             .on("change", (e) => {
               var t = $(e.target).find("option:selected"),
                 n = t.attr("data-preset-locale-en"),
-                o = "";
-              (o = n || t.text()),
-                gDesigner.stats("pageproperties_preset_size", o),
+                _interopRequireDefault = "";
+              (_interopRequireDefault = n || t.text()),
+                gDesigner.stats("pageproperties_preset_size", _interopRequireDefault),
                 this._assignPresetSize(e.target.value);
             });
         if ("w" === e || "h" === e) {
-          var o = i.GLocale.get(
-            new i.GLocaleKey(
+          var _interopRequireDefault = GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GCommonNames",
               "property-".concat(e.toLowerCase())
             ),
@@ -141,24 +141,24 @@ function (exports, module, require) {
                 .on("change", function () {
                   gDesigner.stats("pageproperties_change_size");
                   var t = $(this).gInputBox("value"),
-                    o = n._document.getScene().stringToPoint(t);
-                  "" === t || 0 === o
+                    _interopRequireDefault = n._document.getScene().stringToPoint(t);
+                  "" === t || 0 === _interopRequireDefault
                     ? n._assignProperties(
                         ["w", "h"],
-                        [o, o],
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        [_interopRequireDefault, _interopRequireDefault],
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GPageProperties",
                             "action.change-size"
                           )
                         )
                       )
-                    : null !== o && "number" == typeof o && o >= 0
+                    : null !== _interopRequireDefault && "number" == typeof _interopRequireDefault && _interopRequireDefault >= 0
                     ? n._assignProperty(
                         e,
-                        o,
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        _interopRequireDefault,
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GPageProperties",
                             "action.change-size"
                           )
@@ -168,7 +168,7 @@ function (exports, module, require) {
                 })
                 .gInputBox()
             )
-            .gInputLabel({ label: o, autoPadding: o.length > 1 });
+            .gInputLabel({ label: _interopRequireDefault, autoPadding: _interopRequireDefault.length > 1 });
         }
         if ("bl" === e)
           return $("<input>")
@@ -183,8 +183,8 @@ function (exports, module, require) {
                 ? n._assignProperty(
                     e,
                     t,
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPageProperties",
                         "action.change-bleeding"
                       )
@@ -208,8 +208,8 @@ function (exports, module, require) {
                   ? n._assignProperties(
                       ["mt", "mb", "ml", "mr"],
                       [t, t, t, t],
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPageProperties",
                           "action.change-margins"
                         )
@@ -218,8 +218,8 @@ function (exports, module, require) {
                   : n._assignProperty(
                       e,
                       t,
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPageProperties",
                           "action.change-margin"
                         )
@@ -250,8 +250,8 @@ function (exports, module, require) {
             })
             .attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "action.equal-margin")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "action.equal-margin")
               )
             )
             .attr("data-lock-margin", "yes");
@@ -262,13 +262,13 @@ function (exports, module, require) {
             .gPro()
             .on(
               "mousedown",
-              r.watchDog.trap(null, null, () =>
+              CollaborationMergeUtils.watchDog.trap(null, null, () =>
                 gDesigner.stats("pageproperties_nonprotriespro_masterpages")
               )
             )
             .on(
               "change",
-              r.watchDog.trap(
+              CollaborationMergeUtils.watchDog.trap(
                 (e) => {
                   gDesigner.stats("pageproperties_change_masterpages"),
                     this._assignMasterPage(
@@ -290,10 +290,10 @@ function (exports, module, require) {
               gDesigner.stats("pageproperties_change_canvas-opacity"),
                 n._assignProperty(
                   e,
-                  i.GLength.parseEquationValue($(this).gInputBox("value")) /
+                  GCore.GLength.parseEquationValue($(this).gInputBox("value")) /
                     100,
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GPageProperties",
                       "action.change-canvas-opacity"
                     )
@@ -311,8 +311,8 @@ function (exports, module, require) {
             .attr("data-property", e)
             .attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "text.rotate-canvas")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "text.rotate-canvas")
               )
             )
             .append($("<span/>").addClass("gravit-icon-flip-canvas"))
@@ -325,8 +325,8 @@ function (exports, module, require) {
                 n._assignProperties(
                   ["w", "h"],
                   [e.getProperty("h"), e.getProperty("w")],
-                  i.GLocale.get(
-                    new i.GLocaleKey("GPageProperties", "action.change-size")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GPageProperties", "action.change-size")
                   )
                 );
             });
@@ -335,8 +335,8 @@ function (exports, module, require) {
             .attr("data-property", e)
             .attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "text.size-trim")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "text.size-trim")
               )
             )
             .append($("<span/>").addClass("gravit-icon-trim-canvas"))
@@ -354,8 +354,8 @@ function (exports, module, require) {
             .addClass("g-disabled")
             .attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "text.clip-content")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "text.clip-content")
               )
             )
             .append($("<span/>").addClass("gravit-icon-clip-content"))
@@ -365,22 +365,22 @@ function (exports, module, require) {
                 var t = e.getView().getViewConfiguration().paintMode;
                 gDesigner.stats(
                   "pageproperties_clip_content",
-                  t !== i.GScenePaintConfiguration.PaintMode.Output
+                  t !== GCore.GScenePaintConfiguration.PaintMode.Output
                 ),
-                  n(t !== i.GScenePaintConfiguration.PaintMode.Output, false);
+                  n(t !== GCore.GScenePaintConfiguration.PaintMode.Output, false);
               }
             });
           const n = function (e) {
             let n =
               arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-            var o;
+            var _interopRequireDefault;
             (n && e) ||
               (e
-                ? ((o = i.GScenePaintConfiguration.PaintMode.Output),
+                ? ((_interopRequireDefault = GCore.GScenePaintConfiguration.PaintMode.Output),
                   t._updatePageSetting(f.PAGE_CLIP_CONTENT_ENABLED))
-                : ((o = i.GScenePaintConfiguration.PaintMode.Full),
+                : ((_interopRequireDefault = GCore.GScenePaintConfiguration.PaintMode.Full),
                   t._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED)),
-              gDesigner.setPaintMode(o));
+              gDesigner.setPaintMode(_interopRequireDefault));
           };
           return this._clipContentButton;
         }
@@ -393,44 +393,44 @@ function (exports, module, require) {
             module === g.WindowEvent.Type.Removed &&
             this._lastScene &&
             (this._lastScene.removeEventListener(
-              i.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._propertiesUpdateEventHandler,
               this
             ),
             this._lastScene.removeEventListener(
-              i.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._pageActivationEventHandler,
               this
             ),
             (this._lastScene = null))
           );
         if (require.getDocument() !== gDesigner.getActiveDocument()) return;
-        const o = gDesigner.getActiveDocument().getScene();
-        o.addEventListener(
-          i.GNode.AfterFlagChangeEvent,
+        const _interopRequireDefault = gDesigner.getActiveDocument().getScene();
+        _interopRequireDefault.addEventListener(
+          GCore.GNode.AfterFlagChangeEvent,
           this._pageActivationEventHandler,
           this
         ),
-          o.addEventListener(
-            i.GNode.AfterPropertiesChangeEvent,
+          _interopRequireDefault.addEventListener(
+            GCore.GNode.AfterPropertiesChangeEvent,
             this._propertiesUpdateEventHandler,
             this
           ),
           this._lastScene &&
             (this._lastScene.removeEventListener(
-              i.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._propertiesUpdateEventHandler,
               this
             ),
             this._lastScene.removeEventListener(
-              i.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._pageActivationEventHandler,
               this
             )),
-          (this._lastScene = o),
+          (this._lastScene = _interopRequireDefault),
           this._pageActivationEventHandler({
-            node: o.getActivePage(),
-            flag: i.GNode.Flag.Active,
+            node: _interopRequireDefault.getActivePage(),
+            flag: GCore.GNode.Flag.Active,
           });
       }),
       (_.prototype._paintModeEvent = function () {
@@ -440,50 +440,50 @@ function (exports, module, require) {
       }),
       (_.prototype._pageActivationEventHandler = function (e) {
         let { node: module, flag: require } = e;
-        if (module instanceof i.GPage && require === i.GNode.Flag.Active) {
+        if (module instanceof GCore.GPage && require === GCore.GNode.Flag.Active) {
           const e = gDesigner
               .getWindows()
               .getActiveWindow()
               .getView()
               .getViewConfiguration().paintMode,
             n = !module.isFixedSized();
-          if (n && e === i.GScenePaintConfiguration.PaintMode.Output)
-            gDesigner.setPaintMode(i.GScenePaintConfiguration.PaintMode.Full),
+          if (n && e === GCore.GScenePaintConfiguration.PaintMode.Output)
+            gDesigner.setPaintMode(GCore.GScenePaintConfiguration.PaintMode.Full),
               this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED);
           else if (!n) {
-            var o =
+            var _interopRequireDefault =
               module.getProperty(f.PAGE_CLIP_PROPERTY_NAME, true) ||
-              (s.PAGE_CLIP_DEFAULT
+              (AppSettings.PAGE_CLIP_DEFAULT
                 ? f.PAGE_CLIP_CONTENT_ENABLED
                 : f.PAGE_CLIP_CONTENT_DISABLED);
             gDesigner.setPaintMode(
-              o === f.PAGE_CLIP_CONTENT_ENABLED
-                ? i.GScenePaintConfiguration.PaintMode.Output
-                : i.GScenePaintConfiguration.PaintMode.Full
+              _interopRequireDefault === f.PAGE_CLIP_CONTENT_ENABLED
+                ? GCore.GScenePaintConfiguration.PaintMode.Output
+                : GCore.GScenePaintConfiguration.PaintMode.Full
             );
           }
           this.updatePropertiesAvailability(module);
         }
       }),
       (_.prototype._propertiesUpdateEventHandler = function (e) {
-        let { node: module, temporary: require, properties: o } = e;
+        let { node: module, temporary: require, properties: _interopRequireDefault } = e;
         if (
           !require &&
-          module instanceof i.GPage &&
-          (o.indexOf("w") >= 0 || o.indexOf("h") >= 0)
+          module instanceof GCore.GPage &&
+          (_interopRequireDefault.indexOf("w") >= 0 || _interopRequireDefault.indexOf("h") >= 0)
         ) {
-          var a = gDesigner
+          var GTools = gDesigner
               .getWindows()
               .getActiveWindow()
               .getView()
               .getViewConfiguration().paintMode,
-            r = !module.isFixedSized();
-          r && a === i.GScenePaintConfiguration.PaintMode.Output
+            CollaborationMergeUtils = !module.isFixedSized();
+          CollaborationMergeUtils && GTools === GCore.GScenePaintConfiguration.PaintMode.Output
             ? (gDesigner.setPaintMode(
-                i.GScenePaintConfiguration.PaintMode.Full
+                GCore.GScenePaintConfiguration.PaintMode.Full
               ),
               this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED))
-            : this._manageClipButtonState(false, !r);
+            : this._manageClipButtonState(false, !CollaborationMergeUtils);
         }
       }),
       (_.prototype._updatePageSetting = function (e) {
@@ -502,29 +502,29 @@ function (exports, module, require) {
               {
                 width: "25%",
                 content: this._createInput("bck"),
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.color")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.color")
                 ),
               },
               {
                 width: "25%",
                 content: this._createInput("w"),
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.width")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.width")
                 ),
               },
               {
                 width: "25%",
                 content: this._createInput("h"),
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.height")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.height")
                 ),
               },
               {
                 width: "25%",
                 content: this._createInput("bop"),
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.opacity")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.opacity")
                 ),
               },
             ],
@@ -541,8 +541,8 @@ function (exports, module, require) {
                   width: "25%",
                   content: $(
                     "<span>" +
-                      i.GLocale.get(
-                        new i.GLocaleKey("GPageProperties", "text.page-size")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPageProperties", "text.page-size")
                       ) +
                       "</span>"
                   ),
@@ -566,8 +566,8 @@ function (exports, module, require) {
                   width: "25%",
                   content: $(
                     "<span>" +
-                      i.GLocale.get(
-                        new i.GLocaleKey("GPageProperties", "text.bleed")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPageProperties", "text.bleed")
                       ) +
                       "</span>"
                   ),
@@ -584,9 +584,9 @@ function (exports, module, require) {
             .getWindows()
             .addEventListener(g.WindowEvent, this._windowEvent, this),
           gDesigner.addEventListener(h, this._paintModeEvent, this),
-          gDesigner.addEventListener(v, this._documentEvent, this),
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           this.setTouchTools([
-            new c.default({
+            new GTouchTool.default({
               id: "document",
               icon: "gravit-icon-touch-document",
               panel: [this._panel, ".scene-properties-panel"],
@@ -600,8 +600,8 @@ function (exports, module, require) {
           e.addClass("page-properties-panel"),
           $("<label></label>")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "title")
               ).toUpperCase()
             )
             .appendTo(t),
@@ -609,11 +609,11 @@ function (exports, module, require) {
             .attr("data-property-row", "fixed-size")
             .appendTo(e));
         const require = l.GRichTooltipConfig.from({
-          title: i.GLocale.get(
-            new i.GLocaleKey("GPageProperties", "text.margin-tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GPageProperties", "text.margin-tooltip-title")
           ),
-          description: i.GLocale.get(
-            new i.GLocaleKey(
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GPageProperties",
               "text.margin-tooltip-description"
             )
@@ -630,8 +630,8 @@ function (exports, module, require) {
                 clazz: "margin-title-column",
                 content: $(
                   "<span>" +
-                    i.GLocale.get(
-                      new i.GLocaleKey("GPageProperties", "text.margin")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPageProperties", "text.margin")
                     ) +
                     "</span>"
                 ).addClass("margin-title"),
@@ -639,32 +639,32 @@ function (exports, module, require) {
               {
                 clazz: "margin-input-column",
                 labelClass: "margin-input-labels",
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.left")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.left")
                 ),
                 content: this._createInput("ml").gRichTooltip(require),
               },
               {
                 clazz: "margin-input-column",
                 labelClass: "margin-input-labels",
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.top")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.top")
                 ),
                 content: this._createInput("mt").gRichTooltip(require),
               },
               {
                 clazz: "margin-input-column",
                 labelClass: "margin-input-labels",
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.right")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.right")
                 ),
                 content: this._createInput("mr").gRichTooltip(require),
               },
               {
                 clazz: "margin-input-column",
                 labelClass: "margin-input-labels",
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.bottom")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.bottom")
                 ),
                 content: this._createInput("mb").gRichTooltip(require),
               },
@@ -677,7 +677,7 @@ function (exports, module, require) {
           })
           .appendTo(e),
           $("<hr/>").attr("data-property-row", "fixed-size").appendTo(e);
-        var o = gDesigner.getLicense();
+        var _interopRequireDefault = gDesigner.getLicense();
         $("<div></div>")
           .attr("data-property-row", "fixed-size")
           .addClass("master-property-row")
@@ -687,8 +687,8 @@ function (exports, module, require) {
                 clazz: "master-property-title",
                 content: $(
                   "<span>" +
-                    i.GLocale.get(
-                      new i.GLocaleKey("GPageProperties", "text.master")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPageProperties", "text.master")
                     ) +
                     "</span>"
                 ),
@@ -700,14 +700,14 @@ function (exports, module, require) {
                   .append($("<span></span>").gPro())
                   .gRichTooltip(
                     l.GRichTooltipConfig.from({
-                      title: i.GLocale.get(
-                        new i.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPageProperties",
                           "text.master-tooltip-title"
                         )
                       ),
-                      description: i.GLocale.get(
-                        new i.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPageProperties",
                           "text.master-tooltip-description"
                         )
@@ -715,7 +715,7 @@ function (exports, module, require) {
                       middle: false,
                       isPro:
                         !gDesigner.isEnabledProFeatures() ||
-                        !(o.isPro() && !o.isExpired()),
+                        !(_interopRequireDefault.isPro() && !_interopRequireDefault.isExpired()),
                       learnMore:
                         "",
                     })
@@ -729,14 +729,14 @@ function (exports, module, require) {
             .parent(".content")
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.rotate-canvas-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.rotate-canvas-tooltip-description"
                   )
@@ -750,14 +750,14 @@ function (exports, module, require) {
             .parent(".content")
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.trim-canvas-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.trim-canvas-tooltip-description"
                   )
@@ -771,14 +771,14 @@ function (exports, module, require) {
             .parent(".content")
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.clip-content-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.clip-content-tooltip-description"
                   )
@@ -790,14 +790,14 @@ function (exports, module, require) {
             .parent(".content")
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.bleed-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPageProperties",
                     "text.bleed-tooltip-description"
                   )
@@ -811,14 +811,14 @@ function (exports, module, require) {
             .getWorkspace()
             .getStyleEdManager()
             .addEventListener(
-              a.GStyleEdManager.EditorEvent,
+              GTools.GStyleEdManager.EditorEvent,
               this._styleEditorEventHandler,
               this
             ),
           this._updateUI();
       }),
       (_.prototype._documentEvent = function (e) {
-        e.type === v.Type.Removed &&
+        e.type === GDocumentEvent.Type.Removed &&
           this._panel
             .find('select[data-property="master-page"]')
             .empty()
@@ -829,8 +829,8 @@ function (exports, module, require) {
           this._assignProperties(
             ["w", "h"],
             [0, 0],
-            i.GLocale.get(
-              new i.GLocaleKey("GPageProperties", "action.change-size")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GPageProperties", "action.change-size")
             ),
             null,
             true
@@ -843,24 +843,24 @@ function (exports, module, require) {
             this._pages.forEach((e) => e.trimToContent());
           } finally {
             module.commitTransaction(
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "action.change-size")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "action.change-size")
               )
             ),
               (this._ownChange = false);
           }
         } else {
           var require = this._document.getScene(),
-            o = e.split("x"),
-            a = require.stringToPoint(o[0]),
-            r = require.stringToPoint(o[1]),
-            s = +o[2];
-          require.getProperty("dpi") !== s && require.setProperty("dpi", s),
+            _interopRequireDefault = e.split("x"),
+            GTools = require.stringToPoint(_interopRequireDefault[0]),
+            CollaborationMergeUtils = require.stringToPoint(_interopRequireDefault[1]),
+            AppSettings = +_interopRequireDefault[2];
+          require.getProperty("dpi") !== AppSettings && require.setProperty("dpi", AppSettings),
             this._assignProperties(
               ["w", "h"],
-              [a, r],
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "action.change-size")
+              [GTools, CollaborationMergeUtils],
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "action.change-size")
               )
             );
         }
@@ -872,18 +872,18 @@ function (exports, module, require) {
           n.beginTransaction();
           try {
             this._pages.forEach((n) => {
-              var o = n.getMasterPages(),
-                i = false;
-              o.forEach(function (o) {
-                e !== o ? t.unlink(o, n) : (i = true);
+              var _interopRequireDefault = n.getMasterPages(),
+                GCore = false;
+              _interopRequireDefault.forEach(function (_interopRequireDefault) {
+                e !== _interopRequireDefault ? t.unlink(_interopRequireDefault, n) : (GCore = true);
               }),
-                i || t.link(e, n);
+                GCore || t.link(e, n);
             }),
               this._updateSlavePages(e);
           } finally {
             n.commitTransaction(
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "action.assign-master-page")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "action.assign-master-page")
               )
             );
           }
@@ -897,8 +897,8 @@ function (exports, module, require) {
             });
           } finally {
             n.commitTransaction(
-              i.GLocale.get(
-                new i.GLocaleKey("GPageProperties", "action.assign-master-page")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GPageProperties", "action.assign-master-page")
               )
             );
           }
@@ -909,21 +909,21 @@ function (exports, module, require) {
           return (this._styleEditorChange = false), true;
         if (this._ownChange) return true;
         this._chooserElem && this._chooserElem.gPatternChooser("close");
-        var o = e !== this._oldDocument;
+        var _interopRequireDefault = e !== this._oldDocument;
         if (
           ((this._oldDocument = e),
           this._document &&
             (this._document
               .getScene()
               .removeEventListener(
-                i.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
-            gDesigner.removeEventListener(p, this._settingChanged),
+            gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged),
             (this._document = null)),
           (this._pages = null),
-          e && (t = t.filter((e) => e instanceof i.GPage)).length)
+          e && (t = t.filter((e) => e instanceof GCore.GPage)).length)
         )
           return (
             (this._pages = t.slice()),
@@ -931,23 +931,23 @@ function (exports, module, require) {
             this._document
               .getScene()
               .addEventListener(
-                i.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
-            gDesigner.addEventListener(p, this._settingChanged, this),
-            o && this._updatePresetSizes(),
+            gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
+            _interopRequireDefault && this._updatePresetSizes(),
             this._updateProperties(n),
             true
           );
-        const r = gDesigner.getActiveDocument(),
-          s = r && r.getScene();
-        if (gDesigner.isTouchEnabled() && s && s.getActivePage()) {
+        const CollaborationMergeUtils = gDesigner.getActiveDocument(),
+          AppSettings = CollaborationMergeUtils && CollaborationMergeUtils.getScene();
+        if (gDesigner.isTouchEnabled() && AppSettings && AppSettings.getActivePage()) {
           const e = gDesigner.getActiveView(),
             t = e && e.getViewConfiguration();
           if (t && t.elementAnnotations) {
             const e = gDesigner.getToolManager().getActiveTool();
-            if (!e || e instanceof a.GSelectTool) return true;
+            if (!e || e instanceof GTools.GSelectTool) return true;
           }
         }
         return false;
@@ -996,15 +996,15 @@ function (exports, module, require) {
       }),
       (_.prototype._updateSlavePages = function (e, t) {
         var n = ["mt", "mb", "ml", "mr", "bop", "bl", "bck"];
-        if (e instanceof i.GPage) {
+        if (e instanceof GCore.GPage) {
           t || (t = n);
-          var o = n.filter((e) => t.indexOf(e) >= 0);
-          o.length &&
+          var _interopRequireDefault = n.filter((e) => t.indexOf(e) >= 0);
+          _interopRequireDefault.length &&
             e.getSlavePages().forEach((t) => {
               var n;
               t.setProperties(
-                o,
-                ((n = []), o.forEach((t) => n.push(e.getProperty(t))), n)
+                _interopRequireDefault,
+                ((n = []), _interopRequireDefault.forEach((t) => n.push(e.getProperty(t))), n)
               );
             });
         }
@@ -1016,36 +1016,36 @@ function (exports, module, require) {
           t = this._panel.find('select[data-property="preset-size"]').empty(),
           n = $("<optgroup></optgroup>").attr(
             "label",
-            i.GLocale.get(
-              new i.GLocaleKey("GPageProperties", "text.size-custom")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GPageProperties", "text.size-custom")
             )
           );
         $("<option></option>")
           .attr("value", "@infinite")
           .text(
-            i.GLocale.get(
-              new i.GLocaleKey("GPageProperties", "text.size-infinite")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GPageProperties", "text.size-infinite")
             )
           )
           .appendTo(n),
           t.append(n),
           u.getPresets().forEach((n) => {
-            var o = $("<optgroup></optgroup>").attr("label", n.name),
-              a = false;
+            var _interopRequireDefault = $("<optgroup></optgroup>").attr("label", n.name),
+              GTools = false;
             n.layouts.forEach((t) => {
               if (t.unit === e) {
-                var r = t.includes;
-                if (r)
-                  for (var s = 0; s < r.length; s++) {
-                    var l = r[s];
+                var CollaborationMergeUtils = t.includes;
+                if (CollaborationMergeUtils)
+                  for (var AppSettings = 0; AppSettings < CollaborationMergeUtils.length; AppSettings++) {
+                    var l = CollaborationMergeUtils[AppSettings];
                     $("<option></option>")
                       .attr("data-preset-id", n.id)
                       .attr(
                         "data-preset-locale-en",
-                        i.GLocale.get(
+                        GCore.GLocale.get(
                           l.localeClass,
                           null,
-                          i.GLocaleLanguage.English
+                          GCore.GLocaleLanguage.English
                         )
                       )
                       .attr(
@@ -1059,17 +1059,17 @@ function (exports, module, require) {
                             l.displaySize ? " " + l.width + "x" + l.height : ""
                           )
                       )
-                      .appendTo(o);
+                      .appendTo(_interopRequireDefault);
                   }
                 else
                   $("<option></option>")
                     .attr("data-preset-id", n.id)
                     .attr(
                       "data-preset-locale-en",
-                      i.GLocale.get(
+                      GCore.GLocale.get(
                         t.localeClass,
                         null,
-                        i.GLocaleLanguage.English
+                        GCore.GLocaleLanguage.English
                       )
                     )
                     .attr(
@@ -1083,43 +1083,43 @@ function (exports, module, require) {
                           t.displaySize ? " " + t.width + "x" + t.height : ""
                         )
                     )
-                    .appendTo(o);
-                a = true;
+                    .appendTo(_interopRequireDefault);
+                GTools = true;
               }
             }),
-              n.hidden && o.css({ display: "none" }),
-              a && t.append(o);
+              n.hidden && _interopRequireDefault.css({ display: "none" }),
+              GTools && t.append(_interopRequireDefault);
           });
       }),
       (_.prototype._styleEditorEventHandler = function (e) {
         this._styleEdOn &&
-          e.type === a.GStyleEdManager.EditorEventType.PrepareModifiedEvent &&
+          e.type === GTools.GStyleEdManager.EditorEventType.PrepareModifiedEvent &&
           (this._styleEditorChange = true);
       }),
       (_.prototype._updateProperties = function (e) {
         var t = this._document.getScene(),
           n = this._pages[0],
-          o = t.isFixedSized(),
-          r = i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.page"));
-        gDesigner.isTouchEnabled() && (r = r.toUpperCase());
-        var s = r + " (";
+          _interopRequireDefault = t.isFixedSized(),
+          CollaborationMergeUtils = GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.page"));
+        gDesigner.isTouchEnabled() && (CollaborationMergeUtils = CollaborationMergeUtils.toUpperCase());
+        var AppSettings = CollaborationMergeUtils + " (";
         this._pages.length > 1
-          ? (s +=
+          ? (AppSettings +=
               this._pages.length +
               " " +
-              i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.pages")))
-          : (s +=
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.pages")))
+          : (AppSettings +=
               n.getProperty("name") ||
-              i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.active"))),
-          (s += ")"),
-          this._toolbar.find("label:first-child").text(s),
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.active"))),
+          (AppSettings += ")"),
+          this._toolbar.find("label:first-child").text(AppSettings),
           this._panel
             .find('input[data-property="bl"]')
             .val(
               t.pointToString(n.getProperty("bl"), t.getOptimalDecimalsCount())
             ),
           n.getProperty("bck") ||
-            (n.setProperty("bck", i.GRGBColor.WHITE), n.setProperty("bop", 0));
+            (n.setProperty("bck", GCore.GRGBColor.WHITE), n.setProperty("bop", 0));
         var l = n.getProperty("bck", false, false, true);
         if (
           (this._panel
@@ -1130,9 +1130,9 @@ function (exports, module, require) {
             .css("display", l ? "" : "none")
             .gPatternChooser(
               "updateSettings",
-              o
-                ? { types: [i.GColor, i.GGradient, i.GTexturePattern] }
-                : { types: [i.GColor] }
+              _interopRequireDefault
+                ? { types: [GCore.GColor, GCore.GGradient, GCore.GTexturePattern] }
+                : { types: [GCore.GColor] }
             )
             .gPatternChooser("setPattern", l)
             .gPatternChooser("value", l)
@@ -1142,18 +1142,18 @@ function (exports, module, require) {
             .css("display", l ? "" : "none")
             .gInputBox(
               "value",
-              i.GUtil.formatOpacity(100 * n.getProperty("bop"))
+              GCore.GUtil.formatOpacity(100 * n.getProperty("bop"))
             ),
-          o)
+          _interopRequireDefault)
         ) {
-          var c =
+          var GTouchTool =
               t.pointToString(n.getProperty("w"), t.getOptimalDecimalsCount()) +
               "x" +
               t.pointToString(n.getProperty("h"), t.getOptimalDecimalsCount()) +
               "x" +
               t.getProperty("dpi"),
-            d = this._panel.find('select[data-property="preset-size"]');
-          d.val(d.find('option[value="' + c + '"]').length ? c : "@custom");
+            GProperties = this._panel.find('select[data-property="preset-size"]');
+          GProperties.val(GProperties.find('option[value="' + GTouchTool + '"]').length ? GTouchTool : "@custom");
         } else
           this._panel
             .find('select[data-property="preset-size"]')
@@ -1198,7 +1198,7 @@ function (exports, module, require) {
             .find('select[data-property="master-page"]')
             .empty()
             .append($("<option></option>")),
-          p = -1,
+          GSettingChangedEvent = -1,
           g = null;
         this._pages.forEach(function (e) {
           var t = e.getMasterPages();
@@ -1206,18 +1206,18 @@ function (exports, module, require) {
         }),
           t.iteratePages((e) => {
             if (this._pages.indexOf(e) < 0) {
-              p++;
+              GSettingChangedEvent++;
               var t = $("<option></option>")
                 .data("page", e)
-                .attr("value", p)
+                .attr("value", GSettingChangedEvent)
                 .text(e.getProperty("name"))
                 .appendTo(u);
               g === e && t.prop("selected", true);
             }
           }, true),
           e &&
-            (e.evtType === a.GEditor.ModifiedEvent.Type.Undo ||
-              e.evtType === a.GEditor.ModifiedEvent.Type.Redo) &&
+            (e.evtType === GTools.GEditor.ModifiedEvent.Type.Undo ||
+              e.evtType === GTools.GEditor.ModifiedEvent.Type.Redo) &&
             e.chooserOn &&
             e.pagePattern &&
             this._panel
@@ -1232,8 +1232,8 @@ function (exports, module, require) {
       (_.prototype.updatePropertiesAvailability = function (e) {
         var t = e.getProperty("plkt"),
           n = e.isFixedSized(),
-          o = false;
-        if (t && t & i.GBlock.ProgramLck.NoSizeChanges)
+          _interopRequireDefault = false;
+        if (t && t & GCore.GBlock.ProgramLck.NoSizeChanges)
           this._panel.find('[data-property="bck"]').attr("disabled", true),
             this._panel.find('input[data-property="bop"]').attr("disabled", true),
             this._panel.find('input[data-property="w"]').attr("disabled", true),
@@ -1258,14 +1258,14 @@ function (exports, module, require) {
               .find('select[data-property="master-page"]')
               .attr("disabled", true);
         else {
-          o = this._document && this._document.isDocumentFromTemplate();
-          var a = e.getProperty("bck", false, false, true),
-            r = this._panel.find('select[data-property="preset-size"]'),
-            s = r.find('option[value="' + r.val() + '"]').data("preset-id"),
-            l = o && this._excludedPresets.includes(s);
-          r.attr("disabled", l),
-            this._panel.find('[data-property="bck"]').attr("disabled", !a),
-            this._panel.find('input[data-property="bop"]').attr("disabled", !a),
+          _interopRequireDefault = this._document && this._document.isDocumentFromTemplate();
+          var GTools = e.getProperty("bck", false, false, true),
+            CollaborationMergeUtils = this._panel.find('select[data-property="preset-size"]'),
+            AppSettings = CollaborationMergeUtils.find('option[value="' + CollaborationMergeUtils.val() + '"]').data("preset-id"),
+            l = _interopRequireDefault && this._excludedPresets.includes(AppSettings);
+          CollaborationMergeUtils.attr("disabled", l),
+            this._panel.find('[data-property="bck"]').attr("disabled", !GTools),
+            this._panel.find('input[data-property="bop"]').attr("disabled", !GTools),
             this._panel.find('input[data-property="w"]').attr("disabled", false),
             this._panel.find('input[data-property="h"]').attr("disabled", false),
             n
@@ -1286,7 +1286,7 @@ function (exports, module, require) {
                   .getActiveWindow()
                   .getView()
                   .getViewConfiguration().paintMode ===
-                  i.GScenePaintConfiguration.PaintMode.Output,
+                  GCore.GScenePaintConfiguration.PaintMode.Output,
               n
             ),
             this._panel.find('input[data-property="bl"]').attr("disabled", false),
@@ -1295,18 +1295,18 @@ function (exports, module, require) {
             this._panel.find('input[data-property="ml"]').attr("disabled", false),
             this._panel.find('input[data-property="mr"]').attr("disabled", false),
             this._panel.find("[data-lock-margin]").attr("disabled", false);
-          var c = false,
-            d = e.getScene();
-          d &&
+          var GTouchTool = false,
+            GProperties = e.getScene();
+          GProperties &&
             f.CDR_ORIGIN_PROPERTY_NAME &&
-            (c = !!d.getProperty(f.CDR_ORIGIN_PROPERTY_NAME, true)),
+            (GTouchTool = !!GProperties.getProperty(f.CDR_ORIGIN_PROPERTY_NAME, true)),
             this._panel
               .find('select[data-property="master-page"]')
-              .attr("disabled", c)
+              .attr("disabled", GTouchTool)
               .attr("i18n", "text.plkt-no-size-changes");
         }
         var u =
-          t && t & i.GBlock.ProgramLck.NoSizeChanges
+          t && t & GCore.GBlock.ProgramLck.NoSizeChanges
             ? "text.plkt-no-size-changes"
             : "text.infinite-canvas-no-size-changes";
         this._panel
@@ -1321,8 +1321,8 @@ function (exports, module, require) {
               (e.attr("default-data-title", e.attr("default-data-title") || ""),
               e.attr(
                 "data-title",
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", e.attr("i18n") || u)
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", e.attr("i18n") || u)
                 ).replace("%name", e.attr("default-data-title") || "")
               ));
           }),
@@ -1334,20 +1334,20 @@ function (exports, module, require) {
               e.attr("default-data-title").length &&
                 e.attr("data-title", e.attr("default-data-title"));
             });
-        const p = (e) =>
+        const GSettingChangedEvent = (e) =>
           $("<div></div>")
             .addClass("tooltip-wrapper")
             .attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", (e && e.attr("i18n")) || u)
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", (e && e.attr("i18n")) || u)
               )
             );
         this._panel.find(".tooltip-wrapper").remove(),
           this._panel.find("select:disabled").each(function () {
-            l || p($(this)).insertAfter($(this));
+            l || GSettingChangedEvent($(this)).insertAfter($(this));
           }),
-          p().insertAfter(this._panel.find('[data-property="bck"][disabled]'));
+          GSettingChangedEvent().insertAfter(this._panel.find('[data-property="bck"][disabled]'));
       }),
       (_.prototype._manageClipButtonState = function (e, t) {
         this._clipContentButton &&
@@ -1366,26 +1366,26 @@ function (exports, module, require) {
       (_.prototype._assignProperty = function (e, t, n) {
         this._assignProperties([e], [t], n);
       }),
-      (_.prototype._assignProperties = function (e, t, n, o, a) {
+      (_.prototype._assignProperties = function (e, t, n, _interopRequireDefault, GTools) {
         this._ownChange = true;
-        var r = this._document.getEditor();
-        r.beginTransaction();
+        var CollaborationMergeUtils = this._document.getEditor();
+        CollaborationMergeUtils.beginTransaction();
         try {
           this._pages.forEach(function (n) {
-            var o = e,
-              r = t;
-            a &&
-              ((o = e.slice()),
-              (r = t.slice()),
-              n.getProperty("bck") instanceof i.GColor ||
-                (o.push("bck"),
-                r.push(i.GRGBColor.WHITE),
-                o.push("bop"),
-                r.push(1)));
-            n.setProperties(o, r);
+            var _interopRequireDefault = e,
+              CollaborationMergeUtils = t;
+            GTools &&
+              ((_interopRequireDefault = e.slice()),
+              (CollaborationMergeUtils = t.slice()),
+              n.getProperty("bck") instanceof GCore.GColor ||
+                (_interopRequireDefault.push("bck"),
+                CollaborationMergeUtils.push(GCore.GRGBColor.WHITE),
+                _interopRequireDefault.push("bop"),
+                CollaborationMergeUtils.push(1)));
+            n.setProperties(_interopRequireDefault, CollaborationMergeUtils);
           });
         } finally {
-          r.commitTransaction(n, o || null), (this._ownChange = false);
+          CollaborationMergeUtils.commitTransaction(n, _interopRequireDefault || null), (this._ownChange = false);
         }
       }),
       (_.prototype.toString = function () {

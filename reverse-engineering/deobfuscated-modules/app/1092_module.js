@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     const o = require(156) /* module_156 */,
-      i = require(10) /* AppSettings */;
+      AppSettings = require(10) /* AppSettings */;
     exports.exports = class {
       static createFrom(e) {
         let module = false;
@@ -29,7 +29,7 @@ function (exports, module, require) {
               n.setModificationTime(e.autosave_updated))
             : (n.setPreviewURL(n.url_t || n.url_s),
               n.setModificationTime(e.updated));
-        const a = i.FILE_FORMATS.find((e) => {
+        const a = AppSettings.FILE_FORMATS.find((e) => {
           const module = n.getMimeType();
           return (
             !(!module || e.type.toLowerCase() !== module.toLowerCase()) ||

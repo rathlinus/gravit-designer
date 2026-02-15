@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(421) /* domIterables */,
-      a = require(422) /* domTokenListPrototype */,
-      r = require(671) /* arrayForEach */,
-      s = require(100) /* createProperty */,
+    var globalThis = require(23) /* globalThis */,
+      domIterables = require(421) /* domIterables */,
+      domTokenListPrototype = require(422) /* domTokenListPrototype */,
+      arrayForEach = require(671) /* arrayForEach */,
+      createProperty = require(100) /* createProperty */,
       l = function (e) {
-        if (e && e.forEach !== r)
+        if (e && e.forEach !== arrayForEach)
           try {
-            s(e, "forEach", r);
+            createProperty(e, "forEach", arrayForEach);
           } catch (t) {
-            e.forEach = r;
+            e.forEach = arrayForEach;
           }
       };
-    for (var c in i) i[c] && l(o[c] && o[c].prototype);
-    l(a);
+    for (var c in domIterables) domIterables[c] && l(globalThis[c] && globalThis[c].prototype);
+    l(domTokenListPrototype);
   }

@@ -6,13 +6,13 @@
 function (exports, module, require) {
     "use strict";
     require(328) /* polyfill_Array_sort */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(38) /* stub_requires_680 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(841) /* module_841 */,
-      a = require(217) /* GDocumentStatusEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       r = require(86) /* module_86 */;
     const s = require(381) /* module_381 */,
-      l = require(256) /* GOfflineDialog */,
-      c = require(291) /* GNetworkAvailabilityChangedEvent */;
+      GOfflineDialog = require(256) /* GOfflineDialog */,
+      GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */;
     var d = [],
       u = function () {};
     function p() {
@@ -22,26 +22,26 @@ function (exports, module, require) {
     }
     function g(e) {
       var t = gDesigner.getActiveDocument(),
-        n = function (o) {
+        n = function (GCore) {
           var s = p.getInstance();
-          if (o)
-            switch (o.status) {
+          if (GCore)
+            switch (GCore.status) {
               case r.Saved:
               case r.SyncFailed:
               case r.Ready:
               case r.SaveFailed:
-                s.removeEventListener(a, n), delete s._listenerFor[t.sessionId];
+                s.removeEventListener(GDocumentStatusEvent, n), delete s._listenerFor[t.sessionId];
                 break;
               case r.LoadFailed:
-                s.removeEventListener(a, n), delete s._listenerFor[t.sessionId];
+                s.removeEventListener(GDocumentStatusEvent, n), delete s._listenerFor[t.sessionId];
               default:
                 return;
             }
           if (
             !((t.getScene().getProperty("cst") || []).indexOf(e.family) >= 0)
           ) {
-            var l = [e.family],
-              c = d
+            var GOfflineDialog = [e.family],
+              GNetworkAvailabilityChangedEvent = d
                 .filter(function (e) {
                   return !e.isInitialized() && e.hasEnabler();
                 })
@@ -54,24 +54,24 @@ function (exports, module, require) {
               n._missingFontsActions[t.sessionId] ||
                 (n._missingFontsActions[t.sessionId] = {});
               for (
-                var o = n._missingFontsActions[t.sessionId], i = e.length - 1;
+                var GCore = n._missingFontsActions[t.sessionId], i = e.length - 1;
                 i >= 0;
                 i--
               ) {
-                var a = e[i];
-                o.hasOwnProperty(a) ? e.splice(i, 1) : (o[a] = null);
+                var GDocumentStatusEvent = e[i];
+                GCore.hasOwnProperty(GDocumentStatusEvent) ? e.splice(i, 1) : (GCore[GDocumentStatusEvent] = null);
               }
-            })(l, t),
-              l.length &&
+            })(GOfflineDialog, t),
+              GOfflineDialog.length &&
                 (s._missingFontsDialog
-                  ? (s._missingFontsDialog.setProviderEnablers(c),
-                    s._missingFontsDialog.setMissingFonts(l))
-                  : l.length &&
-                    (s._missingFontsDialog = new i(t, l, c, (e) => {
+                  ? (s._missingFontsDialog.setProviderEnablers(GNetworkAvailabilityChangedEvent),
+                    s._missingFontsDialog.setMissingFonts(GOfflineDialog))
+                  : GOfflineDialog.length &&
+                    (s._missingFontsDialog = new i(t, GOfflineDialog, GNetworkAvailabilityChangedEvent, (e) => {
                       (s._missingFontsDialog = null),
                         (s.keepFontsMessage = null);
                       var n = s._missingFontsActions[t.sessionId];
-                      for (var o in e) n[o] = e[o];
+                      for (var GCore in e) n[GCore] = e[GCore];
                     })),
                 e.tryToResolveMissingFont &&
                   s._showMissingFontsDialog &&
@@ -82,26 +82,26 @@ function (exports, module, require) {
         };
       if (t && t.getStatus() === r.Ready) n();
       else {
-        var o = p.getInstance();
+        var GCore = p.getInstance();
         t &&
-          !o._listenerFor[t.sessionId] &&
-          ((o._listenerFor[t.sessionId] = n), o.addEventListener(a, n));
+          !GCore._listenerFor[t.sessionId] &&
+          ((GCore._listenerFor[t.sessionId] = n), GCore.addEventListener(GDocumentStatusEvent, n));
       }
     }
-    o.GObject.inherit(p, o.GEventTarget),
+    GCore.GObject.inherit(p, GCore.GEventTarget),
       (p.ResetEvent = function (e) {
         this.manager = e;
       }),
-      o.GObject.inherit(p.ResetEvent, o.GEvent),
+      GCore.GObject.inherit(p.ResetEvent, GCore.GEvent),
       (p.MissingFontEvent = function (e, t, n) {
         (this.manager = e), (this.evt = t), (this.provider = n);
       }),
-      o.GObject.inherit(p.MissingFontEvent, o.GEvent),
+      GCore.GObject.inherit(p.MissingFontEvent, GCore.GEvent),
       (p.prototype.manager = null),
       (p.prototype._resetProviders = null),
       (p.prototype.init = function () {
         gDesigner.addEventListener(
-          c,
+          GNetworkAvailabilityChangedEvent,
           this._networkAvailabilityChangedEvent,
           this
         );
@@ -137,16 +137,16 @@ function (exports, module, require) {
       (p.disableProviders = function (e) {
         if (p._instance) {
           for (var module = 0; module < e.length; module++)
-            for (var require = e[module], o = 0; o < d.length; o++)
-              d[o] instanceof require ? d[o].setEnabled(false) : d[o].setEnabled(true);
+            for (var require = e[module], GCore = 0; GCore < d.length; GCore++)
+              d[GCore] instanceof require ? d[GCore].setEnabled(false) : d[GCore].setEnabled(true);
           p._instance.reset(null, false, true);
         }
       }),
       (p.enableProviders = function (e, t) {
         if (p._instance) {
           for (var require = 0; require < e.length; require++)
-            for (var o = e[require], i = 0; i < d.length; i++)
-              d[i] instanceof o
+            for (var GCore = e[require], i = 0; i < d.length; i++)
+              d[i] instanceof GCore
                 ? d[i].setEnabled(true)
                 : t || d[i].setEnabled(false);
           t || p._instance.reset(null, false, true);
@@ -172,10 +172,10 @@ function (exports, module, require) {
             ? n.resolveFont(e.family, e.style, e.weight, {
                 done: function (t) {
                   var n;
-                  e.sender instanceof o.GFontManager &&
+                  e.sender instanceof GCore.GFontManager &&
                     (n = e.sender._getFont(e.family, e.style, e.weight)),
                     (n && n.isResolved()) ||
-                      (n = o.GOpenTypeFont.create(
+                      (n = GCore.GOpenTypeFont.create(
                         e.family,
                         e.style,
                         e.weight,
@@ -186,7 +186,7 @@ function (exports, module, require) {
                 fail: function (t) {
                   t && t === s.Errors.ConnectionError
                     ? gDesigner.isOffline() &&
-                      l.openUnavailableFeature(() => p.resolveFont(e))
+                      GOfflineDialog.openUnavailableFeature(() => p.resolveFont(e))
                     : (e.failed(), p._triggerMissingFont(e, n), g(e));
                 },
               })
@@ -196,10 +196,10 @@ function (exports, module, require) {
               ? n.resolveFont(e.family, e.style, e.weight, {
                   done: function (n) {
                     var i;
-                    e.sender instanceof o.GFontManager &&
+                    e.sender instanceof GCore.GFontManager &&
                       (i = e.sender._getFont(e.family, e.style, e.weight)),
                       (i && i.isResolved()) ||
-                        (i = o.GOpenTypeFont.create(
+                        (i = GCore.GOpenTypeFont.create(
                           e.family,
                           e.style,
                           e.weight,
@@ -241,7 +241,7 @@ function (exports, module, require) {
     }),
       (p.prototype.releaseDocumentListener = function (e) {
         this._listenerFor[e.sessionId] &&
-          this.removeEventListener(a, this._listenerFor[e.sessionId]);
+          this.removeEventListener(GDocumentStatusEvent, this._listenerFor[e.sessionId]);
       }),
       (p.prototype.setShowMissingFontsDialog = function (e) {
         this._showMissingFontsDialog = e;
@@ -249,35 +249,35 @@ function (exports, module, require) {
       (p.prototype.resetMissingFontsDialog = function () {
         this._missingFontsDialog = null;
       }),
-      (p.prototype._providerProbe = function (e, t, n, o, i, a, r, l, c, u) {
+      (p.prototype._providerProbe = function (e, t, n, GCore, i, GDocumentStatusEvent, r, GOfflineDialog, GNetworkAvailabilityChangedEvent, u) {
         for (
-          var p, g, _, b = this, w = l ? 20 : 9999;
-          d[e] && !c && !d[e].isEnabled();
+          var p, g, _, b = this, w = GOfflineDialog ? 20 : 9999;
+          d[e] && !GNetworkAvailabilityChangedEvent && !d[e].isEnabled();
 
         )
           e++;
         if (
-          (l
+          (GOfflineDialog
             ? ((p = this._loadedPreviews), (g = this._lastLoadedPreviews))
             : ((p = this._loaded), (g = this._lastLoaded)),
           e >= d.length)
         )
           return (
             (this._loading = false),
-            (this._timeStamp = o),
-            void (l
+            (this._timeStamp = GCore),
+            void (GOfflineDialog
               ? (this._loadedPreviews = this._lastLoadedPreviews)
               : ((this._loaded = this._lastLoaded),
                 r &&
                   i.length &&
-                  ((!c && this.hasDisabled()) ||
-                    ((m[n] = { faces: i.slice(), total: a }),
+                  ((!GNetworkAvailabilityChangedEvent && this.hasDisabled()) ||
+                    ((m[n] = { faces: i.slice(), total: GDocumentStatusEvent }),
                     y.unshift(n) > 30 && delete m[y.pop()]),
-                  c ||
-                    ((h[n] = { faces: i, total: a }),
+                  GNetworkAvailabilityChangedEvent ||
+                    ((h[n] = { faces: i, total: GDocumentStatusEvent }),
                     f.unshift(n) > 30 && delete h[f.pop()])),
-                t({ faces: i, total: a }),
-                c || this._providerProbe(0, t, n, o, [], 0, r, true, c, u)))
+                t({ faces: i, total: GDocumentStatusEvent }),
+                GNetworkAvailabilityChangedEvent || this._providerProbe(0, t, n, GCore, [], 0, r, true, GNetworkAvailabilityChangedEvent, u)))
           );
         var C,
           x = p + (p < 9999 ? 9999 : w),
@@ -286,15 +286,15 @@ function (exports, module, require) {
           var E = 0;
           for (e = 0; e < d.length; e++)
             if (
-              (c || d[e].isEnabled()) &&
+              (GNetworkAvailabilityChangedEvent || d[e].isEnabled()) &&
               (E += d[e].getTotalFonts(this.normalizeQuery(n))) > p
             ) {
               S = p - E + d[e].getTotalFonts(this.normalizeQuery(n));
               break;
             }
         }
-        ((!n || "%" === n) && g < a) || e >= d.length
-          ? this._providerProbe(d.length, t, n, o, i, a, r, l, c, u)
+        ((!n || "%" === n) && g < GDocumentStatusEvent) || e >= d.length
+          ? this._providerProbe(d.length, t, n, GCore, i, GDocumentStatusEvent, r, GOfflineDialog, GNetworkAvailabilityChangedEvent, u)
           : ((C = x - g),
             (_ = d[e]).load(
               this.normalizeQuery(n),
@@ -302,15 +302,15 @@ function (exports, module, require) {
               C,
               {
                 done: function (s, u, p) {
-                  if (o < this._timeStamp) console.log("discarded");
+                  if (GCore < this._timeStamp) console.log("discarded");
                   else {
-                    (d.indexOf(_) < 0 || (!c && !d[e].isEnabled())) &&
-                      this._providerProbe(e + 1, t, n, o, i, a, r, l, c);
+                    (d.indexOf(_) < 0 || (!GNetworkAvailabilityChangedEvent && !d[e].isEnabled())) &&
+                      this._providerProbe(e + 1, t, n, GCore, i, GDocumentStatusEvent, r, GOfflineDialog, GNetworkAvailabilityChangedEvent);
                     for (var g = 0; g < s.length; g++)
                       v.hasOwnProperty(s[g].family) || (v[s[g].family] = _);
-                    if (!l) {
+                    if (!GOfflineDialog) {
                       var f = h[this.normalizeQuery(n)] || { faces: [] };
-                      if (i !== f.faces || c) {
+                      if (i !== f.faces || GNetworkAvailabilityChangedEvent) {
                         for (g = 0; g < i.length; g++) {
                           if (
                             (y = d.indexOf(v[i[g].family])) > e &&
@@ -322,7 +322,7 @@ function (exports, module, require) {
                         }
                         if (
                           (g == i.length && Array.prototype.push.apply(i, s),
-                          !c)
+                          !GNetworkAvailabilityChangedEvent)
                         ) {
                           var m = f.faces;
                           for (g = 0; g < m.length; g++) {
@@ -353,16 +353,16 @@ function (exports, module, require) {
                         g == i.length && Array.prototype.push.apply(i, s);
                       }
                     }
-                    _.addPreviews(s, l),
-                      (a += _.getTotalFonts(this.normalizeQuery(n))),
+                    _.addPreviews(s, GOfflineDialog),
+                      (GDocumentStatusEvent += _.getTotalFonts(this.normalizeQuery(n))),
                       r &&
                         0 === e &&
-                        (l ? (this._loadedPreviews = 0) : (this._loaded = 0)),
-                      l
+                        (GOfflineDialog ? (this._loadedPreviews = 0) : (this._loaded = 0)),
+                      GOfflineDialog
                         ? (this._lastLoadedPreviews += s.length)
                         : (this._lastLoaded += s.length),
                       i.sort((e, t) => e.family.localeCompare(t.family)),
-                      this._providerProbe(e + 1, t, n, o, i, a, r, l, c);
+                      this._providerProbe(e + 1, t, n, GCore, i, GDocumentStatusEvent, r, GOfflineDialog, GNetworkAvailabilityChangedEvent);
                   }
                 }.bind(b),
                 fail: function (d) {
@@ -371,7 +371,7 @@ function (exports, module, require) {
                       d === s.Errors.ConnectionError &&
                       (b._resetProviders || (b._resetProviders = []),
                       b._resetProviders.push(_.constructor))),
-                    b._providerProbe(e + 1, t, n, o, i, a, r, l, c);
+                    b._providerProbe(e + 1, t, n, GCore, i, GDocumentStatusEvent, r, GOfflineDialog, GNetworkAvailabilityChangedEvent);
                 }.bind(b),
               },
               u
@@ -391,10 +391,10 @@ function (exports, module, require) {
       }),
       (p.prototype.reset = function (e, t, n) {
         if (e)
-          for (var o = 0; o < d.length; o++)
-            d[o] instanceof e &&
-              (t || d[o].isEnabled()) &&
-              d[o].resetProvider();
+          for (var GCore = 0; GCore < d.length; GCore++)
+            d[GCore] instanceof e &&
+              (t || d[GCore].isEnabled()) &&
+              d[GCore].resetProvider();
         this._lock && (clearTimeout(this._lock), (this._lock = null)),
           (this._loaded = 0),
           (this._lastLoaded = 0),
@@ -443,30 +443,30 @@ function (exports, module, require) {
       }),
       (p.prototype.query = function (e, t, n) {
         if ((t && (t = t.toLowerCase()), n && m.hasOwnProperty(t)))
-          e((o = m[t]));
+          e((GCore = m[t]));
         else if (!n && h.hasOwnProperty(t)) {
           (this._lastLoaded = 0), (this._lastLoadedPreviews = 0);
-          var o = h[t];
-          (this._loaded = o.faces.length),
-            (this._loadedPreviews = o.faces.length),
-            e(o);
+          var GCore = h[t];
+          (this._loaded = GCore.faces.length),
+            (this._loadedPreviews = GCore.faces.length),
+            e(GCore);
         } else {
           if (t.length > 2) {
             var i = t.substr(0, t.length - 2);
             for (i = this.normalizeQuery(i); i.length > 1; ) {
               if (h.hasOwnProperty(i))
                 if (
-                  (o = h[i]).faces.length < 9999 ||
-                  o.faces.length == o.total
+                  (GCore = h[i]).faces.length < 9999 ||
+                  GCore.faces.length == GCore.total
                 ) {
-                  for (var a = [], r = 0; r < o.faces.length; r++)
-                    o.faces[r].family.substr(0, t.length - 1).toLowerCase() ==
+                  for (var GDocumentStatusEvent = [], r = 0; r < GCore.faces.length; r++)
+                    GCore.faces[r].family.substr(0, t.length - 1).toLowerCase() ==
                       t.substr(0, t.length - 1).toLowerCase() &&
-                      a.push(o.faces[r]);
+                      GDocumentStatusEvent.push(GCore.faces[r]);
                   return (
                     (this._lastLoaded = this._lastLoadedPreviews = 0),
-                    (this._loaded = this._loadedPreviews = a.length),
-                    void e({ faces: a })
+                    (this._loaded = this._loadedPreviews = GDocumentStatusEvent.length),
+                    void e({ faces: GDocumentStatusEvent })
                   );
                 }
               (i = i.substr(0, i.length - 2)), (i = this.normalizeQuery(i));
@@ -498,8 +498,8 @@ function (exports, module, require) {
           if (m.hasOwnProperty(t)) {
             var require = m[t];
             if (require.faces)
-              for (var o = 0; o < require.faces.length; o++) {
-                var i = require.faces[o];
+              for (var GCore = 0; GCore < require.faces.length; GCore++) {
+                var i = require.faces[GCore];
                 if (i.family === e) return i;
                 if (i.families && i.families.indexOf(e) >= 0) return i;
               }

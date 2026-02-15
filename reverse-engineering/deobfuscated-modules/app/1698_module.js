@@ -6,12 +6,12 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
-      a = require(15) /* module */;
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */;
     const r = require(1699) /* module_1699 */;
     function s() {}
-    i.GObject.inheritAndMix(s, i.GObject);
+    GCore.GObject.inheritAndMix(s, GCore.GObject);
     var l = {
       init: function (e) {
         return (
@@ -29,17 +29,17 @@ function (exports, module, require) {
               })
               .attr(
                 "data-title",
-                i.GLocale.get(new i.GLocaleKey("GEyeDropper", "text.tooltip"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GEyeDropper", "text.tooltip"))
               )
               .append($("<span></span>").addClass("gravit-icon-picker"))
-              .on("click", function (o) {
+              .on("click", function (GTools) {
                 n.closest(".g-disabled").length ||
                   (e.onClick
                     ? e.onClick.call(this)
                     : gDesigner.stats("eyedropper_click_pick"),
-                  o.stopPropagation(),
-                  o.preventDefault(),
-                  l.setActive.call(t, !l.isActive.call(t), o.pageX, o.pageY));
+                  GTools.stopPropagation(),
+                  GTools.preventDefault(),
+                  l.setActive.call(t, !l.isActive.call(t), GTools.pageX, GTools.pageY));
               });
           })
         );
@@ -50,12 +50,12 @@ function (exports, module, require) {
       },
       setValue: function (e) {
         const module = $(this),
-          require = "string" == typeof e ? e : i.GPattern.asCSSBackground(e);
+          require = "string" == typeof e ? e : GCore.GPattern.asCSSBackground(e);
         module.find(".g-eye-dropper-preview-color-difference")
           .find(".current")
           .css({ background: require });
-        const o = module.data("g-eye-dropper") || {};
-        (o.currentColor = require), module.data("g-eye-dropper", o);
+        const GTools = module.data("g-eye-dropper") || {};
+        (GTools.currentColor = require), module.data("g-eye-dropper", GTools);
       },
       setActive: function (e, t, n) {
         if (e !== l.isActive.call(this)) {
@@ -64,7 +64,7 @@ function (exports, module, require) {
             d = function () {
               gDesigner
                 .getToolManager()
-                .removeEventListener(o.GToolManager.ToolChangedEvent, d, this),
+                .removeEventListener(GTools.GToolManager.ToolChangedEvent, d, this),
                 $(".g-eye-dropper-picker").remove();
             }.bind(this);
           if (e) {
@@ -77,7 +77,7 @@ function (exports, module, require) {
                   .getSceneCanvas()
                   .getBitmap()
                   .getHTMLElement(true),
-                g = i.GPaintCanvas.getScreenDPI(),
+                g = GCore.GPaintCanvas.getScreenDPI(),
                 h = $("<canvas></canvas>")
                   .attr({ width: 135, height: 135 })
                   .addClass("g-cursor-pixel g-eye-dropper-preview"),
@@ -125,27 +125,27 @@ function (exports, module, require) {
                 (v.setTransform(1, 0, 0, 1, 0, 0), u.viewContainsMouse(e, t))
               ) {
                 var n = e * g,
-                  o = t * g;
+                  GTools = t * g;
                 (n = Math.max(0, Math.min(n, p.width))),
-                  (o = Math.max(0, Math.min(o, p.height)));
-                var a = p.getContext("2d").getImageData(n, o, 1, 1).data,
+                  (GTools = Math.max(0, Math.min(GTools, p.height)));
+                var GEditor = p.getContext("2d").getImageData(n, GTools, 1, 1).data,
                   r =
-                    C(a[0].toString(16)) +
-                    C(a[1].toString(16)) +
-                    C(a[2].toString(16));
-                (r = r.toUpperCase()), (c.rgba = a);
-                const i = gDesigner.isTouchEnabled() ? 10 : 5;
+                    C(GEditor[0].toString(16)) +
+                    C(GEditor[1].toString(16)) +
+                    C(GEditor[2].toString(16));
+                (r = r.toUpperCase()), (c.rgba = GEditor);
+                const GCore = gDesigner.isTouchEnabled() ? 10 : 5;
                 h.css(
                   "box-shadow",
-                  "0 0 0 ".concat(i, "px rgb(") +
-                    a[0] +
+                  "0 0 0 ".concat(GCore, "px rgb(") +
+                    GEditor[0] +
                     "," +
-                    a[1] +
+                    GEditor[1] +
                     "," +
-                    a[2] +
+                    GEditor[2] +
                     ")"
                 ),
-                  f.text("R:" + a[0] + " G:" + a[1] + " B:" + a[2] + " #" + r),
+                  f.text("R:" + GEditor[0] + " G:" + GEditor[1] + " B:" + GEditor[2] + " #" + r),
                   f.css({
                     display: "block",
                     top: t + 5 + "px",
@@ -174,8 +174,8 @@ function (exports, module, require) {
                   (v.fillStyle = "rgba(0,0,0,0.75)"),
                   v.scale(0.9, 0.9),
                   v.fillText(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GEyeDropper", "text.preview")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GEyeDropper", "text.preview")
                     ),
                     10,
                     72,
@@ -188,16 +188,16 @@ function (exports, module, require) {
                 (e) => {
                   const t = h.get(0).getBoundingClientRect();
                   let n = e.pageX,
-                    o = e.pageY;
+                    GTools = e.pageY;
                   (n -= t.width - 8),
-                    (o -= t.height - 30),
+                    (GTools -= t.height - 30),
                     (n += 8),
-                    (o += 8),
-                    h.css({ left: n + "px", top: o + "px" });
-                  const i = h.get(0).getBoundingClientRect(),
-                    a = i.left + i.width / 2,
-                    r = i.top + i.height / 2;
-                  x.call(this, a, r);
+                    (GTools += 8),
+                    h.css({ left: n + "px", top: GTools + "px" });
+                  const GCore = h.get(0).getBoundingClientRect(),
+                    GEditor = GCore.left + GCore.width / 2,
+                    r = GCore.top + GCore.height / 2;
+                  x.call(this, GEditor, r);
                 },
                 () => {
                   l.setActive.call(this, false),
@@ -208,10 +208,10 @@ function (exports, module, require) {
                 if (gDesigner.isTouchEnabled()) return;
                 const t = e.pageX,
                   n = e.pageY,
-                  o = h.get(0).getBoundingClientRect(),
-                  i = t - o.width / 2 + 8,
-                  a = n - o.height / 2 + 8;
-                h.css({ left: i + "px", top: a + "px" }), x.call(this, t, n);
+                  GTools = h.get(0).getBoundingClientRect(),
+                  GCore = t - GTools.width / 2 + 8,
+                  GEditor = n - GTools.height / 2 + 8;
+                h.css({ left: GCore + "px", top: GEditor + "px" }), x.call(this, t, n);
               }.bind(this)),
               (c.documentMouseDown = function (e) {
                 gDesigner.isTouchEnabled()
@@ -222,7 +222,7 @@ function (exports, module, require) {
                     c.rgba && s.trigger("colorchange", [c.rgba]));
               }.bind(this)),
               (c.documentKeyDown = function (e) {
-                a.GKey.translateKey(e.keyCode) === a.GKey.Constant.ESC &&
+                GEditor.GKey.translateKey(e.keyCode) === GEditor.GKey.Constant.ESC &&
                   l.setActive.call(this, false);
               }.bind(this)),
               "number" == typeof t &&
@@ -235,14 +235,14 @@ function (exports, module, require) {
               document.addEventListener("mousemove", c.documentMove),
               gDesigner
                 .getToolManager()
-                .addEventListener(o.GToolManager.ToolChangedEvent, d, this);
+                .addEventListener(GTools.GToolManager.ToolChangedEvent, d, this);
           } else
             document.removeEventListener("keydown", c.documentKeyDown),
               document.removeEventListener("mousedown", c.documentMouseDown),
               document.removeEventListener("mousemove", c.documentMove),
               gDesigner
                 .getToolManager()
-                .removeEventListener(o.GToolManager.ToolChangedEvent, d, this),
+                .removeEventListener(GTools.GToolManager.ToolChangedEvent, d, this),
               c.picker.remove(),
               (c.picker = null),
               (c.documentKeyDown = null),

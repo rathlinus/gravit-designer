@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.cdrFormatVersionToReleaseYear = function (e) {
         return parseFloat(e) + 2e3 - 2;
@@ -16,22 +16,22 @@ function (exports, module, require) {
       }),
       require(193) /* polyfill_Object_keys */,
       require(8) /* polyfill_bundle_ES6 */;
-    var i = require(1) /* module */,
-      a = o(require(217) /* GDocumentStatusEvent */),
-      r = o(require(86) /* module_86 */);
+    var GCore = require(1) /* module */,
+      GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
+      r = _interopRequireDefault(require(86) /* module_86 */);
     const s = require(1101) /* module_1101 */,
-      l = (module.prepareCDRforSaving = async function (e, t, n, o, l) {
+      l = (module.prepareCDRforSaving = async function (e, t, n, _interopRequireDefault, l) {
         if (!gDesigner.getCDRIntegrationEngine()) return t(), false;
         const c = await gDesigner.getUser();
         n.userName = c
           ? c.getFullUserName()
-          : i.GLocale.get(
-              new i.GLocaleKey("GDocument", "text.default-export-author")
+          : GCore.GLocale.get(
+              new GCore.GLocaleKey("GDocument", "text.default-export-author")
             );
         const d = (n) => {
           if (
             (n.status !== r.default.Saving &&
-              e.removeEventListener(a.default, d),
+              e.removeEventListener(GDocumentStatusEvent.default, d),
             n.status === r.default.SaveFailed)
           ) {
             let e = "unexpected";
@@ -45,8 +45,8 @@ function (exports, module, require) {
                 let n = new Error(
                   this.getTitle() +
                     ": " +
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "text.file-too-large-cannot-be-processed"
                       )
@@ -62,7 +62,7 @@ function (exports, module, require) {
               gDesigner.stats("filespanel_export_cdr-ok");
         };
         return (
-          e.addEventListener(a.default, d),
+          e.addEventListener(GDocumentStatusEvent.default, d),
           gDesigner.getCDRIntegrationEngine().saveCDRDocument(
             e,
             n,
@@ -70,7 +70,7 @@ function (exports, module, require) {
               l(e);
             },
             t,
-            o
+            _interopRequireDefault
           )
         );
       });

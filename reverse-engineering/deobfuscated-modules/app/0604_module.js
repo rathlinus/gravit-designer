@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const i = require(1507) /* module_1507 */,
       a = require(1508) /* module_1508 */,
-      r = require(1509) /* GChangePasswordPanel */,
+      GChangePasswordPanel = require(1509) /* GChangePasswordPanel */,
       s = (require(1158) /* Action_help_purchase */, require(805) /* module_805 */),
       { gApi: l } = (require(177) /* module_177 */, require(10) /* AppSettings */);
     function c(e, t) {
@@ -17,7 +17,7 @@ function (exports, module, require) {
         arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
       (this._user = e), (this._options = require), this._init(t, require);
     }
-    o.GObject.inherit(c, o.GObject),
+    GCore.GObject.inherit(c, GCore.GObject),
       (c.prototype._options = null),
       (c.prototype._avatar = null),
       (c.Tabs = {
@@ -53,8 +53,8 @@ function (exports, module, require) {
               .addClass("btn gravit-icon-avatar")
               .attr(
                 "data-title",
-                o.GLocale.get(
-                  new o.GLocaleKey("GProfileDialog", "text.avatar-tooltip")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GProfileDialog", "text.avatar-tooltip")
                 )
               )
               .on("click", this._updateAvatar.bind(this))
@@ -64,7 +64,7 @@ function (exports, module, require) {
           .addClass("header")
           .append(
             $("<span></span>").text(
-              o.GLocale.get(new o.GLocaleKey("GProfileDialog", "text.details"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GProfileDialog", "text.details"))
             )
           )
           .appendTo(p);
@@ -83,10 +83,10 @@ function (exports, module, require) {
         }),
           (this._tabs = $("<ul></ul>").addClass("tabs").appendTo(u)),
           (this._panels = $("<div></div>").addClass("tab-panels").appendTo(p));
-        const h = (e, n, o, i) => {
+        const h = (e, n, GCore, i) => {
             let a = $("<div></div>")
               .addClass("tab-panel")
-              .append(o)
+              .append(GCore)
               .appendTo(this._panels);
             $("<li></li>")
               .attr("id", i)
@@ -94,12 +94,12 @@ function (exports, module, require) {
               .append($("<span></span>").addClass(n))
               .append($("<span></span>").text(e))
               .on("click", function (n) {
-                let o =
+                let GCore =
                     arguments.length > 1 &&
                     undefined !== arguments[1] &&
                     arguments[1],
                   i = $(n.target).closest(".tab");
-                o || t._messageHandler(undefined),
+                GCore || t._messageHandler(undefined),
                   t._tabs.find(".tab.g-selected").removeClass("g-selected"),
                   t._panels
                     .find(".tab-panel.g-selected")
@@ -120,7 +120,7 @@ function (exports, module, require) {
         if (
           (f(c.Tabs.Account) &&
             h(
-              o.GLocale.get(new o.GLocaleKey("GProfileDialog", "text.details")),
+              GCore.GLocale.get(new GCore.GLocaleKey("GProfileDialog", "text.details")),
               "gravit-icon-account",
               new a(
                 this._user,
@@ -132,11 +132,11 @@ function (exports, module, require) {
             ),
           f(c.Tabs.ChangePassword, false) &&
             h(
-              o.GLocale.get(
-                new o.GLocaleKey("GProfileDialog", "text.change-password")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GProfileDialog", "text.change-password")
               ),
               "gravit-icon-change-password",
-              new r(
+              new GChangePasswordPanel(
                 this._user,
                 this._messageHandler.bind(this),
                 this,
@@ -148,8 +148,8 @@ function (exports, module, require) {
         ) {
           (await l.hasPurchases({ issued: "true" }).catch(() => false)) &&
             h(
-              o.GLocale.get(
-                new o.GLocaleKey("GProfileDialog", "text.purchases")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GProfileDialog", "text.purchases")
               ),
               "gravit-icon-purchase",
               new i(
@@ -171,8 +171,8 @@ function (exports, module, require) {
         let exports = this._dialog.find(".avatar");
         function module(t) {
           exports.removeClass("g-loading");
-          let require = o.GLocale.get(
-            new o.GLocaleKey("GAccountPanel", "text.error")
+          let require = GCore.GLocale.get(
+            new GCore.GLocaleKey("GAccountPanel", "text.error")
           );
           t && t.message
             ? (require = t.message)
@@ -190,8 +190,8 @@ function (exports, module, require) {
               n.read((i) => {
                 if (i.byteLength > 102400)
                   return void module.call(this, {
-                    message: o.GLocale.get(
-                      new o.GLocaleKey(
+                    message: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GProfileDialog",
                         "text.avatar-size-too-big"
                       )
@@ -199,14 +199,14 @@ function (exports, module, require) {
                   });
                 let a = n.getExtension().toLowerCase();
                 "jpg" === a && (a = "jpeg");
-                let r = new File(
+                let GChangePasswordPanel = new File(
                   [new Blob([i], { type: "image/" + a })],
                   n.getFullName()
                 );
                 this._messageHandler(undefined),
                   gDesigner
                     .getCloudCommunicationManager()
-                    .updateAvatar(r)
+                    .updateAvatar(GChangePasswordPanel)
                     .then((t) => {
                       exports.removeClass("g-loading"),
                         exports

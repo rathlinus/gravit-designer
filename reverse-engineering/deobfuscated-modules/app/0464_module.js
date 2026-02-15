@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(94) /* Exports_Buf */;
+    var Buf = require(94) /* Exports_Buf */;
     function i(e) {
       for (var module = e.length; --module >= 0; ) e[module] = 0;
     }
@@ -33,11 +33,11 @@ function (exports, module, require) {
       f,
       m,
       y = new Array(30);
-    function v(e, t, n, o, i) {
+    function v(e, t, n, Buf, i) {
       (this.static_tree = e),
         (this.extra_bits = t),
         (this.extra_base = n),
-        (this.elems = o),
+        (this.elems = Buf),
         (this.max_length = i),
         (this.has_stree = e && e.length);
     }
@@ -70,11 +70,11 @@ function (exports, module, require) {
       return n >>> 1;
     }
     function E(e, t, n) {
-      var o,
+      var Buf,
         i,
         a = new Array(16),
         r = 0;
-      for (o = 1; o <= 15; o++) a[o] = r = (r + n[o - 1]) << 1;
+      for (Buf = 1; Buf <= 15; Buf++) a[Buf] = r = (r + n[Buf - 1]) << 1;
       for (i = 0; i <= t; i++) {
         var s = e[2 * i + 1];
         0 !== s && (e[2 * i] = S(a[s]++, s));
@@ -96,47 +96,47 @@ function (exports, module, require) {
         (e.bi_buf = 0),
         (e.bi_valid = 0);
     }
-    function G(e, t, n, o) {
+    function G(e, t, n, Buf) {
       var i = 2 * t,
         a = 2 * n;
-      return e[i] < e[a] || (e[i] === e[a] && o[t] <= o[n]);
+      return e[i] < e[a] || (e[i] === e[a] && Buf[t] <= Buf[n]);
     }
     function P(e, t, n) {
       for (
-        var o = e.heap[n], i = n << 1;
+        var Buf = e.heap[n], i = n << 1;
         i <= e.heap_len &&
         (i < e.heap_len && G(t, e.heap[i + 1], e.heap[i], e.depth) && i++,
-        !G(t, o, e.heap[i], e.depth));
+        !G(t, Buf, e.heap[i], e.depth));
 
       )
         (e.heap[n] = e.heap[i]), (n = i), (i <<= 1);
-      e.heap[n] = o;
+      e.heap[n] = Buf;
     }
     function D(e, t, n) {
-      var o,
+      var Buf,
         i,
         s,
         l,
         c = 0;
       if (0 !== e.last_lit)
         do {
-          (o =
+          (Buf =
             (e.pending_buf[e.d_buf + 2 * c] << 8) |
             e.pending_buf[e.d_buf + 2 * c + 1]),
             (i = e.pending_buf[e.l_buf + c]),
             c++,
-            0 === o
+            0 === Buf
               ? x(e, i, t)
               : (x(e, (s = p[i]) + 256 + 1, t),
                 0 !== (l = a[s]) && C(e, (i -= g[s]), l),
-                x(e, (s = b(--o)), n),
-                0 !== (l = r[s]) && C(e, (o -= y[s]), l));
+                x(e, (s = b(--Buf)), n),
+                0 !== (l = r[s]) && C(e, (Buf -= y[s]), l));
         } while (c < e.last_lit);
       x(e, 256, t);
     }
     function L(e, t) {
       var n,
-        o,
+        Buf,
         i,
         a = t.dyn_tree,
         r = t.stat_desc.static_tree,
@@ -158,20 +158,20 @@ function (exports, module, require) {
         (n = e.heap[1]),
           (e.heap[1] = e.heap[e.heap_len--]),
           P(e, a, 1),
-          (o = e.heap[1]),
+          (Buf = e.heap[1]),
           (e.heap[--e.heap_max] = n),
-          (e.heap[--e.heap_max] = o),
-          (a[2 * i] = a[2 * n] + a[2 * o]),
+          (e.heap[--e.heap_max] = Buf),
+          (a[2 * i] = a[2 * n] + a[2 * Buf]),
           (e.depth[i] =
-            (e.depth[n] >= e.depth[o] ? e.depth[n] : e.depth[o]) + 1),
-          (a[2 * n + 1] = a[2 * o + 1] = i),
+            (e.depth[n] >= e.depth[Buf] ? e.depth[n] : e.depth[Buf]) + 1),
+          (a[2 * n + 1] = a[2 * Buf + 1] = i),
           (e.heap[1] = i++),
           P(e, a, 1);
       } while (e.heap_len >= 2);
       (e.heap[--e.heap_max] = e.heap[1]),
         (function (e, t) {
           var n,
-            o,
+            Buf,
             i,
             a,
             r,
@@ -190,16 +190,16 @@ function (exports, module, require) {
             n < 573;
             n++
           )
-            (a = l[2 * l[2 * (o = e.heap[n]) + 1] + 1] + 1) > h &&
+            (a = l[2 * l[2 * (Buf = e.heap[n]) + 1] + 1] + 1) > h &&
               ((a = h), f++),
-              (l[2 * o + 1] = a),
-              o > c ||
+              (l[2 * Buf + 1] = a),
+              Buf > c ||
                 (e.bl_count[a]++,
                 (r = 0),
-                o >= g && (r = p[o - g]),
-                (s = l[2 * o]),
+                Buf >= g && (r = p[Buf - g]),
+                (s = l[2 * Buf]),
                 (e.opt_len += s * (a + r)),
-                u && (e.static_len += s * (d[2 * o + 1] + r)));
+                u && (e.static_len += s * (d[2 * Buf + 1] + r)));
           if (0 !== f) {
             do {
               for (a = h - 1; 0 === e.bl_count[a]; ) a--;
@@ -209,18 +209,18 @@ function (exports, module, require) {
                 (f -= 2);
             } while (f > 0);
             for (a = h; 0 !== a; a--)
-              for (o = e.bl_count[a]; 0 !== o; )
+              for (Buf = e.bl_count[a]; 0 !== Buf; )
                 (i = e.heap[--n]) > c ||
                   (l[2 * i + 1] !== a &&
                     ((e.opt_len += (a - l[2 * i + 1]) * l[2 * i]),
                     (l[2 * i + 1] = a)),
-                  o--);
+                  Buf--);
           }
         })(e, t),
         E(a, c, e.bl_count);
     }
     function I(e, t, n) {
-      var o,
+      var Buf,
         i,
         a = -1,
         r = t[1],
@@ -228,12 +228,12 @@ function (exports, module, require) {
         l = 7,
         c = 4;
       for (
-        0 === r && ((l = 138), (c = 3)), t[2 * (n + 1) + 1] = 65535, o = 0;
-        o <= n;
-        o++
+        0 === r && ((l = 138), (c = 3)), t[2 * (n + 1) + 1] = 65535, Buf = 0;
+        Buf <= n;
+        Buf++
       )
         (i = r),
-          (r = t[2 * (o + 1) + 1]),
+          (r = t[2 * (Buf + 1) + 1]),
           (++s < l && i === r) ||
             (s < c
               ? (e.bl_tree[2 * i] += s)
@@ -251,15 +251,15 @@ function (exports, module, require) {
               : ((l = 7), (c = 4)));
     }
     function k(e, t, n) {
-      var o,
+      var Buf,
         i,
         a = -1,
         r = t[1],
         s = 0,
         l = 7,
         c = 4;
-      for (0 === r && ((l = 138), (c = 3)), o = 0; o <= n; o++)
-        if (((i = r), (r = t[2 * (o + 1) + 1]), !(++s < l && i === r))) {
+      for (0 === r && ((l = 138), (c = 3)), Buf = 0; Buf <= n; Buf++)
+        if (((i = r), (r = t[2 * (Buf + 1) + 1]), !(++s < l && i === r))) {
           if (s < c)
             do {
               x(e, i, e.bl_tree);
@@ -288,7 +288,7 @@ function (exports, module, require) {
         (function (e, t, n, i) {
           T(e),
             i && (w(e, n), w(e, ~n)),
-            o.arraySet(e.pending_buf, e.window, t, n, e.pending),
+            Buf.arraySet(e.pending_buf, e.window, t, n, e.pending),
             (e.pending += n);
         })(e, t, n, true);
     }
@@ -298,16 +298,16 @@ function (exports, module, require) {
           var e,
             t,
             n,
-            o,
+            Buf,
             i,
             l = new Array(16);
-          for (n = 0, o = 0; o < 28; o++)
-            for (g[o] = n, e = 0; e < 1 << a[o]; e++) p[n++] = o;
-          for (p[n - 1] = o, i = 0, o = 0; o < 16; o++)
-            for (y[o] = i, e = 0; e < 1 << r[o]; e++) u[i++] = o;
-          for (i >>= 7; o < 30; o++)
-            for (y[o] = i << 7, e = 0; e < 1 << (r[o] - 7); e++)
-              u[256 + i++] = o;
+          for (n = 0, Buf = 0; Buf < 28; Buf++)
+            for (g[Buf] = n, e = 0; e < 1 << a[Buf]; e++) p[n++] = Buf;
+          for (p[n - 1] = Buf, i = 0, Buf = 0; Buf < 16; Buf++)
+            for (y[Buf] = i, e = 0; e < 1 << r[Buf]; e++) u[i++] = Buf;
+          for (i >>= 7; Buf < 30; Buf++)
+            for (y[Buf] = i << 7, e = 0; e < 1 << (r[Buf] - 7); e++)
+              u[256 + i++] = Buf;
           for (t = 0; t <= 15; t++) l[t] = 0;
           for (e = 0; e <= 143; ) (c[2 * e + 1] = 8), e++, l[8]++;
           for (; e <= 255; ) (c[2 * e + 1] = 9), e++, l[9]++;
@@ -328,7 +328,7 @@ function (exports, module, require) {
         A(e);
     }),
       (module._tr_stored_block = F),
-      (module._tr_flush_block = function (e, t, n, o) {
+      (module._tr_flush_block = function (e, t, n, Buf) {
         var i,
           a,
           r = 0;
@@ -367,15 +367,15 @@ function (exports, module, require) {
             (a = (e.static_len + 3 + 7) >>> 3) <= i && (i = a))
           : (i = a = n + 5),
           n + 4 <= i && -1 !== t
-            ? F(e, t, n, o)
+            ? F(e, t, n, Buf)
             : 4 === e.strategy || a === i
-            ? (C(e, 2 + (o ? 1 : 0), 3), D(e, c, d))
-            : (C(e, 4 + (o ? 1 : 0), 3),
-              (function (e, t, n, o) {
+            ? (C(e, 2 + (Buf ? 1 : 0), 3), D(e, c, d))
+            : (C(e, 4 + (Buf ? 1 : 0), 3),
+              (function (e, t, n, Buf) {
                 var i;
                 for (
-                  C(e, t - 257, 5), C(e, n - 1, 5), C(e, o - 4, 4), i = 0;
-                  i < o;
+                  C(e, t - 257, 5), C(e, n - 1, 5), C(e, Buf - 4, 4), i = 0;
+                  i < Buf;
                   i++
                 )
                   C(e, e.bl_tree[2 * l[i] + 1], 3);
@@ -383,7 +383,7 @@ function (exports, module, require) {
               })(e, e.l_desc.max_code + 1, e.d_desc.max_code + 1, r + 1),
               D(e, e.dyn_ltree, e.dyn_dtree)),
           A(e),
-          o && T(e);
+          Buf && T(e);
       }),
       (module._tr_tally = function (e, t, n) {
         return (

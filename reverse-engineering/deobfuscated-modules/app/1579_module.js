@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
-    var i = require(10) /* AppSettings */,
-      a = require(1) /* module */,
-      r = o(require(1187) /* module_1187 */);
-    class s extends i.GReminderDialog.Impl {
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */,
+      r = _interopRequireDefault(require(1187) /* module_1187 */);
+    class s extends AppSettings.GReminderDialog.Impl {
       open(e) {
         let { dialog: module } = e;
         this._dialog = module
@@ -47,7 +47,7 @@ function (exports, module, require) {
         });
       }
       getLanguage() {
-        return a.GLocale.getLanguage();
+        return GCore.GLocale.getLanguage();
       }
     }
     class l extends r.default {
@@ -59,19 +59,19 @@ function (exports, module, require) {
           module = Object.assign(this._dialogOptions, { impl: exports });
         switch (this._dialogOptions.endpoint) {
           case "/pro/reminder/proexpiresoon":
-            (await i.GReminderDialogFactory.newProExpireSoon(module)).open();
+            (await AppSettings.GReminderDialogFactory.newProExpireSoon(module)).open();
             break;
           case "/pro/reminder/proexpired":
-            (await i.GReminderDialogFactory.newProExpired(module)).open();
+            (await AppSettings.GReminderDialogFactory.newProExpired(module)).open();
             break;
           case "/pro/reminder/trialexpired":
-            (await i.GReminderDialogFactory.newTrialExpired(module)).open();
+            (await AppSettings.GReminderDialogFactory.newTrialExpired(module)).open();
             break;
           case "/pro/reminder/trialmessage":
-            (await i.GReminderDialogFactory.newTrialMessage(module)).open();
+            (await AppSettings.GReminderDialogFactory.newTrialMessage(module)).open();
             break;
           case "/pro/reminder/upgrade":
-            (await i.GReminderDialogFactory.newUpgradeScreen(module)).open();
+            (await AppSettings.GReminderDialogFactory.newUpgradeScreen(module)).open();
         }
       }
     }

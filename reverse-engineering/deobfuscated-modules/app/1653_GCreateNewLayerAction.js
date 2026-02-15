@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(31) /* GAction */),
-      s = o(require(18) /* MenuItemBuilder */),
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       l = require(198) /* Exports_GOutlineSidebar */,
-      c = o(require(1170) /* GToggleSidebarAction */);
-    class d extends r.default {
+      GToggleSidebarAction = _interopRequireDefault(require(1170) /* GToggleSidebarAction */);
+    class d extends GAction.default {
       getId() {
         return d.ID;
       }
@@ -21,13 +21,13 @@ function (exports, module, require) {
         return d.TITLE;
       }
       getCategory() {
-        return s.default.CATEGORY_MODIFY;
+        return MenuItemBuilder.default.CATEGORY_MODIFY;
       }
       isVisible() {
         return false;
       }
       getShortcut() {
-        return [a.GKey.Constant.META, a.GKey.Constant.M];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.M];
       }
       isEnabled() {
         return gDesigner.getApplicationManager().isEditingEnabled();
@@ -39,7 +39,7 @@ function (exports, module, require) {
       }
       _showOutlineSidebar() {
         const exports = gDesigner.getAction(
-          "".concat(c.default.ID, ".").concat(l.SidebarsIds.GOutlineSidebar)
+          "".concat(GToggleSidebarAction.default.ID, ".").concat(l.SidebarsIds.GOutlineSidebar)
         );
         exports.isChecked() || exports.execute();
       }
@@ -48,6 +48,6 @@ function (exports, module, require) {
       }
     }
     (d.ID = "modify.create-new-layer"),
-      (d.TITLE = new i.GLocaleKey("GCreateNewLayerAction", "title")),
+      (d.TITLE = new GCore.GLocaleKey("GCreateNewLayerAction", "title")),
       (exports.exports = d);
   }

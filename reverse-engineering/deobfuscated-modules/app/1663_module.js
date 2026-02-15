@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */,
       require(168) /* polyfill_Array_reduce */,
       require(30) /* polyfill_Object_assign */,
@@ -28,12 +28,12 @@ function (exports, module, require) {
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
     var i = require(1201) /* module */,
-      a = require(1) /* module */,
+      GCore = require(1) /* module */,
       r = require(15) /* module */,
-      s = require(10) /* AppSettings */,
-      l = o(require(1664) /* module_1664 */),
+      AppSettings = require(10) /* AppSettings */,
+      l = _interopRequireDefault(require(1664) /* module_1664 */),
       c = require(219) /* module_219 */,
-      d = require(809) /* GClipAction */,
+      GClipAction = require(809) /* GClipAction */,
       { debounce: u, stringToBase64String: p } = require(40) /* CollaborationMergeUtils */;
     const g = l.default.getElements();
     exports.exports = class {
@@ -63,21 +63,21 @@ function (exports, module, require) {
         var t = $("<div/>").addClass("g-library-panel").appendTo(e);
         (this._libraryPanel = t), this._createSearch(t), this._initElements(t);
       }
-      _updateUI(e, t, n, o, i) {
+      _updateUI(e, t, n, _interopRequireDefault, i) {
         var r = this,
-          s = i ? [] : t.children || [],
+          AppSettings = i ? [] : t.children || [],
           l = e.find(".images");
-        if (s.length > 0 && 0 === e.find("select").length) {
+        if (AppSettings.length > 0 && 0 === e.find("select").length) {
           var c = $("<select/>")
             .addClass("selector")
             .on("change", function () {
               var n,
-                o = $(this).find("option:selected").data("category");
+                _interopRequireDefault = $(this).find("option:selected").data("category");
               (r._CURRENT_SKIP_COUNT = 0),
                 (r._IMAGE_PAGE_COUNT = 1),
                 e.find(".asset-container").remove(),
-                o
-                  ? ((r._CURRENT_CATEGORY = o),
+                _interopRequireDefault
+                  ? ((r._CURRENT_CATEGORY = _interopRequireDefault),
                     (n =
                       (r._CURRENT_ROOT_CATEGORY &&
                         (r._CURRENT_ROOT_CATEGORY.name ||
@@ -103,37 +103,37 @@ function (exports, module, require) {
                 r._loadAssets(e, r._CURRENT_CATEGORY, r._updateUI.bind(r));
             });
           "element.image" === t.path && c.addClass("full-width");
-          var d = e.parent();
-          d.find(".selector-container").remove();
-          var u = d.find(".indicator");
+          var GClipAction = e.parent();
+          GClipAction.find(".selector-container").remove();
+          var u = GClipAction.find(".indicator");
           $("<div/>").addClass("selector-container").append(c).insertAfter(u),
             $("<option/>")
               .text(
-                a.GLocale.get(new a.GLocaleKey("GCommonNames", "element.all"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "element.all"))
               )
               .appendTo(c);
-          for (var p = 0; p < s.length; ++p) {
+          for (var p = 0; p < AppSettings.length; ++p) {
             var g =
               "element.child.name." +
-              s[p].name.toLowerCase().trim().replace(/\s+/g, "-");
+              AppSettings[p].name.toLowerCase().trim().replace(/\s+/g, "-");
             $("<option/>")
               .text(
-                a.GLocale.get(new a.GLocaleKey("GCommonNames", g), s[p].name)
+                GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", g), AppSettings[p].name)
               )
-              .data("category", s[p])
+              .data("category", AppSettings[p])
               .appendTo(c);
           }
         }
         !(function (t) {
           var n = [];
           i || e.find(".asset").remove();
-          for (var o = 0; o < t.length; ++o) {
-            let i = t[o],
+          for (var _interopRequireDefault = 0; _interopRequireDefault < t.length; ++_interopRequireDefault) {
+            let i = t[_interopRequireDefault],
               l = i.path && i.path.startsWith("element.image");
-            var a = r._getPreviewURI(i);
+            var GCore = r._getPreviewURI(i);
             if (l) n.push(i);
             else {
-              var s = $("<div/>")
+              var AppSettings = $("<div/>")
                   .addClass("asset-container")
                   .attr("data-title", i.name || ""),
                 c = $("<img/>")
@@ -141,23 +141,23 @@ function (exports, module, require) {
                     return false;
                   })
                   .attr("draggable", false)
-                  .attr("src", a)
+                  .attr("src", GCore)
                   .on("mousedown", function (e) {
                     r._onItemDragStartHandler(i, e);
                   })
                   .addClass("asset");
-              s.append(c), e.append(s);
+              AppSettings.append(c), e.append(AppSettings);
             }
           }
           if (n) {
-            var d = l.length ? l : e;
-            r._initMasonryLayoutColumns(d, n, i);
+            var GClipAction = l.length ? l : e;
+            r._initMasonryLayoutColumns(GClipAction, n, i);
           }
         })(n);
       }
-      _initMasonryLayoutColumns(e, t, n, o) {
+      _initMasonryLayoutColumns(e, t, n, _interopRequireDefault) {
         if (
-          (o && e && (t = e.find(".column").children()).unwrap(),
+          (_interopRequireDefault && e && (t = e.find(".column").children()).unwrap(),
           0 === t.length)
         )
           return;
@@ -165,7 +165,7 @@ function (exports, module, require) {
           ? parseInt(e.css("width").split("px")[0])
           : 250;
         var i,
-          a = [],
+          GCore = [],
           r = 2,
           l = null;
         if (
@@ -175,17 +175,17 @@ function (exports, module, require) {
             r > 2 ? (i / this._wrapperWidth) * 100 + "%" : "calc(50% - 4px)"),
           n)
         )
-          a = e.find(".column").toArray();
+          GCore = e.find(".column").toArray();
         else
           for (var c = 0; c < r; c++) {
-            var d = $("<div/>").addClass("column").css("width", l);
-            c > 0 && d.css("margin-left", "4px"), a.push(d);
+            var GClipAction = $("<div/>").addClass("column").css("width", l);
+            c > 0 && GClipAction.css("margin-left", "4px"), GCore.push(GClipAction);
           }
-        const u = a.map(this._getChildrenHeight.bind(this)),
+        const u = GCore.map(this._getChildrenHeight.bind(this)),
           p = [];
         for (var g = 0; g < t.length; g++) {
           var h;
-          if (o) h = t[g];
+          if (_interopRequireDefault) h = t[g];
           else {
             let e = t[g];
             var f = this._getPreviewURI(e),
@@ -216,7 +216,7 @@ function (exports, module, require) {
                       var n = new URL(e.user.profile);
                       n.searchParams.append(
                         "utm_source",
-                        encodeURIComponent(s.DESIGNER.TITLE)
+                        encodeURIComponent(AppSettings.DESIGNER.TITLE)
                       ),
                         n.searchParams.append("utm_medium", "referral"),
                         gContainer.openExternalLink(t, n);
@@ -227,13 +227,13 @@ function (exports, module, require) {
             n = $(h).data("asset"),
             i = this._getThumbnailSize(n).getHeight();
           u[e] = (u[e] || 0) + i;
-          const a = p[e] || [];
-          a.push(h), (p[e] = a);
+          const GCore = p[e] || [];
+          GCore.push(h), (p[e] = GCore);
         }
-        a.forEach((e, t) => {
+        GCore.forEach((e, t) => {
           $(e).append(p[t]);
         }),
-          n || e.append(a);
+          n || e.append(GCore);
       }
       _addAsset(e, t) {
         var n = this;
@@ -250,17 +250,17 @@ function (exports, module, require) {
                 );
           else if (e.path.startsWith("element.ui."))
             try {
-              var o = await fetch(e.url).then((e) => {
+              var _interopRequireDefault = await fetch(e.url).then((e) => {
                   if (!e.ok) throw new Error();
                   return e.text();
                 }),
-                l = $.parseXML(o);
+                l = $.parseXML(_interopRequireDefault);
               l &&
                 "svg" === l.documentElement.nodeName &&
                 gDesigner
                   .getActiveDocument()
                   .placeOrImport(
-                    new Blob([o], { type: "image/svg+xml" }),
+                    new Blob([_interopRequireDefault], { type: "image/svg+xml" }),
                     t,
                     false,
                     true
@@ -270,7 +270,7 @@ function (exports, module, require) {
             var u = e.id;
             try {
               var p = r.GPlatform.modifiers.optionKey,
-                g = await s.gApi.getUnsplashPhotoUrl({
+                g = await AppSettings.gApi.getUnsplashPhotoUrl({
                   id: u,
                   size: "regular",
                 }),
@@ -278,32 +278,32 @@ function (exports, module, require) {
                   if (!e.ok) throw new Error();
                   return e.blob();
                 });
-              i.GBitmapImport.import(h, (e, o, i, r) => {
+              i.GBitmapImport.import(h, (e, _interopRequireDefault, i, r) => {
                 if (e)
                   new c(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDocument", "text.image-too-big")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.image-too-big")
                     )
                   ).open();
                 else {
-                  var s = gDesigner.getActiveDocument(),
-                    l = s.getScene(),
-                    u = s.getEditor(),
+                  var AppSettings = gDesigner.getActiveDocument(),
+                    l = AppSettings.getScene(),
+                    u = AppSettings.getEditor(),
                     g = l.getActivePage(),
                     h = u.hasSelection() && u.getSelection()[0],
-                    f = a.GLocale.get(
-                      new a.GLocaleKey("GImage", "name.unsplash")
+                    f = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GImage", "name.unsplash")
                     ),
-                    m = a.GLocale.get(
-                      new a.GLocaleKey("GEditor", "action.insert-image")
+                    m = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GEditor", "action.insert-image")
                     );
                   u.beginTransaction();
                   try {
-                    if (!h || h instanceof a.GImage) {
-                      let e = new a.GImage();
+                    if (!h || h instanceof GCore.GImage) {
+                      let e = new GCore.GImage();
                       e.setProperties(
                         ["name", "iw", "ih", "url"],
-                        [f, i, r, o]
+                        [f, i, r, _interopRequireDefault]
                       ),
                         n._transformNode(e, t),
                         g.appendChild(e),
@@ -311,28 +311,28 @@ function (exports, module, require) {
                     } else if (p) {
                       var y = u.getSelection()[0].getTransform(),
                         v = y && y.getTranslation();
-                      let e = new a.GImage();
+                      let e = new GCore.GImage();
                       e.setProperties(
                         ["name", "iw", "ih", "url"],
-                        [f, i, r, o]
+                        [f, i, r, _interopRequireDefault]
                       ),
                         !t && v && (t = { x: v.getX(), y: v.getY() }),
                         n._transformNode(e, t),
                         g.appendChild(e),
                         u.updateSelection(true, [e]),
-                        gDesigner.executeAction(d.ID, undefined, undefined, true),
+                        gDesigner.executeAction(GClipAction.ID, undefined, undefined, true),
                         gDesigner.stats("librarypanel_download_image", "clip");
                     } else {
                       var _ = u.getSelection()[0].getPaintLayers();
                       if (_) {
-                        var b = new a.GTexturePattern(o);
-                        b.setSizeMode(a.GTexturePattern.SizeMode.Cover),
+                        var b = new GCore.GTexturePattern(_interopRequireDefault);
+                        b.setSizeMode(GCore.GTexturePattern.SizeMode.Cover),
                           b.setScene(l);
-                        var w = new a.GStylable.FillPaintLayer(b);
+                        var w = new GCore.GStylable.FillPaintLayer(b);
                         _.appendChild(w);
                       }
-                      (m = a.GLocale.get(
-                        new a.GLocaleKey(
+                      (m = GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GFillPaintLayerProperties",
                           "action.change-properties"
                         )
@@ -382,38 +382,38 @@ function (exports, module, require) {
                     .getActiveDocument()
                     .getScene()
                     ._workspace.getFontManager(),
-                  (o, i) => {
+                  (_interopRequireDefault, i) => {
                     if (i) {
                       y.beginTransaction();
                       try {
                         if (e.path.startsWith("element.line.tile")) {
                           var r,
-                            s,
-                            l = new a.GTexturePattern(
+                            AppSettings,
+                            l = new GCore.GTexturePattern(
                               i,
-                              a.GTexturePattern.RepeatMode.Horizontal
+                              GCore.GTexturePattern.RepeatMode.Horizontal
                             );
-                          l.setPosition(a.GTexturePattern.PositionMode.Center),
+                          l.setPosition(GCore.GTexturePattern.PositionMode.Center),
                             t
-                              ? ((r = t.x - _ / 2), (s = t.y - b / 2))
-                              : ((r = 0.3 * C), (s = (x - b) / 2));
-                          var c = new a.GRectangle();
+                              ? ((r = t.x - _ / 2), (AppSettings = t.y - b / 2))
+                              : ((r = 0.3 * C), (AppSettings = (x - b) / 2));
+                          var c = new GCore.GRectangle();
                           c.setProperty(
                             "trf",
-                            new a.GTransform(
+                            new GCore.GTransform(
                               _ / 2,
                               0,
                               0,
                               b / 2,
                               r + _ / 2,
-                              s + b / 2
+                              AppSettings + b / 2
                             )
                           ),
                             c.setProperty("isLine", true, true, false),
                             v.appendChild(c),
                             c
                               .getPaintLayers()
-                              .insertChild(new a.GStylable.FillPaintLayer(l)),
+                              .insertChild(new GCore.GStylable.FillPaintLayer(l)),
                             gDesigner
                               .getActiveDocument()
                               .getEditor()
@@ -433,12 +433,12 @@ function (exports, module, require) {
         })();
       }
       _transformNode(e, t) {
-        if (t && e.hasMixin(a.GElement.Transform)) {
+        if (t && e.hasMixin(GCore.GElement.Transform)) {
           var require = e.getGeometryBBox(),
-            o = require && require.getX() ? require.getX() : 0,
+            _interopRequireDefault = require && require.getX() ? require.getX() : 0,
             i = require && require.getY() ? require.getY() : 0;
-          require && ((o += require.getWidth() / 2), (i += require.getHeight() / 2)),
-            e.transform(new a.GTransform(1, 0, 0, 1, t.x - o, t.y - i), true);
+          require && ((_interopRequireDefault += require.getWidth() / 2), (i += require.getHeight() / 2)),
+            e.transform(new GCore.GTransform(1, 0, 0, 1, t.x - _interopRequireDefault, t.y - i), true);
         }
       }
       _createScrollEvent() {
@@ -455,8 +455,8 @@ function (exports, module, require) {
                         .addClass("container")
                         .append(
                           $("<span/>").text(
-                            a.GLocale.get(
-                              new a.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GCommonNames",
                                 "text.back-to-top"
                               )
@@ -482,17 +482,17 @@ function (exports, module, require) {
       _createSearch(e) {
         var t = $("<div/>"),
           n = $("<div/>"),
-          o = this,
+          _interopRequireDefault = this,
           i = function (e) {
-            o._libraryPanel
+            _interopRequireDefault._libraryPanel
               .find(".category-row")
               .find(".category")
               .removeClass("active"),
-              o._libraryPanel.find(".assets").css("display", "none"),
-              (o._CURRENT_SKIP_COUNT = 0),
-              (o._IMAGE_PAGE_COUNT = 1),
-              (o._CURRENT_CATEGORY = e),
-              (o._CURRENT_ROOT_CATEGORY = null),
+              _interopRequireDefault._libraryPanel.find(".assets").css("display", "none"),
+              (_interopRequireDefault._CURRENT_SKIP_COUNT = 0),
+              (_interopRequireDefault._IMAGE_PAGE_COUNT = 1),
+              (_interopRequireDefault._CURRENT_CATEGORY = e),
+              (_interopRequireDefault._CURRENT_ROOT_CATEGORY = null),
               t.find("span").toggleClass("gravit-icon-search", !e || !e.trim()),
               t
                 .find("span")
@@ -503,8 +503,8 @@ function (exports, module, require) {
               e &&
                 e.trim() &&
                 (n.css("display", "block"),
-                o._createScrollEvent(null, n, true),
-                o._loadAssets(i, e, o._updateUI.bind(o), true));
+                _interopRequireDefault._createScrollEvent(null, n, true),
+                _interopRequireDefault._loadAssets(i, e, _interopRequireDefault._updateUI.bind(_interopRequireDefault), true));
           };
         t
           .addClass("library-search")
@@ -514,8 +514,8 @@ function (exports, module, require) {
               .addClass("g-input")
               .attr(
                 "placeholder",
-                a.GLocale.get(
-                  new a.GLocaleKey("GCommonNames", "element.search")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "element.search")
                 ) + "..."
               )
               .on("keypress", function (e) {
@@ -565,8 +565,8 @@ function (exports, module, require) {
             $("<button/>")
               .addClass("load-more")
               .text(
-                a.GLocale.get(
-                  new a.GLocaleKey("GCommonNames", "text.library-load-more")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.library-load-more")
                 )
               )
               .on("click", () => {
@@ -599,10 +599,10 @@ function (exports, module, require) {
               .appendTo(e);
             t.append(this._loadMoreButton(t, false));
           }
-          var o = this._libraryPanel.find(".category-row:last-child");
-          (0 !== o.length && 3 !== o.children().length) ||
-            (o = $("<div/>").addClass("category-row")).appendTo(e);
-          let s = $("<div/>")
+          var _interopRequireDefault = this._libraryPanel.find(".category-row:last-child");
+          (0 !== _interopRequireDefault.length && 3 !== _interopRequireDefault.children().length) ||
+            (_interopRequireDefault = $("<div/>").addClass("category-row")).appendTo(e);
+          let AppSettings = $("<div/>")
             .addClass("category")
             .on("click", function () {
               var e = r.name || r.path || r || "";
@@ -610,19 +610,19 @@ function (exports, module, require) {
                 (e += "All"),
                 gDesigner.stats("librarypanel_search_category", e);
               var n = $(this),
-                o = n.closest(".category-row"),
-                i = o.children().index(this),
-                a = o.next(".assets"),
+                _interopRequireDefault = n.closest(".category-row"),
+                i = _interopRequireDefault.children().index(this),
+                GCore = _interopRequireDefault.next(".assets"),
                 l = n.hasClass("category") && n.hasClass("active");
-              o
+              _interopRequireDefault
                 .closest(".g-library-panel")
                 .find(".category")
                 .removeClass("active"),
                 n.addClass("active");
-              var c = o
+              var c = _interopRequireDefault
                 .closest(".g-library-panel")
                 .find(".assets")
-                .not(o.next(".assets"));
+                .not(_interopRequireDefault.next(".assets"));
               c.removeClass("first second third"),
                 $(".library-search")
                   .find("span")
@@ -631,41 +631,41 @@ function (exports, module, require) {
                   .find("span")
                   .addClass("gravit-icon-search"),
                 c.css("display", "none");
-              var d = a.find(".assets-wrapper");
-              "auto" !== d.css("height") && d.css("height", "auto"),
-                a.find(".selector-container").remove(),
-                d.empty(),
+              var GClipAction = GCore.find(".assets-wrapper");
+              "auto" !== GClipAction.css("height") && GClipAction.css("height", "auto"),
+                GCore.find(".selector-container").remove(),
+                GClipAction.empty(),
                 c.find(".assets-wrapper").empty();
               var u = function (e) {
-                let module = a.hasClass(e);
-                a.removeClass("first second third"),
+                let module = GCore.hasClass(e);
+                GCore.removeClass("first second third"),
                   module
-                    ? (a.css("display", "none"), n.removeClass("active"))
-                    : (a.addClass(e),
-                      a.css("display", ""),
+                    ? (GCore.css("display", "none"), n.removeClass("active"))
+                    : (GCore.addClass(e),
+                      GCore.css("display", ""),
                       n.addClass("active"));
               };
               u(0 === i ? "first" : 1 === i ? "second" : "third");
-              var p = a.find(".assets-content");
-              (d = a.find(".assets-wrapper")),
+              var p = GCore.find(".assets-content");
+              (GClipAction = GCore.find(".assets-wrapper")),
                 p.removeClass(),
                 p.addClass("assets-content"),
                 p.addClass("asset-" + r.path.slice(8).replace(/\./g, "-")),
-                module._createScrollEvent(s, a),
+                module._createScrollEvent(AppSettings, GCore),
                 (module._CURRENT_SKIP_COUNT = 0),
                 (module._IMAGE_PAGE_COUNT = 1),
                 (module._CURRENT_CATEGORY = r),
                 (module._CURRENT_ROOT_CATEGORY = r),
-                l || module._loadAssets(d, r, module._updateUI);
+                l || module._loadAssets(GClipAction, r, module._updateUI);
             })
-            .appendTo(o);
-          var i = $("<div/>").addClass("content").appendTo(s);
+            .appendTo(_interopRequireDefault);
+          var i = $("<div/>").addClass("content").appendTo(AppSettings);
           $("<img/>").addClass("icon").attr("src", r.url).appendTo(i),
             $("<span/>")
               .addClass("title")
               .text(
-                a.GLocale.get(
-                  new a.GLocaleKey("GCommonNames", r.path.replace(/\.$/, "")),
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", r.path.replace(/\.$/, "")),
                   r.name
                 )
               )
@@ -685,22 +685,22 @@ function (exports, module, require) {
           .appendTo(e);
         r.append(this._loadMoreButton(r, false));
       }
-      _loadAssets(e, t, n, o, i) {
+      _loadAssets(e, t, n, _interopRequireDefault, i) {
         this._toggleShowMoreButton(false, false),
           this._toggleLoading(true),
-          this._doLoadAssets(e, t, n, o, i);
+          this._doLoadAssets(e, t, n, _interopRequireDefault, i);
       }
-      async _doLoadAssets(e, t, n, o, i) {
-        let a = [],
+      async _doLoadAssets(e, t, n, _interopRequireDefault, i) {
+        let GCore = [],
           r = 0,
           c = 0;
         try {
-          if (o) {
+          if (_interopRequireDefault) {
             let e = [];
             if (l.default.isUnsplashIntegrationEnabled()) {
               if (!this._IMAGE_ASSET_DRAINED)
                 try {
-                  e = await s.gApi.searchUnsplashPhotos({
+                  e = await AppSettings.gApi.searchUnsplashPhotos({
                     query: t,
                     page: this._IMAGE_PAGE_COUNT,
                   });
@@ -709,47 +709,47 @@ function (exports, module, require) {
                 }
               (c = (e || []).length), c || (this._IMAGE_ASSET_DRAINED = true);
             }
-            (a = []),
+            (GCore = []),
               -1 !== this._CURRENT_SKIP_COUNT &&
-                (a = await s.gApi.listMarket({
+                (GCore = await AppSettings.gApi.listMarket({
                   q: t,
                   path: "element.",
                   limit: "90",
                   skip: this._CURRENT_SKIP_COUNT + "",
                   sort: "name",
                 })),
-              (r = (a || []).length),
-              (a = a.concat(e));
+              (r = (GCore || []).length),
+              (GCore = GCore.concat(e));
           } else if (t.path && t.path.startsWith("element.image"))
             l.default.isUnsplashIntegrationEnabled() &&
-              ((a = t.tag
-                ? await s.gApi.searchUnsplashPhotos({
+              ((GCore = t.tag
+                ? await AppSettings.gApi.searchUnsplashPhotos({
                     query: t.tag,
                     page: this._IMAGE_PAGE_COUNT,
                   })
-                : await s.gApi.getUnsplashPhotos({
+                : await AppSettings.gApi.getUnsplashPhotos({
                     page: this._IMAGE_PAGE_COUNT,
                   })),
-              (c = (a || []).length));
+              (c = (GCore || []).length));
           else {
-            var d = t.path;
-            (a = await s.gApi.listMarket({
-              path: "element.line" === d ? "element.line.tile" : d,
+            var GClipAction = t.path;
+            (GCore = await AppSettings.gApi.listMarket({
+              path: "element.line" === GClipAction ? "element.line.tile" : GClipAction,
               tag: t.tag,
               limit: "90",
               skip: this._CURRENT_SKIP_COUNT + "",
               sort: "name",
             })),
-              (r = (a || []).length);
+              (r = (GCore || []).length);
           }
           r < 90 && 0 === c
             ? this._toggleShowMoreButton(false, false)
             : this._toggleShowMoreButton(true, false),
-            a.length < 90
+            GCore.length < 90
               ? ((this._CURRENT_SKIP_COUNT = -1), this._IMAGE_PAGE_COUNT++)
               : ((this._CURRENT_SKIP_COUNT += 90), this._IMAGE_PAGE_COUNT++);
         } catch (e) {}
-        this._toggleLoading(false), n.call(this, e, t, a, o, i);
+        this._toggleLoading(false), n.call(this, e, t, GCore, _interopRequireDefault, i);
       }
       _toggleLoading(e) {
         e
@@ -770,60 +770,60 @@ function (exports, module, require) {
           : e.url_t || e.url || e.image.thumb;
       }
       _onItemDragStartHandler(e, t, n) {
-        var o;
+        var _interopRequireDefault;
         (this._clickCheckTime = Date.now()),
-          (o = n
+          (_interopRequireDefault = n
             ? n.get(0).getBoundingClientRect()
             : t.target.getBoundingClientRect());
-        var i = e.width || o.width || 50,
-          a = e.height || o.height || 50,
+        var i = e.width || _interopRequireDefault.width || 50,
+          GCore = e.height || _interopRequireDefault.height || 50,
           r = gDesigner.getActiveDocument().getScene().getActivePage();
         if (e.path.startsWith("element.line.tile"))
-          a =
+          GCore =
             (i =
               r.getGeometryBBox() && r.isFixedSized()
                 ? 0.4 * r.getGeometryBBox().getWidth()
                 : 320) / 10;
         else {
-          var s = r.getGeometryBBox(),
-            l = s && r.isFixedSized() ? s.getWidth() : 800,
-            c = s && r.isFixedSized() ? s.getHeight() : 800;
+          var AppSettings = r.getGeometryBBox(),
+            l = AppSettings && r.isFixedSized() ? AppSettings.getWidth() : 800,
+            c = AppSettings && r.isFixedSized() ? AppSettings.getHeight() : 800;
           if (
             !e.path.startsWith("element.ui") &&
             !e.path.startsWith("element.icons")
           ) {
-            var d = i / a;
+            var GClipAction = i / GCore;
             if (
               ((i = l / 3) > 300 && (i = 300),
-              (a = i / d),
+              (GCore = i / GClipAction),
               (i = Math.round(i)),
-              (a = Math.round(a)) > c)
+              (GCore = Math.round(GCore)) > c)
             ) {
-              var u = a;
-              (a = c / 3) > 300 && (a = 300),
+              var u = GCore;
+              (GCore = c / 3) > 300 && (GCore = 300),
                 (i = (i / e.height) * u),
                 (i = Math.round(i)),
-                (a = Math.round(a));
+                (GCore = Math.round(GCore));
             }
           }
-          (a *= gDesigner.getWindows().getActiveWindow().getView().getZoom()),
+          (GCore *= gDesigner.getWindows().getActiveWindow().getView().getZoom()),
             (i *= gDesigner.getWindows().getActiveWindow().getView().getZoom());
         }
         if (!this._dragging) {
-          var p = o.left + o.width / 2,
-            g = o.top + o.height / 2;
+          var p = _interopRequireDefault.left + _interopRequireDefault.width / 2,
+            g = _interopRequireDefault.top + _interopRequireDefault.height / 2;
           (this._dragOffset = { x: p - t.clientX, y: g - t.clientY }),
             (this._dragging = true),
             (this._currentElement = t.target),
             (this._currentItem = e),
-            (this._previewSize = { w: i, h: a }),
+            (this._previewSize = { w: i, h: GCore }),
             e.path.startsWith("element.line.tile")
               ? (this.dragPreview = $("<div/>")
                   .css("background", 'url("' + e.url + '")')
                   .css("background-repeat", "repeat-x")
-                  .css("background-position", Math.round(a / 2) + "px 0px")
+                  .css("background-position", Math.round(GCore / 2) + "px 0px")
                   .css("position", "absolute")
-                  .css("height", a / 2 + "px")
+                  .css("height", GCore / 2 + "px")
                   .css("width", i / 2 + "px")
                   .css("display", "none")
                   .appendTo("body"))
@@ -835,7 +835,7 @@ function (exports, module, require) {
                     )),
                 this.dragPreview
                   .css("position", "absolute")
-                  .css("height", a + "px")
+                  .css("height", GCore + "px")
                   .css("width", i + "px")
                   .css("display", "none")
                   .on("dragstart", function () {
@@ -877,22 +877,22 @@ function (exports, module, require) {
             document.removeEventListener("mouseup", this._itemDragEndListener),
             document.removeEventListener("touchend", this._itemDragEndListener);
           var require = e.clientX,
-            o = e.clientY;
-          if (gDesigner.positionIsOnCanvas(require, o)) {
+            _interopRequireDefault = e.clientY;
+          if (gDesigner.positionIsOnCanvas(require, _interopRequireDefault)) {
             var i = module.getActiveWindow().getView(),
-              a = {};
-            Object.assign(a, e),
-              (a.clientX = require),
-              (a.clientY = o),
-              (a.offsetX =
+              GCore = {};
+            Object.assign(GCore, e),
+              (GCore.clientX = require),
+              (GCore.clientY = _interopRequireDefault),
+              (GCore.offsetX =
                 e.offsetX + (this._dragOffset && this._dragOffset.x)),
-              (a.offsetY =
+              (GCore.offsetY =
                 e.offsetY + (this._dragOffset && this._dragOffset.y)),
-              (a.pageX = e.pageX + (this._dragOffset && this._dragOffset.x)),
-              (a.pageY = e.pageY + (this._dragOffset && this._dragOffset.y));
-            var r = i._convertClientPositionFromMousePosition(a),
-              s = i.getViewTransform(module.scene).mapPoint(r);
-            (r = { x: s._x, y: s._y }), this._addAsset(this._currentItem, r);
+              (GCore.pageX = e.pageX + (this._dragOffset && this._dragOffset.x)),
+              (GCore.pageY = e.pageY + (this._dragOffset && this._dragOffset.y));
+            var r = i._convertClientPositionFromMousePosition(GCore),
+              AppSettings = i.getViewTransform(module.scene).mapPoint(r);
+            (r = { x: AppSettings._x, y: AppSettings._y }), this._addAsset(this._currentItem, r);
           }
           (this._dragging = false),
             (this._currentElement.style.visibility = "visible");
@@ -918,7 +918,7 @@ function (exports, module, require) {
       _getThumbnailSize(e) {
         const module = 200 / e.image.width,
           require = parseInt(e.image.height * module) + 4;
-        return new a.GRect(0, 0, 200, require);
+        return new GCore.GRect(0, 0, 200, require);
       }
       _getChildrenHeight(e) {
         return $(e)

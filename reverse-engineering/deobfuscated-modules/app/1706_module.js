@@ -5,28 +5,28 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(97) /* stub_requires_684 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(15) /* module */,
-      s = require(40) /* CollaborationMergeUtils */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       l = require(67) /* GRichTooltipConfig */,
       c = require(1351) /* module_1351 */,
-      d = o(require(565) /* module_565 */),
-      u = o(require(135) /* GSettingChangedEvent */),
-      p = require(451) /* IdxIterator */.GVirtualTree,
-      g = require(451) /* IdxIterator */.GVirtualTreeNodeNamed,
+      d = _interopRequireDefault(require(565) /* module_565 */),
+      GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
+      IdxIterator = require(451) /* IdxIterator */.GVirtualTree,
+      IdxIterator2 = require(451) /* IdxIterator */.GVirtualTreeNodeNamed,
       { VTREE_FREE_HEIGHT: h, VTREE_FREE_HEIGHT_TOUCH: f } = require(10) /* AppSettings */,
       m = require(450) /* module_450 */,
       y = ["name"];
     function v() {}
-    function _(e, t, n, o, i) {
-      var a = true,
+    function _(e, t, n, _interopRequireDefault, GTools) {
+      var GCore = true,
         r = $(this).data("glayerpanel");
       if (r.options.canDropCallback) {
         for (
-          var s = e.id
+          var CollaborationMergeUtils = e.id
               ? T.call(this, e.id)
               : r.scene
               ? r.scene.getActivePage()
@@ -34,69 +34,69 @@ function (exports, module, require) {
             l = n ? T.call(this, n.id) : null,
             c = [],
             d = 0;
-          d < o.length;
+          d < _interopRequireDefault.length;
           ++d
         )
-          c.push(T.call(this, o[d].id));
-        var u = [];
-        if ((a = r.options.canDropCallback(s, l, c, u)))
-          for (d = 0; d < u.length; ++d) {
-            var p = u[d];
-            i.push(o[p]);
+          c.push(T.call(this, _interopRequireDefault[d].id));
+        var GSettingChangedEvent = [];
+        if ((GCore = r.options.canDropCallback(CollaborationMergeUtils, l, c, GSettingChangedEvent)))
+          for (d = 0; d < GSettingChangedEvent.length; ++d) {
+            var IdxIterator = GSettingChangedEvent[d];
+            GTools.push(_interopRequireDefault[IdxIterator]);
           }
       }
-      return a;
+      return GCore;
     }
-    function b(e, t, n, o) {
+    function b(e, t, n, _interopRequireDefault) {
       if (!n || !n.length || !e) return false;
       if (!gDesigner.isEnabledProFeatures()) {
-        if ((0, s.isSymbolInstance)(e)) return false;
-        if (n.some((e) => e instanceof a.GSymbol) && (0, s.isSymbol)(e))
+        if ((0, CollaborationMergeUtils.isSymbolInstance)(e)) return false;
+        if (n.some((e) => e instanceof GCore.GSymbol) && (0, CollaborationMergeUtils.isSymbol)(e))
           return false;
       }
       for (var r = true, l = 0; l < n.length && r; ++l)
         (r =
           !e.isLocked() &&
           n[l].validateInsertion(e, t) &&
-          i.GEditor.validateBlockInsertion(e, n[l], t)) && o.push[l];
+          GTools.GEditor.validateBlockInsertion(e, n[l], t)) && _interopRequireDefault.push[l];
       return r;
     }
-    function w(e, t, n, o) {
-      var i = $(this).data("glayerpanel");
-      if (i.options.moveCallback) {
+    function w(e, t, n, _interopRequireDefault) {
+      var GTools = $(this).data("glayerpanel");
+      if (GTools.options.moveCallback) {
         for (
-          var a = e.id
+          var GCore = e.id
               ? T.call(this, e.id)
-              : i.scene
-              ? i.scene.getActivePage()
+              : GTools.scene
+              ? GTools.scene.getActivePage()
               : null,
             r = n ? T.call(this, n.id) : null,
-            s = [],
+            CollaborationMergeUtils = [],
             l = 0;
-          l < o.length;
+          l < _interopRequireDefault.length;
           ++l
         )
-          s.push(T.call(this, o[l].id));
-        i.options.moveCallback(a, r, s);
+          CollaborationMergeUtils.push(T.call(this, _interopRequireDefault[l].id));
+        GTools.options.moveCallback(GCore, r, CollaborationMergeUtils);
       }
     }
-    function C(e, t, n, o) {
-      var i = $(this).data("glayerpanel");
-      if (i.options.duplicateCallback) {
+    function C(e, t, n, _interopRequireDefault) {
+      var GTools = $(this).data("glayerpanel");
+      if (GTools.options.duplicateCallback) {
         for (
-          var a = e.id
+          var GCore = e.id
               ? T.call(this, e.id)
-              : i.scene
-              ? i.scene.getActivePage()
+              : GTools.scene
+              ? GTools.scene.getActivePage()
               : null,
             r = n ? T.call(this, n.id) : null,
-            s = [],
+            CollaborationMergeUtils = [],
             l = 0;
-          l < o.length;
+          l < _interopRequireDefault.length;
           ++l
         )
-          s.push(T.call(this, o[l].id));
-        i.options.duplicateCallback(a, r, s);
+          CollaborationMergeUtils.push(T.call(this, _interopRequireDefault[l].id));
+        GTools.options.duplicateCallback(GCore, r, CollaborationMergeUtils);
       }
     }
     function x(e) {
@@ -110,8 +110,8 @@ function (exports, module, require) {
       var t = T.call(this, e.id);
       t &&
         (e.expanded
-          ? t.setFlag(a.GNode.Flag.Expanded)
-          : t.removeFlag(a.GNode.Flag.Expanded));
+          ? t.setFlag(GCore.GNode.Flag.Expanded)
+          : t.removeFlag(GCore.GNode.Flag.Expanded));
     }
     function E(e, t) {
       var n = $(this).data("glayerpanel");
@@ -123,9 +123,9 @@ function (exports, module, require) {
     }
     function A(e) {
       var t = $(this);
-      e.id === p.COLLAPSE_ID
+      e.id === IdxIterator.COLLAPSE_ID
         ? $(e).addClass(t.data("glayerpanel").options.collapseStyle)
-        : e.id === p.EXPAND_ID &&
+        : e.id === IdxIterator.EXPAND_ID &&
           $(e).addClass(t.data("glayerpanel").options.expandStyle);
     }
     function T(e) {
@@ -148,80 +148,80 @@ function (exports, module, require) {
         n = $(this).data("glayerpanel").layersTreeNodeMapByNodes;
       e.accept(
         function (e) {
-          if (e instanceof a.GLayer || e instanceof a.GItem) {
-            var o = n.get(e);
-            o && (n.delete(e), (t[o.treeId] = null));
+          if (e instanceof GCore.GLayer || e instanceof GCore.GItem) {
+            var _interopRequireDefault = n.get(e);
+            _interopRequireDefault && (n.delete(e), (t[_interopRequireDefault.treeId] = null));
           }
         }.bind(this)
       );
     }
     function I(e, t, n) {
-      var o = $(this).data("glayerpanel"),
+      var _interopRequireDefault = $(this).data("glayerpanel"),
         r = G.call(this, e),
-        s = r ? r.node : null;
-      if (s) {
+        CollaborationMergeUtils = r ? r.node : null;
+      if (CollaborationMergeUtils) {
         var {
-            parentHidden: u,
-            isHidden: p,
-            lockType: g,
+            parentHidden: GSettingChangedEvent,
+            isHidden: IdxIterator,
+            lockType: IdxIterator2,
             isOutlined: h,
             hasSelection: f,
-          } = (0, c.getLayerOrItemStatus)(s),
+          } = (0, c.getLayerOrItemStatus)(CollaborationMergeUtils),
           {
             container: y,
             title: v,
             titleGroup: _,
-          } = (0, c.buildLayerItemContainer)(n, s, f, t);
+          } = (0, c.buildLayerItemContainer)(n, CollaborationMergeUtils, f, t);
         r.element = _;
         var b = this;
         if (
-          (s.hasFlag(a.GElement.Flag.PartialLocked) ||
+          (CollaborationMergeUtils.hasFlag(GCore.GElement.Flag.PartialLocked) ||
             _.attr("draggable", true)
               .attr("data-drag-mode", d.default.PRESS_AND_HOLD)
               .on("dragstart", function (e) {
-                if (o.options.startDraggingCallback) {
-                  var t = o.options.startDraggingCallback(s);
+                if (_interopRequireDefault.options.startDraggingCallback) {
+                  var t = _interopRequireDefault.options.startDraggingCallback(CollaborationMergeUtils);
                   if (t && t.length) {
                     var n = "",
-                      i = t[0].getProperty("name");
-                    (i = i || t[0].getNodeNameTranslated()) && (n = i);
-                    for (var a = 1; a < t.length; ++a)
-                      (i =
-                        (i = t[a].getProperty("name")) ||
-                        t[a].getNodeNameTranslated()) && (n += ", " + i);
+                      GTools = t[0].getProperty("name");
+                    (GTools = GTools || t[0].getNodeNameTranslated()) && (n = GTools);
+                    for (var GCore = 1; GCore < t.length; ++GCore)
+                      (GTools =
+                        (GTools = t[GCore].getProperty("name")) ||
+                        t[GCore].getNodeNameTranslated()) && (n += ", " + GTools);
                     n.length && $(v).html(n);
-                    var r = o.vtree,
+                    var r = _interopRequireDefault.vtree,
                       l = [];
-                    for (a = 0; a < t.length; ++a) {
-                      var c = D.call(b, t[a]);
+                    for (GCore = 0; GCore < t.length; ++GCore) {
+                      var c = D.call(b, t[GCore]);
                       c && l.push(c);
                     }
                     r.setDragNodes(l),
                       setTimeout(
                         function () {
-                          $(v).html(i);
+                          $(v).html(GTools);
                         }.bind(this),
                         0
                       );
                   } else $(this).attr("draggable", false);
                 }
               }),
-          !o.blockHighlight)
+          !_interopRequireDefault.blockHighlight)
         ) {
-          var w = s.hasFlag(a.GNode.Flag.Highlighted);
+          var w = CollaborationMergeUtils.hasFlag(GCore.GNode.Flag.Highlighted);
           w ||
             t ||
-            !s.hasMixin(a.GNode.Container) ||
-            (w = s.acceptChildren(
+            !CollaborationMergeUtils.hasMixin(GCore.GNode.Container) ||
+            (w = CollaborationMergeUtils.acceptChildren(
               function (e) {
-                return e.hasFlag(a.GNode.Flag.Highlighted);
+                return e.hasFlag(GCore.GNode.Flag.Highlighted);
               },
               false,
               true
             )),
             y.toggleClass("g-highlighted-row", w);
         }
-        !g &&
+        !IdxIterator2 &&
           gDesigner.getActiveDocument() &&
           gDesigner.getApplicationManager().isEditingEnabled() &&
           $(_).gAutoEdit({
@@ -232,67 +232,67 @@ function (exports, module, require) {
             submitCallback: function (e) {
               e &&
                 "" !== e.trim() &&
-                i.GEditor.tryRunTransaction(
-                  s,
+                GTools.GEditor.tryRunTransaction(
+                  CollaborationMergeUtils,
                   function () {
-                    s.setProperty("name", e);
+                    CollaborationMergeUtils.setProperty("name", e);
                   },
-                  a.GLocale.get(
-                    new a.GLocaleKey("GLayerPanel", "action.rename-layer")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLayerPanel", "action.rename-layer")
                   )
                 );
             },
           });
-        var C = R(s);
+        var C = R(CollaborationMergeUtils);
         C &&
-          !C.inSync(s, true) &&
+          !C.inSync(CollaborationMergeUtils, true) &&
           $("<span></span>")
             .addClass("layer-action layer-synchronize gravit-icon-refresh")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GLayerPanel", "action.reset-instance")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLayerPanel", "action.reset-instance")
               )
             )
             .on("click", function (e) {
               gDesigner.stats("layers_click_symbol-reset"),
                 e.stopPropagation(),
-                i.GEditor.tryRunTransaction(
-                  s,
+                GTools.GEditor.tryRunTransaction(
+                  CollaborationMergeUtils,
                   function () {
-                    C.synchronize(s);
+                    C.synchronize(CollaborationMergeUtils);
                   },
-                  a.GLocale.get(
-                    new a.GLocaleKey("GLayerPanel", "action.reset-instance")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLayerPanel", "action.reset-instance")
                   )
                 );
             })
             .appendTo(y);
-        var x = g ? "gravit-icon-lock" : "gravit-icon-unlock";
+        var x = IdxIterator2 ? "gravit-icon-lock" : "gravit-icon-unlock";
         (x = gDesigner.isTouchEnabled() ? x + "-small" : x),
           $("<span></span>")
             .addClass("layer-action layer-lock " + x)
-            .toggleClass("g-active", !!g)
+            .toggleClass("g-active", !!IdxIterator2)
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "action.toggle-lock")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "action.toggle-lock")
               )
             )
             .on("click", function (e) {
-              e.stopPropagation(), J.toggleLockStatusOfLayerOrItem(s);
+              e.stopPropagation(), J.toggleLockStatusOfLayerOrItem(CollaborationMergeUtils);
             })
             .appendTo(y)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.layer-toggle-lock-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.layer-toggle-lock-tooltip-description"
                   )
@@ -301,33 +301,33 @@ function (exports, module, require) {
                   "",
               })
             ),
-          y.toggleClass("layer-hidden", p);
-        var S = p ? "gravit-icon-hide" : "gravit-icon-display";
+          y.toggleClass("layer-hidden", IdxIterator);
+        var S = IdxIterator ? "gravit-icon-hide" : "gravit-icon-display";
         if (
           ((S = gDesigner.isTouchEnabled() ? S + "-small" : S),
           $("<span></span>")
             .addClass("layer-action layer-visibility " + S)
-            .toggleClass("g-active", p)
+            .toggleClass("g-active", IdxIterator)
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "action.toggle-visibility")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "action.toggle-visibility")
               )
             )
             .on("click", function (e) {
-              e.stopPropagation(), J.toggleHideStatusOfLayerOrItem(s);
+              e.stopPropagation(), J.toggleHideStatusOfLayerOrItem(CollaborationMergeUtils);
             })
             .appendTo(y)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.layer-toggle-visibility-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.layer-toggle-visibility-tooltip-description"
                   )
@@ -336,7 +336,7 @@ function (exports, module, require) {
                   "",
               })
             ),
-          s instanceof a.GLayer)
+          CollaborationMergeUtils instanceof GCore.GLayer)
         ) {
           $("<span></span>")
             .addClass(
@@ -346,36 +346,36 @@ function (exports, module, require) {
             .toggleClass("g-active", h)
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GLayerPanel", "action.toggle-outline")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLayerPanel", "action.toggle-outline")
               )
             )
             .on("click", function (e) {
               gDesigner.stats("layers_toggle_outline"), e.stopPropagation();
               var t = $(this);
-              u ||
-                i.GEditor.tryRunTransaction(
-                  s,
+              GSettingChangedEvent ||
+                GTools.GEditor.tryRunTransaction(
+                  CollaborationMergeUtils,
                   function () {
-                    s.setProperty("otl", !s.getProperty("otl")),
+                    CollaborationMergeUtils.setProperty("otl", !CollaborationMergeUtils.getProperty("otl")),
                       t.toggleClass(
                         "gravit-icon-ellipse",
-                        s.getProperty("otl")
+                        CollaborationMergeUtils.getProperty("otl")
                       ),
                       t.toggleClass(
                         "gravit-icon-circle",
-                        !s.getProperty("otl")
+                        !CollaborationMergeUtils.getProperty("otl")
                       );
                   },
-                  a.GLocale.get(
-                    new a.GLocaleKey("GLayerPanel", "action.toggle-outline")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLayerPanel", "action.toggle-outline")
                   )
                 );
             })
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.layer-toggle-outline-tooltip-title"
                   )
@@ -388,36 +388,36 @@ function (exports, module, require) {
           $("<span></span>")
             .addClass("layer-color")
             .gPatternChooser({
-              types: [a.GColor],
+              types: [GCore.GColor],
               hasOpacity: false,
               asButton: false,
               simplified: true,
             })
-            .gPatternChooser("value", s.getProperty("cls"))
-            .on("patternchange", function (e, t, n, o) {
-              o ||
-                i.GEditor.tryRunTransaction(
-                  s,
+            .gPatternChooser("value", CollaborationMergeUtils.getProperty("cls"))
+            .on("patternchange", function (e, t, n, _interopRequireDefault) {
+              _interopRequireDefault ||
+                GTools.GEditor.tryRunTransaction(
+                  CollaborationMergeUtils,
                   function () {
-                    var e = s.getProperty("cls");
-                    s.setProperty("cls", t),
-                      s.acceptChildren(function (n) {
-                        if (n instanceof a.GLayer) {
-                          var o = n.getProperty("cls");
-                          a.GUtil.equals(o, e) && n.setProperty("cls", t);
+                    var e = CollaborationMergeUtils.getProperty("cls");
+                    CollaborationMergeUtils.setProperty("cls", t),
+                      CollaborationMergeUtils.acceptChildren(function (n) {
+                        if (n instanceof GCore.GLayer) {
+                          var _interopRequireDefault = n.getProperty("cls");
+                          GCore.GUtil.equals(_interopRequireDefault, e) && n.setProperty("cls", t);
                         }
                       });
                   },
-                  a.GLocale.get(
-                    new a.GLocaleKey("GLayerPanel", "action.change-layer-color")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLayerPanel", "action.change-layer-color")
                   )
                 );
             })
             .on("chooseropen", function () {
-              o.options.patternChooserStatusChangeCallBack(true);
+              _interopRequireDefault.options.patternChooserStatusChangeCallBack(true);
             })
             .on("chooserclose", function (e, t, n) {
-              o.options.patternChooserStatusChangeCallBack(false);
+              _interopRequireDefault.options.patternChooserStatusChangeCallBack(false);
             })
             .appendTo(y);
         }
@@ -426,12 +426,12 @@ function (exports, module, require) {
           function (e) {
             if (
               $.inArray(
-                s,
+                CollaborationMergeUtils,
                 gDesigner.getActiveDocument().getEditor().getSelection()
               ) < 0
             ) {
               var t = $(this).data("glayerpanel");
-              t.options.clickCallback && t.options.clickCallback(s);
+              t.options.clickCallback && t.options.clickCallback(CollaborationMergeUtils);
             }
             $(gDesigner.getWindows().getHtmlElement()).trigger(
               "contextmenu",
@@ -442,19 +442,19 @@ function (exports, module, require) {
       }
     }
     function k(e, t, n) {
-      var o = new g(e);
+      var _interopRequireDefault = new IdxIterator2(e);
       return (
-        n && (o.expanded = true),
-        $(this).data("glayerpanel").vtree.insertNodeBefore(t, o),
-        o
+        n && (_interopRequireDefault.expanded = true),
+        $(this).data("glayerpanel").vtree.insertNodeBefore(t, _interopRequireDefault),
+        _interopRequireDefault
       );
     }
     function O(e, t, n) {
-      var o = new g(e);
+      var _interopRequireDefault = new IdxIterator2(e);
       return (
-        n && (o.expanded = true),
-        $(this).data("glayerpanel").vtree.appendNode(t, o),
-        o
+        n && (_interopRequireDefault.expanded = true),
+        $(this).data("glayerpanel").vtree.appendNode(t, _interopRequireDefault),
+        _interopRequireDefault
       );
     }
     function F(e) {
@@ -462,53 +462,53 @@ function (exports, module, require) {
     }
     function R(e) {
       do {
-        if (e instanceof a.GSymbol) return e.isMaster() ? null : e;
+        if (e instanceof GCore.GSymbol) return e.isMaster() ? null : e;
         e = e.getParent();
       } while (e);
       return null;
     }
     function M(e, t) {
-      var n = a.GUtil.uuid(),
-        o = $(this).data("glayerpanel"),
-        i = o.vtree;
+      var n = GCore.GUtil.uuid(),
+        _interopRequireDefault = $(this).data("glayerpanel"),
+        GTools = _interopRequireDefault.vtree;
       if (
         !t &&
         e.getParent() &&
-        e.getParent().hasMixin(a.GNode.Container) &&
-        !(e.getParent() instanceof a.GScene) &&
-        !(e.getParent() instanceof a.GPage) &&
+        e.getParent().hasMixin(GCore.GNode.Container) &&
+        !(e.getParent() instanceof GCore.GScene) &&
+        !(e.getParent() instanceof GCore.GPage) &&
         !P.call(this, e.getParent())
       )
         return;
-      i.beginUpdate();
+      GTools.beginUpdate();
       const r = (function (e) {
         let t = e.getPrevious();
-        for (; t && !(t instanceof a.GElement); ) t = t.getPrevious();
+        for (; t && !(t instanceof GCore.GElement); ) t = t.getPrevious();
         return t;
       })(e);
-      var s,
+      var CollaborationMergeUtils,
         l = r ? D.call(this, r) : null;
-      if (l) s = k.call(this, n, l, e.hasFlag(a.GNode.Flag.Expanded));
+      if (l) CollaborationMergeUtils = k.call(this, n, l, e.hasFlag(GCore.GNode.Flag.Expanded));
       else {
         var c = e.getParent(),
           d =
-            !c || c instanceof a.GScene || c instanceof a.GPage
+            !c || c instanceof GCore.GScene || c instanceof GCore.GPage
               ? null
               : D.call(this, c);
-        s = O.call(this, n, d, e.hasFlag(a.GNode.Flag.Expanded));
+        CollaborationMergeUtils = O.call(this, n, d, e.hasFlag(GCore.GNode.Flag.Expanded));
       }
       if (
-        ((o.layersTreeNodeMap[n] = { element: null, node: e, treeNode: s }),
-        o.layersTreeNodeMapByNodes.set(e, {
+        ((_interopRequireDefault.layersTreeNodeMap[n] = { element: null, node: e, treeNode: CollaborationMergeUtils }),
+        _interopRequireDefault.layersTreeNodeMapByNodes.set(e, {
           element: null,
-          treeNode: s,
+          treeNode: CollaborationMergeUtils,
           treeId: n,
         }),
-        e.hasMixin(a.GNode.Container))
+        e.hasMixin(GCore.GNode.Container))
       )
-        for (var u = e.getFirstChild(); null !== u; u = u.getNext())
-          (u instanceof a.GLayer || u instanceof a.GItem) && M.call(this, u, t);
-      i.endUpdate();
+        for (var GSettingChangedEvent = e.getFirstChild(); null !== GSettingChangedEvent; GSettingChangedEvent = GSettingChangedEvent.getNext())
+          (GSettingChangedEvent instanceof GCore.GLayer || GSettingChangedEvent instanceof GCore.GItem) && M.call(this, GSettingChangedEvent, t);
+      GTools.endUpdate();
     }
     function N(e) {
       var t = D.call(this, e);
@@ -521,39 +521,39 @@ function (exports, module, require) {
       $(this).data("glayerpanel");
       var t = e.targetNode;
       if (
-        t instanceof a.GLayer ||
-        (t instanceof a.GItem &&
+        t instanceof GCore.GLayer ||
+        (t instanceof GCore.GItem &&
           !(
-            t instanceof a.GPathBase &&
+            t instanceof GCore.GPathBase &&
             t.getParent() &&
-            (t.getParent() instanceof a.GPGEdge ||
-              t.getParent() instanceof a.GCompoundPath.Paths)
+            (t.getParent() instanceof GCore.GPGEdge ||
+              t.getParent() instanceof GCore.GCompoundPath.Paths)
           ))
       )
         switch (e.type) {
-          case a.GSymbol.AfterSiblingUpdate.INSERT:
+          case GCore.GSymbol.AfterSiblingUpdate.INSERT:
             M.call(this, t);
             break;
-          case a.GSymbol.AfterSiblingUpdate.REMOVE:
+          case GCore.GSymbol.AfterSiblingUpdate.REMOVE:
             N.call(this, t);
         }
     }
     function j(e) {
       B($(this).data("glayerpanel"), e.node) &&
-        (e.node instanceof a.GLayer ||
-          (e.node instanceof a.GItem &&
+        (e.node instanceof GCore.GLayer ||
+          (e.node instanceof GCore.GItem &&
             !(
-              e.node instanceof a.GPathBase &&
+              e.node instanceof GCore.GPathBase &&
               e.node.getParent() &&
-              (e.node.getParent() instanceof a.GPGEdge ||
-                e.node.getParent() instanceof a.GCompoundPath.Paths)
+              (e.node.getParent() instanceof GCore.GPGEdge ||
+                e.node.getParent() instanceof GCore.GCompoundPath.Paths)
             ) &&
             !(function (e) {
               var t = e.getScene();
               if (t) {
                 var require = e.getPage(),
-                  o = t.getActivePage();
-                if (o && require && require !== o) return true;
+                  _interopRequireDefault = t.getActivePage();
+                if (_interopRequireDefault && require && require !== _interopRequireDefault) return true;
               }
               return false;
             })(e.node))) &&
@@ -561,14 +561,14 @@ function (exports, module, require) {
     }
     function K(e) {
       B($(this).data("glayerpanel"), e.node) &&
-        (e.node instanceof a.GLayer || e.node instanceof a.GItem) &&
+        (e.node instanceof GCore.GLayer || e.node instanceof GCore.GItem) &&
         N.call(this, e.node);
     }
     function V(e) {
       e.temporary ||
         (!$(this).data("glayerpanel").blockHandlers &&
           (e.properties.some((e) => y.indexOf(e) >= 0) || R(e.node)) &&
-          (e.node instanceof a.GLayer || e.node instanceof a.GItem) &&
+          (e.node instanceof GCore.GLayer || e.node instanceof GCore.GItem) &&
           $(this).data("glayerpanel").vtree.requestInvalidation());
     }
     function H() {
@@ -580,44 +580,44 @@ function (exports, module, require) {
     function z(e) {
       var t = $(this).data("glayerpanel"),
         n = $(this).data("glayerpanel").vtree;
-      let { onlyUpdateStyle: o } = t;
+      let { onlyUpdateStyle: _interopRequireDefault } = t;
       if (B(t, e.node)) {
-        var i = false;
-        if (e.node instanceof a.GLayer || e.node instanceof a.GItem)
+        var GTools = false;
+        if (e.node instanceof GCore.GLayer || e.node instanceof GCore.GItem)
           if (
-            e.flag === a.GElement.Flag.Hidden ||
-            e.flag === a.GElement.Flag.PartialLocked ||
-            e.flag === a.GElement.Flag.FullLocked ||
-            e.flag === a.GNode.Flag.Selected ||
-            e.flag === a.GNode.Flag.Active
+            e.flag === GCore.GElement.Flag.Hidden ||
+            e.flag === GCore.GElement.Flag.PartialLocked ||
+            e.flag === GCore.GElement.Flag.FullLocked ||
+            e.flag === GCore.GNode.Flag.Selected ||
+            e.flag === GCore.GNode.Flag.Active
           ) {
             var r = e.node.getPage(),
-              s = e.node.getScene(),
-              l = s && s.getActivePage();
+              CollaborationMergeUtils = e.node.getScene(),
+              l = CollaborationMergeUtils && CollaborationMergeUtils.getActivePage();
             (l && r && l !== r) ||
-              ((i = true), o || (o = e.flag === a.GNode.Flag.Active));
-          } else if (!t.blockHighlight && e.flag === a.GNode.Flag.Highlighted) {
+              ((GTools = true), _interopRequireDefault || (_interopRequireDefault = e.flag === GCore.GNode.Flag.Active));
+          } else if (!t.blockHighlight && e.flag === GCore.GNode.Flag.Highlighted) {
             var c = e.node,
               d = function (e) {
                 var t = D.call(this, e);
                 return t && t.isVisible();
               }.bind(this);
-            (d(c) || c.findParent(d)) && (i = true);
+            (d(c) || c.findParent(d)) && (GTools = true);
           }
         if (
           gDesigner.getSetting("auto_expand_layers") &&
-          e.flag === a.GNode.Flag.Selected &&
+          e.flag === GCore.GNode.Flag.Selected &&
           e.node &&
-          e.node.hasFlag(a.GNode.Flag.Selected)
+          e.node.hasFlag(GCore.GNode.Flag.Selected)
         ) {
-          var u = D.call(this, e.node);
-          u && (n.expandAndFocus(u, i) ? (t.currentFocus = u) : (i = true));
+          var GSettingChangedEvent = D.call(this, e.node);
+          GSettingChangedEvent && (n.expandAndFocus(GSettingChangedEvent, GTools) ? (t.currentFocus = GSettingChangedEvent) : (GTools = true));
         }
-        e.node instanceof a.GPage &&
-          e.flag === a.GNode.Flag.Active &&
-          (X.call(this), q.call(this), (i = false)),
-          i &&
-            (o
+        e.node instanceof GCore.GPage &&
+          e.flag === GCore.GNode.Flag.Active &&
+          (X.call(this), q.call(this), (GTools = false)),
+          GTools &&
+            (_interopRequireDefault
               ? setTimeout((t) => {
                   Q.call(this, e.node);
                 })
@@ -632,7 +632,7 @@ function (exports, module, require) {
           null !== module;
           module = module.getNext()
         )
-          (module instanceof a.GLayer || module instanceof a.GItem) &&
+          (module instanceof GCore.GLayer || module instanceof GCore.GItem) &&
             M.call(this, module, true);
       e.vtree.endUpdate(), Y.call(this);
     }
@@ -657,20 +657,20 @@ function (exports, module, require) {
       if (!t) return null;
       var n = G.call(this, t);
       if (!n) return null;
-      var o = n.element,
-        i = o.parent(),
+      var _interopRequireDefault = n.element,
+        GTools = _interopRequireDefault.parent(),
         r = false;
-      if (e.hasMixin(a.GNode.Container))
-        for (var s = e.getFirstChild(); null !== s && !r; s = s.getNext())
-          s instanceof a.GItem && s.hasFlag(a.GNode.Flag.Selected) && (r = true);
-      e.getParent() && e instanceof a.GItem && Q.call(this, e.getParent()),
-        i
-          .toggleClass("g-active", e.hasFlag(a.GNode.Flag.Active))
-          .toggleClass("g-selected", e.hasFlag(a.GNode.Flag.Selected))
+      if (e.hasMixin(GCore.GNode.Container))
+        for (var CollaborationMergeUtils = e.getFirstChild(); null !== CollaborationMergeUtils && !r; CollaborationMergeUtils = CollaborationMergeUtils.getNext())
+          CollaborationMergeUtils instanceof GCore.GItem && CollaborationMergeUtils.hasFlag(GCore.GNode.Flag.Selected) && (r = true);
+      e.getParent() && e instanceof GCore.GItem && Q.call(this, e.getParent()),
+        GTools
+          .toggleClass("g-active", e.hasFlag(GCore.GNode.Flag.Active))
+          .toggleClass("g-selected", e.hasFlag(GCore.GNode.Flag.Selected))
           .toggleClass("g-has-selection", r),
-        o.toggleClass("g-selected", e.hasFlag(a.GNode.Flag.Selected));
+        _interopRequireDefault.toggleClass("g-selected", e.hasFlag(GCore.GNode.Flag.Selected));
     }
-    a.GObject.inheritAndMix(v, a.GObject);
+    GCore.GObject.inheritAndMix(v, GCore.GObject);
     var J = {
       init: function (e) {
         return (
@@ -702,7 +702,7 @@ function (exports, module, require) {
             $(this)
               .addClass("g-layer-panel")
               .data("glayerpanel", {
-                vtree: new p(
+                vtree: new IdxIterator(
                   this,
                   E.bind(this),
                   e.nodeStyle,
@@ -748,48 +748,48 @@ function (exports, module, require) {
           n = t.data("glayerpanel");
         if (!arguments.length) return n.scene;
         if (e !== n.scene) {
-          if (n.scene && n.scene.hasMixin(a.GEventTarget))
+          if (n.scene && n.scene.hasMixin(GCore.GEventTarget))
             n.scene.removeEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               n.afterNodeInsertHandler,
               this
             ),
               n.scene.removeEventListener(
-                a.GNode.BeforeRemoveEvent,
+                GCore.GNode.BeforeRemoveEvent,
                 n.beforeNodeRemoveHandler,
                 this
               ),
               n.scene.removeEventListener(
-                a.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 n.afterPropertiesChangeHandler,
                 this
               ),
               n.scene.removeEventListener(
-                a.GNode.AfterFlagChangeEvent,
+                GCore.GNode.AfterFlagChangeEvent,
                 n.afterFlagChangeHandler,
                 this
               ),
               n.scene.removeEventListener(
-                a.GSymbol.AfterSiblingUpdate,
+                GCore.GSymbol.AfterSiblingUpdate,
                 n.afterSiblingUpdate,
                 this
               ),
               gDesigner.removeEventListener(
-                u.default,
+                GSettingChangedEvent.default,
                 n.settingChangedEvent,
                 this
               ),
-              (o = n.scene.getWorkspace()) &&
-                o
+              (_interopRequireDefault = n.scene.getWorkspace()) &&
+                _interopRequireDefault
                   .getFontManager()
                   .removeEventListener(
-                    a.GFontManager.FontAvailableEvent,
+                    GCore.GFontManager.FontAvailableEvent,
                     n.fontAvailableEvent,
                     this
                   );
           if ((X.call(this), (n.scene = e), n.scene)) {
-            var o;
-            if (n.scene.hasMixin(a.GEventTarget))
+            var _interopRequireDefault;
+            if (n.scene.hasMixin(GCore.GEventTarget))
               (n.afterNodeInsertHandler = j.bind(this)),
                 (n.beforeNodeRemoveHandler = K.bind(this)),
                 (n.afterPropertiesChangeHandler = V.bind(this)),
@@ -798,40 +798,40 @@ function (exports, module, require) {
                 (n.fontAvailableEvent = H.bind(this)),
                 (n.settingChangedEvent = W.bind(this)),
                 n.scene.addEventListener(
-                  a.GSymbol.AfterSiblingUpdate,
+                  GCore.GSymbol.AfterSiblingUpdate,
                   n.afterSiblingUpdate,
                   this
                 ),
                 n.scene.addEventListener(
-                  a.GNode.AfterInsertEvent,
+                  GCore.GNode.AfterInsertEvent,
                   n.afterNodeInsertHandler,
                   this
                 ),
                 n.scene.addEventListener(
-                  a.GNode.BeforeRemoveEvent,
+                  GCore.GNode.BeforeRemoveEvent,
                   n.beforeNodeRemoveHandler,
                   this
                 ),
                 n.scene.addEventListener(
-                  a.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   n.afterPropertiesChangeHandler,
                   this
                 ),
                 n.scene.addEventListener(
-                  a.GNode.AfterFlagChangeEvent,
+                  GCore.GNode.AfterFlagChangeEvent,
                   n.afterFlagChangeHandler,
                   this
                 ),
                 gDesigner.addEventListener(
-                  u.default,
+                  GSettingChangedEvent.default,
                   n.settingChangedEvent,
                   this
                 ),
-                (o = n.scene.getWorkspace()) &&
-                  o
+                (_interopRequireDefault = n.scene.getWorkspace()) &&
+                  _interopRequireDefault
                     .getFontManager()
                     .addEventListener(
-                      a.GFontManager.FontAvailableEvent,
+                      GCore.GFontManager.FontAvailableEvent,
                       n.fontAvailableEvent,
                       this
                     );
@@ -871,46 +871,46 @@ function (exports, module, require) {
       toggleLockStatusOfLayerOrItem: function (e) {
         gDesigner.stats("layers_change_locktype");
         const { parentLockType: module } = (0, c.getLayerOrItemStatus)(e);
-        if (!module || module === a.GBlock.LockType.Partial) {
+        if (!module || module === GCore.GBlock.LockType.Partial) {
           let n = e.getProperty("lkt");
-          const o = e.getProperty("plkt");
+          const _interopRequireDefault = e.getProperty("plkt");
           if (
             (n
-              ? o &
-                  (a.GBlock.ProgramLck.NoEdit |
-                    a.GBlock.ProgramLck.NoMove |
-                    a.GBlock.ProgramLck.NoNewChildren |
-                    a.GBlock.ProgramLck.NoDelete) || (n = null)
-              : (n = a.GBlock.LockType.Full),
-            module !== a.GBlock.LockType.Partial || null !== n)
+              ? _interopRequireDefault &
+                  (GCore.GBlock.ProgramLck.NoEdit |
+                    GCore.GBlock.ProgramLck.NoMove |
+                    GCore.GBlock.ProgramLck.NoNewChildren |
+                    GCore.GBlock.ProgramLck.NoDelete) || (n = null)
+              : (n = GCore.GBlock.LockType.Full),
+            module !== GCore.GBlock.LockType.Partial || null !== n)
           ) {
             const t = [];
             if (r.GPlatform.modifiers.optionKey) {
               for (
-                let o = e.getParent().getFirstChild();
-                null != o;
-                o = o.getNext()
+                let _interopRequireDefault = e.getParent().getFirstChild();
+                null != _interopRequireDefault;
+                _interopRequireDefault = _interopRequireDefault.getNext()
               ) {
-                const e = o.getProperty("lkt");
+                const e = _interopRequireDefault.getProperty("lkt");
                 n === e ||
-                  (e === a.GBlock.LockType.Full &&
-                    n === a.GBlock.LockType.Partial) ||
-                  t.push(o);
+                  (e === GCore.GBlock.LockType.Full &&
+                    n === GCore.GBlock.LockType.Partial) ||
+                  t.push(_interopRequireDefault);
               }
             } else t.push(e);
             t.length &&
-              i.GEditor.tryRunTransaction(
+              GTools.GEditor.tryRunTransaction(
                 e,
                 function () {
                   for (let e = 0; e < t.length; ++e)
-                    n === a.GBlock.LockType.Full &&
+                    n === GCore.GBlock.LockType.Full &&
                       t[e].accept((e) => {
-                        e.removeFlag(a.GNode.Flag.Selected);
+                        e.removeFlag(GCore.GNode.Flag.Selected);
                       }),
                       t[e].setProperty("lkt", n);
                 },
-                a.GLocale.get(
-                  new a.GLocaleKey("GCommonNames", "action.toggle-lock")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "action.toggle-lock")
                 )
               );
           }
@@ -924,23 +924,23 @@ function (exports, module, require) {
             n = [];
           if (r.GPlatform.modifiers.optionKey) {
             for (
-              let o = e.getParent().getFirstChild();
-              null != o;
-              o = o.getNext()
+              let _interopRequireDefault = e.getParent().getFirstChild();
+              null != _interopRequireDefault;
+              _interopRequireDefault = _interopRequireDefault.getNext()
             ) {
-              const e = o.getProperty("vis");
-              null !== e && e !== t && n.push(o);
+              const e = _interopRequireDefault.getProperty("vis");
+              null !== e && e !== t && n.push(_interopRequireDefault);
             }
           } else n.push(e);
-          i.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             e,
             function () {
               for (let e = 0; e < n.length; ++e)
-                n[e].removeFlag(a.GNode.Flag.Highlighted),
+                n[e].removeFlag(GCore.GNode.Flag.Highlighted),
                   n[e].setProperty("vis", t);
             },
-            a.GLocale.get(
-              new a.GLocaleKey("GCommonNames", "action.toggle-visibility")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "action.toggle-visibility")
             )
           );
         }

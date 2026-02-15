@@ -7,8 +7,8 @@ function (exports, module, require) {
     "use strict";
     require(290) /* module_290 */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(357) /* module_357 */,
-      i = require(1) /* module */,
-      a = require(40) /* CollaborationMergeUtils */;
+      GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const {
         gApi: r,
         LINKS: s,
@@ -29,7 +29,7 @@ function (exports, module, require) {
         (this._allowReactivateSubscriptions = false),
         this._load();
     }
-    i.GObject.inherit(p, i.GObject),
+    GCore.GObject.inherit(p, GCore.GObject),
       (p.prototype._init = function () {
         this._container = $("<div></div>").addClass("g-purchase-panel");
         let exports = undefined;
@@ -47,11 +47,11 @@ function (exports, module, require) {
               .attr("data-property", "search")
               .attr(
                 "placeholder",
-                i.GLocale.get(
-                  new i.GLocaleKey("GPurchasePanel", "text.search-label")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPurchasePanel", "text.search-label")
                 )
               )
-              .on("input", (0, a.debounce)((0, a.throttle)(require, 500), 500))
+              .on("input", (0, CollaborationMergeUtils.debounce)((0, CollaborationMergeUtils.throttle)(require, 500), 500))
               .on("keyup", (e) => {
                 13 === e.which &&
                   (gDesigner.stats("profile-dialog_purchase-panel_search"),
@@ -62,8 +62,8 @@ function (exports, module, require) {
             $("<label></label>")
               .append(
                 $("<span></span>").text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GPurchasePanel", "text.orderby-label")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GPurchasePanel", "text.orderby-label")
                   )
                 )
               )
@@ -75,8 +75,8 @@ function (exports, module, require) {
                       $("<option></option>")
                         .attr("value", e)
                         .text(
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GPurchasePanel",
                               "text.orderby-" + e
                             )
@@ -122,8 +122,8 @@ function (exports, module, require) {
               $(
                 "<span>"
                   .concat(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPurchasePanel",
                         "text.contact-partner-billing-alternative"
                       )
@@ -135,8 +135,8 @@ function (exports, module, require) {
                     $("<a/>")
                       .addClass("cb-link")
                       .text(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GPurchasePanel",
                             "text.contact-partner-cleverbridge"
                           )
@@ -179,8 +179,8 @@ function (exports, module, require) {
       (p.prototype._showInfoIfAny = function () {
         this._purchaseList[0].hasChildNodes() ||
           this._messageHandler(
-            i.GLocale.get(
-              new i.GLocaleKey("GPurchasePanel", "text.empty-search")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GPurchasePanel", "text.empty-search")
             ),
             "info"
           );
@@ -216,26 +216,26 @@ function (exports, module, require) {
                 $(e.target).closest(".purchase-item").addClass("g-active");
             })
             .appendTo(this._purchaseList)).empty();
-        let a = false,
+        let CollaborationMergeUtils = false,
           s = false;
         this._options &&
           this._options.subscription &&
           e.purchase_id == this._options.subscription.purchase &&
-          ((a = true),
+          ((CollaborationMergeUtils = true),
           (s = !!this._options.subscription.reinstate),
           (this._options = null)),
-          a && t.addClass("g-selected");
+          CollaborationMergeUtils && t.addClass("g-selected");
         const u =
           e.name ||
           (require
-            ? i.GLocale.get(
-                new i.GLocaleKey(
+            ? GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GPurchasePanel",
                   "text.pro-subscription-lifetime"
                 )
               ).replace("%app", l)
-            : i.GLocale.get(
-                new i.GLocaleKey("GPurchasePanel", "text.pro-subscription")
+            : GCore.GLocale.get(
+                new GCore.GLocaleKey("GPurchasePanel", "text.pro-subscription")
               ).replace("%app", l));
         $("<div></div>")
           .addClass("header")
@@ -252,8 +252,8 @@ function (exports, module, require) {
                   $("<span></span>").text(
                     ""
                       .concat(
-                        i.GLocale.get(
-                          new i.GLocaleKey("GPurchasePanel", "text.orderno")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GPurchasePanel", "text.orderno")
                         ),
                         " "
                       )
@@ -269,29 +269,29 @@ function (exports, module, require) {
               .appendTo(t);
         let p = ""
           .concat(
-            i.GLocale.get(new i.GLocaleKey("GPurchasePanel", "text.purchased")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GPurchasePanel", "text.purchased")),
             " "
           )
-          .concat(e.created ? i.GLocale.toLocaleDate(new Date(e.created)) : "");
+          .concat(e.created ? GCore.GLocale.toLocaleDate(new Date(e.created)) : "");
         !require &&
           e.issued_coupon &&
           e.issued_coupon.expires &&
           (p += ", ".concat(
-            i.GLocale.get(
-              new i.GLocaleKey("GPurchasePanel", "text.purchased-expires")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GPurchasePanel", "text.purchased-expires")
             ).replace(
               "%date",
-              i.GLocale.toLocaleDate(new Date(e.issued_coupon.expires))
+              GCore.GLocale.toLocaleDate(new Date(e.issued_coupon.expires))
             )
           ));
         let g = $("<span></span>").text(p + ".");
         if (e.subscription && !e.refunded) {
-          let a = p;
+          let CollaborationMergeUtils = p;
           g.text(p + "..."),
             r
               .getSubscriptionByPurchase(e.purchase_id, e.provider)
               .then((u) => {
-                const p = (e, n, o, a, r) => {
+                const p = (e, n, o, CollaborationMergeUtils, r) => {
                   let s = $("<div></div>")
                     .addClass("prompt")
                     .append(
@@ -302,17 +302,17 @@ function (exports, module, require) {
                             .append(
                               $("<button></button>")
                                 .text(
-                                  i.GLocale.get(
-                                    new i.GLocaleKey("GLocale", "yes")
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey("GLocale", "yes")
                                   )
                                 )
-                                .on("click", () => a(s))
+                                .on("click", () => CollaborationMergeUtils(s))
                             )
                             .append(
                               $("<button></button>")
                                 .text(
-                                  i.GLocale.get(
-                                    new i.GLocaleKey("GLocale", "no")
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey("GLocale", "no")
                                   )
                                 )
                                 .on("click", () => s.removeClass("show"))
@@ -343,13 +343,13 @@ function (exports, module, require) {
                 };
                 if (u.status === c.Active)
                   require
-                    ? g.text(a + ".")
+                    ? g.text(CollaborationMergeUtils + ".")
                     : g.text(
                         ""
-                          .concat(a, ", ")
+                          .concat(CollaborationMergeUtils, ", ")
                           .concat(
-                            i.GLocale.get(
-                              new i.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GPurchasePanel",
                                 "text.purchased-renews"
                               )
@@ -357,19 +357,19 @@ function (exports, module, require) {
                             " "
                           )
                           .concat(
-                            i.GLocale.toLocaleDate(new Date(u.endDate)),
+                            GCore.GLocale.toLocaleDate(new Date(u.endDate)),
                             "."
                           )
                       ),
                     p(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPurchasePanel",
                           "text.prompt-cancel-title"
                         )
                       ),
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GPurchasePanel",
                           "text.prompt-cancel-info"
                         )
@@ -377,9 +377,9 @@ function (exports, module, require) {
                         .replace("%app", l)
                         .replace(
                           "%date",
-                          i.GLocale.toLocaleDate(new Date(u.endDate))
+                          GCore.GLocale.toLocaleDate(new Date(u.endDate))
                         ),
-                      i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")),
+                      GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")),
                       async (n) => {
                         this._toggleLoading(true);
                         try {
@@ -403,16 +403,16 @@ function (exports, module, require) {
                   if (
                     (g.text(
                       ""
-                        .concat(a, ", ")
+                        .concat(CollaborationMergeUtils, ", ")
                         .concat(
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GPurchasePanel",
                               "text.subscription-ends"
                             )
                           ).replace(
                             "%date",
-                            i.GLocale.toLocaleDate(new Date(u.endDate))
+                            GCore.GLocale.toLocaleDate(new Date(u.endDate))
                           ),
                           "."
                         )
@@ -422,23 +422,23 @@ function (exports, module, require) {
                     return;
                   if (u.repurchase) return;
                   let n = p(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPurchasePanel",
                         "text.prompt-activate-title"
                       )
                     ),
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPurchasePanel",
                         "text.prompt-activate-info"
                       )
                     ).replace(
                       "%date",
-                      i.GLocale.toLocaleDate(new Date(u.nextBillingDate))
+                      GCore.GLocale.toLocaleDate(new Date(u.nextBillingDate))
                     ),
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPurchasePanel",
                         "text.prompt-activate-label"
                       )
@@ -466,7 +466,7 @@ function (exports, module, require) {
                   s && n.addClass("show");
                 }
               })
-              .catch(() => g.text(a + "."));
+              .catch(() => g.text(CollaborationMergeUtils + "."));
         }
         return (
           $("<div></div>")
@@ -477,8 +477,8 @@ function (exports, module, require) {
         );
       }),
       (p.prototype._handleError = function (e) {
-        let module = i.GLocale.get(
-          new i.GLocaleKey("GCommonNames", "text.something-wrong")
+        let module = GCore.GLocale.get(
+          new GCore.GLocaleKey("GCommonNames", "text.something-wrong")
         );
         e && e.message
           ? (module = e.message)

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(199) /* Exports_GURABLE */.PROPER,
-      i = require(21) /* tryCall */,
+    var GURABLE = require(199) /* Exports_GURABLE */.PROPER,
+      tryCall = require(21) /* tryCall */,
       a = require(248) /* module_248 */;
     exports.exports = function (e) {
-      return i(function () {
-        return !!a[e]() || "​᠎" !== "​᠎"[e]() || (o && a[e].name !== e);
+      return tryCall(function () {
+        return !!a[e]() || "​᠎" !== "​᠎"[e]() || (GURABLE && a[e].name !== e);
       });
     };
   }

@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.NoAccessId = module.CloudToGoogleRoleMap = undefined);
-    var i = require(10) /* AppSettings */,
-      a = o(require(788) /* Exports_GoogleShareRoles */);
+    var AppSettings = require(10) /* AppSettings */,
+      GoogleShareRoles = _interopRequireDefault(require(788) /* Exports_GoogleShareRoles */);
     const r = (module.NoAccessId = "NoAccess"),
       s = (module.CloudToGoogleRoleMap = {
-        [i.ShareRoles.Viewer.id]: a.default.Reader,
-        [i.ShareRoles.Developer.id]: a.default.Commenter,
-        [i.ShareRoles.Reviewer.id]: a.default.Commenter,
-        [i.ShareRoles.CoAuthor.id]: a.default.Writer,
-        [i.ShareRoles.Owner.id]: a.default.Owner,
-        [i.ShareRoles.NoAccess.id]: r,
+        [AppSettings.ShareRoles.Viewer.id]: GoogleShareRoles.default.Reader,
+        [AppSettings.ShareRoles.Developer.id]: GoogleShareRoles.default.Commenter,
+        [AppSettings.ShareRoles.Reviewer.id]: GoogleShareRoles.default.Commenter,
+        [AppSettings.ShareRoles.CoAuthor.id]: GoogleShareRoles.default.Writer,
+        [AppSettings.ShareRoles.Owner.id]: GoogleShareRoles.default.Owner,
+        [AppSettings.ShareRoles.NoAccess.id]: r,
       });
     module.default = s;
   }

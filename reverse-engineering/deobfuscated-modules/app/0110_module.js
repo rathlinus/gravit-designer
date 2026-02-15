@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(35) /* anObject */,
+    var globalThis = require(23) /* globalThis */,
+      anObject = require(35) /* anObject */,
       a = function (e) {
-        return i(e) ? e : undefined;
+        return anObject(e) ? e : undefined;
       };
     exports.exports = function (e, t) {
-      return arguments.length < 2 ? a(o[e]) : o[e] && o[e][t];
+      return arguments.length < 2 ? a(globalThis[e]) : globalThis[e] && globalThis[e][t];
     };
   }

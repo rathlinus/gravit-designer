@@ -7,18 +7,18 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(53) /* module */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(238) /* GMenu */,
+      GMenu = require(238) /* GMenu */,
       s = require(444) /* module_444 */,
-      l = require(123) /* GProperties */,
-      c = require(1253) /* ZipDirectory */,
+      GProperties = require(123) /* GProperties */,
+      ZipDirectory = require(1253) /* ZipDirectory */,
       d = require(446) /* module_446 */,
       u = require(442) /* module_442 */;
-    const p = require(135) /* GSettingChangedEvent */;
+    const GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function g() {}
-    o.GObject.inherit(g, l),
+    GCore.GObject.inherit(g, GProperties),
       (g.prototype._panel = null),
       (g.prototype._toolbar = null),
       (g.prototype._exportButton = null),
@@ -36,8 +36,8 @@ function (exports, module, require) {
           $("<label></label>")
             .addClass("panel-title")
             .text(
-              o.GLocale.get(
-                new o.GLocaleKey("GExportProperties", "text.make-exportable")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GExportProperties", "text.make-exportable")
               )
             )
             .appendTo(t),
@@ -46,7 +46,7 @@ function (exports, module, require) {
             .attr("id", "btn-export")
             .attr(
               "data-title",
-              o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.export")) +
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.export")) +
                 "..."
             )
             .append($("<span></span>").addClass("gravit-icon-export"))
@@ -55,8 +55,8 @@ function (exports, module, require) {
           (this._createSliceButton = $("<button></button>")
             .attr(
               "data-title",
-              o.GLocale.get(
-                new o.GLocaleKey("GExportProperties", "action.create-slice")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GExportProperties", "action.create-slice")
               )
             )
             .append($("<span></span>").addClass("gravit-icon-slice"))
@@ -64,14 +64,14 @@ function (exports, module, require) {
             .appendTo(t)
             .gRichTooltip(
               a.GRichTooltipConfig.from({
-                title: o.GLocale.get(
-                  new o.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GExportProperties",
                     "text.create-slice-tooltip-title"
                   )
                 ),
-                description: o.GLocale.get(
-                  new o.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GExportProperties",
                     "text.create-slice-tooltip-description"
                   )
@@ -83,21 +83,21 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              o.GLocale.get(new o.GLocaleKey("GExportProperties", "action.add"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GExportProperties", "action.add"))
             )
             .append($("<span></span>").addClass("gravit-icon-plus"))
             .on("click", this._addExport.bind(this))
             .appendTo(t)
             .gRichTooltip(
               a.GRichTooltipConfig.from({
-                title: o.GLocale.get(
-                  new o.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GExportProperties",
                     "text.add-export-tooltip-title"
                   )
                 ),
-                description: o.GLocale.get(
-                  new o.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GExportProperties",
                     "text.add-export-tooltip-description"
                   )
@@ -106,7 +106,7 @@ function (exports, module, require) {
                   "",
               })
             ),
-          (this._sizeMenu = new r()),
+          (this._sizeMenu = new GMenu()),
           this._sizeMenu.createAddItem("1x"),
           this._sizeMenu.createAddItem("2x"),
           this._sizeMenu.createAddItem("0.5x"),
@@ -115,7 +115,7 @@ function (exports, module, require) {
           this._sizeMenu.createAddItem("512h"),
           this._sizeMenu.createAddItem("128x128"),
           this._sizeMenu.createAddItem("300dpi"),
-          gDesigner.addEventListener(p, this._settingChanged, this);
+          gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this);
       }),
       (g.prototype.update = function (e) {
         if (
@@ -123,7 +123,7 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
@@ -134,16 +134,16 @@ function (exports, module, require) {
           this._document = e;
           var module = this._getElements();
           this._elements = [];
-          for (var require = false, i = 0; i < module.length; ++i)
-            module[i] instanceof o.GBlock && this._elements.push(module[i]),
-              module[i] instanceof o.GSlice || (require = true);
+          for (var require = false, GTools = 0; GTools < module.length; ++GTools)
+            module[GTools] instanceof GCore.GBlock && this._elements.push(module[GTools]),
+              module[GTools] instanceof GCore.GSlice || (require = true);
           if (this._elements && this._elements.length)
             return (
               (this._document = e),
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
@@ -167,7 +167,7 @@ function (exports, module, require) {
         ) {
           var module = gDesigner.getToolManager().getActiveTool(),
             require = null;
-          module instanceof i.GItemTool && (require = module.getDefaultStyle())
+          module instanceof GTools.GItemTool && (require = module.getDefaultStyle())
             ? (this._elements = [require])
             : (this._elements = [this._document.getScene().getActivePage()]);
         }
@@ -177,8 +177,8 @@ function (exports, module, require) {
         new d(
           () => {
             gDesigner.stats("exportproperties_click_export");
-            var e = c.generateExportables(this._elements);
-            c.export(
+            var e = ZipDirectory.generateExportables(this._elements);
+            ZipDirectory.export(
               e,
               this._document.getStorage() || gDesigner.getDefaultStorage(),
               this._document.getTitle(),
@@ -198,17 +198,17 @@ function (exports, module, require) {
         e.beginTransaction();
         try {
           for (var module = [], require = 0; require < this._elements.length; ++require) {
-            var i = this._elements[require];
-            if (!(i instanceof o.GSlice)) {
+            var GTools = this._elements[require];
+            if (!(GTools instanceof GCore.GSlice)) {
               var a = (
-                  i.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
+                  GTools.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
-                r = i.getPaintBBox();
-              i.setProperty(u.EXPORT_PROPERTY_NAME, undefined, true);
-              var s = new o.GSlice();
+                GMenu = GTools.getPaintBBox();
+              GTools.setProperty(u.EXPORT_PROPERTY_NAME, undefined, true);
+              var s = new GCore.GSlice();
               s.setProperties(
                 ["x", "y", "w", "h"],
-                [r.getX(), r.getY(), r.getWidth(), r.getHeight()]
+                [GMenu.getX(), GMenu.getY(), GMenu.getWidth(), GMenu.getHeight()]
               ),
                 s.setProperty(u.EXPORT_PROPERTY_NAME, a, true),
                 module.push(s);
@@ -217,8 +217,8 @@ function (exports, module, require) {
           e.insertElements(module, true, true, false);
         } finally {
           e.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey("GExportProperties", "action.create-slices")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GExportProperties", "action.create-slices")
             )
           );
         }
@@ -231,11 +231,11 @@ function (exports, module, require) {
           for (var module = 0; module < this._elements.length; ++module) {
             for (
               var require = this._elements[module],
-                i = (
+                GTools = (
                   require.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
                 a = { sz: "", sf: "", fm: "png" },
-                r = [
+                GMenu = [
                   { sz: "1x", sf: "@1x" },
                   { sz: "2x", sf: "@2x" },
                   { sz: "3x", sf: "@3x" },
@@ -243,24 +243,24 @@ function (exports, module, require) {
                   { sz: "0.5x", sf: "@0,5x" },
                 ],
                 s = 0;
-              s < r.length;
+              s < GMenu.length;
               ++s
             ) {
-              for (var l = r[s], c = false, d = 0; d < i.length; ++d)
-                if (i[d].sz === l.sz) {
-                  c = true;
+              for (var GProperties = GMenu[s], ZipDirectory = false, d = 0; d < GTools.length; ++d)
+                if (GTools[d].sz === GProperties.sz) {
+                  ZipDirectory = true;
                   break;
                 }
-              if (!c) {
-                (a.sz = l.sz), (a.sf = i.length > 0 ? l.sf : "");
+              if (!ZipDirectory) {
+                (a.sz = GProperties.sz), (a.sf = GTools.length > 0 ? GProperties.sf : "");
                 break;
               }
             }
-            i.push(a), require.setProperty(u.EXPORT_PROPERTY_NAME, i, true);
+            GTools.push(a), require.setProperty(u.EXPORT_PROPERTY_NAME, GTools, true);
           }
         } finally {
           e.commitTransaction(
-            o.GLocale.get(new o.GLocaleKey("GExportProperties", "action.add"))
+            GCore.GLocale.get(new GCore.GLocaleKey("GExportProperties", "action.add"))
           );
         }
       }),
@@ -268,22 +268,22 @@ function (exports, module, require) {
         "touch" === e.key && this._updateProperties();
       }),
       (g.prototype._updateExport = function (e, t, n) {
-        var i = this._document.getEditor();
-        i.beginTransaction();
+        var GTools = this._document.getEditor();
+        GTools.beginTransaction();
         try {
           for (var a = 0; a < this._elements.length; ++a) {
-            var r = this._elements[a],
-              s = r.getProperty(u.EXPORT_PROPERTY_NAME, true);
+            var GMenu = this._elements[a],
+              s = GMenu.getProperty(u.EXPORT_PROPERTY_NAME, true);
             !s ||
               e >= s.length ||
               (((s = s.slice())[e] = $.extend({}, s[e])),
               (s[e][t] = n),
-              r.setProperty(u.EXPORT_PROPERTY_NAME, s, true));
+              GMenu.setProperty(u.EXPORT_PROPERTY_NAME, s, true));
           }
         } finally {
-          i.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey("GExportProperties", "action.update-setting")
+          GTools.commitTransaction(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GExportProperties", "action.update-setting")
             )
           );
         }
@@ -293,17 +293,17 @@ function (exports, module, require) {
         t.beginTransaction();
         try {
           for (var require = 0; require < this._elements.length; ++require) {
-            var i = this._elements[require],
-              a = i.getProperty(u.EXPORT_PROPERTY_NAME, true);
+            var GTools = this._elements[require],
+              a = GTools.getProperty(u.EXPORT_PROPERTY_NAME, true);
             !a ||
               e >= a.length ||
               ((a = a.slice()).splice(e, 1),
-              i.setProperty(u.EXPORT_PROPERTY_NAME, a, true));
+              GTools.setProperty(u.EXPORT_PROPERTY_NAME, a, true));
           }
         } finally {
           t.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey("GExportProperties", "action.remove")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GExportProperties", "action.remove")
             )
           );
         }
@@ -319,17 +319,17 @@ function (exports, module, require) {
         var e = [],
           t = gDesigner.isTouchEnabled(),
           n = t ? "40%" : "30%",
-          i = t ? "25%" : "35%",
+          GTools = t ? "25%" : "35%",
           a = t ? "25%" : "30%",
-          r = t ? "12%" : "5%";
+          GMenu = t ? "12%" : "5%";
         if (this._elements)
           for (let t = 0; t < this._elements.length; ++t) {
-            var l =
+            var GProperties =
               this._elements[t].getProperty(u.EXPORT_PROPERTY_NAME, true, []) ||
               [];
-            if (l)
-              for (var c = 0; c < l.length; ++c)
-                c < e.length ? (e[c].diff = true) : e.push($.extend({}, l[c]));
+            if (GProperties)
+              for (var ZipDirectory = 0; ZipDirectory < GProperties.length; ++ZipDirectory)
+                ZipDirectory < e.length ? (e[ZipDirectory].diff = true) : e.push($.extend({}, GProperties[ZipDirectory]));
           }
         this._panel.empty().css("margin", e.length ? "" : "0"),
           this._toolbar
@@ -337,28 +337,28 @@ function (exports, module, require) {
             .find("label:first-child")
             .text(
               0 === e.length
-                ? o.GLocale.get(
-                    new o.GLocaleKey(
+                ? GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GExportProperties",
                       "text.make-exportable"
                     )
                   )
-                : o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.export"))
+                : GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.export"))
             ),
           this._exportButton.css("display", e.length ? "" : "none");
-        for (let l = 0; l < e.length; ++l) {
-          var d = l + 1 === e.length,
-            p = e[l];
+        for (let GProperties = 0; GProperties < e.length; ++GProperties) {
+          var d = GProperties + 1 === e.length,
+            GSettingChangedEvent = e[GProperties];
           $("<div></div>")
-            .data("index", l)
+            .data("index", GProperties)
             .gPropertyRow({
               clazz: "export-properties-row",
               columns: [
                 {
                   width: n,
                   label: d
-                    ? o.GLocale.get(
-                        new o.GLocaleKey("GCommonNames", "text.size")
+                    ? GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "text.size")
                       )
                     : null,
                   content: $("<div></div>")
@@ -367,7 +367,7 @@ function (exports, module, require) {
                         .attr("type", "text")
                         .css("margin", "0")
                         .css("width", "70%")
-                        .val(p.sz)
+                        .val(GSettingChangedEvent.sz)
                         .on(
                           "change",
                           function (e) {
@@ -420,26 +420,26 @@ function (exports, module, require) {
                     ),
                 },
                 {
-                  width: i,
+                  width: GTools,
                   label: d
-                    ? o.GLocale.get(
-                        new o.GLocaleKey("GExportProperties", "text.suffix")
+                    ? GCore.GLocale.get(
+                        new GCore.GLocaleKey("GExportProperties", "text.suffix")
                       )
                     : null,
                   content: $("<input/>")
                     .attr("type", "text")
-                    .val(p.diff ? null : p.sf)
+                    .val(GSettingChangedEvent.diff ? null : GSettingChangedEvent.sf)
                     .attr(
                       "placeholder",
-                      p.diff
-                        ? o.GLocale.get(
-                            new o.GLocaleKey(
+                      GSettingChangedEvent.diff
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GExportProperties",
                               "text.multiple"
                             )
                           )
-                        : o.GLocale.get(
-                            new o.GLocaleKey("GCommonNames", "text.none")
+                        : GCore.GLocale.get(
+                            new GCore.GLocaleKey("GCommonNames", "text.none")
                           )
                     )
                     .on(
@@ -458,8 +458,8 @@ function (exports, module, require) {
                 {
                   width: a,
                   label: d
-                    ? o.GLocale.get(
-                        new o.GLocaleKey("GExportProperties", "text.format")
+                    ? GCore.GLocale.get(
+                        new GCore.GLocaleKey("GExportProperties", "text.format")
                       )
                     : null,
                   content: $("<select></select>")
@@ -475,7 +475,7 @@ function (exports, module, require) {
                     .append(
                       $("<option></option>").attr("value", "pdf").text("PDF")
                     )
-                    .val(p.fm)
+                    .val(GSettingChangedEvent.fm)
                     .on(
                       "change",
                       function (e) {
@@ -490,7 +490,7 @@ function (exports, module, require) {
                     ),
                 },
                 {
-                  width: r,
+                  width: GMenu,
                   content: $("<button></button>")
                     .addClass(t ? "g-flat gravit-icon-close" : "g-flat")
                     .html(t ? "" : "&#x2715;")

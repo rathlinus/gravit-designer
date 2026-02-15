@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(49) /* hasOwnProperty_wrapper */,
+    var globalThis = require(23) /* globalThis */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       a = require(120) /* module_120 */,
       r = require(307) /* module_307 */,
-      s = require(21) /* tryCall */,
-      l = o.RegExp,
+      tryCall = require(21) /* tryCall */,
+      l = globalThis.RegExp,
       c = l.prototype;
-    i &&
-      s(function () {
+    hasOwnProperty_wrapper &&
+      tryCall(function () {
         var e = true;
         try {
           l(".", "d");
@@ -22,11 +22,11 @@ function (exports, module, require) {
         }
         var t = {},
           n = "",
-          o = e ? "dgimsy" : "gimsy",
-          i = function (e, o) {
+          globalThis = e ? "dgimsy" : "gimsy",
+          hasOwnProperty_wrapper = function (e, globalThis) {
             Object.defineProperty(t, e, {
               get: function () {
-                return (n += o), true;
+                return (n += globalThis), true;
               },
             });
           },
@@ -37,10 +37,10 @@ function (exports, module, require) {
             multiline: "m",
             sticky: "y",
           };
-        for (var r in (e && (a.hasIndices = "d"), a)) i(r, a[r]);
+        for (var r in (e && (a.hasIndices = "d"), a)) hasOwnProperty_wrapper(r, a[r]);
         return (
-          Object.getOwnPropertyDescriptor(c, "flags").get.call(t) !== o ||
-          n !== o
+          Object.getOwnPropertyDescriptor(c, "flags").get.call(t) !== globalThis ||
+          n !== globalThis
         );
       }) &&
       a(c, "flags", { configurable: true, get: r });

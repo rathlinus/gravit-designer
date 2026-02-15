@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
-      i = require(92) /* classof */,
-      a = require(62) /* requireObjectCoercible */,
+    var uncurryThis = require(27) /* uncurryThis */,
+      classof = require(92) /* classof */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
       r = require(248) /* module_248 */,
-      s = o("".replace),
+      s = uncurryThis("".replace),
       l = RegExp("^[" + r + "]+"),
       c = RegExp("(^|[^" + r + "])[" + r + "]+$"),
       d = function (e) {
         return function (t) {
-          var n = a(i(t));
+          var n = requireObjectCoercible(classof(t));
           return 1 & e && (n = s(n, l, "")), 2 & e && (n = s(n, c, "$1")), n;
         };
       };

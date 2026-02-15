@@ -8,11 +8,11 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
     const { GObject: o, GLocaleKey: i } = require(1) /* module */,
-      a = require(31) /* GAction */,
-      r = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
       s = require(1644) /* module_1644 */;
     function l() {}
-    o.inherit(l, a),
+    o.inherit(l, GAction),
       (l.ID = "help.shortcuts"),
       (l.TITLE = new i("GShowShortcutsAction", "title")),
       (l.prototype.getId = function () {
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_HELP_LEARN;
+        return MenuItemBuilder.CATEGORY_HELP_LEARN;
       }),
       (l.prototype.getGroup = function () {
         return "help/learn";

@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(1) /* module */,
-      a = require(53) /* module */,
-      r = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       s = require(1276) /* module_1276 */,
-      l = o(require(1278) /* module_1278 */),
-      c = require(85) /* GContainer */,
+      l = _interopRequireDefault(require(1278) /* module_1278 */),
+      GContainer = require(85) /* GContainer */,
       d = null;
     function u() {
       return (
@@ -20,25 +20,25 @@ function (exports, module, require) {
           (d = [
             {
               name:
-                i.GLocale.get(
-                  new i.GLocaleKey("GSettingsDialog", "text.light-theme")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GSettingsDialog", "text.light-theme")
                 ) +
                 " (" +
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.default")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.default")
                 ).toLowerCase() +
                 ")",
-              localeClass: new i.GLocaleKey(
+              localeClass: new GCore.GLocaleKey(
                 "GSettingsDialog",
                 "text.light-theme"
               ),
               key: "light",
             },
             {
-              name: i.GLocale.get(
-                new i.GLocaleKey("GSettingsDialog", "text.dark-theme")
+              name: GCore.GLocale.get(
+                new GCore.GLocaleKey("GSettingsDialog", "text.dark-theme")
               ),
-              localeClass: new i.GLocaleKey(
+              localeClass: new GCore.GLocaleKey(
                 "GSettingsDialog",
                 "text.dark-theme"
               ),
@@ -52,24 +52,24 @@ function (exports, module, require) {
         })
       );
     }
-    i.GObject.inherit(u, i.GObject),
+    GCore.GObject.inherit(u, GCore.GObject),
       (u.prototype._buildDialog = async function () {
         let exports = (
-          await r.gApi
+          await AppSettings.gApi
             .getUserSettings()
             .catch(() => ({ notifications_disabled: false }))
         ).notifications_disabled;
         (this._dialog = $("<div></div>")
           .append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.highlight-on-hover"
                 )
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.highlight-on-hover-description"
                 )
@@ -90,14 +90,14 @@ function (exports, module, require) {
           )
           .append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.auto-expand-layers"
                 )
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.auto-expand-layers-description"
                 )
@@ -116,14 +116,14 @@ function (exports, module, require) {
                 .append($("<div/>"))
             )
           )),
-          r.AUTO_SAVE_ENABLED &&
+          AppSettings.AUTO_SAVE_ENABLED &&
             (this._dialog.append(
               this._createSetting(
-                i.GLocale.get(
-                  new i.GLocaleKey("GSettingsDialog", "setting.auto-save")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GSettingsDialog", "setting.auto-save")
                 ),
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.auto-save-description"
                   )
@@ -133,14 +133,14 @@ function (exports, module, require) {
             ),
             this._dialog.append(
               this._createSetting(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.auto-save-warning"
                   )
                 ),
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.auto-save-warning-description"
                   )
@@ -175,8 +175,8 @@ function (exports, module, require) {
             "rc" === gDesigner.getEnv() ||
             (this._dialog.append(
               this._createSetting(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.enable_steps_debug"
                   )
@@ -195,7 +195,7 @@ function (exports, module, require) {
                         "checked",
                         gDesigner.getSetting(
                           "enable_steps_debug",
-                          a.GEditorOptions.debugTransactions
+                          GTools.GEditorOptions.debugTransactions
                         )
                       )
                   )
@@ -219,7 +219,7 @@ function (exports, module, require) {
                         "checked",
                         gDesigner.getSetting(
                           "enable_cache",
-                          i.GRendererConfig.ENABLE_CACHE
+                          GCore.GRendererConfig.ENABLE_CACHE
                         )
                       )
                   )
@@ -228,16 +228,16 @@ function (exports, module, require) {
             )),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey("GSettingsDialog", "setting.change-theme")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GSettingsDialog", "setting.change-theme")
               ),
               null,
               this._createThemeSelector()
             ).append(
               this._createSetting(
                 null,
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.ui-toolbar-alignment"
                   )
@@ -262,11 +262,11 @@ function (exports, module, require) {
           ),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey("GSettingsDialog", "setting.store-textpath")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GSettingsDialog", "setting.store-textpath")
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.store-textpath-description"
                 )
@@ -284,7 +284,7 @@ function (exports, module, require) {
                       "checked",
                       !gDesigner.getSetting(
                         "dont_store_textpath",
-                        i.GText.dontStorePaths
+                        GCore.GText.dontStorePaths
                       )
                     )
                 )
@@ -293,11 +293,11 @@ function (exports, module, require) {
           ),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey("GSettingsDialog", "setting.decimals-num")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GSettingsDialog", "setting.decimals-num")
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.decimals-num-description"
                 )
@@ -307,14 +307,14 @@ function (exports, module, require) {
           ),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.disable-warning-unsupported-features"
                 )
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.disable-warning-unsupported-features-description"
                 )
@@ -346,11 +346,11 @@ function (exports, module, require) {
           ),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey("GSettingsDialog", "setting.eps-outline-fonts")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GSettingsDialog", "setting.eps-outline-fonts")
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.eps-outline-fonts-description"
                 )
@@ -374,14 +374,14 @@ function (exports, module, require) {
           ),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.disable-notifications"
                 )
               ),
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSettingsDialog",
                   "setting.disable-notifications-description"
                 )
@@ -402,8 +402,8 @@ function (exports, module, require) {
           ),
           this._dialog.append(
             this._createSetting(
-              i.GLocale.get(
-                new i.GLocaleKey("GSettingsDialog", "setting.disable-scrubbing")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GSettingsDialog", "setting.disable-scrubbing")
               ),
               null,
               $("<label></label>")
@@ -421,17 +421,17 @@ function (exports, module, require) {
                 .append($("<div></div>"))
             )
           ),
-          gContainer.getRuntime() === c.Runtime.Electron &&
+          gContainer.getRuntime() === GContainer.Runtime.Electron &&
             this._dialog.append(
               this._createSetting(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.create-backup-copy-of-file"
                   )
                 ),
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSettingsDialog",
                     "setting.create-backup-copy-of-file-description"
                   )
@@ -459,15 +459,15 @@ function (exports, module, require) {
             buttons: [
               $(
                 '<button class="settings-button">' +
-                  i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")) +
+                  GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")) +
                   "</button>"
               ).on("click", () => {
                 gDesigner.stats("settings_cancel_settings"), this.close();
               }),
               $(
                 '<button class="settings-button">' +
-                  i.GLocale.get(
-                    new i.GLocaleKey("GSettingsDialog", "action.save-changes")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GSettingsDialog", "action.save-changes")
                   ) +
                   "</button>"
               ).on("click", () => {
@@ -493,14 +493,14 @@ function (exports, module, require) {
         var e = this._dialog
             .find('[data-setting="notifications_disabled"]')
             .prop("checked"),
-          t = await r.gApi.getUserSettings();
+          t = await AppSettings.gApi.getUserSettings();
         t &&
           t.notifications_disabled !== e &&
-          (await r.gApi.updateUserSettings({ notifications_disabled: e }, true));
+          (await AppSettings.gApi.updateUserSettings({ notifications_disabled: e }, true));
       }),
       (u.prototype._saveBasicSettings = function () {
         var e =
-            r.AUTOSAVE_INTERVALS[
+            AppSettings.AUTOSAVE_INTERVALS[
               parseInt(
                 this._dialog
                   .find(
@@ -518,8 +518,8 @@ function (exports, module, require) {
           var require = this._dialog
               .find('[data-setting="decimals-num-val"]')
               .gInputBox("value"),
-            o = i.GUtil.parseNumber(require);
-          "number" != typeof o || isNaN(o) || (t = o);
+            _interopRequireDefault = GCore.GUtil.parseNumber(require);
+          "number" != typeof _interopRequireDefault || isNaN(_interopRequireDefault) || (t = _interopRequireDefault);
         }
         gDesigner.setSetting(
           [
@@ -587,21 +587,21 @@ function (exports, module, require) {
         );
       }),
       (u.prototype._createSetting = function (e, t, n) {
-        var o = $("<div></div>")
+        var _interopRequireDefault = $("<div></div>")
           .addClass("text-description")
           .append($("<div></div>").text(e).addClass("label"));
         return (
           t
-            ? (o = o.append($("<div></div>").addClass("description").html(t)))
+            ? (_interopRequireDefault = _interopRequireDefault.append($("<div></div>").addClass("description").html(t)))
                 .find("a")
                 .attr("target", "_blank")
-            : o.css({ verticalAlign: "middle" }),
+            : _interopRequireDefault.css({ verticalAlign: "middle" }),
           $("<div></div>")
             .addClass("setting")
             .append(
               $("<div></div>")
                 .addClass("form")
-                .append(o)
+                .append(_interopRequireDefault)
                 .append($("<div></div>").addClass("editor").append(n))
             )
         );
@@ -616,10 +616,10 @@ function (exports, module, require) {
                 .on("click", function () {
                   gDesigner.stats(
                     "settings_change_theme",
-                    i.GLocale.get(
+                    GCore.GLocale.get(
                       e.localeClass,
                       null,
-                      i.GLocaleLanguage.English
+                      GCore.GLocaleLanguage.English
                     )
                   ),
                     $(".g-theme-selector").data("theme", e.key).text(e.name),
@@ -635,7 +635,7 @@ function (exports, module, require) {
             break;
           }
         exports = exports || d[0];
-        var o = function () {
+        var _interopRequireDefault = function () {
           $(".g-overlay.theme-selector")
             .find(".g-theme-row:hover")
             .trigger("click");
@@ -650,9 +650,9 @@ function (exports, module, require) {
           .data("theme", exports.key)
           .addClass("g-theme-selector")
           .on("click", function (e) {
-            for (var require = $("<div/>"), i = 0; i < d.length; ++i)
+            for (var require = $("<div/>"), GCore = 0; GCore < d.length; ++GCore)
               require.append(
-                module(d[i], function () {
+                module(d[GCore], function () {
                   require.gOverlay("close");
                 })
               );
@@ -660,12 +660,12 @@ function (exports, module, require) {
               padding: false,
               releaseOnClose: true,
               clazz: "theme-selector",
-              enterCallback: o,
+              enterCallback: _interopRequireDefault,
             }).gOverlay("open", e.target);
           });
       }),
       (u.prototype._createDecimalsNum = function () {
-        var e = gDesigner.getSetting("decimals_num", i.GScene.decimalsNum),
+        var e = gDesigner.getSetting("decimals_num", GCore.GScene.decimalsNum),
           t = $("<div/>").append(
             $("<input>")
               .attr("type", "text")
@@ -673,7 +673,7 @@ function (exports, module, require) {
               .css(
                 "display",
                 null !==
-                  gDesigner.getSetting("decimals_num", i.GScene.decimalsNum)
+                  gDesigner.getSetting("decimals_num", GCore.GScene.decimalsNum)
                   ? ""
                   : "none"
               )
@@ -684,15 +684,15 @@ function (exports, module, require) {
                 function (e) {
                   gDesigner.stats("settings_change_decimals-num");
                   var t = $(e.target).gInputBox("value");
-                  (t = i.GUtil.parseNumber(t)) < 0 && (t = 0),
+                  (t = GCore.GUtil.parseNumber(t)) < 0 && (t = 0),
                     t > 6 && (t = 6),
                     $(e.target).gInputBox(
                       "value",
-                      null !== t ? i.GUtil.formatNumber(t, 0) : "2"
+                      null !== t ? GCore.GUtil.formatNumber(t, 0) : "2"
                     );
                 }.bind(this)
               )
-              .gInputBox("value", null !== e ? i.GUtil.formatNumber(e, 0) : "2")
+              .gInputBox("value", null !== e ? GCore.GUtil.formatNumber(e, 0) : "2")
           );
         return $("<div/>")
           .append(
@@ -705,7 +705,7 @@ function (exports, module, require) {
                   .prop(
                     "checked",
                     null !==
-                      gDesigner.getSetting("decimals_num", i.GScene.decimalsNum)
+                      gDesigner.getSetting("decimals_num", GCore.GScene.decimalsNum)
                   )
               )
               .on(
@@ -714,10 +714,10 @@ function (exports, module, require) {
                   gDesigner.stats("settings_change_decimals-num");
                   var t = gDesigner.getSetting(
                       "decimals_num",
-                      i.GScene.decimalsNum
+                      GCore.GScene.decimalsNum
                     ),
                     n = "2";
-                  null !== t && (n = i.GUtil.formatNumber(t, 0)),
+                  null !== t && (n = GCore.GUtil.formatNumber(t, 0)),
                     this._dialog
                       .find('[data-setting="decimals-num-val"]')
                       .css("display", $(e.target).prop("checked") ? "" : "none")
@@ -745,19 +745,19 @@ function (exports, module, require) {
           t = $("<select/>")
             .attr("data-setting", s.AUTO_SAVE_INTERVAL_SETTING)
             .on("change", function () {
-              const e = r.AUTOSAVE_INTERVALS[$(this).val()];
+              const e = AppSettings.AUTOSAVE_INTERVALS[$(this).val()];
               gDesigner.stats("settings_change_auto-save-interval", e);
             });
         return (
-          r.AUTOSAVE_INTERVALS.forEach((e, n) => {
-            var o = $("<option/>").text(e).val(n);
-            t.append(o);
+          AppSettings.AUTOSAVE_INTERVALS.forEach((e, n) => {
+            var _interopRequireDefault = $("<option/>").text(e).val(n);
+            t.append(_interopRequireDefault);
           }),
           t.val(
-            r.AUTOSAVE_INTERVALS.indexOf(
+            AppSettings.AUTOSAVE_INTERVALS.indexOf(
               gDesigner.getSetting(
                 s.AUTO_SAVE_INTERVAL_SETTING,
-                r.AUTOSAVE_INTERVAL_DEFAULT
+                AppSettings.AUTOSAVE_INTERVAL_DEFAULT
               )
             )
           ),

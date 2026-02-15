@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     var o = require(622) /* stub_requires_43 */,
-      i = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       a = require(116) /* module_116 */,
-      r = require(43) /* wellKnownSymbol */("toStringTag"),
+      wellKnownSymbol = require(43) /* wellKnownSymbol */("toStringTag"),
       s = Object,
       l =
         "Arguments" ===
@@ -30,11 +30,11 @@ function (exports, module, require) {
                 try {
                   return e[t];
                 } catch (e) {}
-              })((t = s(e)), r))
+              })((t = s(e)), wellKnownSymbol))
             ? n
             : l
             ? a(t)
-            : "Object" === (o = a(t)) && i(t.callee)
+            : "Object" === (o = a(t)) && anObject(t.callee)
             ? "Arguments"
             : o;
         };

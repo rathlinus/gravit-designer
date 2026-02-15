@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(27) /* uncurryThis */,
+    var core_export = require(25) /* core_export */,
+      uncurryThis = require(27) /* uncurryThis */,
       a = require(259) /* module_259 */,
-      r = require(46) /* toLength */,
+      toLength = require(46) /* toLength */,
       s = require(61) /* module_61 */,
-      l = require(88) /* createPropertyDescriptor */.f,
+      createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f,
       c = require(243) /* module_243 */,
       d = require(1103) /* module_1103 */,
       u = require(1104) /* module_1104 */,
@@ -20,31 +20,31 @@ function (exports, module, require) {
       f = p("meta"),
       m = 0,
       y = function (e) {
-        l(e, f, { value: { objectID: "O" + m++, weakData: {} } });
+        createPropertyDescriptor(e, f, { value: { objectID: "O" + m++, weakData: {} } });
       },
       v = (exports.exports = {
         enable: function () {
           (v.enable = function () {}), (h = true);
           var e = c.f,
-            t = i([].splice),
+            t = uncurryThis([].splice),
             n = {};
           (n[f] = 1),
             e(n).length &&
               ((c.f = function (n) {
-                for (var o = e(n), i = 0, a = o.length; i < a; i++)
-                  if (o[i] === f) {
-                    t(o, i, 1);
+                for (var core_export = e(n), uncurryThis = 0, a = core_export.length; uncurryThis < a; uncurryThis++)
+                  if (core_export[uncurryThis] === f) {
+                    t(core_export, uncurryThis, 1);
                     break;
                   }
-                return o;
+                return core_export;
               }),
-              o(
+              core_export(
                 { target: "Object", stat: true, forced: true },
                 { getOwnPropertyNames: d.f }
               ));
         },
         fastKey: function (e, t) {
-          if (!r(e))
+          if (!toLength(e))
             return "symbol" == typeof e
               ? e
               : ("string" == typeof e ? "S" : "P") + e;

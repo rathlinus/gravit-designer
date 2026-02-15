@@ -9,29 +9,29 @@ function (exports, module, require) {
       i,
       a,
       r,
-      s = require(23) /* globalThis */,
-      l = require(200) /* advanceStringIndex */,
+      globalThis = require(23) /* globalThis */,
+      advanceStringIndex = require(200) /* advanceStringIndex */,
       c = require(124) /* module_124 */,
-      d = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       u = require(61) /* module_61 */,
-      p = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       g = require(406) /* stub_requires_110 */,
       h = require(157) /* stub_requires_27 */,
       f = require(242) /* module_242 */,
       m = require(303) /* module_303 */,
       y = require(410) /* stub_requires_129 */,
       v = require(245) /* stub_requires_407 */,
-      _ = s.setImmediate,
-      b = s.clearImmediate,
-      w = s.process,
-      C = s.Dispatch,
-      x = s.Function,
-      S = s.MessageChannel,
-      E = s.String,
+      _ = globalThis.setImmediate,
+      b = globalThis.clearImmediate,
+      w = globalThis.process,
+      C = globalThis.Dispatch,
+      x = globalThis.Function,
+      S = globalThis.MessageChannel,
+      E = globalThis.String,
       A = 0,
       T = {};
-    p(function () {
-      o = s.location;
+    tryCall(function () {
+      o = globalThis.location;
     });
     var G = function (e) {
         if (u(T, e)) {
@@ -48,16 +48,16 @@ function (exports, module, require) {
         G(e.data);
       },
       L = function (e) {
-        s.postMessage(E(e), o.protocol + "//" + o.host);
+        globalThis.postMessage(E(e), o.protocol + "//" + o.host);
       };
     (_ && b) ||
       ((_ = function (e) {
         m(arguments.length, 1);
-        var t = d(e) ? e : x(e),
+        var t = anObject(e) ? e : x(e),
           n = h(arguments, 1);
         return (
           (T[++A] = function () {
-            l(t, undefined, n);
+            advanceStringIndex(t, undefined, n);
           }),
           i(A),
           A
@@ -78,13 +78,13 @@ function (exports, module, require) {
         ? ((r = (a = new S()).port2),
           (a.port1.onmessage = D),
           (i = c(r.postMessage, r)))
-        : s.addEventListener &&
-          d(s.postMessage) &&
-          !s.importScripts &&
+        : globalThis.addEventListener &&
+          anObject(globalThis.postMessage) &&
+          !globalThis.importScripts &&
           o &&
           "file:" !== o.protocol &&
-          !p(L)
-        ? ((i = L), s.addEventListener("message", D, false))
+          !tryCall(L)
+        ? ((i = L), globalThis.addEventListener("message", D, false))
         : (i =
             "onreadystatechange" in f("script")
               ? function (e) {

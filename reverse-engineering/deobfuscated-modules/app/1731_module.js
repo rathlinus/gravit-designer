@@ -6,38 +6,38 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       a = (require(173) /* stub_requires_1 */, false),
       r = null,
       s = null;
     function l() {}
     function c(e, t) {
       var n = gDesigner.getActiveDocument().getEditor(),
-        i = n.getSelection();
-      if (i && i.length > 0) {
-        var a = o.GLocale.get(
-          new o.GLocaleKey("GDesignerStyleEditor", "text.style-attribution")
+        CollaborationMergeUtils = n.getSelection();
+      if (CollaborationMergeUtils && CollaborationMergeUtils.length > 0) {
+        var a = GCore.GLocale.get(
+          new GCore.GLocaleKey("GDesignerStyleEditor", "text.style-attribution")
         );
         n.beginTransaction();
         try {
-          for (var r = 0; r < i.length; ++r)
+          for (var r = 0; r < CollaborationMergeUtils.length; ++r)
             t
-              ? i[r].removeStyle(e.getReferenceId())
-              : i[r].addStyle(e.getReferenceId());
+              ? CollaborationMergeUtils[r].removeStyle(e.getReferenceId())
+              : CollaborationMergeUtils[r].addStyle(e.getReferenceId());
         } finally {
           n.commitTransaction(a);
         }
-        n.updateSelection(false, i);
+        n.updateSelection(false, CollaborationMergeUtils);
       }
     }
-    function d(e, t, n, i) {
+    function d(e, t, n, CollaborationMergeUtils) {
       var a = gDesigner.getActiveDocument();
       t ||
-        ((n = new o.GStyle()).setProperty(
+        ((n = new GCore.GStyle()).setProperty(
           "name",
-          o.GLocale.get(
-            new o.GLocaleKey("GDesignerStyleEditor", "text.new-style")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GDesignerStyleEditor", "text.new-style")
           )
         ),
         n.setProperty("defaultStyle", false));
@@ -48,11 +48,11 @@ function (exports, module, require) {
         (s = a.getEditor().getSelection()[0]),
         !t && s && r.assignStyleFrom(s);
       var l = t
-          ? o.GLocale.get(
-              new o.GLocaleKey("GDesignerStyleEditor", "text.style-editor")
+          ? GCore.GLocale.get(
+              new GCore.GLocaleKey("GDesignerStyleEditor", "text.style-editor")
             )
-          : o.GLocale.get(
-              new o.GLocaleKey("GDesignerStyleEditor", "text.style-creator")
+          : GCore.GLocale.get(
+              new GCore.GLocaleKey("GDesignerStyleEditor", "text.style-creator")
             ),
         d = $("<div/>")
           .append($("<span/>").text(l))
@@ -68,7 +68,7 @@ function (exports, module, require) {
             $("<img/>")
               .css("align-self", "center")
               .css("margin-left", "10px")
-              .attr("src", gDesigner.getStylePreview(r, s instanceof o.GText))
+              .attr("src", gDesigner.getStylePreview(r, s instanceof GCore.GText))
           )
           .append(u),
         f = $("<div/>")
@@ -83,15 +83,15 @@ function (exports, module, require) {
                     "checked",
                     !t ||
                       $.inArray(
-                        o.GStylable.PropertySet.Style,
+                        GCore.GStylable.PropertySet.Style,
                         n.getProperty("ps")
                       ) >= 0
                   )
               )
               .append(
                 $("<span/>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GDesignerStyleEditor", "text.style")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDesignerStyleEditor", "text.style")
                   )
                 )
               )
@@ -107,15 +107,15 @@ function (exports, module, require) {
                     "checked",
                     !t ||
                       $.inArray(
-                        o.GStylable.PropertySet.FillPaintLayers,
+                        GCore.GStylable.PropertySet.FillPaintLayers,
                         n.getProperty("ps")
                       ) >= 0
                   )
               )
               .append(
                 $("<span/>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GDesignerStyleEditor", "text.fill")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDesignerStyleEditor", "text.fill")
                   )
                 )
               )
@@ -131,15 +131,15 @@ function (exports, module, require) {
                     "checked",
                     !t ||
                       $.inArray(
-                        o.GStylable.PropertySet.BorderPaintLayers,
+                        GCore.GStylable.PropertySet.BorderPaintLayers,
                         n.getProperty("ps")
                       ) >= 0
                   )
               )
               .append(
                 $("<span/>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GDesignerStyleEditor", "text.border")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDesignerStyleEditor", "text.border")
                   )
                 )
               )
@@ -155,15 +155,15 @@ function (exports, module, require) {
                     "checked",
                     !t ||
                       $.inArray(
-                        o.GStylable.PropertySet.Effects,
+                        GCore.GStylable.PropertySet.Effects,
                         n.getProperty("ps")
                       ) >= 0
                   )
               )
               .append(
                 $("<span/>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GDesignerStyleEditor", "text.effects")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDesignerStyleEditor", "text.effects")
                   )
                 )
               )
@@ -179,16 +179,16 @@ function (exports, module, require) {
                     "checked",
                     t
                       ? $.inArray(
-                          o.GStylable.PropertySet.Text,
+                          GCore.GStylable.PropertySet.Text,
                           n.getProperty("ps")
                         ) >= 0
-                      : s instanceof o.GText
+                      : s instanceof GCore.GText
                   )
               )
               .append(
                 $("<span/>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GDesignerStyleEditor", "text.text")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDesignerStyleEditor", "text.text")
                   )
                 )
               )
@@ -200,11 +200,11 @@ function (exports, module, require) {
             $("<button/>")
               .html(
                 t
-                  ? o.GLocale.get(
-                      new o.GLocaleKey("GCommonNames", "action.apply")
+                  ? GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "action.apply")
                     )
-                  : o.GLocale.get(
-                      new o.GLocaleKey("GDesignerStyleEditor", "action.create")
+                  : GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDesignerStyleEditor", "action.create")
                     )
               )
               .on("click", function () {
@@ -212,26 +212,26 @@ function (exports, module, require) {
                 var r = [];
                 if (
                   (f.find('input[data-property="style"]').is(":checked") &&
-                    r.push(o.GStylable.PropertySet.Style),
+                    r.push(GCore.GStylable.PropertySet.Style),
                   f.find('input[data-property="fill"]').is(":checked") &&
-                    r.push(o.GStylable.PropertySet.FillPaintLayers),
+                    r.push(GCore.GStylable.PropertySet.FillPaintLayers),
                   f.find('input[data-property="border"]').is(":checked") &&
-                    r.push(o.GStylable.PropertySet.BorderPaintLayers),
+                    r.push(GCore.GStylable.PropertySet.BorderPaintLayers),
                   f.find('input[data-property="effects"]').is(":checked") &&
-                    r.push(o.GStylable.PropertySet.Effects),
+                    r.push(GCore.GStylable.PropertySet.Effects),
                   f.find('input[data-property="text"]').is(":checked") &&
-                    (r.push(o.GStylable.PropertySet.Text),
-                    r.push(o.GStylable.PropertySet.Paragraph)),
+                    (r.push(GCore.GStylable.PropertySet.Text),
+                    r.push(GCore.GStylable.PropertySet.Paragraph)),
                   n.setProperties(["name", "ps"], [g.find("input").val(), r]),
                   !t)
                 ) {
                   if (
                     (s && n.assignStyleFrom(s),
                     a.getScene().getStyles().appendChild(n),
-                    h(n, e, false, i),
-                    i.parent())
+                    h(n, e, false, CollaborationMergeUtils),
+                    CollaborationMergeUtils.parent())
                   ) {
-                    var l = i.parent();
+                    var l = CollaborationMergeUtils.parent();
                     l.offset().top + l.height() > document.body.clientHeight &&
                       l.offset({
                         top: l.offset().top - 34,
@@ -240,9 +240,9 @@ function (exports, module, require) {
                   }
                   c(n);
                 }
-                gDesigner.createNewStylePreview(n, true, s instanceof o.GText),
+                gDesigner.createNewStylePreview(n, true, s instanceof GCore.GText),
                   m.gOverlay("close", e),
-                  !t && i && i.gOverlay("close"),
+                  !t && CollaborationMergeUtils && CollaborationMergeUtils.gOverlay("close"),
                   p(
                     t
                       ? $(".g-style-creator").find(".styles")
@@ -276,8 +276,8 @@ function (exports, module, require) {
         t ||
           ($(".g-style-editor").find(".no-style").empty(),
           f($(".g-style-editor").find(".no-style")));
-        for (var o = require.getFirstChild(); null !== o; o = o.getNext())
-          false === o.getProperty("defaultStyle") && h(o, e, t);
+        for (var GCore = require.getFirstChild(); null !== GCore; GCore = GCore.getNext())
+          false === GCore.getProperty("defaultStyle") && h(GCore, e, t);
       }
     }
     function g(e) {
@@ -286,18 +286,18 @@ function (exports, module, require) {
         !!(t && t.length > 0) && t[0].getProperty("sref") === e.getReferenceId()
       );
     }
-    function h(e, t, n, i) {
+    function h(e, t, n, CollaborationMergeUtils) {
       var l = function (e) {
           if (!a) return e.preventDefault(), void e.stopPropagation();
           var n = (s = $(e.target).closest(".style")).offset(),
-            o = e.originalEvent;
-          o.stopPropagation(),
+            GCore = e.originalEvent;
+          GCore.stopPropagation(),
             (r = s.data("style")),
             false,
-            o.pageX - n.left,
-            o.pageY - n.top,
-            (o.dataTransfer.effectAllowed = "move"),
-            o.dataTransfer.setData("text/plain", "dummy_data"),
+            GCore.pageX - n.left,
+            GCore.pageY - n.top,
+            (GCore.dataTransfer.effectAllowed = "move"),
+            GCore.dataTransfer.setData("text/plain", "dummy_data"),
             t.find(".style").each(function (e, n) {
               $(n)
                 .on("dragenter", function (e) {
@@ -323,11 +323,11 @@ function (exports, module, require) {
                   e.removeClass("g-drop"), true;
                   var n = e.data("style");
                   if (r && n && r.getParent() === n.getParent()) {
-                    var o = r.getParent(),
-                      i = o.getIndexOfChild(r),
-                      a = o.getIndexOfChild(n);
-                    o.removeChild(r),
-                      o.insertChild(r, i < a ? n.getNext() : n),
+                    var GCore = r.getParent(),
+                      CollaborationMergeUtils = GCore.getIndexOfChild(r),
+                      a = GCore.getIndexOfChild(n);
+                    GCore.removeChild(r),
+                      GCore.insertChild(r, CollaborationMergeUtils < a ? n.getNext() : n),
                       p(t, true);
                   }
                 });
@@ -367,7 +367,7 @@ function (exports, module, require) {
                     .attr("data-selected", "no"),
                   t.attr("data-selected", "yes").addClass("g-selected"),
                   c(e)),
-                i && i.gOverlay("close");
+                CollaborationMergeUtils && CollaborationMergeUtils.gOverlay("close");
             });
       var m = null,
         y = gDesigner.getActiveDocument().getEditor().getSelection();
@@ -376,7 +376,7 @@ function (exports, module, require) {
         f.append(
           $("<img/>")
             .css("align-self", "center")
-            .attr("src", gDesigner.getStylePreview(e, m instanceof o.GText))
+            .attr("src", gDesigner.getStylePreview(e, m instanceof GCore.GText))
         ),
         $("<span/>")
           .css({
@@ -431,11 +431,11 @@ function (exports, module, require) {
     function f(e, t) {
       var n = gDesigner.getActiveDocument().getEditor().getSelection();
       if (n && n.length > 0) {
-        var i = $("<div/>").addClass("style").appendTo(e),
+        var CollaborationMergeUtils = $("<div/>").addClass("style").appendTo(e),
           a = n[0],
           r = !a.getProperty("sref");
-        $("<div/>").addClass("style-selector").appendTo(i),
-          i
+        $("<div/>").addClass("style-selector").appendTo(CollaborationMergeUtils),
+          CollaborationMergeUtils
             .attr("data-selected", r ? "yes" : "no")
             .addClass(r ? "g-selected" : "")
             .on("click", function () {
@@ -453,18 +453,18 @@ function (exports, module, require) {
           $("<span/>")
             .css("align-self", "center")
             .text(
-              o.GLocale.get(
-                new o.GLocaleKey("GDesignerStyleEditor", "text.no-style")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDesignerStyleEditor", "text.no-style")
               )
             )
             .css("width", "165px")
             .css("margin-left", "10px")
-            .appendTo(i),
+            .appendTo(CollaborationMergeUtils),
           e.hasClass("styles") ||
             (e.addClass("styles"), e.addClass("no-style"));
       }
     }
-    o.GObject.inheritAndMix(l, o.GObject);
+    GCore.GObject.inheritAndMix(l, GCore.GObject);
     var m = {
       init: function () {
         return this.each(function () {
@@ -472,7 +472,7 @@ function (exports, module, require) {
             t = $(this),
             n = function () {
               var n = $("<div/>"),
-                i = $("<div/>"),
+                CollaborationMergeUtils = $("<div/>"),
                 a = $("<div></div>")
                   .addClass("g-style-editor")
                   .css("width", "250px");
@@ -488,7 +488,7 @@ function (exports, module, require) {
                   null !== r;
                   r = r.getNext()
                 )
-                  false === r.getProperty("defaultStyle") && h(r, i, false, a);
+                  false === r.getProperty("defaultStyle") && h(r, CollaborationMergeUtils, false, a);
               var s = $("<div/>")
                 .addClass("style-toolbar")
                 .append(
@@ -497,8 +497,8 @@ function (exports, module, require) {
                       $("<button/>")
                         .addClass("g-flat")
                         .html(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDesignerStyleEditor",
                               "action.create-new-style"
                             )
@@ -507,7 +507,7 @@ function (exports, module, require) {
                     )
                     .on("click", function () {
                       gDesigner.stats("designerstyle_click_createnewstyle"),
-                        d(i, false, null, a);
+                        d(CollaborationMergeUtils, false, null, a);
                     })
                 )
                 .append(
@@ -516,8 +516,8 @@ function (exports, module, require) {
                       $("<button/>")
                         .addClass("g-flat")
                         .html(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDesignerStyleEditor",
                               "action.organize-styles"
                             )
@@ -530,8 +530,8 @@ function (exports, module, require) {
                           var t = $("<div/>")
                               .append(
                                 $("<span/>").text(
-                                  o.GLocale.get(
-                                    new o.GLocaleKey(
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey(
                                       "GDesignerStyleEditor",
                                       "text.style-organizer"
                                     )
@@ -540,14 +540,14 @@ function (exports, module, require) {
                               )
                               .addClass("creator-toolbar"),
                             n = $("<div/>"),
-                            i = gDesigner
+                            CollaborationMergeUtils = gDesigner
                               .getActiveDocument()
                               .getScene()
                               .getStyles(),
                             a = false;
-                          if (i)
+                          if (CollaborationMergeUtils)
                             for (
-                              var r = i.getFirstChild();
+                              var r = CollaborationMergeUtils.getFirstChild();
                               null !== r;
                               r = r.getNext()
                             )
@@ -559,8 +559,8 @@ function (exports, module, require) {
                               .append(
                                 $("<button/>")
                                   .html(
-                                    o.GLocale.get(
-                                      new o.GLocaleKey(
+                                    GCore.GLocale.get(
+                                      new GCore.GLocaleKey(
                                         "GCommonNames",
                                         "text.finish"
                                       )
@@ -573,9 +573,9 @@ function (exports, module, require) {
                                     var t = $(".g-style-editor").find(
                                       ".styles:not(.no-style)"
                                     );
-                                    if ((t.empty(), i))
+                                    if ((t.empty(), CollaborationMergeUtils))
                                       for (
-                                        var n = i.getFirstChild();
+                                        var n = CollaborationMergeUtils.getFirstChild();
                                         null !== n;
                                         n = n.getNext()
                                       )
@@ -594,7 +594,7 @@ function (exports, module, require) {
                     })
                 );
               a.append(n)
-                .append(i)
+                .append(CollaborationMergeUtils)
                 .append(s)
                 .on("open", function () {
                   t.trigger("open");
@@ -607,7 +607,7 @@ function (exports, module, require) {
             };
           t.gPro().on(
             "click",
-            i.watchDog.trap(
+            CollaborationMergeUtils.watchDog.trap(
               function () {
                 gDesigner.stats("designerstyle_click_openpanel"),
                   t.find(".g-styles-field").hasClass("g-disabled") || n();

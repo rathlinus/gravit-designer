@@ -8,15 +8,15 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     require(53) /* module */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
       r = require(163) /* module_163 */,
       s = (require(449) /* GFitAllAction */, require(31) /* GAction */);
     function l() {}
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, s),
       (l.ID = "file.new.clipboard"),
-      (l.TITLE = new o.GLocaleKey("GNewClipboardAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GNewClipboardAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -24,16 +24,16 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (l.prototype.getGroup = function () {
         return "document";
       }),
       (l.prototype.getShortcut = function () {
         return [
-          i.GKey.Constant.SHIFT,
-          i.GKey.Constant.CONTROL,
-          i.GKey.Constant.OPTION,
+          GEditor.GKey.Constant.SHIFT,
+          GEditor.GKey.Constant.CONTROL,
+          GEditor.GKey.Constant.OPTION,
           "N",
         ];
       }),
@@ -41,30 +41,30 @@ function (exports, module, require) {
         return (
           !!gDesigner.getApplicationManager().isCopyPasteEnabled() &&
           !!gDesigner.getActiveDocument() &&
-          !!gDesigner.getClipboardContent(o.GNode.MIME_TYPE)
+          !!gDesigner.getClipboardContent(GCore.GNode.MIME_TYPE)
         );
       }),
       (l.prototype.execute = function () {
-        var e = o.GNode.deserialize(
-          gDesigner.getClipboardContent(o.GNode.MIME_TYPE)
+        var e = GCore.GNode.deserialize(
+          gDesigner.getClipboardContent(GCore.GNode.MIME_TYPE)
         );
         if (e && e.length > 0) {
           var module = e.filter(function (e) {
-            return e instanceof o.GItem || e instanceof o.GLayer;
+            return e instanceof GCore.GItem || e instanceof GCore.GLayer;
           });
           if (module.length > 0) {
             var require = gDesigner.createScene();
             require
               .getActivePage()
-              .setProperties(["bck", "w", "h"], [o.GRGBColor.WHITE, 0, 0]),
+              .setProperties(["bck", "w", "h"], [GCore.GRGBColor.WHITE, 0, 0]),
               gDesigner.addDocument(new r(require));
-            var i = gDesigner.getActiveDocument().getEditor();
-            i.beginTransaction();
+            var GEditor = gDesigner.getActiveDocument().getEditor();
+            GEditor.beginTransaction();
             try {
-              i.insertElements(module, true, true, true);
+              GEditor.insertElements(module, true, true, true);
             } finally {
-              i.commitTransaction("Paste"),
-                gDesigner.setClipboardContent(o.GNode.MIME_TYPE, null);
+              GEditor.commitTransaction("Paste"),
+                gDesigner.setClipboardContent(GCore.GNode.MIME_TYPE, null);
             }
             gDesigner.getActiveDocument().getActiveWindow().centerAndZoom();
           }
@@ -73,13 +73,13 @@ function (exports, module, require) {
       (l.prototype._getBBox = function (e) {
         var t = null;
         return (
-          o.GUtil.each(e, function (e, n) {
-            var i = n.getPaintBBox();
-            i &&
-              i.getWidth() + i.getHeight() > 0 &&
+          GCore.GUtil.each(e, function (e, n) {
+            var GEditor = n.getPaintBBox();
+            GEditor &&
+              GEditor.getWidth() + GEditor.getHeight() > 0 &&
               (t = t
-                ? t.united(i)
-                : new o.GRect(i.getX(), i.getY(), i.getWidth(), i.getHeight()));
+                ? t.united(GEditor)
+                : new GCore.GRect(GEditor.getX(), GEditor.getY(), GEditor.getWidth(), GEditor.getHeight()));
           }),
           t
         );

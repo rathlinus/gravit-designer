@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* wellKnownSymbol */,
-      i = require(203) /* iteratorPrototype */,
-      a = o("iterator"),
+    var wellKnownSymbol = require(43) /* wellKnownSymbol */,
+      iteratorPrototype = require(203) /* iteratorPrototype */,
+      a = wellKnownSymbol("iterator"),
       r = Array.prototype;
     exports.exports = function (e) {
-      return undefined !== e && (i.Array === e || r[a] === e);
+      return undefined !== e && (iteratorPrototype.Array === e || r[a] === e);
     };
   }

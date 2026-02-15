@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(851) /* module_851 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       a = require(1200) /* module_1200 */,
-      r = require(255) /* barrel_sidebars */;
+      barrel_sidebars = require(255) /* barrel_sidebars */;
     function s(e, t) {
       var n = $(this);
       n.empty(),
@@ -18,10 +18,10 @@ function (exports, module, require) {
     }
     function l(e, t) {
       var n = $(this),
-        o = this,
+        GCore = this,
         a = n.data("g-fonts-panel"),
-        r = e.faces;
-      if (r) {
+        barrel_sidebars = e.faces;
+      if (barrel_sidebars) {
         var s = function (e, t, n) {
             if (t && "_SPECIAL_" === t.getAttribute("name"))
               e.stopPropagation();
@@ -35,7 +35,7 @@ function (exports, module, require) {
                   void e.stopPropagation()
                 );
               gDesigner.stats("fontspanel_click_setfont", n.family),
-                p.selection.call(o, n.family),
+                p.selection.call(GCore, n.family),
                 a.options.changeCallback && a.options.changeCallback(n),
                 e.preventDefault();
             }
@@ -44,8 +44,8 @@ function (exports, module, require) {
         t && t.length && (l = t);
         var u = [],
           g = [];
-        for (let e = 0; e < r.length; ++e) {
-          const t = r[e];
+        for (let e = 0; e < barrel_sidebars.length; ++e) {
+          const t = barrel_sidebars[e];
           var h = $("<div></div>")
             .addClass("fonts-row")
             .data("font", t)
@@ -79,7 +79,7 @@ function (exports, module, require) {
               break;
             }
           }
-        (0, i.iterateAroundIndex)(g, f, (e) => {
+        (0, CollaborationMergeUtils.iterateAroundIndex)(g, f, (e) => {
           e.addPreviewCallback.call(
             e,
             function (e) {
@@ -114,11 +114,11 @@ function (exports, module, require) {
       d = [];
     function u(e, t) {
       var n = this,
-        o = $(this).data("g-fonts-panel"),
-        i = o.manager;
-      e !== o.previousQuery &&
-        ((o.previousQuery = e),
-        i.query((e) => {
+        GCore = $(this).data("g-fonts-panel"),
+        CollaborationMergeUtils = GCore.manager;
+      e !== GCore.previousQuery &&
+        ((GCore.previousQuery = e),
+        CollaborationMergeUtils.query((e) => {
           s.call(n, e, t);
         }, e));
     }
@@ -136,8 +136,8 @@ function (exports, module, require) {
                 .getFontManager()
                 .getDefaultFont()
                 .getFamily(),
-              o = r.getInstance(),
-              i = $(this)
+              GCore = barrel_sidebars.getInstance(),
+              CollaborationMergeUtils = $(this)
                 .empty()
                 .addClass("g-fonts-panel")
                 .data("g-fonts-panel", {
@@ -145,24 +145,24 @@ function (exports, module, require) {
                   lastPreviewPosition: 0,
                   search: e.search || null,
                   changeCallback: e.changeCallback || null,
-                  manager: o,
+                  manager: GCore,
                 });
-            o.addEventListener(r.ResetEvent, () => {
-              i.addClass("g-loading"),
-                o.query((e) => {
-                  s.call(t, e, n), i.removeClass("g-loading"), (n = undefined);
+            GCore.addEventListener(barrel_sidebars.ResetEvent, () => {
+              CollaborationMergeUtils.addClass("g-loading"),
+                GCore.query((e) => {
+                  s.call(t, e, n), CollaborationMergeUtils.removeClass("g-loading"), (n = undefined);
                 }, "%");
             }),
-              i
+              CollaborationMergeUtils
                 .on("scroll", function () {
-                  var e = i.scrollTop(),
-                    n = i.data("g-fonts-panel"),
-                    o = n.lastPreviewPosition,
-                    a = i.height(),
-                    r = n.manager;
-                  r.isLoading() ||
-                    (e / Math.max(1, o - a) > 0.7 &&
-                      r.loadMore((e) => {
+                  var e = CollaborationMergeUtils.scrollTop(),
+                    n = CollaborationMergeUtils.data("g-fonts-panel"),
+                    GCore = n.lastPreviewPosition,
+                    a = CollaborationMergeUtils.height(),
+                    barrel_sidebars = n.manager;
+                  barrel_sidebars.isLoading() ||
+                    (e / Math.max(1, GCore - a) > 0.7 &&
+                      barrel_sidebars.loadMore((e) => {
                         l.call(t, e, "Open Sans");
                       }, n.search));
                 })
@@ -175,28 +175,28 @@ function (exports, module, require) {
       selection: function (e) {
         var t = this,
           n = $(this),
-          o = n.data("g-fonts-panel");
+          GCore = n.data("g-fonts-panel");
         if (!arguments.length) {
-          var i = n.find(".fonts-row.g-selected");
-          return i.length ? i.data("font").family : null;
+          var CollaborationMergeUtils = n.find(".fonts-row.g-selected");
+          return CollaborationMergeUtils.length ? CollaborationMergeUtils.data("font").family : null;
         }
         return (
-          n.find(".fonts-row").each(function (i, a) {
-            var r = $(a),
-              s = r.data("font").family === e;
-            if ((r.toggleClass("g-selected", s), s)) {
-              var c = o.manager;
+          n.find(".fonts-row").each(function (CollaborationMergeUtils, a) {
+            var barrel_sidebars = $(a),
+              s = barrel_sidebars.data("font").family === e;
+            if ((barrel_sidebars.toggleClass("g-selected", s), s)) {
+              var c = GCore.manager;
               if (
-                !r.data("font").cachedPreview ||
-                (i > 0 &&
-                  !$(n.find(".fonts-row")[i - 1]).data("font").cachedPreview)
+                !barrel_sidebars.data("font").cachedPreview ||
+                (CollaborationMergeUtils > 0 &&
+                  !$(n.find(".fonts-row")[CollaborationMergeUtils - 1]).data("font").cachedPreview)
               )
                 for (
-                  var d = c.loadMore(l.bind(t), o.search);
-                  0 !== d && d < i;
+                  var d = c.loadMore(l.bind(t), GCore.search);
+                  0 !== d && d < CollaborationMergeUtils;
 
                 ) {
-                  if (d >= (d = c.loadMore(l.bind(t), o.search))) break;
+                  if (d >= (d = c.loadMore(l.bind(t), GCore.search))) break;
                 }
             }
           }),
@@ -237,31 +237,31 @@ function (exports, module, require) {
       },
       search: function (e, t) {
         var n = $(this),
-          o = n.data("g-fonts-panel");
+          GCore = n.data("g-fonts-panel");
         return arguments.length
-          ? (e !== o.search && ((o.search = e), p.refresh.call(this, false, t)),
+          ? (e !== GCore.search && ((GCore.search = e), p.refresh.call(this, false, t)),
             this)
-          : o.search;
+          : GCore.search;
       },
       focusCurrent: function () {
         var e,
           t = $(this),
           n = t.find(".fonts-row.g-selected"),
-          o = 0;
+          GCore = 0;
         n &&
           n.position() &&
           (n.position().top > t.height() - n.outerHeight()
             ? ((e = n.index()),
               t.find(".fonts-row:lt(" + e + ")").each(function () {
-                o += $(this).outerHeight(true);
+                GCore += $(this).outerHeight(true);
               }),
-              t.scrollTop(o - t.height() + n.outerHeight(true)))
+              t.scrollTop(GCore - t.height() + n.outerHeight(true)))
             : n.position().top < 0 &&
               ((e = n.index()),
               t.find(".fonts-row:lt(" + e + ")").each(function () {
-                o += $(this).outerHeight(true);
+                GCore += $(this).outerHeight(true);
               }),
-              t.scrollTop(o)));
+              t.scrollTop(GCore)));
       },
       reload: function (e) {
         ($(this).data("g-fonts-panel").previousQuery = null),
@@ -269,86 +269,86 @@ function (exports, module, require) {
       },
       refresh: function (e, t) {
         var n = $(this),
-          i = n.data("g-fonts-panel"),
-          a = i.search ? i.search + "%" : "%";
-        a !== i.previousQuery &&
+          CollaborationMergeUtils = n.data("g-fonts-panel"),
+          a = CollaborationMergeUtils.search ? CollaborationMergeUtils.search + "%" : "%";
+        a !== CollaborationMergeUtils.previousQuery &&
           (n.empty(),
-          (i.lastPreviewPosition = 0),
+          (CollaborationMergeUtils.lastPreviewPosition = 0),
           n.text(
-            o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.loading")) +
+            GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.loading")) +
               "..."
           ),
-          e && (i.search = null),
+          e && (CollaborationMergeUtils.search = null),
           u.call(this, a, t));
       },
       stylesForFont: function (e, t) {
         var n = null,
-          o = $(this).data("g-fonts-panel").manager;
-        if (o.isCacheEmpty()) return void (t && o.query(t, "%", true));
-        let i = (0, a.getFontFamily)(e, o.searchFamilyInCache.bind(o));
-        if (i && i.fonts && i.fonts.length) {
+          GCore = $(this).data("g-fonts-panel").manager;
+        if (GCore.isCacheEmpty()) return void (t && GCore.query(t, "%", true));
+        let CollaborationMergeUtils = (0, a.getFontFamily)(e, GCore.searchFamilyInCache.bind(GCore));
+        if (CollaborationMergeUtils && CollaborationMergeUtils.fonts && CollaborationMergeUtils.fonts.length) {
           n = [];
-          for (var r = 0; r < i.fonts.length; r++) n.push(i.fonts[r].style);
+          for (var barrel_sidebars = 0; barrel_sidebars < CollaborationMergeUtils.fonts.length; barrel_sidebars++) n.push(CollaborationMergeUtils.fonts[barrel_sidebars].style);
         }
         return n;
       },
-      stylesForWeight: function (e, t, n, o) {
-        var i = null,
-          r = $(this).data("g-fonts-panel").manager;
-        if (r.isCacheEmpty()) return void (n && r.query(n, "%", true));
-        let s = (0, a.getFontFamily)(t, r.searchFamilyInCache.bind(r));
+      stylesForWeight: function (e, t, n, GCore) {
+        var CollaborationMergeUtils = null,
+          barrel_sidebars = $(this).data("g-fonts-panel").manager;
+        if (barrel_sidebars.isCacheEmpty()) return void (n && barrel_sidebars.query(n, "%", true));
+        let s = (0, a.getFontFamily)(t, barrel_sidebars.searchFamilyInCache.bind(barrel_sidebars));
         if (s && s.fonts && s.fonts.length) {
-          i = [];
+          CollaborationMergeUtils = [];
           for (var l = 0; l < s.fonts.length; l++)
             s.fonts[l].weight === e &&
-              (o && s.fonts[l].hasOwnProperty("family")
-                ? s.fonts[l].family === t && i.push(s.fonts[l].style)
-                : i.push(s.fonts[l].style));
+              (GCore && s.fonts[l].hasOwnProperty("family")
+                ? s.fonts[l].family === t && CollaborationMergeUtils.push(s.fonts[l].style)
+                : CollaborationMergeUtils.push(s.fonts[l].style));
         }
-        return i;
+        return CollaborationMergeUtils;
       },
       subfamiliesForWeight: function (e, t, n) {
-        var o = null,
-          i = $(this).data("g-fonts-panel").manager;
-        if (i.isCacheEmpty()) return void (n && i.query(n, "%", true));
-        let r = (0, a.getFontFamily)(t, i.searchFamilyInCache.bind(i));
-        if (r && r.fonts && r.fonts.length) {
-          o = [];
-          for (var s = 0; s < r.fonts.length; s++)
-            r.fonts[s].weight === e &&
-              o.push({
-                realName: r.fonts[s].family || r.family,
-                subFamily: r.fonts[s].subfamily,
+        var GCore = null,
+          CollaborationMergeUtils = $(this).data("g-fonts-panel").manager;
+        if (CollaborationMergeUtils.isCacheEmpty()) return void (n && CollaborationMergeUtils.query(n, "%", true));
+        let barrel_sidebars = (0, a.getFontFamily)(t, CollaborationMergeUtils.searchFamilyInCache.bind(CollaborationMergeUtils));
+        if (barrel_sidebars && barrel_sidebars.fonts && barrel_sidebars.fonts.length) {
+          GCore = [];
+          for (var s = 0; s < barrel_sidebars.fonts.length; s++)
+            barrel_sidebars.fonts[s].weight === e &&
+              GCore.push({
+                realName: barrel_sidebars.fonts[s].family || barrel_sidebars.family,
+                subFamily: barrel_sidebars.fonts[s].subfamily,
               });
         }
-        return o;
+        return GCore;
       },
       weightsForFont: async function (e, t, n) {
-        var o = null,
-          i = $(this).data("g-fonts-panel").manager;
-        if (i.isCacheEmpty()) return void (t && i.query(t, "%", true));
-        let r = (0, a.getFontFamily)(e, i.searchFamilyInCache.bind(i));
+        var GCore = null,
+          CollaborationMergeUtils = $(this).data("g-fonts-panel").manager;
+        if (CollaborationMergeUtils.isCacheEmpty()) return void (t && CollaborationMergeUtils.query(t, "%", true));
+        let barrel_sidebars = (0, a.getFontFamily)(e, CollaborationMergeUtils.searchFamilyInCache.bind(CollaborationMergeUtils));
         if (
-          (r.isLocalFont &&
-            ((r.fonts = await (0, a.parseNativeFonts)(r.fonts)),
-            delete r.isLocalFont),
-          r && r.fonts && r.fonts.length)
+          (barrel_sidebars.isLocalFont &&
+            ((barrel_sidebars.fonts = await (0, a.parseNativeFonts)(barrel_sidebars.fonts)),
+            delete barrel_sidebars.isLocalFont),
+          barrel_sidebars && barrel_sidebars.fonts && barrel_sidebars.fonts.length)
         ) {
-          o = [];
-          for (var s = 0; s < r.fonts.length; s++)
+          GCore = [];
+          for (var s = 0; s < barrel_sidebars.fonts.length; s++)
             n &&
-              r.fonts[s].hasOwnProperty("family") &&
-              r.fonts[s].family === e &&
-              o.push(r.fonts[s].weight),
-              o.push(r.fonts[s].weight);
+              barrel_sidebars.fonts[s].hasOwnProperty("family") &&
+              barrel_sidebars.fonts[s].family === e &&
+              GCore.push(barrel_sidebars.fonts[s].weight),
+              GCore.push(barrel_sidebars.fonts[s].weight);
         }
-        return o;
+        return GCore;
       },
       fontDisplayName: function (e, t) {
         var n = $(this).data("g-fonts-panel").manager;
         if (n.isCacheEmpty()) return void (t && n.query(t, "%", true));
-        let o = (0, a.getFontFamily)(e, n.searchFamilyInCache.bind(n));
-        return (o && (o.displayname || o.family)) || e;
+        let GCore = (0, a.getFontFamily)(e, n.searchFamilyInCache.bind(n));
+        return (GCore && (GCore.displayname || GCore.family)) || e;
       },
       fontsLength: function () {
         return $(this).find(".fonts-row").length;

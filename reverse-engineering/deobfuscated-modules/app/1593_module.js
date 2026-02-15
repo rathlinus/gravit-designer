@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
     const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* AppSettings */,
-      a = require(44) /* GSystemDialog */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       r = require(604) /* module_604 */,
       s = require(337) /* stub_requires_1098 */;
     exports.exports = class {
@@ -29,7 +29,7 @@ function (exports, module, require) {
             });
         } catch (e) {
           gDesigner.executeWhenReady(() => {
-            a.error(e);
+            GSystemDialog.error(e);
           });
         }
       }

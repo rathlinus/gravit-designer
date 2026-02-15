@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var i,
-      a = require(10) /* AppSettings */,
-      r = require(40) /* CollaborationMergeUtils */,
-      s = o(require(565) /* module_565 */);
+      AppSettings = require(10) /* AppSettings */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      s = _interopRequireDefault(require(565) /* module_565 */);
     !(function (e) {
       var t = (function () {
         function e() {
@@ -55,9 +55,9 @@ function (exports, module, require) {
           (e.prototype.setData = function (e, t) {
             this._data[e] = t;
           }),
-          (e.prototype.setDragImage = function (e, t, o) {
+          (e.prototype.setDragImage = function (e, t, _interopRequireDefault) {
             var i = n._instance;
-            (i._imgCustom = e), (i._imgOffset = { x: t, y: o });
+            (i._imgCustom = e), (i._imgOffset = { x: t, y: _interopRequireDefault });
           }),
           e
         );
@@ -66,7 +66,7 @@ function (exports, module, require) {
       var n = (function () {
         function e() {
           if (e._instance) throw "DragDropTouch instance already created.";
-          var t = (0, r.isPassiveSupported)();
+          var t = (0, CollaborationMergeUtils.isPassiveSupported)();
           if ("ontouchstart" in document || "undefined" != typeof TouchEvent) {
             (this._documentTouchStart = this._documentTouchStart.bind(this)),
               (this._documentTouchEnd = this._documentTouchEnd.bind(this)),
@@ -95,8 +95,8 @@ function (exports, module, require) {
             (this._touchstart = this._touchstart.bind(this)),
               (this._touchmove = this._touchmove.bind(this)),
               (this._touchend = this._touchend.bind(this));
-            var o = !!t && { passive: false, capture: false };
-            n.addEventListener("touchstart", this._touchstart, o);
+            var _interopRequireDefault = !!t && { passive: false, capture: false };
+            n.addEventListener("touchstart", this._touchstart, _interopRequireDefault);
           }
         }
         return (
@@ -120,11 +120,11 @@ function (exports, module, require) {
             var n = this;
             if (this._shouldHandle(t)) {
               this._reset();
-              var o = this._closestDraggable(t.target);
-              o &&
+              var _interopRequireDefault = this._closestDraggable(t.target);
+              _interopRequireDefault &&
                 ((e._ISPRESSHOLDMODE =
-                  parseInt(o.dataset.dragMode) === s.default.PRESS_AND_HOLD),
-                (this._dragSource = o),
+                  parseInt(_interopRequireDefault.dataset.dragMode) === s.default.PRESS_AND_HOLD),
+                (this._dragSource = _interopRequireDefault),
                 this._updateImageOffset(t),
                 (this._startTouchTime = new Date().getTime()),
                 (this._ptDown = this._getPoint(t)),
@@ -329,11 +329,11 @@ function (exports, module, require) {
                 this._img.classList.add("g-draggable-drag-image"),
               (this._img.style.left = this._img.style.top = "0px"),
               this._translate(this._img, -9999, -9999);
-            var o = this._img.style;
-            (o.position = "absolute"),
-              (o.pointerEvents = "none"),
-              (o["touch-action"] = "none"),
-              (o.zIndex = "999999"),
+            var _interopRequireDefault = this._img.style;
+            (_interopRequireDefault.position = "absolute"),
+              (_interopRequireDefault.pointerEvents = "none"),
+              (_interopRequireDefault["touch-action"] = "none"),
+              (_interopRequireDefault.zIndex = "999999"),
               this._imgCustom ||
                 (this._img.style.opacity = e._OPACITY.toString()),
               this._moveImage(t),
@@ -364,8 +364,8 @@ function (exports, module, require) {
             }
           }),
           (e.prototype._copyProps = function (e, t, n) {
-            for (var o = 0; o < n.length; o++) {
-              var i = n[o];
+            for (var _interopRequireDefault = 0; _interopRequireDefault < n.length; _interopRequireDefault++) {
+              var i = n[_interopRequireDefault];
               e[i] = t[i];
             }
           }),
@@ -377,40 +377,40 @@ function (exports, module, require) {
               n.classList.add(e._CUSTOM_DRAGGING_ELEMENT_CLASS),
               t instanceof HTMLCanvasElement)
             ) {
-              var o = t,
+              var _interopRequireDefault = t,
                 i = n;
-              (i.width = o.width),
-                (i.height = o.height),
-                i.getContext("2d").drawImage(o, 0, 0);
+              (i.width = _interopRequireDefault.width),
+                (i.height = _interopRequireDefault.height),
+                i.getContext("2d").drawImage(_interopRequireDefault, 0, 0);
             }
-            for (var a = getComputedStyle(t), r = 0; r < a.length; r++) {
-              var s = a[r];
-              s.indexOf("transition") < 0 && (n.style[s] = a[s]);
+            for (var AppSettings = getComputedStyle(t), CollaborationMergeUtils = 0; CollaborationMergeUtils < AppSettings.length; CollaborationMergeUtils++) {
+              var s = AppSettings[CollaborationMergeUtils];
+              s.indexOf("transition") < 0 && (n.style[s] = AppSettings[s]);
             }
             n.style.pointerEvents = "none";
-            for (r = 0; r < t.children.length; r++)
-              this._copyStyle(t.children[r], n.children[r]);
+            for (CollaborationMergeUtils = 0; CollaborationMergeUtils < t.children.length; CollaborationMergeUtils++)
+              this._copyStyle(t.children[CollaborationMergeUtils], n.children[CollaborationMergeUtils]);
           }),
-          (e.prototype._dispatchEvent = function (t, n, o) {
+          (e.prototype._dispatchEvent = function (t, n, _interopRequireDefault) {
             try {
-              if (t && o) {
+              if (t && _interopRequireDefault) {
                 var i = document.createEvent("Event"),
-                  a = t.touches ? t.touches[0] : t;
+                  AppSettings = t.touches ? t.touches[0] : t;
                 if (
                   (i.initEvent(n, true, true),
                   (i.button = 0),
                   (i.which = i.buttons = 1),
                   this._copyProps(i, t, e._kbdProps),
-                  this._copyProps(i, a, e._ptProps),
+                  this._copyProps(i, AppSettings, e._ptProps),
                   (i.dataTransfer = this._dataTransfer),
                   !i.layerX && !i.layerY)
                 ) {
-                  var r = o.getBoundingClientRect(),
-                    s = i.clientX - r.left,
-                    l = i.clientY - r.top;
+                  var CollaborationMergeUtils = _interopRequireDefault.getBoundingClientRect(),
+                    s = i.clientX - CollaborationMergeUtils.left,
+                    l = i.clientY - CollaborationMergeUtils.top;
                   (i.layerX = s), (i.layerY = l);
                 }
-                const c = o.dispatchEvent(i);
+                const c = _interopRequireDefault.dispatchEvent(i);
                 return i.defaultPrevented || false === c;
               }
             } catch (t) {
@@ -429,10 +429,10 @@ function (exports, module, require) {
       (n._instance = new n()),
         (n._OPACITY = 0.5),
         (n._ISPRESSHOLDMODE = false),
-        (n._PRESSHOLDAWAIT = a.LONG_PRESS_TIME_OUT),
+        (n._PRESSHOLDAWAIT = AppSettings.LONG_PRESS_TIME_OUT),
         (n._PRESSHOLDMARGIN = 25),
-        (n._PRESSHOLDTHRESHOLD = a.MIN_TOUCH_MOVE_DISTANCE),
-        (n.DRAG_MOVE_THRESHOLD = a.MIN_TOUCH_MOVE_DISTANCE || 0),
+        (n._PRESSHOLDTHRESHOLD = AppSettings.MIN_TOUCH_MOVE_DISTANCE),
+        (n.DRAG_MOVE_THRESHOLD = AppSettings.MIN_TOUCH_MOVE_DISTANCE || 0),
         (n.DRAG_MOVE_LIMIT = 25),
         (n.DRAG_MOVE_DELAY = 100),
         (n._rmvAtts = "draggable".split(",")),

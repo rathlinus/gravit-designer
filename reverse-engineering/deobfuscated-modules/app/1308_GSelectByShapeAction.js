@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(609) /* GSelectByAction */);
+    var GCore = require(1) /* module */,
+      GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
     function r() {
-      a.default.call(this, r.ID, r.TITLE);
+      GSelectByAction.default.call(this, r.ID, r.TITLE);
     }
-    i.GObject.inherit(r, a.default),
+    GCore.GObject.inherit(r, GSelectByAction.default),
       (r.ID = "edit.select-by-shape"),
-      (r.TITLE = new i.GLocaleKey("GSelectByShapeAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GSelectByShapeAction", "title")),
       (r.prototype.getGroup = function () {
         return "edit/select-by-style";
       }),

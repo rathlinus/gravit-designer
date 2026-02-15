@@ -6,19 +6,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(443) /* module_443 */);
+    var GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
-    var s = require(18) /* MenuItemBuilder */,
-      l = require(31) /* GAction */;
+    var MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     const c = require(1152) /* Item */,
-      d = require(44) /* GSystemDialog */;
+      GSystemDialog = require(44) /* GSystemDialog */;
     function u() {}
-    i.GObject.inherit(u, l),
+    GCore.GObject.inherit(u, GAction),
       (u.ID = "file.sharepoint-checkout"),
-      (u.TITLE = new i.GLocaleKey("GSharePointCheckOutAction", "title")),
+      (u.TITLE = new GCore.GLocaleKey("GSharePointCheckOutAction", "title")),
       (u.prototype.getId = function () {
         return u.ID;
       }),
@@ -26,7 +26,7 @@ function (exports, module, require) {
         return u.TITLE;
       }),
       (u.prototype.getCategory = function () {
-        return s.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (u.prototype.getGroup = function () {
         return "file";
@@ -45,25 +45,25 @@ function (exports, module, require) {
         try {
           const e = gDesigner.getActiveDocument().getStorageItem();
           if ((await e.refreshCheckOutStatus(), e.isCheckedOutByMe()))
-            return d.alert(
-              i.GLocale.get(
-                new i.GLocaleKey(
+            return GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSharePointCheckOutAction",
                   "text.already-checkout"
                 )
               )
             );
           await e.checkOut(),
-            d.alert(
-              i.GLocale.get(
-                new i.GLocaleKey(
+            GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSharePointCheckOutAction",
                   "text.successul-checkout"
                 )
               )
             );
         } catch (e) {
-          d.alert(e.message);
+          GSystemDialog.alert(e.message);
         }
       }),
       (u.prototype.toString = function () {

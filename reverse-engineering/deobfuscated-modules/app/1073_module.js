@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(257) /* barrel_panels */;
+    const barrel_panels = require(257) /* barrel_panels */;
     exports.exports = {
       NEWDOCUMENTDIALOG: { HR_UNDER_PRESETS: false },
       OFFLINEDIALOG: { HAS_FOOTER: true },
@@ -23,7 +23,7 @@ function (exports, module, require) {
         loadLogo: () =>
           $("<div/>")
             .addClass("cloud-logo")
-            .load(o["cloud-logo"], () => {}),
+            .load(barrel_panels["cloud-logo"], () => {}),
         OVERLAY_CLASS: "",
       },
       BRAND_COLOR: "#d72e63",

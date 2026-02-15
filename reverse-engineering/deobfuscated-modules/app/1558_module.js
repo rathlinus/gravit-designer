@@ -17,15 +17,15 @@ function (exports, module, require) {
       require(169) /* stub_requires_683 */,
       require(1175) /* stub_requires_1559 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       a = require(119) /* module_119 */,
       r = require(163) /* module_163 */;
     const { debounce: s } = require(40) /* CollaborationMergeUtils */,
-      l = i.FILE_FORMATS.find((e) => e.default);
+      l = AppSettings.FILE_FORMATS.find((e) => e.default);
     var c = {},
       d = null;
-    const u = i.CATEGORIES.filter((e) => e.active);
+    const u = AppSettings.CATEGORIES.filter((e) => e.active);
     class p {
       constructor(e) {
         (this._templatesPanel = $("<div/>")
@@ -42,11 +42,11 @@ function (exports, module, require) {
           (this._breadcrumbs = [
             {
               key: p.DefaultBreadcrumbs.Welcome,
-              name: o.GLocale.getValue("GCloudTemplates", "text.welcome"),
+              name: GCore.GLocale.getValue("GCloudTemplates", "text.welcome"),
               click: (e) => {
                 e.stopPropagation(), this._templatesPanel.gDialog("close");
               },
-              tooltip: o.GLocale.getValue("GFilesPanel", "action.close-window"),
+              tooltip: GCore.GLocale.getValue("GFilesPanel", "action.close-window"),
             },
           ]),
           this._initTopBar(this._templatesPanel),
@@ -78,7 +78,7 @@ function (exports, module, require) {
             return (
               gDesigner.addDocument(n),
               n.loadFromData(t.data),
-              i.gApi.usage(e.id).catch((e) => {
+              AppSettings.gApi.usage(e.id).catch((e) => {
                 console.error("gApi.usage error", e);
               })
             );
@@ -102,7 +102,7 @@ function (exports, module, require) {
             ? ((this._currentCategory = e),
               this._breadcrumbs.push({
                 key: p.DefaultBreadcrumbs.Templates,
-                name: o.GLocale.getValue("GCloudTemplates", "text.templates"),
+                name: GCore.GLocale.getValue("GCloudTemplates", "text.templates"),
                 click: (t) => {
                   t.stopPropagation(),
                     gDesigner.stats(
@@ -116,7 +116,7 @@ function (exports, module, require) {
               ((this._currentSubcategory = e),
               this._breadcrumbs.push({
                 key: this._currentCategory.key,
-                name: o.GLocale.getValue(
+                name: GCore.GLocale.getValue(
                   "GCommonNames",
                   this._currentCategory.key
                 ),
@@ -151,23 +151,23 @@ function (exports, module, require) {
         this._presetsLoadMore &&
           (async function (n) {
             try {
-              var o = await i.gApi.listMarketV2({
+              var GCore = await AppSettings.gApi.listMarketV2({
                 path: t._getActivePresetCategory().path,
                 type: l.type,
                 sort: "-usages",
-                limit: i.PRESET_LIMIT,
+                limit: AppSettings.PRESET_LIMIT,
                 skip: t._presetsCurrentSkip,
               });
               c[t._getActivePresetCategory().key] ||
                 (c[t._getActivePresetCategory().key] = []),
                 (c[t._getActivePresetCategory().key] = c[
                   t._getActivePresetCategory().key
-                ].concat(o.data)),
-                o.count && (t._presetsCount = o.count),
+                ].concat(GCore.data)),
+                GCore.count && (t._presetsCount = GCore.count),
                 c[t._getActivePresetCategory().key].length == t._presetsCount
                   ? (t._presetsLoadMore = false)
-                  : (t._presetsCurrentSkip += i.PRESET_LIMIT),
-                n(o.data, e);
+                  : (t._presetsCurrentSkip += AppSettings.PRESET_LIMIT),
+                n(GCore.data, e);
             } catch (e) {
               n(c[t._getActivePresetCategory().key], false), console.error(e);
             }
@@ -200,8 +200,8 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("label")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.library-load-more"
                         )
@@ -286,12 +286,12 @@ function (exports, module, require) {
                     ),
                     gDesigner
                       .getAmplitudeHelper()
-                      .logEvent(i.AmplitudeData.Events.DOCUMENT_CREATED, {
+                      .logEvent(AppSettings.AmplitudeData.Events.DOCUMENT_CREATED, {
                         DOCUMENT_CATEGORY: this._getActivePresetCategory().name,
                         DOCUMENT_TYPE: t.name,
                         DOCUMENT_TEMPLATE_ID: t.id,
                       }),
-                    i.IS_TRUNK && console.log("Template ID: ", t.id),
+                    AppSettings.IS_TRUNK && console.log("Template ID: ", t.id),
                     this._openPreset(t);
                 }.bind(this)
               );
@@ -319,7 +319,7 @@ function (exports, module, require) {
                     $("<div/>")
                       .addClass("template-name")
                       .html(
-                        o.GLocale.get(new o.GLocaleKey("GCommonNames", n.key))
+                        GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", n.key))
                       )
                   )
               );
@@ -352,7 +352,7 @@ function (exports, module, require) {
       _getThumbnailSize(e) {
         const module = 235 / e.width,
           require = parseInt(e.height * module) + 32;
-        return new o.GRect(0, 0, 235, require);
+        return new GCore.GRect(0, 0, 235, require);
       }
       _getChildrenHeight(e) {
         return $(e)
@@ -373,11 +373,11 @@ function (exports, module, require) {
               .addClass("title")
               .html(
                 this._getActivePresetCategory()
-                  ? o.GLocale.getValue(
+                  ? GCore.GLocale.getValue(
                       "GCommonNames",
                       this._getActivePresetCategory().key
                     )
-                  : o.GLocale.getValue("GCloudTemplates", "text.templates")
+                  : GCore.GLocale.getValue("GCloudTemplates", "text.templates")
               )
           );
       }
@@ -395,8 +395,8 @@ function (exports, module, require) {
                   .addClass("close-button")
                   .attr(
                     "data-title",
-                    o.GLocale.get(
-                      new o.GLocaleKey("GFilesPanel", "action.close-window")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GFilesPanel", "action.close-window")
                     )
                   )
                   .on("click", (e) => {
@@ -431,7 +431,7 @@ function (exports, module, require) {
                       "data-title",
                       null !== (n = e.tooltip) && undefined !== n
                         ? n
-                        : o.GLocale.getValue(
+                        : GCore.GLocale.getValue(
                             "GFilesPanel",
                             "action.back-tooltip"
                           )

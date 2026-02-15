@@ -6,13 +6,13 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       a = require(237) /* Item */,
       r = (require(220) /* Item */, require(40) /* CollaborationMergeUtils */.decrypt);
     require(173) /* stub_requires_1 */;
     function s() {}
-    o.GObject.inherit(s, a),
+    GCore.GObject.inherit(s, a),
       (s.prototype.canPromptOpen = function () {
         return false;
       }),
@@ -25,23 +25,23 @@ function (exports, module, require) {
       (s.prototype.canDownload = function () {
         return true;
       }),
-      (s.Item = function (e, t, n, o, i) {
+      (s.Item = function (e, t, n, GCore, AppSettings) {
         a.Item.call(this, e),
           (this._filename = n),
           (this._id = t),
-          (this._file = o),
-          (this._hash = i);
+          (this._file = GCore),
+          (this._hash = AppSettings);
       }),
-      o.GObject.inherit(s.Item, a.Item),
+      GCore.GObject.inherit(s.Item, a.Item),
       (s.Item.prototype.getName = function () {
         return this._filename
           ? this._filename
-          : o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.image"));
+          : GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.image"));
       }),
       (s.Item.prototype.getFullName = function () {
         return this._filename
           ? this._filename
-          : o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.image"));
+          : GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.image"));
       }),
       (s.Item.prototype.setFile = function (e) {
         if (!e) throw new Error("File can not be null");
@@ -52,10 +52,10 @@ function (exports, module, require) {
       }),
       (s.Item.prototype.read = async function (e, t, n) {
         try {
-          var o = await i.gApi.getProviderExternalAsset(
+          var GCore = await AppSettings.gApi.getProviderExternalAsset(
             this._hash || this._file.hash
           );
-          return e(new TextEncoder().encode(r(o)));
+          return e(new TextEncoder().encode(r(GCore)));
         } catch (e) {
           return t(e);
         }

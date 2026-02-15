@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(18) /* MenuItemBuilder */),
-      r = o(require(31) /* GAction */);
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GAction = _interopRequireDefault(require(31) /* GAction */);
     const s = "designer.settings.enhanced-tooltips.enabled";
     let l = true;
     function c() {
@@ -18,19 +18,19 @@ function (exports, module, require) {
         "boolean" == typeof e && (l = e);
       });
     }
-    i.GObject.inherit(c, r.default),
+    GCore.GObject.inherit(c, GAction.default),
       (c.ID = "help.tooltip-visibility"),
-      (c.TITLE = new i.GLocaleKey("GEnhancedTooltipsAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GEnhancedTooltipsAction", "title")),
       (c.GroupID = "help/learn"),
       (c.StoragePropertyName = s),
       (c.prototype.getId = function () {
         return c.ID;
       }),
       (c.prototype.getTitle = function () {
-        return i.GLocale.get(c.TITLE);
+        return GCore.GLocale.get(c.TITLE);
       }),
       (c.prototype.getCategory = function () {
-        return a.default.CATEGORY_HELP_LEARN;
+        return MenuItemBuilder.default.CATEGORY_HELP_LEARN;
       }),
       (c.prototype.getGroup = function () {
         return c.GroupID;

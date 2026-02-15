@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(18) /* MenuItemBuilder */,
-      a = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function r() {}
-    o.GObject.inherit(r, a),
+    GCore.GObject.inherit(r, GElementAction),
       (r.ID = "modify.detachFromPath"),
-      (r.TITLE = new o.GLocaleKey("GDetachFromPathAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GDetachFromPathAction", "title")),
       (r.prototype.getId = function () {
         return r.ID;
       }),
@@ -21,7 +21,7 @@ function (exports, module, require) {
         return r.TITLE;
       }),
       (r.prototype.getCategory = function () {
-        return i.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (r.prototype.getGroup = function () {
         return "structure/modify";
@@ -32,33 +32,33 @@ function (exports, module, require) {
           : null;
       }),
       (r.prototype.isEnabled = function () {
-        if (!a.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
           for (var module = 0; module < e.length; ++module)
-            if (e[module] instanceof o.GText && e[module].hasPathAttached()) return true;
+            if (e[module] instanceof GCore.GText && e[module].hasPathAttached()) return true;
         return false;
       }),
       (r.prototype.execute = function () {
         var e = gDesigner.getActiveDocument(),
           t = e ? e.getEditor() : null,
           n = t ? t.getIndividualSelection() : null,
-          i = [];
+          MenuItemBuilder = [];
         if (n)
-          for (var a = 0; a < n.length; ++a)
-            n[a] instanceof o.GText && n[a].hasPathAttached() && i.push(n[a]);
+          for (var GElementAction = 0; GElementAction < n.length; ++GElementAction)
+            n[GElementAction] instanceof GCore.GText && n[GElementAction].hasPathAttached() && MenuItemBuilder.push(n[GElementAction]);
         t.beginTransaction();
         try {
           var r = e.getScene();
-          i.forEach(function (e) {
+          MenuItemBuilder.forEach(function (e) {
             r.visitLinks(e, function (t) {
-              t instanceof o.GPathBase && r.unlink(e, t);
+              t instanceof GCore.GPathBase && r.unlink(e, t);
             });
           });
         } finally {
-          t.commitTransaction(o.GLocale.get(this.getTitle()));
+          t.commitTransaction(GCore.GLocale.get(this.getTitle()));
         }
       }),
       (r.prototype.toString = function () {

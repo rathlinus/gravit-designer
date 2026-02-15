@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(37) /* toString_default */,
+    var toString_default = require(37) /* toString_default */,
       i = require(408) /* module_408 */,
       a = require(194) /* module_194 */,
-      r = require(43) /* wellKnownSymbol */("species");
+      wellKnownSymbol = require(43) /* wellKnownSymbol */("species");
     exports.exports = function (e, t) {
       var n,
-        s = o(e).constructor;
-      return undefined === s || a((n = o(s)[r])) ? t : i(n);
+        s = toString_default(e).constructor;
+      return undefined === s || a((n = toString_default(s)[wellKnownSymbol])) ? t : i(n);
     };
   }

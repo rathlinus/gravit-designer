@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "modify.join-paths"),
-      (s.TITLE = new o.GLocaleKey("GJoinPathsAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GJoinPathsAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (s.prototype.getGroup = function () {
         return "structure/path";
@@ -31,19 +31,19 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-join-paths" : null;
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "J"];
+        return [GEditor.GKey.Constant.META, "J"];
       }),
       (s.prototype.isEnabled = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getSelection();
           if (module && module.length > 1)
-            for (var require = 0, i = 0; i < module.length; ++i)
+            for (var require = 0, GEditor = 0; GEditor < module.length; ++GEditor)
               if (
-                !(module[i] instanceof o.GImage) &&
-                ((module[i] instanceof o.GPathBase ||
-                  module[i].hasMixin(o.GVertexSource)) &&
+                !(module[GEditor] instanceof GCore.GImage) &&
+                ((module[GEditor] instanceof GCore.GPathBase ||
+                  module[GEditor].hasMixin(GCore.GVertexSource)) &&
                   require++,
                 2 === require)
               )
@@ -57,15 +57,15 @@ function (exports, module, require) {
         if (t && t.length) {
           e.beginTransaction();
           try {
-            var require = new o.GRectangle();
-            o.GElement.prototype.assignFrom.call(require, t[0]),
+            var require = new GCore.GRectangle();
+            GCore.GElement.prototype.assignFrom.call(require, t[0]),
               e.convertSelectionToPaths(true);
-            var i = e.joinPaths();
-            i &&
-              (o.GElement.prototype.assignFrom.call(i, require),
-              e.updateSelection(false, [i]));
+            var GEditor = e.joinPaths();
+            GEditor &&
+              (GCore.GElement.prototype.assignFrom.call(GEditor, require),
+              e.updateSelection(false, [GEditor]));
           } finally {
-            e.commitTransaction(o.GLocale.get(this.getTitle()));
+            e.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),

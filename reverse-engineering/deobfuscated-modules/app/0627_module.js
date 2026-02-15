@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(29) /* isCallable */,
+    var core_export = require(25) /* core_export */,
+      isCallable = require(29) /* isCallable */,
       a = require(65) /* module_65 */,
       r = require(202) /* module_202 */,
       s = require(304) /* module_304 */,
       l = require(121) /* module_121 */;
-    o(
+    core_export(
       { target: "Promise", stat: true, forced: require(413) /* module_413 */ },
       {
         all: function (e) {
           var t = this,
             n = r.f(t),
-            o = n.resolve,
+            core_export = n.resolve,
             c = n.reject,
             d = s(function () {
               var n = a(t.resolve),
@@ -28,11 +28,11 @@ function (exports, module, require) {
                 var a = s++,
                   l = false;
                 d++,
-                  i(n, t, e).then(function (e) {
-                    l || ((l = true), (r[a] = e), --d || o(r));
+                  isCallable(n, t, e).then(function (e) {
+                    l || ((l = true), (r[a] = e), --d || core_export(r));
                   }, c);
               }),
-                --d || o(r);
+                --d || core_export(r);
             });
           return d.error && c(d.value), n.promise;
         },

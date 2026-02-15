@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(53) /* module */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(123) /* GProperties */,
+      GProperties = require(123) /* GProperties */,
       s = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function l() {
       this._rectangles = [];
     }
-    o.GObject.inherit(l, r),
+    GCore.GObject.inherit(l, GProperties),
       (l.prototype._panel = null),
       (l.prototype._advancedPanel = null),
       (l.prototype._document = null),
@@ -26,7 +26,7 @@ function (exports, module, require) {
       (l.prototype.init = function (e, t) {
         this._panel = e;
         var n = this,
-          r = function (e) {
+          GProperties = function (e) {
             if ("uf" === e)
               return $("<input>")
                 .addClass("uf-checkbox")
@@ -92,22 +92,22 @@ function (exports, module, require) {
               "bl_ct" === e ||
               "br_ct" === e
             ) {
-              var r = 0,
+              var GProperties = 0,
                 s = "right";
               return (
                 "tl_ct" === e
-                  ? ((r = 270), (s = "left"))
+                  ? ((GProperties = 270), (s = "left"))
                   : "bl_ct" === e
-                  ? ((r = 180), (s = "left"))
-                  : "br_ct" === e && (r = 90),
+                  ? ((GProperties = 180), (s = "left"))
+                  : "br_ct" === e && (GProperties = 90),
                 $("<button></button>")
                   .addClass("g-flat")
                   .addClass(s)
                   .attr("data-property", e)
                   .css("width", "32px")
-                  .gCornerTypePicker({ rotate: r })
-                  .on("cornertypechange", function (t, o) {
-                    n._assignProperty(e, o);
+                  .gCornerTypePicker({ rotate: GProperties })
+                  .on("cornertypechange", function (t, GCore) {
+                    n._assignProperty(e, GCore);
                   })
               );
             }
@@ -143,14 +143,14 @@ function (exports, module, require) {
                     min: 0,
                     max: 100,
                     richTooltipConfig: a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.corner-radius-slider-tooltip-title"
                         )
                       ),
-                      description: o.GLocale.get(
-                        new o.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.corner-radius-slider-tooltip-description"
                         )
@@ -173,10 +173,10 @@ function (exports, module, require) {
                       ),
                       t = n._document.getScene().getProperty("ut"),
                       a =
-                        (t == o.GLength.Unit.PX || t == o.GLength.Unit.PT) &&
-                        i.GGuides.options.guides &&
-                        i.GGuides.options.guides.indexOf(
-                          i.GFullPixelsGuide.ID
+                        (t == GCore.GLength.Unit.PX || t == GCore.GLength.Unit.PT) &&
+                        GTools.GGuides.options.guides &&
+                        GTools.GGuides.options.guides.indexOf(
+                          GTools.GFullPixelsGuide.ID
                         ) >= 0
                           ? 0
                           : n._document.getScene().getOptimalDecimalsCount();
@@ -210,26 +210,26 @@ function (exports, module, require) {
               throw new Error("Unknown input property: " + e);
             }
           }.bind(this),
-          s = o.GLocale.get(
-            new o.GLocaleKey(
+          s = GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GRectangleProperties",
               "text.uniform-corner-smoothness"
             )
           ),
-          l = o.GLocale.get(
-            new o.GLocaleKey(
+          l = GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GRectangleProperties",
               "text.horizontal-corner-smoothness"
             )
           ),
-          c = o.GLocale.get(
-            new o.GLocaleKey(
+          c = GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GRectangleProperties",
               "text.vertical-corner-smoothness"
             )
           ),
-          d = o.GLocale.get(
-            new o.GLocaleKey("GRectangleProperties", "text.corner-type")
+          d = GCore.GLocale.get(
+            new GCore.GLocaleKey("GRectangleProperties", "text.corner-type")
           );
         (this._advancedPanel = $("<div></div>")
           .addClass("advanced-panel-wrapper")
@@ -248,11 +248,11 @@ function (exports, module, require) {
           .append(
             $("<label></label>")
               .addClass("g-checkbox-label")
-              .append(r("csc"))
+              .append(GProperties("csc"))
               .append(
                 $("<span></span>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.autoscale-corners")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.autoscale-corners")
                   )
                 )
               )
@@ -260,11 +260,11 @@ function (exports, module, require) {
           .append(
             $("<label></label>")
               .addClass("g-checkbox-label")
-              .append(r("uf"))
+              .append(GProperties("uf"))
               .append(
                 $("<span></span>").text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GRectangleProperties",
                       "text.uniform-corners"
                     )
@@ -278,51 +278,51 @@ function (exports, module, require) {
               .append(
                 $("<div></div>")
                   .addClass("corners-item-row with-padding")
-                  .append(r("tl_ct").attr("data-title", s))
-                  .append(r("tl_sx").attr("data-title", l))
-                  .append(r("tr_sx").attr("data-title", l))
-                  .append(r("tr_ct").attr("data-title", s))
+                  .append(GProperties("tl_ct").attr("data-title", s))
+                  .append(GProperties("tl_sx").attr("data-title", l))
+                  .append(GProperties("tr_sx").attr("data-title", l))
+                  .append(GProperties("tr_ct").attr("data-title", s))
               )
               .append(
                 $("<div></div>")
                   .addClass("corners-item-row with-padding")
-                  .append(r("tl_sy").attr("data-title", c))
-                  .append(r("tl_uf").attr("data-title", d))
-                  .append(r("tr_uf").attr("data-title", d))
-                  .append(r("tr_sy").attr("data-title", c))
+                  .append(GProperties("tl_sy").attr("data-title", c))
+                  .append(GProperties("tl_uf").attr("data-title", d))
+                  .append(GProperties("tr_uf").attr("data-title", d))
+                  .append(GProperties("tr_sy").attr("data-title", c))
               )
               .append(
                 $("<div></div>")
                   .addClass("corners-item-row with-padding")
-                  .append(r("bl_sy").attr("data-title", c))
-                  .append(r("bl_uf").attr("data-title", d))
-                  .append(r("br_uf").attr("data-title", d))
-                  .append(r("br_sy").attr("data-title", c))
+                  .append(GProperties("bl_sy").attr("data-title", c))
+                  .append(GProperties("bl_uf").attr("data-title", d))
+                  .append(GProperties("br_uf").attr("data-title", d))
+                  .append(GProperties("br_sy").attr("data-title", c))
               )
               .append(
                 $("<div></div>")
                   .addClass("corners-item-row with-padding")
-                  .append(r("bl_ct").attr("data-title", s))
-                  .append(r("bl_sx").attr("data-title", l))
-                  .append(r("br_sx").attr("data-title", l))
-                  .append(r("br_ct").attr("data-title", s))
+                  .append(GProperties("bl_ct").attr("data-title", s))
+                  .append(GProperties("bl_sx").attr("data-title", l))
+                  .append(GProperties("br_sx").attr("data-title", l))
+                  .append(GProperties("br_ct").attr("data-title", s))
               )
           )),
           $("<div></div>")
             .gPropertyRow({
-              label: o.GLocale.get(
-                new o.GLocaleKey("GCommonNames", "text.corner")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.corner")
               ),
               columns: [
                 {
                   width: "auto",
                   clazz: "corners-radius-slider-wrapper",
-                  content: r("corners-radius-slider"),
+                  content: GProperties("corners-radius-slider"),
                 },
                 { clazz: "corners-radius-no-padding" },
                 {
                   clazz: "corners-radius-input-wrapper",
-                  content: r("corners-radius-input"),
+                  content: GProperties("corners-radius-input"),
                 },
                 { width: "3px" },
                 {
@@ -330,8 +330,8 @@ function (exports, module, require) {
                   content: $("<div></div>")
                     .attr(
                       "data-title",
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.advanced-settings"
                         )
@@ -384,7 +384,7 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             gDesigner.removeEventListener(s, this._settingChanged),
@@ -393,14 +393,14 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require)
-            t[require] instanceof o.GRectangle && this._rectangles.push(t[require]);
+            t[require] instanceof GCore.GRectangle && this._rectangles.push(t[require]);
           if (this._rectangles.length && this._rectangles.length === t.length)
             return (
               (this._document = e),
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
@@ -427,14 +427,14 @@ function (exports, module, require) {
           a = this._panel.find(
             '.g-input-slider[data-property="corners-radius"]'
           ),
-          r = this._panel.find(
+          GProperties = this._panel.find(
             'input[type="text"][data-property="corners-radius"]'
           ),
           s = this._advancedPanel.find('[data-property="corners-type"]'),
           l = null === n;
         if (
           (a.prop("disabled", l),
-          r.prop("disabled", l),
+          GProperties.prop("disabled", l),
           this._panel.find("button").prop("disabled", l),
           l)
         )
@@ -444,17 +444,17 @@ function (exports, module, require) {
           var c = (t / (e.getPointsMinDistance() / 2)) * 100,
             d = this._document.getScene().getProperty("ut"),
             u =
-              (d == o.GLength.Unit.PX || d == o.GLength.Unit.PT) &&
-              i.GGuides.options.guides &&
-              i.GGuides.options.guides.indexOf(i.GFullPixelsGuide.ID) >= 0
+              (d == GCore.GLength.Unit.PX || d == GCore.GLength.Unit.PT) &&
+              GTools.GGuides.options.guides &&
+              GTools.GGuides.options.guides.indexOf(GTools.GFullPixelsGuide.ID) >= 0
                 ? 0
                 : this._document.getScene().getOptimalDecimalsCount();
           a.gInputSlider("value", Math.round(c)),
-            r.gInputBox("value", this._document.getScene().pointToString(t, u)),
+            GProperties.gInputBox("value", this._document.getScene().pointToString(t, u)),
             s.gCornerTypePicker("value", e.getProperty("tl_ct")),
             this._advancedPanel
               .find('input[data-property="csc"]')
-              .prop("disabled", l || e instanceof o.GImage)
+              .prop("disabled", l || e instanceof GCore.GImage)
               .prop("checked", !!e.getProperty("csc"));
           var p = e.getProperty("uf");
           if (
@@ -468,61 +468,61 @@ function (exports, module, require) {
             this._advancedPanel.find(".corners-panel").css("display", ""),
               function (t) {
                 for (var n = 0; n < t.length; ++n) {
-                  var o = t[n],
-                    i = this._advancedPanel.find(
-                      'button[data-property="' + o + '_uf"]'
+                  var GCore = t[n],
+                    GTools = this._advancedPanel.find(
+                      'button[data-property="' + GCore + '_uf"]'
                     ),
                     a = this._advancedPanel.find(
-                      'input[data-property="' + o + '_sx"]'
+                      'input[data-property="' + GCore + '_sx"]'
                     ),
-                    r = this._advancedPanel.find(
-                      'input[data-property="' + o + '_sy"]'
+                    GProperties = this._advancedPanel.find(
+                      'input[data-property="' + GCore + '_sy"]'
                     ),
                     s = this._advancedPanel.find(
-                      'button[data-property="' + o + '_ct"]'
+                      'button[data-property="' + GCore + '_ct"]'
                     );
                   a.val(
                     this._document
                       .getScene()
-                      .pointToString(e.getProperty(o + "_sx"), u)
+                      .pointToString(e.getProperty(GCore + "_sx"), u)
                   ),
-                    r.val(
+                    GProperties.val(
                       this._document
                         .getScene()
-                        .pointToString(e.getProperty(o + "_sy"), u)
+                        .pointToString(e.getProperty(GCore + "_sy"), u)
                     ),
-                    e.getProperty(o + "_uf")
-                      ? (i.addClass("g-active"), r.prop("disabled", true))
-                      : (i.removeClass("g-active"), r.prop("disabled", false)),
-                    i.prop("disabled", p),
-                    s.gCornerTypePicker("value", e.getProperty(o + "_ct"));
+                    e.getProperty(GCore + "_uf")
+                      ? (GTools.addClass("g-active"), GProperties.prop("disabled", true))
+                      : (GTools.removeClass("g-active"), GProperties.prop("disabled", false)),
+                    GTools.prop("disabled", p),
+                    s.gCornerTypePicker("value", e.getProperty(GCore + "_ct"));
                 }
               }.bind(this)(["tl", "tr", "bl", "br"]);
         }
       }),
       (l.prototype._assignCorners = function (e, t, n) {
         n || this._document.getEditor().beginTransaction();
-        var i = 0;
+        var GTools = 0;
         try {
           for (var a = 0; a < this._rectangles.length; ++a)
             if (this._rectangles[a].isVisible()) {
-              var r = this._rectangles[a].getProperty("tl_sx"),
+              var GProperties = this._rectangles[a].getProperty("tl_sx"),
                 s = this._rectangles[a].getProperty("tl_ct");
               if (
-                (0 === r &&
+                (0 === GProperties &&
                   "string" == typeof t &&
                   "number" != typeof e &&
                   (e = 0.25),
                 "number" == typeof e)
               ) {
                 this._rectangles[a].getGeometryBBox();
-                r = e * (this._rectangles[a].getPointsMinDistance() / 2);
+                GProperties = e * (this._rectangles[a].getPointsMinDistance() / 2);
               }
               "string" == typeof t && (s = t),
-                0 === a && (i = r),
+                0 === a && (GTools = GProperties),
                 this._rectangles[a].setProperties(
                   ["uf", "tl_sx", "tl_ct"],
-                  [true, r, s],
+                  [true, GProperties, s],
                   false,
                   false,
                   n
@@ -533,12 +533,12 @@ function (exports, module, require) {
             this._document
               .getEditor()
               .commitTransaction(
-                o.GLocale.get(
-                  new o.GLocaleKey("GCommonNames", "action.change-corners")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "action.change-corners")
                 )
               );
         }
-        return i;
+        return GTools;
       }),
       (l.prototype._assignProperty = function (e, t) {
         this._assignProperties([e], [t]);
@@ -547,12 +547,12 @@ function (exports, module, require) {
         var n = this._document.getEditor();
         n.beginTransaction();
         try {
-          for (var i = 0; i < this._rectangles.length; ++i)
-            this._rectangles[i].setProperties(e, t);
+          for (var GTools = 0; GTools < this._rectangles.length; ++GTools)
+            this._rectangles[GTools].setProperties(e, t);
         } finally {
           n.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GRectangleProperties",
                 "action.modify-rectangle-properties"
               )

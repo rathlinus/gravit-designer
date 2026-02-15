@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var o = require(10) /* AppSettings */;
+    var AppSettings = require(10) /* AppSettings */;
     const i = require(292) /* module_292 */,
       a = require(846) /* module_846 */;
     exports.exports = class {
@@ -18,7 +18,7 @@ function (exports, module, require) {
         if (gDesigner.isOffline()) exports = a.newOfflineLicense();
         else
           try {
-            exports = a.newLicense(await o.gApi.license.get());
+            exports = a.newLicense(await AppSettings.gApi.license.get());
           } catch (t) {
             (exports = a.newDefaultLicense()),
               console.info("CheckLicense", "exception", t);
@@ -31,7 +31,7 @@ function (exports, module, require) {
             if (!gDesigner.isOffline()) {
               (await gDesigner.getUser()) &&
                 !gDesigner.isAnonymous() &&
-                (o.gApi.license.listen((e) => {
+                (AppSettings.gApi.license.listen((e) => {
                   this._setApplicationLicense(a.newLicense(e));
                 }),
                 (this._isListening = true));
@@ -59,7 +59,7 @@ function (exports, module, require) {
         }
         setInterval(
           this.checkLicense.bind(this),
-          o.DateAPI.daysToMilliseconds(1)
+          AppSettings.DateAPI.daysToMilliseconds(1)
         );
       }
       _userLoggedEvent() {

@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const i = {
-      [o.GLocaleLanguage.Portuguese]: "pt-br",
-      [o.GLocaleLanguage.Spanish]: "es",
-      [o.GLocaleLanguage.German]: "de",
-      [o.GLocaleLanguage.Italian]: "it",
-      [o.GLocaleLanguage.French]: "fr",
+      [GCore.GLocaleLanguage.Portuguese]: "pt-br",
+      [GCore.GLocaleLanguage.Spanish]: "es",
+      [GCore.GLocaleLanguage.German]: "de",
+      [GCore.GLocaleLanguage.Italian]: "it",
+      [GCore.GLocaleLanguage.French]: "fr",
     };
     exports.exports = class {
       constructor() {
-        const exports = i[o.GLocale.getLanguage()] || 'en',
+        const exports = i[GCore.GLocale.getLanguage()] || 'en',
           module = $('<iframe>')
             .attr(
               'src',
@@ -30,7 +30,7 @@ function (exports, module, require) {
             buttons: [
               $("<button/>")
                 .addClass("primary")
-                .text(o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+                .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
                 .on("click", () => this.close()),
             ],
           })

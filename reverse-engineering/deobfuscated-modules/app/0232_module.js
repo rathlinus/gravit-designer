@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(79) /* defineBuiltIn */;
+    var defineBuiltIn = require(79) /* defineBuiltIn */;
     exports.exports = function (e, t, n) {
-      for (var i in t) o(e, i, t[i], n);
+      for (var i in t) defineBuiltIn(e, i, t[i], n);
       return e;
     };
   }

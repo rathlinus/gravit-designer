@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(30) /* polyfill_Object_assign */,
       require(20) /* polyfill_RegExp_exec */,
@@ -17,8 +17,8 @@ function (exports, module, require) {
       require(4) /* stub_requires_668 */,
       require(32) /* stub_requires_670 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(40) /* CollaborationMergeUtils */,
-      a = o(require(263) /* Exports_GRegex */);
+    var CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      GRegex = _interopRequireDefault(require(263) /* Exports_GRegex */);
     const { FILE_ID_PREFIX: r } = require(10) /* AppSettings */;
     function s() {
       this._permissions = [];
@@ -68,7 +68,7 @@ function (exports, module, require) {
         );
       }),
       (s.prototype.getNameWithoutExtension = function () {
-        return (0, i.getFileNameWithoutExtension)(
+        return (0, CollaborationMergeUtils.getFileNameWithoutExtension)(
           this.getName(),
           this.getExtension()
         );
@@ -217,12 +217,12 @@ function (exports, module, require) {
         return e instanceof s ? e : s.from(e);
       }),
       (s.getExtensionFromName = function (e) {
-        const module = e.match(a.default.String.FileExtension);
+        const module = e.match(GRegex.default.String.FileExtension);
         return module ? module[0].slice(1) : null;
       }),
       (s.normalizeMultipleDotsEnd = function (e) {
         if (e.endsWith(".")) {
-          const t = e.match(a.default.String.MultipleDotsEnd);
+          const t = e.match(GRegex.default.String.MultipleDotsEnd);
           if (t) return e.slice(0, t.index);
         }
         return e;

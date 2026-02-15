@@ -26,26 +26,26 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var o = require(10) /* AppSettings */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = require(40) /* CollaborationMergeUtils */,
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       s = require(845) /* module_845 */;
     const l = require(1092) /* module_1092 */;
-    var c = require(78) /* GDocumentEvent */,
-      d = require(44) /* GSystemDialog */;
+    var GDocumentEvent = require(78) /* GDocumentEvent */,
+      GSystemDialog = require(44) /* GSystemDialog */;
     const u = require(1093) /* module_1093 */;
-    var p = require(85) /* GContainer */,
+    var GContainer = require(85) /* GContainer */,
       g = require(219) /* module_219 */,
       h = require(358) /* module_358 */;
     const f = require(86) /* module_86 */,
       m = (require(156) /* module_156 */, require(256) /* GOfflineDialog */),
       y = require(337) /* stub_requires_1098 */,
-      v = require(435) /* Md5 */,
+      Md5 = require(435) /* Md5 */,
       _ = require(165) /* module_165 */;
-    var b = o.FILE_FORMATS.find((e) => e.default),
-      w = o.FILE_FORMATS.filter((e) => e.secondary),
-      C = o.FOLDER_FORMAT;
+    var b = AppSettings.FILE_FORMATS.find((e) => e.default),
+      w = AppSettings.FILE_FORMATS.filter((e) => e.secondary),
+      C = AppSettings.FOLDER_FORMAT;
     const x = require(555) /* module_555 */,
       S = 10,
       E = 80,
@@ -59,27 +59,27 @@ function (exports, module, require) {
       static _getAuthorizationToken() {
         return null;
       }
-      static syncCloudImages(e, t, n, a) {
-        return new Promise((l, c) => {
+      static syncCloudImages(e, t, n, GEditor) {
+        return new Promise((l, GDocumentEvent) => {
           try {
-            var d = e.getScene(),
-              u = d.getDictionary().getEntries(),
-              p = [];
-            d.acceptChildren((e) => {
-              e instanceof i.GImage &&
-                p.push({
+            var GSystemDialog = e.getScene(),
+              u = GSystemDialog.getDictionary().getEntries(),
+              GContainer = [];
+            GSystemDialog.acceptChildren((e) => {
+              e instanceof GCore.GImage &&
+                GContainer.push({
                   name: e.getProperty("name"),
                   url: e.getProperty("url"),
                 });
             });
             const h = G._getAuthorizationToken();
-            var g = o.gApi.url;
+            var g = AppSettings.gApi.url;
             (0, s.syncImagesToCloud)(
               (e) => (0, s.listFilesFn)(e, h, g),
-              i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.untitled-image")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.untitled-image")
               ),
-              p,
+              GContainer,
               u,
               async (e, t) =>
                 (0, s.createFileAndGetSignedPutUrlsFn)(e, t, g, h),
@@ -90,117 +90,117 @@ function (exports, module, require) {
                   n,
                   g,
                   h,
-                  o.COMPUTE_SHA256_FOR_FILES,
-                  r.getFileSHA256Digest
+                  AppSettings.COMPUTE_SHA256_FOR_FILES,
+                  CollaborationMergeUtils.getFileSHA256Digest
                 ),
               (e) => {
                 try {
-                  var t = d.getDictionary().merge(e);
+                  var t = GSystemDialog.getDictionary().merge(e);
                   try {
-                    var o = i.GNode.serialize(
-                      d,
-                      i.GUtil.extend({ save: true }, n)
+                    var AppSettings = GCore.GNode.serialize(
+                      GSystemDialog,
+                      GCore.GUtil.extend({ save: true }, n)
                     );
                   } finally {
-                    d.getDictionary().merge(t);
+                    GSystemDialog.getDictionary().merge(t);
                   }
-                  l([o]);
+                  l([AppSettings]);
                 } catch (e) {
-                  c(e);
+                  GDocumentEvent(e);
                 }
               },
               t,
-              a
+              GEditor
             );
           } catch (e) {
-            c(e);
+            GDocumentEvent(e);
           }
         });
       }
       static resolveImage(e, t) {
         function require(e, t) {
           let require = e.url,
-            o = e.scene;
-          if (o && o.isReleased()) return false;
-          let r = o && o.getDictionary() && o.getDictionary().getEntry(require);
+            AppSettings = e.scene;
+          if (AppSettings && AppSettings.isReleased()) return false;
+          let CollaborationMergeUtils = AppSettings && AppSettings.getDictionary() && AppSettings.getDictionary().getEntry(require);
           return (
-            !r ||
-            !/^data:.{0,255};base64,/i.exec(r.value) ||
-            (r.value.length > a.GPlatform.maxImgDataUrlLength &&
+            !CollaborationMergeUtils ||
+            !/^data:.{0,255};base64,/i.exec(CollaborationMergeUtils.value) ||
+            (CollaborationMergeUtils.value.length > GEditor.GPlatform.maxImgDataUrlLength &&
               new g(
-                i.GLocale.get(
-                  new i.GLocaleKey("GDocument", "text.image-in-design-too-big")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GDocument", "text.image-in-design-too-big")
                 )
               ).open(),
-            e.resolved(r.value),
+            e.resolved(CollaborationMergeUtils.value),
             false)
           );
         }
         !(async function () {
-          let r = e.url,
+          let CollaborationMergeUtils = e.url,
             s =
               e.scene &&
               e.scene.getDictionary() &&
-              e.scene.getDictionary().getEntry(r);
+              e.scene.getDictionary().getEntry(CollaborationMergeUtils);
           if (require(e))
-            if ("string" == typeof r && r.startsWith("123rf://")) {
-              var l = r.slice(8),
-                c = "ec23d185aa5ffb6495e02635803bb081";
+            if ("string" == typeof CollaborationMergeUtils && CollaborationMergeUtils.startsWith("123rf://")) {
+              var l = CollaborationMergeUtils.slice(8),
+                GDocumentEvent = "ec23d185aa5ffb6495e02635803bb081";
               (function (e) {
                 var t = "https://www.123rfapis.com/?method=download&id=" + e;
                 t += "&dl_type=png";
                 const require = Math.floor(Date.now() / 1e3);
                 t += "&current_time=" + require;
-                var o = (function (e, t, n) {
-                  return v(c + "759561ac90761219f6415da66f18a154" + e + t + n);
+                var AppSettings = (function (e, t, n) {
+                  return Md5(GDocumentEvent + "759561ac90761219f6415da66f18a154" + e + t + n);
                 })(e, "png", require);
                 return (
-                  (t += "&sign=" + o),
-                  (t += "&api_key=" + c),
+                  (t += "&sign=" + AppSettings),
+                  (t += "&api_key=" + GDocumentEvent),
                   new Promise((e, n) => {
-                    var o = new XMLHttpRequest();
-                    o.open("GET", t),
-                      (o.onload = function () {
+                    var AppSettings = new XMLHttpRequest();
+                    AppSettings.open("GET", t),
+                      (AppSettings.onload = function () {
                         if (this.status >= 200 && this.status < 300) {
                           var t = JSON.parse(this.response);
                           e(t.download_url);
                         } else n();
                       }),
-                      o.send();
+                      AppSettings.send();
                   })
                 );
               })(l).then(
                 (n) => {
                   if (n) {
-                    var o = new XMLHttpRequest();
-                    o.open("GET", n),
-                      (o.responseType = "arraybuffer"),
-                      (o.onload = function () {
+                    var AppSettings = new XMLHttpRequest();
+                    AppSettings.open("GET", n),
+                      (AppSettings.responseType = "arraybuffer"),
+                      (AppSettings.onload = function () {
                         if (this.status < 200 || this.status >= 400)
                           alert(
                             "There was a problem downloading requested image"
                           );
                         else {
                           var n = new Blob([this.response], { type: "image" });
-                          if (n.size > a.GPlatform.maxPngDataSize)
+                          if (n.size > GEditor.GPlatform.maxPngDataSize)
                             new g(
-                              i.GLocale.get(
-                                new i.GLocaleKey(
+                              GCore.GLocale.get(
+                                new GCore.GLocaleKey(
                                   "GDocument",
                                   "text.image-in-design-too-big"
                                 )
                               )
                             ).open();
                           else {
-                            var o = new FileReader();
-                            (o.onload = function () {
+                            var AppSettings = new FileReader();
+                            (AppSettings.onload = function () {
                               if (
                                 this.result.length >
-                                a.GPlatform.maxImgDataUrlLength
+                                GEditor.GPlatform.maxImgDataUrlLength
                               )
                                 return void new g(
-                                  i.GLocale.get(
-                                    new i.GLocaleKey(
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey(
                                       "GDocument",
                                       "text.image-in-design-too-big"
                                     )
@@ -215,21 +215,21 @@ function (exports, module, require) {
                                 ((n.cloud = n.value), (n.value = this.result)),
                                 e.resolved(this.result);
                             }),
-                              (o.onerror = function () {
+                              (AppSettings.onerror = function () {
                                 new g(
-                                  i.GLocale.get(
-                                    new i.GLocaleKey(
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey(
                                       "GDocument",
                                       "text.image-in-design-too-big"
                                     )
                                   )
                                 ).open();
                               }),
-                              o.readAsDataURL(n);
+                              AppSettings.readAsDataURL(n);
                           }
                         }
                       }),
-                      o.send();
+                      AppSettings.send();
                   } else
                     alert("There was a problem downloading the image selected");
                 },
@@ -238,47 +238,47 @@ function (exports, module, require) {
                 }
               );
             } else if (
-              /^(dictionary|gravit|document|asset|magenta)/.test(r) &&
-              (r.startsWith(i.GDictionary.PROTOCOL) &&
-                ((r =
+              /^(dictionary|gravit|document|asset|magenta)/.test(CollaborationMergeUtils) &&
+              (CollaborationMergeUtils.startsWith(GCore.GDictionary.PROTOCOL) &&
+                ((CollaborationMergeUtils =
                   e.scene && e.scene.getDictionary()
                     ? e.scene.getDictionary().getValue(e.url)
                     : null),
-                "string" == typeof r &&
-                  r.startsWith(i.GDictionary.CLOUD_PROTOCOL) &&
+                "string" == typeof CollaborationMergeUtils &&
+                  CollaborationMergeUtils.startsWith(GCore.GDictionary.CLOUD_PROTOCOL) &&
                   (s =
                     e.scene &&
                     e.scene.getDictionary() &&
                     e.scene.getDictionary().getEntry(e.url))),
-              "string" == typeof r)
+              "string" == typeof CollaborationMergeUtils)
             ) {
               const n = await gDesigner.getUser(),
-                i = r.startsWith("magenta"),
-                a =
+                GCore = CollaborationMergeUtils.startsWith("magenta"),
+                GEditor =
                   e.scene && t.getScene() !== e.scene
                     ? t.getTempCloudStorageItem()
                     : t.getStorageItem();
-              var d = a && a.getId();
-              if (!n.isAnonymous() && !d && t) {
-                (d = (await o.gApi.createFile({ trashed: null })).id),
-                  t.setReservedId(d);
+              var GSystemDialog = GEditor && GEditor.getId();
+              if (!n.isAnonymous() && !GSystemDialog && t) {
+                (GSystemDialog = (await AppSettings.gApi.createFile({ trashed: null })).id),
+                  t.setReservedId(GSystemDialog);
               }
-              const l = r.slice(r.indexOf("://") + 3),
-                c = new URLSearchParams(l);
-              let p,
+              const l = CollaborationMergeUtils.slice(CollaborationMergeUtils.indexOf("://") + 3),
+                GDocumentEvent = new URLSearchParams(l);
+              let GContainer,
                 g,
                 h = l;
-              if (c.has("id"))
-                (h = c.get("id")), (p = c.get("width")), (g = c.get("height"));
-              else if (c.has("url")) {
-                const e = new URL(c.get("url")).pathname.slice(1).split("/");
+              if (GDocumentEvent.has("id"))
+                (h = GDocumentEvent.get("id")), (GContainer = GDocumentEvent.get("width")), (g = GDocumentEvent.get("height"));
+              else if (GDocumentEvent.has("url")) {
+                const e = new URL(GDocumentEvent.get("url")).pathname.slice(1).split("/");
                 h = "public" == e[0] ? e[2] : e[1];
-              } else h = r.slice(r.indexOf("://") + 3);
-              return gDesigner.isAnonymous() && i
-                ? o.gApi.getFile(h).then((n) => {
+              } else h = CollaborationMergeUtils.slice(CollaborationMergeUtils.indexOf("://") + 3);
+              return gDesigner.isAnonymous() && GCore
+                ? AppSettings.gApi.getFile(h).then((n) => {
                     u(
                       n.url,
-                      p,
+                      GContainer,
                       g,
                       (n) => {
                         s && t && ((s.cloud = s.value), (s.value = n)),
@@ -287,89 +287,89 @@ function (exports, module, require) {
                       true
                     );
                   })
-                : o.gApi.resolveUrls(d, h).then((n) => {
+                : AppSettings.gApi.resolveUrls(GSystemDialog, h).then((n) => {
                     u(
                       n[0][1],
-                      p,
+                      GContainer,
                       g,
                       (n) => {
                         s && t && ((s.cloud = s.value), (s.value = n)),
                           e.resolved(n);
                       },
-                      i
+                      GCore
                     );
                   });
             }
-          function u(t, o, r, s, l) {
+          function u(t, AppSettings, CollaborationMergeUtils, s, l) {
             if (!require(e)) return;
-            const c = new Image();
-            c.crossOrigin = "Anonymous";
-            o && (c.width = o),
-              r && (c.height = r),
-              (c.onload = function () {
-                if (!require(e)) return void (c.onload = null);
+            const GDocumentEvent = new Image();
+            GDocumentEvent.crossOrigin = "Anonymous";
+            AppSettings && (GDocumentEvent.width = AppSettings),
+              CollaborationMergeUtils && (GDocumentEvent.height = CollaborationMergeUtils),
+              (GDocumentEvent.onload = function () {
+                if (!require(e)) return void (GDocumentEvent.onload = null);
                 const t = document.createElement("CANVAS"),
-                  d = t.getContext("2d");
+                  GSystemDialog = t.getContext("2d");
                 l &&
-                  ([c.width, c.height] = (function (e, t, n) {
-                    const o = e.width / t,
-                      i = e.height / n;
-                    return o < 1 || i < 1
+                  ([GDocumentEvent.width, GDocumentEvent.height] = (function (e, t, n) {
+                    const AppSettings = e.width / t,
+                      GCore = e.height / n;
+                    return AppSettings < 1 || GCore < 1
                       ? [e.width, e.height]
-                      : o > i
+                      : AppSettings > GCore
                       ? [t, (t * e.height) / e.width]
                       : [(n * e.width) / e.height, n];
-                  })(c, o || 1080, r || 1080));
+                  })(GDocumentEvent, AppSettings || 1080, CollaborationMergeUtils || 1080));
                 let u = false;
-                (c.width > a.GPlatform.maxImgLinearDimension ||
-                  c.height > a.GPlatform.maxImgLinearDimension ||
-                  c.width * c.height > a.GPlatform.maxImgAreaDots) &&
+                (GDocumentEvent.width > GEditor.GPlatform.maxImgLinearDimension ||
+                  GDocumentEvent.height > GEditor.GPlatform.maxImgLinearDimension ||
+                  GDocumentEvent.width * GDocumentEvent.height > GEditor.GPlatform.maxImgAreaDots) &&
                   (new g(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GDocument",
                         "text.image-in-design-too-big"
                       )
                     )
                   ).open(),
                   (u = true)),
-                  (t.width = c.width),
-                  (t.height = c.height),
-                  d.drawImage(c, 0, 0, c.width, c.height);
-                var p = t.toDataURL();
-                p.length > a.GPlatform.maxImgDataUrlLength &&
+                  (t.width = GDocumentEvent.width),
+                  (t.height = GDocumentEvent.height),
+                  GSystemDialog.drawImage(GDocumentEvent, 0, 0, GDocumentEvent.width, GDocumentEvent.height);
+                var GContainer = t.toDataURL();
+                GContainer.length > GEditor.GPlatform.maxImgDataUrlLength &&
                   !u &&
                   (new g(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GDocument",
                         "text.image-in-design-too-big"
                       )
                     )
                   ).open(),
                   (u = true)),
-                  (c.onload = null),
-                  s(p);
+                  (GDocumentEvent.onload = null),
+                  s(GContainer);
               }),
-              (c.src = t);
+              (GDocumentEvent.src = t);
           }
         })();
       }
       static createFolder(e, t) {
-        return new Promise((n, i) => {
-          var a = this;
+        return new Promise((n, GCore) => {
+          var GEditor = this;
           !(async function () {
             try {
-              var r = a.definePath(t);
-              await o.gApi.createFile({
+              var CollaborationMergeUtils = GEditor.definePath(t);
+              await AppSettings.gApi.createFile({
                 name: e,
                 type: C,
-                parent: r,
+                parent: CollaborationMergeUtils,
                 trashed: false,
               }),
                 n();
             } catch (e) {
-              i(e);
+              GCore(e);
             }
           })();
         });
@@ -378,28 +378,28 @@ function (exports, module, require) {
         return e ? e.id : null;
       }
       static fileExists(e) {
-        return o.gApi
+        return AppSettings.gApi
           .getFile(e)
           .then(() => true)
           .catch((e) => {
-            if (e.status === o.HTTP_STATUS_CODES.NOT_FOUND) return false;
+            if (e.status === AppSettings.HTTP_STATUS_CODES.NOT_FOUND) return false;
             throw e;
           });
       }
       static changePathTree(e, t) {
-        return new Promise((n, i) => {
+        return new Promise((n, GCore) => {
           !(async function () {
             try {
-              for (var a = 0; a < e.length; ++a) {
-                var r = e[a],
-                  s = r.parent;
+              for (var GEditor = 0; GEditor < e.length; ++GEditor) {
+                var CollaborationMergeUtils = e[GEditor],
+                  s = CollaborationMergeUtils.parent;
                 t !== s &&
-                  r.id !== t &&
-                  (await o.gApi.updateFile(r.id, { parent: t }));
+                  CollaborationMergeUtils.id !== t &&
+                  (await AppSettings.gApi.updateFile(CollaborationMergeUtils.id, { parent: t }));
               }
               n();
             } catch (e) {
-              i(e);
+              GCore(e);
             }
           })();
         });
@@ -431,49 +431,49 @@ function (exports, module, require) {
       static createFile(e, t) {
         !(async function () {
           var n = null;
-          let i = e.getScene().getActivePage().getGeometryBBox(),
-            a = 0,
-            r = 0;
-          i && ((a = i.getWidth()), (r = i.getHeight()));
+          let GCore = e.getScene().getActivePage().getGeometryBBox(),
+            GEditor = 0,
+            CollaborationMergeUtils = 0;
+          GCore && ((GEditor = GCore.getWidth()), (CollaborationMergeUtils = GCore.getHeight()));
           const s = {
             name: e.getTitle(),
             parent: null,
             type: b.type,
             app: "designer",
             unit: e.getScene().getProperty("ut"),
-            width: a,
-            height: r,
+            width: GEditor,
+            height: CollaborationMergeUtils,
             trashed: null,
           };
           e.getReservedId()
-            ? (await o.gApi.updateFile(e.getReservedId(), s),
+            ? (await AppSettings.gApi.updateFile(e.getReservedId(), s),
               (n = e.getReservedId()))
-            : (n = await o.gApi.createFile(s)),
+            : (n = await AppSettings.gApi.createFile(s)),
             t(n);
         })();
       }
-      static loadDesignData(e, t, n, i, a, r) {
+      static loadDesignData(e, t, n, GCore, GEditor, CollaborationMergeUtils) {
         return new Promise(async (s, l) => {
           try {
-            let p;
-            if (e && r) {
-              let t = (a = await o.gApi.getFile(e)).url;
+            let GContainer;
+            if (e && CollaborationMergeUtils) {
+              let t = (GEditor = await AppSettings.gApi.getFile(e)).url;
               if (n) {
-                t = (await o.gApi.getAutoSave(e, n)).url;
-              } else a.autosave && (t = a.autosave_url);
-              (p = a.url), (a.url = t);
-            } else if (e && !a)
-              if (i) a = await o.gApi.getShare(i);
+                t = (await AppSettings.gApi.getAutoSave(e, n)).url;
+              } else GEditor.autosave && (t = GEditor.autosave_url);
+              (GContainer = GEditor.url), (GEditor.url = t);
+            } else if (e && !GEditor)
+              if (GCore) GEditor = await AppSettings.gApi.getShare(GCore);
               else {
-                var c = n ? "/version/" + n : "";
-                a = t
-                  ? await o.gApi.getFile(e + c + "?edit")
-                  : await o.gApi.getFile(e + c);
+                var GDocumentEvent = n ? "/version/" + n : "";
+                GEditor = t
+                  ? await AppSettings.gApi.getFile(e + GDocumentEvent + "?edit")
+                  : await AppSettings.gApi.getFile(e + GDocumentEvent);
               }
             else if (t) {
-              const t = a ? a.id : e;
+              const t = GEditor ? GEditor.id : e;
               t &&
-                (await o.gApi.file.registerAccess(t).catch((e) => {
+                (await AppSettings.gApi.file.registerAccess(t).catch((e) => {
                   console.error("Could not register access", e);
                 }));
             }
@@ -483,17 +483,17 @@ function (exports, module, require) {
                   throw new Error("failed to download, status = " + e.status);
                 return e.blob();
               });
-            var d = await g(a.url).catch((e) => {
-                if (!p) throw e;
-                return g(p);
+            var GSystemDialog = await g(GEditor.url).catch((e) => {
+                if (!GContainer) throw e;
+                return g(GContainer);
               }),
               u = new FileReader();
             (u.onload = function () {
-              s({ data: new Uint8Array(this.result), file: a });
+              s({ data: new Uint8Array(this.result), file: GEditor });
             }),
               (u.onerror = l),
               u.readAsArrayBuffer(
-                new Blob([d], { type: "application/octet-stream" })
+                new Blob([GSystemDialog], { type: "application/octet-stream" })
               );
           } catch (e) {
             l(e);
@@ -503,8 +503,8 @@ function (exports, module, require) {
       static getDesigneDataSize(e) {
         return new Promise(async (t, n) => {
           try {
-            var i = await o.gApi.getFile(e);
-            return await fetch(i.url, { method: "HEAD" }).then(function (e) {
+            var GCore = await AppSettings.gApi.getFile(e);
+            return await fetch(GCore.url, { method: "HEAD" }).then(function (e) {
               var n = e.headers.get("Content-Length");
               t(n);
             });
@@ -516,7 +516,7 @@ function (exports, module, require) {
       static renameFile(e, t, n) {
         !(async function () {
           try {
-            await o.gApi.updateFile(e.id, { name: t }), n(true);
+            await AppSettings.gApi.updateFile(e.id, { name: t }), n(true);
           } catch (e) {
             console.error(e), n(false);
           }
@@ -525,53 +525,53 @@ function (exports, module, require) {
       static _checkSecondaryFormatSanity() {
         return true;
       }
-      static performSave(e, t, n, a, r) {
+      static performSave(e, t, n, GEditor, CollaborationMergeUtils) {
         let s = arguments.length > 5 && undefined !== arguments[5] && arguments[5];
         if (e.hasPagesWithInfiniteEmptyCanvas())
           return void (n
             ? n({
                 code: 507,
-                message: i.GLocale.get(
-                  new i.GLocaleKey(
+                message: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.error-emtpy-infinite-canvas"
                   )
                 ),
                 noFailCall: true,
               })
-            : d.alert(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+            : GSystemDialog.alert(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.error-emtpy-infinite-canvas"
                   )
                 )
               ));
-        var l = a;
+        var l = GEditor;
         function u() {
-          let a = false;
+          let GEditor = false;
           if (e.isCommercialProductFile()) return void e.openPaywall();
-          var u = r || e.getStorageItem();
-          const p =
+          var u = CollaborationMergeUtils || e.getStorageItem();
+          const GContainer =
             u &&
             w.length &&
             w.find((e) => e.ext.toUpperCase() === u.getExtension());
-          if (p && !G._checkSecondaryFormatSanity(e)) return void (n && n());
+          if (GContainer && !G._checkSecondaryFormatSanity(e)) return void (n && n());
           const g = e.getEditor().markSavePoint();
-          var m = function (o) {
+          var m = function (AppSettings) {
             g.rollback(),
               s ||
-                (o && 507 === o.code
-                  ? d.alert(o.message)
-                  : d.confirm(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                (AppSettings && 507 === AppSettings.code
+                  ? GSystemDialog.alert(AppSettings.message)
+                  : GSystemDialog.confirm(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.save-to-cloud-failed"
                         )
                       ),
-                      function (o) {
-                        o
+                      function (AppSettings) {
+                        AppSettings
                           ? (gDesigner.stats(
                               "savealert_save-failed_click-save-local"
                             ),
@@ -584,26 +584,26 @@ function (exports, module, require) {
                           : (gDesigner.stats(
                               "savealert_save-failed_dont-save-local"
                             ),
-                            "function" != typeof n || a
+                            "function" != typeof n || GEditor
                               ? "function" == typeof t && t(false)
-                              : ((a = true), n()));
+                              : ((GEditor = true), n()));
                       },
-                      i.GLocale.get(new i.GLocaleKey("GLocale", "no")),
-                      i.GLocale.get(new i.GLocaleKey("GLocale", "yes"))
+                      GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "no")),
+                      GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "yes"))
                     )),
-              o && console.log(o),
+              AppSettings && console.log(AppSettings),
               e.updateStatus(f.SaveFailed),
               e.setSynchronizing(false),
               e.setErrored(true),
-              gDesigner.trigger(new c(c.Type.SynchronismUpdateFailed, e)),
-              n && !a && ((a = true), n());
+              gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.SynchronismUpdateFailed, e)),
+              n && !GEditor && ((GEditor = true), n());
           };
           try {
             const n = {};
             e.setSynchronizing(true), e.updateStatus(f.Saving, n);
-            const { progress: a } = n,
-              r = (e) => {
-                a && a(e);
+            const { progress: GEditor } = n,
+              CollaborationMergeUtils = (e) => {
+                GEditor && GEditor(e);
               };
             !(async function (t) {
               var n = null;
@@ -613,8 +613,8 @@ function (exports, module, require) {
                   width: 0,
                   height: 0,
                 };
-                if (o.HAS_ANNOTATIONS)
-                  if (p) {
+                if (AppSettings.HAS_ANNOTATIONS)
+                  if (GContainer) {
                     let t = true;
                     await h.saveDocumentAnnotations(e, t);
                     l = e.updateSaveOptionsLastModifiedDate(l);
@@ -624,7 +624,7 @@ function (exports, module, require) {
                         .annotationsCollection;
                       e.getScene().iteratePages((e) => {
                         !!h.findAnnotationsListForPage(e, n) ||
-                          n.push(i.GNode.store(e.getAnnotations()));
+                          n.push(GCore.GNode.store(e.getAnnotations()));
                       }, true),
                         (t.annotations = n);
                     } catch (e) {
@@ -632,24 +632,24 @@ function (exports, module, require) {
                     }
                 let n = e.getScene().getActivePage().getGeometryBBox();
                 n && ((t.width = n.getWidth()), (t.height = n.getHeight())),
-                  await o.gApi.updateFile(u._id, t);
+                  await AppSettings.gApi.updateFile(u._id, t);
               } catch (e) {
                 n = e;
               }
               t(n);
             })(function (n) {
-              r(S),
+              CollaborationMergeUtils(S),
                 n
                   ? m(n)
                   : u.write(
                       e,
                       function () {
-                        r(A),
+                        CollaborationMergeUtils(A),
                           e.setSynchronizing(false),
                           e.setErrored(false),
-                          gDesigner.hasEventListeners(c) &&
-                            gDesigner.trigger(new c(c.Type.Modified, e));
-                        var n = (n, o) => {
+                          gDesigner.hasEventListeners(GDocumentEvent) &&
+                            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, e));
+                        var n = (n, AppSettings) => {
                           try {
                             n &&
                               (e.updateStatus(f.Saved, l),
@@ -657,16 +657,16 @@ function (exports, module, require) {
                               e
                                 .getStorageItem()
                                 .setFileAutoSaveLastModifiedDate(
-                                  new Date(o.autosave_updated)
+                                  new Date(AppSettings.autosave_updated)
                                 ),
                               e
                                 .getStorageItem()
-                                .setFileLastModifiedDate(new Date(o.updated)));
+                                .setFileLastModifiedDate(new Date(AppSettings.updated)));
                           } finally {
-                            r(T), t && t();
+                            CollaborationMergeUtils(T), t && t();
                           }
                         };
-                        o.gApi
+                        AppSettings.gApi
                           .getFile(u._id + "?edit")
                           .then((e) => n(true, e))
                           .catch(n);
@@ -675,7 +675,7 @@ function (exports, module, require) {
                         m(e);
                       },
                       (e) => {
-                        r(x.calculateProgress(S, E, e / 100));
+                        CollaborationMergeUtils(x.calculateProgress(S, E, e / 100));
                       },
                       l
                     );
@@ -684,40 +684,40 @@ function (exports, module, require) {
             m(e);
           }
         }
-        const p = () => {
+        const GContainer = () => {
           gDesigner.getUser().then((e) => {
             !e || gDesigner.isAnonymous() ? G.performLogin().then(u) : u();
           });
         };
-        gDesigner.isOffline() ? m.openUnavailableFeature(p) : p();
+        gDesigner.isOffline() ? m.openUnavailableFeature(GContainer) : GContainer();
       }
-      static async updateFileThumbnail(e, t, n, i) {
-        var a = await o.gApi.signedPutUrls(e, { type_t: n, commit: i }),
-          r = new XMLHttpRequest();
-        r.open("PUT", a.url_t);
+      static async updateFileThumbnail(e, t, n, GCore) {
+        var GEditor = await AppSettings.gApi.signedPutUrls(e, { type_t: n, commit: GCore }),
+          CollaborationMergeUtils = new XMLHttpRequest();
+        CollaborationMergeUtils.open("PUT", GEditor.url_t);
         var s = {
           "Content-Type": n,
           "Cache-Control": "public,max-age=31600000",
         };
-        for (var l in s) r.setRequestHeader(l, s[l]);
-        r.send(t);
+        for (var l in s) CollaborationMergeUtils.setRequestHeader(l, s[l]);
+        CollaborationMergeUtils.send(t);
       }
       static async saveDocumentAnnotations(e, t, n) {
         return (
-          !!o.HAS_ANNOTATIONS &&
+          !!AppSettings.HAS_ANNOTATIONS &&
           (gDesigner.isOffline()
             ? (console.warn("Failed to record annotations"), false)
             : gDesigner
                 .getUser()
                 .then(
-                  (o) =>
-                    !(!o || gDesigner.isAnonymous()) &&
+                  (AppSettings) =>
+                    !(!AppSettings || gDesigner.isAnonymous()) &&
                     h.saveDocumentAnnotations(e, t, undefined, n)
                 ))
         );
       }
       static async getCloudAnnotations(e) {
-        if (o.HAS_ANNOTATIONS) {
+        if (AppSettings.HAS_ANNOTATIONS) {
           if (!gDesigner.isOffline())
             return gDesigner.getUser().then((e) => {
               e && gDesigner.isAnonymous();
@@ -736,24 +736,24 @@ function (exports, module, require) {
         let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
-            : o.FILE_FORMATS;
+            : AppSettings.FILE_FORMATS;
         var t = this;
-        return new Promise((n, i) => {
+        return new Promise((n, GCore) => {
           !(async function () {
-            const a = exports.map((e) => e.type).join("|");
+            const GEditor = exports.map((e) => e.type).join("|");
             try {
               if (t.isOnline()) {
-                var r = await o.gApi.listFiles({
-                  type: a,
+                var CollaborationMergeUtils = await AppSettings.gApi.listFiles({
+                  type: GEditor,
                   accessed: "true",
                   sort: "-accessed",
                   parent: "*",
                   limit: "10",
                 });
-                n(r);
+                n(CollaborationMergeUtils);
               }
             } catch (e) {}
-            i([]);
+            GCore([]);
           })();
         });
       }
@@ -761,10 +761,10 @@ function (exports, module, require) {
         var t = null;
         try {
           t = _.ungzip(e, { to: "string" });
-        } catch (a) {
+        } catch (GEditor) {
           if ("undefined" == typeof TextDecoder && e.length > 1e7) {
-            for (var require = [], o = e.length, i = 0; i < o; i += 32768)
-              require.push(String.fromCharCode.apply(null, e.subarray(i, i + 32768)));
+            for (var require = [], AppSettings = e.length, GCore = 0; GCore < AppSettings; GCore += 32768)
+              require.push(String.fromCharCode.apply(null, e.subarray(GCore, GCore + 32768)));
             t = require.join("");
           } else
             try {
@@ -780,12 +780,12 @@ function (exports, module, require) {
       }
       static resendEmailConfirmation(e) {
         let module, require;
-        if (gContainer.getRuntime() === p.Runtime.Electron) {
+        if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
           const e = gContainer.getPlatform();
           ("darwin" !== e && "win32" !== e) || (module = "designer://"),
             (require = gDesigner.getAssetsURL());
         } else require = location.origin;
-        return o.gApi
+        return AppSettings.gApi
           .resendEmailConfirmation({
             appUrl: module,
             webUrl: require,
@@ -797,12 +797,12 @@ function (exports, module, require) {
             let e = {},
               module = new Promise((t) => (e.resolve = t));
             return (
-              d.custom({
-                title: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.email-sent-title")
+              GSystemDialog.custom({
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.email-sent-title")
                 ),
-                subtitle: i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.email-sent-info")
+                subtitle: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.email-sent-info")
                 ),
                 icon: "ok",
                 closeCallback: () => e.resolve(),
@@ -811,40 +811,40 @@ function (exports, module, require) {
             );
           })
           .catch((e) =>
-            d.custom({
-              title: i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.something-wrong")
+            GSystemDialog.custom({
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.something-wrong")
               ),
-              subtitle: o.gApi.formatError(e),
+              subtitle: AppSettings.gApi.formatError(e),
             })
           );
       }
       static createUint8ArrayFromBlob(e) {
         return new Promise((t, n) => {
-          const o = new FileReader();
-          (o.onload = function () {
+          const AppSettings = new FileReader();
+          (AppSettings.onload = function () {
             t(new Uint8Array(this.result));
           }),
-            (o.onerror = n),
-            o.readAsArrayBuffer(e);
+            (AppSettings.onerror = n),
+            AppSettings.readAsArrayBuffer(e);
         });
       }
       static getFileDataForVersionOrAutoSave(e, t, n) {
-        return t && !n ? o.gApi.getFile(e, false, t) : o.gApi.getFile(e);
+        return t && !n ? AppSettings.gApi.getFile(e, false, t) : AppSettings.gApi.getFile(e);
       }
       static async activateCoupon(e) {
         try {
-          const t = await o.gApi.coupon.activate(e);
+          const t = await AppSettings.gApi.coupon.activate(e);
           await y.checkLicense(),
             gDesigner.addNotification({ message: t.message });
         } catch (e) {
           if (!e.ok && e.code)
             switch (e.code) {
-              case o.gApi.ERROR_CODES.ERR_SUBSCRIPTION_COULD_NOT_BE_DEACTIVATED:
+              case AppSettings.gApi.ERROR_CODES.ERR_SUBSCRIPTION_COULD_NOT_BE_DEACTIVATED:
                 const e = $(
                   "<div>".concat(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCloudUtil",
                         "text.err-subscription-could-not-be-deactivated"
                       )
@@ -865,42 +865,42 @@ function (exports, module, require) {
                         false
                       )
                     ),
-                  d.alert(e)
+                  GSystemDialog.alert(e)
                 );
-              case o.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_ACTIVE:
+              case AppSettings.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_ACTIVE:
                 const { nextBillingDate: module } =
-                  await o.gApi.subscription.getNextBillingDate();
-                return d.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  await AppSettings.gApi.subscription.getNextBillingDate();
+                return GSystemDialog.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCloudUtil",
                       "text.err-subscription-is-active"
                     )
-                  ).replace("%date", o.DateAPI.format(module))
+                  ).replace("%date", AppSettings.DateAPI.format(module))
                 );
-              case o.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_NOT_EXPIRED:
-                return d.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+              case AppSettings.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_NOT_EXPIRED:
+                return GSystemDialog.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCloudUtil",
                       "text.err-subscription-is-not-expired"
                     )
                   ).replace(
                     "%date",
-                    o.DateAPI.format(gDesigner.getLicense().getExpirationDate())
+                    AppSettings.DateAPI.format(gDesigner.getLicense().getExpirationDate())
                   )
                 );
-              case o.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_LIFETIME:
-                return d.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+              case AppSettings.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_LIFETIME:
+                return GSystemDialog.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCloudUtil",
                       "text.err-subscription-is-lifetime"
                     )
                   )
                 );
             }
-          gDesigner.addNotification({ message: o.gApi.formatError(e) });
+          gDesigner.addNotification({ message: AppSettings.gApi.formatError(e) });
         }
       }
     }

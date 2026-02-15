@@ -7,19 +7,19 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(106) /* GElementAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GConvertToPathAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GConvertToPathAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GConvertToPathAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GConvertToPathAction", "tooltip-description")
           ),
           shortcut: l.SHORTCUT,
           learnMore:
@@ -27,10 +27,10 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GElementAction),
       (l.ID = "modify.converttopath"),
-      (l.TITLE = new o.GLocaleKey("GConvertToPathAction", "title")),
-      (l.SHORTCUT = [i.GKey.Constant.META, i.GKey.Constant.SHIFT, "P"]),
+      (l.TITLE = new GCore.GLocaleKey("GConvertToPathAction", "title")),
+      (l.SHORTCUT = [GEditor.GKey.Constant.META, GEditor.GKey.Constant.SHIFT, "P"]),
       (l.TOOLTIP_CONFIG = null),
       (l.prototype.getId = function () {
         return l.ID;
@@ -39,7 +39,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (l.prototype.getIcon = function () {
         return "gravit-icon-convert-to-path";
@@ -51,19 +51,19 @@ function (exports, module, require) {
         return l.SHORTCUT;
       }),
       (l.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getSelection();
           if (module)
             for (var require = 0; require < module.length; ++require)
               if (
-                !(module[require] instanceof o.GPath) &&
-                !(module[require] instanceof o.GImage) &&
-                !(module[require] instanceof o.GPathsGraph) &&
-                (module[require] instanceof o.GPathBase ||
-                  (module[require].hasMixin(o.GVertexSource) &&
-                    !(module[require] instanceof o.GCompoundPath)))
+                !(module[require] instanceof GCore.GPath) &&
+                !(module[require] instanceof GCore.GImage) &&
+                !(module[require] instanceof GCore.GPathsGraph) &&
+                (module[require] instanceof GCore.GPathBase ||
+                  (module[require].hasMixin(GCore.GVertexSource) &&
+                    !(module[require] instanceof GCore.GCompoundPath)))
               )
                 return true;
         }

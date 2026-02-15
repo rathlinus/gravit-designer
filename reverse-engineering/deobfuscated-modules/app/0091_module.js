@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
+    var core_export = require(25) /* core_export */,
       i = require(262) /* module_262 */.trim;
-    o(
+    core_export(
       { target: "String", proto: true, forced: require(461) /* module_461 */("trim") },
       {
         trim: function () {

@@ -5,63 +5,63 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
-      r = (require(15) /* module */, o(require(565) /* module_565 */)),
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      r = (require(15) /* module */, _interopRequireDefault(require(565) /* module_565 */)),
       s = require(67) /* GRichTooltipConfig */,
-      l = o(require(135) /* GSettingChangedEvent */),
-      c = require(451) /* IdxIterator */.GVirtualTree,
+      GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
+      IdxIterator = require(451) /* IdxIterator */.GVirtualTree,
       d = (require(451) /* IdxIterator */.GVirtualTreeNode, require(451) /* IdxIterator */.GVirtualTreeNodeNamed),
       { VTREE_FREE_HEIGHT: u, VTREE_FREE_HEIGHT_TOUCH: p } = require(10) /* AppSettings */,
       g = (require(173) /* stub_requires_1 */, require(450) /* module_450 */);
     function h() {}
-    function f(e, t, n, o, i) {
-      var a = true,
+    function f(e, t, n, _interopRequireDefault, GTools) {
+      var GCore = true,
         r = $(this).data("gpagepanel");
       if (r.options.canDropCallback) {
         for (
           var s = e.id ? b.call(this, e.id) : $(this).data("gpagepanel").scene,
-            l = t ? b.call(this, t.id) : null,
-            c = [],
+            GSettingChangedEvent = t ? b.call(this, t.id) : null,
+            IdxIterator = [],
             d = 0;
-          d < o.length;
+          d < _interopRequireDefault.length;
           ++d
         )
-          c.push(b.call(this, o[d].id));
+          IdxIterator.push(b.call(this, _interopRequireDefault[d].id));
         var u = [];
-        if ((a = r.options.canDropCallback(s, l, c, u)))
+        if ((GCore = r.options.canDropCallback(s, GSettingChangedEvent, IdxIterator, u)))
           for (d = 0; d < u.length; ++d) {
             var p = u[d];
-            i.push(o[p]);
+            GTools.push(_interopRequireDefault[p]);
           }
       }
-      return a;
+      return GCore;
     }
-    function m(e, t, n, o) {
+    function m(e, t, n, _interopRequireDefault) {
       if (!n || !n.length || !e) return false;
-      var i = true;
+      var GTools = true;
       if (gDesigner.getApplicationManager().isEditingEnabled()) {
-        for (var a = 0; a < n.length && i; ++a)
-          (i = !e.isLocked() && n[a] && n[a].validateInsertion(e, t)) &&
-            o.push[a];
-        return i;
+        for (var GCore = 0; GCore < n.length && GTools; ++GCore)
+          (GTools = !e.isLocked() && n[GCore] && n[GCore].validateInsertion(e, t)) &&
+            _interopRequireDefault.push[GCore];
+        return GTools;
       }
     }
-    function y(e, t, n, o) {
-      var i = $(this).data("gpagepanel");
-      if (i.options.moveCallback) {
+    function y(e, t, n, _interopRequireDefault) {
+      var GTools = $(this).data("gpagepanel");
+      if (GTools.options.moveCallback) {
         for (
-          var a = e.id ? b.call(this, e.id) : $(this).data("gpagepanel").scene,
+          var GCore = e.id ? b.call(this, e.id) : $(this).data("gpagepanel").scene,
             r = t ? b.call(this, t.id) : null,
             s = [],
-            l = 0;
-          l < o.length;
-          ++l
+            GSettingChangedEvent = 0;
+          GSettingChangedEvent < _interopRequireDefault.length;
+          ++GSettingChangedEvent
         )
-          s.push(b.call(this, o[l].id));
-        i.options.moveCallback(a, r, s);
+          s.push(b.call(this, _interopRequireDefault[GSettingChangedEvent].id));
+        GTools.options.moveCallback(GCore, r, s);
       }
     }
     function v(e) {
@@ -91,64 +91,64 @@ function (exports, module, require) {
         n = $(this).data("gpagepanel").pagesTreeNodeMapByNodes;
       e.accept(
         function (e) {
-          if (e instanceof a.GPage) {
-            var o = n.get(e);
-            o && (n.delete(e), (t[o.treeId] = null));
+          if (e instanceof GCore.GPage) {
+            var _interopRequireDefault = n.get(e);
+            _interopRequireDefault && (n.delete(e), (t[_interopRequireDefault.treeId] = null));
           }
         }.bind(this)
       );
     }
     function S(e, t) {
       var n = $(this).data("gpagepanel"),
-        o = w.call(this, e),
-        l = o.node;
-      if (l) {
-        if (!(l instanceof a.GPage)) throw new Error("item not page");
-        var c = l.getProperty("lkt"),
-          d = !!l.getSlavePages().length,
-          u = 0 === l.getProperty("w") && 0 === l.getProperty("h"),
+        _interopRequireDefault = w.call(this, e),
+        GSettingChangedEvent = _interopRequireDefault.node;
+      if (GSettingChangedEvent) {
+        if (!(GSettingChangedEvent instanceof GCore.GPage)) throw new Error("item not page");
+        var IdxIterator = GSettingChangedEvent.getProperty("lkt"),
+          d = !!GSettingChangedEvent.getSlavePages().length,
+          u = 0 === GSettingChangedEvent.getProperty("w") && 0 === GSettingChangedEvent.getProperty("h"),
           p = $(t);
         p.attr("draggable", false)
           .on("mouseenter", function () {
-            l.getProperty("w") &&
-              !l.hasFlag(a.GElement.Flag.Hidden) &&
-              l.setFlag(a.GNode.Flag.Highlighted);
+            GSettingChangedEvent.getProperty("w") &&
+              !GSettingChangedEvent.hasFlag(GCore.GElement.Flag.Hidden) &&
+              GSettingChangedEvent.setFlag(GCore.GNode.Flag.Highlighted);
           })
           .on("mouseleave", function () {
-            l.getProperty("w") &&
-              !l.hasFlag(a.GElement.Flag.Hidden) &&
-              l.removeFlag(a.GNode.Flag.Highlighted);
+            GSettingChangedEvent.getProperty("w") &&
+              !GSettingChangedEvent.hasFlag(GCore.GElement.Flag.Hidden) &&
+              GSettingChangedEvent.removeFlag(GCore.GNode.Flag.Highlighted);
           });
         var h = $("<span></span>").addClass("page-title-group");
-        h.appendTo(p), (o.element = h);
-        var f = l.getProperty("name");
-        (f = f || l.getNodeNameTranslated()),
+        h.appendTo(p), (_interopRequireDefault.element = h);
+        var f = GSettingChangedEvent.getProperty("name");
+        (f = f || GSettingChangedEvent.getNodeNameTranslated()),
           d && !gDesigner.isTouchEnabled() && (f += " (master)");
         var m = $("<span></span>").html(f);
         m.addClass("page-title").appendTo(h);
         var y = this;
-        l.hasFlag(a.GElement.Flag.PartialLocked) ||
+        GSettingChangedEvent.hasFlag(GCore.GElement.Flag.PartialLocked) ||
           h
             .attr("draggable", true)
             .attr("data-drag-mode", r.default.PRESS_AND_HOLD)
             .on("dragstart", function (e) {
               if (n.options.startDraggingCallback) {
-                var t = n.options.startDraggingCallback(l);
+                var t = n.options.startDraggingCallback(GSettingChangedEvent);
                 if (t && t.length) {
                   $(this).addClass("g-dragging");
-                  var o = "",
-                    i = t[0].getProperty("name");
-                  (i = i || t[0].getNodeNameTranslated()) && (o = i);
-                  for (var a = 1; a < t.length; ++a)
-                    (i =
-                      (i = t[a].getProperty("name")) ||
-                      t[a].getNodeNameTranslated()) && (o += ", " + i);
-                  o.length && $(m).html(o);
+                  var _interopRequireDefault = "",
+                    GTools = t[0].getProperty("name");
+                  (GTools = GTools || t[0].getNodeNameTranslated()) && (_interopRequireDefault = GTools);
+                  for (var GCore = 1; GCore < t.length; ++GCore)
+                    (GTools =
+                      (GTools = t[GCore].getProperty("name")) ||
+                      t[GCore].getNodeNameTranslated()) && (_interopRequireDefault += ", " + GTools);
+                  _interopRequireDefault.length && $(m).html(_interopRequireDefault);
                   var r = n.vtree,
                     s = [];
-                  for (a = 0; a < t.length; ++a) {
-                    var c = C.call(y, t[a]);
-                    c && s.push(c);
+                  for (GCore = 0; GCore < t.length; ++GCore) {
+                    var IdxIterator = C.call(y, t[GCore]);
+                    IdxIterator && s.push(IdxIterator);
                   }
                   r.setDragNodes(s),
                     setTimeout(
@@ -160,13 +160,13 @@ function (exports, module, require) {
                 } else $(this).attr("draggable", false);
               }
             }),
-          p.toggleClass("g-active", l.hasFlag(a.GNode.Flag.Active)),
+          p.toggleClass("g-active", GSettingChangedEvent.hasFlag(GCore.GNode.Flag.Active)),
           n.blockHighlight ||
             p.toggleClass(
               "g-highlighted-row",
-              l.hasFlag(a.GNode.Flag.Highlighted)
+              GSettingChangedEvent.hasFlag(GCore.GNode.Flag.Highlighted)
             ),
-          !c &&
+          !IdxIterator &&
             gDesigner.getApplicationManager().isEditingEnabled() &&
             $(h).gAutoEdit({
               textSelector: "> .page-title",
@@ -176,13 +176,13 @@ function (exports, module, require) {
               submitCallback: function (e) {
                 e &&
                   "" !== e.trim() &&
-                  i.GEditor.tryRunTransaction(
-                    l,
+                  GTools.GEditor.tryRunTransaction(
+                    GSettingChangedEvent,
                     function () {
-                      l.setProperty("name", e);
+                      GSettingChangedEvent.setProperty("name", e);
                     },
-                    a.GLocale.get(
-                      new a.GLocaleKey("GPagePanel", "action.rename-page")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPagePanel", "action.rename-page")
                     )
                   );
               },
@@ -197,48 +197,48 @@ function (exports, module, require) {
             : d &&
               (v.toggleClass("gravit-icon-page-master", true),
               v.toggleClass("gravit-icon-page", false)));
-        var _ = c ? "gravit-icon-lock" : "gravit-icon-unlock";
+        var _ = IdxIterator ? "gravit-icon-lock" : "gravit-icon-unlock";
         (_ = gDesigner.isTouchEnabled() ? _ + "-small" : _),
           $("<span></span>")
             .addClass("page-action page-lock " + _)
-            .toggleClass("g-active", !!c)
+            .toggleClass("g-active", !!IdxIterator)
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "action.toggle-lock")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "action.toggle-lock")
               )
             )
             .on("click", function (e) {
               gDesigner.stats("pages_change_lock"), e.stopPropagation();
-              var t = l.getProperty("lkt");
-              (t = t ? null : a.GBlock.LockType.Full),
-                i.GEditor.tryRunTransaction(
-                  l,
+              var t = GSettingChangedEvent.getProperty("lkt");
+              (t = t ? null : GCore.GBlock.LockType.Full),
+                GTools.GEditor.tryRunTransaction(
+                  GSettingChangedEvent,
                   function () {
                     if (
-                      (l.setProperty("lkt", t), t === a.GBlock.LockType.Full)
+                      (GSettingChangedEvent.setProperty("lkt", t), t === GCore.GBlock.LockType.Full)
                     ) {
                       n.scene.setProperty("edit", false);
                       var e = gDesigner.getActiveDocument();
                       e && e.getEditor().clearSelection();
                     } else n.scene.setProperty("edit", true);
                   },
-                  a.GLocale.get(
-                    new a.GLocaleKey("GCommonNames", "action.toggle-lock")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "action.toggle-lock")
                   )
                 );
             })
             .appendTo(p)
             .gRichTooltip(
               s.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.page-toggle-lock-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.page-toggle-lock-tooltip-description"
                   )
@@ -247,7 +247,7 @@ function (exports, module, require) {
                   "",
               })
             );
-        var b = false === l.getProperty("vis");
+        var b = false === GSettingChangedEvent.getProperty("vis");
         p.toggleClass("page-hiden", b);
         var x = b ? "gravit-icon-hide" : "gravit-icon-display";
         (x = gDesigner.isTouchEnabled() ? x + "-small" : x),
@@ -256,34 +256,34 @@ function (exports, module, require) {
             .toggleClass("g-active", b)
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "action.toggle-visibility")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "action.toggle-visibility")
               )
             )
             .on("click", function (e) {
               gDesigner.stats("pages_change_visibility"), e.stopPropagation();
-              var t = !l.getProperty("vis");
-              i.GEditor.tryRunTransaction(
-                l,
+              var t = !GSettingChangedEvent.getProperty("vis");
+              GTools.GEditor.tryRunTransaction(
+                GSettingChangedEvent,
                 function () {
-                  l.setProperty("vis", t);
+                  GSettingChangedEvent.setProperty("vis", t);
                 },
-                a.GLocale.get(
-                  new a.GLocaleKey("GCommonNames", "action.toggle-visibility")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "action.toggle-visibility")
                 )
               );
             })
             .appendTo(p)
             .gRichTooltip(
               s.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.page-toggle-visibility-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.page-toggle-visibility-tooltip-description"
                   )
@@ -295,7 +295,7 @@ function (exports, module, require) {
           p.contextmenu(
             { context: g.PagePanel },
             function (e) {
-              $(this).data("gpagepanel").scene.setActivePage(l),
+              $(this).data("gpagepanel").scene.setActivePage(GSettingChangedEvent),
                 $(gDesigner.getWindows().getHtmlElement()).trigger(
                   "contextmenu",
                   e
@@ -318,21 +318,21 @@ function (exports, module, require) {
     function G(e) {
       var t,
         n,
-        o = a.GUtil.uuid(),
-        i = $(this).data("gpagepanel"),
-        r = i.vtree;
+        _interopRequireDefault = GCore.GUtil.uuid(),
+        GTools = $(this).data("gpagepanel"),
+        r = GTools.vtree;
       for (
         r.beginUpdate(), t = e.getNext();
-        t && !(t instanceof a.GPage);
+        t && !(t instanceof GCore.GPage);
         t = t.getNext()
       );
       var s = t ? C.call(this, t) : null;
-      (n = s ? E.call(this, o, s) : A.call(this, o, null)),
-        (i.pagesTreeNodeMap[o] = { node: e, treeNode: n, element: null }),
-        i.pagesTreeNodeMapByNodes.set(e, {
+      (n = s ? E.call(this, _interopRequireDefault, s) : A.call(this, _interopRequireDefault, null)),
+        (GTools.pagesTreeNodeMap[_interopRequireDefault] = { node: e, treeNode: n, element: null }),
+        GTools.pagesTreeNodeMapByNodes.set(e, {
           element: null,
           treeNode: n,
-          treeId: o,
+          treeId: _interopRequireDefault,
         }),
         r.endUpdate();
     }
@@ -342,22 +342,22 @@ function (exports, module, require) {
     }
     function D(e) {
       !$(this).data("gpagepanel").blockHandlers &&
-        e.node instanceof a.GPage &&
+        e.node instanceof GCore.GPage &&
         G.call(this, e.node);
     }
     function L(e) {
       !$(this).data("gpagepanel").blockHandlers &&
-        e.node instanceof a.GPage &&
+        e.node instanceof GCore.GPage &&
         P.call(this, e.node);
     }
     function I(e) {
       if (
         !e.temporary &&
         !$(this).data("gpagepanel").blockHandlers &&
-        (e.node instanceof a.GPage || e.node instanceof a.GScene)
+        (e.node instanceof GCore.GPage || e.node instanceof GCore.GScene)
       ) {
         if (
-          e.node instanceof a.GScene &&
+          e.node instanceof GCore.GScene &&
           1 === e.properties.length &&
           "pi" === e.properties[0]
         )
@@ -375,25 +375,25 @@ function (exports, module, require) {
     function O(e) {
       var t = $(this).data("gpagepanel"),
         n = $(this).data("gpagepanel").vtree;
-      if (!t.blockHandlers && e.node instanceof a.GPage)
+      if (!t.blockHandlers && e.node instanceof GCore.GPage)
         if (
-          e.flag === a.GElement.Flag.Hidden ||
-          e.flag === a.GElement.Flag.PartialLocked ||
-          e.flag === a.GElement.Flag.FullLocked ||
-          e.flag === a.GNode.Flag.Active
+          e.flag === GCore.GElement.Flag.Hidden ||
+          e.flag === GCore.GElement.Flag.PartialLocked ||
+          e.flag === GCore.GElement.Flag.FullLocked ||
+          e.flag === GCore.GNode.Flag.Active
         ) {
-          var o = e.node.getScene(),
-            i = o && o.getActivePage();
-          if (i && i == e.node && e.set) {
+          var _interopRequireDefault = e.node.getScene(),
+            GTools = _interopRequireDefault && _interopRequireDefault.getActivePage();
+          if (GTools && GTools == e.node && e.set) {
             var r = C.call(this, e.node);
             n.expandAndFocus(r, true),
-              e.flag === a.GNode.Flag.Active
+              e.flag === GCore.GNode.Flag.Active
                 ? k.call(this, r)
                 : n.requestInvalidation();
           }
         } else
           t.blockHighlight ||
-            e.flag !== a.GNode.Flag.Highlighted ||
+            e.flag !== GCore.GNode.Flag.Highlighted ||
             n.requestInvalidation();
     }
     function F(e) {
@@ -415,7 +415,7 @@ function (exports, module, require) {
         (e.pagesTreeNodeMapByNodes = new Map()),
         (e.scene = null);
     }
-    a.GObject.inheritAndMix(h, a.GObject);
+    GCore.GObject.inheritAndMix(h, GCore.GObject);
     var N = {
       init: function (e) {
         return (
@@ -442,7 +442,7 @@ function (exports, module, require) {
             $(this)
               .addClass("g-page-panel")
               .data("gpagepanel", {
-                vtree: new c(
+                vtree: new IdxIterator(
                   this,
                   _.bind(this),
                   e.nodeStyle,
@@ -490,29 +490,29 @@ function (exports, module, require) {
         if (
           e !== n.scene &&
           (n.scene &&
-            n.scene.hasMixin(a.GEventTarget) &&
+            n.scene.hasMixin(GCore.GEventTarget) &&
             (n.scene.removeEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               n.afterNodeInsertHandler,
               this
             ),
             n.scene.removeEventListener(
-              a.GNode.BeforeRemoveEvent,
+              GCore.GNode.BeforeRemoveEvent,
               n.beforeNodeRemoveHandler,
               this
             ),
             n.scene.removeEventListener(
-              a.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               n.afterPropertiesChangeHandler,
               this
             ),
             n.scene.removeEventListener(
-              a.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               n.afterFlagChangeHandler,
               this
             ),
             gDesigner.removeEventListener(
-              l.default,
+              GSettingChangedEvent.default,
               n.settingChangedEvent,
               this
             )),
@@ -520,35 +520,35 @@ function (exports, module, require) {
           (n.scene = e),
           n.scene)
         ) {
-          n.scene.hasMixin(a.GEventTarget) &&
+          n.scene.hasMixin(GCore.GEventTarget) &&
             ((n.afterNodeInsertHandler = D.bind(this)),
             (n.beforeNodeRemoveHandler = L.bind(this)),
             (n.afterPropertiesChangeHandler = I.bind(this)),
             (n.afterFlagChangeHandler = O.bind(this)),
             (n.settingChangedEvent = F.bind(this)),
-            gDesigner.addEventListener(l.default, n.settingChangedEvent, this),
+            gDesigner.addEventListener(GSettingChangedEvent.default, n.settingChangedEvent, this),
             n.scene.addEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               n.afterNodeInsertHandler,
               this
             ),
             n.scene.addEventListener(
-              a.GNode.BeforeRemoveEvent,
+              GCore.GNode.BeforeRemoveEvent,
               n.beforeNodeRemoveHandler,
               this
             ),
             n.scene.addEventListener(
-              a.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               n.afterPropertiesChangeHandler,
               this
             ),
             n.scene.addEventListener(
-              a.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               n.afterFlagChangeHandler,
               this
             ));
-          for (var o = n.scene.getLastChild(); null !== o; o = o.getPrevious())
-            o instanceof a.GPage && G.call(this, o);
+          for (var _interopRequireDefault = n.scene.getLastChild(); null !== _interopRequireDefault; _interopRequireDefault = _interopRequireDefault.getPrevious())
+            _interopRequireDefault instanceof GCore.GPage && G.call(this, _interopRequireDefault);
           N._updateLayout.call(this);
         }
         return this;

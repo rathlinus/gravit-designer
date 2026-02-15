@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(124) /* module_124 */,
-      i = require(29) /* isCallable */,
+      isCallable = require(29) /* isCallable */,
       a = require(93) /* stub_requires_92 */,
       r = require(323) /* module_323 */,
       s = require(305) /* module_305 */,
@@ -37,7 +37,7 @@ function (exports, module, require) {
       else
         for (
           v = n ? new this() : [], w = (b = u(t, x)).next;
-          !(_ = i(w, b)).done;
+          !(_ = isCallable(w, b)).done;
           S++
         )
           (C = m ? r(b, f, [_.value, S], true) : _.value), d(v, S, C);

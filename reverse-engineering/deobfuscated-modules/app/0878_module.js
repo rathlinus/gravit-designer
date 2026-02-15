@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(10) /* AppSettings */,
-      a = o(require(1582) /* module_1582 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      AppSettings = require(10) /* AppSettings */,
+      a = _interopRequireDefault(require(1582) /* module_1582 */);
     exports.exports = class {
       constructor(e) {
         (this._target = e),
@@ -121,10 +121,10 @@ function (exports, module, require) {
       }
       _wasMoved(e) {
         const module = e.changedTouches[0],
-          { clientX: require, clientY: o } = module;
+          { clientX: require, clientY: _interopRequireDefault } = module;
         return !(
-          Math.abs(require - this._touchStartX) < i.MIN_TOUCH_MOVE_DISTANCE &&
-          Math.abs(o - this._touchStartY) < i.MIN_TOUCH_MOVE_DISTANCE
+          Math.abs(require - this._touchStartX) < AppSettings.MIN_TOUCH_MOVE_DISTANCE &&
+          Math.abs(_interopRequireDefault - this._touchStartY) < AppSettings.MIN_TOUCH_MOVE_DISTANCE
         );
       }
       _shouldHandle(e) {

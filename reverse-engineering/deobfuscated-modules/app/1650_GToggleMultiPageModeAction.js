@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(31) /* GAction */),
-      s = o(require(18) /* MenuItemBuilder */),
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       l = require(198) /* Exports_GOutlineSidebar */;
-    class c extends r.default {
+    class c extends GAction.default {
       getId() {
         return c.ID;
       }
@@ -20,10 +20,10 @@ function (exports, module, require) {
         return c.TITLE;
       }
       getCategory() {
-        return s.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }
       getShortcut() {
-        return [a.GKey.Constant.F6];
+        return [GEditor.GKey.Constant.F6];
       }
       isVisible() {
         return false;
@@ -38,6 +38,6 @@ function (exports, module, require) {
       }
     }
     (c.ID = "view.toggle-multi-page-mode"),
-      (c.TITLE = new i.GLocaleKey("GToggleMultiPageModeAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GToggleMultiPageModeAction", "title")),
       (exports.exports = c);
   }

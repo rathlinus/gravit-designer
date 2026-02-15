@@ -8,24 +8,24 @@ function (exports, module, require) {
     require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
     const { GObject: o } = require(1) /* module */,
       { GPlatform: i } = require(15) /* module */,
-      a = require(1355) /* GSimpleTreeNodeNamed */,
+      GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
       r = require(1191) /* module_1191 */,
       s = require(1356) /* module_1356 */,
       l = require(1357) /* module_1357 */,
       { handleCollabsData: c } = (require(536) /* module_536 */, require(882) /* module_882 */),
-      d = require(1354) /* GInvalidationOptions */,
+      GInvalidationOptions = require(1354) /* GInvalidationOptions */,
       u = require(434) /* stub_requires_30_1072 */;
     function p() {
       for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
         module[require] = arguments[require];
-      a.call(this, ...module), r.call(this);
+      GSimpleTreeNodeNamed.call(this, ...module), r.call(this);
     }
-    o.inheritAndMix(p, a, [r]),
+    o.inheritAndMix(p, GSimpleTreeNodeNamed, [r]),
       (p.prototype._checkTreeSanity = function () {
         return !!$(this._container).data("gannotationpanel");
       }),
       (p.prototype.clean = function () {
-        a.prototype.clean.call(this), this.clearChildren();
+        GSimpleTreeNodeNamed.prototype.clean.call(this), this.clearChildren();
       }),
       (p.prototype._isInvalidationBlocked = function () {
         return !!this.isEditingOrAddingContent();
@@ -59,7 +59,7 @@ function (exports, module, require) {
         let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
-            : new d();
+            : new GInvalidationOptions();
         this.clearChildren();
         var t = gDesigner.getApplicationManager();
         (this._hasResolveAccess = await t.hasAccess(

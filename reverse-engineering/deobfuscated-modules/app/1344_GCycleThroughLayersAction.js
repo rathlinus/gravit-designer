@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(15) /* module */,
-      a = require(1) /* module */,
-      r = o(require(18) /* MenuItemBuilder */),
-      s = o(require(31) /* GAction */),
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GEditor = require(15) /* module */,
+      GCore = require(1) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GAction = _interopRequireDefault(require(31) /* GAction */),
       l = require(198) /* Exports_GOutlineSidebar */;
-    class c extends s.default {
+    class c extends GAction.default {
       constructor(e) {
         super(),
           (this._type = e),
-          (this._title = new a.GLocaleKey(
+          (this._title = new GCore.GLocaleKey(
             "GCycleThroughLayersAction",
             "title.".concat(this._type)
           ));
@@ -28,14 +28,14 @@ function (exports, module, require) {
         return this._title;
       }
       getCategory() {
-        return r.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }
       getShortcut() {
         switch (this._type) {
           case c.Type.Next:
-            return [i.GKey.Constant.TAB];
+            return [GEditor.GKey.Constant.TAB];
           case c.Type.Previous:
-            return [i.GKey.Constant.SHIFT, i.GKey.Constant.TAB];
+            return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.TAB];
           default:
             return null;
         }
@@ -52,17 +52,17 @@ function (exports, module, require) {
           require = gDesigner
             .getLeftSidebars()
             .getSidebar(l.SidebarsIds.GOutlineSidebar),
-          o = require.getLayerPanel(),
-          i = o.gLayerPanel("getCurrentFocusedNode");
-        if (!i || module !== require.getId()) return;
-        const r = this._getNextNodeInIteration(exports, i);
-        if (r) {
-          const e = o.gLayerPanel("getItem", i),
-            t = o.gLayerPanel("getItem", r);
-          e.removeFlag(a.GNode.Flag.Selected),
-            t.setFlag(a.GNode.Flag.Selected),
-            o.gLayerPanel("setCurrentFocusedNode", r),
-            o.gLayerPanel("relayout");
+          _interopRequireDefault = require.getLayerPanel(),
+          GEditor = _interopRequireDefault.gLayerPanel("getCurrentFocusedNode");
+        if (!GEditor || module !== require.getId()) return;
+        const MenuItemBuilder = this._getNextNodeInIteration(exports, GEditor);
+        if (MenuItemBuilder) {
+          const e = _interopRequireDefault.gLayerPanel("getItem", GEditor),
+            t = _interopRequireDefault.gLayerPanel("getItem", MenuItemBuilder);
+          e.removeFlag(GCore.GNode.Flag.Selected),
+            t.setFlag(GCore.GNode.Flag.Selected),
+            _interopRequireDefault.gLayerPanel("setCurrentFocusedNode", MenuItemBuilder),
+            _interopRequireDefault.gLayerPanel("relayout");
         }
       }
       _getNextNodeInIteration(e, t) {

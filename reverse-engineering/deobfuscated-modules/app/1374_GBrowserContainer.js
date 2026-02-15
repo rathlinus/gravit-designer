@@ -18,13 +18,13 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var o = require(0) /* GObject */,
+    var GObject = require(0) /* GObject */,
       i = require(9) /* GLocale */,
-      a = require(47) /* GLocaleKey */,
+      GLocaleKey = require(47) /* GLocaleKey */,
       r = require(85) /* GContainer */,
       s = require(1195) /* Item */;
-    const l = require(1378) /* GMarketingFileStorageItem */;
-    var c = require(255) /* barrel_sidebars */,
+    const GMarketingFileStorageItem = require(1378) /* GMarketingFileStorageItem */;
+    var barrel_sidebars = require(255) /* barrel_sidebars */,
       d = require(1379) /* module_1379 */,
       u = require(1380) /* module_1380 */,
       p = require(1118) /* module_1118 */,
@@ -36,8 +36,8 @@ function (exports, module, require) {
       v = require(163) /* module_163 */,
       _ = require(86) /* module_86 */,
       b = require(1153) /* module_1153 */,
-      w = require(44) /* GSystemDialog */,
-      C = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
+      GSystemDialog = require(44) /* GSystemDialog */,
+      AppSettings = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
     const x = require(1482) /* module_1482 */,
       { base64StringToString: S } = require(40) /* CollaborationMergeUtils */;
     function E() {
@@ -49,7 +49,7 @@ function (exports, module, require) {
             });
           }, 15e3);
     }
-    o.inheritAndMix(E, r, [x]),
+    GObject.inheritAndMix(E, r, [x]),
       (E.prototype.getRuntime = function () {
         return window.matchMedia("(display-mode: standalone)").matches
           ? r.Runtime.PWA
@@ -62,17 +62,17 @@ function (exports, module, require) {
         return u;
       }),
       (E.prototype.supportsLocalFonts = function () {
-        return C;
+        return AppSettings;
       }),
       (E.prototype.registerFontProviders = function () {
         if (
           (r.prototype.registerFontProviders.call(this),
-          c.registerProvider(p),
-          c.registerProvider(d),
+          barrel_sidebars.registerProvider(p),
+          barrel_sidebars.registerProvider(d),
           this.supportsLocalFonts())
         )
           try {
-            c.registerProvider(g);
+            barrel_sidebars.registerProvider(g);
           } catch (e) {
             console.error("Local Fonts Access API is not available");
           }
@@ -85,39 +85,39 @@ function (exports, module, require) {
         var e,
           t,
           n,
-          o = new URL(window.location.href),
+          GObject = new URL(window.location.href),
           i = null;
-        if (o.searchParams) {
-          if (o.searchParams.get("token") && o.searchParams.get("d"))
+        if (GObject.searchParams) {
+          if (GObject.searchParams.get("token") && GObject.searchParams.get("d"))
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.DocumentOrToken,
               JSON.stringify({
-                token: o.searchParams.get(r.OpenFileRequest.Type.Token),
-                doc: o.searchParams.get("d"),
+                token: GObject.searchParams.get(r.OpenFileRequest.Type.Token),
+                doc: GObject.searchParams.get("d"),
               })
             );
-          else if (o.searchParams.get("token"))
+          else if (GObject.searchParams.get("token"))
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.Token,
-              o.searchParams.get(r.OpenFileRequest.Type.Token)
+              GObject.searchParams.get(r.OpenFileRequest.Type.Token)
             );
-          else if (o.searchParams.get("d"))
+          else if (GObject.searchParams.get("d"))
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.Document,
-              o.searchParams.get("d")
+              GObject.searchParams.get("d")
             );
-          else if (o.searchParams.get("storeContent"))
+          else if (GObject.searchParams.get("storeContent"))
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.StoreContent,
-              o.searchParams.get(r.OpenFileRequest.Type.StoreContent)
+              GObject.searchParams.get(r.OpenFileRequest.Type.StoreContent)
             );
-          else if (o.searchParams.get(r.OpenFileRequest.Type.ExternalAsset))
+          else if (GObject.searchParams.get(r.OpenFileRequest.Type.ExternalAsset))
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.ExternalAsset,
-              o.searchParams.get(r.OpenFileRequest.Type.ExternalAsset)
+              GObject.searchParams.get(r.OpenFileRequest.Type.ExternalAsset)
             );
-          else if (o.searchParams.get("directlink")) {
-            t = o.searchParams.get("directlink");
+          else if (GObject.searchParams.get("directlink")) {
+            t = GObject.searchParams.get("directlink");
             try {
               (e = JSON.parse(S(decodeURIComponent(t))).type) ===
               r.OpenFileRequest.Type.Preset
@@ -134,10 +134,10 @@ function (exports, module, require) {
           }
         } else {
           for (
-            var a =
+            var GLocaleKey =
                 /[&\?]((?:[\0-"\$-<>-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)=((?:[\0-"\$%'-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)/g,
               s = {};
-            (n = a.exec(window.location.href));
+            (n = GLocaleKey.exec(window.location.href));
 
           )
             s[n[1]] = n[2];
@@ -215,7 +215,7 @@ function (exports, module, require) {
       (E.prototype.openStorageFile = function (e, t, n) {
         E.openStorageFile(e, t, n, this._storage);
       }),
-      (E.openStorageFile = function (e, t, n, o) {
+      (E.openStorageFile = function (e, t, n, GObject) {
         var s = { progress: null };
         e.updateStatus(_.Loading, s),
           (async function () {
@@ -225,10 +225,10 @@ function (exports, module, require) {
                 p = t.getContent();
               if (u === r.OpenFileRequest.Type.StoreContent)
                 (d = await gApi.getProviderContentDetails(p)),
-                  d && n(new f.Item(o, d.id, d.name, d), { loadingData: s });
+                  d && n(new f.Item(GObject, d.id, d.name, d), { loadingData: s });
               else if (u === r.OpenFileRequest.Type.ExternalAsset)
                 (d = await gApi.getProviderContentDetails(p)),
-                  d && n(new m.Item(o, d.id, d.name, d, p), { loadingData: s });
+                  d && n(new m.Item(GObject, d.id, d.name, d, p), { loadingData: s });
               else if (u === r.OpenFileRequest.Type.Preset) {
                 let e = JSON.parse(S(decodeURIComponent(p))),
                   t =
@@ -236,17 +236,17 @@ function (exports, module, require) {
                     (function (e) {
                       let t = b.getPresets(),
                         n = null,
-                        o = null;
+                        GObject = null;
                       for (let i of t) {
                         let t = i.layouts.find((t) =>
                           t.template ? t.template === e : t.id === e
                         );
                         if (t) {
-                          (n = i.name), (o = t);
+                          (n = i.name), (GObject = t);
                           break;
                         }
                       }
-                      return { presetCategory: n, presetLayout: o };
+                      return { presetCategory: n, presetLayout: GObject };
                     })(e.id);
                 t &&
                   t.presetLayout &&
@@ -256,7 +256,7 @@ function (exports, module, require) {
                         .catch(() => null)),
                       d &&
                         n(
-                          new l(o, d.data, "".concat(e.id, ".gvdesign"), d.id),
+                          new GMarketingFileStorageItem(GObject, d.data, "".concat(e.id, ".gvdesign"), d.id),
                           { content: e, file: d, preset: t, loadingData: s }
                         ))
                     : n(t, {
@@ -267,10 +267,10 @@ function (exports, module, require) {
               } else if (u === r.OpenFileRequest.Type.Template) {
                 let e = JSON.parse(S(decodeURIComponent(p))),
                   { file: t, data: i } = await y.loadDesignData(e.id),
-                  a = v.FileTypes.find((e) => e.mime === t.type).ext;
+                  GLocaleKey = v.FileTypes.find((e) => e.mime === t.type).ext;
                 t &&
                   i &&
-                  n(new l(o, i, "".concat(t.name, ".").concat(a), t.id), {
+                  n(new GMarketingFileStorageItem(GObject, i, "".concat(t.name, ".").concat(GLocaleKey), t.id), {
                     content: e,
                     file: t,
                     category: t.path,
@@ -291,19 +291,19 @@ function (exports, module, require) {
                       ((t = p),
                       (d = await gApi.getShare(t, true).catch(() => null)));
                 if (d)
-                  n(new h.Item(o, d.id, d.name, d, null, t, d.autosave), {
+                  n(new h.Item(GObject, d.id, d.name, d, null, t, d.autosave), {
                     loadingData: s,
                   });
                 else {
-                  (s.text = i.get(new a("GContainer", "text.load-failed"))),
+                  (s.text = i.get(new GLocaleKey("GContainer", "text.load-failed"))),
                     e.updateStatus(_.LoadFailed, s),
                     e.setFailedDocumentIdOrToken(p),
                     n(null);
-                  var c = [];
+                  var barrel_sidebars = [];
                   gDesigner.getShareManager().isPermissionRequestEnabled() &&
-                    c.push({
+                    barrel_sidebars.push({
                       label: i.get(
-                        new a("GShareManager", "text.file-request-access")
+                        new GLocaleKey("GShareManager", "text.file-request-access")
                       ),
                       onclick: (e) => {
                         gDesigner.stats(
@@ -316,9 +316,9 @@ function (exports, module, require) {
                             })
                             .then(() => {
                               e.gDialog("close"),
-                                w.alert(
+                                GSystemDialog.alert(
                                   i.get(
-                                    new a(
+                                    new GLocaleKey(
                                       "GShareManager",
                                       "text.sent-request-email"
                                     )
@@ -326,9 +326,9 @@ function (exports, module, require) {
                                 );
                             })
                             .catch(() => {
-                              w.error(
+                              GSystemDialog.error(
                                 i.get(
-                                  new a(
+                                  new GLocaleKey(
                                     "GShareManager",
                                     "text.cannot-request-access"
                                   )
@@ -337,33 +337,33 @@ function (exports, module, require) {
                             });
                       },
                     }),
-                    c.push({
-                      label: i.get(new a("GLocale", "ok")),
+                    barrel_sidebars.push({
+                      label: i.get(new GLocaleKey("GLocale", "ok")),
                       onclick: (e) => {
                         gDesigner.stats("permission-dialog_no-access_click-ok"),
                           e.gDialog("close");
                       },
                       highlighted: true,
                     }),
-                    w.custom({
+                    GSystemDialog.custom({
                       icon: "error",
                       className: "g-file-can-not-be-found-dialog",
                       closeable: false,
                       closeCallback: () =>
                         gDesigner.removeDocument(e, null, true),
                       title: i.get(
-                        new a(
+                        new GLocaleKey(
                           "GShareManager",
                           "text.file-can-not-be-accessed-title"
                         )
                       ),
                       subtitle: i.get(
-                        new a(
+                        new GLocaleKey(
                           "GShareManager",
                           "text.file-can-not-be-accessed-info"
                         )
                       ),
-                      buttons: c,
+                      buttons: barrel_sidebars,
                     });
                 }
               }

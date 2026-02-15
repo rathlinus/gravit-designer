@@ -7,18 +7,18 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const {
         DESIGNER: { TITLE: i },
       } = require(10) /* AppSettings */,
-      a = require(606) /* GPanel */,
-      r = require(394) /* GView */,
+      GPanel = require(606) /* GPanel */,
+      GView = require(394) /* GView */,
       s = require(1321) /* module_1321 */,
-      l = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       c = require(860) /* module_860 */,
       d = require(1667) /* Type */;
     function u() {}
-    o.GObject.inherit(u, a),
+    GCore.GObject.inherit(u, GPanel),
       (u.ID = "notification-panel"),
       (u.prototype._htmlElement = null),
       (u.prototype._lastNotification = null),
@@ -40,7 +40,7 @@ function (exports, module, require) {
             })
             .appendTo(this._htmlElement),
           gDesigner.addEventListener(s, this._notificationEvent, this),
-          gDesigner.addEventListener(l, this._documentEvent, this);
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this);
       }),
       (u.prototype.isEnabled = function () {
         return !this._htmlElement.hasClass("g-hide");
@@ -52,14 +52,14 @@ function (exports, module, require) {
           this._lastNotification.document
         )
           switch (e.type) {
-            case l.Type.Activated: {
+            case GDocumentEvent.Type.Activated: {
               let t = e.document !== this._lastNotification.document;
               this._htmlElement.toggleClass("g-hide", t),
                 this._htmlElement.toggleClass("bring-to-front", t),
                 t && gDesigner.sendSideBarAndAssistBarToBack();
               break;
             }
-            case l.Type.Removed:
+            case GDocumentEvent.Type.Removed:
               e.document === this._lastNotification.document && this._close();
           }
       }),
@@ -78,21 +78,21 @@ function (exports, module, require) {
         ) {
           const t = gDesigner.getActiveDocument(),
             n = t && t.isDocumentFromTemplate() && t.isShared(),
-            a = (e) => {
+            GPanel = (e) => {
               e &&
                 !e.isAnonymous() &&
                 ((this._lastNotification = null),
                 this._htmlElement.addClass("g-hide"));
             };
-          let r = n
-            ? o.GLocale.get(
-                new o.GLocaleKey(
+          let GView = n
+            ? GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GNotificationPanel",
                   "text.create-account-template"
                 )
               )
-            : o.GLocale.get(
-                new o.GLocaleKey("GNotificationPanel", "text.create-account")
+            : GCore.GLocale.get(
+                new GCore.GLocaleKey("GNotificationPanel", "text.create-account")
               );
           const s = $("<div/>")
             .addClass("anonymous")
@@ -104,8 +104,8 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("title")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GNotificationPanel",
                           "text.title-welcome"
                         )
@@ -119,14 +119,14 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<span/>").html(
-                    r
+                    GView
                       .replace("%signup", () =>
                         $("<span/>")
                           .attr("id", "signup-link")
                           .addClass("link")
                           .text(
-                            o.GLocale.get(
-                              new o.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GNotificationPanel",
                                 "text.sign-up"
                               )
@@ -139,8 +139,8 @@ function (exports, module, require) {
                           .attr("id", "signin-link")
                           .addClass("link")
                           .text(
-                            o.GLocale.get(
-                              new o.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GNotificationPanel",
                                 "text.sign-in"
                               )
@@ -154,8 +154,8 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("footer")
                     .html(
-                      o.GLocale.get(
-                        new o.GLocaleKey("GNotificationPanel", "text.footer")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GNotificationPanel", "text.footer")
                       ).replace("%app", () =>
                         $("<span/>")
                           .attr("id", "learnmore-link")
@@ -168,11 +168,11 @@ function (exports, module, require) {
             );
           s.find("#signup-link").on("click", () => {
             gDesigner.stats("open-shared_click_create-account"),
-              new c(a).open({ anonymous: true, signup: true, animate: true });
+              new c(GPanel).open({ anonymous: true, signup: true, animate: true });
           }),
             s.find("#signin-link").on("click", () => {
               gDesigner.stats("open-shared_click_login"),
-                new c(a).open({ anonymous: true, animate: true });
+                new c(GPanel).open({ anonymous: true, animate: true });
             }),
             s.find('#learnmore-link').on('click', (e) => {
               gDesigner.stats('open-shared_click_learn-more'),
@@ -220,7 +220,7 @@ function (exports, module, require) {
                   .addClass("message")
                   .append(e.notification.message)
               );
-        this.trigger(r.UPDATE_EVENT);
+        this.trigger(GView.UPDATE_EVENT);
       }),
       (u.prototype._updateContent = function (e) {
         this._htmlElement.find(".content").remove(),
@@ -232,7 +232,7 @@ function (exports, module, require) {
         (this._lastNotification = null),
           this._htmlElement.addClass("g-hide"),
           this._closeCallback && e && this._closeCallback(),
-          this.trigger(r.UPDATE_EVENT);
+          this.trigger(GView.UPDATE_EVENT);
       }),
       (u.prototype.toString = function () {
         return "[Object GNotificationPanel]";

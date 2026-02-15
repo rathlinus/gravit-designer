@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = {
         init: function (e) {
           return this.each(function () {
@@ -16,7 +16,7 @@ function (exports, module, require) {
                 $("<div></div>")
                   .addClass("side")
                   .attr("data-side", n)
-                  .on("click", function (o) {
+                  .on("click", function (GCore) {
                     gDesigner.stats("pivot_click_change-button"),
                       i.value.call(e, n),
                       t.trigger("pivotchange", n);
@@ -24,9 +24,9 @@ function (exports, module, require) {
                   .appendTo(t);
               };
             for (var a in ($("<div></div>").addClass("borderline").appendTo(t),
-            o.GRect.Side))
-              if (o.GRect.Side.hasOwnProperty(a)) {
-                var r = o.GRect.Side[a];
+            GCore.GRect.Side))
+              if (GCore.GRect.Side.hasOwnProperty(a)) {
+                var r = GCore.GRect.Side[a];
                 "string" == typeof r && n(r);
               }
           });
@@ -37,8 +37,8 @@ function (exports, module, require) {
           return arguments.length
             ? ((n.value = e),
               t.find("div[data-side]").each(function (t, n) {
-                var o = $(n);
-                o.toggleClass("g-active", o.attr("data-side") === e);
+                var GCore = $(n);
+                GCore.toggleClass("g-active", GCore.attr("data-side") === e);
               }),
               this)
             : n.value;

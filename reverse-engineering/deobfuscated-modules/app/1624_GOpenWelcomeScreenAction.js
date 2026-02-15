@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(31) /* GAction */,
-      a = require(18) /* MenuItemBuilder */;
+    var GCore = require(1) /* module */,
+      GAction = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */;
     function r() {}
-    o.GObject.inherit(r, i),
+    GCore.GObject.inherit(r, GAction),
       (r.ID = "open-welcome-screen"),
-      (r.TITLE = new o.GLocaleKey("GOpenWelcomeScreenAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GOpenWelcomeScreenAction", "title")),
       (r.prototype.getId = function () {
         return r.ID;
       }),
@@ -21,7 +21,7 @@ function (exports, module, require) {
         return r.TITLE;
       }),
       (r.prototype.getCategory = function () {
-        return a.CATEGORY_HELP;
+        return MenuItemBuilder.CATEGORY_HELP;
       }),
       (r.prototype.getGroup = function () {
         return "help";

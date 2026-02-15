@@ -5,62 +5,62 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = {
         init: function (e) {
           var t = [
             {
-              unit: o.GLength.Unit.PX,
-              name: o.GLocale.get(new o.GLocaleKey("GLength", "unit.px")),
-              short: o.GLocale.get(
-                new o.GLocaleKey("GLength", "unit.px.short"),
+              unit: GCore.GLength.Unit.PX,
+              name: GCore.GLocale.get(new GCore.GLocaleKey("GLength", "unit.px")),
+              short: GCore.GLocale.get(
+                new GCore.GLocaleKey("GLength", "unit.px.short"),
                 undefined,
-                o.GLocaleLanguage.English
+                GCore.GLocaleLanguage.English
               ),
             },
             {
-              unit: o.GLength.Unit.MM,
-              name: o.GLocale.get(new o.GLocaleKey("GLength", "unit.mm")),
-              short: o.GLocale.get(
-                new o.GLocaleKey("GLength", "unit.mm.short"),
+              unit: GCore.GLength.Unit.MM,
+              name: GCore.GLocale.get(new GCore.GLocaleKey("GLength", "unit.mm")),
+              short: GCore.GLocale.get(
+                new GCore.GLocaleKey("GLength", "unit.mm.short"),
                 undefined,
-                o.GLocaleLanguage.English
+                GCore.GLocaleLanguage.English
               ),
             },
             {
-              unit: o.GLength.Unit.CM,
-              name: o.GLocale.get(new o.GLocaleKey("GLength", "unit.cm")),
-              short: o.GLocale.get(
-                new o.GLocaleKey("GLength", "unit.cm.short"),
+              unit: GCore.GLength.Unit.CM,
+              name: GCore.GLocale.get(new GCore.GLocaleKey("GLength", "unit.cm")),
+              short: GCore.GLocale.get(
+                new GCore.GLocaleKey("GLength", "unit.cm.short"),
                 undefined,
-                o.GLocaleLanguage.English
+                GCore.GLocaleLanguage.English
               ),
             },
             {
-              unit: o.GLength.Unit.IN,
-              name: o.GLocale.get(new o.GLocaleKey("GLength", "unit.in")),
-              short: o.GLocale.get(
-                new o.GLocaleKey("GLength", "unit.in.short"),
+              unit: GCore.GLength.Unit.IN,
+              name: GCore.GLocale.get(new GCore.GLocaleKey("GLength", "unit.in")),
+              short: GCore.GLocale.get(
+                new GCore.GLocaleKey("GLength", "unit.in.short"),
                 undefined,
-                o.GLocaleLanguage.English
+                GCore.GLocaleLanguage.English
               ),
             },
             {
-              unit: o.GLength.Unit.PC,
-              name: o.GLocale.get(new o.GLocaleKey("GLength", "unit.pc")),
-              short: o.GLocale.get(
-                new o.GLocaleKey("GLength", "unit.pc.short"),
+              unit: GCore.GLength.Unit.PC,
+              name: GCore.GLocale.get(new GCore.GLocaleKey("GLength", "unit.pc")),
+              short: GCore.GLocale.get(
+                new GCore.GLocaleKey("GLength", "unit.pc.short"),
                 undefined,
-                o.GLocaleLanguage.English
+                GCore.GLocaleLanguage.English
               ),
             },
             {
-              unit: o.GLength.Unit.PT,
-              name: o.GLocale.get(new o.GLocaleKey("GLength", "unit.pt")),
-              short: o.GLocale.get(
-                new o.GLocaleKey("GLength", "unit.pt.short"),
+              unit: GCore.GLength.Unit.PT,
+              name: GCore.GLocale.get(new GCore.GLocaleKey("GLength", "unit.pt")),
+              short: GCore.GLocale.get(
+                new GCore.GLocaleKey("GLength", "unit.pt.short"),
                 undefined,
-                o.GLocaleLanguage.English
+                GCore.GLocaleLanguage.English
               ),
             },
           ];
@@ -69,11 +69,11 @@ function (exports, module, require) {
             this.each(function () {
               var n = $(this);
               if (n.is("select"))
-                for (var o = 0; o < t.length; ++o)
+                for (var GCore = 0; GCore < t.length; ++GCore)
                   n.append(
                     $("<option></option>")
-                      .attr("value", t[o].unit)
-                      .text(e.short ? t[o].short : t[o].name)
+                      .attr("value", t[GCore].unit)
+                      .text(e.short ? t[GCore].short : t[GCore].name)
                   );
             })
           );

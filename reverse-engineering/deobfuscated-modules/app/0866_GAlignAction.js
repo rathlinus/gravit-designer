@@ -7,26 +7,26 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(15) /* module */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(18) /* MenuItemBuilder */,
-      l = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function c(e) {
       (this._type = e),
-        (this._title = new i.GLocaleKey("GAlignAction", "title." + e)),
+        (this._title = new GCore.GLocaleKey("GAlignAction", "title." + e)),
         (c.TOOLTIP_CONFIG = {
           [r.TOOLTIP_AREA.SIDEBAR]: {
-            [o.GEditor.ArrangeAlignType.AlignLeft]: r.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+            [GTools.GEditor.ArrangeAlignType.AlignLeft]: r.GRichTooltipConfig.from({
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAlignAction",
                   "text.align-left-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAlignAction",
                   "text.align-left-tooltip-description"
                 )
@@ -34,16 +34,16 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [o.GEditor.ArrangeAlignType.AlignCenter]: r.GRichTooltipConfig.from(
+            [GTools.GEditor.ArrangeAlignType.AlignCenter]: r.GRichTooltipConfig.from(
               {
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAlignAction",
                     "text.align-center-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAlignAction",
                     "text.align-center-tooltip-description"
                   )
@@ -52,15 +52,15 @@ function (exports, module, require) {
                   "",
               }
             ),
-            [o.GEditor.ArrangeAlignType.AlignRight]: r.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+            [GTools.GEditor.ArrangeAlignType.AlignRight]: r.GRichTooltipConfig.from({
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAlignAction",
                   "text.align-right-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAlignAction",
                   "text.align-right-tooltip-description"
                 )
@@ -68,12 +68,12 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [o.GEditor.ArrangeAlignType.AlignTop]: r.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey("GAlignAction", "text.align-top-tooltip-title")
+            [GTools.GEditor.ArrangeAlignType.AlignTop]: r.GRichTooltipConfig.from({
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey("GAlignAction", "text.align-top-tooltip-title")
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAlignAction",
                   "text.align-top-tooltip-description"
                 )
@@ -81,16 +81,16 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [o.GEditor.ArrangeAlignType.AlignMiddle]: r.GRichTooltipConfig.from(
+            [GTools.GEditor.ArrangeAlignType.AlignMiddle]: r.GRichTooltipConfig.from(
               {
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAlignAction",
                     "text.align-middle-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAlignAction",
                     "text.align-middle-tooltip-description"
                   )
@@ -99,16 +99,16 @@ function (exports, module, require) {
                   "",
               }
             ),
-            [o.GEditor.ArrangeAlignType.AlignBottom]: r.GRichTooltipConfig.from(
+            [GTools.GEditor.ArrangeAlignType.AlignBottom]: r.GRichTooltipConfig.from(
               {
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAlignAction",
                     "text.align-bottom-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAlignAction",
                     "text.align-bottom-tooltip-description"
                   )
@@ -120,7 +120,7 @@ function (exports, module, require) {
           },
         });
     }
-    i.GObject.inherit(c, l),
+    GCore.GObject.inherit(c, GAction),
       (c.ID = "arrange.align"),
       (c.TOOLTIP_CONFIG = null),
       (c.prototype._type = null),
@@ -132,23 +132,23 @@ function (exports, module, require) {
         return this._title;
       }),
       (c.prototype.getCategory = function () {
-        return s.CATEGORY_MODIFY_ALIGN;
+        return MenuItemBuilder.CATEGORY_MODIFY_ALIGN;
       }),
       (c.prototype.getGroup = function () {
         var e = "";
         switch (this._type) {
-          case o.GEditor.ArrangeAlignType.AlignLeft:
-          case o.GEditor.ArrangeAlignType.AlignCenter:
-          case o.GEditor.ArrangeAlignType.AlignRight:
+          case GTools.GEditor.ArrangeAlignType.AlignLeft:
+          case GTools.GEditor.ArrangeAlignType.AlignCenter:
+          case GTools.GEditor.ArrangeAlignType.AlignRight:
             e = "horizontal";
             break;
-          case o.GEditor.ArrangeAlignType.AlignTop:
-          case o.GEditor.ArrangeAlignType.AlignMiddle:
-          case o.GEditor.ArrangeAlignType.AlignBottom:
+          case GTools.GEditor.ArrangeAlignType.AlignTop:
+          case GTools.GEditor.ArrangeAlignType.AlignMiddle:
+          case GTools.GEditor.ArrangeAlignType.AlignBottom:
             e = "vertical";
             break;
-          case o.GEditor.ArrangeAlignType.AlignJustifyHorizontal:
-          case o.GEditor.ArrangeAlignType.AlignJustifyVertical:
+          case GTools.GEditor.ArrangeAlignType.AlignJustifyHorizontal:
+          case GTools.GEditor.ArrangeAlignType.AlignJustifyVertical:
             e = "justify";
         }
         return "arrange/align-" + e;
@@ -156,43 +156,43 @@ function (exports, module, require) {
       (c.prototype.getShortcut = function () {
         const exports = [a.GKey.Constant.OPTION];
         switch (this._type) {
-          case o.GEditor.ArrangeAlignType.AlignLeft:
+          case GTools.GEditor.ArrangeAlignType.AlignLeft:
             return exports.concat("A");
-          case o.GEditor.ArrangeAlignType.AlignCenter:
+          case GTools.GEditor.ArrangeAlignType.AlignCenter:
             return exports.concat("H");
-          case o.GEditor.ArrangeAlignType.AlignRight:
+          case GTools.GEditor.ArrangeAlignType.AlignRight:
             return exports.concat("D");
-          case o.GEditor.ArrangeAlignType.AlignTop:
+          case GTools.GEditor.ArrangeAlignType.AlignTop:
             return exports.concat("W");
-          case o.GEditor.ArrangeAlignType.AlignMiddle:
+          case GTools.GEditor.ArrangeAlignType.AlignMiddle:
             return exports.concat("V");
-          case o.GEditor.ArrangeAlignType.AlignBottom:
+          case GTools.GEditor.ArrangeAlignType.AlignBottom:
             return exports.concat("S");
           default:
             return null;
         }
       }),
       (c.prototype.isEnabled = function (e, t, n) {
-        var o = gDesigner.getActiveDocument()
+        var GTools = gDesigner.getActiveDocument()
           ? gDesigner.getActiveDocument().getEditor()
           : null;
         return !(
-          !(e = e || (o ? o.getIndividualSelection() : null)) || !e.length
+          !(e = e || (GTools ? GTools.getIndividualSelection() : null)) || !e.length
         );
       }),
       (c.prototype.execute = function (e, t, n) {
-        var i = gDesigner.getActiveDocument()
+        var GCore = gDesigner.getActiveDocument()
           ? gDesigner.getActiveDocument().getEditor()
           : null;
         if (
-          ((e = e || (i ? i.getIndividualSelection() : null)),
-          i && e && 1 === e.length && !n)
+          ((e = e || (GCore ? GCore.getIndividualSelection() : null)),
+          GCore && e && 1 === e.length && !n)
         ) {
-          var a = o.GElementEditor.getEditor(e[0]);
+          var a = GTools.GElementEditor.getEditor(e[0]);
           if (!a || !a.isAlignPartsAllowed())
-            if (i.getScene().isFixedSized())
-              n = i.getScene().getActivePage().getGeometryBBox();
-            else n = i.getScene().getPaintBBox();
+            if (GCore.getScene().isFixedSized())
+              n = GCore.getScene().getActivePage().getGeometryBBox();
+            else n = GCore.getScene().getPaintBBox();
         }
         gDesigner
           .getActiveDocument()
@@ -201,12 +201,12 @@ function (exports, module, require) {
       }),
       (c.prototype._isAlignOnlyCategory = function () {
         switch (this._type) {
-          case o.GEditor.ArrangeAlignType.AlignLeft:
-          case o.GEditor.ArrangeAlignType.AlignCenter:
-          case o.GEditor.ArrangeAlignType.AlignRight:
-          case o.GEditor.ArrangeAlignType.AlignTop:
-          case o.GEditor.ArrangeAlignType.AlignMiddle:
-          case o.GEditor.ArrangeAlignType.AlignBottom:
+          case GTools.GEditor.ArrangeAlignType.AlignLeft:
+          case GTools.GEditor.ArrangeAlignType.AlignCenter:
+          case GTools.GEditor.ArrangeAlignType.AlignRight:
+          case GTools.GEditor.ArrangeAlignType.AlignTop:
+          case GTools.GEditor.ArrangeAlignType.AlignMiddle:
+          case GTools.GEditor.ArrangeAlignType.AlignBottom:
             return true;
           default:
             return false;

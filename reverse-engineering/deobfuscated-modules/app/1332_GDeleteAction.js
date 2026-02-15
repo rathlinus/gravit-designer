@@ -6,23 +6,23 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var i = require(1) /* module */,
-      a = require(53) /* module */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
       r = require(15) /* module */,
-      s = require(10) /* AppSettings */,
-      l = require(40) /* CollaborationMergeUtils */,
-      c = o(require(44) /* GSystemDialog */),
-      d = require(567) /* GAnnotationsSidebar */,
-      u = require(18) /* MenuItemBuilder */,
-      p = require(31) /* GAction */;
+      AppSettings = require(10) /* AppSettings */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     const g = require(358) /* module_358 */,
       h = require(607) /* module_607 */;
     function f() {}
-    i.GObject.inherit(f, p),
+    GCore.GObject.inherit(f, GAction),
       (f.ID = "edit.delete"),
-      (f.TITLE = new i.GLocaleKey("GDeleteAction", "title")),
+      (f.TITLE = new GCore.GLocaleKey("GDeleteAction", "title")),
       (f.prototype._isConfirmWindowDisplaying = false),
       (f.prototype.getId = function () {
         return f.ID;
@@ -31,7 +31,7 @@ function (exports, module, require) {
         return f.TITLE;
       }),
       (f.prototype.getCategory = function () {
-        return u.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (f.prototype.getGroup = function () {
         return "ccp";
@@ -42,7 +42,7 @@ function (exports, module, require) {
       (f.prototype.getAdditionalShortcuts = function () {
         var e = [];
         return (
-          i.GSystem.operatingSystem === i.GSystem.OperatingSystem.OSX_IOS
+          GCore.GSystem.operatingSystem === GCore.GSystem.OperatingSystem.OSX_IOS
             ? e.push([r.GKey.Constant.DELETE])
             : e.push([r.GKey.Constant.BACKSPACE]),
           e
@@ -55,7 +55,7 @@ function (exports, module, require) {
           var module = e.getEditor().getSelection();
           if (module)
             for (var require = 0; require < module.length; ++require)
-              if (module[require] instanceof i.GItem || module[require] instanceof i.GLayer)
+              if (module[require] instanceof GCore.GItem || module[require] instanceof GCore.GLayer)
                 return true;
         }
         return false;
@@ -64,17 +64,17 @@ function (exports, module, require) {
         var e = gDesigner.getActiveDocument(),
           t = e.getEditor(),
           n = e.getActiveStylesList(),
-          o = gDesigner.getMouseOverContext();
+          _interopRequireDefault = gDesigner.getMouseOverContext();
         if (
-          s.HAS_ANNOTATIONS &&
-          gDesigner.getRightSidebars().getActiveSidebar() === d.ID
+          AppSettings.HAS_ANNOTATIONS &&
+          gDesigner.getRightSidebars().getActiveSidebar() === GAnnotationsSidebar.ID
         ) {
           var r = t.getSelection().filter((e) => g.canDeleteAnnotation(e));
           r.length &&
             (this._setIsConfirmWindowDisplaying(true),
-            c.default.confirm(
-              i.GLocale.get(
-                new i.GLocaleKey("GAnnotationPanel", "text.confirm-remove")
+            GSystemDialog.default.confirm(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GAnnotationPanel", "text.confirm-remove")
               ),
               (e) => {
                 e &&
@@ -83,7 +83,7 @@ function (exports, module, require) {
                   g.removeAnnotations(
                     r,
                     r[0].getParent(),
-                    i.GLocale.get(this.getTitle())
+                    GCore.GLocale.get(this.getTitle())
                   ),
                   this._setIsConfirmWindowDisplaying(false);
               },
@@ -93,26 +93,26 @@ function (exports, module, require) {
               true,
               true
             ));
-        } else if (o.context && (n.Fill || n.Border || n.Effect)) {
-          var u = null,
-            p = null,
+        } else if (_interopRequireDefault.context && (n.Fill || n.Border || n.Effect)) {
+          var MenuItemBuilder = null,
+            GAction = null,
             m = t.getSelection();
-          if (o.context === h.FillPropertiesPanel) (u = n.Fill), (p = "fill");
-          else if (o.context === h.BorderPropertiesPanel)
-            (u = n.Border), (p = "border");
+          if (_interopRequireDefault.context === h.FillPropertiesPanel) (MenuItemBuilder = n.Fill), (GAction = "fill");
+          else if (_interopRequireDefault.context === h.BorderPropertiesPanel)
+            (MenuItemBuilder = n.Border), (GAction = "border");
           else {
-            if (o.context !== h.EffectPropertiesPanel)
+            if (_interopRequireDefault.context !== h.EffectPropertiesPanel)
               return void t.deleteSelection();
-            (u = n.Effect), (p = "effect");
+            (MenuItemBuilder = n.Effect), (GAction = "effect");
           }
-          a.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             e.getScene(),
             function () {
-              (0, l.iterateEqualStyleLayers)(p, u, m, function (e) {
+              (0, CollaborationMergeUtils.iterateEqualStyleLayers)(GAction, MenuItemBuilder, m, function (e) {
                 e.getParent().removeChild(e);
               });
             },
-            i.GLocale.get(f.TITLE)
+            GCore.GLocale.get(f.TITLE)
           );
         } else t.deleteSelection();
       }),

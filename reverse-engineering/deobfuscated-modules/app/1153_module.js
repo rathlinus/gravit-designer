@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     require(173) /* stub_requires_1 */;
     function i() {}
-    o.GObject.inheritAndMix(i, o.GObject);
+    GCore.GObject.inheritAndMix(i, GCore.GObject);
     var a = null;
     (i.TYPE = {
       PRINT: "preset-print",
@@ -24,27 +24,27 @@ function (exports, module, require) {
             (a = [
               {
                 id: i.TYPE.PRINT,
-                name: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.print")
+                name: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.print")
                 ),
-                nameEn: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.print"),
+                nameEn: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.print"),
                   undefined,
-                  o.GLocaleLanguage.English
+                  GCore.GLocaleLanguage.English
                 ),
-                subTitle: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-sub-title.print")
+                subTitle: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-sub-title.print")
                 ),
-                localeClass: new o.GLocaleKey("GPresets", "preset-title.print"),
+                localeClass: new GCore.GLocaleKey("GPresets", "preset-title.print"),
                 icon: "preset-print",
                 default: 6,
                 layouts: [
                   {
                     id: "4a0",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.4a0")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.4a0")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "presets.4a0"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "presets.4a0"),
                     unit: "mm",
                     width: 1682,
                     height: 2378,
@@ -52,10 +52,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "2a0",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.2a0")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.2a0")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.2a0"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.2a0"),
                     unit: "mm",
                     width: 1189,
                     height: 1682,
@@ -63,10 +63,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a0",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a0")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a0")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a0"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a0"),
                     unit: "mm",
                     width: 841,
                     height: 1189,
@@ -74,10 +74,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a1",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a1")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a1")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a1"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a1"),
                     unit: "mm",
                     width: 594,
                     height: 841,
@@ -85,10 +85,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a2",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a2")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a2")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a2"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a2"),
                     unit: "mm",
                     width: 420,
                     height: 594,
@@ -96,10 +96,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a3",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a3")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a3")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a3"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a3"),
                     unit: "mm",
                     width: 297,
                     height: 420,
@@ -107,10 +107,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a4",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a4")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a4")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a4"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a4"),
                     unit: "mm",
                     width: 210,
                     height: 297,
@@ -118,10 +118,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a5",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a5")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a5")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a5"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a5"),
                     unit: "mm",
                     width: 148,
                     height: 210,
@@ -129,10 +129,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a6",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a6")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a6")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a6"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a6"),
                     unit: "mm",
                     width: 105,
                     height: 148,
@@ -140,10 +140,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a7",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a7")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a7")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a7"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a7"),
                     unit: "mm",
                     width: 74,
                     height: 105,
@@ -151,10 +151,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a8",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a8")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a8")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a8"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a8"),
                     unit: "mm",
                     width: 52,
                     height: 74,
@@ -162,10 +162,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a9",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a9")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a9")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a9"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a9"),
                     unit: "mm",
                     width: 37,
                     height: 52,
@@ -173,10 +173,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "a10",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.a10")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.a10")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.a10"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.a10"),
                     unit: "mm",
                     width: 26,
                     height: 37,
@@ -184,10 +184,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "us-letter-portrait",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.us-letter-portrait")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.us-letter-portrait")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.us-letter-portrait"
                     ),
@@ -198,10 +198,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "us-letter-landscape",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.us-letter-landscape")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.us-letter-landscape")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.us-letter-landscape"
                     ),
@@ -212,10 +212,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "business-card",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.business-card")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.business-card")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.business-card"
                     ),
@@ -226,10 +226,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "flyer",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.flyer")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.flyer")
                     ),
-                    localeClass: new o.GLocaleKey("GPresets", "preset.flyer"),
+                    localeClass: new GCore.GLocaleKey("GPresets", "preset.flyer"),
                     unit: "in",
                     width: 5,
                     height: 7,
@@ -237,10 +237,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "postcard",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.postcard")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.postcard")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.postcard"
                     ),
@@ -253,26 +253,26 @@ function (exports, module, require) {
               },
               {
                 id: i.TYPE.WEB,
-                name: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.web")
+                name: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.web")
                 ),
-                nameEn: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.web"),
+                nameEn: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.web"),
                   undefined,
-                  o.GLocaleLanguage.English
+                  GCore.GLocaleLanguage.English
                 ),
-                subTitle: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-sub-title.web")
+                subTitle: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-sub-title.web")
                 ),
-                localeClass: new o.GLocaleKey("GPresets", "preset-title.web"),
+                localeClass: new GCore.GLocaleKey("GPresets", "preset-title.web"),
                 icon: "preset-web",
                 layouts: [
                   {
                     id: "blog-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.blog-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.blog-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.blog-cover"
                     ),
@@ -282,10 +282,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "blog-graphic",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.blog-graphic")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.blog-graphic")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.blog-graphic"
                     ),
@@ -295,10 +295,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "website-small",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.website-small")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.website-small")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.website-small"
                     ),
@@ -308,10 +308,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "website-normal",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.website-normal")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.website-normal")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.website-normal"
                     ),
@@ -321,10 +321,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "website-medium",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.website-medium")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.website-medium")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.website-medium"
                     ),
@@ -334,10 +334,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "website-large",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.website-large")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.website-large")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.website-large"
                     ),
@@ -347,10 +347,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "website-huge",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.website-huge")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.website-huge")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.website-huge"
                     ),
@@ -360,10 +360,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "full-website",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.full-website")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.full-website")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.full-website"
                     ),
@@ -375,18 +375,18 @@ function (exports, module, require) {
               },
               {
                 id: i.TYPE.SOCIAL,
-                name: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.social")
+                name: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.social")
                 ),
-                nameEn: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.social"),
+                nameEn: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.social"),
                   undefined,
-                  o.GLocaleLanguage.English
+                  GCore.GLocaleLanguage.English
                 ),
-                subTitle: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-sub-title.social")
+                subTitle: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-sub-title.social")
                 ),
-                localeClass: new o.GLocaleKey(
+                localeClass: new GCore.GLocaleKey(
                   "GPresets",
                   "preset-title.social"
                 ),
@@ -394,10 +394,10 @@ function (exports, module, require) {
                 layouts: [
                   {
                     id: "facebook-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.facebook-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.facebook-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.facebook-cover"
                     ),
@@ -407,10 +407,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitter-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitter-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitter-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitter-cover"
                     ),
@@ -420,10 +420,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "blog-post",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.blog-post")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.blog-post")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.blog-post"
                     ),
@@ -433,10 +433,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "youtube-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.youtube-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.youtube-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.youtube-cover"
                     ),
@@ -446,10 +446,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "google-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.google-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.google-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.google-cover"
                     ),
@@ -459,13 +459,13 @@ function (exports, module, require) {
                   },
                   {
                     id: "google-business-profile",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey(
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPresets",
                         "preset.google-business-profile"
                       )
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.google-business-profile"
                     ),
@@ -475,13 +475,13 @@ function (exports, module, require) {
                   },
                   {
                     id: "google-business-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey(
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPresets",
                         "preset.google-business-cover"
                       )
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.google-business-cover"
                     ),
@@ -491,13 +491,13 @@ function (exports, module, require) {
                   },
                   {
                     id: "google-business-post",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey(
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPresets",
                         "preset.google-business-post"
                       )
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.google-business-post"
                     ),
@@ -507,10 +507,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "linkedin-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.linkedin-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.linkedin-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.linkedin-cover"
                     ),
@@ -520,10 +520,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitch-cover",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitch-cover")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitch-cover")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitch-cover"
                     ),
@@ -533,10 +533,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitter-post-small",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitter-post")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitter-post")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitter-post"
                     ),
@@ -546,10 +546,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitter-post-large",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitter-post")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitter-post")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitter-post"
                     ),
@@ -559,10 +559,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitter-profile",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitter-profile")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitter-profile")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitter-profile"
                     ),
@@ -572,10 +572,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitter-story",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitter-story")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitter-story")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitter-story"
                     ),
@@ -585,10 +585,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "facebook-post",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.facebook-post")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.facebook-post")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.facebook-post"
                     ),
@@ -598,10 +598,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "facebook-profile",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.facebook-profile")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.facebook-profile")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.facebook-profile"
                     ),
@@ -611,10 +611,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "facebook-story",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.facebook-story")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.facebook-story")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.facebook-story"
                     ),
@@ -624,10 +624,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "facebook-app",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.facebook-app")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.facebook-app")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.facebook-app"
                     ),
@@ -637,10 +637,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "facebook-ad",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.facebook-ad")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.facebook-ad")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.facebook-ad"
                     ),
@@ -650,10 +650,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "instagram-post",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.instagram-post")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.instagram-post")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.instagram-post"
                     ),
@@ -663,10 +663,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "instagram-profile",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.instagram-profile")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.instagram-profile")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.instagram-profile"
                     ),
@@ -676,10 +676,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "instagram-story",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.instagram-story")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.instagram-story")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.instagram-story"
                     ),
@@ -689,10 +689,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "instagram-thumbnail",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.instagram-thumbnail")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.instagram-thumbnail")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.instagram-thumbnail"
                     ),
@@ -702,10 +702,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "tumblr-graphic",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.tumblr-graphic")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.tumblr-graphic")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.tumblr-graphic"
                     ),
@@ -715,10 +715,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "pinterest-pin",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.pinterest-pin")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.pinterest-pin")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.pinterest-pin"
                     ),
@@ -728,10 +728,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "twitch-video",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.twitch-video")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.twitch-video")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.twitch-video"
                     ),
@@ -741,10 +741,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "linkedin-banner",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.linkedin-banner")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.linkedin-banner")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.linkedin-banner"
                     ),
@@ -754,10 +754,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "linkedin-profile",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.linkedin-profile")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.linkedin-profile")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.linkedin-profile"
                     ),
@@ -767,10 +767,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "linkedin-post",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.linkedin-post")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.linkedin-post")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.linkedin-post"
                     ),
@@ -780,10 +780,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "dribble-shot",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.dribble-shot")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.dribble-shot")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.dribble-shot"
                     ),
@@ -796,18 +796,18 @@ function (exports, module, require) {
               },
               {
                 id: i.TYPE.SCREEN,
-                name: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.screen")
+                name: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.screen")
                 ),
-                nameEn: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.screen"),
+                nameEn: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.screen"),
                   undefined,
-                  o.GLocaleLanguage.English
+                  GCore.GLocaleLanguage.English
                 ),
-                subTitle: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-sub-title.screen")
+                subTitle: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-sub-title.screen")
                 ),
-                localeClass: new o.GLocaleKey(
+                localeClass: new GCore.GLocaleKey(
                   "GPresets",
                   "preset-title.screen"
                 ),
@@ -871,10 +871,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "android-mobile",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "text.android-mobile")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "text.android-mobile")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "text.android-mobile"
                     ),
@@ -975,30 +975,30 @@ function (exports, module, require) {
               },
               {
                 id: i.TYPE.MERCH,
-                name: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.merch")
+                name: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.merch")
                 ),
-                nameEn: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-title.merch"),
+                nameEn: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-title.merch"),
                   undefined,
-                  o.GLocaleLanguage.English
+                  GCore.GLocaleLanguage.English
                 ),
-                subTitle: o.GLocale.get(
-                  new o.GLocaleKey("GPresets", "preset-sub-title.merch")
+                subTitle: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPresets", "preset-sub-title.merch")
                 ),
-                localeClass: new o.GLocaleKey("GPresets", "preset-title.merch"),
+                localeClass: new GCore.GLocaleKey("GPresets", "preset-title.merch"),
                 icon: "preset-merch",
                 hidden: true,
                 layouts: [
                   {
                     id: "amazon-shirt",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey(
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPresets",
                         "preset.amazon-shirt-pullover"
                       )
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.amazon-shirt-pullover"
                     ),
@@ -1007,10 +1007,10 @@ function (exports, module, require) {
                     template: "amazon_shirts",
                     includes: [
                       {
-                        name: o.GLocale.get(
-                          new o.GLocaleKey("GPresets", "preset.amazon-shirt")
+                        name: GCore.GLocale.get(
+                          new GCore.GLocaleKey("GPresets", "preset.amazon-shirt")
                         ),
-                        localeClass: new o.GLocaleKey(
+                        localeClass: new GCore.GLocaleKey(
                           "GPresets",
                           "preset.amazon-shirt"
                         ),
@@ -1019,10 +1019,10 @@ function (exports, module, require) {
                         displaySize: true,
                       },
                       {
-                        name: o.GLocale.get(
-                          new o.GLocaleKey("GPresets", "preset.amazon-pullover")
+                        name: GCore.GLocale.get(
+                          new GCore.GLocaleKey("GPresets", "preset.amazon-pullover")
                         ),
-                        localeClass: new o.GLocaleKey(
+                        localeClass: new GCore.GLocaleKey(
                           "GPresets",
                           "preset.amazon-pullover"
                         ),
@@ -1034,10 +1034,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "amazon-popsocket",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.amazon-popsocket")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.amazon-popsocket")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.amazon-popsocket"
                     ),
@@ -1049,10 +1049,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "teepublic-shirt",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.teepublic-shirt")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.teepublic-shirt")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.teepublic-shirt"
                     ),
@@ -1064,10 +1064,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "cafepress-shirt",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.cafepress-shirt")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.cafepress-shirt")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.cafepress-shirt"
                     ),
@@ -1079,10 +1079,10 @@ function (exports, module, require) {
                   },
                   {
                     id: "redbubble-shirt",
-                    name: o.GLocale.get(
-                      new o.GLocaleKey("GPresets", "preset.redbubble-shirt")
+                    name: GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPresets", "preset.redbubble-shirt")
                     ),
-                    localeClass: new o.GLocaleKey(
+                    localeClass: new GCore.GLocaleKey(
                       "GPresets",
                       "preset.redbubble-shirt"
                     ),
@@ -1091,13 +1091,13 @@ function (exports, module, require) {
                     template: "redbubble_shirts",
                     includes: [
                       {
-                        name: o.GLocale.get(
-                          new o.GLocaleKey(
+                        name: GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GPresets",
                             "preset.redbubble-shirt-standard"
                           )
                         ),
-                        localeClass: new o.GLocaleKey(
+                        localeClass: new GCore.GLocaleKey(
                           "GPresets",
                           "preset.redbubble-shirt-standard"
                         ),
@@ -1106,13 +1106,13 @@ function (exports, module, require) {
                         displaySize: true,
                       },
                       {
-                        name: o.GLocale.get(
-                          new o.GLocaleKey(
+                        name: GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GPresets",
                             "preset.redbubble-shirt-long"
                           )
                         ),
-                        localeClass: new o.GLocaleKey(
+                        localeClass: new GCore.GLocaleKey(
                           "GPresets",
                           "preset.redbubble-shirt-long"
                         ),

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.getCollabInfo = c),
       (module.handleCollabsData = async function (e) {
@@ -22,27 +22,27 @@ function (exports, module, require) {
               .getCollaboratorsCached(gDesigner.getActiveDocument());
         if (require && require.length)
           for (let e = 0; e < require.length; e++) {
-            let o = require[e];
+            let _interopRequireDefault = require[e];
             if (
-              !o.getRole().is(i.ShareRoles.Viewer) &&
-              !o.getRole().is(i.ShareRoles.NoAccess)
+              !_interopRequireDefault.getRole().is(AppSettings.ShareRoles.Viewer) &&
+              !_interopRequireDefault.getRole().is(AppSettings.ShareRoles.NoAccess)
             ) {
-              let e = await c(o.getUID());
-              module.push(a.default.createUserMention(o, e));
+              let e = await c(_interopRequireDefault.getUID());
+              module.push(a.default.createUserMention(_interopRequireDefault, e));
             }
           }
-        let o,
+        let _interopRequireDefault,
           s,
           l,
           d,
           u = [];
         if (module.length) {
-          (o = module.filter((e) => e.getRole().is(i.ShareRoles.Reviewer))),
-            (s = module.filter((e) => e.getRole().is(i.ShareRoles.Approver))),
-            (l = module.filter((e) => e.getRole().is(i.ShareRoles.CoAuthor))),
-            (d = module.filter((e) => e.getRole().is(i.ShareRoles.Owner)));
-          const e = (0, r.createAdditionalMentions)();
-          o && o.length && u.push(e.MENTION_ALL_REVIEWERS),
+          (_interopRequireDefault = module.filter((e) => e.getRole().is(AppSettings.ShareRoles.Reviewer))),
+            (s = module.filter((e) => e.getRole().is(AppSettings.ShareRoles.Approver))),
+            (l = module.filter((e) => e.getRole().is(AppSettings.ShareRoles.CoAuthor))),
+            (d = module.filter((e) => e.getRole().is(AppSettings.ShareRoles.Owner)));
+          const e = (0, GAnnotationPanel.createAdditionalMentions)();
+          _interopRequireDefault && _interopRequireDefault.length && u.push(e.MENTION_ALL_REVIEWERS),
             s && s.length && u.push(e.MENTION_ALL_APPROVERS),
             l && l.length && u.push(e.MENTION_ALL_CO_AUTHORS),
             d && d.length && u.push(e.MENTION_OWNER),
@@ -50,7 +50,7 @@ function (exports, module, require) {
         }
         return {
           data: module,
-          allReviewers: o,
+          allReviewers: _interopRequireDefault,
           allApprovers: s,
           allCoAuthors: l,
           owner: d,
@@ -58,7 +58,7 @@ function (exports, module, require) {
         };
       }),
       (module.replaceAdditionalCollabShowTextBeforeSend = function (e) {
-        const module = (0, r.createAdditionalMentions)();
+        const module = (0, GAnnotationPanel.createAdditionalMentions)();
         return (
           this._mentionsCollection.forEach((n) => {
             n.id === module.MENTION_ALL.id
@@ -93,7 +93,7 @@ function (exports, module, require) {
             this._assigneeRow.show();
             let e = this._mentionsCollection.reduce((e, t) => {
               let require = [],
-                o = e.map((e) => e.id);
+                _interopRequireDefault = e.map((e) => e.id);
               return (
                 (require =
                   t.id === s.MENTION_ALL_REVIEWERS.id &&
@@ -101,29 +101,29 @@ function (exports, module, require) {
                   this._mentionData.allReviewers &&
                   this._mentionData.allReviewers.length
                     ? this._mentionData.allReviewers.filter(
-                        (e) => !o.includes(e.id)
+                        (e) => !_interopRequireDefault.includes(e.id)
                       )
                     : t.id === s.MENTION_ALL_APPROVERS.id &&
                       this._mentionData &&
                       this._mentionData.allApprovers &&
                       this._mentionData.allApprovers.length
                     ? this._mentionData.allApprovers.filter(
-                        (e) => !o.includes(e.id)
+                        (e) => !_interopRequireDefault.includes(e.id)
                       )
                     : t.id === s.MENTION_ALL_CO_AUTHORS.id &&
                       this._mentionData &&
                       this._mentionData.allCoAuthors &&
                       this._mentionData.allCoAuthors.length
                     ? this._mentionData.allCoAuthors.filter(
-                        (e) => !o.includes(e.id)
+                        (e) => !_interopRequireDefault.includes(e.id)
                       )
                     : t.id === s.MENTION_ALL.id
-                    ? this._data.filter((e) => !o.includes(e.id))
+                    ? this._data.filter((e) => !_interopRequireDefault.includes(e.id))
                     : t.id === s.MENTION_OWNER.id &&
                       this._owner &&
                       this._owner.length
-                    ? this._owner.filter((e) => !o.includes(e.id))
-                    : o.includes(t.id)
+                    ? this._owner.filter((e) => !_interopRequireDefault.includes(e.id))
+                    : _interopRequireDefault.includes(t.id)
                     ? []
                     : [t]),
                 e.push(...require),
@@ -166,14 +166,14 @@ function (exports, module, require) {
       require(169) /* stub_requires_683 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(10) /* AppSettings */,
-      a = o(require(883) /* module_883 */),
-      r = require(1353) /* Exports_GAnnotationPanel */;
-    const s = (0, r.createAdditionalMentions)(),
+    var AppSettings = require(10) /* AppSettings */,
+      a = _interopRequireDefault(require(883) /* module_883 */),
+      GAnnotationPanel = require(1353) /* Exports_GAnnotationPanel */;
+    const s = (0, GAnnotationPanel.createAdditionalMentions)(),
       l = {};
     async function c(e) {
       return (
-        l.hasOwnProperty(e) || (l[e] = i.gApi.getUser(e, true).catch(() => null)),
+        l.hasOwnProperty(e) || (l[e] = AppSettings.gApi.getUser(e, true).catch(() => null)),
         l[e]
       );
     }

@@ -7,29 +7,29 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(106) /* GElementAction */,
-      l = require(44) /* GSystemDialog */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */,
+      GSystemDialog = require(44) /* GSystemDialog */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GCreateSymbolAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GCreateSymbolAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GCreateSymbolAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GCreateSymbolAction", "tooltip-description")
           ),
           learnMore: "",
         }),
       };
     }
-    o.GObject.inherit(c, s),
+    GCore.GObject.inherit(c, GElementAction),
       (c.ID = "modify.createsymbol"),
-      (c.TITLE = new o.GLocaleKey("GCreateSymbolAction", "title")),
-      (c.SHORTCUT = [i.GKey.Constant.F8]),
+      (c.TITLE = new GCore.GLocaleKey("GCreateSymbolAction", "title")),
+      (c.SHORTCUT = [GEditor.GKey.Constant.F8]),
       (c.TOOLTIP_CONFIG = null),
       (c.prototype.getId = function () {
         return c.ID;
@@ -38,7 +38,7 @@ function (exports, module, require) {
         return c.TITLE;
       }),
       (c.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_SYMBOL;
+        return MenuItemBuilder.CATEGORY_MODIFY_SYMBOL;
       }),
       (c.prototype.getGroup = function () {
         return "structure/modify";
@@ -57,31 +57,31 @@ function (exports, module, require) {
           if (e) {
             const t = e.getEditor().getIndividualSelection();
             if (t && t.length)
-              return t.filter((e) => e instanceof o.GSymbol).length > 1;
+              return t.filter((e) => e instanceof GCore.GSymbol).length > 1;
           }
         }
         return false;
       }),
       (c.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getIndividualSelection();
           if (module && module.length)
             for (
-              var require = 0, i = new o.GSymbol(), a = module.length - 1;
+              var require = 0, GEditor = new GCore.GSymbol(), a = module.length - 1;
               a >= 0;
               --a
             ) {
-              var r = module[a];
+              var MenuItemBuilder = module[a];
               if (
-                (r instanceof o.GSymbol && !r.getMasterSymbol()) ||
-                (r.validateInsertion(i) &&
-                  !r.getParent().isLocked() &&
-                  i.validateInsertion(r.getParent()) &&
-                  !o.GSymbol.containsUnsupportedNodes(r))
+                (MenuItemBuilder instanceof GCore.GSymbol && !MenuItemBuilder.getMasterSymbol()) ||
+                (MenuItemBuilder.validateInsertion(GEditor) &&
+                  !MenuItemBuilder.getParent().isLocked() &&
+                  GEditor.validateInsertion(MenuItemBuilder.getParent()) &&
+                  !GCore.GSymbol.containsUnsupportedNodes(MenuItemBuilder))
               ) {
-                if (!(r instanceof o.GSymbol && r.isMaster())) return true;
+                if (!(MenuItemBuilder instanceof GCore.GSymbol && MenuItemBuilder.isMaster())) return true;
                 if (++require > 1) return true;
               }
             }
@@ -91,26 +91,26 @@ function (exports, module, require) {
       (c.prototype.execute = function () {
         if (!this.isPro() || gDesigner.isEnabledProFeatures()) {
           var exports = 1,
-            module = o.GLocale.get(
-              new o.GLocaleKey(
+            module = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GCreateSymbolAction",
                 "createsymbol.defaultname"
               )
             ),
             require = module + " " + exports,
-            i = gDesigner.getActiveDocument();
-          if (i) {
-            var a = i.getScene();
+            GEditor = gDesigner.getActiveDocument();
+          if (GEditor) {
+            var a = GEditor.getScene();
             if (a)
-              (a.getSymbols() || []).forEach(function (i) {
-                i instanceof o.GSymbol &&
-                  i.isMaster() &&
-                  i.getProperty("name") === require &&
+              (a.getSymbols() || []).forEach(function (GEditor) {
+                GEditor instanceof GCore.GSymbol &&
+                  GEditor.isMaster() &&
+                  GEditor.getProperty("name") === require &&
                   (exports++, (require = module + " " + exports));
               }),
-                l.prompt(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                GSystemDialog.prompt(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCreateSymbolAction",
                       "createsymbol.enternewname"
                     )
@@ -118,34 +118,34 @@ function (exports, module, require) {
                   (e) => {
                     if (gDesigner.getActiveDocument() && e) {
                       var module = gDesigner.getActiveDocument().getEditor(),
-                        require = o.GNode.order(module.getIndividualSelection().slice());
+                        require = GCore.GNode.order(module.getIndividualSelection().slice());
                       module.beginTransaction();
                       try {
                         for (
-                          var i = new o.GSymbol(), a = null, r = require.length - 1;
-                          r >= 0;
-                          --r
+                          var GEditor = new GCore.GSymbol(), a = null, MenuItemBuilder = require.length - 1;
+                          MenuItemBuilder >= 0;
+                          --MenuItemBuilder
                         ) {
-                          var s = require[r];
-                          if (s instanceof o.GSymbol && s.convertToMaster(e))
-                            require.splice(r, 1);
+                          var GElementAction = require[MenuItemBuilder];
+                          if (GElementAction instanceof GCore.GSymbol && GElementAction.convertToMaster(e))
+                            require.splice(MenuItemBuilder, 1);
                           else if (
-                            s.validateInsertion(i) &&
-                            !o.GSymbol.containsUnsupportedNodes(s)
+                            GElementAction.validateInsertion(GEditor) &&
+                            !GCore.GSymbol.containsUnsupportedNodes(GElementAction)
                           ) {
                             if (
-                              !(a = s.getParent()).isLocked() &&
-                              i.validateInsertion(a)
+                              !(a = GElementAction.getParent()).isLocked() &&
+                              GEditor.validateInsertion(a)
                             )
                               break;
                             a = null;
                           }
                         }
-                        a && module.updateSelection(false, [o.GSymbol.create(require, a, e)]);
+                        a && module.updateSelection(false, [GCore.GSymbol.create(require, a, e)]);
                       } finally {
                         module.commitTransaction(
-                          o.GLocale.get(
-                            new o.GLocaleKey("GCreateSymbolAction", "title")
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey("GCreateSymbolAction", "title")
                           )
                         );
                       }

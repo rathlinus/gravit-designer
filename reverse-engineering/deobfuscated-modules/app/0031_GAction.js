@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(844) /* module_844 */);
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      r = _interopRequireDefault(require(844) /* module_844 */);
     function s() {}
-    i.GObject.inherit(s, i.GObject),
+    GCore.GObject.inherit(s, GCore.GObject),
       (s.SHORTCUT_DELAY = 500),
       (s.getActionShortcutHint = function (e, t) {
-        return e ? a.GKey.shortcutToString(e, t) : null;
+        return e ? GEditor.GKey.shortcutToString(e, t) : null;
       }),
       (s.prototype.getId = function () {
         throw new Error("Not Supported");

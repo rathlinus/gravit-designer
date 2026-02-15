@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(27) /* uncurryThis */,
+    var core_export = require(25) /* core_export */,
+      uncurryThis = require(27) /* uncurryThis */,
       a = require(361) /* module_361 */,
-      r = require(92) /* classof */,
-      s = require(62) /* requireObjectCoercible */,
+      classof = require(92) /* classof */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
       l = require(362) /* module_362 */,
-      c = i("".indexOf);
-    o(
+      c = uncurryThis("".indexOf);
+    core_export(
       { target: "String", proto: true, forced: !l("includes") },
       {
         includes: function (e) {
           return !!~c(
-            s(r(this)),
-            s(a(e)),
+            requireObjectCoercible(classof(this)),
+            requireObjectCoercible(a(e)),
             arguments.length > 1 ? arguments[1] : undefined
           );
         },

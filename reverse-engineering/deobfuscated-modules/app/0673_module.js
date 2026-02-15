@@ -7,47 +7,47 @@ function (exports, module, require) {
     "use strict";
     require(674) /* module_674 */;
     var o,
-      i = require(25) /* core_export */,
-      a = require(49) /* hasOwnProperty_wrapper */,
+      core_export = require(25) /* core_export */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       r = require(423) /* module_423 */,
-      s = require(23) /* globalThis */,
+      globalThis = require(23) /* globalThis */,
       l = require(124) /* module_124 */,
-      c = require(27) /* uncurryThis */,
-      d = require(79) /* defineBuiltIn */,
+      uncurryThis = require(27) /* uncurryThis */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
       u = require(120) /* module_120 */,
       p = require(146) /* module_146 */,
       g = require(61) /* module_61 */,
-      h = require(415) /* objectAssignPolyfill */,
+      objectAssignPolyfill = require(415) /* objectAssignPolyfill */,
       f = require(675) /* module_675 */,
       m = require(157) /* stub_requires_27 */,
       y = require(309) /* module_309 */.codeAt,
       v = require(676) /* module_676 */,
-      _ = require(62) /* requireObjectCoercible */,
-      b = require(137) /* setToStringTag */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      setToStringTag = require(137) /* setToStringTag */,
       w = require(303) /* module_303 */,
       C = require(424) /* polyfill_Array_isArray */,
-      x = require(80) /* internalState */,
-      S = x.set,
-      E = x.getterFor("URL"),
+      internalState = require(80) /* internalState */,
+      S = internalState.set,
+      E = internalState.getterFor("URL"),
       A = C.URLSearchParams,
       T = C.getState,
-      G = s.URL,
-      P = s.TypeError,
-      D = s.parseInt,
+      G = globalThis.URL,
+      P = globalThis.TypeError,
+      D = globalThis.parseInt,
       L = Math.floor,
       I = Math.pow,
-      k = c("".charAt),
-      O = c(/./.exec),
-      F = c([].join),
-      R = c((1).toString),
-      M = c([].pop),
-      N = c([].push),
-      B = c("".replace),
-      U = c([].shift),
-      $ = c("".split),
-      j = c("".slice),
-      K = c("".toLowerCase),
-      V = c([].unshift),
+      k = uncurryThis("".charAt),
+      O = uncurryThis(/./.exec),
+      F = uncurryThis([].join),
+      R = uncurryThis((1).toString),
+      M = uncurryThis([].pop),
+      N = uncurryThis([].push),
+      B = uncurryThis("".replace),
+      U = uncurryThis([].shift),
+      $ = uncurryThis("".split),
+      j = uncurryThis("".slice),
+      K = uncurryThis("".toLowerCase),
+      V = uncurryThis([].unshift),
       H = /[a-z]/i,
       W = /[\d+-.a-z]/i,
       z = /\d/,
@@ -61,7 +61,7 @@ function (exports, module, require) {
       te = /(^|[^\u0000-\u0020])[\u0000-\u0020]+$/,
       ne = /[\t\n\r]/g,
       oe = function (e) {
-        var t, n, o, i;
+        var t, n, o, core_export;
         if ("number" == typeof e) {
           for (t = [], n = 0; n < 4; n++) V(t, e % 256), (e = L(e / 256));
           return F(t, ".");
@@ -70,29 +70,29 @@ function (exports, module, require) {
           for (
             t = "",
               o = (function (e) {
-                for (var t = null, n = 1, o = null, i = 0, a = 0; a < 8; a++)
-                  0 !== e[a]
-                    ? (i > n && ((t = o), (n = i)), (o = null), (i = 0))
-                    : (null === o && (o = a), ++i);
-                return i > n ? o : t;
+                for (var t = null, n = 1, o = null, core_export = 0, hasOwnProperty_wrapper = 0; hasOwnProperty_wrapper < 8; hasOwnProperty_wrapper++)
+                  0 !== e[hasOwnProperty_wrapper]
+                    ? (core_export > n && ((t = o), (n = core_export)), (o = null), (core_export = 0))
+                    : (null === o && (o = hasOwnProperty_wrapper), ++core_export);
+                return core_export > n ? o : t;
               })(e),
               n = 0;
             n < 8;
             n++
           )
-            (i && 0 === e[n]) ||
-              (i && (i = false),
+            (core_export && 0 === e[n]) ||
+              (core_export && (core_export = false),
               o === n
-                ? ((t += n ? ":" : "::"), (i = true))
+                ? ((t += n ? ":" : "::"), (core_export = true))
                 : ((t += R(e[n], 16)), n < 7 && (t += ":")));
           return "[" + t + "]";
         }
         return e;
       },
       ie = {},
-      ae = h({}, ie, { " ": 1, '"': 1, "<": 1, ">": 1, "`": 1 }),
-      re = h({}, ae, { "#": 1, "?": 1, "{": 1, "}": 1 }),
-      se = h({}, re, {
+      ae = objectAssignPolyfill({}, ie, { " ": 1, '"': 1, "<": 1, ">": 1, "`": 1 }),
+      re = objectAssignPolyfill({}, ae, { "#": 1, "?": 1, "{": 1, "}": 1 }),
+      se = objectAssignPolyfill({}, re, {
         "/": 1,
         ":": 1,
         ";": 1,
@@ -155,393 +155,393 @@ function (exports, module, require) {
       ke = {},
       Oe = function (e, t, n) {
         var o,
-          i,
-          a,
-          r = _(e);
+          core_export,
+          hasOwnProperty_wrapper,
+          r = requireObjectCoercible(e);
         if (t) {
-          if ((i = this.parse(r))) throw new P(i);
+          if ((core_export = this.parse(r))) throw new P(core_export);
           this.searchParams = null;
         } else {
           if (
-            (undefined !== n && (o = new Oe(n, true)), (i = this.parse(r, null, o)))
+            (undefined !== n && (o = new Oe(n, true)), (core_export = this.parse(r, null, o)))
           )
-            throw new P(i);
-          (a = T(new A())).bindURL(this), (this.searchParams = a);
+            throw new P(core_export);
+          (hasOwnProperty_wrapper = T(new A())).bindURL(this), (this.searchParams = hasOwnProperty_wrapper);
         }
       };
     Oe.prototype = {
       type: "URL",
       parse: function (e, t, n) {
-        var i,
-          a,
+        var core_export,
+          hasOwnProperty_wrapper,
           r,
-          s,
+          globalThis,
           l,
-          c = this,
-          d = t || ge,
+          uncurryThis = this,
+          defineBuiltIn = t || ge,
           u = 0,
           p = "",
-          h = false,
+          objectAssignPolyfill = false,
           y = false,
           v = false;
         for (
-          e = _(e),
+          e = requireObjectCoercible(e),
             t ||
-              ((c.scheme = ""),
-              (c.username = ""),
-              (c.password = ""),
-              (c.host = null),
-              (c.port = null),
-              (c.path = []),
-              (c.query = null),
-              (c.fragment = null),
-              (c.cannotBeABaseURL = false),
+              ((uncurryThis.scheme = ""),
+              (uncurryThis.username = ""),
+              (uncurryThis.password = ""),
+              (uncurryThis.host = null),
+              (uncurryThis.port = null),
+              (uncurryThis.path = []),
+              (uncurryThis.query = null),
+              (uncurryThis.fragment = null),
+              (uncurryThis.cannotBeABaseURL = false),
               (e = B(e, ee, "")),
               (e = B(e, te, "$1"))),
             e = B(e, ne, ""),
-            i = f(e);
-          u <= i.length;
+            core_export = f(e);
+          u <= core_export.length;
 
         ) {
-          switch (((a = i[u]), d)) {
+          switch (((hasOwnProperty_wrapper = core_export[u]), defineBuiltIn)) {
             case ge:
-              if (!a || !O(H, a)) {
+              if (!hasOwnProperty_wrapper || !O(H, hasOwnProperty_wrapper)) {
                 if (t) return "Invalid scheme";
-                d = fe;
+                defineBuiltIn = fe;
                 continue;
               }
-              (p += K(a)), (d = he);
+              (p += K(hasOwnProperty_wrapper)), (defineBuiltIn = he);
               break;
             case he:
-              if (a && (O(W, a) || "+" === a || "-" === a || "." === a))
-                p += K(a);
+              if (hasOwnProperty_wrapper && (O(W, hasOwnProperty_wrapper) || "+" === hasOwnProperty_wrapper || "-" === hasOwnProperty_wrapper || "." === hasOwnProperty_wrapper))
+                p += K(hasOwnProperty_wrapper);
               else {
-                if (":" !== a) {
+                if (":" !== hasOwnProperty_wrapper) {
                   if (t) return "Invalid scheme";
-                  (p = ""), (d = fe), (u = 0);
+                  (p = ""), (defineBuiltIn = fe), (u = 0);
                   continue;
                 }
                 if (
                   t &&
-                  (c.isSpecial() !== g(ce, p) ||
+                  (uncurryThis.isSpecial() !== g(ce, p) ||
                     ("file" === p &&
-                      (c.includesCredentials() || null !== c.port)) ||
-                    ("file" === c.scheme && !c.host))
+                      (uncurryThis.includesCredentials() || null !== uncurryThis.port)) ||
+                    ("file" === uncurryThis.scheme && !uncurryThis.host))
                 )
                   return;
-                if (((c.scheme = p), t))
+                if (((uncurryThis.scheme = p), t))
                   return void (
-                    c.isSpecial() &&
-                    ce[c.scheme] === c.port &&
-                    (c.port = null)
+                    uncurryThis.isSpecial() &&
+                    ce[uncurryThis.scheme] === uncurryThis.port &&
+                    (uncurryThis.port = null)
                   );
                 (p = ""),
-                  "file" === c.scheme
-                    ? (d = Ae)
-                    : c.isSpecial() && n && n.scheme === c.scheme
-                    ? (d = me)
-                    : c.isSpecial()
-                    ? (d = be)
-                    : "/" === i[u + 1]
-                    ? ((d = ye), u++)
-                    : ((c.cannotBeABaseURL = true), N(c.path, ""), (d = Le));
+                  "file" === uncurryThis.scheme
+                    ? (defineBuiltIn = Ae)
+                    : uncurryThis.isSpecial() && n && n.scheme === uncurryThis.scheme
+                    ? (defineBuiltIn = me)
+                    : uncurryThis.isSpecial()
+                    ? (defineBuiltIn = be)
+                    : "/" === core_export[u + 1]
+                    ? ((defineBuiltIn = ye), u++)
+                    : ((uncurryThis.cannotBeABaseURL = true), N(uncurryThis.path, ""), (defineBuiltIn = Le));
               }
               break;
             case fe:
-              if (!n || (n.cannotBeABaseURL && "#" !== a))
+              if (!n || (n.cannotBeABaseURL && "#" !== hasOwnProperty_wrapper))
                 return "Invalid scheme";
-              if (n.cannotBeABaseURL && "#" === a) {
-                (c.scheme = n.scheme),
-                  (c.path = m(n.path)),
-                  (c.query = n.query),
-                  (c.fragment = ""),
-                  (c.cannotBeABaseURL = true),
-                  (d = ke);
+              if (n.cannotBeABaseURL && "#" === hasOwnProperty_wrapper) {
+                (uncurryThis.scheme = n.scheme),
+                  (uncurryThis.path = m(n.path)),
+                  (uncurryThis.query = n.query),
+                  (uncurryThis.fragment = ""),
+                  (uncurryThis.cannotBeABaseURL = true),
+                  (defineBuiltIn = ke);
                 break;
               }
-              d = "file" === n.scheme ? Ae : ve;
+              defineBuiltIn = "file" === n.scheme ? Ae : ve;
               continue;
             case me:
-              if ("/" !== a || "/" !== i[u + 1]) {
-                d = ve;
+              if ("/" !== hasOwnProperty_wrapper || "/" !== core_export[u + 1]) {
+                defineBuiltIn = ve;
                 continue;
               }
-              (d = we), u++;
+              (defineBuiltIn = we), u++;
               break;
             case ye:
-              if ("/" === a) {
-                d = Ce;
+              if ("/" === hasOwnProperty_wrapper) {
+                defineBuiltIn = Ce;
                 break;
               }
-              d = De;
+              defineBuiltIn = De;
               continue;
             case ve:
-              if (((c.scheme = n.scheme), a === o))
-                (c.username = n.username),
-                  (c.password = n.password),
-                  (c.host = n.host),
-                  (c.port = n.port),
-                  (c.path = m(n.path)),
-                  (c.query = n.query);
-              else if ("/" === a || ("\\" === a && c.isSpecial())) d = _e;
-              else if ("?" === a)
-                (c.username = n.username),
-                  (c.password = n.password),
-                  (c.host = n.host),
-                  (c.port = n.port),
-                  (c.path = m(n.path)),
-                  (c.query = ""),
-                  (d = Ie);
+              if (((uncurryThis.scheme = n.scheme), hasOwnProperty_wrapper === o))
+                (uncurryThis.username = n.username),
+                  (uncurryThis.password = n.password),
+                  (uncurryThis.host = n.host),
+                  (uncurryThis.port = n.port),
+                  (uncurryThis.path = m(n.path)),
+                  (uncurryThis.query = n.query);
+              else if ("/" === hasOwnProperty_wrapper || ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial())) defineBuiltIn = _e;
+              else if ("?" === hasOwnProperty_wrapper)
+                (uncurryThis.username = n.username),
+                  (uncurryThis.password = n.password),
+                  (uncurryThis.host = n.host),
+                  (uncurryThis.port = n.port),
+                  (uncurryThis.path = m(n.path)),
+                  (uncurryThis.query = ""),
+                  (defineBuiltIn = Ie);
               else {
-                if ("#" !== a) {
-                  (c.username = n.username),
-                    (c.password = n.password),
-                    (c.host = n.host),
-                    (c.port = n.port),
-                    (c.path = m(n.path)),
-                    c.path.length--,
-                    (d = De);
+                if ("#" !== hasOwnProperty_wrapper) {
+                  (uncurryThis.username = n.username),
+                    (uncurryThis.password = n.password),
+                    (uncurryThis.host = n.host),
+                    (uncurryThis.port = n.port),
+                    (uncurryThis.path = m(n.path)),
+                    uncurryThis.path.length--,
+                    (defineBuiltIn = De);
                   continue;
                 }
-                (c.username = n.username),
-                  (c.password = n.password),
-                  (c.host = n.host),
-                  (c.port = n.port),
-                  (c.path = m(n.path)),
-                  (c.query = n.query),
-                  (c.fragment = ""),
-                  (d = ke);
+                (uncurryThis.username = n.username),
+                  (uncurryThis.password = n.password),
+                  (uncurryThis.host = n.host),
+                  (uncurryThis.port = n.port),
+                  (uncurryThis.path = m(n.path)),
+                  (uncurryThis.query = n.query),
+                  (uncurryThis.fragment = ""),
+                  (defineBuiltIn = ke);
               }
               break;
             case _e:
-              if (!c.isSpecial() || ("/" !== a && "\\" !== a)) {
-                if ("/" !== a) {
-                  (c.username = n.username),
-                    (c.password = n.password),
-                    (c.host = n.host),
-                    (c.port = n.port),
-                    (d = De);
+              if (!uncurryThis.isSpecial() || ("/" !== hasOwnProperty_wrapper && "\\" !== hasOwnProperty_wrapper)) {
+                if ("/" !== hasOwnProperty_wrapper) {
+                  (uncurryThis.username = n.username),
+                    (uncurryThis.password = n.password),
+                    (uncurryThis.host = n.host),
+                    (uncurryThis.port = n.port),
+                    (defineBuiltIn = De);
                   continue;
                 }
-                d = Ce;
-              } else d = we;
+                defineBuiltIn = Ce;
+              } else defineBuiltIn = we;
               break;
             case be:
-              if (((d = we), "/" !== a || "/" !== k(p, u + 1))) continue;
+              if (((defineBuiltIn = we), "/" !== hasOwnProperty_wrapper || "/" !== k(p, u + 1))) continue;
               u++;
               break;
             case we:
-              if ("/" !== a && "\\" !== a) {
-                d = Ce;
+              if ("/" !== hasOwnProperty_wrapper && "\\" !== hasOwnProperty_wrapper) {
+                defineBuiltIn = Ce;
                 continue;
               }
               break;
             case Ce:
-              if ("@" === a) {
-                h && (p = "%40" + p), (h = true), (r = f(p));
-                for (var b = 0; b < r.length; b++) {
-                  var w = r[b];
+              if ("@" === hasOwnProperty_wrapper) {
+                objectAssignPolyfill && (p = "%40" + p), (objectAssignPolyfill = true), (r = f(p));
+                for (var setToStringTag = 0; setToStringTag < r.length; setToStringTag++) {
+                  var w = r[setToStringTag];
                   if (":" !== w || v) {
                     var C = le(w, se);
-                    v ? (c.password += C) : (c.username += C);
+                    v ? (uncurryThis.password += C) : (uncurryThis.username += C);
                   } else v = true;
                 }
                 p = "";
               } else if (
-                a === o ||
-                "/" === a ||
-                "?" === a ||
-                "#" === a ||
-                ("\\" === a && c.isSpecial())
+                hasOwnProperty_wrapper === o ||
+                "/" === hasOwnProperty_wrapper ||
+                "?" === hasOwnProperty_wrapper ||
+                "#" === hasOwnProperty_wrapper ||
+                ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial())
               ) {
-                if (h && "" === p) return "Invalid authority";
-                (u -= f(p).length + 1), (p = ""), (d = xe);
-              } else p += a;
+                if (objectAssignPolyfill && "" === p) return "Invalid authority";
+                (u -= f(p).length + 1), (p = ""), (defineBuiltIn = xe);
+              } else p += hasOwnProperty_wrapper;
               break;
             case xe:
             case Se:
-              if (t && "file" === c.scheme) {
-                d = Ge;
+              if (t && "file" === uncurryThis.scheme) {
+                defineBuiltIn = Ge;
                 continue;
               }
-              if (":" !== a || y) {
+              if (":" !== hasOwnProperty_wrapper || y) {
                 if (
-                  a === o ||
-                  "/" === a ||
-                  "?" === a ||
-                  "#" === a ||
-                  ("\\" === a && c.isSpecial())
+                  hasOwnProperty_wrapper === o ||
+                  "/" === hasOwnProperty_wrapper ||
+                  "?" === hasOwnProperty_wrapper ||
+                  "#" === hasOwnProperty_wrapper ||
+                  ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial())
                 ) {
-                  if (c.isSpecial() && "" === p) return "Invalid host";
+                  if (uncurryThis.isSpecial() && "" === p) return "Invalid host";
                   if (
                     t &&
                     "" === p &&
-                    (c.includesCredentials() || null !== c.port)
+                    (uncurryThis.includesCredentials() || null !== uncurryThis.port)
                   )
                     return;
-                  if ((s = c.parseHost(p))) return s;
-                  if (((p = ""), (d = Pe), t)) return;
+                  if ((globalThis = uncurryThis.parseHost(p))) return globalThis;
+                  if (((p = ""), (defineBuiltIn = Pe), t)) return;
                   continue;
                 }
-                "[" === a ? (y = true) : "]" === a && (y = false), (p += a);
+                "[" === hasOwnProperty_wrapper ? (y = true) : "]" === hasOwnProperty_wrapper && (y = false), (p += hasOwnProperty_wrapper);
               } else {
                 if ("" === p) return "Invalid host";
-                if ((s = c.parseHost(p))) return s;
-                if (((p = ""), (d = Ee), t === Se)) return;
+                if ((globalThis = uncurryThis.parseHost(p))) return globalThis;
+                if (((p = ""), (defineBuiltIn = Ee), t === Se)) return;
               }
               break;
             case Ee:
-              if (!O(z, a)) {
+              if (!O(z, hasOwnProperty_wrapper)) {
                 if (
-                  a === o ||
-                  "/" === a ||
-                  "?" === a ||
-                  "#" === a ||
-                  ("\\" === a && c.isSpecial()) ||
+                  hasOwnProperty_wrapper === o ||
+                  "/" === hasOwnProperty_wrapper ||
+                  "?" === hasOwnProperty_wrapper ||
+                  "#" === hasOwnProperty_wrapper ||
+                  ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
                   t
                 ) {
                   if ("" !== p) {
-                    var x = D(p, 10);
-                    if (x > 65535) return "Invalid port";
-                    (c.port = c.isSpecial() && x === ce[c.scheme] ? null : x),
+                    var internalState = D(p, 10);
+                    if (internalState > 65535) return "Invalid port";
+                    (uncurryThis.port = uncurryThis.isSpecial() && internalState === ce[uncurryThis.scheme] ? null : internalState),
                       (p = "");
                   }
                   if (t) return;
-                  d = Pe;
+                  defineBuiltIn = Pe;
                   continue;
                 }
                 return "Invalid port";
               }
-              p += a;
+              p += hasOwnProperty_wrapper;
               break;
             case Ae:
-              if (((c.scheme = "file"), "/" === a || "\\" === a)) d = Te;
+              if (((uncurryThis.scheme = "file"), "/" === hasOwnProperty_wrapper || "\\" === hasOwnProperty_wrapper)) defineBuiltIn = Te;
               else {
                 if (!n || "file" !== n.scheme) {
-                  d = De;
+                  defineBuiltIn = De;
                   continue;
                 }
-                switch (a) {
+                switch (hasOwnProperty_wrapper) {
                   case o:
-                    (c.host = n.host),
-                      (c.path = m(n.path)),
-                      (c.query = n.query);
+                    (uncurryThis.host = n.host),
+                      (uncurryThis.path = m(n.path)),
+                      (uncurryThis.query = n.query);
                     break;
                   case "?":
-                    (c.host = n.host),
-                      (c.path = m(n.path)),
-                      (c.query = ""),
-                      (d = Ie);
+                    (uncurryThis.host = n.host),
+                      (uncurryThis.path = m(n.path)),
+                      (uncurryThis.query = ""),
+                      (defineBuiltIn = Ie);
                     break;
                   case "#":
-                    (c.host = n.host),
-                      (c.path = m(n.path)),
-                      (c.query = n.query),
-                      (c.fragment = ""),
-                      (d = ke);
+                    (uncurryThis.host = n.host),
+                      (uncurryThis.path = m(n.path)),
+                      (uncurryThis.query = n.query),
+                      (uncurryThis.fragment = ""),
+                      (defineBuiltIn = ke);
                     break;
                   default:
-                    ue(F(m(i, u), "")) ||
-                      ((c.host = n.host),
-                      (c.path = m(n.path)),
-                      c.shortenPath()),
-                      (d = De);
+                    ue(F(m(core_export, u), "")) ||
+                      ((uncurryThis.host = n.host),
+                      (uncurryThis.path = m(n.path)),
+                      uncurryThis.shortenPath()),
+                      (defineBuiltIn = De);
                     continue;
                 }
               }
               break;
             case Te:
-              if ("/" === a || "\\" === a) {
-                d = Ge;
+              if ("/" === hasOwnProperty_wrapper || "\\" === hasOwnProperty_wrapper) {
+                defineBuiltIn = Ge;
                 break;
               }
               n &&
                 "file" === n.scheme &&
-                !ue(F(m(i, u), "")) &&
-                (de(n.path[0], true) ? N(c.path, n.path[0]) : (c.host = n.host)),
-                (d = De);
+                !ue(F(m(core_export, u), "")) &&
+                (de(n.path[0], true) ? N(uncurryThis.path, n.path[0]) : (uncurryThis.host = n.host)),
+                (defineBuiltIn = De);
               continue;
             case Ge:
               if (
-                a === o ||
-                "/" === a ||
-                "\\" === a ||
-                "?" === a ||
-                "#" === a
+                hasOwnProperty_wrapper === o ||
+                "/" === hasOwnProperty_wrapper ||
+                "\\" === hasOwnProperty_wrapper ||
+                "?" === hasOwnProperty_wrapper ||
+                "#" === hasOwnProperty_wrapper
               ) {
-                if (!t && de(p)) d = De;
+                if (!t && de(p)) defineBuiltIn = De;
                 else if ("" === p) {
-                  if (((c.host = ""), t)) return;
-                  d = Pe;
+                  if (((uncurryThis.host = ""), t)) return;
+                  defineBuiltIn = Pe;
                 } else {
-                  if ((s = c.parseHost(p))) return s;
-                  if (("localhost" === c.host && (c.host = ""), t)) return;
-                  (p = ""), (d = Pe);
+                  if ((globalThis = uncurryThis.parseHost(p))) return globalThis;
+                  if (("localhost" === uncurryThis.host && (uncurryThis.host = ""), t)) return;
+                  (p = ""), (defineBuiltIn = Pe);
                 }
                 continue;
               }
-              p += a;
+              p += hasOwnProperty_wrapper;
               break;
             case Pe:
-              if (c.isSpecial()) {
-                if (((d = De), "/" !== a && "\\" !== a)) continue;
-              } else if (t || "?" !== a)
-                if (t || "#" !== a) {
-                  if (a !== o && ((d = De), "/" !== a)) continue;
-                } else (c.fragment = ""), (d = ke);
-              else (c.query = ""), (d = Ie);
+              if (uncurryThis.isSpecial()) {
+                if (((defineBuiltIn = De), "/" !== hasOwnProperty_wrapper && "\\" !== hasOwnProperty_wrapper)) continue;
+              } else if (t || "?" !== hasOwnProperty_wrapper)
+                if (t || "#" !== hasOwnProperty_wrapper) {
+                  if (hasOwnProperty_wrapper !== o && ((defineBuiltIn = De), "/" !== hasOwnProperty_wrapper)) continue;
+                } else (uncurryThis.fragment = ""), (defineBuiltIn = ke);
+              else (uncurryThis.query = ""), (defineBuiltIn = Ie);
               break;
             case De:
               if (
-                a === o ||
-                "/" === a ||
-                ("\\" === a && c.isSpecial()) ||
-                (!t && ("?" === a || "#" === a))
+                hasOwnProperty_wrapper === o ||
+                "/" === hasOwnProperty_wrapper ||
+                ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
+                (!t && ("?" === hasOwnProperty_wrapper || "#" === hasOwnProperty_wrapper))
               ) {
                 if (
                   (".." === (l = K((l = p))) ||
                   "%2e." === l ||
                   ".%2e" === l ||
                   "%2e%2e" === l
-                    ? (c.shortenPath(),
-                      "/" === a ||
-                        ("\\" === a && c.isSpecial()) ||
-                        N(c.path, ""))
+                    ? (uncurryThis.shortenPath(),
+                      "/" === hasOwnProperty_wrapper ||
+                        ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
+                        N(uncurryThis.path, ""))
                     : pe(p)
-                    ? "/" === a ||
-                      ("\\" === a && c.isSpecial()) ||
-                      N(c.path, "")
-                    : ("file" === c.scheme &&
-                        !c.path.length &&
+                    ? "/" === hasOwnProperty_wrapper ||
+                      ("\\" === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
+                      N(uncurryThis.path, "")
+                    : ("file" === uncurryThis.scheme &&
+                        !uncurryThis.path.length &&
                         de(p) &&
-                        (c.host && (c.host = ""), (p = k(p, 0) + ":")),
-                      N(c.path, p)),
+                        (uncurryThis.host && (uncurryThis.host = ""), (p = k(p, 0) + ":")),
+                      N(uncurryThis.path, p)),
                   (p = ""),
-                  "file" === c.scheme && (a === o || "?" === a || "#" === a))
+                  "file" === uncurryThis.scheme && (hasOwnProperty_wrapper === o || "?" === hasOwnProperty_wrapper || "#" === hasOwnProperty_wrapper))
                 )
-                  for (; c.path.length > 1 && "" === c.path[0]; ) U(c.path);
-                "?" === a
-                  ? ((c.query = ""), (d = Ie))
-                  : "#" === a && ((c.fragment = ""), (d = ke));
-              } else p += le(a, re);
+                  for (; uncurryThis.path.length > 1 && "" === uncurryThis.path[0]; ) U(uncurryThis.path);
+                "?" === hasOwnProperty_wrapper
+                  ? ((uncurryThis.query = ""), (defineBuiltIn = Ie))
+                  : "#" === hasOwnProperty_wrapper && ((uncurryThis.fragment = ""), (defineBuiltIn = ke));
+              } else p += le(hasOwnProperty_wrapper, re);
               break;
             case Le:
-              "?" === a
-                ? ((c.query = ""), (d = Ie))
-                : "#" === a
-                ? ((c.fragment = ""), (d = ke))
-                : a !== o && (c.path[0] += le(a, ie));
+              "?" === hasOwnProperty_wrapper
+                ? ((uncurryThis.query = ""), (defineBuiltIn = Ie))
+                : "#" === hasOwnProperty_wrapper
+                ? ((uncurryThis.fragment = ""), (defineBuiltIn = ke))
+                : hasOwnProperty_wrapper !== o && (uncurryThis.path[0] += le(hasOwnProperty_wrapper, ie));
               break;
             case Ie:
-              t || "#" !== a
-                ? a !== o &&
-                  ("'" === a && c.isSpecial()
-                    ? (c.query += "%27")
-                    : (c.query += "#" === a ? "%23" : le(a, ie)))
-                : ((c.fragment = ""), (d = ke));
+              t || "#" !== hasOwnProperty_wrapper
+                ? hasOwnProperty_wrapper !== o &&
+                  ("'" === hasOwnProperty_wrapper && uncurryThis.isSpecial()
+                    ? (uncurryThis.query += "%27")
+                    : (uncurryThis.query += "#" === hasOwnProperty_wrapper ? "%23" : le(hasOwnProperty_wrapper, ie)))
+                : ((uncurryThis.fragment = ""), (defineBuiltIn = ke));
               break;
             case ke:
-              a !== o && (c.fragment += le(a, ae));
+              hasOwnProperty_wrapper !== o && (uncurryThis.fragment += le(hasOwnProperty_wrapper, ae));
           }
           u++;
         }
@@ -555,45 +555,45 @@ function (exports, module, require) {
               var t,
                 n,
                 o,
-                i,
-                a,
+                core_export,
+                hasOwnProperty_wrapper,
                 r,
-                s,
+                globalThis,
                 l = [0, 0, 0, 0, 0, 0, 0, 0],
-                c = 0,
-                d = null,
+                uncurryThis = 0,
+                defineBuiltIn = null,
                 u = 0,
                 p = function () {
                   return k(e, u);
                 };
               if (":" === p()) {
                 if (":" !== k(e, 1)) return;
-                (u += 2), (d = ++c);
+                (u += 2), (defineBuiltIn = ++uncurryThis);
               }
               for (; p(); ) {
-                if (8 === c) return;
+                if (8 === uncurryThis) return;
                 if (":" !== p()) {
                   for (t = n = 0; n < 4 && O(Q, p()); )
                     (t = 16 * t + D(p(), 16)), u++, n++;
                   if ("." === p()) {
                     if (0 === n) return;
-                    if (((u -= n), c > 6)) return;
+                    if (((u -= n), uncurryThis > 6)) return;
                     for (o = 0; p(); ) {
-                      if (((i = null), o > 0)) {
+                      if (((core_export = null), o > 0)) {
                         if (!("." === p() && o < 4)) return;
                         u++;
                       }
                       if (!O(z, p())) return;
                       for (; O(z, p()); ) {
-                        if (((a = D(p(), 10)), null === i)) i = a;
+                        if (((hasOwnProperty_wrapper = D(p(), 10)), null === core_export)) core_export = hasOwnProperty_wrapper;
                         else {
-                          if (0 === i) return;
-                          i = 10 * i + a;
+                          if (0 === core_export) return;
+                          core_export = 10 * core_export + hasOwnProperty_wrapper;
                         }
-                        if (i > 255) return;
+                        if (core_export > 255) return;
                         u++;
                       }
-                      (l[c] = 256 * l[c] + i), (2 !== ++o && 4 !== o) || c++;
+                      (l[uncurryThis] = 256 * l[uncurryThis] + core_export), (2 !== ++o && 4 !== o) || uncurryThis++;
                     }
                     if (4 !== o) return;
                     break;
@@ -601,16 +601,16 @@ function (exports, module, require) {
                   if (":" === p()) {
                     if ((u++, !p())) return;
                   } else if (p()) return;
-                  l[c++] = t;
+                  l[uncurryThis++] = t;
                 } else {
-                  if (null !== d) return;
-                  u++, (d = ++c);
+                  if (null !== defineBuiltIn) return;
+                  u++, (defineBuiltIn = ++uncurryThis);
                 }
               }
-              if (null !== d)
-                for (r = c - d, c = 7; 0 !== c && r > 0; )
-                  (s = l[c]), (l[c--] = l[d + r - 1]), (l[d + --r] = s);
-              else if (8 !== c) return;
+              if (null !== defineBuiltIn)
+                for (r = uncurryThis - defineBuiltIn, uncurryThis = 7; 0 !== uncurryThis && r > 0; )
+                  (globalThis = l[uncurryThis]), (l[uncurryThis--] = l[defineBuiltIn + r - 1]), (l[defineBuiltIn + --r] = globalThis);
+              else if (8 !== uncurryThis) return;
               return l;
             })(j(e, 1, -1)))
           )
@@ -624,10 +624,10 @@ function (exports, module, require) {
               var t,
                 n,
                 o,
-                i,
-                a,
+                core_export,
+                hasOwnProperty_wrapper,
                 r,
-                s,
+                globalThis,
                 l = $(e, ".");
               if (
                 (l.length && "" === l[l.length - 1] && l.length--,
@@ -635,18 +635,18 @@ function (exports, module, require) {
               )
                 return e;
               for (n = [], o = 0; o < t; o++) {
-                if ("" === (i = l[o])) return e;
+                if ("" === (core_export = l[o])) return e;
                 if (
-                  ((a = 10),
-                  i.length > 1 &&
-                    "0" === k(i, 0) &&
-                    ((a = O(q, i) ? 16 : 8), (i = j(i, 8 === a ? 1 : 2))),
-                  "" === i)
+                  ((hasOwnProperty_wrapper = 10),
+                  core_export.length > 1 &&
+                    "0" === k(core_export, 0) &&
+                    ((hasOwnProperty_wrapper = O(q, core_export) ? 16 : 8), (core_export = j(core_export, 8 === hasOwnProperty_wrapper ? 1 : 2))),
+                  "" === core_export)
                 )
                   r = 0;
                 else {
-                  if (!O(10 === a ? X : 8 === a ? Y : Q, i)) return e;
-                  r = D(i, a);
+                  if (!O(10 === hasOwnProperty_wrapper ? X : 8 === hasOwnProperty_wrapper ? Y : Q, core_export)) return e;
+                  r = D(core_export, hasOwnProperty_wrapper);
                 }
                 N(n, r);
               }
@@ -654,9 +654,9 @@ function (exports, module, require) {
                 if (((r = n[o]), o === t - 1)) {
                   if (r >= I(256, 5 - t)) return null;
                 } else if (r > 255) return null;
-              for (s = M(n), o = 0; o < n.length; o++)
-                s += n[o] * I(256, 3 - o);
-              return s;
+              for (globalThis = M(n), o = 0; o < n.length; o++)
+                globalThis += n[o] * I(256, 3 - o);
+              return globalThis;
             })(e))
           )
             return "Invalid host";
@@ -686,23 +686,23 @@ function (exports, module, require) {
           t = e.scheme,
           n = e.username,
           o = e.password,
-          i = e.host,
-          a = e.port,
+          core_export = e.host,
+          hasOwnProperty_wrapper = e.port,
           r = e.path,
-          s = e.query,
+          globalThis = e.query,
           l = e.fragment,
-          c = t + ":";
+          uncurryThis = t + ":";
         return (
-          null !== i
-            ? ((c += "//"),
-              e.includesCredentials() && (c += n + (o ? ":" + o : "") + "@"),
-              (c += oe(i)),
-              null !== a && (c += ":" + a))
-            : "file" === t && (c += "//"),
-          (c += e.cannotBeABaseURL ? r[0] : r.length ? "/" + F(r, "/") : ""),
-          null !== s && (c += "?" + s),
-          null !== l && (c += "#" + l),
-          c
+          null !== core_export
+            ? ((uncurryThis += "//"),
+              e.includesCredentials() && (uncurryThis += n + (o ? ":" + o : "") + "@"),
+              (uncurryThis += oe(core_export)),
+              null !== hasOwnProperty_wrapper && (uncurryThis += ":" + hasOwnProperty_wrapper))
+            : "file" === t && (uncurryThis += "//"),
+          (uncurryThis += e.cannotBeABaseURL ? r[0] : r.length ? "/" + F(r, "/") : ""),
+          null !== globalThis && (uncurryThis += "?" + globalThis),
+          null !== l && (uncurryThis += "#" + l),
+          uncurryThis
         );
       },
       setHref: function (e) {
@@ -727,13 +727,13 @@ function (exports, module, require) {
         return this.scheme + ":";
       },
       setProtocol: function (e) {
-        this.parse(_(e) + ":", ge);
+        this.parse(requireObjectCoercible(e) + ":", ge);
       },
       getUsername: function () {
         return this.username;
       },
       setUsername: function (e) {
-        var t = f(_(e));
+        var t = f(requireObjectCoercible(e));
         if (!this.cannotHaveUsernamePasswordPort()) {
           this.username = "";
           for (var require = 0; require < t.length; require++) this.username += le(t[require], se);
@@ -743,7 +743,7 @@ function (exports, module, require) {
         return this.password;
       },
       setPassword: function (e) {
-        var t = f(_(e));
+        var t = f(requireObjectCoercible(e));
         if (!this.cannotHaveUsernamePasswordPort()) {
           this.password = "";
           for (var require = 0; require < t.length; require++) this.password += le(t[require], se);
@@ -766,11 +766,11 @@ function (exports, module, require) {
       },
       getPort: function () {
         var e = this.port;
-        return null === e ? "" : _(e);
+        return null === e ? "" : requireObjectCoercible(e);
       },
       setPort: function (e) {
         this.cannotHaveUsernamePasswordPort() ||
-          ("" === (e = _(e)) ? (this.port = null) : this.parse(e, Ee));
+          ("" === (e = requireObjectCoercible(e)) ? (this.port = null) : this.parse(e, Ee));
       },
       getPathname: function () {
         var e = this.path;
@@ -784,7 +784,7 @@ function (exports, module, require) {
         return e ? "?" + e : "";
       },
       setSearch: function (e) {
-        "" === (e = _(e))
+        "" === (e = requireObjectCoercible(e))
           ? (this.query = null)
           : ("?" === k(e, 0) && (e = j(e, 1)),
             (this.query = ""),
@@ -799,7 +799,7 @@ function (exports, module, require) {
         return e ? "#" + e : "";
       },
       setHash: function (e) {
-        "" !== (e = _(e))
+        "" !== (e = requireObjectCoercible(e))
           ? ("#" === k(e, 0) && (e = j(e, 1)),
             (this.fragment = ""),
             this.parse(e, ke))
@@ -813,7 +813,7 @@ function (exports, module, require) {
         var t = p(this, Re),
           n = w(arguments.length, 1) > 1 ? arguments[1] : undefined,
           o = S(t, new Oe(e, false, n));
-        a ||
+        hasOwnProperty_wrapper ||
           ((t.href = o.serialize()),
           (t.origin = o.getOrigin()),
           (t.protocol = o.getProtocol()),
@@ -843,7 +843,7 @@ function (exports, module, require) {
         };
       };
     if (
-      (a &&
+      (hasOwnProperty_wrapper &&
         (u(Re, "href", Me("serialize", "setHref")),
         u(Re, "origin", Me("getOrigin")),
         u(Re, "protocol", Me("getProtocol", "setProtocol")),
@@ -856,7 +856,7 @@ function (exports, module, require) {
         u(Re, "search", Me("getSearch", "setSearch")),
         u(Re, "searchParams", Me("getSearchParams")),
         u(Re, "hash", Me("getHash", "setHash"))),
-      d(
+      defineBuiltIn(
         Re,
         "toJSON",
         function () {
@@ -864,7 +864,7 @@ function (exports, module, require) {
         },
         { enumerable: true }
       ),
-      d(
+      defineBuiltIn(
         Re,
         "toString",
         function () {
@@ -876,9 +876,9 @@ function (exports, module, require) {
     ) {
       var Ne = G.createObjectURL,
         Be = G.revokeObjectURL;
-      Ne && d(Fe, "createObjectURL", l(Ne, G)),
-        Be && d(Fe, "revokeObjectURL", l(Be, G));
+      Ne && defineBuiltIn(Fe, "createObjectURL", l(Ne, G)),
+        Be && defineBuiltIn(Fe, "revokeObjectURL", l(Be, G));
     }
-    b(Fe, "URL"),
-      i({ global: true, constructor: true, forced: !r, sham: !a }, { URL: Fe });
+    setToStringTag(Fe, "URL"),
+      core_export({ global: true, constructor: true, forced: !r, sham: !hasOwnProperty_wrapper }, { URL: Fe });
   }

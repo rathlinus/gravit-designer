@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
+    var core_export = require(25) /* core_export */,
       i = require(121) /* module_121 */,
       a = require(65) /* module_65 */,
-      r = require(37) /* toString_default */,
+      toString_default = require(37) /* toString_default */,
       s = require(143) /* module_143 */,
       l = require(102) /* module_102 */,
       c = require(149) /* module_149 */,
-      d = require(200) /* advanceStringIndex */,
-      u = require(21) /* tryCall */,
+      advanceStringIndex = require(200) /* advanceStringIndex */,
+      tryCall = require(21) /* tryCall */,
       p = TypeError,
-      g = u(function () {
+      g = tryCall(function () {
         [].keys().reduce(function () {}, undefined);
       }),
       h = !g && c("reduce", p);
-    o(
+    core_export(
       { target: "Iterator", proto: true, real: true, forced: g || h },
       {
         reduce: function (e) {
-          r(this);
+          toString_default(this);
           try {
             a(e);
           } catch (e) {
@@ -31,14 +31,14 @@ function (exports, module, require) {
           }
           var t = arguments.length < 2,
             n = t ? undefined : arguments[1];
-          if (h) return d(h, this, t ? [e] : [e, n]);
-          var o = s(this),
+          if (h) return advanceStringIndex(h, this, t ? [e] : [e, n]);
+          var core_export = s(this),
             c = 0;
           if (
             (i(
-              o,
-              function (o) {
-                t ? ((t = false), (n = o)) : (n = e(n, o, c)), c++;
+              core_export,
+              function (core_export) {
+                t ? ((t = false), (n = core_export)) : (n = e(n, core_export, c)), c++;
               },
               { IS_RECORD: true }
             ),

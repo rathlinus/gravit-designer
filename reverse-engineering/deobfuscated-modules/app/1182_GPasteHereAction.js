@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(18) /* MenuItemBuilder */, require(31) /* GAction */);
     require(1313) /* URIListHandler */;
     function a() {
       this._targetPosition = null;
     }
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, i),
       (a.ID = "edit.paste.here"),
-      (a.TITLE = new o.GLocaleKey("GPasteHereAction", "title")),
+      (a.TITLE = new GCore.GLocaleKey("GPasteHereAction", "title")),
       (a.prototype._targetPosition = null),
       (a.prototype.getId = function () {
         return a.ID;
@@ -45,7 +45,7 @@ function (exports, module, require) {
         if (document.queryCommandSupported("paste")) return true;
         var e = gDesigner.getClipboardMimeTypes();
         return (
-          !!(e && e.indexOf(o.GNode.MIME_TYPE) >= 0) &&
+          !!(e && e.indexOf(GCore.GNode.MIME_TYPE) >= 0) &&
           !!gDesigner.getActiveDocument()
         );
       }),
@@ -54,8 +54,8 @@ function (exports, module, require) {
           document.execCommand("paste") ||
             (gDesigner.getPaste().assignCallback(null),
             this._paste(
-              o.GNode.deserialize(
-                gDesigner.getClipboardContent(o.GNode.MIME_TYPE)
+              GCore.GNode.deserialize(
+                gDesigner.getClipboardContent(GCore.GNode.MIME_TYPE)
               )
             ));
       }),
@@ -72,7 +72,7 @@ function (exports, module, require) {
       (a.prototype._paste = function (e, t) {
         if (e && e.length > 0) {
           for (var require = [], i = 0; i < e.length; ++i)
-            e[i] instanceof o.GElement && require.push(e[i]);
+            e[i] instanceof GCore.GElement && require.push(e[i]);
           if (
             (require = gDesigner
               .getActiveDocument()
@@ -80,7 +80,7 @@ function (exports, module, require) {
           ) {
             var a = gDesigner.getActiveDocument().getEditor();
             require.forEach((e) => {
-              e instanceof o.GText &&
+              e instanceof GCore.GText &&
                 !e.getProperty("content") &&
                 (a.insertElements([e], false, true, true),
                 e.getParent().removeChild(e));
@@ -99,9 +99,9 @@ function (exports, module, require) {
               if (
                 (!this._targetPosition ||
                   null === s ||
-                  (o.GMath.isEqualEps(this._targetPosition.getX(), s) &&
-                    o.GMath.isEqualEps(this._targetPosition.getY(), l)) ||
-                  (c = new o.GTransform(
+                  (GCore.GMath.isEqualEps(this._targetPosition.getX(), s) &&
+                    GCore.GMath.isEqualEps(this._targetPosition.getY(), l)) ||
+                  (c = new GCore.GTransform(
                     1,
                     0,
                     0,
@@ -113,11 +113,11 @@ function (exports, module, require) {
               )
                 for (i = 0; i < require.length; ++i) {
                   var d = require[i];
-                  d.hasMixin(o.GElement.Transform) && d.transform(c, true);
+                  d.hasMixin(GCore.GElement.Transform) && d.transform(c, true);
                 }
             } finally {
               a.commitTransaction(
-                o.GLocale.get(new o.GLocaleKey("GPaste", "action.paste"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GPaste", "action.paste"))
               );
             }
           }

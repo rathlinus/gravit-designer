@@ -18,16 +18,16 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */;
     class a {
       static error(e) {
         let { showTitle: module = true, closeCallback: require } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return a.custom({
           title: module
-            ? o.GLocale.get(
-                new o.GLocaleKey("GCommonNames", "text.something-wrong")
+            ? GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.something-wrong")
               )
             : "",
           subtitle: gApi.formatError(e),
@@ -36,35 +36,35 @@ function (exports, module, require) {
       }
       static externalFileError(e) {
         let module = e
-          ? o.GLocale.get(
-              new o.GLocaleKey("GContainer", "text.load-failed-from-recent")
+          ? GCore.GLocale.get(
+              new GCore.GLocaleKey("GContainer", "text.load-failed-from-recent")
             )
-          : o.GLocale.get(
-              new o.GLocaleKey("GContainer", "text.load-failed-from-link")
+          : GCore.GLocale.get(
+              new GCore.GLocaleKey("GContainer", "text.load-failed-from-link")
             );
         return a.custom({ subtitle: module, icon: "error" });
       }
       static splashScreenError(e, t, n) {
-        var o = $("<div></div>").append(
+        var GCore = $("<div></div>").append(
           $("<div></div>").addClass("message").html(e)
         );
-        const i = [];
+        const GEditor = [];
         return (
           n &&
-            i.push(
+            GEditor.push(
               $("<button></button>")
                 .text(t)
                 .on("click", (e) => {
-                  n && n(e), o.gDialog("close");
+                  n && n(e), GCore.gDialog("close");
                 })
             ),
-          o.gDialog({
+          GCore.gDialog({
             releaseOnClose: true,
             className: "g-system-dialog g-splash-screen-error-dialog",
-            buttons: i,
+            buttons: GEditor,
           }),
-          o.gDialog("open", false),
-          o
+          GCore.gDialog("open", false),
+          GCore
         );
       }
       static async confirm(e, t, n, a, r, s, l, c) {
@@ -89,11 +89,11 @@ function (exports, module, require) {
         };
         (s || l) &&
           ((u = (e) => {
-            s && i.GKey.translateKey(e.keyCode) === i.GKey.Constant.ENTER
+            s && GEditor.GKey.translateKey(e.keyCode) === GEditor.GKey.Constant.ENTER
               ? d.gDialog("isOpen") &&
                 (e.preventDefault(), e.stopImmediatePropagation(), p(true))
               : l &&
-                i.GKey.translateKey(e.keyCode) === i.GKey.Constant.ESC &&
+                GEditor.GKey.translateKey(e.keyCode) === GEditor.GKey.Constant.ESC &&
                 d.gDialog("isOpen") &&
                 (e.preventDefault(), e.stopImmediatePropagation(), p(false));
           }),
@@ -109,7 +109,7 @@ function (exports, module, require) {
           buttons: [
             $("<button></button>")
               .text(
-                g(n) || o.GLocale.get(new o.GLocaleKey("GLocale", "cancel"))
+                g(n) || GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel"))
               )
               .gPro({ pro: h(n) })
               .on("click", () => {
@@ -118,7 +118,7 @@ function (exports, module, require) {
             $("<button></button>")
               .addClass("primary")
               .toggleClass("g-disabled", f)
-              .text(g(a) || o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+              .text(g(a) || GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
               .gPro({ pro: h(a) })
               .on("click", () => {
                 f || p(true);
@@ -139,8 +139,8 @@ function (exports, module, require) {
                         : gContainer.setProperty(c, false);
                     }),
                   $("<span></span>").text(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GSystemDialog",
                         "text.do-not-show-again"
                       )
@@ -151,7 +151,7 @@ function (exports, module, require) {
           null === r && (r = false),
           d.gDialog("open", r);
       }
-      static prompt(e, t, n, i, a, r) {
+      static prompt(e, t, n, GEditor, a, r) {
         var s = n && "string" != typeof n,
           l = s
             ? n
@@ -173,13 +173,13 @@ function (exports, module, require) {
           className: "g-system-dialog g-prompt-dialog " + r,
           buttons: [
             $("<button></button>")
-              .text(i || o.GLocale.get(new o.GLocaleKey("GLocale", "cancel")))
+              .text(GEditor || GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")))
               .on("click", () => {
                 c.gDialog("close"), t && t();
               }),
             $("<button></button>")
               .addClass("primary")
-              .text(a || o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+              .text(a || GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
               .on("click", () => {
                 t && (t(!!s || l.val()), c.gDialog("close"));
               }),
@@ -202,7 +202,7 @@ function (exports, module, require) {
         };
         return (
           (r = (e) => {
-            i.GKey.translateKey(e.keyCode) === i.GKey.Constant.ENTER &&
+            GEditor.GKey.translateKey(e.keyCode) === GEditor.GKey.Constant.ENTER &&
               s.gDialog("isOpen") &&
               (e.preventDefault(), e.stopImmediatePropagation(), l());
           }),
@@ -212,7 +212,7 @@ function (exports, module, require) {
             buttons: [
               $("<button></button>")
                 .addClass("primary")
-                .text(o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+                .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
                 .on("click", () => l()),
             ],
           }),
@@ -224,23 +224,23 @@ function (exports, module, require) {
       static showOneTimeDialog(e, t) {
         return gContainer.getProperty(t).then((n) => {
           if (!n) {
-            var i = $("<div></div>").append(
+            var GEditor = $("<div></div>").append(
               $("<div></div>").addClass("message").html(e)
             );
             return (
-              i.gDialog({
+              GEditor.gDialog({
                 releaseOnClose: true,
                 className: "g-system-dialog g-onetime-dialog",
                 buttons: [
                   $("<button></button>")
                     .addClass("primary")
-                    .text(o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+                    .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
                     .on("click", () => {
-                      i.gDialog("close");
+                      GEditor.gDialog("close");
                     }),
                 ],
               }),
-              i
+              GEditor
                 .closest(".g-dialog")
                 .find(".g-dialog-footer")
                 .prepend(
@@ -253,8 +253,8 @@ function (exports, module, require) {
                           : gContainer.setProperty(t, false);
                       }),
                     $("<span></span>").text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSystemDialog",
                           "text.do-not-show-again"
                         )
@@ -262,8 +262,8 @@ function (exports, module, require) {
                     ),
                   ])
                 ),
-              i.gDialog("open", false),
-              i
+              GEditor.gDialog("open", false),
+              GEditor
             );
           }
         });
@@ -274,14 +274,14 @@ function (exports, module, require) {
           : this.info({
               className: "g-cdr-warning",
               setting: "disable_cdr_warning",
-              title: o.GLocale.get(
-                new o.GLocaleKey("GSystemDialog", "text.cdr-warning-title")
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey("GSystemDialog", "text.cdr-warning-title")
               ),
-              label: o.GLocale.get(
-                new o.GLocaleKey("GSystemDialog", "text.cdr-warning-label")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GSystemDialog", "text.cdr-warning-label")
               ),
-              message: o.GLocale.get(
-                new o.GLocaleKey("GSystemDialog", "text.cdr-warning-message")
+              message: GCore.GLocale.get(
+                new GCore.GLocaleKey("GSystemDialog", "text.cdr-warning-message")
               ),
             });
       }
@@ -291,32 +291,32 @@ function (exports, module, require) {
           !gDesigner.getSetting("disable_cdr_unsupported_effect", false)
         ) {
           const t =
-            e instanceof o.GStylable.Effect
-              ? o.GLocale.get(
-                  new o.GLocaleKey(
+            e instanceof GCore.GStylable.Effect
+              ? GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSystemDialog",
                     "text.cdr-unsupported-object-warning-effect-name"
                   )
                 ).replace("%name", e.getNodeNameTranslated())
-              : o.GLocale.get(
-                  new o.GLocaleKey(
+              : GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSystemDialog",
                     "text.cdr-unsupported-object-warning-generic-name"
                   )
                 );
           return this.info({
             setting: "disable_cdr_unsupported_effect",
-            title: o.GLocale.get(
-              new o.GLocaleKey("GSystemDialog", "text.cdr-warning-title")
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey("GSystemDialog", "text.cdr-warning-title")
             ),
-            label: o.GLocale.get(
-              new o.GLocaleKey(
+            label: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GSystemDialog",
                 "text.cdr-unsupported-objects-warning-label"
               )
             ),
-            message: o.GLocale.get(
-              new o.GLocaleKey(
+            message: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GSystemDialog",
                 "text.cdr-unsupported-object-warning-message"
               )
@@ -335,20 +335,20 @@ function (exports, module, require) {
           : (gDesigner.stats("unsupported-dialog_open"),
             this.warning({
               setting: "disable_cdr_unsupported_effects",
-              title: o.GLocale.get(
-                new o.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSystemDialog",
                   "text.cdr-unsupported-objects-warning-title"
                 )
               ),
-              label: o.GLocale.get(
-                new o.GLocaleKey(
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSystemDialog",
                   "text.cdr-unsupported-objects-warning-label"
                 )
               ),
-              message: o.GLocale.get(
-                new o.GLocaleKey(
+              message: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSystemDialog",
                   "text.cdr-unsupported-objects-warning-message"
                 )
@@ -356,47 +356,47 @@ function (exports, module, require) {
               options: {
                 setting: "default_cdr_unsupported_effects",
                 values: [
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-0"
                     )
                   ),
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-1"
                     )
                   ),
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-2"
                     )
                   ),
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-3"
                     )
                   ),
                 ],
                 tooltips: [
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-0-tooltip"
                     )
                   ),
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-1-tooltip"
                     )
                   ),
                   "",
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSystemDialog",
                       "text.cdr-unsupported-objects-warning-option-3-tooltip"
                     )
@@ -407,8 +407,8 @@ function (exports, module, require) {
                 },
               },
               details: {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSystemDialog",
                     "text.cdr-unsupported-objects-warning-details-label"
                   )
@@ -437,11 +437,11 @@ function (exports, module, require) {
               icon: "assets/icon/dialog/warning.svg",
               buttons: [
                 $("<button/>")
-                  .text(o.GLocale.get(new o.GLocaleKey("GLocale", "cancel")))
+                  .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")))
                   .attr(
                     "data-title",
-                    o.GLocale.get(
-                      new o.GLocaleKey("GFilesPanel", "action.cancel-tooltip")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GFilesPanel", "action.cancel-tooltip")
                     )
                   )
                   .on("click", (t) => {
@@ -452,7 +452,7 @@ function (exports, module, require) {
                   }),
                 $("<button/>")
                   .addClass("primary")
-                  .text(o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+                  .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
                   .on("click", (t) => {
                     e.onSubmit && e.onSubmit.call(this),
                       $(t.target).closest(".g-dialog-content").gDialog("close");
@@ -471,7 +471,7 @@ function (exports, module, require) {
               buttons: [
                 $("<button/>")
                   .addClass("primary")
-                  .text(o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
+                  .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
                   .on("click", (e) =>
                     $(e.target).closest(".g-dialog-content").gDialog("close")
                   ),
@@ -489,7 +489,7 @@ function (exports, module, require) {
           title: exports = "",
           label: module = "",
           message: require = "",
-          icon: i = "assets/icon/dialog/info.svg",
+          icon: GEditor = "assets/icon/dialog/info.svg",
           closeable: a = true,
           buttons: r = [],
           details: s,
@@ -537,8 +537,8 @@ function (exports, module, require) {
           $("<main></main>")
             .append(
               $("<img/>")
-                .attr("src", i)
-                .css("display", i ? "" : "none")
+                .attr("src", GEditor)
+                .css("display", GEditor ? "" : "none")
             )
             .append(
               $("<div/>")
@@ -635,8 +635,8 @@ function (exports, module, require) {
                             )
                             .append(
                               $("<span/>").text(
-                                o.GLocale.get(
-                                  new o.GLocaleKey(
+                                GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GSystemDialog",
                                     "text.do-not-show-again"
                                   )
@@ -657,17 +657,17 @@ function (exports, module, require) {
       }
       static messageWithInfo(e) {
         let { mainMessage: module, infoMessage: require } = e;
-        const i = $("<div />").gDialog({
+        const GEditor = $("<div />").gDialog({
             releaseOnClose: true,
             className: "g-system-dialog g-message-with-info-dialog",
             buttons: [
               $("<button/>")
                 .addClass("primary")
-                .text(o.GLocale.get(new o.GLocaleKey("GLocale", "ok")))
-                .on("click", () => i.gDialog("close")),
+                .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
+                .on("click", () => GEditor.gDialog("close")),
             ],
           }),
-          a = $("<div />").addClass("content").appendTo(i);
+          a = $("<div />").addClass("content").appendTo(GEditor);
         return (
           module && a.append($("<div />").addClass("main-message").html(module)),
           require &&
@@ -683,14 +683,14 @@ function (exports, module, require) {
                 )
                 .append($("<div />").addClass("info-message-content").html(require))
             ),
-          i.gDialog("open", true)
+          GEditor.gDialog("open", true)
         );
       }
       static custom(e) {
         let {
           title: module = "",
           subtitle: require = "",
-          styles: i = {},
+          styles: GEditor = {},
           footer: a,
           icon: r,
           buttons: s = [],
@@ -710,7 +710,7 @@ function (exports, module, require) {
           },
           openCallback: l,
         });
-        i.dialog && h.css(i.dialog),
+        GEditor.dialog && h.css(GEditor.dialog),
           d &&
             $("<div></div>")
               .addClass("g-btn-close")
@@ -743,8 +743,8 @@ function (exports, module, require) {
                 $("<span></span>")
                   .addClass("dont-show-this-again-message")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GSystemDialog",
                         "text.do-not-show-again"
                       )
@@ -757,8 +757,8 @@ function (exports, module, require) {
                 let {
                   label: module,
                   onclick: require,
-                  highlighted: o,
-                  className: i,
+                  highlighted: GCore,
+                  className: GEditor,
                   position: a,
                   shortcut: r,
                   closeOnClick: s = false,
@@ -775,19 +775,19 @@ function (exports, module, require) {
                   },
                   d = $("<button></button>")
                     .append($("<span></span>").text(module))
-                    .addClass("g-pro-button " + (o ? "highlighted" : ""))
+                    .addClass("g-pro-button " + (GCore ? "highlighted" : ""))
                     .on("click", () => c());
                 return (
                   r && (Mousetrap.bind(r, c), g.push(r)),
-                  i &&
-                    ((i = i instanceof Array ? i : [i]),
-                    i.forEach((e) => d.addClass(e))),
+                  GEditor &&
+                    ((GEditor = GEditor instanceof Array ? GEditor : [GEditor]),
+                    GEditor.forEach((e) => d.addClass(e))),
                   a && d.css("float", a),
                   d
                 );
               })
             ),
-            i.buttons && m.css(i.buttons),
+            GEditor.buttons && m.css(GEditor.buttons),
             m.appendTo(f);
         }
         return h.gDialog("open", d), h;
@@ -796,8 +796,8 @@ function (exports, module, require) {
         let {
           title: module = "",
           buttons: require = [],
-          closeCallback: o,
-          closeable: i = true,
+          closeCallback: GCore,
+          closeable: GEditor = true,
         } = e;
         var a = [],
           r = $("<div></div>").append(
@@ -809,14 +809,14 @@ function (exports, module, require) {
             className: "g-system-dialog g-advanced-dialog",
             closeCallback: (e) => {
               a.length && (a.forEach((e) => Mousetrap.unbind(e)), (a = [])),
-                o && o(e);
+                GCore && GCore(e);
             },
             buttons: require.map((e) => {
               let {
                 label: module,
                 onclick: require,
-                highlighted: o,
-                className: i,
+                highlighted: GCore,
+                className: GEditor,
                 position: s,
                 shortcut: l,
                 closeOnClick: c = false,
@@ -833,19 +833,19 @@ function (exports, module, require) {
                 },
                 p = $("<button></button>")
                   .append($("<span></span>").text(module))
-                  .addClass(o ? "primary" : "")
+                  .addClass(GCore ? "primary" : "")
                   .on("click", () => u());
               return (
                 l && (Mousetrap.bind(l, u), a.push(l)),
-                i &&
-                  ((i = i instanceof Array ? i : [i]),
-                  i.forEach((e) => p.addClass(e))),
+                GEditor &&
+                  ((GEditor = GEditor instanceof Array ? GEditor : [GEditor]),
+                  GEditor.forEach((e) => p.addClass(e))),
                 s && p.css("float", s),
                 p
               );
             }),
           }),
-          r.gDialog("open", i),
+          r.gDialog("open", GEditor),
           r
         );
       }

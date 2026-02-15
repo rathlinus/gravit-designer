@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     var o = require(213) /* module_213 */,
-      i = require(21) /* tryCall */,
-      a = require(23) /* globalThis */.String;
+      tryCall = require(21) /* tryCall */,
+      globalThis = require(23) /* globalThis */.String;
     exports.exports =
       !!Object.getOwnPropertySymbols &&
-      !i(function () {
+      !tryCall(function () {
         var e = Symbol("symbol detection");
         return (
-          !a(e) ||
+          !globalThis(e) ||
           !(Object(e) instanceof Symbol) ||
           (!Symbol.sham && o && o < 41)
         );

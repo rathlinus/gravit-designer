@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */;
-    var i = require(15) /* module */,
-      a = require(1) /* module */,
-      r = o(require(18) /* MenuItemBuilder */),
-      s = require(198) /* Exports_GOutlineSidebar */;
-    const l = require(31) /* GAction */;
-    class c extends l {
+    var GEditor = require(15) /* module */,
+      GCore = require(1) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
+    const GAction = require(31) /* GAction */;
+    class c extends GAction {
       constructor(e) {
         super(),
           (this._type = e),
-          (this._title = new a.GLocaleKey(
+          (this._title = new GCore.GLocaleKey(
             "GEyeDropperAction",
             "title.".concat(e)
           )),
@@ -31,17 +31,17 @@ function (exports, module, require) {
         return this._title;
       }
       getCategory() {
-        return r.default.CATEGORY_EDIT;
+        return MenuItemBuilder.default.CATEGORY_EDIT;
       }
       getShortcut() {
         switch (this._type) {
           case c.Type.Fill:
-            return [i.GKey.Constant.META, i.GKey.Constant.OPTION, "C"];
+            return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.OPTION, "C"];
           case c.Type.Border:
             return [
-              i.GKey.Constant.SHIFT,
-              i.GKey.Constant.META,
-              i.GKey.Constant.OPTION,
+              GEditor.GKey.Constant.SHIFT,
+              GEditor.GKey.Constant.META,
+              GEditor.GKey.Constant.OPTION,
               "C",
             ];
           default:
@@ -63,23 +63,23 @@ function (exports, module, require) {
         const exports = gDesigner.getActiveDocument(),
           module = exports && exports.getEditor(),
           require = module && module.getSelection(),
-          o = gDesigner
+          _interopRequireDefault = gDesigner
             .getRightSidebars()
-            .getSidebar(s.SidebarsIds.GInspectorSidebar),
-          i = require && require.filter((e) => e && e.hasMixin(a.GStylable));
-        if (!(i && i.length > 0)) return;
-        const { pageX: r, pageY: l } = this._getLastCursorPoint();
+            .getSidebar(GOutlineSidebar.SidebarsIds.GInspectorSidebar),
+          GEditor = require && require.filter((e) => e && e.hasMixin(GCore.GStylable));
+        if (!(GEditor && GEditor.length > 0)) return;
+        const { pageX: MenuItemBuilder, pageY: GAction } = this._getLastCursorPoint();
         switch (this._type) {
           case c.Type.Fill:
-            i.find((e) => e.hasStyleFill() && !(e instanceof a.GText))
-              ? o.openFillEyeDropper(r, l)
-              : i.find((e) => e instanceof a.GText)
-              ? o.openTextColorEyeDropper(r, l)
-              : i.find((e) => !e.hasStyleBorder()) ||
-                o.openBorderEyeDropper(r, l);
+            GEditor.find((e) => e.hasStyleFill() && !(e instanceof GCore.GText))
+              ? _interopRequireDefault.openFillEyeDropper(MenuItemBuilder, GAction)
+              : GEditor.find((e) => e instanceof GCore.GText)
+              ? _interopRequireDefault.openTextColorEyeDropper(MenuItemBuilder, GAction)
+              : GEditor.find((e) => !e.hasStyleBorder()) ||
+                _interopRequireDefault.openBorderEyeDropper(MenuItemBuilder, GAction);
             break;
           case c.Type.Border:
-            i.find((e) => !e.hasStyleBorder()) || o.openBorderEyeDropper(r, l);
+            GEditor.find((e) => !e.hasStyleBorder()) || _interopRequireDefault.openBorderEyeDropper(MenuItemBuilder, GAction);
         }
       }
       _getLastCursorPoint() {

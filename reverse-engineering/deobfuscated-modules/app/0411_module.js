@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(49) /* hasOwnProperty_wrapper */,
+    var globalThis = require(23) /* globalThis */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       a = Object.getOwnPropertyDescriptor;
     exports.exports = function (e) {
-      if (!i) return o[e];
-      var t = a(o, e);
+      if (!hasOwnProperty_wrapper) return globalThis[e];
+      var t = a(globalThis, e);
       return t && t.value;
     };
   }

@@ -5,24 +5,24 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
-      i = require(21) /* tryCall */,
-      a = require(35) /* anObject */,
+    var uncurryThis = require(27) /* uncurryThis */,
+      tryCall = require(21) /* tryCall */,
+      anObject = require(35) /* anObject */,
       r = require(61) /* module_61 */,
-      s = require(49) /* hasOwnProperty_wrapper */,
-      l = require(199) /* Exports_GURABLE */.CONFIGURABLE,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      GURABLE = require(199) /* Exports_GURABLE */.CONFIGURABLE,
       c = require(299) /* module_299 */,
-      d = require(80) /* internalState */,
-      u = d.enforce,
-      p = d.get,
+      internalState = require(80) /* internalState */,
+      u = internalState.enforce,
+      p = internalState.get,
       g = String,
       h = Object.defineProperty,
-      f = o("".slice),
-      m = o("".replace),
-      y = o([].join),
+      f = uncurryThis("".slice),
+      m = uncurryThis("".replace),
+      y = uncurryThis([].join),
       v =
-        s &&
-        !i(function () {
+        hasOwnProperty_wrapper &&
+        !tryCall(function () {
           return 8 !== h(function () {}, "length", { value: 8 }).length;
         }),
       _ = String(String).split("String"),
@@ -31,8 +31,8 @@ function (exports, module, require) {
           (t = "[" + m(g(t), /^Symbol\(([^)]*)\).*$/, "$1") + "]"),
           n && n.getter && (t = "get " + t),
           n && n.setter && (t = "set " + t),
-          (!r(e, "name") || (l && e.name !== t)) &&
-            (s ? h(e, "name", { value: t, configurable: true }) : (e.name = t)),
+          (!r(e, "name") || (GURABLE && e.name !== t)) &&
+            (hasOwnProperty_wrapper ? h(e, "name", { value: t, configurable: true }) : (e.name = t)),
           v &&
             n &&
             r(n, "arity") &&
@@ -40,15 +40,15 @@ function (exports, module, require) {
             h(e, "length", { value: n.arity });
         try {
           n && r(n, "constructor") && n.constructor
-            ? s && h(e, "prototype", { writable: false })
+            ? hasOwnProperty_wrapper && h(e, "prototype", { writable: false })
             : e.prototype && (e.prototype = undefined);
         } catch (e) {}
-        var o = u(e);
+        var uncurryThis = u(e);
         return (
-          r(o, "source") || (o.source = y(_, "string" == typeof t ? t : "")), e
+          r(uncurryThis, "source") || (uncurryThis.source = y(_, "string" == typeof t ? t : "")), e
         );
       });
     Function.prototype.toString = b(function () {
-      return (a(this) && p(this).source) || c(this);
+      return (anObject(this) && p(this).source) || c(this);
     }, "toString");
   }

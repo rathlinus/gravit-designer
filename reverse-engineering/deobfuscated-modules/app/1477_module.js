@@ -9,18 +9,18 @@ function (exports, module, require) {
       (module.GMicrosoftUser = r),
       (module.default = undefined),
       require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(1478) /* GCloudUser */,
       a = require(1241) /* GCloudRole */;
     function r(e) {
-      let { Id: module, Email: require, Title: o, UserId: i, UserPrincipalName: a } = e;
+      let { Id: module, Email: require, Title: GCore, UserId: i, UserPrincipalName: a } = e;
       (this._id = module),
         (this._email = require),
-        (this._name = o),
+        (this._name = GCore),
         (this._userId = i),
         (this._userPrincipalName = a);
     }
-    o.GObject.inherit(r, i.GCloudUser),
+    GCore.GObject.inherit(r, i.GCloudUser),
       (r.ValidRoles = [
         a.GCloudRole.Type.Viewer,
         a.GCloudRole.Type.ContentEditor,

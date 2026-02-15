@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
+    var core_export = require(25) /* core_export */,
       i = require(403) /* module_403 */.includes,
-      a = require(21) /* tryCall */,
-      r = require(360) /* internalObjectKeys */;
-    o(
+      tryCall = require(21) /* tryCall */,
+      internalObjectKeys = require(360) /* internalObjectKeys */;
+    core_export(
       {
         target: "Array",
         proto: true,
-        forced: a(function () {
+        forced: tryCall(function () {
           return !Array(1).includes();
         }),
       },
@@ -23,5 +23,5 @@ function (exports, module, require) {
         },
       }
     ),
-      r("includes");
+      internalObjectKeys("includes");
   }

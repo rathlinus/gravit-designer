@@ -7,22 +7,22 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       s = require(844) /* module_844 */,
       l = require(86) /* module_86 */,
       c = require(220) /* Item */,
       d = require(119) /* module_119 */,
       u = require(446) /* module_446 */;
-    const p = require(256) /* GOfflineDialog */;
+    const GOfflineDialog = require(256) /* GOfflineDialog */;
     function g(e) {
       (this._type = e),
-        (this._title = new o.GLocaleKey("GGravitCloudAction", "title." + e));
+        (this._title = new GCore.GLocaleKey("GGravitCloudAction", "title." + e));
     }
     (g.Actions = { New: "new", Save: "save", SaveAs: "save-as", Open: "open" }),
-      o.GObject.inherit(g, r),
+      GCore.GObject.inherit(g, GAction),
       (g.ID = "gravit-cloud"),
       (g.prototype._type = null),
       (g.prototype._title = null),
@@ -36,7 +36,7 @@ function (exports, module, require) {
         return this._title;
       }),
       (g.prototype.getCategory = function () {
-        return a.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (g.prototype.getGroup = function () {
         return this._type === g.Actions.Open ? "file-open" : "file";
@@ -46,9 +46,9 @@ function (exports, module, require) {
       }),
       (g.prototype.getShortcut = function () {
         return this._type == g.Actions.Open
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "O"]
+          ? [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "O"]
           : this._type == g.Actions.SaveAs
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "S"]
+          ? [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "S"]
           : null;
       }),
       (g.prototype.isEnabled = function () {
@@ -73,7 +73,7 @@ function (exports, module, require) {
         );
       }),
       (g.prototype.execute = function (e, t, n) {
-        const o = () =>
+        const GCore = () =>
           new u(
             () => {
               this._executeAction(e, t, n);
@@ -82,21 +82,21 @@ function (exports, module, require) {
               gDesigner.stats("action-cancelled_export", this._type);
             }
           );
-        gDesigner.isOffline() ? p.openUnavailableFeature(o) : o();
+        gDesigner.isOffline() ? GOfflineDialog.openUnavailableFeature(GCore) : GCore();
       }),
       (g.prototype._executeAction = function (e, t, n) {
-        var o = this;
+        var GCore = this;
         if ("open" === this._type) {
           let e = { closable: true, showCloudOptions: true, openFromCloud: true };
           gDesigner.openNewDocumentDialog(e);
         } else if ("save" === this._type) {
-          var i = gDesigner.getActiveDocument();
-          if (i.isCommercialProductFile())
-            return void i.openPaywall(this.getId());
-          var a = i.getStorageItem();
-          a && a instanceof c.Item
+          var GEditor = gDesigner.getActiveDocument();
+          if (GEditor.isCommercialProductFile())
+            return void GEditor.openPaywall(this.getId());
+          var MenuItemBuilder = GEditor.getStorageItem();
+          MenuItemBuilder && MenuItemBuilder instanceof c.Item
             ? d.performSave(
-                i,
+                GEditor,
                 () => {
                   t && t(l.Saved);
                 },
@@ -104,35 +104,35 @@ function (exports, module, require) {
                   t && t(l.SaveFailed);
                 }
               )
-            : o._saveAs(false, e, t);
+            : GCore._saveAs(false, e, t);
         } else if ("new" === this._type) {
           let n = {
             closable: true,
             cb: function () {
-              o._saveAs(true, e, t);
+              GCore._saveAs(true, e, t);
             },
           };
           gDesigner.openNewDocumentDialog(n);
-        } else "save-as" === this._type && o._saveAs(false, e, t, n);
+        } else "save-as" === this._type && GCore._saveAs(false, e, t, n);
       }),
       (g.prototype._hasUnsupported = async function () {
         return false;
       }),
-      (g.prototype._saveAs = async function (e, t, n, o) {
-        var i = t || gDesigner.getActiveDocument();
-        if (i.isCommercialProductFile()) i.openPaywall(this.getId());
+      (g.prototype._saveAs = async function (e, t, n, GCore) {
+        var GEditor = t || gDesigner.getActiveDocument();
+        if (GEditor.isCommercialProductFile()) GEditor.openPaywall(this.getId());
         else {
-          var a = i.getTitle();
-          (!i.isDocumentFromTemplate() && (await this._hasUnsupported(i))) ||
+          var MenuItemBuilder = GEditor.getTitle();
+          (!GEditor.isDocumentFromTemplate() && (await this._hasUnsupported(GEditor))) ||
             gDesigner.openCloudSaveDialog(
-              i,
+              GEditor,
               function () {
-                e && gDesigner.getWindows().removeWindow(i.getActiveWindow()),
+                e && gDesigner.getWindows().removeWindow(GEditor.getActiveWindow()),
                   n && n(l.SaveCancelled);
               },
-              a,
+              MenuItemBuilder,
               n,
-              o
+              GCore
             );
         }
       }),

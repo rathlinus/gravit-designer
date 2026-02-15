@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(53) /* module */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(40) /* CollaborationMergeUtils */),
       a = (require(67) /* GRichTooltipConfig */, require(238) /* GMenu */),
       r = (require(1151) /* GSwatchesChangedEvent */, require(857) /* module_857 */, require(173) /* stub_requires_1 */, require(877) /* GPasteAction */, require(44) /* GSystemDialog */),
@@ -21,7 +21,7 @@ function (exports, module, require) {
         }),
         this.initContextMenu();
     }
-    o.GObject.inheritAndMix(l, s),
+    GCore.GObject.inheritAndMix(l, s),
       (l.prototype._advancedExpanded = true),
       (l.prototype._longPressTimer = null),
       (l.prototype._islongPress = false),
@@ -37,8 +37,8 @@ function (exports, module, require) {
                 $("<div />")
                   .addClass("mini-font")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GCommonNames", "text.colors")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.colors")
                     ).toUpperCase()
                   )
               )
@@ -52,8 +52,8 @@ function (exports, module, require) {
                 $("<div />")
                   .addClass("mini-font")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPatternChooser", "text.swatches")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPatternChooser", "text.swatches")
                     ).toUpperCase()
                   )
               )
@@ -78,8 +78,8 @@ function (exports, module, require) {
                 $("<div />")
                   .addClass("mini-font")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPatternChooser", "text.in-use")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPatternChooser", "text.in-use")
                     ).toUpperCase()
                   )
               )
@@ -92,8 +92,8 @@ function (exports, module, require) {
                 $("<div />")
                   .addClass("mini-font")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPatternChooser", "text.mixer")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPatternChooser", "text.mixer")
                     ).toUpperCase()
                   )
               )
@@ -105,14 +105,14 @@ function (exports, module, require) {
         this._contextMenu = new a(null, "g-pattern-chooser-context-menu");
         var t = (e, t, n) => {
             gDesigner.stats("patternchooser_add_swatch", e);
-            var i = new o.GSwatch(t, n),
+            var i = new GCore.GSwatch(t, n),
               a = gDesigner.getSwatches(e);
             if (a) {
               for (var s = 0; s < a.length; ++s)
-                if (o.GUtil.equals(i, a[s], true))
+                if (GCore.GUtil.equals(i, a[s], true))
                   return void r.alert(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GPatternChooser",
                         "text.equal-swatch-alert"
                       )
@@ -124,20 +124,20 @@ function (exports, module, require) {
           n = (e) => {
             var t = this._pattern.clone();
             return (
-              (t instanceof o.GRadialGradient ||
-                t instanceof o.GLinearGradient ||
-                t instanceof o.GAngularGradient) &&
+              (t instanceof GCore.GRadialGradient ||
+                t instanceof GCore.GLinearGradient ||
+                t instanceof GCore.GAngularGradient) &&
                 (t._stops[0].color = e),
               t
             );
           },
           i = (e) => {
-            var o = $(this._currentLongPressTarget)
+            var GCore = $(this._currentLongPressTarget)
               .closest(".swatch")
               .data("swatch");
-            if (o) {
-              var i = o.getProperty("_pt"),
-                a = o.getProperty("_op");
+            if (GCore) {
+              var i = GCore.getProperty("_pt"),
+                a = GCore.getProperty("_op");
               e = this._getSwatchScope(e, this._pattern);
               (i = n(i)), t(e, i, a);
             } else
@@ -150,8 +150,8 @@ function (exports, module, require) {
           };
         this._contextMenu
           .createAddItem(
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GPatternChooser",
                 "action.add-to-document-swatches"
               )
@@ -163,8 +163,8 @@ function (exports, module, require) {
           .setIcon("gravit-icon-add-swatches"),
           this._contextMenu
             .createAddItem(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GPatternChooser",
                   "action.add-to-global-swatches"
                 )
@@ -194,8 +194,8 @@ function (exports, module, require) {
                 $("<div />")
                   .addClass("mini-font")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPatternChooser", "action.choose-image")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPatternChooser", "action.choose-image")
                     ) + "..."
                   )
               )
@@ -236,8 +236,8 @@ function (exports, module, require) {
             width: "auto",
             content: $("<label></label>")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GPatternChooser",
                     "action.set-transparency-mask"
                   )
@@ -254,7 +254,7 @@ function (exports, module, require) {
             padding: false,
             width: "120px",
             content: $("<span></span>").text(
-              o.GLocale.get(new o.GLocaleKey("GPatternChooser", "text.scale"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GPatternChooser", "text.scale"))
             ),
           },
           {
@@ -289,8 +289,8 @@ function (exports, module, require) {
               .append(
                 $(
                   "<b>" +
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPatternChooser", "text.advanced")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPatternChooser", "text.advanced")
                     ) +
                     " </b>"
                 ).addClass("title")
@@ -338,8 +338,8 @@ function (exports, module, require) {
                 $("<div/>")
                   .addClass("title")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPatternChooser", "text.tints")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPatternChooser", "text.tints")
                     ).toUpperCase()
                   )
               )
@@ -348,7 +348,7 @@ function (exports, module, require) {
           require <= 8;
           require += 1
         )
-          this._createPaletteSwatch(o.GRGBColor.WHITE, module, false, false);
+          this._createPaletteSwatch(GCore.GRGBColor.WHITE, module, false, false);
         var i = $("<div />")
           .attr("data-container", "shades")
           .addClass("shades")
@@ -356,14 +356,14 @@ function (exports, module, require) {
             $("<div/>")
               .addClass("title")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey("GPatternChooser", "text.shades")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPatternChooser", "text.shades")
                 ).toUpperCase()
               )
           )
           .appendTo(e);
         for (require = 1; require <= 8; require += 1)
-          this._createPaletteSwatch(o.GRGBColor.WHITE, i, false, false);
+          this._createPaletteSwatch(GCore.GRGBColor.WHITE, i, false, false);
         var a = $("<div />")
           .attr("data-container", "tones")
           .addClass("tones")
@@ -371,14 +371,14 @@ function (exports, module, require) {
             $("<div/>")
               .addClass("title")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey("GPatternChooser", "text.tones")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPatternChooser", "text.tones")
                 ).toUpperCase()
               )
           )
           .appendTo(e);
         for (require = 1; require <= 8; require += 1)
-          this._createPaletteSwatch(o.GRGBColor.WHITE, a, false, false);
+          this._createPaletteSwatch(GCore.GRGBColor.WHITE, a, false, false);
         var r = $("<div />")
           .attr("data-container", "mixes")
           .addClass("mixes")
@@ -386,14 +386,14 @@ function (exports, module, require) {
             $("<div/>")
               .addClass("title")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey("GPatternChooser", "text.mixes")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPatternChooser", "text.mixes")
                 ).toUpperCase()
               )
           )
           .appendTo(e);
         for (require = 1; require <= 8; require += 1)
-          this._createPaletteSwatch(o.GRGBColor.WHITE, r, false, false);
+          this._createPaletteSwatch(GCore.GRGBColor.WHITE, r, false, false);
         this._updateMixerPalette();
       }),
       (l.prototype.__getUpdateMixerPaletteParams = function () {

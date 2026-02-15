@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* hasOwnProperty_wrapper */,
-      i = require(21) /* tryCall */;
+    var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      tryCall = require(21) /* tryCall */;
     exports.exports =
-      o &&
-      i(function () {
+      hasOwnProperty_wrapper &&
+      tryCall(function () {
         return (
           42 !==
           Object.defineProperty(function () {}, "prototype", {

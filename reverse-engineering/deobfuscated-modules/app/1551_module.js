@@ -6,11 +6,11 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    const o = require(75) /* GEventTarget */,
-      i = require(0) /* GObject */,
+    const GEventTarget = require(75) /* GEventTarget */,
+      GObject = require(0) /* GObject */,
       a = require(1174) /* module_1174 */;
     function r() {}
-    i.inherit(r, o),
+    GObject.inherit(r, GEventTarget),
       (r.prototype.render = async function (e, t) {
         throw "Not implemented!";
       }),

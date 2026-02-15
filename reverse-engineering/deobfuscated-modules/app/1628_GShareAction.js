@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
-    const i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */;
+    var GCore = require(1) /* module */;
+    const MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function r() {}
-    o.GObject.inherit(r, a),
+    GCore.GObject.inherit(r, GAction),
       (r.ID = "file.share"),
-      (r.TITLE = new o.GLocaleKey("GShareAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GShareAction", "title")),
       (r.prototype.getId = function () {
         return r.ID;
       }),
@@ -21,7 +21,7 @@ function (exports, module, require) {
         return r.TITLE;
       }),
       (r.prototype.getCategory = function () {
-        return i.CATEGORY_FILE_SHARE;
+        return MenuItemBuilder.CATEGORY_FILE_SHARE;
       }),
       (r.prototype.getGroup = function () {
         return "file-share/share";

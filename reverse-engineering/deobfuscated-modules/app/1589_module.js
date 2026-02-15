@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const i = [
       {
         selector: "#toolbar > .section > .menubar-toolbar-button",
@@ -134,7 +134,7 @@ function (exports, module, require) {
       },
       {
         selector: "#assistant-bar > .container",
-        side: o.GRect.Side.LEFT_CENTER,
+        side: GCore.GRect.Side.LEFT_CENTER,
         i18n: "text.modifier-keys",
         disconnected: true,
         offsetX: -15,
@@ -142,7 +142,7 @@ function (exports, module, require) {
       },
       {
         selector: "#assistant-bar > .container",
-        side: o.GRect.Side.RIGHT_CENTER,
+        side: GCore.GRect.Side.RIGHT_CENTER,
         i18n: "text.nudge",
         disconnected: true,
         offsetX: 15,
@@ -150,14 +150,14 @@ function (exports, module, require) {
       },
       {
         selector: "#assistant-bar .gravit-icon-touch-copy",
-        side: o.GRect.Side.TOP_CENTER,
+        side: GCore.GRect.Side.TOP_CENTER,
         i18n: "text.copy",
         offsetY: -10,
         className: "assistant-bar",
       },
       {
         selector: "#assistant-bar .gravit-icon-touch-paste",
-        side: o.GRect.Side.TOP_CENTER,
+        side: GCore.GRect.Side.TOP_CENTER,
         i18n: "text.paste",
         furtherAway: true,
         offsetY: -10,
@@ -165,14 +165,14 @@ function (exports, module, require) {
       },
       {
         selector: "#assistant-bar .gravit-icon-touch-trash-2",
-        side: o.GRect.Side.TOP_CENTER,
+        side: GCore.GRect.Side.TOP_CENTER,
         i18n: "text.delete",
         offsetY: -10,
         className: "assistant-bar",
       },
       {
         selector: "#assistant-bar .gravit-icon-touch-selection",
-        side: o.GRect.Side.TOP_CENTER,
+        side: GCore.GRect.Side.TOP_CENTER,
         i18n: "text.select-deselect",
         furtherAway: true,
         offsetY: -10,
@@ -180,14 +180,14 @@ function (exports, module, require) {
       },
       {
         selector: "#assistant-bar .gravit-icon-touch-arrange-order",
-        side: o.GRect.Side.TOP_CENTER,
+        side: GCore.GRect.Side.TOP_CENTER,
         i18n: "text.arrange",
         offsetY: -10,
         className: "assistant-bar",
       },
       {
         selector: "#assistant-bar .gravit-icon-touch-fullscreen",
-        side: o.GRect.Side.TOP_CENTER,
+        side: GCore.GRect.Side.TOP_CENTER,
         i18n: "text.fullscreen",
         furtherAway: true,
         offsetY: -10,
@@ -222,7 +222,7 @@ function (exports, module, require) {
         const exports = $("body").addClass("g-quick-help");
         (this._panel = $("<div/>")
           .addClass("g-quick-help-screen")
-          .addClass(o.GLocale.getLocaleTagISO6391())
+          .addClass(GCore.GLocale.getLocaleTagISO6391())
           .addClass("hidden")
           .on("click", () => this.close())
           .appendTo(exports)),
@@ -290,39 +290,39 @@ function (exports, module, require) {
           require = module.offset();
         if (!require || !module.is(":visible")) return;
         const i = this._createTooltip(e).appendTo(this._panel),
-          a = new o.GRect(require.left, require.top, module.outerWidth(), module.outerHeight()),
-          r = new o.GRect(0, 0, i.outerWidth(), i.outerHeight()),
+          a = new GCore.GRect(require.left, require.top, module.outerWidth(), module.outerHeight()),
+          r = new GCore.GRect(0, 0, i.outerWidth(), i.outerHeight()),
           s = this._calculatePosition(r, a, e);
         i.css({ top: s.getY(), left: s.getX() });
       }
       _calculatePosition(e, t, n) {
-        const i = n.side || o.GRect.Side.BOTTOM_CENTER,
+        const i = n.side || GCore.GRect.Side.BOTTOM_CENTER,
           a = t.getSide(i);
         switch (i) {
-          case o.GRect.Side.TOP_CENTER: {
-            const t = e.getSide(o.GRect.Side.CENTER).getX();
-            return new o.GPoint(
+          case GCore.GRect.Side.TOP_CENTER: {
+            const t = e.getSide(GCore.GRect.Side.CENTER).getX();
+            return new GCore.GPoint(
               a.getX() - t + (n.offsetX || 0),
               a.getY() - e.getHeight() + (n.offsetY || 0)
             );
           }
-          case o.GRect.Side.BOTTOM_CENTER: {
-            const t = e.getSide(o.GRect.Side.CENTER).getX();
-            return new o.GPoint(
+          case GCore.GRect.Side.BOTTOM_CENTER: {
+            const t = e.getSide(GCore.GRect.Side.CENTER).getX();
+            return new GCore.GPoint(
               a.getX() - t + (n.offsetX || 0),
               a.getY() + (n.offsetY || 0)
             );
           }
-          case o.GRect.Side.LEFT_CENTER: {
-            const t = e.getSide(o.GRect.Side.CENTER).getY();
-            return new o.GPoint(
+          case GCore.GRect.Side.LEFT_CENTER: {
+            const t = e.getSide(GCore.GRect.Side.CENTER).getY();
+            return new GCore.GPoint(
               a.getX() - e.getWidth() + (n.offsetX || 0),
               a.getY() - t + (n.offsetY || 0)
             );
           }
-          case o.GRect.Side.RIGHT_CENTER: {
-            const t = e.getSide(o.GRect.Side.CENTER).getY();
-            return new o.GPoint(
+          case GCore.GRect.Side.RIGHT_CENTER: {
+            const t = e.getSide(GCore.GRect.Side.CENTER).getY();
+            return new GCore.GPoint(
               a.getX() + (n.offsetX || 0),
               a.getY() - t + (n.offsetY || 0)
             );
@@ -336,12 +336,12 @@ function (exports, module, require) {
           .addClass("content")
           .append(
             $("<span/>").text(
-              o.GLocale.get(new o.GLocaleKey("GQuickHelpScreen", e.i18n))
+              GCore.GLocale.get(new GCore.GLocaleKey("GQuickHelpScreen", e.i18n))
             )
           );
         return $("<div/>")
           .addClass("tooltip" + (e.className ? " " + e.className : ""))
-          .addClass("side-" + (e.side || o.GRect.Side.BOTTOM_CENTER))
+          .addClass("side-" + (e.side || GCore.GRect.Side.BOTTOM_CENTER))
           .toggleClass("further-away", !!e.furtherAway)
           .append(
             $("<div/>")

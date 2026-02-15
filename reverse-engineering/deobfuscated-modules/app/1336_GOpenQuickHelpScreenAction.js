@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
-    const i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */,
+    var GCore = require(1) /* module */;
+    const MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       r = require(1589) /* module_1589 */;
     function s() {}
-    o.GObject.inherit(s, a),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "help.open-quick-help"),
-      (s.TITLE = new o.GLocaleKey("GOpenQuickHelpScreenAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GOpenQuickHelpScreenAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return i.CATEGORY_HELP;
+        return MenuItemBuilder.CATEGORY_HELP;
       }),
       (s.prototype.getGroup = function () {
         return "help";

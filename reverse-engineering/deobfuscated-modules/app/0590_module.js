@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(1075) /* module_1075 */,
       a = require(381) /* module_381 */;
     function r(e) {
       a.call(this, e);
     }
-    o.GObject.inherit(r, a);
-    var s = o.GUtil.uuid(),
+    GCore.GObject.inherit(r, a);
+    var s = GCore.GUtil.uuid(),
       l = {},
       c = null,
       d = [
@@ -21,53 +21,53 @@ function (exports, module, require) {
           family: "Open Sans",
           fonts: [
             {
-              weight: o.GFont.Weight.Light,
-              style: o.GFont.Style.Normal,
+              weight: GCore.GFont.Weight.Light,
+              style: GCore.GFont.Style.Normal,
               url: "assets/font/OpenSans-Light.ttf",
             },
             {
-              weight: o.GFont.Weight.Light,
-              style: o.GFont.Style.Italic,
+              weight: GCore.GFont.Weight.Light,
+              style: GCore.GFont.Style.Italic,
               url: "assets/font/OpenSans-LightItalic.ttf",
             },
             {
-              weight: o.GFont.Weight.Regular,
-              style: o.GFont.Style.Normal,
+              weight: GCore.GFont.Weight.Regular,
+              style: GCore.GFont.Style.Normal,
               url: "assets/font/OpenSans-Regular.ttf",
             },
             {
-              weight: o.GFont.Weight.Regular,
-              style: o.GFont.Style.Italic,
+              weight: GCore.GFont.Weight.Regular,
+              style: GCore.GFont.Style.Italic,
               url: "assets/font/OpenSans-Italic.ttf",
             },
             {
-              weight: o.GFont.Weight.SemiBold,
-              style: o.GFont.Style.Normal,
+              weight: GCore.GFont.Weight.SemiBold,
+              style: GCore.GFont.Style.Normal,
               url: "assets/font/OpenSans-SemiBold.ttf",
             },
             {
-              weight: o.GFont.Weight.SemiBold,
-              style: o.GFont.Style.Italic,
+              weight: GCore.GFont.Weight.SemiBold,
+              style: GCore.GFont.Style.Italic,
               url: "assets/font/OpenSans-SemiBoldItalic.ttf",
             },
             {
-              weight: o.GFont.Weight.Bold,
-              style: o.GFont.Style.Normal,
+              weight: GCore.GFont.Weight.Bold,
+              style: GCore.GFont.Style.Normal,
               url: "assets/font/OpenSans-Bold.ttf",
             },
             {
-              weight: o.GFont.Weight.Bold,
-              style: o.GFont.Style.Italic,
+              weight: GCore.GFont.Weight.Bold,
+              style: GCore.GFont.Style.Italic,
               url: "assets/font/OpenSans-BoldItalic.ttf",
             },
             {
-              weight: o.GFont.Weight.ExtraBold,
-              style: o.GFont.Style.Normal,
+              weight: GCore.GFont.Weight.ExtraBold,
+              style: GCore.GFont.Style.Normal,
               url: "assets/font/OpenSans-ExtraBold.ttf",
             },
             {
-              weight: o.GFont.Weight.ExtraBold,
-              style: o.GFont.Style.Italic,
+              weight: GCore.GFont.Weight.ExtraBold,
+              style: GCore.GFont.Style.Italic,
               url: "assets/font/OpenSans-ExtraBoldItalic.ttf",
             },
           ],
@@ -79,13 +79,13 @@ function (exports, module, require) {
       family: "Noto Sans CJK SC",
       fonts: [
         {
-          weight: o.GFont.Weight.Regular,
-          style: o.GFont.Style.Normal,
+          weight: GCore.GFont.Weight.Regular,
+          style: GCore.GFont.Style.Normal,
           url: "assets/font/chinese-simplified/NotoSansCJKsc-Regular.otf",
         },
         {
-          weight: o.GFont.Weight.Bold,
-          style: o.GFont.Style.Normal,
+          weight: GCore.GFont.Weight.Bold,
+          style: GCore.GFont.Style.Normal,
           url: "assets/font/chinese-simplified/NotoSansCJKsc-Bold.otf",
         },
       ],
@@ -96,13 +96,13 @@ function (exports, module, require) {
         family: "Noto Sans CJK TC",
         fonts: [
           {
-            weight: o.GFont.Weight.Regular,
-            style: o.GFont.Style.Normal,
+            weight: GCore.GFont.Weight.Regular,
+            style: GCore.GFont.Style.Normal,
             url: "assets/font/chinese-traditional/NotoSansCJKtc-Regular.otf",
           },
           {
-            weight: o.GFont.Weight.Bold,
-            style: o.GFont.Style.Normal,
+            weight: GCore.GFont.Weight.Bold,
+            style: GCore.GFont.Style.Normal,
             url: "assets/font/chinese-traditional/NotoSansCJKtc-Bold.otf",
           },
         ],
@@ -110,9 +110,9 @@ function (exports, module, require) {
         scripts: ["HAN"],
       }),
       (d = d.concat(i)),
-      o.GObject.inherit(r, a),
+      GCore.GObject.inherit(r, a),
       (r.prototype.getDefaultFamilyForString = function (e) {
-        var t = o.GOpenTypeFont.getScriptForString(e);
+        var t = GCore.GOpenTypeFont.getScriptForString(e);
         if ("CYRILLIC" === t || "GREEK" === t) return "Noto Sans";
         var n = d.find((e) => e.scripts && e.scripts.indexOf(t) >= 0);
         return (n && n.family) || null;
@@ -144,9 +144,9 @@ function (exports, module, require) {
       (r.prototype.init = function () {
         c || (c = d);
       }),
-      (r.prototype.load = function (e, t, n, o) {
+      (r.prototype.load = function (e, t, n, GCore) {
         this.init(),
-          o.done(
+          GCore.done(
             c
               .filter(function (t) {
                 return e.indexOf("%") >= 0
@@ -182,7 +182,7 @@ function (exports, module, require) {
               var p = d[u];
               if (
                 p.weight === (n || 400) &&
-                p.style === (t || o.GFont.Style.Normal)
+                p.style === (t || GCore.GFont.Style.Normal)
               ) {
                 if (l[p.url]) l[p.url].push(i);
                 else {

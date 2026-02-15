@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "modify.detachsymbol"),
-      (s.TITLE = new o.GLocaleKey("GDetachSymbolAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GDetachSymbolAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY_SYMBOL;
+        return MenuItemBuilder.CATEGORY_MODIFY_SYMBOL;
       }),
       (s.prototype.getGroup = function () {
         return "structure/modify";
@@ -32,23 +32,23 @@ function (exports, module, require) {
       }),
       (s.prototype.getShortcut = function () {
         return [
-          i.GKey.Constant.SHIFT,
-          i.GKey.Constant.META,
-          i.GKey.Constant.F8,
+          GEditor.GKey.Constant.SHIFT,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.F8,
         ];
       }),
       (s.prototype.isEnabled = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getIndividualSelection();
           if (module && module.length)
             for (var require = module.length - 1; require >= 0; --require) {
-              var i = module[require];
+              var GEditor = module[require];
               if (
-                i instanceof o.GSymbol &&
-                !i.isMaster() &&
-                i.getMasterSymbol()
+                GEditor instanceof GCore.GSymbol &&
+                !GEditor.isMaster() &&
+                GEditor.getMasterSymbol()
               )
                 return true;
             }
@@ -57,18 +57,18 @@ function (exports, module, require) {
       }),
       (s.prototype.execute = function () {
         var e = gDesigner.getActiveDocument().getEditor(),
-          t = o.GNode.order(e.getIndividualSelection().slice());
+          t = GCore.GNode.order(e.getIndividualSelection().slice());
         if (t.length && t[0].getScene()) {
           e.beginTransaction();
           try {
-            for (var require = 0, i = 0; i < t.length; ++i) {
-              var a = t[i];
-              a instanceof o.GSymbol && a.detach() && require++;
+            for (var require = 0, GEditor = 0; GEditor < t.length; ++GEditor) {
+              var MenuItemBuilder = t[GEditor];
+              MenuItemBuilder instanceof GCore.GSymbol && MenuItemBuilder.detach() && require++;
             }
           } finally {
             e.commitTransaction(
-              o.GLocale.get(
-                new o.GLocaleKey("GDetachSymbolAction", "text.number-detached")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDetachSymbolAction", "text.number-detached")
               ).replace("%number", require > 1 ? "s" : "")
             );
           }

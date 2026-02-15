@@ -6,12 +6,12 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
-    function i(e, t, n, o, i, a, r, s, l, c) {
+    var GCore = require(1) /* module */;
+    function i(e, t, n, GCore, i, a, r, s, l, c) {
       (this._container = e),
         (this._renderer = t),
         (this._nodeStyle = n),
-        (this._expandStyle = o),
+        (this._expandStyle = GCore),
         (this._nodeClick = i),
         (this._nodeExpand = a),
         (this._upSpan1Style = r),
@@ -28,8 +28,8 @@ function (exports, module, require) {
       (i.GSimpleTreeNodeNamed.prototype.isVisible = function () {
         return true;
       }),
-      (i.EXPAND_ID = o.GUtil.uuid()),
-      (i.COLLAPSE_ID = o.GUtil.uuid()),
+      (i.EXPAND_ID = GCore.GUtil.uuid()),
+      (i.COLLAPSE_ID = GCore.GUtil.uuid()),
       (i.prototype._container = null),
       (i.prototype._renderer = null),
       (i.prototype._nodeStyle = null),
@@ -68,11 +68,11 @@ function (exports, module, require) {
               let e = document.createDocumentFragment();
               for (let t = 0; t < this._nodes.length; t++) {
                 let n = this._newNode(this._nodes[t]),
-                  o = this._renderer(this._nodes[t], n[0]);
+                  GCore = this._renderer(this._nodes[t], n[0]);
                 $(e).append(n),
                   n.hasClass("last-row") &&
                     $(e).append($("<div/>").addClass("last-row-division")),
-                  o && o.length && n.before(o);
+                  GCore && GCore.length && n.before(GCore);
               }
               require.append(e),
                 this._afterInvalidationEnd(),
@@ -99,22 +99,22 @@ function (exports, module, require) {
           });
       }),
       (i.prototype.appendNode = function (e, t, n) {
-        var o = e ? this._nodes.indexOf(e) : 0;
-        if (o < 0) console.error("no parent found");
+        var GCore = e ? this._nodes.indexOf(e) : 0;
+        if (GCore < 0) console.error("no parent found");
         else if (this._nodes.indexOf(t) >= 0)
           console.error("node already added");
         else {
           var i,
             a = e ? e._depth : -1;
           if (((t._depth = a + 1), n))
-            for (var r = (i = e ? o + 1 : 0); r < this._nodes.length; r++) {
+            for (var r = (i = e ? GCore + 1 : 0); r < this._nodes.length; r++) {
               if (this._nodes[r]._depth <= a || this._nodes[r].virtualNode) {
                 i = Math.max(0, r - 1);
                 break;
               }
               i = r;
             }
-          else i = e ? o : 0;
+          else i = e ? GCore : 0;
           var s = null;
           (s =
             i >= this._nodes.length
@@ -140,10 +140,10 @@ function (exports, module, require) {
         if (!(t < 0)) {
           var require = $(this._container);
           require.find("#" + this._nodes[t].id).remove(), this._nodes.splice(t, 1);
-          for (var o = this._nodes[t]; o && e._depth < o._depth; )
-            require.find("#" + o.id).remove(),
+          for (var GCore = this._nodes[t]; GCore && e._depth < GCore._depth; )
+            require.find("#" + GCore.id).remove(),
               this._nodes.splice(t, 1),
-              (o = this._nodes[t]);
+              (GCore = this._nodes[t]);
         }
       }),
       (i.prototype.insertNodeAfter = function (e, t) {
@@ -152,15 +152,15 @@ function (exports, module, require) {
         else if (this._nodes.indexOf(t) >= 0)
           console.error("node already added");
         else {
-          var o = e ? e._depth : 0;
-          if (undefined === t._depth) t._depth = o;
-          else if (t._depth > o) return void this._nodes.splice(n + 1, 0, t);
+          var GCore = e ? e._depth : 0;
+          if (undefined === t._depth) t._depth = GCore;
+          else if (t._depth > GCore) return void this._nodes.splice(n + 1, 0, t);
           for (
             n += 1;
             this._nodes[n] &&
-            (this._nodes[n]._depth > o ||
+            (this._nodes[n]._depth > GCore ||
               (this._nodes[n].virtualNode &&
-                (0 === o || this._nodes[n]._depth < o)));
+                (0 === GCore || this._nodes[n]._depth < GCore)));
 
           )
             n++;
@@ -175,10 +175,10 @@ function (exports, module, require) {
         else if (this._nodes.indexOf(t) >= 0)
           console.error("node already added");
         else {
-          var o = e ? e._depth : 0;
+          var GCore = e ? e._depth : 0;
           for (
-            undefined === t._depth && (t._depth = o);
-            n >= 0 && (this._nodes[n]._depth > o || this._nodes[n].virtualNode);
+            undefined === t._depth && (t._depth = GCore);
+            n >= 0 && (this._nodes[n]._depth > GCore || this._nodes[n].virtualNode);
 
           )
             n--;

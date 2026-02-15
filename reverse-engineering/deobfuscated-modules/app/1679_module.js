@@ -5,21 +5,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */;
-    var i = o(require(1249) /* module_1249 */),
-      a = o(require(1155) /* module_1155 */),
-      r = require(1) /* module */;
+    var i = _interopRequireDefault(require(1249) /* module_1249 */),
+      a = _interopRequireDefault(require(1155) /* module_1155 */),
+      GCore = require(1) /* module */;
     const {
         gApi: s,
         IN_APP_PURCHASE: {
           CLEVERBRIDGE: { openCartInAPopup: l = false } = {},
         } = {},
       } = require(10) /* AppSettings */,
-      c = require(808) /* GApplicationStatusEvent */,
+      GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
       d = require(292) /* module_292 */,
       u = require(604) /* module_604 */,
-      p = require(256) /* GOfflineDialog */,
+      GOfflineDialog = require(256) /* GOfflineDialog */,
       g = require(1680) /* module_1680 */,
       h = require(1681) /* module_1681 */,
       f = require(1190) /* module_1190 */;
@@ -42,7 +42,7 @@ function (exports, module, require) {
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return $(".g-payment-dialog").length
           ? Promise.reject(false)
-          : new Promise(async (n, o) => {
+          : new Promise(async (n, _interopRequireDefault) => {
               try {
                 this._paymentFlow && this._paymentFlow.abort(),
                   (this._paymentFlow = new i.default(module));
@@ -50,7 +50,7 @@ function (exports, module, require) {
                   const {
                       immediatePurchase: i = false,
                       paymentCallback: l = () => {},
-                      autoClose: p = false,
+                      autoClose: GOfflineDialog = false,
                     } = module,
                     g = await gDesigner.getUser();
                   if (!e) {
@@ -72,7 +72,7 @@ function (exports, module, require) {
                         Object.assign(
                           {
                             time: n,
-                            language: r.GLocale.getLocaleLanguageTag().slice(
+                            language: GCore.GLocale.getLocaleLanguageTag().slice(
                               0,
                               2
                             ),
@@ -82,7 +82,7 @@ function (exports, module, require) {
                       );
                     }
                   }
-                  if (!e) return void o(new Error("Product is missing"));
+                  if (!e) return void _interopRequireDefault(new Error("Product is missing"));
                   const { reinstate: h = false } = e;
                   if (h)
                     return (
@@ -95,11 +95,11 @@ function (exports, module, require) {
                     );
                   this._paymentFlow.step(
                     new a.default()
-                      .listen(c)
+                      .listen(GApplicationStatusEvent)
                       .when(() => gDesigner.isInitialized())
                       .do(async () => {
                         try {
-                          const t = await this._openCart(e, i, p);
+                          const t = await this._openCart(e, i, GOfflineDialog);
                           l(t);
                         } catch (e) {
                           l({});
@@ -109,10 +109,10 @@ function (exports, module, require) {
                     n();
                 };
                 gDesigner.isOffline()
-                  ? (p.openRetryConnection(l), gDesigner.toggleLoading(false))
+                  ? (GOfflineDialog.openRetryConnection(l), gDesigner.toggleLoading(false))
                   : await l();
               } catch (e) {
-                o(e);
+                _interopRequireDefault(e);
               }
             }).then(
               (e) => (

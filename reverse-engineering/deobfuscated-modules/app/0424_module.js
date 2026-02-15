@@ -6,59 +6,59 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(677) /* polyfill_String_fromCodePoint */;
-    var o = require(25) /* core_export */,
-      i = require(23) /* globalThis */,
+    var core_export = require(25) /* core_export */,
+      globalThis = require(23) /* globalThis */,
       a = require(411) /* module_411 */,
       r = require(110) /* module_110 */,
-      s = require(29) /* isCallable */,
-      l = require(27) /* uncurryThis */,
-      c = require(49) /* hasOwnProperty_wrapper */,
+      isCallable = require(29) /* isCallable */,
+      uncurryThis = require(27) /* uncurryThis */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       d = require(423) /* module_423 */,
-      u = require(79) /* defineBuiltIn */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
       p = require(120) /* module_120 */,
       g = require(232) /* module_232 */,
-      h = require(137) /* setToStringTag */,
+      setToStringTag = require(137) /* setToStringTag */,
       f = require(419) /* module_419 */,
-      m = require(80) /* internalState */,
+      internalState = require(80) /* internalState */,
       y = require(146) /* module_146 */,
-      v = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       _ = require(61) /* module_61 */,
       b = require(124) /* module_124 */,
       w = require(131) /* module_131 */,
-      C = require(37) /* toString_default */,
-      x = require(46) /* toLength */,
-      S = require(62) /* requireObjectCoercible */,
+      toString_default = require(37) /* toString_default */,
+      toLength = require(46) /* toLength */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
       E = require(136) /* module_136 */,
       A = require(174) /* module_174 */,
       T = require(246) /* module_246 */,
       G = require(204) /* module_204 */,
-      P = require(252) /* toStringClassof */,
+      toStringClassof = require(252) /* toStringClassof */,
       D = require(303) /* module_303 */,
-      L = require(43) /* wellKnownSymbol */,
+      wellKnownSymbol = require(43) /* wellKnownSymbol */,
       I = require(351) /* module_351 */,
-      k = L("iterator"),
-      O = m.set,
-      F = m.getterFor("URLSearchParams"),
-      R = m.getterFor("URLSearchParamsIterator"),
+      k = wellKnownSymbol("iterator"),
+      O = internalState.set,
+      F = internalState.getterFor("URLSearchParams"),
+      R = internalState.getterFor("URLSearchParamsIterator"),
       M = a("fetch"),
       N = a("Request"),
       B = a("Headers"),
       U = N && N.prototype,
       $ = B && B.prototype,
-      j = i.TypeError,
-      K = i.encodeURIComponent,
+      j = globalThis.TypeError,
+      K = globalThis.encodeURIComponent,
       V = String.fromCharCode,
       H = r("String", "fromCodePoint"),
       W = parseInt,
-      z = l("".charAt),
-      q = l([].join),
-      Y = l([].push),
-      X = l("".replace),
-      Q = l([].shift),
-      J = l([].splice),
-      Z = l("".split),
-      ee = l("".slice),
-      te = l(/./.exec),
+      z = uncurryThis("".charAt),
+      q = uncurryThis([].join),
+      Y = uncurryThis([].push),
+      X = uncurryThis("".replace),
+      Q = uncurryThis([].shift),
+      J = uncurryThis([].splice),
+      Z = uncurryThis("".split),
+      ee = uncurryThis("".slice),
+      te = uncurryThis(/./.exec),
       ne = /\+/g,
       oe = /^[0-9a-f]+$/i,
       ie = function (e, t) {
@@ -91,48 +91,48 @@ function (exports, module, require) {
         return t > 1114111 ? null : t;
       },
       se = function (e) {
-        for (var module = (e = X(e, ne, " ")).length, require = "", o = 0; o < module; ) {
-          var i = z(e, o);
-          if ("%" === i) {
-            if ("%" === z(e, o + 1) || o + 3 > module) {
-              (require += "%"), o++;
+        for (var module = (e = X(e, ne, " ")).length, require = "", core_export = 0; core_export < module; ) {
+          var globalThis = z(e, core_export);
+          if ("%" === globalThis) {
+            if ("%" === z(e, core_export + 1) || core_export + 3 > module) {
+              (require += "%"), core_export++;
               continue;
             }
-            var a = ie(e, o + 1);
+            var a = ie(e, core_export + 1);
             if (a != a) {
-              (require += i), o++;
+              (require += globalThis), core_export++;
               continue;
             }
-            o += 2;
+            core_export += 2;
             var r = ae(a);
-            if (0 === r) i = V(a);
+            if (0 === r) globalThis = V(a);
             else {
               if (1 === r || r > 4) {
-                (require += "�"), o++;
+                (require += "�"), core_export++;
                 continue;
               }
               for (
-                var s = [a], l = 1;
-                l < r && !(++o + 3 > module || "%" !== z(e, o));
+                var isCallable = [a], uncurryThis = 1;
+                uncurryThis < r && !(++core_export + 3 > module || "%" !== z(e, core_export));
 
               ) {
-                var c = ie(e, o + 1);
-                if (c != c) {
-                  o += 3;
+                var hasOwnProperty_wrapper = ie(e, core_export + 1);
+                if (hasOwnProperty_wrapper != hasOwnProperty_wrapper) {
+                  core_export += 3;
                   break;
                 }
-                if (c > 191 || c < 128) break;
-                Y(s, c), (o += 2), l++;
+                if (hasOwnProperty_wrapper > 191 || hasOwnProperty_wrapper < 128) break;
+                Y(isCallable, hasOwnProperty_wrapper), (core_export += 2), uncurryThis++;
               }
-              if (s.length !== r) {
+              if (isCallable.length !== r) {
                 require += "�";
                 continue;
               }
-              var d = re(s);
-              null === d ? (require += "�") : (i = H(d));
+              var d = re(isCallable);
+              null === d ? (require += "�") : (globalThis = H(d));
             }
           }
-          (require += i), o++;
+          (require += globalThis), core_export++;
         }
         return require;
       },
@@ -165,15 +165,15 @@ function (exports, module, require) {
           var e = R(this),
             t = e.target,
             n = e.index++;
-          if (!t || n >= t.length) return (e.target = null), P(undefined, true);
-          var o = t[n];
+          if (!t || n >= t.length) return (e.target = null), toStringClassof(undefined, true);
+          var core_export = t[n];
           switch (e.kind) {
             case "keys":
-              return P(o.key, false);
+              return toStringClassof(core_export.key, false);
             case "values":
-              return P(o.value, false);
+              return toStringClassof(core_export.value, false);
           }
-          return P([o.key, o.value], false);
+          return toStringClassof([core_export.key, core_export.value], false);
         },
         true
       ),
@@ -181,10 +181,10 @@ function (exports, module, require) {
         (this.entries = []),
           (this.url = null),
           undefined !== e &&
-            (x(e)
+            (toLength(e)
               ? this.parseObject(e)
               : this.parseQuery(
-                  "string" == typeof e ? ("?" === z(e, 0) ? ee(e, 1) : e) : S(e)
+                  "string" == typeof e ? ("?" === z(e, 0) ? ee(e, 1) : e) : requireObjectCoercible(e)
                 ));
       };
     ge.prototype = {
@@ -195,33 +195,33 @@ function (exports, module, require) {
       parseObject: function (e) {
         var t,
           n,
-          o,
-          i,
+          core_export,
+          globalThis,
           a,
           r,
-          l,
-          c = this.entries,
+          uncurryThis,
+          hasOwnProperty_wrapper = this.entries,
           d = G(e);
         if (d)
-          for (n = (t = T(e, d)).next; !(o = s(n, t)).done; ) {
+          for (n = (t = T(e, d)).next; !(core_export = isCallable(n, t)).done; ) {
             if (
-              ((a = (i = T(C(o.value))).next),
-              (r = s(a, i)).done || (l = s(a, i)).done || !s(a, i).done)
+              ((a = (globalThis = T(toString_default(core_export.value))).next),
+              (r = isCallable(a, globalThis)).done || (uncurryThis = isCallable(a, globalThis)).done || !isCallable(a, globalThis).done)
             )
               throw new j("Expected sequence with length 2");
-            Y(c, { key: S(r.value), value: S(l.value) });
+            Y(hasOwnProperty_wrapper, { key: requireObjectCoercible(r.value), value: requireObjectCoercible(uncurryThis.value) });
           }
-        else for (var u in e) _(e, u) && Y(c, { key: u, value: S(e[u]) });
+        else for (var defineBuiltIn in e) _(e, defineBuiltIn) && Y(hasOwnProperty_wrapper, { key: defineBuiltIn, value: requireObjectCoercible(e[defineBuiltIn]) });
       },
       parseQuery: function (e) {
         if (e)
-          for (var module, require, o = this.entries, i = Z(e, "&"), a = 0; a < i.length; )
-            (module = i[a++]).length &&
-              ((require = Z(module, "=")), Y(o, { key: se(Q(require)), value: se(q(require, "=")) }));
+          for (var module, require, core_export = this.entries, globalThis = Z(e, "&"), a = 0; a < globalThis.length; )
+            (module = globalThis[a++]).length &&
+              ((require = Z(module, "=")), Y(core_export, { key: se(Q(require)), value: se(q(require, "=")) }));
       },
       serialize: function () {
-        for (var exports, module = this.entries, require = [], o = 0; o < module.length; )
-          (exports = module[o++]), Y(require, ue(exports.key) + "=" + ue(exports.value));
+        for (var exports, module = this.entries, require = [], core_export = 0; core_export < module.length; )
+          (exports = module[core_export++]), Y(require, ue(exports.key) + "=" + ue(exports.value));
         return q(require, "&");
       },
       update: function () {
@@ -235,7 +235,7 @@ function (exports, module, require) {
         y(this, fe);
         var e = arguments.length > 0 ? arguments[0] : undefined,
           t = O(this, new ge(e));
-        c || (this.size = t.entries.length);
+        hasOwnProperty_wrapper || (this.size = t.entries.length);
       },
       fe = he.prototype;
     if (
@@ -245,55 +245,55 @@ function (exports, module, require) {
           append: function (e, t) {
             var n = F(this);
             D(arguments.length, 2),
-              Y(n.entries, { key: S(e), value: S(t) }),
-              c || this.length++,
+              Y(n.entries, { key: requireObjectCoercible(e), value: requireObjectCoercible(t) }),
+              hasOwnProperty_wrapper || this.length++,
               n.updateURL();
           },
           delete: function (e) {
             for (
               var module = F(this),
                 require = D(arguments.length, 1),
-                o = module.entries,
-                i = S(e),
+                core_export = module.entries,
+                globalThis = requireObjectCoercible(e),
                 a = require < 2 ? undefined : arguments[1],
-                r = undefined === a ? a : S(a),
-                s = 0;
-              s < o.length;
+                r = undefined === a ? a : requireObjectCoercible(a),
+                isCallable = 0;
+              isCallable < core_export.length;
 
             ) {
-              var l = o[s];
-              if (l.key !== i || (undefined !== r && l.value !== r)) s++;
-              else if ((J(o, s, 1), undefined !== r)) break;
+              var uncurryThis = core_export[isCallable];
+              if (uncurryThis.key !== globalThis || (undefined !== r && uncurryThis.value !== r)) isCallable++;
+              else if ((J(core_export, isCallable, 1), undefined !== r)) break;
             }
-            c || (this.size = o.length), module.updateURL();
+            hasOwnProperty_wrapper || (this.size = core_export.length), module.updateURL();
           },
           get: function (e) {
             var t = F(this).entries;
             D(arguments.length, 1);
-            for (var require = S(e), o = 0; o < t.length; o++)
-              if (t[o].key === require) return t[o].value;
+            for (var require = requireObjectCoercible(e), core_export = 0; core_export < t.length; core_export++)
+              if (t[core_export].key === require) return t[core_export].value;
             return null;
           },
           getAll: function (e) {
             var t = F(this).entries;
             D(arguments.length, 1);
-            for (var require = S(e), o = [], i = 0; i < t.length; i++)
-              t[i].key === require && Y(o, t[i].value);
-            return o;
+            for (var require = requireObjectCoercible(e), core_export = [], globalThis = 0; globalThis < t.length; globalThis++)
+              t[globalThis].key === require && Y(core_export, t[globalThis].value);
+            return core_export;
           },
           has: function (e) {
             for (
               var module = F(this).entries,
                 require = D(arguments.length, 1),
-                o = S(e),
-                i = require < 2 ? undefined : arguments[1],
-                a = undefined === i ? i : S(i),
+                core_export = requireObjectCoercible(e),
+                globalThis = require < 2 ? undefined : arguments[1],
+                a = undefined === globalThis ? globalThis : requireObjectCoercible(globalThis),
                 r = 0;
               r < module.length;
 
             ) {
-              var s = module[r++];
-              if (s.key === o && (undefined === a || s.value === a)) return true;
+              var isCallable = module[r++];
+              if (isCallable.key === core_export && (undefined === a || isCallable.value === a)) return true;
             }
             return false;
           },
@@ -301,14 +301,14 @@ function (exports, module, require) {
             var n = F(this);
             D(arguments.length, 1);
             for (
-              var o, i = n.entries, a = false, r = S(e), s = S(t), l = 0;
-              l < i.length;
-              l++
+              var core_export, globalThis = n.entries, a = false, r = requireObjectCoercible(e), isCallable = requireObjectCoercible(t), uncurryThis = 0;
+              uncurryThis < globalThis.length;
+              uncurryThis++
             )
-              (o = i[l]).key === r &&
-                (a ? J(i, l--, 1) : ((a = true), (o.value = s)));
-            a || Y(i, { key: r, value: s }),
-              c || (this.size = i.length),
+              (core_export = globalThis[uncurryThis]).key === r &&
+                (a ? J(globalThis, uncurryThis--, 1) : ((a = true), (core_export.value = isCallable)));
+            a || Y(globalThis, { key: r, value: isCallable }),
+              hasOwnProperty_wrapper || (this.size = globalThis.length),
               n.updateURL();
           },
           sort: function () {
@@ -322,12 +322,12 @@ function (exports, module, require) {
             for (
               var module,
                 require = F(this).entries,
-                o = b(e, arguments.length > 1 ? arguments[1] : undefined),
-                i = 0;
-              i < require.length;
+                core_export = b(e, arguments.length > 1 ? arguments[1] : undefined),
+                globalThis = 0;
+              globalThis < require.length;
 
             )
-              o((module = require[i++]).value, module.key, this);
+              core_export((module = require[globalThis++]).value, module.key, this);
           },
           keys: function () {
             return new pe(this, "keys");
@@ -341,8 +341,8 @@ function (exports, module, require) {
         },
         { enumerable: true }
       ),
-      u(fe, k, fe.entries, { name: "entries" }),
-      u(
+      defineBuiltIn(fe, k, fe.entries, { name: "entries" }),
+      defineBuiltIn(
         fe,
         "toString",
         function () {
@@ -350,7 +350,7 @@ function (exports, module, require) {
         },
         { enumerable: true }
       ),
-      c &&
+      hasOwnProperty_wrapper &&
         p(fe, "size", {
           get: function () {
             return F(this).entries.length;
@@ -358,14 +358,14 @@ function (exports, module, require) {
           configurable: true,
           enumerable: true,
         }),
-      h(he, "URLSearchParams"),
-      o({ global: true, constructor: true, forced: !d }, { URLSearchParams: he }),
-      !d && v(B))
+      setToStringTag(he, "URLSearchParams"),
+      core_export({ global: true, constructor: true, forced: !d }, { URLSearchParams: he }),
+      !d && anObject(B))
     ) {
-      var me = l($.has),
-        ye = l($.set),
+      var me = uncurryThis($.has),
+        ye = uncurryThis($.set),
         ve = function (e) {
-          if (x(e)) {
+          if (toLength(e)) {
             var module,
               require = e.body;
             if ("URLSearchParams" === w(require))
@@ -377,14 +377,14 @@ function (exports, module, require) {
                     "content-type",
                     "application/x-www-form-urlencoded;charset=UTF-8"
                   ),
-                E(e, { body: A(0, S(require)), headers: A(0, module) })
+                E(e, { body: A(0, requireObjectCoercible(require)), headers: A(0, module) })
               );
           }
           return e;
         };
       if (
-        (v(M) &&
-          o(
+        (anObject(M) &&
+          core_export(
             { global: true, enumerable: true, dontCallGetSet: true, forced: true },
             {
               fetch: function (e) {
@@ -392,7 +392,7 @@ function (exports, module, require) {
               },
             }
           ),
-        v(N))
+        anObject(N))
       ) {
         var _e = function (e) {
           return (
@@ -401,7 +401,7 @@ function (exports, module, require) {
         };
         (U.constructor = _e),
           (_e.prototype = U),
-          o(
+          core_export(
             { global: true, constructor: true, dontCallGetSet: true, forced: true },
             { Request: _e }
           );

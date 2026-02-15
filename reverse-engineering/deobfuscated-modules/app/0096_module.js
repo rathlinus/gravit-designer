@@ -5,36 +5,36 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
+    var core_export = require(25) /* core_export */,
       i = require(110) /* module_110 */,
-      a = require(200) /* advanceStringIndex */,
-      r = require(29) /* isCallable */,
-      s = require(27) /* uncurryThis */,
-      l = require(21) /* tryCall */,
-      c = require(35) /* anObject */,
+      advanceStringIndex = require(200) /* advanceStringIndex */,
+      isCallable = require(29) /* isCallable */,
+      uncurryThis = require(27) /* uncurryThis */,
+      tryCall = require(21) /* tryCall */,
+      anObject = require(35) /* anObject */,
       d = require(241) /* module_241 */,
       u = require(157) /* stub_requires_27 */,
       p = require(666) /* module_666 */,
       g = require(295) /* module_295 */,
       h = String,
       f = i("JSON", "stringify"),
-      m = s(/./.exec),
-      y = s("".charAt),
-      v = s("".charCodeAt),
-      _ = s("".replace),
-      b = s((1).toString),
+      m = uncurryThis(/./.exec),
+      y = uncurryThis("".charAt),
+      v = uncurryThis("".charCodeAt),
+      _ = uncurryThis("".replace),
+      b = uncurryThis((1).toString),
       w = /[\uD800-\uDFFF]/g,
       C = /^[\uD800-\uDBFF]$/,
       x = /^[\uDC00-\uDFFF]$/,
       S =
         !g ||
-        l(function () {
+        tryCall(function () {
           var e = i("Symbol")("stringify detection");
           return (
             "[null]" !== f([e]) || "{}" !== f({ a: e }) || "{}" !== f(Object(e))
           );
         }),
-      E = l(function () {
+      E = tryCall(function () {
         return (
           '"\\udf06\\ud834"' !== f("\udf06\ud834") ||
           '"\\udead"' !== f("\udead")
@@ -42,29 +42,29 @@ function (exports, module, require) {
       }),
       A = function (e, t) {
         var n = u(arguments),
-          o = p(t);
-        if (c(o) || (undefined !== e && !d(e)))
+          core_export = p(t);
+        if (anObject(core_export) || (undefined !== e && !d(e)))
           return (
             (n[1] = function (e, t) {
-              if ((c(o) && (t = r(o, this, h(e), t)), !d(t))) return t;
+              if ((anObject(core_export) && (t = isCallable(core_export, this, h(e), t)), !d(t))) return t;
             }),
-            a(f, null, n)
+            advanceStringIndex(f, null, n)
           );
       },
       T = function (e, t, n) {
-        var o = y(n, t - 1),
+        var core_export = y(n, t - 1),
           i = y(n, t + 1);
-        return (m(C, e) && !m(x, i)) || (m(x, e) && !m(C, o))
+        return (m(C, e) && !m(x, i)) || (m(x, e) && !m(C, core_export))
           ? "\\u" + b(v(e, 0), 16)
           : e;
       };
     f &&
-      o(
+      core_export(
         { target: "JSON", stat: true, arity: 3, forced: S || E },
         {
           stringify: function (e, t, n) {
-            var o = u(arguments),
-              i = a(S ? A : f, null, o);
+            var core_export = u(arguments),
+              i = advanceStringIndex(S ? A : f, null, core_export);
             return E && "string" == typeof i ? _(i, w, T) : i;
           },
         }

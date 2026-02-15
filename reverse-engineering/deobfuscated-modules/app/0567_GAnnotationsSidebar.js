@@ -6,43 +6,43 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(15) /* module */,
-      s = o(require(238) /* GMenu */),
-      l = o(require(339) /* GMenu */),
-      c = require(67) /* GRichTooltipConfig */,
-      d = o(require(340) /* GTouchTool */),
+      GMenu = _interopRequireDefault(require(238) /* GMenu */),
+      GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       u = require(1275) /* module_1275 */,
       p = require(444) /* module_444 */,
-      g = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       h = (require(606) /* GPanel */, require(806) /* GSidebar */),
       f = require(395) /* module_395 */,
-      m = require(864) /* GInspectorSidebar */,
-      y = require(123) /* GProperties */,
-      v = require(1535) /* GAnnotations */,
+      GInspectorSidebar = require(864) /* GInspectorSidebar */,
+      GProperties = require(123) /* GProperties */,
+      GAnnotations = require(1535) /* GAnnotations */,
       _ = require(603) /* WindowEvent */,
-      b = require(1536) /* GAnnotationProperties */,
+      GAnnotationProperties = require(1536) /* GAnnotationProperties */,
       w = require(358) /* module_358 */,
       C = require(592) /* module_592 */;
     const x = require(392) /* module_392 */,
-      S = require(135) /* GSettingChangedEvent */;
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     var E = require(1537) /* module_1537 */;
-    const A = require(291) /* GNetworkAvailabilityChangedEvent */,
-      T = require(393) /* GCollaborationEvent */,
+    const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
+      GCollaborationEvent = require(393) /* GCollaborationEvent */,
       G = require(336) /* module_336 */,
       P = require(434) /* stub_requires_30_1072 */,
       { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = require(10) /* AppSettings */,
       I = require(86) /* module_86 */,
-      k = require(217) /* GDocumentStatusEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       O = require(1279) /* module_1279 */,
       {
         DateAPI: F,
         FileStatus: { APPROVED: R },
       } = require(10) /* AppSettings */,
-      M = require(198) /* Exports_GOutlineSidebar */;
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
     function N() {
       h.call(this),
         (this._annotationPanels = []),
@@ -50,13 +50,13 @@ function (exports, module, require) {
         (this._handleFocusInEvent = this._handleFocusInEvent.bind(this)),
         (this._handleFocusOutEvent = this._handleFocusOutEvent.bind(this));
     }
-    a.GObject.inherit(N, h),
+    GCore.GObject.inherit(N, h),
       (N.ANNOTATION_PROPERTIES_ARROW_POSITION = [32.5, 44, 55.5, 67, 78.5, 90]),
       (N.ANNOTATION_PROPERTIES_ARROW_POSITION_TOUCH = [
         25.5, 38, 50.5, 63, 75.5, 88,
       ]),
-      (N.ID = M.SidebarsIds.GAnnotationsSidebar),
-      (N.TITLE = new a.GLocaleKey("GAnnotationsSidebar", "text.title")),
+      (N.ID = GOutlineSidebar.SidebarsIds.GAnnotationsSidebar),
+      (N.TITLE = new GCore.GLocaleKey("GAnnotationsSidebar", "text.title")),
       (N.prototype._htmlElement = null),
       (N.prototype._panelsContainer = null),
       (N.prototype._annotationPanels = null),
@@ -68,8 +68,8 @@ function (exports, module, require) {
       (N.prototype._annotationToolbar = null),
       (N.prototype._annotationsToolbarPanel = null),
       (N.prototype._showResolved = false),
-      (N.prototype._showDistance = i.GEditorOptions.showDistance),
-      (N.prototype._toolExitKey = i.GEditorOptions.toolExitKey),
+      (N.prototype._showDistance = GTools.GEditorOptions.showDistance),
+      (N.prototype._toolExitKey = GTools.GEditorOptions.toolExitKey),
       (N.prototype._currentAnnotations = null),
       (N.prototype._localAnnotations = null),
       (N.prototype._page = null),
@@ -142,37 +142,37 @@ function (exports, module, require) {
                     )
                   : w.getCloudAnnotationsForDocument(this._document)
                 ).then((n) => {
-                  let o = n.annotationsCollection,
-                    i = false;
+                  let _interopRequireDefault = n.annotationsCollection,
+                    GTools = false;
                   this._document &&
                     this._document.getAnnotationsId() !== n.cid &&
-                    t(i);
-                  let a = false;
-                  if (o) {
-                    this._currentAnnotations = o;
+                    t(GTools);
+                  let GCore = false;
+                  if (_interopRequireDefault) {
+                    this._currentAnnotations = _interopRequireDefault;
                     for (
                       let t = this._annotationPanels.length - 1;
                       t >= 0;
                       t--
                     ) {
                       let n = this._annotationPanels[t];
-                      if (n.properties instanceof v) {
+                      if (n.properties instanceof GAnnotations) {
                         let t = this._getAnnotationsToSet(
-                            o,
+                            _interopRequireDefault,
                             n.properties.getPage()
                           ),
                           r = n.properties.setAnnotations(t);
                         r === O.UPDATED
-                          ? (i = true)
+                          ? (GTools = true)
                           : r === O.DELAYED &&
-                            ((a = true),
+                            ((GCore = true),
                             n.properties.setDelayedSyncCallback(
                               this.syncAnnotations.bind(this, e)
                             ));
                       }
                     }
                   }
-                  if (((i = i && !a), i)) {
+                  if (((GTools = GTools && !GCore), GTools)) {
                     let e = this._document.getScene();
                     e &&
                       e.setLastTimeAnnotationsFromCloudModified(
@@ -183,7 +183,7 @@ function (exports, module, require) {
                         ? this._activateAnnotations()
                         : this.trigger(h.UPDATE_EVENT);
                   }
-                  t(i);
+                  t(GTools);
                 });
               })
           : Promise.resolve();
@@ -195,7 +195,7 @@ function (exports, module, require) {
       (N.prototype.init = function (e) {
         h.prototype.init.call(this, e),
           (this._htmlElement = e),
-          (this._notificationMenu = new s.default(
+          (this._notificationMenu = new GMenu.default(
             null,
             "g-annotation-sidebar-notification-menu"
           ));
@@ -204,12 +204,12 @@ function (exports, module, require) {
           .isCommentingEditingEnabled();
         (this._sidebarTitle = $("<div></div>")
           .addClass("sidebar-title-inner")
-          .append(a.GLocale.get(this.getTitle()))),
+          .append(GCore.GLocale.get(this.getTitle()))),
           (this._annotationToolbar = $("<div></div>").addClass(
             "toolbar annotations-toolbar"
           ));
         const require = $("<button></button>");
-        var o = $("<div></div>")
+        var _interopRequireDefault = $("<div></div>")
           .addClass("annotation-sidebar-options")
           .gOverlay({
             releaseOnClose: false,
@@ -225,8 +225,8 @@ function (exports, module, require) {
         require
           .attr(
             "data-title",
-            a.GLocale.get(
-              new a.GLocaleKey("GAnnotationsSidebar", "text.annotation-options")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAnnotationsSidebar", "text.annotation-options")
             )
           )
           .addClass("annotation-options")
@@ -234,7 +234,7 @@ function (exports, module, require) {
           .on(
             "click",
             function (e) {
-              o.gOverlay("open", $(e.target).closest("button")),
+              _interopRequireDefault.gOverlay("open", $(e.target).closest("button")),
                 require.addClass("g-active");
             }.bind(this)
           )
@@ -275,8 +275,8 @@ function (exports, module, require) {
                   )
                   .append(
                     $("<span>").text(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GAnnotationsSidebar",
                           "text.show-resolved"
                         )
@@ -307,8 +307,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span>").text(
-                        a.GLocale.get(
-                          new a.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GAnnotationsSidebar",
                             "text.resolve-all"
                           )
@@ -352,8 +352,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span>").text(
-                        a.GLocale.get(
-                          new a.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GAnnotationsSidebar",
                             "text.notification"
                           )
@@ -363,7 +363,7 @@ function (exports, module, require) {
                 },
               ],
             }),
-          this._optionsToolbar.appendTo(o),
+          this._optionsToolbar.appendTo(_interopRequireDefault),
           $("<div/>")
             .addClass("offline-overlay-message")
             .append(
@@ -371,8 +371,8 @@ function (exports, module, require) {
                 .addClass("box")
                 .append(
                   $("<span/>").text(
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GOfflineDialog",
                         "title.unavailable-feature"
                       )
@@ -381,20 +381,20 @@ function (exports, module, require) {
                 )
             )
             .appendTo(this._htmlElement),
-          gDesigner.addEventListener(g, this._documentEvent, this),
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           gDesigner
             .getWindows()
             .addEventListener(_.WindowEvent, this._windowEvent, this),
           gDesigner
             .getToolManager()
             .addEventListener(
-              i.GToolManager.ToolChangedEvent,
+              GTools.GToolManager.ToolChangedEvent,
               this._toolChangedEvent,
               this
             ),
           gDesigner.addEventListener(x, this._stateChangedEvent, this),
           gDesigner.addEventListener(
-            A,
+            GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
             this
           ),
@@ -409,7 +409,7 @@ function (exports, module, require) {
           if (t && t.length) return [];
         }
         return [
-          new d.default({
+          new GTouchTool.default({
             id: "annotation",
             sidebar: this.getId(),
             icon: "gravit-icon-touch-comment-docker",
@@ -423,14 +423,14 @@ function (exports, module, require) {
       }),
       (N.prototype.getAnnotationsProperties = function () {
         return [
-          new b(
+          new GAnnotationProperties(
             [
-              b.PropertySet.FillLayer,
-              b.PropertySet.BorderLayer,
-              b.PropertySet.BorderWidth,
+              GAnnotationProperties.PropertySet.FillLayer,
+              GAnnotationProperties.PropertySet.BorderLayer,
+              GAnnotationProperties.PropertySet.BorderWidth,
             ],
-            a.GEllipseAnnotation,
-            i.GEllipseAnnotationTool,
+            GCore.GEllipseAnnotation,
+            GTools.GEllipseAnnotationTool,
             "gravit-icon-annotationtools-ellipse",
             "text.tooltip-ellipse-tool",
             {
@@ -443,14 +443,14 @@ function (exports, module, require) {
             "Ellipse",
             "tool-ellipse"
           ),
-          new b(
+          new GAnnotationProperties(
             [
-              b.PropertySet.FillLayer,
-              b.PropertySet.BorderLayer,
-              b.PropertySet.BorderWidth,
+              GAnnotationProperties.PropertySet.FillLayer,
+              GAnnotationProperties.PropertySet.BorderLayer,
+              GAnnotationProperties.PropertySet.BorderWidth,
             ],
-            a.GRectangleAnnotation,
-            i.GRectangleAnnotationTool,
+            GCore.GRectangleAnnotation,
+            GTools.GRectangleAnnotationTool,
             "gravit-icon-annotationtools-rectangle",
             "text.tooltip-rectangle-tool",
             {
@@ -463,10 +463,10 @@ function (exports, module, require) {
             "Rectangle",
             "tool-rectangle"
           ),
-          new b(
-            [b.PropertySet.BorderLayer, b.PropertySet.BorderWidth],
-            a.GPencilAnnotation,
-            i.GPencilAnnotationTool,
+          new GAnnotationProperties(
+            [GAnnotationProperties.PropertySet.BorderLayer, GAnnotationProperties.PropertySet.BorderWidth],
+            GCore.GPencilAnnotation,
+            GTools.GPencilAnnotationTool,
             "gravit-icon-annotationtools-pencil",
             "text.tooltip-pencil-tool",
             {
@@ -477,10 +477,10 @@ function (exports, module, require) {
             "Pencil",
             "tool-pencil"
           ),
-          new b(
-            [b.PropertySet.BorderLayer, b.PropertySet.BorderWidth],
-            a.GHighlighterAnnotation,
-            i.GHighlighterAnnotationTool,
+          new GAnnotationProperties(
+            [GAnnotationProperties.PropertySet.BorderLayer, GAnnotationProperties.PropertySet.BorderWidth],
+            GCore.GHighlighterAnnotation,
+            GTools.GHighlighterAnnotationTool,
             "gravit-icon-annotationtools-highlighter",
             "text.tooltip-highlighter-tool",
             {
@@ -491,15 +491,15 @@ function (exports, module, require) {
             "Highlighter",
             "tool-highlighter"
           ),
-          new b(
+          new GAnnotationProperties(
             [
-              b.PropertySet.BorderLayer,
-              b.PropertySet.BorderWidth,
-              b.PropertySet.BorderHeadMarker,
-              b.PropertySet.BorderTailMarker,
+              GAnnotationProperties.PropertySet.BorderLayer,
+              GAnnotationProperties.PropertySet.BorderWidth,
+              GAnnotationProperties.PropertySet.BorderHeadMarker,
+              GAnnotationProperties.PropertySet.BorderTailMarker,
             ],
-            a.GArrowAnnotation,
-            i.GArrowAnnotationTool,
+            GCore.GArrowAnnotation,
+            GTools.GArrowAnnotationTool,
             "gravit-icon-annotationtools-line",
             "text.tooltip-arrow-tool",
             {
@@ -510,10 +510,10 @@ function (exports, module, require) {
             "Line",
             "tool-line"
           ),
-          new b(
-            [b.PropertySet.FillLayer],
-            a.GCommentAnnotation,
-            i.GCommentAnnotationTool,
+          new GAnnotationProperties(
+            [GAnnotationProperties.PropertySet.FillLayer],
+            GCore.GCommentAnnotation,
+            GTools.GCommentAnnotationTool,
             "gravit-icon-annotationtools-comment",
             "text.tooltip-comment-tool",
             {
@@ -535,7 +535,7 @@ function (exports, module, require) {
           this._document &&
             this._document.getActiveWindow() &&
             this._activateAnnotations(),
-          gDesigner.getToolManager().activateTool(i.GPointerTool, null, true),
+          gDesigner.getToolManager().activateTool(GTools.GPointerTool, null, true),
           this.syncAnnotations();
       }),
       (N.prototype.deactivate = function () {
@@ -557,10 +557,10 @@ function (exports, module, require) {
             .getView()
             .getViewConfiguration().showResolvedAnnotations =
             this._showResolved),
-          (this._showDistance = i.GEditorOptions.showDistance),
-          (this._toolExitKey = i.GEditorOptions.toolExitKey),
-          (i.GEditorOptions.showDistance = false),
-          (i.GEditorOptions.toolExitKey = r.GKey.Constant.ESC),
+          (this._showDistance = GTools.GEditorOptions.showDistance),
+          (this._toolExitKey = GTools.GEditorOptions.toolExitKey),
+          (GTools.GEditorOptions.showDistance = false),
+          (GTools.GEditorOptions.toolExitKey = r.GKey.Constant.ESC),
           this._document
             .getActiveWindow()
             .getView()
@@ -572,14 +572,14 @@ function (exports, module, require) {
           exports.getSelection() &&
             exports.updateSelection(
               false,
-              exports.getSelection().filter((e) => !e.hasMixin(a.GAnnotation))
+              exports.getSelection().filter((e) => !e.hasMixin(GCore.GAnnotation))
             ),
             (this._document
               .getActiveWindow()
               .getView()
               .getViewConfiguration().elementAnnotations = false),
-            (i.GEditorOptions.showDistance = this._showDistance),
-            (i.GEditorOptions.toolExitKey = this._toolExitKey),
+            (GTools.GEditorOptions.showDistance = this._showDistance),
+            (GTools.GEditorOptions.toolExitKey = this._toolExitKey),
             this._document
               .getActiveWindow()
               .getView()
@@ -592,31 +592,31 @@ function (exports, module, require) {
         gDesigner
           .getToolManager()
           .addEventListener(
-            i.GToolManager.ToolChangedEvent,
+            GTools.GToolManager.ToolChangedEvent,
             this._updateFromToolOrSelection,
             this
           ),
           t.addEventListener(
-            i.GEditor.SelectionChangedEvent,
+            GTools.GEditor.SelectionChangedEvent,
             this._selectionChangedEvent,
             this
           ),
           e.addEventListener(
-            a.GNode.AfterFlagChangeEvent,
+            GCore.GNode.AfterFlagChangeEvent,
             this._afterFlagChangeEvent,
             this
           ),
           e.addEventListener(
-            a.GNode.AfterInsertEvent,
+            GCore.GNode.AfterInsertEvent,
             this._afterInsertEvent,
             this
           ),
           e.addEventListener(
-            a.GNode.AfterRemoveEvent,
+            GCore.GNode.AfterRemoveEvent,
             this._afterRemoveEvent,
             this
           ),
-          gDesigner.addEventListener(S, this._settingChanged, this),
+          gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
           gDesigner.isTouchEnabled() &&
             this._htmlElement &&
             (this._htmlElement[0].addEventListener(
@@ -637,31 +637,31 @@ function (exports, module, require) {
         gDesigner
           .getToolManager()
           .removeEventListener(
-            i.GToolManager.ToolChangedEvent,
+            GTools.GToolManager.ToolChangedEvent,
             this._updateFromToolOrSelection,
             this
           ),
           t.removeEventListener(
-            i.GEditor.SelectionChangedEvent,
+            GTools.GEditor.SelectionChangedEvent,
             this._selectionChangedEvent,
             this
           ),
           e.removeEventListener(
-            a.GNode.AfterFlagChangeEvent,
+            GCore.GNode.AfterFlagChangeEvent,
             this._afterFlagChangeEvent,
             this
           ),
           e.removeEventListener(
-            a.GNode.AfterInsertEvent,
+            GCore.GNode.AfterInsertEvent,
             this._afterInsertEvent,
             this
           ),
           e.removeEventListener(
-            a.GNode.AfterRemoveEvent,
+            GCore.GNode.AfterRemoveEvent,
             this._afterRemoveEvent,
             this
           ),
-          gDesigner.removeEventListener(S, this._settingChanged, this),
+          gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged, this),
           this._htmlElement &&
             (this._htmlElement[0].removeEventListener(
               "focusin",
@@ -680,8 +680,8 @@ function (exports, module, require) {
         const exports = gDesigner.getApplicationManager(),
           module = exports.isCommentingEditingEnabled(),
           require = await exports.hasAccess(P.RESOLVE_ALL_COMMENT_ANNOTATION),
-          o = this._optionsToolbar.find(".resolve-all-row");
-        module && require ? o.parent().show() : o.parent().hide();
+          _interopRequireDefault = this._optionsToolbar.find(".resolve-all-row");
+        module && require ? _interopRequireDefault.parent().show() : _interopRequireDefault.parent().hide();
       }),
       (N.prototype._windowEvent = function (e) {
         e.type === _.WindowEvent.Type.Activated &&
@@ -690,7 +690,7 @@ function (exports, module, require) {
       }),
       (N.prototype._documentEvent = function (e) {
         if (!e.document.isLockedByVersionHistory())
-          if (e.type === g.Type.Activated) {
+          if (e.type === GDocumentEvent.Type.Activated) {
             (this._document = e.document),
               (this._storageItem = this._document.getStorageItem());
             var module = this._document && this._document.getScene();
@@ -702,12 +702,12 @@ function (exports, module, require) {
                 this._activateAnnotations(),
               this.trigger(h.UPDATE_EVENT),
               this._document.addEventListener(
-                k,
+                GDocumentStatusEvent,
                 this._documentStatusEvent,
                 this
               ),
               this._document.addEventListener(
-                T,
+                GCollaborationEvent,
                 this._collaborationEvent,
                 this
               ),
@@ -718,17 +718,17 @@ function (exports, module, require) {
               ),
               this._updateNotificationMenu();
           } else
-            e.type === g.Type.Deactivated
+            e.type === GDocumentEvent.Type.Deactivated
               ? (this._listenersAdded && this._removeListeners(),
                 this._document.getActiveWindow() &&
                   this._deactivateAnnotations(),
                 this._document.removeEventListener(
-                  k,
+                  GDocumentStatusEvent,
                   this._documentStatusEvent,
                   this
                 ),
                 this._document.removeEventListener(
-                  T,
+                  GCollaborationEvent,
                   this._collaborationEvent,
                   this
                 ),
@@ -745,7 +745,7 @@ function (exports, module, require) {
                 (this._page = null),
                 this._updatePropertyPanels(true),
                 this.trigger(h.UPDATE_EVENT))
-              : e.type === g.Type.StorageItemUpdated &&
+              : e.type === GDocumentEvent.Type.StorageItemUpdated &&
                 this._updatePropertyPanels(true);
       }),
       (N.prototype._settingChanged = function (e) {
@@ -761,13 +761,13 @@ function (exports, module, require) {
       }),
       (N.prototype._updateNotificationMenu = function () {
         this._notificationMenu.clearItems(),
-          this._notificationMenu.setTooltipType(c.TOOLTIP_AREA.SIDEBAR),
+          this._notificationMenu.setTooltipType(GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR),
           this._document.getId() &&
             gApi.updateFileData(this._document.getId()).then((e) => {
               const module = [
                 {
-                  caption: a.GLocale.get(
-                    new a.GLocaleKey(
+                  caption: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GAnnotationsSidebar",
                       "text.notification-all-annotation"
                     )
@@ -776,8 +776,8 @@ function (exports, module, require) {
                   statType: "All",
                 },
                 {
-                  caption: a.GLocale.get(
-                    new a.GLocaleKey(
+                  caption: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GAnnotationsSidebar",
                       "text.notification-assign-to-me"
                     )
@@ -786,8 +786,8 @@ function (exports, module, require) {
                   statType: "Assigned",
                 },
                 {
-                  caption: a.GLocale.get(
-                    new a.GLocaleKey(
+                  caption: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GAnnotationsSidebar",
                       "text.notification-none"
                     )
@@ -804,11 +804,11 @@ function (exports, module, require) {
             });
       }),
       (N.prototype._createMenuItem = function (e) {
-        var t = new l.default(l.default.Type.Item);
+        var t = new GMenu2.default(GMenu2.default.Type.Item);
         return (
           t.setChecked(e.checked),
           t.setCaption(e.caption),
-          t.addEventListener(l.default.ActivateEvent, (t) => {
+          t.addEventListener(GMenu2.default.ActivateEvent, (t) => {
             const { sender: require } = t;
             this._notificationMenu._items.forEach((e) => {
               e.setChecked(false);
@@ -826,7 +826,7 @@ function (exports, module, require) {
         e.status === I.Unlocked && this._updateFromToolOrSelection(true);
       }),
       (N.prototype._collaborationEvent = function (e) {
-        if (e.type === T.Type.AnnotationsUpdate) {
+        if (e.type === GCollaborationEvent.Type.AnnotationsUpdate) {
           const { data: { lastUpdateTime: module } = {} } = e;
           if (module && this._document) {
             const e = this._document.getScene();
@@ -835,19 +835,19 @@ function (exports, module, require) {
                 !F.lt(e.getLastTimeAnnotationsFromCloudModified(), module, false)) ||
               this.syncAnnotations();
           }
-        } else e.type === T.Type.ReviewStatusChanged && this._updateToolbar();
+        } else e.type === GCollaborationEvent.Type.ReviewStatusChanged && this._updateToolbar();
       }),
       (N.prototype.isToolAllowed = function (e) {
         return !(
-          ![i.GHandTool, i.GPointerTool, i.GZoomTool].some(
+          ![GTools.GHandTool, GTools.GPointerTool, GTools.GZoomTool].some(
             (t) => e instanceof t
-          ) && !e.hasMixin(i.GAnnotationTool)
+          ) && !e.hasMixin(GTools.GAnnotationTool)
         );
       }),
       (N.prototype._toolChangedEvent = function (e) {
         e.previousTool;
         var t = e.newTool;
-        if (e.newTool.hasMixin(i.GAnnotationTool)) {
+        if (e.newTool.hasMixin(GTools.GAnnotationTool)) {
           var require = gDesigner.getActiveDocument();
           require && require.getEditor() && require.getEditor().clearSelection();
         }
@@ -859,29 +859,29 @@ function (exports, module, require) {
       }),
       (N.prototype._activeTool = function (e) {
         this._annotationToolbar.find(".toolbar-button").each((t, n) => {
-          var o = $(n).data("toolClass");
-          e instanceof o
+          var _interopRequireDefault = $(n).data("toolClass");
+          e instanceof _interopRequireDefault
             ? $(n).addClass("g-active")
             : $(n).removeClass("g-active");
         });
       }),
       (N.prototype._afterFlagChangeEvent = function (e) {
-        e.node instanceof a.GPage &&
-          e.flag === a.GNode.Flag.Active &&
+        e.node instanceof GCore.GPage &&
+          e.flag === GCore.GNode.Flag.Active &&
           !this._document.getEditor().hasSelection() &&
           this._updateFromToolOrSelection();
       }),
       (N.prototype._afterInsertEvent = function (e) {
-        (e.node instanceof a.GPage || e.node instanceof a.GAnnotationsList) &&
+        (e.node instanceof GCore.GPage || e.node instanceof GCore.GAnnotationsList) &&
           this._updatePropertyPanels(true);
       }),
       (N.prototype._afterRemoveEvent = function (e) {
-        (e.node instanceof a.GPage || e.node instanceof a.GAnnotationsList) &&
+        (e.node instanceof GCore.GPage || e.node instanceof GCore.GAnnotationsList) &&
           this._updatePropertyPanels(true);
       }),
       (N.prototype.relayout = function (e) {
         this._annotationPanels.forEach(
-          (t) => t.properties instanceof v && t.properties.relayout(e)
+          (t) => t.properties instanceof GAnnotations && t.properties.relayout(e)
         );
       }),
       (N.prototype._updateSelection = function () {
@@ -895,23 +895,23 @@ function (exports, module, require) {
           ) {
             if (
               this._elements.find(
-                (e) => !(e.hasMixin(a.GAnnotation) || e instanceof a.GPage)
+                (e) => !(e.hasMixin(GCore.GAnnotation) || e instanceof GCore.GPage)
               )
             )
               return (
                 (this._elements = []),
                 console.warn("deactivating annotations"),
-                void gDesigner.getRightSidebars().setActiveSidebar(m.ID)
+                void gDesigner.getRightSidebars().setActiveSidebar(GInspectorSidebar.ID)
               );
             this._elements = this._elements.filter((e) =>
-              e.hasMixin(a.GAnnotation)
+              e.hasMixin(GCore.GAnnotation)
             );
           }
           if (!this._elements || 0 === this._elements.length) {
             var require = gDesigner.getToolManager().getActiveTool();
-            if (require instanceof i.GItemTool) {
-              var o = require.getDefaultStyle();
-              o && (this._elements = [o]);
+            if (require instanceof GTools.GItemTool) {
+              var _interopRequireDefault = require.getDefaultStyle();
+              _interopRequireDefault && (this._elements = [_interopRequireDefault]);
             }
           }
           this._elements || (this._elements = []);
@@ -924,8 +924,8 @@ function (exports, module, require) {
         this._updateSelection(),
           this._updatePropertyPanels(
             true === e,
-            e instanceof i.GToolManager.ToolChangedEvent &&
-              !(e.newTool instanceof i.GPointerTool)
+            e instanceof GTools.GToolManager.ToolChangedEvent &&
+              !(e.newTool instanceof GTools.GPointerTool)
           );
       }),
       (N.prototype._updateAnnotationArray = function () {
@@ -950,18 +950,18 @@ function (exports, module, require) {
           this._sidebarTitle.appendTo(e),
             this._annotationToolbar.appendTo(e),
             this._annotationsToolbarPanel.appendTo(e);
-          for (var o = 0; o < this.getAnnotationsProperties().length; o++)
+          for (var _interopRequireDefault = 0; _interopRequireDefault < this.getAnnotationsProperties().length; _interopRequireDefault++)
             t =
-              this._addPropertiesPanel(this.getAnnotationsProperties()[o], o) ||
+              this._addPropertiesPanel(this.getAnnotationsProperties()[_interopRequireDefault], _interopRequireDefault) ||
               t;
         }
         if (this._document) {
-          for (o = this._annotationPanels.length - 1; o >= 0; o--) {
-            var i = this._annotationPanels[o];
-            i.properties.setPage(null),
-              i.panel && i.panel.remove(),
-              i.toolbar && i.toolbar.remove(),
-              i.divider && i.divider.remove();
+          for (_interopRequireDefault = this._annotationPanels.length - 1; _interopRequireDefault >= 0; _interopRequireDefault--) {
+            var GTools = this._annotationPanels[_interopRequireDefault];
+            GTools.properties.setPage(null),
+              GTools.panel && GTools.panel.remove(),
+              GTools.toolbar && GTools.toolbar.remove(),
+              GTools.divider && GTools.divider.remove();
           }
           (this._annotationPanels = []),
             this._document.getScene().iteratePages((e) => {
@@ -972,23 +972,23 @@ function (exports, module, require) {
       }),
       (N.prototype._addPropertiesPanel = function (e, t) {
         let require,
-          o,
-          i = $("<div></div>")
+          _interopRequireDefault,
+          GTools = $("<div></div>")
             .css("display", "none")
             .addClass("properties-panel"),
           r = false;
-        const s = this._panelsContainer.find(".scrolling-panels");
-        if (e instanceof y) {
+        const GMenu = this._panelsContainer.find(".scrolling-panels");
+        if (e instanceof GProperties) {
           require = e;
-          var l = $("<div></div>").addClass("annotations-property-panel");
+          var GMenu2 = $("<div></div>").addClass("annotations-property-panel");
           if (
-            (require.init(l, this._annotationToolbar),
+            (require.init(GMenu2, this._annotationToolbar),
             e._availableProperties && 0 === e._availableProperties.length)
           )
             return r;
-          var c = $("<div></div>").css("display", "none");
-          e instanceof b &&
-            c.append(
+          var GRichTooltipConfig = $("<div></div>").css("display", "none");
+          e instanceof GAnnotationProperties &&
+            GRichTooltipConfig.append(
               $("<div></div>")
                 .addClass("arrow-top")
                 .css(
@@ -998,26 +998,26 @@ function (exports, module, require) {
                     : N.ANNOTATION_PROPERTIES_ARROW_POSITION[t]) + "%"
                 )
             ),
-            this._annotationsToolbarPanel.append(c),
-            this._annotationsToolbarPanel.append(l),
-            (o = this._annotationToolbar),
-            (i = l),
+            this._annotationsToolbarPanel.append(GRichTooltipConfig),
+            this._annotationsToolbarPanel.append(GMenu2),
+            (_interopRequireDefault = this._annotationToolbar),
+            (GTools = GMenu2),
             this._annotationProperties.push({
-              panel: i,
-              toolbar: o,
+              panel: GTools,
+              toolbar: _interopRequireDefault,
               properties: require,
-              topArrow: c,
+              topArrow: GRichTooltipConfig,
             });
         } else {
           if (
-            ((o = $("<div></div>").addClass(
+            ((_interopRequireDefault = $("<div></div>").addClass(
               "annotations-page-toolbar toolbar"
             )),
-            (require = new v()),
-            i.appendTo(s),
+            (require = new GAnnotations()),
+            GTools.appendTo(GMenu),
             require.init(
-              i,
-              o,
+              GTools,
+              _interopRequireDefault,
               this._active,
               this._showResolved,
               this._updatePropertyPanels.bind(this),
@@ -1025,16 +1025,16 @@ function (exports, module, require) {
                 this._currentAnnotations = e;
               }.bind(this)
             ),
-            "" !== o.html() ? o.insertBefore(i) : (o = null),
+            "" !== _interopRequireDefault.html() ? _interopRequireDefault.insertBefore(GTools) : (_interopRequireDefault = null),
             this._currentAnnotations)
           ) {
             let t,
               n,
-              o = e.getAnnotations();
-            t = a.GNode.store(o);
-            let i = false;
+              _interopRequireDefault = e.getAnnotations();
+            t = GCore.GNode.store(_interopRequireDefault);
+            let GTools = false;
             if (
-              (o.restored
+              (_interopRequireDefault.restored
                 ? (n = w.findAnnotationsListForPage(
                     e,
                     this._currentAnnotations
@@ -1042,22 +1042,22 @@ function (exports, module, require) {
                 : ((n = this._currentAnnotations.find(
                     (e) => e["@id"] === t["@id"]
                   )),
-                  (i = true)),
-              n && !a.GUtil.equals(t, n, true))
+                  (GTools = true)),
+              n && !GCore.GUtil.equals(t, n, true))
             ) {
-              let t = a.GNode.restore(n);
+              let t = GCore.GNode.restore(n);
               if (t) {
                 let n = e.getAnnotations(),
-                  o = t.getChildren() || [];
+                  _interopRequireDefault = t.getChildren() || [];
                 if (
                   (t.clearChildren(),
-                  i && n.getProperty("aid") !== t.getProperty("aid"))
+                  GTools && n.getProperty("aid") !== t.getProperty("aid"))
                 ) {
                   n.setProperty("aid", t.getProperty("aid")), n.clearChildren();
-                  for (let e = 0; e < o.length; e++) n.appendChild(o[e]);
+                  for (let e = 0; e < _interopRequireDefault.length; e++) n.appendChild(_interopRequireDefault[e]);
                   r = true;
                 } else {
-                  let e = w.mergeAnnotations(n, n.getChildren(), t, o);
+                  let e = w.mergeAnnotations(n, n.getChildren(), t, _interopRequireDefault);
                   r = r || e;
                 }
               }
@@ -1065,8 +1065,8 @@ function (exports, module, require) {
           }
           require.setPage(e),
             this._annotationPanels.push({
-              panel: i,
-              toolbar: o,
+              panel: GTools,
+              toolbar: _interopRequireDefault,
               properties: require,
             });
         }
@@ -1074,8 +1074,8 @@ function (exports, module, require) {
       }),
       (N.prototype._updateToolbarButtons = function () {
         this._annotationProperties.forEach((e, t) => {
-          const { topArrow: require, properties: o } = e;
-          if (o instanceof b) {
+          const { topArrow: require, properties: _interopRequireDefault } = e;
+          if (_interopRequireDefault instanceof GAnnotationProperties) {
             const e = gDesigner.isTouchEnabled()
               ? N.ANNOTATION_PROPERTIES_ARROW_POSITION_TOUCH
               : N.ANNOTATION_PROPERTIES_ARROW_POSITION;
@@ -1088,65 +1088,65 @@ function (exports, module, require) {
           !(arguments.length > 2 && undefined !== arguments[2]) || arguments[2];
         if (this._updatingPropertyPanels) return;
         this.updateNotificationOption(), (this._updatingPropertyPanels = true);
-        const o = () => {
-          let o = false;
+        const _interopRequireDefault = () => {
+          let _interopRequireDefault = false;
           try {
-            e && (o = this._updateAnnotationArray());
-            var i = this._annotationProperties.concat(this._annotationPanels),
+            e && (_interopRequireDefault = this._updateAnnotationArray());
+            var GTools = this._annotationProperties.concat(this._annotationPanels),
               r = this._annotationToolbar.find(".indicator");
             r.css("visibility", "hidden");
-            for (var s = 0; s < i.length; ++s) {
-              var l = i[s],
-                c = l.properties,
-                d = c.isAvailable(this._transformMode);
-              if (d)
-                if (c instanceof b || c instanceof E)
-                  l.panel.show(),
-                    (d = l.properties.update(
+            for (var GMenu = 0; GMenu < GTools.length; ++GMenu) {
+              var GMenu2 = GTools[GMenu],
+                GRichTooltipConfig = GMenu2.properties,
+                GTouchTool = GRichTooltipConfig.isAvailable(this._transformMode);
+              if (GTouchTool)
+                if (GRichTooltipConfig instanceof GAnnotationProperties || GRichTooltipConfig instanceof E)
+                  GMenu2.panel.show(),
+                    (GTouchTool = GMenu2.properties.update(
                       this._document,
                       this._elements,
                       gDesigner.getToolManager().getActiveTool()
-                    )) || l.panel.hide();
+                    )) || GMenu2.panel.hide();
                 else {
-                  var u = c.getPage().getAnnotations().getChildren();
-                  (d = l.properties.update(this._document, u, t)),
-                    require && l.properties.relayout();
+                  var u = GRichTooltipConfig.getPage().getAnnotations().getChildren();
+                  (GTouchTool = GMenu2.properties.update(this._document, u, t)),
+                    require && GMenu2.properties.relayout();
                 }
-              if (l.toolbar && l.toolbar !== this._annotationToolbar)
-                l.toolbar.css("display", d ? "" : "none"),
-                  c instanceof E ||
-                    (d
-                      ? (l.toolbar.gAccordion(
+              if (GMenu2.toolbar && GMenu2.toolbar !== this._annotationToolbar)
+                GMenu2.toolbar.css("display", GTouchTool ? "" : "none"),
+                  GRichTooltipConfig instanceof E ||
+                    (GTouchTool
+                      ? (GMenu2.toolbar.gAccordion(
                           "toggleOpen",
-                          c.getPage().hasFlag(a.GNode.Flag.Active)
+                          GRichTooltipConfig.getPage().hasFlag(GCore.GNode.Flag.Active)
                         ),
-                        l.toolbar.gAccordion(
+                        GMenu2.toolbar.gAccordion(
                           "init",
-                          l.panel,
+                          GMenu2.panel,
                           "label",
                           null,
                           "annotations"
                         ),
-                        c.getPage().hasFlag(a.GNode.Flag.Active)
-                          ? l.panel.addClass("g-active")
-                          : l.panel.removeClass("g-active"))
-                      : l.panel.css("display", "none"));
+                        GRichTooltipConfig.getPage().hasFlag(GCore.GNode.Flag.Active)
+                          ? GMenu2.panel.addClass("g-active")
+                          : GMenu2.panel.removeClass("g-active"))
+                      : GMenu2.panel.css("display", "none"));
               else if (
-                (l.panel.css("display", d ? "" : "none"),
-                l.topArrow.css("display", d ? "" : "none"),
-                d && !(c instanceof E))
+                (GMenu2.panel.css("display", GTouchTool ? "" : "none"),
+                GMenu2.topArrow.css("display", GTouchTool ? "" : "none"),
+                GTouchTool && !(GRichTooltipConfig instanceof E))
               ) {
-                let e = this._annotationToolbar.find("." + c._toolbarIcon);
+                let e = this._annotationToolbar.find("." + GRichTooltipConfig._toolbarIcon);
                 r.css("left", e.position().left + e.width() / 2 - 6),
                   r.css("visibility", "visible");
               }
-              d && this._annotationsToolbarPanel.css("display", "");
+              GTouchTool && this._annotationsToolbarPanel.css("display", "");
             }
             this._document || (this._annotationPanels = []);
           } finally {
             this._updatingPropertyPanels = false;
           }
-          return o;
+          return _interopRequireDefault;
         };
         !this._currentAnnotations &&
         this._document &&
@@ -1162,7 +1162,7 @@ function (exports, module, require) {
                   return (this._updatingPropertyPanels = false), t;
                 if (
                   ((this._currentAnnotations = e.annotationsCollection),
-                  (t = o()),
+                  (t = _interopRequireDefault()),
                   t)
                 ) {
                   let t = this._document.getScene();
@@ -1181,19 +1181,19 @@ function (exports, module, require) {
                   this._document &&
                   this._document.getAnnotationsId() !== e.cid)
                   ? (this._updatingPropertyPanels = false)
-                  : ((this._currentAnnotations = []), o());
+                  : ((this._currentAnnotations = []), _interopRequireDefault());
               })
-          : o();
+          : _interopRequireDefault();
       }),
       (N.prototype.updateBadge = function (e) {
         var t = { unread: 0, total: 0 },
           n = this._annotationPanels.map((e) => e.properties.getPage()),
-          o =
+          _interopRequireDefault =
             this._document &&
             (this._document.isCloudFile() || this._document.isExternalFile());
         if (D && !this._active) {
-          var i = gDesigner.getSyncUser();
-          if (o) {
+          var GTools = gDesigner.getSyncUser();
+          if (_interopRequireDefault) {
             if (this._currentAnnotations) {
               n.map((e) =>
                 w.findAnnotationsListForPage(e, this._currentAnnotations)
@@ -1202,24 +1202,24 @@ function (exports, module, require) {
                 .forEach(function (e) {
                   e.$ &&
                     e.$.forEach(function (e) {
-                      var n = w.isOwner(i, e);
+                      var n = w.isOwner(GTools, e);
                       e.rsv ||
                         (e.$ && 0 != e.$.length
                           ? (e.$.forEach(function (e) {
                               "cmt" == e["@"] &&
-                                (i &&
-                                  i.getUID() !== e.uid &&
-                                  e.type !== a.GComment.Type.Close &&
-                                  !(e.read || []).includes(i.getUID()) &&
+                                (GTools &&
+                                  GTools.getUID() !== e.uid &&
+                                  e.type !== GCore.GComment.Type.Close &&
+                                  !(e.read || []).includes(GTools.getUID()) &&
                                   t.unread++,
                                 t.total++);
                             }),
                             n ||
-                              (e.read || []).includes(i.getUID()) ||
+                              (e.read || []).includes(GTools.getUID()) ||
                               t.unread++,
                             t.total++)
                           : (n ||
-                              (e.read || []).includes(i.getUID()) ||
+                              (e.read || []).includes(GTools.getUID()) ||
                               t.unread++,
                             t.total++));
                     });
@@ -1233,30 +1233,30 @@ function (exports, module, require) {
               .forEach(function (e) {
                 for (
                   var n = e.getFirstChild();
-                  null !== n && n.hasMixin(a.GAnnotation);
+                  null !== n && n.hasMixin(GCore.GAnnotation);
                   n = n.getNext()
                 ) {
-                  var o = w.isOwner(i, n);
+                  var _interopRequireDefault = w.isOwner(GTools, n);
                   if (!n.getProperty("rsv"))
                     if (n.getChildren().length > 0) {
                       for (
                         var r = n.getFirstChild();
-                        null !== r && r instanceof a.GComment;
+                        null !== r && r instanceof GCore.GComment;
                         r = r.getNext()
                       )
-                        i &&
-                          i.getUID() !== r.getProperty("uid") &&
-                          r.getProperty("type") !== a.GComment.Type.Close &&
-                          !(r.getProperty("read") || []).includes(i.getUID()) &&
+                        GTools &&
+                          GTools.getUID() !== r.getProperty("uid") &&
+                          r.getProperty("type") !== GCore.GComment.Type.Close &&
+                          !(r.getProperty("read") || []).includes(GTools.getUID()) &&
                           t.unread++,
                           t.total++;
-                      o ||
-                        (n.getProperty("read") || []).includes(i.getUID()) ||
+                      _interopRequireDefault ||
+                        (n.getProperty("read") || []).includes(GTools.getUID()) ||
                         t.unread++,
                         t.total++;
                     } else
-                      o ||
-                        (n.getProperty("read") || []).includes(i.getUID()) ||
+                      _interopRequireDefault ||
+                        (n.getProperty("read") || []).includes(GTools.getUID()) ||
                         t.unread++,
                         t.total++;
                 }
@@ -1284,8 +1284,8 @@ function (exports, module, require) {
           ? (exports.removeAttr("data-title"), exports.toggleClass("g-disabled", false))
           : (exports.attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GAnnotationsSidebar", "text.save-file-tip")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GAnnotationsSidebar", "text.save-file-tip")
               )
             ),
             exports.toggleClass("g-disabled", true));
@@ -1297,8 +1297,8 @@ function (exports, module, require) {
         let exports = $("<div>")
           .addClass("g-menu hover-notification-container")
           .html(
-            a.GLocale.get(
-              new a.GLocaleKey("GAnnotationsSidebar", "text.hover-notification")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAnnotationsSidebar", "text.hover-notification")
             )
           );
         return (
@@ -1339,31 +1339,31 @@ function (exports, module, require) {
               })),
           module.parent().is("body"))
         ) {
-          var o = module.outerWidth(),
-            i = module.outerHeight(),
-            a = $(window).width(),
+          var _interopRequireDefault = module.outerWidth(),
+            GTools = module.outerHeight(),
+            GCore = $(window).width(),
             r = $(window).height(),
-            s = { x: 0, y: 0, width: 0, height: 0 },
-            l = $(e),
-            c = l.offset();
-          (s.x = c.left),
-            (s.y = c.top),
-            (s.width = l.outerWidth()),
-            (s.height = l.outerHeight());
-          var d = 0;
-          (d = s.x + s.width) + o > a && (d = s.x - o);
+            GMenu = { x: 0, y: 0, width: 0, height: 0 },
+            GMenu2 = $(e),
+            GRichTooltipConfig = GMenu2.offset();
+          (GMenu.x = GRichTooltipConfig.left),
+            (GMenu.y = GRichTooltipConfig.top),
+            (GMenu.width = GMenu2.outerWidth()),
+            (GMenu.height = GMenu2.outerHeight());
+          var GTouchTool = 0;
+          (GTouchTool = GMenu.x + GMenu.width) + _interopRequireDefault > GCore && (GTouchTool = GMenu.x - _interopRequireDefault);
           var u = 0;
-          (u = s.y + s.height) + i > r && (u = s.y - i);
+          (u = GMenu.y + GMenu.height) + GTools > r && (u = GMenu.y - GTools);
           const n = this._rangeLeftX ? this._rangeLeftX : 0;
-          d < n && (d = n);
-          const p = this._rangeRightX ? this._rangeRightX : a;
-          d + o >= p && (d = p - o);
-          const g = this._rangeLeftY ? this._rangeLeftY : 0;
-          u < g && (u = g);
+          GTouchTool < n && (GTouchTool = n);
+          const p = this._rangeRightX ? this._rangeRightX : GCore;
+          GTouchTool + _interopRequireDefault >= p && (GTouchTool = p - _interopRequireDefault);
+          const GDocumentEvent = this._rangeLeftY ? this._rangeLeftY : 0;
+          u < GDocumentEvent && (u = GDocumentEvent);
           const h = this._rangeRightY ? this._rangeRightY : r;
-          u + i >= h && (u = h - i);
-          const f = u - i - 10;
-          module.css("left", d),
+          u + GTools >= h && (u = h - GTools);
+          const f = u - GTools - 10;
+          module.css("left", GTouchTool),
             module.css("top", f),
             module.addClass("g-menu-right g-menu-bottom");
         }

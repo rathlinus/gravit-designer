@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(678) /* parseIntPolyfill */;
-    o({ global: true, forced: parseInt !== i }, { parseInt: i });
+    var core_export = require(25) /* core_export */,
+      parseIntPolyfill = require(678) /* parseIntPolyfill */;
+    core_export({ global: true, forced: parseInt !== parseIntPolyfill }, { parseInt: parseIntPolyfill });
   }

@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */;
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function a(e, t, n, a, r, s, l) {
       var c = e && t && n && a && l;
       if (
@@ -28,11 +28,11 @@ function (exports, module, require) {
             )
             .on(
               "click",
-              i.watchDog.trap(
+              CollaborationMergeUtils.watchDog.trap(
                 function () {
                   let e =
                     (n &&
-                      o.GLocale.getValue(
+                      GCore.GLocale.getValue(
                         (s && s.i18n) || n,
                         "name",
                         "unknown",
@@ -50,7 +50,7 @@ function (exports, module, require) {
                     "effects_nonprotriespro_proeffectdefault",
                     c +
                       ((n &&
-                        o.GLocale.getValue(
+                        GCore.GLocale.getValue(
                           (s && s.i18n) || n,
                           "name",
                           "unknown",

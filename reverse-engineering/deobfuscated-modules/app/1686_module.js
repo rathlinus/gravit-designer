@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */;
-    const i = require(44) /* GSystemDialog */,
+    var GCore = require(1) /* module */;
+    const GSystemDialog = require(44) /* GSystemDialog */,
       { DESIGNER: { TITLE: a } = {} } = require(10) /* AppSettings */;
     exports.exports = class {
       async init() {
@@ -15,20 +15,20 @@ function (exports, module, require) {
           gDesigner.executeWhenReady(() => this._openWarningDialog());
       }
       _openWarningDialog() {
-        i.custom({
+        GSystemDialog.custom({
           icon: "info",
           closeable: false,
           className: "g-beta-warning-dialog",
-          title: o.GLocale.get(
-            new o.GLocaleKey("GBetaFlow", "text.title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GBetaFlow", "text.title")
           ).replace("%app", a),
-          subtitle: o.GLocale.get(
-            new o.GLocaleKey("GBetaFlow", "text.message")
+          subtitle: GCore.GLocale.get(
+            new GCore.GLocaleKey("GBetaFlow", "text.message")
           ),
           buttons: [
             {
-              label: o.GLocale.get(
-                new o.GLocaleKey("GBetaFlow", "text.i-understand")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GBetaFlow", "text.i-understand")
               ).toUpperCase(),
               closeOnClick: true,
               highlighted: true,

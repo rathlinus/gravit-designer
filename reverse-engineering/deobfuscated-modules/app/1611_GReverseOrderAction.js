@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(18) /* MenuItemBuilder */,
-      a = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function r() {}
-    o.GObject.inherit(r, a),
+    GCore.GObject.inherit(r, GElementAction),
       (r.ID = "modify.reverse-order"),
-      (r.TITLE = new o.GLocaleKey("GReverseOrderAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GReverseOrderAction", "title")),
       (r.prototype.getId = function () {
         return r.ID;
       }),
@@ -21,38 +21,38 @@ function (exports, module, require) {
         return r.TITLE;
       }),
       (r.prototype.getCategory = function () {
-        return i.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (r.prototype.getGroup = function () {
         return "structure/path";
       }),
       (r.prototype.isEnabled = function () {
-        if (!a.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
             ? gDesigner.getActiveDocument().getEditor().getSelection()
             : null,
           t = false;
         if (e)
           for (var require = 0; !t && require < e.length; ++require)
-            e[require] instanceof o.GPath && (t = true);
+            e[require] instanceof GCore.GPath && (t = true);
         return t;
       }),
       (r.prototype.execute = function () {
         var e = gDesigner.getActiveDocument(),
           t = e ? e.getEditor() : null,
           n = t ? t.getSelection() : null,
-          i = [];
+          MenuItemBuilder = [];
         if (n)
-          for (var a = 0; a < n.length; ++a) {
-            var r = n[a];
-            r instanceof o.GPath && i.push(r);
+          for (var GElementAction = 0; GElementAction < n.length; ++GElementAction) {
+            var r = n[GElementAction];
+            r instanceof GCore.GPath && MenuItemBuilder.push(r);
           }
-        if (i.length) {
+        if (MenuItemBuilder.length) {
           t.beginTransaction();
           try {
-            for (a = 0; a < i.length; ++a) i[a].reverseOrder();
+            for (GElementAction = 0; GElementAction < MenuItemBuilder.length; ++GElementAction) MenuItemBuilder[GElementAction].reverseOrder();
           } finally {
-            t.commitTransaction(o.GLocale.get(this.getTitle()));
+            t.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),

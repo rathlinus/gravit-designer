@@ -7,28 +7,28 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GUndoAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GUndoAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GUndoAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GUndoAction", "tooltip-description")
           ),
           shortcut: l.SHORTCUT,
         }),
       };
     }
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "edit.undo"),
-      (l.TITLE = new o.GLocaleKey("GUndoAction", "title")),
-      (l.SHORTCUT = [i.GKey.Constant.META, "z"]),
+      (l.TITLE = new GCore.GLocaleKey("GUndoAction", "title")),
+      (l.SHORTCUT = [GEditor.GKey.Constant.META, "z"]),
       (l.TOOLTIP_CONFIG = null),
       (l.prototype.getId = function () {
         return l.ID;
@@ -36,16 +36,16 @@ function (exports, module, require) {
       (l.prototype.getTitle = function () {
         var e = gDesigner.getActiveDocument();
         return e && e.getEditor() && e.getEditor().hasUndoState()
-          ? o.GLocale.get(
-              new o.GLocaleKey("GUndoAction", "undo-action")
+          ? GCore.GLocale.get(
+              new GCore.GLocaleKey("GUndoAction", "undo-action")
             ).replace("%action", e.getEditor().getUndoStateName())
-          : o.GLocale.get(l.TITLE);
+          : GCore.GLocale.get(l.TITLE);
       }),
       (l.prototype.getIcon = function () {
         return "gravit-icon-undo";
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (l.prototype.getGroup = function () {
         return "undo_redo";

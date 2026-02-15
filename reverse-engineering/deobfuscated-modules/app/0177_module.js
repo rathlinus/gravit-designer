@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */, require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(3) /* polyfill_RegExp_toString */, require(247) /* module_247 */, require(91) /* polyfill_String_trim */;
     var o = require(263) /* Exports_GRegex */,
-      i = require(10) /* AppSettings */;
+      AppSettings = require(10) /* AppSettings */;
     const { GObject: a } = require(1) /* module */,
       r = require(733) /* module_733 */,
       s = require(589) /* module_589 */,
@@ -37,7 +37,7 @@ function (exports, module, require) {
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       Object.assign(this, exports);
     }
-    a.inheritAndMix(d, s, [r, i.User], true),
+    a.inheritAndMix(d, s, [r, AppSettings.User], true),
       (d.equals = function (e, t) {
         return new d(e).getUID() === new d(t).getUID();
       }),
@@ -49,7 +49,7 @@ function (exports, module, require) {
         );
       }),
       (d.prototype.getUID = function () {
-        return !this.id && i.ANONYMOUS_SESSION_ENABLED
+        return !this.id && AppSettings.ANONYMOUS_SESSION_ENABLED
           ? this.user_id || this.session_id || ""
           : this.id || this.user_id || "";
       }),
@@ -72,7 +72,7 @@ function (exports, module, require) {
         return this._color;
       }),
       (d.prototype.getEmail = function () {
-        return i.CloudUtils.getUserEmail(this);
+        return AppSettings.CloudUtils.getUserEmail(this);
       }),
       (d.prototype.isDeactivated = function () {
         return !!this.deactivated;

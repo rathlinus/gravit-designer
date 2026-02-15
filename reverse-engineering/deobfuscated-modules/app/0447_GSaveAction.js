@@ -7,42 +7,42 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       r = require(1247) /* module_1247 */,
-      s = require(10) /* AppSettings */,
+      AppSettings = require(10) /* AppSettings */,
       l = require(67) /* GRichTooltipConfig */,
-      c = require(18) /* MenuItemBuilder */,
-      d = require(31) /* GAction */,
-      u = require(445) /* GSaveAsAction */,
-      p = require(448) /* GGravitCloudAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
+      GSaveAsAction = require(445) /* GSaveAsAction */,
+      GGravitCloudAction = require(448) /* GGravitCloudAction */,
       g = require(86) /* module_86 */,
       h = require(119) /* module_119 */,
       f = require(1510) /* module_1510 */,
       m = require(1511) /* module_1511 */;
-    const y = require(44) /* GSystemDialog */,
+    const GSystemDialog = require(44) /* GSystemDialog */,
       v = require(1512) /* Item */;
-    var _ = require(85) /* GContainer */,
-      b = "." + s.FILE_FORMATS.find((e) => e.default).ext;
+    var GContainer = require(85) /* GContainer */,
+      b = "." + AppSettings.FILE_FORMATS.find((e) => e.default).ext;
     function w() {
       w.TOOLTIP_CONFIG = {
         [l.TOOLTIP_AREA.TOOLBAR]: l.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GSaveAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GSaveAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GSaveAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GSaveAction", "tooltip-description")
           ),
           shortcut: w.SHORTCUT,
           learnMore: "",
         }),
       };
     }
-    o.GObject.inherit(w, d),
+    GCore.GObject.inherit(w, GAction),
       (w.ID = "file.save"),
-      (w.TITLE = new o.GLocaleKey("GSaveAction", "title")),
-      (w.SHORTCUT = [i.GKey.Constant.META, "S"]),
+      (w.TITLE = new GCore.GLocaleKey("GSaveAction", "title")),
+      (w.SHORTCUT = [GEditor.GKey.Constant.META, "S"]),
       (w.TOOLTIP_CONFIG = null),
       (w.prototype.getId = function () {
         return w.ID;
@@ -54,7 +54,7 @@ function (exports, module, require) {
         return "gravit-icon-save";
       }),
       (w.prototype.getCategory = function () {
-        return c.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (w.prototype.getGroup = function () {
         return "file";
@@ -78,19 +78,19 @@ function (exports, module, require) {
             !e.getStorageItem() ||
             !e.getStorageItem().getStorage().canSave()
           ) ||
-            gDesigner.canExecuteAction(u.ID + b, [null, e], undefined, true))
+            gDesigner.canExecuteAction(GSaveAsAction.ID + b, [null, e], undefined, true))
         );
       }),
       (w.prototype.execute = function (e, t, n) {
-        const o = e || gDesigner.getActiveDocument();
-        if (o && o.isCommercialProductFile())
-          return o.openPaywall(this.getId()), false;
-        gContainer.getRuntime() === _.Runtime.IPad && (n = true),
-          this._save(o, t, n);
+        const GCore = e || gDesigner.getActiveDocument();
+        if (GCore && GCore.isCommercialProductFile())
+          return GCore.openPaywall(this.getId()), false;
+        gContainer.getRuntime() === GContainer.Runtime.IPad && (n = true),
+          this._save(GCore, t, n);
       }),
       (w.prototype._performSave = async function (e, t) {
         (await e.isUpdateAvailable())
-          ? a.buildDialogDocumentHasUpdates.call(
+          ? CollaborationMergeUtils.buildDialogDocumentHasUpdates.call(
               this,
               e,
               function () {
@@ -118,7 +118,7 @@ function (exports, module, require) {
             if (!e.hasCloudReference()) return this._saveToCloud(e, t);
             if (!e.isCloudSyncOn())
               return gDesigner.executeAction(
-                u.ID + b,
+                GSaveAsAction.ID + b,
                 [null, e, t],
                 undefined,
                 true
@@ -148,9 +148,9 @@ function (exports, module, require) {
           new f(
             async function (n) {
               if (n === f.file()) {
-                if (await p.prototype._hasUnsupported.call(this, e)) return;
+                if (await GGravitCloudAction.prototype._hasUnsupported.call(this, e)) return;
                 return gDesigner.executeAction(
-                  u.ID + b,
+                  GSaveAsAction.ID + b,
                   [null, e, t],
                   undefined,
                   true
@@ -184,7 +184,7 @@ function (exports, module, require) {
               (n) => {
                 n && 404 === n.status
                   ? e.store(e.getStorageItem(), t)
-                  : y.alert(s.gApi.formatError(n));
+                  : GSystemDialog.alert(AppSettings.gApi.formatError(n));
               },
               (e, t) =>
                 t.lastModifiedDate().getTime() > e.lastModifiedDate().getTime()
@@ -196,14 +196,14 @@ function (exports, module, require) {
         else if (e.isExternalFile()) e.storeToCloud(e.getScene(), t);
         else {
           const n = e.getStorageItem();
-          let o = {};
-          n instanceof v.Item && (o = (0, r.updateSaveOptions)(o, e, n)),
-            e.store(n, t, null, o);
+          let GCore = {};
+          n instanceof v.Item && (GCore = (0, r.updateSaveOptions)(GCore, e, n)),
+            e.store(n, t, null, GCore);
         }
       }),
       (w.prototype._saveToCloud = function (e, t) {
         return gDesigner.executeAction(
-          p.ID + ".save-as",
+          GGravitCloudAction.ID + ".save-as",
           [
             e,
             (n) => {

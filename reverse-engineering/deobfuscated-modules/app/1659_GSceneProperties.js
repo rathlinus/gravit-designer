@@ -7,31 +7,31 @@
 function (exports, module, require) {
     "use strict";
     require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(357) /* module_357 */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(123) /* GProperties */,
-      s = require(448) /* GGravitCloudAction */,
-      l = require(445) /* GSaveAsAction */,
+      GProperties = require(123) /* GProperties */,
+      GGravitCloudAction = require(448) /* GGravitCloudAction */,
+      GSaveAsAction = require(445) /* GSaveAsAction */,
       c = require(86) /* module_86 */,
       d = require(163) /* module_163 */,
       u = require(119) /* module_119 */,
-      p = require(78) /* GDocumentEvent */,
-      g = require(135) /* GSettingChangedEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       h = (require(446) /* module_446 */, require(44) /* GSystemDialog */),
-      f = require(257) /* barrel_panels */;
+      barrel_panels = require(257) /* barrel_panels */;
     const { FILE_FORMATS: m, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: y } = {} } =
       require(10) /* AppSettings */;
     var v = "." + m.find((e) => e.default).ext;
     function _() {}
-    o.GObject.inherit(_, r),
+    GCore.GObject.inherit(_, GProperties),
       (_.prototype._panel = null),
       (_.prototype._document = null),
       (_.prototype._scene = null),
       (_.prototype.init = function (e, t) {
         (this._panel = e.addClass("scene-properties-panel")),
           t.addClass("scene-properties-toolbar"),
-          y || gDesigner.addEventListener(p, this._synchronismUpdated, this);
+          y || gDesigner.addEventListener(GDocumentEvent, this._synchronismUpdated, this);
         var n = function (e) {
           let t =
             arguments.length > 1 && undefined !== arguments[1]
@@ -45,13 +45,13 @@ function (exports, module, require) {
                   .attr("data-property", e)
                   .on("change", function () {
                     const t =
-                      parseInt($(this).gInputSelect("value")) || o.GLength.DPI;
+                      parseInt($(this).gInputSelect("value")) || GCore.GLength.DPI;
                     gDesigner.stats("sceneproperties_change_canvas-dpi", t),
                       n._assignProperty(
                         e,
                         t,
-                        o.GLocale.get(
-                          new o.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GSceneProperties",
                             "action.change-canvas-dpi"
                           )
@@ -92,8 +92,8 @@ function (exports, module, require) {
                   ? n._assignProperty(
                       e,
                       t,
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "action.change-grid-settings"
                         )
@@ -118,7 +118,7 @@ function (exports, module, require) {
                     );
                 var t = parseFloat($(this).gInputBox("value"));
                 null !== t && "number" == typeof t
-                  ? ((t = o.GMath.normalizeAngleDegrees(t)),
+                  ? ((t = GCore.GMath.normalizeAngleDegrees(t)),
                     "ga1" == e &&
                       (t = (t = t >= 180 ? t - 180 : t) >= 90 ? 89 : t),
                     "ga2" == e &&
@@ -127,12 +127,12 @@ function (exports, module, require) {
                         -90
                           ? -89
                           : t),
-                    (t = o.GMath.toRadians(t)),
+                    (t = GCore.GMath.toRadians(t)),
                     n._assignProperty(
                       e,
                       t,
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "action.change-grid-settings"
                         )
@@ -145,19 +145,19 @@ function (exports, module, require) {
             var i = "",
               a = e.substr("gm-".length);
             switch (a) {
-              case o.GScene.GridMode.Boxed:
-                i = o.GLocale.get(
-                  new o.GLocaleKey("GSceneProperties", "text.on")
+              case GCore.GScene.GridMode.Boxed:
+                i = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GSceneProperties", "text.on")
                 );
                 break;
-              case o.GScene.GridMode.Axonometric:
-                i = o.GLocale.get(
-                  new o.GLocaleKey("GSceneProperties", "text.isometric")
+              case GCore.GScene.GridMode.Axonometric:
+                i = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GSceneProperties", "text.isometric")
                 );
                 break;
               default:
-                i = o.GLocale.get(
-                  new o.GLocaleKey("GSceneProperties", "text.off")
+                i = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GSceneProperties", "text.off")
                 );
             }
             return $("<label></label>")
@@ -174,8 +174,8 @@ function (exports, module, require) {
                       n._assignProperty(
                         "gm",
                         a || null,
-                        o.GLocale.get(
-                          new o.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GSceneProperties",
                             "action.change-grid-settings"
                           )
@@ -204,26 +204,26 @@ function (exports, module, require) {
                   );
                 const a = $(this).val();
                 gDesigner.stats("sceneproperties_change_color-mode", a);
-                var r = i.getActivePage().getChildren();
-                !!r &&
-                  r.find((e) => !(e instanceof o.GAnnotationsList)) &&
+                var GProperties = i.getActivePage().getChildren();
+                !!GProperties &&
+                  GProperties.find((e) => !(e instanceof GCore.GAnnotationsList)) &&
                   h.alert(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GSceneProperties", "text.reminder")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GSceneProperties", "text.reminder")
                     )
                   ),
                   gDesigner.setSetting("color_mode", a),
                   n._assignProperty(
                     e,
                     a,
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GSceneProperties",
                         "action.change-color-mode"
                       )
                     )
                   ),
-                  t.setColorModeElms(r);
+                  t.setColorModeElms(GProperties);
               });
           if ("ut" === e)
             return $("<select></select>")
@@ -238,8 +238,8 @@ function (exports, module, require) {
                   n._assignProperty(
                     e,
                     $(this).val(),
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GSceneProperties",
                         "action.change-canvas-unit"
                       )
@@ -247,8 +247,8 @@ function (exports, module, require) {
                   );
               });
           if (0 === e.indexOf("sync-")) {
-            i = o.GLocale.get(
-              new o.GLocaleKey(
+            i = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GSceneProperties",
                 "text." + e.substring("sync-".length)
               )
@@ -270,17 +270,17 @@ function (exports, module, require) {
               .append($("<span></span>").text(i));
           }
           if (0 === e.indexOf("action-")) {
-            var r = e.substring("action-".length);
+            var GProperties = e.substring("action-".length);
             return $("<button></button>")
               .append(
                 $("<span></span>").text(
-                  o.GLocale.get(gDesigner.getAction(r).getTitle())
+                  GCore.GLocale.get(gDesigner.getAction(GProperties).getTitle())
                 )
               )
               .on(
                 "click",
                 function (e) {
-                  gDesigner.canExecuteAction(r) && gDesigner.executeAction(r);
+                  gDesigner.canExecuteAction(GProperties) && gDesigner.executeAction(GProperties);
                 }.bind(this)
               );
           }
@@ -289,7 +289,7 @@ function (exports, module, require) {
         if (
           ($("<label></label>")
             .text(
-              o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.document"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.document"))
             )
             .appendTo(t),
           $("<div></div>")
@@ -300,8 +300,8 @@ function (exports, module, require) {
                   clazz: "unit-title-column",
                   content: $(
                     "<span>" +
-                      o.GLocale.get(
-                        new o.GLocaleKey("GCommonNames", "text.unit")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "text.unit")
                       ) +
                       "</span>"
                   ),
@@ -311,14 +311,14 @@ function (exports, module, require) {
                   content: n(
                     "ut",
                     a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.unit-tooltip-title"
                         )
                       ),
-                      description: o.GLocale.get(
-                        new o.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.unit-tooltip-description"
                         )
@@ -338,8 +338,8 @@ function (exports, module, require) {
                 {
                   clazz: "color-mode-title-column",
                   content: $("<span></span>").text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GSceneProperties", "text.color-mode")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GSceneProperties", "text.color-mode")
                     )
                   ),
                 },
@@ -348,14 +348,14 @@ function (exports, module, require) {
                   content: n(
                     "cm",
                     a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.color-mode-tooltip-title"
                         )
                       ),
-                      description: o.GLocale.get(
-                        new o.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.color-mode-tooltip-description"
                         )
@@ -375,8 +375,8 @@ function (exports, module, require) {
                 {
                   clazz: "dpi-title-column",
                   content: $("<span></span>").text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GSceneProperties", "text.dpi")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GSceneProperties", "text.dpi")
                     )
                   ),
                 },
@@ -385,8 +385,8 @@ function (exports, module, require) {
                   content: n(
                     "dpi",
                     a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.dpi-tooltip-title"
                         )
@@ -407,8 +407,8 @@ function (exports, module, require) {
                   clazz: "grid-mode-title-column",
                   content: $(
                     "<span>" +
-                      o.GLocale.get(
-                        new o.GLocaleKey("GCommonNames", "text.grid")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "text.grid")
                       ) +
                       "</span>"
                   ),
@@ -418,14 +418,14 @@ function (exports, module, require) {
                   content: n(
                     "gm-",
                     a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.grid-tooltip-title"
                         )
                       ),
-                      description: o.GLocale.get(
-                        new o.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.grid-tooltip-description-off"
                         )
@@ -438,16 +438,16 @@ function (exports, module, require) {
                 {
                   clazz: "grid-mode-box-column",
                   content: n(
-                    "gm-" + o.GScene.GridMode.Boxed,
+                    "gm-" + GCore.GScene.GridMode.Boxed,
                     a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.grid-tooltip-title"
                         )
                       ),
-                      description: o.GLocale.get(
-                        new o.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.grid-tooltip-description-on"
                         )
@@ -460,16 +460,16 @@ function (exports, module, require) {
                 {
                   clazz: "grid-mode-axo-column",
                   content: n(
-                    "gm-" + o.GScene.GridMode.Axonometric,
+                    "gm-" + GCore.GScene.GridMode.Axonometric,
                     a.GRichTooltipConfig.from({
-                      title: o.GLocale.get(
-                        new o.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.grid-tooltip-title"
                         )
                       ),
-                      description: o.GLocale.get(
-                        new o.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSceneProperties",
                           "text.grid-tooltip-description-isometric"
                         )
@@ -484,21 +484,21 @@ function (exports, module, require) {
             .appendTo(e),
           $("<div></div>")
             .addClass("grid-mode-type")
-            .attr("data-grid-mode", o.GScene.GridMode.Boxed)
+            .attr("data-grid-mode", GCore.GScene.GridMode.Boxed)
             .gPropertyRow({
               label: "",
               columns: [
                 {
                   width: "33.3%",
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.width")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.width")
                   ),
                   content: n("gx"),
                 },
                 {
                   width: "33.3%",
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.height")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.height")
                   ),
                   content: n("gy"),
                 },
@@ -507,30 +507,30 @@ function (exports, module, require) {
             .appendTo(e),
           $("<div></div>")
             .addClass("grid-mode-type")
-            .attr("data-grid-mode", o.GScene.GridMode.Axonometric)
+            .attr("data-grid-mode", GCore.GScene.GridMode.Axonometric)
             .gPropertyRow({
               label: "",
               columns: [
                 {
                   width: "33.3%",
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.size")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.size")
                   ),
                   content: n("gaw"),
                 },
                 {
                   width: "33.3%",
                   label:
-                    o.GLocale.get(
-                      new o.GLocaleKey("GCommonNames", "text.angle")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.angle")
                     ) + " 1",
                   content: n("ga1"),
                 },
                 {
                   width: "33.3%",
                   label:
-                    o.GLocale.get(
-                      new o.GLocaleKey("GCommonNames", "text.angle")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.angle")
                     ) + " 2",
                   content: n("ga2"),
                 },
@@ -544,10 +544,10 @@ function (exports, module, require) {
             .addClass("actions")
             .append(
               $("<button></button>")
-                .addClass(f["sync-button"])
+                .addClass(barrel_panels["sync-button"])
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GSceneProperties", "sync.enable")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GSceneProperties", "sync.enable")
                   )
                 )
                 .on("click", () => {
@@ -601,13 +601,13 @@ function (exports, module, require) {
                                   t,
                                   (e, n) => {
                                     if (e !== t || n) {
-                                      var o = new d(
+                                      var GCore = new d(
                                         this._document.getStorageItem()
                                       );
-                                      o.setScene(e),
+                                      GCore.setScene(e),
                                         gDesigner.replaceDocument(
                                           this._document,
-                                          o
+                                          GCore
                                         );
                                     } else
                                       this._document.storeToCloud(
@@ -650,8 +650,8 @@ function (exports, module, require) {
                     $("<span></span>")
                       .addClass("label")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GSceneProperties", "sync.label")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GSceneProperties", "sync.label")
                         )
                       )
                   )
@@ -659,7 +659,7 @@ function (exports, module, require) {
               )
               .appendTo(e),
             i.SCENEPROPERTIES.HAS_LOGO_UNDER_SYNC &&
-              e.find(".svg-cloud-icon").load(f["cloud-logo"], () => {});
+              e.find(".svg-cloud-icon").load(barrel_panels["cloud-logo"], () => {});
         }
       }),
       (_.prototype._getWelcomeLink = function () {
@@ -667,7 +667,7 @@ function (exports, module, require) {
           .addClass("more")
           .append(
             $("<span></span>").text(
-              o.GLocale.get(new o.GLocaleKey("GSceneProperties", "sync.more"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GSceneProperties", "sync.more"))
             )
           )
           .on("click", () => {
@@ -686,17 +686,17 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
-            gDesigner.removeEventListener(g, this._settingChanged),
+            gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged),
             (this._document = null)),
           (this._scene = null),
           !(
             !e ||
             (1 === t.length &&
-              t[0] instanceof o.GPage &&
+              t[0] instanceof GCore.GPage &&
               (this._scene = t[0].getScene()),
             !this._scene)
           ) &&
@@ -704,11 +704,11 @@ function (exports, module, require) {
             this._document
               .getScene()
               .addEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
-            gDesigner.addEventListener(g, this._settingChanged, this),
+            gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
             this._updateColorMode(),
             this._updateProperties(),
             this._updateUI(),
@@ -731,14 +731,14 @@ function (exports, module, require) {
             $("<span/>")
               .addClass("dpi-text")
               .text(
-                o.GLocale.get(new o.GLocaleKey("GSceneProperties", "text.dpi"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GSceneProperties", "text.dpi"))
               )
               .insertAfter(n.find("input")),
             this._panel
               .find(".unit-title-column span")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSceneProperties",
                     "text.unit-tooltip-title"
                   )
@@ -751,7 +751,7 @@ function (exports, module, require) {
             this._panel
               .find(".unit-title-column span")
               .text(
-                o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.unit"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.unit"))
               );
       }),
       (_.prototype._settingChanged = function (e) {
@@ -761,16 +761,16 @@ function (exports, module, require) {
       }),
       (_.prototype._synchronismUpdated = function (e) {
         e.document !== this._document ||
-          e.type !== p.Type.SynchronismUpdated ||
+          e.type !== GDocumentEvent.Type.SynchronismUpdated ||
           e.document.isSynchronizing() ||
           this._updateProperties();
       }),
       (_.prototype._updateColorMode = function () {
         var e = this._panel.find('select[data-property="cm"]').empty(),
           t = [
-            { value: o.GColor.ColorModes.RGB, pro: false, text: "RGB" },
-            { value: o.GColor.ColorModes.HSB, pro: true, text: "HSB" },
-            { value: o.GColor.ColorModes.CMYK, pro: true, text: "CMYK" },
+            { value: GCore.GColor.ColorModes.RGB, pro: false, text: "RGB" },
+            { value: GCore.GColor.ColorModes.HSB, pro: true, text: "HSB" },
+            { value: GCore.GColor.ColorModes.CMYK, pro: true, text: "CMYK" },
           ];
         Array.prototype.forEach.call(t, (t) => {
           var n = $("<option></option>")
@@ -786,7 +786,7 @@ function (exports, module, require) {
           .find('[data-property="dpi"]')
           .gInputSelect(
             "value",
-            this._scene.getProperty("dpi") || o.GLength.DPI
+            this._scene.getProperty("dpi") || GCore.GLength.DPI
           );
         var t = this._document.hasCDR();
         this._panel
@@ -802,15 +802,15 @@ function (exports, module, require) {
             .attr(
               "data-title",
               t
-                ? o.GLocale.get(
-                    new o.GLocaleKey(
+                ? GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCommonNames",
                       "text.cant-change-cdr-limitations"
                     )
                   )
                 : ""
             );
-        const require = gDesigner.getSetting("color_mode", o.GColor.ColorModes.RGB);
+        const require = gDesigner.getSetting("color_mode", GCore.GColor.ColorModes.RGB);
         require && this._scene.setProperty("cm", require),
           this._panel.find('select[data-property="cm"]').val(require),
           this._panel
@@ -847,8 +847,8 @@ function (exports, module, require) {
             .find('[type="text"][data-property="ga1"]')
             .gInputBox(
               "value",
-              o.GUtil.formatNumber(
-                o.GMath.toDegrees(this._scene.getProperty("ga1")),
+              GCore.GUtil.formatNumber(
+                GCore.GMath.toDegrees(this._scene.getProperty("ga1")),
                 1
               )
             ),
@@ -856,8 +856,8 @@ function (exports, module, require) {
             .find('[type="text"][data-property="ga2"]')
             .gInputBox(
               "value",
-              o.GUtil.formatNumber(
-                o.GMath.toDegrees(this._scene.getProperty("ga2")),
+              GCore.GUtil.formatNumber(
+                GCore.GMath.toDegrees(this._scene.getProperty("ga2")),
                 1
               )
             );
@@ -865,15 +865,15 @@ function (exports, module, require) {
         if (
           (this._panel.find('[data-property^="gm"]').each(function (e, t) {
             var n = $(t),
-              o = n.attr("data-property").substr("gm-".length);
-            n.prop("checked", (!o && !i) || o === i);
+              GCore = n.attr("data-property").substr("gm-".length);
+            n.prop("checked", (!GCore && !i) || GCore === i);
           }),
           !y)
         ) {
           var a = this._document.isCloudFile()
               ? !this._document.getScene().getProperty("cid")
               : !this._document.hasCloudReference(),
-            r =
+            GProperties =
               !a &&
               (this._document.isCloudFile() ||
                 this._document.hasCloudReference());
@@ -884,7 +884,7 @@ function (exports, module, require) {
             .prop("disabled", this._document.getStatus() === c.Loading),
             this._panel
               .find('[data-property="switch-cloud-sync"]')
-              .css("display", r ? "" : "none")
+              .css("display", GProperties ? "" : "none")
               .find("input")
               .prop(
                 "checked",
@@ -893,11 +893,11 @@ function (exports, module, require) {
                   this._document.isCloudFile()
               )
               .prop("disabled", this._document.isCloudFile());
-          var s = (function (e) {
+          var GGravitCloudAction = (function (e) {
             if (0 === e.getTime()) return null;
             var t = e.getHours(),
               n = e.getMinutes(),
-              o = (t = (t %= 12) || 12) + ":" + (n = n < 10 ? "0" + n : n);
+              GCore = (t = (t %= 12) || 12) + ":" + (n = n < 10 ? "0" + n : n);
             return (
               e.getMonth() +
               1 +
@@ -906,31 +906,31 @@ function (exports, module, require) {
               "/" +
               e.getFullYear() +
               "  " +
-              o
+              GCore
             );
           })(this._document.getScene().lastModifiedDate());
           this._panel
             .find('[data-property="switch-cloud-sync"]')
             .find(".last-modified-date")
-            .text(s || "")
-            .css("display", s ? "" : "none");
+            .text(GGravitCloudAction || "")
+            .css("display", GGravitCloudAction ? "" : "none");
         }
         this._panel.find("[data-grid-mode]").each(function (e, t) {
           var n = $(t),
-            o = n.attr("data-grid-mode");
-          n.css("display", (!o && !i) || o === i ? "" : "none");
+            GCore = n.attr("data-grid-mode");
+          n.css("display", (!GCore && !i) || GCore === i ? "" : "none");
         });
       }),
       (_.prototype._assignProperty = function (e, t, n) {
         this._assignProperties([e], [t], n);
       }),
       (_.prototype._assignProperties = function (e, t, n) {
-        var o = this._document.getEditor();
-        o.beginTransaction();
+        var GCore = this._document.getEditor();
+        GCore.beginTransaction();
         try {
           this._scene.setProperties(e, t);
         } finally {
-          o.commitTransaction(n);
+          GCore.commitTransaction(n);
         }
       }),
       (_.prototype._enableCloudSync = function () {
@@ -941,7 +941,7 @@ function (exports, module, require) {
               ? u.createFile(e, (t) => {
                   e.getScene().setCloudSynchronization(t.id),
                     gDesigner.executeAction(
-                      l.ID + v,
+                      GSaveAsAction.ID + v,
                       [
                         null,
                         e,
@@ -959,7 +959,7 @@ function (exports, module, require) {
                     );
                 })
               : this._document.isCloudFile()
-              ? gDesigner.executeAction(l.ID + v, undefined, (undefined).true)
+              ? gDesigner.executeAction(GSaveAsAction.ID + v, undefined, (undefined).true)
               : this._document.hasCloudReference()
               ? console.warn("Enable Sync for referenced file")
               : u.createFile(e, (t) => {
@@ -970,7 +970,7 @@ function (exports, module, require) {
                 })
             : this._document.isNew()
             ? gDesigner.executeAction(
-                s.ID + ".save-as",
+                GGravitCloudAction.ID + ".save-as",
                 [
                   this._document,
                   (t) => {
@@ -981,11 +981,11 @@ function (exports, module, require) {
                 true
               )
             : this._document.isCloudFile()
-            ? gDesigner.executeAction(l.ID + v, undefined, undefined, true)
+            ? gDesigner.executeAction(GSaveAsAction.ID + v, undefined, undefined, true)
             : this._document.hasCloudReference()
             ? console.warn("Enable Sync for referenced file")
             : gDesigner.executeAction(
-                s.ID + ".save-as",
+                GGravitCloudAction.ID + ".save-as",
                 [
                   this._document,
                   (t) => {

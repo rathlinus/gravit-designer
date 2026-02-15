@@ -7,19 +7,19 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GToggleSnapAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GToggleSnapAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GToggleSnapAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GToggleSnapAction", "tooltip-description")
           ),
           shortcut: l.SHORTCUT,
           middle: false,
@@ -28,10 +28,10 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "view.toggle-snap"),
-      (l.TITLE = new o.GLocaleKey("GToggleSnapAction", "title")),
-      (l.SHORTCUT = [i.GKey.Constant.SHIFT, i.GKey.Constant.F10]),
+      (l.TITLE = new GCore.GLocaleKey("GToggleSnapAction", "title")),
+      (l.SHORTCUT = [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.F10]),
       (l.TOOLTIP_CONFIG = null),
       (l.prototype.getId = function () {
         return l.ID;
@@ -40,7 +40,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_VIEW_SNAP;
+        return MenuItemBuilder.CATEGORY_VIEW_SNAP;
       }),
       (l.prototype.getGroup = function () {
         return "snap/enable";
@@ -65,8 +65,8 @@ function (exports, module, require) {
         const module = l.TOOLTIP_CONFIG[e];
         return (
           module.setConfig({
-            title: o.GLocale.get(
-              new o.GLocaleKey("GToggleSnapAction", "tootlip-title-action")
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey("GToggleSnapAction", "tootlip-title-action")
             ),
           }),
           module

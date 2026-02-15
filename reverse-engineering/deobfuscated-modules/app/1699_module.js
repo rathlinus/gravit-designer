@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(40) /* CollaborationMergeUtils */;
+    var CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function i(e, t, n) {
       (this.element = e),
-        (this.mouseMoveCallback = t || o.fakeFunction),
-        (this.mouseUpCallback = n || o.fakeFunction),
+        (this.mouseMoveCallback = t || CollaborationMergeUtils.fakeFunction),
+        (this.mouseUpCallback = n || CollaborationMergeUtils.fakeFunction),
         this.init();
     }
     (i.prototype.init = function () {

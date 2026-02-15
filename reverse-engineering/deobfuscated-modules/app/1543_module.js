@@ -6,19 +6,19 @@
 function (exports, module, require) {
     "use strict";
     require(168) /* polyfill_Array_reduce */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(169) /* stub_requires_683 */;
-    const o = require(449) /* GFitAllAction */,
-      i = require(566) /* GFitSelectionAction */,
-      a = require(447) /* GSaveAction */,
-      r = require(1171) /* GUndoAction */,
-      s = require(1167) /* GMagnificationAction */,
-      l = require(813) /* GOpenAction */,
-      c = require(448) /* GGravitCloudAction */,
-      d = require(445) /* GSaveAsAction */,
-      u = require(1293) /* GCloudSynchronizationAction */,
-      p = require(238) /* GMenu */,
-      g = require(339) /* GMenu */,
-      h = require(257) /* barrel_panels */,
-      f = require(85) /* GContainer */,
+    const GFitAllAction = require(449) /* GFitAllAction */,
+      GFitSelectionAction = require(566) /* GFitSelectionAction */,
+      GSaveAction = require(447) /* GSaveAction */,
+      GUndoAction = require(1171) /* GUndoAction */,
+      GMagnificationAction = require(1167) /* GMagnificationAction */,
+      GOpenAction = require(813) /* GOpenAction */,
+      GGravitCloudAction = require(448) /* GGravitCloudAction */,
+      GSaveAsAction = require(445) /* GSaveAsAction */,
+      GCloudSynchronizationAction = require(1293) /* GCloudSynchronizationAction */,
+      GMenu = require(238) /* GMenu */,
+      GMenu2 = require(339) /* GMenu */,
+      barrel_panels = require(257) /* barrel_panels */,
+      GContainer = require(85) /* GContainer */,
       { GSystem: m, GMath: y } = require(1) /* module */,
       { FILE_FORMATS: v } = require(10) /* AppSettings */;
     exports.exports = function (e) {
@@ -35,7 +35,7 @@ function (exports, module, require) {
                 .hide()
                 .insertBefore(this._exportButton)),
             this._nativeButton ||
-              (gContainer.getRuntime() === f.Runtime.Electron &&
+              (gContainer.getRuntime() === GContainer.Runtime.Electron &&
                 m.operatingSystem !== m.OperatingSystem.OSX_IOS &&
                 (this._nativeButton = this._createNativeButton().appendTo(
                   this._htmlElement.find(".export-section")
@@ -82,7 +82,7 @@ function (exports, module, require) {
           const e = $("<button />")
               .addClass("dropdown-button")
               .append($("<span></span>").addClass("gravit-icon-down")),
-            module = new p(undefined, "g-zoom-menu");
+            module = new GMenu(undefined, "g-zoom-menu");
           this._touchZoomButton = $("<div/>")
             .addClass("zoom-button")
             .addClass("toolbar-button")
@@ -99,27 +99,27 @@ function (exports, module, require) {
               menu: () => (
                 module.clearItems(),
                 [
-                  gDesigner.getAction(o.ID),
-                  gDesigner.getAction(i.ID),
-                  gDesigner.getAction("".concat(s.ID, ".50")),
-                  gDesigner.getAction("".concat(s.ID, ".100")),
-                  gDesigner.getAction("".concat(s.ID, ".200")),
-                  gDesigner.getAction("".concat(s.ID, ".400")),
+                  gDesigner.getAction(GFitAllAction.ID),
+                  gDesigner.getAction(GFitSelectionAction.ID),
+                  gDesigner.getAction("".concat(GMagnificationAction.ID, ".50")),
+                  gDesigner.getAction("".concat(GMagnificationAction.ID, ".100")),
+                  gDesigner.getAction("".concat(GMagnificationAction.ID, ".200")),
+                  gDesigner.getAction("".concat(GMagnificationAction.ID, ".400")),
                 ].reduce((e, t) => (e.createAddItem(t), e), module)
               ),
               getActiveItem: () => {
                 var e = gDesigner.getWindows().getActiveWindow(),
                   n = 100 * (e && e.getView()).getZoom(),
-                  o = n && y.round(n, false, 0),
-                  i = o && gDesigner.getAction("".concat(s.ID, ".").concat(o)),
-                  a = i && i.getTitle();
-                return a && module.findItem(a);
+                  GFitAllAction = n && y.round(n, false, 0),
+                  GFitSelectionAction = GFitAllAction && gDesigner.getAction("".concat(GMagnificationAction.ID, ".").concat(GFitAllAction)),
+                  GSaveAction = GFitSelectionAction && GFitSelectionAction.getTitle();
+                return GSaveAction && module.findItem(GSaveAction);
               },
               reference: e,
             });
         }),
         (e.prototype._getTouchMenubarIcon = function () {
-          return gContainer.getRuntime() === f.Runtime.IPad
+          return gContainer.getRuntime() === GContainer.Runtime.IPad
             ? "gravit-icon-touch-menubar-ipad"
             : "gravit-icon-touch-menubar";
         }),
@@ -142,17 +142,17 @@ function (exports, module, require) {
                   icon: "gravit-icon-open",
                   split: true,
                   menu: () => this._createOpenMenu(),
-                  click: () => gDesigner.executeAction(l.ID),
+                  click: () => gDesigner.executeAction(GOpenAction.ID),
                 }).addClass("open-toolbar-button")
               )
               .append(this._createSaveButtonGroup())
               .append(
                 this._createLabelButton({
-                  action: gDesigner.getAction(r.ID),
+                  action: gDesigner.getAction(GUndoAction.ID),
                   icon: "gravit-icon-undo",
                   split: true,
                   menu: () => this._createQuickHistoryUndoRedoMenu(),
-                  click: () => gDesigner.executeAction(r.ID),
+                  click: () => gDesigner.executeAction(GUndoAction.ID),
                 }).addClass("undo-toolbar-button")
               )
               .append(this._touchZoomButton)
@@ -160,27 +160,27 @@ function (exports, module, require) {
           );
         }),
         (e.prototype._createSaveButtonGroup = function () {
-          const e = gDesigner.getAction(a.ID);
+          const e = gDesigner.getAction(GSaveAction.ID);
           return this._createLabelButton({
             icon: "gravit-icon-save",
             split: true,
             menu: [
               gDesigner.getAction(
-                "".concat(d.ID, ".").concat(v.find((e) => e.default).ext)
+                "".concat(GSaveAsAction.ID, ".").concat(v.find((e) => e.default).ext)
               ),
               gDesigner.getAction(
-                "".concat(c.ID, ".").concat(c.Actions.SaveAs)
+                "".concat(GGravitCloudAction.ID, ".").concat(GGravitCloudAction.Actions.SaveAs)
               ),
-              gDesigner.getAction(u.ID),
-            ].reduce((e, t) => (e.createAddItem(t), e), new p()),
-            click: () => gDesigner.executeAction(a.ID),
+              gDesigner.getAction(GCloudSynchronizationAction.ID),
+            ].reduce((e, t) => (e.createAddItem(t), e), new GMenu()),
+            click: () => gDesigner.executeAction(GSaveAction.ID),
           })
             .addClass("save-toolbar-button")
             .attr("data-action", e.getId())
             .data("action", e);
         }),
         (e.prototype._createWindowButton = function () {
-          const e = new p();
+          const e = new GMenu();
           return this._createLabelButton({
             caption: " ",
             menu: () => {
@@ -199,24 +199,24 @@ function (exports, module, require) {
             .addClass("g-touch-only");
         }),
         (e.prototype._createAndAppendWindowTabToMenu = function (e, t, n) {
-          const o = this._getWindowTitle(n),
-            i = t.createAddItem(o, () => {
+          const GFitAllAction = this._getWindowTitle(n),
+            GFitSelectionAction = t.createAddItem(GFitAllAction, () => {
               e.activateWindow(n, true);
             });
-          i.setDetachable(true),
-            i.addEventListener(g.DetachEvent, () => {
+          GFitSelectionAction.setDetachable(true),
+            GFitSelectionAction.addEventListener(GMenu2.DetachEvent, () => {
               e.removeWindow(n);
             });
-          const a = n.getDocument();
-          a &&
-            (a.isCloudFile() || a.isExternalFile()) &&
-            i.setIcon(h["gravit-icon-cloud"]);
+          const GSaveAction = n.getDocument();
+          GSaveAction &&
+            (GSaveAction.isCloudFile() || GSaveAction.isExternalFile()) &&
+            GFitSelectionAction.setIcon(barrel_panels["gravit-icon-cloud"]);
         }),
         (e.prototype._findActiveWindowItemInMenu = function (e) {
           const module = gDesigner.getWindows(),
             require = module && module.getActiveWindow(),
-            o = this._getWindowTitle(require);
-          return o && e.findItem(o);
+            GFitAllAction = this._getWindowTitle(require);
+          return GFitAllAction && e.findItem(GFitAllAction);
         }),
         (e.prototype._createNativeButton = function () {
           const e = (e) =>
@@ -262,21 +262,21 @@ function (exports, module, require) {
             if (
               gDesigner.getApplicationManager().isDocumentTabManagementEnabled()
             ) {
-              const o =
+              const GFitAllAction =
                 gDesigner.getWindows() &&
                 gDesigner.getWindows().getActiveWindow();
-              if (o) {
-                const i = o.getDocument();
-                var e = this._getWindowTitle(o),
+              if (GFitAllAction) {
+                const GFitSelectionAction = GFitAllAction.getDocument();
+                var e = this._getWindowTitle(GFitAllAction),
                   module = "..." + e.substr(e.length - 3);
-                const a = this._windowButton
+                const GSaveAction = this._windowButton
                   .show()
-                  .toggleClass("syncing", i && i.isSynchronizing())
+                  .toggleClass("syncing", GFitSelectionAction && GFitSelectionAction.isSynchronizing())
                   .find(".action-button .caption")
                   .text(e);
                 this._windowButton.find(".subicon").remove(),
                   this._windowButton.find(".ending").remove();
-                var require = a[0].offsetWidth < a[0].scrollWidth;
+                var require = GSaveAction[0].offsetWidth < GSaveAction[0].scrollWidth;
                 this._windowButton.toggleClass("text-overflow", require),
                   require &&
                     $("<span/>")
@@ -286,11 +286,11 @@ function (exports, module, require) {
                         this._windowButton.find(".gravit-icon-down")
                       ),
                   this._windowButton.find(".subicon").remove(),
-                  i &&
-                    (i.isCloudFile() || i.isExternalFile()) &&
+                  GFitSelectionAction &&
+                    (GFitSelectionAction.isCloudFile() || GFitSelectionAction.isExternalFile()) &&
                     $("<span/>")
                       .addClass("subicon")
-                      .addClass(h["gravit-icon-cloud-window"])
+                      .addClass(barrel_panels["gravit-icon-cloud-window"])
                       .insertBefore(
                         this._windowButton.find(".gravit-icon-down")
                       );

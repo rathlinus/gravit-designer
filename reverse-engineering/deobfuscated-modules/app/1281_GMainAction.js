@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var i = require(15) /* module */,
-      a = o(require(31) /* GAction */),
-      r = o(require(1168) /* GSubAction */);
-    class s extends a.default {
+    var GEditor = require(15) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      GSubAction = _interopRequireDefault(require(1168) /* GSubAction */);
+    class s extends GAction.default {
       constructor(e) {
         super(), (this.Type = e.Type);
         const module = Object.values(this.Type);
         (this._subActionIds = module.map((e) =>
-          r.default.getSubActionId(this.getId(), e)
+          GSubAction.default.getSubActionId(this.getId(), e)
         )),
           (this._timeoutId = null),
           (this._shortcutSubKeyHandlerBind =
@@ -47,7 +47,7 @@ function (exports, module, require) {
           ),
           (this._timeoutId = setTimeout(() => {
             this._resetShortcutSubKeyListener(), this.execute();
-          }, a.default.SHORTCUT_DELAY));
+          }, GAction.default.SHORTCUT_DELAY));
       }
       _executeFromShortcutSubKey(e) {
         const module = this.getSubActions();
@@ -56,7 +56,7 @@ function (exports, module, require) {
         require && require.execute();
       }
       _shortcutSubKeyHandler(e) {
-        const module = i.GKey.translateCode(e.code),
+        const module = GEditor.GKey.translateCode(e.code),
           require = this.getShortcutSubKeys();
         this._resetShortcutSubKeyListener(),
           module &&

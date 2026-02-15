@@ -7,12 +7,12 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(394) /* GView */;
+    var GCore = require(1) /* module */,
+      GView = require(394) /* GView */;
     function a() {
-      i.call(this);
+      GView.call(this);
     }
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, GView),
       (a.prototype.getOrientation = function () {
         return null;
       }),

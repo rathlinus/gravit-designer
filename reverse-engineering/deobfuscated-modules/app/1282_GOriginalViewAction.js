@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "view.zoom.original"),
-      (s.TITLE = new o.GLocaleKey("GOriginalViewAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GOriginalViewAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW;
+        return MenuItemBuilder.CATEGORY_VIEW;
       }),
       (s.prototype.getGroup = function () {
         return "zoom";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "0"];
+        return [GEditor.GKey.Constant.META, "0"];
       }),
       (s.prototype.isEnabled = function () {
         return !!gDesigner.getActiveDocument();
@@ -40,22 +40,22 @@ function (exports, module, require) {
             .getActiveWindow()
             .getView()
             .getViewConfiguration().multiPageView,
-          i = t.getScene();
-        if (i.isFixedSized()) {
-          var a = i.getActivePage();
+          GEditor = t.getScene();
+        if (GEditor.isFixedSized()) {
+          var MenuItemBuilder = GEditor.getActivePage();
           if (
-            ((e = new o.GRect(0, 0, a.getProperty("w"), a.getProperty("h"))), n)
+            ((e = new GCore.GRect(0, 0, MenuItemBuilder.getProperty("w"), MenuItemBuilder.getProperty("h"))), n)
           ) {
-            var r = a.getPosition(true);
-            r && (e = e.translated(r.getX(), r.getY()));
+            var GAction = MenuItemBuilder.getPosition(true);
+            GAction && (e = e.translated(GAction.getX(), GAction.getY()));
           }
-        } else e = i.getPaintBBox(n);
+        } else e = GEditor.getPaintBBox(n);
         e &&
           !e.isEmpty() &&
           t
             .getActiveWindow()
             .getView()
-            .zoomAtCenter(e.getSide(o.GRect.Side.CENTER), 1);
+            .zoomAtCenter(e.getSide(GCore.GRect.Side.CENTER), 1);
       }),
       (s.prototype.toString = function () {
         return "[Object GOriginalViewAction]";

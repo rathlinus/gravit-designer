@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(57) /* polyfill_parseInt */,
       require(356) /* module_356 */,
@@ -20,7 +20,7 @@ function (exports, module, require) {
       require(32) /* stub_requires_670 */,
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var i = o(require(883) /* module_883 */),
+    var i = _interopRequireDefault(require(883) /* module_883 */),
       a = require(263) /* Exports_GRegex */,
       r = 8,
       s = 9,
@@ -102,7 +102,7 @@ function (exports, module, require) {
       S = function (e) {
         var t,
           n,
-          o,
+          _interopRequireDefault,
           a,
           m,
           S,
@@ -112,22 +112,22 @@ function (exports, module, require) {
           G = "";
         function P() {
           var n = I(),
-            o = [];
+            _interopRequireDefault = [];
           E.forEach((e) => {
-            o.some((t) => t.name === e.name) || o.push(e);
+            _interopRequireDefault.some((t) => t.name === e.name) || _interopRequireDefault.push(e);
           }),
-            o.forEach((t) => {
-              let o = x(e.templates.mentionItemSyntax, [
+            _interopRequireDefault.forEach((t) => {
+              let _interopRequireDefault = x(e.templates.mentionItemSyntax, [
                 { key: "<%=value%>", value: t.value },
                 { key: "<%=type%>", value: t.type },
                 { key: "<%=id%>", value: t.getUID() },
               ]);
-              n = n.replace(new RegExp(v(t.value), "g"), o);
+              n = n.replace(new RegExp(v(t.value), "g"), _interopRequireDefault);
             });
           var i = y(n);
-          o.forEach((t) => {
+          _interopRequireDefault.forEach((t) => {
             let n = y(t.value),
-              o = x(e.templates.mentionItemSyntax, [
+              _interopRequireDefault = x(e.templates.mentionItemSyntax, [
                 { key: "<%=value%>", value: t.value },
                 { key: "<%=type%>", value: t.type },
                 { key: "<%=id%>", value: t.getUID() },
@@ -136,7 +136,7 @@ function (exports, module, require) {
                 { key: "<%=value%>", value: n },
                 { key: "<%=id%>", value: t.getUID() },
               ]);
-            i = i.replace(new RegExp(v(o), "g"), a);
+            i = i.replace(new RegExp(v(_interopRequireDefault), "g"), a);
           }),
             (i = (i = i.replace(/\n/g, "<br />")).replace(/ {2}/g, "&nbsp; ")),
             t.data("messageText", n),
@@ -148,20 +148,20 @@ function (exports, module, require) {
         }
         function L(n) {
           for (
-            var o = I(),
+            var _interopRequireDefault = I(),
               i = t[0].selectionStart,
               a = false,
               r = false,
               s = new RegExp("\\" + e.triggerChar + G, "gi");
-            s.exec(o);
+            s.exec(_interopRequireDefault);
 
           )
             (false === a || Math.abs(s.lastIndex - i) < a) &&
               ((a = Math.abs(s.lastIndex - i)), (r = s.lastIndex));
           var l = r - G.length - 1,
             c = r,
-            d = o.substr(0, l),
-            u = o.substr(c, o.length),
+            d = _interopRequireDefault.substr(0, l),
+            u = _interopRequireDefault.substr(c, _interopRequireDefault.length),
             p = (d + n.value).length + 1;
           E.find((e) => e.id === n.id) || E.push(n), D(), (G = ""), B();
           var g = d + n.value + " " + u;
@@ -173,9 +173,9 @@ function (exports, module, require) {
         function k() {
           var e,
             n,
-            o = $(this);
+            _interopRequireDefault = $(this);
           return (
-            L(A[o.attr("data-uid")]),
+            L(A[_interopRequireDefault.attr("data-uid")]),
             (e = $(t).offset().top),
             (n = $("body").offset().top),
             $(window).scrollTop() > e && $(window).scrollTop(e - n),
@@ -211,7 +211,7 @@ function (exports, module, require) {
         }
         function N(e) {
           if (
-            (o.data("assign", o.find("li").length),
+            (_interopRequireDefault.data("assign", _interopRequireDefault.find("li").length),
             e.keyCode === c ||
               e.keyCode === u ||
               e.keyCode === g ||
@@ -224,7 +224,7 @@ function (exports, module, require) {
               )
             );
           if (e.keyCode !== r) {
-            if (!o.is(":visible")) return true;
+            if (!_interopRequireDefault.is(":visible")) return true;
             switch (e.keyCode) {
               case d:
               case p:
@@ -234,7 +234,7 @@ function (exports, module, require) {
                     e.keyCode === p
                       ? S && S.length
                         ? S.next()
-                        : o.find("li").first()
+                        : _interopRequireDefault.find("li").first()
                       : $(S).prev()).length && U(t),
                   false
                 );
@@ -248,7 +248,7 @@ function (exports, module, require) {
           T = T.slice(0, -1 + T.length);
         }
         function B() {
-          (S = null), o.empty().hide();
+          (S = null), _interopRequireDefault.empty().hide();
         }
         function U(t) {
           t.addClass(e.classes.autoCompleteItemActive),
@@ -256,14 +256,14 @@ function (exports, module, require) {
             (S = t);
         }
         function j(n, i) {
-          if ((o.show(), !e.allowRepeat)) {
+          if ((_interopRequireDefault.show(), !e.allowRepeat)) {
             let e = E.map((e) => e.value);
             i = i.filter((t) => !e.includes(t.showText));
           }
           if (i.length) {
-            o.empty();
-            var a = $("<ul>").appendTo(o).css("visibility", "hidden");
-            i.forEach((t, o) => {
+            _interopRequireDefault.empty();
+            var a = $("<ul>").appendTo(_interopRequireDefault).css("visibility", "hidden");
+            i.forEach((t, _interopRequireDefault) => {
               let i = C("mention_");
               t.setValue(t.showText), (A[i] = t);
               let r = $(
@@ -290,7 +290,7 @@ function (exports, module, require) {
                   { key: "<%=fontWeight%>", value: y(t.fontWeight) },
                 ])
               ).attr("data-uid", i);
-              if ((0 === o && U(r), e.showAvatars)) {
+              if ((0 === _interopRequireDefault && U(r), e.showAvatars)) {
                 var s, l;
                 if (((l = t.getUserNameInitials()), t.avatar))
                   if ("assets/icon/notification-icon.svg" === t.avatar) {
@@ -326,14 +326,14 @@ function (exports, module, require) {
               }
               r = r.appendTo(a);
             }),
-              o.show(),
+              _interopRequireDefault.show(),
               e.onCaret &&
                 (function (e, t) {
                   var n,
-                    o = e.css("position");
-                  if ("absolute" === o) {
+                    _interopRequireDefault = e.css("position");
+                  if ("absolute" === _interopRequireDefault) {
                     var i = (function (e) {
-                      var t, n, o, i, a, r, s, l, c, d, u;
+                      var t, n, _interopRequireDefault, i, a, r, s, l, c, d, u;
                       if (
                         (c = e[0]) &&
                         $(c).is("textarea") &&
@@ -375,9 +375,9 @@ function (exports, module, require) {
                         )
                           s[(a = l[d])] = $(c).css(a);
                         return (
-                          (o = document.createElement("div")),
-                          $(o).css(s),
-                          $(c).after(o),
+                          (_interopRequireDefault = document.createElement("div")),
+                          $(_interopRequireDefault).css(s),
+                          $(c).after(_interopRequireDefault),
                           (n = document.createTextNode(
                             c.value.substring(0, c.selectionEnd)
                           )),
@@ -386,12 +386,12 @@ function (exports, module, require) {
                           )),
                           ((i = document.createElement("span")).innerHTML =
                             "&nbsp;"),
-                          o.appendChild(n),
-                          o.appendChild(i),
-                          o.appendChild(t),
-                          (o.scrollTop = c.scrollTop),
+                          _interopRequireDefault.appendChild(n),
+                          _interopRequireDefault.appendChild(i),
+                          _interopRequireDefault.appendChild(t),
+                          (_interopRequireDefault.scrollTop = c.scrollTop),
                           (r = $(i).position()),
-                          $(o).remove(),
+                          $(_interopRequireDefault).remove(),
                           r
                         );
                       }
@@ -404,9 +404,9 @@ function (exports, module, require) {
                       r = e.offset().left + e.width();
                     a <= r &&
                       e.css("left", Math.abs(e.position().left - (r - a)));
-                  } else if ("fixed" === o) {
+                  } else if ("fixed" === _interopRequireDefault) {
                     var s = (function (e) {
-                      var t, n, o, i, a, r, s, l, c, d, u;
+                      var t, n, _interopRequireDefault, i, a, r, s, l, c, d, u;
                       if (
                         (c = e[0]) &&
                         $(c).is("textarea") &&
@@ -448,9 +448,9 @@ function (exports, module, require) {
                         )
                           s[(a = l[d])] = $(c).css(a);
                         return (
-                          (o = document.createElement("div")),
-                          $(o).css(s),
-                          $(c).after(o),
+                          (_interopRequireDefault = document.createElement("div")),
+                          $(_interopRequireDefault).css(s),
+                          $(c).after(_interopRequireDefault),
                           (n = document.createTextNode(
                             c.value.substring(0, c.selectionEnd)
                           )),
@@ -459,12 +459,12 @@ function (exports, module, require) {
                           )),
                           ((i = document.createElement("span")).innerHTML =
                             "&nbsp;"),
-                          o.appendChild(n),
-                          o.appendChild(i),
-                          o.appendChild(t),
-                          (o.scrollTop = c.scrollTop),
+                          _interopRequireDefault.appendChild(n),
+                          _interopRequireDefault.appendChild(i),
+                          _interopRequireDefault.appendChild(t),
+                          (_interopRequireDefault.scrollTop = c.scrollTop),
                           (r = $(i).offset()),
-                          $(o).remove(),
+                          $(_interopRequireDefault).remove(),
                           r
                         );
                       }
@@ -474,7 +474,7 @@ function (exports, module, require) {
                       e.css("left", s.left + 1e4),
                       e.css("top", n + s.top);
                   }
-                })(o, t),
+                })(_interopRequireDefault, t),
               a.css("visibility", "visible");
           } else B();
         }
@@ -488,23 +488,23 @@ function (exports, module, require) {
         function V(n) {
           E = [];
           for (
-            var o,
+            var _interopRequireDefault,
               a = y(n),
               r = new RegExp(
                 "(" + e.triggerChar + ")\\[(.*?)\\]\\((.*?):(.*?)\\)",
                 "gi"
               ),
               s = a;
-            null !== (o = r.exec(a));
+            null !== (_interopRequireDefault = r.exec(a));
 
           )
-            (s = s.replace(o[0], o[1] + o[2])),
+            (s = s.replace(_interopRequireDefault[0], _interopRequireDefault[1] + _interopRequireDefault[2])),
               E.push(
                 new i.default({
-                  id: o[4],
-                  type: o[3],
-                  value: o[2],
-                  trigger: o[1],
+                  id: _interopRequireDefault[4],
+                  type: _interopRequireDefault[3],
+                  value: _interopRequireDefault[2],
+                  trigger: _interopRequireDefault[1],
                 })
               );
           t.val(s), P();
@@ -525,8 +525,8 @@ function (exports, module, require) {
                 t.bind("blur", F),
                 t.bind("input", R),
                 e.elastic && t.elastic()),
-                (o = $(e.templates.autocompleteList)).appendTo(a),
-                o.delegate("li", "mousedown", k),
+                (_interopRequireDefault = $(e.templates.autocompleteList)).appendTo(a),
+                _interopRequireDefault.delegate("li", "mousedown", k),
                 (m = $(e.templates.mentionsOverlay)).prependTo(a),
                 V(e.defaultValue),
                 e.prefillMention && L(e.prefillMention);
@@ -555,14 +555,14 @@ function (exports, module, require) {
       return (
         ("object" != typeof e && e) || (t = e),
         this.each(function () {
-          var o =
+          var _interopRequireDefault =
             $.data(this, "mentionsInput") ||
             $.data(this, "mentionsInput", new S(t));
-          return $.isFunction(o[e])
-            ? o[e].apply(this, Array.prototype.slice.call(n, 1))
+          return $.isFunction(_interopRequireDefault[e])
+            ? _interopRequireDefault[e].apply(this, Array.prototype.slice.call(n, 1))
             : "object" != typeof e && e
             ? void $.error("Method " + e + " does not exist")
-            : o.init.call(this, this);
+            : _interopRequireDefault.init.call(this, this);
         })
       );
     };

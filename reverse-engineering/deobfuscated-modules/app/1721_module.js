@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */;
-    var o = require(1156) /* GMenuCloseEvent */,
+    var GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
       i = require(444) /* module_444 */,
       a = {
         init: function (e) {
@@ -30,8 +30,8 @@ function (exports, module, require) {
               $(this)
                 .addClass("g-menu-button")
                 .data("gmenubutton", { options: e })
-                .on("mousedown", function (o) {
-                  if ((o.stopPropagation(), e.menuFactory)) {
+                .on("mousedown", function (GMenuCloseEvent) {
+                  if ((GMenuCloseEvent.stopPropagation(), e.menuFactory)) {
                     const t = e.menuFactory();
                     if (t !== e.menu) {
                       e.menu.clearItems();
@@ -65,13 +65,13 @@ function (exports, module, require) {
                     ? a.close.call(t)
                     : a.open.call(t);
                 })
-                .on("mouseup", function (o) {
-                  o.stopPropagation(),
+                .on("mouseup", function (GMenuCloseEvent) {
+                  GMenuCloseEvent.stopPropagation(),
                     e.dblclick
                       ? setTimeout(() => {
-                          var o = parseInt($(t).data("dblclicked"), 10);
-                          o
-                            ? $(t).data("dblclicked", o - 1)
+                          var GMenuCloseEvent = parseInt($(t).data("dblclicked"), 10);
+                          GMenuCloseEvent
+                            ? $(t).data("dblclicked", GMenuCloseEvent - 1)
                             : (null !== n && (clearTimeout(n), (n = null)),
                               !e.menu.isOpen() &&
                                 e.defaultAction &&
@@ -98,10 +98,10 @@ function (exports, module, require) {
             e.addClass("g-active");
             var a,
               r = function () {
-                e.removeClass("g-active"), n.removeEventListener(o, r);
+                e.removeClass("g-active"), n.removeEventListener(GMenuCloseEvent, r);
               };
             if (
-              (n.addEventListener(o, r),
+              (n.addEventListener(GMenuCloseEvent, r),
               t.reference &&
                 (t.reference instanceof jQuery ||
                 t.reference instanceof HTMLElement

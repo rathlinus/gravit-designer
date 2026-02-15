@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.WINDOW_STATUS_BLOCKED = undefined),
       require(58) /* polyfill_Array_includes */,
@@ -22,12 +22,12 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(97) /* stub_requires_684 */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(1) /* module */,
-      a = o(require(355) /* module_355 */),
-      r = o(require(594) /* GError */),
-      s = require(858) /* Exports_GFilesPanel */;
+    var GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(355) /* module_355 */),
+      GError = _interopRequireDefault(require(594) /* GError */),
+      GFilesPanel = require(858) /* Exports_GFilesPanel */;
     const l = require(1240) /* module_1240 */,
-      c = require(520) /* barrel_purchase_urls */,
+      barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
       { FILE_FORMATS: d } = require(10) /* AppSettings */;
     module.WINDOW_STATUS_BLOCKED = "window-blocked";
     function u(e) {
@@ -42,13 +42,13 @@ function (exports, module, require) {
           e && this.setCurrentFolder(e);
         });
     }
-    i.GObject.inheritAndMix(u, i.GObject, [i.GEventTarget]),
+    GCore.GObject.inheritAndMix(u, GCore.GObject, [GCore.GEventTarget]),
       (u.DriveEvent = function (e, t) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
         (this.source = e), (this.type = t), (this.data = require);
       }),
-      i.GObject.inherit(u.DriveEvent, i.GEvent),
+      GCore.GObject.inherit(u.DriveEvent, GCore.GEvent),
       (u.DriveEvent.type = null),
       (u.DriveEvent.source = null),
       (u.DriveEvent.data = null),
@@ -59,7 +59,7 @@ function (exports, module, require) {
         FileDeleted: 3,
       }),
       (u.ExceptionCode = { InvalidCredentials: 1 });
-    class p extends r.default {
+    class p extends GError.default {
       constructor(e, t) {
         super(e),
           (this.code = t),
@@ -85,11 +85,11 @@ function (exports, module, require) {
       }),
       (u.prototype._queryLimit = null),
       (u.prototype._currentFolder = null),
-      (u.prototype.SORT_TYPES = s.GFilesPanelSortTypes),
-      (u.prototype.FILTER_FILE_TYPES = s.GFilesPanelFileTypesFilter),
+      (u.prototype.SORT_TYPES = GFilesPanel.GFilesPanelSortTypes),
+      (u.prototype.FILTER_FILE_TYPES = GFilesPanel.GFilesPanelFileTypesFilter),
       (u.prototype._sortType = u.prototype.SORT_TYPES.UPDATED),
       (u.prototype._filterFileTypes = null),
-      (u.prototype._sortDirection = s.GFilesPanelSortDirections.DESCEND),
+      (u.prototype._sortDirection = GFilesPanel.GFilesPanelSortDirections.DESCEND),
       (u.prototype._folders = null),
       (u.prototype._corporateStorage = null),
       (u.prototype._actions = null),
@@ -136,7 +136,7 @@ function (exports, module, require) {
         return this._sortDirection;
       }),
       (u.prototype.setSortDirection = function (e) {
-        Object.values(s.GFilesPanelSortDirections).includes(e) &&
+        Object.values(GFilesPanel.GFilesPanelSortDirections).includes(e) &&
           (this._sortDirection = e);
       }),
       (u.prototype.hasMoreItemsToLoad = function () {
@@ -256,19 +256,19 @@ function (exports, module, require) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : "id";
         const require = this;
-        async function o(e) {
+        async function _interopRequireDefault(e) {
           if (!e) return null;
-          const o = await require.getCorporateStorages();
-          return o.length ? o.find((n) => n[module] === e) : null;
+          const _interopRequireDefault = await require.getCorporateStorages();
+          return _interopRequireDefault.length ? _interopRequireDefault.find((n) => n[module] === e) : null;
         }
-        async function i(e) {
+        async function GCore(e) {
           require.setCorporateStorage(e);
           let module = await require.getPreviousSelectedFolder();
           require.setCurrentFolder(module || require.getRootFolder());
         }
         return e && this.supportsCorporateStorage()
-          ? gContainer.getProperty(e).then(o).then(i)
-          : i(null);
+          ? gContainer.getProperty(e).then(_interopRequireDefault).then(GCore)
+          : GCore(null);
       }),
       (u.prototype.saveLastTeamDriveId = function (e, t) {
         if (!e)
@@ -333,13 +333,13 @@ function (exports, module, require) {
           !require)
         )
           return e;
-        const o = this.getSupportedFileFormats(),
-          i = o
+        const _interopRequireDefault = this.getSupportedFileFormats(),
+          GCore = _interopRequireDefault
             .filter((t) => e.includes(g(t)))
             .map((e) => e.ext)
             .filter((e) => e.startsWith(require));
-        if (i.length > 0) {
-          return o.filter((e) => i.includes(e.ext)).map(g);
+        if (GCore.length > 0) {
+          return _interopRequireDefault.filter((e) => GCore.includes(e.ext)).map(g);
         }
         return [];
       }),
@@ -425,6 +425,6 @@ function (exports, module, require) {
       (u.prototype.getDriveIdPropertyName = function () {
         return "id";
       }),
-      (u.Provider = c.Provider);
+      (u.Provider = barrel_purchase_urls.Provider);
     module.default = u;
   }

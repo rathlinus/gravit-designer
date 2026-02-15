@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(193) /* polyfill_Object_keys */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i() {}
     i.prototype.OPACITY_DEFAULT = {
       min: 0,
@@ -22,8 +22,8 @@ function (exports, module, require) {
         $(e).trigger(t);
       },
       s = function (e, t, n) {
-        var o = (function (e, t, n) {
-          var o = $(e).data("options").min,
+        var GCore = (function (e, t, n) {
+          var GCore = $(e).data("options").min,
             i = $(e).data("options").max,
             a = $(e).find(".g-input-slider-track"),
             r = $(e).find(".g-input-slider-thumb"),
@@ -31,10 +31,10 @@ function (exports, module, require) {
           t || (t = r.offset().left - a.offset().left);
           var l = (100 * t) / s;
           l < 0 ? (l = 0) : l > 100 && (l = 100), n && r.css("left", l + "%");
-          var c = (l * (i - o)) / 100 + o;
-          return c > i ? (c = i) : c < o && (c = o), c;
+          var c = (l * (i - GCore)) / 100 + GCore;
+          return c > i ? (c = i) : c < GCore && (c = GCore), c;
         })(e, t, n);
-        $(e).attr("value", o), l(e, a(e, o)), r(e, "input");
+        $(e).attr("value", GCore), l(e, a(e, GCore)), r(e, "input");
       },
       l = function (e, t) {
         $(e).data("options").generic &&
@@ -54,7 +54,7 @@ function (exports, module, require) {
         return this.each(function () {
           t || (t = this);
           var n,
-            o = e.min,
+            GCore = e.min,
             i = e.max;
           (e.generic = !e.background && !e.custom),
             !e.maxDecimal &&
@@ -65,14 +65,14 @@ function (exports, module, require) {
                   ? 0
                   : n.toString().split(".")[1].length || 0));
           var l = 50;
-          l < o ? (l = o) : l > i && (l = i);
+          l < GCore ? (l = GCore) : l > i && (l = i);
           var c = e.generic ? 10 : 8;
           $(t)
             .addClass("g-input-slider")
             .addClass(e.generic ? "generic" : "custom")
             .addClass(e.cssClass ? e.cssClass : "")
             .attr("value", l)
-            .attr("min", o)
+            .attr("min", GCore)
             .attr("max", i)
             .data("options", e),
             e.generic || $(t).css("background", e.background);
@@ -88,8 +88,8 @@ function (exports, module, require) {
             g = function (e) {
               if ("disabled" !== $(t).attr("disabled")) {
                 var n = e.clientX,
-                  o = $(t).offset().left;
-                s(t, (n = n - o - c / 2), true);
+                  GCore = $(t).offset().left;
+                s(t, (n = n - GCore - c / 2), true);
               }
             };
           $(d).on("mousedown", function (e) {
@@ -141,8 +141,8 @@ function (exports, module, require) {
           if (undefined === e)
             return isNaN(t.attr("value"))
               ? parseFloat(t.attr("value"))
-              : o.GUtil.formatNumber(t.attr("value"), r);
-          isNaN(e) || (e = o.GUtil.formatNumber(e, r)),
+              : GCore.GUtil.formatNumber(t.attr("value"), r);
+          isNaN(e) || (e = GCore.GUtil.formatNumber(e, r)),
             e > i ? (e = i) : e < require && (e = require);
           var s = a(this, e);
           t.find(".g-input-slider-thumb").css("left", s + "%"),

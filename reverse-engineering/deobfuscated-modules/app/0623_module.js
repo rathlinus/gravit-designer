@@ -10,7 +10,7 @@ function (exports, module, require) {
       a,
       r,
       s,
-      l = require(23) /* globalThis */,
+      globalThis = require(23) /* globalThis */,
       c = require(411) /* module_411 */,
       d = require(124) /* module_124 */,
       u = require(409) /* module_409 */.set,
@@ -19,10 +19,10 @@ function (exports, module, require) {
       h = require(624) /* stub_requires_129 */,
       f = require(625) /* stub_requires_129 */,
       m = require(245) /* stub_requires_407 */,
-      y = l.MutationObserver || l.WebKitMutationObserver,
-      v = l.document,
-      _ = l.process,
-      b = l.Promise,
+      y = globalThis.MutationObserver || globalThis.WebKitMutationObserver,
+      v = globalThis.document,
+      _ = globalThis.process,
+      b = globalThis.Promise,
       w = c("queueMicrotask");
     if (!w) {
       var C = new p(),
@@ -47,7 +47,7 @@ function (exports, module, require) {
           ? (o = function () {
               _.nextTick(x);
             })
-          : ((u = d(u, l)),
+          : ((u = d(u, globalThis)),
             (o = function () {
               u(x);
             }))

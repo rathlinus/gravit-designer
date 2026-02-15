@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function l() {}
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GElementAction),
       (l.ID = "modify.converttorawpath"),
-      (l.TITLE = new o.GLocaleKey("GConvertToRawPathAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GConvertToRawPathAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,7 +23,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (l.prototype.getGroup = function () {
         return "structure/modify";
@@ -34,12 +34,12 @@ function (exports, module, require) {
           : null;
       }),
       (l.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, i.GKey.Constant.SHIFT, "R"];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.SHIFT, "R"];
       }),
       (l.prototype._isValidElement = function (e) {
-        if (e instanceof o.GPath || e instanceof o.GCompoundPath) {
+        if (e instanceof GCore.GPath || e instanceof GCore.GCompoundPath) {
           var module = [];
-          if (e instanceof o.GCompoundPath)
+          if (e instanceof GCore.GCompoundPath)
             for (
               var require = e.getPaths().getFirstChild();
               null !== require;
@@ -47,21 +47,21 @@ function (exports, module, require) {
             )
               module.push(require);
           else module = [e];
-          for (var i = 0; i < module.length; i++)
-            for (var a = module[i].getAnchorPoints().getFirstChild(); a; ) {
-              if (o.GPathBase.isCornerType(a.getProperty("tp"))) return true;
-              a = a.getNext();
+          for (var GEditor = 0; GEditor < module.length; GEditor++)
+            for (var CollaborationMergeUtils = module[GEditor].getAnchorPoints().getFirstChild(); CollaborationMergeUtils; ) {
+              if (GCore.GPathBase.isCornerType(CollaborationMergeUtils.getProperty("tp"))) return true;
+              CollaborationMergeUtils = CollaborationMergeUtils.getNext();
             }
           return false;
         }
         return !(
-          !e.hasMixin(o.GVertexSource) ||
-          e instanceof o.GImage ||
-          e instanceof o.GPathsGraph
+          !e.hasMixin(GCore.GVertexSource) ||
+          e instanceof GCore.GImage ||
+          e instanceof GCore.GPathsGraph
         );
       }),
       (l.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getSelection();
@@ -75,34 +75,34 @@ function (exports, module, require) {
         var e,
           t = gDesigner.getActiveDocument(),
           n = t ? t.getEditor() : null,
-          i = n ? n.getIndividualSelection() : null,
-          r = [],
-          s = new Set();
-        if (i)
-          for (var l = 0; l < i.length; ++l) {
-            var c = i[l];
-            this._isValidElement(c) && (r.push(c), s.add(c.getParent()));
+          GEditor = n ? n.getIndividualSelection() : null,
+          MenuItemBuilder = [],
+          GElementAction = new Set();
+        if (GEditor)
+          for (var l = 0; l < GEditor.length; ++l) {
+            var c = GEditor[l];
+            this._isValidElement(c) && (MenuItemBuilder.push(c), GElementAction.add(c.getParent()));
           }
         n.beginTransaction();
         try {
           try {
-            (0, a.blockChanges)(n, s), (e = []);
-            for (l = 0; l < r.length; ++l) {
-              var d = r[l],
+            (0, CollaborationMergeUtils.blockChanges)(n, GElementAction), (e = []);
+            for (l = 0; l < MenuItemBuilder.length; ++l) {
+              var d = MenuItemBuilder[l],
                 u = d.getParent(),
                 p = d.getNext(),
-                g = o.GPathUtil.createPathFromVertexSource(d);
+                g = GCore.GPathUtil.createPathFromVertexSource(d);
               g &&
-                (o.GElement.prototype.assignFrom.call(g, d),
+                (GCore.GElement.prototype.assignFrom.call(g, d),
                 u.insertChild(g, p),
                 e.push(g)),
                 u.removeChild(d);
             }
           } finally {
-            (0, a.releaseChanges)(n, s), e.length && n.updateSelection(false, e);
+            (0, CollaborationMergeUtils.releaseChanges)(n, GElementAction), e.length && n.updateSelection(false, e);
           }
         } finally {
-          n.commitTransaction(o.GLocale.get(this.getTitle()));
+          n.commitTransaction(GCore.GLocale.get(this.getTitle()));
         }
       }),
       (l.prototype.toString = function () {

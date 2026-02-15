@@ -5,26 +5,26 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
+    var GCore = require(1) /* module */,
       a = require(847) /* module_847 */,
-      r = o(require(1239) /* SharepointException */),
-      s = o(require(388) /* Item */),
-      l = o(require(1481) /* module_1481 */),
-      c = require(10) /* AppSettings */,
-      d = o(require(594) /* GError */);
+      SharepointException = _interopRequireDefault(require(1239) /* SharepointException */),
+      s = _interopRequireDefault(require(388) /* Item */),
+      l = _interopRequireDefault(require(1481) /* module_1481 */),
+      AppSettings = require(10) /* AppSettings */,
+      GError = _interopRequireDefault(require(594) /* GError */);
     const u = require(86) /* module_86 */,
       p = require(336) /* module_336 */,
       g = require(436) /* module_436 */,
-      h = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       f = require(156) /* module_156 */,
       m = 10,
       y = 50,
       v = 80,
       _ = 100;
     function b() {}
-    i.GObject.inherit(b, s.default),
+    GCore.GObject.inherit(b, s.default),
       (b.Item = function (e, t) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
@@ -32,10 +32,10 @@ function (exports, module, require) {
           (this._ext = null),
           (this._token = require),
           this._setExtension(),
-          g.call(this, c.FILE_ID_PREFIX.SHAREPOINT);
+          g.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT);
       }),
-      i.GObject.inheritAndMix(b.Item, s.default.Item, [g]),
-      (b.Item.prototype._app = c.FILE_ID_PREFIX.SHAREPOINT),
+      GCore.GObject.inheritAndMix(b.Item, s.default.Item, [g]),
+      (b.Item.prototype._app = AppSettings.FILE_ID_PREFIX.SHAREPOINT),
       (b.Item.prototype.getId = function () {
         const exports = this._getSharepointId();
         return exports ? "".concat(this._app, "_").concat(exports) : null;
@@ -83,47 +83,47 @@ function (exports, module, require) {
       (b.Item.prototype.read = function (e, t) {
         const require = this.getFile();
         if (this._rawData) {
-          var o = this._rawData;
-          return (this._rawData = null), e(o);
+          var _interopRequireDefault = this._rawData;
+          return (this._rawData = null), e(_interopRequireDefault);
         }
-        return function o() {
-          let i =
+        return function _interopRequireDefault() {
+          let GCore =
             arguments.length > 0 && undefined !== arguments[0] && arguments[0];
           return this._getClient()
             .getFile(require)
             .then(async (t) => {
-              const o = r.default.convertFileToCloudItem(
+              const _interopRequireDefault = SharepointException.default.convertFileToCloudItem(
                 await this._getClient().getFileDetails(this.getFile())
               );
-              (o.status = require.status),
-                (o.checkOutStatus = require.checkOutStatus),
-                this.setFile(o),
+              (_interopRequireDefault.status = require.status),
+                (_interopRequireDefault.checkOutStatus = require.checkOutStatus),
+                this.setFile(_interopRequireDefault),
                 this._setExtension(),
                 await this.syncShadowFile(),
                 e(t);
             })
             .catch((e) => {
               const { id: a } = require;
-              return !i && e && e.status && 404 === e.status && a
+              return !GCore && e && e.status && 404 === e.status && a
                 ? this._getClient()
                     .findFileById(a)
                     .then((e) => {
-                      let { relativeUrl: t, name: i, type: a } = e;
-                      const r = Object.assign(require, {
-                        name: i,
+                      let { relativeUrl: t, name: GCore, type: a } = e;
+                      const SharepointException = Object.assign(require, {
+                        name: GCore,
                         relativeUrl: t,
                         type: a,
                       });
                       return (
-                        this.setFile(r),
+                        this.setFile(SharepointException),
                         this._setExtension(),
                         this.updateShadowFile(),
-                        o.call(this, true)
+                        _interopRequireDefault.call(this, true)
                       );
                     })
-                    .catch(r)
-                : r();
-              function r() {
+                    .catch(SharepointException)
+                : SharepointException();
+              function SharepointException() {
                 if (!t) throw e;
                 t(e);
               }
@@ -158,14 +158,14 @@ function (exports, module, require) {
         let exports = this._getClient();
         const module = this.getFile(),
           require = await this.getLatestFileInfo(),
-          o = new b.Item(
+          _interopRequireDefault = new b.Item(
             this.getStorage(),
             Object.assign(require, {
               settings: module.settings,
               relativeUrl: module.relativeUrl,
             })
           );
-        return (o._rawData = await exports.getFile(module)), o.setCloudClient(exports), o;
+        return (_interopRequireDefault._rawData = await exports.getFile(module)), _interopRequireDefault.setCloudClient(exports), _interopRequireDefault;
       }),
       (b.Item.prototype.getLatestFileInfo = async function () {
         const exports = this.getFile(),
@@ -178,7 +178,7 @@ function (exports, module, require) {
               .concat(exports.getNameWithExtension()));
         }
         const require = await this._getClient().getFileDetails(module);
-        return r.default.convertFileToCloudItem(require);
+        return SharepointException.default.convertFileToCloudItem(require);
       }),
       (b.Item.prototype.exists = async function () {
         const exports = this.getFile();
@@ -194,28 +194,28 @@ function (exports, module, require) {
             this._fileSizeAfterSaved = e.size;
           });
       }),
-      (b.Item.prototype.write = async function (e, t, n, o, a) {
+      (b.Item.prototype.write = async function (e, t, n, _interopRequireDefault, a) {
         if (this._writing) return;
         this._writing = true;
-        let r = null;
+        let SharepointException = null;
         try {
           gContainer.verifyEnoughMemoryToSave(e),
-            (r = e.getEditor().markSavePoint());
+            (SharepointException = e.getEditor().markSavePoint());
           const n = {};
           e.updateStatus(u.Saving, n);
-          const s = o || n.progress,
+          const s = _interopRequireDefault || n.progress,
             l = (e) => {
               s && s(e);
             },
-            c = e.isNew();
-          l(m), i.GUtil.prepareForSaving(e.getScene(), this.getExtension());
-          const d = await this._getDocumentBlob(e, o, a);
+            AppSettings = e.isNew();
+          l(m), GCore.GUtil.prepareForSaving(e.getScene(), this.getExtension());
+          const GError = await this._getDocumentBlob(e, _interopRequireDefault, a);
           l(y),
-            this._verifyFileNotTooSmall(d.size, e),
-            this._setFileSizeBeforeSaved(d.size),
-            await this._createOrUpdateFile(d),
+            this._verifyFileNotTooSmall(GError.size, e),
+            this._setFileSizeBeforeSaved(GError.size),
+            await this._createOrUpdateFile(GError),
             l(v),
-            c && (await this.createShadowFile());
+            AppSettings && (await this.createShadowFile());
           try {
             await this._setFileSizeAfterSaved(this.getFile()).catch((e) => {
               console.error(e);
@@ -225,32 +225,32 @@ function (exports, module, require) {
             console.error(e);
           }
           e.updateStatus(u.Saved),
-            gDesigner.hasEventListeners(h) &&
-              gDesigner.trigger(new h(h.Type.StorageItemUpdated, e)),
+            gDesigner.hasEventListeners(GDocumentEvent) &&
+              gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.StorageItemUpdated, e)),
             await this._updateModificationTime(),
             l(_),
             t && t(this.getFile());
         } catch (t) {
-          e.updateStatus(u.SaveFailed), r && r.rollback(), n && n(t);
+          e.updateStatus(u.SaveFailed), SharepointException && SharepointException.rollback(), n && n(t);
         } finally {
           this._writing = false;
         }
       }),
       (b.Item.prototype._getDocumentBlob = async function (e, t, n) {
-        let o = null;
+        let _interopRequireDefault = null;
         if ("CDR" === this.getExtension() || "DES" === this.getExtension()) {
           var a = { progress: t, ext: this.getExtension().toLowerCase() };
-          o = await this._exportDocumentToCDR(e, a, n);
+          _interopRequireDefault = await this._exportDocumentToCDR(e, a, n);
         } else {
-          var r = e.getScene(),
-            s = i.GNode.serialize(r, i.GUtil.extend({ save: true }, n));
-          o = new Blob([s]);
+          var SharepointException = e.getScene(),
+            s = GCore.GNode.serialize(SharepointException, GCore.GUtil.extend({ save: true }, n));
+          _interopRequireDefault = new Blob([s]);
         }
-        return o;
+        return _interopRequireDefault;
       }),
       (b.Item.prototype._checkHttpResponseAndThrowIfNecessary = function (e) {
-        if (e.status >= c.HTTP_STATUS_CODES.BAD_REQUEST) {
-          if (e.status === c.HTTP_STATUS_CODES.BAD_REQUEST)
+        if (e.status >= AppSettings.HTTP_STATUS_CODES.BAD_REQUEST) {
+          if (e.status === AppSettings.HTTP_STATUS_CODES.BAD_REQUEST)
             throw Error(
               "Invalid this.response, probably corrupted upload: " + e.status
             );
@@ -258,14 +258,14 @@ function (exports, module, require) {
         }
       }),
       (b.Item.prototype._updateFileWithCreatedResponse = function (e) {
-        const module = r.default.convertFileToCloudItem(e);
+        const module = SharepointException.default.convertFileToCloudItem(e);
         (module.settings = f.GCloudSettings.from(this._getClient().getSettings())),
           this.setFile(Object.assign(this.getFile(), module));
       }),
       (b.Item.prototype._updateModificationTime = async function () {
         const exports = this._getClient();
         if (this.getFile().relativeUrl) {
-          const t = r.default.convertFileToCloudItem(
+          const t = SharepointException.default.convertFileToCloudItem(
             await exports.getFileDetails(this.getFile())
           );
           this.getFile().setModificationTime(t.updated),
@@ -285,11 +285,11 @@ function (exports, module, require) {
       (b.Item.prototype._createOrUpdateFile = async function (e) {
         let module;
         const require = this._getClient(),
-          o = e instanceof Blob ? e : new Blob([e]);
+          _interopRequireDefault = e instanceof Blob ? e : new Blob([e]);
         this._getSharepointId()
-          ? ((module = await require.updateFileContentById(this._getSharepointId(), o)),
+          ? ((module = await require.updateFileContentById(this._getSharepointId(), _interopRequireDefault)),
             this._checkHttpResponseAndThrowIfNecessary(module))
-          : ((module = await require.createFile(this.getFile(), o)),
+          : ((module = await require.createFile(this.getFile(), _interopRequireDefault)),
             this._checkHttpResponseAndThrowIfNecessary(module),
             this._updateFileWithCreatedResponse(await module.json())),
           await async function () {
@@ -303,9 +303,9 @@ function (exports, module, require) {
                 e.parent &&
                 e.parent.relativeUrl + "/" + e.getNameWithExtension());
             if (e.relativeUrl) {
-              const o = await module.getFileDetails(e),
-                i = r.default.convertFileToCloudItem(o);
-              Object.assign(require, i);
+              const _interopRequireDefault = await module.getFileDetails(e),
+                GCore = SharepointException.default.convertFileToCloudItem(_interopRequireDefault);
+              Object.assign(require, GCore);
             }
             this.setFile(require);
           }.call(this);
@@ -318,23 +318,23 @@ function (exports, module, require) {
           const e = this.getFile(),
             t = await this._getAndUpdateCheckOutFileStatus();
           if (this.isCheckedOutByMe()) return;
-          if (t === r.default.FILE_STATUS.LOCKED)
-            throw new d.default(
-              i.GLocale.get(
-                new i.GLocaleKey(
+          if (t === SharepointException.default.FILE_STATUS.LOCKED)
+            throw new GError.default(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSharePointStorage",
                   "text.error-failed-check-out-file"
                 )
               )
             );
           await this._getClient().checkOutFile(e),
-            this._setCheckOutStatus(r.default.FILE_STATUS.LOCKED_BY_ME);
+            this._setCheckOutStatus(SharepointException.default.FILE_STATUS.LOCKED_BY_ME);
         } catch (e) {
-          throw e instanceof d.default
+          throw e instanceof GError.default
             ? e
-            : new d.default(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+            : new GError.default(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GSharePointStorage",
                     "text.error-failed-check-out-file"
                   )
@@ -347,17 +347,17 @@ function (exports, module, require) {
           const n = this.getFile();
           await this._getClient().checkInFile(n, e, t),
             await this._updateModificationTime(),
-            this._setCheckOutStatus(r.default.FILE_STATUS.AVAILABLE),
+            this._setCheckOutStatus(SharepointException.default.FILE_STATUS.AVAILABLE),
             this._triggerStorageItemEvent(p.Type.FileCheckIn);
         } catch (e) {
           throw (
             (console.error("Error checking in", e),
-            e instanceof d.default
+            e instanceof GError.default
               ? e
-              : new d.default(
-                  i.GLocale.get(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+              : new GError.default(
+                  GCore.GLocale.get(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GFilesPanelViewSharepoint",
                         "text.error-could-not-check-in"
                       )
@@ -369,10 +369,10 @@ function (exports, module, require) {
       }),
       (b.Item.prototype._setCheckOutStatus = function (e) {
         const module = this.getFile();
-        e === r.default.FILE_STATUS.AVAILABLE
+        e === SharepointException.default.FILE_STATUS.AVAILABLE
           ? (module.checkedOut = false)
-          : (e !== r.default.FILE_STATUS.LOCKED_BY_ME &&
-              e !== r.default.FILE_STATUS.LOCKED) ||
+          : (e !== SharepointException.default.FILE_STATUS.LOCKED_BY_ME &&
+              e !== SharepointException.default.FILE_STATUS.LOCKED) ||
             (module.checkedOut = true),
           (module.checkOutStatus = e),
           this._triggerStorageItemEvent(p.Type.FileUpdated);
@@ -380,7 +380,7 @@ function (exports, module, require) {
       (b.Item.prototype.refreshCheckOutStatus = async function () {
         return (
           this._refreshCheckOutPromise ||
-            ((this.getFile().checkOutStatus = r.default.FILE_STATUS.LOADING),
+            ((this.getFile().checkOutStatus = SharepointException.default.FILE_STATUS.LOADING),
             (this._refreshCheckOutPromise =
               this._getAndUpdateCheckOutFileStatus().finally(() => {
                 delete this._refreshCheckOutPromise;
@@ -390,14 +390,14 @@ function (exports, module, require) {
       }),
       (b.Item.prototype.isCheckedOutByMe = function () {
         return (
-          this.getFile().checkOutStatus === r.default.FILE_STATUS.LOCKED_BY_ME
+          this.getFile().checkOutStatus === SharepointException.default.FILE_STATUS.LOCKED_BY_ME
         );
       }),
       (b.Item.prototype.isCheckedOutLoading = function () {
-        return this.getFile().checkOutStatus === r.default.FILE_STATUS.LOADING;
+        return this.getFile().checkOutStatus === SharepointException.default.FILE_STATUS.LOADING;
       }),
       (b.Item.prototype.isEditingEnabled = function () {
-        return !c.msTeamsMode || this.isCheckedOutByMe();
+        return !AppSettings.msTeamsMode || this.isCheckedOutByMe();
       }),
       (b.Item.prototype._getAndUpdateCheckOutFileStatus = async function () {
         const exports = await this._getCheckOutFileStatus();
@@ -409,7 +409,7 @@ function (exports, module, require) {
       (b.Item.prototype._getCheckOutFileStatus = async function () {
         const exports = this.getFile();
         return exports.checkOutStatus &&
-          exports.checkOutStatus !== r.default.FILE_STATUS.LOADING
+          exports.checkOutStatus !== SharepointException.default.FILE_STATUS.LOADING
           ? exports.checkOutStatus
           : this._getClient().getCheckOutFileStatus(exports);
       }),
@@ -423,16 +423,16 @@ function (exports, module, require) {
       (b.Item.prototype._exportDocumentToCDR = function (e, t) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
-        return new Promise(async (o, i) => {
+        return new Promise(async (_interopRequireDefault, GCore) => {
           (0, a.prepareCDRforSaving)(
             e,
             function (e) {
-              return i(e);
+              return GCore(e);
             },
             t,
             require,
             function (e) {
-              return o(new Blob([e]));
+              return _interopRequireDefault(new Blob([e]));
             }
           );
         });
@@ -444,7 +444,7 @@ function (exports, module, require) {
           !exports &&
             module &&
             module.settings &&
-            ((exports = r.default.getInstance(module.settings)), this.setCloudClient(exports)),
+            ((exports = SharepointException.default.getInstance(module.settings)), this.setCloudClient(exports)),
           exports
         );
       }),
@@ -459,17 +459,17 @@ function (exports, module, require) {
       (b.Item.prototype.getMyPermissionsList = async function () {
         const exports = this._getClient(),
           module = this.getFile(),
-          { High: require, Low: o } = await exports
+          { High: require, Low: _interopRequireDefault } = await exports
             .getFileEffectiveBasePermissions(module)
             .catch(() => ({ High: 0, Low: 0 }));
         if (
-          new l.default(require, o).hasPermission(l.default.Permissions.EditListItems)
+          new l.default(require, _interopRequireDefault).hasPermission(l.default.Permissions.EditListItems)
         ) {
           const n = await exports._getUser(),
-            o = await exports.getFileCreator(module);
+            _interopRequireDefault = await exports.getFileCreator(module);
           return [
-            { email: n.getEmail(), role: c.ShareRoles.ContentEditor.id },
-            { email: o.getEmail(), role: c.ShareRoles.Owner.id },
+            { email: n.getEmail(), role: AppSettings.ShareRoles.ContentEditor.id },
+            { email: _interopRequireDefault.getEmail(), role: AppSettings.ShareRoles.Owner.id },
           ];
         }
         return [];

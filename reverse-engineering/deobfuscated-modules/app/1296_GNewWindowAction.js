@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "view.clone"),
-      (s.TITLE = new o.GLocaleKey("GNewWindowAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GNewWindowAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW;
+        return MenuItemBuilder.CATEGORY_VIEW;
       }),
       (s.prototype.getGroup = function () {
         return "view";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, i.GKey.Constant.OPTION, "N"];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.OPTION, "N"];
       }),
       (s.prototype.isEnabled = function () {
         return !!gDesigner.getWindows().getActiveWindow();

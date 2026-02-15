@@ -6,17 +6,17 @@
 function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }), (module.getOS = undefined);
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     module.getOS = () => {
       let exports = null;
-      switch (o.GSystem.operatingSystem) {
-        case o.GSystem.OperatingSystem.Unix:
+      switch (GCore.GSystem.operatingSystem) {
+        case GCore.GSystem.OperatingSystem.Unix:
           exports = "Unix";
           break;
-        case o.GSystem.OperatingSystem.Windows:
+        case GCore.GSystem.OperatingSystem.Windows:
           exports = "Windows";
           break;
-        case o.GSystem.OperatingSystem.OSX_IOS:
+        case GCore.GSystem.OperatingSystem.OSX_IOS:
           exports = "OSX";
       }
       return exports;

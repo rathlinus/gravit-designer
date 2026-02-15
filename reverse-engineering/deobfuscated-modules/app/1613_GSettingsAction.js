@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */,
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       r = require(1275) /* module_1275 */,
-      s = require(1277) /* Action_edit_settings */;
+      Action_edit_settings = require(1277) /* Action_edit_settings */;
     function l() {}
-    o.GObject.inherit(l, a),
-      (l.ID = s.ID),
-      (l.TITLE = new o.GLocaleKey("GSettingsAction", "title")),
+    GCore.GObject.inherit(l, GAction),
+      (l.ID = Action_edit_settings.ID),
+      (l.TITLE = new GCore.GLocaleKey("GSettingsAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,7 +23,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return i.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (l.prototype.getGroup = function () {
         return "settings";

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(15) /* module */,
-      a = o(require(85) /* GContainer */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GEditor = require(15) /* module */,
+      GContainer = _interopRequireDefault(require(85) /* GContainer */);
     class r {
       static isSupported() {
         return (
@@ -17,13 +17,13 @@ function (exports, module, require) {
         );
       }
       static isRuntimeSupported() {
-        return gContainer.getRuntime() === a.default.Runtime.Browser;
+        return gContainer.getRuntime() === GContainer.default.Runtime.Browser;
       }
       static isWebBrowserSupported() {
         return (
-          i.GPlatform.webBrowser ===
-            i.GPlatform.constructor.WebBrowser.Chrome ||
-          i.GPlatform.webBrowser === i.GPlatform.constructor.WebBrowser.Edge
+          GEditor.GPlatform.webBrowser ===
+            GEditor.GPlatform.constructor.WebBrowser.Chrome ||
+          GEditor.GPlatform.webBrowser === GEditor.GPlatform.constructor.WebBrowser.Edge
         );
       }
       static isPWAEventSupported() {

@@ -6,17 +6,17 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */;
-    var o = require(29) /* isCallable */,
-      i = require(79) /* defineBuiltIn */,
-      a = require(306) /* regexpExec */,
-      r = require(21) /* tryCall */,
-      s = require(43) /* wellKnownSymbol */,
-      l = require(100) /* createProperty */,
-      c = s("species"),
+    var isCallable = require(29) /* isCallable */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
+      regexpExec = require(306) /* regexpExec */,
+      tryCall = require(21) /* tryCall */,
+      wellKnownSymbol = require(43) /* wellKnownSymbol */,
+      createProperty = require(100) /* createProperty */,
+      c = wellKnownSymbol("species"),
       d = RegExp.prototype;
     exports.exports = function (e, t, n, u) {
-      var p = s(e),
-        g = !r(function () {
+      var p = wellKnownSymbol(e),
+        g = !tryCall(function () {
           var t = {};
           return (
             (t[p] = function () {
@@ -27,7 +27,7 @@ function (exports, module, require) {
         }),
         h =
           g &&
-          !r(function () {
+          !tryCall(function () {
             var t = false,
               n = /a/;
             return (
@@ -47,16 +47,16 @@ function (exports, module, require) {
           });
       if (!g || !h || n) {
         var f = /./[p],
-          m = t(p, ""[e], function (e, t, n, i, r) {
-            var s = t.exec;
-            return s === a || s === d.exec
-              ? g && !r
-                ? { done: true, value: o(f, t, n, i) }
-                : { done: true, value: o(e, n, t, i) }
+          m = t(p, ""[e], function (e, t, n, defineBuiltIn, tryCall) {
+            var wellKnownSymbol = t.exec;
+            return wellKnownSymbol === regexpExec || wellKnownSymbol === d.exec
+              ? g && !tryCall
+                ? { done: true, value: isCallable(f, t, n, defineBuiltIn) }
+                : { done: true, value: isCallable(e, n, t, defineBuiltIn) }
               : { done: false };
           });
-        i(String.prototype, e, m[0]), i(d, p, m[1]);
+        defineBuiltIn(String.prototype, e, m[0]), defineBuiltIn(d, p, m[1]);
       }
-      u && l(d[p], "sham", true);
+      u && createProperty(d[p], "sham", true);
     };
   }

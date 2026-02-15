@@ -6,11 +6,11 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */;
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */;
     const { gApi: a } = require(10) /* AppSettings */,
-      r = require(393) /* GCollaborationEvent */,
-      s = require(217) /* GDocumentStatusEvent */,
+      GCollaborationEvent = require(393) /* GCollaborationEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       l = require(86) /* module_86 */;
     function c(e) {
       (this._document = e),
@@ -18,7 +18,7 @@ function (exports, module, require) {
         (this._openingInlineEditor = false),
         (this._alreadyRequestedAccess = false),
         this._document.addEventListener(
-          r,
+          GCollaborationEvent,
           this._collaborationEvent,
           this,
           null,
@@ -27,7 +27,7 @@ function (exports, module, require) {
       const module = this._document.getEditor();
       module &&
         module.addEventListener(
-          o.GEditor.InlineEditorEvent,
+          GTools.GEditor.InlineEditorEvent,
           this._inlineEditorEvent,
           this,
           null,
@@ -37,7 +37,7 @@ function (exports, module, require) {
     (c.StatusChangedEvent = function (e) {
       this.status = e;
     }),
-      i.GObject.inherit(c.StatusChangedEvent, i.GEvent),
+      GCore.GObject.inherit(c.StatusChangedEvent, GCore.GEvent),
       (c.StatusChangedEvent.prototype.status = null),
       (c.Status = {
         Initial: 0,
@@ -52,18 +52,18 @@ function (exports, module, require) {
       (c.LockUpdateEvent = function (e) {
         this.lock = e;
       }),
-      i.GObject.inherit(c.LockUpdateEvent, i.GEvent),
+      GCore.GObject.inherit(c.LockUpdateEvent, GCore.GEvent),
       (c.LockUpdateEvent.prototype.lock = null),
       (c.prototype._status = c.Status.Initial),
       (c.prototype._openingInlineEditor = false),
       (c.prototype._currentLock = null),
       (c.prototype._alreadyRequestedAccess = false),
       (c.prototype.detach = function () {
-        this._document.removeEventListener(r, this._collaborationEvent, this);
+        this._document.removeEventListener(GCollaborationEvent, this._collaborationEvent, this);
         const exports = this._document.getEditor();
         exports &&
           exports.removeEventListener(
-            o.GEditor.InlineEditorEvent,
+            GTools.GEditor.InlineEditorEvent,
             this._inlineEditorEvent,
             this
           );
@@ -108,12 +108,12 @@ function (exports, module, require) {
         this._updateStatus(c.Status.Updating);
         const exports = (t) => {
           t.status !== l.Loading &&
-            (this._document.removeEventListener(s, exports),
+            (this._document.removeEventListener(GDocumentStatusEvent, exports),
             this._document.unlock(),
             this.resetTextEditing());
         };
         await this.releaseLock(),
-          this._document.addEventListener(s, exports),
+          this._document.addEventListener(GDocumentStatusEvent, exports),
           this._document.lock(),
           this._document.reload();
       }),
@@ -199,7 +199,7 @@ function (exports, module, require) {
       }),
       (c.prototype._inlineEditorEvent = function (e) {
         switch (e.type) {
-          case o.GEditor.InlineEditorEvent.Type.TryOpen:
+          case GTools.GEditor.InlineEditorEvent.Type.TryOpen:
             this._tryOpenInlineEditor(e);
         }
       }),
@@ -210,7 +210,7 @@ function (exports, module, require) {
         )
           if (
             (e.editor.disableInlineEditingSupport(),
-            e.editor instanceof o.GCollabTextEditor)
+            e.editor instanceof GTools.GCollabTextEditor)
           ) {
             this._openingInlineEditor = true;
             try {
@@ -221,9 +221,9 @@ function (exports, module, require) {
               const t = this._document.getEditor();
               if (t) {
                 const n = this._document.getActiveWindow(),
-                  o = n && n.getView();
-                o &&
-                  t.openInlineEditor(e.editor.getElement(), o) &&
+                  GTools = n && n.getView();
+                GTools &&
+                  t.openInlineEditor(e.editor.getElement(), GTools) &&
                   this._updateStatus(c.Status.Editing);
               }
             } finally {
@@ -236,9 +236,9 @@ function (exports, module, require) {
           this._document.trigger(new c.LockUpdateEvent(this._currentLock));
       }),
       (c.prototype._collaborationEvent = function (e) {
-        if (e.type === r.Type.LockUpdated)
+        if (e.type === GCollaborationEvent.Type.LockUpdated)
           (this._currentLock = e.data), this._fireLockUpdateEvent();
-        else if (e.type === r.Type.FileUpdate) {
+        else if (e.type === GCollaborationEvent.Type.FileUpdate) {
           if (e.data && e.data.from === gDesigner.getSyncUser().id) return;
           this._updateStatus(c.Status.UpdateAvailable);
         }

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(124) /* module_124 */,
-      i = require(29) /* isCallable */,
+      isCallable = require(29) /* isCallable */,
       a = require(408) /* module_408 */,
       r = require(93) /* stub_requires_92 */,
       s = require(101) /* stub_requires_117 */,
@@ -32,7 +32,7 @@ function (exports, module, require) {
         S = undefined !== x,
         E = c(w);
       if (E && !d(E))
-        for (_ = (v = l(w, E)).next, w = []; !(y = i(_, v)).done; )
+        for (_ = (v = l(w, E)).next, w = []; !(y = isCallable(_, v)).done; )
           w.push(y.value);
       for (
         S && C > 2 && (x = o(x, arguments[2])),

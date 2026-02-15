@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(466) /* module_466 */,
-      i = require(94) /* Exports_Buf */,
+      Buf = require(94) /* Exports_Buf */,
       a = require(312) /* module_312 */,
       r = require(314) /* module_314 */,
       s = require(225) /* module_225 */,
@@ -15,7 +15,7 @@ function (exports, module, require) {
       d = Object.prototype.toString;
     function u(e) {
       if (!(this instanceof u)) return new u(e);
-      this.options = i.assign(
+      this.options = Buf.assign(
         { chunkSize: 16384, windowBits: 0, to: "" },
         e || {}
       );
@@ -80,7 +80,7 @@ function (exports, module, require) {
       do {
         if (
           (0 === p.avail_out &&
-            ((p.output = new i.Buf8(g)), (p.next_out = 0), (p.avail_out = g)),
+            ((p.output = new Buf.Buf8(g)), (p.next_out = 0), (p.avail_out = g)),
           (n = o.inflate(p, r.Z_NO_FLUSH)) === r.Z_NEED_DICT &&
             h &&
             (n = o.inflateSetDictionary(this.strm, h)),
@@ -98,9 +98,9 @@ function (exports, module, require) {
                 (u = a.buf2string(p.output, l)),
                 (p.next_out = c),
                 (p.avail_out = g - c),
-                c && i.arraySet(p.output, p.output, l, c, 0),
+                c && Buf.arraySet(p.output, p.output, l, c, 0),
                 this.onData(u))
-              : this.onData(i.shrinkBuf(p.output, p.next_out)))),
+              : this.onData(Buf.shrinkBuf(p.output, p.next_out)))),
           0 === p.avail_in && 0 === p.avail_out && (f = true);
       } while ((p.avail_in > 0 || 0 === p.avail_out) && n !== r.Z_STREAM_END);
       return (
@@ -120,7 +120,7 @@ function (exports, module, require) {
         e === r.Z_OK &&
           ("string" === this.options.to
             ? (this.result = this.chunks.join(""))
-            : (this.result = i.flattenChunks(this.chunks))),
+            : (this.result = Buf.flattenChunks(this.chunks))),
           (this.chunks = []),
           (this.err = e),
           (this.msg = this.strm.msg);

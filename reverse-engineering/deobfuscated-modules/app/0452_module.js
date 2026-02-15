@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(35) /* anObject */,
-      a = o.WeakMap;
-    exports.exports = i(a) && /native code/.test(String(a));
+    var globalThis = require(23) /* globalThis */,
+      anObject = require(35) /* anObject */,
+      a = globalThis.WeakMap;
+    exports.exports = anObject(a) && /native code/.test(String(a));
   }

@@ -7,30 +7,30 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(18) /* MenuItemBuilder */,
-      l = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
-          title: i.GLocale.get(
-            new i.GLocaleKey("GZoomInAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GZoomInAction", "tooltip-title")
           ),
-          description: i.GLocale.get(
-            new i.GLocaleKey("GZoomInAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GZoomInAction", "tooltip-description")
           ),
           shortcut: c.SHORTCUT,
         }),
       };
     }
-    i.GObject.inherit(c, l),
+    GCore.GObject.inherit(c, GAction),
       (c.ID = "view.zoom.in"),
-      (c.TITLE = new i.GLocaleKey("GZoomInAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GZoomInAction", "title")),
       (c.ZOOM_STEP = 2),
-      (c.SHORTCUT = [a.GKey.Constant.META, "+"]),
+      (c.SHORTCUT = [GEditor.GKey.Constant.META, "+"]),
       (c.TOOLTIP_CONFIG = null),
       (c.prototype.getId = function () {
         return c.ID;
@@ -39,7 +39,7 @@ function (exports, module, require) {
         return c.TITLE;
       }),
       (c.prototype.getCategory = function () {
-        return s.CATEGORY_VIEW_MAGNIFICATION;
+        return MenuItemBuilder.CATEGORY_VIEW_MAGNIFICATION;
       }),
       (c.prototype.getGroup = function () {
         return "zoom/magnification";
@@ -56,22 +56,22 @@ function (exports, module, require) {
       (c.prototype.isEnabled = function () {
         var e = gDesigner.getWindows().getActiveWindow(),
           t = e ? e.getView() : null;
-        return t && t.getZoom() < a.GSceneWidget.options.maxZoomFactor;
+        return t && t.getZoom() < GEditor.GSceneWidget.options.maxZoomFactor;
       }),
       (c.prototype.execute = function () {
         var e = gDesigner.getWindows().getActiveWindow().getView(),
           t = null;
-        if (o.GZoomTool.options.zoomLevels) {
+        if (GTools.GZoomTool.options.zoomLevels) {
           for (
-            var require = o.GZoomTool.options.zoomLevels,
-              i = e.getZoom(),
+            var require = GTools.GZoomTool.options.zoomLevels,
+              GCore = e.getZoom(),
               r = require.length - 1,
-              s = 0;
-            s < require.length;
-            s++
+              MenuItemBuilder = 0;
+            MenuItemBuilder < require.length;
+            MenuItemBuilder++
           )
-            if ((i < require[r - s] && (t = require[r - s]), i === require[s])) {
-              t = r > 0 ? require[s + 1] : a.GSceneWidget.options.maxZoomFactor;
+            if ((GCore < require[r - MenuItemBuilder] && (t = require[r - MenuItemBuilder]), GCore === require[MenuItemBuilder])) {
+              t = r > 0 ? require[MenuItemBuilder + 1] : GEditor.GSceneWidget.options.maxZoomFactor;
               break;
             }
         } else t = e.getZoom() * c.ZOOM_STEP;

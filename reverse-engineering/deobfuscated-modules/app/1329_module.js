@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = o(require(880) /* module_880 */),
-      a = o(require(1189) /* module_1189 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      i = _interopRequireDefault(require(880) /* module_880 */),
+      a = _interopRequireDefault(require(1189) /* module_1189 */);
     class r extends i.default {
       canActivate() {
         return true;

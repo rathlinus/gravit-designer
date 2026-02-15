@@ -7,16 +7,16 @@
 function (exports, module, require) {
     "use strict";
     require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(123) /* GProperties */,
+      GProperties = require(123) /* GProperties */,
       s = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     require(1162) /* module_1162 */;
     function l() {
       this._elements = [];
     }
-    i.GObject.inherit(l, r),
+    GCore.GObject.inherit(l, GProperties),
       (l.prototype._panel = null),
       (l.prototype._copiesAndApply = null),
       (l.prototype._copiesAndApplyTouch = null),
@@ -59,8 +59,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span></span>").text(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GBorderPaintLayerProperties",
                             "text.autoscale-borders"
                           )
@@ -92,8 +92,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span></span>").text(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GCommonNames",
                             "text.autoscale-corners"
                           )
@@ -106,15 +106,15 @@ function (exports, module, require) {
             .appendTo(this._advancedTransformPanel),
           $("<label></label>")
             .text(
-              i.GLocale.get(new i.GLocaleKey("GTransformProperties", "title"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GTransformProperties", "title"))
             )
             .appendTo(t),
           $("<button></button>")
             .attr("data-action", "stroke-settings")
             .attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformProperties",
                   "text.advanced-transform-settings"
                 )
@@ -132,15 +132,15 @@ function (exports, module, require) {
               }.bind(this)
             )
             .appendTo(t);
-        const o = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+        const GTools = a.GRichTooltipConfig.from({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.move-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.move-tooltip-description"
               )
@@ -149,15 +149,15 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          r = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+          GProperties = a.GRichTooltipConfig.from({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.scale-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.scale-tooltip-description"
               )
@@ -167,14 +167,14 @@ function (exports, module, require) {
               "",
           }),
           s = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.rotate-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.rotate-tooltip-description"
               )
@@ -184,14 +184,14 @@ function (exports, module, require) {
               "",
           }),
           l = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.rotate-axis-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.rotate-axis-tooltip-description"
               )
@@ -201,14 +201,14 @@ function (exports, module, require) {
               "",
           }),
           c = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.skew-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.skew-tooltip-description"
               )
@@ -218,14 +218,14 @@ function (exports, module, require) {
               "",
           }),
           d = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.copies-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.copies-tooltip-description"
               )
@@ -235,14 +235,14 @@ function (exports, module, require) {
               "",
           }),
           u = a.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.transdorm-origin-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GTransformProperties",
                 "text.transdorm-origin-tooltip-description"
               )
@@ -252,8 +252,8 @@ function (exports, module, require) {
           });
         $("<div></div>")
           .gPropertyRow({
-            label: i.GLocale.get(
-              new i.GLocaleKey("GCommonNames", "action.move")
+            label: GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "action.move")
             ),
             columns: [
               {
@@ -270,7 +270,7 @@ function (exports, module, require) {
                       .gInputBox("value", "0")
                   )
                   .gInputLabel({ label: "x" })
-                  .gRichTooltip(o),
+                  .gRichTooltip(GTools),
               },
               { width: "12%" },
               {
@@ -287,15 +287,15 @@ function (exports, module, require) {
                       .gInputBox("value", "0")
                   )
                   .gInputLabel({ label: "y" })
-                  .gRichTooltip(o),
+                  .gRichTooltip(GTools),
               },
             ],
           })
           .appendTo(this._panel),
           $("<div></div>")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTransformProperties", "text.scale")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTransformProperties", "text.scale")
               ),
               columns: [
                 {
@@ -310,10 +310,10 @@ function (exports, module, require) {
                             parseFloat($(e.target).gInputBox("value")) || 100;
                           if (this._scaleKeepRatio) {
                             var n = t / this._preserveScaleX,
-                              o = this._panel.find('[data-property="scale-y"]'),
-                              i = parseFloat(o.gInputBox("value")) || 100;
-                            (i *= n),
-                              o.gInputBox("value", parseFloat(i).toFixed(1));
+                              GTools = this._panel.find('[data-property="scale-y"]'),
+                              GCore = parseFloat(GTools.gInputBox("value")) || 100;
+                            (GCore *= n),
+                              GTools.gInputBox("value", parseFloat(GCore).toFixed(1));
                           }
                           this._preserveScaleX = t;
                         })
@@ -321,12 +321,12 @@ function (exports, module, require) {
                         .gInputBox("value", "100")
                     )
                     .gInputLabel({
-                      label: i.GLocale.get(
-                        new i.GLocaleKey("GCommonNames", "property-w"),
+                      label: GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "property-w"),
                         "w"
                       ),
                     })
-                    .gRichTooltip(r),
+                    .gRichTooltip(GProperties),
                 },
                 {
                   width: "12%",
@@ -354,8 +354,8 @@ function (exports, module, require) {
                     })
                     .attr(
                       "data-title",
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GDimensionProperties",
                           "action.keep-ratio"
                         )
@@ -375,10 +375,10 @@ function (exports, module, require) {
                             parseFloat($(e.target).gInputBox("value")) || 100;
                           if (this._scaleKeepRatio) {
                             var n = t / this._preserveScaleY,
-                              o = this._panel.find('[data-property="scale-x"]'),
-                              i = parseFloat(o.gInputBox("value")) || 100;
-                            (i *= n),
-                              o.gInputBox("value", parseFloat(i).toFixed(1));
+                              GTools = this._panel.find('[data-property="scale-x"]'),
+                              GCore = parseFloat(GTools.gInputBox("value")) || 100;
+                            (GCore *= n),
+                              GTools.gInputBox("value", parseFloat(GCore).toFixed(1));
                           }
                           this._preserveScaleY = t;
                         })
@@ -386,20 +386,20 @@ function (exports, module, require) {
                         .gInputBox("value", "100")
                     )
                     .gInputLabel({
-                      label: i.GLocale.get(
-                        new i.GLocaleKey("GCommonNames", "property-h"),
+                      label: GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "property-h"),
                         "h"
                       ),
                     })
-                    .gRichTooltip(r),
+                    .gRichTooltip(GProperties),
                 },
               ],
             })
             .appendTo(this._panel),
           $("<div></div>")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "action.rotate")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "action.rotate")
               ),
               columns: [
                 {
@@ -442,8 +442,8 @@ function (exports, module, require) {
             .appendTo(this._panel),
           $("<div></div>")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTransformProperties", "text.skew")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTransformProperties", "text.skew")
               ),
               columns: [
                 {
@@ -490,8 +490,8 @@ function (exports, module, require) {
         ((e) => {
           $("<div></div>")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GTransformProperties", "text.copies")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GTransformProperties", "text.copies")
               ),
               columns: [
                 {
@@ -517,7 +517,7 @@ function (exports, module, require) {
                         .attr("data-property", "pivot")
                         .css("align-self", "center")
                         .gPivot()
-                        .gPivot("value", i.GRect.Side.CENTER)
+                        .gPivot("value", GCore.GRect.Side.CENTER)
                     )
                     .gRichTooltip(u),
                 },
@@ -532,8 +532,8 @@ function (exports, module, require) {
                     width: "100%",
                     content: $("<button></button>")
                       .text(
-                        i.GLocale.get(
-                          new i.GLocaleKey("GCommonNames", "action.apply")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "action.apply")
                         )
                       )
                       .addClass("transform-button")
@@ -548,8 +548,8 @@ function (exports, module, require) {
             var t = $("<div/>").addClass("left");
             $("<div></div>")
               .gPropertyRow({
-                label: i.GLocale.get(
-                  new i.GLocaleKey("GTransformProperties", "text.copies")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GTransformProperties", "text.copies")
                 ),
                 columns: [
                   {
@@ -574,8 +574,8 @@ function (exports, module, require) {
                       width: "100%",
                       content: $("<button></button>")
                         .text(
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "text.transform-apply"
                             )
@@ -594,7 +594,7 @@ function (exports, module, require) {
                   $("<div/>")
                     .attr("data-property", "pivot")
                     .gPivot()
-                    .gPivot("value", i.GRect.Side.CENTER)
+                    .gPivot("value", GCore.GRect.Side.CENTER)
                 )
                 .appendTo(e);
           })(this._copiesAndApplyTouch);
@@ -619,8 +619,8 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require)
-            !t[require].hasMixin(i.GElement.Transform) ||
-              t[require] instanceof i.GPage ||
+            !t[require].hasMixin(GCore.GElement.Transform) ||
+              t[require] instanceof GCore.GPage ||
               this._elements.push(t[require]);
           if (this._elements.length && this._elements.length === t.length)
             return (
@@ -646,7 +646,7 @@ function (exports, module, require) {
         (t = isNaN(t) || t <= 0 || !t ? 0 : t),
           e.gInputBox(
             "value",
-            i.GUtil.formatNumber(
+            GCore.GUtil.formatNumber(
               t,
               this._document.getScene().getOptimalDecimalsCount()
             )
@@ -656,7 +656,7 @@ function (exports, module, require) {
           (t = isNaN(t) || t <= 0 || !t ? 0 : t),
           e.gInputBox(
             "value",
-            i.GUtil.formatNumber(
+            GCore.GUtil.formatNumber(
               t,
               this._document.getScene().getOptimalDecimalsCount()
             )
@@ -670,7 +670,7 @@ function (exports, module, require) {
             : this._copiesAndApply,
           n = parseInt(t.find('[data-property="copies"]').gInputBox("value")),
           a = t.find('[data-property="pivot"]').gPivot("value"),
-          r =
+          GProperties =
             e.stringToPoint(
               this._panel.find('[data-property="move-x"]').gInputBox("value")
             ) || 0,
@@ -687,19 +687,19 @@ function (exports, module, require) {
               this._panel.find('[data-property="scale-y"]').gInputBox("value")
             ) / 100 || 1,
           d =
-            i.GMath.toRadians(
+            GCore.GMath.toRadians(
               parseFloat(
                 this._panel.find('[data-property="rotate"]').gInputBox("value")
               )
             ) || 0,
           u =
-            i.GMath.toRadians(
+            GCore.GMath.toRadians(
               parseFloat(
                 this._panel.find('[data-property="skew-x"]').gInputBox("value")
               )
             ) || 0,
           p =
-            i.GMath.toRadians(
+            GCore.GMath.toRadians(
               parseFloat(
                 this._panel.find('[data-property="skew-y"]').gInputBox("value")
               )
@@ -710,9 +710,9 @@ function (exports, module, require) {
                 this._panel.find('[data-property="reflect"]').gInputBox("value")
               )
             ) || 0;
-        g = 0 !== g ? i.GMath.toRadians(-g) : g;
+        g = 0 !== g ? GCore.GMath.toRadians(-g) : g;
         var h = function (e, t) {
-          var n = o.GElementEditor.openEditor(e);
+          var n = GTools.GElementEditor.openEditor(e);
           n
             ? (n._setTransform(t), n.applyTransform(e, true, null, null))
             : e.transform(e, true);
@@ -721,11 +721,11 @@ function (exports, module, require) {
           t.beginUpdate();
           try {
             if (
-              ((r || s) && h(t, new i.GTransform(1, 0, 0, 1, r * e, s * e)),
+              ((GProperties || s) && h(t, new GCore.GTransform(1, 0, 0, 1, GProperties * e, s * e)),
               (1 === l && 1 === c) ||
                 h(
                   t,
-                  new i.GTransform()
+                  new GCore.GTransform()
                     .translated(-n.getX(), -n.getY())
                     .scaled(l + (l - 1) * (e - 1), c + (c - 1) * (e - 1))
                     .translated(n.getX(), n.getY())
@@ -733,35 +733,35 @@ function (exports, module, require) {
               0 !== d &&
                 h(
                   t,
-                  new i.GTransform()
+                  new GCore.GTransform()
                     .translated(-n.getX(), -n.getY())
                     .rotated(d * e)
                     .translated(n.getX(), n.getY())
                 ),
               (0 !== u || 0 !== p) &&
-                u > -i.GMath.PIHALF &&
-                p > -i.GMath.PIHALF &&
-                u < i.GMath.PIHALF &&
-                p < i.GMath.PIHALF &&
+                u > -GCore.GMath.PIHALF &&
+                p > -GCore.GMath.PIHALF &&
+                u < GCore.GMath.PIHALF &&
+                p < GCore.GMath.PIHALF &&
                 h(
                   t,
-                  new i.GTransform()
+                  new GCore.GTransform()
                     .translated(-n.getX(), -n.getY())
                     .skewed(u * e, p * e)
                     .translated(n.getX(), n.getY())
                 ),
               0 !== g)
             ) {
-              var o = Math.cos(g),
+              var GTools = Math.cos(g),
                 a = Math.sin(g);
               e % 2 &&
                 h(
                   t,
-                  new i.GTransform()
+                  new GCore.GTransform()
                     .translated(-n.getX(), -n.getY())
-                    .multiplied(new i.GTransform(o, -a, a, o, 0, 0))
-                    .multiplied(new i.GTransform(1, 0, 0, -1, 0, 0))
-                    .multiplied(new i.GTransform(o, a, -a, o, 0, 0))
+                    .multiplied(new GCore.GTransform(GTools, -a, a, GTools, 0, 0))
+                    .multiplied(new GCore.GTransform(1, 0, 0, -1, 0, 0))
+                    .multiplied(new GCore.GTransform(GTools, a, -a, GTools, 0, 0))
                     .translated(n.getX(), n.getY())
                 );
             }
@@ -769,16 +769,16 @@ function (exports, module, require) {
             t.endUpdate();
           }
         }
-        o.GEditor.tryRunTransaction(
+        GTools.GEditor.tryRunTransaction(
           e,
           function () {
             for (
-              var e = [], t = null, o = null, r = 0;
-              r < this._elements.length;
-              ++r
+              var e = [], t = null, GTools = null, GProperties = 0;
+              GProperties < this._elements.length;
+              ++GProperties
             ) {
-              var s = this._elements[r];
-              a && (o = s.getGeometryBBox()) && (t = t ? t.united(o) : o);
+              var s = this._elements[GProperties];
+              a && (GTools = s.getGeometryBBox()) && (t = t ? t.united(GTools) : GTools);
               var l = [s];
               if (n > 0)
                 for (
@@ -791,22 +791,22 @@ function (exports, module, require) {
                   var p = s.clone();
                   c.insertChild(p, d),
                     u == n - 1 &&
-                      (p.setFlag(i.GNode.Flag.Selected),
-                      s.removeFlag(i.GNode.Flag.Selected)),
+                      (p.setFlag(GCore.GNode.Flag.Selected),
+                      s.removeFlag(GCore.GNode.Flag.Selected)),
                     l.push(p);
                 }
               e.push(l);
             }
             var g = null;
             if ((t && !t.isEmpty() && (g = t.getSide(a)), g))
-              for (r = 0; r < e.length; ++r) {
-                if ((l = e[r]).length > 1)
+              for (GProperties = 0; GProperties < e.length; ++GProperties) {
+                if ((l = e[GProperties]).length > 1)
                   for (var h = 0; h < l.length; ++h) f(h, l[h], g);
                 else 1 == l.length && f(1, l[0], g);
               }
           }.bind(this),
-          i.GLocale.get(
-            new i.GLocaleKey(
+          GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GTransformProperties",
               "action.apply-transformation"
             )
@@ -824,8 +824,8 @@ function (exports, module, require) {
             .getScene()
             .setBorderScale(
               e &&
-                (undefined === o.GEditorOptions.scaleBorderWidth ||
-                  o.GEditorOptions.scaleBorderWidth)
+                (undefined === GTools.GEditorOptions.scaleBorderWidth ||
+                  GTools.GEditorOptions.scaleBorderWidth)
             );
       }),
       (l.prototype._getOwnCornersScale = function () {
@@ -839,8 +839,8 @@ function (exports, module, require) {
             .getScene()
             .setCornersScale(
               e &&
-                (undefined === o.GEditorOptions.scaleCorners ||
-                  o.GEditorOptions.scaleCorners)
+                (undefined === GTools.GEditorOptions.scaleCorners ||
+                  GTools.GEditorOptions.scaleCorners)
             );
       }),
       (l.prototype.toString = function () {

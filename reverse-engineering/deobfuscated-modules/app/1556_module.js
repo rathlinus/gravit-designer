@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = require(1) /* module */,
-      a = o(require(44) /* GSystemDialog */);
-    function r(e, t, n, o) {
+    var GCore = require(1) /* module */,
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */);
+    function r(e, t, n, _interopRequireDefault) {
       let r =
         arguments.length > 4 && undefined !== arguments[4] ? arguments[4] : {};
       var s = this;
@@ -20,8 +20,8 @@ function (exports, module, require) {
             $("<span/>")
               .css("display", "block")
               .html(
-                i.GLocale.get(
-                  new i.GLocaleKey("GNewFilePrompt", "text.name-document")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GNewFilePrompt", "text.name-document")
                 )
               )
           )
@@ -30,7 +30,7 @@ function (exports, module, require) {
               .attr("type", "text")
               .css("margin-top", "10px")
               .css("width", "100%")
-              .val(o || "")
+              .val(_interopRequireDefault || "")
               .addClass("name")
           )
           .appendTo(this._dialog);
@@ -42,7 +42,7 @@ function (exports, module, require) {
           if ($(s._dialog).find(".name").val().trim()) {
             var t = $(s._dialog).find(".name").val();
             r && r.fn && !r.fn(t)
-              ? a.default.alert(
+              ? GSystemDialog.default.alert(
                   r.errorMessage.replace("%fileName%", '"'.concat(t, '"'))
                 )
               : (e(t), s.close());
@@ -58,8 +58,8 @@ function (exports, module, require) {
               "<button"
                 .concat(n ? ' class="'.concat(n, '"') : "", ">")
                 .concat(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GNewFilePrompt", "action.create")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GNewFilePrompt", "action.create")
                   ),
                   "</button>"
                 )
@@ -68,7 +68,7 @@ function (exports, module, require) {
             }),
             $(
               "<button>" +
-                i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")) +
+                GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")) +
                 "</button>"
             ).on("click", function () {
               gDesigner.stats("newfile_click_close"), s.close();
@@ -76,7 +76,7 @@ function (exports, module, require) {
           ],
         });
     }
-    i.GObject.inherit(r, i.GObject),
+    GCore.GObject.inherit(r, GCore.GObject),
       (r.prototype.open = function () {
         this._dialog.gDialog("open", true), $(this._dialog).find(".name").focus();
       }),

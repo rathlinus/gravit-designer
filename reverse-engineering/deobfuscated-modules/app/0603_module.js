@@ -6,19 +6,19 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(1503) /* module_1503 */,
-      a = require(44) /* GSystemDialog */,
-      r = require(447) /* GSaveAction */,
+      GSystemDialog = require(44) /* GSystemDialog */,
+      GSaveAction = require(447) /* GSaveAction */,
       s = require(86) /* module_86 */;
     function l(e) {
       (this._htmlElement = e), (this._windows = []);
     }
-    o.GObject.inherit(l, o.GEventTarget),
+    GCore.GObject.inherit(l, GCore.GEventTarget),
       (l.WindowEvent = function (e, t, n) {
         (this.type = e), (this.window = t), (this.index = n);
       }),
-      o.GObject.inherit(l.WindowEvent, o.GEvent),
+      GCore.GObject.inherit(l.WindowEvent, GCore.GEvent),
       (l.WindowEvent.Type = {
         Added: 0,
         Removed: 1,
@@ -72,25 +72,25 @@ function (exports, module, require) {
         }
       }),
       (l.prototype.addWindow = function (e, t, n) {
-        var o = e instanceof i ? e.getDocument() : e,
-          a = this._addWindow(o, t, n);
+        var GCore = e instanceof i ? e.getDocument() : e,
+          GSystemDialog = this._addWindow(GCore, t, n);
         if (e instanceof i) {
-          var r = e.getView();
-          a.getView() &&
-            a.getView().transform(r.getScrollX(), r.getScrollY(), r.getZoom());
+          var GSaveAction = e.getView();
+          GSystemDialog.getView() &&
+            GSystemDialog.getView().transform(GSaveAction.getScrollX(), GSaveAction.getScrollY(), GSaveAction.getZoom());
         }
-        return a;
+        return GSystemDialog;
       }),
       (l.prototype.removeWindow = function (e, t, n, i) {
         var c = e.getDocument(),
           d = function (n) {
             if (!n || n.documentStatus !== s.SaveCancelled) {
               if (e === this._activeWindow) {
-                var o = this._windows.indexOf(e);
-                o > 0
-                  ? this.activateWindow(this._windows[o - 1], i)
-                  : o + 1 < this._windows.length
-                  ? this.activateWindow(this._windows[o + 1], i)
+                var GCore = this._windows.indexOf(e);
+                GCore > 0
+                  ? this.activateWindow(this._windows[GCore - 1], i)
+                  : GCore + 1 < this._windows.length
+                  ? this.activateWindow(this._windows[GCore + 1], i)
                   : this.activateWindow(null);
               }
               c._activeWindow === e && (c._activeWindow = null),
@@ -109,9 +109,9 @@ function (exports, module, require) {
         n
           ? d()
           : c.isSynchronizing()
-          ? a.alert(
-              o.GLocale.get(
-                new o.GLocaleKey(
+          ? GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GCommonNames",
                   "text.please-wait-avoid-losing-progress"
                 )
@@ -123,8 +123,8 @@ function (exports, module, require) {
               .then((e) => {
                 e
                   ? d()
-                  : (gDesigner.stats("action_execute_windowalert", r.ID),
-                    gDesigner.executeAction(r.ID, [c, d], undefined, true));
+                  : (gDesigner.stats("action_execute_windowalert", GSaveAction.ID),
+                    gDesigner.executeAction(GSaveAction.ID, [c, d], undefined, true));
               })
               .catch((e) => {
                 e && !e.documentStatus && console.log(e);
@@ -145,16 +145,16 @@ function (exports, module, require) {
         );
       }),
       (l.prototype._addWindow = function (e, t, n) {
-        var o = new i(e, t);
+        var GCore = new i(e, t);
         return (
-          e._windows.push(o),
+          e._windows.push(GCore),
           "number" == typeof n
-            ? this._windows.splice(n, 0, o)
-            : this._windows.push(o),
+            ? this._windows.splice(n, 0, GCore)
+            : this._windows.push(GCore),
           this.hasEventListeners(l.WindowEvent) &&
-            this.trigger(new l.WindowEvent(l.WindowEvent.Type.Added, o, n)),
-          this.activateWindow(o),
-          o
+            this.trigger(new l.WindowEvent(l.WindowEvent.Type.Added, GCore, n)),
+          this.activateWindow(GCore),
+          GCore
         );
       }),
       (l.prototype.getHtmlElement = function () {

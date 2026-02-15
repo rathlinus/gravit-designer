@@ -6,16 +6,16 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
-      a = require(255) /* barrel_sidebars */,
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      barrel_sidebars = require(255) /* barrel_sidebars */,
       r = require(1118) /* module_1118 */,
       s = require(1199) /* module_1199 */,
-      l = require(85) /* GContainer */,
-      c = require(44) /* GSystemDialog */;
+      GContainer = require(85) /* GContainer */,
+      GSystemDialog = require(44) /* GSystemDialog */;
     const { GPlatform: d } = require(15) /* module */;
     function u() {}
-    o.GObject.inheritAndMix(u, o.GObject),
+    GCore.GObject.inheritAndMix(u, GCore.GObject),
       (u.DISABLE_LOCAL_FONTS_ACCESS_WARING =
         "disable-local-fonts-access-warning"),
       (u._showLocalFontsAccessDialog = async function () {
@@ -23,9 +23,9 @@ function (exports, module, require) {
           return false;
         if (!window.queryLocalFonts)
           return (
-            c.alert(
-              o.GLocale.get(
-                new o.GLocaleKey(
+            GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLocalFontsProvider",
                   "text.current-browser-unsupported"
                 )
@@ -39,31 +39,31 @@ function (exports, module, require) {
         ) {
           const e = [
             {
-              label: o.GLocale.get(new o.GLocaleKey("GLocale", "close")),
+              label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "close")),
               highlighted: true,
-              shortcut: c.Shortcut.Enter,
+              shortcut: GSystemDialog.Shortcut.Enter,
               closeOnClick: true,
             },
           ];
-          let t = o.GLocale.get(
-            new o.GLocaleKey(
+          let t = GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GLocalFontsProvider",
               "text.permission-required-subtitle-others"
             )
           );
           d.webBrowser === d.constructor.WebBrowser.Edge &&
-            (t = o.GLocale.get(
-              new o.GLocaleKey(
+            (t = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GLocalFontsProvider",
                 "text.permission-required-subtitle-edge"
               )
             )),
-            c.custom({
+            GSystemDialog.custom({
               icon: "error",
               className: "g-local-fonts-warning-dialog",
               closeable: true,
-              title: o.GLocale.get(
-                new o.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLocalFontsProvider",
                   "text.permission-required-title"
                 )
@@ -79,9 +79,9 @@ function (exports, module, require) {
       });
     var p = function () {
         return (
-          gContainer.getRuntime() !== l.Runtime.Browser &&
-          gContainer.getRuntime() !== l.Runtime.Chrome &&
-          gContainer.getRuntime() !== l.Runtime.PWA
+          gContainer.getRuntime() !== GContainer.Runtime.Browser &&
+          gContainer.getRuntime() !== GContainer.Runtime.Chrome &&
+          gContainer.getRuntime() !== GContainer.Runtime.PWA
         );
       },
       g = function (e, t) {
@@ -90,58 +90,58 @@ function (exports, module, require) {
         var r = $("<a></a>")
             .data("provider", t)
             .addClass("tablinks")
-            .append(o.GLocale.get(e))
+            .append(GCore.GLocale.get(e))
             .on(
               "click",
-              i.watchDog.trap(
+              CollaborationMergeUtils.watchDog.trap(
                 function (t) {
                   require
                     ? gDesigner.stats(
                         "fonts_click_protab",
-                        o.GLocale.get(e, undefined, o.GLocaleLanguage.English)
+                        GCore.GLocale.get(e, undefined, GCore.GLocaleLanguage.English)
                       )
                     : gDesigner.stats(
                         "fonts_click_tab",
-                        o.GLocale.get(e, undefined, o.GLocaleLanguage.English)
+                        GCore.GLocale.get(e, undefined, GCore.GLocaleLanguage.English)
                       );
-                  var i = $(t.target),
-                    r = i.closest(".tab");
+                  var CollaborationMergeUtils = $(t.target),
+                    r = CollaborationMergeUtils.closest(".tab");
                   r.find(".tablinks").removeClass("active"),
-                    i.addClass("active");
-                  var l = i.data("provider");
-                  if (l)
-                    l == s && u._showLocalFontsAccessDialog(),
-                      a.enableProviders([l]);
+                    CollaborationMergeUtils.addClass("active");
+                  var GContainer = CollaborationMergeUtils.data("provider");
+                  if (GContainer)
+                    GContainer == s && u._showLocalFontsAccessDialog(),
+                      barrel_sidebars.enableProviders([GContainer]);
                   else {
-                    var c = [];
+                    var GSystemDialog = [];
                     if (
                       (r.find(".tablinks:not(.active)").each(function () {
                         var e = $(this).data("provider");
-                        e && c.push(e);
+                        e && GSystemDialog.push(e);
                       }),
                       !p())
                     ) {
                       var d = gContainer.getSystemFontsProvider();
-                      d || c.push(d);
+                      d || GSystemDialog.push(d);
                     }
-                    c.length && a.disableProviders(c);
+                    GSystemDialog.length && barrel_sidebars.disableProviders(GSystemDialog);
                   }
                 },
                 () => !require,
                 (t) => {
                   gDesigner.stats(
                     "fonts_nonprotriespro_protab",
-                    o.GLocale.get(e)
+                    GCore.GLocale.get(e)
                   );
                 },
                 require
               )
             ),
-          l = $("<li></li>")
+          GContainer = $("<li></li>")
             .addClass("tablink")
             .gPro({ pro: !!require, feature: require })
             .append(r);
-        return l;
+        return GContainer;
       },
       h = function (e, t) {
         if (e) {
@@ -161,7 +161,7 @@ function (exports, module, require) {
         var t = $(e),
           n = t.data("gfontsbutton");
         if (!n.fontList) {
-          var i = $("<div></div>").addClass("header");
+          var CollaborationMergeUtils = $("<div></div>").addClass("header");
           n.fontList = $("<div></div>")
             .on("mousedown", function (e) {
               n.mouseMoved = false;
@@ -177,12 +177,12 @@ function (exports, module, require) {
                 : gDesigner.isTouchEnabled() || f.call(e);
             })
             .gFontsPanel({
-              preview: i,
+              preview: CollaborationMergeUtils,
               changeCallback: function (n) {
                 t.val(n.displayName || n.family);
-                var o = t.data("gfontsbutton");
-                (o.tempFontFamily = n.displayName || n.family),
-                  o.options.assignFontCallback(
+                var GCore = t.data("gfontsbutton");
+                (GCore.tempFontFamily = n.displayName || n.family),
+                  GCore.options.assignFontCallback(
                     "" === n.family ? null : n.family,
                     t
                   ),
@@ -192,7 +192,7 @@ function (exports, module, require) {
                   gDesigner.isTouchEnabled() && f.call(e);
               },
             });
-          var l = $("<div></div>")
+          var GContainer = $("<div></div>")
             .addClass("g-fonts-panel")
             .addClass("no-overflow")
             .append(
@@ -200,12 +200,12 @@ function (exports, module, require) {
                 var t = $("<ul></ul>")
                   .addClass("tab")
                   .append(
-                    g(new o.GLocaleKey("GFontsButton", "text.web-fonts"))
+                    g(new GCore.GLocaleKey("GFontsButton", "text.web-fonts"))
                   );
                 if (
                   (t.append(
                     g(
-                      new o.GLocaleKey("GFontsButton", "text.imported-fonts"),
+                      new GCore.GLocaleKey("GFontsButton", "text.imported-fonts"),
                       r,
                       "font.import"
                     )
@@ -213,7 +213,7 @@ function (exports, module, require) {
                   gContainer.supportsLocalFonts() &&
                     t.append(
                       g(
-                        new o.GLocaleKey("GFontsButton", "text.system-fonts"),
+                        new GCore.GLocaleKey("GFontsButton", "text.system-fonts"),
                         s
                       )
                     ),
@@ -223,7 +223,7 @@ function (exports, module, require) {
                   n &&
                     t.append(
                       g(
-                        new o.GLocaleKey("GFontsButton", "text.system-fonts"),
+                        new GCore.GLocaleKey("GFontsButton", "text.system-fonts"),
                         n
                       )
                     );
@@ -232,7 +232,7 @@ function (exports, module, require) {
               })()
             );
           (n.fontListContainer = $("<div></div>")),
-            n.fontListContainer.append(l);
+            n.fontListContainer.append(GContainer);
           n.fontListContainer
             .append(n.fontList)
             .gOverlay({
@@ -246,7 +246,7 @@ function (exports, module, require) {
             .on(
               "close",
               function (e, t, n) {
-                a.getInstance() && a.getInstance().getLock() && t();
+                barrel_sidebars.getInstance() && barrel_sidebars.getInstance().getLock() && t();
               }.bind(e)
             );
         }
@@ -289,18 +289,18 @@ function (exports, module, require) {
                     h(n, n.val());
                   })
                   .on("keydown", function (e) {
-                    var o = n.data("gfontsbutton");
-                    if (o && o.fontList) {
-                      var i = o.fontList,
-                        a = o.fontListContainer,
+                    var GCore = n.data("gfontsbutton");
+                    if (GCore && GCore.fontList) {
+                      var CollaborationMergeUtils = GCore.fontList,
+                        barrel_sidebars = GCore.fontListContainer,
                         r = e.which || e.keyCode;
                       40 === r
-                        ? i.gFontsPanel("selectLower")
+                        ? CollaborationMergeUtils.gFontsPanel("selectLower")
                         : 38 === r
-                        ? i.gFontsPanel("selectUpper")
+                        ? CollaborationMergeUtils.gFontsPanel("selectUpper")
                         : 13 === r &&
-                          a &&
-                          (a.gOverlay("close", t),
+                          barrel_sidebars &&
+                          (barrel_sidebars.gOverlay("close", t),
                           n.data("gfontsbutton").options.closeCallback.call(t));
                     }
                   })
@@ -310,28 +310,28 @@ function (exports, module, require) {
                       "text" !== n.attr("type") &&
                         (n.attr("type", "text"), t.select()),
                       (n.data("gfontsbutton").tempFontFamily = n.val());
-                    var o = n.data("gfontsbutton").fontList,
-                      i = n.data("gfontsbutton").fontListContainer;
-                    o
-                      ? (i.gOverlay("open", t, t), o.gFontsPanel("refresh", true))
+                    var GCore = n.data("gfontsbutton").fontList,
+                      CollaborationMergeUtils = n.data("gfontsbutton").fontListContainer;
+                    GCore
+                      ? (CollaborationMergeUtils.gOverlay("open", t, t), GCore.gFontsPanel("refresh", true))
                       : (m(this),
-                        (o = n.data("gfontsbutton").fontList),
-                        (i = n.data("gfontsbutton").fontListContainer).gOverlay(
+                        (GCore = n.data("gfontsbutton").fontList),
+                        (CollaborationMergeUtils = n.data("gfontsbutton").fontListContainer).gOverlay(
                           "open",
                           t,
                           t
                         ),
-                        o.gFontsPanel("refresh"));
-                    var a = function () {
-                      o.gFontsPanel("selection", n.val()),
-                        o.gFontsPanel("focusCurrent"),
+                        GCore.gFontsPanel("refresh"));
+                    var barrel_sidebars = function () {
+                      GCore.gFontsPanel("selection", n.val()),
+                        GCore.gFontsPanel("focusCurrent"),
                         n.select();
                     };
-                    0 === o.gFontsPanel("fontsLength")
+                    0 === GCore.gFontsPanel("fontsLength")
                       ? setTimeout(function () {
-                          a();
+                          barrel_sidebars();
                         }, 100)
-                      : a();
+                      : barrel_sidebars();
                   });
             }),
             this

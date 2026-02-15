@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(29) /* isCallable */,
-      i = require(46) /* toLength */,
+    var isCallable = require(29) /* isCallable */,
+      toLength = require(46) /* toLength */,
       a = require(241) /* module_241 */,
-      r = require(145) /* getSubstitution */,
+      getSubstitution = require(145) /* getSubstitution */,
       s = require(614) /* module_614 */,
-      l = require(43) /* wellKnownSymbol */,
+      wellKnownSymbol = require(43) /* wellKnownSymbol */,
       c = TypeError,
-      d = l("toPrimitive");
+      d = wellKnownSymbol("toPrimitive");
     exports.exports = function (e, t) {
-      if (!i(e) || a(e)) return e;
+      if (!toLength(e) || a(e)) return e;
       var n,
-        l = r(e, d);
-      if (l) {
-        if ((undefined === t && (t = "default"), (n = o(l, e, t)), !i(n) || a(n)))
+        wellKnownSymbol = getSubstitution(e, d);
+      if (wellKnownSymbol) {
+        if ((undefined === t && (t = "default"), (n = isCallable(wellKnownSymbol, e, t)), !toLength(n) || a(n)))
           return n;
         throw new c("Can't convert object to primitive value");
       }

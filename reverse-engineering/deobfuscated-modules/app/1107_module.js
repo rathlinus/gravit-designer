@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
+    var uncurryThis = require(27) /* uncurryThis */,
       i = require(232) /* module_232 */,
       a = require(558) /* polyfill_Object_getOwnPropertyNames */.getWeakData,
       r = require(146) /* module_146 */,
-      s = require(37) /* toString_default */,
+      toString_default = require(37) /* toString_default */,
       l = require(194) /* module_194 */,
-      c = require(46) /* toLength */,
+      toLength = require(46) /* toLength */,
       d = require(121) /* module_121 */,
       u = require(349) /* module_349 */,
       p = require(61) /* module_61 */,
-      g = require(80) /* internalState */,
-      h = g.set,
-      f = g.getterFor,
+      internalState = require(80) /* internalState */,
+      h = internalState.set,
+      f = internalState.getterFor,
       m = u.find,
       y = u.findIndex,
-      v = o([].splice),
+      v = uncurryThis([].splice),
       _ = 0,
       b = function (e) {
         return e.frozen || (e.frozen = new w());
@@ -53,24 +53,24 @@ function (exports, module, require) {
       },
     }),
       (exports.exports = {
-        getConstructor: function (e, t, n, o) {
+        getConstructor: function (e, t, n, uncurryThis) {
           var u = e(function (e, i) {
-              r(e, g),
+              r(e, internalState),
                 h(e, { type: t, id: _++, frozen: null }),
-                l(i) || d(i, e[o], { that: e, AS_ENTRIES: n });
+                l(i) || d(i, e[uncurryThis], { that: e, AS_ENTRIES: n });
             }),
-            g = u.prototype,
+            internalState = u.prototype,
             m = f(t),
             y = function (e, t, n) {
-              var o = m(e),
-                i = a(s(t), true);
-              return true === i ? b(o).set(t, n) : (i[o.id] = n), e;
+              var uncurryThis = m(e),
+                i = a(toString_default(t), true);
+              return true === i ? b(uncurryThis).set(t, n) : (i[uncurryThis.id] = n), e;
             };
           return (
-            i(g, {
+            i(internalState, {
               delete: function (e) {
                 var t = m(this);
-                if (!c(e)) return false;
+                if (!toLength(e)) return false;
                 var n = a(e);
                 return true === n
                   ? b(t).delete(e)
@@ -78,18 +78,18 @@ function (exports, module, require) {
               },
               has: function (e) {
                 var t = m(this);
-                if (!c(e)) return false;
+                if (!toLength(e)) return false;
                 var n = a(e);
                 return true === n ? b(t).has(e) : n && p(n, t.id);
               },
             }),
             i(
-              g,
+              internalState,
               n
                 ? {
                     get: function (e) {
                       var t = m(this);
-                      if (c(e)) {
+                      if (toLength(e)) {
                         var n = a(e);
                         if (true === n) return b(t).get(e);
                         if (n) return n[t.id];

@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */;
-    exports.exports = o((1).valueOf);
+    var uncurryThis = require(27) /* uncurryThis */;
+    exports.exports = uncurryThis((1).valueOf);
   }

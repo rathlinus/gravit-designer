@@ -7,18 +7,18 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {
       s.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GToggleSnapZonesAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GToggleSnapZonesAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GToggleSnapZonesAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GToggleSnapZonesAction", "tooltip-description")
           ),
           middle: false,
           learnMore:
@@ -26,9 +26,9 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "view.toggle-snapzones"),
-      (s.TITLE = new o.GLocaleKey("GToggleSnapZonesAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GToggleSnapZonesAction", "title")),
       (s.TOOLTIP_CONFIG = null),
       (s.prototype.getId = function () {
         return s.ID;
@@ -37,7 +37,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW_SNAP;
+        return MenuItemBuilder.CATEGORY_VIEW_SNAP;
       }),
       (s.prototype.getGroup = function () {
         return "snap/enable";

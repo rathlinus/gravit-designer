@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(18) /* MenuItemBuilder */),
-      s = o(require(1281) /* GMainAction */),
-      l = require(198) /* Exports_GOutlineSidebar */;
-    class c extends s.default {
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GMainAction = _interopRequireDefault(require(1281) /* GMainAction */),
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
+    class c extends GMainAction.default {
       getId() {
         return c.ID;
       }
@@ -20,22 +20,22 @@ function (exports, module, require) {
         return c.TITLE;
       }
       getCategory() {
-        return r.default.CATEGORY_MODIFY;
+        return MenuItemBuilder.default.CATEGORY_MODIFY;
       }
       isVisible() {
         return false;
       }
       getShortcut() {
         return [
-          a.GKey.Constant.META,
-          a.GKey.Constant.OPTION,
-          a.GKey.Constant.A,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.OPTION,
+          GEditor.GKey.Constant.A,
         ];
       }
       isEnabled() {
         return (
           gDesigner.getRightSidebars().getActiveSidebar() ===
-          l.SidebarsIds.GInspectorSidebar
+          GOutlineSidebar.SidebarsIds.GInspectorSidebar
         );
       }
       toString() {
@@ -43,7 +43,7 @@ function (exports, module, require) {
       }
     }
     (c.ID = "modify.change-anchor-points-joint-type"),
-      (c.TITLE = new i.GLocaleKey(
+      (c.TITLE = new GCore.GLocaleKey(
         "GChangeAnchorPointsJointTypeMainAction",
         "title"
       )),

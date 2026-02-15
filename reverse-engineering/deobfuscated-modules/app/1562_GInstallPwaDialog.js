@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(1172) /* GInstallToDesktopAction */),
-      s = o(require(1173) /* module_1173 */);
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GInstallToDesktopAction = _interopRequireDefault(require(1172) /* GInstallToDesktopAction */),
+      s = _interopRequireDefault(require(1173) /* module_1173 */);
     function l(e) {
       const module = (e) => {
-        if (a.GKey.translateKey(e.keyCode) === a.GKey.Constant.ESC)
+        if (GEditor.GKey.translateKey(e.keyCode) === GEditor.GKey.Constant.ESC)
           return (
             e.preventDefault(),
             e.stopPropagation(),
@@ -36,7 +36,7 @@ function (exports, module, require) {
           .append(this._getCloseButton())
           .append(this._getDialogContent());
     }
-    i.GObject.inherit(l, i.GObject),
+    GCore.GObject.inherit(l, GCore.GObject),
       (l.prototype._getCloseButton = function () {
         return $("<div />")
           .addClass("g-btn-close")
@@ -59,8 +59,8 @@ function (exports, module, require) {
             $("<div />")
               .addClass("title")
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GInstallPwaDialog", "text.title")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GInstallPwaDialog", "text.title")
                 )
               )
           )
@@ -69,8 +69,8 @@ function (exports, module, require) {
               .addClass("description")
               .append(
                 $("<span />").text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GInstallPwaDialog",
                       "text.description-text"
                     )
@@ -82,8 +82,8 @@ function (exports, module, require) {
                   .attr('href', '')
                   .attr('target', '_blank')
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GInstallPwaDialog",
                         "text.description-pro-link"
                       )
@@ -92,8 +92,8 @@ function (exports, module, require) {
               )
               .append(
                 $("<span />").text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GInstallPwaDialog",
                       "text.end-sentence-dot"
                     )
@@ -117,15 +117,15 @@ function (exports, module, require) {
               .addClass("primary")
               .addClass("g-button")
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GInstallPwaDialog", "action.install-button")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GInstallPwaDialog", "action.install-button")
                 )
               )
               .on("click", function (t) {
                 try {
-                  gDesigner.executeAction(r.default.ID);
+                  gDesigner.executeAction(GInstallToDesktopAction.default.ID);
                 } catch (t) {
-                  r.default.install();
+                  GInstallToDesktopAction.default.install();
                 }
                 e.close();
               })
@@ -134,14 +134,14 @@ function (exports, module, require) {
             $("<button />")
               .addClass("g-button")
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GInstallPwaDialog", "action.not-now-button")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GInstallPwaDialog", "action.not-now-button")
                 )
               )
               .on("click", () => {
                 const e = gDesigner.now().getTime();
                 gContainer.setProperty(
-                  r.default.closedInstallPWADialogDatePropName,
+                  GInstallToDesktopAction.default.closedInstallPWADialogDatePropName,
                   e
                 ),
                   this.close();
@@ -155,8 +155,8 @@ function (exports, module, require) {
             $("<div/>")
               .addClass("chromium-content")
               .html(
-                i.GLocale.get(
-                  new i.GLocaleKey("GInstallPwaDialog", "text.pwa-requires")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GInstallPwaDialog", "text.pwa-requires")
                 )
               )
           );
@@ -166,22 +166,22 @@ function (exports, module, require) {
           .addClass("footer")
           .append(
             $("<span />").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GInstallPwaDialog", "text.footer-main-text")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GInstallPwaDialog", "text.footer-main-text")
               )
             )
           )
           .append(
             $("<span />").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GInstallPwaDialog", "action.footer-link-text")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GInstallPwaDialog", "action.footer-link-text")
               )
             )
           )
           .append(
             $("<span />").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GInstallPwaDialog", "text.end-sentence-dot")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GInstallPwaDialog", "text.end-sentence-dot")
               )
             )
           )
@@ -194,8 +194,8 @@ function (exports, module, require) {
               )
               .attr('target', '_blank')
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GInstallPwaDialog",
                     "action.footer-more-information"
                   )

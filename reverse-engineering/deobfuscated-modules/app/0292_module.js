@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e) {
       this.user = e;
     }
-    o.GObject.inherit(i, o.GEvent), (i.prototype.user = null), (exports.exports = i);
+    GCore.GObject.inherit(i, GCore.GEvent), (i.prototype.user = null), (exports.exports = i);
   }

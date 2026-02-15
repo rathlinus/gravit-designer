@@ -7,20 +7,20 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
-      a = require(18) /* MenuItemBuilder */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
       r = require(163) /* module_163 */,
-      s = require(31) /* GAction */,
-      l = require(85) /* GContainer */;
+      GAction = require(31) /* GAction */,
+      GContainer = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GLinkImageAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GLinkImageAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GLinkImageAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GLinkImageAction", "tooltip-description")
           ),
           middle: false,
           learnMore:
@@ -28,9 +28,9 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(c, s),
+    GCore.GObject.inherit(c, GAction),
       (c.ID = "file.link-import"),
-      (c.TITLE = new o.GLocaleKey("GLinkImageAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GLinkImageAction", "title")),
       (c.TOOLTIP_CONFIG = null),
       (c.prototype.getId = function () {
         return c.ID;
@@ -39,7 +39,7 @@ function (exports, module, require) {
         return c.TITLE;
       }),
       (c.prototype.getCategory = function () {
-        return a.CATEGORY_FILE_IMPORT;
+        return MenuItemBuilder.CATEGORY_FILE_IMPORT;
       }),
       (c.prototype.getGroup = function () {
         return "import/place-import";
@@ -48,7 +48,7 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-link-image" : null;
       }),
       (c.prototype.isEnabled = function (e) {
-        if (gContainer.getRuntime() !== l.Runtime.Electron) return false;
+        if (gContainer.getRuntime() !== GContainer.Runtime.Electron) return false;
         var t = gDesigner.getActiveDocument();
         return (
           !!t &&
@@ -63,26 +63,26 @@ function (exports, module, require) {
           r.FileTypes.filter((e) => 0 === e.mime.indexOf("image")),
           (e) => {
             var i = "file://" + e.getUniqueId(),
-              a = i,
-              r = n.getScene().getDictionary().putValueIfAbsent(a);
-            r && (a = r.getUrl());
-            var s = new Image();
-            (s.onload = () => {
-              var e = new o.GImage();
+              MenuItemBuilder = i,
+              r = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
+            r && (MenuItemBuilder = r.getUrl());
+            var GAction = new Image();
+            (GAction.onload = () => {
+              var e = new GCore.GImage();
               e.setProperties(
                 ["iw", "ih", "url"],
-                [s.naturalWidth, s.naturalHeight, a]
+                [GAction.naturalWidth, GAction.naturalHeight, MenuItemBuilder]
               ),
                 n.insertElement(e, true, true),
                 t && t();
             }),
-              (s.src = i);
+              (GAction.src = i);
           },
           false
         );
       }),
       (c.prototype.isAvailable = function () {
-        return gContainer.getRuntime() !== l.Runtime.IPad;
+        return gContainer.getRuntime() !== GContainer.Runtime.IPad;
       }),
       (c.prototype.getTooltipConfig = function (e) {
         return (e && c.TOOLTIP_CONFIG[e]) || null;

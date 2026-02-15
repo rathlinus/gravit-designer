@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(57) /* polyfill_parseInt */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(394) /* GView */,
-      r = require(135) /* GSettingChangedEvent */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GView = require(394) /* GView */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       s = require(863) /* module_863 */,
       { SidebarsIds: l } = require(198) /* Exports_GOutlineSidebar */,
       c = require(807) /* module_807 */;
@@ -21,7 +21,7 @@ function (exports, module, require) {
         (this._canResize = false),
         (this._isResizing = false);
     }
-    o.GObject.inherit(d, o.GEventTarget),
+    GCore.GObject.inherit(d, GCore.GEventTarget),
       (d.Orientation = { Left: "left", Right: "right" }),
       (d.SidebarEvent = c),
       (d.prototype._htmlElement = null),
@@ -45,31 +45,31 @@ function (exports, module, require) {
             }
           }
           for (
-            var require = this._activeSidebar, o = 0;
-            o < this._sidebars.length;
-            ++o
+            var require = this._activeSidebar, GCore = 0;
+            GCore < this._sidebars.length;
+            ++GCore
           ) {
-            var i = this._sidebars[o],
-              a = i.sidebar.getId();
-            if (a === e) {
-              (this._activeSidebar = a),
-                i.container.css("display", ""),
-                i.sidebar.activate(),
-                this._sidebarWidths[a]
+            var GEditor = this._sidebars[GCore],
+              GView = GEditor.sidebar.getId();
+            if (GView === e) {
+              (this._activeSidebar = GView),
+                GEditor.container.css("display", ""),
+                GEditor.sidebar.activate(),
+                this._sidebarWidths[GView]
                   ? this._htmlElement.css(
                       "width",
-                      this._sidebarWidths[a] + "px"
+                      this._sidebarWidths[GView] + "px"
                     )
                   : this._htmlElement.css(
                       "width",
-                      i.sidebar.getDefaultWidth() + "px"
+                      GEditor.sidebar.getDefaultWidth() + "px"
                     ),
                 this.relayout(),
                 this.hasEventListeners(d.SidebarEvent) &&
                   this.trigger(
-                    new d.SidebarEvent(d.SidebarEvent.Type.Activated, i.sidebar)
+                    new d.SidebarEvent(d.SidebarEvent.Type.Activated, GEditor.sidebar)
                   );
-              const e = i.sidebar.getTouchTools();
+              const e = GEditor.sidebar.getTouchTools();
               if (e) {
                 const t =
                   e.find((e) => {
@@ -79,18 +79,18 @@ function (exports, module, require) {
                 t && this.setActiveTouchTool(t);
               }
             } else
-              i.container.css("display", "none"),
-                a === require &&
-                  (i.sidebar.deactivate(),
+              GEditor.container.css("display", "none"),
+                GView === require &&
+                  (GEditor.sidebar.deactivate(),
                   (this._activeSidebar = e),
                   this.hasEventListeners(d.SidebarEvent) &&
                     this.trigger(
                       new d.SidebarEvent(
                         d.SidebarEvent.Type.Deactivated,
-                        i.sidebar
+                        GEditor.sidebar
                       )
                     ));
-            this._updateBadge(i.sidebar);
+            this._updateBadge(GEditor.sidebar);
           }
           this._htmlElement.find(".sidebar-option").removeClass("active"),
             this._htmlElement
@@ -128,15 +128,15 @@ function (exports, module, require) {
         if (this.getActiveSidebar() === e) {
           for (var module = null, require = 0; require < this._sidebars.length && !module; ++require)
             if (this._sidebars[require].sidebar.getId() !== e) {
-              var o = this._sidebars[require].sidebar.getId();
+              var GCore = this._sidebars[require].sidebar.getId();
               this._htmlElement
-                .find(".sidebar-option.sidebar-" + o)
-                .is(":visible") && (module = o);
+                .find(".sidebar-option.sidebar-" + GCore)
+                .is(":visible") && (module = GCore);
             }
           this.setActiveSidebar(module);
         }
-        var i = this._htmlElement.find(".sidebar-option.sidebar-" + e);
-        i.is(":visible") && i.hide();
+        var GEditor = this._htmlElement.find(".sidebar-option.sidebar-" + e);
+        GEditor.is(":visible") && GEditor.hide();
       }),
       (d.prototype.setSidebarEnabled = function (e, t) {
         var n = this._getSidebarInfo(e);
@@ -145,9 +145,9 @@ function (exports, module, require) {
             n.container.find(".g-disabled-overlay").remove(),
               n.container.removeClass("g-disabled");
           else {
-            var o = n.container.find(".g-disabled-overlay");
-            0 === o.length &&
-              (o = $("<div></div>")
+            var GCore = n.container.find(".g-disabled-overlay");
+            0 === GCore.length &&
+              (GCore = $("<div></div>")
                 .addClass("g-disabled-overlay")
                 .appendTo(n.container)),
               n.container.addClass("g-disabled");
@@ -169,7 +169,7 @@ function (exports, module, require) {
                   .append([
                     $("<span/>")
                       .addClass("sidebar-title")
-                      .text(o.GLocale.get(e.getTitle())),
+                      .text(GCore.GLocale.get(e.getTitle())),
                     $("<span/>").addClass("g-badge").hide(),
                   ])
                   .on("click", this._tryActivateSidebar.bind(this, e))
@@ -189,13 +189,13 @@ function (exports, module, require) {
                   e.preventDefault();
                 });
               });
-            const i = gDesigner.getLicense();
+            const GEditor = gDesigner.getLicense();
             e.addEventListener(
-              a.UpdateEvent,
+              GView.UpdateEvent,
               function () {
                 this.setSidebarEnabled(
                   e.getId(),
-                  e.isEnabled() && i.canAccessFreemium()
+                  e.isEnabled() && GEditor.canAccessFreemium()
                 ),
                   this._updateTouchToolbar(),
                   this._updateBadge(e);
@@ -220,10 +220,10 @@ function (exports, module, require) {
         }
         if (window.gravit.sidebars)
           for (let require = 0; require < t.length; ++require) {
-            let o = t[require];
-            o.getOrientation() === this._orientation && e(o, t.length);
+            let GCore = t[require];
+            GCore.getOrientation() === this._orientation && e(GCore, t.length);
           }
-        gDesigner.addEventListener(r, this._settingChanged, this),
+        gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
           (this._mouseDownHandler = this._documentMouseDown.bind(this)),
           (this._mouseMoveHandler = this._documentMouseMove.bind(this)),
           (this._mouseReleaseHandler = this._resizeMouseUp.bind(this)),
@@ -239,64 +239,64 @@ function (exports, module, require) {
         e !== this._view &&
           (this._view &&
             (this._view.removeEventListener(
-              i.GMouseEvent.Down,
+              GEditor.GMouseEvent.Down,
               this._mouseDownHandler,
               this
             ),
             this._view.removeEventListener(
-              i.GMouseEvent.Move,
+              GEditor.GMouseEvent.Move,
               this._mouseMoveHandler,
               this
             ),
             this._view.removeEventListener(
-              i.GMouseEvent.DragStart,
+              GEditor.GMouseEvent.DragStart,
               this._mouseMoveHandler,
               this
             ),
             this._view.removeEventListener(
-              i.GMouseEvent.Drag,
+              GEditor.GMouseEvent.Drag,
               this._mouseMoveHandler,
               this
             ),
             this._view.removeEventListener(
-              i.GMouseEvent.DragEnd,
+              GEditor.GMouseEvent.DragEnd,
               this._mouseMoveHandler,
               this
             ),
             this._view.removeEventListener(
-              i.GMouseEvent.Release,
+              GEditor.GMouseEvent.Release,
               this._mouseReleaseHandler,
               this
             )),
           (this._view = e),
           this._view &&
             (this._view.addEventListener(
-              i.GMouseEvent.Down,
+              GEditor.GMouseEvent.Down,
               this._mouseDownHandler,
               this
             ),
             this._view.addEventListener(
-              i.GMouseEvent.Move,
+              GEditor.GMouseEvent.Move,
               this._mouseMoveHandler,
               this
             ),
             this._view.addEventListener(
-              i.GMouseEvent.DragStart,
+              GEditor.GMouseEvent.DragStart,
               this._mouseMoveHandler,
               this
             ),
             this._view.addEventListener(
-              i.GMouseEvent.Drag,
+              GEditor.GMouseEvent.Drag,
               this._mouseMoveHandler,
               this
             ),
             this._view.addEventListener(
-              i.GMouseEvent.DragEnd,
+              GEditor.GMouseEvent.DragEnd,
               this._mouseMoveHandler,
               this
             ),
             this._view.addEventListener(
-              i.GMouseEvent.Release,
+              GEditor.GMouseEvent.Release,
               this._mouseReleaseHandler,
               this
             )));
@@ -332,7 +332,7 @@ function (exports, module, require) {
             e instanceof MouseEvent
               ? (module = e.pageX)
               : ((e.isImmediatePropagationStopped = true),
-                (module = e.client.getX() / o.GPaintCanvas.getScreenDPI())),
+                (module = e.client.getX() / GCore.GPaintCanvas.getScreenDPI())),
               e.stopPropagation instanceof Function && e.stopPropagation(),
               (this._newWidth =
                 this._orientation === d.Orientation.Left
@@ -344,22 +344,22 @@ function (exports, module, require) {
             var require = this.getSidebar(this._activeSidebar);
             require && require.resize();
           } else {
-            var i =
+            var GEditor =
                 this._orientation === d.Orientation.Left
                   ? this._htmlElement[0].offsetWidth
                   : window.innerWidth - this._htmlElement[0].offsetWidth,
-              a =
-                o.GMath.isEqualEps(
+              GView =
+                GCore.GMath.isEqualEps(
                   e.pageX,
-                  i,
-                  3 * o.GPaintCanvas.getScreenDPI()
+                  GEditor,
+                  3 * GCore.GPaintCanvas.getScreenDPI()
                 ) && this._orientation !== d.Orientation.Right;
-            (a || this._canResize) &&
-              (a && !this._canResize
-                ? (this._frame.addClass("resize"), (this._canResize = a))
+            (GView || this._canResize) &&
+              (GView && !this._canResize
+                ? (this._frame.addClass("resize"), (this._canResize = GView))
                 : this._canResize &&
-                  !a &&
-                  (this._frame.removeClass("resize"), (this._canResize = a)));
+                  !GView &&
+                  (this._frame.removeClass("resize"), (this._canResize = GView)));
           }
       }),
       (d.prototype._documentMouseDown = function (e) {
@@ -369,12 +369,12 @@ function (exports, module, require) {
           t.isResizeable() &&
           ((this._isResizing = true),
           (this._minimumWidth = t.getMinimumWidth()),
-          e instanceof i.GMouseEvent && (e.isImmediatePropagationStopped = true),
+          e instanceof GEditor.GMouseEvent && (e.isImmediatePropagationStopped = true),
           e.stopPropagation instanceof Function && e.stopPropagation());
       }),
       (d.prototype._resizeMouseUp = function (e) {
         if (this._isResizing) {
-          e instanceof i.GMouseEvent && (e.isImmediatePropagationStopped = true),
+          e instanceof GEditor.GMouseEvent && (e.isImmediatePropagationStopped = true),
             e.stopPropagation instanceof Function && e.stopPropagation(),
             (this._isResizing = false);
           var module = this.getSidebar(this._activeSidebar);
@@ -390,14 +390,14 @@ function (exports, module, require) {
             e.relayout());
         }
         for (var exports = 0, module = 0, require = 0; require < this._sidebars.length; ++require) {
-          let i = this._sidebars[require];
-          var o = i.sidebar.getId();
-          i.sidebar.isVisible()
+          let GEditor = this._sidebars[require];
+          var GCore = GEditor.sidebar.getId();
+          GEditor.sidebar.isVisible()
             ? (exports++,
-              this._htmlElement.find(".sidebar-option.sidebar-" + o).show())
-            : this._htmlElement.find(".sidebar-option.sidebar-" + o).hide(),
-            i.sidebar.isEnabled() && module++,
-            this._updateBadge(i.sidebar);
+              this._htmlElement.find(".sidebar-option.sidebar-" + GCore).show())
+            : this._htmlElement.find(".sidebar-option.sidebar-" + GCore).hide(),
+            GEditor.sidebar.isEnabled() && module++,
+            this._updateBadge(GEditor.sidebar);
         }
         if (exports > 0) {
           let n = this._htmlElement.find(".sidebar-container");

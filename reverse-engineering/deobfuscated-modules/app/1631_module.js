@@ -5,32 +5,32 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = require(1) /* module */,
-      a = o(require(1239) /* SharepointException */);
+    var GCore = require(1) /* module */,
+      SharepointException = _interopRequireDefault(require(1239) /* SharepointException */);
     const r = [
       {
-        text: new i.GLocaleKey(
+        text: new GCore.GLocaleKey(
           "GFilesPanelViewSharepoint",
           "text.checkin-type-minor"
         ),
-        value: a.default.CheckinType.MinorCheckIn,
+        value: SharepointException.default.CheckinType.MinorCheckIn,
         selected: true,
       },
       {
-        text: new i.GLocaleKey(
+        text: new GCore.GLocaleKey(
           "GFilesPanelViewSharepoint",
           "text.checkin-type-major"
         ),
-        value: a.default.CheckinType.MajorCheckIn,
+        value: SharepointException.default.CheckinType.MajorCheckIn,
       },
       {
-        text: new i.GLocaleKey(
+        text: new GCore.GLocaleKey(
           "GFilesPanelViewSharepoint",
           "text.checkin-type-overwrite"
         ),
-        value: a.default.CheckinType.OverwriteCheckIn,
+        value: SharepointException.default.CheckinType.OverwriteCheckIn,
       },
     ];
     exports.exports = class {
@@ -43,8 +43,8 @@ function (exports, module, require) {
                 .addClass("minor-related")
                 .addClass("row")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFilesPanelViewSharepoint",
                       "text.choose-checkin-type"
                     )
@@ -61,11 +61,11 @@ function (exports, module, require) {
                     .addClass("field")
                     .append(
                       r.map((e) => {
-                        let { text: t, value: n, selected: o } = e;
+                        let { text: t, value: n, selected: _interopRequireDefault } = e;
                         return $("<option/>")
                           .attr("value", n)
-                          .text(i.GLocale.get(t))
-                          .prop("selected", !!o);
+                          .text(GCore.GLocale.get(t))
+                          .prop("selected", !!_interopRequireDefault);
                       })
                     )
                 )
@@ -74,8 +74,8 @@ function (exports, module, require) {
               $("<div></div>")
                 .addClass("row")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFilesPanelViewSharepoint",
                       "text.checkin-comment"
                     )
@@ -98,7 +98,7 @@ function (exports, module, require) {
             className: "g-sharepoint-check-in-dialog",
             buttons: [
               $("<button></button>")
-                .text(i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")))
+                .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")))
                 .on("click", () => {
                   n.gDialog("close"),
                     t({ ok: false }),
@@ -108,24 +108,24 @@ function (exports, module, require) {
                 }),
               $("<button></button>")
                 .addClass("primary")
-                .text(i.GLocale.get(new i.GLocaleKey("GLocale", "ok")))
+                .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")))
                 .on("click", () => {
                   n.gDialog("close");
-                  const o = e.enableMinorVersions
+                  const _interopRequireDefault = e.enableMinorVersions
                     ? n.find(".check-in-type").val()
-                    : a.default.CheckinType.MajorCheckIn;
-                  let i;
-                  (i =
-                    o === a.default.CheckinType.MinorCheckIn
+                    : SharepointException.default.CheckinType.MajorCheckIn;
+                  let GCore;
+                  (GCore =
+                    _interopRequireDefault === SharepointException.default.CheckinType.MinorCheckIn
                       ? "minor"
-                      : o === a.default.CheckinType.MajorCheckIn
+                      : _interopRequireDefault === SharepointException.default.CheckinType.MajorCheckIn
                       ? "major"
                       : "overwrite-minor-version"),
                     gDesigner.stats(
                       "filespanel-view_sharepoint-checkin_confirm",
-                      i
+                      GCore
                     ),
-                    t({ ok: true, comment: n.find(".comment").val(), type: o });
+                    t({ ok: true, comment: n.find(".comment").val(), type: _interopRequireDefault });
                 }),
             ],
           }),

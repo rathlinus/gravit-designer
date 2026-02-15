@@ -5,61 +5,61 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(200) /* advanceStringIndex */,
-      i = require(29) /* isCallable */,
-      a = require(27) /* uncurryThis */,
-      r = require(278) /* fixRegExpWKS */,
-      s = require(21) /* tryCall */,
-      l = require(37) /* toString_default */,
-      c = require(35) /* anObject */,
-      d = require(46) /* toLength */,
-      u = require(130) /* lengthOfArrayLike */,
-      p = require(117) /* toStringTagSupport */,
-      g = require(62) /* requireObjectCoercible */,
-      h = require(92) /* classof */,
-      f = require(308) /* regExpFlags */,
-      m = require(145) /* getSubstitution */,
+    var advanceStringIndex = require(200) /* advanceStringIndex */,
+      isCallable = require(29) /* isCallable */,
+      uncurryThis = require(27) /* uncurryThis */,
+      fixRegExpWKS = require(278) /* fixRegExpWKS */,
+      tryCall = require(21) /* tryCall */,
+      toString_default = require(37) /* toString_default */,
+      anObject = require(35) /* anObject */,
+      toLength = require(46) /* toLength */,
+      lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
+      toStringTagSupport = require(117) /* toStringTagSupport */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      classof = require(92) /* classof */,
+      regExpFlags = require(308) /* regExpFlags */,
+      getSubstitution = require(145) /* getSubstitution */,
       y = require(667) /* module_667 */,
       v = require(279) /* module_279 */,
-      _ = require(43) /* wellKnownSymbol */("replace"),
+      wellKnownSymbol = require(43) /* wellKnownSymbol */("replace"),
       b = Math.max,
       w = Math.min,
-      C = a([].concat),
-      x = a([].push),
-      S = a("".indexOf),
-      E = a("".slice),
+      C = uncurryThis([].concat),
+      x = uncurryThis([].push),
+      S = uncurryThis("".indexOf),
+      E = uncurryThis("".slice),
       A = "$0" === "a".replace(/./, "$0"),
-      T = !!/./[_] && "" === /./[_]("a", "$0");
-    r(
+      T = !!/./[wellKnownSymbol] && "" === /./[wellKnownSymbol]("a", "$0");
+    fixRegExpWKS(
       "replace",
       function (e, t, n) {
-        var a = T ? "$" : "$0";
+        var uncurryThis = T ? "$" : "$0";
         return [
           function (e, n) {
-            var o = h(this),
-              a = d(e) ? m(e, _) : undefined;
-            return a ? i(a, e, o, n) : i(t, g(o), e, n);
+            var advanceStringIndex = classof(this),
+              uncurryThis = toLength(e) ? getSubstitution(e, wellKnownSymbol) : undefined;
+            return uncurryThis ? isCallable(uncurryThis, e, advanceStringIndex, n) : isCallable(t, requireObjectCoercible(advanceStringIndex), e, n);
           },
-          function (e, i) {
-            var r = l(this),
-              s = g(e);
-            if ("string" == typeof i && -1 === S(i, a) && -1 === S(i, "$<")) {
-              var d = n(t, r, s, i);
-              if (d.done) return d.value;
+          function (e, isCallable) {
+            var fixRegExpWKS = toString_default(this),
+              tryCall = requireObjectCoercible(e);
+            if ("string" == typeof isCallable && -1 === S(isCallable, uncurryThis) && -1 === S(isCallable, "$<")) {
+              var toLength = n(t, fixRegExpWKS, tryCall, isCallable);
+              if (toLength.done) return toLength.value;
             }
-            var h = c(i);
-            h || (i = g(i));
-            var m,
-              _ = r.global;
-            _ && ((m = r.unicode), (r.lastIndex = 0));
-            for (var A, T = []; null !== (A = v(r, s)) && (x(T, A), _); ) {
-              "" === g(A[0]) && (r.lastIndex = f(s, p(r.lastIndex), m));
+            var classof = anObject(isCallable);
+            classof || (isCallable = requireObjectCoercible(isCallable));
+            var getSubstitution,
+              wellKnownSymbol = fixRegExpWKS.global;
+            wellKnownSymbol && ((getSubstitution = fixRegExpWKS.unicode), (fixRegExpWKS.lastIndex = 0));
+            for (var A, T = []; null !== (A = v(fixRegExpWKS, tryCall)) && (x(T, A), wellKnownSymbol); ) {
+              "" === requireObjectCoercible(A[0]) && (fixRegExpWKS.lastIndex = regExpFlags(tryCall, toStringTagSupport(fixRegExpWKS.lastIndex), getSubstitution));
             }
             for (var G, P = "", D = 0, L = 0; L < T.length; L++) {
               for (
                 var I,
-                  k = g((A = T[L])[0]),
-                  O = b(w(u(A.index), s.length), 0),
+                  k = requireObjectCoercible((A = T[L])[0]),
+                  O = b(w(lengthOfArrayLike(A.index), tryCall.length), 0),
                   F = [],
                   R = 1;
                 R < A.length;
@@ -67,17 +67,17 @@ function (exports, module, require) {
               )
                 x(F, undefined === (G = A[R]) ? G : String(G));
               var M = A.groups;
-              if (h) {
-                var N = C([k], F, O, s);
-                undefined !== M && x(N, M), (I = g(o(i, undefined, N)));
-              } else I = y(k, s, O, F, M, i);
-              O >= D && ((P += E(s, D, O) + I), (D = O + k.length));
+              if (classof) {
+                var N = C([k], F, O, tryCall);
+                undefined !== M && x(N, M), (I = requireObjectCoercible(advanceStringIndex(isCallable, undefined, N)));
+              } else I = y(k, tryCall, O, F, M, isCallable);
+              O >= D && ((P += E(tryCall, D, O) + I), (D = O + k.length));
             }
-            return P + E(s, D);
+            return P + E(tryCall, D);
           },
         ];
       },
-      !!s(function () {
+      !!tryCall(function () {
         var e = /./;
         return (
           (e.exec = function () {

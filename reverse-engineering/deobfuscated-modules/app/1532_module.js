@@ -6,35 +6,35 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const { FILE_FORMATS: i } = require(10) /* AppSettings */,
       a = i.find((e) => e.default),
       { COMMAND_SAVE: r } = require(591) /* module_591 */,
       s = require(1164) /* module_1164 */,
-      l = require(556) /* Item */;
+      Item = require(556) /* Item */;
     exports.exports = class extends s {
       constructor(e, t) {
         super(e, t);
       }
-      async updateFileSceneAndMetadata(e, t, n, o) {
-        const i = await this._requestWorkerToSave(e, t, n, o);
-        return l.convertToCloudItem(i);
+      async updateFileSceneAndMetadata(e, t, n, GCore) {
+        const i = await this._requestWorkerToSave(e, t, n, GCore);
+        return Item.convertToCloudItem(i);
       }
       _requestWorkerToSave(e, t, n, i) {
-        return new Promise((s, l) => {
+        return new Promise((s, Item) => {
           const c = this._request(r.REQUEST, {
             id: e,
             file: t,
             metadata: i,
-            scene: o.GNode.serialize(n, { save: true }),
+            scene: GCore.GNode.serialize(n, { save: true }),
             type: a.type,
           });
           this._worker.addEventListener(
             "message",
             function (e) {
-              const { cmd: t, id: n, data: o } = e.data;
+              const { cmd: t, id: n, data: GCore } = e.data;
               if ((t !== r.SUCCESS && t !== r.FAILED) || n !== c) return false;
-              t === r.SUCCESS ? s(o.file) : t === r.FAILED && l();
+              t === r.SUCCESS ? s(GCore.file) : t === r.FAILED && Item();
               return true;
             }.bind(this),
             { once: true }

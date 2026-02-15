@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* wellKnownSymbol */("iterator"),
+    var wellKnownSymbol = require(43) /* wellKnownSymbol */("iterator"),
       i = false;
     try {
       var a = 0,
@@ -17,7 +17,7 @@ function (exports, module, require) {
             i = true;
           },
         };
-      (r[o] = function () {
+      (r[wellKnownSymbol] = function () {
         return this;
       }),
         Array.from(r, function () {
@@ -33,7 +33,7 @@ function (exports, module, require) {
       var n = false;
       try {
         var a = {};
-        (a[o] = function () {
+        (a[wellKnownSymbol] = function () {
           return {
             next: function () {
               return { done: (n = true) };

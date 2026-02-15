@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(15) /* module */;
+    var GEditor = require(15) /* module */;
     exports.exports = class {
       canActivate() {
         return false;
@@ -28,7 +28,7 @@ function (exports, module, require) {
         let require =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
-              : o.GMouseEvent.BUTTON_LEFT,
+              : GEditor.GMouseEvent.BUTTON_LEFT,
           i =
             !(arguments.length > 3 && undefined !== arguments[3]) || arguments[3];
         const a = document.createEvent("MouseEvent");

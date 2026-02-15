@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = require(15) /* module */,
-      a = o(require(1340) /* GRenameLayerAction */),
-      r = o(require(1344) /* GCycleThroughLayersAction */),
+    var GEditor = require(15) /* module */,
+      GRenameLayerAction = _interopRequireDefault(require(1340) /* GRenameLayerAction */),
+      GCycleThroughLayersAction = _interopRequireDefault(require(1344) /* GCycleThroughLayersAction */),
       s = {
         init: function (e) {
           e = $.extend(
@@ -33,7 +33,7 @@ function (exports, module, require) {
           var t = this,
             n = $(this);
           e.input && s.close.call(this, e);
-          var o,
+          var _interopRequireDefault,
             l = e.options.containerSelector
               ? n.find(e.options.containerSelector)
               : e.options.getContainer &&
@@ -46,23 +46,23 @@ function (exports, module, require) {
             d = l.offset();
           (e.value = c),
             e.options.textarea
-              ? ((o = $("<textarea>")),
-                e.options.textareaResizable || o.css({ resize: "none" }))
-              : (o = $("<input>").attr("type", "text")),
+              ? ((_interopRequireDefault = $("<textarea>")),
+                e.options.textareaResizable || _interopRequireDefault.css({ resize: "none" }))
+              : (_interopRequireDefault = $("<input>").attr("type", "text")),
             e.options.style &&
               "object" == typeof e.options.style &&
-              o.css(e.options.style),
+              _interopRequireDefault.css(e.options.style),
             gDesigner.isTouchEnabled() &&
               document.addEventListener(
                 "click",
-                function n(o) {
-                  $(o.target).hasClass("g-auto-edit") ||
+                function n(_interopRequireDefault) {
+                  $(_interopRequireDefault.target).hasClass("g-auto-edit") ||
                     (document.removeEventListener("click", n, true),
                     s.submit.call(t, e));
                 },
                 true
               ),
-            (e.input = o
+            (e.input = _interopRequireDefault
               .css({
                 position: "absolute",
                 left: d.left + "px",
@@ -76,27 +76,27 @@ function (exports, module, require) {
                 s.submit.call(t, e);
               })
               .on("keydown", (n) => {
-                if (i.GKey.translateCode(n.code) === i.GKey.Constant.TAB) {
+                if (GEditor.GKey.translateCode(n.code) === GEditor.GKey.Constant.TAB) {
                   s.submit.call(t, e);
-                  const o = n.shiftKey
-                    ? r.default.Type.Previous
-                    : r.default.Type.Next;
+                  const _interopRequireDefault = n.shiftKey
+                    ? GCycleThroughLayersAction.default.Type.Previous
+                    : GCycleThroughLayersAction.default.Type.Next;
                   return (
                     gDesigner.executeAction(
-                      "".concat(r.default.ID, ".").concat(o),
-                      [r.default.Mode.Focus]
+                      "".concat(GCycleThroughLayersAction.default.ID, ".").concat(_interopRequireDefault),
+                      [GCycleThroughLayersAction.default.Mode.Focus]
                     ),
-                    gDesigner.executeAction(a.default.ID),
+                    gDesigner.executeAction(GRenameLayerAction.default.ID),
                     false
                   );
                 }
               })
               .on("keyup", function (n) {
-                switch (i.GKey.translateKey(n.keyCode)) {
-                  case i.GKey.Constant.ENTER:
+                switch (GEditor.GKey.translateKey(n.keyCode)) {
+                  case GEditor.GKey.Constant.ENTER:
                     s.submit.call(t, e);
                     break;
-                  case i.GKey.Constant.ESC:
+                  case GEditor.GKey.Constant.ESC:
                     s.close.call(t, e);
                 }
               })

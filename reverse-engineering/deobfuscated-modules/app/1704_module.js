@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = {
         value: function (e) {
           const module = $(this);
@@ -24,7 +24,7 @@ function (exports, module, require) {
           return (
             this.each(function () {
               const module = $(this);
-              e = o.GUtil.extend({ onChange: function () {} }, e);
+              e = GCore.GUtil.extend({ onChange: function () {} }, e);
               const require = i.isChecked.call(this);
               module.addClass("g-checkbox-slider")
                 .prop("type", "checkbox")

@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = require(53) /* module */,
-      s = o(require(18) /* MenuItemBuilder */),
-      l = o(require(31) /* GAction */);
-    class c extends l.default {
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GTools = require(53) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GAction = _interopRequireDefault(require(31) /* GAction */);
+    class c extends GAction.default {
       constructor() {
         super(), (this._lastIsCheckedValue = true);
       }
@@ -24,7 +24,7 @@ function (exports, module, require) {
         return c.TITLE;
       }
       getCategory() {
-        return s.default.CATEGORY_VIEW_CANVAS;
+        return MenuItemBuilder.default.CATEGORY_VIEW_CANVAS;
       }
       isCheckable() {
         return true;
@@ -37,14 +37,14 @@ function (exports, module, require) {
         if (!exports) return this._lastIsCheckedValue;
         const module = !!exports.find(
           (e) =>
-            !r.GElementEditor.getEditor(e).hasFlag(
-              r.GBaseEditor.Flag.HideEditor
+            !GTools.GElementEditor.getEditor(e).hasFlag(
+              GTools.GBaseEditor.Flag.HideEditor
             )
         );
         return (this._lastIsCheckedValue = module), module;
       }
       getShortcut() {
-        return [a.GKey.Constant.SHIFT, a.GKey.Constant.META, "X"];
+        return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "X"];
       }
       execute() {
         const exports = this._getEditor();
@@ -66,6 +66,6 @@ function (exports, module, require) {
       }
     }
     (c.ID = "view.canvas.show-selection-handles"),
-      (c.TITLE = new i.GLocaleKey("GShowSelectionHandlesAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GShowSelectionHandlesAction", "title")),
       (exports.exports = c);
   }

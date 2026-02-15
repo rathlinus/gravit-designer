@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* hasOwnProperty_wrapper */,
-      i = require(27) /* uncurryThis */,
-      a = require(29) /* isCallable */,
-      r = require(21) /* tryCall */,
+    var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      uncurryThis = require(27) /* uncurryThis */,
+      isCallable = require(29) /* isCallable */,
+      tryCall = require(21) /* tryCall */,
       s = require(405) /* module_405 */,
       l = require(404) /* module_404 */,
       c = require(396) /* module_396 */,
@@ -16,12 +16,12 @@ function (exports, module, require) {
       u = require(240) /* module_240 */,
       p = Object.assign,
       g = Object.defineProperty,
-      h = i([].concat);
+      h = uncurryThis([].concat);
     exports.exports =
       !p ||
-      r(function () {
+      tryCall(function () {
         if (
-          o &&
+          hasOwnProperty_wrapper &&
           1 !==
             p(
               { b: 1 },
@@ -50,20 +50,20 @@ function (exports, module, require) {
       })
         ? function (e, t) {
             for (
-              var require = d(e), i = arguments.length, r = 1, p = l.f, g = c.f;
-              i > r;
+              var require = d(e), uncurryThis = arguments.length, tryCall = 1, p = l.f, g = c.f;
+              uncurryThis > tryCall;
 
             )
               for (
                 var f,
-                  m = u(arguments[r++]),
+                  m = u(arguments[tryCall++]),
                   y = p ? h(s(m), p(m)) : s(m),
                   v = y.length,
                   _ = 0;
                 v > _;
 
               )
-                (f = y[_++]), (o && !a(g, m, f)) || (require[f] = m[f]);
+                (f = y[_++]), (hasOwnProperty_wrapper && !isCallable(g, m, f)) || (require[f] = m[f]);
             return require;
           }
         : p;

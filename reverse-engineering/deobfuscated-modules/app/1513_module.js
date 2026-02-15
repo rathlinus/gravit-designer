@@ -18,27 +18,27 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(97) /* stub_requires_684 */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(797) /* module */,
-      a = require(15) /* module */,
-      r = require(40) /* CollaborationMergeUtils */,
-      s = require(10) /* AppSettings */,
-      l = require(238) /* GMenu */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
+      GMenu = require(238) /* GMenu */,
       c = require(444) /* module_444 */,
-      d = require(257) /* barrel_panels */,
-      u = require(1253) /* ZipDirectory */;
+      barrel_panels = require(257) /* barrel_panels */,
+      ZipDirectory = require(1253) /* ZipDirectory */;
     const p = require(1238) /* module_1238 */;
-    var g = require(44) /* GSystemDialog */;
+    var GSystemDialog = require(44) /* GSystemDialog */;
     const h = require(389) /* module_389 */;
     var f = {};
     function m(e, t, n) {
       (this._document = e),
         (this._options = t),
-        (this._settings = o.GUtil.extend(
+        (this._settings = GCore.GUtil.extend(
           {
             size: "1x",
             format: "png",
-            jpegQuality: s.JPEG_EXPORT_QUALITY_DEFAULT,
+            jpegQuality: AppSettings.JPEG_EXPORT_QUALITY_DEFAULT,
             backgroundColor: e
               ? e.getScene().getActivePage().getProperty("bck")
               : null,
@@ -67,10 +67,10 @@ function (exports, module, require) {
           },
           this._options || f
         ));
-      var a = this._isUserFree();
-      this.init(a, n);
+      var GEditor = this._isUserFree();
+      this.init(GEditor, n);
     }
-    o.GObject.inherit(m, o.GObject),
+    GCore.GObject.inherit(m, GCore.GObject),
       (m.prototype._warningSection = null),
       (m.prototype._isUserFree = function () {
         var e = gDesigner.getLicense();
@@ -107,45 +107,45 @@ function (exports, module, require) {
         }.bind(this);
         n(
           "canvas",
-          o.GLocale.get(new o.GLocaleKey("GExportDialog", "text.canvas")),
-          d["gravit-icon-display"]
+          GCore.GLocale.get(new GCore.GLocaleKey("GExportDialog", "text.canvas")),
+          barrel_panels["gravit-icon-display"]
         ),
           n(
             "selection",
-            o.GLocale.get(new o.GLocaleKey("GExportDialog", "text.selection")),
-            d["gravit-icon-cursor-filled"]
+            GCore.GLocale.get(new GCore.GLocaleKey("GExportDialog", "text.selection")),
+            barrel_panels["gravit-icon-cursor-filled"]
           ),
           n(
             "assets",
-            o.GLocale.get(new o.GLocaleKey("GExportDialog", "text.assets")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GExportDialog", "text.assets")),
             "gravit-icon-layers"
           ),
           (this._settingsContainer = $("<div/>")
             .addClass("settings-container")
             .appendTo(this._setupContainer));
-        var i = function (n, o, i, a) {
-            a = $.extend({ controlLeft: false, forbiddenForFree: true }, a);
-            var s = $("<span></span>").addClass("control").append(i);
-            e && a.forbiddenForFree
-              ? (s
+        var i = function (n, GCore, i, GEditor) {
+            GEditor = $.extend({ controlLeft: false, forbiddenForFree: true }, GEditor);
+            var AppSettings = $("<span></span>").addClass("control").append(i);
+            e && GEditor.forbiddenForFree
+              ? (AppSettings
                   .find("*")
                   .on(
                     "mousedown",
-                    r.watchDog.trap(
+                    CollaborationMergeUtils.watchDog.trap(
                       null,
                       null,
                       (e) => {
                         e.stopPropagation(),
                           e.stopImmediatePropagation(),
                           e.preventDefault(),
-                          a.prostats && gDesigner.stats(a.prostats);
+                          GEditor.prostats && gDesigner.stats(GEditor.prostats);
                       },
                       t
                     )
                   )
                   .on(
                     "click",
-                    r.watchDog.trap(
+                    CollaborationMergeUtils.watchDog.trap(
                       null,
                       null,
                       (e) => {
@@ -156,42 +156,42 @@ function (exports, module, require) {
                       t
                     )
                   ),
-                s.find("*").each((e, t) => {
+                AppSettings.find("*").each((e, t) => {
                   $._data(t, "events").click.reverse(),
                     $._data(t, "events").mousedown.reverse();
                 }))
-              : a.pro &&
-                s
+              : GEditor.pro &&
+                AppSettings
                   .find("input")
                   .gPro()
                   .on(
                     "click",
-                    r.watchDog.trap(
+                    CollaborationMergeUtils.watchDog.trap(
                       null,
                       null,
-                      (e) => a.prostats && gDesigner.stats(a.prostats)
+                      (e) => GEditor.prostats && gDesigner.stats(GEditor.prostats)
                     )
                   )
                   .after($("<span></span>").gPro()),
-              a.controlLeft && s.addClass("control-left"),
+              GEditor.controlLeft && AppSettings.addClass("control-left"),
               "jpeg-quality" === n &&
-                s
+                AppSettings
                   .css("width", "55%")
                   .css("height", "100%")
                   .css("display", "flex")
                   .css("justify-content", "center");
-            var l = $("<div></div>").attr("data-setting", n);
+            var GMenu = $("<div></div>").attr("data-setting", n);
             return (
-              "" !== o &&
-                l.append($("<span></span>").addClass("label").text(o)),
-              l.append(s).appendTo(this._settingsContainer),
-              l
+              "" !== GCore &&
+                GMenu.append($("<span></span>").addClass("label").text(GCore)),
+              GMenu.append(AppSettings).appendTo(this._settingsContainer),
+              GMenu
             );
           }.bind(this),
-          a = { controlLeft: true };
+          GEditor = { controlLeft: true };
         i(
           "format",
-          o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.format")),
+          GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.format")),
           $("<select/>")
             .on(
               "change",
@@ -220,7 +220,7 @@ function (exports, module, require) {
         ),
           i(
             "size",
-            o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.size")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.size")),
             $("<div></div>")
               .addClass("g-input-select")
               .append(
@@ -260,7 +260,7 @@ function (exports, module, require) {
               ),
             { prostats: "export_nonprotriespro_size" }
           );
-        const u = $("<div />")
+        const ZipDirectory = $("<div />")
             .gInputSlider({ min: 25, max: 100 })
             .css("align-self", "center")
             .gInputSlider("value", this._settings.jpegQuality)
@@ -288,21 +288,21 @@ function (exports, module, require) {
               function (e) {
                 var t = parseInt(p.gInputBox("value"), 10);
                 t > 100 ? (t = 100) : t < 25 && (t = 25),
-                  u.gInputSlider("value", t),
+                  ZipDirectory.gInputSlider("value", t),
                   (this._settings.jpegQuality = t),
                   this._updatePreview();
               }.bind(this)
             );
         i(
           "jpeg-quality",
-          o.GLocale.get(new o.GLocaleKey("GExportDialog", "text.jpeg-quality")),
+          GCore.GLocale.get(new GCore.GLocaleKey("GExportDialog", "text.jpeg-quality")),
           $("<div/>")
             .addClass("jpeg-quality")
-            .append(u)
+            .append(ZipDirectory)
             .append($("<label />").append(p)),
           { prostats: "export_nonprotriespro_jpeg-quality" }
         );
-        var g = $("<div/>")
+        var GSystemDialog = $("<div/>")
           .addClass("export-background-selector")
           .append(
             $("<select/>")
@@ -331,8 +331,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "page-background")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.page-background")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.page-background")
                     )
                   )
               )
@@ -340,8 +340,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "custom-background")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GExportDialog",
                         "text.custom-background"
                       )
@@ -352,8 +352,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "no-background")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.no-background")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.no-background")
                     )
                   )
               )
@@ -367,7 +367,7 @@ function (exports, module, require) {
               .addClass("export-background-pattern-chooser")
               .gPatternChooser({
                 noEyedropper: true,
-                types: [o.GColor],
+                types: [GCore.GColor],
                 hasOpacity: true,
               })
               .gPatternChooser("value", this._settings.chooserColor)
@@ -379,7 +379,7 @@ function (exports, module, require) {
               })
               .on(
                 "patternchange",
-                function (e, t, n, o) {
+                function (e, t, n, GCore) {
                   t &&
                     ((this._settings.backgroundColor = t),
                     (this._settings.chooserColor = t)),
@@ -398,27 +398,27 @@ function (exports, module, require) {
               )
           );
         this._settings.chooserColor &&
-          g
+          GSystemDialog
             .find(".export-background-pattern-chooser")
             .gPatternChooser("setPattern", this._settings.chooserColor),
           this._settings.chooserOpacity &&
-            g
+            GSystemDialog
               .find(".export-background-pattern-chooser")
               .gPatternChooser("opacity", this._settings.chooserOpacity),
           i(
             "background-color",
-            o.GLocale.get(
-              new o.GLocaleKey("GCommonNames", "text.background-color")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "text.background-color")
             ),
-            g,
+            GSystemDialog,
             { prostats: "export_nonprotriespro_select-background" }
           ),
-          g
+          GSystemDialog
             .find('option[value="' + this._settings.background + '"]')
             .prop("selected", true),
           i(
             "color-space",
-            o.GLocale.get(new o.GLocaleKey("GExportDialog", "text.color-mode")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GExportDialog", "text.color-mode")),
             $("<select/>")
               .on(
                 "change",
@@ -460,19 +460,19 @@ function (exports, module, require) {
               .append(
                 $("<span></span>").html(
                   "&nbsp;" +
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.with-effects")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.with-effects")
                     )
                 )
               ),
-            Object.assign({}, a, {
+            Object.assign({}, GEditor, {
               prostats: "export_nonprotriespro_ignore-effects",
             })
           ),
           i(
             "decimal-places-precision",
-            o.GLocale.get(
-              new o.GLocaleKey("GExportDialog", "text.decimal-places-precision")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GExportDialog", "text.decimal-places-precision")
             ),
             $("<input/>")
               .attr("type", "text")
@@ -515,12 +515,12 @@ function (exports, module, require) {
               .append(
                 $("<span></span>").html(
                   "&nbsp;" +
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.export-as-curves")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.export-as-curves")
                     )
                 )
               ),
-            Object.assign({}, a, {
+            Object.assign({}, GEditor, {
               prostats: "export_nonprotriespro_convert-text-to-path",
             })
           ),
@@ -550,12 +550,12 @@ function (exports, module, require) {
               .append(
                 $("<span></span>").html(
                   "&nbsp;" +
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.export-all")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.export-all")
                     )
                 )
               ),
-            Object.assign({}, a, {
+            Object.assign({}, GEditor, {
               prostats: "export_nonprotriespro_export-all",
             })
           ),
@@ -581,8 +581,8 @@ function (exports, module, require) {
               .append(
                 $("<span></span>").html(
                   "&nbsp;" +
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.layer-as-id")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.layer-as-id")
                     )
                 )
               )
@@ -590,12 +590,12 @@ function (exports, module, require) {
                 $("<div></div>")
                   .addClass("description")
                   .html(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.layer-as-id-info")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.layer-as-id-info")
                     )
                   )
               ),
-            Object.assign(a, {
+            Object.assign(GEditor, {
               pro: true,
               prostats: "export_nonprotriespro_layer-as-id",
             })
@@ -625,8 +625,8 @@ function (exports, module, require) {
               .append(
                 $("<span></span>").html(
                   "&nbsp;" +
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GExportDialog",
                         "text.preserve-svg-editing-capabilites"
                       )
@@ -637,15 +637,15 @@ function (exports, module, require) {
                 $("<div></div>")
                   .addClass("description")
                   .html(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GExportDialog",
                         "text.preserve-svg-editing-capabilites-description"
                       )
                     )
                   )
               ),
-            Object.assign(a, {
+            Object.assign(GEditor, {
               pro: true,
               prostats:
                 "export_nonprotriespro_preserve-svg-editing-capabilities",
@@ -676,8 +676,8 @@ function (exports, module, require) {
               .append(
                 $("<span></span>").html(
                   "&nbsp;" +
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GExportDialog",
                         "text.do-not-downsample-images"
                       )
@@ -688,19 +688,19 @@ function (exports, module, require) {
                 $("<div></div>")
                   .addClass("description")
                   .html(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GExportDialog",
                         "text.do-not-downsample-images-info"
                       )
                     )
                   )
               ),
-            Object.assign({}, a, { prostats: "do-not-downsample-images" })
+            Object.assign({}, GEditor, { prostats: "do-not-downsample-images" })
           ),
           i(
             "storage-destination",
-            o.GLocale.get(new o.GLocaleKey("GExportDialog", "text.export-to")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GExportDialog", "text.export-to")),
             $("<select/>").on("change", () => {
               const e = this._getSelectedStorageDestination();
               e && gDesigner.stats("export_change_output", e.stats);
@@ -709,7 +709,7 @@ function (exports, module, require) {
           (this._previewContainer = $("<div></div>")
             .addClass("preview-container")
             .appendTo(this._dialog)),
-          (this._sizeMenu = new l()),
+          (this._sizeMenu = new GMenu()),
           this._setActiveMode("canvas", true),
           this._updateSettings(),
           this._updateSizeMenu(),
@@ -721,22 +721,22 @@ function (exports, module, require) {
             buttons: [
               $(
                 "<button>" +
-                  o.GLocale.get(new o.GLocaleKey("GLocale", "cancel")) +
+                  GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")) +
                   "</button>"
               ).on("click", () => {
                 gDesigner.stats("export_cancel_button"), this.close();
               }),
               $(
                 "<button>" +
-                  o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.export")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.export")
                   ) +
                   "</button>"
               )
                 .addClass("primary")
                 .on(
                   "click",
-                  r.watchDog.trap(
+                  CollaborationMergeUtils.watchDog.trap(
                     () => {
                       gDesigner.stats(
                         "export_execute_button",
@@ -744,9 +744,9 @@ function (exports, module, require) {
                       ),
                         gDesigner
                           .getAmplitudeHelper()
-                          .logEvent(s.AmplitudeData.Events.DOCUMENT_EXPORTED, {
+                          .logEvent(AppSettings.AmplitudeData.Events.DOCUMENT_EXPORTED, {
                             DOCUMENT_EXPORT_TYPE:
-                              s.AmplitudeData.ExportTypes.Advanced,
+                              AppSettings.AmplitudeData.ExportTypes.Advanced,
                             DOCUMENT_FILE_FORMAT: this._getFormat(),
                           }),
                         this._export();
@@ -758,7 +758,7 @@ function (exports, module, require) {
                 ),
             ],
           }),
-          g.find("select").trigger("change");
+          GSystemDialog.find("select").trigger("change");
       }),
       (m.prototype.open = function () {
         this._dialog.gDialog("open", true);
@@ -771,13 +771,13 @@ function (exports, module, require) {
         if (!this._hasFormat()) return false;
         if (!(this._settings.format === h.PDF.ext)) return false;
         if (!e || !e.length) return false;
-        const module = new o.GLength(200, o.GLength.Unit.IN).toUnit(
-            o.GLength.Unit.PX
+        const module = new GCore.GLength(200, GCore.GLength.Unit.IN).toUnit(
+            GCore.GLength.Unit.PX
           ),
-          require = o.GLength.DPI;
+          require = GCore.GLength.DPI;
         return e.some((e) => {
-          const o = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, require);
-          if (o.getWidth() > module || o.getHeight() > module) return true;
+          const GCore = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, require);
+          if (GCore.getWidth() > module || GCore.getHeight() > module) return true;
         });
       }),
       (m.prototype._updateWarningSection = function (e) {
@@ -807,8 +807,8 @@ function (exports, module, require) {
                     $("<span/>")
                       .addClass("title")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GExportDialog", "text.warning")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GExportDialog", "text.warning")
                         )
                       )
                   )
@@ -816,8 +816,8 @@ function (exports, module, require) {
                     $("<div/>")
                       .addClass("description")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GExportDialog",
                             "text.canvas-bigger-than-200-in"
                           )
@@ -875,8 +875,8 @@ function (exports, module, require) {
         e !== this._activeMode &&
           ((this._activeMode = e),
           this._modeContainer.find("> label").each(function (t, n) {
-            var o = $(n);
-            o.toggleClass("g-active", o.attr("data-mode") === e);
+            var GCore = $(n);
+            GCore.toggleClass("g-active", GCore.attr("data-mode") === e);
           }),
           "selection" === e &&
             "page-background" === this._settings.background &&
@@ -919,7 +919,7 @@ function (exports, module, require) {
           (this._settings.configuration.sceneBackground =
             "page-background" == this._settings.background),
             (this._settings.backgroundColor =
-              "jpg" === this._settings.format ? o.GRGBColor.WHITE : null),
+              "jpg" === this._settings.format ? GCore.GRGBColor.WHITE : null),
             (this._settings.backgroundOpacity = 1);
         else {
           this._settings.configuration.sceneBackground = false;
@@ -931,8 +931,8 @@ function (exports, module, require) {
               ? ((this._settings.backgroundColor = exports.gPatternChooser("value")),
                 (this._settings.backgroundOpacity =
                   exports.gPatternChooser("opacity")),
-                this._settings.backgroundColor instanceof o.GColor ||
-                  ((this._settings.backgroundColor = o.GRGBColor.WHITE),
+                this._settings.backgroundColor instanceof GCore.GColor ||
+                  ((this._settings.backgroundColor = GCore.GRGBColor.WHITE),
                   (this._settings.backgroundOpacity = 1),
                   exports.gPatternChooser("value", this._settings.backgroundColor),
                   exports.gPatternChooser(
@@ -946,20 +946,20 @@ function (exports, module, require) {
                   ? this._document.getScene().getActivePage().getProperty("bop")
                   : 1),
                 this._settings.backgroundColor &&
-                this._settings.backgroundColor instanceof o.GColor
+                this._settings.backgroundColor instanceof GCore.GColor
                   ? null == this._settings.backgroundOpacity &&
                     (this._settings.backgroundOpacity = 1)
                   : ((this._settings.backgroundOpacity = 1),
-                    (this._settings.backgroundColor = o.GRGBColor.WHITE)),
+                    (this._settings.backgroundColor = GCore.GRGBColor.WHITE)),
                 exports.gPatternChooser("value", this._settings.backgroundColor),
                 exports.gPatternChooser("opacity", this._settings.backgroundOpacity)),
             "jpg" === this._settings.format)
           ) {
-            var module = o.GRGBColor.WHITE.getValue().slice(),
+            var module = GCore.GRGBColor.WHITE.getValue().slice(),
               require = this._settings.backgroundColor.getValue().slice();
             (module[3] = 1), (require[3] = this._settings.backgroundOpacity);
-            var i = o.GRGBColor.mix(module, require);
-            (this._settings.backgroundColor = new o.GRGBColor(i)),
+            var i = GCore.GRGBColor.mix(module, require);
+            (this._settings.backgroundColor = new GCore.GRGBColor(i)),
               (this._settings.backgroundOpacity = 1);
           }
         }
@@ -1102,48 +1102,48 @@ function (exports, module, require) {
             downsampleImages: this._settings.downsampleImages,
           };
           if ("canvas" === this._activeMode)
-            return u.generateExportables(
+            return ZipDirectory.generateExportables(
               this._document.getScene(),
               $.extend({ name: this._document.getTitle() }, exports),
               false
             );
           var module = this._document.getEditor().getSelection();
-          return module && module.length ? u.generateExportables(module, exports, false) : [];
+          return module && module.length ? ZipDirectory.generateExportables(module, exports, false) : [];
         }
         if ("assets" === this._activeMode)
-          return u.generateExportables(this._document.getScene(), null, true);
+          return ZipDirectory.generateExportables(this._document.getScene(), null, true);
       }),
       (m.prototype._export = async function (e) {
         this._options || (f = this._settings);
         var t = this._generateExportables();
         let require = [];
         try {
-          var r = this._previewContainer.find(".item .preview-check input");
-          if (r.length) {
-            var s = [];
-            r.each(function (e, t) {
+          var CollaborationMergeUtils = this._previewContainer.find(".item .preview-check input");
+          if (CollaborationMergeUtils.length) {
+            var AppSettings = [];
+            CollaborationMergeUtils.each(function (e, t) {
               var n = $(t);
-              n.prop("checked") && s.push(n.closest(".item").data("element"));
+              n.prop("checked") && AppSettings.push(n.closest(".item").data("element"));
             });
-            for (var l = [], c = 0; c < t.length; ++c)
-              for (var d = 0; d < s.length; ++d) {
+            for (var GMenu = [], c = 0; c < t.length; ++c)
+              for (var barrel_panels = 0; barrel_panels < AppSettings.length; ++barrel_panels) {
                 if (
-                  (s[d] instanceof o.GPage &&
-                    t[c].element instanceof o.GPage &&
-                    s[d].getReferenceId() === t[c].element.getReferenceId()) ||
-                  s[d] === t[c].element
+                  (AppSettings[barrel_panels] instanceof GCore.GPage &&
+                    t[c].element instanceof GCore.GPage &&
+                    AppSettings[barrel_panels].getReferenceId() === t[c].element.getReferenceId()) ||
+                  AppSettings[barrel_panels] === t[c].element
                 ) {
-                  l.push(t[c]);
+                  GMenu.push(t[c]);
                   break;
                 }
               }
-            t = l;
+            t = GMenu;
           }
           var h = i.GBitmapExport.getMaximumCanvasSize();
           if (
             t.some((e) => {
               if ("jpg" === e.format || "png" === e.format) {
-                var t = o.GLength.DPI,
+                var t = GCore.GLength.DPI,
                   require = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, t);
                 if (
                   require.getWidth() > h.width ||
@@ -1155,10 +1155,10 @@ function (exports, module, require) {
               return false;
             })
           )
-            return void g
+            return void GSystemDialog
               .alert(
-                o.GLocale.get(
-                  new o.GLocaleKey("GExportDialog", "text.default-limit")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GExportDialog", "text.default-limit")
                 )
                   .replace("%width", h.width)
                   .replace("%height", h.height)
@@ -1176,13 +1176,13 @@ function (exports, module, require) {
                 )
             )
           )
-            return void g
+            return void GSystemDialog
               .alert(
-                o.GLocale.get(
-                  new o.GLocaleKey("GExportDialog", "text.pdf-limit")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GExportDialog", "text.pdf-limit")
                 ).replace(
                   "%limit",
-                  Math.round(a.GPlatform.maxPngDataSize / 1024 / 1024) + "MB"
+                  Math.round(GEditor.GPlatform.maxPngDataSize / 1024 / 1024) + "MB"
                 )
               )
               .css({ width: "500px" });
@@ -1192,8 +1192,8 @@ function (exports, module, require) {
             var m = $("<div></div>")
                 .addClass("export-overlay")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GExportDialog", "text.exporting")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GExportDialog", "text.exporting")
                   ) + "..."
                 )
                 .appendTo(this._dialog),
@@ -1208,22 +1208,22 @@ function (exports, module, require) {
               close: () => m.remove(),
               error: () =>
                 n.message(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.pdf-export-error")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.pdf-export-error")
                   )
                 ),
             };
-            const a = { storageDestination: e },
-              r = (e) => {
-                e && g.error(e, { closeCallback: () => this.close() });
+            const GEditor = { storageDestination: e },
+              CollaborationMergeUtils = (e) => {
+                e && GSystemDialog.error(e, { closeCallback: () => this.close() });
               };
             t.length &&
               "pdf" === t[0].format &&
               (m.append(
                 $("<button>")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GCommonNames", "text.cancel")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.cancel")
                     )
                   )
                   .on("click", () => {
@@ -1231,7 +1231,7 @@ function (exports, module, require) {
                   })
               ),
               m.append(y)),
-              u.export(
+              ZipDirectory.export(
                 t,
                 this._document.getStorage() || gDesigner.getDefaultStorage(),
                 this._document.getTitle(),
@@ -1267,8 +1267,8 @@ function (exports, module, require) {
                     t.val(e);
                 },
                 n,
-                r,
-                a
+                CollaborationMergeUtils,
+                GEditor
               );
           }
         } finally {
@@ -1278,12 +1278,12 @@ function (exports, module, require) {
       (m.prototype._checkWriteAccess = async function (e) {
         const module = this._document.getStorage() || gDesigner.getDefaultStorage(),
           require = await module.getWritePermission(e),
-          o = require.isAuthorized();
+          GCore = require.isAuthorized();
         return (
-          !o &&
+          !GCore &&
             require.hasStatusText() &&
-            g.error(require.getStatusText(), { showTitle: false }),
-          o
+            GSystemDialog.error(require.getStatusText(), { showTitle: false }),
+          GCore
         );
       }),
       (m.prototype._formatCaption = function (e) {
@@ -1301,21 +1301,21 @@ function (exports, module, require) {
             this._document.getScene().getProperty("dpi");
           (exports = isNaN(t) ? "72dpi" : t + "dpi"),
             this._sizeMenu.createAddItem(
-              o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.default")) +
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.default")) +
                 " (72dpi)"
             ),
             this._sizeMenu.createAddItem(
-              o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.web")) +
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.web")) +
                 " (96dpi)"
             ),
             this._sizeMenu.createAddItem(
-              o.GLocale.get(
-                new o.GLocaleKey("GExportDialog", "text.medium-quality")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GExportDialog", "text.medium-quality")
               ) + " (150dpi)"
             ),
             this._sizeMenu.createAddItem(
-              o.GLocale.get(
-                new o.GLocaleKey("GExportDialog", "text.high-quality")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GExportDialog", "text.high-quality")
               ) + " (300dpi)"
             );
         } else
@@ -1360,8 +1360,8 @@ function (exports, module, require) {
                     $("<span></span>")
                       .addClass("text")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GExportDialog",
                             "text.preparing-preview"
                           )
@@ -1369,104 +1369,104 @@ function (exports, module, require) {
                       )
                   )
                   .appendTo(this._previewContainer),
-                a = [],
-                r = 0;
-              r < e.length;
-              ++r
+                GEditor = [],
+                CollaborationMergeUtils = 0;
+              CollaborationMergeUtils < e.length;
+              ++CollaborationMergeUtils
             ) {
-              for (var s = e[r], l = null, c = 0; c < a.length; ++c)
-                if (a[c].element === s.element) {
-                  l = a[c];
+              for (var AppSettings = e[CollaborationMergeUtils], GMenu = null, c = 0; c < GEditor.length; ++c)
+                if (GEditor[c].element === AppSettings.element) {
+                  GMenu = GEditor[c];
                   break;
                 }
-              l ||
-                ((l = {
-                  element: s.element,
-                  name: s.name,
-                  format: s.format,
-                  size: s.size,
-                  jpegQuality: s.jpegQuality,
-                  backgroundColor: s.backgroundColor,
-                  backgroundOpacity: s.backgroundOpacity,
+              GMenu ||
+                ((GMenu = {
+                  element: AppSettings.element,
+                  name: AppSettings.name,
+                  format: AppSettings.format,
+                  size: AppSettings.size,
+                  jpegQuality: AppSettings.jpegQuality,
+                  backgroundColor: AppSettings.backgroundColor,
+                  backgroundOpacity: AppSettings.backgroundOpacity,
                   sizes: "",
                   formats: "",
-                  configuration: s.configuration,
+                  configuration: AppSettings.configuration,
                 }),
-                a.push(l)),
-                "" !== l.formats && (l.formats += ", "),
-                (l.formats += s.format),
-                s.size &&
-                  ("" !== l.sizes && (l.sizes += ", "), (l.sizes += s.size));
+                GEditor.push(GMenu)),
+                "" !== GMenu.formats && (GMenu.formats += ", "),
+                (GMenu.formats += AppSettings.format),
+                AppSettings.size &&
+                  ("" !== GMenu.sizes && (GMenu.sizes += ", "), (GMenu.sizes += AppSettings.size));
             }
-            var d = null;
-            (a.length > 1 || "assets" === this._activeMode) &&
-              (d = $("<div></div>")
+            var barrel_panels = null;
+            (GEditor.length > 1 || "assets" === this._activeMode) &&
+              (barrel_panels = $("<div></div>")
                 .addClass("list content")
                 .appendTo(this._previewContainer));
-            var u = [];
-            for (r = 0; r < a.length; ++r) {
-              l = a[r];
+            var ZipDirectory = [];
+            for (CollaborationMergeUtils = 0; CollaborationMergeUtils < GEditor.length; ++CollaborationMergeUtils) {
+              GMenu = GEditor[CollaborationMergeUtils];
               var p,
-                g,
-                h = o.GBitmap.ImageType.PNG,
+                GSystemDialog,
+                h = GCore.GBitmap.ImageType.PNG,
                 f = null;
-              "jpg" === l.format &&
-                ((h = o.GBitmap.ImageType.JPEG),
-                (f = (l.jpegQuality || 100) / 100));
+              "jpg" === GMenu.format &&
+                ((h = GCore.GBitmap.ImageType.JPEG),
+                (f = (GMenu.jpegQuality || 100) / 100));
               var m = window.devicePixelRatio;
-              if (d) {
-                var y = new o.GLength(50, o.GLength.Unit.PX);
-                p = (g = l.element.toBitmap(
+              if (barrel_panels) {
+                var y = new GCore.GLength(50, GCore.GLength.Unit.PX);
+                p = (GSystemDialog = GMenu.element.toBitmap(
                   y,
                   y,
                   2,
-                  l.backgroundColor,
-                  l.configuration,
+                  GMenu.backgroundColor,
+                  GMenu.configuration,
                   null,
-                  l.backgroundOpacity
+                  GMenu.backgroundOpacity
                 )).toImageDataUrl(h, f);
               } else {
                 var v = null;
-                this._hasBackgroundColor() && (v = l.backgroundColor);
-                var _ = l.element._getBitmapPaintArea(),
+                this._hasBackgroundColor() && (v = GMenu.backgroundColor);
+                var _ = GMenu.element._getBitmapPaintArea(),
                   b = [0],
                   w = i.GBitmapExport.convertSizeToScale(
                     _.getWidth(),
                     _.getHeight(),
-                    l.size,
+                    GMenu.size,
                     null,
                     b
                   ),
-                  C = _.getWidth() * (b[0] / o.GLength.DPI) * w.getX(),
-                  x = _.getHeight() * (b[0] / o.GLength.DPI) * w.getY(),
-                  S = l.size;
+                  C = _.getWidth() * (b[0] / GCore.GLength.DPI) * w.getX(),
+                  x = _.getHeight() * (b[0] / GCore.GLength.DPI) * w.getY(),
+                  S = GMenu.size;
                 (C > 1920 || x > 1080) &&
                   (S =
                     Math.min(1920 / _.getWidth(), 1080 / _.getHeight()) + "x"),
-                  (p = (g = i.GBitmapExport.export(
-                    l.element,
+                  (p = (GSystemDialog = i.GBitmapExport.export(
+                    GMenu.element,
                     S,
                     v,
-                    l.configuration,
+                    GMenu.configuration,
                     null,
-                    l.backgroundOpacity,
+                    GMenu.backgroundOpacity,
                     true
                   )).toImageDataUrl(h, f));
               }
-              var E = g.getWidth() / m,
-                A = g.getHeight() / m,
+              var E = GSystemDialog.getWidth() / m,
+                A = GSystemDialog.getHeight() / m,
                 T = $("<img />").attr("src", p),
                 G = $("<div></div>")
                   .addClass("preview-image")
-                  .css("background", o.GPattern.asCSSBackground(null, 0))
+                  .css("background", GCore.GPattern.asCSSBackground(null, 0))
                   .append(T);
-              if ((u.push({ img: T, w: E, h: A, preview: G }), d)) {
+              if ((ZipDirectory.push({ img: T, w: E, h: A, preview: G }), barrel_panels)) {
                 var P = "";
                 "assets" === this._activeMode &&
-                  (l.sizes && (P = l.sizes + " - "), (P += l.formats)),
+                  (GMenu.sizes && (P = GMenu.sizes + " - "), (P += GMenu.formats)),
                   $("<div></div>")
                     .addClass("item")
-                    .data("element", l.element)
+                    .data("element", GMenu.element)
                     .append(G)
                     .append(
                       $("<div></div>")
@@ -1477,7 +1477,7 @@ function (exports, module, require) {
                               "checked",
                               !this._options ||
                                 !this._options.element ||
-                                this._options.element == l.element
+                                this._options.element == GMenu.element
                             )
                             .on("change", () => {
                               this._updateStorageDestinationSetting();
@@ -1486,10 +1486,10 @@ function (exports, module, require) {
                         )
                     )
                     .append(
-                      $("<div></div>").addClass("preview-name").text(l.name)
+                      $("<div></div>").addClass("preview-name").text(GMenu.name)
                     )
                     .append($("<div></div>").addClass("preview-meta").text(P))
-                    .appendTo(d);
+                    .appendTo(barrel_panels);
               } else G.addClass("content").appendTo(this._previewContainer);
             }
             require.remove();
@@ -1499,8 +1499,8 @@ function (exports, module, require) {
                 $("<div></div>")
                   .addClass("empty")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GExportDialog",
                         "text.selection-warning"
                       )
@@ -1512,8 +1512,8 @@ function (exports, module, require) {
                 $("<div></div>")
                   .addClass("empty")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GExportDialog", "text.assets-warning")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GExportDialog", "text.assets-warning")
                     )
                   )
                   .appendTo(this._previewContainer);
@@ -1531,10 +1531,10 @@ function (exports, module, require) {
           "pdf" !== this._settings.format
         )
           for (var require = 0; require < e.length; ++require) {
-            var o = e[require];
-            if (o.overrideBackground) {
-              var i = o.element.getProperty("bop");
-              module.push({ index: require, opacity: i }), o.element.setProperty("bop", 0);
+            var GCore = e[require];
+            if (GCore.overrideBackground) {
+              var i = GCore.element.getProperty("bop");
+              module.push({ index: require, opacity: i }), GCore.element.setProperty("bop", 0);
             }
           }
         return module;
@@ -1542,9 +1542,9 @@ function (exports, module, require) {
       (m.prototype._restoreOpacities = function (e, t) {
         if (t.length > 0)
           for (var require = 0; require < e.length; ++require)
-            for (var o = e[require], i = 0; i < t.length; ++i)
+            for (var GCore = e[require], i = 0; i < t.length; ++i)
               if (require === t[i].index) {
-                o.element.setProperty("bop", t[i].opacity);
+                GCore.element.setProperty("bop", t[i].opacity);
                 break;
               }
       }),

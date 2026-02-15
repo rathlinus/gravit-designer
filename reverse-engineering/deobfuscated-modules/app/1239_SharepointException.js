@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(842) /* polyfill_String_trimStart */;
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.TEAMS_COMMANDS = module.GSharePointClient = undefined),
       require(58) /* polyfill_Array_includes */,
@@ -31,16 +31,16 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var i = require(1) /* module */,
-      a = o(require(1476) /* module_1476 */),
-      r = require(802) /* CloudException */,
-      s = o(require(119) /* module_119 */),
-      l = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(1476) /* module_1476 */),
+      CloudException = require(802) /* CloudException */,
+      s = _interopRequireDefault(require(119) /* module_119 */),
+      AppSettings = require(10) /* AppSettings */,
       c = require(593) /* module_593 */,
-      d = o(require(594) /* GError */),
-      u = o(require(1477) /* GMicrosoftUser */),
-      p = o(require(1242) /* module_1242 */),
-      g = require(40) /* CollaborationMergeUtils */;
+      GError = _interopRequireDefault(require(594) /* GError */),
+      GMicrosoftUser = _interopRequireDefault(require(1477) /* GMicrosoftUser */),
+      p = _interopRequireDefault(require(1242) /* module_1242 */),
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const h = require(156) /* module_156 */;
     let f = null,
       m = {};
@@ -49,21 +49,21 @@ function (exports, module, require) {
         let {
           tenant: module,
           domain: require,
-          clientID: o,
-          id: i,
+          clientID: _interopRequireDefault,
+          id: GCore,
           authTenant: a,
-          corporate: r,
+          corporate: CloudException,
           token: s,
-          relativePath: l,
+          relativePath: AppSettings,
         } = e;
         (this.TOKEN = f || s),
           (this.BASE_URL = module),
           (this.AUTH_TENANT = a || module),
           (this.DOMAIN = require),
-          (this.CLIENT_ID = o),
-          (this.SETTINGS_ID = i),
-          (this.CORPORATE = r || false),
-          (this.RELATIVE_PATH = l),
+          (this.CLIENT_ID = _interopRequireDefault),
+          (this.SETTINGS_ID = GCore),
+          (this.CORPORATE = CloudException || false),
+          (this.RELATIVE_PATH = AppSettings),
           (this.HEADERS = v.requestHeaders);
       });
     (v.prototype.setTenantURL = function (e) {
@@ -78,8 +78,8 @@ function (exports, module, require) {
       (v.prototype.getSanitizedFolderRelativePath = function (e) {
         let module = e;
         return (
-          this.RELATIVE_PATH && (module = (0, g.trimStart)(module, this.RELATIVE_PATH)),
-          (0, g.trimStart)(module, "/")
+          this.RELATIVE_PATH && (module = (0, CollaborationMergeUtils.trimStart)(module, this.RELATIVE_PATH)),
+          (0, CollaborationMergeUtils.trimStart)(module, "/")
         );
       }),
       (v.prototype.getSanitizedFileRelativePath = function (e) {
@@ -170,7 +170,7 @@ function (exports, module, require) {
             t.setItemType(h.Type.File),
             (t.type = v.getFileType({ name: e.Name })),
             (t.mimeType = e._mimetype || e.mimeType || t.type);
-          const require = l.FILE_FORMATS.find((e) => {
+          const require = AppSettings.FILE_FORMATS.find((e) => {
             let { type: require } = e;
             return require === t.type;
           });
@@ -254,17 +254,17 @@ function (exports, module, require) {
       }),
       (v.getFileType = function (e) {
         return e.name.toLowerCase().endsWith(".cdrapp")
-          ? l.FILE_FORMATS.find((e) => {
+          ? AppSettings.FILE_FORMATS.find((e) => {
               let { ext: module } = e;
               return "cdrapp" === module;
             }).type
           : e.name.toLowerCase().endsWith(".cdr")
-          ? l.FILE_FORMATS.find((e) => {
+          ? AppSettings.FILE_FORMATS.find((e) => {
               let { ext: module } = e;
               return "cdr" === module;
             }).type
           : e.name.toLowerCase().endsWith(".des")
-          ? l.FILE_FORMATS.find((e) => {
+          ? AppSettings.FILE_FORMATS.find((e) => {
               let { ext: module } = e;
               return "des" === module;
             }).type
@@ -301,9 +301,9 @@ function (exports, module, require) {
         }
         const require = v.getUserId();
         for (let module = 0; module < exports.length; module++) {
-          o(exports[module]);
+          _interopRequireDefault(exports[module]);
         }
-        function o(e) {
+        function _interopRequireDefault(e) {
           gContainer.getProperty(e).then((t) => {
             v.isTokenValid(t, require) || gContainer.removeProperty(e);
           });
@@ -332,7 +332,7 @@ function (exports, module, require) {
         );
       }),
       (v.ExceptionCode = { LoginAborted: 1, FileAlreadyCheckedOut: 423 });
-    class _ extends d.default {
+    class _ extends GError.default {
       constructor(e, t) {
         super(e),
           (this.code = t),
@@ -363,7 +363,7 @@ function (exports, module, require) {
           corporate: this.CORPORATE,
           token: this.TOKEN,
           relativePath: this.RELATIVE_PATH,
-          type: l.EXTERNAL_APP.SHAREPOINT,
+          type: AppSettings.EXTERNAL_APP.SHAREPOINT,
         };
       }),
       (v.prototype.getId = function () {
@@ -378,23 +378,23 @@ function (exports, module, require) {
         return this.get(this._createQueryFilesURL(e));
       }),
       (v.prototype.fetchFolders = function (e, t, n) {
-        const o = this.getSanitizedFolderRelativePath(e.relativeUrl);
-        var i = "/_api/web/GetFolderByServerRelativeUrl('"
-          .concat(encodeURI(o), "')/Folders?$orderby=")
+        const _interopRequireDefault = this.getSanitizedFolderRelativePath(e.relativeUrl);
+        var GCore = "/_api/web/GetFolderByServerRelativeUrl('"
+          .concat(encodeURI(_interopRequireDefault), "')/Folders?$orderby=")
           .concat(encodeURI(t));
         return (
-          n > 0 && (i += "&$top=".concat(n)),
-          this.get(i).then((t) => {
+          n > 0 && (GCore += "&$top=".concat(n)),
+          this.get(GCore).then((t) => {
             let { value: n } = t;
-            const o = [];
-            if (!n || !n.length) return o;
-            for (let t = 0, i = n.length; t < i; t++) {
-              let i = n[t];
-              if (!i.Exists) continue;
-              const a = v.convertFolderToCloudItem(i);
-              (a.parent = e), o.push(a);
+            const _interopRequireDefault = [];
+            if (!n || !n.length) return _interopRequireDefault;
+            for (let t = 0, GCore = n.length; t < GCore; t++) {
+              let GCore = n[t];
+              if (!GCore.Exists) continue;
+              const a = v.convertFolderToCloudItem(GCore);
+              (a.parent = e), _interopRequireDefault.push(a);
             }
-            return o;
+            return _interopRequireDefault;
           })
         );
       }),
@@ -410,16 +410,16 @@ function (exports, module, require) {
         return this.get(require);
       }),
       (v.prototype._createQueryFilesURL = function (e) {
-        const { folderRelativeUrl: module, orderBy: require, limit: o, skip: i } = e,
+        const { folderRelativeUrl: module, orderBy: require, limit: _interopRequireDefault, skip: GCore } = e,
           a = this.getSanitizedFolderRelativePath(module),
-          r = this.getAPIEndpointURL(
+          CloudException = this.getAPIEndpointURL(
             "/_api/web/GetFolderByServerRelativeUrl('".concat(a, "')/Files")
           );
         return (
-          r.searchParams.append("$orderby", require),
-          r.searchParams.append("$top", o),
-          r.searchParams.append("$skip", i),
-          r
+          CloudException.searchParams.append("$orderby", require),
+          CloudException.searchParams.append("$top", _interopRequireDefault),
+          CloudException.searchParams.append("$skip", GCore),
+          CloudException
         );
       }),
       (v.prototype.findFileById = function (e) {
@@ -477,8 +477,8 @@ function (exports, module, require) {
         return this.post(module).catch((e) => {
           if (e.status === v.ExceptionCode.FileAlreadyCheckedOut)
             throw new v.SharepointException(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFilesPanelViewSharepoint",
                   "text.error-file-is-already-checked-out-by-someone-else"
                 )
@@ -504,11 +504,11 @@ function (exports, module, require) {
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : v.CheckinType.MinorCheckIn;
-        const o = "/_api/web/GetFileByServerRelativeUrl('"
+        const _interopRequireDefault = "/_api/web/GetFileByServerRelativeUrl('"
           .concat(e.relativeUrl, "')/CheckIn(comment='")
           .concat(module, "', checkintype=")
           .concat(require, ")");
-        return this.post(o);
+        return this.post(_interopRequireDefault);
       }),
       (v.prototype.getCheckOutFileInfo = function (e) {
         const module = "/_api/web/GetFileByServerRelativeUrl('".concat(
@@ -534,12 +534,12 @@ function (exports, module, require) {
       }),
       (v.prototype._getUser = async function () {
         return (
-          this._user || (this._user = new u.default(await this.getUser())),
+          this._user || (this._user = new GMicrosoftUser.default(await this.getUser())),
           this._user
         );
       }),
       (v.prototype.getFileCreator = async function (e) {
-        return new u.default(await this._getFileCreator(e));
+        return new GMicrosoftUser.default(await this._getFileCreator(e));
       }),
       (v.prototype.getLibrarySettings = function () {
         let exports =
@@ -579,21 +579,21 @@ function (exports, module, require) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
         const require = this.getSanitizedFolderRelativePath(e.relativeUrl),
-          o = "/_api/web/GetFolderByServerRelativeUrl('".concat(
+          _interopRequireDefault = "/_api/web/GetFolderByServerRelativeUrl('".concat(
             encodeURI(require),
             "')"
           );
-        return this.get(o, { headers: module });
+        return this.get(_interopRequireDefault, { headers: module });
       }),
       (v.prototype.getParentFolder = function (e) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
         const require = this.getSanitizedFolderRelativePath(e.relativeUrl),
-          o = "/_api/Web/GetFolderByServerRelativePath(decodedurl='".concat(
+          _interopRequireDefault = "/_api/Web/GetFolderByServerRelativePath(decodedurl='".concat(
             encodeURI(require),
             "')/ParentFolder"
           );
-        return this.get(o, { headers: module });
+        return this.get(_interopRequireDefault, { headers: module });
       }),
       (v.prototype.copyFileTo = function (e, t) {
         var n = "/_api/web/GetFileByServerRelativeUrl('"
@@ -661,33 +661,33 @@ function (exports, module, require) {
       }),
       (v.prototype.post = function (e, t) {
         let require,
-          o =
+          _interopRequireDefault =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : null;
         return (
-          (require = o && o.blobRequest ? new Blob([t]) : t),
-          this._query("POST", e, require, o)
+          (require = _interopRequireDefault && _interopRequireDefault.blobRequest ? new Blob([t]) : t),
+          this._query("POST", e, require, _interopRequireDefault)
         );
       }),
       (v.prototype._query = function (e, t) {
         let require,
-          o =
+          _interopRequireDefault =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : null,
-          i =
+          GCore =
             arguments.length > 3 && undefined !== arguments[3]
               ? arguments[3]
               : null;
         return (
           (require =
-            (i && i.fullLink) || t instanceof URL
+            (GCore && GCore.fullLink) || t instanceof URL
               ? t instanceof URL
                 ? t.toString()
                 : t
               : this.getAPIEndpointURL(t).toString()),
-          this.query(e, require, o, i)
+          this.query(e, require, _interopRequireDefault, GCore)
         );
       }),
       (v.prototype.getAPIEndpointURL = function (e) {
@@ -699,8 +699,8 @@ function (exports, module, require) {
         } catch (e) {
           return (
             (!e ||
-              (e.status !== l.HTTP_STATUS_CODES.FORBIDDEN &&
-                e.status !== l.HTTP_STATUS_CODES.NOT_FOUND)) &&
+              (e.status !== AppSettings.HTTP_STATUS_CODES.FORBIDDEN &&
+                e.status !== AppSettings.HTTP_STATUS_CODES.NOT_FOUND)) &&
             (console.error(
               "GSharePointClient - failed to check folder permissions",
               e
@@ -727,15 +727,15 @@ function (exports, module, require) {
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : null,
-          o =
+          _interopRequireDefault =
             arguments.length > 3 && undefined !== arguments[3]
               ? arguments[3]
               : null;
-        const i = this;
+        const GCore = this;
         return new Promise((e, t) =>
-          i.TOKEN && v.isTokenValid(i.TOKEN, v.getUserId())
+          GCore.TOKEN && v.isTokenValid(GCore.TOKEN, v.getUserId())
             ? a(e, t)
-            : i
+            : GCore
                 .connect()
                 .then(() => {
                   a(e, t);
@@ -744,69 +744,69 @@ function (exports, module, require) {
                   t(e);
                 })
         );
-        async function a(r, s) {
-          const l = {
+        async function a(CloudException, s) {
+          const AppSettings = {
             method: e,
             cache: "no-cache",
-            headers: i._prepareRequestHeaders(e, require, o),
-            body: i._prepareRequestBody(e, require, o),
+            headers: GCore._prepareRequestHeaders(e, require, _interopRequireDefault),
+            body: GCore._prepareRequestBody(e, require, _interopRequireDefault),
           };
-          let d;
+          let GError;
           try {
-            d = await fetch(t, l);
+            GError = await fetch(t, AppSettings);
           } catch (e) {
             return void s(e);
           }
-          if (401 === d.status)
-            i.clearUserData(),
-              i
+          if (401 === GError.status)
+            GCore.clearUserData(),
+              GCore
                 .connect(true)
                 .then(() => {
-                  a(r, s);
+                  a(CloudException, s);
                 })
                 .catch((e) => {
                   s(e);
                 });
           else if (
-            200 === d.status ||
-            201 === d.status ||
-            202 === d.status ||
-            204 === d.status
+            200 === GError.status ||
+            201 === GError.status ||
+            202 === GError.status ||
+            204 === GError.status
           ) {
-            if (o && o.progress && "function" == typeof o.progress)
-              return (0, c.readResponseWithProgress)(d, o.progress, false).then(
-                (e) => r(e)
+            if (_interopRequireDefault && _interopRequireDefault.progress && "function" == typeof _interopRequireDefault.progress)
+              return (0, c.readResponseWithProgress)(GError, _interopRequireDefault.progress, false).then(
+                (e) => CloudException(e)
               );
-            if (o && o.rawResponse) return r(d);
+            if (_interopRequireDefault && _interopRequireDefault.rawResponse) return CloudException(GError);
             let e = {};
-            if (204 !== d.status)
+            if (204 !== GError.status)
               try {
-                e = await d.json();
+                e = await GError.json();
               } catch (e) {
                 console.error("Incorrect response format: ", e.message), s(e);
               }
-            r(e);
-          } else s({ status: d.status, statusText: d.statusText });
+            CloudException(e);
+          } else s({ status: GError.status, statusText: GError.statusText });
         }
       }),
       (v.prototype._prepareRequestHeaders = function (e, t, n) {
         if (n && n.noHeaders) return;
-        const o = Object.assign({}, this.HEADERS, {
+        const _interopRequireDefault = Object.assign({}, this.HEADERS, {
           Authorization: "Bearer ".concat(this.TOKEN.token),
         });
         this._isBodyRequestRequired(e, t) &&
-          ((o["Content-Type"] =
+          ((_interopRequireDefault["Content-Type"] =
             (n && n.headers && n.headers["Content-Type"]) ||
             "application/json;odata=verbose"),
-          (o["Content-Length"] = JSON.stringify(t).length));
-        return Object.assign(o, (n && n.headers) || {});
+          (_interopRequireDefault["Content-Length"] = JSON.stringify(t).length));
+        return Object.assign(_interopRequireDefault, (n && n.headers) || {});
       }),
       (v.prototype._prepareRequestBody = function (e, t, n) {
-        let o;
+        let _interopRequireDefault;
         return (
           this._isBodyRequestRequired(e, t) &&
-            (o = n && n.blobRequest ? t : JSON.stringify(t)),
-          o
+            (_interopRequireDefault = n && n.blobRequest ? t : JSON.stringify(t)),
+          _interopRequireDefault
         );
       }),
       (v.prototype._isBodyRequestRequired = function (e, t) {
@@ -846,20 +846,20 @@ function (exports, module, require) {
         let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         const require = this,
-          o = this._getSharePointSettings(),
+          _interopRequireDefault = this._getSharePointSettings(),
           a = 6e4,
           s = 3e3;
         let c,
-          d = false;
-        const u = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
+          GError = false;
+        const GMicrosoftUser = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
         if (require._connect) return require._connect;
         const p = gContainer.getSharepointAuthenticator();
         return p
-          ? !e && u
-            ? void (require.TOKEN = u)
-            : (l.msTeamsMode
+          ? !e && GMicrosoftUser
+            ? void (require.TOKEN = GMicrosoftUser)
+            : (AppSettings.msTeamsMode
                 ? (require._connect = p.authenticate(require._getTeamsCommand()))
-                : (require._connect = p.authenticate(o, { clearCache: e })),
+                : (require._connect = p.authenticate(_interopRequireDefault, { clearCache: e })),
               require._connect.then(
                 (e) => (
                   (require.TOKEN = f = { id: v.getUserId() }),
@@ -876,8 +876,8 @@ function (exports, module, require) {
                 )
               ),
               require._connect)
-          : ((require._connect = new Promise((s, l) => {
-              !(function t(u) {
+          : ((require._connect = new Promise((s, AppSettings) => {
+              !(function t(GMicrosoftUser) {
                 gContainer
                   .getProperty(
                     ""
@@ -900,10 +900,10 @@ function (exports, module, require) {
                     if (!y || y.closed || undefined === y.closed)
                       return (
                         $(window).off("message", b),
-                        void l({
-                          status: r.WINDOW_STATUS_BLOCKED,
-                          message: i.GLocale.get(
-                            new i.GLocaleKey(
+                        void AppSettings({
+                          status: CloudException.WINDOW_STATUS_BLOCKED,
+                          message: GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GExternalStorage",
                               "text.error-window-blocked-alternative"
                             )
@@ -913,14 +913,14 @@ function (exports, module, require) {
                     (y.onload = function () {
                       require._toClear &&
                         (y.postMessage(
-                          { cmd: "clearCachedUser", sharepointSettings: o },
+                          { cmd: "clearCachedUser", sharepointSettings: _interopRequireDefault },
                           ""
                             .concat(window.location.protocol, "//")
                             .concat(window.location.host, "/sp.html")
                         ),
                         delete require._toClear),
                         y.postMessage(
-                          { cmd: "sharepointSettings", sharepointSettings: o },
+                          { cmd: "sharepointSettings", sharepointSettings: _interopRequireDefault },
                           ""
                             .concat(window.location.protocol, "//")
                             .concat(window.location.host, "/sp.html")
@@ -931,13 +931,13 @@ function (exports, module, require) {
                       });
                     var _ = setInterval(function () {
                       y.closed &&
-                        !d &&
+                        !GError &&
                         (clearInterval(_),
                         (_ = null),
                         gContainer.removeProperty("sp_getToken_data"),
-                        v._logoutAndClearAdalCache(o),
+                        v._logoutAndClearAdalCache(_interopRequireDefault),
                         c && clearTimeout(c),
-                        l(
+                        AppSettings(
                           new v.SharepointException(
                             null,
                             v.ExceptionCode.LoginAborted
@@ -945,48 +945,48 @@ function (exports, module, require) {
                         ));
                     }, 1e3);
                     async function b(e) {
-                      let i = e.originalEvent.data;
-                      const { cmd: r } = i;
-                      if (r && "saveToken" === r)
+                      let GCore = e.originalEvent.data;
+                      const { cmd: CloudException } = GCore;
+                      if (CloudException && "saveToken" === CloudException)
                         (require.TOKEN = f =
                           {
                             expires: Math.floor(Date.now() / 1e3) + 3600,
-                            token: i.token,
+                            token: GCore.token,
                             id: v.getUserId(),
                           }),
                           v.saveTokenToCache(require.SETTINGS_ID, require.TOKEN),
-                          (d = true),
-                          g(y),
+                          (GError = true),
+                          CollaborationMergeUtils(y),
                           c && clearTimeout(c),
                           $(window).off("message", b),
                           (require._connect = null),
                           s();
-                      else if (r && "saveTokenError" === r) {
-                        const { error: e } = i;
+                      else if (CloudException && "saveTokenError" === CloudException) {
+                        const { error: e } = GCore;
                         if ("User login is required" === e) return;
                         if (
-                          (console.error(">>saveTokenError data", i),
+                          (console.error(">>saveTokenError data", GCore),
                           c && clearTimeout(c),
-                          u)
+                          GMicrosoftUser)
                         )
                           return void (c = setTimeout(function () {
-                            h(y), v._logoutAndClearAdalCache(o), t(false);
+                            h(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
                           }, a));
-                        v._logoutAndClearAdalCache(o),
+                        v._logoutAndClearAdalCache(_interopRequireDefault),
                           h(y),
                           (require._connect = null),
-                          l(e);
+                          AppSettings(e);
                       }
                     }
-                    u &&
+                    GMicrosoftUser &&
                       (c = setTimeout(function () {
-                        g(y), v._logoutAndClearAdalCache(o), t(false);
+                        CollaborationMergeUtils(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
                       }, a));
                   });
               })(module);
             })),
             require._connect);
-        function g(e) {
+        function CollaborationMergeUtils(e) {
           let module =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 0;
           setTimeout(() => {
@@ -994,7 +994,7 @@ function (exports, module, require) {
           }, module);
         }
         function h(e) {
-          g(e, s);
+          CollaborationMergeUtils(e, s);
         }
       }),
       (v.prototype.updateFileContent = function (e, t) {
@@ -1028,17 +1028,17 @@ function (exports, module, require) {
             throw new Error(e.statusText);
         });
       }),
-      (v.prototype._popupToCenter = function (e, t, n, o) {
-        const i = this._getPopupWindowReference(),
-          a = i.outerHeight / 2 + i.screenY - n / 2,
-          r = i.outerWidth / 2 + i.screenX - o / 2;
+      (v.prototype._popupToCenter = function (e, t, n, _interopRequireDefault) {
+        const GCore = this._getPopupWindowReference(),
+          a = GCore.outerHeight / 2 + GCore.screenY - n / 2,
+          CloudException = GCore.outerWidth / 2 + GCore.screenX - _interopRequireDefault / 2;
         return window.open(
           e,
           t,
           "left="
-            .concat(r, ",top=")
+            .concat(CloudException, ",top=")
             .concat(a, ",width=")
-            .concat(o, ",height=")
+            .concat(_interopRequireDefault, ",height=")
             .concat(
               n,
               ",menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no"
@@ -1071,17 +1071,17 @@ function (exports, module, require) {
       }),
       (v.prototype.createFile = function (e, t) {
         const require = e.parentUrl || e.parent.relativeUrl,
-          o = this.getSanitizedFolderRelativePath(require);
-        var i = "/_api/web/GetFolderByServerRelativeUrl('"
-          .concat(o, "')/Files/add(url='")
+          _interopRequireDefault = this.getSanitizedFolderRelativePath(require);
+        var GCore = "/_api/web/GetFolderByServerRelativeUrl('"
+          .concat(_interopRequireDefault, "')/Files/add(url='")
           .concat(e.getNameWithExtension(), "',overwrite=true)");
-        return this.post(i, t, { blobRequest: true, rawResponse: true });
+        return this.post(GCore, t, { blobRequest: true, rawResponse: true });
       }),
       (v.prototype.getAccountByEmail = function (e) {
         if (!e || e.indexOf("@") <= 0)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GShareDialog", "text.invalid-email")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GShareDialog", "text.invalid-email")
             ).replace("%email", e)
           );
         var t = "/_api/web/EnsureUser('".concat(e, "')");

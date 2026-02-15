@@ -6,28 +6,28 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(31) /* GAction */),
-      r = o(require(18) /* MenuItemBuilder */),
-      s = o(require(119) /* module_119 */),
-      l = o(require(1159) /* module_1159 */),
-      c = o(require(219) /* module_219 */),
-      d = o(require(256) /* GOfflineDialog */),
+    var GCore = require(1) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      s = _interopRequireDefault(require(119) /* module_119 */),
+      l = _interopRequireDefault(require(1159) /* module_1159 */),
+      c = _interopRequireDefault(require(219) /* module_219 */),
+      GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
       u = require(67) /* GRichTooltipConfig */;
     function p() {
-      (this._title = new i.GLocaleKey("GVersionsHistoryAction", "title")),
+      (this._title = new GCore.GLocaleKey("GVersionsHistoryAction", "title")),
         (p.TOOLTIP_CONFIG = {
           [u.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: u.GRichTooltipConfig.from({
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GVersionsHistoryAction",
                 "text.try-this-feature-pro-tooltip-title"
               )
             ),
-            description: i.GLocale.get(
-              new i.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GVersionsHistoryAction",
                 "text.try-this-feature-pro-tooltip-description"
               )
@@ -40,7 +40,7 @@ function (exports, module, require) {
           }),
         });
     }
-    i.GObject.inherit(p, a.default),
+    GCore.GObject.inherit(p, GAction.default),
       (p.ID = "gravit-versions-history"),
       (p.GroupID = "file"),
       (p.TOOLTIP_CONFIG = null),
@@ -64,7 +64,7 @@ function (exports, module, require) {
         return "gravit-icon-versions";
       }),
       (p.prototype.getCategory = function () {
-        return r.default.CATEGORY_FILE;
+        return MenuItemBuilder.default.CATEGORY_FILE;
       }),
       (p.prototype.getGroup = function () {
         return p.GroupID;
@@ -84,8 +84,8 @@ function (exports, module, require) {
         if (gDesigner.getWindows().getActiveWindow().getDocument().isModified())
           return (
             new c.default(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GVersionsHistoryAction",
                   "unsaved-modifications"
                 )
@@ -104,7 +104,7 @@ function (exports, module, require) {
             ),
             gDesigner.intercomStats("Entered version history"));
         };
-        gDesigner.isOffline() ? d.default.openUnavailableFeature(exports) : exports();
+        gDesigner.isOffline() ? GOfflineDialog.default.openUnavailableFeature(exports) : exports();
       }),
       (p.prototype.toString = function () {
         return "[Object GVersionsHistoryAction]";

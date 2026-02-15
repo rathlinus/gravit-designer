@@ -5,41 +5,41 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(184) /* toIndexedObject */,
-      i = require(360) /* internalObjectKeys */,
-      a = require(203) /* iteratorPrototype */,
-      r = require(80) /* internalState */,
-      s = require(88) /* createPropertyDescriptor */.f,
-      l = require(418) /* defineIterator */,
-      c = require(252) /* toStringClassof */,
-      d = require(74) /* createNonEnumerableProperty */,
-      u = require(49) /* hasOwnProperty_wrapper */,
-      p = r.set,
-      g = r.getterFor("Array Iterator");
-    exports.exports = l(
+    var toIndexedObject = require(184) /* toIndexedObject */,
+      internalObjectKeys = require(360) /* internalObjectKeys */,
+      iteratorPrototype = require(203) /* iteratorPrototype */,
+      internalState = require(80) /* internalState */,
+      createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f,
+      defineIterator = require(418) /* defineIterator */,
+      toStringClassof = require(252) /* toStringClassof */,
+      createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      p = internalState.set,
+      g = internalState.getterFor("Array Iterator");
+    exports.exports = defineIterator(
       Array,
       "Array",
       function (e, t) {
-        p(this, { type: "Array Iterator", target: o(e), index: 0, kind: t });
+        p(this, { type: "Array Iterator", target: toIndexedObject(e), index: 0, kind: t });
       },
       function () {
         var e = g(this),
           t = e.target,
           n = e.index++;
-        if (!t || n >= t.length) return (e.target = null), c(undefined, true);
+        if (!t || n >= t.length) return (e.target = null), toStringClassof(undefined, true);
         switch (e.kind) {
           case "keys":
-            return c(n, false);
+            return toStringClassof(n, false);
           case "values":
-            return c(t[n], false);
+            return toStringClassof(t[n], false);
         }
-        return c([n, t[n]], false);
+        return toStringClassof([n, t[n]], false);
       },
       "values"
     );
-    var h = (a.Arguments = a.Array);
-    if ((i("keys"), i("values"), i("entries"), !d && u && "values" !== h.name))
+    var h = (iteratorPrototype.Arguments = iteratorPrototype.Array);
+    if ((internalObjectKeys("keys"), internalObjectKeys("values"), internalObjectKeys("entries"), !createNonEnumerableProperty && hasOwnProperty_wrapper && "values" !== h.name))
       try {
-        s(h, "name", { value: "values" });
+        createPropertyDescriptor(h, "name", { value: "values" });
       } catch (e) {}
   }

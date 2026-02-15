@@ -5,32 +5,32 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(29) /* isCallable */,
-      i = require(278) /* fixRegExpWKS */,
-      a = require(37) /* toString_default */,
-      r = require(46) /* toLength */,
-      s = require(92) /* classof */,
+    var isCallable = require(29) /* isCallable */,
+      fixRegExpWKS = require(278) /* fixRegExpWKS */,
+      toString_default = require(37) /* toString_default */,
+      toLength = require(46) /* toLength */,
+      classof = require(92) /* classof */,
       l = require(1387) /* module_1387 */,
-      c = require(62) /* requireObjectCoercible */,
-      d = require(145) /* getSubstitution */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      getSubstitution = require(145) /* getSubstitution */,
       u = require(279) /* module_279 */;
-    i("search", function (e, t, n) {
+    fixRegExpWKS("search", function (e, t, n) {
       return [
         function (t) {
-          var n = s(this),
-            i = r(t) ? d(t, e) : undefined;
-          return i ? o(i, t, n) : new RegExp(t)[e](c(n));
+          var n = classof(this),
+            fixRegExpWKS = toLength(t) ? getSubstitution(t, e) : undefined;
+          return fixRegExpWKS ? isCallable(fixRegExpWKS, t, n) : new RegExp(t)[e](requireObjectCoercible(n));
         },
         function (e) {
-          var o = a(this),
-            i = c(e),
-            r = n(t, o, i);
-          if (r.done) return r.value;
-          var s = o.lastIndex;
-          l(s, 0) || (o.lastIndex = 0);
-          var d = u(o, i);
+          var isCallable = toString_default(this),
+            fixRegExpWKS = requireObjectCoercible(e),
+            toLength = n(t, isCallable, fixRegExpWKS);
+          if (toLength.done) return toLength.value;
+          var classof = isCallable.lastIndex;
+          l(classof, 0) || (isCallable.lastIndex = 0);
+          var getSubstitution = u(isCallable, fixRegExpWKS);
           return (
-            l(o.lastIndex, s) || (o.lastIndex = s), null === d ? -1 : d.index
+            l(isCallable.lastIndex, classof) || (isCallable.lastIndex = classof), null === getSubstitution ? -1 : getSubstitution.index
           );
         },
       ];

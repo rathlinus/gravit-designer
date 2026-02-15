@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
-      i = require(21) /* tryCall */,
-      a = require(35) /* anObject */,
+    var uncurryThis = require(27) /* uncurryThis */,
+      tryCall = require(21) /* tryCall */,
+      anObject = require(35) /* anObject */,
       r = require(131) /* module_131 */,
       s = require(110) /* module_110 */,
       l = require(299) /* module_299 */,
       c = function () {},
       d = s("Reflect", "construct"),
       u = /^\s*(?:class|function)\b/,
-      p = o(u.exec),
+      p = uncurryThis(u.exec),
       g = !u.test(c),
       h = function (e) {
-        if (!a(e)) return false;
+        if (!anObject(e)) return false;
         try {
           return d(c, [], e), true;
         } catch (e) {
@@ -25,7 +25,7 @@ function (exports, module, require) {
         }
       },
       f = function (e) {
-        if (!a(e)) return false;
+        if (!anObject(e)) return false;
         switch (r(e)) {
           case "AsyncFunction":
           case "GeneratorFunction":
@@ -41,7 +41,7 @@ function (exports, module, require) {
     (f.sham = true),
       (exports.exports =
         !d ||
-        i(function () {
+        tryCall(function () {
           var e;
           return (
             h(h.call) ||

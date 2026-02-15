@@ -10,32 +10,32 @@ function (exports, module, require) {
         var r = $(e);
         r.attr("draggable", false),
           r.gPro({
-            pro: t instanceof o.GElement && !!t.getProperty("_pro", true),
+            pro: t instanceof GCore.GElement && !!t.getProperty("_pro", true),
           });
         var s = $("<span></span>")
           .addClass("layer-title-group")
-          .toggleClass("g-selected", t.hasFlag(o.GNode.Flag.Selected));
+          .toggleClass("g-selected", t.hasFlag(GCore.GNode.Flag.Selected));
         s.appendTo(r),
           r
             .on("mouseenter", function (e) {
-              t.hasFlag(o.GElement.Flag.Hidden) ||
-                t.setFlag(o.GNode.Flag.Highlighted);
+              t.hasFlag(GCore.GElement.Flag.Hidden) ||
+                t.setFlag(GCore.GNode.Flag.Highlighted);
             })
             .on("mouseleave", function (e) {
-              t.hasFlag(o.GElement.Flag.Hidden) ||
-                t.removeFlag(o.GNode.Flag.Highlighted);
+              t.hasFlag(GCore.GElement.Flag.Hidden) ||
+                t.removeFlag(GCore.GNode.Flag.Highlighted);
             });
         var l = t.getProperty("name");
         l = l || t.getNodeNameTranslated();
         var c = $("<span></span>").html(l);
         c.addClass("layer-title").appendTo(s);
         var d = function (e) {
-          return e instanceof o.GSymbol && !!e.getMasterSymbol();
+          return e instanceof GCore.GSymbol && !!e.getMasterSymbol();
         };
         (d(t) || t.findParent(d)) && r.addClass("g-symbol-row");
-        r.toggleClass("g-active", t.hasFlag(o.GNode.Flag.Active))
+        r.toggleClass("g-active", t.hasFlag(GCore.GNode.Flag.Active))
           .toggleClass("g-has-selection", n)
-          .toggleClass("g-selected", t.hasFlag(o.GNode.Flag.Selected));
+          .toggleClass("g-selected", t.hasFlag(GCore.GNode.Flag.Selected));
         var u,
           { icon: p, overlayIcon: g } = i(t, a);
         p &&
@@ -67,21 +67,21 @@ function (exports, module, require) {
           n = null,
           i = false,
           a = e;
-        for (; (a = a.getParent()) && !(a instanceof o.GScene); ) {
-          a instanceof o.GBlock &&
+        for (; (a = a.getParent()) && !(a instanceof GCore.GScene); ) {
+          a instanceof GCore.GBlock &&
             ((t = false === a.getProperty("vis") || t),
             (s = a.getProperty("lkt")) &&
-              (n ? s === o.GBlock.LockType.Full && (n = s) : (n = s))),
-            a instanceof o.GLayer && (i = true === a.getProperty("otl") || i);
+              (n ? s === GCore.GBlock.LockType.Full && (n = s) : (n = s))),
+            a instanceof GCore.GLayer && (i = true === a.getProperty("otl") || i);
         }
         var r = t || false === e.getProperty("vis"),
           s = n || e.getProperty("lkt"),
-          l = i || (e instanceof o.GLayer && e.getProperty("otl")),
+          l = i || (e instanceof GCore.GLayer && e.getProperty("otl")),
           c = false;
-        if (e.hasMixin(o.GNode.Container))
+        if (e.hasMixin(GCore.GNode.Container))
           for (var d = e.getFirstChild(); null !== d && !c; d = d.getNext())
-            d instanceof o.GItem &&
-              d.hasFlag(o.GNode.Flag.Selected) &&
+            d instanceof GCore.GItem &&
+              d.hasFlag(GCore.GNode.Flag.Selected) &&
               (c = true);
         return {
           parentHidden: t,
@@ -93,59 +93,59 @@ function (exports, module, require) {
           hasSelection: c,
         };
       });
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e, t) {
       var n = null,
         i = null;
       if (
-        (e instanceof o.GLayer
+        (e instanceof GCore.GLayer
           ? (n = t ? "gravit-icon-folderopen" : "gravit-icon-folderclose")
-          : e instanceof o.GSlice
+          : e instanceof GCore.GSlice
           ? (n = "gravit-icon-slice")
-          : e instanceof o.GGroup
+          : e instanceof GCore.GGroup
           ? (n = "gravit-icon-group")
-          : e instanceof o.GShape
-          ? e instanceof o.GPathsGraph
+          : e instanceof GCore.GShape
+          ? e instanceof GCore.GPathsGraph
             ? (n = "gravit-icon-pathgraph3")
-            : e instanceof o.GSimpleShape
+            : e instanceof GCore.GSimpleShape
             ? (n = e.getIcon())
-            : e instanceof o.GText
+            : e instanceof GCore.GText
             ? ((n = "gravit-icon-textbox"),
               e.isFakeText() &&
                 (i = $("<div></div>").addClass("layer-icon-overlay")))
-            : e instanceof o.GImage
+            : e instanceof GCore.GImage
             ? (n = "gravit-icon-picture")
-            : e instanceof o.GEllipse
+            : e instanceof GCore.GEllipse
             ? (n = "gravit-icon-ellipse")
-            : e instanceof o.GRectangle
+            : e instanceof GCore.GRectangle
             ? (n = "gravit-icon-rectangle")
-            : e instanceof o.GPath || e instanceof o.GCompoundPath
+            : e instanceof GCore.GPath || e instanceof GCore.GCompoundPath
             ? (n = "gravit-icon-pen")
-            : e instanceof o.GPolygon
+            : e instanceof GCore.GPolygon
             ? (n = "gravit-icon-polygon")
-            : e instanceof o.GCompoundShape && (n = "gravit-icon-merge-union")
-          : e instanceof o.GSymbol &&
+            : e instanceof GCore.GCompoundShape && (n = "gravit-icon-merge-union")
+          : e instanceof GCore.GSymbol &&
             ((n = "gravit-icon-symbol"),
             e.isMaster()
               ? (n += "master")
               : e.getMasterSymbol()
               ? (n += "instance")
               : (n += "detached")),
-        e instanceof o.GShape &&
-          e.getParent() instanceof o.GCompoundShape &&
+        e instanceof GCore.GShape &&
+          e.getParent() instanceof GCore.GCompoundShape &&
           e.getPrevious())
       )
         switch (e.getProperty("bool")) {
-          case o.GVertexPolyBoolean.OR:
+          case GCore.GVertexPolyBoolean.OR:
             n = "gravit-icon-merge-union";
             break;
-          case o.GVertexPolyBoolean.AND:
+          case GCore.GVertexPolyBoolean.AND:
             n = "gravit-icon-merge-intersect";
             break;
-          case o.GVertexPolyBoolean.SUB:
+          case GCore.GVertexPolyBoolean.SUB:
             n = "gravit-icon-merge-subtract";
             break;
-          case o.GVertexPolyBoolean.XOR:
+          case GCore.GVertexPolyBoolean.XOR:
             n = "gravit-icon-merge-difference";
         }
       return { icon: n, overlayIcon: i };

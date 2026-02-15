@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(394) /* GView */;
+    var GCore = require(1) /* module */,
+      GView = require(394) /* GView */;
     function a(e) {
       (this._htmlElement = e),
         (this._collapseIcon = $(
@@ -51,14 +51,14 @@ function (exports, module, require) {
         else {
           for (var module = 0; module < this._panels.length; ++module) {
             var require = this._panels[module],
-              o = require.panel.getId();
-            o === e
+              GCore = require.panel.getId();
+            GCore === e
               ? (require.container.css("display", ""),
                 require.tab.addClass("g-active"),
                 require.panel.activate())
               : (require.container.css("display", "none"),
                 require.tab.removeClass("g-active"),
-                o === this._activePanel && require.panel.deactivate());
+                GCore === this._activePanel && require.panel.deactivate());
           }
           this._activePanel = e;
         }
@@ -70,9 +70,9 @@ function (exports, module, require) {
             n.container.find(".g-disabled-overlay").remove(),
               n.container.removeClass("g-disabled");
           else {
-            var o = n.container.find(".g-disabled-overlay");
-            0 === o.length &&
-              (o = $("<div></div>")
+            var GCore = n.container.find(".g-disabled-overlay");
+            0 === GCore.length &&
+              (GCore = $("<div></div>")
                 .addClass("g-disabled-overlay")
                 .appendTo(n.container)),
               n.container.addClass("g-disabled");
@@ -90,7 +90,7 @@ function (exports, module, require) {
             var a = $("<button></button>")
                 .addClass("panel-tab")
                 .attr("data-panel-id", n.getId())
-                .text(o.GLocale.get(n.getTitle()))
+                .text(GCore.GLocale.get(n.getTitle()))
                 .on(
                   "click",
                   function (e) {
@@ -118,7 +118,7 @@ function (exports, module, require) {
               this.setPanelEnabled(n.getId(), n.isEnabled()),
               this._panels.push({ tab: a, container: r, panel: n }),
               n.addEventListener(
-                i.UpdateEvent,
+                GView.UpdateEvent,
                 function () {
                   this.setPanelEnabled(n.getId(), n.isEnabled());
                 }.bind(this)

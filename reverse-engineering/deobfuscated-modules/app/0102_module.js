@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(29) /* isCallable */,
-      i = require(37) /* toString_default */,
-      a = require(145) /* getSubstitution */;
+    var isCallable = require(29) /* isCallable */,
+      toString_default = require(37) /* toString_default */,
+      getSubstitution = require(145) /* getSubstitution */;
     exports.exports = function (e, t, n) {
       var r, s;
-      i(e);
+      toString_default(e);
       try {
-        if (!(r = a(e, "return"))) {
+        if (!(r = getSubstitution(e, "return"))) {
           if ("throw" === t) throw n;
           return n;
         }
-        r = o(r, e);
+        r = isCallable(r, e);
       } catch (e) {
         (s = true), (r = e);
       }
       if ("throw" === t) throw n;
       if (s) throw r;
-      return i(r), n;
+      return toString_default(r), n;
     };
   }

@@ -6,35 +6,35 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       r = require(67) /* GRichTooltipConfig */,
-      s = o(require(85) /* GContainer */),
-      l = require(10) /* AppSettings */,
-      c = require(18) /* MenuItemBuilder */,
+      GContainer = _interopRequireDefault(require(85) /* GContainer */),
+      AppSettings = require(10) /* AppSettings */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
       d = require(163) /* module_163 */,
-      u = require(31) /* GAction */;
+      GAction = require(31) /* GAction */;
     function p() {
       p.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
-          title: i.GLocale.get(
-            new i.GLocaleKey("GPlaceImportAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GPlaceImportAction", "tooltip-title")
           ),
-          description: i.GLocale.get(
-            new i.GLocaleKey("GPlaceImportAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GPlaceImportAction", "tooltip-description")
           ),
           middle: false,
-          video: l.gApi.getRichTooltipVideoURL("Place_Image.mp4"),
+          video: AppSettings.gApi.getRichTooltipVideoURL("Place_Image.mp4"),
           learnMore:
             "",
         }),
       };
     }
-    i.GObject.inherit(p, u),
+    GCore.GObject.inherit(p, GAction),
       (p.ID = "file.place-import"),
-      (p.TITLE = new i.GLocaleKey("GPlaceImportAction", "title")),
+      (p.TITLE = new GCore.GLocaleKey("GPlaceImportAction", "title")),
       (p.TOOLTIP_CONFIG = null),
       (p.prototype.getId = function () {
         return p.ID;
@@ -43,13 +43,13 @@ function (exports, module, require) {
         return p.TITLE;
       }),
       (p.prototype.getCategory = function () {
-        return c.CATEGORY_FILE_IMPORT;
+        return MenuItemBuilder.CATEGORY_FILE_IMPORT;
       }),
       (p.prototype.getGroup = function () {
         return "import/place-import";
       }),
       (p.prototype.isVisible = function () {
-        return gContainer.getRuntime() !== s.default.Runtime.IPad;
+        return gContainer.getRuntime() !== GContainer.default.Runtime.IPad;
       }),
       (p.prototype.getIcon = function () {
         return gDesigner.isTouchEnabled() ? "gravit-icon-place-image" : null;
@@ -64,7 +64,7 @@ function (exports, module, require) {
         );
       }),
       (p.prototype.getShortcut = function () {
-        return [a.GKey.Constant.OPTION, "P"];
+        return [GEditor.GKey.Constant.OPTION, "P"];
       }),
       (p.prototype.execute = function (e, t) {
         var n = gDesigner.getActiveDocument();

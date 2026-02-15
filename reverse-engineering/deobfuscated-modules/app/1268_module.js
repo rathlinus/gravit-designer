@@ -7,26 +7,26 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.cropImage = function (e, t) {
-        if (!(e instanceof o.GImage)) return;
+        if (!(e instanceof GCore.GImage)) return;
         t &&
-          a.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             e,
             function () {
               var t = e.getImageTransform();
               e.setProperties(["trf", "ut", "tl_sx"], [t, true, 0]);
             },
-            o.GLocale.get(
-              new o.GLocaleKey("GImageProperties", "action.reset-cropping")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GImageProperties", "action.reset-cropping")
             )
           );
         var n = gDesigner.getToolManager();
-        n.getActiveTool() instanceof a.GSubSelectTool
-          ? (n.activateTool(a.GPointerTool, null, true),
-            n.getActiveTool().setEditMode(a.GSelectTool.EditMode.Select))
-          : n.activateTool(a.GSubSelectTool, null, true);
+        n.getActiveTool() instanceof GTools.GSubSelectTool
+          ? (n.activateTool(GTools.GPointerTool, null, true),
+            n.getActiveTool().setEditMode(GTools.GSelectTool.EditMode.Select))
+          : n.activateTool(GTools.GSubSelectTool, null, true);
       }),
       (module.replaceImage = function (e, t) {
-        if (!(e instanceof o.GImage)) return;
+        if (!(e instanceof GCore.GImage)) return;
         var n = n || t.getStorage() || gDesigner.getDefaultStorage();
         if (n && n.canPromptOpen()) {
           const t = [
@@ -42,8 +42,8 @@ function (exports, module, require) {
                 var n = new Blob([t]);
                 if (n.size > i.GPlatform.maxPngDataSize)
                   new r(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GDocument", "text.image-too-big")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.image-too-big")
                     )
                   ).open();
                 else {
@@ -52,8 +52,8 @@ function (exports, module, require) {
                     var t = s.result;
                     if (t.length > i.GPlatform.maxImgDataUrlLength)
                       new r(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GDocument", "text.image-too-big")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GDocument", "text.image-too-big")
                         )
                       ).open();
                     else {
@@ -66,8 +66,8 @@ function (exports, module, require) {
                             i.GPlatform.maxImgAreaDots
                         )
                           new r(
-                            o.GLocale.get(
-                              new o.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDocument",
                                 "text.image-too-big"
                               )
@@ -75,17 +75,17 @@ function (exports, module, require) {
                           ).open();
                         else {
                           var s = gDesigner.getToolManager();
-                          s.activateTool(a.GPointerTool),
-                            s.getActiveTool() instanceof a.GSelectTool &&
+                          s.activateTool(GTools.GPointerTool),
+                            s.getActiveTool() instanceof GTools.GSelectTool &&
                               s
                                 .getActiveTool()
-                                .setEditMode(a.GSelectTool.EditMode.Select);
+                                .setEditMode(GTools.GSelectTool.EditMode.Select);
                           var l = e.getGeometryBBox(),
-                            c = new o.GTransform().translated(
+                            c = new GCore.GTransform().translated(
                               l.getX(),
                               l.getY()
                             );
-                          a.GEditor.tryRunTransaction(
+                          GTools.GEditor.tryRunTransaction(
                             e,
                             () => {
                               e.setProperties(
@@ -93,17 +93,17 @@ function (exports, module, require) {
                                 [t, n.naturalWidth, n.naturalHeight, c]
                               );
                             },
-                            o.GLocale.get(
-                              new o.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GImageProperties",
                                 "action.replace-image"
                               )
                             )
                           ),
-                            s.getActiveTool() instanceof a.GSelectTool &&
+                            s.getActiveTool() instanceof GTools.GSelectTool &&
                               s
                                 .getActiveTool()
-                                .setEditMode(a.GSelectTool.EditMode.Edit);
+                                .setEditMode(GTools.GSelectTool.EditMode.Edit);
                         }
                       }),
                         (n.src = t);
@@ -111,8 +111,8 @@ function (exports, module, require) {
                   }),
                     (s.onerror = function () {
                       new r(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GDocument", "text.image-too-big")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GDocument", "text.image-too-big")
                         )
                       ).open();
                     }),
@@ -125,26 +125,26 @@ function (exports, module, require) {
         }
       }),
       (module.setOriginSize = function (e) {
-        if (!(e instanceof o.GImage)) return;
-        a.GEditor.tryRunTransaction(
+        if (!(e instanceof GCore.GImage)) return;
+        GTools.GEditor.tryRunTransaction(
           e,
           function () {
             var t = e.getGeometryBBox(),
               n = t ? t.getX() : 0,
               i = t ? t.getY() : 0,
-              a = new o.GTransform().translated(n, i);
+              GTools = new GCore.GTransform().translated(n, i);
             e.setProperties(
               ["trf", "itrf", "pw", "ph"],
-              [a, a, e.getWidth(), e.getHeight()]
+              [GTools, GTools, e.getWidth(), e.getHeight()]
             );
           },
-          o.GLocale.get(
-            new o.GLocaleKey("GImageProperties", "action.reset-size")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GImageProperties", "action.reset-size")
           )
         );
       });
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(15) /* module */,
-      a = require(53) /* module */,
+      GTools = require(53) /* module */,
       r = (require(1267) /* module_1267 */, require(123) /* GProperties */, require(173) /* stub_requires_1 */, require(219) /* module_219 */);
   }

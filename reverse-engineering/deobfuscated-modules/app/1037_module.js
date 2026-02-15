@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(1) /* module */,
-      a = require(10) /* AppSettings */,
-      r = o(require(536) /* module_536 */);
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
+      r = _interopRequireDefault(require(536) /* module_536 */);
     class s {
       static async setLanguage(e) {
         try {
-          const t = i.GLocale.getTranslations(),
-            n = i.GTranslation.Projects.Cloud,
-            o = i.GTranslation.Projects.Designer,
+          const t = GCore.GLocale.getTranslations(),
+            n = GCore.GTranslation.Projects.Cloud,
+            _interopRequireDefault = GCore.GTranslation.Projects.Designer,
             r = t.find((t) => t.keyValue === e);
           if (!r) return;
-          const s = await this._fetchTranslation(o, r),
+          const s = await this._fetchTranslation(_interopRequireDefault, r),
             l = await this._fetchTranslation(n, r);
-          i.GLocale.replaceValues(o, e, s.translations),
-            i.GLocale.replaceValues(n, e, l.translations),
-            i.GLocale.setLanguage(e),
-            a.GLocaleFactory.setLanguage(e),
-            a.gApi.setLanguage(e);
+          GCore.GLocale.replaceValues(_interopRequireDefault, e, s.translations),
+            GCore.GLocale.replaceValues(n, e, l.translations),
+            GCore.GLocale.setLanguage(e),
+            AppSettings.GLocaleFactory.setLanguage(e),
+            AppSettings.gApi.setLanguage(e);
         } catch (e) {}
       }
       static async _shouldFetchTranslation(e, t) {
-        if (t.keyValue === i.GLocale.getLanguage())
+        if (t.keyValue === GCore.GLocale.getLanguage())
           try {
             const n = await fetch(await this._getCDNURL(e, t), {
               method: "HEAD",
@@ -50,22 +50,22 @@ function (exports, module, require) {
       }
       static async _getCDNURL(e, t) {
         const require = t.abbreviation,
-          o = e.toLowerCase(),
-          i = "".concat(require, "/").concat(o);
-        let s = this.translationsCacheMap.get(i);
+          _interopRequireDefault = e.toLowerCase(),
+          GCore = "".concat(require, "/").concat(_interopRequireDefault);
+        let s = this.translationsCacheMap.get(GCore);
         return (
           s ||
             (s = this.translationsCacheMap
               .set(
-                i,
+                GCore,
                 new r.default(() =>
-                  a.gApi
-                    .fetchTranslationsURL(require, o)
+                  AppSettings.gApi
+                    .fetchTranslationsURL(require, _interopRequireDefault)
                     .then((e) => e.url)
                     .catch(() => null)
                 )
               )
-              .get(i)),
+              .get(GCore)),
           await s.get()
         );
       }

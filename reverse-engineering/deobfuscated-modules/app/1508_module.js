@@ -6,76 +6,76 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var o = require(10) /* AppSettings */,
-      i = require(1) /* module */;
-    const { bypassEmailVerification: a } = o.defaultUserSettings,
-      r = require(44) /* GSystemDialog */,
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */;
+    const { bypassEmailVerification: a } = AppSettings.defaultUserSettings,
+      GSystemDialog = require(44) /* GSystemDialog */,
       s = function (e) {
         return e.json().then(function (t) {
           return Promise[e.status >= 400 ? "reject" : "resolve"](t);
         });
       };
     function l(e, t, n) {
-      let o =
+      let AppSettings =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
       (this._user = e),
         (this._messageHandler = t),
         (this._parent = n),
-        (this._options = o),
+        (this._options = AppSettings),
         this._init();
     }
-    i.GObject.inherit(l, i.GObject),
+    GCore.GObject.inherit(l, GCore.GObject),
       (l.prototype._openAccountDeletionConfirmationDialog = function () {
         let exports = "<span>"
           .concat(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.delete-account-title")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.delete-account-title")
             ),
             '</span>\n    <mark style="min-width: 100px;\n        background: #F23C3C;\n        border-radius: 3px;\n        padding: 3px 30px;\n        color: white;\n        margin-top: 2px;\n        margin-bottom: 2px;\n        display: block;\n        text-align: center;">\n        '
           )
           .concat(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.delete-account-sub-title")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.delete-account-sub-title")
             ),
             '\n    </mark>\n    <ul style="list-style-type: disc; transform: translateX(30px); margin-bottom: 10px;">\n        <li>'
           )
           .concat(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.delete-account-list-1")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.delete-account-list-1")
             ),
             "</li>\n        <li>"
           )
           .concat(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.delete-account-list-2")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.delete-account-list-2")
             ),
             "</li>\n        <li>"
           )
           .concat(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.delete-account-list-3")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.delete-account-list-3")
             ),
             "</li>\n    </ul>\n    <span>"
           )
           .concat(
-            i.GLocale.get(
-              new i.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GAccountPanel",
                 "text.delete-account-action-cant-undone"
               )
             ),
             "</span>"
           );
-        r.custom({
+        GSystemDialog.custom({
           title: exports,
           styles: { buttons: { "justify-content": "flex-end" } },
           buttons: [
             {
-              label: i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")),
+              label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")),
               closeOnClick: true,
             },
             {
-              label: i.GLocale.get(new i.GLocaleKey("GLocale", "ok")),
+              label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")),
               highlighted: true,
               onclick: (e) => {
                 e.gDialog("close"), this._deleteAccount();
@@ -87,7 +87,7 @@ function (exports, module, require) {
       (l.prototype._deleteAccount = function () {
         return (
           this._toggleLoading(true),
-          fetch(o.gApi.url + "/user/" + this._user.id, {
+          fetch(AppSettings.gApi.url + "/user/" + this._user.id, {
             method: "DELETE",
             credentials: "include",
             headers: { "Content-Type": "application/json", Accept: "json" },
@@ -117,7 +117,7 @@ function (exports, module, require) {
                 .addClass("highlight")
                 .attr("type", "submit")
                 .text(
-                  i.GLocale.get(new i.GLocaleKey("GAccountPanel", "text.save"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GAccountPanel", "text.save"))
                 )
             )
             .append(
@@ -125,8 +125,8 @@ function (exports, module, require) {
                 .attr("type", "button")
                 .attr("data-property", "delete-account")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GAccountPanel", "text.delete")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GAccountPanel", "text.delete")
                   )
                 )
                 .on(
@@ -140,7 +140,7 @@ function (exports, module, require) {
             )
         );
         return (
-          o.gApi.hasPurchases({ issued: true }).then((t) => {
+          AppSettings.gApi.hasPurchases({ issued: true }).then((t) => {
             t &&
               $("<div/>")
                 .addClass("info")
@@ -148,8 +148,8 @@ function (exports, module, require) {
                   $(
                     "<span>"
                       .concat(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GAccountPanel",
                             "text.contact-partner-billing-alternative"
                           )
@@ -161,8 +161,8 @@ function (exports, module, require) {
                         $("<a/>")
                           .addClass("cb-link")
                           .text(
-                            i.GLocale.get(
-                              new i.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GAccountPanel",
                                 "text.contact-partner-cleverbridge"
                               )
@@ -179,7 +179,7 @@ function (exports, module, require) {
                 ),
                   gContainer.openExternalLink(
                     e,
-                    o.LINKS.CLEVERBRIDGE_SUPPORT_URL
+                    AppSettings.LINKS.CLEVERBRIDGE_SUPPORT_URL
                   );
               });
           }),
@@ -206,8 +206,8 @@ function (exports, module, require) {
                 .addClass("header")
                 .append(
                   $("<span></span>").text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GAccountPanel", "text.contact")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAccountPanel", "text.contact")
                     )
                   )
                 )
@@ -215,14 +215,14 @@ function (exports, module, require) {
             .appendTo(exports),
           require = this._getFooter();
         require && require.appendTo(exports);
-        const a = (e, t, n, o, i) => {
+        const a = (e, t, n, AppSettings, GCore) => {
             const a = $("<input>")
-                .attr("type", o || "text")
-                .attr("placeholder", i || "")
+                .attr("type", AppSettings || "text")
+                .attr("placeholder", GCore || "")
                 .attr("value", t || ""),
-              s = r(e, n, a);
+              s = GSystemDialog(e, n, a);
             return (
-              "password" === o &&
+              "password" === AppSettings &&
                 s.append(
                   $("<span></span>")
                     .addClass("gravit-icon-hide btn-display")
@@ -238,7 +238,7 @@ function (exports, module, require) {
               s
             );
           },
-          r = (e, t, n) =>
+          GSystemDialog = (e, t, n) =>
             $("<div></div>")
               .addClass("input-field")
               .attr("data-property", t)
@@ -250,16 +250,16 @@ function (exports, module, require) {
           let { first: exports, last: module } = ((e) => {
             let module = (e || "").split(" "),
               require = module.slice(0, module.length - 1).join(" "),
-              o = module.slice(-1).join("");
+              AppSettings = module.slice(-1).join("");
             return (
-              require.trim().length || ((require = o), (o = "")), { first: require, last: o }
+              require.trim().length || ((require = AppSettings), (AppSettings = "")), { first: require, last: AppSettings }
             );
           })(s);
           (s = exports), (l = module || "");
         }
         let c = $("<div></div>").addClass("group-section").appendTo(module);
         a(
-          i.GLocale.get(new i.GLocaleKey("GAccountPanel", "text.first-name")),
+          GCore.GLocale.get(new GCore.GLocaleKey("GAccountPanel", "text.first-name")),
           s,
           "name"
         )
@@ -267,7 +267,7 @@ function (exports, module, require) {
           .find("input")
           .attr("required", true),
           a(
-            i.GLocale.get(new i.GLocaleKey("GAccountPanel", "text.last-name")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GAccountPanel", "text.last-name")),
             l,
             "last_name"
           )
@@ -275,37 +275,37 @@ function (exports, module, require) {
             .find("input")
             .attr("required", true),
           a(
-            i.GLocale.get(new i.GLocaleKey("GAccountPanel", "text.email")),
+            GCore.GLocale.get(new GCore.GLocaleKey("GAccountPanel", "text.email")),
             this._user.getEmail(),
             "email"
           ).appendTo(module),
           a(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.old-password")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.old-password")
             ),
             "",
             "old_password",
             "password"
           ).appendTo(module),
           a(
-            i.GLocale.get(
-              new i.GLocaleKey("GAccountPanel", "text.new-password")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAccountPanel", "text.new-password")
             ),
             "",
             "new_password",
             "password",
-            i.GLocale.get(
-              new i.GLocaleKey("GPurchasePanel", "text.placeholder-password")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GPurchasePanel", "text.placeholder-password")
             )
-              .replace("%min-number", o.PasswordRules.PasswordLength.Minimum)
-              .replace("%max-number", o.PasswordRules.PasswordLength.Maximum)
+              .replace("%min-number", AppSettings.PasswordRules.PasswordLength.Minimum)
+              .replace("%max-number", AppSettings.PasswordRules.PasswordLength.Maximum)
           ).appendTo(module);
       }),
       (l.prototype._updateUser = async function () {
         this._toggleLoading(true);
         const exports = (e) => {
-          let module = i.GLocale.get(
-            new i.GLocaleKey("GAccountPanel", "text.error")
+          let module = GCore.GLocale.get(
+            new GCore.GLocaleKey("GAccountPanel", "text.error")
           );
           e && e.message
             ? (module = e.message)
@@ -317,15 +317,15 @@ function (exports, module, require) {
           require = this;
         this._container.find(".input-field > input").each(function () {
           let exports = $(this),
-            o = exports.closest(".input-field").attr("data-property");
-          (("login" !== o && "email" !== o) || require._user[o] !== exports.val().trim()) &&
-            (module[o] = exports.val());
+            AppSettings = exports.closest(".input-field").attr("data-property");
+          (("login" !== AppSettings && "email" !== AppSettings) || require._user[AppSettings] !== exports.val().trim()) &&
+            (module[AppSettings] = exports.val());
         }),
           this._container.find(".input-field > select").each(function () {
             let exports = $(this),
               require = exports.closest(".input-field").attr("data-property"),
-              o = exports.find("option:selected").attr("value");
-            module[require] = o;
+              AppSettings = exports.find("option:selected").attr("value");
+            module[require] = AppSettings;
           }),
           this._messageHandler(undefined);
         try {
@@ -334,8 +334,8 @@ function (exports, module, require) {
             .updateUser(module)
             .then(() =>
               this._messageHandler(
-                i.GLocale.get(
-                  new i.GLocaleKey("GAccountPanel", "text.success")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GAccountPanel", "text.success")
                 ),
                 "success"
               )
@@ -344,9 +344,9 @@ function (exports, module, require) {
               module.email &&
                 this._user.getEmail() !== module.email &&
                 !a &&
-                r.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GAccountPanel", "text.user-email-message")
+                GSystemDialog.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GAccountPanel", "text.user-email-message")
                   ).replace("%email", module.email)
                 );
             })

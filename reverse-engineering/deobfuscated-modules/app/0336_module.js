@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e, t) {
       (this.type = e), (this.storageItem = t);
     }
-    o.GObject.inherit(i, o.GEvent),
+    GCore.GObject.inherit(i, GCore.GEvent),
       (i.Type = {
         VersionUpdate: 2,
         ShareCreated: 3,
@@ -21,6 +21,6 @@ function (exports, module, require) {
       (i.FileStatusUpdate = function (e, t, n) {
         (this.storageItem = e), (this.oldStatus = t), (this.newStatus = n);
       }),
-      o.GObject.inherit(i.FileStatusUpdate, o.GEvent),
+      GCore.GObject.inherit(i.FileStatusUpdate, GCore.GEvent),
       (exports.exports = i);
   }

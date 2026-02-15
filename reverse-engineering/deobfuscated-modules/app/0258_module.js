@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
+    var uncurryThis = require(27) /* uncurryThis */,
       i = 0,
       a = Math.random(),
-      r = o((1).toString);
+      r = uncurryThis((1).toString);
     exports.exports = function (e) {
       return "Symbol(" + (undefined === e ? "" : e) + ")_" + r(++i + a, 36);
     };

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* tryCall */;
+    var tryCall = require(21) /* tryCall */;
     exports.exports = function (e, t) {
       var n = [][e];
       return (
         !!n &&
-        o(function () {
+        tryCall(function () {
           n.call(
             null,
             t ||

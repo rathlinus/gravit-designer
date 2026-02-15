@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
+    var globalThis = require(23) /* globalThis */,
       i = Object.defineProperty;
     exports.exports = function (e, t) {
       try {
-        i(o, e, { value: t, configurable: true, writable: true });
+        i(globalThis, e, { value: t, configurable: true, writable: true });
       } catch (n) {
-        o[e] = t;
+        globalThis[e] = t;
       }
       return t;
     };

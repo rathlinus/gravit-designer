@@ -11,8 +11,8 @@ function (exports, module, require) {
       require(30) /* polyfill_Object_assign */,
       require(8) /* polyfill_bundle_ES6 */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(10) /* AppSettings */,
-      i = require(1) /* module */;
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */;
     class a {
       isLoaded() {
         return true;
@@ -22,8 +22,8 @@ function (exports, module, require) {
           appId: exports,
           apiKey: module,
           clientId: require,
-          discoveryDocs: o,
-          scope: i,
+          discoveryDocs: AppSettings,
+          scope: GCore,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         throw "Not implemented";
       }
@@ -67,19 +67,19 @@ function (exports, module, require) {
           appId: exports,
           apiKey: module,
           clientId: require,
-          discoveryDocs: o,
+          discoveryDocs: AppSettings,
           scope: a,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         return (
           (this._appId = exports),
           (this._apiKey = module),
           (this._clientId = require),
-          (this._discoveryDocs = o),
+          (this._discoveryDocs = AppSettings),
           (this._scope = a),
           await new Promise((e, t) => {
             gapi.load("client", { callback: e, onerror: t });
           }),
-          await gapi.client.init({ apiKey: module, discoveryDocs: o }),
+          await gapi.client.init({ apiKey: module, discoveryDocs: AppSettings }),
           new Promise(async (e, t) => {
             try {
               const t = await gContainer.getProperty(
@@ -96,8 +96,8 @@ function (exports, module, require) {
                 e();
             } catch (e) {
               t(
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.loading-failed")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
                 )
               );
             }
@@ -121,13 +121,13 @@ function (exports, module, require) {
       install(e) {
         const module = [],
           require = (t) =>
-            new Promise((n, o) => {
-              let i = document.createElement("script");
-              (i.async = true),
-                (i.src = t),
-                (i.onload = n),
-                (i.onerror = o),
-                (e || document.getElementsByTagName("head")[0]).appendChild(i);
+            new Promise((n, AppSettings) => {
+              let GCore = document.createElement("script");
+              (GCore.async = true),
+                (GCore.src = t),
+                (GCore.onload = n),
+                (GCore.onerror = AppSettings),
+                (e || document.getElementsByTagName("head")[0]).appendChild(GCore);
             });
         return (
           module.push(require("https://apis.google.com/js/api.js")),
@@ -145,12 +145,12 @@ function (exports, module, require) {
               );
               (this._tokenClient.callback = async (n) => {
                 n.error && t();
-                const o = gapi.client.getToken(),
-                  i = {
-                    access_token: o.access_token,
-                    expires_at: 1e3 * o.expires_in + Date.now(),
+                const AppSettings = gapi.client.getToken(),
+                  GCore = {
+                    access_token: AppSettings.access_token,
+                    expires_at: 1e3 * AppSettings.expires_in + Date.now(),
                   };
-                await gContainer.setProperty("googleapi_auth_key", i), e();
+                await gContainer.setProperty("googleapi_auth_key", GCore), e();
               }),
                 this._tokenClient.requestAccessToken({
                   prompt: "",
@@ -158,8 +158,8 @@ function (exports, module, require) {
                 });
             } catch (e) {
               t(
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.loading-failed")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
                 )
               );
             }
@@ -191,14 +191,14 @@ function (exports, module, require) {
             callback: e,
             ontimeout: () =>
               t(
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.loading-failed")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
                 )
               ),
             onerror: () =>
               t(
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.loading-failed")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
                 )
               ),
           });
@@ -210,11 +210,11 @@ function (exports, module, require) {
           const t = (await gContainer.getProperty("googleapi_auth_key"))
             .access_token;
           this._picker && delete this._picker,
-            (this._picker = (0, o.GooglePickerBuilder)({
+            (this._picker = (0, AppSettings.GooglePickerBuilder)({
               appId: this._appId,
               apiKey: this._apiKey,
               accessToken: t,
-              language: i.GLocale.getLanguage(),
+              language: GCore.GLocale.getLanguage(),
             })),
             this._picker.setCallback((t) => {
               t.action === google.picker.Action.PICKED && e(t.docs);
@@ -242,8 +242,8 @@ function (exports, module, require) {
           )
           .catch(() =>
             reject(
-              i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.loading-failed")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
               )
             )
           );

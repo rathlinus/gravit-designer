@@ -13,10 +13,10 @@ function (exports, module, require) {
       require(3) /* polyfill_RegExp_toString */,
       require(71) /* polyfill_String_includes */;
     var o = require(1241) /* GCloudRole */;
-    const i = require(0) /* GObject */,
+    const GObject = require(0) /* GObject */,
       a = require(177) /* module_177 */;
     function r() {}
-    i.inherit(r, a),
+    GObject.inherit(r, a),
       (r.ValidRoles = [
         o.GCloudRole.Type.Viewer,
         o.GCloudRole.Type.Coauthor,

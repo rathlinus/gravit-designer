@@ -5,37 +5,37 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(49) /* hasOwnProperty_wrapper */,
-      a = require(23) /* globalThis */,
-      r = require(27) /* uncurryThis */,
+    var core_export = require(25) /* core_export */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      globalThis = require(23) /* globalThis */,
+      uncurryThis = require(27) /* uncurryThis */,
       s = require(61) /* module_61 */,
-      l = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       c = require(144) /* stub_requires_27 */,
-      d = require(62) /* requireObjectCoercible */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
       u = require(120) /* module_120 */,
-      p = require(341) /* copyConstructorProperties */,
-      g = a.Symbol,
+      copyConstructorProperties = require(341) /* copyConstructorProperties */,
+      g = globalThis.Symbol,
       h = g && g.prototype;
-    if (i && l(g) && (!("description" in h) || undefined !== g().description)) {
+    if (hasOwnProperty_wrapper && anObject(g) && (!("description" in h) || undefined !== g().description)) {
       var f = {},
         m = function () {
           var e =
               arguments.length < 1 || undefined === arguments[0]
                 ? undefined
-                : d(arguments[0]),
+                : requireObjectCoercible(arguments[0]),
             t = c(h, this) ? new g(e) : undefined === e ? g() : g(e);
           return "" === e && (f[t] = true), t;
         };
-      p(m, g), (m.prototype = h), (h.constructor = m);
+      copyConstructorProperties(m, g), (m.prototype = h), (h.constructor = m);
       var y =
           "Symbol(description detection)" ===
           String(g("description detection")),
-        v = r(h.valueOf),
-        _ = r(h.toString),
+        v = uncurryThis(h.valueOf),
+        _ = uncurryThis(h.toString),
         b = /^Symbol\((.*)\)[^)]+$/,
-        w = r("".replace),
-        C = r("".slice);
+        w = uncurryThis("".replace),
+        C = uncurryThis("".slice);
       u(h, "description", {
         configurable: true,
         get: function () {
@@ -46,6 +46,6 @@ function (exports, module, require) {
           return "" === n ? undefined : n;
         },
       }),
-        o({ global: true, constructor: true, forced: true }, { Symbol: m });
+        core_export({ global: true, constructor: true, forced: true }, { Symbol: m });
     }
   }

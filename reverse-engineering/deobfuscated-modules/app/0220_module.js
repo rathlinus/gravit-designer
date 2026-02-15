@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(1) /* module */,
-      a = require(10) /* AppSettings */,
-      r = o(require(336) /* module_336 */),
-      s = o(require(44) /* GSystemDialog */),
-      l = require(40) /* CollaborationMergeUtils */,
-      c = o(require(554) /* module_554 */),
-      d = o(require(555) /* module_555 */),
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
+      r = _interopRequireDefault(require(336) /* module_336 */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      c = _interopRequireDefault(require(554) /* module_554 */),
+      d = _interopRequireDefault(require(555) /* module_555 */),
       u = require(237) /* Item */,
       p = require(119) /* module_119 */;
     const g = require(436) /* module_436 */,
       h = require(86) /* module_86 */;
-    var f = a.FILE_FORMATS.find((e) => e.default),
-      m = a.FILE_FORMATS.filter((e) => !e.default);
-    const y = require(435) /* Md5 */,
+    var f = AppSettings.FILE_FORMATS.find((e) => e.default),
+      m = AppSettings.FILE_FORMATS.filter((e) => !e.default);
+    const Md5 = require(435) /* Md5 */,
       v = require(165) /* module_165 */;
     function _(e) {
-      return fetch(a.gApi.url + "/error", {
+      return fetch(AppSettings.gApi.url + "/error", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
@@ -32,45 +32,45 @@ function (exports, module, require) {
       });
     }
     function b() {}
-    i.GObject.inherit(b, u),
+    GCore.GObject.inherit(b, u),
       (b.ProgressStages = {
         Preparing: 0,
         SyncingImages: 50,
         UploadingFile: 100,
       }),
-      (b.from = async function (e, t, n, o, i) {
-        let a = t;
+      (b.from = async function (e, t, n, _interopRequireDefault, GCore) {
+        let AppSettings = t;
         return (
           "string" == typeof t &&
-            (a = await p.getFileDataForVersionOrAutoSave(t, o, i)),
-          a
-            ? new b.Item(e, a.id, n || a.name, a, o || a.version, null, i)
+            (AppSettings = await p.getFileDataForVersionOrAutoSave(t, _interopRequireDefault, GCore)),
+          AppSettings
+            ? new b.Item(e, AppSettings.id, n || AppSettings.name, AppSettings, _interopRequireDefault || AppSettings.version, null, GCore)
             : null
         );
       }),
-      (b.Item = function (e, t, n, o, i, a, r) {
+      (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, r) {
         if (
           (u.Item.call(this, e),
           (this._filename = n),
           (this._id = t),
-          (this._file = o && p.convertToCloudItem(o)),
-          (this._versionId = i),
-          (this._token = a),
-          (this._isAutoSave = "boolean" == typeof r ? r : !(!o || !o.autosave)),
-          (this._fileLastModifiedDate = o && new Date(o.updated || o.created)),
+          (this._file = _interopRequireDefault && p.convertToCloudItem(_interopRequireDefault)),
+          (this._versionId = GCore),
+          (this._token = AppSettings),
+          (this._isAutoSave = "boolean" == typeof r ? r : !(!_interopRequireDefault || !_interopRequireDefault.autosave)),
+          (this._fileLastModifiedDate = _interopRequireDefault && new Date(_interopRequireDefault.updated || _interopRequireDefault.created)),
           (this._fileAutoSaveLastModifiedDate =
-            o && new Date(o.autosave_updated)),
-          o && m.length)
+            _interopRequireDefault && new Date(_interopRequireDefault.autosave_updated)),
+          _interopRequireDefault && m.length)
         ) {
-          var s = null;
-          o.type
-            ? (s = m.find((e) => e.type === this._file.getMimeType()))
+          var GSystemDialog = null;
+          _interopRequireDefault.type
+            ? (GSystemDialog = m.find((e) => e.type === this._file.getMimeType()))
             : this._file.getExtension() &&
-              (s = m.find((e) => e.ext === this._file.getExtension())),
-            s && ((this._ext = s.ext.toUpperCase()), (this._type = s.type));
+              (GSystemDialog = m.find((e) => e.ext === this._file.getExtension())),
+            GSystemDialog && ((this._ext = GSystemDialog.ext.toUpperCase()), (this._type = GSystemDialog.type));
         }
       }),
-      i.GObject.inheritAndMix(b.Item, u.Item, [g]),
+      GCore.GObject.inheritAndMix(b.Item, u.Item, [g]),
       (b.Item.prototype._filename = null),
       (b.Item.prototype._ext = null),
       (b.Item.prototype._type = null),
@@ -95,7 +95,7 @@ function (exports, module, require) {
         return this._filename;
       }),
       (b.Item.prototype.getName = function () {
-        return i.GUtil.xss(this._filename);
+        return GCore.GUtil.xss(this._filename);
       }),
       (b.Item.prototype.getVersionId = function () {
         return this._versionId || null;
@@ -107,7 +107,7 @@ function (exports, module, require) {
         return (
           (this._fileFormatVersion = e),
           this.supportsSharing()
-            ? a.gApi.updateFileFormat(this.getId(), {
+            ? AppSettings.gApi.updateFileFormat(this.getId(), {
                 fileFormat: this._fileFormatVersion,
               })
             : Promise.resolve()
@@ -141,7 +141,7 @@ function (exports, module, require) {
       (b.Item.prototype.setFile = function (e) {
         if (!e) throw new Error("File can not be null");
         const module = this._file && this._file.status,
-          require = new a.FileExtended(e);
+          require = new AppSettings.FileExtended(e);
         (this._file = p.convertToCloudItem(e)),
           (this._id = e.id),
           (this._name = e.name),
@@ -202,14 +202,14 @@ function (exports, module, require) {
             );
           }
       }),
-      (b.Item.prototype._performDefaultWrite = async function (e, t, n, o, i) {
+      (b.Item.prototype._performDefaultWrite = async function (e, t, n, _interopRequireDefault, GCore) {
         e.updateStatus(h.Saving);
-        const s = (e) => {
-          o && o(e);
+        const GSystemDialog = (e) => {
+          _interopRequireDefault && _interopRequireDefault(e);
         };
         return p
-          .syncCloudImages(e, this._id, i, (e) => {
-            s(
+          .syncCloudImages(e, this._id, GCore, (e) => {
+            GSystemDialog(
               d.default.calculateProgress(
                 b.ProgressStages.Preparing,
                 b.ProgressStages.SyncingImages,
@@ -217,8 +217,8 @@ function (exports, module, require) {
               )
             );
           })
-          .then((o) => {
-            let [c] = o;
+          .then((_interopRequireDefault) => {
+            let [c] = _interopRequireDefault;
             return (async () => {
               if (!c)
                 return (
@@ -257,11 +257,11 @@ function (exports, module, require) {
                         "Scene invalid, sending error, please try again or submit a bug issue on https://discuss.gravit.io"
                       )
                   );
-                var o = y.base64(u);
+                var _interopRequireDefault = Md5.base64(u);
                 const m = await e.buildPreview().catch(() => null),
-                  w = await a.gApi.signedPutUrls(this._id, {
+                  w = await AppSettings.gApi.signedPutUrls(this._id, {
                     type: f.type,
-                    md5: o,
+                    md5: _interopRequireDefault,
                     commit: false,
                   }),
                   C = await this._uploadWithProgress(w.url, {
@@ -270,11 +270,11 @@ function (exports, module, require) {
                       "Content-Type": f.type,
                       "Content-Encoding": "gzip",
                       "Cache-Control": "public,max-age=31536000",
-                      "Content-MD5": o,
+                      "Content-MD5": _interopRequireDefault,
                     },
                     body: u,
                     onProgress: (e) => {
-                      s(
+                      GSystemDialog(
                         d.default.calculateProgress(
                           b.ProgressStages.SyncingImages,
                           b.ProgressStages.UploadingFile,
@@ -296,20 +296,20 @@ function (exports, module, require) {
                       : n && n("Invalid response status: " + C.status)
                   );
                 await this._syncPreviewThumbnailWithCloud(m);
-                const x = a.COMPUTE_SHA256_FOR_FILES
-                  ? await (0, l.getFileSHA256Digest)(u)
+                const x = AppSettings.COMPUTE_SHA256_FOR_FILES
+                  ? await (0, CollaborationMergeUtils.getFileSHA256Digest)(u)
                   : null;
-                await a.gApi.commitManualFileUpdate(this._id, [
-                  a.FileTypes.MainFile,
-                  a.FileTypes.ThumbnailPreview,
+                await AppSettings.gApi.commitManualFileUpdate(this._id, [
+                  AppSettings.FileTypes.MainFile,
+                  AppSettings.FileTypes.ThumbnailPreview,
                 ]),
-                  await a.gApi.updateFile(this._id, { trashed: false, sha256: x }),
+                  await AppSettings.gApi.updateFile(this._id, { trashed: false, sha256: x }),
                   this.setVersionId(null),
                   gDesigner.hasEventListeners(r.default) &&
                     gDesigner.trigger(
                       new r.default(r.default.Type.VersionUpdate, this)
                     ),
-                  e.updateStatus(h.Saved, i),
+                  e.updateStatus(h.Saved, GCore),
                   t && t(),
                   (this._writing = false);
               } catch (t) {
@@ -321,7 +321,7 @@ function (exports, module, require) {
             n(e), (this._writing = false);
           });
       }),
-      (b.Item.prototype.write = async function (e, t, n, o, a) {
+      (b.Item.prototype.write = async function (e, t, n, _interopRequireDefault, AppSettings) {
         if ((gContainer.verifyEnoughMemoryToSave(e), !this._writing)) {
           if (!e.hasPagesWithInfiniteEmptyCanvas()) {
             this._writing = true;
@@ -331,23 +331,23 @@ function (exports, module, require) {
               return n && n(e), void (this._writing = false);
             }
             return this._canPerformExtensionSpecificWrite()
-              ? this._performExtensionSpecificWrite(e, t, n, o, a)
-              : this._performDefaultWrite(e, t, n, o, a);
+              ? this._performExtensionSpecificWrite(e, t, n, _interopRequireDefault, AppSettings)
+              : this._performDefaultWrite(e, t, n, _interopRequireDefault, AppSettings);
           }
           n
             ? n({
                 code: 507,
                 noFailCall: true,
-                message: i.GLocale.get(
-                  new i.GLocaleKey(
+                message: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.error-emtpy-infinite-canvas"
                   )
                 ),
               })
-            : s.default.alert(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+            : GSystemDialog.default.alert(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.error-emtpy-infinite-canvas"
                   )
@@ -372,16 +372,16 @@ function (exports, module, require) {
       }),
       (b.Item.prototype._makeFileVisibleUpdateInternalVersionAndHash =
         async function (e) {
-          const module = a.COMPUTE_SHA256_FOR_FILES
-              ? await (0, l.getFileSHA256Digest)(e)
+          const module = AppSettings.COMPUTE_SHA256_FOR_FILES
+              ? await (0, CollaborationMergeUtils.getFileSHA256Digest)(e)
               : null,
             require = { trashed: false };
           module && (require.sha256 = module);
-          const o = await a.gApi.updateFile(this.getId(), require);
-          this.setVersionId(o.versionId);
+          const _interopRequireDefault = await AppSettings.gApi.updateFile(this.getId(), require);
+          this.setVersionId(_interopRequireDefault.versionId);
         }),
       (b.Item.prototype._updateFileAfterSave = async function () {
-        const exports = await a.gApi.getFile(this._id);
+        const exports = await AppSettings.gApi.getFile(this._id);
         (this._fileLastModifiedDate = new Date(exports.updated)),
           (this._file = p.convertToCloudItem(exports));
       }),
@@ -390,14 +390,14 @@ function (exports, module, require) {
       }),
       (b.Item.prototype._createFileInCaseNew = async function () {
         if (this._isNewFile()) {
-          const e = await a.gApi.createFile({
+          const e = await AppSettings.gApi.createFile({
               name: this.getName(),
               parent: this._file.getParentId(),
               type: this.getType(),
               app: "designer",
               trashed: null,
             }),
-            t = await a.gApi.getFile(e.id, true);
+            t = await AppSettings.gApi.getFile(e.id, true);
           (this._id = this._file.id = e.id),
             (this._fileLastModifiedDate = new Date(t.updated || t.created)),
             this._file.setModificationTime(new Date(t.updated || t.created));
@@ -406,12 +406,12 @@ function (exports, module, require) {
       (b.Item.prototype._uploadBinary = async function (e) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const require = y.base64(e),
-          o = await a.gApi.signedPutUrls(this.getId(), {
+        const require = Md5.base64(e),
+          _interopRequireDefault = await AppSettings.gApi.signedPutUrls(this.getId(), {
             type: this.getType(),
             md5: require,
           }),
-          i = await fetch(o.url, {
+          GCore = await fetch(_interopRequireDefault.url, {
             method: "PUT",
             headers: Object.assign(
               {
@@ -423,12 +423,12 @@ function (exports, module, require) {
             ),
             body: e,
           });
-        if (i.status >= 400) {
-          if (400 === i.status)
+        if (GCore.status >= 400) {
+          if (400 === GCore.status)
             throw new Error(
-              "Invalid response, probably corrupted upload: " + i.status
+              "Invalid response, probably corrupted upload: " + GCore.status
             );
-          throw new Error("Invalid response status: " + i.status);
+          throw new Error("Invalid response status: " + GCore.status);
         }
       }),
       (b.Item.prototype._uploadThumbnail = async function (e, t) {
@@ -444,10 +444,10 @@ function (exports, module, require) {
         const { pro: exports, free: module } = gDesigner.getLicense().getQuotas(),
           require = gDesigner.isEnabledProFeatures() ? exports : module;
         if (require > 0) {
-          if ((await a.gApi.quota()) > require) {
+          if ((await AppSettings.gApi.quota()) > require) {
             const e = new Error(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GCommonNames",
                   "text.running-out-of-cloud-space"
                 )
@@ -502,18 +502,18 @@ function (exports, module, require) {
         return p.fileExists(this._id);
       }),
       (b.Item.prototype._uploadWithProgress = function (e, t) {
-        return new Promise((n, o) => {
-          const i = new XMLHttpRequest();
-          if ((i.open(t.method || "PUT", e), t.headers))
-            for (let e in t.headers) i.setRequestHeader(e, t.headers[e]);
-          (i.onload = () => n(i)),
-            (i.onerror = () => o(i)),
-            i.upload &&
+        return new Promise((n, _interopRequireDefault) => {
+          const GCore = new XMLHttpRequest();
+          if ((GCore.open(t.method || "PUT", e), t.headers))
+            for (let e in t.headers) GCore.setRequestHeader(e, t.headers[e]);
+          (GCore.onload = () => n(GCore)),
+            (GCore.onerror = () => _interopRequireDefault(GCore)),
+            GCore.upload &&
               t.onProgress &&
-              (i.upload.onprogress = (e) => {
+              (GCore.upload.onprogress = (e) => {
                 t.onProgress(e.loaded / e.total);
               }),
-            i.send(t.body);
+            GCore.send(t.body);
         });
       }),
       (exports.exports = b);

@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(168) /* polyfill_Array_reduce */,
@@ -21,21 +21,21 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var i = require(1) /* module */,
-      a = require(1036) /* Exports_GGoogleAPI */,
-      r = require(10) /* AppSettings */,
-      s = o(require(734) /* module_734 */),
-      l = (o(require(355) /* module_355 */), o(require(1037) /* module_1037 */)),
-      c = require(255) /* barrel_sidebars */,
-      d = require(590) /* barrel_editor_actions */,
-      u = require(18) /* MenuItemBuilder */,
-      p = require(843) /* GOpenRecentAction */,
-      g = require(257) /* barrel_panels */,
+    var GCore = require(1) /* module */,
+      GGoogleAPI = require(1036) /* Exports_GGoogleAPI */,
+      AppSettings = require(10) /* AppSettings */,
+      s = _interopRequireDefault(require(734) /* module_734 */),
+      l = (_interopRequireDefault(require(355) /* module_355 */), _interopRequireDefault(require(1037) /* module_1037 */)),
+      barrel_sidebars = require(255) /* barrel_sidebars */,
+      barrel_editor_actions = require(590) /* barrel_editor_actions */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GOpenRecentAction = require(843) /* GOpenRecentAction */,
+      barrel_panels = require(257) /* barrel_panels */,
       h = require(219) /* module_219 */,
-      f = require(44) /* GSystemDialog */,
-      m = require(78) /* GDocumentEvent */;
+      GSystemDialog = require(44) /* GSystemDialog */,
+      GDocumentEvent = require(78) /* GDocumentEvent */;
     function y() {}
-    i.GObject.inherit(y, i.GEventTarget),
+    GCore.GObject.inherit(y, GCore.GEventTarget),
       (y.OpenFileRequest = function (e, t) {
         (this._type = e), (this._content = t);
       }),
@@ -60,10 +60,10 @@ function (exports, module, require) {
         PurchaseFlow: "purchase_flow",
         PurchaseFlowNew: "purchase_flow_new",
         Purchase: "purchase",
-        ResetPassword: r.PasswordlessAuthenticationActions.ResetPassword,
-        SetPassword: r.PasswordlessAuthenticationActions.SetPassword,
+        ResetPassword: AppSettings.PasswordlessAuthenticationActions.ResetPassword,
+        SetPassword: AppSettings.PasswordlessAuthenticationActions.SetPassword,
         PasswordlessToken:
-          r.PasswordlessAuthenticationActions.PasswordlessToken,
+          AppSettings.PasswordlessAuthenticationActions.PasswordlessToken,
         ConfirmEmail: "confirm_email",
         Account: "account",
         Purchases: "purchases",
@@ -97,7 +97,7 @@ function (exports, module, require) {
         return "";
       }),
       (y.prototype.registerFontProviders = function () {
-        c.registerProvider(d);
+        barrel_sidebars.registerProvider(barrel_editor_actions);
       }),
       (y.prototype.getSystemFontsProvider = function () {
         return null;
@@ -130,7 +130,7 @@ function (exports, module, require) {
             (document.cookie = ""
               .concat(module, "=")
               .concat(require, "; path=/; domain=")
-              .concat(r.DOMAIN)),
+              .concat(AppSettings.DOMAIN)),
             Promise.resolve())
           : Promise.reject();
       }),
@@ -158,31 +158,31 @@ function (exports, module, require) {
       (y.prototype.init = function (e) {
         return (
           window.gDesigner &&
-            gDesigner.addEventListener(m, this._documentEvent, this),
+            gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           e(this)
         );
       }),
       (y.prototype._documentEvent = function (e) {
-        (e.type !== m.Type.Activated && e.type !== m.Type.StorageItemUpdated) ||
+        (e.type !== GDocumentEvent.Type.Activated && e.type !== GDocumentEvent.Type.StorageItemUpdated) ||
           this._updateClientAPI(e.document);
       }),
       (y.prototype._updateClientAPI = function (e) {
         const module = e && e.getToken();
         if (module) {
           const n = gDesigner.getActiveDocument();
-          (!n || e === n) && r.gApi.setToken({ token: module });
+          (!n || e === n) && AppSettings.gApi.setToken({ token: module });
         }
       }),
       (y.prototype.start = function () {}),
       (y.prototype.preLogin = async function () {}),
       (y.prototype.signWithMagicLink = function (e, t, n) {
-        return r.gApi.magicLink.authenticate(e, t, n);
+        return AppSettings.gApi.magicLink.authenticate(e, t, n);
       }),
       (y.prototype.canUnload = function (e, t) {
         let require =
           !(arguments.length > 2 && undefined !== arguments[2]) || arguments[2];
-        var o = !e && !t;
-        return require ? Promise.resolve(o) : o;
+        var _interopRequireDefault = !e && !t;
+        return require ? Promise.resolve(_interopRequireDefault) : _interopRequireDefault;
       }),
       (y.prototype.openExternalLink = function () {}),
       (y.prototype.copyToClipboard = function () {
@@ -197,35 +197,35 @@ function (exports, module, require) {
                 await l.default.setLanguage(t);
               else {
                 let e =
-                  i.GSystem.language &&
-                  i.GLocale.lookupLanguage(i.GSystem.language);
+                  GCore.GSystem.language &&
+                  GCore.GLocale.lookupLanguage(GCore.GSystem.language);
                 e && y.GravitLanguages.includes(e)
                   ? await l.default.setLanguage(e)
-                  : await l.default.setLanguage(i.GLocaleLanguage.English);
+                  : await l.default.setLanguage(GCore.GLocaleLanguage.English);
               }
             }
           });
         if (t)
-          return new Promise(async (i) => {
+          return new Promise(async (GCore) => {
             try {
-              await o(t), e && e(), i();
+              await _interopRequireDefault(t), e && e(), GCore();
             } catch (t) {
-              await require(), e && e(), i();
+              await require(), e && e(), GCore();
             }
           });
-        async function o(e) {
-          const t = i.GLocale.lookupLanguage(e);
+        async function _interopRequireDefault(e) {
+          const t = GCore.GLocale.lookupLanguage(e);
           null !== t &&
             (y.GravitLanguages.indexOf(t) >= 0
               ? ("undefined" != typeof gDesigner &&
                   gDesigner.setSetting("language", t),
                 await l.default.setLanguage(t))
-              : await l.default.setLanguage(i.GLocaleLanguage.English));
+              : await l.default.setLanguage(GCore.GLocaleLanguage.English));
         }
-        r.gApi
+        AppSettings.gApi
           .getUser()
           .then(async (t) => {
-            t && !t.anonymous ? await o(t.locale) : await require(), e && e();
+            t && !t.anonymous ? await _interopRequireDefault(t.locale) : await require(), e && e();
           })
           .catch(async () => {
             await require(), e && e();
@@ -248,12 +248,12 @@ function (exports, module, require) {
         this._recentDocuments = e;
         const require = gDesigner.getMainMenu();
         if (require) {
-          const e = (t = require.findItem(i.GLocale.get(u.CATEGORY_FILE.label)));
+          const e = (t = require.findItem(GCore.GLocale.get(MenuItemBuilder.CATEGORY_FILE.label)));
           if (e && e.getMenu()) {
             const n = e
               .getMenu()
               .findItem(
-                i.GLocale.get(u.CATEGORY_FILE_OPEN_RECENT.label).split("/")[1]
+                GCore.GLocale.get(MenuItemBuilder.CATEGORY_FILE_OPEN_RECENT.label).split("/")[1]
               );
             n && (t = n.getMenu());
           }
@@ -261,28 +261,28 @@ function (exports, module, require) {
         if (t)
           if ((t.clearItems(), e.length > 0))
             for (
-              var o = e[0] instanceof this._storage.constructor.Item, a = 0;
-              a < e.length;
-              ++a
+              var _interopRequireDefault = e[0] instanceof this._storage.constructor.Item, GGoogleAPI = 0;
+              GGoogleAPI < e.length;
+              ++GGoogleAPI
             ) {
-              let n = e[a];
+              let n = e[GGoogleAPI];
               n instanceof this._storage.constructor.Item ||
-                !o ||
-                (gDesigner.addMenuSeparator(t), (o = false));
-              const i = this.getRecentDocumentIconClass(n),
-                r = n.getName() + "." + n.getExtension().toLowerCase();
-              gDesigner.addMenuItem(t, r, i, null, null, function () {
+                !_interopRequireDefault ||
+                (gDesigner.addMenuSeparator(t), (_interopRequireDefault = false));
+              const GCore = this.getRecentDocumentIconClass(n),
+                AppSettings = n.getName() + "." + n.getExtension().toLowerCase();
+              gDesigner.addMenuItem(t, AppSettings, GCore, null, null, function () {
                 try {
                   gDesigner.openDocument(n);
                 } catch (e) {
                   if (!(e instanceof s.default)) throw e;
-                  f.externalFileError(true);
+                  GSystemDialog.externalFileError(true);
                 }
               });
             }
           else {
-            var r = gDesigner.addMenuItem(t);
-            gDesigner.updateMenuItem(r, i.GLocale.get(p.TITLE), false, false);
+            var AppSettings = gDesigner.addMenuItem(t);
+            gDesigner.updateMenuItem(AppSettings, GCore.GLocale.get(GOpenRecentAction.TITLE), false, false);
           }
       }),
       (y.prototype.getRecentDocumentIconClass = function (e) {
@@ -294,15 +294,15 @@ function (exports, module, require) {
           ? "gravit-icon-sharepoint-logo"
           : "[Object GOneDriveBusinessStorage.Item]" === e.toString()
           ? "gravit-icon-onedrivebusiness-logo"
-          : g["gravit-icon-cloud-logo"];
+          : barrel_panels["gravit-icon-cloud-logo"];
       }),
       (y.prototype.triggerClose = function () {}),
       (y.prototype.getGoogleAPI = function () {
-        return a.GDefaultGoogleAPI;
+        return GGoogleAPI.GDefaultGoogleAPI;
       }),
       (y.prototype.signWithOAuth = function (e) {
         return new Promise((t, n) => {
-          r.gApi
+          AppSettings.gApi
             .popup("/auth/" + e)
             .then((e) => {
               e ? t(e) : n();
@@ -326,7 +326,7 @@ function (exports, module, require) {
       (y.prototype._getJsHeapLimitSize = function () {
         return window.performance.memory
           ? window.performance.memory.jsHeapSizeLimit
-          : r.JS_HEAP_SIZE_LIMIT_POYFILL;
+          : AppSettings.JS_HEAP_SIZE_LIMIT_POYFILL;
       }),
       (y.prototype._estimatingMemoryUsage = function () {
         return (
@@ -339,8 +339,8 @@ function (exports, module, require) {
                   : 0,
               0
             ) *
-            r.FILE_SIZE_TO_RAM_COEFFCIENT +
-          r.MIN_JS_HEAP_SIZE
+            AppSettings.FILE_SIZE_TO_RAM_COEFFCIENT +
+          AppSettings.MIN_JS_HEAP_SIZE
         );
       }),
       (y.prototype.verifyEnoughMemoryToSave = function (e) {
@@ -351,12 +351,12 @@ function (exports, module, require) {
                 this._getJsHeapLimitSize() -
                 (module +=
                   e.getStorageItem().documentRealFileSize *
-                  r.FILE_SIZE_TO_SAVING_RAM_COEFFCIENT);
+                  AppSettings.FILE_SIZE_TO_SAVING_RAM_COEFFCIENT);
             if (2 * e.getStorageItem().documentRealFileSize > require) {
-              var o = i.GLocale.get(
-                new i.GLocaleKey("GContainer", "text.not-memary-enough")
+              var _interopRequireDefault = GCore.GLocale.get(
+                new GCore.GLocaleKey("GContainer", "text.not-memary-enough")
               );
-              new h(o).open();
+              new h(_interopRequireDefault).open();
             }
           }
         } catch (e) {

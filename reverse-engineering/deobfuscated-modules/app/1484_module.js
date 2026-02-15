@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */;
-    var i = o(require(176) /* GSystem */),
-      a = require(1) /* module */,
-      r = o(require(1242) /* module_1242 */),
-      s = o(require(44) /* GSystemDialog */),
-      l = o(require(443) /* module_443 */),
+    var GSystem = _interopRequireDefault(require(176) /* GSystem */),
+      GCore = require(1) /* module */,
+      r = _interopRequireDefault(require(1242) /* module_1242 */),
+      s = _interopRequireDefault(require(44) /* GSystemDialog */),
+      l = _interopRequireDefault(require(443) /* module_443 */),
       c = require(1243) /* Exports_SHAREPOINT_COMMAND */;
     const { isPrivateChat: d, isTeamsChannel: u } = l.default;
     function p(e) {
@@ -20,13 +20,13 @@ function (exports, module, require) {
       this._callback = e;
     }
     (p.prototype.isExeuteOnMobileDevice = function () {
-      return i.default.hardware === i.default.Hardware.Phone;
+      return GSystem.default.hardware === GSystem.default.Hardware.Phone;
     }),
       (p.prototype.load = async function () {
         if (this.isExeuteOnMobileDevice())
           return void s.default.splashScreenError(
-            a.GLocale.get(
-              new a.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GSystemDialog",
                 "text.unsupported-mobile-for-msteams-new"
               )

@@ -7,26 +7,26 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function l(e) {
       (this._type = e),
-        (this._title = new i.GLocaleKey("GTransformAction", "title." + e)),
+        (this._title = new GCore.GLocaleKey("GTransformAction", "title." + e)),
         (l.TOOLTIP_CONFIG = {
           [a.TOOLTIP_AREA.TOOLBAR]: {
             [l.Type.Rotate45Left]: null,
             [l.Type.Rotate90Left]: a.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "rotate-90-left-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "rotate-90-left-tooltip-description"
                 )
@@ -37,14 +37,14 @@ function (exports, module, require) {
             [l.Type.Rotate180Left]: null,
             [l.Type.Rotate45Right]: null,
             [l.Type.Rotate90Right]: a.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "rotate-90-right-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "rotate-90-right-tooltip-description"
                 )
@@ -54,14 +54,14 @@ function (exports, module, require) {
             }),
             [l.Type.Rotate180Right]: null,
             [l.Type.FlipVertical]: a.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "flip-vertical-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "flip-vertical-tooltip-description"
                 )
@@ -70,14 +70,14 @@ function (exports, module, require) {
                 "",
             }),
             [l.Type.FlipHorizontal]: a.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "flip-horizontal-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GTransformAction",
                   "flip-horizontal-tooltip-description"
                 )
@@ -88,7 +88,7 @@ function (exports, module, require) {
           },
         });
     }
-    i.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GAction),
       (l.Type = {
         Rotate45Left: "rotate-45-left",
         Rotate90Left: "rotate-90-left",
@@ -123,7 +123,7 @@ function (exports, module, require) {
         }
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_TRANSFORM;
+        return MenuItemBuilder.CATEGORY_MODIFY_TRANSFORM;
       }),
       (l.prototype.getGroup = function () {
         var e = "";
@@ -156,11 +156,11 @@ function (exports, module, require) {
           [];
         return (
           (module = module.filter((e) => {
-            var t = o.GElementEditor.getEditor(e);
+            var t = GTools.GElementEditor.getEditor(e);
             return (
               t &&
-              (t.hasFlag(o.GBoxEditor.Flag.RotateCorners) ||
-                t.hasFlag(o.GBoxEditor.Flag.RotateHandle))
+              (t.hasFlag(GTools.GBoxEditor.Flag.RotateCorners) ||
+                t.hasFlag(GTools.GBoxEditor.Flag.RotateHandle))
             );
           })),
           module.length > 0
@@ -171,60 +171,60 @@ function (exports, module, require) {
           n = t.getScene();
         e || (e = t.getEditor().getSelection()),
           (e = (e = t.getEditor().filterIndividualElements(e)).filter((e) => {
-            var t = o.GElementEditor.getEditor(e);
+            var t = GTools.GElementEditor.getEditor(e);
             return (
               t &&
-              (t.hasFlag(o.GBoxEditor.Flag.RotateCorners) ||
-                t.hasFlag(o.GBoxEditor.Flag.RotateHandle))
+              (t.hasFlag(GTools.GBoxEditor.Flag.RotateCorners) ||
+                t.hasFlag(GTools.GBoxEditor.Flag.RotateHandle))
             );
           }));
-        var a = o.GEditor.getGroupGeometryBBox(e);
+        var a = GTools.GEditor.getGroupGeometryBBox(e);
         a &&
-          o.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             n,
             function () {
               for (var t = 0; t < e.length; ++t) {
                 var n = e[t];
-                if (n.hasMixin(i.GElement.Transform) && a) {
-                  var o = a.getSide(i.GRect.Side.CENTER),
-                    r = 0,
-                    s = 1,
+                if (n.hasMixin(GCore.GElement.Transform) && a) {
+                  var GTools = a.getSide(GCore.GRect.Side.CENTER),
+                    MenuItemBuilder = 0,
+                    GAction = 1,
                     c = 1;
                   switch (this._type) {
                     case l.Type.Rotate45Left:
-                      r = -45;
+                      MenuItemBuilder = -45;
                       break;
                     case l.Type.Rotate90Left:
-                      r = -90;
+                      MenuItemBuilder = -90;
                       break;
                     case l.Type.Rotate180Left:
-                      r = -180;
+                      MenuItemBuilder = -180;
                       break;
                     case l.Type.Rotate45Right:
-                      r = 45;
+                      MenuItemBuilder = 45;
                       break;
                     case l.Type.Rotate90Right:
-                      r = 90;
+                      MenuItemBuilder = 90;
                       break;
                     case l.Type.Rotate180Right:
-                      r = 180;
+                      MenuItemBuilder = 180;
                       break;
                     case l.Type.FlipVertical:
                       c = -1;
                       break;
                     case l.Type.FlipHorizontal:
-                      s = -1;
+                      GAction = -1;
                   }
-                  var d = new i.GTransform()
-                    .translated(-o.getX(), -o.getY())
-                    .scaled(s, c)
-                    .rotated(i.GMath.toRadians(r))
-                    .translated(o.getX(), o.getY());
+                  var d = new GCore.GTransform()
+                    .translated(-GTools.getX(), -GTools.getY())
+                    .scaled(GAction, c)
+                    .rotated(GCore.GMath.toRadians(MenuItemBuilder))
+                    .translated(GTools.getX(), GTools.getY());
                   n.transform(d, true);
                 }
               }
             }.bind(this),
-            i.GLocale.get(this.getTitle())
+            GCore.GLocale.get(this.getTitle())
           );
       }),
       (l.prototype.getTooltipConfig = function (e) {

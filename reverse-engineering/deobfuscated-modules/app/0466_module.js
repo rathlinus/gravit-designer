@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(94) /* Exports_Buf */,
+    var Buf = require(94) /* Exports_Buf */,
       i = require(310) /* module_310 */,
       a = require(311) /* module_311 */,
       r = require(467) /* module_467 */,
@@ -47,8 +47,8 @@ function (exports, module, require) {
         (this.ndist = 0),
         (this.have = 0),
         (this.next = null),
-        (this.lens = new o.Buf16(320)),
-        (this.work = new o.Buf16(288)),
+        (this.lens = new Buf.Buf16(320)),
+        (this.work = new Buf.Buf16(288)),
         (this.lendyn = null),
         (this.distdyn = null),
         (this.sane = 0),
@@ -69,8 +69,8 @@ function (exports, module, require) {
           (t.head = null),
           (t.hold = 0),
           (t.bits = 0),
-          (t.lencode = t.lendyn = new o.Buf32(852)),
-          (t.distcode = t.distdyn = new o.Buf32(592)),
+          (t.lencode = t.lendyn = new Buf.Buf32(852)),
+          (t.distcode = t.distdyn = new Buf.Buf32(592)),
           (t.sane = 1),
           (t.back = -1),
           0)
@@ -83,26 +83,26 @@ function (exports, module, require) {
         : -2;
     }
     function p(e, t) {
-      var n, o;
+      var n, Buf;
       return e && e.state
-        ? ((o = e.state),
+        ? ((Buf = e.state),
           t < 0
             ? ((n = 0), (t = -t))
             : ((n = 1 + (t >> 4)), t < 48 && (t &= 15)),
           t && (t < 8 || t > 15)
             ? -2
-            : (null !== o.window && o.wbits !== t && (o.window = null),
-              (o.wrap = n),
-              (o.wbits = t),
+            : (null !== Buf.window && Buf.wbits !== t && (Buf.window = null),
+              (Buf.wrap = n),
+              (Buf.wbits = t),
               u(e)))
         : -2;
     }
     function g(e, t) {
-      var n, o;
+      var n, Buf;
       return e
-        ? ((o = new c()),
-          (e.state = o),
-          (o.window = null),
+        ? ((Buf = new c()),
+          (e.state = Buf),
+          (Buf.window = null),
           0 !== (n = p(e, t)) && (e.state = null),
           n)
         : -2;
@@ -113,7 +113,7 @@ function (exports, module, require) {
     function y(e) {
       if (m) {
         var module;
-        for (h = new o.Buf32(512), f = new o.Buf32(32), module = 0; module < 144; )
+        for (h = new Buf.Buf32(512), f = new Buf.Buf32(32), module = 0; module < 144; )
           e.lens[module++] = 8;
         for (; module < 256; ) e.lens[module++] = 9;
         for (; module < 280; ) e.lens[module++] = 7;
@@ -132,15 +132,15 @@ function (exports, module, require) {
           ((r.wsize = 1 << r.wbits),
           (r.wnext = 0),
           (r.whave = 0),
-          (r.window = new o.Buf8(r.wsize))),
+          (r.window = new Buf.Buf8(r.wsize))),
         i >= r.wsize
-          ? (o.arraySet(r.window, t, n - r.wsize, r.wsize, 0),
+          ? (Buf.arraySet(r.window, t, n - r.wsize, r.wsize, 0),
             (r.wnext = 0),
             (r.whave = r.wsize))
           : ((a = r.wsize - r.wnext) > i && (a = i),
-            o.arraySet(r.window, t, n - i, a, r.wnext),
+            Buf.arraySet(r.window, t, n - i, a, r.wnext),
             (i -= a)
-              ? (o.arraySet(r.window, t, n - i, i, 0),
+              ? (Buf.arraySet(r.window, t, n - i, i, 0),
                 (r.wnext = i),
                 (r.whave = r.wsize))
               : ((r.wnext += a),
@@ -182,7 +182,7 @@ function (exports, module, require) {
           I,
           k,
           O = 0,
-          F = new o.Buf8(4),
+          F = new Buf.Buf8(4),
           R = [
             16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15,
           ];
@@ -319,7 +319,7 @@ function (exports, module, require) {
                     ((D = n.head.extra_len - n.length),
                     n.head.extra ||
                       (n.head.extra = new Array(n.head.extra_len)),
-                    o.arraySet(n.head.extra, c, u, w, D)),
+                    Buf.arraySet(n.head.extra, c, u, w, D)),
                   512 & n.flags && (n.check = a(n.check, c, w, u)),
                   (g -= w),
                   (u += w),
@@ -454,7 +454,7 @@ function (exports, module, require) {
             case 16:
               if ((w = n.length)) {
                 if ((w > g && (w = g), w > h && (w = h), 0 === w)) break e;
-                o.arraySet(d, c, u, w, p),
+                Buf.arraySet(d, c, u, w, p),
                   (g -= w),
                   (u += w),
                   (h -= w),
@@ -832,13 +832,13 @@ function (exports, module, require) {
       }),
       (module.inflateSetDictionary = function (e, t) {
         var n,
-          o = t.length;
+          Buf = t.length;
         return e && e.state
           ? 0 !== (n = e.state).wrap && 11 !== n.mode
             ? -2
-            : 11 === n.mode && i(1, t, o, 0) !== n.check
+            : 11 === n.mode && i(1, t, Buf, 0) !== n.check
             ? -3
-            : v(e, t, o, o)
+            : v(e, t, Buf, Buf)
             ? ((n.mode = 31), -4)
             : ((n.havedict = 1), 0)
           : -2;

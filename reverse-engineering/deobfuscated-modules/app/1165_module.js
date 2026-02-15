@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */, require(97) /* stub_requires_684 */;
-    var o = require(1) /* module */;
-    const i = require(78) /* GDocumentEvent */,
-      a = require(393) /* GCollaborationEvent */,
+    var GCore = require(1) /* module */;
+    const GDocumentEvent = require(78) /* GDocumentEvent */,
+      GCollaborationEvent = require(393) /* GCollaborationEvent */,
       r = require(433) /* module_433 */,
       s = require(336) /* module_336 */,
       l = require(868) /* module_868 */,
@@ -22,7 +22,7 @@ function (exports, module, require) {
       } = require(10) /* AppSettings */;
     function f() {
       if (!p) return this;
-      gDesigner.addEventListener(i, this._documentEvent, this),
+      gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
         gDesigner.addEventListener(
           s.FileStatusUpdate,
           this._storageItemFileStatusEvent,
@@ -33,14 +33,14 @@ function (exports, module, require) {
           (this._addDocumentEvents(gDesigner.getActiveDocument()),
           this._updateFromDocument(gDesigner.getActiveDocument()));
     }
-    o.GObject.inherit(f, o.GEventTarget),
+    GCore.GObject.inherit(f, GCore.GEventTarget),
       (f.UpdateEvent = function () {}),
-      o.GObject.inherit(f.UpdateEvent, o.GEvent),
+      GCore.GObject.inherit(f.UpdateEvent, GCore.GEvent),
       (f.prototype._addDocumentEvents = function (e) {
-        e.addEventListener(a, this._collaborationEvent, this);
+        e.addEventListener(GCollaborationEvent, this._collaborationEvent, this);
       }),
       (f.prototype._removeDocumentEvents = function (e) {
-        e.removeEventListener(a, this._collaborationEvent, this);
+        e.removeEventListener(GCollaborationEvent, this._collaborationEvent, this);
       }),
       (f.prototype._storageItemFileStatusEvent = async function (e) {
         let { storageItem: module, newStatus: require } = e;
@@ -60,15 +60,15 @@ function (exports, module, require) {
       (f.prototype._documentEvent = async function (e) {
         const module = e.document;
         switch (e.type) {
-          case i.Type.Activated:
+          case GDocumentEvent.Type.Activated:
             this._addDocumentEvents(module), this._updateFromDocument(module);
             break;
-          case i.Type.Deactivated:
+          case GDocumentEvent.Type.Deactivated:
             this._removeDocumentEvents(module),
               this._updateFromDocument(module),
               (this._doc = null);
             break;
-          case i.Type.StorageItemUpdated:
+          case GDocumentEvent.Type.StorageItemUpdated:
             this._updateFromDocument(module);
         }
       }),
@@ -76,8 +76,8 @@ function (exports, module, require) {
         const { type: module, sender: require } = e;
         if (require === gDesigner.getActiveDocument())
           switch (module) {
-            case a.Type.ShareUpdate:
-            case a.Type.UserUpdate:
+            case GCollaborationEvent.Type.ShareUpdate:
+            case GCollaborationEvent.Type.UserUpdate:
               await this._updateCollaboratorRoleListIfInitialized(),
                 this.hasEventListeners(f.UpdateEvent) &&
                   this.trigger(new f.UpdateEvent());
@@ -142,8 +142,8 @@ function (exports, module, require) {
         return this.canUpdateToStatus(e) && this._fileId
           ? d.updateStatus(this._fileId, e)
           : Promise.reject(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFileReviewManager",
                   "text.cant-update-file-to-status"
                 )
@@ -188,9 +188,9 @@ function (exports, module, require) {
         const module = await d.annotations.getDesignHistory(e).catch(() => []),
           require = [];
         for (let e = 0; e < module.length; e++) {
-          const o = module[e],
-            i = g.from(o);
-          h.includes(i.getAction()) && require.push(i);
+          const GCore = module[e],
+            GDocumentEvent = g.from(GCore);
+          h.includes(GDocumentEvent.getAction()) && require.push(GDocumentEvent);
         }
         return require;
       }),

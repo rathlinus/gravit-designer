@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(328) /* polyfill_Array_sort */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "modify.bmp2path"),
-      (s.TITLE = new o.GLocaleKey("GVectorizeImageAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GVectorizeImageAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,66 +22,66 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (s.prototype.getGroup = function () {
         return "structure/modify";
       }),
       (s.prototype.isEnabled = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
           for (var module = 0; module < e.length; ++module)
-            if (e[module] instanceof o.GImage && !e[module].getStatus()) return true;
+            if (e[module] instanceof GCore.GImage && !e[module].getStatus()) return true;
         return false;
       }),
       (s.prototype.execute = function () {
         var e = gDesigner.getActiveDocument(),
           t = e ? e.getEditor() : null,
           n = t ? t.getIndividualSelection() : null,
-          a = [];
+          MenuItemBuilder = [];
         if (n)
-          for (var r = 0; r < n.length; ++r)
-            n[r] instanceof o.GImage && !n[r].getStatus() && a.push(n[r]);
-        if (a.length) {
+          for (var GElementAction = 0; GElementAction < n.length; ++GElementAction)
+            n[GElementAction] instanceof GCore.GImage && !n[GElementAction].getStatus() && MenuItemBuilder.push(n[GElementAction]);
+        if (MenuItemBuilder.length) {
           t.beginTransaction();
           try {
             var s,
               l = [];
             s = new Set();
-            for (r = 0; r < a.length; ++r) {
-              var c = a[r].getParent();
+            for (GElementAction = 0; GElementAction < MenuItemBuilder.length; ++GElementAction) {
+              var c = MenuItemBuilder[GElementAction].getParent();
               c && s.add(c);
             }
             try {
-              (0, i.blockChanges)(t, s);
-              for (r = 0; r < a.length; ++r) {
-                var d = a[r],
+              (0, CollaborationMergeUtils.blockChanges)(t, s);
+              for (GElementAction = 0; GElementAction < MenuItemBuilder.length; ++GElementAction) {
+                var d = MenuItemBuilder[GElementAction],
                   u = d.getParent(),
                   p = d.getNext(),
                   g = this._vectorize(d);
                 g && (u.insertChild(g, p), l.push(g)), u.removeChild(d);
               }
             } finally {
-              (0, i.releaseChanges)(t, s), l.length && t.updateSelection(false, l);
+              (0, CollaborationMergeUtils.releaseChanges)(t, s), l.length && t.updateSelection(false, l);
             }
           } finally {
-            t.commitTransaction(o.GLocale.get(this.getTitle()));
+            t.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),
       (s.prototype._vectorize = function (e) {
-        new o.GVertexContainer();
+        new GCore.GVertexContainer();
         var t,
           n,
-          i = e.getImageCanvas(),
-          a = new o.GImageTracer(),
-          r = a.getImgdata(i),
-          s = r.width,
-          l = r.height,
-          c = a.imagedataToTracedata(r, {
+          CollaborationMergeUtils = e.getImageCanvas(),
+          MenuItemBuilder = new GCore.GImageTracer(),
+          GElementAction = MenuItemBuilder.getImgdata(CollaborationMergeUtils),
+          s = GElementAction.width,
+          l = GElementAction.height,
+          c = MenuItemBuilder.imagedataToTracedata(GElementAction, {
             ltres: 1,
             qtres: Math.min(s / 4, l / 4, 10),
             numberofcolors: 8,
@@ -106,7 +106,7 @@ function (exports, module, require) {
         });
         var f,
           m,
-          y = new o.GGroup(),
+          y = new GCore.GGroup(),
           v = -1;
         for (t = 0; t < h.length; t++)
           if (
@@ -115,24 +115,24 @@ function (exports, module, require) {
             (g = u[h[t]].p),
             0 !== d[p].a)
           ) {
-            var _ = new o.GRGBColor([d[p].r, d[p].g, d[p].b]),
+            var _ = new GCore.GRGBColor([d[p].r, d[p].g, d[p].b]),
               b = c.layers[p];
-            p !== v && (m = new o.GVertexContainer());
+            p !== v && (m = new GCore.GVertexContainer());
             var w = b[g];
-            m.addVertex(o.GVertex.Command.Move, w[0].x1, w[0].y1);
+            m.addVertex(GCore.GVertex.Command.Move, w[0].x1, w[0].y1);
             for (var C = 0; C < w.length; C++) {
               var x = w[C];
               "L" === x.type
-                ? m.addVertex(o.GVertex.Command.Line, x.x2, x.y2)
-                : (m.addVertex(o.GVertex.Command.Curve, x.x3, x.y3),
-                  m.addVertex(o.GVertex.Command.Curve, x.x2, x.y2));
+                ? m.addVertex(GCore.GVertex.Command.Line, x.x2, x.y2)
+                : (m.addVertex(GCore.GVertex.Command.Curve, x.x3, x.y3),
+                  m.addVertex(GCore.GVertex.Command.Curve, x.x2, x.y2));
             }
             if (p !== f) {
-              m = new o.GVertexSimplifier(m).simplify(0.4, false, true);
-              var S = o.GPathUtil.createPathFromVertexSource(m);
+              m = new GCore.GVertexSimplifier(m).simplify(0.4, false, true);
+              var S = GCore.GPathUtil.createPathFromVertexSource(m);
               S &&
                 (S.getPaintLayers().appendChild(
-                  new o.GStylable.FillPaintLayer(_)
+                  new GCore.GStylable.FillPaintLayer(_)
                 ),
                 S.setProperty("name", _.getClosestCSSName()),
                 y.appendChild(S));

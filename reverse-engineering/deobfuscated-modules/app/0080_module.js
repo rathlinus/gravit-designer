@@ -9,15 +9,15 @@ function (exports, module, require) {
       i,
       a,
       r = require(452) /* module_452 */,
-      s = require(23) /* globalThis */,
-      l = require(46) /* toLength */,
-      c = require(100) /* createProperty */,
+      globalThis = require(23) /* globalThis */,
+      toLength = require(46) /* toLength */,
+      createProperty = require(100) /* createProperty */,
       d = require(61) /* module_61 */,
       u = require(297) /* module_297 */,
       p = require(300) /* module_300 */,
       g = require(259) /* module_259 */,
-      h = s.TypeError,
-      f = s.WeakMap;
+      h = globalThis.TypeError,
+      f = globalThis.WeakMap;
     if (r || u.state) {
       var m = u.state || (u.state = new f());
       (m.get = m.get),
@@ -38,7 +38,7 @@ function (exports, module, require) {
       (g[y] = true),
         (o = function (e, t) {
           if (d(e, y)) throw new h("Object already initialized");
-          return (t.facade = e), c(e, y, t), t;
+          return (t.facade = e), createProperty(e, y, t), t;
         }),
         (i = function (e) {
           return d(e, y) ? e[y] : {};
@@ -57,7 +57,7 @@ function (exports, module, require) {
       getterFor: function (e) {
         return function (t) {
           var n;
-          if (!l(t) || (n = i(t)).type !== e)
+          if (!toLength(t) || (n = i(t)).type !== e)
             throw new h("Incompatible receiver, " + e + " required");
           return n;
         };

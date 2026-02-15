@@ -7,20 +7,20 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const { FILE_FORMATS: i, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: a } = {} } =
         require(10) /* AppSettings */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       l = require(119) /* module_119 */,
-      c = require(448) /* GGravitCloudAction */,
+      GGravitCloudAction = require(448) /* GGravitCloudAction */,
       d = require(86) /* module_86 */,
       u = require(163) /* module_163 */,
-      p = require(445) /* GSaveAsAction */,
-      g = require(44) /* GSystemDialog */,
+      GSaveAsAction = require(445) /* GSaveAsAction */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       h = i.find((e) => e.default).ext;
     function f() {}
-    o.GObject.inherit(f, s),
+    GCore.GObject.inherit(f, GAction),
       (f.ID = "sync"),
       (f.prototype.getId = function () {
         return f.ID;
@@ -29,14 +29,14 @@ function (exports, module, require) {
         if (e.getScene()) {
           const t = e.getScene().lastModifiedDate();
           return t
-            ? o.GLocale.get(
-                new o.GLocaleKey(
+            ? GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GCloudSynchronizationAction",
                   "text.last-synced-at"
                 )
               ).replace(
                 "%date",
-                o.GLocale.toLocaleDate(t, {
+                GCore.GLocale.toLocaleDate(t, {
                   year: "numeric",
                   month: "numeric",
                   day: "numeric",
@@ -45,8 +45,8 @@ function (exports, module, require) {
                   second: "numeric",
                 })
               )
-            : o.GLocale.get(
-                new o.GLocaleKey("GDocumentChooser", "text.unavailable")
+            : GCore.GLocale.get(
+                new GCore.GLocaleKey("GDocumentChooser", "text.unavailable")
               );
         }
       }),
@@ -57,18 +57,18 @@ function (exports, module, require) {
         const exports = gDesigner.getActiveDocument();
         if (exports) {
           if (exports.isSynchronizing())
-            return new o.GLocaleKey(
+            return new GCore.GLocaleKey(
               "GCloudSynchronizationAction",
               "text.syncing"
             );
           if (exports.isCloudFile()) return this._getSyncInformation(exports);
           if (exports.isCloudSyncOn())
-            return new o.GLocaleKey(
+            return new GCore.GLocaleKey(
               "GCloudSynchronizationAction",
               "text.unsync-from-cloud"
             );
         }
-        return new o.GLocaleKey(
+        return new GCore.GLocaleKey(
           "GCloudSynchronizationAction",
           "text.sync-to-cloud"
         );
@@ -89,7 +89,7 @@ function (exports, module, require) {
           : null;
       }),
       (f.prototype.getCategory = function () {
-        return r.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (f.prototype.getGroup = function () {
         return "file";
@@ -120,7 +120,7 @@ function (exports, module, require) {
             ? l.createFile(e, (t) => {
                 e.getScene().setCloudSynchronization(t.id),
                   gDesigner.executeAction(
-                    p.ID + "." + h,
+                    GSaveAsAction.ID + "." + h,
                     [
                       null,
                       e,
@@ -135,7 +135,7 @@ function (exports, module, require) {
                   );
               })
             : e.isCloudFile()
-            ? gDesigner.executeAction(p.ID + "." + h, undefined, undefined, true)
+            ? gDesigner.executeAction(GSaveAsAction.ID + "." + h, undefined, undefined, true)
             : l.createFile(e, (t) => {
                 e.getScene().setCloudSynchronization(t.id),
                   e.storeToCloud(e.getScene(), () => {
@@ -145,9 +145,9 @@ function (exports, module, require) {
                   });
               })
           : e.isCloudFile()
-          ? gDesigner.executeAction(p.ID + "." + h, undefined, undefined, true)
+          ? gDesigner.executeAction(GSaveAsAction.ID + "." + h, undefined, undefined, true)
           : gDesigner.executeAction(
-              c.ID + ".save-as",
+              GGravitCloudAction.ID + ".save-as",
               [
                 e,
                 (t) => {
@@ -166,8 +166,8 @@ function (exports, module, require) {
           require.getProperty("cfs")
             ? e.chooseLatestDocument(
                 require,
-                function (t, o) {
-                  if (t !== require || o) {
+                function (t, GCore) {
+                  if (t !== require || GCore) {
                     const n = new u(e.getStorageItem());
                     n.setScene(t), gDesigner.replaceDocument(e, n);
                   } else
@@ -179,9 +179,9 @@ function (exports, module, require) {
                     });
                 },
                 function () {
-                  g.alert(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GDocument", "text.sync-to-cloud-error")
+                  GSystemDialog.alert(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.sync-to-cloud-error")
                     )
                   );
                 },
@@ -195,7 +195,7 @@ function (exports, module, require) {
             : e.isCloudFile() ||
               (gDesigner.getDefaultStorage().canSave()
                 ? e.store()
-                : gDesigner.executeAction(p.ID + "." + h, undefined, undefined, true));
+                : gDesigner.executeAction(GSaveAsAction.ID + "." + h, undefined, undefined, true));
       }),
       (f.prototype.statsValue = function () {
         return gDesigner.getActiveDocument().isCloudSyncOn()

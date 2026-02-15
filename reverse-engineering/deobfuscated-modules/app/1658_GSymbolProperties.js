@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(123) /* GProperties */,
+    var GCore = require(1) /* module */,
+      GProperties = require(123) /* GProperties */,
       a = (require(173) /* stub_requires_1 */, require(874) /* GDetachSymbolAction */),
-      r = require(566) /* GFitSelectionAction */;
-    const s = require(135) /* GSettingChangedEvent */;
+      GFitSelectionAction = require(566) /* GFitSelectionAction */;
+    const GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function l() {}
-    o.GObject.inherit(l, i),
+    GCore.GObject.inherit(l, GProperties),
       (l.prototype._panel = null),
       (l.prototype._toolbar = null),
       (l.prototype._document = null),
@@ -34,9 +34,9 @@ function (exports, module, require) {
               gDesigner.stats("symbolproperties_select_swap");
               var t = this._document.getScene(),
                 n = this._document.getEditor(),
-                i = function (e) {
+                GProperties = function (e) {
                   var n = e.findParent(function (e) {
-                    return e instanceof o.GPage;
+                    return e instanceof GCore.GPage;
                   });
                   n && t.getActivePage() !== n && t.setActivePage(n);
                 };
@@ -45,12 +45,12 @@ function (exports, module, require) {
                 "0" !== e.target.value &&
                 "-1" !== e.target.value
               ) {
-                var s = $(e.target)
+                var GSettingChangedEvent = $(e.target)
                   .find('option[value="' + e.target.value + '"]')
                   .data("symbol");
-                if (s) {
+                if (GSettingChangedEvent) {
                   (n = this._document.getEditor()).beginTransaction();
-                  var l = s,
+                  var l = GSettingChangedEvent,
                     c = this._symbols[0],
                     d = c.getMasterSymbol(),
                     u = c.getDisabledSiblings(),
@@ -69,17 +69,17 @@ function (exports, module, require) {
                       l.getMultireferenceId() + "_" + c.getMultireferenceId()
                     ];
                   h && p.desynchronize(h),
-                    p && (i(p), n.updateSelection(false, [p])),
+                    p && (GProperties(p), n.updateSelection(false, [p])),
                     n.commitTransaction("Swap symbol instance");
                 }
               } else if (e.target.value && "0" === e.target.value) {
                 var f = this._symbols[0].getMasterSymbol();
                 n.beginTransaction(),
-                  i(f),
+                  GProperties(f),
                   n.clearSelection(),
                   n.updateSelection(false, [f]),
                   n.hasSelection() &&
-                    gDesigner.executeAction(r.ID, undefined, undefined, true),
+                    gDesigner.executeAction(GFitSelectionAction.ID, undefined, undefined, true),
                   n.commitTransaction("Select master symbol");
               } else
                 e.target.value &&
@@ -89,7 +89,7 @@ function (exports, module, require) {
             }.bind(this)
           );
         $("<label></label>")
-          .text(o.GLocale.get(new o.GLocaleKey("GSymbolProperties", "title")))
+          .text(GCore.GLocale.get(new GCore.GLocaleKey("GSymbolProperties", "title")))
           .appendTo(t),
           $("<div></div>")
             .addClass("chooseinstance-row")
@@ -99,8 +99,8 @@ function (exports, module, require) {
                   clazz: "chooseinstance-title-col",
                   content: $(
                     "<span>" +
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSymbolProperties",
                           "text.chooseinstance"
                         )
@@ -117,15 +117,15 @@ function (exports, module, require) {
         return (
           this._updateUI(),
           this._document &&
-            (gDesigner.removeEventListener(s, this._settingChanged, this),
+            (gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged, this),
             (this._document = null)),
           (this._symbols = null),
           !(
             !e ||
-            (gDesigner.addEventListener(s, this._settingChanged, this),
+            (gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
             !(t = t.filter(
               (e) =>
-                e instanceof o.GSymbol && !e.isMaster() && !!e.getMasterSymbol()
+                e instanceof GCore.GSymbol && !e.isMaster() && !!e.getMasterSymbol()
             )).length)
           ) &&
             ((this._symbols = t.slice()),
@@ -146,65 +146,65 @@ function (exports, module, require) {
         var e,
           t = this._document.getScene(),
           n = this._symbols[0],
-          i = n.getMasterSymbol(),
-          r = (t.isFixedSized(), t.getSymbols());
+          GProperties = n.getMasterSymbol(),
+          GFitSelectionAction = (t.isFixedSized(), t.getSymbols());
         this._symbols.length > 1
           ? (e =
               this._symbols.length +
               " " +
-              o.GLocale.get(
-                new o.GLocaleKey("GSymbolProperties", "text.instances")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GSymbolProperties", "text.instances")
               ))
           : ((e =
               n.getProperty("name") ||
-              o.GLocale.get(new o.GLocaleKey("GSymbolProperties", "title"))),
-            i.getProperty("name")
+              GCore.GLocale.get(new GCore.GLocaleKey("GSymbolProperties", "title"))),
+            GProperties.getProperty("name")
               ? (e +=
                   " (" +
-                  o.GLocale.get(
-                    new o.GLocaleKey("GSymbolProperties", "text.instanceof")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GSymbolProperties", "text.instanceof")
                   ) +
                   " " +
-                  i.getProperty("name"))
+                  GProperties.getProperty("name"))
               : (e +=
                   " (" +
-                  o.GLocale.get(
-                    new o.GLocaleKey("GSymbolProperties", "text.instance")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GSymbolProperties", "text.instance")
                   )),
             (e += ")")),
           this._toolbar.find("label:first-child").text(e);
-        var s,
+        var GSettingChangedEvent,
           l = this._panel
             .find('select[data-property="symbol-instance"]')
             .empty();
         gDesigner.canExecuteAction(a.ID) &&
           (l.append(
-            $('<option value="-1">(' + o.GLocale.get(a.TITLE) + ")</option>")
+            $('<option value="-1">(' + GCore.GLocale.get(a.TITLE) + ")</option>")
           ),
-          l.append((s = $('<option value="-2"></option>'))));
+          l.append((GSettingChangedEvent = $('<option value="-2"></option>'))));
         var c = 0;
-        !r.length && i && (r = [i]),
-          r.length
+        !GFitSelectionAction.length && GProperties && (GFitSelectionAction = [GProperties]),
+          GFitSelectionAction.length
             ? l.removeClass("g-disabled").attr("disabled", null)
             : l.addClass("g-disabled").attr("disabled", "");
         var d = false;
-        r.forEach(function (e) {
+        GFitSelectionAction.forEach(function (e) {
           var t = $("<option></option>")
             .data("symbol", e)
             .attr("value", ++c)
             .text(e.getProperty("name"))
             .appendTo(l);
-          i.getMultireferenceId() === e.getMultireferenceId() &&
+          GProperties.getMultireferenceId() === e.getMultireferenceId() &&
             (t.prop("selected", true), (d = true));
         }),
-          d || s.prop("selected", true),
-          i &&
-            i.getScene() &&
+          d || GSettingChangedEvent.prop("selected", true),
+          GProperties &&
+            GProperties.getScene() &&
             l.append(
               $(
                 '<option value="0">(' +
-                  o.GLocale.get(
-                    new o.GLocaleKey("GSymbolProperties", "text.master")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GSymbolProperties", "text.master")
                   ) +
                   ")</option>"
               )

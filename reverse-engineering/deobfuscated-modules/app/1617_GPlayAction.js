@@ -6,19 +6,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(34) /* polyfill_String_replace */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(1618) /* module_1618 */),
-      s = o(require(85) /* GContainer */),
-      l = o(require(31) /* GAction */),
-      c = o(require(18) /* MenuItemBuilder */),
-      d = o(require(44) /* GSystemDialog */),
-      u = o(require(443) /* module_443 */),
-      p = o(require(1341) /* GChangeActivePageAction */);
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      r = _interopRequireDefault(require(1618) /* module_1618 */),
+      GContainer = _interopRequireDefault(require(85) /* GContainer */),
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      u = _interopRequireDefault(require(443) /* module_443 */),
+      GChangeActivePageAction = _interopRequireDefault(require(1341) /* GChangeActivePageAction */);
     const { isExecutingOnMSTeamsSync: g } = u.default;
-    class h extends l.default {
+    class h extends GAction.default {
       constructor() {
         super(),
           (this._scene = null),
@@ -40,13 +40,13 @@ function (exports, module, require) {
         return h.TITLE;
       }
       getCategory() {
-        return c.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }
       getShortcut() {
         return [
-          a.GKey.Constant.META,
-          a.GKey.Constant.OPTION,
-          a.GKey.Constant.ENTER,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.OPTION,
+          GEditor.GKey.Constant.ENTER,
         ];
       }
       isEnabled() {
@@ -65,9 +65,9 @@ function (exports, module, require) {
         if (((this._scene = this._getScene()), this._scene))
           if (
             (this._setIsLoading(true),
-            (this._widget = new a.GSceneWidget(this._scene)),
+            (this._widget = new GEditor.GSceneWidget(this._scene)),
             (this._widget.getViewConfiguration().paintMode =
-              i.GScenePaintConfiguration.PaintMode.Output),
+              GCore.GScenePaintConfiguration.PaintMode.Output),
             (this._overlay = $("<div></div>").css({
               position: "absolute",
               zIndex: 9999,
@@ -83,7 +83,7 @@ function (exports, module, require) {
               "unhandledrejection",
               this._fullScreenRequestDeniedHandlerBind
             ),
-            gContainer.getRuntime() === s.default.Runtime.Electron)
+            gContainer.getRuntime() === GContainer.default.Runtime.Electron)
           ) {
             const e = require(881) /* module_881 */.remote.getCurrentWindow();
             e.once("leave-full-screen", this._exitPlayMode.bind(this)),
@@ -107,9 +107,9 @@ function (exports, module, require) {
       }
       changeActivePage(e, t) {
         const require = gDesigner
-          .getAction("".concat(p.default.ID, ".").concat(t))
+          .getAction("".concat(GChangeActivePageAction.default.ID, ".").concat(t))
           .getNextPage(e);
-        require ? e.setActivePage(require) : t === p.default.Type.Next && r.default.exit();
+        require ? e.setActivePage(require) : t === GChangeActivePageAction.default.Type.Next && r.default.exit();
       }
       _getScene() {
         gDesigner.toggleLoading(true);
@@ -128,20 +128,20 @@ function (exports, module, require) {
       }
       _keyDownHandler(e) {
         let module = true;
-        switch (a.GKey.translateCode(e.code)) {
-          case a.GKey.Constant.DOWN:
-          case a.GKey.Constant.PAGE_DOWN:
-          case a.GKey.Constant.RIGHT:
-          case a.GKey.Constant.SPACE:
-            this.changeActivePage(this._scene, p.default.Type.Next);
+        switch (GEditor.GKey.translateCode(e.code)) {
+          case GEditor.GKey.Constant.DOWN:
+          case GEditor.GKey.Constant.PAGE_DOWN:
+          case GEditor.GKey.Constant.RIGHT:
+          case GEditor.GKey.Constant.SPACE:
+            this.changeActivePage(this._scene, GChangeActivePageAction.default.Type.Next);
             break;
-          case a.GKey.Constant.UP:
-          case a.GKey.Constant.PAGE_UP:
-          case a.GKey.Constant.LEFT:
-            this.changeActivePage(this._scene, p.default.Type.Previous);
+          case GEditor.GKey.Constant.UP:
+          case GEditor.GKey.Constant.PAGE_UP:
+          case GEditor.GKey.Constant.LEFT:
+            this.changeActivePage(this._scene, GChangeActivePageAction.default.Type.Previous);
             break;
-          case a.GKey.Constant.ESC:
-            gContainer.getRuntime() === s.default.Runtime.Electron &&
+          case GEditor.GKey.Constant.ESC:
+            gContainer.getRuntime() === GContainer.default.Runtime.Electron &&
               this._exitPlayMode();
             break;
           default:
@@ -152,8 +152,8 @@ function (exports, module, require) {
       _fullScreenRequestDeniedHandler(e) {
         "Fullscreen request denied" === e.reason.message &&
           (this._exitPlayMode(),
-          d.default.custom({
-            title: i.GLocale.getValue(
+          GSystemDialog.default.custom({
+            title: GCore.GLocale.getValue(
               "GCommonNames",
               "text.something-wrong.try-again"
             ),
@@ -170,8 +170,8 @@ function (exports, module, require) {
         const exports = this._scene.getActivePage().getPaintBBox();
         if (
           (this._widget.zoomAll(exports, false),
-          gContainer.getRuntime() === s.default.Runtime.Browser ||
-            gContainer.getRuntime() === s.default.Runtime.PWA)
+          gContainer.getRuntime() === GContainer.default.Runtime.Browser ||
+            gContainer.getRuntime() === GContainer.default.Runtime.PWA)
         ) {
           /^((?!chrome|android)(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]))*[s\u017F]afari/i.test(
             navigator.userAgent
@@ -187,13 +187,13 @@ function (exports, module, require) {
           })
           .append(
             $("<div/>").html(
-              i.GLocale.getValue(
+              GCore.GLocale.getValue(
                 "GPlayAction",
                 "text.exit-full-screen"
               ).replace("%key", () =>
                 $("<span/>")
                   .addClass("highlight")
-                  .text(i.GLocale.getValue("GPlayAction", "text.esc"))
+                  .text(GCore.GLocale.getValue("GPlayAction", "text.esc"))
                   .prop("outerHTML")
               )
             )
@@ -220,7 +220,7 @@ function (exports, module, require) {
         r.default.isFullscreen ? this._enterPlayMode() : this._exitPlayMode();
       }
       _exitFullScreen() {
-        if (gContainer.getRuntime() === s.default.Runtime.Electron) {
+        if (gContainer.getRuntime() === GContainer.default.Runtime.Electron) {
           require(881) /* module_881 */.remote.getCurrentWindow().setFullScreen(false);
         } else r.default.exit();
       }
@@ -241,6 +241,6 @@ function (exports, module, require) {
       }
     }
     (h.ID = "view.play"),
-      (h.TITLE = new i.GLocaleKey("GPlayAction", "title")),
+      (h.TITLE = new GCore.GLocaleKey("GPlayAction", "title")),
       (exports.exports = h);
   }

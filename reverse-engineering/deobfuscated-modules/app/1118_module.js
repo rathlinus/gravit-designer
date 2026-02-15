@@ -16,16 +16,16 @@ function (exports, module, require) {
       require(32) /* stub_requires_670 */,
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(381) /* module_381 */,
-      a = require(255) /* barrel_sidebars */,
+      barrel_sidebars = require(255) /* barrel_sidebars */,
       r = require(1198) /* module_1198 */,
-      s = require(44) /* GSystemDialog */;
+      GSystemDialog = require(44) /* GSystemDialog */;
     function l(e) {
       i.call(this, e);
     }
-    o.GObject.inherit(l, i);
-    var c = o.GUtil.uuid();
+    GCore.GObject.inherit(l, i);
+    var c = GCore.GUtil.uuid();
     (l.prototype._totalFonts = 0),
       (l.prototype._fontList = null),
       (l.prototype._formattedFontList = null),
@@ -63,10 +63,10 @@ function (exports, module, require) {
                 }),
                   d.addEventListener("mouseup", (e) => {
                     e.stopPropagation(), e.preventDefault();
-                    var t = a.getInstance(),
-                      n = (e, s) => {
+                    var t = barrel_sidebars.getInstance(),
+                      n = (e, GSystemDialog) => {
                         var l = this.fonts;
-                        if (s >= l.length) {
+                        if (GSystemDialog >= l.length) {
                           var c = i._formattedFontList.findIndex(
                             (e) => e.family === this.family
                           );
@@ -108,7 +108,7 @@ function (exports, module, require) {
                                 if (
                                   (gDesigner.getDocuments().forEach((e) => {
                                     e.getScene().acceptChildren((e) => {
-                                      e instanceof o.GText &&
+                                      e instanceof GCore.GText &&
                                         e.replaceFonts(n, true);
                                     });
                                   }),
@@ -119,7 +119,7 @@ function (exports, module, require) {
                                       .getWorkspace()
                                       .getFontManager()
                                       .removeFont(this.families[i]);
-                                a.getInstance().reset(),
+                                barrel_sidebars.getInstance().reset(),
                                   t && t.setShowMissingFontsDialog(true),
                                   console.log("successfully updated font list"),
                                   this._queue &&
@@ -127,16 +127,16 @@ function (exports, module, require) {
                                     this._queue.shift().call(this);
                               });
                         } else {
-                          var d = l[s],
+                          var d = l[GSystemDialog],
                             u = d.family + "_" + d.weight + "_" + d.style;
                           e.deleteItem(u).done(() => {
-                            n(e, s + 1);
+                            n(e, GSystemDialog + 1);
                           });
                         }
                       };
-                    s.confirm(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                    GSystemDialog.confirm(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GImportedFontsProvider",
                           "confirm.delete-font"
                         )
@@ -209,7 +209,7 @@ function (exports, module, require) {
             0,
             1,
             {
-              done: function (t, n, o) {
+              done: function (t, n, GCore) {
                 (this._initialized = true),
                   (this._initializing = false),
                   exports.length && exports[0].apply(this, exports.slice(1)),
@@ -225,19 +225,19 @@ function (exports, module, require) {
           );
         }
       }),
-      (l.prototype.load = function (e, t, n, o, i) {
+      (l.prototype.load = function (e, t, n, GCore, i) {
         if (!this._initialized && !this._initializing)
           return (
             this._loadCallbacks.push(
               function (i) {
-                i ? o.fail() : this.load(e, t, n, o);
+                i ? GCore.fail() : this.load(e, t, n, GCore);
               }.bind(this)
             ),
-            void this.initialize(this.load, e, t, n, o)
+            void this.initialize(this.load, e, t, n, GCore)
           );
         !this._initializing || i
           ? this._fontList
-            ? o.done(
+            ? GCore.done(
                 this._formattedFontList
                   .filter((t) =>
                     e.indexOf("%") >= 0
@@ -252,14 +252,14 @@ function (exports, module, require) {
                 null
               )
             : r.getInstance((i) => {
-                if (!i) return o.fail();
+                if (!i) return GCore.fail();
                 i.getItem(r.FONT_LIST).done((i) => {
                   (this._fontList = i || []),
                     this._generateFormattedList(),
                     (this._totalFonts = this._formattedFontList
                       ? this._formattedFontList.length
                       : 0),
-                    o.done(
+                    GCore.done(
                       this._formattedFontList
                         .filter((t) =>
                           e.indexOf("%") >= 0
@@ -278,7 +278,7 @@ function (exports, module, require) {
               })
           : this._loadCallbacks.push(
               function (i) {
-                i ? o.fail() : this.load(e, t, n, o);
+                i ? GCore.fail() : this.load(e, t, n, GCore);
               }.bind(this)
             );
       }),
@@ -287,7 +287,7 @@ function (exports, module, require) {
           this._formattedFontList = [];
           for (var exports = this._fontList.slice(), module = 0; module < exports.length; module++) {
             var require = exports[module],
-              o = require.displayname || require.family,
+              GCore = require.displayname || require.family,
               i = [
                 {
                   weight: parseInt(require.weight),
@@ -297,16 +297,16 @@ function (exports, module, require) {
                   displayname: require.displayname || null,
                 },
               ],
-              a = [require.family];
+              barrel_sidebars = [require.family];
             this._formattedFontList.push({
               family: null,
-              displayname: o,
+              displayname: GCore,
               fonts: i,
-              families: a,
+              families: barrel_sidebars,
             });
             for (var r = exports.length - 1; r > module; r--)
-              o === (exports[r].displayname || exports[r].family) &&
-                (a.indexOf(exports[r].family) < 0 && a.push(exports[r].family),
+              GCore === (exports[r].displayname || exports[r].family) &&
+                (barrel_sidebars.indexOf(exports[r].family) < 0 && barrel_sidebars.push(exports[r].family),
                 i.push({
                   weight: parseInt(exports[r].weight),
                   style: exports[r].style,
@@ -315,18 +315,18 @@ function (exports, module, require) {
                   displayname: exports[r].displayname || null,
                 }),
                 exports.splice(r, 1));
-            var s = 0,
-              l = a[0].length;
+            var GSystemDialog = 0,
+              l = barrel_sidebars[0].length;
             if (l > 0)
-              for (r = 1; r < a.length; r++) {
-                if (a[r].toLowerCase().indexOf("regular") >= 0) {
-                  (l = 0), (s = r);
+              for (r = 1; r < barrel_sidebars.length; r++) {
+                if (barrel_sidebars[r].toLowerCase().indexOf("regular") >= 0) {
+                  (l = 0), (GSystemDialog = r);
                   break;
                 }
-                l > a[r].length && ((l = a[r].length), (s = r));
+                l > barrel_sidebars[r].length && ((l = barrel_sidebars[r].length), (GSystemDialog = r));
               }
             this._formattedFontList[this._formattedFontList.length - 1].family =
-              a[s];
+              barrel_sidebars[GSystemDialog];
           }
         } else this._formattedFontList = null;
       }),
@@ -354,24 +354,24 @@ function (exports, module, require) {
         if (!this._initialized && !this._initializing)
           return (
             this._resolveCallbacks.push(
-              function (o) {
-                o ? i.fail() : this.resolveFont(e, t, n, i);
+              function (GCore) {
+                GCore ? i.fail() : this.resolveFont(e, t, n, i);
               }.bind(this)
             ),
             void this.initialize(this.resolveFont, e, t, n, i)
           );
         if (this._initializing)
           this._resolveCallbacks.push(
-            function (o) {
-              o ? i.fail() : this.resolveFont(e, t, n, i);
+            function (GCore) {
+              GCore ? i.fail() : this.resolveFont(e, t, n, i);
             }.bind(this)
           );
         else {
-          (n = String(n) || "400"), (t = t || o.GFont.Style.Normal);
-          var a = e + "_" + n + "_" + t;
-          r.getInstance((o) => {
-            if (!o) return i.fail();
-            o.getItem(a).done((r) => {
+          (n = String(n) || "400"), (t = t || GCore.GFont.Style.Normal);
+          var barrel_sidebars = e + "_" + n + "_" + t;
+          r.getInstance((GCore) => {
+            if (!GCore) return i.fail();
+            GCore.getItem(barrel_sidebars).done((r) => {
               if (r)
                 i.done(
                   r instanceof DataView || r instanceof ArrayBuffer
@@ -381,7 +381,7 @@ function (exports, module, require) {
               else {
                 if (!this._fontList)
                   return console.warn("NO FONTLIST"), void i.fail();
-                var s = this._fontList.findIndex(function (n) {
+                var GSystemDialog = this._fontList.findIndex(function (n) {
                   return !(
                     n.family !== e ||
                     n.style !== t ||
@@ -389,10 +389,10 @@ function (exports, module, require) {
                     n.displayname === n.family
                   );
                 });
-                s >= 0
-                  ? ((n = this._fontList[s].weight || "400"),
-                    (a = e + "_" + n + "_" + t),
-                    o.getItem(a).done((e) => {
+                GSystemDialog >= 0
+                  ? ((n = this._fontList[GSystemDialog].weight || "400"),
+                    (barrel_sidebars = e + "_" + n + "_" + t),
+                    GCore.getItem(barrel_sidebars).done((e) => {
                       e
                         ? i.done(
                             e instanceof DataView || e instanceof ArrayBuffer

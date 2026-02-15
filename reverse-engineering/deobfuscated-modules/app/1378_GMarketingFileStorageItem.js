@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = o(require(1195) /* Item */);
-    function a(e, t, n, o) {
-      i.default.Item.call(this, e, t, n), (this._fileId = o);
+    var i = _interopRequireDefault(require(1195) /* Item */);
+    function a(e, t, n, _interopRequireDefault) {
+      i.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault);
     }
     require(1) /* module */.GObject.inheritAndMix(a, i.default.Item),
       (a.prototype.isRegistrable = function () {

@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(31) /* GAction */),
-      s = o(require(18) /* MenuItemBuilder */),
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       l = require(198) /* Exports_GOutlineSidebar */;
-    class c extends r.default {
+    class c extends GAction.default {
       constructor(e) {
         super(),
           (this._type = e),
-          (this._title = new i.GLocaleKey(
+          (this._title = new GCore.GLocaleKey(
             "GChangeActivePageAction",
             "title.".concat(this._type)
           ));
@@ -28,18 +28,18 @@ function (exports, module, require) {
         return this._title;
       }
       getCategory() {
-        return s.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }
       isVisible() {
         return false;
       }
       getShortcut() {
-        const exports = [a.GKey.Constant.META, a.GKey.Constant.OPTION];
+        const exports = [GEditor.GKey.Constant.META, GEditor.GKey.Constant.OPTION];
         switch (this._type) {
           case c.Type.Next:
-            return exports.concat(a.GKey.Constant.DOWN);
+            return exports.concat(GEditor.GKey.Constant.DOWN);
           case c.Type.Previous:
-            return exports.concat(a.GKey.Constant.UP);
+            return exports.concat(GEditor.GKey.Constant.UP);
           default:
             return null;
         }
@@ -47,9 +47,9 @@ function (exports, module, require) {
       getAdditionalShortcuts() {
         switch (this._type) {
           case c.Type.Next:
-            return [a.GKey.Constant.PAGE_DOWN];
+            return [GEditor.GKey.Constant.PAGE_DOWN];
           case c.Type.Previous:
-            return [a.GKey.Constant.PAGE_UP];
+            return [GEditor.GKey.Constant.PAGE_UP];
           default:
             return null;
         }
@@ -58,9 +58,9 @@ function (exports, module, require) {
         const exports = gDesigner.getLeftSidebars(),
           module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar),
           require = gDesigner.getActiveDocument(),
-          o = require && require.getScene();
-        if (module && o) {
-          const e = this.getNextPage(o);
+          _interopRequireDefault = require && require.getScene();
+        if (module && _interopRequireDefault) {
+          const e = this.getNextPage(_interopRequireDefault);
           module.changeActivePage(e);
         }
       }
@@ -71,7 +71,7 @@ function (exports, module, require) {
           null !== e;
           e = this._getNextPageAccordingToType(e)
         )
-          if (e instanceof i.GPage) return e;
+          if (e instanceof GCore.GPage) return e;
         return null;
       }
       _getNextPageAccordingToType(e) {

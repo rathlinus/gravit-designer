@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(290) /* module_290 */, require(1381) /* stub_requires_1382 */, require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e) {
       function module(e) {
         if (Object(e) !== e)
@@ -47,18 +47,18 @@ function (exports, module, require) {
         const module = [];
         var n = e.slice();
         for (let e = 0; e < n.length; e++) {
-          var o = n[e],
-            i = o.displayname || o.family,
+          var GCore = n[e],
+            i = GCore.displayname || GCore.family,
             a = [
               {
-                weight: parseInt(o.weight),
-                style: o.style,
-                family: o.family,
-                subfamily: o.subfamily || null,
-                displayname: o.displayname || null,
+                weight: parseInt(GCore.weight),
+                style: GCore.style,
+                family: GCore.family,
+                subfamily: GCore.subfamily || null,
+                displayname: GCore.displayname || null,
               },
             ],
-            r = [o.family];
+            r = [GCore.family];
           module.push({ family: null, displayname: i, fonts: a, families: r });
           for (let module = n.length - 1; module > e; module--)
             i === (n[module].displayname || n[module].family) &&
@@ -93,7 +93,7 @@ function (exports, module, require) {
             c = await l.blob(),
             d = await c.arrayBuffer();
           if (d) {
-            var i = o.GOpenTypeUtil.getFont(null, null, null, d, true, true);
+            var i = GCore.GOpenTypeUtil.getFont(null, null, null, d, true, true);
             if (i && i.length)
               for (var a = 0; a < i.length; a++) {
                 for (
@@ -134,24 +134,24 @@ function (exports, module, require) {
         try {
           var module,
             require = false,
-            o = false;
+            GCore = false;
           try {
             for (
               var a,
                 r = (function (e) {
                   var t,
                     n,
-                    o,
+                    GCore,
                     a = 2;
                   for (
                     "undefined" != typeof Symbol &&
-                    ((n = Symbol.asyncIterator), (o = Symbol.iterator));
+                    ((n = Symbol.asyncIterator), (GCore = Symbol.iterator));
                     a--;
 
                   ) {
                     if (n && null != (t = e[n])) return t.call(e);
-                    if (o && null != (t = e[o])) return new i(t.call(e));
-                    (n = "@@asyncIterator"), (o = "@@iterator");
+                    if (GCore && null != (t = e[GCore])) return new i(t.call(e));
+                    (n = "@@asyncIterator"), (GCore = "@@iterator");
                   }
                   throw new TypeError("Object is not async iterable");
                 })(await window.queryLocalFonts());
@@ -162,12 +162,12 @@ function (exports, module, require) {
               exports.push(t);
             }
           } catch (e) {
-            (o = true), (module = e);
+            (GCore = true), (module = e);
           } finally {
             try {
               require && null != r.return && (await r.return());
             } finally {
-              if (o) throw module;
+              if (GCore) throw module;
             }
           }
         } catch (e) {
@@ -177,24 +177,24 @@ function (exports, module, require) {
       },
       getFontFamily: function (e, t) {
         let require = e,
-          o = t(require);
+          GCore = t(require);
         if (
-          (o ||
+          (GCore ||
             ((require = require.replace(
               /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]variant[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF][0-9]+$/,
               ""
             )),
-            (o = t(require))),
-          !o)
+            (GCore = t(require))),
+          !GCore)
         ) {
           let e = require.split(" ");
           for (
             ;
-            e.length > 0 && (e.pop(), (require = e.join(" ")), (o = t(require)), !o);
+            e.length > 0 && (e.pop(), (require = e.join(" ")), (GCore = t(require)), !GCore);
 
           );
         }
-        return o;
+        return GCore;
       },
     };
   }

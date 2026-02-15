@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s(e) {
       this._zoomLevel = e;
     }
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "view.magnification"),
       (s.ZOOM_LEVELS = [
         6, 12, 25, 50, 66, 100, 150, 200, 300, 400, 800, 1600, 3200, 6400,
@@ -30,8 +30,8 @@ function (exports, module, require) {
           gDesigner.isTouchEnabled() &&
             100 === this._zoomLevel &&
             (exports += " (".concat(
-              o.GLocale.get(
-                new o.GLocaleKey("GMagnificationAction", "text.actual-size")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GMagnificationAction", "text.actual-size")
               ),
               ")"
             )),
@@ -39,7 +39,7 @@ function (exports, module, require) {
         );
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW_MAGNIFICATION;
+        return MenuItemBuilder.CATEGORY_VIEW_MAGNIFICATION;
       }),
       (s.prototype.getGroup = function () {
         return "zoom/magnification-level";
@@ -47,13 +47,13 @@ function (exports, module, require) {
       (s.prototype.getShortcut = function () {
         switch (this._zoomLevel) {
           case 50:
-            return [i.GKey.Constant.META, "5"];
+            return [GEditor.GKey.Constant.META, "5"];
           case 100:
-            return [i.GKey.Constant.META, "1"];
+            return [GEditor.GKey.Constant.META, "1"];
           case 400:
-            return [i.GKey.Constant.META, "4"];
+            return [GEditor.GKey.Constant.META, "4"];
           case 800:
-            return [i.GKey.Constant.META, "8"];
+            return [GEditor.GKey.Constant.META, "8"];
           default:
             return null;
         }
@@ -65,16 +65,16 @@ function (exports, module, require) {
         var e = this._zoomLevel / 100,
           t = gDesigner.getWindows().getActiveWindow().getView(),
           n = t.getScene(),
-          i = n ? n.getPaintBBox() : null,
-          a =
-            i && !i.isEmpty()
-              ? i.getSide(o.GRect.Side.CENTER)
-              : new o.GPoint(0, 0);
+          GEditor = n ? n.getPaintBBox() : null,
+          MenuItemBuilder =
+            GEditor && !GEditor.isEmpty()
+              ? GEditor.getSide(GCore.GRect.Side.CENTER)
+              : new GCore.GPoint(0, 0);
         if (t.getViewConfiguration().multiPageView) {
-          var r = n.getActivePage();
-          r && (a = a.add(r.getPosition(true)));
+          var GAction = n.getActivePage();
+          GAction && (MenuItemBuilder = MenuItemBuilder.add(GAction.getPosition(true)));
         }
-        t.zoomAtCenter(a, e);
+        t.zoomAtCenter(MenuItemBuilder, e);
       }),
       (s.prototype.toString = function () {
         return "[Object GMagnificationAction]";

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e, t) {
       (this.notification = Object.assign(
         { popup: false, annonymous: false },
@@ -14,7 +14,7 @@ function (exports, module, require) {
       )),
         (this.builder = t);
     }
-    o.GObject.inherit(i, o.GEvent),
+    GCore.GObject.inherit(i, GCore.GEvent),
       (i.prototype.notification = null),
       (i.prototype.toString = function () {
         return "GEvent [GNotificationEvent]";

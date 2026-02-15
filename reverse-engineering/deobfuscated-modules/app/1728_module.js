@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(290) /* module_290 */, require(57) /* polyfill_parseInt */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i,
       a,
       r,
-      s = require(15) /* module */,
-      l = require(1) /* module */,
-      c = o(require(11) /* GUtil */),
-      d = require(10) /* AppSettings */,
+      GEditor = require(15) /* module */,
+      GCore = require(1) /* module */,
+      GUtil = _interopRequireDefault(require(11) /* GUtil */),
+      AppSettings = require(10) /* AppSettings */,
       u = require(67) /* GRichTooltipConfig */,
-      p = o(require(1342) /* GEnhancedTooltipsAction */),
+      GEnhancedTooltipsAction = _interopRequireDefault(require(1342) /* GEnhancedTooltipsAction */),
       g = {
         init: function (e) {
           if (e) {
@@ -41,11 +41,11 @@ function (exports, module, require) {
                 },
                 e.getConfig()
               )),
-              d.IS_COREL && !e.forceShow
+              AppSettings.IS_COREL && !e.forceShow
                 ? this
                 : this.each(function () {
                     const module = $(this);
-                    (e._id = c.default.uuid(7)),
+                    (e._id = GUtil.default.uuid(7)),
                       module.data("g-rich-tooltip", e),
                       module.on("mouseover", function (e) {
                         i && (clearTimeout(i), (i = null)),
@@ -75,7 +75,7 @@ function (exports, module, require) {
             if (r.data("g-rich-tooltip-id") === module._id) return;
             g.close.call(exports);
           }
-          gContainer.getProperty(p.default.StoragePropertyName).then((n) => {
+          gContainer.getProperty(GEnhancedTooltipsAction.default.StoragePropertyName).then((n) => {
             (module.enhanced = "boolean" != typeof n || n),
               (r = g.createTooltip(module)).on("mouseover", function () {
                 i && (clearTimeout(i), (i = null)),
@@ -132,14 +132,14 @@ function (exports, module, require) {
           const {
             title: module,
             isPro: require,
-            shortcut: o,
+            shortcut: _interopRequireDefault,
             video: i,
             pic: a,
             description: r,
-            videoTimeout: c,
-            enhanced: d,
+            videoTimeout: GUtil,
+            enhanced: AppSettings,
             learnMore: u,
-            upgradeToProStatsValue: p,
+            upgradeToProStatsValue: GEnhancedTooltipsAction,
           } = e;
           let g = r;
           const h = gDesigner.getLicense(),
@@ -148,8 +148,8 @@ function (exports, module, require) {
               ? '<a href="'
                   .concat(u, '" target="_blank">')
                   .concat(
-                    l.GLocale.get(
-                      new l.GLocaleKey("GCommonNames", "text.learn-more")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.learn-more")
                     ),
                     "</a>"
                   )
@@ -161,33 +161,33 @@ function (exports, module, require) {
             .append(
               $("<div />")
                 .addClass("g-tooltip-content-header")
-                .toggleClass("simple", !d)
+                .toggleClass("simple", !AppSettings)
                 .append(
-                  o && o.length
+                  _interopRequireDefault && _interopRequireDefault.length
                     ? $("<div />")
                         .addClass("g-tooltip-content-shortcut")
-                        .text(s.GKey.shortcutToString(o))
+                        .text(GEditor.GKey.shortcutToString(_interopRequireDefault))
                     : ""
                 )
                 .append(
                   $("<div />")
-                    .toggleClass("limit-width", !(!o || !o.length))
+                    .toggleClass("limit-width", !(!_interopRequireDefault || !_interopRequireDefault.length))
                     .addClass("g-tooltip-content-title")
                     .text(module)
                 )
             )
             .append(
-              d && g
+              AppSettings && g
                 ? $("<div />").addClass("g-tooltip-content-description").html(g)
                 : ""
             )
             .append(
-              d && i && i.length
+              AppSettings && i && i.length
                 ? $("<div />").addClass("g-tooltip-content-video loading")
                 : ""
             )
             .append(
-              d && a && a.length
+              AppSettings && a && a.length
                 ? $("<div />")
                     .addClass("g-tooltip-content-picture")
                     .append(
@@ -199,7 +199,7 @@ function (exports, module, require) {
                 : ""
             )
             .append(
-              d && require && f
+              AppSettings && require && f
                 ? $("<div />")
                     .addClass("g-tooltip-content-footer")
                     .append(
@@ -209,8 +209,8 @@ function (exports, module, require) {
                           $("<div />")
                             .addClass("g-tooltip-pro-text")
                             .text(
-                              l.GLocale.get(
-                                new l.GLocaleKey(
+                              GCore.GLocale.get(
+                                new GCore.GLocaleKey(
                                   "GCommonNames",
                                   "text.try-this-feature-pro-tooltip-text"
                                 )
@@ -220,12 +220,12 @@ function (exports, module, require) {
                     )
                     .on("click", () => {
                       gDesigner.openPaymentDialog(),
-                        gDesigner.stats("action_tooltips_upgradetopro", p);
+                        gDesigner.stats("action_tooltips_upgradetopro", GEnhancedTooltipsAction);
                     })
                 : ""
             );
           return (
-            d &&
+            AppSettings &&
               i &&
               setTimeout(() => {
                 const e = y.find(".g-tooltip-content-video");
@@ -241,7 +241,7 @@ function (exports, module, require) {
                   }),
                     e.append(t);
                 }
-              }, c),
+              }, GUtil),
             y
           );
         },

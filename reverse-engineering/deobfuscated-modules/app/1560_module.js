@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
-    var i = require(1) /* module */,
-      a = require(53) /* module */,
-      r = o(require(1561) /* module_1561 */),
-      s = o(require(177) /* module_177 */);
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
+      r = _interopRequireDefault(require(1561) /* module_1561 */),
+      s = _interopRequireDefault(require(177) /* module_177 */);
     const { gApi: l } = require(10) /* AppSettings */;
     exports.exports = class {
       constructor(e, t) {
@@ -22,8 +22,8 @@ function (exports, module, require) {
             .addClass("confirm-btn")
             .attr("disabled", this._checkNameFieldsFilled())
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey("GUserNameConfigDialog", "text.ok")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GUserNameConfigDialog", "text.ok")
               )
             )
             .on("click", () => {
@@ -38,8 +38,8 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("title")
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GUserNameConfigDialog",
                           "text.dialog-title"
                         )
@@ -54,8 +54,8 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("tips")
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GUserNameConfigDialog",
                           "text.name-usage-tips"
                         )
@@ -79,8 +79,8 @@ function (exports, module, require) {
               .addClass("first-name-field")
               .append(
                 $("<span/>").text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GUserNameConfigDialog", "text.first-name")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GUserNameConfigDialog", "text.first-name")
                   )
                 )
               )
@@ -98,8 +98,8 @@ function (exports, module, require) {
               .addClass("last-name-field")
               .append(
                 $("<span/>").text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GUserNameConfigDialog", "text.last-name")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GUserNameConfigDialog", "text.last-name")
                   )
                 )
               )
@@ -125,9 +125,9 @@ function (exports, module, require) {
           this.close();
       }
       async _updateUserProperties(e) {
-        (a.GEditorOptions.userConfig = Object.assign(
+        (GTools.GEditorOptions.userConfig = Object.assign(
           {},
-          a.GEditorOptions.userConfig,
+          GTools.GEditorOptions.userConfig,
           { userName: e.getFullUserName() }
         )),
           gDesigner.getCloudCommunicationManager().userPropertiesChanged(),

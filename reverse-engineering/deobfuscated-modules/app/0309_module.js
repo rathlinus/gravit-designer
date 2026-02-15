@@ -5,35 +5,35 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
-      i = require(130) /* lengthOfArrayLike */,
-      a = require(62) /* requireObjectCoercible */,
-      r = require(92) /* classof */,
-      s = o("".charAt),
-      l = o("".charCodeAt),
-      c = o("".slice),
+    var uncurryThis = require(27) /* uncurryThis */,
+      lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      classof = require(92) /* classof */,
+      s = uncurryThis("".charAt),
+      l = uncurryThis("".charCodeAt),
+      c = uncurryThis("".slice),
       d = function (e) {
         return function (t, n) {
-          var o,
+          var uncurryThis,
             d,
-            u = a(r(t)),
-            p = i(n),
+            u = requireObjectCoercible(classof(t)),
+            p = lengthOfArrayLike(n),
             g = u.length;
           return p < 0 || p >= g
             ? e
               ? ""
               : undefined
-            : (o = l(u, p)) < 55296 ||
-              o > 56319 ||
+            : (uncurryThis = l(u, p)) < 55296 ||
+              uncurryThis > 56319 ||
               p + 1 === g ||
               (d = l(u, p + 1)) < 56320 ||
               d > 57343
             ? e
               ? s(u, p)
-              : o
+              : uncurryThis
             : e
             ? c(u, p, p + 2)
-            : d - 56320 + ((o - 55296) << 10) + 65536;
+            : d - 56320 + ((uncurryThis - 55296) << 10) + 65536;
         };
       };
     exports.exports = { codeAt: d(false), charAt: d(true) };

@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */;
-    exports.exports = o;
+    var globalThis = require(23) /* globalThis */;
+    exports.exports = globalThis;
   }

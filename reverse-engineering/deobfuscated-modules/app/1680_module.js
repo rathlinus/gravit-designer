@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(26) /* polyfill_DOMCollection_iterator */, require(125) /* stub_requires_673 */, require(126) /* polyfill_URL_toJSON */, require(114) /* stub_requires_424 */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */;
-    const a = require(256) /* GOfflineDialog */,
-      r = require(44) /* GSystemDialog */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */;
+    const GOfflineDialog = require(256) /* GOfflineDialog */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       s = require(1350) /* module_1350 */;
     exports.exports = class {
       async open(e) {
@@ -17,7 +17,7 @@ function (exports, module, require) {
         (this._url = e), (this._autoClose = module), (this._isPending = true);
         return (await gDesigner.isOfflineAsync())
           ? new Promise((e, t) => {
-              a.openRetryConnection(() => {
+              GOfflineDialog.openRetryConnection(() => {
                 this._open().then(e).catch(t);
               });
             })
@@ -57,11 +57,11 @@ function (exports, module, require) {
         try {
           await exports.waitForPurchase();
         } catch (e) {
-          r.alert(
-            o.GLocale.getValue(
+          GSystemDialog.alert(
+            GCore.GLocale.getValue(
               "GPaymentDialog",
               "text.payment-not-confirmed"
-            ).replace("%link", i.gApi.link.getSupportUrl())
+            ).replace("%link", AppSettings.gApi.link.getSupportUrl())
           );
         } finally {
           this._isPending = false;
@@ -79,16 +79,16 @@ function (exports, module, require) {
       }
       _close() {
         if (this._isPending) {
-          const e = o.GLocale.get(
-              new o.GLocaleKey("GPaymentDialog", "text.dialog-dont-leave")
+          const e = GCore.GLocale.get(
+              new GCore.GLocaleKey("GPaymentDialog", "text.dialog-dont-leave")
             ),
-            t = o.GLocale.get(
-              new o.GLocaleKey("GPaymentDialog", "text.cancel")
+            t = GCore.GLocale.get(
+              new GCore.GLocaleKey("GPaymentDialog", "text.cancel")
             ),
-            n = o.GLocale.get(
-              new o.GLocaleKey("GPaymentDialog", "text.finish-my-order")
+            n = GCore.GLocale.get(
+              new GCore.GLocaleKey("GPaymentDialog", "text.finish-my-order")
             );
-          r.confirm(
+          GSystemDialog.confirm(
             e,
             (e) => {
               e

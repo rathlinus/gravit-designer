@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(30) /* polyfill_Object_assign */,
@@ -22,14 +22,14 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(10) /* AppSettings */,
+    var AppSettings = require(10) /* AppSettings */,
       a = require(882) /* module_882 */,
       r = require(1353) /* Exports_GAnnotationPanel */,
       s = require(263) /* Exports_GRegex */,
       l = require(67) /* GRichTooltipConfig */,
-      c = o(require(358) /* module_358 */),
-      d = o(require(1324) /* module_1324 */),
-      u = o(require(883) /* module_883 */);
+      c = _interopRequireDefault(require(358) /* module_358 */),
+      d = _interopRequireDefault(require(1324) /* module_1324 */),
+      u = _interopRequireDefault(require(883) /* module_883 */);
     const {
         GSystem: p,
         GLocale: g,
@@ -53,8 +53,8 @@ function (exports, module, require) {
       let {
         container: module,
         annotation: require,
-        relatedNodesCount: o,
-        sidebarActive: i,
+        relatedNodesCount: _interopRequireDefault,
+        sidebarActive: AppSettings,
         isLastRow: a,
         mentionData: r,
         onMouseEnter: s,
@@ -75,8 +75,8 @@ function (exports, module, require) {
       } = e;
       (this._container = module),
         (this._annotation = require),
-        (this._relatedNodesCount = o),
-        (this._sidebarActive = i),
+        (this._relatedNodesCount = _interopRequireDefault),
+        (this._sidebarActive = AppSettings),
         (this._isLastRow = a),
         (this._onMouseEnter = s),
         (this._onMouseLeave = l),
@@ -137,12 +137,12 @@ function (exports, module, require) {
         var e,
           t = this._container,
           n = this._annotation,
-          o = A(
+          _interopRequireDefault = A(
             this._annotation instanceof m
               ? this._annotation._parent
               : this._annotation
           ),
-          i = this,
+          AppSettings = this,
           r = gDesigner.getSyncUser(),
           s = c.default.isOwner(r, n),
           d = gDesigner.getApplicationManager();
@@ -248,25 +248,25 @@ function (exports, module, require) {
               this._shouldAssign &&
                 this._assignees &&
                 this._assignees.length &&
-                i._onAssignTo(i._assignees));
+                AppSettings._onAssignTo(AppSettings._assignees));
           },
           O = $("<textarea></textarea>")
             .appendTo(this._annotationCommentContainer)
             .addClass("annotation-comment-editor")
             .addClass("mention")
             .on("click", function (e) {
-              i.isEditMode() && e.stopPropagation();
+              AppSettings.isEditMode() && e.stopPropagation();
             })
             .on("blur", function () {
-              !i.isEditMode() ||
-                (i._mentionsCollection && i._mentionsCollection.length) ||
-                (k(this.value), i.cancelEditMode());
+              !AppSettings.isEditMode() ||
+                (AppSettings._mentionsCollection && AppSettings._mentionsCollection.length) ||
+                (k(this.value), AppSettings.cancelEditMode());
             })
             .on("keydown", function (e) {
-              i.isEditMode() && G(e) && e.preventDefault();
+              AppSettings.isEditMode() && G(e) && e.preventDefault();
             })
             .on("keypress", function (e) {
-              i.isEditMode() &&
+              AppSettings.isEditMode() &&
                 p.operatingSystem === p.OperatingSystem.OSX_IOS &&
                 13 === e.keyCode &&
                 e.altKey &&
@@ -276,28 +276,28 @@ function (exports, module, require) {
               const t = O.parent()
                 .find(".mentions-autocomplete-list")
                 .data("assign");
-              i.isEditMode() &&
+              AppSettings.isEditMode() &&
                 (G(e) && !t
-                  ? (k(this.value), i.cancelEditMode(), e.preventDefault())
-                  : 27 === e.keyCode && (i.cancelEditMode(), i._onCancel()));
+                  ? (k(this.value), AppSettings.cancelEditMode(), e.preventDefault())
+                  : 27 === e.keyCode && (AppSettings.cancelEditMode(), AppSettings._onCancel()));
             });
         if (
           (O.mentionsInput({
             elastic: false,
             onDataRequest: (e, t, n) => {
-              let o = this._data.filter(
+              let _interopRequireDefault = this._data.filter(
                 (e) =>
                   e.getFullUserName().toLowerCase().includes(t.toLowerCase()) ||
                   (e.getEmail() &&
                     e.getEmail().toLowerCase().includes(t.toLowerCase()))
               );
-              o.push(...this._additionalMentions), n.call(this, o);
+              _interopRequireDefault.push(...this._additionalMentions), n.call(this, _interopRequireDefault);
             },
             onSelectItem: () => {
-              gDesigner.stats("commentdocker_mention_select-user", o);
+              gDesigner.stats("commentdocker_mention_select-user", _interopRequireDefault);
             },
           }).on("input", function () {
-            a.showAssigneeRow.call(i, O),
+            a.showAssigneeRow.call(AppSettings, O),
               (this.style.height = 0),
               (this.style.height = this.scrollHeight + "px");
           }),
@@ -328,7 +328,7 @@ function (exports, module, require) {
             .prop("checked", this._shouldAssign)
             .on("change", (e) => {
               (this._shouldAssign = $(e.target).prop("checked")),
-                gDesigner.stats("commentdocker_mention_assign-user", o);
+                gDesigner.stats("commentdocker_mention_assign-user", _interopRequireDefault);
             })),
           (this._assigneeRow = $("<div>")
             .css("display", "none")
@@ -360,9 +360,9 @@ function (exports, module, require) {
                 })
                 .on("click", (e) => {
                   e.stopPropagation(),
-                    gDesigner.stats("commentdocker_cancel-btn", o),
-                    i.cancelEditMode(),
-                    i._onCancel();
+                    gDesigner.stats("commentdocker_cancel-btn", _interopRequireDefault),
+                    AppSettings.cancelEditMode(),
+                    AppSettings._onCancel();
                 })
             )
             .append(
@@ -378,10 +378,10 @@ function (exports, module, require) {
                       n.getProperty("text").trim().length > 0
                         ? "commentdocker_edit-btn"
                         : "commentdocker_add-btn",
-                      o
+                      _interopRequireDefault
                     ),
                     k(O.val()),
-                    i.cancelEditMode();
+                    AppSettings.cancelEditMode();
                 })
             ),
           $(t)
@@ -474,7 +474,7 @@ function (exports, module, require) {
                     )
                     .on("click", (e) => {
                       e.stopPropagation(),
-                        gDesigner.stats("commentdocker_option_reopen", o),
+                        gDesigner.stats("commentdocker_option_reopen", _interopRequireDefault),
                         U.gOverlay("close"),
                         this._onReopen(n);
                     })
@@ -497,7 +497,7 @@ function (exports, module, require) {
                     )
                     .on("click", (e) => {
                       e.stopPropagation(),
-                        gDesigner.stats("commentdocker_option_resolve", o),
+                        gDesigner.stats("commentdocker_option_resolve", _interopRequireDefault),
                         U.gOverlay("close"),
                         this._onResolve(n);
                     })
@@ -528,15 +528,15 @@ function (exports, module, require) {
                     let a = e
                       ? "commentdocker_option_edit"
                       : "commentdocker_option_add";
-                    gDesigner.stats("".concat(a), o),
-                      i._startEditMode(
-                        i._annotationCommentContainer,
+                    gDesigner.stats("".concat(a), _interopRequireDefault),
+                      AppSettings._startEditMode(
+                        AppSettings._annotationCommentContainer,
                         n.getProperty("text").trim().length > 0,
                         n.getProperty("text"),
                         I.outerWidth(),
                         I.outerHeight(),
-                        i._data,
-                        i._additionalMentions
+                        AppSettings._data,
+                        AppSettings._additionalMentions
                       ),
                       U.gOverlay("close");
                   }.bind(I)
@@ -564,7 +564,7 @@ function (exports, module, require) {
               )
               .on("click", (e) => {
                 e.stopPropagation(),
-                  gDesigner.stats("commentdocker_option_delete", o),
+                  gDesigner.stats("commentdocker_option_delete", _interopRequireDefault),
                   U.gOverlay("close"),
                   this._onDelete(n);
               })
@@ -592,7 +592,7 @@ function (exports, module, require) {
               )
               .on("click", async (e) => {
                 e.stopPropagation(),
-                  gDesigner.stats("commentdocker_option_copy-permalink", o);
+                  gDesigner.stats("commentdocker_option_copy-permalink", _interopRequireDefault);
                 const t = $("<span/>")
                   .addClass("g-loading")
                   .appendTo($(e.target).closest("label"));
@@ -666,16 +666,16 @@ function (exports, module, require) {
       (T.prototype._updateReadUnreadStatus = function (e) {
         var t = this._annotation,
           n = gDesigner.getSyncUser(),
-          o = c.default.isOwner(n, t);
+          _interopRequireDefault = c.default.isOwner(n, t);
         if (
           this._isParentAnnotResolved ||
-          o ||
+          _interopRequireDefault ||
           (t.getProperty("read") || []).includes(n.getUID())
         )
           this._isRead = true;
         else {
           var a = null;
-          i.SHOW_SIDEBAR_BADGE &&
+          AppSettings.SHOW_SIDEBAR_BADGE &&
             ((a = $("<div/>")
               .addClass("new-comment")
               .append([
@@ -702,7 +702,7 @@ function (exports, module, require) {
       (T.prototype.scrollIntoView = function () {
         this._scrollToElement(this._container);
       }),
-      (T.prototype._startEditMode = function (e, t, n, o, i) {
+      (T.prototype._startEditMode = function (e, t, n, _interopRequireDefault, AppSettings) {
         let a =
             arguments.length > 5 && undefined !== arguments[5] ? arguments[5] : [],
           r =
@@ -712,20 +712,20 @@ function (exports, module, require) {
             l = e.find(".contenteditor-buttonrow");
           s.val(L(n));
           var c = this._generateCommentContentHTML(n);
-          let o = c.mentioned.map((e) => e.id),
-            i = a
+          let _interopRequireDefault = c.mentioned.map((e) => e.id),
+            AppSettings = a
               .concat(r)
-              .filter((e) => o.includes(e.id))
+              .filter((e) => _interopRequireDefault.includes(e.id))
               .map((e) => u.default.clone(e));
-          i &&
-            i.length &&
-            (i.forEach((e) => {
+          AppSettings &&
+            AppSettings.length &&
+            (AppSettings.forEach((e) => {
               const t = c.mentioned.find((t) => t.id === e.id);
               (e.value = t.showText), (e.showText = t.showText);
             }),
             e
               .find(".annotation-comment-editor")
-              .mentionsInput("setMentions", i)),
+              .mentionsInput("setMentions", AppSettings)),
             this.setMentionOverlayBorderVisiblity(true),
             s.trigger("input"),
             s[0].setSelectionRange(s[0].textLength, s[0].textLength),
@@ -754,9 +754,9 @@ function (exports, module, require) {
           return { html: module, mentioned: [] };
         let require = module.match(s.GRegex.String.USERNAME_RE);
         if (!(require || []).length) return { html: module, mentioned: [] };
-        let o = (this._data || []).filter((e) => {
+        let _interopRequireDefault = (this._data || []).filter((e) => {
             let module = (e.getRole && e.getRole()) || e.role;
-            return !module.is(i.ShareRoles.Viewer) && !module.is(i.ShareRoles.NoAccess);
+            return !module.is(AppSettings.ShareRoles.Viewer) && !module.is(AppSettings.ShareRoles.NoAccess);
           }),
           a = [];
         if (
@@ -764,7 +764,7 @@ function (exports, module, require) {
             const module = e.substring(1);
             if (!module) return;
             if (D(e)) return void a.push(e);
-            const require = o.find(P(module));
+            const require = _interopRequireDefault.find(P(module));
             require &&
               !a.find(
                 (function (e) {
@@ -779,7 +779,7 @@ function (exports, module, require) {
           !(a || []).length)
         )
           return { html: module, mentioned: [] };
-        let r = o.filter(
+        let r = _interopRequireDefault.filter(
           (e) =>
             a.includes("@" + e.getFirstName()) ||
             a.includes("@" + e.getFullUserName()) ||
@@ -789,9 +789,9 @@ function (exports, module, require) {
           (r = r.map((e) => {
             const module = Object.assign(new d.default(), e),
               require = "@" + module.getEmail(),
-              o = "@" + module.getFirstName();
+              _interopRequireDefault = "@" + module.getFirstName();
             return (
-              a.includes(o)
+              a.includes(_interopRequireDefault)
                 ? (module.showText = "@" + module.getFullUserName())
                 : a.includes(require) && (module.showText = require),
               module
@@ -799,12 +799,12 @@ function (exports, module, require) {
           })),
           a.forEach((e) => {
             let require = e;
-            const o = D(e);
-            if (o) (require = o.showText), r.push(o);
+            const _interopRequireDefault = D(e);
+            if (_interopRequireDefault) (require = _interopRequireDefault.showText), r.push(_interopRequireDefault);
             else {
-              const o = e.substring(1),
-                i = r.find(P(o));
-              i && ((require = i.showText), module.includes(require) && (e = require));
+              const _interopRequireDefault = e.substring(1),
+                AppSettings = r.find(P(_interopRequireDefault));
+              AppSettings && ((require = AppSettings.showText), module.includes(require) && (e = require));
             }
             module = module.replace(e, "<strong><span>" + require + "</span></strong>");
           }),

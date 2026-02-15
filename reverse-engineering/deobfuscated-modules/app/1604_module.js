@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     exports.exports = {
       _reInitLayout: function () {
         (this._canvasPropertiesRowInTouch = $("<div></div>")
@@ -47,8 +47,8 @@ function (exports, module, require) {
                 {
                   content: $(
                     "<span>" +
-                      o.GLocale.get(
-                        new o.GLocaleKey("GPageProperties", "text.bleed")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPageProperties", "text.bleed")
                       ) +
                       "</span>"
                   ),

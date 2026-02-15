@@ -17,22 +17,22 @@ function (exports, module, require) {
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(53) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
-      r = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
       s = require(592) /* module_592 */,
       l = require(1094) /* module_1094 */;
     const c = require(434) /* stub_requires_30_1072 */;
     function d() {}
     async function u(e, t) {
       const require = gDesigner.getSyncUser(),
-        o = gDesigner.getApplicationManager(),
-        i = d.isOwner(require, e),
-        a = (e.getProperty("asgn") || []).includes(require.getUID()),
-        r = o.isCommentingEditingEnabled(),
-        s = await o.hasAccess(t);
-      return r && (s || i || a);
+        GCore = gDesigner.getApplicationManager(),
+        GTools = d.isOwner(require, e),
+        CollaborationMergeUtils = (e.getProperty("asgn") || []).includes(require.getUID()),
+        AppSettings = GCore.isCommentingEditingEnabled(),
+        s = await GCore.hasAccess(t);
+      return AppSettings && (s || GTools || CollaborationMergeUtils);
     }
     (d.getCloudAnnotationsForDocument = async function (e) {
       const module = e.getAnnotationsId();
@@ -44,7 +44,7 @@ function (exports, module, require) {
       return gDesigner
         .getAnnotationsManager()
         .getAnnotations(module, require)
-        .then((o) => new l(o, module, require, e));
+        .then((GCore) => new l(GCore, module, require, e));
     }),
       (d.updateAndReturnCloudAnnotationsForDocument = async function (e, t) {
         const require = e.getAnnotationsId();
@@ -53,17 +53,17 @@ function (exports, module, require) {
             "GAnnotationsUtils.updateAndReturnCloudAnnotationsForDocument: can't get annotations id for the document"
           );
         t || (t = []);
-        const o = await e.getAnnotationsToken(require);
+        const GCore = await e.getAnnotationsToken(require);
         return gDesigner
           .getAnnotationsManager()
-          .updateAnnotations(require, this._prepareAnnotations(e, t), o)
-          .then((t) => new l(t, require, o, e));
+          .updateAnnotations(require, this._prepareAnnotations(e, t), GCore)
+          .then((t) => new l(t, require, GCore, e));
       }),
       (d._prepareAnnotations = function (e, t) {
         return t;
       }),
-      (d.saveDocumentAnnotations = async function (e, t, n, i) {
-        var a = t;
+      (d.saveDocumentAnnotations = async function (e, t, n, GTools) {
+        var CollaborationMergeUtils = t;
         if (
           ((n = n || e.getScene()),
           (!e.isCloudFile() && !e.isExternalFile()) ||
@@ -71,14 +71,14 @@ function (exports, module, require) {
             (!n.hasAnnotations() && !n.isCloudAnnotations()))
         )
           return false;
-        var r = e.getId(),
+        var AppSettings = e.getId(),
           s = n.getProperty("cid"),
           c = e.getReservedId();
         let u = [];
         var p;
         n.iteratePages((e) => {
           let t = e.getAnnotations();
-          i &&
+          GTools &&
             (d.removeSidFromAnnotations(t),
             e.getProperty("Guid") || d.removeGuidFromAnnotations(t)),
             u.push(t);
@@ -94,8 +94,8 @@ function (exports, module, require) {
           return null;
         };
         if (
-          ((p = r || s || c) &&
-            a &&
+          ((p = AppSettings || s || c) &&
+            CollaborationMergeUtils &&
             ((g = await e.getAnnotationsToken(p)) || (g = await h())),
           !p)
         )
@@ -107,31 +107,31 @@ function (exports, module, require) {
             console.warn("Failed to record annotations");
           }
         if (!p) return false;
-        a && !g && (g = await h());
-        const f = this._prepareAnnotations(e, u.map(o.GNode.store));
+        CollaborationMergeUtils && !g && (g = await h());
+        const f = this._prepareAnnotations(e, u.map(GCore.GNode.store));
         return (
-          f instanceof Array || (f.suppressNewPageNotifications = !!i),
+          f instanceof Array || (f.suppressNewPageNotifications = !!GTools),
           gDesigner
             .getAnnotationsManager()
             .updateAnnotations(p, f, g)
             .then((t) => {
-              var r = new l(t, p, g, e);
+              var AppSettings = new l(t, p, g, e);
               let s,
-                c = r.annotationsCollection;
+                c = AppSettings.annotationsCollection;
               return (
                 (s =
-                  (i && n.getLastSavedTime()) ||
-                  new Date(r.lastUpdateTime).getTime()),
+                  (GTools && n.getLastSavedTime()) ||
+                  new Date(AppSettings.lastUpdateTime).getTime()),
                 c && c.length
                   ? (n.iteratePages((e) => {
                       let t = d.findAnnotationsListForPage(e, c);
-                      t && e.setAnnotations(o.GNode.restore(t));
+                      t && e.setAnnotations(GCore.GNode.restore(t));
                     }, true),
                     n.getProperty("cid") !== p && n.setCloudAnnotations(p),
-                    a && g && n.setProperty("asec", g))
+                    CollaborationMergeUtils && g && n.setProperty("asec", g))
                   : (n.setCloudAnnotations(null),
                     n.cleanAnnotations(),
-                    a && g && n.setProperty("asec", g)),
+                    CollaborationMergeUtils && g && n.setProperty("asec", g)),
                 n.setLastTimeAnnotationsFromCloudModified(s),
                 true
               );
@@ -148,49 +148,49 @@ function (exports, module, require) {
       (d.findAnnotationsListForPage = function (e, t) {
         const require =
           e.getProperty("Guid", true) || e.getAnnotations().getProperty("Guid");
-        let o = null;
-        if (!t || !t.length) return o;
+        let GCore = null;
+        if (!t || !t.length) return GCore;
         if (
           (require &&
-            (o = this._findInAnnotationsObj(
+            (GCore = this._findInAnnotationsObj(
               t,
               (e) => e.Guid === require || e.aid === require,
               (e) => e.$Guid === require || e["@Guid"] === require || e.$aid === require
             )),
-          !o)
+          !GCore)
         ) {
           const n = e.getAnnotations().getProperty("aid");
           n &&
-            (o = this._findInAnnotationsObj(
+            (GCore = this._findInAnnotationsObj(
               t,
               (e) => e.aid === n,
               (e) => e.$aid === n
             ));
         }
-        if (!o) {
+        if (!GCore) {
           const n = e.getId();
           n &&
-            (o = this._findInAnnotationsObj(
+            (GCore = this._findInAnnotationsObj(
               t,
               (e) => e.pgid === n,
               (e) => e.$pgid === n
             ));
         }
-        return o;
+        return GCore;
       }),
       (d._findInAnnotationsObj = function (e, t, n) {
-        return e.find((e) => (e instanceof o.GAnnotationsList ? n(e) : t(e)));
+        return e.find((e) => (e instanceof GCore.GAnnotationsList ? n(e) : t(e)));
       }),
-      (d.mergeAnnotations = function (e, t, n, i, r) {
+      (d.mergeAnnotations = function (e, t, n, GTools, AppSettings) {
         let s = {},
           l = {},
           c = false;
         t.forEach((e) => {
           (l[e.getId()] = e),
-            e.hasFlag(o.GNode.Flag.Selected) && (s[e.getId()] = 1);
+            e.hasFlag(GCore.GNode.Flag.Selected) && (s[e.getId()] = 1);
         }),
           t.forEach((t) => {
-            i.some((e) => e.getId() === t.getId()) ||
+            GTools.some((e) => e.getId() === t.getId()) ||
               (e.removeChild(t), (c = true));
           });
         const d = [
@@ -202,20 +202,20 @@ function (exports, module, require) {
           "$lkt",
           "@_lkt",
         ];
-        r &&
-          r instanceof Object &&
-          d.push(...Object.keys(r).map((e) => "$" + e));
-        for (let t = 0; t < i.length; t++) {
-          let n = i[t],
-            r = l[n.getId()];
-          r &&
-            ((0, a.isDifferent)(
+        AppSettings &&
+          AppSettings instanceof Object &&
+          d.push(...Object.keys(AppSettings).map((e) => "$" + e));
+        for (let t = 0; t < GTools.length; t++) {
+          let n = GTools[t],
+            AppSettings = l[n.getId()];
+          AppSettings &&
+            ((0, CollaborationMergeUtils.isDifferent)(
               n,
-              r,
-              d.concat(n instanceof o.GRectangleAnnotation ? ["$cu"] : [])
-            ) && ((0, a.mergeNode)(r, n), (c = true)),
-            r.setProperty("mtime", n.getProperty("mtime"))),
-            1 === s[n.getId()] && n.setFlag(o.GNode.Flag.Selected),
+              AppSettings,
+              d.concat(n instanceof GCore.GRectangleAnnotation ? ["$cu"] : [])
+            ) && ((0, CollaborationMergeUtils.mergeNode)(AppSettings, n), (c = true)),
+            AppSettings.setProperty("mtime", n.getProperty("mtime"))),
+            1 === s[n.getId()] && n.setFlag(GCore.GNode.Flag.Selected),
             l[n.getId()] || (e.appendChild(n), (c = true));
         }
         e.setProperty("sid", n.getProperty("sid") || null);
@@ -227,19 +227,19 @@ function (exports, module, require) {
         return d.isOwner(t, e);
       }),
       (d.removeAnnotations = function (e, t, n) {
-        let o =
+        let GCore =
           !(arguments.length > 3 && undefined !== arguments[3]) || arguments[3];
         if (!t || !t.getScene()) return;
-        let a = t.getScene(),
-          r = gDesigner.getActiveDocument();
-        if (r.getScene() === a) {
-          var s = !!r.getAnnotationsId();
-          i.GAnnotationEditor.removeAnnotations(e, t, n, o, !s);
+        let CollaborationMergeUtils = t.getScene(),
+          AppSettings = gDesigner.getActiveDocument();
+        if (AppSettings.getScene() === CollaborationMergeUtils) {
+          var s = !!AppSettings.getAnnotationsId();
+          GTools.GAnnotationEditor.removeAnnotations(e, t, n, GCore, !s);
         }
       }),
       (d.filterAnnotationElements = function (e) {
         return e.filter(
-          (e) => e.hasMixin(o.GAnnotation) || e instanceof o.GComment
+          (e) => e.hasMixin(GCore.GAnnotation) || e instanceof GCore.GComment
         );
       }),
       (d.canResolveAnnotation = function (e) {
@@ -257,21 +257,21 @@ function (exports, module, require) {
       }),
       (d.canUpdate = function (e) {
         return (
-          !(gDesigner.isAnonymous() && !r.ANONYMOUS_SESSION_ENABLED) && !!e
+          !(gDesigner.isAnonymous() && !AppSettings.ANONYMOUS_SESSION_ENABLED) && !!e
         );
       }),
       (d.resolveAllComments = function (e) {
         var t = e.getScene();
         t &&
-          i.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             t,
             function () {
               t.iteratePages((e) => {
                 e.getAnnotations().resolve();
               }, true);
             },
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GAnnotationsSidebar",
                 "text.resolve-all-comments"
               )
@@ -282,11 +282,11 @@ function (exports, module, require) {
         if (!e.annotations) return 0;
         let module = 0;
         const require = { annotationsCollection: e.annotations, lastUpdateTime: 0 };
-        let o = new l(require, e.id);
+        let GCore = new l(require, e.id);
         return (
-          o &&
-            o.annotationsCollection &&
-            o.annotationsCollection.forEach((e) => {
+          GCore &&
+            GCore.annotationsCollection &&
+            GCore.annotationsCollection.forEach((e) => {
               e.$ &&
                 e.$.forEach(function (e) {
                   e.rsv ||
@@ -307,12 +307,12 @@ function (exports, module, require) {
       (d.removeGuidFromAnnotations = function (e) {
         d.setPropertyValueInAnnotations(e, "Guid", "");
       }),
-      (d.setPropertyValueInAnnotations = function (e, t, n, i) {
+      (d.setPropertyValueInAnnotations = function (e, t, n, GTools) {
         e.accept((e) => {
-          (e instanceof o.GAnnotationsList ||
-            e.hasMixin(o.GAnnotation) ||
-            e instanceof o.GComment) &&
-            e.setProperty(t, n, i);
+          (e instanceof GCore.GAnnotationsList ||
+            e.hasMixin(GCore.GAnnotation) ||
+            e instanceof GCore.GComment) &&
+            e.setProperty(t, n, GTools);
         });
       }),
       (exports.exports = d);

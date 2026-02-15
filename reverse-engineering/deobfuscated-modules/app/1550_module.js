@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */;
-    var i = require(1) /* module */,
+    var GCore = require(1) /* module */,
       a = require(1163) /* module_1163 */,
-      r = o(require(1090) /* module_1090 */),
-      s = o(require(358) /* module_358 */),
-      l = require(40) /* CollaborationMergeUtils */,
-      c = require(10) /* AppSettings */;
-    const d = require(0) /* GObject */,
+      r = _interopRequireDefault(require(1090) /* module_1090 */),
+      s = _interopRequireDefault(require(358) /* module_358 */),
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */;
+    const GObject = require(0) /* GObject */,
       u = require(1551) /* module_1551 */,
       p = require(1174) /* module_1174 */;
     function g() {}
-    d.inherit(g, u),
+    GObject.inherit(g, u),
       (g.prototype.render = async function (e, t) {
         this._createUI(e), await this._updateUIForFile(e, t);
       }),
@@ -30,8 +30,8 @@ function (exports, module, require) {
         $("<button/>")
           .gShareButton({
             clazz: "file-panel-share-button",
-            defaultText: i.GLocale.get(
-              new i.GLocaleKey("GFilesPanelViewBase", "text.share-this-file")
+            defaultText: GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanelViewBase", "text.share-this-file")
             ),
             stats: "filespanel-view_infoPanel_share",
             restrictedStats: "filespanel-view_infoPanel_nonprotriespro-share",
@@ -48,8 +48,8 @@ function (exports, module, require) {
           .append(
             $("<span/>").text(
               " " +
-                i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanelViewBase", "text.collaborators")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanelViewBase", "text.collaborators")
                 )
             )
           )
@@ -63,8 +63,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("comments-label")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GFilesPanelViewBase", "text.comments")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GFilesPanelViewBase", "text.comments")
                   )
                 )
             )
@@ -76,8 +76,8 @@ function (exports, module, require) {
               $("<div/>")
                 .addClass("label")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GFilesPanelViewBase", "text.status")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GFilesPanelViewBase", "text.status")
                   ) + ": "
                 )
             )
@@ -87,8 +87,8 @@ function (exports, module, require) {
       }),
       (g.prototype._updateUIForFile = async function (e, t) {
         const require = e.find(".share-button"),
-          o = e.find(".comments-number"),
-          d = e.find(".comments-label"),
+          _interopRequireDefault = e.find(".comments-number"),
+          GObject = e.find(".comments-label"),
           u = e.find(".collaborators-number"),
           g = e.find(".file-created"),
           h = e.find(".collaboration"),
@@ -96,7 +96,7 @@ function (exports, module, require) {
           m = e.find(".collaborators");
         e
           .find(".file-preview")
-          .attr("src", t.getPreviewURL() || c.DEFAULT_FILE_THUMBNAIL),
+          .attr("src", t.getPreviewURL() || AppSettings.DEFAULT_FILE_THUMBNAIL),
           e.find(".file-preview").unbind("dblclick"),
           e.find(".file-preview").on("dblclick", (e) => {
             e.stopPropagation(),
@@ -107,20 +107,20 @@ function (exports, module, require) {
           e.data("fileId", t.id);
         const y = await r.default.createStorageItem(t);
         y.supportsShadowFile() && (await y.syncShadowFile());
-        const v = await c.gApi.getFileExtended(y.getId()).catch(() => null);
+        const v = await AppSettings.gApi.getFileExtended(y.getId()).catch(() => null);
         g.text(
-          i.GLocale.get(
-            new i.GLocaleKey("GFilesPanelViewBase", "text.created")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GFilesPanelViewBase", "text.created")
           ).replace(
             "%createdTime",
             (0, a.dateToFilePreviewFormat)(t.created || v.created)
           )
         );
         const _ = (v && s.default.getCommentsCount(v)) || 0;
-        o.text(_),
-          d.text(
-            i.GLocale.get(
-              new i.GLocaleKey(
+        _interopRequireDefault.text(_),
+          GObject.text(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GFilesPanelViewBase",
                 1 === _ ? "text.comment" : "text.comments"
               )
@@ -135,8 +135,8 @@ function (exports, module, require) {
             require.gShareButton("update", { disabled: true, isSharing: false }),
             void require.attr(
               "data-title",
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFilesPanelViewBase",
                   "text.can-only-share-by-owner"
                 )
@@ -147,7 +147,7 @@ function (exports, module, require) {
           const e = gDesigner.getSyncUser();
           ({
             state: { isPrivate: b, sharing: w, owner: C },
-          } = (0, l.getFileStateAndRole)(e, v, {})),
+          } = (0, CollaborationMergeUtils.getFileStateAndRole)(e, v, {})),
             !gDesigner.getApplicationManager().isShareEngineEnabled() ||
               (w && !C) ||
               require.show(),
@@ -184,34 +184,34 @@ function (exports, module, require) {
       (g.prototype._updateStatus = function (e, t) {
         const require = e.find(".state");
         switch (t) {
-          case c.FileStatus.IN_REVIEW:
+          case AppSettings.FileStatus.IN_REVIEW:
             require.text(
-              i.GLocale.get(
-                new i.GLocaleKey("GReviewDockerProperties", "text.review-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GReviewDockerProperties", "text.review-title")
               )
             );
             break;
-          case c.FileStatus.REOPENED:
+          case AppSettings.FileStatus.REOPENED:
             require.text(
-              i.GLocale.get(
-                new i.GLocaleKey("GReviewDockerProperties", "text.reopen-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GReviewDockerProperties", "text.reopen-title")
               )
             );
             break;
-          case c.FileStatus.AWAITING_APPROVAL:
+          case AppSettings.FileStatus.AWAITING_APPROVAL:
             require.text(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GReviewDockerProperties",
                   "text.request-approval-title"
                 )
               )
             );
             break;
-          case c.FileStatus.APPROVED:
+          case AppSettings.FileStatus.APPROVED:
             require.text(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GReviewDockerProperties",
                   "text.approved-title"
                 )

@@ -7,22 +7,22 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(67) /* GRichTooltipConfig */),
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       s = require(1245) /* module_1245 */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey(
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GImportFontsAction",
               "text.try-this-feature-pro-tooltip-title"
             )
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey(
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GImportFontsAction",
               "text.try-this-feature-pro-tooltip-description"
             )
@@ -35,9 +35,9 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(l, r),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "font.import"),
-      (l.TITLE = new o.GLocaleKey("GImportFontsAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GImportFontsAction", "title")),
       (l.TOOLTIP_CONFIG = null),
       (l.prototype.getId = function () {
         return l.ID;
@@ -46,7 +46,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_FILE_IMPORT;
+        return MenuItemBuilder.CATEGORY_FILE_IMPORT;
       }),
       (l.prototype.getGroup = function () {
         return "import/import-fonts";

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(15) /* module */,
-      i = require(1) /* module */,
+    var GEditor = require(15) /* module */,
+      GCore = require(1) /* module */,
       a = function (e) {
         e.changed.escapeKey && (e.isImmediatePropagationStopped = true);
       },
@@ -24,8 +24,8 @@ function (exports, module, require) {
         },
         setActiveMenu: function (e, t, n) {
           r._activeMenu &&
-            (o.GPlatform.removeEventListener(
-              o.GModifiersChangedEvent,
+            (GEditor.GPlatform.removeEventListener(
+              GEditor.GModifiersChangedEvent,
               a,
               r._activeMenu && r._activeMenu.getHtmlElement()
             ),
@@ -51,8 +51,8 @@ function (exports, module, require) {
             (r._activeMenu = e),
             (r._activeActivationCallback = n),
             r._activeMenu &&
-              (o.GPlatform.addEventListener(
-                o.GModifiersChangedEvent,
+              (GEditor.GPlatform.addEventListener(
+                GEditor.GModifiersChangedEvent,
                 a,
                 e.getHtmlElement(),
                 null,
@@ -92,14 +92,14 @@ function (exports, module, require) {
         createActionMenu: function (e, t) {
           for (
             var require = [],
-              o = function (e, o, i) {
+              GEditor = function (e, GEditor, GCore) {
                 e.getItemCount() > 0 &&
                   (function (e) {
                     for (var t = 0; t < require.length; ++t)
                       if (require[t].item === e) return require[t].group;
-                  })(e.getItem(e.getItemCount() - 1)) !== i &&
+                  })(e.getItem(e.getItemCount() - 1)) !== GCore &&
                   e.addItem(t.createDivider());
-                require.push({ item: o, group: i });
+                require.push({ item: GEditor, group: GCore });
               },
               a = 0;
             a < e.length;
@@ -107,7 +107,7 @@ function (exports, module, require) {
           ) {
             var r = e[a];
             if (r.isAvailable()) {
-              var s = i.GLocale.get(r.getCategory()),
+              var s = GCore.GLocale.get(r.getCategory()),
                 l = r.getGroup(),
                 c = s ? s.split("/") : null,
                 d = l ? [""].concat(l.split("/")) : null;
@@ -122,12 +122,12 @@ function (exports, module, require) {
                   var g = u.findItem(s);
                   g ||
                     ((g = t.createMenuItem(true)).setCaption(s),
-                    o(u, g, l),
+                    GEditor(u, g, l),
                     u.addItem(g)),
                     (u = g.getMenu());
                 }
               var h = t.createMenuItem();
-              h.setAction(r), o(u, h, d ? d[d.length - 1] : null), u.addItem(h);
+              h.setAction(r), GEditor(u, h, d ? d[d.length - 1] : null), u.addItem(h);
             }
           }
         },

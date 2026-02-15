@@ -1764,8 +1764,8 @@ function (exports, module, require) {
       ie = function (e) {
         return e && undefined !== e._q;
       },
-      ae = require(610) /* UAParser */,
-      re = require.n(ae),
+      UAParser = require(610) /* UAParser */,
+      re = require.n(UAParser),
       se = function () {
         var e, t, n, o;
         if ("undefined" == typeof navigator) return "";

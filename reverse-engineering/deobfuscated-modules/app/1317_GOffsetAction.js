@@ -7,12 +7,12 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(1185) /* GOutlineAction */;
+    var GCore = require(1) /* module */,
+      GOutlineAction = require(1185) /* GOutlineAction */;
     function a() {}
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, GOutlineAction),
       (a.ID = "modify.offset"),
-      (a.TITLE = new o.GLocaleKey("GOffsetAction", "title")),
+      (a.TITLE = new GCore.GLocaleKey("GOffsetAction", "title")),
       (a.prototype.getId = function () {
         return a.ID;
       }),
@@ -29,29 +29,29 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-expand-shrink" : null;
       }),
       (a.prototype._dialogPromptMessage = function () {
-        return o.GLocale.get(
-          new o.GLocaleKey("GOffsetAction", "text.dialog-prompt-message")
+        return GCore.GLocale.get(
+          new GCore.GLocaleKey("GOffsetAction", "text.dialog-prompt-message")
         );
       }),
       (a.prototype._makeOffsetter = function (e, t) {
         var n;
-        if (t.hasMixin(o.GStylable)) {
-          var i = t.getPaintLayers();
-          if (i) {
-            var a = i.getBorderLayers(true).pop();
+        if (t.hasMixin(GCore.GStylable)) {
+          var GOutlineAction = t.getPaintLayers();
+          if (GOutlineAction) {
+            var a = GOutlineAction.getBorderLayers(true).pop();
             a && (n = a.$_blc);
           }
         }
         return (
-          (t = o.GPathUtil.makeClockWise(t)),
+          (t = GCore.GPathUtil.makeClockWise(t)),
           e > 0
-            ? new o.GVertexOffsetter(t, e, false, true, 0, n)
-            : new o.GVertexOffsetter(t, -e, true, false, 0, n)
+            ? new GCore.GVertexOffsetter(t, e, false, true, 0, n)
+            : new GCore.GVertexOffsetter(t, -e, true, false, 0, n)
         );
       }),
       (a.prototype._dialogAlertMessage = function () {
-        return o.GLocale.get(
-          new o.GLocaleKey("GOffsetAction", "text.invalid-value")
+        return GCore.GLocale.get(
+          new GCore.GLocaleKey("GOffsetAction", "text.invalid-value")
         );
       }),
       (a.prototype.toString = function () {

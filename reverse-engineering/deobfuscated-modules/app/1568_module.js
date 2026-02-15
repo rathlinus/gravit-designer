@@ -6,18 +6,18 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(71) /* polyfill_String_includes */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(10) /* AppSettings */;
+    var AppSettings = require(10) /* AppSettings */;
     const i = require(292) /* module_292 */,
       a = require(220) /* Item */,
-      r = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       s = require(536) /* module_536 */,
       l = require(177) /* module_177 */,
-      c = require(393) /* GCollaborationEvent */;
+      GCollaborationEvent = require(393) /* GCollaborationEvent */;
     var d = null;
     function u(e) {
       if (d) throw new Error("GCloudCommunicationManager is a singleton");
       e.addEventListener(i, this._userLoggedEvent, this),
-        e.addEventListener(r, this._documentEvent, this),
+        e.addEventListener(GDocumentEvent, this._documentEvent, this),
         (d = this),
         this.initialize();
     }
@@ -32,18 +32,18 @@ function (exports, module, require) {
         return exports || this._userCache.reset(), exports;
       }),
       (u.prototype.confirmEmail = function (e) {
-        return o.gApi.confirmEmail(e).then((e) => (this._removeUserCache(), e));
+        return AppSettings.gApi.confirmEmail(e).then((e) => (this._removeUserCache(), e));
       }),
       (u.prototype.updateUser = function (e) {
-        return o.gApi
+        return AppSettings.gApi
           .updateUser(e)
           .then((e) => (this._removeUserCache(), new l(e)));
       }),
       (u.prototype.updateAvatar = function (e) {
-        return o.gApi.updateAvatar(e).then((e) => (this._removeUserCache(), e));
+        return AppSettings.gApi.updateAvatar(e).then((e) => (this._removeUserCache(), e));
       }),
       (u.prototype.useAuthorizationToken = function (e) {
-        this._removeUserCache(), o.gApi.useAuthorizationToken(e);
+        this._removeUserCache(), AppSettings.gApi.useAuthorizationToken(e);
       }),
       (u.prototype.userPropertiesChanged = function () {
         this._removeUserCache();
@@ -72,11 +72,11 @@ function (exports, module, require) {
         this._userCache ||
           (this._userCache = new s(
             () =>
-              o.gApi
+              AppSettings.gApi
                 .getUser()
                 .then((e) => new l(e))
                 .catch(() => null),
-            o.USER_CHECK_MIN_WAIT
+            AppSettings.USER_CHECK_MIN_WAIT
           ));
       }),
       (u.prototype._updateDocState = function (e) {
@@ -97,20 +97,20 @@ function (exports, module, require) {
         const module = e.document;
         if (module)
           switch (e.type) {
-            case r.Type.Added:
+            case GDocumentEvent.Type.Added:
               this._updateDocState(module),
-                module.addEventListener(c, this._collaborationEvent, this);
+                module.addEventListener(GCollaborationEvent, this._collaborationEvent, this);
               break;
-            case r.Type.Removed:
-              module.removeEventListener(c, this._collaborationEvent, this);
+            case GDocumentEvent.Type.Removed:
+              module.removeEventListener(GCollaborationEvent, this._collaborationEvent, this);
               break;
-            case r.Type.Modified:
+            case GDocumentEvent.Type.Modified:
               this._updateDocState(module);
           }
       }),
       (u.prototype._collaborationEvent = function (e) {
         const { sender: module, type: require } = e;
-        require === c.Type.ShareUpdate && this._updateDocState(module);
+        require === GCollaborationEvent.Type.ShareUpdate && this._updateDocState(module);
       }),
       (u.prototype._getFileExtended = async function (e) {
         const module =
@@ -129,7 +129,7 @@ function (exports, module, require) {
     async function g(e, t, n) {
       let i, a;
       try {
-        if (((i = o.gApi[t](n)), !(i instanceof Promise))) return i;
+        if (((i = AppSettings.gApi[t](n)), !(i instanceof Promise))) return i;
         a = await i;
       } catch (e) {
         throw e;
@@ -140,7 +140,7 @@ function (exports, module, require) {
     }
     (u.prototype.initialize = function () {
       const exports = Object.keys(d).filter((e) => e.startsWith("get")),
-        module = o.CACHED_GAPI_FUNCTIONS.filter(
+        module = AppSettings.CACHED_GAPI_FUNCTIONS.filter(
           (t) => /^is|^get/.test(t) && !exports.includes(t)
         );
       for (let exports of module)

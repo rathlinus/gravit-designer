@@ -7,12 +7,12 @@ function (exports, module, require) {
     "use strict";
     var o,
       i,
-      a = require(1374) /* GBrowserContainer */,
-      r = require(1483) /* AppSettings */;
+      GBrowserContainer = require(1374) /* GBrowserContainer */,
+      AppSettings = require(1483) /* AppSettings */;
     function s() {
-      var e = new a();
+      var e = new GBrowserContainer();
       e.initLanguage(function () {
-        (o = e.init(r)),
+        (o = e.init(AppSettings)),
           i &&
             o.then(() => {
               l(i);

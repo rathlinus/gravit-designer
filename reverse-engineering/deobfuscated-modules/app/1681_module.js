@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    const o = require(44) /* GSystemDialog */,
+    const GSystemDialog = require(44) /* GSystemDialog */,
       { gApi: i } = require(10) /* AppSettings */,
       a = require(1350) /* module_1350 */;
     exports.exports = class {
@@ -15,7 +15,7 @@ function (exports, module, require) {
           gContainer.openExternalLink(null, e);
           return a.getInstance().waitForPurchase();
         } catch (e) {
-          o.alert(i.formatError(e));
+          GSystemDialog.alert(i.formatError(e));
         }
       }
     };

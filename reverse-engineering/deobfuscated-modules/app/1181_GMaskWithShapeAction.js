@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */,
-      s = require(809) /* GClipAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */,
+      GClipAction = require(809) /* GClipAction */;
     function l() {}
-    o.GObject.inherit(l, r),
+    GCore.GObject.inherit(l, GElementAction),
       (l.ID = "modify.mask-with-shape"),
-      (l.TITLE = new o.GLocaleKey("GMaskWithShapeAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GMaskWithShapeAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,53 +23,53 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY;
+        return MenuItemBuilder.CATEGORY_MODIFY;
       }),
       (l.prototype.getGroup = function () {
         return "structure-group";
       }),
       (l.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, i.GKey.Constant.SHIFT, "M"];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.SHIFT, "M"];
       }),
       (l.prototype.getIcon = function () {
         return gDesigner.isTouchEnabled() ? "gravit-icon-mask-with-shape" : "";
       }),
       (l.prototype.isEnabled = function () {
-        return s.prototype.isEnabled.call(this);
+        return GClipAction.prototype.isEnabled.call(this);
       }),
       (l.prototype.execute = function () {
         var e = gDesigner.getActiveDocument().getEditor();
         e.beginTransaction();
         try {
           if (
-            (s.prototype.execute.call(this, true, true),
+            (GClipAction.prototype.execute.call(this, true, true),
             e.getSelection().length > 0)
           ) {
             var module = e.getSelection()[0];
             module.setProperty(
               "name",
-              o.GLocale.get(
-                new o.GLocaleKey("GMaskWithShapeAction", "text.mask")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GMaskWithShapeAction", "text.mask")
               )
             );
             var require = module.getPaintLayers();
             if (require) {
               for (
-                var i = (function (e) {
+                var GEditor = (function (e) {
                     e: for (
                       var module = e.getFirstChild();
                       null !== module;
                       module = module.getNext()
                     )
                       if (
-                        module instanceof o.GStylable.FillPaintLayer &&
-                        module.getProperty("_pt") instanceof o.GLinearGradient
+                        module instanceof GCore.GStylable.FillPaintLayer &&
+                        module.getProperty("_pt") instanceof GCore.GLinearGradient
                       ) {
                         var require = module.getProperty("_pt");
                         require;
-                        t: for (var i = 0; i < require.getStops().length; ++i) {
-                          var a = require.getStops()[i].color.toScreenCSS();
-                          if ("#FFFFFF" !== a && "#000000" !== a) {
+                        t: for (var GEditor = 0; GEditor < require.getStops().length; ++GEditor) {
+                          var MenuItemBuilder = require.getStops()[GEditor].color.toScreenCSS();
+                          if ("#FFFFFF" !== MenuItemBuilder && "#000000" !== MenuItemBuilder) {
                             require = null;
                             break t;
                           }
@@ -78,32 +78,32 @@ function (exports, module, require) {
                       }
                     return require;
                   })(require),
-                  a = [],
-                  r = require.getFirstChild();
-                null !== r;
-                r = r.getNext()
+                  MenuItemBuilder = [],
+                  GElementAction = require.getFirstChild();
+                null !== GElementAction;
+                GElementAction = GElementAction.getNext()
               )
-                r instanceof o.GStylable.FillPaintLayer && a.push(r);
-              for (var l = 0; l < a.length; ++l) require.removeChild(a[l]);
+                GElementAction instanceof GCore.GStylable.FillPaintLayer && MenuItemBuilder.push(GElementAction);
+              for (var l = 0; l < MenuItemBuilder.length; ++l) require.removeChild(MenuItemBuilder[l]);
               if (
                 (require.insertChild(
-                  new o.GStylable.FillPaintLayer(o.GRGBColor.WHITE)
+                  new GCore.GStylable.FillPaintLayer(GCore.GRGBColor.WHITE)
                 ),
-                i)
+                GEditor)
               ) {
-                i = i.clone();
-                for (l = 0; l < i.getStops().length; ++l) {
-                  var c = i.getStops()[l];
+                GEditor = GEditor.clone();
+                for (l = 0; l < GEditor.getStops().length; ++l) {
+                  var c = GEditor.getStops()[l];
                   "#FFFFFF" === c.color.toScreenCSS() && (c.opacity = 0);
                 }
-                var d = new o.GOverlayEffect();
+                var d = new GCore.GOverlayEffect();
                 module.getEffects().appendChild(d),
-                  d.setProperties(["alm", "opc", "pat"], [true, 1, i]);
+                  d.setProperties(["alm", "opc", "pat"], [true, 1, GEditor]);
               }
             }
           }
         } finally {
-          e.commitTransaction(o.GLocale.get(this.getTitle()));
+          e.commitTransaction(GCore.GLocale.get(this.getTitle()));
         }
       }),
       (l.prototype.toString = function () {

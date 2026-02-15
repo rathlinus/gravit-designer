@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(46) /* toLength */;
+    var toLength = require(46) /* toLength */;
     exports.exports = function (e) {
-      return o(e) || null === e;
+      return toLength(e) || null === e;
     };
   }

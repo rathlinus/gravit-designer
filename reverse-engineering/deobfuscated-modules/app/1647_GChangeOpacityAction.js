@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(1) /* module */,
-      a = require(53) /* module */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
       r = require(15) /* module */,
-      s = o(require(31) /* GAction */),
-      l = o(require(18) /* MenuItemBuilder */);
-    class c extends s.default {
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
+    class c extends GAction.default {
       constructor() {
         super(),
           (this._opacityLevel = null),
@@ -27,13 +27,13 @@ function (exports, module, require) {
         return c.TITLE;
       }
       getFullTitle() {
-        return i.GLocale.getValue("GChangeOpacityAction", "full-title").replace(
+        return GCore.GLocale.getValue("GChangeOpacityAction", "full-title").replace(
           "%value",
           "100% (10%, 20%, 25%, 26%, 30%, 40%, ... 90%)"
         );
       }
       getCategory() {
-        return l.default.CATEGORY_EDIT;
+        return MenuItemBuilder.default.CATEGORY_EDIT;
       }
       isVisible() {
         return false;
@@ -56,18 +56,18 @@ function (exports, module, require) {
         const exports = gDesigner.getActiveDocument(),
           module = exports && exports.getEditor(),
           require = exports && exports.getScene(),
-          o = module && module.getSelection();
+          _interopRequireDefault = module && module.getSelection();
         require &&
-          o &&
-          (a.GEditor.tryRunTransaction(
+          _interopRequireDefault &&
+          (GTools.GEditor.tryRunTransaction(
             require,
             () => {
-              o.forEach((e) => {
-                e.hasMixin(i.GStylable) &&
+              _interopRequireDefault.forEach((e) => {
+                e.hasMixin(GCore.GStylable) &&
                   e.setProperty("_stop", this._opacityLevel);
               });
             },
-            i.GLocale.get(c.TITLE)
+            GCore.GLocale.get(c.TITLE)
           ),
           this._setOpacityLevel());
       }
@@ -79,21 +79,21 @@ function (exports, module, require) {
             ? this._processDefinedCurrentValue()
             : (this._timeoutId = setTimeout(() => {
                 this._processDefinedCurrentValue();
-              }, s.default.SHORTCUT_DELAY));
+              }, GAction.default.SHORTCUT_DELAY));
       }
       isKeyBoardEventRequiredToExecute() {
         return true;
       }
       getShortcutHint(e) {
         const module = [r.GKey.Constant.SHIFT, "0 (1, 2, 25, 26, 3, 4, ... 9)"];
-        return s.default.getActionShortcutHint(module, e);
+        return GAction.default.getActionShortcutHint(module, e);
       }
       _processDefinedCurrentValue() {
         this._clearTimeout(),
           this._currentValue.length > 1 &&
             "0" === this._currentValue[0] &&
             (this._currentValue = this._currentValue.replace("0", "."));
-        const exports = i.GUtil.parseNumber(this._currentValue);
+        const exports = GCore.GUtil.parseNumber(this._currentValue);
         if ("number" == typeof exports && !isNaN(exports)) {
           const t = this._getOpacityLevel(exports);
           this._setOpacityLevel(t), this.execute.apply(this);
@@ -119,6 +119,6 @@ function (exports, module, require) {
       }
     }
     (c.ID = "edit.change-opacity"),
-      (c.TITLE = new i.GLocaleKey("GChangeOpacityAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GChangeOpacityAction", "title")),
       (exports.exports = c);
   }

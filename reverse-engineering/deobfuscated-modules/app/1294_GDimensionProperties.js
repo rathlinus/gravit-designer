@@ -6,22 +6,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(57) /* polyfill_parseInt */, require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(67) /* GRichTooltipConfig */,
-      s = o(require(340) /* GTouchTool */),
-      l = require(866) /* GAlignAction */,
-      c = require(867) /* GDistributeAction */,
-      d = require(123) /* GProperties */,
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      GAlignAction = require(866) /* GAlignAction */,
+      GDistributeAction = require(867) /* GDistributeAction */,
+      GProperties = require(123) /* GProperties */,
       u = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */),
-      p = require(257) /* barrel_panels */,
-      g = require(1295) /* GSnapUnitAction */;
+      barrel_panels = require(257) /* barrel_panels */,
+      GSnapUnitAction = require(1295) /* GSnapUnitAction */;
     function h() {
       this._elements = [];
     }
-    a.GObject.inherit(h, d),
+    GCore.GObject.inherit(h, GProperties),
       (h._keepRatioName = "designer.settings.dimension.preserveratio"),
       (h.prototype._panel = null),
       (h.prototype._toolbar = null),
@@ -36,13 +36,13 @@ function (exports, module, require) {
           (this._toolbar = t),
           this._panel.addClass("dimension-panel"),
           this.setTouchTools([
-            new s.default({
+            new GTouchTool.default({
               id: "dimension.align",
               icon: "gravit-icon-align",
               panelWidth: "370px",
               panel: this._toolbar,
             }),
-            new s.default({
+            new GTouchTool.default({
               id: "dimension.dimension",
               icon: "gravit-icon-touch-transform",
               toolbar: ".advanced-transform-toolbar",
@@ -55,7 +55,7 @@ function (exports, module, require) {
           if ("keep-ratio" == e)
             return $("<span></span>")
               .addClass(
-                i.GEditorOptions.preserveAspectRatio
+                GTools.GEditorOptions.preserveAspectRatio
                   ? "gravit-icon-linked"
                   : "gravit-icon-unlinked"
               )
@@ -83,18 +83,18 @@ function (exports, module, require) {
               })
               .attr(
                 "data-title",
-                a.GLocale.get(
-                  new a.GLocaleKey("GDimensionProperties", "action.keep-ratio")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GDimensionProperties", "action.keep-ratio")
                 )
               )
               .attr(
                 "data-ratio",
-                i.GEditorOptions.preserveAspectRatio ? "yes" : "no"
+                GTools.GEditorOptions.preserveAspectRatio ? "yes" : "no"
               )
               .gRichTooltip(t);
           if ("x" === e || "y" === e || "w" === e || "h" === e) {
-            var o = a.GLocale.get(
-              new a.GLocaleKey(
+            var _interopRequireDefault = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GCommonNames",
                 "property-".concat(e.toLowerCase())
               ),
@@ -117,7 +117,7 @@ function (exports, module, require) {
                   )
                   .gInputBox({ minValue: "w" === e || "h" === e ? 0 : null })
               )
-              .gInputLabel({ label: o, autoPadding: o.length > 1 })
+              .gInputLabel({ label: _interopRequireDefault, autoPadding: _interopRequireDefault.length > 1 })
               .gRichTooltip(t);
           }
           return "rotate" === e
@@ -142,22 +142,22 @@ function (exports, module, require) {
                 .gRichTooltip(t)
             : undefined;
         }.bind(this);
-        function o(e) {
-          var t = l.ID + "." + e,
+        function _interopRequireDefault(e) {
+          var t = GAlignAction.ID + "." + e,
             n = gDesigner.getAction(t);
-          const o = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
-            i = $("<span></span>");
+          const _interopRequireDefault = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
+            GTools = $("<span></span>");
           return (
-            p.icon
-              ? (i.addClass("icon"), i.addClass(n.getIcon()))
-              : i.append(n.getIcon()),
-            i.css("stroke", "transparent"),
-            o && i.gRichTooltip(o),
+            barrel_panels.icon
+              ? (GTools.addClass("icon"), GTools.addClass(n.getIcon()))
+              : GTools.append(n.getIcon()),
+            GTools.css("stroke", "transparent"),
+            _interopRequireDefault && GTools.gRichTooltip(_interopRequireDefault),
             $("<button></button>")
-              .attr("data-title", a.GLocale.get(n.getTitle()))
+              .attr("data-title", GCore.GLocale.get(n.getTitle()))
               .attr("data-action", t)
               .addClass("svg-button")
-              .append(i.addClass("normal"))
+              .append(GTools.addClass("normal"))
               .append(
                 $("<span/>").addClass("gravit-icon-touch-".concat(e, " touch"))
               )
@@ -166,18 +166,18 @@ function (exports, module, require) {
               })
           );
         }
-        function d(e) {
-          var t = c.ID + "." + e,
+        function GProperties(e) {
+          var t = GDistributeAction.ID + "." + e,
             n = gDesigner.getAction(t);
-          const o = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
-            i = $("<span></span>").append(n.getIcon());
+          const _interopRequireDefault = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
+            GTools = $("<span></span>").append(n.getIcon());
           return (
-            o && i.gRichTooltip(o),
+            _interopRequireDefault && GTools.gRichTooltip(_interopRequireDefault),
             $("<button></button>")
-              .attr("data-title", a.GLocale.get(n.getTitle()))
+              .attr("data-title", GCore.GLocale.get(n.getTitle()))
               .attr("data-action", t)
               .addClass("svg-button")
-              .append(i.addClass("normal"))
+              .append(GTools.addClass("normal"))
               .append(
                 $("<span/>").addClass("gravit-icon-touch-".concat(e, " touch"))
               )
@@ -210,31 +210,31 @@ function (exports, module, require) {
         }
         t
           .addClass("main-toolbar")
-          .append(d(c.Type.Horizontal).addClass("primary normalDistribute"))
-          .append(d(c.Type.Vertical).addClass("primary normalDistribute"))
+          .append(GProperties(GDistributeAction.Type.Horizontal).addClass("primary normalDistribute"))
+          .append(GProperties(GDistributeAction.Type.Vertical).addClass("primary normalDistribute"))
           .append($("<span></span>").addClass("divider"))
-          .append(o(i.GEditor.ArrangeAlignType.AlignLeft).addClass("secondary"))
+          .append(_interopRequireDefault(GTools.GEditor.ArrangeAlignType.AlignLeft).addClass("secondary"))
           .append(
-            o(i.GEditor.ArrangeAlignType.AlignCenter).addClass("secondary")
+            _interopRequireDefault(GTools.GEditor.ArrangeAlignType.AlignCenter).addClass("secondary")
           )
           .append(
-            o(i.GEditor.ArrangeAlignType.AlignRight).addClass("secondary")
+            _interopRequireDefault(GTools.GEditor.ArrangeAlignType.AlignRight).addClass("secondary")
           )
           .append($("<span></span>").addClass("divider"))
           .append($("<p/>").addClass("interval"))
-          .append(o(i.GEditor.ArrangeAlignType.AlignTop).addClass("secondary"))
+          .append(_interopRequireDefault(GTools.GEditor.ArrangeAlignType.AlignTop).addClass("secondary"))
           .append(
-            o(i.GEditor.ArrangeAlignType.AlignMiddle).addClass("secondary")
+            _interopRequireDefault(GTools.GEditor.ArrangeAlignType.AlignMiddle).addClass("secondary")
           )
           .append(
-            o(i.GEditor.ArrangeAlignType.AlignBottom).addClass("secondary")
+            _interopRequireDefault(GTools.GEditor.ArrangeAlignType.AlignBottom).addClass("secondary")
           )
           .append($("<p/>").addClass("lineBreak"))
-          .append(d(c.Type.Horizontal).addClass("primary touchDistribute"))
-          .append(u(c.Type.Horizontal).addClass("touchDistribute"))
+          .append(GProperties(GDistributeAction.Type.Horizontal).addClass("primary touchDistribute"))
+          .append(u(GDistributeAction.Type.Horizontal).addClass("touchDistribute"))
           .append($("<p/>").addClass("interval"))
-          .append(d(c.Type.Vertical).addClass("primary touchDistribute"))
-          .append(u(c.Type.Vertical).addClass("touchDistribute")),
+          .append(GProperties(GDistributeAction.Type.Vertical).addClass("primary touchDistribute"))
+          .append(u(GDistributeAction.Type.Vertical).addClass("touchDistribute")),
           (this._advancedFillPanel = $("<div></div>").gOverlay({
             releaseOnClose: false,
           })),
@@ -247,8 +247,8 @@ function (exports, module, require) {
                   width: "100%",
                   content: $("<div></div>")
                     .text(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GDimensionProperties",
                           "text.sameHeight"
                         )
@@ -258,8 +258,8 @@ function (exports, module, require) {
                       $("<span></span>").addClass("gravit-icon-sameHeight")
                     )
                     .on("click", () => {
-                      new l(
-                        i.GEditor.ArrangeAlignType.AlignJustifyVertical
+                      new GAlignAction(
+                        GTools.GEditor.ArrangeAlignType.AlignJustifyVertical
                       ).execute(),
                         this._advancedFillPanel.gOverlay("close");
                     }),
@@ -272,8 +272,8 @@ function (exports, module, require) {
                   width: "100%",
                   content: $("<div></div>")
                     .text(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GDimensionProperties",
                           "text.sameWidth"
                         )
@@ -283,8 +283,8 @@ function (exports, module, require) {
                       $("<span></span>").addClass("gravit-icon-sameWidth")
                     )
                     .on("click", () => {
-                      new l(
-                        i.GEditor.ArrangeAlignType.AlignJustifyHorizontal
+                      new GAlignAction(
+                        GTools.GEditor.ArrangeAlignType.AlignJustifyHorizontal
                       ).execute(),
                         this._advancedFillPanel.gOverlay("close");
                     }),
@@ -297,8 +297,8 @@ function (exports, module, require) {
                   width: "100%",
                   content: $("<div></div>")
                     .text(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GDimensionProperties",
                           "text.fullUnit"
                         )
@@ -308,7 +308,7 @@ function (exports, module, require) {
                       $("<span></span>").addClass("gravit-icon-fullUnit")
                     )
                     .on("click", () => {
-                      new g(g.Type.FullUnit).execute(),
+                      new GSnapUnitAction(GSnapUnitAction.Type.FullUnit).execute(),
                         this._advancedFillPanel.gOverlay("close");
                     }),
                 },
@@ -320,8 +320,8 @@ function (exports, module, require) {
                   width: "100%",
                   content: $("<div></div>")
                     .text(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GDimensionProperties",
                           "text.halfUnit"
                         )
@@ -331,7 +331,7 @@ function (exports, module, require) {
                       $("<span></span>").addClass("gravit-icon-HalfUnit")
                     )
                     .on("click", () => {
-                      new g(g.Type.HalfUnit).execute(),
+                      new GSnapUnitAction(GSnapUnitAction.Type.HalfUnit).execute(),
                         this._advancedFillPanel.gOverlay("close");
                     }),
                 },
@@ -342,8 +342,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GDimensionProperties", "text.setting")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDimensionProperties", "text.setting")
               )
             )
             .addClass("align-settings")
@@ -360,20 +360,20 @@ function (exports, module, require) {
             .prependTo(t),
           $("<label></label>")
             .text(
-              a.GLocale.get(
-                new a.GLocaleKey("GDimensionProperties", "text.alignTitle")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDimensionProperties", "text.alignTitle")
               )
             )
             .prependTo(t);
         const h = r.GRichTooltipConfig.from({
-            title: a.GLocale.get(
-              new a.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.property-x-y-tooltip-title"
               )
             ),
-            description: a.GLocale.get(
-              new a.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.property-x-y-tooltip-description"
               )
@@ -383,14 +383,14 @@ function (exports, module, require) {
               "",
           }),
           f = r.GRichTooltipConfig.from({
-            title: a.GLocale.get(
-              new a.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.property-w-h-tooltip-title"
               )
             ),
-            description: a.GLocale.get(
-              new a.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.property-w-h-tooltip-description"
               )
@@ -400,28 +400,28 @@ function (exports, module, require) {
               "",
           }),
           m = r.GRichTooltipConfig.from({
-            title: a.GLocale.get(
-              new a.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.keep-ratio-tooltip-title"
               )
             ),
-            description: a.GLocale.get(
-              new a.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.keep-ratio-tooltip-description"
               )
             ),
           }),
           y = r.GRichTooltipConfig.from({
-            title: a.GLocale.get(
-              new a.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.transform-button-tooltip-title"
               )
             ),
-            description: a.GLocale.get(
-              new a.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.transform-button-tooltip-description"
               )
@@ -431,14 +431,14 @@ function (exports, module, require) {
               "",
           }),
           v = r.GRichTooltipConfig.from({
-            title: a.GLocale.get(
-              new a.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.rotate-angle-tooltip-title"
               )
             ),
-            description: a.GLocale.get(
-              new a.GLocaleKey(
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GDimensionProperties",
                 "text.rotate-angle-tooltip-description"
               )
@@ -450,15 +450,15 @@ function (exports, module, require) {
         $("<div/>")
           .addClass("transform-titile")
           .text(
-            a.GLocale.get(
-              new a.GLocaleKey("GDimensionProperties", "text.transform-title")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GDimensionProperties", "text.transform-title")
             )
           )
           .appendTo(this._panel),
           $("<div></div>")
             .gPropertyRow({
-              label: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.position")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.position")
               ),
               columns: [
                 { width: "44%", content: n("x", h) },
@@ -469,8 +469,8 @@ function (exports, module, require) {
             .appendTo(e),
           $("<div></div>")
             .gPropertyRow({
-              label: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.size")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.size")
               ),
               columns: [
                 { width: "44%", content: n("w", f) },
@@ -481,8 +481,8 @@ function (exports, module, require) {
             .appendTo(e),
           (this._transformButton = $(
             "<button>" +
-              a.GLocale.get(
-                new a.GLocaleKey("GDimensionProperties", "text.transform")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDimensionProperties", "text.transform")
               ) +
               "</button>"
           )
@@ -491,8 +491,8 @@ function (exports, module, require) {
             .gRichTooltip(y)),
           $("<div></div>")
             .gPropertyRow({
-              label: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.angle")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.angle")
               ),
               columns: [
                 { width: "44%", content: n("rotate", v) },
@@ -503,8 +503,8 @@ function (exports, module, require) {
             .appendTo(e),
           (this._anchorsPanel = $("<div></div>")
             .gPropertyRow({
-              label: a.GLocale.get(
-                new a.GLocaleKey("GDimensionProperties", "text.anchors")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GDimensionProperties", "text.anchors")
               ),
               columns: [
                 {
@@ -521,8 +521,8 @@ function (exports, module, require) {
                         .addClass("hacr-start")
                         .attr(
                           "data-title",
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "action.anchor-left"
                             )
@@ -537,7 +537,7 @@ function (exports, module, require) {
                             var e = this._getHorizontalAnchorValue(),
                               t = this._defineAnchorProperty(
                                 "hacr",
-                                a.GElement.Anchor.AnchorType.Start,
+                                GCore.GElement.Anchor.AnchorType.Start,
                                 e
                               );
                             this._defineAnchorButtonState(null, t);
@@ -545,14 +545,14 @@ function (exports, module, require) {
                         )
                         .gRichTooltip(
                           r.GRichTooltipConfig.from({
-                            title: a.GLocale.get(
-                              new a.GLocaleKey(
+                            title: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-left-tooltip-title"
                               )
                             ),
-                            description: a.GLocale.get(
-                              new a.GLocaleKey(
+                            description: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-left-tooltip-description"
                               )
@@ -572,8 +572,8 @@ function (exports, module, require) {
                         .addClass("hacr-middle")
                         .attr(
                           "data-title",
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "action.anchor-center"
                             )
@@ -588,7 +588,7 @@ function (exports, module, require) {
                             var e = this._getHorizontalAnchorValue(),
                               t = this._defineAnchorProperty(
                                 "hacr",
-                                a.GElement.Anchor.AnchorType.Middle,
+                                GCore.GElement.Anchor.AnchorType.Middle,
                                 e
                               );
                             this._defineAnchorButtonState(null, t);
@@ -596,14 +596,14 @@ function (exports, module, require) {
                         )
                         .gRichTooltip(
                           r.GRichTooltipConfig.from({
-                            title: a.GLocale.get(
-                              new a.GLocaleKey(
+                            title: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-center-tooltip-title"
                               )
                             ),
-                            description: a.GLocale.get(
-                              new a.GLocaleKey(
+                            description: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-center-tooltip-description"
                               )
@@ -623,8 +623,8 @@ function (exports, module, require) {
                         .addClass("hacr-end")
                         .attr(
                           "data-title",
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "action.anchor-right"
                             )
@@ -639,7 +639,7 @@ function (exports, module, require) {
                             var e = this._getHorizontalAnchorValue(),
                               t = this._defineAnchorProperty(
                                 "hacr",
-                                a.GElement.Anchor.AnchorType.End,
+                                GCore.GElement.Anchor.AnchorType.End,
                                 e
                               );
                             this._defineAnchorButtonState(null, t);
@@ -647,14 +647,14 @@ function (exports, module, require) {
                         )
                         .gRichTooltip(
                           r.GRichTooltipConfig.from({
-                            title: a.GLocale.get(
-                              new a.GLocaleKey(
+                            title: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-right-tooltip-title"
                               )
                             ),
-                            description: a.GLocale.get(
-                              new a.GLocaleKey(
+                            description: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-right-tooltip-description"
                               )
@@ -678,8 +678,8 @@ function (exports, module, require) {
                         .addClass("vacr-start")
                         .attr(
                           "data-title",
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "action.anchor-top"
                             )
@@ -694,7 +694,7 @@ function (exports, module, require) {
                             var e = this._getVerticalAnchorValue(),
                               t = this._defineAnchorProperty(
                                 "vacr",
-                                a.GElement.Anchor.AnchorType.Start,
+                                GCore.GElement.Anchor.AnchorType.Start,
                                 e
                               );
                             this._defineAnchorButtonState(t, null);
@@ -702,14 +702,14 @@ function (exports, module, require) {
                         )
                         .gRichTooltip(
                           r.GRichTooltipConfig.from({
-                            title: a.GLocale.get(
-                              new a.GLocaleKey(
+                            title: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-top-tooltip-title"
                               )
                             ),
-                            description: a.GLocale.get(
-                              new a.GLocaleKey(
+                            description: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-top-tooltip-description"
                               )
@@ -729,8 +729,8 @@ function (exports, module, require) {
                         .addClass("vacr-middle")
                         .attr(
                           "data-title",
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "action.anchor-middle"
                             )
@@ -745,7 +745,7 @@ function (exports, module, require) {
                             var e = this._getVerticalAnchorValue(),
                               t = this._defineAnchorProperty(
                                 "vacr",
-                                a.GElement.Anchor.AnchorType.Middle,
+                                GCore.GElement.Anchor.AnchorType.Middle,
                                 e
                               );
                             this._defineAnchorButtonState(t, null);
@@ -753,14 +753,14 @@ function (exports, module, require) {
                         )
                         .gRichTooltip(
                           r.GRichTooltipConfig.from({
-                            title: a.GLocale.get(
-                              new a.GLocaleKey(
+                            title: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-middle-tooltip-title"
                               )
                             ),
-                            description: a.GLocale.get(
-                              new a.GLocaleKey(
+                            description: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-middle-tooltip-description"
                               )
@@ -780,8 +780,8 @@ function (exports, module, require) {
                         .addClass("vacr-end")
                         .attr(
                           "data-title",
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDimensionProperties",
                               "action.anchor-bottom"
                             )
@@ -796,7 +796,7 @@ function (exports, module, require) {
                             var e = this._getVerticalAnchorValue(),
                               t = this._defineAnchorProperty(
                                 "vacr",
-                                a.GElement.Anchor.AnchorType.End,
+                                GCore.GElement.Anchor.AnchorType.End,
                                 e
                               );
                             this._defineAnchorButtonState(t, null);
@@ -804,14 +804,14 @@ function (exports, module, require) {
                         )
                         .gRichTooltip(
                           r.GRichTooltipConfig.from({
-                            title: a.GLocale.get(
-                              new a.GLocaleKey(
+                            title: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-bottom-tooltip-title"
                               )
                             ),
-                            description: a.GLocale.get(
-                              new a.GLocaleKey(
+                            description: GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDimensionProperties",
                                 "text.anchor-bottom-tooltip-description"
                               )
@@ -828,8 +828,8 @@ function (exports, module, require) {
             .appendTo(e));
       }),
       (h.prototype._setAspectRatioBehavior = function (e) {
-        (i.GEditorOptions.preserveAspectRatio = e),
-          (i.GEditorOptions.allowTextRatioPreservation = e),
+        (GTools.GEditorOptions.preserveAspectRatio = e),
+          (GTools.GEditorOptions.allowTextRatioPreservation = e),
           gContainer.setProperty(h._keepRatioName, e);
       }),
       (h.prototype.isAvailable = function (e) {
@@ -838,11 +838,11 @@ function (exports, module, require) {
           gDesigner.isTouchEnabled() &&
             (e
               ? (this._transformButton.text(
-                  a.GLocale.get(new a.GLocaleKey("GLocale", "close"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "close"))
                 ),
                 $(".advanced-transform-toolbar > label").text(
-                  a.GLocale.get(
-                    new a.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GDimensionProperties",
                       "text.transform-advanced"
                     )
@@ -855,8 +855,8 @@ function (exports, module, require) {
                   true
                 ))
               : (this._transformButton.text(
-                  a.GLocale.get(
-                    new a.GLocaleKey("GDimensionProperties", "text.transform")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDimensionProperties", "text.transform")
                   )
                 ),
                 this._anchorsPanel.toggleClass("down", false),
@@ -882,21 +882,21 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                a.GElement.GeometryChangeEvent,
+                GCore.GElement.GeometryChangeEvent,
                 this._geometryChange,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                a.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                i.GEditor.EdGeometryChangeEvent,
+                GTools.GEditor.EdGeometryChangeEvent,
                 this._edGeometryChange,
                 this
               ),
@@ -907,8 +907,8 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require)
-            !t[require].hasMixin(a.GElement.Transform) ||
-              t[require] instanceof a.GPage ||
+            !t[require].hasMixin(GCore.GElement.Transform) ||
+              t[require] instanceof GCore.GPage ||
               this._elements.push(t[require]);
           if (this._elements.length && this._elements.length === t.length)
             return (
@@ -916,21 +916,21 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GElement.GeometryChangeEvent,
+                  GCore.GElement.GeometryChangeEvent,
                   this._geometryChange,
                   this
                 ),
               this._document
                 .getEditor()
                 .addEventListener(
-                  i.GEditor.EdGeometryChangeEvent,
+                  GTools.GEditor.EdGeometryChangeEvent,
                   this._edGeometryChange,
                   this
                 ),
@@ -951,21 +951,21 @@ function (exports, module, require) {
       (h.prototype._toggleTransformMode = function () {
         gDesigner.stats("dimension_change_transform-mode");
         var e = gDesigner.getToolManager();
-        (e.getActiveTool() && e.getActiveTool() instanceof i.GSelectTool) ||
-          e.activateTool(i.GPointerTool),
-          e.getActiveTool() instanceof i.GSelectTool &&
+        (e.getActiveTool() && e.getActiveTool() instanceof GTools.GSelectTool) ||
+          e.activateTool(GTools.GPointerTool),
+          e.getActiveTool() instanceof GTools.GSelectTool &&
             e
               .getActiveTool()
               .setEditMode(
                 e.getActiveTool().getEditMode() ===
-                  i.GSelectTool.EditMode.Transform
-                  ? i.GSelectTool.EditMode.Select
-                  : i.GSelectTool.EditMode.Transform
+                  GTools.GSelectTool.EditMode.Transform
+                  ? GTools.GSelectTool.EditMode.Select
+                  : GTools.GSelectTool.EditMode.Transform
               );
       }),
       (h.prototype._geometryChange = function (e) {
-        (e.type !== a.GElement.GeometryChangeEvent.Type.After &&
-          e.type !== a.GElement.GeometryChangeEvent.Type.Child) ||
+        (e.type !== GCore.GElement.GeometryChangeEvent.Type.After &&
+          e.type !== GCore.GElement.GeometryChangeEvent.Type.Child) ||
           (this._elements.indexOf(e.element) >= 0 && this._updateDimensions());
       }),
       (h.prototype._edGeometryChange = function (e) {
@@ -986,24 +986,24 @@ function (exports, module, require) {
       }),
       (h.prototype._getCurrentDimensions = function (e, t) {
         var n = null,
-          o = 0;
+          _interopRequireDefault = 0;
         if (!e) {
           (this._elementsBBox = null), (this._firstElementsBBox = null);
           for (var r = 0; r < this._elements.length; ++r) {
-            var s = this._elements[r];
-            if (s.hasMixin(a.GElement.Transform)) {
-              var l = null;
+            var GTouchTool = this._elements[r];
+            if (GTouchTool.hasMixin(GCore.GElement.Transform)) {
+              var GAlignAction = null;
               if (t) {
-                var c = i.GElementEditor.getEditor(s);
-                c && c.getElement() && (l = c.getPEGeometryBBox());
-              } else l = s.getGeometryBBox();
-              l &&
+                var GDistributeAction = GTools.GElementEditor.getEditor(GTouchTool);
+                GDistributeAction && GDistributeAction.getElement() && (GAlignAction = GDistributeAction.getPEGeometryBBox());
+              } else GAlignAction = GTouchTool.getGeometryBBox();
+              GAlignAction &&
                 ((this._elementsBBox = this._elementsBBox
-                  ? this._elementsBBox.united(l)
-                  : l),
+                  ? this._elementsBBox.united(GAlignAction)
+                  : GAlignAction),
                 this._firstElementsBBox ||
-                  ((this._firstElementsBBox = l),
-                  (o = t && c ? c.getRotationAngle() : s.getAngle())));
+                  ((this._firstElementsBBox = GAlignAction),
+                  (_interopRequireDefault = t && GDistributeAction ? GDistributeAction.getRotationAngle() : GTouchTool.getAngle())));
             }
           }
           this._elementsBBox ||
@@ -1011,20 +1011,20 @@ function (exports, module, require) {
             (this._firstElementsBBox = this._elementsBBox));
         }
         if (this._firstElementsBBox) {
-          var d = this._elements.length > 1,
+          var GProperties = this._elements.length > 1,
             u = this._getDelta();
-          if (d) {
-            var p = 0;
+          if (GProperties) {
+            var barrel_panels = 0;
             if (t) {
-              var g = this._document.getEditor().getSelectionEditor();
-              g && (p = g.getRotationAngle());
+              var GSnapUnitAction = this._document.getEditor().getSelectionEditor();
+              GSnapUnitAction && (barrel_panels = GSnapUnitAction.getRotationAngle());
             }
             n = {
               x: this._elementsBBox.getX() - u.getX(),
               y: this._elementsBBox.getY() - u.getY(),
               w: this._elementsBBox.getWidth(),
               h: this._elementsBBox.getHeight(),
-              angle: p,
+              angle: barrel_panels,
             };
           } else
             n = {
@@ -1032,7 +1032,7 @@ function (exports, module, require) {
               y: this._firstElementsBBox.getY() - u.getY(),
               w: this._firstElementsBBox.getWidth(),
               h: this._firstElementsBBox.getHeight(),
-              angle: o,
+              angle: _interopRequireDefault,
             };
         }
         return n;
@@ -1054,21 +1054,21 @@ function (exports, module, require) {
                     );
                   break;
                 case "rotate":
-                  n = a.GUtil.formatNumber(a.GMath.toDegrees(t), 1);
+                  n = GCore.GUtil.formatNumber(GCore.GMath.toDegrees(t), 1);
               }
             this._panel
               .find('input[data-dimension="' + e + '"]')
               .gInputBox("value", n)
               .prop("disabled", null === t);
           },
-          o = this._getCurrentDimensions(e, t);
-        o
+          _interopRequireDefault = this._getCurrentDimensions(e, t);
+        _interopRequireDefault
           ? (this._panel.find("[data-ratio]").css("display", ""),
-            n("x", o.x),
-            n("y", o.y),
-            n("w", o.w),
-            n("h", o.h),
-            n("rotate", o.angle))
+            n("x", _interopRequireDefault.x),
+            n("y", _interopRequireDefault.y),
+            n("w", _interopRequireDefault.w),
+            n("h", _interopRequireDefault.h),
+            n("rotate", _interopRequireDefault.angle))
           : (this._panel.find("[data-ratio]").css("display", "none"),
             n("x", null),
             n("y", null),
@@ -1106,100 +1106,100 @@ function (exports, module, require) {
       (h.prototype._assignDimension = function (e, t) {
         if (this._document) {
           var require = null,
-            o = null,
+            _interopRequireDefault = null,
             r = "",
-            s = this._getCurrentDimensions(false, false);
+            GTouchTool = this._getCurrentDimensions(false, false);
           switch (e) {
             case "x":
             case "y":
               (r = "Move"),
                 (require = this._document.getScene().stringToPoint(t)),
-                (o = s ? ("x" == e ? s.x : s.y) : null);
+                (_interopRequireDefault = GTouchTool ? ("x" == e ? GTouchTool.x : GTouchTool.y) : null);
               break;
             case "w":
             case "h":
-              (r = a.GLocale.get(
-                new a.GLocaleKey("GDimensionProperties", "action.change-size")
+              (r = GCore.GLocale.get(
+                new GCore.GLocaleKey("GDimensionProperties", "action.change-size")
               )),
                 (require = this._document.getScene().stringToPoint(t)),
-                (o = s ? ("w" == e ? s.w : s.h) : null);
+                (_interopRequireDefault = GTouchTool ? ("w" == e ? GTouchTool.w : GTouchTool.h) : null);
               break;
             case "rotate":
-              (r = a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "action.rotate")
+              (r = GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "action.rotate")
               )),
-                (require = a.GLength.parseEquationValue(t)),
-                (o = s ? s.angle : null);
+                (require = GCore.GLength.parseEquationValue(t)),
+                (_interopRequireDefault = GTouchTool ? GTouchTool.angle : null);
           }
           if (
             null === require ||
             "number" != typeof require ||
             (("w" == e || "h" == e) && require <= 0) ||
-            require === o
+            require === _interopRequireDefault
           )
             this._updateDimensions();
           else {
             if ("x" === e || "y" === e) {
-              var l = this._getDelta();
+              var GAlignAction = this._getDelta();
               switch (e) {
                 case "x":
-                  require += l.getX();
+                  require += GAlignAction.getX();
                   break;
                 case "y":
-                  require += l.getY();
+                  require += GAlignAction.getY();
               }
             }
-            var c = function (t, o, i) {
+            var GDistributeAction = function (t, _interopRequireDefault, GTools) {
                 if ("w" === e || "h" === e) {
                   if (
                     ("w" === e && t.getWidth() <= 0) ||
                     ("h" === e && t.getHeight() <= 0)
                   )
-                    return new a.GTransform();
+                    return new GCore.GTransform();
                   var r = 1,
-                    s = 1;
+                    GTouchTool = 1;
                   switch (e) {
                     case "w":
-                      (r = require / t.getWidth()), o && (s = r);
+                      (r = require / t.getWidth()), _interopRequireDefault && (GTouchTool = r);
                       break;
                     case "h":
-                      (s = require / t.getHeight()), o && (r = s);
+                      (GTouchTool = require / t.getHeight()), _interopRequireDefault && (r = GTouchTool);
                   }
-                  return new a.GTransform()
+                  return new GCore.GTransform()
                     .translated(-t.getX(), -t.getY())
-                    .scaled(r, s)
+                    .scaled(r, GTouchTool)
                     .translated(t.getX(), t.getY());
                 }
                 if ("x" === e)
-                  return new a.GTransform().translated(require - t.getX(), 0);
+                  return new GCore.GTransform().translated(require - t.getX(), 0);
                 if ("y" === e)
-                  return new a.GTransform().translated(0, require - t.getY());
+                  return new GCore.GTransform().translated(0, require - t.getY());
                 if ("rotate" === e) {
-                  var l = t.getSide(a.GRect.Side.CENTER);
-                  i = i || 0;
-                  return new a.GTransform()
-                    .translated(-l.getX(), -l.getY())
-                    .rotated(i - a.GMath.toRadians(require))
-                    .translated(l.getX(), l.getY());
+                  var GAlignAction = t.getSide(GCore.GRect.Side.CENTER);
+                  GTools = GTools || 0;
+                  return new GCore.GTransform()
+                    .translated(-GAlignAction.getX(), -GAlignAction.getY())
+                    .rotated(GTools - GCore.GMath.toRadians(require))
+                    .translated(GAlignAction.getX(), GAlignAction.getY());
                 }
               },
-              d = this._elements.length > 1,
+              GProperties = this._elements.length > 1,
               u = "yes" === this._panel.find("[data-ratio]").attr("data-ratio"),
-              p = this._document.getEditor();
-            p.beginTransaction();
+              barrel_panels = this._document.getEditor();
+            barrel_panels.beginTransaction();
             try {
               for (
-                var g = function (t, n, o, r) {
-                    if ((t = o.length && o.indexOf(t) >= 0 ? null : t)) {
-                      var s =
-                          (t instanceof a.GSymbol &&
+                var GSnapUnitAction = function (t, n, _interopRequireDefault, r) {
+                    if ((t = _interopRequireDefault.length && _interopRequireDefault.indexOf(t) >= 0 ? null : t)) {
+                      var GTouchTool =
+                          (t instanceof GCore.GSymbol &&
                             ("x" === e || "y" === e)) ||
                           "rotate" === e ||
                           (r && r.fullContentTransform),
-                        l = i.GElementEditor.openEditor(t);
-                      l
-                        ? (l._setTransform(n), l.applyTransform(t, s, o))
-                        : t.transform(n, s, o);
+                        GAlignAction = GTools.GElementEditor.openEditor(t);
+                      GAlignAction
+                        ? (GAlignAction._setTransform(n), GAlignAction.applyTransform(t, GTouchTool, _interopRequireDefault))
+                        : t.transform(n, GTouchTool, _interopRequireDefault);
                     }
                   },
                   h = [],
@@ -1208,28 +1208,28 @@ function (exports, module, require) {
                 ++f
               ) {
                 var m = this._elements[f];
-                h = h.concat(p.getLinkedElementsInSelection(m, this._elements));
+                h = h.concat(barrel_panels.getLinkedElementsInSelection(m, this._elements));
               }
-              if (d) {
+              if (GProperties) {
                 if (this._elementsBBox) {
-                  var y = c(this._elementsBBox, u);
+                  var y = GDistributeAction(this._elementsBBox, u);
                   for (f = 0; f < this._elements.length; ++f)
-                    g(this._elements[f], y, h, p.getEdTransformSettings());
+                    GSnapUnitAction(this._elements[f], y, h, barrel_panels.getEdTransformSettings());
                 }
               } else
                 for (f = 0; f < this._elements.length; ++f) {
                   var v = this._elements[f].getGeometryBBox();
                   if (v)
-                    (y = c(
+                    (y = GDistributeAction(
                       v,
                       u,
                       "rotate" === e ? this._elements[f].getAngle() : null
                     )) &&
                       !y.isIdentity() &&
-                      g(this._elements[f], y, h, p.getEdTransformSettings());
+                      GSnapUnitAction(this._elements[f], y, h, barrel_panels.getEdTransformSettings());
                 }
             } finally {
-              p.commitTransaction(r);
+              barrel_panels.commitTransaction(r);
             }
           }
         }
@@ -1238,7 +1238,7 @@ function (exports, module, require) {
         for (var exports = this._elements, module = true, require = 0; require < exports.length; ++require)
           if (
             !exports[require].getParent() ||
-            !exports[require].getParent().hasMixin(a.GElement.Layout)
+            !exports[require].getParent().hasMixin(GCore.GElement.Layout)
           ) {
             module = false;
             break;
@@ -1278,42 +1278,42 @@ function (exports, module, require) {
           ($(this._panel)
             .find(".vacr-middle")
             .addClass(
-              e === a.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
+              e === GCore.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
             ),
           $(this._panel)
             .find(".vacr-start")
             .addClass(
-              e === a.GElement.Anchor.AnchorType.Stretch ||
-                e === a.GElement.Anchor.AnchorType.Start
+              e === GCore.GElement.Anchor.AnchorType.Stretch ||
+                e === GCore.GElement.Anchor.AnchorType.Start
                 ? "g-active"
                 : ""
             ),
           $(this._panel)
             .find(".vacr-end")
             .addClass(
-              e === a.GElement.Anchor.AnchorType.Stretch ||
-                e === a.GElement.Anchor.AnchorType.End
+              e === GCore.GElement.Anchor.AnchorType.Stretch ||
+                e === GCore.GElement.Anchor.AnchorType.End
                 ? "g-active"
                 : ""
             ),
           $(this._panel)
             .find(".vacr-middle")
             .removeClass(
-              e !== a.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
+              e !== GCore.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
             ),
           $(this._panel)
             .find(".vacr-start")
             .removeClass(
-              e !== a.GElement.Anchor.AnchorType.Start &&
-                e !== a.GElement.Anchor.AnchorType.Stretch
+              e !== GCore.GElement.Anchor.AnchorType.Start &&
+                e !== GCore.GElement.Anchor.AnchorType.Stretch
                 ? "g-active"
                 : ""
             ),
           $(this._panel)
             .find(".vacr-end")
             .removeClass(
-              e !== a.GElement.Anchor.AnchorType.End &&
-                e !== a.GElement.Anchor.AnchorType.Stretch
+              e !== GCore.GElement.Anchor.AnchorType.End &&
+                e !== GCore.GElement.Anchor.AnchorType.Stretch
                 ? "g-active"
                 : ""
             )),
@@ -1321,69 +1321,69 @@ function (exports, module, require) {
             ($(this._panel)
               .find(".hacr-middle")
               .addClass(
-                t === a.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
+                t === GCore.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
               ),
             $(this._panel)
               .find(".hacr-start")
               .addClass(
-                t === a.GElement.Anchor.AnchorType.Stretch ||
-                  t === a.GElement.Anchor.AnchorType.Start
+                t === GCore.GElement.Anchor.AnchorType.Stretch ||
+                  t === GCore.GElement.Anchor.AnchorType.Start
                   ? "g-active"
                   : ""
               ),
             $(this._panel)
               .find(".hacr-end")
               .addClass(
-                t === a.GElement.Anchor.AnchorType.Stretch ||
-                  t === a.GElement.Anchor.AnchorType.End
+                t === GCore.GElement.Anchor.AnchorType.Stretch ||
+                  t === GCore.GElement.Anchor.AnchorType.End
                   ? "g-active"
                   : ""
               ),
             $(this._panel)
               .find(".hacr-middle")
               .removeClass(
-                t !== a.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
+                t !== GCore.GElement.Anchor.AnchorType.Middle ? "g-active" : ""
               ),
             $(this._panel)
               .find(".hacr-start")
               .removeClass(
-                t !== a.GElement.Anchor.AnchorType.Start &&
-                  t !== a.GElement.Anchor.AnchorType.Stretch
+                t !== GCore.GElement.Anchor.AnchorType.Start &&
+                  t !== GCore.GElement.Anchor.AnchorType.Stretch
                   ? "g-active"
                   : ""
               ),
             $(this._panel)
               .find(".hacr-end")
               .removeClass(
-                t !== a.GElement.Anchor.AnchorType.End &&
-                  t !== a.GElement.Anchor.AnchorType.Stretch
+                t !== GCore.GElement.Anchor.AnchorType.End &&
+                  t !== GCore.GElement.Anchor.AnchorType.Stretch
                   ? "g-active"
                   : ""
               ));
       }),
       (h.prototype._defineAnchorProperty = function (e, t, n) {
-        var o = t;
+        var _interopRequireDefault = t;
         return (
           t === n
-            ? (o = 0)
-            : t !== a.GElement.Anchor.AnchorType.Middle &&
-              (n === a.GElement.Anchor.AnchorType.Stretch
-                ? (o =
-                    t === a.GElement.Anchor.AnchorType.End
-                      ? a.GElement.Anchor.AnchorType.Start
-                      : a.GElement.Anchor.AnchorType.End)
-                : n === a.GElement.Anchor.AnchorType.Start
-                ? (o =
-                    t === a.GElement.Anchor.AnchorType.End
-                      ? a.GElement.Anchor.AnchorType.Stretch
+            ? (_interopRequireDefault = 0)
+            : t !== GCore.GElement.Anchor.AnchorType.Middle &&
+              (n === GCore.GElement.Anchor.AnchorType.Stretch
+                ? (_interopRequireDefault =
+                    t === GCore.GElement.Anchor.AnchorType.End
+                      ? GCore.GElement.Anchor.AnchorType.Start
+                      : GCore.GElement.Anchor.AnchorType.End)
+                : n === GCore.GElement.Anchor.AnchorType.Start
+                ? (_interopRequireDefault =
+                    t === GCore.GElement.Anchor.AnchorType.End
+                      ? GCore.GElement.Anchor.AnchorType.Stretch
                       : 0)
-                : n === a.GElement.Anchor.AnchorType.End &&
-                  (o =
-                    t === a.GElement.Anchor.AnchorType.Start
-                      ? a.GElement.Anchor.AnchorType.Stretch
+                : n === GCore.GElement.Anchor.AnchorType.End &&
+                  (_interopRequireDefault =
+                    t === GCore.GElement.Anchor.AnchorType.Start
+                      ? GCore.GElement.Anchor.AnchorType.Stretch
                       : 0)),
-          this._assignAnchorProperty([e], [o]),
-          o
+          this._assignAnchorProperty([e], [_interopRequireDefault]),
+          _interopRequireDefault
         );
       }),
       (h.prototype._assignAnchorProperty = function (e, t) {
@@ -1391,25 +1391,25 @@ function (exports, module, require) {
           var require = this._document.getEditor();
           require.beginTransaction();
           try {
-            for (var o = 0; o < this._elements.length; ++o) {
-              var r = this._elements[o];
-              if (r.getParent().hasMixin(a.GElement.Layout)) {
-                var s = i.GElementEditor.getEditor(this._elements[o]);
-                (s && s.applyPropertiesToParts(e, t)) ||
-                  this._elements[o].setProperties(e, t);
+            for (var _interopRequireDefault = 0; _interopRequireDefault < this._elements.length; ++_interopRequireDefault) {
+              var r = this._elements[_interopRequireDefault];
+              if (r.getParent().hasMixin(GCore.GElement.Layout)) {
+                var GTouchTool = GTools.GElementEditor.getEditor(this._elements[_interopRequireDefault]);
+                (GTouchTool && GTouchTool.applyPropertiesToParts(e, t)) ||
+                  this._elements[_interopRequireDefault].setProperties(e, t);
               }
             }
           } finally {
             require.commitTransaction(
-              a.GLocale.get(
-                new a.GLocaleKey("GDimensionProperties", "action.change-anchor")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDimensionProperties", "action.change-anchor")
               )
             );
           }
         } else console.warn("GDimensionProperties: empty _document property");
       }),
       (h.prototype._getDelta = function () {
-        return new a.GPoint(0, 0);
+        return new GCore.GPoint(0, 0);
       }),
       (h.prototype.toString = function () {
         return "[Object GDimensionProperties]";

@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* wellKnownSymbol */;
-    module.f = o;
+    var wellKnownSymbol = require(43) /* wellKnownSymbol */;
+    module.f = wellKnownSymbol;
   }

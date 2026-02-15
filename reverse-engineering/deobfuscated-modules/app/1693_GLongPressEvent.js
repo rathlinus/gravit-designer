@@ -7,12 +7,12 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(10) /* AppSettings */,
-      r = require(40) /* CollaborationMergeUtils */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      AppSettings = require(10) /* AppSettings */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function s() {}
-    o.GObject.inherit(s, o.GEvent),
+    GCore.GObject.inherit(s, GCore.GEvent),
       (s.prototype._startX = 0),
       (s.prototype._startY = 0),
       (s.prototype._timerHandle = null),
@@ -51,13 +51,13 @@ function (exports, module, require) {
         )
           return { value: window.setTimeout(e, t) };
         var n = new Date().getTime(),
-          o = {},
-          i = function () {
+          GCore = {},
+          GEditor = function () {
             new Date().getTime() - n >= t
               ? e.call()
-              : (o.value = requestAnimFrame(i));
+              : (GCore.value = requestAnimFrame(GEditor));
           };
-        return (o.value = requestAnimFrame(i)), o;
+        return (GCore.value = requestAnimFrame(GEditor)), GCore;
       }),
       (s.prototype._clearLongPressTimer = function () {
         this._clearRequestTimeout(this._timerHandle),
@@ -81,7 +81,7 @@ function (exports, module, require) {
         this._clearLongPressTimer(), (this._event = e);
         var t = e.target,
           n = parseInt(
-            t.getAttribute("data-long-press-delay") || a.LONG_PRESS_TIME_OUT,
+            t.getAttribute("data-long-press-delay") || AppSettings.LONG_PRESS_TIME_OUT,
             10
           );
         this._timerHandle = this._requestTimeout(
@@ -98,21 +98,21 @@ function (exports, module, require) {
           n = this._isTouchDevice
             ? this._event.touches[0].clientY
             : this._event.clientY,
-          o = e.dispatchEvent(
+          GCore = e.dispatchEvent(
             new CustomEvent("long-press", {
               bubbles: true,
               cancelable: true,
               detail: { clientX: t, clientY: n },
             })
           ),
-          i =
+          GEditor =
             this._event.target.parentElement &&
             this._event.target.parentElement.className &&
             -1 ===
               this._event.target.parentElement.className.indexOf(
                 "g-scene-widget"
               );
-        if (o && i) {
+        if (GCore && GEditor) {
           const e = (t) => {
             t.isTrusted &&
               (document.removeEventListener("touchend", e, true),
@@ -125,7 +125,7 @@ function (exports, module, require) {
       }),
       (s.prototype.startup = function () {
         if (
-          ((this._isTouchDevice = i.GPlatform.constructor.isTouchDevice),
+          ((this._isTouchDevice = GEditor.GPlatform.constructor.isTouchDevice),
           (this._mouseDown = this._isTouchDevice ? "touchstart" : "mousedown"),
           (this._mouseUp = this._isTouchDevice ? "touchend" : "mouseup"),
           (this._mouseMove = this._isTouchDevice ? "touchmove" : "mousemove"),
@@ -154,10 +154,10 @@ function (exports, module, require) {
             this._mouseDownHandler.bind(this)
           ),
           this._isTouchDevice &&
-            i.GPlatform.webBrowser ===
-              i.GPlatform.constructor.WebBrowser.Safari)
+            GEditor.GPlatform.webBrowser ===
+              GEditor.GPlatform.constructor.WebBrowser.Safari)
         ) {
-          const e = !(0, r.isPassiveSupported)() || {
+          const e = !(0, CollaborationMergeUtils.isPassiveSupported)() || {
             passive: true,
             capture: true,
           };
@@ -199,8 +199,8 @@ function (exports, module, require) {
         if ("touchmove" === e.type) {
           const { clientX: module, clientY: require } = e.changedTouches[0];
           if (
-            Math.abs(module - this._startX) < a.MIN_TOUCH_MOVE_DISTANCE &&
-            Math.abs(require - this._startY) < a.MIN_TOUCH_MOVE_DISTANCE
+            Math.abs(module - this._startX) < AppSettings.MIN_TOUCH_MOVE_DISTANCE &&
+            Math.abs(require - this._startY) < AppSettings.MIN_TOUCH_MOVE_DISTANCE
           )
             return;
         }

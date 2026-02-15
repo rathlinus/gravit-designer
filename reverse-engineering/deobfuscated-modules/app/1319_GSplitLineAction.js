@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(106) /* GElementAction */;
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function l() {}
-    i.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GElementAction),
       (l.ID = "modify.split-line"),
-      (l.TITLE = new i.GLocaleKey("GSplitLineAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GSplitLineAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,7 +23,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (l.prototype.getGroup = function () {
         return "structure/path";
@@ -32,38 +32,38 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-break-curve" : null;
       }),
       (l.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
             ? gDesigner.getActiveDocument().getEditor().getSelection()
             : null,
           t = false;
         if (e)
           for (var require = 0; !t && require < e.length; ++require)
-            e[require] instanceof i.GPath && (t = this._isPathSplittable(e[require]));
+            e[require] instanceof GCore.GPath && (t = this._isPathSplittable(e[require]));
         return t;
       }),
       (l.prototype.execute = function () {
         var e = gDesigner.getActiveDocument(),
           t = e ? e.getEditor() : null,
           n = t ? t.getSelection() : null,
-          o = [];
+          GTools = [];
         if (n)
-          for (var r = 0; r < n.length; ++r) {
-            var s = n[r];
-            s instanceof i.GPath && this._isPathSplittable(s) && o.push(s);
+          for (var MenuItemBuilder = 0; MenuItemBuilder < n.length; ++MenuItemBuilder) {
+            var GElementAction = n[MenuItemBuilder];
+            GElementAction instanceof GCore.GPath && this._isPathSplittable(GElementAction) && GTools.push(GElementAction);
           }
-        if (o.length) {
+        if (GTools.length) {
           t.beginTransaction();
           try {
             var l,
               c = [];
             l = new Set();
-            for (r = 0; r < o.length; ++r) l.add(o[r].getParent());
+            for (MenuItemBuilder = 0; MenuItemBuilder < GTools.length; ++MenuItemBuilder) l.add(GTools[MenuItemBuilder].getParent());
             try {
-              (0, a.blockChanges)(t, l);
-              for (r = 0; r < o.length; ++r) {
+              (0, CollaborationMergeUtils.blockChanges)(t, l);
+              for (MenuItemBuilder = 0; MenuItemBuilder < GTools.length; ++MenuItemBuilder) {
                 var d,
-                  u = o[r],
+                  u = GTools[MenuItemBuilder],
                   p = u.getParent(),
                   g = u.getNext(),
                   h = u.getAnchorPoints(),
@@ -71,11 +71,11 @@ function (exports, module, require) {
                 if (u.getProperty("closed"))
                   for (
                     d = h.getFirstChild();
-                    null !== d && !d.hasFlag(i.GNode.Flag.Selected);
+                    null !== d && !d.hasFlag(GCore.GNode.Flag.Selected);
                     d = d.getNext()
                   );
                 else
-                  (d = h.getFirstChild()).hasFlag(i.GNode.Flag.Selected) ||
+                  (d = h.getFirstChild()).hasFlag(GCore.GNode.Flag.Selected) ||
                     (f = true);
                 var m = d,
                   y = m,
@@ -84,12 +84,12 @@ function (exports, module, require) {
                 for (
                   u.getProperty("closed") && (_ = true);
                   null !== m &&
-                  (m.hasFlag(i.GNode.Flag.Selected) || f) &&
+                  (m.hasFlag(GCore.GNode.Flag.Selected) || f) &&
                   null !== v;
 
                 ) {
                   var b,
-                    w = new i.GPath(),
+                    w = new GCore.GPath(),
                     C = w.getAnchorPoints();
                   if (
                     ((f = false),
@@ -99,7 +99,7 @@ function (exports, module, require) {
                     (d = h.getNextPoint(m)),
                     _)
                   )
-                    (b = new i.GPathBase.AnchorPoint()).deserialize(
+                    (b = new GCore.GPathBase.AnchorPoint()).deserialize(
                       m.serialize()
                     ),
                       (m = b),
@@ -108,7 +108,7 @@ function (exports, module, require) {
                   for (
                     C.appendChild(m);
                     null !== d &&
-                    !d.hasFlag(i.GNode.Flag.Selected) &&
+                    !d.hasFlag(GCore.GNode.Flag.Selected) &&
                     h.getFirstChild();
 
                   )
@@ -118,10 +118,10 @@ function (exports, module, require) {
                       (d = v);
                   if (
                     null !== d &&
-                    d.hasFlag(i.GNode.Flag.Selected) &&
+                    d.hasFlag(GCore.GNode.Flag.Selected) &&
                     h.getFirstChild()
                   )
-                    (b = new i.GPathBase.AnchorPoint()).deserialize(
+                    (b = new GCore.GPathBase.AnchorPoint()).deserialize(
                       d.serialize()
                     ),
                       C.appendChild(b),
@@ -133,8 +133,8 @@ function (exports, module, require) {
                         ? w
                             .getPaintLayers()
                             .appendChild(
-                              new i.GStylable.BorderPaintLayer(
-                                i.GRGBColor.BLACK
+                              new GCore.GStylable.BorderPaintLayer(
+                                GCore.GRGBColor.BLACK
                               )
                             )
                         : w
@@ -146,24 +146,24 @@ function (exports, module, require) {
                 p.removeChild(u);
               }
             } finally {
-              (0, a.releaseChanges)(t, l),
+              (0, CollaborationMergeUtils.releaseChanges)(t, l),
                 c.length && t.updateSelection(false, c.slice(-1));
             }
           } finally {
-            t.commitTransaction(i.GLocale.get(this.getTitle()));
+            t.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),
       (l.prototype._isPathSplittable = function (e) {
         var t = false,
-          n = o.GElementEditor.getEditor(e),
-          i = n ? n.getPartSelection() : null;
-        if (i && i.length)
-          for (var a = 0; !t && a < i.length; ++a)
-            i[a].type == o.GPathEditor.PartType.Point &&
+          n = GTools.GElementEditor.getEditor(e),
+          GCore = n ? n.getPartSelection() : null;
+        if (GCore && GCore.length)
+          for (var CollaborationMergeUtils = 0; !t && CollaborationMergeUtils < GCore.length; ++CollaborationMergeUtils)
+            GCore[CollaborationMergeUtils].type == GTools.GPathEditor.PartType.Point &&
               (e.getProperty("closed") ||
-                (i[a].point != e.getAnchorPoints().getFirstChild() &&
-                  i[a].point != e.getAnchorPoints().getLastChild())) &&
+                (GCore[CollaborationMergeUtils].point != e.getAnchorPoints().getFirstChild() &&
+                  GCore[CollaborationMergeUtils].point != e.getAnchorPoints().getLastChild())) &&
               (t = true);
         return t;
       }),

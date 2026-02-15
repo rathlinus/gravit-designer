@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(15) /* module */,
-      a = require(1) /* module */,
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GEditor = require(15) /* module */,
+      GCore = require(1) /* module */,
       r = require(198) /* Exports_GOutlineSidebar */,
-      s = o(require(18) /* MenuItemBuilder */),
-      l = o(require(31) /* GAction */);
-    class c extends l.default {
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
+      GAction = _interopRequireDefault(require(31) /* GAction */);
+    class c extends GAction.default {
       constructor() {
         let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         super(),
           (this._isReverse = exports),
-          (this._title = new a.GLocaleKey(
+          (this._title = new GCore.GLocaleKey(
             "GEnterLayerGroupAction",
             "title".concat(this._isReverse ? ".reverse" : "")
           ));
@@ -29,12 +29,12 @@ function (exports, module, require) {
         return this._title;
       }
       getCategory() {
-        return s.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }
       getShortcut() {
         return this._isReverse
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.ENTER]
-          : [i.GKey.Constant.ENTER];
+          ? [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.ENTER]
+          : [GEditor.GKey.Constant.ENTER];
       }
       isVisible() {
         return false;
@@ -46,17 +46,17 @@ function (exports, module, require) {
             .getLayerPanel(),
           { vtree: module, currentFocus: require } = exports.data("glayerpanel");
         if (!require) return;
-        let o;
+        let _interopRequireDefault;
         if (
           (!this._isReverse && require.firstChild
-            ? (o = require.firstChild)
-            : this._isReverse && require.parent && require.parent.row && (o = require.parent),
-          o)
+            ? (_interopRequireDefault = require.firstChild)
+            : this._isReverse && require.parent && require.parent.row && (_interopRequireDefault = require.parent),
+          _interopRequireDefault)
         ) {
-          const i = exports.gLayerPanel("getItem", require),
-            r = exports.gLayerPanel("getItem", o);
-          i.removeFlag(a.GNode.Flag.Selected),
-            r.setFlag(a.GNode.Flag.Selected),
+          const GEditor = exports.gLayerPanel("getItem", require),
+            r = exports.gLayerPanel("getItem", _interopRequireDefault);
+          GEditor.removeFlag(GCore.GNode.Flag.Selected),
+            r.setFlag(GCore.GNode.Flag.Selected),
             module.expandAndFocus(r);
         }
       }

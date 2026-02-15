@@ -6,21 +6,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(340) /* GTouchTool */),
-      r = require(806) /* GSidebar */,
+    var GCore = require(1) /* module */,
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      GSidebar = require(806) /* GSidebar */,
       s = require(395) /* module_395 */,
       l = require(1663) /* module_1663 */,
       c = require(119) /* module_119 */;
-    const d = require(291) /* GNetworkAvailabilityChangedEvent */;
+    const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */;
     function u() {
-      r.call(this);
+      GSidebar.call(this);
     }
-    i.GObject.inherit(u, r),
+    GCore.GObject.inherit(u, GSidebar),
       (u.ID = "library"),
-      (u.TITLE = new i.GLocaleKey("GLibrarySidebar", "title")),
+      (u.TITLE = new GCore.GLocaleKey("GLibrarySidebar", "title")),
       (u.prototype._initialized = false),
       (u.prototype._libraryPanel = null),
       (u.prototype._libraryPanelInstance = null),
@@ -58,7 +58,7 @@ function (exports, module, require) {
           this._addLibraryPanel(this._htmlElement);
       }),
       (u.prototype.init = function (e) {
-        r.prototype.init.call(this, e),
+        GSidebar.prototype.init.call(this, e),
           (this._htmlElement = e),
           this._addLibraryPanel(e),
           $(document).on(
@@ -71,7 +71,7 @@ function (exports, module, require) {
             }.bind(this)
           ),
           gDesigner.addEventListener(
-            d,
+            GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
             this
           );
@@ -86,7 +86,7 @@ function (exports, module, require) {
             .addClass("toolbar library-toolbar g-touch-only")
             .append(
               $("<label/>").text(
-                i.GLocale.get(new i.GLocaleKey("GLibrarySidebar", "title"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GLibrarySidebar", "title"))
               )
             )
             .appendTo(e),
@@ -99,8 +99,8 @@ function (exports, module, require) {
                     .addClass("box")
                     .append(
                       $("<span/>").text(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GOfflineDialog",
                             "title.unavailable-feature"
                           )
@@ -124,15 +124,15 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("span-unavailable")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GLibrarySidebar", "text.connect")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLibrarySidebar", "text.connect")
                   )
                 )
                 .appendTo(this._libraryPanel));
       }),
       (u.prototype.getTouchTools = function () {
         return [
-          new a.default({
+          new GTouchTool.default({
             id: "libraries",
             sidebar: this.getId(),
             icon: "gravit-icon-touch-libraries-panel",

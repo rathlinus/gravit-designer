@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(27) /* uncurryThis */,
-      a = require(49) /* hasOwnProperty_wrapper */,
+    var globalThis = require(23) /* globalThis */,
+      uncurryThis = require(27) /* uncurryThis */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       r = require(425) /* module_425 */,
-      s = require(199) /* Exports_GURABLE */,
-      l = require(100) /* createProperty */,
+      GURABLE = require(199) /* Exports_GURABLE */,
+      createProperty = require(100) /* createProperty */,
       c = require(120) /* module_120 */,
       d = require(232) /* module_232 */,
-      u = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       p = require(146) /* module_146 */,
-      g = require(130) /* lengthOfArrayLike */,
-      h = require(117) /* toStringTagSupport */,
+      lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
+      toStringTagSupport = require(117) /* toStringTagSupport */,
       f = require(426) /* module_426 */,
       m = require(687) /* module_687 */,
       y = require(691) /* module_691 */,
@@ -25,24 +25,24 @@ function (exports, module, require) {
       b = require(427) /* module_427 */,
       w = require(157) /* stub_requires_27 */,
       C = require(288) /* module_288 */,
-      x = require(341) /* copyConstructorProperties */,
-      S = require(137) /* setToStringTag */,
-      E = require(80) /* internalState */,
-      A = s.PROPER,
-      T = s.CONFIGURABLE,
-      G = E.getterFor("ArrayBuffer"),
-      P = E.getterFor("DataView"),
-      D = E.set,
-      L = o.ArrayBuffer,
+      copyConstructorProperties = require(341) /* copyConstructorProperties */,
+      setToStringTag = require(137) /* setToStringTag */,
+      internalState = require(80) /* internalState */,
+      A = GURABLE.PROPER,
+      T = GURABLE.CONFIGURABLE,
+      G = internalState.getterFor("ArrayBuffer"),
+      P = internalState.getterFor("DataView"),
+      D = internalState.set,
+      L = globalThis.ArrayBuffer,
       I = L,
       k = I && I.prototype,
-      O = o.DataView,
+      O = globalThis.DataView,
       F = O && O.prototype,
       R = Object.prototype,
-      M = o.Array,
-      N = o.RangeError,
-      B = i(b),
-      U = i([].reverse),
+      M = globalThis.Array,
+      N = globalThis.RangeError,
+      B = uncurryThis(b),
+      U = uncurryThis([].reverse),
       $ = y.pack,
       j = y.unpack,
       K = function (e) {
@@ -71,45 +71,45 @@ function (exports, module, require) {
           },
         });
       },
-      X = function (e, t, n, o) {
-        var i = P(e),
-          a = f(n),
-          r = !!o;
-        if (a + t > i.byteLength) throw new N("Wrong index");
-        var s = i.bytes,
-          l = a + i.byteOffset,
-          c = w(s, l, l + t);
+      X = function (e, t, n, globalThis) {
+        var uncurryThis = P(e),
+          hasOwnProperty_wrapper = f(n),
+          r = !!globalThis;
+        if (hasOwnProperty_wrapper + t > uncurryThis.byteLength) throw new N("Wrong index");
+        var GURABLE = uncurryThis.bytes,
+          createProperty = hasOwnProperty_wrapper + uncurryThis.byteOffset,
+          c = w(GURABLE, createProperty, createProperty + t);
         return r ? c : U(c);
       },
-      Q = function (e, t, n, o, i, a) {
+      Q = function (e, t, n, globalThis, uncurryThis, hasOwnProperty_wrapper) {
         var r = P(e),
-          s = f(n),
-          l = o(+i),
-          c = !!a;
-        if (s + t > r.byteLength) throw new N("Wrong index");
-        for (var d = r.bytes, u = s + r.byteOffset, p = 0; p < t; p++)
-          d[u + p] = l[c ? p : t - p - 1];
+          GURABLE = f(n),
+          createProperty = globalThis(+uncurryThis),
+          c = !!hasOwnProperty_wrapper;
+        if (GURABLE + t > r.byteLength) throw new N("Wrong index");
+        for (var d = r.bytes, tryCall = GURABLE + r.byteOffset, p = 0; p < t; p++)
+          d[tryCall + p] = createProperty[c ? p : t - p - 1];
       };
     if (r) {
       var J = A && "ArrayBuffer" !== L.name;
-      u(function () {
+      tryCall(function () {
         L(1);
       }) &&
-      u(function () {
+      tryCall(function () {
         new L(-1);
       }) &&
-      !u(function () {
+      !tryCall(function () {
         return new L(), new L(1.5), new L(NaN), 1 !== L.length || (J && !T);
       })
-        ? J && T && l(L, "name", "ArrayBuffer")
+        ? J && T && createProperty(L, "name", "ArrayBuffer")
         : (((I = function (e) {
             return p(this, k), C(new L(f(e)), this, I);
           }).prototype = k),
           (k.constructor = I),
-          x(I, L)),
+          copyConstructorProperties(I, L)),
         _ && v(F) !== R && _(F, R);
       var Z = new O(new I(2)),
-        ee = i(F.setInt8);
+        ee = uncurryThis(F.setInt8);
       Z.setInt8(0, 2147483648),
         Z.setInt8(1, 2147483649),
         (!Z.getInt8(0) && Z.getInt8(1)) ||
@@ -130,27 +130,27 @@ function (exports, module, require) {
         p(this, k);
         var t = f(e);
         D(this, { type: "ArrayBuffer", bytes: B(M(t), 0), byteLength: t }),
-          a || ((this.byteLength = t), (this.detached = false));
+          hasOwnProperty_wrapper || ((this.byteLength = t), (this.detached = false));
       }).prototype),
         (F = (O = function (e, t, n) {
           p(this, F), p(e, k);
-          var o = G(e),
-            i = o.byteLength,
-            r = g(t);
-          if (r < 0 || r > i) throw new N("Wrong offset");
-          if (r + (n = undefined === n ? i - r : h(n)) > i)
+          var globalThis = G(e),
+            uncurryThis = globalThis.byteLength,
+            r = lengthOfArrayLike(t);
+          if (r < 0 || r > uncurryThis) throw new N("Wrong offset");
+          if (r + (n = undefined === n ? uncurryThis - r : toStringTagSupport(n)) > uncurryThis)
             throw new N("Wrong length");
           D(this, {
             type: "DataView",
             buffer: e,
             byteLength: n,
             byteOffset: r,
-            bytes: o.bytes,
+            bytes: globalThis.bytes,
           }),
-            a ||
+            hasOwnProperty_wrapper ||
               ((this.buffer = e), (this.byteLength = n), (this.byteOffset = r));
         }).prototype),
-        a &&
+        hasOwnProperty_wrapper &&
           (Y(I, "byteLength", G),
           Y(O, "buffer", P),
           Y(O, "byteLength", P),
@@ -207,7 +207,7 @@ function (exports, module, require) {
             Q(this, 8, e, q, t, arguments.length > 2 && arguments[2]);
           },
         });
-    S(I, "ArrayBuffer"),
-      S(O, "DataView"),
+    setToStringTag(I, "ArrayBuffer"),
+      setToStringTag(O, "DataView"),
       (exports.exports = { ArrayBuffer: I, DataView: O });
   }

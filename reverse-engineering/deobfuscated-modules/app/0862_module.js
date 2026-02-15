@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.lookupByMimeType =
         module.lookupByExtension =
@@ -31,13 +31,13 @@ function (exports, module, require) {
       require(169) /* stub_requires_683 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(1) /* module */,
-      a = require(10) /* AppSettings */,
-      r = o(require(119) /* module_119 */),
-      s = o(require(220) /* Item */),
-      l = o(require(163) /* module_163 */),
-      c = o(require(86) /* module_86 */),
-      d = o(require(802) /* CloudException */),
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
+      r = _interopRequireDefault(require(119) /* module_119 */),
+      Item = _interopRequireDefault(require(220) /* Item */),
+      l = _interopRequireDefault(require(163) /* module_163 */),
+      c = _interopRequireDefault(require(86) /* module_86 */),
+      CloudException = _interopRequireDefault(require(802) /* CloudException */),
       u = require(593) /* module_593 */;
     const p = require(156) /* module_156 */,
       {
@@ -47,7 +47,7 @@ function (exports, module, require) {
       } = require(10) /* AppSettings */;
     let m;
     function y() {
-      d.default.apply(this, arguments),
+      CloudException.default.apply(this, arguments),
         (this.CURRENT_FOLDER = this.getRootFolder()),
         (this.FOLDERS = {}),
         (this.QUERY_LIMIT = 10),
@@ -56,22 +56,22 @@ function (exports, module, require) {
           e && this.setCurrentFolder(e);
         }),
         this.setDefaultEmptyMessage({
-          title: i.GLocale.get(
-            new i.GLocaleKey(
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GCommonNames",
               "text.message-explore-cloud-templates"
             )
           ),
         });
     }
-    i.GObject.inherit(y, d.default),
+    GCore.GObject.inherit(y, CloudException.default),
       (y.prototype.CURRENT_FOLDER_PROP =
         "designer.filespanel.cloud-drive.current-folder"),
       (y.getInstance = function () {
         return m || (m = new y()), m;
       }),
       (y.prototype.getPreviousSelectedFolder = function () {
-        return d.default.prototype.getPreviousSelectedFolder
+        return CloudException.default.prototype.getPreviousSelectedFolder
           .apply(this, arguments)
           .then((e) => (e ? this._convertToFolderElement(e) : e));
       }),
@@ -94,13 +94,13 @@ function (exports, module, require) {
       (y.prototype.getRootFolder = function () {
         return p.from({
           id: null,
-          name: i.GLocale.get(
-            new i.GLocaleKey("GFilesPanel", "action.my-cloud")
+          name: GCore.GLocale.get(
+            new GCore.GLocaleKey("GFilesPanel", "action.my-cloud")
           ),
         });
       }),
       (y.prototype.getFolder = function (e) {
-        return a.gApi
+        return AppSettings.gApi
           .getFile(e.id || e)
           .then((e) => this._convertToFolderElement(e));
       }),
@@ -110,30 +110,30 @@ function (exports, module, require) {
       (y.prototype.buildFoldersHierarchy = function (e) {
         var t = {},
           n = new Set(),
-          o = {};
+          _interopRequireDefault = {};
         if (!e.length) return t;
         for (let t = 0; t < e.length; t++) {
           let n = r.default.definePath(e[t]);
-          o[n] = e[t];
+          _interopRequireDefault[n] = e[t];
         }
-        function i(e) {
+        function GCore(e) {
           let t = new Set();
           for (; e && e.parent; ) {
             if (e.id === e.parent)
               return console.warn("Invalid folder"), (e.parent = null), [];
             if (t.has(e.parent))
               return console.warn("Invalid folder"), (e.parent = null), [];
-            t.add(e.parent), (e = o[e.parent]);
+            t.add(e.parent), (e = _interopRequireDefault[e.parent]);
           }
           return [...t];
         }
         return (
           e.forEach((e) => {
             if (n.has(e.id)) return;
-            let o = { path: i(e), folder: e };
-            if (o.path.length > f)
-              for (let e = 0; e < o.path.length - f; e++) n.add(o.path[e]);
-            else t[e.id] = o;
+            let _interopRequireDefault = { path: GCore(e), folder: e };
+            if (_interopRequireDefault.path.length > f)
+              for (let e = 0; e < _interopRequireDefault.path.length - f; e++) n.add(_interopRequireDefault.path[e]);
+            else t[e.id] = _interopRequireDefault;
           }),
           t
         );
@@ -144,20 +144,20 @@ function (exports, module, require) {
       (y.prototype.fetchFolders = async function (e, t) {
         let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : -1,
-          o =
+          _interopRequireDefault =
             arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : 0;
         return (
           Object.keys(this.FOLDERS).length ||
             (await this._buildFolderStructure(e)),
           this.isRootFolder(t) && this.generatePreviousSelectedFolderPath(),
           (t = t || this.CURRENT_FOLDER),
-          a.gApi
+          AppSettings.gApi
             .listFiles({
               type: h,
               parent: this._extractId(t),
               sort: e + "",
               limit: require > 0 ? require : 100,
-              skip: o,
+              skip: _interopRequireDefault,
             })
             .then((e) => this._convertToFolderElement(e))
         );
@@ -186,7 +186,7 @@ function (exports, module, require) {
             ? arguments[0]
             : "asc";
         if (Object.keys(this.FOLDERS).length) return;
-        const module = await a.gApi.listFiles({
+        const module = await AppSettings.gApi.listFiles({
           type: h,
           parent: "*",
           sort: exports + "",
@@ -216,39 +216,39 @@ function (exports, module, require) {
         return this.setCurrentFolder(e), this;
       }),
       (y.prototype.getFile = function (e) {
-        return a.gApi
+        return AppSettings.gApi
           .getFile(e, true)
           .then((e) => r.default.convertToCloudItem(e));
       }),
       (y.prototype.getRawFile = async function (e, t, n) {
-        const o = await a.gApi.getFileExtended(e.id),
-          i = await fetch(o.getFileDataURL(), { signal: t });
-        return (0, u.readResponseWithProgress)(i, n.progress, true).then((e) =>
+        const _interopRequireDefault = await AppSettings.gApi.getFileExtended(e.id),
+          GCore = await fetch(_interopRequireDefault.getFileDataURL(), { signal: t });
+        return (0, u.readResponseWithProgress)(GCore, n.progress, true).then((e) =>
           e.blob()
         );
       }),
       (y.prototype.openFile = function (e, t) {
-        return new Promise(async (n, o) => {
+        return new Promise(async (n, _interopRequireDefault) => {
           try {
-            const o = await s.default.from(
+            const _interopRequireDefault = await Item.default.from(
               gDesigner.getDefaultStorage(),
               e,
               undefined,
               undefined,
               e.autosave
             );
-            gDesigner.openDocument(o, t), n();
+            gDesigner.openDocument(_interopRequireDefault, t), n();
           } catch (e) {
-            o(e);
+            _interopRequireDefault(e);
           }
         });
       }),
       (y.prototype.saveNewFile = function (e, t) {
         let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : "",
-          o =
+          _interopRequireDefault =
             arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
-          d =
+          CloudException =
             arguments.length > 4 && undefined !== arguments[4]
               ? arguments[4]
               : null;
@@ -256,8 +256,8 @@ function (exports, module, require) {
         var u = e.getScene();
         if (e.hasPagesWithInfiniteEmptyCanvas())
           return Promise.reject({
-            message: i.GLocale.get(
-              new i.GLocaleKey(
+            message: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GCommonNames",
                 "text.error-emtpy-infinite-canvas"
               )
@@ -271,7 +271,7 @@ function (exports, module, require) {
           m = u.getActivePage(),
           y = m.getReferenceId(),
           v = u.getActivePage().getGeometryBBox();
-        return a.gApi
+        return AppSettings.gApi
           .createFile({
             name: t,
             parent: this._extractId(this.CURRENT_FOLDER),
@@ -282,16 +282,16 @@ function (exports, module, require) {
             height: v.getHeight(),
             trashed: null,
           })
-          .then(async (a) => {
-            a.type === _.type && u.setCloudSynchronization(a.id);
-            const m = a.type !== _.type;
+          .then(async (AppSettings) => {
+            AppSettings.type === _.type && u.setCloudSynchronization(AppSettings.id);
+            const m = AppSettings.type !== _.type;
             await e.saveAnnotations(m),
-              (o = e.updateSaveOptionsLastModifiedDate(o));
-            var v = await s.default.from(gDesigner.getDefaultStorage(), a.id);
+              (_interopRequireDefault = e.updateSaveOptionsLastModifiedDate(_interopRequireDefault));
+            var v = await Item.default.from(gDesigner.getDefaultStorage(), AppSettings.id);
             e.setStorageItem(v);
             var b = new l.default(v);
             return b
-              .deserializeData(i.GNode.serialize(u, o))
+              .deserializeData(GCore.GNode.serialize(u, _interopRequireDefault))
               .then(
                 async () => (
                   e.getFileFormatVersion() &&
@@ -301,13 +301,13 @@ function (exports, module, require) {
                     if (e.getReferenceId() === y) return u.setActivePage(e), false;
                   }),
                   gDesigner.addDocument(b),
-                  d
-                    ? d(c.default.Loaded)
+                  CloudException
+                    ? CloudException(c.default.Loaded)
                     : gDesigner.removeDocument(e, null, true),
                   (p = gDesigner.getWindows().getActiveWindow().getView()),
                   p.transform(h, f, g),
-                  (o = b.updateSaveOptionsLastModifiedDate(o)),
-                  i.GUtil.prepareForSaving(u, require),
+                  (_interopRequireDefault = b.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
+                  GCore.GUtil.prepareForSaving(u, require),
                   r.default.performSave(
                     b,
                     () => {
@@ -315,15 +315,15 @@ function (exports, module, require) {
                         b
                           .getStorageItem()
                           .storeFileFormatVersion(b.getFileFormatVersion()),
-                        d && d(c.default.Saved);
+                        CloudException && CloudException(c.default.Saved);
                     },
                     () => {
-                      d && d(c.default.SaveFailed);
+                      CloudException && CloudException(c.default.SaveFailed);
                     },
-                    o
+                    _interopRequireDefault
                   ),
                   e.isCloudFile() || e.setTitle(t),
-                  a
+                  AppSettings
                 )
               )
               .catch(
@@ -331,8 +331,8 @@ function (exports, module, require) {
                   console.error(e),
                   new Promise((e, t) => {
                     t(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.error-saving-file"
                         )
@@ -347,8 +347,8 @@ function (exports, module, require) {
               console.error(e),
               new Promise((e, t) => {
                 t(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GCommonNames", "text.error-saving-file")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.error-saving-file")
                   )
                 );
               })
@@ -362,7 +362,7 @@ function (exports, module, require) {
           .then((e) => this._convertAndUpdateCloudItems(e));
       }),
       (y.prototype.fetchFiles = function (e, t, n) {
-        var o = {
+        var _interopRequireDefault = {
           type: this._getFileTypesForFilter().join("|"),
           parent: this._extractId(this.CURRENT_FOLDER),
           limit: this.QUERY_LIMIT + "",
@@ -370,8 +370,8 @@ function (exports, module, require) {
           sort: n + "",
         };
         return (
-          e && ((o.name = e), (o.parent = "*")),
-          a.gApi.listFiles(o).then((e) => this._convertAndUpdateCloudItems(e))
+          e && ((_interopRequireDefault.name = e), (_interopRequireDefault.parent = "*")),
+          AppSettings.gApi.listFiles(_interopRequireDefault).then((e) => this._convertAndUpdateCloudItems(e))
         );
       }),
       (y.prototype._convertAndUpdateCloudItems = function (e) {
@@ -382,7 +382,7 @@ function (exports, module, require) {
         return 0 !== exports.length ? exports : this.getSupportedMIMETypes();
       }),
       (y.prototype.renameItem = function (e, t) {
-        return a.gApi.updateFile(e.id, { name: t });
+        return AppSettings.gApi.updateFile(e.id, { name: t });
       }),
       (y.prototype.isItemAllowedToBeRendered = function (e) {
         let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
@@ -392,9 +392,9 @@ function (exports, module, require) {
         );
       }),
       (y.prototype.deleteItem = function (e) {
-        return a.gApi
+        return AppSettings.gApi
           .updateFile(e.id, { trashed: true })
-          .then(() => a.gApi.deleteFile(e.id));
+          .then(() => AppSettings.gApi.deleteFile(e.id));
       }),
       (y.prototype.cutPaste = function (e) {
         var t = r.default.definePath(this.CURRENT_FOLDER);
@@ -407,7 +407,7 @@ function (exports, module, require) {
         const module = r.default.definePath(this.CURRENT_FOLDER);
         return Promise.all(
           e.map(async (e) => {
-            const { id: require } = await a.gApi.copyFile(e.id, { parent: module });
+            const { id: require } = await AppSettings.gApi.copyFile(e.id, { parent: module });
             return { id: require, parent: module };
           })
         );
@@ -420,19 +420,19 @@ function (exports, module, require) {
       }),
       (y.prototype.fileExists = async function (e, t, n) {
         n = n || this.CURRENT_FOLDER;
-        var o = {
+        var _interopRequireDefault = {
           type: this.getSupportedFileFormats().find(
             (e) => e.ext.toLocaleLowerCase() === t.toLocaleLowerCase()
           ).type,
           parent: this._extractId(n),
           name: '"'.concat(e, '"'),
         };
-        return a.gApi.listFiles(o).then((e) => !!e.length);
+        return AppSettings.gApi.listFiles(_interopRequireDefault).then((e) => !!e.length);
       }),
       (y.prototype.folderExists = function (e, t) {
         return (
           (t = t || this.CURRENT_FOLDER),
-          a.gApi
+          AppSettings.gApi
             .listFiles({
               type: h,
               parent: this._extractId(t),
@@ -453,7 +453,7 @@ function (exports, module, require) {
       }),
       (y.prototype.loadExampleFiles = async function () {
         0 === this.EXAMPLE_FILES_CACHE.length &&
-          (this.EXAMPLE_FILES_CACHE = await a.gApi
+          (this.EXAMPLE_FILES_CACHE = await AppSettings.gApi
             .getExampleFiles()
             .catch(() => []));
         const exports = this.getSelectedFilterForFileTypes();

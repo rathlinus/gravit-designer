@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(88) /* createPropertyDescriptor */.f;
+    var createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f;
     exports.exports = function (e, t, n) {
       n in e ||
-        o(e, n, {
+        createPropertyDescriptor(e, n, {
           configurable: true,
           get: function () {
             return t[n];

@@ -6,28 +6,28 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var i = require(10) /* AppSettings */,
-      a = require(1) /* module */,
-      r = o(require(78) /* GDocumentEvent */);
-    const s = require(44) /* GSystemDialog */,
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */,
+      GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */);
+    const GSystemDialog = require(44) /* GSystemDialog */,
       l = require(863) /* module_863 */,
-      c = require(85) /* GContainer */,
+      GContainer = require(85) /* GContainer */,
       d = require(805) /* module_805 */,
       u = require(292) /* module_292 */,
-      { bypassEmailVerification: p } = i.defaultUserSettings;
+      { bypassEmailVerification: p } = AppSettings.defaultUserSettings;
     function g(e) {
       this._htmlElement = e;
     }
-    a.GObject.inherit(g, a.GObject),
+    GCore.GObject.inherit(g, GCore.GObject),
       (g.prototype._interval = null),
       (g.prototype._needToShow = false),
       (g.prototype.init = function () {
         this.update(),
           gDesigner.addEventListener(d, this._userPropertiesChangedEvent, this),
           gDesigner.addEventListener(u, this._userLoggedEvent, this),
-          gDesigner.addEventListener(r.default, this._documentEvent, this);
+          gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this);
       }),
       (g.prototype.update = async function () {
         return gDesigner.getUser().then((e) => this._updateInfo(e));
@@ -63,14 +63,14 @@ function (exports, module, require) {
         ) {
           (this._interval = setInterval(
             this.update.bind(this),
-            i.DateAPI.daysToMilliseconds(1)
+            AppSettings.DateAPI.daysToMilliseconds(1)
           )),
-            i.gApi.listen("/confirmation", () => this.update(), true);
+            AppSettings.gApi.listen("/confirmation", () => this.update(), true);
           let t = new Date(e.created);
           e.email_expire && (t = new Date(e.email_expire));
-          let n = a.GLocale.get(
-            new a.GLocaleKey("GInfo", "text.title")
-          ).replace("%date", a.GLocale.toLocaleDate(t));
+          let n = GCore.GLocale.get(
+            new GCore.GLocaleKey("GInfo", "text.title")
+          ).replace("%date", GCore.GLocale.toLocaleDate(t));
           this._htmlElement
             .empty()
             .append($("<span></span>").text(n))
@@ -78,17 +78,17 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("link")
                 .text(
-                  a.GLocale.get(new a.GLocaleKey("GInfo", "text.resend-email"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GInfo", "text.resend-email"))
                 )
                 .on("click", () => {
                   let t, n;
-                  if (gContainer.getRuntime() === c.Runtime.Electron) {
+                  if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
                     const e = gContainer.getPlatform();
                     ("darwin" !== e && "win32" !== e) || (t = "designer://"),
                       (n = gDesigner.getAssetsURL());
                   } else n = location.origin;
                   return (
-                    i.gApi
+                    AppSettings.gApi
                       .resendEmailConfirmation({
                         appUrl: t,
                         webUrl: n,
@@ -97,12 +97,12 @@ function (exports, module, require) {
                         origin: location.origin,
                       })
                       .then(() => {
-                        s.custom({
-                          title: a.GLocale.get(
-                            new a.GLocaleKey("GInfo", "text.email-sent")
+                        GSystemDialog.custom({
+                          title: GCore.GLocale.get(
+                            new GCore.GLocaleKey("GInfo", "text.email-sent")
                           ),
-                          subtitle: a.GLocale.get(
-                            new a.GLocaleKey(
+                          subtitle: GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GInfo",
                               "text.email-sent-submessage"
                             )
@@ -111,14 +111,14 @@ function (exports, module, require) {
                         });
                       })
                       .catch((e) => {
-                        s.custom({
-                          title: a.GLocale.get(
-                            new a.GLocaleKey(
+                        GSystemDialog.custom({
+                          title: GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GInfo",
                               "text.something-went-wrong"
                             )
                           ),
-                          subtitle: i.gApi.formatError(e),
+                          subtitle: AppSettings.gApi.formatError(e),
                         });
                       }),
                     false

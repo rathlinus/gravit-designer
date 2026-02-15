@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(237) /* Item */;
     function a() {}
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, i),
       (a.Item = function (e) {
         i.Item.call(this, new a()), (this._extension = e);
       }),
-      o.GObject.inherit(a.Item, i.Item),
+      GCore.GObject.inherit(a.Item, i.Item),
       (a.Item.prototype._extension = null),
       (a.Item.prototype.getExtension = function () {
         return this._extension;
@@ -20,7 +20,7 @@ function (exports, module, require) {
       (a.Item.prototype.read = function (e, t, n) {
         return e(this._data);
       }),
-      (a.Item.prototype.write = function (e, t, n, o) {
+      (a.Item.prototype.write = function (e, t, n, GCore) {
         (this._data = e), t && t();
       }),
       (exports.exports = a);

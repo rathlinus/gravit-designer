@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "view.canvas.show-grid"),
-      (s.TITLE = new o.GLocaleKey("GShowGridAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GShowGridAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW_CANVAS;
+        return MenuItemBuilder.CATEGORY_VIEW_CANVAS;
       }),
       (s.prototype.getGroup = function () {
         return "show/canvas";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, i.GKey.Constant.OPTION, "G"];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.OPTION, "G"];
       }),
       (s.prototype.isEnabled = function () {
         return !!gDesigner.getActiveDocument();
@@ -46,7 +46,7 @@ function (exports, module, require) {
           ? e.setProperty("gm", null)
           : e.setProperty(
               "gm",
-              e.getProperty("lgm") || o.GScene.GridMode.Boxed
+              e.getProperty("lgm") || GCore.GScene.GridMode.Boxed
             );
       }),
       (s.prototype.toString = function () {

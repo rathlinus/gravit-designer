@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-15T13:02:21.139Z",
+  "stats": {
+    "filesProcessed": 1722,
+    "importsRenamed": 185,
+    "referencesRenamed": 5201,
+    "filesModified": 25,
+    "conflictsResolved": 0,
+    "parseErrors": 0
+  },
+  "elapsedSeconds": 9.1
+}

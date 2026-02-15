@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
+    var globalThis = require(23) /* globalThis */,
       i = require(129) /* stub_requires_23 */,
       a = require(116) /* module_116 */,
       r = function (e) {
@@ -19,13 +19,13 @@ function (exports, module, require) {
       ? "DENO"
       : r("Node.js/")
       ? "NODE"
-      : o.Bun && "string" == typeof Bun.version
+      : globalThis.Bun && "string" == typeof Bun.version
       ? "BUN"
-      : o.Deno && "object" == typeof Deno.version
+      : globalThis.Deno && "object" == typeof Deno.version
       ? "DENO"
-      : "process" === a(o.process)
+      : "process" === a(globalThis.process)
       ? "NODE"
-      : o.window && o.document
+      : globalThis.window && globalThis.document
       ? "BROWSER"
       : "REST";
   }

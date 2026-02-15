@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(116) /* module_116 */,
-      i = require(27) /* uncurryThis */;
+      uncurryThis = require(27) /* uncurryThis */;
     exports.exports = function (e) {
-      if ("Function" === o(e)) return i(e);
+      if ("Function" === o(e)) return uncurryThis(e);
     };
   }

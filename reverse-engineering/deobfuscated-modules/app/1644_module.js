@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */;
     exports.exports = class {
       constructor() {
         (this._dialog = this._createDialog()),
@@ -24,7 +24,7 @@ function (exports, module, require) {
         this._dialog.gDialog("close");
       }
       _getTitle() {
-        const exports = o.GLocale.getValue("GShortcutsDialog", "text.title");
+        const exports = GCore.GLocale.getValue("GShortcutsDialog", "text.title");
         return $("<div />").addClass("title").text(exports);
       }
       _getContent() {
@@ -35,15 +35,15 @@ function (exports, module, require) {
             if (!e.isAvailable()) return;
             const require = e.getShortcutHint({ isWordMode: true });
             if (require) {
-              const i = o.GLocale.get(e.getFullTitle());
-              this._createTableRow(i, require).appendTo(module);
+              const GEditor = GCore.GLocale.get(e.getFullTitle());
+              this._createTableRow(GEditor, require).appendTo(module);
             }
           }),
           gravit.tools.forEach((e) => {
             if (e.key) {
-              const n = i.GKey.shortcutToString(e.key);
+              const n = GEditor.GKey.shortcutToString(e.key);
               if (!n) return;
-              const a = o.GLocale.get(e.richTooltipConfig.getConfig().title);
+              const a = GCore.GLocale.get(e.richTooltipConfig.getConfig().title);
               this._createTableRow(a, n).appendTo(module);
             }
           }),

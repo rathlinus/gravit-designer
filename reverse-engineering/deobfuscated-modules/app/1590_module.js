@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */(require(879) /* module_879 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */(require(879) /* module_879 */);
     const i = require(878) /* module_878 */;
     exports.exports = class extends i {
       constructor(e) {
         super(e),
-          this.addGesture(new o.default()),
+          this.addGesture(new _interopRequireDefault.default()),
           this.setDelayedTouchEventsEnabled(false);
       }
       _handleEvent(e) {

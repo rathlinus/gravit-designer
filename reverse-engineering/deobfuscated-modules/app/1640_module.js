@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(57) /* polyfill_parseInt */,
@@ -20,12 +20,12 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var i = require(1) /* module */,
-      a = o(require(1343) /* module_1343 */),
-      r = o(require(44) /* GSystemDialog */),
-      s = require(40) /* CollaborationMergeUtils */;
+    var GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(1343) /* module_1343 */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function l() {}
-    i.GObject.inherit(l, i.GObject),
+    GCore.GObject.inherit(l, GCore.GObject),
       (l.prototype._translationManager = null),
       (l.prototype._hasUnappliedChanges = null),
       (l.prototype._shouldDownloadMetaData = false),
@@ -152,7 +152,7 @@ function (exports, module, require) {
                 .on("click", this._downloadMetaData.bind(this))
             )
             .appendTo(this._panel)),
-          this._handleProjectChange(i.GTranslation.Projects.Designer),
+          this._handleProjectChange(GCore.GTranslation.Projects.Designer),
           this.open();
       }),
       (l.prototype.open = function () {
@@ -161,7 +161,7 @@ function (exports, module, require) {
       (l.prototype._handleProjectChange = function (e) {
         this._translationManager.loadProjectTranslations(e),
           this._updateUIComponents(),
-          this._handleLanguageChange(i.GLocaleLanguage.Default, true);
+          this._handleLanguageChange(GCore.GLocaleLanguage.Default, true);
       }),
       (l.prototype._applyChanges = function () {
         this._translationManager
@@ -202,25 +202,25 @@ function (exports, module, require) {
                 return (
                   n.append($("<span></span>").addClass("description").text(e)),
                   n.append(
-                    Object.keys(this._translation.translations[e]).map((o) => {
-                      let i = $("<div></div>").addClass("row"),
-                        a = this._translation.translations[e][o];
-                      const r =
+                    Object.keys(this._translation.translations[e]).map((_interopRequireDefault) => {
+                      let GCore = $("<div></div>").addClass("row"),
+                        a = this._translation.translations[e][_interopRequireDefault];
+                      const GSystemDialog =
                         this._translation.translationsTemporary &&
                         this._translation.translationsTemporary[e] &&
-                        this._translation.translationsTemporary[e][o];
-                      let s = !(!r || (a && a.trim()));
+                        this._translation.translationsTemporary[e][_interopRequireDefault];
+                      let CollaborationMergeUtils = !(!GSystemDialog || (a && a.trim()));
                       if (
-                        ((a = s ? r : a),
+                        ((a = CollaborationMergeUtils ? GSystemDialog : a),
                         $("<input></input>")
                           .addClass("key")
                           .attr("disabled", true)
                           .attr("placeholder", "Key")
-                          .val(o)
+                          .val(_interopRequireDefault)
                           .attr("data-title", a)
-                          .appendTo(i),
-                        s &&
-                          i.append(
+                          .appendTo(GCore),
+                        CollaborationMergeUtils &&
+                          GCore.append(
                             $("<span/>")
                               .addClass("gravit-icon-google-translate")
                               .attr(
@@ -233,31 +233,31 @@ function (exports, module, require) {
                           .data({
                             language: this._currentLanguage,
                             path: e,
-                            key: o,
-                            originalValue: this._translation.translations[e][o],
+                            key: _interopRequireDefault,
+                            originalValue: this._translation.translations[e][_interopRequireDefault],
                           })
                           .on("change", (t) => {
-                            (this._translation.translations[e][o] =
+                            (this._translation.translations[e][_interopRequireDefault] =
                               t.target.value),
                               (this._hasUnappliedChanges = true);
                           })
                           .attr("placeholder", "Translation")
                           .val(a)
-                          .appendTo(i),
+                          .appendTo(GCore),
                         module)
                       ) {
                         var l =
                           this._translation.translationsExtended &&
                           this._translation.translationsExtended[e] &&
-                          this._translation.translationsExtended[e][o];
+                          this._translation.translationsExtended[e][_interopRequireDefault];
                         const t =
                           this._translation.translationsExtendedTemporary &&
                           this._translation.translationsExtendedTemporary[e] &&
-                          this._translation.translationsExtendedTemporary[e][o];
+                          this._translation.translationsExtendedTemporary[e][_interopRequireDefault];
                         (l = t || l),
-                          (s = s || !!t),
+                          (CollaborationMergeUtils = CollaborationMergeUtils || !!t),
                           t &&
-                            i.append(
+                            GCore.append(
                               $("<span/>")
                                 .addClass("gravit-icon-google-translate")
                                 .attr(
@@ -270,7 +270,7 @@ function (exports, module, require) {
                             .data({
                               language: this._currentLanguage,
                               path: e,
-                              key: o,
+                              key: _interopRequireDefault,
                               extension: true,
                               originalValue: l,
                             })
@@ -283,20 +283,20 @@ function (exports, module, require) {
                                     (this._translation.translationsExtended[e] =
                                       {}),
                                   (this._translation.translationsExtended[e][
-                                    o
+                                    _interopRequireDefault
                                   ] = t.target.value))
                                 : delete this._translation.translationsExtended[
                                     e
-                                  ][o],
+                                  ][_interopRequireDefault],
                                 (this._hasUnappliedChanges = true);
                             })
                             .attr("placeholder", "Extension")
                             .val(l || "")
-                            .appendTo(i);
+                            .appendTo(GCore);
                       }
                       return (
-                        s && (i.addClass("temporary"), n.addClass("temporary")),
-                        i
+                        CollaborationMergeUtils && (GCore.addClass("temporary"), n.addClass("temporary")),
+                        GCore
                       );
                     })
                   ),
@@ -308,7 +308,7 @@ function (exports, module, require) {
             this._setLoadingStatus(false);
         };
         this._hasUnappliedChanges
-          ? r.default.confirm(
+          ? GSystemDialog.default.confirm(
               "You have modified strings, you'll lose them if you don't apply them first, are you sure?",
               (e) => {
                 e
@@ -323,13 +323,13 @@ function (exports, module, require) {
       (l.prototype.close = function () {
         this._hasUnappliedChanges || this._shouldDownloadMetaData
           ? this._shouldDownloadMetaData
-            ? r.default.confirm(
+            ? GSystemDialog.default.confirm(
                 "You haven't downloaded the translations after applying changes, are you sure about closing?",
                 (e) => {
                   e && this._close();
                 }
               )
-            : r.default.confirm(
+            : GSystemDialog.default.confirm(
                 "You have modified strings, are you sure about closing?",
                 (e) => {
                   e && this._close();
@@ -354,7 +354,7 @@ function (exports, module, require) {
             (this._shouldDownloadMetaData = false);
         };
         this._hasUnappliedChanges
-          ? r.default.confirm(
+          ? GSystemDialog.default.confirm(
               "You have modified strings, do you want to download before applying your changes?",
               (t) => {
                 t && e();
@@ -363,8 +363,8 @@ function (exports, module, require) {
           : e();
       }),
       (l.prototype._exportAsCSV = async function () {
-        var e = Object.keys(i.GLocaleLanguage)[
-          Object.values(i.GLocaleLanguage).indexOf(this._currentLanguage)
+        var e = Object.keys(GCore.GLocaleLanguage)[
+          Object.values(GCore.GLocaleLanguage).indexOf(this._currentLanguage)
         ];
         this._manageDownload(
           "translations_"
@@ -386,7 +386,7 @@ function (exports, module, require) {
               (e) => {
                 e &&
                   e.read((e) => {
-                    var t = (0, s.decodeFromUTF8)(e);
+                    var t = (0, CollaborationMergeUtils.decodeFromUTF8)(e);
                     this._translationManager
                       .import(t)
                       .then(() =>
@@ -416,19 +416,19 @@ function (exports, module, require) {
           document.body.removeChild(n);
       }),
       (l.prototype._handleError = function (e) {
-        "string" != typeof e || r.default.alert(e);
+        "string" != typeof e || GSystemDialog.default.alert(e);
       }),
       (l.prototype._setLoadingStatus = function (e) {
         var t = this._header.find(".loading-element");
         e ? t.addClass("visible") : t.removeClass("visible");
       }),
       (l.prototype._handleNewLanguage = function () {
-        r.default.prompt("Please name the new language (English)!", (e) => {
+        GSystemDialog.default.prompt("Please name the new language (English)!", (e) => {
           e
-            ? r.default.prompt(
+            ? GSystemDialog.default.prompt(
                 "Please inform the real name of the language!",
                 (t) => {
-                  r.default.prompt(
+                  GSystemDialog.default.prompt(
                     "Please inform the ISO Language Code!",
                     (n) => {
                       this._translationManager
@@ -443,7 +443,7 @@ function (exports, module, require) {
                   );
                 }
               )
-            : r.default.alert("Invalid value ('".concat(e, "') for language!"));
+            : GSystemDialog.default.alert("Invalid value ('".concat(e, "') for language!"));
         });
       }),
       (l.prototype._updateUIComponents = function () {
@@ -453,18 +453,18 @@ function (exports, module, require) {
         var e = this._header.find(".language-chooser");
         e.find("option").remove(),
           e.append(
-            Object.keys(i.GLocaleLanguage)
+            Object.keys(GCore.GLocaleLanguage)
               .filter((e) => "Default" !== e)
               .filter(
                 (e) =>
                   !!this._translationManager.getTranslationByKey(
-                    i.GLocaleLanguage[e]
+                    GCore.GLocaleLanguage[e]
                   )
               )
               .map((e) =>
                 $("<option></option>")
                   .text(e)
-                  .attr("value", i.GLocaleLanguage[e])
+                  .attr("value", GCore.GLocaleLanguage[e])
               )
           );
       }),

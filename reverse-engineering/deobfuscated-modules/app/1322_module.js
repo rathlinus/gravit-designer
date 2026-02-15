@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */,
       require(30) /* polyfill_Object_assign */,
       require(8) /* polyfill_bundle_ES6 */,
@@ -22,16 +22,16 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var i = require(1) /* module */,
-      a = o(require(256) /* GOfflineDialog */),
-      r = o(require(355) /* module_355 */),
-      s = require(40) /* CollaborationMergeUtils */;
-    const l = require(44) /* GSystemDialog */,
+    var GCore = require(1) /* module */,
+      GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
+      r = _interopRequireDefault(require(355) /* module_355 */),
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
+    const GSystemDialog = require(44) /* GSystemDialog */,
       c = require(292) /* module_292 */,
-      d = require(78) /* GDocumentEvent */,
-      u = require(217) /* GDocumentStatusEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       p = require(220) /* Item */,
-      g = require(393) /* GCollaborationEvent */,
+      GCollaborationEvent = require(393) /* GCollaborationEvent */,
       h = require(1323) /* module_1323 */,
       f = require(86) /* module_86 */,
       {
@@ -56,7 +56,7 @@ function (exports, module, require) {
     function k() {
       y &&
         (gDesigner.addEventListener(c, this._userEvent, this),
-        gDesigner.addEventListener(d, this._documentEvent, this)),
+        gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this)),
         (this._states = new Map()),
         (this._isDefaulNotificationAlreadyShown = new Map());
     }
@@ -67,58 +67,58 @@ function (exports, module, require) {
       (k.prototype._collaboratorsCached = {}),
       (k.prototype.share = function (e, t) {
         const require = this,
-          o = e instanceof L.Item,
-          i = async function () {
-            let i = null;
-            if (o) i = e;
+          _interopRequireDefault = e instanceof L.Item,
+          GCore = async function () {
+            let GCore = null;
+            if (_interopRequireDefault) GCore = e;
             else {
               const t = e || gDesigner.getActiveDocument();
-              i = t && t.getStorageItem();
+              GCore = t && t.getStorageItem();
             }
-            i.supportsExternalSharing() &&
-              (await require._syncExternalPermissions(i)),
-              require._openShareDialog(await gDesigner.getUser(), i, t);
+            GCore.supportsExternalSharing() &&
+              (await require._syncExternalPermissions(GCore)),
+              require._openShareDialog(await gDesigner.getUser(), GCore, t);
           };
         gDesigner.isOffline()
-          ? a.default.openUnavailableFeature(i)
+          ? GOfflineDialog.default.openUnavailableFeature(GCore)
           : this.isShareProRestricted()
           ? gDesigner.handlePROFeatureInterruption()
-          : i();
+          : GCore();
       }),
       (k.prototype._openShareDialog = async function (e, t, n) {
-        const o = new I(e, t, n);
-        await o.open();
+        const _interopRequireDefault = new I(e, t, n);
+        await _interopRequireDefault.open();
       }),
       (k.prototype._documentEvent = async function (e) {
         const module = e.document;
         if (!module || !module.isLockedByVersionHistory())
           switch (e.type) {
-            case d.Type.Activated:
+            case GDocumentEvent.Type.Activated:
               (await this._checkAccessAndUpdateState(module)) &&
                 (this._showDefaultNotification(module),
-                module.removeEventListener(g, this._collaborationEvent, this),
-                module.addEventListener(g, this._collaborationEvent, this));
+                module.removeEventListener(GCollaborationEvent, this._collaborationEvent, this),
+                module.addEventListener(GCollaborationEvent, this._collaborationEvent, this));
               break;
-            case d.Type.Deactivated:
-              module.removeEventListener(g, this._collaborationEvent, this);
+            case GDocumentEvent.Type.Deactivated:
+              module.removeEventListener(GCollaborationEvent, this._collaborationEvent, this);
               break;
-            case d.Type.Removed:
+            case GDocumentEvent.Type.Removed:
               module.getId() && delete this._collaboratorsCached[module.getId()],
                 this._states.delete(module);
               break;
-            case d.Type.StorageItemUpdated: {
+            case GDocumentEvent.Type.StorageItemUpdated: {
               module.isShareable() && module.lock();
               const e = async (n) => {
                 if (n.status !== f.Loading)
                   try {
-                    module.removeEventListener(u, e),
+                    module.removeEventListener(GDocumentStatusEvent, e),
                       (await this._checkAccessAndUpdateState(module)) &&
                         this._showDefaultNotification(module);
                   } finally {
                     module.unlock();
                   }
               };
-              module.addEventListener(u, e);
+              module.addEventListener(GDocumentStatusEvent, e);
               break;
             }
           }
@@ -135,7 +135,7 @@ function (exports, module, require) {
         const { sender: module, type: require } = e;
         if (module === gDesigner.getActiveDocument())
           switch (require) {
-            case g.Type.ShareUpdate:
+            case GCollaborationEvent.Type.ShareUpdate:
               this.resetCollaboratorsCached(module),
                 this._getState(module).sharing || (await this._updateState(module));
               const e = this.getRole(module);
@@ -146,7 +146,7 @@ function (exports, module, require) {
                     this._showRoleNotification(module));
               }
               break;
-            case g.Type.UserUpdate:
+            case GCollaborationEvent.Type.UserUpdate:
               this._updateRealtimeCollaborators(module);
           }
       }),
@@ -158,8 +158,8 @@ function (exports, module, require) {
         if (!e) return;
         const module = this.getRole(e);
         if (!module) return;
-        const require = i.GLocale.get(
-          new i.GLocaleKey(
+        const require = GCore.GLocale.get(
+          new GCore.GLocaleKey(
             "GShareManager",
             "text.new-role-is-".concat(module.getId())
           )
@@ -185,17 +185,17 @@ function (exports, module, require) {
         if (module) require = { name: m.TITLE };
         else {
           const t = await gDesigner.getUser(),
-            o = await this._getFileExtended(e);
-          if (t && o) {
-            o.getPrivateShareList().some((e) => {
+            _interopRequireDefault = await this._getFileExtended(e);
+          if (t && _interopRequireDefault) {
+            _interopRequireDefault.getPrivateShareList().some((e) => {
               if (e.owner && e.id !== t.getUID())
                 return (require = { name: e.name || e.email, id: e.id }), true;
             });
             const e = new URL(location.href).searchParams.get("token");
             if (e) {
-              const i = o.getPublicShare();
-              if (i && i.token === e) {
-                const e = i.shared_by;
+              const GCore = _interopRequireDefault.getPublicShare();
+              if (GCore && GCore.token === e) {
+                const e = GCore.shared_by;
                 e && e.id && e.id !== t.getUID() && (require = e);
               }
             }
@@ -203,49 +203,49 @@ function (exports, module, require) {
         }
         if (require) {
           e.setOwner(require);
-          const o = [];
+          const _interopRequireDefault = [];
           if (module)
-            o.push(
-              i.GLocale.get(
-                new i.GLocaleKey("GShareManager", "text.template-shared-by")
+            _interopRequireDefault.push(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GShareManager", "text.template-shared-by")
               ).replace("%name", require.name)
             );
           else if (
-            (o.push(
-              i.GLocale.get(
-                new i.GLocaleKey("GShareManager", "text.shared-by")
+            (_interopRequireDefault.push(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GShareManager", "text.shared-by")
               ).replace("%name", require.name)
             ),
             !x)
           ) {
             const t = this.getRole(e);
-            t && t.getStatus() && o.push(t.getStatus());
+            t && t.getStatus() && _interopRequireDefault.push(t.getStatus());
           }
           if (x) {
             const t = this._getState(e);
             t.copy || t.inspect
               ? (t.copy ||
-                  o.push(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GShareManager", "text.save-warning")
+                  _interopRequireDefault.push(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GShareManager", "text.save-warning")
                     )
                   ),
                 t.inspect ||
-                  o.push(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GShareManager", "text.inspect-warning")
+                  _interopRequireDefault.push(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GShareManager", "text.inspect-warning")
                     )
                   ))
-              : o.push(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GShareManager", "text.combined-warnings")
+              : _interopRequireDefault.push(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GShareManager", "text.combined-warnings")
                   )
                 );
           }
-          o.length &&
+          _interopRequireDefault.length &&
             gDesigner.addNotification({
               document: e,
-              message: o.join(" "),
+              message: _interopRequireDefault.join(" "),
               anonymous: gDesigner.isAnonymous(),
               popup: true,
               closeCallback: () => {
@@ -265,8 +265,8 @@ function (exports, module, require) {
               const require = ((t) => {
                 const require = e.getPrivateShare(t.access_id);
                 if (require) return E.makeFromShare(require);
-                const o = e.getPublicShare();
-                return o ? E.makeFromShare(o) : E.makeFromShareRole(b.NoAccess);
+                const _interopRequireDefault = e.getPublicShare();
+                return _interopRequireDefault ? E.makeFromShare(_interopRequireDefault) : E.makeFromShareRole(b.NoAccess);
               })(t);
               return new A(Object.assign(t, { role: require }));
             })
@@ -302,15 +302,15 @@ function (exports, module, require) {
           .then((t) =>
             t.map((t) => {
               const require = new T(t),
-                o = ((t) => {
+                _interopRequireDefault = ((t) => {
                   const require = e.getPrivateShare(t.getUID());
                   if (require) return E.makeFromShare(require);
-                  const o = e.getPublicShare();
-                  return o
-                    ? E.makeFromShare(o)
+                  const _interopRequireDefault = e.getPublicShare();
+                  return _interopRequireDefault
+                    ? E.makeFromShare(_interopRequireDefault)
                     : E.makeFromShareRole(b.NoAccess);
                 })(require);
-              return require.setRole(o), require;
+              return require.setRole(_interopRequireDefault), require;
             })
           )
           .catch(() => []);
@@ -358,13 +358,13 @@ function (exports, module, require) {
       (k.prototype._updateState = async function (e) {
         const module = this._createDefaultShareStateForDoc(e),
           require = e && e.getStorageItem(),
-          o = await gDesigner.getUser();
-        if (!o) return this._setState(e, module);
+          _interopRequireDefault = await gDesigner.getUser();
+        if (!_interopRequireDefault) return this._setState(e, module);
         if (e && e.isDocumentFromTemplate() && e.isShared())
           this._applyStateFromTemplate(module);
         else if (require instanceof p.Item) {
           const n = await this._getFileExtended(e);
-          n && (await this._applyStateFromFile(o, n, module));
+          n && (await this._applyStateFromFile(_interopRequireDefault, n, module));
         } else if (
           require &&
           require.getId() &&
@@ -372,7 +372,7 @@ function (exports, module, require) {
           require.supportsShadowFile()
         ) {
           const n = await this._getFileExtended(e);
-          n && ((module.share = true), await this._applyStateFromFile(o, n, module));
+          n && ((module.share = true), await this._applyStateFromFile(_interopRequireDefault, n, module));
         } else await this._getFileExtended(e);
         this._setState(e, module),
           gDesigner.hasEventListeners(P) &&
@@ -403,26 +403,26 @@ function (exports, module, require) {
       }),
       (k.prototype._applyStateFromFile = async function (e, t, n) {
         if (!t) throw new r.default("File object is required");
-        const o = (0, s.getFileStateAndRole)(e, t, n);
-        let i = o.role;
-        const { state: a } = o;
-        if (!i) {
+        const _interopRequireDefault = (0, CollaborationMergeUtils.getFileStateAndRole)(e, t, n);
+        let GCore = _interopRequireDefault.role;
+        const { state: GOfflineDialog } = _interopRequireDefault;
+        if (!GCore) {
           const e = t.getPublicShare();
           if (e) {
-            const { copy: t, inspect: n, comment: o, edit: r } = e;
-            (i = E.makeFromShare(e)),
-              Object.assign(a, {
+            const { copy: t, inspect: n, comment: _interopRequireDefault, edit: r } = e;
+            (GCore = E.makeFromShare(e)),
+              Object.assign(GOfflineDialog, {
                 owner: false,
                 edit: r,
                 copy: t,
                 inspect: n,
-                comment: !!v && o,
+                comment: !!v && _interopRequireDefault,
               });
           }
         }
-        a.role = i || E.ROLES.NO_ACCESS_ROLE;
-        const l = await this.getRealtimeCollaborators(t);
-        Object.assign(a, { realtimeCollaborators: l });
+        GOfflineDialog.role = GCore || E.ROLES.NO_ACCESS_ROLE;
+        const GSystemDialog = await this.getRealtimeCollaborators(t);
+        Object.assign(GOfflineDialog, { realtimeCollaborators: GSystemDialog });
       }),
       (k.prototype._updateRealtimeCollaborators = async function (e) {
         const module = await this._getFileExtended(e);
@@ -465,10 +465,10 @@ function (exports, module, require) {
         const module = await gDesigner.getUser(),
           require = await this._getFileExtended(e);
         if (module && require) {
-          var o = require.getPrivateShareList().find((e) => {
+          var _interopRequireDefault = require.getPrivateShareList().find((e) => {
             if (e.id === module.getUID()) return true;
           });
-          if (o) return o.getRole().level;
+          if (_interopRequireDefault) return _interopRequireDefault.getRole().level;
           const e = require.getPublicShare();
           return e ? e.getRole().level : new E.makeFromShareRole(b.NoAccess);
         }
@@ -502,21 +502,21 @@ function (exports, module, require) {
             closeCallback: () => {
               this._requestPermissionDialog = null;
             },
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GShareManager",
                 "text.file-can-not-be-commented-title"
               )
             ).replace("%role", module.getName()),
-            subtitle: i.GLocale.get(
-              new i.GLocaleKey(
+            subtitle: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GShareManager",
                 "text.file-can-not-be-commented-info"
               )
             ),
             requestButton: {
-              label: i.GLocale.get(
-                new i.GLocaleKey(
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GShareManager",
                   "text.file-request-permission-to-comment"
                 )
@@ -538,9 +538,9 @@ function (exports, module, require) {
                 (await this._canAccess(e)) ||
                   (gDesigner.removeDocument(e, null, true),
                   this._requestEmailHasBeenSent &&
-                    (l.alert(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                    (GSystemDialog.alert(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GShareManager",
                           "text.sent-request-email"
                         )
@@ -548,21 +548,21 @@ function (exports, module, require) {
                     ),
                     (this._requestEmailHasBeenSent = false)));
             },
-            title: i.GLocale.get(
-              new i.GLocaleKey(
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GShareManager",
                 "text.file-can-not-be-accessed-title"
               )
             ),
-            subtitle: i.GLocale.get(
-              new i.GLocaleKey(
+            subtitle: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GShareManager",
                 "text.file-can-not-be-accessed-info"
               )
             ),
             requestButton: {
-              label: i.GLocale.get(
-                new i.GLocaleKey("GShareManager", "text.file-request-access")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GShareManager", "text.file-request-access")
               ),
               permissions: { access: true },
             },
@@ -578,21 +578,21 @@ function (exports, module, require) {
         let {
           className: module = "",
           title: require,
-          subtitle: o,
-          closeCallback: a,
-          requestButton: { label: r, permissions: s = {} } = {},
+          subtitle: _interopRequireDefault,
+          closeCallback: GOfflineDialog,
+          requestButton: { label: r, permissions: CollaborationMergeUtils = {} } = {},
           statType: c,
         } = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        var d = [];
+        var GDocumentEvent = [];
         return (
           this.isPermissionRequestEnabled() &&
-            d.push({
+            GDocumentEvent.push({
               label: r,
               onclick: (t) => {
                 gDesigner.stats(
                   "permission-dialog_".concat(c, "_request-access")
                 );
-                const require = Object.assign(s, { isToken: !e.getId() });
+                const require = Object.assign(CollaborationMergeUtils, { isToken: !e.getId() });
                 _.requestPermission(
                   e.getId() || e.getFailedDocumentIdOrToken(),
                   require
@@ -601,9 +601,9 @@ function (exports, module, require) {
                     t.gDialog("close"), (this._requestEmailHasBeenSent = true);
                   })
                   .catch(() => {
-                    l.error(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                    GSystemDialog.error(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GShareManager",
                           "text.cannot-request-access"
                         )
@@ -612,8 +612,8 @@ function (exports, module, require) {
                   });
               },
             }),
-          d.push({
-            label: i.GLocale.get(new i.GLocaleKey("GLocale", "ok")),
+          GDocumentEvent.push({
+            label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")),
             onclick: async (t) => {
               gDesigner.stats("permission-dialog_".concat(c, "_click-ok")),
                 t.gDialog("close"),
@@ -622,14 +622,14 @@ function (exports, module, require) {
             },
             highlighted: true,
           }),
-          l.custom({
+          GSystemDialog.custom({
             icon: "error",
             closeable: false,
             className: module,
-            closeCallback: a,
+            closeCallback: GOfflineDialog,
             title: require,
-            subtitle: o,
-            buttons: d,
+            subtitle: _interopRequireDefault,
+            buttons: GDocumentEvent,
           })
         );
       }),
@@ -645,54 +645,54 @@ function (exports, module, require) {
                 throw n;
               });
           }.call(this),
-          o = this._getPrivateInvitedShareListForFile(require),
-          i = await gDesigner.getUser();
+          _interopRequireDefault = this._getPrivateInvitedShareListForFile(require),
+          GCore = await gDesigner.getUser();
         return function () {
           const require = [],
-            a = [],
+            GOfflineDialog = [],
             r = [];
           module.forEach((t) => {
-            let { email: i, role: a, externalRole: r } = t;
-            if (i) {
+            let { email: GCore, role: GOfflineDialog, externalRole: r } = t;
+            if (GCore) {
               let t = false;
-              o.some((n) => {
-                let { email: o, role: a } = n;
-                if (i && i === o && e.rolesMatch(r, a)) return (t = true), t;
+              _interopRequireDefault.some((n) => {
+                let { email: _interopRequireDefault, role: GOfflineDialog } = n;
+                if (GCore && GCore === _interopRequireDefault && e.rolesMatch(r, GOfflineDialog)) return (t = true), t;
               }),
-                t || require.push({ email: i, role: a });
+                t || require.push({ email: GCore, role: GOfflineDialog });
             }
           }),
-            o.forEach((e) => {
+            _interopRequireDefault.forEach((e) => {
               let require = false;
               module.some((t) => {
-                let { email: o } = t;
-                if (e.email === o) return (require = true), require;
+                let { email: _interopRequireDefault } = t;
+                if (e.email === _interopRequireDefault) return (require = true), require;
               }),
                 require ||
                   E.makeFromShare(e).is(b.NoAccess) ||
-                  a.push({ email: e.email });
+                  GOfflineDialog.push({ email: e.email });
             }),
             require.length &&
               r.concat(
                 require.map(async (t) => {
-                  let { email: require, role: o } = t;
-                  if (i.getEmail() === require) return null;
-                  const a = Object.values(b).find((e) => {
+                  let { email: require, role: _interopRequireDefault } = t;
+                  if (GCore.getEmail() === require) return null;
+                  const GOfflineDialog = Object.values(b).find((e) => {
                       let { id: t } = e;
-                      return t === o;
+                      return t === _interopRequireDefault;
                     }),
-                    r = o && a ? a : b.NoAccess,
-                    s = new C().assignRole(r);
+                    r = _interopRequireDefault && GOfflineDialog ? GOfflineDialog : b.NoAccess,
+                    CollaborationMergeUtils = new C().assignRole(r);
                   try {
-                    return await _.shareWithUser(e.getId(), require, s);
+                    return await _.shareWithUser(e.getId(), require, CollaborationMergeUtils);
                   } catch (e) {
                     return null;
                   }
                 })
               );
-          a.length &&
+          GOfflineDialog.length &&
             r.concat(
-              a.map(async (t) => {
+              GOfflineDialog.map(async (t) => {
                 let { email: require } = t;
                 return _.shareWithUser(
                   e.getId(),
@@ -708,8 +708,8 @@ function (exports, module, require) {
         const require = await this._getFileExtended(e);
         if (require) {
           const e = gDesigner.getAppBaseUrl(true),
-            o = new URL(require.getShareLink(e));
-          return o.searchParams.set("annot", t.getId()), o.toString();
+            _interopRequireDefault = new URL(require.getShareLink(e));
+          return _interopRequireDefault.searchParams.set("annot", t.getId()), _interopRequireDefault.toString();
         }
         return null;
       }),

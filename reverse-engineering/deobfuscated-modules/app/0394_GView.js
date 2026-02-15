@@ -7,11 +7,11 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i() {}
-    o.GObject.inherit(i, o.GEventTarget),
+    GCore.GObject.inherit(i, GCore.GEventTarget),
       (i.UpdateEvent = function () {}),
-      o.GObject.inherit(i.UpdateEvent, o.GEvent),
+      GCore.GObject.inherit(i.UpdateEvent, GCore.GEvent),
       (i.UpdateEvent.prototype.toString = function () {
         return "[Object GView.UpdateEvent]";
       }),

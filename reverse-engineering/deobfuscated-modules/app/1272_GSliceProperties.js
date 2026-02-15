@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = require(1) /* module */,
-      a = require(53) /* module */,
-      r = o(require(340) /* GTouchTool */),
-      s = require(123) /* GProperties */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      GProperties = require(123) /* GProperties */,
       l = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function c() {
       this._slices = [];
     }
-    i.GObject.inherit(c, s),
+    GCore.GObject.inherit(c, GProperties),
       (c.prototype._panel = null),
       (c.prototype._document = null),
       (c.prototype._slices = null),
@@ -25,7 +25,7 @@ function (exports, module, require) {
       (c.prototype.init = function (e, t) {
         (this._panel = e),
           this._panel.addClass("slice-property-panel"),
-          this.setTouchTools([r.default.APPEARANCE_TOUCH_TOOL]);
+          this.setTouchTools([GTouchTool.default.APPEARANCE_TOUCH_TOOL]);
         var n = function (e) {
           var t = this;
           if ("x" === e || "y" === e || "w" === e || "h" === e)
@@ -49,21 +49,21 @@ function (exports, module, require) {
           if ("cls" === e)
             return $("<button></button>")
               .attr("data-property", e)
-              .gPatternChooser({ types: [i.GColor], hasOpacity: false })
+              .gPatternChooser({ types: [GCore.GColor], hasOpacity: false })
               .on("chooseropen", function () {
                 t._document.getEditor().hideSelection(),
                   (t._chooserElem = $(this));
               })
-              .on("chooserclose", function (e, n, o) {
+              .on("chooserclose", function (e, n, _interopRequireDefault) {
                 t._document && t._document.getEditor().resetHideSelection(),
                   (t._chooserElem = null);
               })
               .on(
                 "patternchange",
-                function (n, o, i, a, r) {
-                  var s = null;
-                  r && (s = { chooserOn: true, slicePattern: true }),
-                    t._assignProperty(e, o, a, s);
+                function (n, _interopRequireDefault, GCore, GTools, GTouchTool) {
+                  var GProperties = null;
+                  GTouchTool && (GProperties = { chooserOn: true, slicePattern: true }),
+                    t._assignProperty(e, _interopRequireDefault, GTools, GProperties);
                 }.bind(t)
               );
           if ("cls-check" === e)
@@ -80,7 +80,7 @@ function (exports, module, require) {
                       gDesigner.stats("sliceproperties_change_background"),
                         t._assignProperty(
                           "cls",
-                          $(e.target).is(":checked") ? i.GRGBColor.WHITE : null
+                          $(e.target).is(":checked") ? GCore.GRGBColor.WHITE : null
                         );
                     }.bind(t)
                   )
@@ -88,8 +88,8 @@ function (exports, module, require) {
               .append(
                 $(
                   "<span>" +
-                    i.GLocale.get(
-                      new i.GLocaleKey("GCommonNames", "text.background-color")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.background-color")
                     ) +
                     "</span>"
                 )
@@ -113,8 +113,8 @@ function (exports, module, require) {
               .append(
                 $(
                   "<span>" +
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GSliceProperties",
                         "text.trim-transparent-pixels"
                       )
@@ -127,15 +127,15 @@ function (exports, module, require) {
         $("<div></div>")
           .addClass("slice-position-left-row")
           .gPropertyRow({
-            label: i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.left")),
+            label: GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.left")),
             columns: [{ width: "44%", content: n("x") }],
           })
           .appendTo(e),
           $("<div></div>")
             .addClass("slice-position-top-row")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.top")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.top")
               ),
               columns: [{ width: "44%", content: n("y") }],
             })
@@ -143,8 +143,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("slice-size-width-row")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.width")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.width")
               ),
               columns: [{ width: "44%", content: n("w") }],
             })
@@ -152,8 +152,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("slice-size-height-row")
             .gPropertyRow({
-              label: i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.height")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.height")
               ),
               columns: [{ width: "44%", content: n("h") }],
             })
@@ -180,7 +180,7 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                i.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
@@ -189,15 +189,15 @@ function (exports, module, require) {
           (this._slices = []),
           e)
         ) {
-          for (var o = 0; o < t.length; ++o)
-            t[o] instanceof i.GSlice && this._slices.push(t[o]);
+          for (var _interopRequireDefault = 0; _interopRequireDefault < t.length; ++_interopRequireDefault)
+            t[_interopRequireDefault] instanceof GCore.GSlice && this._slices.push(t[_interopRequireDefault]);
           if (this._slices.length && this._slices.length === t.length)
             return (
               (this._document = e),
               this._document
                 .getScene()
                 .addEventListener(
-                  i.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
@@ -217,35 +217,35 @@ function (exports, module, require) {
               $("<span/>").addClass("g-input-label").text(t).insertBefore(e);
           },
           require = this._panel.find(".slice-position-left-row .property-label span"),
-          o = this._panel.find(".slice-size-width-row .property-label span"),
-          a = this._panel.find(".x-input"),
-          r = this._panel.find(".y-input"),
-          s = this._panel.find(".w-input"),
+          _interopRequireDefault = this._panel.find(".slice-size-width-row .property-label span"),
+          GTools = this._panel.find(".x-input"),
+          GTouchTool = this._panel.find(".y-input"),
+          GProperties = this._panel.find(".w-input"),
           l = this._panel.find(".h-input");
         gDesigner.isTouchEnabled()
           ? (this._panel.find(".trm-checkbox").gCheckboxSlider(),
             this._panel.find(".cls-check-checkbox").gCheckboxSlider(),
             require.text(
-              i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.position"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.position"))
             ),
-            o.text(
-              i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.size"))
+            _interopRequireDefault.text(
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.size"))
             ),
-            module(a, "x"),
-            module(r, "y"),
-            module(s, "w"),
+            module(GTools, "x"),
+            module(GTouchTool, "y"),
+            module(GProperties, "w"),
             module(l, "h"))
           : (this._panel.find(".trm-checkbox").gCheckboxSlider("unmount"),
             this._panel.find(".cls-check-checkbox").gCheckboxSlider("unmount"),
             require.text(
-              i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.left"))
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.left"))
             ),
-            o.text(
-              i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.width"))
+            _interopRequireDefault.text(
+              GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.width"))
             ),
-            exports(a),
-            exports(r),
-            exports(s),
+            exports(GTools),
+            exports(GTouchTool),
+            exports(GProperties),
             exports(l));
       }),
       (c.prototype._afterPropertiesChange = function (e) {
@@ -261,11 +261,11 @@ function (exports, module, require) {
       (c.prototype._updateProperties = function (e) {
         var t = this._document.getScene(),
           n = this._slices[0],
-          o = function (e) {
-            var o = this._panel.find('input[data-property="' + e + '"]');
+          _interopRequireDefault = function (e) {
+            var _interopRequireDefault = this._panel.find('input[data-property="' + e + '"]');
             this._slices.length > 1
-              ? o.gInputBox("value", null).prop("disabled", true)
-              : o
+              ? _interopRequireDefault.gInputBox("value", null).prop("disabled", true)
+              : _interopRequireDefault
                   .gInputBox(
                     "value",
                     t.pointToString(
@@ -275,19 +275,19 @@ function (exports, module, require) {
                   )
                   .prop("disabled", false);
           }.bind(this);
-        o("x"), o("y"), o("w"), o("h");
-        var i = n.getProperty("cls");
-        this._panel.find('[data-property="cls-check"]').prop("checked", !!i),
+        _interopRequireDefault("x"), _interopRequireDefault("y"), _interopRequireDefault("w"), _interopRequireDefault("h");
+        var GCore = n.getProperty("cls");
+        this._panel.find('[data-property="cls-check"]').prop("checked", !!GCore),
           this._panel
             .find('[data-property="cls"]')
-            .prop("disabled", !i)
+            .prop("disabled", !GCore)
             .gPatternChooser("value", n.getProperty("cls")),
           this._panel
             .find('input[data-property="trm"]')
             .prop("checked", n.getProperty("trm")),
           e &&
-            (e.evtType == a.GEditor.ModifiedEvent.Type.Undo ||
-              e.evtType == a.GEditor.ModifiedEvent.Type.Redo) &&
+            (e.evtType == GTools.GEditor.ModifiedEvent.Type.Undo ||
+              e.evtType == GTools.GEditor.ModifiedEvent.Type.Redo) &&
             e.chooserOn &&
             e.slicePattern &&
             this._panel
@@ -295,29 +295,29 @@ function (exports, module, require) {
               .find(".preview")
               .trigger("click");
       }),
-      (c.prototype._assignProperty = function (e, t, n, o) {
-        this._assignProperties([e], [t], n, o);
+      (c.prototype._assignProperty = function (e, t, n, _interopRequireDefault) {
+        this._assignProperties([e], [t], n, _interopRequireDefault);
       }),
-      (c.prototype._assignProperties = function (e, t, n, o) {
+      (c.prototype._assignProperties = function (e, t, n, _interopRequireDefault) {
         if (n)
-          for (var a = 0; a < this._slices.length; ++a)
-            this._slices[a].setProperties(e, t, true);
+          for (var GTools = 0; GTools < this._slices.length; ++GTools)
+            this._slices[GTools].setProperties(e, t, true);
         else {
           this._ownChange = true;
-          var r = this._document.getEditor();
-          r.beginTransaction();
+          var GTouchTool = this._document.getEditor();
+          GTouchTool.beginTransaction();
           try {
-            for (a = 0; a < this._slices.length; ++a)
-              this._slices[a].setProperties(e, t);
+            for (GTools = 0; GTools < this._slices.length; ++GTools)
+              this._slices[GTools].setProperties(e, t);
           } finally {
-            r.commitTransaction(
-              i.GLocale.get(
-                new i.GLocaleKey(
+            GTouchTool.commitTransaction(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSliceProperties",
                   "action.modify-slice-properties"
                 )
               ),
-              o || null
+              _interopRequireDefault || null
             ),
               (this._ownChange = false);
           }

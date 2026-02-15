@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(168) /* polyfill_Array_reduce */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(169) /* stub_requires_683 */;
-    var o = require(1) /* module */;
-    const i = require(238) /* GMenu */,
+    var GCore = require(1) /* module */;
+    const GMenu = require(238) /* GMenu */,
       a = (e) => {
         e.empty().append(
           $("<div/>")
@@ -35,7 +35,7 @@ function (exports, module, require) {
                 .addClass("dropdown-button")
                 .append($("<span></span>").addClass("gravit-icon-down"));
             exports.data("g-page-button-dropdownbutton", module);
-            let require = new i(undefined, "g-page-menu");
+            let require = new GMenu(undefined, "g-page-menu");
             exports.addClass("g-page-button").gMenuButton({
               menu: () => {
                 const module = exports.data("options") && exports.data("options").scene;
@@ -44,11 +44,11 @@ function (exports, module, require) {
                     (require.clearItems(),
                     module
                       .getChildren()
-                      .filter((e) => e instanceof o.GPage && e.isVisible())
+                      .filter((e) => e instanceof GCore.GPage && e.isVisible())
                       .reduce(
                         (e, t) => (
                           e.createAddItem(t.getLabel(), () => {
-                            t.setFlag(o.GNode.Flag.Active);
+                            t.setFlag(GCore.GNode.Flag.Active);
                           }),
                           e
                         ),
@@ -77,7 +77,7 @@ function (exports, module, require) {
             require.scene !== e &&
               (require.scene &&
                 require.scene.removeEventListener(
-                  o.GNode.AfterFlagChangeEvent,
+                  GCore.GNode.AfterFlagChangeEvent,
                   s._afterFlagChangeEvent,
                   this
                 ),
@@ -85,7 +85,7 @@ function (exports, module, require) {
               e &&
                 (s._activatePage.call(this, e.getActivePage()),
                 e.addEventListener(
-                  o.GNode.AfterFlagChangeEvent,
+                  GCore.GNode.AfterFlagChangeEvent,
                   s._afterFlagChangeEvent,
                   this
                 ))),
@@ -102,12 +102,12 @@ function (exports, module, require) {
           module &&
             (s._activatePage.call(this, module.getActivePage()),
             module.hasEventListeners(
-              o.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               s._afterFlagChangeEvent,
               this
             ) ||
               module.addEventListener(
-                o.GNode.AfterFlagChangeEvent,
+                GCore.GNode.AfterFlagChangeEvent,
                 s._afterFlagChangeEvent,
                 this
               ));
@@ -119,7 +119,7 @@ function (exports, module, require) {
             module &&
               module.scene &&
               module.scene.removeEventListener(
-                o.GNode.AfterFlagChangeEvent,
+                GCore.GNode.AfterFlagChangeEvent,
                 s._afterFlagChangeEvent,
                 this
               ),
@@ -128,8 +128,8 @@ function (exports, module, require) {
           );
         },
         _afterFlagChangeEvent: function (e) {
-          e.node instanceof o.GPage &&
-            e.flag === o.GNode.Flag.Active &&
+          e.node instanceof GCore.GPage &&
+            e.flag === GCore.GNode.Flag.Active &&
             s._activatePage.call(this, e.node);
         },
         _activatePage: function (e) {

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o,
-      i = require(37) /* toString_default */,
+      toString_default = require(37) /* toString_default */,
       a = require(617) /* module_617 */,
       r = require(301) /* module_301 */,
       s = require(259) /* module_259 */,
@@ -50,7 +50,7 @@ function (exports, module, require) {
           var n;
           return (
             null !== e
-              ? ((p.prototype = i(e)),
+              ? ((p.prototype = toString_default(e)),
                 (n = new p()),
                 (p.prototype = null),
                 (n[u] = e))

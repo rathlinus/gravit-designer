@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(1499) /* GMenuActivateEvent */,
-      s = require(1156) /* GMenuCloseEvent */,
+      GMenuActivateEvent = require(1499) /* GMenuActivateEvent */,
+      GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
       l = require(444) /* module_444 */,
       c = require(1157) /* module_1157 */,
-      d = require(804) /* GMenuOpenEvent */;
-    function u(e, t, n, o) {
+      GMenuOpenEvent = require(804) /* GMenuOpenEvent */;
+    function u(e, t, n, GCore) {
       (this._htmlElement = $("<li></li>").addClass("g-menu-item")),
         (this._category = e || u.Type.Item),
         (this._componentId = n || null),
@@ -24,7 +24,7 @@ function (exports, module, require) {
         (this._feature = null),
         (this._detachBound = this._detach.bind(this)),
         this._category === u.Type.Divider
-          ? ((this._isVisible = o),
+          ? ((this._isVisible = GCore),
             this._htmlElement.addClass("g-menu-item-divider"))
           : (this._htmlElement
               .append(
@@ -54,40 +54,40 @@ function (exports, module, require) {
         this._htmlElement.on("mousedown", this._mouseDown.bind(this)),
         this._htmlElement.on("mouseup", this._mouseUp.bind(this));
     }
-    o.GObject.inherit(u, o.GEventTarget),
+    GCore.GObject.inherit(u, GCore.GEventTarget),
       (u.Type = { Item: 0, Menu: 1, Divider: 2 }),
       (u.EnterEvent = function () {}),
-      o.GObject.inherit(u.EnterEvent, o.GEvent),
+      GCore.GObject.inherit(u.EnterEvent, GCore.GEvent),
       (u.EnterEvent.prototype.toString = function () {
         return "[Object GMenuItem.EnterEvent]";
       }),
       (u.ENTER_EVENT = new u.EnterEvent()),
       (u.LeaveEvent = function () {}),
-      o.GObject.inherit(u.LeaveEvent, o.GEvent),
+      GCore.GObject.inherit(u.LeaveEvent, GCore.GEvent),
       (u.LeaveEvent.prototype.toString = function () {
         return "[Object GMenuItem.LeaveEvent]";
       }),
       (u.LEAVE_EVENT = new u.LeaveEvent()),
       (u.ActivateEvent = function () {}),
-      o.GObject.inherit(u.ActivateEvent, o.GEvent),
+      GCore.GObject.inherit(u.ActivateEvent, GCore.GEvent),
       (u.ActivateEvent.prototype.toString = function () {
         return "[Object GMenuItem.ActivateEvent]";
       }),
       (u.ACTIVATE_EVENT = new u.ActivateEvent()),
       (u.BeforeActivateEvent = function () {}),
-      o.GObject.inherit(u.BeforeActivateEvent, o.GEvent),
+      GCore.GObject.inherit(u.BeforeActivateEvent, GCore.GEvent),
       (u.BeforeActivateEvent.prototype.toString = function () {
         return "[Object GMenuItem.BeforeActivateEvent]";
       }),
       (u.BEFORE_ACTIVATE_EVENT = new u.BeforeActivateEvent()),
       (u.UpdateEvent = function () {}),
-      o.GObject.inherit(u.UpdateEvent, o.GEvent),
+      GCore.GObject.inherit(u.UpdateEvent, GCore.GEvent),
       (u.UpdateEvent.prototype.toString = function () {
         return "[Object GMenuItem.UpdateEvent]";
       }),
       (u.UPDATE_EVENT = new u.UpdateEvent()),
       (u.DetachEvent = function () {}),
-      o.GObject.inherit(u.DetachEvent, o.GEvent),
+      GCore.GObject.inherit(u.DetachEvent, GCore.GEvent),
       (u.DetachEvent.prototype.toString = function () {
         return "[Object GMenuItem.DetachEvent]";
       }),
@@ -111,7 +111,7 @@ function (exports, module, require) {
       (u.prototype._isVisible = null),
       (u.prototype._proFeatureInterruption = true),
       (u.prototype.getUUID = function () {
-        return this._uuid || (this._uuid = o.GUtil.uuid()), this._uuid;
+        return this._uuid || (this._uuid = GCore.GUtil.uuid()), this._uuid;
       }),
       (u.prototype.getParent = function () {
         return this._parent;
@@ -130,19 +130,19 @@ function (exports, module, require) {
           (this._feature = t),
           this._htmlElement.gPro({ pro: this._pro, feature: t });
         let require = false;
-        const o = gDesigner.getLicense(),
-          i = o.isLegacy() && gDesigner.isLegacyFeature(t),
-          r = !i && (o.isFree() || gDesigner.isAnonymous() || o.isExpired());
-        if ((this._pro && (require = o.isTrial() && !i), (!require && !r) || !this._action))
+        const GCore = gDesigner.getLicense(),
+          GEditor = GCore.isLegacy() && gDesigner.isLegacyFeature(t),
+          GMenuActivateEvent = !GEditor && (GCore.isFree() || gDesigner.isAnonymous() || GCore.isExpired());
+        if ((this._pro && (require = GCore.isTrial() && !GEditor), (!require && !GMenuActivateEvent) || !this._action))
           return;
-        let s = this._action.getTooltipConfig(this._action.getTooltipArea());
-        s &&
+        let GMenuCloseEvent = this._action.getTooltipConfig(this._action.getTooltipArea());
+        GMenuCloseEvent &&
           this._htmlElement.gRichTooltip(
             a.GRichTooltipConfig.from(
-              Object.assign({}, s.getConfig(), {
+              Object.assign({}, GMenuCloseEvent.getConfig(), {
                 isPro:
                   !gDesigner.isEnabledProFeatures() ||
-                  !(o.isPro() && !o.isExpired()),
+                  !(GCore.isPro() && !GCore.isExpired()),
               })
             )
           );
@@ -177,9 +177,9 @@ function (exports, module, require) {
           var module = this._htmlElement.find(".g-menu-item-caption");
           module.empty(),
             !this._caption ||
-            this._caption instanceof o.GLocaleKey ||
+            this._caption instanceof GCore.GLocaleKey ||
             "string" == typeof this._caption
-              ? module.html(this._caption ? o.GLocale.get(this._caption) : "")
+              ? module.html(this._caption ? GCore.GLocale.get(this._caption) : "")
               : module.append(this._caption);
         }
       }),
@@ -192,9 +192,9 @@ function (exports, module, require) {
           const t = this._htmlElement.find(".g-menu-item-info").empty();
           this._htmlElement.css("display", this._info ? "" : "none"),
             this._info &&
-              (this._info instanceof o.GLocaleKey ||
+              (this._info instanceof GCore.GLocaleKey ||
               "string" == typeof this._info
-                ? t.text(this._info ? o.GLocale.get(this._info) : "")
+                ? t.text(this._info ? GCore.GLocale.get(this._info) : "")
                 : t.append(this._info));
         }
       }),
@@ -205,7 +205,7 @@ function (exports, module, require) {
         this._shortcutHint = e;
         var t = this._htmlElement.find(".g-menu-item-shortcut");
         this._shortcutHint && this._shortcutHint.length > 0
-          ? (t.text(i.GKey.shortcutToString(e)),
+          ? (t.text(GEditor.GKey.shortcutToString(e)),
             t.css("display", ""),
             this._htmlElement.addClass("has-shortcut"))
           : (t.empty(),
@@ -303,7 +303,7 @@ function (exports, module, require) {
         e.stopPropagation();
       }),
       (u.prototype._detach = function (e) {
-        if (e.button == i.GMouseEvent.BUTTON_LEFT) {
+        if (e.button == GEditor.GMouseEvent.BUTTON_LEFT) {
           e.stopPropagation(), e.preventDefault(), (this._detached = true);
           const t = this._parent;
           t && (t.removeItem(t.indexOf(this)), t.close()),
@@ -359,8 +359,8 @@ function (exports, module, require) {
           this._category === u.Type.Menu &&
           ((this._menu = e),
           (this._menu._parent = this),
-          this._menu.addEventListener(d.EVENT, this._menuOpen.bind(this)),
-          this._menu.addEventListener(s.EVENT, this._menuClose.bind(this)));
+          this._menu.addEventListener(GMenuOpenEvent.EVENT, this._menuOpen.bind(this)),
+          this._menu.addEventListener(GMenuCloseEvent.EVENT, this._menuClose.bind(this)));
       }),
       (u.prototype.update = function () {
         this._action &&
@@ -391,23 +391,23 @@ function (exports, module, require) {
             this._action.isAvailable(this._componentId) &&
             this._action.isEnabled())
         ) {
-          let i = module();
+          let GEditor = module();
           var require = "execute";
           this._action.isPro() &&
             !gDesigner.isEnabledProFeatures(this._action.getId()) &&
             (require = "nonprotriespro"),
             this._action.execute(),
             (exports = true);
-          var o = this._action.statsValue() || this._action.getId();
-          i && "context" === i.__which
-            ? gDesigner.stats("action_" + require + "_context", o)
-            : i && "menubar" === i.__which
-            ? gDesigner.stats("action_" + require + "_menu", o)
-            : i && "assistantbar" === i.__which
-            ? gDesigner.stats("action_" + require + "_assistantbar", o)
-            : i && "touchmenu" === i.__which
-            ? gDesigner.stats("action_" + require + "_touchmenu", o)
-            : gDesigner.stats("action_" + require + "_toolbar", o);
+          var GCore = this._action.statsValue() || this._action.getId();
+          GEditor && "context" === GEditor.__which
+            ? gDesigner.stats("action_" + require + "_context", GCore)
+            : GEditor && "menubar" === GEditor.__which
+            ? gDesigner.stats("action_" + require + "_menu", GCore)
+            : GEditor && "assistantbar" === GEditor.__which
+            ? gDesigner.stats("action_" + require + "_assistantbar", GCore)
+            : GEditor && "touchmenu" === GEditor.__which
+            ? gDesigner.stats("action_" + require + "_touchmenu", GCore)
+            : gDesigner.stats("action_" + require + "_toolbar", GCore);
         }
         if (this.isEnabled()) {
           if (
@@ -445,8 +445,8 @@ function (exports, module, require) {
           this.hasEventListeners(u.ActivateEvent) &&
             this.trigger(u.ACTIVATE_EVENT),
             this._parent &&
-              this._parent.hasEventListeners(r) &&
-              this._parent.trigger(new r(this));
+              this._parent.hasEventListeners(GMenuActivateEvent) &&
+              this._parent.trigger(new GMenuActivateEvent(this));
         }
       }),
       (u.prototype.setTooltipConfig = function (e) {
@@ -468,7 +468,7 @@ function (exports, module, require) {
             this._parent.closeMenus(),
           this.isEnabled() &&
             (this._category == u.Type.Menu &&
-              o.GSystem.hardware === o.GSystem.Hardware.Desktop &&
+              GCore.GSystem.hardware === GCore.GSystem.Hardware.Desktop &&
               (!this.isRootItem() ||
                 (this.isRootMenuBarItem() && this.getMenuBar().isActive())) &&
               this._openMenu(),
@@ -489,7 +489,7 @@ function (exports, module, require) {
         if (
           this._category === u.Type.Menu &&
           (this.isRootItem() ||
-            o.GSystem.hardware !== o.GSystem.Hardware.Desktop)
+            GCore.GSystem.hardware !== GCore.GSystem.Hardware.Desktop)
         )
           return e.stopPropagation(), void e.preventDefault();
         this.isEnabled() &&
@@ -500,7 +500,7 @@ function (exports, module, require) {
       (u.prototype._mouseDown = function (e) {
         e.cancelable &&
           (this.isEnabled()
-            ? e.button == i.GMouseEvent.BUTTON_LEFT
+            ? e.button == GEditor.GMouseEvent.BUTTON_LEFT
               ? (e.stopPropagation(),
                 e.preventDefault(),
                 this._category === u.Type.Menu &&
@@ -512,11 +512,11 @@ function (exports, module, require) {
                       this._openMenu(),
                       (this._forcedAsOpened = true))))
               : (e.button,
-                i.GMouseEvent.BUTTON_MIDDLE,
+                GEditor.GMouseEvent.BUTTON_MIDDLE,
                 e.stopPropagation(),
                 e.preventDefault())
             : gDesigner.isTouchEnabled() &&
-              e.button === i.GMouseEvent.BUTTON_LEFT &&
+              e.button === GEditor.GMouseEvent.BUTTON_LEFT &&
               e.stopPropagation());
       }),
       (u.prototype._mouseUp = function (e) {
@@ -524,8 +524,8 @@ function (exports, module, require) {
           e.cancelable &&
           (e.stopPropagation(),
           e.preventDefault(),
-          e.button != i.GMouseEvent.BUTTON_MIDDLE &&
-            e.button != i.GMouseEvent.BUTTON_RIGHT &&
+          e.button != GEditor.GMouseEvent.BUTTON_MIDDLE &&
+            e.button != GEditor.GMouseEvent.BUTTON_RIGHT &&
             !this._detached &&
             this._category !== u.Type.Menu)
         ) {

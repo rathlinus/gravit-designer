@@ -7,23 +7,23 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     const { TOUCH_LAYOUT: s } = require(10) /* AppSettings */,
-      l = require(85) /* GContainer */;
+      GContainer = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey(
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GToggleTouchAction",
               "text.try-this-feature-pro-tooltip-title"
             )
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey(
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GToggleTouchAction",
               "text.try-this-feature-pro-tooltip-description"
             )
@@ -36,10 +36,10 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(c, r),
+    GCore.GObject.inherit(c, GAction),
       (c.ID = "view.toggle-touch"),
-      (c.TITLE = new o.GLocaleKey("GToggleTouchAction", "title")),
-      (c.TITLE_DISABLE = new o.GLocaleKey(
+      (c.TITLE = new GCore.GLocaleKey("GToggleTouchAction", "title")),
+      (c.TITLE_DISABLE = new GCore.GLocaleKey(
         "GToggleTouchAction",
         "title-disable"
       )),
@@ -54,7 +54,7 @@ function (exports, module, require) {
         return "touch";
       }),
       (c.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW;
+        return MenuItemBuilder.CATEGORY_VIEW;
       }),
       (c.prototype.isCheckable = function () {
         return true;
@@ -75,7 +75,7 @@ function (exports, module, require) {
         return (
           !!s &&
           !gDesigner.getLicense().isGuest() &&
-          gContainer.getRuntime() !== l.Runtime.IPad
+          gContainer.getRuntime() !== GContainer.Runtime.IPad
         );
       }),
       (c.prototype.statsValue = function () {

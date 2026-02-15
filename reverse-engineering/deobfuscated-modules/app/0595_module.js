@@ -6,26 +6,26 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
-    var o = require(10) /* AppSettings */;
+    var AppSettings = require(10) /* AppSettings */;
     function i(e) {
       const {
         accessToken: module,
         expires: require,
-        corporate: o,
+        corporate: AppSettings,
         accountId: a,
       } = new i.Settings(e);
       (this.accessToken = module),
         (this.expires = require),
-        (this.corporate = o),
+        (this.corporate = AppSettings),
         (this.accountId = a);
     }
     (i.Settings = function (e) {
       e || (e = {});
-      const { accessToken: module, expires: require, corporate: o = true, accountId: i } = e;
+      const { accessToken: module, expires: require, corporate: AppSettings = true, accountId: i } = e;
       return Object.assign(this, {
         accessToken: module,
         expires: require,
-        corporate: o,
+        corporate: AppSettings,
         accountId: i,
       });
     }),
@@ -43,7 +43,7 @@ function (exports, module, require) {
       (i.prototype.get = async function () {
         return this.isExpired()
           ? this.corporate
-            ? o.gApi.cloudServices.googleDrive.getAccessToken().then((e) => {
+            ? AppSettings.gApi.cloudServices.googleDrive.getAccessToken().then((e) => {
                 let { accessToken: module, expires: require } = e;
                 return (
                   (this.expires = require), (this.accessToken = module), this.accessToken

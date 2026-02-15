@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */;
     const o = require(86) /* module_86 */,
-      i = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       a = require(1531) /* module_1531 */,
       r = require(1532) /* module_1532 */,
       s = require(1533) /* module_1533 */,
@@ -38,7 +38,7 @@ function (exports, module, require) {
           require = module && module.markSavePoint();
         try {
           if (this._isDocAllowedToBeAutoSaved(e)) {
-            gDesigner.trigger(new i(i.Type.AutoSaveSynchronizing, e));
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.AutoSaveSynchronizing, e));
             const t = this._getAutoSaveHelper(e.getStorageItem().getFile());
             return (
               (function (t) {
@@ -53,15 +53,15 @@ function (exports, module, require) {
                   await this._createDocumentMetadata(e)
                 )
               ),
-              gDesigner.trigger(new i(i.Type.Modified, e)),
-              gDesigner.trigger(new i(i.Type.AutoSaveSynchronized, e)),
+              gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, e)),
+              gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.AutoSaveSynchronized, e)),
               true
             );
           }
           return false;
         } catch (t) {
           throw (
-            (gDesigner.trigger(new i(i.Type.AutoSaveSynchronizationFailed, e)),
+            (gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.AutoSaveSynchronizationFailed, e)),
             require && require.rollback(),
             t)
           );

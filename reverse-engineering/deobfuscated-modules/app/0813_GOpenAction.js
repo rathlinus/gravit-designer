@@ -7,16 +7,16 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       s = require(163) /* module_163 */;
     const l = require(446) /* module_446 */;
     function c() {}
-    o.GObject.inherit(c, r),
+    GCore.GObject.inherit(c, GAction),
       (c.ID = "file.open"),
-      (c.TITLE = new o.GLocaleKey("GOpenAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GOpenAction", "title")),
       (c.prototype.getId = function () {
         return c.ID;
       }),
@@ -24,13 +24,13 @@ function (exports, module, require) {
         return c.TITLE;
       }),
       (c.prototype.getCategory = function () {
-        return a.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (c.prototype.getGroup = function () {
         return "file-open";
       }),
       (c.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "O"];
+        return [GEditor.GKey.Constant.META, "O"];
       }),
       (c.prototype.isEnabled = function (e) {
         return (
@@ -40,7 +40,7 @@ function (exports, module, require) {
       }),
       (c.prototype.isAvailable = function () {
         return (
-          i.GPlatform.webBrowser !== i.GPlatform.constructor.WebBrowser.Safari
+          GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari
         );
       }),
       (c.prototype.execute = function (e, t) {

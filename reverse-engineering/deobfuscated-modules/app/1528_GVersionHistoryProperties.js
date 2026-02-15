@@ -6,25 +6,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(1) /* module */,
-      a = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       r = require(1163) /* module_1163 */,
-      s = o(require(123) /* GProperties */),
-      l = o(require(1159) /* module_1159 */),
-      c = o(require(220) /* Item */),
-      d = o(require(163) /* module_163 */),
-      u = o(require(219) /* module_219 */),
-      p = o(require(78) /* GDocumentEvent */),
-      g = o(require(86) /* module_86 */),
-      h = o(require(217) /* GDocumentStatusEvent */),
-      f = o(require(336) /* module_336 */),
-      m = o(require(67) /* GRichTooltipConfig */);
+      GProperties = _interopRequireDefault(require(123) /* GProperties */),
+      l = _interopRequireDefault(require(1159) /* module_1159 */),
+      c = _interopRequireDefault(require(220) /* Item */),
+      d = _interopRequireDefault(require(163) /* module_163 */),
+      u = _interopRequireDefault(require(219) /* module_219 */),
+      GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
+      g = _interopRequireDefault(require(86) /* module_86 */),
+      GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
+      f = _interopRequireDefault(require(336) /* module_336 */),
+      GRichTooltipConfig = _interopRequireDefault(require(67) /* GRichTooltipConfig */);
     function y() {}
-    i.GObject.inherit(y, s.default),
+    GCore.GObject.inherit(y, GProperties.default),
       (y.ID = "version-history"),
-      (y.TITLE = new i.GLocaleKey("GVersionHistoryProperties", "title")),
+      (y.TITLE = new GCore.GLocaleKey("GVersionHistoryProperties", "title")),
       (y.prototype._relayoutBindedToActiveDocument = null),
       (y.prototype._panel = null),
       (y.prototype._toolbar = null),
@@ -50,8 +50,8 @@ function (exports, module, require) {
               $("<span />")
                 .addClass("pro")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GVersionHistoryProperties", "title")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GVersionHistoryProperties", "title")
                   )
                 )
             )
@@ -75,17 +75,17 @@ function (exports, module, require) {
               $("<div/>")
                 .addClass("title")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GVersionHistoryProperties",
                       "text.title-manual-save"
                     )
                   )
                 )
                 .gRichTooltip(
-                  m.default.from({
-                    title: i.GLocale.get(
-                      new i.GLocaleKey(
+                  GRichTooltipConfig.default.from({
+                    title: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GVersionHistoryProperties",
                         "text.title-manual-save-tooltip-title"
                       )
@@ -100,24 +100,24 @@ function (exports, module, require) {
           .addClass("container")
           .append(this._versionsContainer)
           .appendTo(e);
-        a.AUTO_SAVE_ENABLED &&
+        AppSettings.AUTO_SAVE_ENABLED &&
           (this._autoSaveContainer = $("<div/>")
             .addClass("section")
             .append([
               $("<div/>")
                 .addClass("title")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GVersionHistoryProperties",
                       "text.title-auto-save"
                     )
                   )
                 )
                 .gRichTooltip(
-                  m.default.from({
-                    title: i.GLocale.get(
-                      new i.GLocaleKey(
+                  GRichTooltipConfig.default.from({
+                    title: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GVersionHistoryProperties",
                         "text.title-auto-save-tooltip-title"
                       )
@@ -138,61 +138,61 @@ function (exports, module, require) {
       }),
       (y.prototype._updateVersionHistory = function (e) {
         this._versionsContainer.find(".content").empty(),
-          a.AUTO_SAVE_ENABLED &&
+          AppSettings.AUTO_SAVE_ENABLED &&
             this._autoSaveContainer.find(".content").empty(),
           this._toggleLoading(true);
         var t = this;
         this._fileId = e;
         const require = [
-          a.gApi.listVersions(this._fileId, "tf").then((e) => {
+          AppSettings.gApi.listVersions(this._fileId, "tf").then((e) => {
             const { f: t, t: require } = e;
-            let o = [];
+            let _interopRequireDefault = [];
             for (let e = 0, t = require ? require.length : 0; e < t; e++)
               require[e]
-                ? o.push(a.gApi.getFile(this._fileId, false, require[e].versionId, "t"))
-                : o.push(null);
-            return Promise.all(o).then((e) => {
+                ? _interopRequireDefault.push(AppSettings.gApi.getFile(this._fileId, false, require[e].versionId, "t"))
+                : _interopRequireDefault.push(null);
+            return Promise.all(_interopRequireDefault).then((e) => {
               let require = [];
-              for (let o = 0, i = t.length; o < i; o++) {
-                let i = {
-                  version: t[o],
-                  thumbnail: e[o] || {
+              for (let _interopRequireDefault = 0, GCore = t.length; _interopRequireDefault < GCore; _interopRequireDefault++) {
+                let GCore = {
+                  version: t[_interopRequireDefault],
+                  thumbnail: e[_interopRequireDefault] || {
                     name: gDesigner.getWindows().getActiveWindow().getTitle(),
                     url_t: "assets/icon/versus.svg",
                   },
                 };
-                require.push(i);
+                require.push(GCore);
               }
               return Promise.resolve(require);
             });
           }),
         ];
-        a.AUTO_SAVE_ENABLED &&
+        AppSettings.AUTO_SAVE_ENABLED &&
           require.push(
-            a.gApi.listAutoSaves(this._fileId).then((e) => {
+            AppSettings.gApi.listAutoSaves(this._fileId).then((e) => {
               let t = [],
                 require = [];
-              for (let t = 0, o = e.versions.length; t < o; t++)
+              for (let t = 0, _interopRequireDefault = e.versions.length; t < _interopRequireDefault; t++)
                 require.push(
                   e.versions_t && e.versions_t[t]
-                    ? a.gApi.getAutoSaveThumbnail(
+                    ? AppSettings.gApi.getAutoSaveThumbnail(
                         this._fileId,
                         e.versions_t[t].versionId
                       )
                     : null
                 );
               return Promise.all(require).then((n) => {
-                for (let o = 0, i = e.versions.length; o < i; o++) {
-                  let i = {
-                    version: e.versions[o],
+                for (let _interopRequireDefault = 0, GCore = e.versions.length; _interopRequireDefault < GCore; _interopRequireDefault++) {
+                  let GCore = {
+                    version: e.versions[_interopRequireDefault],
                     thumbnail: {
                       name: gDesigner.getWindows().getActiveWindow().getTitle(),
                       url_t:
-                        (n && n[o] && n[o].url) || "assets/icon/versus.svg",
+                        (n && n[_interopRequireDefault] && n[_interopRequireDefault].url) || "assets/icon/versus.svg",
                     },
                     autosave: true,
                   };
-                  t.push(i);
+                  t.push(GCore);
                 }
                 return t;
               });
@@ -200,14 +200,14 @@ function (exports, module, require) {
           ),
           Promise.all(require)
             .then((e) => {
-              let [require, o] = e;
-              t._renderVersionsList(require, o), this._toggleLoading(false);
+              let [require, _interopRequireDefault] = e;
+              t._renderVersionsList(require, _interopRequireDefault), this._toggleLoading(false);
             })
             .catch(
               (e) => (
                 new u.default(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GVersionHistoryProperties",
                       "error-loading"
                     )
@@ -220,33 +220,33 @@ function (exports, module, require) {
       }),
       (y.prototype._renderVersionsList = function (e, t) {
         const require = gDesigner.isEnabledProFeatures(),
-          o = this,
-          s = gDesigner.getActiveDocument().getStorageItem(),
-          l = s && s.getVersionId && s.getVersionId(),
+          _interopRequireDefault = this,
+          GProperties = gDesigner.getActiveDocument().getStorageItem(),
+          l = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
           c = !!l;
         let d,
           u = this._versionsContainer.find(".content");
-        a.AUTO_SAVE_ENABLED && (d = this._autoSaveContainer.find(".content"));
+        AppSettings.AUTO_SAVE_ENABLED && (d = this._autoSaveContainer.find(".content"));
         const g = e.find((e) => e.version.latest);
-        let h = g,
-          m = false;
-        if (a.AUTO_SAVE_ENABLED && t && t.length) {
+        let GDocumentStatusEvent = g,
+          GRichTooltipConfig = false;
+        if (AppSettings.AUTO_SAVE_ENABLED && t && t.length) {
           const e = t.find((e) => e.version.latest);
-          a.DateAPI.lt(g.version.modified, e.version.modified, false) &&
-            ((h = e), (m = true));
+          AppSettings.DateAPI.lt(g.version.modified, e.version.modified, false) &&
+            ((GDocumentStatusEvent = e), (GRichTooltipConfig = true));
         }
-        const y = (e, t, a) => {
-          let { version: s, thumbnail: d, autosave: u } = e;
+        const y = (e, t, AppSettings) => {
+          let { version: GProperties, thumbnail: d, autosave: u } = e;
           return $("<div />")
             .addClass("version-history-item")
             .addClass(
-              (c ? l === s.versionId : ((m && u) || (!m && !u)) && s.latest)
+              (c ? l === GProperties.versionId : ((GRichTooltipConfig && u) || (!GRichTooltipConfig && !u)) && GProperties.latest)
                 ? "vhi-initial"
                 : ""
             )
-            .addClass(require || s.latest ? "" : "vhi-disabled")
+            .addClass(require || GProperties.latest ? "" : "vhi-disabled")
             .addClass(
-              (c ? l === s.versionId : s.versionId === h.version.versionId)
+              (c ? l === GProperties.versionId : GProperties.versionId === GDocumentStatusEvent.version.versionId)
                 ? "vhi-active"
                 : ""
             )
@@ -262,25 +262,25 @@ function (exports, module, require) {
                   $("<div />")
                     .addClass("vhi-title")
                     .text(
-                      s.versionId === h.version.versionId
-                        ? i.GLocale.get(
-                            new i.GLocaleKey(
+                      GProperties.versionId === GDocumentStatusEvent.version.versionId
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GVersionHistoryProperties",
                               "text.current-version"
                             )
                           )
-                        : i.GLocale.get(
-                            new i.GLocaleKey(
+                        : GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GVersionHistoryProperties",
                               "text.version"
                             )
-                          ).replace("%version", a - t)
+                          ).replace("%version", AppSettings - t)
                     )
                 )
                 .append(
                   $("<div />")
                     .addClass("vhi-updated")
-                    .text((0, r.dateToVersionFormat)(s.modified))
+                    .text((0, r.dateToVersionFormat)(GProperties.modified))
                 )
             )
             .append(
@@ -289,7 +289,7 @@ function (exports, module, require) {
                 .addClass("gravit-icon-settings")
                 .on("click", function (e) {
                   e.stopPropagation(),
-                    (require || s.latest) &&
+                    (require || GProperties.latest) &&
                       ($(this).find(".vhi-settings-list").toggle(),
                       gDesigner.stats(
                         "version-history-panel_click_setting-icon"
@@ -305,8 +305,8 @@ function (exports, module, require) {
                       $("<div />")
                         .addClass("vhi-settings-item g-menu-item-menu")
                         .text(
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GVersionHistoryProperties",
                               "preview"
                             )
@@ -320,8 +320,8 @@ function (exports, module, require) {
                             gDesigner.intercomStats(
                               "Preview version from history"
                             ),
-                            o._showPreview(
-                              s.versionId,
+                            _interopRequireDefault._showPreview(
+                              GProperties.versionId,
                               d.name,
                               $(this).closest(".version-history-item"),
                               u
@@ -333,8 +333,8 @@ function (exports, module, require) {
                       $("<div />")
                         .addClass("vhi-settings-item g-menu-item-menu")
                         .text(
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GVersionHistoryProperties",
                               "restore"
                             )
@@ -348,7 +348,7 @@ function (exports, module, require) {
                             gDesigner.intercomStats(
                               "Open version from history"
                             ),
-                            o._applyVersion(s.versionId, d.name, u),
+                            _interopRequireDefault._applyVersion(GProperties.versionId, d.name, u),
                             $(this).parent(".vhi-settings-list").hide();
                         })
                     )
@@ -369,7 +369,7 @@ function (exports, module, require) {
                   : (gDesigner.stats(
                       "version-history-panel_show-preview_from-main-panel"
                     ),
-                    o._showPreview(s.versionId, d.name, $(t), u),
+                    _interopRequireDefault._showPreview(GProperties.versionId, d.name, $(t), u),
                     gDesigner.intercomStats("Preview version from history"));
               }, 500);
             })
@@ -382,11 +382,11 @@ function (exports, module, require) {
                 );
               $(this).data("dblclicked", 2),
                 gDesigner.stats("version-history-panel_apply-version"),
-                o._applyVersion(s.versionId, d.name, u),
+                _interopRequireDefault._applyVersion(GProperties.versionId, d.name, u),
                 gDesigner.intercomStats("Open version from history");
             })
             .on("mouseenter", function () {
-              (require || s.latest) && $(this).addClass("show-icon");
+              (require || GProperties.latest) && $(this).addClass("show-icon");
             })
             .on("mouseleave", function () {
               $(this).removeClass("show-icon"),
@@ -395,17 +395,17 @@ function (exports, module, require) {
         };
         function v(e) {
           for (let t = 0, require = e.length; t < require; t++) {
-            let o = e[t],
-              i = null;
-            (i = o.autosave ? d : u), i.append(y(o, t, require));
+            let _interopRequireDefault = e[t],
+              GCore = null;
+            (GCore = _interopRequireDefault.autosave ? d : u), GCore.append(y(_interopRequireDefault, t, require));
           }
         }
         u.empty(),
           d && d.empty(),
           v(e),
-          a.AUTO_SAVE_ENABLED && v(t),
+          AppSettings.AUTO_SAVE_ENABLED && v(t),
           this._updatePanelHeight(),
-          gDesigner.addEventListener(p.default, this._documentEvent, this),
+          gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
           gDesigner.addEventListener(
             f.default,
             this._storageEventHandler,
@@ -426,13 +426,13 @@ function (exports, module, require) {
       }),
       (y.prototype._documentEvent = function (e) {
         let { document: module, type: require } = e;
-        if (require === p.default.Type.AutoSaveSynchronized)
+        if (require === GDocumentEvent.default.Type.AutoSaveSynchronized)
           return void this._updateVersionHistory(this._fileId);
         if (this._loadingPreview) return;
-        const o = module.getStorageItem() instanceof c.default.Item,
-          i = module.getScene();
-        ((o && module.getStorageItem().getId() !== this._fileId) ||
-          (!o && i && i.getProperty("cid") !== this._fileId)) &&
+        const _interopRequireDefault = module.getStorageItem() instanceof c.default.Item,
+          GCore = module.getScene();
+        ((_interopRequireDefault && module.getStorageItem().getId() !== this._fileId) ||
+          (!_interopRequireDefault && GCore && GCore.getProperty("cid") !== this._fileId)) &&
           this.close();
       }),
       (y.prototype._storageEventHandler = function (e) {
@@ -442,13 +442,13 @@ function (exports, module, require) {
           this._fileId === require.getId() &&
           this._updateVersionHistory(this._fileId);
       }),
-      (y.prototype._showPreview = async function (e, t, n, o) {
-        var a = gDesigner.getActiveDocument();
-        if (a.isModified())
+      (y.prototype._showPreview = async function (e, t, n, _interopRequireDefault) {
+        var AppSettings = gDesigner.getActiveDocument();
+        if (AppSettings.isModified())
           return (
             new u.default(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GVersionsHistoryAction",
                   "unsaved-modifications"
                 )
@@ -463,28 +463,28 @@ function (exports, module, require) {
             this._fileId,
             t,
             e,
-            !!o
+            !!_interopRequireDefault
           )
         );
         r.lockByVersionHistory(),
           this._previewDoc
             ? (gDesigner.replaceDocument(this._previewDoc, r),
               this._previewDoc.removeEventListener(
-                h.default,
+                GDocumentStatusEvent.default,
                 this._documentStatusEventHandler,
                 this
               ),
               (this._previewDoc = r))
-            : ((this._previousDoc = a),
+            : ((this._previousDoc = AppSettings),
               (this._previewDoc = r),
               gDesigner.replaceDocument(this._previousDoc, r)),
-          r.addEventListener(h.default, this._documentStatusEventHandler, this),
+          r.addEventListener(GDocumentStatusEvent.default, this._documentStatusEventHandler, this),
           r.load(null, {
             progress: (e) => {
               100 == e &&
                 ((this._loadingPreview = false),
                 gDesigner.trigger(
-                  new p.default(p.default.Type.StorageItemUpdated, r)
+                  new GDocumentEvent.default(GDocumentEvent.default.Type.StorageItemUpdated, r)
                 ));
             },
           }),
@@ -512,7 +512,7 @@ function (exports, module, require) {
               .data("versionId", e)
               .data("title", t)
               .appendTo($("body"))),
-            this._relayout(e, t, o),
+            this._relayout(e, t, _interopRequireDefault),
             this._relayoutBindedToActiveDocument &&
               window.removeEventListener(
                 "resize",
@@ -522,7 +522,7 @@ function (exports, module, require) {
               this,
               e,
               t,
-              o
+              _interopRequireDefault
             )),
             window.addEventListener(
               "resize",
@@ -531,24 +531,24 @@ function (exports, module, require) {
       }),
       (y.prototype._relayout = function (e, t, n) {
         if (this._previewOverlay) {
-          var o = $("#toolbar");
+          var _interopRequireDefault = $("#toolbar");
           (this._buttonsToolbar = $("<div />")
             .addClass("vhp-preview-overlay")
             .css({
-              position: o.css("position"),
-              top: o.css("top"),
-              left: o.css("left"),
-              right: o.css("right"),
-              bottom: o.css("bottom"),
-              background: o.css("background") || o.css("background-color"),
-              border: o.css("border"),
+              position: _interopRequireDefault.css("position"),
+              top: _interopRequireDefault.css("top"),
+              left: _interopRequireDefault.css("left"),
+              right: _interopRequireDefault.css("right"),
+              bottom: _interopRequireDefault.css("bottom"),
+              background: _interopRequireDefault.css("background") || _interopRequireDefault.css("background-color"),
+              border: _interopRequireDefault.css("border"),
             })
             .append(
               $("<button />")
                 .addClass("edit-version")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GVersionHistoryProperties",
                       "edit-version"
                     )
@@ -567,8 +567,8 @@ function (exports, module, require) {
               $("<button />")
                 .addClass("close-preview")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GVersionHistoryProperties",
                       "close-preview"
                     )
@@ -599,7 +599,7 @@ function (exports, module, require) {
             (this._previousDoc = null)),
           this._previewDoc &&
             (this._previewDoc.removeEventListener(
-              h.default,
+              GDocumentStatusEvent.default,
               this._documentStatusEventHandler,
               this
             ),
@@ -620,12 +620,12 @@ function (exports, module, require) {
       }),
       (y.prototype._applyVersion = async function (e, t, n) {
         gDesigner.stats("version-history-panel_open_version", this._fileId);
-        var o = gDesigner.getActiveDocument();
-        if (o.isModified())
+        var _interopRequireDefault = gDesigner.getActiveDocument();
+        if (_interopRequireDefault.isModified())
           return (
             new u.default(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GVersionsHistoryAction",
                   "unsaved-modifications"
                 )
@@ -633,7 +633,7 @@ function (exports, module, require) {
             ).open(),
             false
           );
-        var a = gDesigner.openDocumentWithReload(
+        var AppSettings = gDesigner.openDocumentWithReload(
           await c.default.from(
             gDesigner.getDefaultStorage(),
             this._fileId,
@@ -642,9 +642,9 @@ function (exports, module, require) {
             n
           )
         );
-        gDesigner.activateDocument(a),
+        gDesigner.activateDocument(AppSettings),
           this._previousDoc && (this._previousDoc = null),
-          this._previewDoc || gDesigner.removeDocument(o),
+          this._previewDoc || gDesigner.removeDocument(_interopRequireDefault),
           this.close();
       }),
       (y.prototype._toggleLoading = function (e) {
@@ -657,7 +657,7 @@ function (exports, module, require) {
         gDesigner.stats("version-history-panel_close_panel", this._fileId),
           this._closePreview(),
           gDesigner.trigger(new l.default(l.default.Type.Disable)),
-          gDesigner.removeEventListener(p.default, this._documentEvent, this),
+          gDesigner.removeEventListener(GDocumentEvent.default, this._documentEvent, this),
           gDesigner.removeEventListener(
             f.default,
             this._storageEventHandler,

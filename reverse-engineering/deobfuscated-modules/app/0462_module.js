@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     var o = require(463) /* module_463 */,
-      i = require(94) /* Exports_Buf */,
+      Buf = require(94) /* Exports_Buf */,
       a = require(312) /* module_312 */,
       r = require(225) /* module_225 */,
       s = require(313) /* module_313 */,
       l = Object.prototype.toString;
     function c(e) {
       if (!(this instanceof c)) return new c(e);
-      this.options = i.assign(
+      this.options = Buf.assign(
         {
           level: -1,
           method: 8,
@@ -84,14 +84,14 @@ function (exports, module, require) {
       do {
         if (
           (0 === s.avail_out &&
-            ((s.output = new i.Buf8(c)), (s.next_out = 0), (s.avail_out = c)),
+            ((s.output = new Buf.Buf8(c)), (s.next_out = 0), (s.avail_out = c)),
           1 !== (n = o.deflate(s, r)) && 0 !== n)
         )
           return this.onEnd(n), (this.ended = true), false;
         (0 !== s.avail_out && (0 !== s.avail_in || (4 !== r && 2 !== r))) ||
           ("string" === this.options.to
-            ? this.onData(a.buf2binstring(i.shrinkBuf(s.output, s.next_out)))
-            : this.onData(i.shrinkBuf(s.output, s.next_out)));
+            ? this.onData(a.buf2binstring(Buf.shrinkBuf(s.output, s.next_out)))
+            : this.onData(Buf.shrinkBuf(s.output, s.next_out)));
       } while ((s.avail_in > 0 || 0 === s.avail_out) && 1 !== n);
       return 4 === r
         ? ((n = o.deflateEnd(this.strm)),
@@ -107,7 +107,7 @@ function (exports, module, require) {
         0 === e &&
           ("string" === this.options.to
             ? (this.result = this.chunks.join(""))
-            : (this.result = i.flattenChunks(this.chunks))),
+            : (this.result = Buf.flattenChunks(this.chunks))),
           (this.chunks = []),
           (this.err = e),
           (this.msg = this.strm.msg);

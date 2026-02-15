@@ -19,22 +19,22 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const { TRANSLATION_MANAGER: i } = require(10) /* AppSettings */;
     function a() {}
-    o.GObject.inherit(a, o.GObject),
+    GCore.GObject.inherit(a, GCore.GObject),
       (a.prototype._translationBase = null),
       (a.prototype.getProjectsDescription = function () {
         return this._translationBase.getMapped().map((e) => e.project);
       }),
       (a.prototype.loadProjectTranslations = function (e) {
-        if (!o.GTranslation.Projects.hasOwnProperty(e))
+        if (!GCore.GTranslation.Projects.hasOwnProperty(e))
           throw Error("Can't load translations, invalid project!");
         (this._project = e),
           (this._translations = this._translationBase.getByProject(e)),
           (this._classesMap = Object.keys(
             this._translations.find(
-              (e) => e.keyValue === o.GLocaleLanguage.English
+              (e) => e.keyValue === GCore.GLocaleLanguage.English
             ).translations
           ));
       }),
@@ -46,10 +46,10 @@ function (exports, module, require) {
       (a._CSV_SEPARATOR = "|||"),
       (a.prototype.init = function () {
         return (
-          (this._translationBase = new o.GTranslation()),
-          this.loadProjectTranslations(o.GTranslation.Projects.Designer),
-          (this._localeLanguage = o.GLocaleLanguage),
-          this.isConsideringExtension() && o.GLocale.enableExtension(),
+          (this._translationBase = new GCore.GTranslation()),
+          this.loadProjectTranslations(GCore.GTranslation.Projects.Designer),
+          (this._localeLanguage = GCore.GLocaleLanguage),
+          this.isConsideringExtension() && GCore.GLocale.enableExtension(),
           Promise.resolve()
         );
       }),
@@ -110,7 +110,7 @@ function (exports, module, require) {
             var r = this._clone(e);
             delete r.translations,
               delete r.translationsExtended,
-              (t = o.GUtil.extend(t, r));
+              (t = GCore.GUtil.extend(t, r));
           }),
           Promise.resolve(n)
         );
@@ -135,7 +135,7 @@ function (exports, module, require) {
       }),
       (a.prototype._exportAsCSV = function (e) {
         let { language: module = null, onlyEmpty: require = false } = e;
-        const o = function (e) {
+        const GCore = function (e) {
           return (e && e.replace(/\r?\n|\r/g, "")) || "";
         };
         var i =
@@ -161,8 +161,8 @@ function (exports, module, require) {
                         e.language,
                         t,
                         i,
-                        o(require ? s.translations[t][i] : e.translations[t][i]),
-                        o(l),
+                        GCore(require ? s.translations[t][i] : e.translations[t][i]),
+                        GCore(l),
                       ].join(a._CSV_SEPARATOR)
                     );
               });
@@ -190,7 +190,7 @@ function (exports, module, require) {
                       : ", is empty")
                 );
               var [d, u, p, g, h] = c;
-              if (!o.GLocaleLanguage.hasOwnProperty(d))
+              if (!GCore.GLocaleLanguage.hasOwnProperty(d))
                 return r(
                   "Language not available ('"
                     .concat(d, "'), row ")
@@ -228,7 +228,7 @@ function (exports, module, require) {
         return t ? t.realName : null;
       }),
       (a.prototype.createNewLanguage = async function (e, t, n) {
-        return new Promise((o, i) => {
+        return new Promise((GCore, i) => {
           var a = this.getTranslationTemplate();
           return (
             (a.language = e),
@@ -240,7 +240,7 @@ function (exports, module, require) {
             this._translations.push(a),
             this._localeLanguage.hasOwnProperty(e) ||
               (this._localeLanguage[e] = a.keyValue),
-            o(a)
+            GCore(a)
           );
         });
       }),

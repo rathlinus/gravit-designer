@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(527) /* module_527 */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(31) /* GAction */,
-      a = require(18) /* MenuItemBuilder */;
+    var GCore = require(1) /* module */,
+      GAction = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */;
     const { gApi: r } = require(10) /* AppSettings */;
     var s = require(337) /* stub_requires_1098 */;
     function l() {}
-    o.GObject.inherit(l, i),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "toggle-pro-beta-license"),
       (l.prototype.getId = function () {
         return l.ID;
@@ -25,7 +25,7 @@ function (exports, module, require) {
           : "Switch to PRO License";
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_HELP;
+        return MenuItemBuilder.CATEGORY_HELP;
       }),
       (l.prototype.getGroup = function () {
         return "help";

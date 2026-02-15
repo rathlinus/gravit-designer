@@ -5,24 +5,24 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(15) /* module */,
-      a = require(53) /* module */,
-      r = require(1) /* module */,
+      GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       s = require(67) /* GRichTooltipConfig */,
-      l = o(require(340) /* GTouchTool */),
-      c = o(require(807) /* module_807 */),
-      d = o(require(198) /* Exports_GOutlineSidebar */),
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      c = _interopRequireDefault(require(807) /* module_807 */),
+      GOutlineSidebar = _interopRequireDefault(require(198) /* Exports_GOutlineSidebar */),
       u = require(1161) /* module_1161 */,
-      p = o(require(565) /* module_565 */),
-      g = require(10) /* AppSettings */,
-      h = require(123) /* GProperties */,
+      p = _interopRequireDefault(require(565) /* module_565 */),
+      AppSettings = require(10) /* AppSettings */,
+      GProperties = require(123) /* GProperties */,
       f = require(450) /* module_450 */;
     const m = require(607) /* module_607 */,
-      y = require(44) /* GSystemDialog */;
+      GSystemDialog = require(44) /* GSystemDialog */;
     function v() {}
-    r.GObject.inherit(v, h),
+    GCore.GObject.inherit(v, GProperties),
       (v.prototype._panel = null),
       (v.prototype._toolbar = null),
       (v.prototype._elements = null),
@@ -36,7 +36,7 @@ function (exports, module, require) {
         (this._panel = e.addClass("border-properties-panel")),
           (this._toolbar = t),
           this.setTouchTools([
-            new l.default({
+            new GTouchTool.default({
               id: "border",
               icon: "gravit-icon-touch-border",
               panel: this._panel,
@@ -46,8 +46,8 @@ function (exports, module, require) {
           ]),
           $("<label></label>")
             .text(
-              r.GLocale.get(
-                new r.GLocaleKey("GBorderPaintLayerProperties", "title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GBorderPaintLayerProperties", "title")
               )
             )
             .appendTo(t);
@@ -56,21 +56,21 @@ function (exports, module, require) {
           .css("width", "280px")
           .gOverlay({ releaseOnClose: false })),
           this._advancedStrokePanel.parent().addClass("border-settings");
-        var o = function (e, t, n) {
-            var o = this._getSelectedPaintLayer();
-            o ||
-              (o = $(this._panel)
+        var _interopRequireDefault = function (e, t, n) {
+            var _interopRequireDefault = this._getSelectedPaintLayer();
+            _interopRequireDefault ||
+              (_interopRequireDefault = $(this._panel)
                 .find(".border-block:last")
                 .data("paintLayer")),
-              o && this._assign(o, e, t, n);
+              _interopRequireDefault && this._assign(_interopRequireDefault, e, t, n);
           }.bind(this),
           i = function (e, t, n) {
             this._getSelectedPaintLayer()
               ? this._assign(this._getSelectedPaintLayer(), e, t, n)
               : this._panel.find(".border-block").each(
-                  function (o, i) {
-                    var a = $(i).data("paintLayer");
-                    a && this._assign(a, e, t, n);
+                  function (_interopRequireDefault, i) {
+                    var GTools = $(i).data("paintLayer");
+                    GTools && this._assign(GTools, e, t, n);
                   }.bind(this)
                 );
           }.bind(this),
@@ -87,12 +87,12 @@ function (exports, module, require) {
                       (n = $(t._panel)
                         .find(".border-block:last")
                         .data("paintLayer")),
-                    t._getProperty(n, "_blj") === r.GPaintCanvas.LineJoin.Miter)
+                    t._getProperty(n, "_blj") === GCore.GPaintCanvas.LineJoin.Miter)
                   ) {
-                    var i = r.GLength.parseEquationValue($(this).val());
+                    var i = GCore.GLength.parseEquationValue($(this).val());
                     gDesigner.stats("border_change_miterlimit", i),
                       null !== i && i > 0
-                        ? o(["_vs", e], [true, i])
+                        ? _interopRequireDefault(["_vs", e], [true, i])
                         : t._updateProperties();
                   }
                 })
@@ -108,45 +108,45 @@ function (exports, module, require) {
                       .closest(".columns")
                       .find('[data-property="_bds"]')
                       .each(function (e, n) {
-                        var o = r.GLength.parseEquationValue($(this).val());
-                        null !== o && o >= 0 && t.push(o);
+                        var _interopRequireDefault = GCore.GLength.parseEquationValue($(this).val());
+                        null !== _interopRequireDefault && _interopRequireDefault >= 0 && t.push(_interopRequireDefault);
                       }),
                     i(["_vs", e], [true, t]);
                 })
                 .gInputBox();
             if (0 === e.indexOf("_ba-")) {
               var n = "",
-                a = "",
+                GTools = "",
                 s = e.substr("_ba-".length);
               switch (s) {
-                case r.GStylable.BorderAlignment.Inside:
+                case GCore.GStylable.BorderAlignment.Inside:
                   (n = "gravit-icon-line-stroke-inside"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GStylable", "border-alignment.inside")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GStylable", "border-alignment.inside")
                     ));
                   break;
-                case r.GStylable.BorderAlignment.Center:
+                case GCore.GStylable.BorderAlignment.Center:
                   (n = "gravit-icon-line-stroke-center"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GStylable", "border-alignment.center")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GStylable", "border-alignment.center")
                     ));
                   break;
-                case r.GStylable.BorderAlignment.Outside:
+                case GCore.GStylable.BorderAlignment.Outside:
                   (n = "gravit-icon-line-stroke-outside"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GStylable", "border-alignment.outside")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GStylable", "border-alignment.outside")
                     ));
               }
               return $("<button></button>")
                 .addClass("g-icon g-flat")
                 .css("width", "33.3%")
                 .attr("data-property", e)
-                .attr("data-title", a)
+                .attr("data-title", GTools)
                 .on("click", function () {
                   var e = s,
-                    t = Object.keys(r.GStylable.BorderAlignment);
+                    t = Object.keys(GCore.GStylable.BorderAlignment);
                   for (var n of t)
-                    if (s === r.GStylable.BorderAlignment[n]) {
+                    if (s === GCore.GStylable.BorderAlignment[n]) {
                       e = n;
                       break;
                     }
@@ -156,64 +156,64 @@ function (exports, module, require) {
                 .append($("<span></span>").addClass(n));
             }
             if (0 === e.indexOf("_blc-")) {
-              (n = ""), (a = "");
-              var l = e.substr("_blc-".length);
-              switch (l) {
-                case r.GPaintCanvas.LineCap.Butt:
+              (n = ""), (GTools = "");
+              var GTouchTool = e.substr("_blc-".length);
+              switch (GTouchTool) {
+                case GCore.GPaintCanvas.LineCap.Butt:
                   (n = "gravit-icon-line-cap-butt"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GPaintCanvas", "linecap.butt")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPaintCanvas", "linecap.butt")
                     ));
                   break;
-                case r.GPaintCanvas.LineCap.Round:
+                case GCore.GPaintCanvas.LineCap.Round:
                   (n = "gravit-icon-line-cap-round"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GPaintCanvas", "linecap.round")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPaintCanvas", "linecap.round")
                     ));
                   break;
-                case r.GPaintCanvas.LineCap.Square:
+                case GCore.GPaintCanvas.LineCap.Square:
                   (n = "gravit-icon-line-cap-square"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GPaintCanvas", "linecap.square")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPaintCanvas", "linecap.square")
                     ));
               }
               return $("<button></button>")
                 .addClass("g-icon g-flat")
                 .css("width", "33.3%")
-                .attr("data-title", a)
+                .attr("data-title", GTools)
                 .attr("data-property", e)
                 .on("click", function () {
-                  gDesigner.stats("border_change_cap", l),
-                    i(["_vs", "_blc"], [true, l]);
+                  gDesigner.stats("border_change_cap", GTouchTool),
+                    i(["_vs", "_blc"], [true, GTouchTool]);
                 })
                 .append($("<span></span>").addClass(n));
             }
             if (0 === e.indexOf("_blj-")) {
-              (n = ""), (a = "");
+              (n = ""), (GTools = "");
               var c = e.substr("_blj-".length);
               switch (c) {
-                case r.GPaintCanvas.LineJoin.Bevel:
+                case GCore.GPaintCanvas.LineJoin.Bevel:
                   (n = "gravit-icon-line-join-bevel"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GPaintCanvas", "linejoin.bevel")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPaintCanvas", "linejoin.bevel")
                     ));
                   break;
-                case r.GPaintCanvas.LineJoin.Round:
+                case GCore.GPaintCanvas.LineJoin.Round:
                   (n = "gravit-icon-line-join-round"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GPaintCanvas", "linejoin.round")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPaintCanvas", "linejoin.round")
                     ));
                   break;
-                case r.GPaintCanvas.LineJoin.Miter:
+                case GCore.GPaintCanvas.LineJoin.Miter:
                   (n = "gravit-icon-line-join-miter"),
-                    (a = r.GLocale.get(
-                      new r.GLocaleKey("GPaintCanvas", "linejoin.miter")
+                    (GTools = GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPaintCanvas", "linejoin.miter")
                     ));
               }
               return $("<button></button>")
                 .addClass("g-icon g-flat")
                 .css("width", "33.3%")
-                .attr("data-title", a)
+                .attr("data-title", GTools)
                 .attr("data-property", e)
                 .on("click", function () {
                   gDesigner.stats("border_change_join", c),
@@ -250,8 +250,8 @@ function (exports, module, require) {
                 })
                 .on("input", function (t) {
                   var n = $(t.target),
-                    o = parseInt(n.gInputSlider("value")) / 100;
-                  i([e], [o]);
+                    _interopRequireDefault = parseInt(n.gInputSlider("value")) / 100;
+                  i([e], [_interopRequireDefault]);
                 })
                 .on("change", function (t) {
                   gDesigner.stats("border_change_markersposition"),
@@ -266,7 +266,7 @@ function (exports, module, require) {
                     i(
                       [e],
                       [
-                        r.GLength.parseEquationValue(
+                        GCore.GLength.parseEquationValue(
                           $(this).gInputBox("value")
                         ) / 100,
                       ]
@@ -280,53 +280,53 @@ function (exports, module, require) {
                   $("<option></option>")
                     .attr("value", "")
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GCommonNames", "text.none")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "text.none")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.Circle)
+                    .attr("value", GCore.GStylable.BorderMarker.Circle)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.circle")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.circle")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.Bullet)
+                    .attr("value", GCore.GStylable.BorderMarker.Bullet)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.bullet")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.bullet")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.Diamond)
+                    .attr("value", GCore.GStylable.BorderMarker.Diamond)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.diamond")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.diamond")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.Line)
+                    .attr("value", GCore.GStylable.BorderMarker.Line)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.line")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.line")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.LineDouble)
+                    .attr("value", GCore.GStylable.BorderMarker.LineDouble)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GStylable",
                           "border-marker.linedouble"
                         )
@@ -335,37 +335,37 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.Arrow)
+                    .attr("value", GCore.GStylable.BorderMarker.Arrow)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.arrow")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.arrow")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.ArrowFat)
+                    .attr("value", GCore.GStylable.BorderMarker.ArrowFat)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.arrowfat")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.arrowfat")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.ArrowLine)
+                    .attr("value", GCore.GStylable.BorderMarker.ArrowLine)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-marker.arrowline")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-marker.arrowline")
                       )
                     )
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.ArrowDoubleLine)
+                    .attr("value", GCore.GStylable.BorderMarker.ArrowDoubleLine)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GStylable",
                           "border-marker.arrowdoubleline"
                         )
@@ -374,10 +374,10 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.ArrowLineBar)
+                    .attr("value", GCore.GStylable.BorderMarker.ArrowLineBar)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GStylable",
                           "border-marker.arrowlinebar"
                         )
@@ -386,10 +386,10 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<option></option>")
-                    .attr("value", r.GStylable.BorderMarker.ArrowPointer)
+                    .attr("value", GCore.GStylable.BorderMarker.ArrowPointer)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GStylable",
                           "border-marker.arrowpointer"
                         )
@@ -401,8 +401,8 @@ function (exports, module, require) {
                     .attr("value", "#")
                     .prop("disabled", true)
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GBorderPaintLayerProperties",
                           "option.custom"
                         )
@@ -411,22 +411,22 @@ function (exports, module, require) {
                 )
                 .on("change", function (t) {
                   var n = $(this).val(),
-                    o = Object.keys(r.GStylable.BorderMarker);
-                  for (var a of o)
-                    if (n === r.GStylable.BorderMarker[a]) {
-                      n = a;
+                    _interopRequireDefault = Object.keys(GCore.GStylable.BorderMarker);
+                  for (var GTools of _interopRequireDefault)
+                    if (n === GCore.GStylable.BorderMarker[GTools]) {
+                      n = GTools;
                       break;
                     }
                   gDesigner.stats("border_change_headmarker", n),
                     i([e], [$(this).val() || null]);
                 });
             if (0 === e.indexOf("arrow-paste-")) {
-              var d = e.substr("arrow-paste-".length);
+              var GOutlineSidebar = e.substr("arrow-paste-".length);
               return $("<button></button>")
                 .addClass("g-flat g-icon")
                 .attr(
                   "data-title",
-                  r.GLocale.get(new r.GLocaleKey("GPasteAction", "title"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GPasteAction", "title"))
                 )
                 .append($("<span></span>").addClass("gravit-icon-paste"))
                 .on(
@@ -434,23 +434,23 @@ function (exports, module, require) {
                   function () {
                     gDesigner.stats("border_click_paste");
                     var e = false,
-                      t = r.GNode.deserialize(
-                        gDesigner.getClipboardContent(r.GNode.MIME_TYPE)
+                      t = GCore.GNode.deserialize(
+                        gDesigner.getClipboardContent(GCore.GNode.MIME_TYPE)
                       );
                     if (t && t.length)
                       for (var n = 0; n < t.length; ++n)
-                        if (t[n].hasMixin(r.GVertexSource)) {
-                          var o = t[n],
-                            a = r.GVertexInfo.calculateBounds(o, true);
-                          if (a) {
-                            var s = a.getSide(r.GRect.Side.BOTTOM_CENTER);
+                        if (t[n].hasMixin(GCore.GVertexSource)) {
+                          var _interopRequireDefault = t[n],
+                            GTools = GCore.GVertexInfo.calculateBounds(_interopRequireDefault, true);
+                          if (GTools) {
+                            var s = GTools.getSide(GCore.GRect.Side.BOTTOM_CENTER);
                             i(
-                              [d],
+                              [GOutlineSidebar],
                               [
-                                new r.GVertexContainer(
-                                  new r.GVertexTransformer(
-                                    o,
-                                    new r.GTransform(
+                                new GCore.GVertexContainer(
+                                  new GCore.GVertexTransformer(
+                                    _interopRequireDefault,
+                                    new GCore.GTransform(
                                       1,
                                       0,
                                       0,
@@ -468,8 +468,8 @@ function (exports, module, require) {
                         }
                     e ||
                       alert(
-                        r.GLocale.get(
-                          new r.GLocaleKey("GCommonNames", "arrow-paste.alert")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "arrow-paste.alert")
                         )
                       );
                   }.bind(this)
@@ -489,8 +489,8 @@ function (exports, module, require) {
                     $("<div />")
                       .addClass("border-property-label")
                       .text(
-                        r.GLocale.get(
-                          new r.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GBorderPaintLayerProperties",
                             "text.ends"
                           )
@@ -501,17 +501,17 @@ function (exports, module, require) {
                     $("<div />")
                       .addClass("border-property-content")
                       .append(
-                        u("_blc-" + r.GPaintCanvas.LineCap.Butt).addClass(
+                        u("_blc-" + GCore.GPaintCanvas.LineCap.Butt).addClass(
                           "g-group-start"
                         )
                       )
                       .append(
-                        u("_blc-" + r.GPaintCanvas.LineCap.Round).addClass(
+                        u("_blc-" + GCore.GPaintCanvas.LineCap.Round).addClass(
                           "g-group-element"
                         )
                       )
                       .append(
-                        u("_blc-" + r.GPaintCanvas.LineCap.Square).addClass(
+                        u("_blc-" + GCore.GPaintCanvas.LineCap.Square).addClass(
                           "g-group-end"
                         )
                       )
@@ -525,8 +525,8 @@ function (exports, module, require) {
                     $("<div />")
                       .addClass("border-property-label")
                       .text(
-                        r.GLocale.get(
-                          new r.GLocaleKey("GCommonNames", "text.position")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "text.position")
                         )
                       )
                   )
@@ -534,18 +534,18 @@ function (exports, module, require) {
                     $("<div />")
                       .addClass("border-property-content")
                       .append(
-                        u("_ba-" + r.GStylable.BorderAlignment.Inside).addClass(
+                        u("_ba-" + GCore.GStylable.BorderAlignment.Inside).addClass(
                           "g-group-start"
                         )
                       )
                       .append(
-                        u("_ba-" + r.GStylable.BorderAlignment.Center).addClass(
+                        u("_ba-" + GCore.GStylable.BorderAlignment.Center).addClass(
                           "g-group-element"
                         )
                       )
                       .append(
                         u(
-                          "_ba-" + r.GStylable.BorderAlignment.Outside
+                          "_ba-" + GCore.GStylable.BorderAlignment.Outside
                         ).addClass("g-group-end")
                       )
                   ),
@@ -565,8 +565,8 @@ function (exports, module, require) {
                       $("<div />")
                         .addClass("border-property-label")
                         .text(
-                          r.GLocale.get(
-                            new r.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GBorderPaintLayerProperties",
                               "text.joins"
                             )
@@ -577,17 +577,17 @@ function (exports, module, require) {
                       $("<div />")
                         .addClass("border-property-content")
                         .append(
-                          u("_blj-" + r.GPaintCanvas.LineJoin.Bevel).addClass(
+                          u("_blj-" + GCore.GPaintCanvas.LineJoin.Bevel).addClass(
                             "g-group-start"
                           )
                         )
                         .append(
-                          u("_blj-" + r.GPaintCanvas.LineJoin.Miter).addClass(
+                          u("_blj-" + GCore.GPaintCanvas.LineJoin.Miter).addClass(
                             "g-group-element "
                           )
                         )
                         .append(
-                          u("_blj-" + r.GPaintCanvas.LineJoin.Round).addClass(
+                          u("_blj-" + GCore.GPaintCanvas.LineJoin.Round).addClass(
                             "g-group-end"
                           )
                         )
@@ -601,8 +601,8 @@ function (exports, module, require) {
                       $("<div />")
                         .addClass("border-property-label")
                         .text(
-                          r.GLocale.get(
-                            new r.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GBorderPaintLayerProperties",
                               "text.miter-limit"
                             )
@@ -616,15 +616,15 @@ function (exports, module, require) {
                     )
                     .gRichTooltip(
                       s.GRichTooltipConfig.from({
-                        title: r.GLocale.get(
-                          new r.GLocaleKey(
+                        title: GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GBorderPaintLayerProperties",
                             "text.miter-limit"
                           )
                         ),
-                        video: g.gApi.getRichTooltipVideoURL("Miter_Limit.mp4"),
-                        description: r.GLocale.get(
-                          new r.GLocaleKey(
+                        video: AppSettings.gApi.getRichTooltipVideoURL("Miter_Limit.mp4"),
+                        description: GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GBorderPaintLayerProperties",
                             "text.miter-limit-tooltip-description"
                           )
@@ -646,29 +646,29 @@ function (exports, module, require) {
                 {
                   width: "25%",
                   content: u("_bds"),
-                  label: r.GLocale.get(
-                    new r.GLocaleKey("GBorderPaintLayerProperties", "text.dash")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GBorderPaintLayerProperties", "text.dash")
                   ),
                 },
                 {
                   width: "25%",
                   content: u("_bds"),
-                  label: r.GLocale.get(
-                    new r.GLocaleKey("GBorderPaintLayerProperties", "text.gap")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GBorderPaintLayerProperties", "text.gap")
                   ),
                 },
                 {
                   width: "25%",
                   content: u("_bds"),
-                  label: r.GLocale.get(
-                    new r.GLocaleKey("GBorderPaintLayerProperties", "text.dash")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GBorderPaintLayerProperties", "text.dash")
                   ),
                 },
                 {
                   width: "25%",
                   content: u("_bds"),
-                  label: r.GLocale.get(
-                    new r.GLocaleKey("GBorderPaintLayerProperties", "text.gap")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GBorderPaintLayerProperties", "text.gap")
                   ),
                 },
               ],
@@ -683,8 +683,8 @@ function (exports, module, require) {
                   width: "45%",
                   padding: false,
                   content: $("<div></div>").html(
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "text.start-arrow"
                       )
@@ -696,8 +696,8 @@ function (exports, module, require) {
                   width: "45%",
                   padding: false,
                   content: $("<div></div>").html(
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "text.end-arrow"
                       )
@@ -733,8 +733,8 @@ function (exports, module, require) {
                 {
                   width: "45%",
                   prefix: {
-                    label: r.GLocale.get(
-                      new r.GLocaleKey(
+                    label: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "text.outline"
                       )
@@ -748,8 +748,8 @@ function (exports, module, require) {
                 {
                   width: "45%",
                   prefix: {
-                    label: r.GLocale.get(
-                      new r.GLocaleKey(
+                    label: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "text.outline"
                       )
@@ -767,8 +767,8 @@ function (exports, module, require) {
               columns: [
                 {
                   width: "45%",
-                  label: r.GLocale.get(
-                    new r.GLocaleKey(
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GBorderPaintLayerProperties",
                       "text.marker-position"
                     )
@@ -779,8 +779,8 @@ function (exports, module, require) {
                 { width: "10%" },
                 {
                   width: "45%",
-                  label: r.GLocale.get(
-                    new r.GLocaleKey(
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GBorderPaintLayerProperties",
                       "text.marker-position"
                     )
@@ -812,8 +812,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span></span>").text(
-                        r.GLocale.get(
-                          new r.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GBorderPaintLayerProperties",
                             "text.autoscale-borders"
                           )
@@ -829,8 +829,8 @@ function (exports, module, require) {
             .attr("data-action", "stroke-settings")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GBorderPaintLayerProperties",
                   "text.advanced-stroke-settings"
                 )
@@ -851,14 +851,14 @@ function (exports, module, require) {
             )
             .gRichTooltip(
               s.GRichTooltipConfig.from({
-                title: r.GLocale.get(
-                  new r.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GBorderPaintLayerProperties",
                     "text.advanced-stroke-settings-tooltip-title"
                   )
                 ),
-                description: r.GLocale.get(
-                  new r.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GBorderPaintLayerProperties",
                     "text.advanced-stroke-settings-tooltip-description"
                   )
@@ -872,8 +872,8 @@ function (exports, module, require) {
             .attr("data-action", "remove")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GBorderPaintLayerProperties",
                   "action.remove-selected-border"
                 )
@@ -885,39 +885,39 @@ function (exports, module, require) {
               gDesigner.stats("border_remove_border"), e.stopPropagation();
               var t = n._getSelectedPaintLayer();
               t &&
-                a.GEditor.tryRunTransaction(
+                GTools.GEditor.tryRunTransaction(
                   n._elements[0],
                   function () {
                     var e = [];
                     n._iterateEqualPaintLayer(t, function (t) {
                       e.push(t);
                     }),
-                      r.GUtil.each(e, function (e, t) {
+                      GCore.GUtil.each(e, function (e, t) {
                         t.getParent().removeChild(t);
                       });
                   },
-                  r.GLocale.get(
-                    new r.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GBorderPaintLayerProperties",
                       "action.remove-border"
                     )
                   )
                 );
-              const o = gDesigner
+              const _interopRequireDefault = gDesigner
                 .getRightSidebars()
-                .getSidebar(d.default.SidebarsIds.GInspectorSidebar);
-              o.trigger(new c.default(c.default.Type.ChildRemoved, o));
+                .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
+              _interopRequireDefault.trigger(new c.default(c.default.Type.ChildRemoved, _interopRequireDefault));
             })
             .gRichTooltip(
               s.GRichTooltipConfig.from({
-                title: r.GLocale.get(
-                  new r.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GBorderPaintLayerProperties",
                     "text.remove-border-tooltip-title"
                   )
                 ),
-                description: r.GLocale.get(
-                  new r.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GBorderPaintLayerProperties",
                     "text.remove-border-tooltip-description"
                   )
@@ -931,8 +931,8 @@ function (exports, module, require) {
             .attr("data-action", "add")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GBorderPaintLayerProperties",
                   "action.add-border"
                 )
@@ -944,50 +944,50 @@ function (exports, module, require) {
               "click",
               function (e) {
                 gDesigner.stats("border_add_border"),
-                  a.GEditor.tryRunTransaction(
+                  GTools.GEditor.tryRunTransaction(
                     n._elements[0],
                     function () {
                       const e = n._document && n._document.getScene(),
                         t = e && e.getProperty("cm"),
-                        o = r.GColorHelper.convertColor(
-                          r.GRGBColor.BLACK,
-                          t || r.GColor.ColorModes.RGB
+                        _interopRequireDefault = GCore.GColorHelper.convertColor(
+                          GCore.GRGBColor.BLACK,
+                          t || GCore.GColor.ColorModes.RGB
                         );
                       for (var i = 0; i < n._elements.length; ++i) {
-                        var a = n._elements[i],
-                          s = new r.GStylable.BorderPaintLayer();
-                        a instanceof r.GText
+                        var GTools = n._elements[i],
+                          s = new GCore.GStylable.BorderPaintLayer();
+                        GTools instanceof GCore.GText
                           ? s.setProperty(
                               "_ba",
-                              r.GStylable.BorderAlignment.Outside
+                              GCore.GStylable.BorderAlignment.Outside
                             )
-                          : a instanceof r.GShape
-                          ? a instanceof r.GEllipse &&
-                            a.$etp === r.GEllipse.Type.Arc
+                          : GTools instanceof GCore.GShape
+                          ? GTools instanceof GCore.GEllipse &&
+                            GTools.$etp === GCore.GEllipse.Type.Arc
                             ? s.setProperty(
                                 "_ba",
-                                r.GStylable.BorderAlignment.Center
+                                GCore.GStylable.BorderAlignment.Center
                               )
                             : s.setProperty(
                                 "_ba",
-                                r.GStylable.BorderAlignment.Inside
+                                GCore.GStylable.BorderAlignment.Inside
                               )
-                          : a instanceof r.GPath &&
-                            !a.$closed &&
+                          : GTools instanceof GCore.GPath &&
+                            !GTools.$closed &&
                             s.setProperty(
                               "_ba",
-                              r.GStylable.BorderAlignment.Center
+                              GCore.GStylable.BorderAlignment.Center
                             ),
-                          s.setProperty("_pt", o),
-                          a.getPaintLayers().appendChild(s);
+                          s.setProperty("_pt", _interopRequireDefault),
+                          GTools.getPaintLayers().appendChild(s);
                         const e = gDesigner
                           .getRightSidebars()
-                          .getSidebar(d.default.SidebarsIds.GInspectorSidebar);
+                          .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
                         e.trigger(new c.default(c.default.Type.ChildAdded, e));
                       }
                     },
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "action.add-border"
                       )
@@ -999,14 +999,14 @@ function (exports, module, require) {
             )
             .gRichTooltip(
               s.GRichTooltipConfig.from({
-                title: r.GLocale.get(
-                  new r.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GBorderPaintLayerProperties",
                     "text.add-border-tooltip-title"
                   )
                 ),
-                description: r.GLocale.get(
-                  new r.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GBorderPaintLayerProperties",
                     "text.add-border-tooltip-description"
                   )
@@ -1020,7 +1020,7 @@ function (exports, module, require) {
             .getWorkspace()
             .getStyleEdManager()
             .addEventListener(
-              a.GStyleEdManager.EditorEvent,
+              GTools.GStyleEdManager.EditorEvent,
               this._styleEditorEventHandler,
               this
             ),
@@ -1032,13 +1032,13 @@ function (exports, module, require) {
               function (e) {
                 var t = this._panel.find(".copy-info-overlay").eq(0),
                   n = this._panel.find(".border-block.g-selected") || null,
-                  o = (n && n.position().top) || 0,
+                  _interopRequireDefault = (n && n.position().top) || 0,
                   i = $("<span/>")
                     .addClass("copy-info-overlay")
-                    .css({ top: o })
+                    .css({ top: _interopRequireDefault })
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GBorderPaintLayerProperties",
                           "text.copy-border"
                         )
@@ -1065,7 +1065,7 @@ function (exports, module, require) {
           });
       }),
       (v.prototype.update = function (e, t, n) {
-        const o = this._styleEditorChange;
+        const _interopRequireDefault = this._styleEditorChange;
         if (
           (this._styleEditorChange && (this._styleEditorChange = false),
           this._ownChange)
@@ -1077,21 +1077,21 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                r.GNode.AfterInsertEvent,
+                GCore.GNode.AfterInsertEvent,
                 this._afterInsert,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                r.GNode.BeforeRemoveEvent,
+                GCore.GNode.BeforeRemoveEvent,
                 this._beforeRemove,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                r.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
@@ -1101,17 +1101,17 @@ function (exports, module, require) {
         ) {
           for (var i = 0; i < t.length; ++i) {
             var s = t[i],
-              l = function (e, t) {
-                t.hasMixin(r.GStylable) &&
+              GTouchTool = function (e, t) {
+                t.hasMixin(GCore.GStylable) &&
                   t
                     .getStylePropertySets()
-                    .indexOf(r.GStylable.PropertySet.FillPaintLayers) >= 0 &&
+                    .indexOf(GCore.GStylable.PropertySet.FillPaintLayers) >= 0 &&
                   this._elements.push(t);
               }.bind(this),
-              c = a.GElementEditor.getEditor(s);
+              c = GTools.GElementEditor.getEditor(s);
             c && c.getStylableParts()
-              ? r.GUtil.each(c.getStylableParts(), l)
-              : l(null, s);
+              ? GCore.GUtil.each(c.getStylableParts(), GTouchTool)
+              : GTouchTool(null, s);
           }
           if (this._elements.length)
             return (
@@ -1119,25 +1119,25 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  r.GNode.AfterInsertEvent,
+                  GCore.GNode.AfterInsertEvent,
                   this._afterInsert,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  r.GNode.BeforeRemoveEvent,
+                  GCore.GNode.BeforeRemoveEvent,
                   this._beforeRemove,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  r.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
-              o || this._updateProperties(n),
+              _interopRequireDefault || this._updateProperties(n),
               true
             );
         }
@@ -1158,14 +1158,14 @@ function (exports, module, require) {
       }),
       (v.prototype._styleEditorEventHandler = function (e) {
         this._styleEdOn &&
-          e.type == a.GStyleEdManager.EditorEventType.PrepareModifiedEvent &&
+          e.type == GTools.GStyleEdManager.EditorEventType.PrepareModifiedEvent &&
           (this._styleEditorChange = true);
       }),
       (v.prototype._updateProperties = function (e) {
         if (this._elements && this._elements.length) {
           this._panel.find(".border-block").remove();
           var module = this._elements[0].getPaintLayers().getBorderLayers();
-          r.GUtil.each(
+          GCore.GUtil.each(
             module,
             function (t, n) {
               n && this._insertPaintLayer(n, e);
@@ -1190,24 +1190,24 @@ function (exports, module, require) {
       }),
       (v.prototype._insertPaintLayer = function (e, t) {
         var n = this,
-          o = false,
-          l = null,
+          _interopRequireDefault = false,
+          GTouchTool = null,
           c = null,
-          d = null,
-          h = null,
+          GOutlineSidebar = null,
+          GProperties = null,
           m = null,
           v = 0,
           _ = 0,
           b = function (e) {
-            if (l) {
+            if (GTouchTool) {
               var t = $(e).data("paintLayer");
-              if (t && (t !== l || i.GPlatform.modifiers.shiftKey))
-                return l.getParent() === t.getParent();
+              if (t && (t !== GTouchTool || i.GPlatform.modifiers.shiftKey))
+                return GTouchTool.getParent() === t.getParent();
             }
             return false;
           },
-          w = function (t, n, o, i) {
-            this._assign(e, t, n, o, i);
+          w = function (t, n, _interopRequireDefault, i) {
+            this._assign(e, t, n, _interopRequireDefault, i);
           }.bind(this),
           C = function (t) {
             if ("_pt" === t)
@@ -1215,12 +1215,12 @@ function (exports, module, require) {
                 .attr("data-property", "_pt")
                 .gPatternChooser({
                   types: [
-                    r.GColor,
-                    r.GLinearGradient,
-                    r.GRadialGradient,
-                    r.GAngularGradient,
-                    r.GBackground,
-                    r.GTexturePattern,
+                    GCore.GColor,
+                    GCore.GLinearGradient,
+                    GCore.GRadialGradient,
+                    GCore.GAngularGradient,
+                    GCore.GBackground,
+                    GCore.GTexturePattern,
                   ],
                 })
                 .on("chooseropen", function () {
@@ -1233,12 +1233,12 @@ function (exports, module, require) {
                     (n._styleEdOn = true),
                     (n._chooserElem = $(this));
                 })
-                .on("chooserclose", function (e, t, o) {
+                .on("chooserclose", function (e, t, _interopRequireDefault) {
                   if (
                     gDesigner
                       .getWorkspace()
                       .getStyleEdManager()
-                      .getOverlayLock(o)
+                      .getOverlayLock(_interopRequireDefault)
                   )
                     t();
                   else if (
@@ -1253,38 +1253,38 @@ function (exports, module, require) {
                   ) {
                     var i = gPatternChooser.getPattern();
                     !i ||
-                      i instanceof r.GRGBColor ||
-                      y.showCDRUnsupportedObjectWarning();
+                      i instanceof GCore.GRGBColor ||
+                      GSystemDialog.showCDRUnsupportedObjectWarning();
                   }
                   n._chooserElem = null;
                 })
-                .on("patternchange", function (e, t, n, o, i, a) {
-                  var r = ["_vs"],
+                .on("patternchange", function (e, t, n, _interopRequireDefault, i, GTools) {
+                  var GCore = ["_vs"],
                     s = [true];
-                  undefined !== t && (r.push("_pt"), s.push(t)),
-                    "number" == typeof n && (r.push("_op"), s.push(n));
-                  var l = null;
+                  undefined !== t && (GCore.push("_pt"), s.push(t)),
+                    "number" == typeof n && (GCore.push("_op"), s.push(n));
+                  var GTouchTool = null;
                   i &&
-                    ((l = { chooserOn: true }),
-                    null != a && (l.activeStopIdx = a)),
-                    w(r, s, o, l);
+                    ((GTouchTool = { chooserOn: true }),
+                    null != GTools && (GTouchTool.activeStopIdx = GTools)),
+                    w(GCore, s, _interopRequireDefault, GTouchTool);
                 });
             if ("_bl" == t)
               return $("<select></select>")
                 .gBlendMode()
                 .gRichTooltip(
                   s.GRichTooltipConfig.from({
-                    title: r.GLocale.getValue(
+                    title: GCore.GLocale.getValue(
                       "GAppearanceProperties",
                       "text.blend-tooltip-title"
                     ),
-                    description: r.GLocale.getValue(
+                    description: GCore.GLocale.getValue(
                       "GAppearanceProperties",
                       "text.blend-tooltip-description"
                     ),
                     middle: false,
                     forceShow: true,
-                    learnMore: g.LINKS.BLENDING_MODES_DOCUMENTATION_URL,
+                    learnMore: AppSettings.LINKS.BLENDING_MODES_DOCUMENTATION_URL,
                   })
                 )
                 .attr("data-property", "_bl")
@@ -1304,7 +1304,7 @@ function (exports, module, require) {
                       [
                         true,
                         (t ||
-                          r.GLength.parseEquationValue(
+                          GCore.GLength.parseEquationValue(
                             $(this).gInputBox("value")
                           )) / 100,
                       ]
@@ -1314,7 +1314,7 @@ function (exports, module, require) {
                       .find($(".transparency"))
                       .gInputSlider(
                         "value",
-                        r.GLength.parseEquationValue($(this).gInputBox("value"))
+                        GCore.GLength.parseEquationValue($(this).gInputBox("value"))
                       );
                 })
                 .gInputBox({
@@ -1329,22 +1329,22 @@ function (exports, module, require) {
                 .on("change", function () {
                   gDesigner.stats("border_change_width");
                   var e = $(this).gUnitBox("value"),
-                    o = e ? e.toUnit(r.GLength.Unit.PX) : null;
-                  null !== o && o >= 0
-                    ? w(["_vs", t], [true, o])
+                    _interopRequireDefault = e ? e.toUnit(GCore.GLength.Unit.PX) : null;
+                  null !== _interopRequireDefault && _interopRequireDefault >= 0
+                    ? w(["_vs", t], [true, _interopRequireDefault])
                     : n._updateProperties();
                 })
                 .gUnitBox({ minValue: 0, source: "border" })
                 .gRichTooltip(
                   s.GRichTooltipConfig.from({
-                    title: r.GLocale.get(
-                      new r.GLocaleKey(
+                    title: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "text.border-width-tooltip-title"
                       )
                     ),
-                    description: r.GLocale.get(
-                      new r.GLocaleKey(
+                    description: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GBorderPaintLayerProperties",
                         "text.border-width-tooltip-description"
                       )
@@ -1361,8 +1361,8 @@ function (exports, module, require) {
                 )
                 .attr(
                   "data-title",
-                  r.GLocale.get(
-                    new r.GLocaleKey("GCommonNames", "action.toggle-visibility")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "action.toggle-visibility")
                   )
                 )
                 .on("click", function (e) {
@@ -1397,7 +1397,7 @@ function (exports, module, require) {
             .data("paintLayer", e)
             .attr("draggable", "true")
             .on("mousedown", function (e) {
-              (o =
+              (_interopRequireDefault =
                 gDesigner.isTouchEnabled() &&
                 e.originalEvent &&
                 e.originalEvent.target
@@ -1409,24 +1409,24 @@ function (exports, module, require) {
                     $(e.target).hasClass("column")),
                 $(e.target)
                   .closest(".border-block")
-                  .toggleClass("g-draggable-disabled", !o);
+                  .toggleClass("g-draggable-disabled", !_interopRequireDefault);
             })
             .on("dragstart", function (e) {
-              if (!o) return e.preventDefault(), void e.stopPropagation();
+              if (!_interopRequireDefault) return e.preventDefault(), void e.stopPropagation();
               var t = $(e.target).closest(".border-block"),
                 s = t.offset(),
-                d = e.originalEvent;
+                GOutlineSidebar = e.originalEvent;
               (c = window.gDragImage()).addClass(
                 "drag-delete gravit-icon-trash"
               ),
-                (h = n._panel.offset()),
+                (GProperties = n._panel.offset()),
                 (m = n._panel.outerHeight()),
                 (v = e.clientX - s.left),
                 (_ = e.clientY - s.top),
-                d.stopPropagation(),
-                (l = t.data("paintLayer")),
-                (d.dataTransfer.effectAllowed = "move"),
-                d.dataTransfer.setData("text/plain", "dummy_data"),
+                GOutlineSidebar.stopPropagation(),
+                (GTouchTool = t.data("paintLayer")),
+                (GOutlineSidebar.dataTransfer.effectAllowed = "move"),
+                GOutlineSidebar.dataTransfer.setData("text/plain", "dummy_data"),
                 n._panel.find(".border-block").each(function (e, t) {
                   $(t).append(
                     $("<div></div>")
@@ -1434,12 +1434,12 @@ function (exports, module, require) {
                       .on("dragenter", function () {
                         var e = $(this.parentNode).data("paintLayer");
                         if (b(this.parentNode)) {
-                          if (l && e && l.getParent() === e.getParent()) {
-                            var t = l.getParent(),
-                              n = t.getIndexOfChild(l),
-                              o = t.getIndexOfChild(e);
-                            n !== o &&
-                              (n < o
+                          if (GTouchTool && e && GTouchTool.getParent() === e.getParent()) {
+                            var t = GTouchTool.getParent(),
+                              n = t.getIndexOfChild(GTouchTool),
+                              _interopRequireDefault = t.getIndexOfChild(e);
+                            n !== _interopRequireDefault &&
+                              (n < _interopRequireDefault
                                 ? x.insertBefore(this.parentNode)
                                 : x.insertAfter(this.parentNode));
                           }
@@ -1461,107 +1461,107 @@ function (exports, module, require) {
                         if (
                           (n._panel.find(".g-drop-indicator").remove(),
                           n._panel.find(".grid-drag-overlay").remove(),
-                          l && t && l.getParent() === t.getParent())
+                          GTouchTool && t && GTouchTool.getParent() === t.getParent())
                         ) {
-                          var o = l.getParent(),
-                            s = o.getIndexOfChild(l),
-                            c = o.getIndexOfChild(t);
-                          a.GEditor.tryRunTransaction(
-                            o,
+                          var _interopRequireDefault = GTouchTool.getParent(),
+                            s = _interopRequireDefault.getIndexOfChild(GTouchTool),
+                            c = _interopRequireDefault.getIndexOfChild(t);
+                          GTools.GEditor.tryRunTransaction(
+                            _interopRequireDefault,
                             function () {
                               if (i.GPlatform.modifiers.shiftKey) {
-                                var e = l.clone();
-                                o.insertChild(e, s < c ? t.getNext() : t);
+                                var e = GTouchTool.clone();
+                                _interopRequireDefault.insertChild(e, s < c ? t.getNext() : t);
                               } else
                                 s !== c &&
-                                  (o.removeChild(l),
-                                  o.insertChild(l, s < c ? t.getNext() : t));
+                                  (_interopRequireDefault.removeChild(GTouchTool),
+                                  _interopRequireDefault.insertChild(GTouchTool, s < c ? t.getNext() : t));
                             },
                             i.GPlatform.modifiers.shiftKey
-                              ? r.GLocale.get(
-                                  new r.GLocaleKey(
+                              ? GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GBorderPaintLayerProperties",
                                     "action.duplicate-border"
                                   )
                                 )
-                              : r.GLocale.get(
-                                  new r.GLocaleKey(
+                              : GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GBorderPaintLayerProperties",
                                     "action.move-border"
                                   )
                                 )
                           ),
                             n._updateProperties(),
-                            n._setSelectedPaintLayer(l);
+                            n._setSelectedPaintLayer(GTouchTool);
                         }
-                        l = null;
+                        GTouchTool = null;
                       })
                   );
                 });
             })
             .on("drag", function (e) {
-              d = (0, u.handleDragForDeleteIcon)(e, c, h, m, v, _);
+              GOutlineSidebar = (0, u.handleDragForDeleteIcon)(e, c, GProperties, m, v, _);
             })
             .on("dragend", function (e) {
               var t = e.originalEvent,
-                o = $(e.target)
+                _interopRequireDefault = $(e.target)
                   .closest(".border-block")
                   .closest(".border-block")
                   .data("paintLayer");
               if (
                 (n._panel.find(".g-drop-indicator").remove(),
                 n._panel.find(".grid-drag-overlay").remove(),
-                l && o && l.getParent() === o.getParent())
+                GTouchTool && _interopRequireDefault && GTouchTool.getParent() === _interopRequireDefault.getParent())
               ) {
-                var s = l.getParent(),
-                  u = s.getIndexOfChild(l),
-                  p = s.getIndexOfChild(o);
-                a.GEditor.tryRunTransaction(
+                var s = GTouchTool.getParent(),
+                  u = s.getIndexOfChild(GTouchTool),
+                  p = s.getIndexOfChild(_interopRequireDefault);
+                GTools.GEditor.tryRunTransaction(
                   s,
                   function () {
                     if (i.GPlatform.modifiers.shiftKey) {
-                      var e = l.clone();
-                      s.insertChild(e, u < p ? o.getNext() : o);
+                      var e = GTouchTool.clone();
+                      s.insertChild(e, u < p ? _interopRequireDefault.getNext() : _interopRequireDefault);
                     } else
                       u !== p &&
-                        (s.removeChild(l),
+                        (s.removeChild(GTouchTool),
                         s.insertChild(
-                          l,
-                          u < p ? o.getNext() : o.getPrevious()
+                          GTouchTool,
+                          u < p ? _interopRequireDefault.getNext() : _interopRequireDefault.getPrevious()
                         ));
                   },
                   i.GPlatform.modifiers.shiftKey
-                    ? r.GLocale.get(
-                        new r.GLocaleKey(
+                    ? GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GFillPaintLayerProperties",
                           "action.duplicate"
                         )
                       )
-                    : r.GLocale.get(
-                        new r.GLocaleKey(
+                    : GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GFillPaintLayerProperties",
                           "action.move"
                         )
                       )
                 ),
                   n._updateProperties(),
-                  n._setSelectedPaintLayer(l);
+                  n._setSelectedPaintLayer(GTouchTool);
               }
-              l &&
-                d &&
-                a.GEditor.tryRunTransaction(
+              GTouchTool &&
+                GOutlineSidebar &&
+                GTools.GEditor.tryRunTransaction(
                   n._elements[0],
                   function () {
                     var e = [];
-                    n._iterateEqualPaintLayer(l, function (t) {
+                    n._iterateEqualPaintLayer(GTouchTool, function (t) {
                       e.push(t);
                     }),
-                      r.GUtil.each(e, function (e, t) {
+                      GCore.GUtil.each(e, function (e, t) {
                         t.getParent().removeChild(t);
                       });
                   },
-                  r.GLocale.get(
-                    new r.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GBorderPaintLayerProperties",
                       "action.remove-border"
                     )
@@ -1570,7 +1570,7 @@ function (exports, module, require) {
                 c && c.css("display", "none"),
                 (c = null),
                 t.stopPropagation(),
-                (l = null);
+                (GTouchTool = null);
             })
             .on("click", function () {
               gDesigner.stats("border_set_border"), n._setSelectedPaintLayer(e);
@@ -1596,8 +1596,8 @@ function (exports, module, require) {
                     )
                     .attr(
                       "data-title",
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "action.toggle-visibility"
                         )
@@ -1684,40 +1684,40 @@ function (exports, module, require) {
       }),
       (v.prototype._removePaintLayer = function (e) {
         this._panel.find(".border-block").each(function (t, n) {
-          var o = $(n);
-          if (o.data("paintLayer") === e) return o.remove(), false;
+          var _interopRequireDefault = $(n);
+          if (_interopRequireDefault.data("paintLayer") === e) return _interopRequireDefault.remove(), false;
         });
       }),
       (v.prototype._updatePaintLayer = function (e, t) {
         var n = this;
         e &&
-          (this._panel.find(".border-block").each(function (t, o) {
-            var i = $(o);
+          (this._panel.find(".border-block").each(function (t, _interopRequireDefault) {
+            var i = $(_interopRequireDefault);
             if (i.data("paintLayer") === e) {
               i.find('[data-property="_pt"]')
                 .gPatternChooser("setPattern", e.getProperty("_pt", false, false, true))
                 .gPatternChooser("value", e.getProperty("_pt", false, false, true))
                 .gPatternChooser("opacity", e.getProperty("_op", false, false, true));
-              var a = n._getProperty(e, "_bw", false, null);
+              var GTools = n._getProperty(e, "_bw", false, null);
               i.find('[data-property="_bw"]').each(function (e, t) {
                 $(t)
                   .gUnitBox({
                     unit:
                       n._document.getScene().getProperty("ut") ===
-                      r.GLength.Unit.PX
-                        ? r.GLength.Unit.PX
-                        : r.GLength.Unit.PT,
+                      GCore.GLength.Unit.PX
+                        ? GCore.GLength.Unit.PX
+                        : GCore.GLength.Unit.PT,
                     minValue: 0,
                   })
                   .gUnitBox(
                     "value",
-                    null !== a ? new r.GLength(a, r.GLength.Unit.PX) : null
+                    null !== GTools ? new GCore.GLength(GTools, GCore.GLength.Unit.PX) : null
                   );
               }),
                 i.find('[data-property="_op"]').each(function (t, n) {
                   $(n).gInputBox(
                     "value",
-                    r.GUtil.formatOpacity(
+                    GCore.GUtil.formatOpacity(
                       100 * e.getProperty("_op", false, false, true)
                     )
                   );
@@ -1731,8 +1731,8 @@ function (exports, module, require) {
           }),
           this._updateAdvancedSettings(),
           t &&
-            (t.evtType == a.GEditor.ModifiedEvent.Type.Undo ||
-              t.evtType == a.GEditor.ModifiedEvent.Type.Redo) &&
+            (t.evtType == GTools.GEditor.ModifiedEvent.Type.Undo ||
+              t.evtType == GTools.GEditor.ModifiedEvent.Type.Redo) &&
             t.chooserOn &&
             null != t.borderLayerIndex &&
             e.getParent().getIndexOfChild(e) == t.borderLayerIndex &&
@@ -1743,29 +1743,29 @@ function (exports, module, require) {
                 null != t.activeStopIdx ? t.activeStopIdx : null
               ));
       }),
-      (v.prototype._assign = function (e, t, n, o, i) {
-        if (o)
+      (v.prototype._assign = function (e, t, n, _interopRequireDefault, i) {
+        if (_interopRequireDefault)
           this._iterateEqualPaintLayer(e, function (e) {
             e.setProperties(t, n, false, false, true);
           });
         else if (this._document) {
           var s = null;
           if (i) {
-            var l = e.getParent().getIndexOfChild(e);
-            s = $.extend({ borderLayerIndex: l }, i);
+            var GTouchTool = e.getParent().getIndexOfChild(e);
+            s = $.extend({ borderLayerIndex: GTouchTool }, i);
           }
           this._ownChange = true;
           var c = this._document.getEditor();
           c.beginTransaction();
           try {
-            this._iterateEqualPaintLayer(e, function (e, o) {
-              var i = a.GElementEditor.getEditor(o);
+            this._iterateEqualPaintLayer(e, function (e, _interopRequireDefault) {
+              var i = GTools.GElementEditor.getEditor(_interopRequireDefault);
               (i && i.applyPropertiesToParts(t, n)) || e.setProperties(t, n);
             });
           } finally {
             c.commitTransaction(
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GBorderPaintLayerProperties",
                   "action.change-border-properties"
                 )
@@ -1776,30 +1776,30 @@ function (exports, module, require) {
           }
         }
       }),
-      (v.prototype._getProperty = function (e, t, n, o) {
+      (v.prototype._getProperty = function (e, t, n, _interopRequireDefault) {
         return e ? e.getProperty(t) : null;
       }),
       (v.prototype._afterInsert = function (e) {
-        e.node instanceof r.GStylable.BorderPaintLayer &&
+        e.node instanceof GCore.GStylable.BorderPaintLayer &&
           e.node.getOwnerStylable() === this._elements[0] &&
           (this._insertPaintLayer(e.node), this._updateToolbar());
       }),
       (v.prototype._beforeRemove = function (e) {
         if (
-          e.node instanceof r.GStylable.BorderPaintLayer &&
+          e.node instanceof GCore.GStylable.BorderPaintLayer &&
           e.node.getOwnerStylable() === this._elements[0]
         ) {
           this._removePaintLayer(e.node);
           for (
             var module = e.node.getPrevious();
-            module && !(module instanceof r.GStylable.BorderPaintLayer);
+            module && !(module instanceof GCore.GStylable.BorderPaintLayer);
 
           )
             module = module.getPrevious();
-          if (!(module instanceof r.GStylable.BorderPaintLayer))
+          if (!(module instanceof GCore.GStylable.BorderPaintLayer))
             for (
               module = e.node.getNext();
-              module && !(module instanceof r.GStylable.BorderPaintLayer);
+              module && !(module instanceof GCore.GStylable.BorderPaintLayer);
 
             )
               module = module.getNext();
@@ -1807,7 +1807,7 @@ function (exports, module, require) {
         }
       }),
       (v.prototype._afterPropertiesChange = function (e) {
-        e.node instanceof r.GStylable.BorderPaintLayer &&
+        e.node instanceof GCore.GStylable.BorderPaintLayer &&
           e.node.getOwnerStylable() === this._elements[0] &&
           this._updatePaintLayer(e.node);
       }),
@@ -1815,37 +1815,37 @@ function (exports, module, require) {
         var e = this,
           t = function (t) {
             var n = this._getProperty(t, "_bds", false, null),
-              o = this._advancedStrokePanel;
-            o.find('[data-property="_bds"]').each(function (e, t) {
+              _interopRequireDefault = this._advancedStrokePanel;
+            _interopRequireDefault.find('[data-property="_bds"]').each(function (e, t) {
               $(t).val(n && n.length > e ? n[e] : "");
             }),
-              o.find('[data-property^="_ba"]').each(function (n, o) {
-                var i = $(o),
-                  a = i.attr("data-property").substr("_ba-".length);
+              _interopRequireDefault.find('[data-property^="_ba"]').each(function (n, _interopRequireDefault) {
+                var i = $(_interopRequireDefault),
+                  GTools = i.attr("data-property").substr("_ba-".length);
                 if (
-                  a === r.GStylable.BorderAlignment.Inside ||
-                  a === r.GStylable.BorderAlignment.Outside
+                  GTools === GCore.GStylable.BorderAlignment.Inside ||
+                  GTools === GCore.GStylable.BorderAlignment.Outside
                 ) {
                   for (
-                    var s, l, c = false, d = false, u = 0, p = e._elements.length;
+                    var s, GTouchTool, c = false, GOutlineSidebar = false, u = 0, p = e._elements.length;
                     u < p;
                     u++
                   ) {
-                    var g = e._elements[u];
-                    (g instanceof r.GPath && !g.$closed) ||
-                    (g instanceof r.GEllipse && g.$etp === r.GEllipse.Type.Arc)
+                    var AppSettings = e._elements[u];
+                    (AppSettings instanceof GCore.GPath && !AppSettings.$closed) ||
+                    (AppSettings instanceof GCore.GEllipse && AppSettings.$etp === GCore.GEllipse.Type.Arc)
                       ? (c = true)
-                      : (d = true);
+                      : (GOutlineSidebar = true);
                   }
-                  switch (a) {
-                    case r.GStylable.BorderAlignment.Inside:
-                      l = r.GLocale.get(
-                        new r.GLocaleKey("GStylable", "border-alignment.inside")
+                  switch (GTools) {
+                    case GCore.GStylable.BorderAlignment.Inside:
+                      GTouchTool = GCore.GLocale.get(
+                        new GCore.GLocaleKey("GStylable", "border-alignment.inside")
                       );
                       break;
-                    case r.GStylable.BorderAlignment.Outside:
-                      l = r.GLocale.get(
-                        new r.GLocaleKey(
+                    case GCore.GStylable.BorderAlignment.Outside:
+                      GTouchTool = GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GStylable",
                           "border-alignment.outside"
                         )
@@ -1853,77 +1853,77 @@ function (exports, module, require) {
                   }
                   c ? i.attr("disabled", true) : i.attr("disabled", false),
                     (s =
-                      c && d
-                        ? r.GLocale.get(
-                            new r.GLocaleKey(
+                      c && GOutlineSidebar
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GBorderPaintLayerProperties",
                               "text.border-alignment.disabled"
                             )
                           ) +
                           ": " +
-                          l
-                        : l),
+                          GTouchTool
+                        : GTouchTool),
                     i.attr("data-title", s);
                 }
-                i.toggleClass("g-active", e._getProperty(t, "_ba", true) === a);
+                i.toggleClass("g-active", e._getProperty(t, "_ba", true) === GTools);
               }),
-              o.find('[data-property^="_blc"]').each(function (n, o) {
-                var i = $(o),
-                  a = i.attr("data-property").substr("_blc-".length);
-                i.toggleClass("g-active", e._getProperty(t, "_blc", true) === a);
+              _interopRequireDefault.find('[data-property^="_blc"]').each(function (n, _interopRequireDefault) {
+                var i = $(_interopRequireDefault),
+                  GTools = i.attr("data-property").substr("_blc-".length);
+                i.toggleClass("g-active", e._getProperty(t, "_blc", true) === GTools);
               }),
-              o.find('[data-property^="_blj"]').each(function (n, o) {
-                var i = $(o),
-                  a = i.attr("data-property").substr("_blj-".length);
-                i.toggleClass("g-active", e._getProperty(t, "_blj", true) === a);
+              _interopRequireDefault.find('[data-property^="_blj"]').each(function (n, _interopRequireDefault) {
+                var i = $(_interopRequireDefault),
+                  GTools = i.attr("data-property").substr("_blj-".length);
+                i.toggleClass("g-active", e._getProperty(t, "_blj", true) === GTools);
               });
-            var i = o.find('[data-property="_bml"]');
+            var i = _interopRequireDefault.find('[data-property="_bml"]');
             i.gInputBox(
               "value",
-              r.GUtil.formatNumber(this._getProperty(t, "_bml", true))
+              GCore.GUtil.formatNumber(this._getProperty(t, "_bml", true))
             ),
-              this._getProperty(t, "_blj") !== r.GPaintCanvas.LineJoin.Miter
+              this._getProperty(t, "_blj") !== GCore.GPaintCanvas.LineJoin.Miter
                 ? i.attr("disabled", true)
                 : i.removeAttr("disabled");
-            var a = this._getProperty(t, "_bhm", false, null);
-            o.find('[data-property="_bhm"]').val(
-              a instanceof r.GVertexContainer ? "#" : a || ""
+            var GTools = this._getProperty(t, "_bhm", false, null);
+            _interopRequireDefault.find('[data-property="_bhm"]').val(
+              GTools instanceof GCore.GVertexContainer ? "#" : GTools || ""
             );
             var s = this._getProperty(t, "_btm", false, null);
-            o
+            _interopRequireDefault
               .find('[data-property="_btm"]')
-              .val(s instanceof r.GVertexContainer ? "#" : s || ""),
-              o
+              .val(s instanceof GCore.GVertexContainer ? "#" : s || ""),
+              _interopRequireDefault
                 .find('[data-property="_bhms"]')
                 .gInputBox(
                   "value",
-                  r.GUtil.formatNumber(
+                  GCore.GUtil.formatNumber(
                     100 * this._getProperty(t, "_bhms", false, 1),
                     0
                   )
                 ),
-              o
+              _interopRequireDefault
                 .find('[data-property="_btms"]')
                 .gInputBox(
                   "value",
-                  r.GUtil.formatNumber(
+                  GCore.GUtil.formatNumber(
                     100 * this._getProperty(t, "_btms", false, 1),
                     0
                   )
                 ),
-              o
+              _interopRequireDefault
                 .find('[data-property="_bhmo"]')
                 .prop("checked", this._getProperty(t, "_bhmo", false, false)),
-              o
+              _interopRequireDefault
                 .find('[data-property="_bhmi"]')
                 .gInputSlider("value", 100 * this._getProperty(t, "_bhmi")),
-              o
+              _interopRequireDefault
                 .find('[data-property="_btmo"]')
                 .prop("checked", this._getProperty(t, "_btmo", false, false)),
-              o
+              _interopRequireDefault
                 .find('[data-property="_btmi"]')
                 .gInputSlider("value", 100 * this._getProperty(t, "_btmi")),
-              o
+              _interopRequireDefault
                 .find('[data-property="_bs"]')
                 .prop("checked", this._getProperty(t, "_bs", false, false));
           }.bind(this);
@@ -1935,8 +1935,8 @@ function (exports, module, require) {
       }),
       (v.prototype._setSelectedPaintLayer = function (e) {
         this._panel.find(".border-block").each(function (t, n) {
-          var o = $(n);
-          o.toggleClass("g-selected", o.data("paintLayer") === e);
+          var _interopRequireDefault = $(n);
+          _interopRequireDefault.toggleClass("g-selected", _interopRequireDefault.data("paintLayer") === e);
         }),
           this._document && this._document.updateActiveStylesList("Border", e);
       }),
@@ -1946,17 +1946,17 @@ function (exports, module, require) {
       (v.prototype._iterateEqualPaintLayer = function (e, t) {
         if (e)
           for (
-            var require = e.getParent().getBorderLayers().indexOf(e), o = 0;
-            o < this._elements.length;
-            ++o
+            var require = e.getParent().getBorderLayers().indexOf(e), _interopRequireDefault = 0;
+            _interopRequireDefault < this._elements.length;
+            ++_interopRequireDefault
           ) {
-            var i = this._elements[o].getPaintLayers().getBorderLayers();
-            r.GUtil.each(
+            var i = this._elements[_interopRequireDefault].getPaintLayers().getBorderLayers();
+            GCore.GUtil.each(
               i,
-              function (i, a) {
-                ((a && a === e) ||
-                  (a.constructor === e.constructor && i === require)) &&
-                  t(a, this._elements[o]);
+              function (i, GTools) {
+                ((GTools && GTools === e) ||
+                  (GTools.constructor === e.constructor && i === require)) &&
+                  t(GTools, this._elements[_interopRequireDefault]);
               }.bind(this)
             );
           }

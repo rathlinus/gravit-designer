@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    const o = require(11) /* GUtil */;
+    const GUtil = require(11) /* GUtil */;
     exports.exports = class {
       constructor(e, t) {
         (this._worker = e), (this._user = t);
@@ -15,7 +15,7 @@ function (exports, module, require) {
         throw "Not implemented";
       }
       _request(e, t) {
-        const require = o.uuid(64);
+        const require = GUtil.uuid(64);
         return (
           this._worker.postMessage({
             cmd: e,

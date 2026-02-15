@@ -6,12 +6,12 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(255) /* barrel_sidebars */,
-      s = require(590) /* barrel_editor_actions */,
-      l = require(567) /* GAnnotationsSidebar */;
+      barrel_sidebars = require(255) /* barrel_sidebars */,
+      barrel_editor_actions = require(590) /* barrel_editor_actions */,
+      GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */;
     const c = ["text/xml", "text/plain"],
       d = [
         "image/svg+xml",
@@ -63,7 +63,7 @@ function (exports, module, require) {
                   gDesigner.getWindows().getActiveWindow().getView().focus()));
           });
     }
-    i.GObject.inherit(p, i.GObject),
+    GCore.GObject.inherit(p, GCore.GObject),
       (p.URIListHandler = function () {}),
       (p.URIListHandler.prototype.handle = async function (e, t) {
         const require = (await e.text())
@@ -104,9 +104,9 @@ function (exports, module, require) {
           const e = {};
           for (const require of module.types) {
             if (!u.includes(require)) continue;
-            const o = await module.getType(require),
-              i = g[require];
-            i ? await i.handle(o, e) : (e[require] = o);
+            const GTools = await module.getType(require),
+              GCore = g[require];
+            GCore ? await GCore.handle(GTools, e) : (e[require] = GTools);
           }
           this.handlePasteData(e);
         }
@@ -125,40 +125,40 @@ function (exports, module, require) {
             e.clipboardData.items &&
             e.clipboardData.items.length
           ) {
-            for (var require = module.items, o = {}, r = 0; r < require.length; r++) {
-              var s = null;
-              switch ((d = require[r].type)) {
+            for (var require = module.items, GTools = {}, barrel_sidebars = 0; barrel_sidebars < require.length; barrel_sidebars++) {
+              var barrel_editor_actions = null;
+              switch ((d = require[barrel_sidebars].type)) {
                 case "image/png":
                 case "image/jpeg":
                 case "image/gif":
                 case "application/pdf":
-                  s = require[r].getAsFile();
+                  barrel_editor_actions = require[barrel_sidebars].getAsFile();
                   break;
                 default:
-                  s = module.getData(d) || null;
+                  barrel_editor_actions = module.getData(d) || null;
               }
-              s && (o[d] = s);
+              barrel_editor_actions && (GTools[d] = barrel_editor_actions);
             }
-            this._handlePasteData(o),
+            this._handlePasteData(GTools),
               a.GPlatform.webBrowser ===
                 a.GPlatform.constructor.WebBrowser.Firefox &&
                 (e.stopPropagation(), e.preventDefault());
           } else if (this._pasteArea) {
-            o = {};
-            var l = 0;
+            GTools = {};
+            var GAnnotationsSidebar = 0;
             if (module.types && module.types.length) {
               var c = module.types;
-              for (r = 0; r < c.length; r++) {
+              for (barrel_sidebars = 0; barrel_sidebars < c.length; barrel_sidebars++) {
                 var d;
                 if (
-                  "public.file-url" === (d = c[r]) &&
+                  "public.file-url" === (d = c[barrel_sidebars]) &&
                   module.files &&
-                  l < module.files.length
+                  GAnnotationsSidebar < module.files.length
                 ) {
-                  var u = module.files[l++];
-                  u && (o[u.type] = u);
+                  var u = module.files[GAnnotationsSidebar++];
+                  u && (GTools[u.type] = u);
                 } else {
-                  (s = module.getData(d)) && (o[d] = s);
+                  (barrel_editor_actions = module.getData(d)) && (GTools[d] = barrel_editor_actions);
                 }
               }
             }
@@ -166,10 +166,10 @@ function (exports, module, require) {
               function () {
                 var e = this._pasteArea.children();
                 if (1 === e.length && e.is("img")) {
-                  var module = i.GUtil.dataUrlToBlob(e[0].src);
-                  module && (o[module.type] = module);
+                  var module = GCore.GUtil.dataUrlToBlob(e[0].src);
+                  module && (GTools[module.type] = module);
                 }
-                this._handlePasteData(o), this._pasteArea.empty();
+                this._handlePasteData(GTools), this._pasteArea.empty();
               }.bind(this),
               1
             );
@@ -186,9 +186,9 @@ function (exports, module, require) {
         const module = e && e.getEditor();
         if (module && module.isInlineEditing()) {
           const e = this._filterForInlineEditing(module.getSelection());
-          if (e && 1 === e.length && e[0] instanceof i.GText) return true;
+          if (e && 1 === e.length && e[0] instanceof GCore.GText) return true;
         }
-        return !(!e || gDesigner.getRightSidebars().getActiveSidebar() == l.ID);
+        return !(!e || gDesigner.getRightSidebars().getActiveSidebar() == GAnnotationsSidebar.ID);
       }),
       (p.prototype.handlePasteData = function (e) {
         return this._handlePasteData(e);
@@ -199,11 +199,11 @@ function (exports, module, require) {
           var module = !this._callback,
             require = gDesigner.getActiveDocument(),
             a = require.getEditor(),
-            l = 0;
-          l < c.length;
-          ++l
+            GAnnotationsSidebar = 0;
+          GAnnotationsSidebar < c.length;
+          ++GAnnotationsSidebar
         ) {
-          var u = e[c[l]];
+          var u = e[c[GAnnotationsSidebar]];
           if (u)
             try {
               var p = $.parseXML(u);
@@ -231,62 +231,62 @@ function (exports, module, require) {
                 }
               }
             } catch (e) {}
-          if (e[i.GNode.MIME_TYPE]) {
-            var g = i.GNode.deserialize(e[i.GNode.MIME_TYPE]),
-              h = g instanceof i.GPage,
+          if (e[GCore.GNode.MIME_TYPE]) {
+            var g = GCore.GNode.deserialize(e[GCore.GNode.MIME_TYPE]),
+              h = g instanceof GCore.GPage,
               f = require.filterUnrestrictedCommercialFileElements(
                 h ? g.getChildren() : g
               );
             if ((f && f.length > 0) || h) {
               var m = f.filter(function (e) {
-                  return e instanceof i.GElement;
+                  return e instanceof GCore.GElement;
                 }),
                 y = f.filter(function (e) {
-                  return e instanceof i.GStyle;
+                  return e instanceof GCore.GStyle;
                 }),
                 v =
                   1 === f.length &&
-                  f[0] instanceof i.GText &&
+                  f[0] instanceof GCore.GText &&
                   a.hasSelection() &&
-                  a.getSelection()[0] instanceof i.GText &&
+                  a.getSelection()[0] instanceof GCore.GText &&
                   a.isInlineEditing();
               if (v || (0 == m.length && 1 == f.length && !h)) {
                 var _ = f[0];
                 a.beginTransaction();
                 try {
                   if (v) {
-                    if (!o.GInlineTextEditor.HANDLECOPYPASTE) {
+                    if (!GTools.GInlineTextEditor.HANDLECOPYPASTE) {
                       var b = a.getSelection()[0];
-                      o.GElementEditor.getEditor(b).processPaste(_);
+                      GTools.GElementEditor.getEditor(b).processPaste(_);
                     }
                   } else if (
-                    _ instanceof i.GStylable.FillPaintLayer ||
-                    _ instanceof i.GStylable.BorderPaintLayer
+                    _ instanceof GCore.GStylable.FillPaintLayer ||
+                    _ instanceof GCore.GStylable.BorderPaintLayer
                   ) {
                     m = a.getSelection();
                     0 != (m = this._filterForStyleExceptions(m)).length &&
                       (m.length > 1
                         ? m.forEach(function (e) {
                             var t =
-                              _ instanceof i.GStylable.FillPaintLayer
-                                ? new i.GStylable.FillPaintLayer()
-                                : new i.GStylable.BorderPaintLayer();
+                              _ instanceof GCore.GStylable.FillPaintLayer
+                                ? new GCore.GStylable.FillPaintLayer()
+                                : new GCore.GStylable.BorderPaintLayer();
                             t.assignFrom(_), e.getPaintLayers().appendChild(t);
                           })
                         : m[0].getPaintLayers().appendChild(_));
-                  } else if (_ instanceof i.GStylable.Effect) {
+                  } else if (_ instanceof GCore.GStylable.Effect) {
                     m = a.getSelection();
                     0 != (m = this._filterForStyleExceptions(m)).length &&
                       (m.length > 1
                         ? m.forEach(function (e) {
-                            var t = new i.GStylable.Effect();
+                            var t = new GCore.GStylable.Effect();
                             t.assignFrom(_), e.getEffects().appendChild(t);
                           })
                         : m[0].getEffects().appendChild(_));
                   }
                 } finally {
                   a.commitTransaction(
-                    i.GLocale.get(new i.GLocaleKey("GPaste", "action.paste"))
+                    GCore.GLocale.get(new GCore.GLocaleKey("GPaste", "action.paste"))
                   );
                 }
               } else {
@@ -297,7 +297,7 @@ function (exports, module, require) {
                     for (var C = 0; C < y.length; ++C) {
                       let e = y[C],
                         t = e.getReferenceId(),
-                        o = null;
+                        GTools = null;
                       for (
                         var x = w.getFirstChild();
                         null !== x;
@@ -307,22 +307,22 @@ function (exports, module, require) {
                           x.arePropertiesEqual(e, ["ps", "defaultStyle"]) &&
                           x.equalsStyle(e)
                         ) {
-                          o = x;
+                          GTools = x;
                           break;
                         }
-                      o ||
-                        ((o = new i.GStyle()),
-                        o.setProperties(
+                      GTools ||
+                        ((GTools = new GCore.GStyle()),
+                        GTools.setProperties(
                           ["name", "defaultStyle", "ps"],
                           [e.getProperty("name"), false, e.getProperty("ps")]
                         ),
-                        o.assignStyleFrom(e),
-                        require.getScene().getStyles().insertChild(o));
+                        GTools.assignStyleFrom(e),
+                        require.getScene().getStyles().insertChild(GTools));
                       for (var S = 0; S < m.length; ++S) {
                         let e = m[S];
                         e.hasProperty("sref") &&
                           e.getProperty("sref") === t &&
-                          e.setProperty("sref", o.getReferenceId());
+                          e.setProperty("sref", GTools.getReferenceId());
                       }
                     }
                     if (!this.executeCallback(m)) {
@@ -340,8 +340,8 @@ function (exports, module, require) {
                   } finally {
                     module &&
                       a.commitTransaction(
-                        i.GLocale.get(
-                          new i.GLocaleKey("GPaste", "action.paste")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GPaste", "action.paste")
                         )
                       );
                   }
@@ -352,7 +352,7 @@ function (exports, module, require) {
           }
           if (u) {
             var A,
-              T = r.getProviderInstance(s),
+              T = barrel_sidebars.getProviderInstance(barrel_editor_actions),
               G =
                 gDesigner.getWorkspace() &&
                 gDesigner.getWorkspace().getFontManager() &&
@@ -366,34 +366,34 @@ function (exports, module, require) {
             if (
               e &&
               e.length > 0 &&
-              e[0] instanceof i.GText &&
+              e[0] instanceof GCore.GText &&
               a.isInlineEditing()
             ) {
-              if (!o.GInlineTextEditor.HANDLECOPYPASTE) {
+              if (!GTools.GInlineTextEditor.HANDLECOPYPASTE) {
                 var P = e[0];
-                return void o.GElementEditor.getEditor(P).processPaste(u);
+                return void GTools.GElementEditor.getEditor(P).processPaste(u);
               }
             } else {
-              (P = new i.GText()).setText(u, true, true), module && a.beginTransaction();
+              (P = new GCore.GText()).setText(u, true, true), module && a.beginTransaction();
               try {
                 if (!this.executeCallback([P], true)) {
                   if (
                     (a.insertElements([P], false, true, true),
                     (A = T && T.getDefaultFamilyForString(u)) && A !== G)
                   ) {
-                    var D = i.GOpenTypeFont.getDirectionForString(u);
-                    D !== i.GTLDirectionTextTransformer.LTR
+                    var D = GCore.GOpenTypeFont.getDirectionForString(u);
+                    D !== GCore.GTLDirectionTextTransformer.LTR
                       ? P.setProperties(["_tff", "dir", "_we"], [A, D, true])
                       : P.setProperties(["_tff", "_we"], [A, true]);
                   } else P.setProperty("_we", true);
-                  o.GElementEditor.getEditor(P).invalidateTextWidth(),
+                  GTools.GElementEditor.getEditor(P).invalidateTextWidth(),
                     this._centerToView();
                 }
               } finally {
                 return void (
                   module &&
                   a.commitTransaction(
-                    i.GLocale.get(new i.GLocaleKey("GPaste", "action.paste"))
+                    GCore.GLocale.get(new GCore.GLocaleKey("GPaste", "action.paste"))
                   )
                 );
               }
@@ -415,8 +415,8 @@ function (exports, module, require) {
             } finally {
               module &&
                 a.commitTransaction(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GPaste", "action.paste-image")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GPaste", "action.paste-image")
                   )
                 );
             }
@@ -426,22 +426,22 @@ function (exports, module, require) {
       }),
       (p.prototype._filterForInlineEditing = function (e) {
         return e
-          ? e.filter((e) => !(e instanceof i.GCollaborativeTextAnnotation))
+          ? e.filter((e) => !(e instanceof GCore.GCollaborativeTextAnnotation))
           : null;
       }),
       (p.prototype._filterForStyleExceptions = function (e) {
         for (
-          var module = [i.GPage, i.GGroup, i.GSymbol], require = [], o = 0;
-          o < e.length;
-          o++
+          var module = [GCore.GPage, GCore.GGroup, GCore.GSymbol], require = [], GTools = 0;
+          GTools < e.length;
+          GTools++
         ) {
-          for (var a = e[o], r = true, s = 0; s < module.length; s++) {
-            if (a instanceof module[s]) {
-              r = false;
+          for (var a = e[GTools], barrel_sidebars = true, barrel_editor_actions = 0; barrel_editor_actions < module.length; barrel_editor_actions++) {
+            if (a instanceof module[barrel_editor_actions]) {
+              barrel_sidebars = false;
               break;
             }
           }
-          r && require.push(a);
+          barrel_sidebars && require.push(a);
         }
         return require;
       }),
@@ -449,22 +449,22 @@ function (exports, module, require) {
         var t,
           n,
           a = gDesigner.getActiveDocument().getEditor(),
-          r = gDesigner.getActiveDocument().getScene(),
-          s = gDesigner.getWindows().getActiveWindow(),
-          l = r.getActivePage();
+          barrel_sidebars = gDesigner.getActiveDocument().getScene(),
+          barrel_editor_actions = gDesigner.getWindows().getActiveWindow(),
+          GAnnotationsSidebar = barrel_sidebars.getActivePage();
         if (
-          ((n = r.isFixedSized() ? l.getGeometryBBox() : r.getPaintBBox()), s)
+          ((n = barrel_sidebars.isFixedSized() ? GAnnotationsSidebar.getGeometryBBox() : barrel_sidebars.getPaintBBox()), barrel_editor_actions)
         ) {
-          var c = s.getView(),
-            d = c.getViewTransform(l),
-            u = i.GPaintCanvas.getScreenDPI(),
+          var c = barrel_editor_actions.getView(),
+            d = c.getViewTransform(GAnnotationsSidebar),
+            u = GCore.GPaintCanvas.getScreenDPI(),
             p = c.getViewBox().scaled(u, u);
           (t = d.mapRect(p)),
-            r.isFixedSized() && (t = t.intersected(n)),
+            barrel_sidebars.isFixedSized() && (t = t.intersected(n)),
             t.isEmpty() && (t = n);
         } else t = n;
         a.arrangeAlign(
-          o.GEditor.ArrangeAlignType.AlignCenter,
+          GTools.GEditor.ArrangeAlignType.AlignCenter,
           null,
           true,
           t,
@@ -472,7 +472,7 @@ function (exports, module, require) {
           e
         ),
           a.arrangeAlign(
-            o.GEditor.ArrangeAlignType.AlignMiddle,
+            GTools.GEditor.ArrangeAlignType.AlignMiddle,
             null,
             true,
             t,

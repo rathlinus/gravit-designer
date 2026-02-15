@@ -6,22 +6,22 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(557) /* stub_requires_1102 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(271) /* polyfill_String_endsWith */;
     var i = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
-            o = new WeakMap();
+            _interopRequireDefault = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
           var i,
             a,
-            r = { __proto__: null, default: e };
+            GCore = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
-            return r;
-          if ((i = t ? o : require)) {
+            return GCore;
+          if ((i = t ? _interopRequireDefault : require)) {
             if (i.has(e)) return i.get(e);
-            i.set(e, r);
+            i.set(e, GCore);
           }
           for (const t in e)
             "default" !== t &&
@@ -30,14 +30,14 @@ function (exports, module, require) {
                 (i = Object.defineProperty) &&
                 Object.getOwnPropertyDescriptor(e, t)) &&
               (a.get || a.set)
-                ? i(r, t, a)
-                : (r[t] = e[t]));
-          return r;
+                ? i(GCore, t, a)
+                : (GCore[t] = e[t]));
+          return GCore;
         })(e, t);
       })(require(10) /* AppSettings */),
-      a = o(require(389) /* module_389 */),
-      r = require(1) /* module */;
-    const s = require(78) /* GDocumentEvent */,
+      a = _interopRequireDefault(require(389) /* module_389 */),
+      GCore = require(1) /* module */;
+    const GDocumentEvent = require(78) /* GDocumentEvent */,
       l = require(441) /* module_441 */,
       {
         PRODUCT_NAME: c,
@@ -48,7 +48,7 @@ function (exports, module, require) {
       } = i.AmplitudeData.UserProperties;
     exports.exports = class {
       constructor(e) {
-        gDesigner.addEventListener(s, this._handleDocumentEvent, this),
+        gDesigner.addEventListener(GDocumentEvent, this._handleDocumentEvent, this),
           gDesigner.addEventListener(l, this._handleLicenseChangedEvent, this),
           (this._amplitudeHelper = e),
           this._updateUserProperties();
@@ -63,7 +63,7 @@ function (exports, module, require) {
             [c]: i.default.DESIGNER.TITLE,
             [d]: i.default.DESIGNER.TITLE,
             [u]: gDesigner.getVersion(),
-            [p]: r.GLocale.lookupLocale(r.GLocale.getLanguage()).toUpperCase(),
+            [p]: GCore.GLocale.lookupLocale(GCore.GLocale.getLanguage()).toUpperCase(),
             [g]: "production",
           },
           exports
@@ -74,7 +74,7 @@ function (exports, module, require) {
       }
       async _handleDocumentEvent(e) {
         switch (e.type) {
-          case s.Type.Opened:
+          case GDocumentEvent.Type.Opened:
             this._amplitudeHelper.logEvent(
               i.AmplitudeData.Events.DOCUMENT_OPENED,
               {
@@ -87,7 +87,7 @@ function (exports, module, require) {
               }
             );
             break;
-          case s.Type.Saving:
+          case GDocumentEvent.Type.Saving:
             const { referer: module } = e.data;
             this._isSimplifiedExporting(module)
               ? this._documentExported(e)

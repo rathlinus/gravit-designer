@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(31) /* GAction */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(85) /* GContainer */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GAction = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GContainer = require(85) /* GContainer */;
     function l() {}
-    o.GObject.inherit(l, a),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "file.quit"),
-      (l.TITLE = new o.GLocaleKey("GQuitAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GQuitAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,24 +23,24 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (l.prototype.getGroup = function () {
         return "file-quit";
       }),
       (l.prototype.isEnabled = function () {
         return (
-          gContainer.getRuntime() !== s.Runtime.Browser &&
-          gContainer.getRuntime() !== s.Runtime.PWA
+          gContainer.getRuntime() !== GContainer.Runtime.Browser &&
+          gContainer.getRuntime() !== GContainer.Runtime.PWA
         );
       }),
       (l.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "Q"];
+        return [GEditor.GKey.Constant.META, "Q"];
       }),
       (l.prototype.isAvailable = function () {
         return (
-          gContainer.getRuntime() !== s.Runtime.Browser &&
-          gContainer.getRuntime() !== s.Runtime.PWA
+          gContainer.getRuntime() !== GContainer.Runtime.Browser &&
+          gContainer.getRuntime() !== GContainer.Runtime.PWA
         );
       }),
       (l.prototype.execute = function () {

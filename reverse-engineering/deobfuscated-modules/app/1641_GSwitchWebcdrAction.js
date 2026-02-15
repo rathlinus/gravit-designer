@@ -7,19 +7,19 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
-    const i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */;
+    var GCore = require(1) /* module */;
+    const MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     var r = require(219) /* module_219 */,
-      s = require(85) /* GContainer */;
+      GContainer = require(85) /* GContainer */;
     const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231) /* module_231 */;
     function u(e) {
       let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
       (this._serverName = e), (this._isDefault = !!module);
     }
-    o.GObject.inherit(u, a),
+    GCore.GObject.inherit(u, GAction),
       (u.ID = "help.switchwebcdr"),
-      (u.TITLE = new o.GLocaleKey("GSwitchWebcdrAction", "title")),
+      (u.TITLE = new GCore.GLocaleKey("GSwitchWebcdrAction", "title")),
       (u.prototype.getId = function () {
         return u.ID + "." + this._serverName;
       }),
@@ -34,7 +34,7 @@ function (exports, module, require) {
         return this._serverName;
       }),
       (u.prototype.getCategory = function () {
-        return i.CATEGORY_HELP_SWITCHWEBCDR;
+        return MenuItemBuilder.CATEGORY_HELP_SWITCHWEBCDR;
       }),
       (u.prototype.getGroup = function () {
         return "help/switchwebcdr";
@@ -50,12 +50,12 @@ function (exports, module, require) {
           this._reloadApp();
       }),
       (u.prototype._reloadApp = function () {
-        gContainer.getRuntime() === s.Runtime.Browser ||
-        gContainer.getRuntime() === s.Runtime.PWA
+        gContainer.getRuntime() === GContainer.Runtime.Browser ||
+        gContainer.getRuntime() === GContainer.Runtime.PWA
           ? location.reload()
           : new r(
-              o.GLocale.get(
-                new o.GLocaleKey("GNewDocumentDialog", "text.restart-app")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GNewDocumentDialog", "text.restart-app")
               )
             ).open();
       }),

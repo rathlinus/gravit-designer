@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       Object.defineProperty(module, "GFilesPanelViewBase", {
         enumerable: true,
@@ -20,8 +20,8 @@ function (exports, module, require) {
         },
       }),
       (module.default = undefined);
-    var i = o(require(1547) /* module_1547 */),
-      a = o(require(1300) /* module_1300 */);
+    var i = _interopRequireDefault(require(1547) /* module_1547 */),
+      a = _interopRequireDefault(require(1300) /* module_1300 */);
     module.default = {
       GFilesPanelViewNative: i.default,
       GFilesPanelViewBase: a.default,

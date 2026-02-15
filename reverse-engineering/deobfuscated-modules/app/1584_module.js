@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(53) /* module */;
+    var GTools = require(53) /* module */;
     const i = require(878) /* module_878 */,
       a = require(1585) /* module_1585 */,
       r = require(879) /* module_879 */,
@@ -28,7 +28,7 @@ function (exports, module, require) {
       }
       _isSelecting() {
         const exports = gDesigner.getToolManager().getActiveTool();
-        return !!(exports && exports instanceof o.GSelectTool) && exports.hasSelectedArea();
+        return !!(exports && exports instanceof GTools.GSelectTool) && exports.hasSelectedArea();
       }
     };
   }

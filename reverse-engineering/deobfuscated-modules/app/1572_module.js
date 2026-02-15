@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */(require(1573) /* module_1573 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */(require(1573) /* module_1573 */);
     exports.exports = class {
       constructor(e, t) {
-        this._promiseManager = new o.default();
+        this._promiseManager = new _interopRequireDefault.default();
       }
       getAnnotations(e, t) {
         return this._fetch({ id: e, shareToken: t });
@@ -17,10 +17,10 @@ function (exports, module, require) {
         return this._fetch({ id: e, data: t, shareToken: n });
       }
       _fetch(e) {
-        let { id: module, data: require, shareToken: o } = e;
+        let { id: module, data: require, shareToken: _interopRequireDefault } = e;
         const i = require
-          ? () => gApi.updateAnnotations(module, require, o)
-          : () => gApi.getAnnotations(module, o);
+          ? () => gApi.updateAnnotations(module, require, _interopRequireDefault)
+          : () => gApi.getAnnotations(module, _interopRequireDefault);
         return this._promiseManager.pushPromise(i);
       }
     };

@@ -6,18 +6,18 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(271) /* polyfill_String_endsWith */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = require(40) /* CollaborationMergeUtils */,
-      s = require(10) /* AppSettings */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
       l = require(86) /* module_86 */,
-      c = require(217) /* GDocumentStatusEvent */,
-      d = require(78) /* GDocumentEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       u = (require(173) /* stub_requires_1 */, require(445) /* GSaveAsAction */),
-      p = require(255) /* barrel_sidebars */,
+      barrel_sidebars = require(255) /* barrel_sidebars */,
       g = (require(163) /* module_163 */, require(442) /* module_442 */);
-    const h = s.FILE_FORMATS.find((e) => e.default).ext;
+    const h = AppSettings.FILE_FORMATS.find((e) => e.default).ext;
     function f(e, t) {
       (this._container = $("<div></div>").addClass("window")),
         (this._overlay = $("<div></div>")
@@ -29,14 +29,14 @@ function (exports, module, require) {
           )),
         (this._document = e),
         this._document.addEventListener(
-          c,
+          GDocumentStatusEvent,
           this._documentStatusChanged,
           this,
           undefined,
           undefined,
           true
         ),
-        gDesigner.addEventListener(d, this._documentEvent, this),
+        gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
         this._container.on(
           "mousedown",
           function (e) {
@@ -46,7 +46,7 @@ function (exports, module, require) {
         t && (this._isPreview = t),
         this._updateScene();
     }
-    i.GObject.inherit(f, i.GEventTarget),
+    GCore.GObject.inherit(f, GCore.GEventTarget),
       (f.VIEW_MARGIN = 10),
       (f.prototype._requiresViewTransformation = true),
       (f.prototype._container = null),
@@ -71,7 +71,7 @@ function (exports, module, require) {
       }),
       (f.prototype.getTitleWithExtension = function () {
         var e = this.getTitle();
-        if (this._document.getStorageItem() && s.USE_EXTENSION_IN_FILENAME) {
+        if (this._document.getStorageItem() && AppSettings.USE_EXTENSION_IN_FILENAME) {
           const t =
             "." + this._document.getStorageItem().getExtension().toLowerCase();
           if (!e.endsWith(t)) return e + t;
@@ -105,18 +105,18 @@ function (exports, module, require) {
           exports && exports.closeInlineEditor(), this._view.cleanCache();
         }
       }),
-      (f.prototype.relayout = function (e, t, n, o) {
+      (f.prototype.relayout = function (e, t, n, GTools) {
         if (this._view) {
           this._container.width(e),
             this._container.height(t),
             this._view.setViewOffset(n);
-          var i = this._view.getWidth(),
-            a = this._view.getHeight();
-          this._view.resize(e, t, o, () => {
-            i &&
-              a &&
-              (i != e || a != t) &&
-              this._view.scrollBy((i - e) / 2, (a - t) / 2);
+          var GCore = this._view.getWidth(),
+            GEditor = this._view.getHeight();
+          this._view.resize(e, t, GTools, () => {
+            GCore &&
+              GEditor &&
+              (GCore != e || GEditor != t) &&
+              this._view.scrollBy((GCore - e) / 2, (GEditor - t) / 2);
           });
         }
         this._overlay.css({
@@ -130,12 +130,12 @@ function (exports, module, require) {
         this._releaseScene(),
           this._releaseView(),
           this._document.removeEventListener(
-            c,
+            GDocumentStatusEvent,
             this._documentStatusChanged,
             this
           ),
-          gDesigner.removeEventListener(d, this._documentEvent, this),
-          p.getInstance().releaseDocumentListener(this._document.sessionId);
+          gDesigner.removeEventListener(GDocumentEvent, this._documentEvent, this),
+          barrel_sidebars.getInstance().releaseDocumentListener(this._document.sessionId);
       }),
       (f.prototype.centerAndZoom = function () {
         var e = this._document.getScene(),
@@ -143,34 +143,34 @@ function (exports, module, require) {
           n = e.getPaintBBox();
         if (t)
           if (this._view.getViewConfiguration().multiPageView) {
-            var o = t.getPosition(1),
-              a = t.getPaintBBox(1);
-            a && (n = a.translated(o.getX(), o.getY()));
+            var GTools = t.getPosition(1),
+              GEditor = t.getPaintBBox(1);
+            GEditor && (n = GEditor.translated(GTools.getX(), GTools.getY()));
           } else if (
             g.CDR_ORIGIN_PROPERTY_NAME &&
             t.getProperty(g.CDR_ORIGIN_PROPERTY_NAME, true)
           ) {
-            var r = t.getContentBBox();
-            n = r && !r.isEmpty() ? r : t.getPaintBBox();
+            var CollaborationMergeUtils = t.getContentBBox();
+            n = CollaborationMergeUtils && !CollaborationMergeUtils.isEmpty() ? CollaborationMergeUtils : t.getPaintBBox();
           } else n = t.getPaintBBox();
         else
           e.isFixedSized() &&
-            (n = new i.GRect(0, 0, e.getProperty("w"), e.getProperty("h")));
-        var s = this._view.getViewBox(true);
-        !n || n.isEmpty() || s.isEmpty()
-          ? this._view.zoomAt(new i.GPoint(0, 0), 1)
-          : n.getWidth() >= s.getWidth() || n.getHeight() >= s.getHeight()
+            (n = new GCore.GRect(0, 0, e.getProperty("w"), e.getProperty("h")));
+        var AppSettings = this._view.getViewBox(true);
+        !n || n.isEmpty() || AppSettings.isEmpty()
+          ? this._view.zoomAt(new GCore.GPoint(0, 0), 1)
+          : n.getWidth() >= AppSettings.getWidth() || n.getHeight() >= AppSettings.getHeight()
           ? this._view.zoomAll(n, false)
-          : this._view.zoomAtCenter(n.getSide(i.GRect.Side.CENTER), 1);
+          : this._view.zoomAtCenter(n.getSide(GCore.GRect.Side.CENTER), 1);
       }),
       (f.prototype.viewContainsMouse = function (e, t) {
         if (!this._view) return false;
         var n = this._view.getViewOffset(),
-          o = n[0],
-          i = n[1],
-          a = this._view.getWidth() - n[2],
-          r = this._view.getHeight() - n[3];
-        return !(e < o || e > a || t < i || t > r);
+          GTools = n[0],
+          GCore = n[1],
+          GEditor = this._view.getWidth() - n[2],
+          CollaborationMergeUtils = this._view.getHeight() - n[3];
+        return !(e < GTools || e > GEditor || t < GCore || t > CollaborationMergeUtils);
       }),
       (f.prototype._releaseView = function () {
         this._view && (this._view.release(), (this._view = null));
@@ -181,14 +181,14 @@ function (exports, module, require) {
           (this._view
             .getScene()
             .removeEventListener(
-              i.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._sceneAfterPropertiesChanged,
               this
             ),
           this._view
             .getScene()
             .removeEventListener(
-              i.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._afterFlagChangeEvent,
               this
             ));
@@ -227,8 +227,8 @@ function (exports, module, require) {
         this._overlay
           .find(".cancel-loading")
           .text(
-            i.GLocale.get(
-              new i.GLocaleKey("GCommonNames", "text.cancel-loading")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "text.cancel-loading")
             )
           )
           .on("click", function () {
@@ -255,7 +255,7 @@ function (exports, module, require) {
         return this._overlay;
       }),
       (f.prototype._documentEvent = function (e) {
-        e.type === d.Type.StorageItemUpdated && this._updateViewConfiguration();
+        e.type === GDocumentEvent.Type.StorageItemUpdated && this._updateViewConfiguration();
       }),
       (f.prototype._documentStatusChanged = function (e) {
         switch (e.status) {
@@ -266,67 +266,67 @@ function (exports, module, require) {
           case l.Saving:
           case l.Syncing:
           case l.Downloading:
-            var module = i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.loading")
+            var module = GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.loading")
               ),
-              require = i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.loading-file")
+              require = GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.loading-file")
               );
             e.status === l.Saving
-              ? ((module = i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.saving")
+              ? ((module = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.saving")
                 )),
-                (require = i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.saving-file")
+                (require = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.saving-file")
                 )))
               : e.status === l.Syncing
-              ? ((module = i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.synchronizing")
+              ? ((module = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.synchronizing")
                 )),
-                (require = i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.synchronizing-file")
+                (require = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.synchronizing-file")
                 )))
               : e.status === l.Downloading &&
-                ((module = i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.downloading")
+                ((module = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.downloading")
                 )),
-                (require = i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.downloading-file")
+                (require = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.downloading-file")
                 )));
-            let c =
+            let GDocumentStatusEvent =
               e.data && e.data.filename
                 ? e.data.filename
                 : this._document.getTitle();
-            c && (require = require.replace("%name", c));
-            let d = c
+            GDocumentStatusEvent && (require = require.replace("%name", GDocumentStatusEvent));
+            let GDocumentEvent = GDocumentStatusEvent
               ? require + "..."
-              : i.GLocale.get(
-                  new i.GLocaleKey("GDocument", "text.opening-your-image")
+              : GCore.GLocale.get(
+                  new GCore.GLocaleKey("GDocument", "text.opening-your-image")
                 );
             this.activateProgress(
-              d,
+              GDocumentEvent,
               e.data && e.data.cancelHandlerHolder
                 ? e.data.cancelHandlerHolder
                 : null
             ),
               (e.data.text = (e, t) =>
-                this._overlay.find(".text").text(c && !t ? require : e)),
+                this._overlay.find(".text").text(GDocumentStatusEvent && !t ? require : e)),
               (e.data.progressInfo = (e) =>
                 this._overlay
                   .find(".progress-info")
                   .text(e)
                   .css("display", e ? "" : "none"));
-            var o = 0,
-              a = new Date().getTime(),
-              s = e.data.progress;
+            var GTools = 0,
+              GEditor = new Date().getTime(),
+              AppSettings = e.data.progress;
             e.data.progress = function (e) {
               var t,
                 n,
-                i = new Date().getTime();
-              if (100 === e || (e - o >= 0.5 && i - a >= 40)) {
-                a = i;
+                GCore = new Date().getTime();
+              if (100 === e || (e - GTools >= 0.5 && GCore - GEditor >= 40)) {
+                GEditor = GCore;
                 var l = this._overlay.find("progress");
-                l.val(e), (o = e);
+                l.val(e), (GTools = e);
                 (t = l[0]),
                   (n = t.style.display),
                   (t.style.display = "none"),
@@ -336,7 +336,7 @@ function (exports, module, require) {
                   l.hide(0, function () {
                     $(this).show(), $(this)[0].offsetHeight;
                   }),
-                  s && (0, r.isFunction)(s) && s(e);
+                  AppSettings && (0, CollaborationMergeUtils.isFunction)(AppSettings) && AppSettings(e);
               }
             }.bind(this);
             break;
@@ -359,8 +359,8 @@ function (exports, module, require) {
             this._setOverlayContent(null);
             break;
           case l.LoadFailed:
-            module = i.GLocale.get(
-              new i.GLocaleKey("GCommonNames", "text.loading-failed")
+            module = GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
             );
             !e.data ||
               !e.data.text ||
@@ -387,8 +387,8 @@ function (exports, module, require) {
                     .text(
                       "string" == typeof e.data
                         ? e.data
-                        : i.GLocale.get(
-                            new i.GLocaleKey(
+                        : GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GCommonNames",
                               "text.unable-to-save"
                             )
@@ -398,7 +398,7 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<button></button>")
-                    .text(i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")))
+                    .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")))
                     .on(
                       "click",
                       function () {
@@ -411,8 +411,8 @@ function (exports, module, require) {
                 .append(
                   $("<button></button>")
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey("GCommonNames", "text.try-again")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GCommonNames", "text.try-again")
                       )
                     )
                     .on(
@@ -440,7 +440,7 @@ function (exports, module, require) {
           const e = this._document.getStatus();
           !this._document.getScene() ||
             (e !== l.Ready && e !== l.Locked) ||
-            ((this._view = new o.GEditorWidget(this._document.getEditor())),
+            ((this._view = new GTools.GEditorWidget(this._document.getEditor())),
             this._updateViewConfiguration(),
             this._view.setViewMargin([
               f.VIEW_MARGIN,
@@ -453,7 +453,7 @@ function (exports, module, require) {
             this._view
               .getScene()
               .addEventListener(
-                i.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._sceneAfterPropertiesChanged,
                 this,
                 undefined,
@@ -463,7 +463,7 @@ function (exports, module, require) {
             this._view
               .getScene()
               .addEventListener(
-                i.GNode.AfterFlagChangeEvent,
+                GCore.GNode.AfterFlagChangeEvent,
                 this._afterFlagChangeEvent,
                 this,
                 undefined,
@@ -489,7 +489,7 @@ function (exports, module, require) {
       }),
       (f.prototype._sceneAfterPropertiesChanged = function (e) {
         !e.temporary &&
-          i.GUtil.containsOneOf(e.properties, ["w", "h"]) &&
+          GCore.GUtil.containsOneOf(e.properties, ["w", "h"]) &&
           this._updateWindowBackground();
       }),
       (f.prototype._updateWindowBackground = function () {
@@ -500,26 +500,26 @@ function (exports, module, require) {
       (f.prototype.getVisibleBBox = function () {
         if (this._document.getScene().isFixedSized()) {
           var exports = this._document.getScene();
-          return new i.GRect(0, 0, exports.getProperty("w"), exports.getProperty("h"));
+          return new GCore.GRect(0, 0, exports.getProperty("w"), exports.getProperty("h"));
         }
         return this._view
-          ? new i.GRect(0, 0, this._view.getWidth(), this._view.getHeight())
+          ? new GCore.GRect(0, 0, this._view.getWidth(), this._view.getHeight())
           : null;
       }),
       (f.prototype._afterFlagChangeEvent = function (e) {
-        e.node instanceof i.GPage &&
-          e.flag === i.GNode.Flag.Active &&
+        e.node instanceof GCore.GPage &&
+          e.flag === GCore.GNode.Flag.Active &&
           this._updateWindowBackground();
       }),
       (f.prototype.scrollIntoView = function (e) {
         if (e && !e.isEmpty()) {
           const t = this.getView(),
             n = t.getViewVisibleArea(),
-            o = t.getWorldTransform().mapRect(e);
-          if (!n.containsRect(o)) {
-            let e = n.getSide(i.GRect.Side.CENTER),
-              r = o.getSide(i.GRect.Side.CENTER).subtract(e);
-            a.GPlatform.scheduleFrame(() => t.scrollBy(r.getX(), r.getY()));
+            GTools = t.getWorldTransform().mapRect(e);
+          if (!n.containsRect(GTools)) {
+            let e = n.getSide(GCore.GRect.Side.CENTER),
+              CollaborationMergeUtils = GTools.getSide(GCore.GRect.Side.CENTER).subtract(e);
+            GEditor.GPlatform.scheduleFrame(() => t.scrollBy(CollaborationMergeUtils.getX(), CollaborationMergeUtils.getY()));
           }
         }
       }),

@@ -7,28 +7,28 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(106) /* GElementAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GVectorizeBorderAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GVectorizeBorderAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GVectorizeBorderAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GVectorizeBorderAction", "tooltip-description")
           ),
           learnMore:
             "",
         }),
       };
     }
-    o.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GElementAction),
       (l.ID = "modify.vectorize"),
-      (l.TITLE = new o.GLocaleKey("GVectorizeBorderAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GVectorizeBorderAction", "title")),
       (l.TOOLTIP_CONFIG = null),
       (l.prototype.getId = function () {
         return l.ID;
@@ -37,7 +37,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (l.prototype.getGroup = function () {
         return "structure/modify";
@@ -46,7 +46,7 @@ function (exports, module, require) {
         return "gravit-icon-vectorize-border";
       }),
       (l.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
             ? gDesigner.getActiveDocument().getEditor().getIndividualSelection()
             : null,
@@ -54,12 +54,12 @@ function (exports, module, require) {
         if (e)
           for (var require = 0; !t && require < e.length; ++require)
             if (
-              !(e[require] instanceof o.GImage) &&
-              e[require].hasMixin(o.GVertexSource) &&
-              e[require].hasMixin(o.GStylable)
+              !(e[require] instanceof GCore.GImage) &&
+              e[require].hasMixin(GCore.GVertexSource) &&
+              e[require].hasMixin(GCore.GStylable)
             ) {
-              var i = e[require].getPaintLayers(),
-                a = i ? i.getBorderLayers(true) : null;
+              var CollaborationMergeUtils = e[require].getPaintLayers(),
+                a = CollaborationMergeUtils ? CollaborationMergeUtils.getBorderLayers(true) : null;
               t = a && a.length >= 1;
             }
         return t;
@@ -69,26 +69,26 @@ function (exports, module, require) {
           t = gDesigner.getActiveDocument(),
           n = t ? t.getEditor() : null,
           a = (t && t.getScene(), n ? n.getIndividualSelection() : null),
-          r = [];
+          MenuItemBuilder = [];
         if (a)
-          for (var s = 0; s < a.length; ++s) {
-            var l = a[s];
-            !l.hasMixin(o.GVertexSource) ||
-              l instanceof o.GImage ||
-              !l.hasMixin(o.GStylable) ||
-              r.push(l);
+          for (var GElementAction = 0; GElementAction < a.length; ++GElementAction) {
+            var l = a[GElementAction];
+            !l.hasMixin(GCore.GVertexSource) ||
+              l instanceof GCore.GImage ||
+              !l.hasMixin(GCore.GStylable) ||
+              MenuItemBuilder.push(l);
           }
-        if (r.length) {
+        if (MenuItemBuilder.length) {
           var c = function (e, t) {
-            if (t instanceof o.GPath) e.getPaths().appendChild(t);
+            if (t instanceof GCore.GPath) e.getPaths().appendChild(t);
             else
               for (
-                var n, i = t.cloneSubPaths(), a = i.getFirstChild();
+                var n, CollaborationMergeUtils = t.cloneSubPaths(), a = CollaborationMergeUtils.getFirstChild();
                 null !== a;
                 a = n
               )
                 (n = a.getNext()),
-                  i.removeChild(a),
+                  CollaborationMergeUtils.removeChild(a),
                   e.getPaths().appendChild(a);
           };
           n.beginTransaction();
@@ -99,51 +99,51 @@ function (exports, module, require) {
                 var t = e.getProperty("_ba"),
                   n = e.getProperty("_bw");
                 n = n || 1;
-                var i,
-                  a = t == o.GStylable.BorderAlignment.Center ? 0.5 * n : n,
-                  r = new o.GVertexOffsetter(
-                    o.GPathUtil.makeClockWise(d),
+                var CollaborationMergeUtils,
+                  a = t == GCore.GStylable.BorderAlignment.Center ? 0.5 * n : n,
+                  MenuItemBuilder = new GCore.GVertexOffsetter(
+                    GCore.GPathUtil.makeClockWise(d),
                     a,
-                    t != o.GStylable.BorderAlignment.Outside,
-                    t != o.GStylable.BorderAlignment.Inside,
+                    t != GCore.GStylable.BorderAlignment.Outside,
+                    t != GCore.GStylable.BorderAlignment.Inside,
                     0,
                     e.getProperty("_blc"),
                     e.getProperty("_bml")
                   );
-                if (t == o.GStylable.BorderAlignment.Center)
-                  i = o.GPathUtil.createPathFromVertexSource(r);
+                if (t == GCore.GStylable.BorderAlignment.Center)
+                  CollaborationMergeUtils = GCore.GPathUtil.createPathFromVertexSource(MenuItemBuilder);
                 else {
-                  var s = o.GPathUtil.createPathFromVertexSource(d),
-                    l = o.GPathUtil.createPathFromVertexSource(r);
-                  s && ((i = new o.GCompoundPath()), c(i, s), l && c(i, l));
+                  var GElementAction = GCore.GPathUtil.createPathFromVertexSource(d),
+                    l = GCore.GPathUtil.createPathFromVertexSource(MenuItemBuilder);
+                  GElementAction && ((CollaborationMergeUtils = new GCore.GCompoundPath()), c(CollaborationMergeUtils, GElementAction), l && c(CollaborationMergeUtils, l));
                 }
                 return (
-                  i &&
-                    (o.GElement.prototype.assignFrom.call(i, d),
-                    i.getPaintLayers().clearLayers(),
+                  CollaborationMergeUtils &&
+                    (GCore.GElement.prototype.assignFrom.call(CollaborationMergeUtils, d),
+                    CollaborationMergeUtils.getPaintLayers().clearLayers(),
                     e.$_pt &&
-                      i
+                      CollaborationMergeUtils
                         .getPaintLayers()
-                        .appendChild(new o.GStylable.FillPaintLayer(e.$_pt))),
-                  i
+                        .appendChild(new GCore.GStylable.FillPaintLayer(e.$_pt))),
+                  CollaborationMergeUtils
                 );
               };
             e = new Set();
-            for (s = 0; s < r.length; ++s) {
-              var g = r[s].getParent();
+            for (GElementAction = 0; GElementAction < MenuItemBuilder.length; ++GElementAction) {
+              var g = MenuItemBuilder[GElementAction].getParent();
               g && e.add(g);
             }
             try {
-              (0, i.blockChanges)(n, e);
-              for (s = 0; s < r.length; ++s) {
-                var h = (d = r[s]).getParent(),
+              (0, CollaborationMergeUtils.blockChanges)(n, e);
+              for (GElementAction = 0; GElementAction < MenuItemBuilder.length; ++GElementAction) {
+                var h = (d = MenuItemBuilder[GElementAction]).getParent(),
                   f = d.getNext(),
                   m = null,
                   y = d.getPaintLayers().getBorderLayers(true);
                 if (y.length > 1)
-                  o.GUtil.each(y, function (e, t) {
+                  GCore.GUtil.each(y, function (e, t) {
                     var n = p(t);
-                    n && (m || (m = new o.GGroup()), m.appendChild(n));
+                    n && (m || (m = new GCore.GGroup()), m.appendChild(n));
                   });
                 else if (1 == y.length) {
                   var v = y.pop();
@@ -154,10 +154,10 @@ function (exports, module, require) {
                   : u.push(d);
               }
             } finally {
-              (0, i.releaseChanges)(n, e), u.length && n.updateSelection(false, u);
+              (0, CollaborationMergeUtils.releaseChanges)(n, e), u.length && n.updateSelection(false, u);
             }
           } finally {
-            n.commitTransaction(o.GLocale.get(this.getTitle()));
+            n.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),

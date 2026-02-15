@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */,
-      i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     require(173) /* stub_requires_1 */;
     function r(e, t) {
       (this._guideId = e), (this._guideName = t);
     }
-    o.GObject.inherit(r, a),
+    GCore.GObject.inherit(r, GAction),
       (r.ID = "view.toggle-guide"),
       (r.prototype._guideId = null),
       (r.prototype._guideName = false),
@@ -22,12 +22,12 @@ function (exports, module, require) {
         return r.ID + "." + this._guideId;
       }),
       (r.prototype.getTitle = function () {
-        return o.GLocale.get(
-          new o.GLocaleKey("GCommonNames", "text.snap-to-action")
+        return GCore.GLocale.get(
+          new GCore.GLocaleKey("GCommonNames", "text.snap-to-action")
         ).replace("%action", this._guideName);
       }),
       (r.prototype.getCategory = function () {
-        return i.CATEGORY_VIEW_SNAP;
+        return MenuItemBuilder.CATEGORY_VIEW_SNAP;
       }),
       (r.prototype.getGroup = function () {
         return "snap/guide";

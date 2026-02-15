@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.shouldShowExternalFileError = function (e) {
         return e instanceof s.Item && !e.hasFileSettings();
       }),
       (module.updateSaveOptions = function (e, t, n) {
         if (n.getFullName()) {
-          const o = (0, i.getExtensionFromString)(
+          const _interopRequireDefault = (0, CollaborationMergeUtils.getExtensionFromString)(
             n.getFullName(),
-            a.FILE_FORMATS.map((e) => e.ext.toUpperCase())
+            AppSettings.FILE_FORMATS.map((e) => e.ext.toUpperCase())
           );
-          if (o && "CDR" === o.toUpperCase())
+          if (_interopRequireDefault && "CDR" === _interopRequireDefault.toUpperCase())
             return (
               (e = new r.default(
                 gDesigner.getSetting(
@@ -33,8 +33,8 @@ function (exports, module, require) {
         return e;
       }),
       require(38) /* stub_requires_680 */;
-    var i = require(40) /* CollaborationMergeUtils */,
-      a = require(10) /* AppSettings */,
-      r = o(require(1248) /* module_1248 */);
+    var CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      AppSettings = require(10) /* AppSettings */,
+      r = _interopRequireDefault(require(1248) /* module_1248 */);
     const s = require(388) /* Item */;
   }

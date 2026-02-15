@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = o(require(119) /* module_119 */),
-      r = o(require(860) /* module_860 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(119) /* module_119 */),
+      r = _interopRequireDefault(require(860) /* module_860 */);
     function s(e) {
       let module =
         arguments.length > 1 && undefined !== arguments[1]
@@ -16,7 +16,7 @@ function (exports, module, require) {
           : () => {};
       (this._cb = e), (this._showFormCb = module), this._run();
     }
-    i.GObject.inherit(s, i.GObject),
+    GCore.GObject.inherit(s, GCore.GObject),
       (s.prototype._close = function () {
         this._dialog && this._dialog.gDialog("close");
       }),
@@ -45,37 +45,37 @@ function (exports, module, require) {
                 $("<span/>")
                   .addClass("title")
                   .text(
-                    i.GLocale.get(new i.GLocaleKey("GLoginPanel", "text.title"))
+                    GCore.GLocale.get(new GCore.GLocaleKey("GLoginPanel", "text.title"))
                   )
                   .appendTo(module),
                 $("<span/>")
                   .addClass("subtitle")
                   .text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GLoginPanel", "text.subtitle")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GLoginPanel", "text.subtitle")
                     )
                   )
                   .appendTo(module);
               var require = $("<div/>");
               require.addClass("buttons").appendTo(module);
-              var o = (e, t) => {
-                var o = $("<div/>");
-                o.on("click", t),
-                  o
+              var _interopRequireDefault = (e, t) => {
+                var _interopRequireDefault = $("<div/>");
+                _interopRequireDefault.on("click", t),
+                  _interopRequireDefault
                     .addClass(e)
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey("GLoginPanel", "text." + e)
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GLoginPanel", "text." + e)
                       )
                     )
                     .appendTo(require);
               };
-              o("login", () => {
+              _interopRequireDefault("login", () => {
                 a.default.performLogin().then((e) => {
                   this._logged(e);
                 });
               }),
-                o("signup", () => {
+                _interopRequireDefault("signup", () => {
                   a.default.performSignup().then((e) => {
                     this._logged(e);
                   });

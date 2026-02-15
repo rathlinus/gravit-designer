@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const i = {
       init: function (e) {
         e = $.extend(
           {
             clazz: null,
-            defaultText: o.GLocale.get(
-              new o.GLocaleKey("GToolbar", "text.share")
+            defaultText: GCore.GLocale.get(
+              new GCore.GLocaleKey("GToolbar", "text.share")
             ),
             stats: "toolbar_click_share",
             restrictedStats: "toolbar_nonprotriespro_share",
@@ -53,12 +53,12 @@ function (exports, module, require) {
           .toggleClass("gravit-icon-private-share", module)
           .toggleClass("gravit-icon-public-share", !module);
         const s = require
-          ? new o.GLocaleKey("GToolbar", "text.shared")
+          ? new GCore.GLocaleKey("GToolbar", "text.shared")
           : r.options.defaultText
           ? r.options.defaultText
-          : new o.GLocaleKey("GToolbar", "text.share");
+          : new GCore.GLocaleKey("GToolbar", "text.share");
         return (
-          a.find(".label").text(o.GLocale.get(s)),
+          a.find(".label").text(GCore.GLocale.get(s)),
           (r.storeItem = e.storeItem),
           e.closeCallback && (r.options.closeCallback = e.closeCallback),
           this

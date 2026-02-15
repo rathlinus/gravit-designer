@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "edit.invert-selection"),
-      (s.TITLE = new o.GLocaleKey("GInvertSelectionAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GInvertSelectionAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (s.prototype.getGroup = function () {
         return "select";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "I"];
+        return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "I"];
       }),
       (s.prototype.isEnabled = function () {
         return !!gDesigner.getActiveDocument();
@@ -37,36 +37,36 @@ function (exports, module, require) {
         var e = gDesigner.getActiveDocument(),
           t = e.getScene(),
           n = t.getActivePage(),
-          i = gDesigner
+          GEditor = gDesigner
             .getActiveDocument()
             .getActiveWindow()
             .getView()
             .getViewConfiguration().multiPageView,
-          a = [];
+          MenuItemBuilder = [];
         t.accept(function (e) {
           if (
-            e instanceof o.GItem &&
-            !e.hasMixin(o.GAnnotation) &&
-            !(e.getParent() instanceof o.GItem) &&
-            !e.hasFlag(o.GNode.Flag.Selected) &&
-            (e.getPage() === n || i) &&
+            e instanceof GCore.GItem &&
+            !e.hasMixin(GCore.GAnnotation) &&
+            !(e.getParent() instanceof GCore.GItem) &&
+            !e.hasFlag(GCore.GNode.Flag.Selected) &&
+            (e.getPage() === n || GEditor) &&
             !e.isLocked()
           ) {
             var t =
                 !e.getProperty("vis") ||
                 e.findParent(function (e) {
-                  return e instanceof o.GBlock && !e.getProperty("vis");
+                  return e instanceof GCore.GBlock && !e.getProperty("vis");
                 }),
-              r = e.getProperty("plkt"),
+              GAction = e.getProperty("plkt"),
               s =
-                r & o.GBlock.ProgramLck.NoEdit &&
-                r & o.GBlock.ProgramLck.NoSizeChanges &&
-                r & o.GBlock.ProgramLck.NoMove &&
-                r & o.GBlock.ProgramLck.NoDelete;
-            t || s || a.push(e);
+                GAction & GCore.GBlock.ProgramLck.NoEdit &&
+                GAction & GCore.GBlock.ProgramLck.NoSizeChanges &&
+                GAction & GCore.GBlock.ProgramLck.NoMove &&
+                GAction & GCore.GBlock.ProgramLck.NoDelete;
+            t || s || MenuItemBuilder.push(e);
           }
         }),
-          e.getEditor().updateSelection(false, a);
+          e.getEditor().updateSelection(false, MenuItemBuilder);
       }),
       (s.prototype.toString = function () {
         return "[Object GInvertSelectionAction]";

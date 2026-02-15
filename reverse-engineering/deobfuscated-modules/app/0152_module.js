@@ -9,35 +9,35 @@ function (exports, module, require) {
       i,
       a,
       r = require(425) /* module_425 */,
-      s = require(49) /* hasOwnProperty_wrapper */,
-      l = require(23) /* globalThis */,
-      c = require(35) /* anObject */,
-      d = require(46) /* toLength */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      globalThis = require(23) /* globalThis */,
+      anObject = require(35) /* anObject */,
+      toLength = require(46) /* toLength */,
       u = require(61) /* module_61 */,
       p = require(131) /* module_131 */,
       g = require(185) /* module_185 */,
-      h = require(100) /* createProperty */,
-      f = require(79) /* defineBuiltIn */,
+      createProperty = require(100) /* createProperty */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
       m = require(120) /* module_120 */,
       y = require(144) /* stub_requires_27 */,
       v = require(208) /* module_208 */,
       _ = require(175) /* module_175 */,
-      b = require(43) /* wellKnownSymbol */,
+      wellKnownSymbol = require(43) /* wellKnownSymbol */,
       w = require(258) /* module_258 */,
-      C = require(80) /* internalState */,
-      x = C.enforce,
-      S = C.get,
-      E = l.Int8Array,
+      internalState = require(80) /* internalState */,
+      x = internalState.enforce,
+      S = internalState.get,
+      E = globalThis.Int8Array,
       A = E && E.prototype,
-      T = l.Uint8ClampedArray,
+      T = globalThis.Uint8ClampedArray,
       G = T && T.prototype,
       P = E && v(E),
       D = A && v(A),
       L = Object.prototype,
-      I = l.TypeError,
-      k = b("toStringTag"),
+      I = globalThis.TypeError,
+      k = wellKnownSymbol("toStringTag"),
       O = w("TYPED_ARRAY_TAG"),
-      F = r && !!_ && "Opera" !== p(l.opera),
+      F = r && !!_ && "Opera" !== p(globalThis.opera),
       R = false,
       M = {
         Int8Array: 1,
@@ -53,7 +53,7 @@ function (exports, module, require) {
       N = { BigInt64Array: 8, BigUint64Array: 8 },
       B = function (e) {
         var t = v(e);
-        if (d(t)) {
+        if (toLength(t)) {
           var require = S(t);
           return require && u(require, "TypedArrayConstructor")
             ? require.TypedArrayConstructor
@@ -61,36 +61,36 @@ function (exports, module, require) {
         }
       },
       U = function (e) {
-        if (!d(e)) return false;
+        if (!toLength(e)) return false;
         var t = p(e);
         return u(M, t) || u(N, t);
       };
     for (o in M)
-      (a = (i = l[o]) && i.prototype)
+      (a = (i = globalThis[o]) && i.prototype)
         ? (x(a).TypedArrayConstructor = i)
         : (F = false);
     for (o in N)
-      (a = (i = l[o]) && i.prototype) && (x(a).TypedArrayConstructor = i);
+      (a = (i = globalThis[o]) && i.prototype) && (x(a).TypedArrayConstructor = i);
     if (
-      (!F || !c(P) || P === Function.prototype) &&
+      (!F || !anObject(P) || P === Function.prototype) &&
       ((P = function () {
         throw new I("Incorrect invocation");
       }),
       F)
     )
-      for (o in M) l[o] && _(l[o], P);
+      for (o in M) globalThis[o] && _(globalThis[o], P);
     if ((!F || !D || D === L) && ((D = P.prototype), F))
-      for (o in M) l[o] && _(l[o].prototype, D);
-    if ((F && v(G) !== D && _(G, D), s && !u(D, k)))
+      for (o in M) globalThis[o] && _(globalThis[o].prototype, D);
+    if ((F && v(G) !== D && _(G, D), hasOwnProperty_wrapper && !u(D, k)))
       for (o in ((R = true),
       m(D, k, {
         configurable: true,
         get: function () {
-          return d(this) ? this[O] : undefined;
+          return toLength(this) ? this[O] : undefined;
         },
       }),
       M))
-        l[o] && h(l[o], O, o);
+        globalThis[o] && createProperty(globalThis[o], O, o);
     exports.exports = {
       NATIVE_ARRAY_BUFFER_VIEWS: F,
       TYPED_ARRAY_TAG: R && O,
@@ -99,14 +99,14 @@ function (exports, module, require) {
         throw new I("Target is not a typed array");
       },
       aTypedArrayConstructor: function (e) {
-        if (c(e) && (!_ || y(P, e))) return e;
+        if (anObject(e) && (!_ || y(P, e))) return e;
         throw new I(g(e) + " is not a typed array constructor");
       },
       exportTypedArrayMethod: function (e, t, n, o) {
-        if (s) {
+        if (hasOwnProperty_wrapper) {
           if (n)
             for (var i in M) {
-              var a = l[i];
+              var a = globalThis[i];
               if (a && u(a.prototype, e))
                 try {
                   delete a.prototype[e];
@@ -116,30 +116,30 @@ function (exports, module, require) {
                   } catch (e) {}
                 }
             }
-          (D[e] && !n) || f(D, e, n ? t : (F && A[e]) || t, o);
+          (D[e] && !n) || defineBuiltIn(D, e, n ? t : (F && A[e]) || t, o);
         }
       },
       exportTypedArrayStaticMethod: function (e, t, n) {
         var o, i;
-        if (s) {
+        if (hasOwnProperty_wrapper) {
           if (_) {
             if (n)
               for (o in M)
-                if ((i = l[o]) && u(i, e))
+                if ((i = globalThis[o]) && u(i, e))
                   try {
                     delete i[e];
                   } catch (e) {}
             if (P[e] && !n) return;
             try {
-              return f(P, e, n ? t : (F && P[e]) || t);
+              return defineBuiltIn(P, e, n ? t : (F && P[e]) || t);
             } catch (e) {}
           }
-          for (o in M) !(i = l[o]) || (i[e] && !n) || f(i, e, t);
+          for (o in M) !(i = globalThis[o]) || (i[e] && !n) || defineBuiltIn(i, e, t);
         }
       },
       getTypedArrayConstructor: B,
       isView: function (e) {
-        if (!d(e)) return false;
+        if (!toLength(e)) return false;
         var t = p(e);
         return "DataView" === t || u(M, t) || u(N, t);
       },

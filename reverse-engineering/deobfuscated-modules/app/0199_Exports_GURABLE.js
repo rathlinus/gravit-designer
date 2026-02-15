@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* hasOwnProperty_wrapper */,
+    var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       i = require(61) /* module_61 */,
       a = Function.prototype,
-      r = o && Object.getOwnPropertyDescriptor,
+      r = hasOwnProperty_wrapper && Object.getOwnPropertyDescriptor,
       s = i(a, "name"),
       l = s && "something" === function () {}.name,
-      c = s && (!o || (o && r(a, "name").configurable));
+      c = s && (!hasOwnProperty_wrapper || (hasOwnProperty_wrapper && r(a, "name").configurable));
     exports.exports = { EXISTS: s, PROPER: l, CONFIGURABLE: c };
   }

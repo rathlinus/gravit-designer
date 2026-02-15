@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(27) /* uncurryThis */,
-      a = require(130) /* lengthOfArrayLike */,
+    var core_export = require(25) /* core_export */,
+      uncurryThis = require(27) /* uncurryThis */,
+      lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
       r = require(1524) /* stub_requires_27 */,
       s = require(1525) /* module_1525 */,
-      l = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       c = RangeError,
       d = String,
       u = Math.floor,
-      p = i(s),
-      g = i("".slice),
-      h = i((1).toFixed),
+      p = uncurryThis(s),
+      g = uncurryThis("".slice),
+      h = uncurryThis((1).toFixed),
       f = function (e, t, n) {
         return 0 === t
           ? n
@@ -25,27 +25,27 @@ function (exports, module, require) {
           : f(e * e, t / 2, n);
       },
       m = function (e, t, n) {
-        for (var o = -1, i = n; ++o < 6; )
-          (i += t * e[o]), (e[o] = i % 1e7), (i = u(i / 1e7));
+        for (var core_export = -1, uncurryThis = n; ++core_export < 6; )
+          (uncurryThis += t * e[core_export]), (e[core_export] = uncurryThis % 1e7), (uncurryThis = u(uncurryThis / 1e7));
       },
       y = function (e, t) {
-        for (var require = 6, o = 0; --require >= 0; )
-          (o += e[require]), (e[require] = u(o / t)), (o = (o % t) * 1e7);
+        for (var require = 6, core_export = 0; --require >= 0; )
+          (core_export += e[require]), (e[require] = u(core_export / t)), (core_export = (core_export % t) * 1e7);
       },
       v = function (e) {
         for (var module = 6, require = ""; --module >= 0; )
           if ("" !== require || 0 === module || 0 !== e[module]) {
-            var o = d(e[module]);
-            require = "" === require ? o : require + p("0", 7 - o.length) + o;
+            var core_export = d(e[module]);
+            require = "" === require ? core_export : require + p("0", 7 - core_export.length) + core_export;
           }
         return require;
       };
-    o(
+    core_export(
       {
         target: "Number",
         proto: true,
         forced:
-          l(function () {
+          tryCall(function () {
             return (
               "0.000" !== h(8e-5, 3) ||
               "1" !== h(0.9, 0) ||
@@ -53,7 +53,7 @@ function (exports, module, require) {
               "1000000000000000128" !== h(0xde0b6b3a7640080, 0)
             );
           }) ||
-          !l(function () {
+          !tryCall(function () {
             h({});
           }),
       },
@@ -61,14 +61,14 @@ function (exports, module, require) {
         toFixed: function (e) {
           var t,
             n,
-            o,
-            i,
+            core_export,
+            uncurryThis,
             s = r(this),
-            l = a(e),
+            tryCall = lengthOfArrayLike(e),
             u = [0, 0, 0, 0, 0, 0],
             h = "",
             _ = "0";
-          if (l < 0 || l > 20) throw new c("Incorrect fraction digits");
+          if (tryCall < 0 || tryCall > 20) throw new c("Incorrect fraction digits");
           if (s != s) return "NaN";
           if (s <= -1e21 || s >= 1e21) return d(s);
           if ((s < 0 && ((h = "-"), (s = -s)), s > 1e-21))
@@ -85,17 +85,17 @@ function (exports, module, require) {
               (n *= 4503599627370496),
               (t = 52 - t) > 0)
             ) {
-              for (m(u, 0, n), o = l; o >= 7; ) m(u, 1e7, 0), (o -= 7);
-              for (m(u, f(10, o, 1), 0), o = t - 1; o >= 23; )
-                y(u, 1 << 23), (o -= 23);
-              y(u, 1 << o), m(u, 1, 1), y(u, 2), (_ = v(u));
-            } else m(u, 0, n), m(u, 1 << -t, 0), (_ = v(u) + p("0", l));
+              for (m(u, 0, n), core_export = tryCall; core_export >= 7; ) m(u, 1e7, 0), (core_export -= 7);
+              for (m(u, f(10, core_export, 1), 0), core_export = t - 1; core_export >= 23; )
+                y(u, 1 << 23), (core_export -= 23);
+              y(u, 1 << core_export), m(u, 1, 1), y(u, 2), (_ = v(u));
+            } else m(u, 0, n), m(u, 1 << -t, 0), (_ = v(u) + p("0", tryCall));
           return (_ =
-            l > 0
+            tryCall > 0
               ? h +
-                ((i = _.length) <= l
-                  ? "0." + p("0", l - i) + _
-                  : g(_, 0, i - l) + "." + g(_, i - l))
+                ((uncurryThis = _.length) <= tryCall
+                  ? "0." + p("0", tryCall - uncurryThis) + _
+                  : g(_, 0, uncurryThis - tryCall) + "." + g(_, uncurryThis - tryCall))
               : h + _);
         },
       }

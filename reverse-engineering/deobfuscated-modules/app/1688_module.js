@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(151) /* module_151 */;
-    var o = require(1) /* module */;
-    (o.GUtil.image2Canvas = function (e, t) {
+    var GCore = require(1) /* module */;
+    (GCore.GUtil.image2Canvas = function (e, t) {
       if ("string" == typeof e) {
         var require = new Image();
         return (
@@ -21,16 +21,16 @@ function (exports, module, require) {
           null
         );
       }
-      var o = document.createElement("canvas");
+      var GCore = document.createElement("canvas");
       return (
-        (o.width = e.naturalWidth),
-        (o.height = e.naturalHeight),
-        o.getContext("2d").drawImage(e, 0, 0),
-        t && t(o),
-        o
+        (GCore.width = e.naturalWidth),
+        (GCore.height = e.naturalHeight),
+        GCore.getContext("2d").drawImage(e, 0, 0),
+        t && t(GCore),
+        GCore
       );
     }),
-      (o.GUtil.image2Base64 = function (e, t) {
+      (GCore.GUtil.image2Base64 = function (e, t) {
         var n = this.image2Canvas(e, function (e) {
           t && t(e.toDataURL("image/png"));
         });

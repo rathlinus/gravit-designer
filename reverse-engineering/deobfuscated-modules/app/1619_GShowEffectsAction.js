@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "view.canvas.show-effects"),
-      (s.TITLE = new o.GLocaleKey("GShowEffectsAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GShowEffectsAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW_CANVAS;
+        return MenuItemBuilder.CATEGORY_VIEW_CANVAS;
       }),
       (s.prototype.getGroup = function () {
         return "show/canvas";
@@ -34,7 +34,7 @@ function (exports, module, require) {
         return true;
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "E"];
+        return [GEditor.GKey.Constant.META, "E"];
       }),
       (s.prototype.isChecked = function () {
         var e = gDesigner.getWindows().getActiveWindow();

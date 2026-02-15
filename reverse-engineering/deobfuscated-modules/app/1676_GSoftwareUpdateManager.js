@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(96) /* polyfill_JSON_stringify */, require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(97) /* stub_requires_684 */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */,
-      a = require(40) /* CollaborationMergeUtils */;
-    const r = require(85) /* GContainer */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
+    const GContainer = require(85) /* GContainer */,
       s = require(1188) /* module_1188 */,
       l = require(1349) /* module_1349 */;
-    var c;
+    var GElectronUpdateServiceClient;
     exports.exports = class {
       constructor() {
         (this._intervalPID = null),
@@ -34,25 +34,25 @@ function (exports, module, require) {
       }
       _isVersionGeneralFormatHigherThan(e, t) {
         var n = e.split("."),
-          o = t.split(".");
+          GCore = t.split(".");
         if (3 !== n.length || n.some((e) => isNaN(Number(e))))
           throw "Incorrect release version argument";
-        if (3 !== o.length || o.some((e) => isNaN(Number(e))))
+        if (3 !== GCore.length || GCore.some((e) => isNaN(Number(e))))
           throw "Incorrect current version argument";
-        var i = +n[0],
-          a = +n[1],
-          r = +n[2],
-          s = +o[0],
-          l = +o[1],
-          c = +o[2];
-        return i > s || (i === s && a > l) || (i === s && a === l && r > c);
+        var AppSettings = +n[0],
+          CollaborationMergeUtils = +n[1],
+          GContainer = +n[2],
+          s = +GCore[0],
+          l = +GCore[1],
+          GElectronUpdateServiceClient = +GCore[2];
+        return AppSettings > s || (AppSettings === s && CollaborationMergeUtils > l) || (AppSettings === s && CollaborationMergeUtils === l && GContainer > GElectronUpdateServiceClient);
       }
       _isVersionHigherThan(e, t) {
         return !!e && this._isVersionGeneralFormatHigherThan(e, t);
       }
       async initializeReleaseStatus() {
         try {
-          this._releaseStatus = await i.gApi.software.getRelease({
+          this._releaseStatus = await AppSettings.gApi.software.getRelease({
             current: this.getCurrentVersion(),
             env: gDesigner.getEnv(),
             runtime: gContainer.getRuntime(),
@@ -80,7 +80,7 @@ function (exports, module, require) {
             : await this.initializeReleaseStatusWithNotifications();
           this._isVersionHigherThan(this._releaseStatus.tagVersion, t)
             ? this._isElectron()
-              ? c.checkForUpdates()
+              ? GElectronUpdateServiceClient.checkForUpdates()
               : this._trigger(
                   new s.UpdateAvailable({
                     currentVersion: this.getCurrentFriendlyVersion(),
@@ -101,14 +101,14 @@ function (exports, module, require) {
       }
       downloadUpdate() {
         console.info(this.toString(), " - Downloading update"),
-          this._isElectron() && c.downloadUpdate();
+          this._isElectron() && GElectronUpdateServiceClient.downloadUpdate();
       }
       async installElectronUpdate() {
-        o.GSystem.operatingSystem === o.GSystem.OperatingSystem.OSX_IOS &&
+        GCore.GSystem.operatingSystem === GCore.GSystem.OperatingSystem.OSX_IOS &&
           (console.info(this.toString(), " - Waiting install - OSX"),
-          await (0, a.sleep)(5e3)),
+          await (0, CollaborationMergeUtils.sleep)(5e3)),
           console.info(this.toString(), " - Installing update - Call"),
-          c.installUpdate();
+          GElectronUpdateServiceClient.installUpdate();
       }
       async installUpdate() {
         switch (
@@ -117,11 +117,11 @@ function (exports, module, require) {
             this._trigger(new s.BeforeInstallUpdate()),
           gContainer.getRuntime())
         ) {
-          case r.Runtime.Browser:
-          case r.Runtime.PWA:
+          case GContainer.Runtime.Browser:
+          case GContainer.Runtime.PWA:
             location.reload();
             break;
-          case r.Runtime.Electron:
+          case GContainer.Runtime.Electron:
             console.info(this.toString(), " - Checking download"),
               this._downloadCompleted
                 ? this._releaseStatus.silent
@@ -133,28 +133,28 @@ function (exports, module, require) {
         }
       }
       _isElectron() {
-        return gContainer.getRuntime() === r.Runtime.Electron;
+        return gContainer.getRuntime() === GContainer.Runtime.Electron;
       }
       async start() {
-        [r.Runtime.Electron, r.Runtime.Browser, r.Runtime.PWA].includes(
+        [GContainer.Runtime.Electron, GContainer.Runtime.Browser, GContainer.Runtime.PWA].includes(
           gContainer.getRuntime()
         )
           ? (this._isElectron() &&
-              ((c = require(1677) /* GElectronUpdateServiceClient */).on(
+              ((GElectronUpdateServiceClient = require(1677) /* GElectronUpdateServiceClient */).on(
                 l.UpdateDownloaded,
                 this._handleDownloadComplete.bind(this)
               ),
-              c.on(
+              GElectronUpdateServiceClient.on(
                 l.DownloadProgress,
                 this._handleDownloadInProgress.bind(this)
               ),
-              c.on(l.UpdateAvailable, this._handleUpdateAvailable.bind(this)),
-              c.on(l.Error, this._handleUpdateError.bind(this)),
-              c.on(
+              GElectronUpdateServiceClient.on(l.UpdateAvailable, this._handleUpdateAvailable.bind(this)),
+              GElectronUpdateServiceClient.on(l.Error, this._handleUpdateError.bind(this)),
+              GElectronUpdateServiceClient.on(
                 l.UpdateNotAvailable,
                 this._handleUpdateNotAvailable.bind(this)
               ),
-              c.on(
+              GElectronUpdateServiceClient.on(
                 l.CheckingForUpdate,
                 this._handleCheckingForUpdate.bind(this)
               ),
@@ -168,18 +168,18 @@ function (exports, module, require) {
                 gContainer.setProperty("last_update_check", exports),
                   this.checkForUpdates(true);
               }.bind(this),
-              i.DateAPI.daysToMilliseconds(1)
+              AppSettings.DateAPI.daysToMilliseconds(1)
             )),
             gContainer.getProperty("last_update_check").then((e) => {
               let module = new Date().getTime();
               if (e) {
-                let n = i.DateAPI.diff(
-                    i.DateAPI.toDate(e),
-                    i.DateAPI.toDate(module),
+                let n = AppSettings.DateAPI.diff(
+                    AppSettings.DateAPI.toDate(e),
+                    AppSettings.DateAPI.toDate(module),
                     false
                   ),
-                  o = i.DateAPI.daysToMilliseconds(1);
-                (n < 0 || n >= o) &&
+                  GCore = AppSettings.DateAPI.daysToMilliseconds(1);
+                (n < 0 || n >= GCore) &&
                   (gContainer.setProperty("last_update_check", module),
                   this.checkForUpdates(true));
               } else gContainer.setProperty("last_update_check", module);
@@ -189,7 +189,7 @@ function (exports, module, require) {
               e
                 ? e !== module &&
                   (gContainer.setProperty("old_version", module),
-                  i.gApi.software.getRelease().then((e) => {
+                  AppSettings.gApi.software.getRelease().then((e) => {
                     e &&
                       !e.silent &&
                       this._trigger(
@@ -257,7 +257,7 @@ function (exports, module, require) {
           ),
           this._releaseStatus.forceUpdate &&
             this._isElectron() &&
-            c.downloadUpdate();
+            GElectronUpdateServiceClient.downloadUpdate();
       }
       _handleUpdateError(e, t) {
         console.info(this.toString() + " Update error:" + JSON.stringify(t)),
@@ -272,7 +272,7 @@ function (exports, module, require) {
         this._intervalPID && clearInterval(this._intervalPID);
       }
       getReleaseNotesLink() {
-        return i.SOFTWARE_UPDATE.CHANGE_LOG_LINK;
+        return AppSettings.SOFTWARE_UPDATE.CHANGE_LOG_LINK;
       }
       toString() {
         return "[Object GSoftwareUpdateManager]";

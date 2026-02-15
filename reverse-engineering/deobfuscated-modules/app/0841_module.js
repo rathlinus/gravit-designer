@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(96) /* polyfill_JSON_stringify */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e, t, n, i) {
       (this._dialog = $("<div></div>")),
         (this._replacedFonts = {}),
@@ -15,8 +15,8 @@ function (exports, module, require) {
         (this._callbacks = []),
         (this._keepFontsButton = $(
           "<button>" +
-            o.GLocale.get(
-              new o.GLocaleKey("GMissingFontsDialog", "action.keep-fonts")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GMissingFontsDialog", "action.keep-fonts")
             ) +
             "</button>"
         ).on("click", () => this._keepFonts())),
@@ -27,16 +27,16 @@ function (exports, module, require) {
         $("<div></div>")
           .addClass("title")
           .text(
-            o.GLocale.get(
-              new o.GLocaleKey("GMissingFontsDialog", "text.fonts-missing")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GMissingFontsDialog", "text.fonts-missing")
             )
           )
           .appendTo(this._dialog),
         $("<div></div>")
           .addClass("subtitle")
           .text(
-            o.GLocale.get(
-              new o.GLocaleKey("GMissingFontsDialog", "text.fonts-not-found")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GMissingFontsDialog", "text.fonts-not-found")
             )
           )
           .appendTo(this._dialog),
@@ -50,8 +50,8 @@ function (exports, module, require) {
           a.unshift(
             $(
               "<button>" +
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GMissingFontsDialog",
                     "action.replace-fonts"
                   )
@@ -66,7 +66,7 @@ function (exports, module, require) {
           buttons: a,
         });
     }
-    o.GObject.inherit(i, o.GObject),
+    GCore.GObject.inherit(i, GCore.GObject),
       (i.prototype.getMissingFonts = function () {
         var e = [];
         return (
@@ -81,8 +81,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("subtitle")
             .text(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GMissingFontsDialog",
                   "text.turn-disabled-function"
                 )
@@ -107,7 +107,7 @@ function (exports, module, require) {
               Object.keys(e).forEach((t) => {
                 this._replacedFonts[t] = e[t];
               });
-          var o = this;
+          var GCore = this;
           Object.keys(this._replacedFonts).forEach((e) => {
             if (!(module.indexOf(e) >= 0)) {
               var i = $("<div></div>")
@@ -124,10 +124,10 @@ function (exports, module, require) {
                   .attr("type", "button")
                   .gFontsButton({
                     assignFontCallback: function (e, t) {
-                      o._replacedFonts[t.data("font")] = e;
+                      GCore._replacedFonts[t.data("font")] = e;
                     },
                   })
-                  .val(o._replacedFonts[e] || require.getFamily())
+                  .val(GCore._replacedFonts[e] || require.getFamily())
                   .appendTo(i);
             }
           });
@@ -136,8 +136,8 @@ function (exports, module, require) {
       (i.prototype.open = function (e) {
         var t =
           e ||
-          o.GLocale.get(
-            new o.GLocaleKey("GMissingFontsDialog", "action.keep-fonts")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GMissingFontsDialog", "action.keep-fonts")
           );
         this._keepFontsButton.text(t),
           (this.opened = true),
@@ -169,7 +169,7 @@ function (exports, module, require) {
           module &&
             module.acceptChildren((t) => {
               if (
-                t instanceof o.GText &&
+                t instanceof GCore.GText &&
                 (t.isFakeText() || t.hasEmbeddedFonts())
               )
                 return (e = true), false;
@@ -180,7 +180,7 @@ function (exports, module, require) {
       (i.prototype._replaceFonts = function () {
         gDesigner.stats("missingfonts_replace_fonts"),
           this._document.getScene().acceptChildren((e) => {
-            if (e instanceof o.GText)
+            if (e instanceof GCore.GText)
               if (e.isFakeText() || !e.$fontFamilies)
                 e.replaceFonts(this._replacedFonts, e.hasEmbeddedFonts());
               else {
@@ -191,20 +191,20 @@ function (exports, module, require) {
                   require = Object.keys(this._replacedFonts),
                   i = e.getContent();
                 i &&
-                  (i.forEach((o, i) => {
+                  (i.forEach((GCore, i) => {
                     var a =
-                      (e.$fontFamilies && e.$fontFamilies[i]) || o.fontFamily;
+                      (e.$fontFamilies && e.$fontFamilies[i]) || GCore.fontFamily;
                     -1 !== require.indexOf(a) &&
-                      (o.fontFamily = this._replacedFonts[a] || module.getFamily());
+                      (GCore.fontFamily = this._replacedFonts[a] || module.getFamily());
                   }),
                   (e._runsDirty = true),
                   (e.$content = JSON.stringify(i)),
                   e.setText(i),
                   e.repaint());
               }
-            else if (e instanceof o.GStyle) {
+            else if (e instanceof GCore.GStyle) {
               var a = e.getProperty("_tff");
-              this._replacedFonts instanceof o.GFont
+              this._replacedFonts instanceof GCore.GFont
                 ? e.setProperties(
                     ["_tff", "_tfs", "_tfw"],
                     [

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
+    var globalThis = require(23) /* globalThis */,
       i = require(223) /* module_223 */,
-      a = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       r = require(65) /* module_65 */,
       s = require(351) /* module_351 */,
       l = require(152) /* module_152 */,
@@ -17,20 +17,20 @@ function (exports, module, require) {
       p = require(523) /* stub_requires_129 */,
       g = l.aTypedArray,
       h = l.exportTypedArrayMethod,
-      f = o.Uint16Array,
+      f = globalThis.Uint16Array,
       m = f && i(f.prototype.sort),
       y = !(
         !m ||
-        (a(function () {
+        (tryCall(function () {
           m(new f(2), null);
         }) &&
-          a(function () {
+          tryCall(function () {
             m(new f(2), {});
           }))
       ),
       v =
         !!m &&
-        !a(function () {
+        !tryCall(function () {
           if (u) return u < 74;
           if (c) return c < 67;
           if (d) return true;
@@ -38,9 +38,9 @@ function (exports, module, require) {
           var e,
             t,
             n = new f(516),
-            o = Array(516);
+            globalThis = Array(516);
           for (e = 0; e < 516; e++)
-            (t = e % 4), (n[e] = 515 - e), (o[e] = e - 2 * t + 3);
+            (t = e % 4), (n[e] = 515 - e), (globalThis[e] = e - 2 * t + 3);
           for (
             m(n, function (e, t) {
               return ((e / 4) | 0) - ((t / 4) | 0);
@@ -49,7 +49,7 @@ function (exports, module, require) {
             e < 516;
             e++
           )
-            if (n[e] !== o[e]) return true;
+            if (n[e] !== globalThis[e]) return true;
         });
     h(
       "sort",

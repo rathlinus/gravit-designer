@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(10) /* AppSettings */,
-      a = o(require(880) /* module_880 */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      AppSettings = require(10) /* AppSettings */,
+      a = _interopRequireDefault(require(880) /* module_880 */);
     class r extends a.default {
       canActivate(e) {
         return e.isThereOneTouchPointOnTheTarget();
@@ -34,16 +34,16 @@ function (exports, module, require) {
         const module = e.getOriginalEvent();
         if ((this._dropLongPressEvent(), e.areThereMultipleTouchPoints()))
           return;
-        const { clientX: require, clientY: o, target: a } = module.targetTouches[0];
+        const { clientX: require, clientY: _interopRequireDefault, target: a } = module.targetTouches[0];
         this._longPressEventTimeout = setTimeout(() => {
           const e = jQuery.Event("contextmenu", {
             pageX: require,
-            pageY: o,
+            pageY: _interopRequireDefault,
             clientX: require,
-            clientY: o,
+            clientY: _interopRequireDefault,
           });
           $(a).trigger(e);
-        }, i.LONG_PRESS_TIME_OUT);
+        }, AppSettings.LONG_PRESS_TIME_OUT);
       }
       _dropLongPressEvent() {
         this._longPressEventTimeout &&

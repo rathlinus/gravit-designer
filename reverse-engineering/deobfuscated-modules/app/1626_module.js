@@ -6,12 +6,12 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
-    const i = require(31) /* GAction */;
+    var GCore = require(1) /* module */;
+    const GAction = require(31) /* GAction */;
     function a(e) {
       this._action = e;
     }
-    o.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, GAction),
       (a.prototype._action = null),
       (a.prototype.getId = function () {
         return this._action.getId();

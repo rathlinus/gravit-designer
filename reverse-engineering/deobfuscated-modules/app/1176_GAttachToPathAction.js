@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(873) /* GSplitPathAction */,
-      s = require(106) /* GElementAction */;
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GSplitPathAction = require(873) /* GSplitPathAction */,
+      GElementAction = require(106) /* GElementAction */;
     function l() {}
-    i.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GElementAction),
       (l.ID = "modify.attachToPath"),
-      (l.TITLE = new i.GLocaleKey("GAttachToPathAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GAttachToPathAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,7 +23,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (l.prototype.getGroup = function () {
         return "structure/modify";
@@ -32,59 +32,59 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-attach-to-path" : null;
       }),
       (l.prototype.isEnabled = function () {
-        if (!s.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument()
             ? gDesigner.getActiveDocument().getEditor().getSelection()
             : null,
           t = [],
           n = null;
         if (e)
-          for (var a = 0; a < e.length; ++a)
-            if (e[a] instanceof i.GText && !e[a].hasPathAttached()) {
-              var r = o.GElementEditor.getEditor(e[a]);
-              r && !r.isInlineEdit() && t.push(e[a]);
+          for (var MenuItemBuilder = 0; MenuItemBuilder < e.length; ++MenuItemBuilder)
+            if (e[MenuItemBuilder] instanceof GCore.GText && !e[MenuItemBuilder].hasPathAttached()) {
+              var GSplitPathAction = GTools.GElementEditor.getEditor(e[MenuItemBuilder]);
+              GSplitPathAction && !GSplitPathAction.isInlineEdit() && t.push(e[MenuItemBuilder]);
             } else
-              !e[a].hasMixin(i.GVertexSource) ||
-                e[a] instanceof i.GPathsGraph ||
-                (n = e[a]);
+              !e[MenuItemBuilder].hasMixin(GCore.GVertexSource) ||
+                e[MenuItemBuilder] instanceof GCore.GPathsGraph ||
+                (n = e[MenuItemBuilder]);
         return !(!t.length || !n);
       }),
       (l.prototype.execute = function () {
         var e,
           t = gDesigner.getActiveDocument(),
           n = t ? t.getScene() : null,
-          a = (u = t ? t.getEditor() : null)
+          MenuItemBuilder = (u = t ? t.getEditor() : null)
             ? u.getIndividualSelection()
             : null,
-          s = null,
+          GElementAction = null,
           l = [];
-        if (a)
-          for (var c = 0; c < a.length; ++c)
-            if (!s && a[c] instanceof i.GPathBase) s = a[c];
-            else if (a[c] instanceof i.GText && !a[c].hasPathAttached()) {
-              var d = o.GElementEditor.getEditor(a[c]);
-              d && !d.isInlineEdit() && l.push(a[c]);
+        if (MenuItemBuilder)
+          for (var c = 0; c < MenuItemBuilder.length; ++c)
+            if (!GElementAction && MenuItemBuilder[c] instanceof GCore.GPathBase) GElementAction = MenuItemBuilder[c];
+            else if (MenuItemBuilder[c] instanceof GCore.GText && !MenuItemBuilder[c].hasPathAttached()) {
+              var d = GTools.GElementEditor.getEditor(MenuItemBuilder[c]);
+              d && !d.isInlineEdit() && l.push(MenuItemBuilder[c]);
             } else
               e ||
-                !a[c].hasMixin(i.GVertexSource) ||
-                a[c] instanceof i.GPathsGraph ||
-                (e = a[c]);
+                !MenuItemBuilder[c].hasMixin(GCore.GVertexSource) ||
+                MenuItemBuilder[c] instanceof GCore.GPathsGraph ||
+                (e = MenuItemBuilder[c]);
         try {
-          if ((u.beginTransaction(), !s)) {
+          if ((u.beginTransaction(), !GElementAction)) {
             var u = gDesigner.getActiveDocument().getEditor();
-            e instanceof i.GCompoundPath
-              ? gDesigner.executeAction(r.ID, undefined, undefined, true)
+            e instanceof GCore.GCompoundPath
+              ? gDesigner.executeAction(GSplitPathAction.ID, undefined, undefined, true)
               : (u.updateSelection(false, [e]), u.convertSelectionToPaths()),
-              (s = u.getSelection()[0]),
-              (a = a.concat()).splice(a.indexOf(e), 1),
-              u.updateSelection(true, a);
+              (GElementAction = u.getSelection()[0]),
+              (MenuItemBuilder = MenuItemBuilder.concat()).splice(MenuItemBuilder.indexOf(e), 1),
+              u.updateSelection(true, MenuItemBuilder);
           }
           n &&
             l.map(function (e) {
-              n.link(e, s);
+              n.link(e, GElementAction);
             });
         } finally {
-          u.commitTransaction(i.GLocale.get(this.getTitle()));
+          u.commitTransaction(GCore.GLocale.get(this.getTitle()));
         }
       }),
       (l.prototype.toString = function () {

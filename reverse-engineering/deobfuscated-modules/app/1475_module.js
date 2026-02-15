@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
     var o = require(797) /* module */,
-      i = require(1) /* module */;
+      GCore = require(1) /* module */;
     require(257) /* barrel_panels */;
     function a(e, t, n, o, a, r) {
       (this._currentDocument = e),
@@ -28,8 +28,8 @@ function (exports, module, require) {
         .addClass("title")
         .append(
           $("<span></span>").text(
-            i.GLocale.get(
-              new i.GLocaleKey("GDocumentChooser", "text.sync.title")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GDocumentChooser", "text.sync.title")
             )
           )
         )
@@ -38,8 +38,8 @@ function (exports, module, require) {
           .addClass("subtitle")
           .append(
             $("<span></span>").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GDocumentChooser", "text.sync.subtitle")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDocumentChooser", "text.sync.subtitle")
               )
             )
           )
@@ -54,7 +54,7 @@ function (exports, module, require) {
       let l = $("<div></div>").addClass("buttons").appendTo(this._footer);
       $("<button></button>")
         .addClass("g-button")
-        .text(i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")))
+        .text(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")))
         .on("click", this.close.bind(this))
         .appendTo(l);
       this._dialog.gDialog({
@@ -63,7 +63,7 @@ function (exports, module, require) {
       }),
         this._updatePreview();
     }
-    i.GObject.inherit(a, i.GObject),
+    GCore.GObject.inherit(a, GCore.GObject),
       (a.prototype.open = function () {
         this._dialog.gDialog("open", false);
       }),
@@ -93,19 +93,19 @@ function (exports, module, require) {
             var o = [],
               a = function (e) {
                 if (
-                  e.image.getStatus() === i.GImage.ImageStatus.Loaded ||
-                  e.image.getStatus() === i.GImage.ImageStatus.Error
+                  e.image.getStatus() === GCore.GImage.ImageStatus.Loaded ||
+                  e.image.getStatus() === GCore.GImage.ImageStatus.Error
                 ) {
-                  e.image.removeEventListener(i.GImage.StatusEvent, this);
+                  e.image.removeEventListener(GCore.GImage.StatusEvent, this);
                   var t = o.indexOf(e.image);
                   -1 !== t && o.splice(t, 1), o.length || n();
                 }
               };
             e.acceptChildren((e) => {
-              e instanceof i.GImage &&
-                ((e.getStatus() === i.GImage.ImageStatus.Error &&
-                  e.getStatus() === i.GImage.ImageStatus.Loaded) ||
-                  (o.push(e), e.addEventListener(i.GImage.StatusEvent, a)));
+              e instanceof GCore.GImage &&
+                ((e.getStatus() === GCore.GImage.ImageStatus.Error &&
+                  e.getStatus() === GCore.GImage.ImageStatus.Loaded) ||
+                  (o.push(e), e.addEventListener(GCore.GImage.StatusEvent, a)));
             }),
               o.length || n();
           } else n();
@@ -124,7 +124,7 @@ function (exports, module, require) {
             .appendTo(this._container),
           l = $("<div></div>")
             .addClass("preview-image loading")
-            .css("background", i.GPattern.asCSSBackground(null))
+            .css("background", GCore.GPattern.asCSSBackground(null))
             .append(r)
             .appendTo(s);
         this._loadPreview(e, t).then(() => {
@@ -132,15 +132,15 @@ function (exports, module, require) {
           l.removeClass("loading"),
             r.css(
               "background-image",
-              "url(".concat(t.toImageDataUrl(i.GBitmap.ImageType.JPEG, 1), ")")
+              "url(".concat(t.toImageDataUrl(GCore.GBitmap.ImageType.JPEG, 1), ")")
             );
         });
         var c = function (e) {
           return 0 === e.getTime()
-            ? i.GLocale.get(
-                new i.GLocaleKey("GDocumentChooser", "text.unavailable")
+            ? GCore.GLocale.get(
+                new GCore.GLocaleKey("GDocumentChooser", "text.unavailable")
               )
-            : i.GLocale.toLocaleDate(e, {
+            : GCore.GLocale.toLocaleDate(e, {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
@@ -155,8 +155,8 @@ function (exports, module, require) {
               $("<span></span>").text(
                 n +
                   " " +
-                  i.GLocale.get(
-                    new i.GLocaleKey("GDocumentChooser", "text." + t)
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDocumentChooser", "text." + t)
                   )
               )
             )
@@ -168,8 +168,8 @@ function (exports, module, require) {
                 c(e.lastModifiedDate()) +
                   (a
                     ? " " +
-                      i.GLocale.get(
-                        new i.GLocaleKey("GDocumentChooser", "text.newer-file")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GDocumentChooser", "text.newer-file")
                       )
                     : "")
               )

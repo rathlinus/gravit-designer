@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     var o = require(803) /* module_803 */,
-      i = require(10) /* AppSettings */;
+      AppSettings = require(10) /* AppSettings */;
     const a =
         window && window.location && "localhost" === window.location.hostname,
       r = {
@@ -16,17 +16,17 @@ function (exports, module, require) {
             arguments.length > 0 && undefined !== arguments[0] && arguments[0];
           switch (o.nodeEnv) {
             case "production":
-              return i.prodURL;
+              return AppSettings.prodURL;
             case "lts":
-              return i.ltsURL;
+              return AppSettings.ltsURL;
             case "rc":
-              return i.rcURL;
+              return AppSettings.rcURL;
           }
           return o.isBeta
-            ? i.betaURL
+            ? AppSettings.betaURL
             : exports && a
             ? "http://localhost:9000"
-            : i.trunkURL;
+            : AppSettings.trunkURL;
         },
       };
     module.default = r;

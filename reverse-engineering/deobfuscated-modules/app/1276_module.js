@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(19) /* polyfill_Array_iterator */, require(193) /* polyfill_Object_keys */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const {
         gApi: i,
         AUTO_SAVE_ENABLED: a,
@@ -16,19 +16,19 @@ function (exports, module, require) {
         EXTERNAL_APP: c,
       } = require(10) /* AppSettings */,
       { buildDialogDocumentHasUpdates: d } = require(40) /* CollaborationMergeUtils */,
-      u = require(85) /* GContainer */,
-      p = require(44) /* GSystemDialog */,
+      GContainer = require(85) /* GContainer */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       g = require(556) /* Item */,
-      h = require(448) /* GGravitCloudAction */,
-      f = require(78) /* GDocumentEvent */,
-      m = require(135) /* GSettingChangedEvent */,
-      y = require(291) /* GNetworkAvailabilityChangedEvent */,
+      GGravitCloudAction = require(448) /* GGravitCloudAction */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
+      GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       v = require(1530) /* module_1530 */,
       _ = require(1534) /* module_1534 */,
       b = require(86) /* module_86 */,
-      w = require(217) /* GDocumentStatusEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       { SETUP: C, CODES: x } = require(591) /* module_591 */,
-      S = require(1277) /* Action_edit_settings */;
+      Action_edit_settings = require(1277) /* Action_edit_settings */;
     function E() {
       if (
         ((this._pendingSyncDialog = new Set()),
@@ -59,18 +59,18 @@ function (exports, module, require) {
         gContainer.getProperty(E.AUTO_SAVE_WARN_DIALOG_SHOWN).then((e) => {
           this._warnDialogShown = !!e;
         }),
-        gDesigner.addEventListener(f, this._documentEvent, this),
-        gDesigner.addEventListener(m, this._settingsChangedEvent, this),
+        gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
+        gDesigner.addEventListener(GSettingChangedEvent, this._settingsChangedEvent, this),
         gDesigner.addEventListener(
-          y,
+          GNetworkAvailabilityChangedEvent,
           this._networkAvailabilityChangedEvent,
           this
         );
     }
     (E.ALTERNATE_STRINGS = [
-      new o.GLocaleKey("GAutoSave", "text.notification-message-1"),
-      new o.GLocaleKey("GAutoSave", "text.notification-message-2"),
-      new o.GLocaleKey("GAutoSave", "text.notification-message-3"),
+      new GCore.GLocaleKey("GAutoSave", "text.notification-message-1"),
+      new GCore.GLocaleKey("GAutoSave", "text.notification-message-2"),
+      new GCore.GLocaleKey("GAutoSave", "text.notification-message-3"),
     ]),
       (E.DISABLE_EXTERNAL_FILE_NO_ENTRIES_CREATED_WARING =
         "disable-external-file-no-entries-created-waring"),
@@ -264,10 +264,10 @@ function (exports, module, require) {
       (E.prototype._documentEvent = function (e) {
         if (!e.document.isLockedByVersionHistory())
           switch (e.type) {
-            case f.Type.Added:
+            case GDocumentEvent.Type.Added:
               this._addDocument(e.document),
                 e.document.addEventListener(
-                  w,
+                  GDocumentStatusEvent,
                   this._handleDocumentStatusEvent,
                   this,
                   undefined,
@@ -276,15 +276,15 @@ function (exports, module, require) {
                 ),
                 this.enable();
               break;
-            case f.Type.Removed:
+            case GDocumentEvent.Type.Removed:
               this._removeDocument(e.document),
                 e.document.removeEventListener(
-                  w,
+                  GDocumentStatusEvent,
                   this._handleDocumentStatusEvent,
                   this
                 );
               break;
-            case f.Type.SynchronismUpdated: {
+            case GDocumentEvent.Type.SynchronismUpdated: {
               let t = true;
               e.document.isWebFile() ||
                 (e.document.isCloudSyncOn()
@@ -293,11 +293,11 @@ function (exports, module, require) {
                 t && this._addDocument(e.document);
               break;
             }
-            case f.Type.Activated:
+            case GDocumentEvent.Type.Activated:
               this._documentsMap.has(e.document) ||
                 (this._addDocument(e.document),
                 e.document.addEventListener(
-                  w,
+                  GDocumentStatusEvent,
                   this._handleDocumentStatusEvent,
                   this,
                   undefined,
@@ -325,7 +325,7 @@ function (exports, module, require) {
                     });
                   }, this._interval));
               break;
-            case f.Type.BeforeReload:
+            case GDocumentEvent.Type.BeforeReload:
               this._removeDocument(e.document);
           }
       }),
@@ -368,15 +368,15 @@ function (exports, module, require) {
       }),
       (E.prototype._toggleOfflineAlert = function (e) {
         if (e) {
-          let e = o.GLocale.get(
-            new o.GLocaleKey("GAutoSave", "text.alert-offline")
+          let e = GCore.GLocale.get(
+            new GCore.GLocaleKey("GAutoSave", "text.alert-offline")
           );
-          gContainer.getRuntime() === u.Runtime.Electron &&
-            o.GLocale.get(
-              new o.GLocaleKey("GAutoSave", "text.alert-offline-desktop")
+          gContainer.getRuntime() === GContainer.Runtime.Electron &&
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GAutoSave", "text.alert-offline-desktop")
             ),
             this._offlineAlert ||
-              (this._offlineAlert = p.alert(e, () => {
+              (this._offlineAlert = GSystemDialog.alert(e, () => {
                 this._offlineAlert = null;
               }));
         } else
@@ -393,9 +393,9 @@ function (exports, module, require) {
           : this.getStatus() === E.Status.Enabled
           ? Promise.resolve(true)
           : new Promise((e) => {
-              p.custom({
-                title: o.GLocale.get(
-                  new o.GLocaleKey(
+              GSystemDialog.custom({
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAutoSave",
                     "text.dialog-inform-warn-feature.title"
                   )
@@ -403,8 +403,8 @@ function (exports, module, require) {
                 subtitle: $("<span />")
                   .text(
                     "".concat(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GAutoSave",
                           "text.dialog-inform-warn-feature.text"
                         )
@@ -420,8 +420,8 @@ function (exports, module, require) {
                       )
                       .attr("target", "_blank")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GCommonNames", "text.learn-more")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "text.learn-more")
                         )
                       )
                   ),
@@ -430,14 +430,14 @@ function (exports, module, require) {
                 closeable: false,
                 buttons: [
                   {
-                    label: o.GLocale.get(
-                      new o.GLocaleKey(
+                    label: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAutoSave",
                         "text.dialog-inform-warn-feature.cancel-button"
                       )
                     ),
                     closeOnClick: true,
-                    shortcut: p.Shortcut.Esc,
+                    shortcut: GSystemDialog.Shortcut.Esc,
                     onclick: () => {
                       gDesigner.setSetting(E.AUTO_SAVE_SETTING, false),
                         (this._warnDialogShown = true),
@@ -450,15 +450,15 @@ function (exports, module, require) {
                     },
                   },
                   {
-                    label: o.GLocale.get(
-                      new o.GLocaleKey(
+                    label: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAutoSave",
                         "text.dialog-inform-warn-feature.enable-button"
                       )
                     ),
                     className: "primary",
                     closeOnClick: true,
-                    shortcut: p.Shortcut.Enter,
+                    shortcut: GSystemDialog.Shortcut.Enter,
                     onclick: () => {
                       gDesigner.setSetting(E.AUTO_SAVE_SETTING, true),
                         (this._warnDialogShown = true),
@@ -476,9 +476,9 @@ function (exports, module, require) {
       }),
       (E.prototype._showFormatNotSupportedDialog = function (e) {
         gDesigner.getSetting(E.REMINDER_FOR_CDR_DES_FILE, true) &&
-          (p.custom({
-            title: o.GLocale.get(
-              new o.GLocaleKey(
+          (GSystemDialog.custom({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GAutoSave",
                 "text.dialog-auto-save-is-not-available-for-cdr-and-des.text"
               )
@@ -488,8 +488,8 @@ function (exports, module, require) {
             closeable: false,
             buttons: [
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAutoSave",
                     "text.dialog-auto-save-is-not-available-for-cdr-and-des.save-as-button"
                   )
@@ -497,21 +497,21 @@ function (exports, module, require) {
                 closeOnClick: true,
                 onclick: () => {
                   gDesigner.executeAction(
-                    h.getIdForAction(h.Actions.SaveAs),
+                    GGravitCloudAction.getIdForAction(GGravitCloudAction.Actions.SaveAs),
                     e
                   );
                 },
               },
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAutoSave",
                     "text.dialog-auto-save-is-not-available-for-cdr-and-des.keep-cdr-button"
                   )
                 ),
                 closeOnClick: true,
                 className: "primary",
-                shortcut: p.Shortcut.Enter,
+                shortcut: GSystemDialog.Shortcut.Enter,
               },
             ],
             dontShowAgainCb: (e) => {
@@ -528,56 +528,56 @@ function (exports, module, require) {
         if (gDesigner.getSetting(E.DISABLE_WARNING_SETTING_NAME)) return;
         let module, require, i;
         e.hasCloudReference()
-          ? ((module = o.GLocale.get(
-              new o.GLocaleKey("GAutoSave", "text.alert-cloud-reference-sync")
+          ? ((module = GCore.GLocale.get(
+              new GCore.GLocaleKey("GAutoSave", "text.alert-cloud-reference-sync")
             )),
-            (require = o.GLocale.get(
-              new o.GLocaleKey(
+            (require = GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GAutoSave",
                 "text.alert-cloud-reference-sync-sub-text"
               )
             )),
             (i = [
               {
-                label: o.GLocale.get(new o.GLocaleKey("GLocale", "ok")),
+                label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")),
                 closeOnClick: true,
-                shortcut: p.Shortcut.Enter,
+                shortcut: GSystemDialog.Shortcut.Enter,
               },
             ]))
-          : ((module = o.GLocale.get(
-              new o.GLocaleKey("GAutoSave", "text.alert-sync")
+          : ((module = GCore.GLocale.get(
+              new GCore.GLocaleKey("GAutoSave", "text.alert-sync")
             )),
-            (require = o.GLocale.get(
-              new o.GLocaleKey("GAutoSave", "text.alert-sync-sub-text")
+            (require = GCore.GLocale.get(
+              new GCore.GLocaleKey("GAutoSave", "text.alert-sync-sub-text")
             )),
             (i = [
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey("GAutoSave", "text.alert-button.cancel")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GAutoSave", "text.alert-button.cancel")
                 ),
                 closeOnClick: true,
-                shortcut: p.Shortcut.Esc,
+                shortcut: GSystemDialog.Shortcut.Esc,
               },
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAutoSave",
                     "text.alert-button.save-to-cloud"
                   )
                 ),
                 className: "primary",
                 closeOnClick: true,
-                shortcut: p.Shortcut.Enter,
+                shortcut: GSystemDialog.Shortcut.Enter,
                 onclick: () => {
                   gDesigner.executeAction(
-                    h.getIdForAction(h.Actions.SaveAs),
+                    GGravitCloudAction.getIdForAction(GGravitCloudAction.Actions.SaveAs),
                     e
                   );
                 },
               },
             ])),
           (this._syncDialogShown[e.sessionId] = true),
-          p.custom({
+          GSystemDialog.custom({
             title: module.replace("%title", e.getTitle()),
             subtitle: require.replace("%title", e.getTitle()),
             className: "g-auto-save-sync-dialog",
@@ -602,15 +602,15 @@ function (exports, module, require) {
             )
               ? t(true)
               : ((this._noEntriesCreatedWaringShown[e.sessionId] = true),
-                p.custom({
-                  title: o.GLocale.get(
-                    new o.GLocaleKey(
+                GSystemDialog.custom({
+                  title: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GAutoSave",
                       "text.dialog-no-entries-created-waring.title"
                     )
                   ).replace("%storage", this._getExternalStorageName(e)),
-                  subtitle: o.GLocale.get(
-                    new o.GLocaleKey(
+                  subtitle: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GAutoSave",
                       "text.dialog-no-entries-created-waring.subtitle"
                     )
@@ -621,22 +621,22 @@ function (exports, module, require) {
                   closeable: false,
                   buttons: [
                     {
-                      label: o.GLocale.get(
-                        new o.GLocaleKey(
+                      label: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GAutoSave",
                           "text.dialog-no-entries-created-waring.go-settings"
                         )
                       ),
                       closeOnClick: true,
                       onclick: () => {
-                        gDesigner.executeAction(S.ID), t(false);
+                        gDesigner.executeAction(Action_edit_settings.ID), t(false);
                       },
                     },
                     {
-                      label: o.GLocale.get(new o.GLocaleKey("GLocale", "ok")),
+                      label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")),
                       closeOnClick: true,
                       className: "primary",
-                      shortcut: p.Shortcut.Enter,
+                      shortcut: GSystemDialog.Shortcut.Enter,
                       onclick: () => {
                         t(true);
                       },
@@ -657,9 +657,9 @@ function (exports, module, require) {
         }),
       (E.prototype._showExternalFileUpdatedOutAppWarningDialog = function (e) {
         return (
-          p.custom({
-            title: o.GLocale.get(
-              new o.GLocaleKey(
+          GSystemDialog.custom({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GAutoSave",
                 "text.dialog-file-updated-out-app-waring.title"
               )
@@ -674,8 +674,8 @@ function (exports, module, require) {
             closeable: false,
             buttons: [
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAutoSave",
                     "text.dialog-file-updated-out-app-waring.do-not-reload"
                   )
@@ -686,15 +686,15 @@ function (exports, module, require) {
                 },
               },
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GAutoSave",
                     "text.dialog-file-updated-out-app-waring.reload"
                   )
                 ),
                 closeOnClick: true,
                 className: "primary",
-                shortcut: p.Shortcut.Enter,
+                shortcut: GSystemDialog.Shortcut.Enter,
                 onclick: () => {
                   (this._fileUpdatedWarningShowing = false), e.reload();
                 },
@@ -723,10 +723,10 @@ function (exports, module, require) {
           return;
         let module = "";
         module = e
-          ? o.GLocale.get(
-              new o.GLocaleKey("GAutoSave", "text.failed-auto-saving")
+          ? GCore.GLocale.get(
+              new GCore.GLocaleKey("GAutoSave", "text.failed-auto-saving")
             )
-          : o.GLocale.get(
+          : GCore.GLocale.get(
               E.ALTERNATE_STRINGS[
                 Math.floor(Math.random() * E.ALTERNATE_STRINGS.length)
               ]

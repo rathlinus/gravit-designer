@@ -6,20 +6,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(30) /* polyfill_Object_assign */, require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(67) /* GRichTooltipConfig */,
-      s = o(require(340) /* GTouchTool */),
-      l = require(123) /* GProperties */,
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      GProperties = require(123) /* GProperties */,
       c = require(857) /* module_857 */;
     require(173) /* stub_requires_1 */;
-    const d = require(135) /* GSettingChangedEvent */;
+    const GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function u() {
       this._elements = [];
     }
-    a.GObject.inherit(u, l),
+    GCore.GObject.inherit(u, GProperties),
       (u.prototype._panel = null),
       (u.prototype._document = null),
       (u.prototype._elements = null),
@@ -31,8 +31,8 @@ function (exports, module, require) {
           .append(
             $(
               '<optgroup label="' +
-                a.GLocale.get(
-                  new a.GLocaleKey("GAppearanceProperties", "text.masking")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GAppearanceProperties", "text.masking")
                 ) +
                 '"></optgroup>'
             )
@@ -40,8 +40,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "m")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GAppearanceProperties", "blending.mask")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAppearanceProperties", "blending.mask")
                     )
                   )
               )
@@ -49,8 +49,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "!m")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAppearanceProperties",
                         "blending.inverse-mask"
                       )
@@ -60,14 +60,14 @@ function (exports, module, require) {
           )
           .gRichTooltip(
             r.GRichTooltipConfig.from({
-              title: a.GLocale.get(
-                new a.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAppearanceProperties",
                   "text.blend-tooltip-title"
                 )
               ),
-              description: a.GLocale.get(
-                new a.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GAppearanceProperties",
                   "text.blend-tooltip-description"
                 )
@@ -82,8 +82,8 @@ function (exports, module, require) {
               e._assignProperty(
                 "_sbl",
                 $(t.target).val(),
-                a.GLocale.get(
-                  new a.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "action.change-blending-mode"
                   )
@@ -93,7 +93,7 @@ function (exports, module, require) {
       }),
       (u.prototype.init = function (e, t) {
         (this._panel = e),
-          this.setTouchTools([s.default.APPEARANCE_TOUCH_TOOL]);
+          this.setTouchTools([GTouchTool.default.APPEARANCE_TOUCH_TOOL]);
         var n = function (e) {
           var t = this;
           if ("evenodd" === e)
@@ -103,8 +103,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "0")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GCommonNames", "evenodd.non-zero")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "evenodd.non-zero")
                     )
                   )
               )
@@ -112,8 +112,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "1")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GCommonNames", "evenodd.non-odd")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "evenodd.non-odd")
                     )
                   )
               )
@@ -125,8 +125,8 @@ function (exports, module, require) {
                   t._assignProperty(
                     "evenodd",
                     "1" === $(this).val(),
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "action.change-fill-rule"
                       )
@@ -141,14 +141,14 @@ function (exports, module, require) {
               .gInputSlider(
                 Object.assign({}, c.prototype.OPACITY_DEFAULT, {
                   richTooltipConfig: r.GRichTooltipConfig.from({
-                    title: a.GLocale.get(
-                      new a.GLocaleKey(
+                    title: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAppearanceProperties",
                         "text.opacity-slider-tooltip-title"
                       )
                     ),
-                    description: a.GLocale.get(
-                      new a.GLocaleKey(
+                    description: GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAppearanceProperties",
                         "text.opacity-slider-tooltip-description"
                       )
@@ -165,16 +165,16 @@ function (exports, module, require) {
               .on("input", function (e) {
                 for (
                   var n = $(e.target),
-                    o = n.attr("data-property"),
-                    i = parseInt(n.gInputSlider("value")) / 100,
+                    _interopRequireDefault = n.attr("data-property"),
+                    GTools = parseInt(n.gInputSlider("value")) / 100,
                     r = 0;
                   r < t._elements.length;
                   ++r
                 )
-                  t._elements[r].setProperty(o, i, false, false, true);
+                  t._elements[r].setProperty(_interopRequireDefault, GTools, false, false, true);
                 t._panel
-                  .find('[type="text"][data-property="' + o + '"]')
-                  .gInputBox("value", a.GUtil.formatOpacity(100 * i));
+                  .find('[type="text"][data-property="' + _interopRequireDefault + '"]')
+                  .gInputBox("value", GCore.GUtil.formatOpacity(100 * GTools));
               })
               .on("change", function (e) {
                 gDesigner.stats("appearance_change_opacity"),
@@ -192,7 +192,7 @@ function (exports, module, require) {
                 gDesigner.stats("appearance_change_opacity"),
                   t._assignProperty(
                     $(this).attr("data-property"),
-                    a.GLength.parseEquationValue($(this).gInputBox("value")) /
+                    GCore.GLength.parseEquationValue($(this).gInputBox("value")) /
                       100,
                     "Change opacity"
                   );
@@ -208,8 +208,8 @@ function (exports, module, require) {
         $("<div></div>")
           .addClass("appearance-opacity-property")
           .gPropertyRow({
-            label: a.GLocale.get(
-              new a.GLocaleKey("GCommonNames", "text.opacity")
+            label: GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "text.opacity")
             ),
             columns: [
               {
@@ -225,14 +225,14 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("appearance-blending-property")
             .gPropertyRow({
-              label: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.blending")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.blending")
               ),
               columns: [{ width: "100%", content: n("_sbl") }],
             })
             .appendTo(this._panel);
-        var o = this,
-          i = gDesigner.getLicense();
+        var _interopRequireDefault = this,
+          GTools = gDesigner.getLicense();
         $("<div/>")
           .addClass("g-property-row appearance-style-property")
           .append(
@@ -242,8 +242,8 @@ function (exports, module, require) {
                 $("<span />")
                   .addClass("vertical-align")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GAppearanceProperties", "text.style")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAppearanceProperties", "text.style")
                     )
                   )
               )
@@ -285,14 +285,14 @@ function (exports, module, require) {
                       .gDesignerStyleEditor()
                       .gRichTooltip(
                         r.GRichTooltipConfig.from({
-                          title: a.GLocale.get(
-                            new a.GLocaleKey(
+                          title: GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAppearanceProperties",
                               "text.shared-styles-tooltip-title"
                             )
                           ),
-                          description: a.GLocale.get(
-                            new a.GLocaleKey(
+                          description: GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAppearanceProperties",
                               "text.shared-styles-tooltip-description"
                             )
@@ -300,7 +300,7 @@ function (exports, module, require) {
                           middle: false,
                           isPro:
                             !gDesigner.isEnabledProFeatures() ||
-                            !(i.isPro() && !i.isExpired()),
+                            !(GTools.isPro() && !GTools.isExpired()),
                           learnMore:
                             "",
                         })
@@ -315,17 +315,17 @@ function (exports, module, require) {
                     if (
                       (gDesigner.stats("appearance_click_stylebutton"),
                       !$(this).hasClass("g-disabled") &&
-                        o._elements &&
-                        o._elements.length > 0)
+                        _interopRequireDefault._elements &&
+                        _interopRequireDefault._elements.length > 0)
                     ) {
-                      var e = o._elements[0].getReferencedStyle();
-                      e.assignStyleFrom(o._elements[0]);
+                      var e = _interopRequireDefault._elements[0].getReferencedStyle();
+                      e.assignStyleFrom(_interopRequireDefault._elements[0]);
                       var t = gDesigner.createNewStylePreview(
                         e,
                         true,
-                        o._elements[0] instanceof a.GText
+                        _interopRequireDefault._elements[0] instanceof GCore.GText
                       );
-                      t && o._addPreview(t), $(this).addClass("g-disabled");
+                      t && _interopRequireDefault._addPreview(t), $(this).addClass("g-disabled");
                     }
                   })
               )
@@ -336,42 +336,42 @@ function (exports, module, require) {
         if (
           (this._updateUI(),
           this._document &&
-            (gDesigner.removeEventListener(d, this._settingChanged, this),
+            (gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged, this),
             this._document
               .getScene()
               .removeEventListener(
-                a.GNode.AfterInsertEvent,
+                GCore.GNode.AfterInsertEvent,
                 this._styleChanged
               ),
             this._document
               .getScene()
               .removeEventListener(
-                a.GNode.AfterRemoveEvent,
+                GCore.GNode.AfterRemoveEvent,
                 this._styleChanged
               ),
             this._document
               .getScene()
               .removeEventListener(
-                a.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             this._document
               .getScene()
               .removeEventListener(
-                a.GElement.AfterFlagChangeEvent,
+                GCore.GElement.AfterFlagChangeEvent,
                 this._afterFlagChange
               ),
             (this._document = null)),
           (this._elements = []),
           e)
         ) {
-          gDesigner.addEventListener(d, this._settingChanged, this);
+          gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this);
           for (var require = 0; require < t.length; ++require) {
-            var o = t[require];
-            o.hasMixin(a.GStylable) &&
-              o.getStylePropertySets().indexOf(a.GStylable.PropertySet.Style) >=
+            var _interopRequireDefault = t[require];
+            _interopRequireDefault.hasMixin(GCore.GStylable) &&
+              _interopRequireDefault.getStylePropertySets().indexOf(GCore.GStylable.PropertySet.Style) >=
                 0 &&
-              this._elements.push(o);
+              this._elements.push(_interopRequireDefault);
           }
           if (this._elements.length)
             return (
@@ -379,28 +379,28 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GNode.AfterInsertEvent,
+                  GCore.GNode.AfterInsertEvent,
                   this._styleChanged,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GNode.AfterRemoveEvent,
+                  GCore.GNode.AfterRemoveEvent,
                   this._styleChanged,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GElement.AfterFlagChangeEvent,
+                  GCore.GElement.AfterFlagChangeEvent,
                   this._afterFlagChange,
                   this
                 ),
@@ -416,8 +416,8 @@ function (exports, module, require) {
           ? (exports.text(""),
             exports.append($("<span></span>").addClass("g-style-sync-refresh-item")))
           : exports.text(
-              a.GLocale.get(
-                new a.GLocaleKey("GAppearanceProperties", "action.sync")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GAppearanceProperties", "action.sync")
               )
             );
       }),
@@ -426,8 +426,8 @@ function (exports, module, require) {
       }),
       (u.prototype._afterFlagChange = function (e) {
         if (
-          e.flag === a.GNode.Flag.Selected &&
-          (e.node instanceof a.GPGEdge || e.node instanceof a.GPGFacet)
+          e.flag === GCore.GNode.Flag.Selected &&
+          (e.node instanceof GCore.GPGEdge || e.node instanceof GCore.GPGFacet)
         ) {
           var module = e.node.getParent() ? e.node.getParent().getParent() : null;
           module && this._elements.indexOf(module) >= 0 && this._updateProperties();
@@ -443,50 +443,50 @@ function (exports, module, require) {
       (u.prototype._updateProperties = function () {
         if (this._elements && this._elements.length) {
           var exports = this._elements[0],
-            module = i.GElementEditor.getEditor(exports),
-            require = function (n, o, i) {
-              var a = module ? module.getPartsProperty(n) : null;
-              if (a) {
-                if (a.values.length) {
-                  if (1 == a.values.length || o) return a.values[0];
-                  for (var r = a.values, s = r[0], l = 1; l < r.length; ++l)
-                    if (r[l] !== s) return i;
-                  return s;
+            module = GTools.GElementEditor.getEditor(exports),
+            require = function (n, _interopRequireDefault, GTools) {
+              var GCore = module ? module.getPartsProperty(n) : null;
+              if (GCore) {
+                if (GCore.values.length) {
+                  if (1 == GCore.values.length || _interopRequireDefault) return GCore.values[0];
+                  for (var r = GCore.values, GTouchTool = r[0], GProperties = 1; GProperties < r.length; ++GProperties)
+                    if (r[GProperties] !== GTouchTool) return GTools;
+                  return GTouchTool;
                 }
-                return i;
+                return GTools;
               }
               return exports.getProperty(n);
             },
-            o = 100 * require("_stop", false, null);
+            _interopRequireDefault = 100 * require("_stop", false, null);
           this._panel
             .find('.g-input-slider[data-property="_stop"]')
-            .gInputSlider("value", null !== o ? o : 100),
+            .gInputSlider("value", null !== _interopRequireDefault ? _interopRequireDefault : 100),
             this._panel
               .find('[type="text"][data-property="_stop"]')
-              .gInputBox("value", a.GUtil.formatOpacity(o)),
+              .gInputBox("value", GCore.GUtil.formatOpacity(_interopRequireDefault)),
             this._panel.find('[data-property="_sbl"]').val(require("_sbl", true));
           var r = null,
-            s = null;
+            GTouchTool = null;
           if (
             1 === this._elements.length &&
             this._elements[0].hasProperty("sref") &&
             this._elements[0].getReferencedStyle()
           ) {
-            var l = this._elements[0].getReferencedStyle();
+            var GProperties = this._elements[0].getReferencedStyle();
             (r = gDesigner.getStylePreview(
-              l,
-              this._elements[0] instanceof a.GText
+              GProperties,
+              this._elements[0] instanceof GCore.GText
             )),
-              (s = l.getProperty("name"));
+              (GTouchTool = GProperties.getProperty("name"));
           }
           if ((this._checkSyncState(), r))
             this._addPreview(r),
-              this._panel.find(".g-styles-field").text(s),
+              this._panel.find(".g-styles-field").text(GTouchTool),
               this._panel.find(".g-styles-field").removeClass("g-disabled");
           else {
-            for (var c = false, d = 0; d < this._elements.length; ++d)
+            for (var c = false, GSettingChangedEvent = 0; GSettingChangedEvent < this._elements.length; ++GSettingChangedEvent)
               this._elements[0].hasProperty("sref") &&
-                this._elements[d].getReferencedStyle() &&
+                this._elements[GSettingChangedEvent].getReferencedStyle() &&
                 (c = true);
             c && this._elements.length > 1
               ? (this._panel.find(".g-styles-preview").empty(),
@@ -494,8 +494,8 @@ function (exports, module, require) {
                 this._panel
                   .find(".g-styles-field")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAppearanceProperties",
                         "text.multiple-selection"
                       )
@@ -507,8 +507,8 @@ function (exports, module, require) {
                 this._panel
                   .find(".g-styles-field")
                   .text(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GAppearanceProperties", "text.no-style")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAppearanceProperties", "text.no-style")
                     )
                   ),
                 this._panel.find(".g-styles-field").removeClass("g-disabled"));
@@ -531,17 +531,17 @@ function (exports, module, require) {
       }),
       (u.prototype._assignProperties = function (e, t, n) {
         if (this._document) {
-          var o = this._document.getEditor();
-          o.beginTransaction();
+          var _interopRequireDefault = this._document.getEditor();
+          _interopRequireDefault.beginTransaction();
           try {
-            for (var a = 0; a < this._elements.length; ++a) {
-              this._elements[a];
-              var r = i.GElementEditor.getEditor(this._elements[a]);
+            for (var GCore = 0; GCore < this._elements.length; ++GCore) {
+              this._elements[GCore];
+              var r = GTools.GElementEditor.getEditor(this._elements[GCore]);
               (r && r.applyPropertiesToParts(e, t)) ||
-                this._elements[a].setProperties(e, t);
+                this._elements[GCore].setProperties(e, t);
             }
           } finally {
-            o.commitTransaction(n);
+            _interopRequireDefault.commitTransaction(n);
           }
         } else console.warn("GAppearanceProperties: empty _document property");
       }),

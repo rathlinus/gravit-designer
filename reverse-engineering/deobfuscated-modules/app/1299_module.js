@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(813) /* GOpenAction */);
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GOpenAction = _interopRequireDefault(require(813) /* GOpenAction */);
     function s() {}
-    i.GObject.inherit(s, r.default),
-      (s.ID = "".concat(r.default.ID, ".safari")),
+    GCore.GObject.inherit(s, GOpenAction.default),
+      (s.ID = "".concat(GOpenAction.default.ID, ".safari")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
       (s.prototype.getShortcut = function () {
-        return [a.GKey.Constant.META, a.GKey.Constant.ALT_LEFT, "O"];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.ALT_LEFT, "O"];
       }),
       (s.prototype.isAvailable = function () {
         return (
-          a.GPlatform.webBrowser === a.GPlatform.constructor.WebBrowser.Safari
+          GEditor.GPlatform.webBrowser === GEditor.GPlatform.constructor.WebBrowser.Safari
         );
       }),
       (exports.exports = s);

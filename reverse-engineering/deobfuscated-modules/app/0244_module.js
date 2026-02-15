@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(130) /* lengthOfArrayLike */,
+    var lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
       i = Math.max,
       a = Math.min;
     exports.exports = function (e, t) {
-      var n = o(e);
+      var n = lengthOfArrayLike(e);
       return n < 0 ? i(n + t, 0) : a(n, t);
     };
   }

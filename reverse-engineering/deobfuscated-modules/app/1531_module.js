@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const { FILE_FORMATS: i, gApi: a } = require(10) /* AppSettings */,
       r = i.find((e) => e.default),
       { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,
@@ -15,12 +15,12 @@ function (exports, module, require) {
       constructor(e, t) {
         super(e, t);
       }
-      async updateFileSceneAndMetadata(e, t, n, o) {
+      async updateFileSceneAndMetadata(e, t, n, GCore) {
         await this._syncSceneImages(e, n);
         const { sceneSnapshot: i, urls: r } = await this._saveScene(e, t, n);
         return (
           console.log({ documentId: e, file: t, sceneSnapshot: i, urls: r }),
-          await this._saveThumbnail(o.thumbnail.getImageAsBlob(), r.url_t),
+          await this._saveThumbnail(GCore.thumbnail.getImageAsBlob(), r.url_t),
           await a.commitAutoSaveFileUpdate(t.id),
           a.getFile(e + "?edit")
         );
@@ -35,7 +35,7 @@ function (exports, module, require) {
             )
           )),
             t.acceptChildren((e) => {
-              e instanceof o.GImage &&
+              e instanceof GCore.GImage &&
                 r.push({
                   name: e.getProperty("name"),
                   url: e.getProperty("url"),
@@ -55,7 +55,7 @@ function (exports, module, require) {
               if (t !== l.SUCCESS || i !== c) return false;
               let r = s.getDictionary();
               s.setCloudSynchronization(null);
-              let d = new o.GDictionary();
+              let d = new GCore.GDictionary();
               return d.deserialize(a), r.merge(d), n(), true;
             }.bind(this),
             { once: true }
@@ -64,7 +64,7 @@ function (exports, module, require) {
       }
       _saveScene(e, t, n) {
         return new Promise((i, a) => {
-          let l = o.GNode.serialize(n, { save: true });
+          let l = GCore.GNode.serialize(n, { save: true });
           const c = Object.create(n),
             d = this._request(s.REQUEST, {
               id: e,
@@ -75,10 +75,10 @@ function (exports, module, require) {
           this._worker.addEventListener(
             "message",
             function (e) {
-              const { cmd: t, id: n, data: o } = e.data;
+              const { cmd: t, id: n, data: GCore } = e.data;
               if ((t !== s.SUCCESS && t !== s.FAILED) || n !== d) return false;
               t === s.SUCCESS
-                ? i({ sceneSnapshot: c, urls: o.urls })
+                ? i({ sceneSnapshot: c, urls: GCore.urls })
                 : t === s.FAILED && a();
               return true;
             }.bind(this),
@@ -89,11 +89,11 @@ function (exports, module, require) {
       _saveThumbnail(e, t) {
         const require = new XMLHttpRequest();
         require.open("PUT", t);
-        const o = {
+        const GCore = {
           "Content-Type": "image/jpeg",
           "Cache-Control": "public,max-age=31600000",
         };
-        for (var i in o) require.setRequestHeader(i, o[i]);
+        for (var i in GCore) require.setRequestHeader(i, GCore[i]);
         require.send(e);
       }
     };

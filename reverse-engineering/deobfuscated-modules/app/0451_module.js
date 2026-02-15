@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(1352) /* stub_requires_1707 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(1709) /* module_1709 */;
     function a() {}
     function r(e, t) {
@@ -16,7 +16,7 @@ function (exports, module, require) {
       e,
       t,
       n,
-      o,
+      GCore,
       r,
       c,
       d,
@@ -53,7 +53,7 @@ function (exports, module, require) {
           b || s.DEFAULT_DOWN_SEPARATOR_SPAN1_STYLE),
         this._initComputedVals(),
         r && (this._expandStyle = r),
-        o && (this._expandRenderer = o),
+        GCore && (this._expandRenderer = GCore),
         c && (this._separatorRenderer = c),
         _ && (this._upSeparatorSpan2Style = _),
         w && (this._downSeparatorSpan2Style = w),
@@ -70,11 +70,11 @@ function (exports, module, require) {
         (this._aScroll = new l(this._container, 200, 10, null, 7)),
         (this._drag = this._drag.bind(this));
     }
-    function l(e, t, n, o, i) {
+    function l(e, t, n, GCore, i) {
       (this._elem = e),
         (this._scrollDelay = t || 30),
         (this._step = n || 1),
-        (this._axisFlag = o || l.SCROLL_AXIS_FLAG.Y | l.SCROLL_AXIS_FLAG.X),
+        (this._axisFlag = GCore || l.SCROLL_AXIS_FLAG.Y | l.SCROLL_AXIS_FLAG.X),
         (this._scAreaWidth = i || 5),
         this._fixupHandler("onmouseout", this.offScrolls.bind(this)),
         this._fixupHandler("ondragleave", this.offScrolls.bind(this));
@@ -88,24 +88,24 @@ function (exports, module, require) {
       (a.prototype.expanded = false),
       (a.prototype.dragging = false),
       (a.prototype.row = null),
-      (a.prototype.acceptChildren = function (e, t, n, o) {
+      (a.prototype.acceptChildren = function (e, t, n, GCore) {
         var i,
-          a = !o;
+          a = !GCore;
         if (!t || this.expanded)
           if (n)
             for (var r = this.lastChild; null != r; r = r.previous) {
-              if (false === (i = r.accept(e, t, n, o)) && !o) return false;
-              true === i && o && (a = true);
+              if (false === (i = r.accept(e, t, n, GCore)) && !GCore) return false;
+              true === i && GCore && (a = true);
             }
           else
             for (r = this.firstChild; null != r; r = r.next) {
-              if (false === (i = r.accept(e, t, n, o)) && !o) return false;
-              true === i && o && (a = true);
+              if (false === (i = r.accept(e, t, n, GCore)) && !GCore) return false;
+              true === i && GCore && (a = true);
             }
         return a;
       }),
-      (a.prototype.accept = function (e, t, n, o) {
-        return false !== e.call(null, this) && this.acceptChildren(e, t, n, o);
+      (a.prototype.accept = function (e, t, n, GCore) {
+        return false !== e.call(null, this) && this.acceptChildren(e, t, n, GCore);
       }),
       (a.prototype.getNestLevel = function () {
         for (
@@ -148,9 +148,9 @@ function (exports, module, require) {
       (a.prototype.getBBox = function () {
         if (this.row) {
           const e = this.row.getBoundingClientRect();
-          return new o.GRect(e.x, e.y, e.width, e.height);
+          return new GCore.GRect(e.x, e.y, e.width, e.height);
         }
-        return new o.GRect(0, 0, 0, 0);
+        return new GCore.GRect(0, 0, 0, 0);
       }),
       (a.prototype.getNextFocusableNode = function () {
         return this.expanded
@@ -194,17 +194,17 @@ function (exports, module, require) {
       (s.LOWER_SEP_ID = "lsepId"),
       (s.UPPER_SEP_ID = "usepId"),
       (s.prototype = Object.create(i.prototype)),
-      (s.IdxIterator = function (e, t, n, o) {
+      (s.IdxIterator = function (e, t, n, GCore) {
         (this._vtree = e),
           (this._firstIdx = t || 1),
-          (this._lastIdx = o
+          (this._lastIdx = GCore
             ? n && n <= this._vtree._rowCount
               ? n
               : this._vtree._rowCount
             : n && n <= this._vtree._nodeCount
             ? n
             : this._vtree._nodeCount),
-          (this._visibleOnly = !!o);
+          (this._visibleOnly = !!GCore);
       }),
       (s.IdxIterator.prototype._vtree = null),
       (s.IdxIterator.prototype._firstIdx = 0),
@@ -280,10 +280,10 @@ function (exports, module, require) {
         this._initComputedVals(), this.requestInvalidation(true);
       }),
       (s.prototype.expandAndFocus = function (e, t) {
-        for (var require = 0, o = e; o.parent && o.parent !== this._root; )
-          (o = o.parent).expanded ||
-            ((o.expanded = true),
-            this._expandCallback && this._expandCallback(o));
+        for (var require = 0, GCore = e; GCore.parent && GCore.parent !== this._root; )
+          (GCore = GCore.parent).expanded ||
+            ((GCore.expanded = true),
+            this._expandCallback && this._expandCallback(GCore));
         if (this._focusTimerId) return false;
         this._root.acceptChildren(function (t) {
           return t !== e && (require++, true);
@@ -331,21 +331,21 @@ function (exports, module, require) {
       }),
       (s.prototype.getNextNode = function (e, t) {
         var n = e,
-          o = null;
+          GCore = null;
         if (t)
           for (; n.parent instanceof a && !n.parent.expanded; ) n = n.parent;
         if (
-          (!n.firstChild || (t && !n.expanded) || (o = n.firstChild),
-          !o && n.next && (o = n.next),
-          !o)
+          (!n.firstChild || (t && !n.expanded) || (GCore = n.firstChild),
+          !GCore && n.next && (GCore = n.next),
+          !GCore)
         )
           for (
             var i = n.parent;
-            !o && i instanceof a && i !== this._root;
+            !GCore && i instanceof a && i !== this._root;
             i = i.parent
           )
-            i.next && (o = i.next);
-        return o;
+            i.next && (GCore = i.next);
+        return GCore;
       }),
       (s.prototype.appendNode = function (e, t) {
         return this._insertNodeBefore(e || this._root, null, t);
@@ -398,8 +398,8 @@ function (exports, module, require) {
           (this._dragNodes = null),
           this.requestInvalidation(true);
       }),
-      (s.prototype.acceptChildren = function (e, t, n, o) {
-        return this._root.acceptChildren(e, t, n, o);
+      (s.prototype.acceptChildren = function (e, t, n, GCore) {
+        return this._root.acceptChildren(e, t, n, GCore);
       }),
       (s.prototype.getLastVisitedDroppable = function () {
         return this._lastVisitedDroppable;
@@ -419,7 +419,7 @@ function (exports, module, require) {
         const module = !this.isAnimatedDragEnabled() || !this._isDragging();
         if (module) {
           (this._freeZone = null), (this._lastVisitedDroppable = null);
-          for (var require = 1, o = this._container.childNodes.length; require < o; require++)
+          for (var require = 1, GCore = this._container.childNodes.length; require < GCore; require++)
             (this._container.childNodes[require].style.display = "none"),
               this._container.childNodes[require].setAttribute("data-clean", "");
         }
@@ -524,7 +524,7 @@ function (exports, module, require) {
           }
           this._container.appendChild(a),
             (this._expandedWidth = this._container.scrollWidth);
-          for (require = 1, o = this._container.childNodes.length; require < o; require++)
+          for (require = 1, GCore = this._container.childNodes.length; require < GCore; require++)
             if ("none" !== this._container.childNodes[require].style.display) {
               getComputedStyle(this._container.childNodes[require]);
               this._container.childNodes[require].style.width =
@@ -541,11 +541,11 @@ function (exports, module, require) {
         var t = getComputedStyle(e),
           n = parseInt(t.height);
         this._rowHeight = (n || 20) + this._bottomPadding;
-        var o = document.createElement("div");
-        o.classList.add(this._downSeparatorStyle),
-          (o.style.display = "none"),
-          e.appendChild(o),
-          (this._downSepHeight = parseInt(getComputedStyle(o).height)),
+        var GCore = document.createElement("div");
+        GCore.classList.add(this._downSeparatorStyle),
+          (GCore.style.display = "none"),
+          e.appendChild(GCore),
+          (this._downSepHeight = parseInt(getComputedStyle(GCore).height)),
           (this._expandedWidth = this._container.scrollWidth),
           this._container.removeChild(e);
       }),
@@ -587,22 +587,22 @@ function (exports, module, require) {
           (e.style.height = this._freeHeight.toString() + "px"),
           (e.style.position = "absolute"),
           (e.style.pointerEvents = "none");
-        var o = document.createElement("span"),
+        var GCore = document.createElement("span"),
           i = null;
         e.id == s.UPPER_SEP_ID
-          ? (o.classList.add(this._upSeparatorSpan1Style),
+          ? (GCore.classList.add(this._upSeparatorSpan1Style),
             (i = this._upSeparatorSpan2Style
               ? this._upSeparatorSpan2Style
               : null),
             (e.style.top = "0px"))
-          : (o.classList.add(this._downSeparatorSpan1Style),
+          : (GCore.classList.add(this._downSeparatorSpan1Style),
             (i = this._downSeparatorSpan2Style
               ? this._downSeparatorSpan2Style
               : null),
             (e.style.top =
               (this._rowHeight - this._freeHeight).toString() + "px")),
-          e.appendChild(o);
-        getComputedStyle(o);
+          e.appendChild(GCore);
+        getComputedStyle(GCore);
         if (i) {
           var a = document.createElement("span");
           a.classList.add(i), e.appendChild(a);
@@ -617,17 +617,17 @@ function (exports, module, require) {
       }),
       (s.prototype._getNodeByIdx = function (e, t) {
         var n = 0,
-          o = null;
+          GCore = null;
         return (
           this._root.acceptChildren(function (t) {
-            return ++n != e || ((o = t), false);
+            return ++n != e || ((GCore = t), false);
           }, t),
-          o
+          GCore
         );
       }),
       (s.prototype._nodeHasSomeParent = function (e, t) {
-        for (var require = false, o = e.parent; o && o instanceof a && !require; o = o.parent)
-          require = o === t;
+        for (var require = false, GCore = e.parent; GCore && GCore instanceof a && !require; GCore = GCore.parent)
+          require = GCore === t;
         return require;
       }),
       (s.prototype._nodeClick = function (e, t) {
@@ -657,9 +657,9 @@ function (exports, module, require) {
         this.isAnimatedDragEnabled() &&
           ((this._dragNode = e),
           (this._dragBBox = e.getBBox()),
-          (this._dragStartPt = new o.GPoint(t.clientX, t.clientY)),
+          (this._dragStartPt = new GCore.GPoint(t.clientX, t.clientY)),
           (this._dragOffset = this._dragStartPt.subtract(
-            this._dragBBox.getSide(o.GRect.Side.TOP_LEFT)
+            this._dragBBox.getSide(GCore.GRect.Side.TOP_LEFT)
           )),
           (this._dragAndDropHelper = new s._DragAndDropHelper(this)));
       }),
@@ -712,18 +712,18 @@ function (exports, module, require) {
         );
       }),
       (s.prototype._getOffset = function (e, t) {
-        const require = e.getBBox().getSide(o.GRect.Side.TOP_LEFT);
-        return t.getSide(o.GRect.Side.TOP_LEFT).subtract(require);
+        const require = e.getBBox().getSide(GCore.GRect.Side.TOP_LEFT);
+        return t.getSide(GCore.GRect.Side.TOP_LEFT).subtract(require);
       }),
       (s.prototype._drag = function (e) {
         if (!this._dragAndDropHelper) return;
-        const module = new o.GPoint(e.clientX, e.clientY),
+        const module = new GCore.GPoint(e.clientX, e.clientY),
           require = module.subtract(this._dragLastPt || this._dragStartPt),
           i = parseInt(require.getY());
         if (0 === i) return;
-        this._dragLastPt = new o.GPoint(e.clientX, e.clientY);
+        this._dragLastPt = new GCore.GPoint(e.clientX, e.clientY);
         const a = module.subtract(this._dragOffset),
-          r = new o.GRect(
+          r = new GCore.GRect(
             a.getX(),
             a.getY(),
             this._dragBBox.getWidth(),
@@ -822,7 +822,7 @@ function (exports, module, require) {
         var n = this._lastVisitedDroppable
             ? this._lastVisitedDroppable
             : t.currentTarget,
-          o = t.layerY;
+          GCore = t.layerY;
         if (((n._specCounter = 0), this._dropHereAllowed(e))) {
           n.classList.remove(this._insertIntoStyle),
             this._rowRemoveSep(n, s.LOWER_SEP_ID),
@@ -830,7 +830,7 @@ function (exports, module, require) {
             (n._hasStyle = false);
           var i = [],
             a = n === this._freeZone;
-          if (this._dropUpperAllowed(e, o, i, a))
+          if (this._dropUpperAllowed(e, GCore, i, a))
             if (
               (i.length || (i = this._dragNodes),
               this._isDuplicateEffectCallback &&
@@ -873,7 +873,7 @@ function (exports, module, require) {
               }
               (this._dragNodes = null), this.endUpdate();
             }
-          else if (this._dropLowerAllowed(e, o, i))
+          else if (this._dropLowerAllowed(e, GCore, i))
             if (
               (i.length || (i = this._dragNodes),
               this._isDuplicateEffectCallback &&
@@ -916,12 +916,12 @@ function (exports, module, require) {
           module && require < this._dragNodes.length;
           ++require
         ) {
-          var o = this._dragNodes[require];
-          module = o !== e && !this._nodeHasSomeParent(e, o);
+          var GCore = this._dragNodes[require];
+          module = GCore !== e && !this._nodeHasSomeParent(e, GCore);
         }
         return module;
       }),
-      (s.prototype._dropUpperAllowed = function (e, t, n, o) {
+      (s.prototype._dropUpperAllowed = function (e, t, n, GCore) {
         var i =
           t <= this._freeHeight &&
           (this._dragNodes.length > 1 || e !== this._dragNodes[0].next);
@@ -937,45 +937,45 @@ function (exports, module, require) {
                   this._dragNodes,
                   n
                 )) ||
-              (e === this._root && this._dropInsideAllowed(e, n, o))),
+              (e === this._root && this._dropInsideAllowed(e, n, GCore))),
           i
         );
       }),
       (s.prototype._dropLowerAllowed = function (e, t, n) {
-        var o =
+        var GCore =
           t >= this._rowHeight - this._freeHeight &&
           !e.expanded &&
           e !== this._root &&
           (this._dragNodes.length > 1 || this._dragNodes[0] !== e.next);
         return (
-          o &&
+          GCore &&
             this._dropAllowedCallback &&
-            (o = this._dropAllowedCallback(
+            (GCore = this._dropAllowedCallback(
               e.parent,
               e.next ? e.next : null,
               e,
               this._dragNodes,
               n
             )),
-          o
+          GCore
         );
       }),
       (s.prototype._dropInsideAllowed = function (e, t, n) {
-        var o = n || this._putLastChildWhenInside,
+        var GCore = n || this._putLastChildWhenInside,
           i =
             this._dragNodes.length > 1 ||
             !(
               this._dragNodes[0].parent === e &&
-              ((o && e.lastChild === this._dragNodes[0]) ||
-                (!o && e.firstChild === this._dragNodes[0]))
+              ((GCore && e.lastChild === this._dragNodes[0]) ||
+                (!GCore && e.firstChild === this._dragNodes[0]))
             );
         return (
           i &&
             this._dropAllowedCallback &&
             (i = this._dropAllowedCallback(
               e,
-              o ? null : e.firstChild,
-              o ? e.lastChild : null,
+              GCore ? null : e.firstChild,
+              GCore ? e.lastChild : null,
               this._dragNodes,
               t
             )),
@@ -990,7 +990,7 @@ function (exports, module, require) {
         var n = e.getNestLevel() - 1;
         this._rowAddSep(t, s.LOWER_SEP_ID, n);
       }),
-      (s.prototype._updateMarks = function (e, t, n, o) {
+      (s.prototype._updateMarks = function (e, t, n, GCore) {
         let i = true;
         if (this._dropHereAllowed(e)) {
           var a = t === this._freeZone;
@@ -1015,22 +1015,22 @@ function (exports, module, require) {
               this._rowRemoveSep(t, s.UPPER_SEP_ID),
               t.classList.add(this._insertIntoStyle),
               (t._hasStyle = true),
-              o && (t._specCounter ? ++t._specCounter : (t._specCounter = 1)));
+              GCore && (t._specCounter ? ++t._specCounter : (t._specCounter = 1)));
         }
         $(this._container).find(".g-drag").toggleClass("g-no-drop", i);
       }),
       (s.prototype._rowHasSep = function (e, t) {
-        for (var require = 1, o = e.childNodes.length; require < o; require++)
+        for (var require = 1, GCore = e.childNodes.length; require < GCore; require++)
           if (e.childNodes[require].id === t) return true;
         return false;
       }),
       (s.prototype._rowAddSep = function (e, t, n) {
-        var o = document.createElement("div");
-        (o.id = t),
-          this._separatorRenderer(o, n),
+        var GCore = document.createElement("div");
+        (GCore.id = t),
+          this._separatorRenderer(GCore, n),
           t == s.UPPER_SEP_ID
-            ? e.insertBefore(o, e.firstChild)
-            : e.appendChild(o),
+            ? e.insertBefore(GCore, e.firstChild)
+            : e.appendChild(GCore),
           (e._hasStyle = true);
       }),
       (s.prototype._rowRemoveSep = function (e, t) {
@@ -1078,12 +1078,12 @@ function (exports, module, require) {
               void (this._aScrollX = l.AUTO_SCROLL_X.OFF)
             );
           for (
-            var module = e.layerY, require = e.layerX, o = e.target;
-            o != this._elem && o;
-            o = o.offsetParent ? o.offsetParent : o.parentNode
+            var module = e.layerY, require = e.layerX, GCore = e.target;
+            GCore != this._elem && GCore;
+            GCore = GCore.offsetParent ? GCore.offsetParent : GCore.parentNode
           )
-            o.offsetParent && ((module += o.offsetTop), (require += o.offsetLeft));
-          if (!o) return;
+            GCore.offsetParent && ((module += GCore.offsetTop), (require += GCore.offsetLeft));
+          if (!GCore) return;
           (module -= this._elem.scrollTop),
             (require -= this._elem.scrollLeft),
             this._axisFlag & l.SCROLL_AXIS_FLAG.Y &&
@@ -1125,13 +1125,13 @@ function (exports, module, require) {
         }
       }),
       (l.prototype._fixupHandler = function (e, t) {
-        var n, o;
+        var n, GCore;
         this._elem[e]
           ? (this._elem[e] =
               ((n = t),
-              (o = this._elem[e]),
+              (GCore = this._elem[e]),
               function () {
-                return n.apply(this, arguments), o.apply(this, arguments);
+                return n.apply(this, arguments), GCore.apply(this, arguments);
               }))
           : (this._elem[e] = t);
       }),

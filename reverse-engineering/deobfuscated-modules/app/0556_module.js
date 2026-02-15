@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(30) /* polyfill_Object_assign */,
       require(57) /* polyfill_parseInt */,
@@ -19,21 +19,21 @@ function (exports, module, require) {
       require(41) /* stub_requires_682 */,
       require(13) /* stub_requires_679 */,
       require(97) /* stub_requires_684 */;
-    var i = require(1) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
-      r = o(require(847) /* module_847 */),
-      s = o(require(848) /* GoogleDriveException */),
-      l = o(require(44) /* GSystemDialog */),
-      c = require(10) /* AppSettings */,
-      d = o(require(787) /* Exports_GoogleToCloudRoleMap */),
-      u = o(require(789) /* Exports_NoAccessId */),
-      p = o(require(555) /* module_555 */);
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      r = _interopRequireDefault(require(847) /* module_847 */),
+      GoogleDriveException = _interopRequireDefault(require(848) /* GoogleDriveException */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      AppSettings = require(10) /* AppSettings */,
+      GoogleToCloudRoleMap = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
+      NoAccessId = _interopRequireDefault(require(789) /* Exports_NoAccessId */),
+      p = _interopRequireDefault(require(555) /* module_555 */);
     const g = require(388) /* Item */,
       h = require(119) /* module_119 */,
       f = require(595) /* module_595 */,
       m = require(336) /* module_336 */,
       y = require(436) /* module_436 */,
-      v = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       _ = require(156) /* module_156 */,
       b = require(389) /* module_389 */,
       w = require(86) /* module_86 */,
@@ -46,7 +46,7 @@ function (exports, module, require) {
       G = 80,
       P = 100;
     function D() {}
-    i.GObject.inherit(D, g),
+    GCore.GObject.inherit(D, g),
       (D.getSupportedFileFormats = function () {
         return b.getFileTypesArray().filter((e) => e.load);
       }),
@@ -57,9 +57,9 @@ function (exports, module, require) {
           (t.created = e.createdTime),
           (t.storage = _.Storage.GoogleDrive),
           !t.kind ||
-          (t.kind !== s.default.Kind.TeamDrive &&
-            t.kind !== s.default.Kind.Drive)
-            ? t.mimeType === s.default.MimeType.Folder
+          (t.kind !== GoogleDriveException.default.Kind.TeamDrive &&
+            t.kind !== GoogleDriveException.default.Kind.Drive)
+            ? t.mimeType === GoogleDriveException.default.MimeType.Folder
               ? t.setItemType(_.Type.Folder)
               : (t.setItemType(_.Type.File),
                 t.setVersion(e.version),
@@ -91,14 +91,14 @@ function (exports, module, require) {
         );
       }),
       (D.Item = function (e, t, n) {
-        let o =
+        let _interopRequireDefault =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : null;
         g.Item.call(this, e, t),
           (this._rawData = n),
-          (this._token = o),
+          (this._token = _interopRequireDefault),
           t && (this._setExtension(), t.version && (this._version = t.version));
       }),
-      i.GObject.inheritAndMix(D.Item, g.Item, [y]),
+      GCore.GObject.inheritAndMix(D.Item, g.Item, [y]),
       (D.Item.prototype._version = null),
       (D.Item.prototype._writing = false),
       (D.Item.prototype.setFile = function (e) {
@@ -115,14 +115,14 @@ function (exports, module, require) {
         if (e instanceof D.Item && this.getUniqueId() === e.getUniqueId()) {
           var module = this.getVersion() > e.getVersion(),
             require = e.getFile();
-          const i = this.getFile();
-          if (module && o(i.modifiedTime, require.modifiedTime)) return true;
-          const a = i.getVersion() > require.getVersion(),
-            r = o(i.getModificationTime(), require.getModificationTime());
-          if (a && r) return true;
+          const GCore = this.getFile();
+          if (module && _interopRequireDefault(GCore.modifiedTime, require.modifiedTime)) return true;
+          const CollaborationMergeUtils = GCore.getVersion() > require.getVersion(),
+            r = _interopRequireDefault(GCore.getModificationTime(), require.getModificationTime());
+          if (CollaborationMergeUtils && r) return true;
         }
         return false;
-        function o(e, t) {
+        function _interopRequireDefault(e, t) {
           return new Date(e).getTime() > new Date(t).getTime();
         }
       }),
@@ -162,7 +162,7 @@ function (exports, module, require) {
           e
         );
       }),
-      (D.Item.prototype._app = c.FILE_ID_PREFIX.GOOGLEDRIVE),
+      (D.Item.prototype._app = AppSettings.FILE_ID_PREFIX.GOOGLEDRIVE),
       (D.Item.prototype.getId = function () {
         const exports = this._getGoogleId();
         return exports ? _.getCollaborativeFileId(exports, _.Storage.GoogleDrive) : null;
@@ -188,7 +188,7 @@ function (exports, module, require) {
             this._fileSizeAfterSaved = e.Length;
           });
       }),
-      (D.Item.prototype.write = async function (e, t, n, o, a) {
+      (D.Item.prototype.write = async function (e, t, n, _interopRequireDefault, CollaborationMergeUtils) {
         gContainer.verifyEnoughMemoryToSave(e);
         try {
           if (this._writing) return;
@@ -197,16 +197,16 @@ function (exports, module, require) {
               ? n({
                   code: 507,
                   noFailCall: true,
-                  message: i.GLocale.get(
-                    new i.GLocaleKey(
+                  message: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCommonNames",
                       "text.error-emtpy-infinite-canvas"
                     )
                   ),
                 })
-              : l.default.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+              : GSystemDialog.default.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCommonNames",
                       "text.error-emtpy-infinite-canvas"
                     )
@@ -220,24 +220,24 @@ function (exports, module, require) {
           try {
             const n = {};
             e.updateStatus(w.Saving, n);
-            const l = o || n.progress,
+            const GSystemDialog = _interopRequireDefault || n.progress,
               h = (e) => {
-                l && l(e);
+                GSystemDialog && GSystemDialog(e);
               };
             let m;
             var r = this.getExtension();
             const y = e.isNew();
             if (
               (h(A),
-              i.GUtil.prepareForSaving(e.getScene(), r),
+              GCore.GUtil.prepareForSaving(e.getScene(), r),
               "CDR" === r || "DES" === r)
             ) {
-              var c = { progress: o, ext: r.toLowerCase() };
-              m = await this._exportDocumentToCDR(e, c, a);
+              var AppSettings = { progress: _interopRequireDefault, ext: r.toLowerCase() };
+              m = await this._exportDocumentToCDR(e, AppSettings, CollaborationMergeUtils);
             } else {
-              var d = e.getScene(),
-                u = i.GNode.serialize(d, i.GUtil.extend({ save: true }, a));
-              m = new Blob([u]);
+              var GoogleToCloudRoleMap = e.getScene(),
+                NoAccessId = GCore.GNode.serialize(GoogleToCloudRoleMap, GCore.GUtil.extend({ save: true }, CollaborationMergeUtils));
+              m = new Blob([NoAccessId]);
             }
             h(T),
               this._verifyFileNotTooSmall(m.size, e),
@@ -248,7 +248,7 @@ function (exports, module, require) {
               };
             var g = this._id ? this._id : null;
             await this._getOrCreateClient()
-              .upload(g, m, _, s.default.DefaultUploadType, b)
+              .upload(g, m, _, GoogleDriveException.default.DefaultUploadType, b)
               .then(async (n) => {
                 this._updateInternalFileWithGoogleResponse(n);
                 try {
@@ -259,12 +259,12 @@ function (exports, module, require) {
                 }
                 if ((e.updateStatus(w.Saved), y && this.supportsShadowFile()))
                   return this.createShadowFile().then(() => {
-                    gDesigner.hasEventListeners(v) &&
-                      gDesigner.trigger(new v(v.Type.StorageItemUpdated, e)),
+                    gDesigner.hasEventListeners(GDocumentEvent) &&
+                      gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.StorageItemUpdated, e)),
                       t && t();
                   });
-                gDesigner.hasEventListeners(v) &&
-                  gDesigner.trigger(new v(v.Type.StorageItemUpdated, e)),
+                gDesigner.hasEventListeners(GDocumentEvent) &&
+                  gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.StorageItemUpdated, e)),
                   h(P),
                   t && t();
               })
@@ -286,12 +286,12 @@ function (exports, module, require) {
           if (this._writing) return;
           this._writing = true;
           const n = await this._buildGoogleMetadata(t),
-            o = await this._getOrCreateClient().upload(
+            _interopRequireDefault = await this._getOrCreateClient().upload(
               this._getGoogleId(),
               new Blob([e]),
               n
             );
-          this._updateInternalFileWithGoogleResponse(o);
+          this._updateInternalFileWithGoogleResponse(_interopRequireDefault);
         } finally {
           this._writing = false;
         }
@@ -308,7 +308,7 @@ function (exports, module, require) {
         return (
           !exports &&
             this._file &&
-            ((exports = new s.default(new f(this._file.settings))),
+            ((exports = new GoogleDriveException.default(new f(this._file.settings))),
             this.setCloudClient(exports)),
           exports
         );
@@ -319,16 +319,16 @@ function (exports, module, require) {
       (D.Item.prototype._exportDocumentToCDR = function (e, t) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
-        return new Promise(async (o, i) => {
+        return new Promise(async (_interopRequireDefault, GCore) => {
           r.default.prepareCDRforSaving(
             e,
             function (e) {
-              return i(e);
+              return GCore(e);
             },
             t,
             require,
             function (e) {
-              return o(new Blob([e]));
+              return _interopRequireDefault(new Blob([e]));
             }
           );
         });
@@ -367,7 +367,7 @@ function (exports, module, require) {
         return this._getOrCreateClient().getFilePermissions(this.getUniqueId());
       }),
       (D.Item.prototype.rolesMatch = function (e, t) {
-        return d.default[e] === t || u.default[t] === e;
+        return GoogleToCloudRoleMap.default[e] === t || NoAccessId.default[t] === e;
       }),
       (D.Item.prototype.getShareRole = async function (e) {
         return this._getOrCreateClient()
@@ -379,8 +379,8 @@ function (exports, module, require) {
                 t.permissions &&
                 t.permissions.length &&
                 t.permissions.some((t) => {
-                  let { email: o, role: i } = t;
-                  if (e === o) return (require = i), true;
+                  let { email: _interopRequireDefault, role: GCore } = t;
+                  if (e === _interopRequireDefault) return (require = GCore), true;
                 }),
               require
             );
@@ -396,8 +396,8 @@ function (exports, module, require) {
             ? this._shareWithUser(e, t.getRole())
             : this._shareWithDomain(t.getRole())
           : Promise.reject(
-              i.GLocale.get(
-                new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
               )
             );
       }),
@@ -408,29 +408,29 @@ function (exports, module, require) {
         } catch (e) {}
         if (!require)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        if (t && t.is(c.ShareRoles.NoAccess)) return Promise.resolve();
-        const o = await this._getOrCreateClient().getShareIdForEmail(
+        if (t && t.is(AppSettings.ShareRoles.NoAccess)) return Promise.resolve();
+        const _interopRequireDefault = await this._getOrCreateClient().getShareIdForEmail(
           this.getUniqueId(),
           e
         );
-        for (let e = 0, t = o.length; e < t; e++)
+        for (let e = 0, t = _interopRequireDefault.length; e < t; e++)
           try {
             const t = await this._getOrCreateClient().removeShare(
               this.getUniqueId(),
-              o[e]
+              _interopRequireDefault[e]
             );
             if (
-              t.status !== c.gApi.HTTP_STATUS_CODES.OK &&
-              t.status !== c.gApi.HTTP_STATUS_CODES.NO_CONTENT
+              t.status !== AppSettings.gApi.HTTP_STATUS_CODES.OK &&
+              t.status !== AppSettings.gApi.HTTP_STATUS_CODES.NO_CONTENT
             ) {
               const e =
                 (t && t.error && t.error.message) ||
-                i.GLocale.get(
-                  new i.GLocaleKey("GGoogleDrive", "error.google-api-error")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GGoogleDrive", "error.google-api-error")
                 );
               return Promise.reject(e);
             }
@@ -452,7 +452,7 @@ function (exports, module, require) {
           (await this._getOrCreateClient()
             .getAccountByEmail(e)
             .catch(() => false)) || (require = false);
-        } else c.gApi.sameDomain(module, { email: e }) || (require = false);
+        } else AppSettings.gApi.sameDomain(module, { email: e }) || (require = false);
         return require;
       }),
       (D.Item.prototype._shareWithDomain = async function (e) {
@@ -471,10 +471,10 @@ function (exports, module, require) {
         module.thumbnail = await x.fromBlob(await e.buildPreview());
         const require = e.getScene();
         module.unit = require.getProperty("ut");
-        const o = require.getActivePage(),
-          i = o && o.getGeometryBBox();
+        const _interopRequireDefault = require.getActivePage(),
+          GCore = _interopRequireDefault && _interopRequireDefault.getGeometryBBox();
         return (
-          i && ((module.width = i.getWidth()), (module.height = i.getHeight())),
+          GCore && ((module.width = GCore.getWidth()), (module.height = GCore.getHeight())),
           this._buildGoogleMetadata(module)
         );
       }),
@@ -482,19 +482,19 @@ function (exports, module, require) {
         const module = this._file.getExtension() || E.ext.toUpperCase(),
           require =
             this._file.getMimeType() ||
-            ((o = module),
+            ((_interopRequireDefault = module),
             Object.values(S).find((e) => {
               let { ext: module } = e;
-              return !!module && module.toLowerCase() === o.toLowerCase();
+              return !!module && module.toLowerCase() === _interopRequireDefault.toLowerCase();
             }) || E).type;
-        var o;
-        const i = e.thumbnail.getImageAsBlob(),
-          a = await this._buildSafeEncodedBase64ForBlob(i),
+        var _interopRequireDefault;
+        const GCore = e.thumbnail.getImageAsBlob(),
+          CollaborationMergeUtils = await this._buildSafeEncodedBase64ForBlob(GCore),
           r = {
             name: this._file.getNameWithExtension(),
             mimeType: require,
             contentHints: {
-              thumbnail: { mimeType: e.thumbnail.getMimeType(), image: a },
+              thumbnail: { mimeType: e.thumbnail.getMimeType(), image: CollaborationMergeUtils },
             },
             appProperties: {
               type: require,
@@ -516,17 +516,17 @@ function (exports, module, require) {
       }),
       (D.Item.prototype._buildSafeEncodedBase64ForBlob = function (e) {
         return new Promise((t, n) => {
-          const o = new FileReader();
-          (o.onload = (e) => {
+          const _interopRequireDefault = new FileReader();
+          (_interopRequireDefault.onload = (e) => {
             const n = e.target.result,
-              o = n.substr(n.indexOf(",") + 1),
-              i = (0, a.base64URLSafeEncode)(o);
-            t(i);
+              _interopRequireDefault = n.substr(n.indexOf(",") + 1),
+              GCore = (0, CollaborationMergeUtils.base64URLSafeEncode)(_interopRequireDefault);
+            t(GCore);
           }),
-            (o.onerror = function () {
-              n(o.error);
+            (_interopRequireDefault.onerror = function () {
+              n(_interopRequireDefault.error);
             }),
-            o.readAsDataURL(e);
+            _interopRequireDefault.readAsDataURL(e);
         });
       }),
       (D.Item.prototype.hasVersionControl = function () {
@@ -556,9 +556,9 @@ function (exports, module, require) {
         const exports = this._getOrCreateClient(),
           module = await this.getLatestFileInfo(),
           require = await exports.getFile(this.getUniqueId(), this._getQuery()),
-          o = await h.createUint8ArrayFromBlob(require),
-          i = new D.Item(this._storage, module, o);
-        return i.setCloudClient(exports), i;
+          _interopRequireDefault = await h.createUint8ArrayFromBlob(require),
+          GCore = new D.Item(this._storage, module, _interopRequireDefault);
+        return GCore.setCloudClient(exports), GCore;
       }),
       (D.Item.prototype.getLatestFileInfo = async function () {
         const exports = await this._getOrCreateClient().getFileDetails(

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = null;
     function a(e) {
       for (var module = 0; module < i.length; ++module) if (i[module].type === e) return i[module].icon;
@@ -26,37 +26,37 @@ function (exports, module, require) {
           i ||
             (i = [
               {
-                type: o.GPathBase.CornerType.Rounded,
-                title: o.GLocale.get(
-                  new o.GLocaleKey("GPathBase", "corner.rounded")
+                type: GCore.GPathBase.CornerType.Rounded,
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPathBase", "corner.rounded")
                 ),
                 icon: "gravit-icon-corner-rounded",
               },
               {
-                type: o.GPathBase.CornerType.InverseRounded,
-                title: o.GLocale.get(
-                  new o.GLocaleKey("GPathBase", "corner.inverse-rounded")
+                type: GCore.GPathBase.CornerType.InverseRounded,
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPathBase", "corner.inverse-rounded")
                 ),
                 icon: "gravit-icon-corner-inverse-rounded",
               },
               {
-                type: o.GPathBase.CornerType.Bevel,
-                title: o.GLocale.get(
-                  new o.GLocaleKey("GPathBase", "corner.bevel")
+                type: GCore.GPathBase.CornerType.Bevel,
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPathBase", "corner.bevel")
                 ),
                 icon: "gravit-icon-corner-bevel",
               },
               {
-                type: o.GPathBase.CornerType.Inset,
-                title: o.GLocale.get(
-                  new o.GLocaleKey("GPathBase", "corner.inset")
+                type: GCore.GPathBase.CornerType.Inset,
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPathBase", "corner.inset")
                 ),
                 icon: "gravit-icon-corner-inset",
               },
               {
-                type: o.GPathBase.CornerType.Fancy,
-                title: o.GLocale.get(
-                  new o.GLocaleKey("GPathBase", "corner.fancy")
+                type: GCore.GPathBase.CornerType.Fancy,
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GPathBase", "corner.fancy")
                 ),
                 icon: "gravit-icon-corner-fancy",
               },
@@ -89,9 +89,9 @@ function (exports, module, require) {
                         var i = $(this).attr("data-corner-type");
                         s.value.call(t, i), n.trigger("cornertypechange", i);
                         var a = "unkn",
-                          r = Object.keys(o.GPathBase.CornerType);
+                          r = Object.keys(GCore.GPathBase.CornerType);
                         for (var l of r)
-                          if (i === o.GPathBase.CornerType[l]) {
+                          if (i === GCore.GPathBase.CornerType[l]) {
                             a = l;
                             break;
                           }

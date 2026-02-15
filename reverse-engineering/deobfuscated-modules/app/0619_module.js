@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
+    var uncurryThis = require(27) /* uncurryThis */,
       i = require(65) /* module_65 */;
     exports.exports = function (e, t, n) {
       try {
-        return o(i(Object.getOwnPropertyDescriptor(e, t)[n]));
+        return uncurryThis(i(Object.getOwnPropertyDescriptor(e, t)[n]));
       } catch (e) {}
     };
   }

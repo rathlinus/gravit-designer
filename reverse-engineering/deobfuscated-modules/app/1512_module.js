@@ -21,8 +21,8 @@ function (exports, module, require) {
       require(32) /* stub_requires_670 */,
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(176) /* GSystem */,
-      i = require(0) /* GObject */;
+    var GSystem = require(176) /* GSystem */,
+      GObject = require(0) /* GObject */;
     require(10) /* AppSettings */;
     var a = require(237) /* Item */,
       r = require(1117) /* module_1117 */.saveAs,
@@ -41,11 +41,11 @@ function (exports, module, require) {
           if ("granted" !== e) throw new Error("Cannot get write access");
         });
     }
-    i.inherit(c, a),
+    GObject.inherit(c, a),
       (c.Directory = function (e, t) {
         a.Directory.call(this, e), (this._dirHandle = t), (this._id = null);
       }),
-      i.inherit(c.Directory, a.Directory),
+      GObject.inherit(c.Directory, a.Directory),
       (c.Directory.prototype._dirHandle = null),
       (c.Directory.prototype._id = null),
       (c.Directory.prototype.getUniqueId = function () {
@@ -75,13 +75,13 @@ function (exports, module, require) {
           throw new Error("Cannot create a file");
         }
       }),
-      (c.Item = function (e, t, n, o) {
+      (c.Item = function (e, t, n, GSystem) {
         a.Item.call(this, e),
           (this._data = t),
           (this._filename = n),
-          (this._fileHandle = o);
+          (this._fileHandle = GSystem);
       }),
-      i.inherit(c.Item, a.Item),
+      GObject.inherit(c.Item, a.Item),
       (c.Item.prototype._data = null),
       (c.Item.prototype._filename = null),
       (c.Item.prototype._fileHandle = null),
@@ -100,21 +100,21 @@ function (exports, module, require) {
             (this._data = t), e(this._data);
           });
       }),
-      (c.Item.prototype.write = function (e, t, n, o, i) {
-        if ((this._verifyFileNotTooSmall(e.length, i), this._fileHandle)) {
-          let o = null;
+      (c.Item.prototype.write = function (e, t, n, GSystem, GObject) {
+        if ((this._verifyFileNotTooSmall(e.length, GObject), this._fileHandle)) {
+          let GSystem = null;
           this._fileHandle
             .createWritable()
-            .then((e) => ((o = e), o.truncate(0)))
-            .then(() => o.write(e))
-            .then(() => o.close())
+            .then((e) => ((GSystem = e), GSystem.truncate(0)))
+            .then(() => GSystem.write(e))
+            .then(() => GSystem.close())
             .then(() => {
               t && t();
             })
-            .catch((o) => {
+            .catch((GSystem) => {
               if (
-                o instanceof DOMException &&
-                o.code === DOMException.QUOTA_EXCEEDED_ERR
+                GSystem instanceof DOMException &&
+                GSystem.code === DOMException.QUOTA_EXCEEDED_ERR
               )
                 return this.notEnoughDiskSpace(), void (n ? n() : t && t());
               r(new Blob([e]), this._filename), t && t();
@@ -144,14 +144,14 @@ function (exports, module, require) {
       }),
       (c.prototype.chooseDirectory = function (e, t, n) {
         if (!this._isFileAPIAvailable() || !this.canChooseDirectory()) return;
-        var o = { type: l || "open-directory" };
-        let i = null;
+        var GSystem = { type: l || "open-directory" };
+        let GObject = null;
         var a = false;
         window
-          .chooseFileSystemEntries(o)
-          .then((e) => ((i = e), d(e)))
+          .chooseFileSystemEntries(GSystem)
+          .then((e) => ((GObject = e), d(e)))
           .then(() => {
-            let t = e(new c.Directory(this, i));
+            let t = e(new c.Directory(this, GObject));
             return (a = true), t;
           })
           .catch((e) => {
@@ -162,24 +162,24 @@ function (exports, module, require) {
           });
       }),
       (c.prototype.openPrompt = function (e, t, n) {
-        let { disableFileSystemAccessAPI: i = false, silent: a = false } =
+        let { disableFileSystemAccessAPI: GObject = false, silent: a = false } =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
-        if (!i && this._isFileAPIAvailable()) {
+        if (!GObject && this._isFileAPIAvailable()) {
           var r = { multiple: !!n };
           if (e.length > 0) {
             const t = {};
             r.excludeAcceptAllOptions = true;
-            for (let n = 0, o = e.length; n < o; n++) {
-              const { mime: o, ext: i } = e[n];
-              o && i
-                ? undefined !== t[o]
-                  ? (Array.isArray(t[o]) || (t[o] = [t[o]]),
-                    t[o].push(i.startsWith(".") ? i : ".".concat(i)))
-                  : (t[o] = i.startsWith(".") ? i : ".".concat(i))
+            for (let n = 0, GSystem = e.length; n < GSystem; n++) {
+              const { mime: GSystem, ext: GObject } = e[n];
+              GSystem && GObject
+                ? undefined !== t[GSystem]
+                  ? (Array.isArray(t[GSystem]) || (t[GSystem] = [t[GSystem]]),
+                    t[GSystem].push(GObject.startsWith(".") ? GObject : ".".concat(GObject)))
+                  : (t[GSystem] = GObject.startsWith(".") ? GObject : ".".concat(GObject))
                 : console.warn(
                     'openPrompt warning: no mime or ext. given mime: "'
-                      .concat(o, '", given ext: "')
-                      .concat(i, '"')
+                      .concat(GSystem, '", given ext: "')
+                      .concat(GObject, '"')
                   );
             }
             r.types = [{ accept: t }];
@@ -192,9 +192,9 @@ function (exports, module, require) {
                   e.forEach((n) => {
                     n.getFile()
                       .then((e) => e.arrayBuffer())
-                      .then((o) =>
+                      .then((GSystem) =>
                         t(
-                          new c.Item(this, new Uint8Array(o), n.name, n),
+                          new c.Item(this, new Uint8Array(GSystem), n.name, n),
                           e.length
                         )
                       )
@@ -226,17 +226,17 @@ function (exports, module, require) {
             if (e >= t) this._fileInput.value = "";
             else {
               var n = this._fileInput.files[e],
-                o = n.name;
+                GSystem = n.name;
               if (n instanceof File || n instanceof Blob) {
-                var i = new FileReader();
-                (i.onload = function () {
+                var GObject = new FileReader();
+                (GObject.onload = function () {
                   this._fileInputCallback(
-                    new c.Item(this, new Uint8Array(i.result), o),
+                    new c.Item(this, new Uint8Array(GObject.result), GSystem),
                     t
                   ),
                     l(e + 1);
                 }.bind(this)),
-                  i.readAsArrayBuffer(n);
+                  GObject.readAsArrayBuffer(n);
               } else l(e + 1);
             }
           }.bind(this);
@@ -245,8 +245,8 @@ function (exports, module, require) {
           }),
             document.body.appendChild(this._fileInput);
         }
-        o.hardware === o.Hardware.Tablet &&
-        o.operatingSystem === o.OperatingSystem.OSX_IOS
+        GSystem.hardware === GSystem.Hardware.Tablet &&
+        GSystem.operatingSystem === GSystem.OperatingSystem.OSX_IOS
           ? this._fileInput.removeAttribute("accept")
           : s && s.length
           ? this._fileInput.setAttribute(
@@ -258,38 +258,38 @@ function (exports, module, require) {
           this._fileInput.focus(),
           a || this._fileInput.click();
       }),
-      (c.prototype.savePrompt = function (e, t, n, o) {
+      (c.prototype.savePrompt = function (e, t, n, GSystem) {
         if (this._isFileAPIAvailable()) {
-          var i = { suggestedName: e };
+          var GObject = { suggestedName: e };
           if (t.length > 0) {
             const e = {};
-            i.excludeAcceptAllOptions = true;
-            for (let n = 0, o = t.length; n < o; n++) {
-              let { mime: o, ext: i } = t[n];
-              o && i
-                ? ("jpg" === i && (o = "x-really-an-image/jpeg"),
-                  undefined !== e[o]
-                    ? (Array.isArray(e[o]) || (e[o] = [e[o]]),
-                      e[o].push(i.startsWith(".") ? i : ".".concat(i)))
-                    : (e[o] = i.startsWith(".") ? i : ".".concat(i)))
+            GObject.excludeAcceptAllOptions = true;
+            for (let n = 0, GSystem = t.length; n < GSystem; n++) {
+              let { mime: GSystem, ext: GObject } = t[n];
+              GSystem && GObject
+                ? ("jpg" === GObject && (GSystem = "x-really-an-image/jpeg"),
+                  undefined !== e[GSystem]
+                    ? (Array.isArray(e[GSystem]) || (e[GSystem] = [e[GSystem]]),
+                      e[GSystem].push(GObject.startsWith(".") ? GObject : ".".concat(GObject)))
+                    : (e[GSystem] = GObject.startsWith(".") ? GObject : ".".concat(GObject)))
                 : console.warn(
                     'openPrompt warning: no mime or ext. given mime: "'
-                      .concat(o, '", given ext: "')
-                      .concat(i, '"')
+                      .concat(GSystem, '", given ext: "')
+                      .concat(GObject, '"')
                   );
             }
             let n = [{ accept: e }];
-            const o = Object.keys(e);
-            (o || []).length > 1 &&
-              (n = o.map((t) => {
+            const GSystem = Object.keys(e);
+            (GSystem || []).length > 1 &&
+              (n = GSystem.map((t) => {
                 let n = {};
                 return (n[t] = e[t]), { accept: n };
               })),
-              (i.types = n);
+              (GObject.types = n);
           }
           var a = false;
           window
-            .showSaveFilePicker(i)
+            .showSaveFilePicker(GObject)
             .then((e) => ((a = true), n(new c.Item(this, null, e.name, e))))
             .catch((t) => {
               if (
@@ -297,7 +297,7 @@ function (exports, module, require) {
                 !a && t.code !== DOMException.ABORT_ERR)
               )
                 return this.download(e, n);
-              o && o();
+              GSystem && GSystem();
             });
         }
       }),

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = o(require(565) /* module_565 */),
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      a = _interopRequireDefault(require(565) /* module_565 */),
       r = {
         init: function (e) {
           return (
@@ -26,19 +26,19 @@ function (exports, module, require) {
                     .attr("data-drag-mode", a.default.PRESS_AND_HOLD)
                     .on("dragstart", function (e) {
                       var t = e.originalEvent,
-                        o = n.data("gpatterntarget").pattern;
-                      if (o) {
-                        t.stopPropagation(), n.trigger("patterndrag", o);
+                        _interopRequireDefault = n.data("gpatterntarget").pattern;
+                      if (_interopRequireDefault) {
+                        t.stopPropagation(), n.trigger("patterndrag", _interopRequireDefault);
                         var a = gDragImage().css({
-                          background: i.GPattern.asCSSBackground(o),
+                          background: GCore.GPattern.asCSSBackground(_interopRequireDefault),
                           width: "20px",
                           height: "20px",
                         });
                         t.dataTransfer.setDragImage(a[0], 10, 10),
                           (t.dataTransfer.effectAllowed = "move"),
                           t.dataTransfer.setData(
-                            i.GPattern.MIME_TYPE,
-                            i.GPattern.serialize(o)
+                            GCore.GPattern.MIME_TYPE,
+                            GCore.GPattern.serialize(_interopRequireDefault)
                           ),
                           (t.dataTransfer.sourceElement = this);
                       } else t.preventDefault();
@@ -57,22 +57,22 @@ function (exports, module, require) {
                     })
                     .on("drop", function (e) {
                       e.stopPropagation();
-                      var o = n.data("gpatterntarget"),
+                      var _interopRequireDefault = n.data("gpatterntarget"),
                         a = e.originalEvent,
-                        s = a.dataTransfer.getData(i.GPattern.MIME_TYPE);
-                      if (s && (s = i.GPattern.deserialize(s))) {
+                        s = a.dataTransfer.getData(GCore.GPattern.MIME_TYPE);
+                      if (s && (s = GCore.GPattern.deserialize(s))) {
                         var l = true;
-                        if (o.types && o.types.length > 0) {
+                        if (_interopRequireDefault.types && _interopRequireDefault.types.length > 0) {
                           l = false;
-                          for (var c = 0; c < o.types.length; ++c)
-                            if (o.types[c] && s instanceof o.types[c]) {
+                          for (var c = 0; c < _interopRequireDefault.types.length; ++c)
+                            if (_interopRequireDefault.types[c] && s instanceof _interopRequireDefault.types[c]) {
                               l = true;
                               break;
                             }
                         }
                         if (l) {
                           var d = n.data("gpatterntarget").pattern;
-                          i.GUtil.equals(s, d) ||
+                          GCore.GUtil.equals(s, d) ||
                             (r.value.call(t, s), n.trigger("patternchange", s)),
                             n.trigger("patterndrop", [s, a]);
                         }
@@ -86,7 +86,7 @@ function (exports, module, require) {
           var t = $(this),
             n = t.data("gpatterntarget") || {};
           return arguments.length
-            ? ((e = "string" == typeof e ? i.GPattern.deserialize(e) : e),
+            ? ((e = "string" == typeof e ? GCore.GPattern.deserialize(e) : e),
               (n.pattern = e),
               this)
             : n.pattern || null;

@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
-    var i = o(require(11) /* GUtil */);
+    var GUtil = _interopRequireDefault(require(11) /* GUtil */);
     require(1322) /* module_1322 */;
-    const a = require(808) /* GApplicationStatusEvent */,
+    const GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
       r = require(1570) /* module_1570 */,
       s = require(392) /* module_392 */,
       l = require(1323) /* module_1323 */,
@@ -25,7 +25,7 @@ function (exports, module, require) {
     function m(e) {
       (this._state = new r()),
         d && gDesigner.addEventListener(l, this._shareStateChangedEvent, this),
-        gDesigner.addEventListener(a, this._applicationStatusEvent, this),
+        gDesigner.addEventListener(GApplicationStatusEvent, this._applicationStatusEvent, this),
         gDesigner.addEventListener(c, this._licenseChangedEvent, this),
         this._init(e);
     }
@@ -36,9 +36,9 @@ function (exports, module, require) {
         const module = new r(Object.assign({}, this._state)),
           {
             owner: require,
-            share: o,
-            sharing: i,
-            edit: a,
+            share: _interopRequireDefault,
+            sharing: GUtil,
+            edit: GApplicationStatusEvent,
             inspect: s,
             copy: l,
             comment: c,
@@ -56,7 +56,7 @@ function (exports, module, require) {
               comment: !!u,
             })
           : Object.assign(module, {
-              edit: a,
+              edit: GApplicationStatusEvent,
               saveAs: l,
               export: l,
               copyPaste: l,
@@ -64,8 +64,8 @@ function (exports, module, require) {
               comment: c,
             }),
           Object.assign(module, {
-            isShareEnabled: o,
-            isSharing: i,
+            isShareEnabled: _interopRequireDefault,
+            isSharing: GUtil,
             isPrivateSharing: d,
             role: p,
             realtimeCollaborators: g,
@@ -73,14 +73,14 @@ function (exports, module, require) {
           this._setState(module, e.document);
       }),
       (m.prototype._setState = function (e, t) {
-        i.default.equals(e, this._state, true) ||
+        GUtil.default.equals(e, this._state, true) ||
           ((this._state = e), this._triggerAppStateEvent(t, e));
       }),
       (m.prototype._triggerAppStateEvent = function (e, t) {
         gDesigner.hasEventListeners(s) && gDesigner.trigger(new s(e, t));
       }),
       (m.prototype._applicationStatusEvent = function (e) {
-        e.status === a.Status.Ready &&
+        e.status === GApplicationStatusEvent.Status.Ready &&
           gDesigner.isAnonymous() &&
           gDesigner.addNotification({ anonymous: true });
       }),
@@ -130,8 +130,8 @@ function (exports, module, require) {
           var exports = true,
             module = gDesigner.getActiveDocument(),
             require = module && module.getStorageItem(),
-            o = require && require.getFile();
-          return o && o.status === g && (exports = false), exports;
+            _interopRequireDefault = require && require.getFile();
+          return _interopRequireDefault && _interopRequireDefault.status === g && (exports = false), exports;
         }
         return true;
       }),

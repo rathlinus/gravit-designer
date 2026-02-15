@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(328) /* polyfill_Array_sort */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(381) /* module_381 */;
     const {
       parseNativeFonts: a,
@@ -16,8 +16,8 @@ function (exports, module, require) {
     function l(e) {
       i.call(this, e);
     }
-    o.GObject.inherit(l, i);
-    var c = o.GUtil.uuid();
+    GCore.GObject.inherit(l, i);
+    var c = GCore.GUtil.uuid();
     (l.VERSION = 1),
       (l.prototype._totalFonts = 0),
       (l.prototype._fontList = []),
@@ -31,7 +31,7 @@ function (exports, module, require) {
                 (t.innerHTML = this.displayname || this.family),
                   (t.style.fontFamily = this.family),
                   (t.style.fontStyle =
-                    this.style === o.GFont.Style.Italic ? "italic" : "normal"),
+                    this.style === GCore.GFont.Style.Italic ? "italic" : "normal"),
                   (t.style.fontWeight = this.weight),
                   (t.style.fontSize = "13px"),
                   (t.style.height = "20px"),
@@ -43,8 +43,8 @@ function (exports, module, require) {
                   e(t);
               });
       }),
-      (l.prototype.load = function (e, t, n, o) {
-        return this._createLocalFontList(e, t, n, o);
+      (l.prototype.load = function (e, t, n, GCore) {
+        return this._createLocalFontList(e, t, n, GCore);
       }),
       (l.prototype.getTotalFonts = function (e) {
         return e
@@ -55,7 +55,7 @@ function (exports, module, require) {
         this._fontList = [];
       }),
       (l.prototype.resolveFont = function (e, t, n, i) {
-        (n = parseInt(n) || 400), (t = t || o.GFont.Style.Normal);
+        (n = parseInt(n) || 400), (t = t || GCore.GFont.Style.Normal);
         const a = "".concat(e, "_").concat(t, "_").concat(n);
         return this._cachedParsedFonts[a]
           ? i.done(
@@ -72,17 +72,17 @@ function (exports, module, require) {
               fail: i.fail,
             });
       }),
-      (l.prototype._processResolveFont = async function (e, t, n, o) {
+      (l.prototype._processResolveFont = async function (e, t, n, GCore) {
         const i = s(e, this._findInFontsList.bind(this));
-        if (!i) return o.fail();
+        if (!i) return GCore.fail();
         const r = i.isLocalFont ? await a(i.fonts) : i.fonts;
-        if (!r || !Array.isArray(r) || !r.length) return o.fail();
-        const l = r.find(function (o) {
+        if (!r || !Array.isArray(r) || !r.length) return GCore.fail();
+        const l = r.find(function (GCore) {
           return (
-            (o.style === t && o.weight === n && o.family === e) ||
-            (o.style === t &&
-              o.weight === n &&
-              o.family.replace(" " + o.subfamily, "") === e)
+            (GCore.style === t && GCore.weight === n && GCore.family === e) ||
+            (GCore.style === t &&
+              GCore.weight === n &&
+              GCore.family.replace(" " + GCore.subfamily, "") === e)
           );
         });
         if (l) {
@@ -90,27 +90,27 @@ function (exports, module, require) {
           return (
             (this._cachedParsedFonts[i] = l),
             void setTimeout(() => {
-              o.done(l.blob);
+              GCore.done(l.blob);
             }, 10)
           );
         }
-        o.fail();
+        GCore.fail();
       }),
-      (l.prototype._createLocalFontList = function (e, t, n, o) {
+      (l.prototype._createLocalFontList = function (e, t, n, GCore) {
         if (this._fontList && this._fontList.length > 0)
-          return o.done(
+          return GCore.done(
             this._getFilteredFontsList.call(this, e, t, n),
             true,
             null
           );
         this._createLocalFontListPromise
-          ? this._createLocalFontListCallbacks.push(o)
-          : ((this._createLocalFontListCallbacks = [o]),
+          ? this._createLocalFontListCallbacks.push(GCore)
+          : ((this._createLocalFontListCallbacks = [GCore]),
             (this._createLocalFontListPromise = new Promise(async (e) => {
               let t = await r(),
                 n = [];
-              for (var o = 0; o < t.length; o++) {
-                const e = t[o],
+              for (var GCore = 0; GCore < t.length; GCore++) {
+                const e = t[GCore],
                   i = n.findIndex((t) => {
                     let { family: n } = t;
                     return n === e.family;
@@ -121,14 +121,14 @@ function (exports, module, require) {
               }
               (this._fontList = n.sort((e, t) => {
                 let { family: n } = e,
-                  { family: o } = t;
-                return n - o;
+                  { family: GCore } = t;
+                return n - GCore;
               })),
                 e();
             })),
             this._createLocalFontListPromise.then(() => {
-              this._createLocalFontListCallbacks.map((o) => {
-                let { done: i } = o;
+              this._createLocalFontListCallbacks.map((GCore) => {
+                let { done: i } = GCore;
                 i(this._getFilteredFontsList.call(this, e, t, n), true, null),
                   (this._createLocalFontListPromise = null),
                   (this._createLocalFontListCallbacks = null);

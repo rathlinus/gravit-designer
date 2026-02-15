@@ -6,16 +6,16 @@
 function (exports, module, require) {
     "use strict";
     var o = require(110) /* module_110 */,
-      i = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       a = require(144) /* stub_requires_27 */,
-      r = require(398) /* _typeof */,
+      _typeof = require(398) /* _typeof */,
       s = Object;
-    exports.exports = r
+    exports.exports = _typeof
       ? function (e) {
           return "symbol" == typeof e;
         }
       : function (e) {
           var t = o("Symbol");
-          return i(t) && a(t.prototype, s(e));
+          return anObject(t) && a(t.prototype, s(e));
         };
   }

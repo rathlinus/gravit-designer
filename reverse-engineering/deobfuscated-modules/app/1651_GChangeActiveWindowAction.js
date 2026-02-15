@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(31) /* GAction */),
-      s = o(require(18) /* MenuItemBuilder */);
-    class l extends r.default {
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
+    class l extends GAction.default {
       constructor(e) {
         super(),
           (this._type = e),
-          (this._title = new i.GLocaleKey(
+          (this._title = new GCore.GLocaleKey(
             "GChangeActiveWindowAction",
             "title.".concat(this._type)
           ));
@@ -27,18 +27,18 @@ function (exports, module, require) {
         return this._title;
       }
       getCategory() {
-        return s.default.CATEGORY_VIEW;
+        return MenuItemBuilder.default.CATEGORY_VIEW;
       }
       isVisible() {
         return false;
       }
       getShortcut() {
-        const exports = [a.GKey.Constant.OPTION];
+        const exports = [GEditor.GKey.Constant.OPTION];
         switch (this._type) {
           case l.Type.Next:
-            return exports.concat(a.GKey.Constant.PERIOD);
+            return exports.concat(GEditor.GKey.Constant.PERIOD);
           case l.Type.Previous:
-            return exports.concat(a.GKey.Constant.COMMA);
+            return exports.concat(GEditor.GKey.Constant.COMMA);
           default:
             return null;
         }
@@ -58,12 +58,12 @@ function (exports, module, require) {
       _getNextWindowAccordingToType(e) {
         const module = e.getWindows(),
           require = e && e.getActiveWindow(),
-          o = module.findIndex((e) => e === require);
+          _interopRequireDefault = module.findIndex((e) => e === require);
         switch (this._type) {
           case l.Type.Next:
-            return o === module.length - 1 ? module[0] : module[o + 1];
+            return _interopRequireDefault === module.length - 1 ? module[0] : module[_interopRequireDefault + 1];
           case l.Type.Previous:
-            return 0 === o ? module[module.length - 1] : module[o - 1];
+            return 0 === _interopRequireDefault ? module[module.length - 1] : module[_interopRequireDefault - 1];
           default:
             return null;
         }

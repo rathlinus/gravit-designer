@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(184) /* toIndexedObject */,
+    var toIndexedObject = require(184) /* toIndexedObject */,
       i = require(244) /* module_244 */,
       a = require(101) /* stub_requires_117 */,
       r = function (e) {
         return function (t, n, r) {
-          var s = o(t),
+          var s = toIndexedObject(t),
             l = a(s);
           if (0 === l) return !e && -1;
           var c,

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(94) /* Exports_Buf */,
+    var Buf = require(94) /* Exports_Buf */,
       i = [
         3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59,
         67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0,
@@ -46,8 +46,8 @@ function (exports, module, require) {
         I = 0,
         k = null,
         O = 0,
-        F = new o.Buf16(16),
-        R = new o.Buf16(16),
+        F = new Buf.Buf16(16),
+        R = new Buf.Buf16(16),
         M = null,
         N = 0;
       for (x = 0; x <= 15; x++) F[x] = 0;

@@ -7,16 +7,16 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
-      i = require(53) /* module */,
+    var GCore = require(1) /* module */,
+      GTools = require(53) /* module */,
       a = require(357) /* module_357 */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(123) /* GProperties */,
+      GProperties = require(123) /* GProperties */,
       l = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function c() {
       this._pathes = [];
     }
-    o.GObject.inherit(c, s),
+    GCore.GObject.inherit(c, GProperties),
       (c.prototype._panel = null),
       (c.prototype._document = null),
       (c.prototype._pathes = null),
@@ -27,7 +27,7 @@ function (exports, module, require) {
           const t = this._getTargetNodeType($(e.target));
           this.assignNodeType(t);
         };
-        var i = function (e) {
+        var GTools = function (e) {
           var t = this;
           if ("x" === e || "y" === e)
             return $("<div/>")
@@ -36,12 +36,12 @@ function (exports, module, require) {
                   .attr("type", "text")
                   .attr("data-point-property", e)
                   .on("change", function (n) {
-                    var o = t._document.getScene().stringToPoint($(this).val());
+                    var GCore = t._document.getScene().stringToPoint($(this).val());
                     "x" === e
                       ? gDesigner.stats("pathproperties_modify_x")
                       : gDesigner.stats("pathproperties_modify_y"),
-                      null !== o && "number" == typeof o
-                        ? t._assignPointProperty(e, o)
+                      null !== GCore && "number" == typeof GCore
+                        ? t._assignPointProperty(e, GCore)
                         : t._updatePointProperties();
                   })
                   .gInputBox()
@@ -54,44 +54,44 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "-")
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPathProperties", "text.straight")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPathProperties", "text.straight")
                     )
                   )
               )
               .append(
                 $("<option></option>")
-                  .attr("value", o.GPathBase.AnchorPoint.Type.Mirror)
+                  .attr("value", GCore.GPathBase.AnchorPoint.Type.Mirror)
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPathBase", "anchor-point.mirror")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPathBase", "anchor-point.mirror")
                     )
                   )
               )
               .append(
                 $("<option></option>")
-                  .attr("value", o.GPathBase.AnchorPoint.Type.Asymmetric)
+                  .attr("value", GCore.GPathBase.AnchorPoint.Type.Asymmetric)
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPathBase", "anchor-point.asymmetric")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPathBase", "anchor-point.asymmetric")
                     )
                   )
               )
               .append(
                 $("<option></option>")
-                  .attr("value", o.GPathBase.AnchorPoint.Type.Symmetric)
+                  .attr("value", GCore.GPathBase.AnchorPoint.Type.Symmetric)
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPathBase", "anchor-point.symmetric")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPathBase", "anchor-point.symmetric")
                     )
                   )
               )
               .append(
                 $("<option></option>")
-                  .attr("value", o.GPathBase.AnchorPoint.Type.Connector)
+                  .attr("value", GCore.GPathBase.AnchorPoint.Type.Connector)
                   .text(
-                    o.GLocale.get(
-                      new o.GLocaleKey("GPathBase", "anchor-point.connector")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GPathBase", "anchor-point.connector")
                     )
                   )
               )
@@ -129,14 +129,14 @@ function (exports, module, require) {
                 min: 0,
                 max: 100,
                 richTooltipConfig: r.GRichTooltipConfig.from({
-                  title: o.GLocale.get(
-                    new o.GLocaleKey(
+                  title: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCommonNames",
                       "text.corner-radius-slider-tooltip-title"
                     )
                   ),
-                  description: o.GLocale.get(
-                    new o.GLocaleKey(
+                  description: GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCommonNames",
                       "text.corner-radius-slider-tooltip-description"
                     )
@@ -221,8 +221,8 @@ function (exports, module, require) {
                   )
                   .append(
                     $("<span></span>").text(
-                      o.GLocale.get(
-                        new o.GLocaleKey("GPathProperties", "text.closed")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPathProperties", "text.closed")
                       )
                     )
                   ),
@@ -249,8 +249,8 @@ function (exports, module, require) {
                   )
                   .append(
                     $("<span></span>").text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.autoscale-corners"
                         )
@@ -265,13 +265,13 @@ function (exports, module, require) {
             .addClass("position-row")
             .attr("point-only", true)
             .gPropertyRow({
-              label: o.GLocale.get(
-                new o.GLocaleKey("GCommonNames", "text.position")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.position")
               ),
               columns: [
-                { width: "32%", content: i("x") },
-                { width: "32%", content: i("y") },
-                { width: "auto", content: i("tp") },
+                { width: "32%", content: GTools("x") },
+                { width: "32%", content: GTools("y") },
+                { width: "auto", content: GTools("tp") },
               ],
             })
             .appendTo(e),
@@ -280,8 +280,8 @@ function (exports, module, require) {
             .addClass("joint-row")
             .attr("point-only", true)
             .gPropertyRow({
-              label: o.GLocale.get(
-                new o.GLocaleKey("GPathProperties", "text.joint")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GPathProperties", "text.joint")
               ),
               columns: [
                 {
@@ -297,8 +297,8 @@ function (exports, module, require) {
                     .attr("data-node-type", "-")
                     .attr(
                       "data-title",
-                      o.GLocale.get(
-                        new o.GLocaleKey("GPathProperties", "text.straight")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPathProperties", "text.straight")
                       )
                     )
                     .append(
@@ -312,11 +312,11 @@ function (exports, module, require) {
                   content: $("<button></button>")
                     .addClass("g-button")
                     .css({ borderRadius: "0px" })
-                    .attr("data-node-type", o.GPathBase.AnchorPoint.Type.Mirror)
+                    .attr("data-node-type", GCore.GPathBase.AnchorPoint.Type.Mirror)
                     .attr(
                       "data-title",
-                      o.GLocale.get(
-                        new o.GLocaleKey("GPathBase", "anchor-point.mirror")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPathBase", "anchor-point.mirror")
                       )
                     )
                     .append(
@@ -332,12 +332,12 @@ function (exports, module, require) {
                     .css({ borderRadius: "0px" })
                     .attr(
                       "data-node-type",
-                      o.GPathBase.AnchorPoint.Type.Asymmetric
+                      GCore.GPathBase.AnchorPoint.Type.Asymmetric
                     )
                     .attr(
                       "data-title",
-                      o.GLocale.get(
-                        new o.GLocaleKey("GPathBase", "anchor-point.asymmetric")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPathBase", "anchor-point.asymmetric")
                       )
                     )
                     .append(
@@ -359,12 +359,12 @@ function (exports, module, require) {
                     })
                     .attr(
                       "data-node-type",
-                      o.GPathBase.AnchorPoint.Type.Symmetric
+                      GCore.GPathBase.AnchorPoint.Type.Symmetric
                     )
                     .attr(
                       "data-title",
-                      o.GLocale.get(
-                        new o.GLocaleKey("GPathBase", "anchor-point.symmetric")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GPathBase", "anchor-point.symmetric")
                       )
                     )
                     .append(
@@ -382,15 +382,15 @@ function (exports, module, require) {
             .attr("corner-only", true)
             .addClass("path-corner-chooser")
             .gPropertyRow({
-              label: o.GLocale.get(
-                new o.GLocaleKey("GCommonNames", "text.corner")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.corner")
               ),
               columns: [
-                { width: "auto", content: i("cl-slider") },
+                { width: "auto", content: GTools("cl-slider") },
                 { clazz: "corners-radius-no-padding" },
-                { width: "35px", content: i("cl-input") },
+                { width: "35px", content: GTools("cl-input") },
                 { width: "3x" },
-                { width: "40px", content: i("ctp") },
+                { width: "40px", content: GTools("ctp") },
               ],
             })
             .addClass("corner-radius")
@@ -407,19 +407,19 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             this._document
               .getScene()
               .removeEventListener(
-                o.GElement.AfterFlagChangeEvent,
+                GCore.GElement.AfterFlagChangeEvent,
                 this._afterFlagChange
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                i.GEditor.EdGeometryChangeEvent,
+                GTools.GEditor.EdGeometryChangeEvent,
                 this._edGeometryChange,
                 this
               ),
@@ -430,7 +430,7 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require)
-            if (t[require] instanceof o.GPath || t[require] instanceof o.GCompoundPath) {
+            if (t[require] instanceof GCore.GPath || t[require] instanceof GCore.GCompoundPath) {
               var a = t[require];
               this._pathes.push(a);
               var r = function (e) {
@@ -439,18 +439,18 @@ function (exports, module, require) {
                   null !== t;
                   t = t.getNext()
                 )
-                  t.hasFlag(o.GNode.Flag.Selected) &&
+                  t.hasFlag(GCore.GNode.Flag.Selected) &&
                     (this._points.push(t),
                     1 == this._points.legth && (this._mainPath = e));
               }.bind(this);
-              if (a instanceof o.GPath) r(a);
+              if (a instanceof GCore.GPath) r(a);
               else
                 for (
-                  var s = a.getPaths().getFirstChild();
-                  null !== s;
-                  s = s.getNext()
+                  var GProperties = a.getPaths().getFirstChild();
+                  null !== GProperties;
+                  GProperties = GProperties.getNext()
                 )
-                  r(s);
+                  r(GProperties);
             }
           if (this._pathes.length && this._pathes.length === t.length)
             return (
@@ -458,21 +458,21 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GElement.AfterFlagChangeEvent,
+                  GCore.GElement.AfterFlagChangeEvent,
                   this._afterFlagChange,
                   this
                 ),
               this._document
                 .getEditor()
                 .addEventListener(
-                  i.GEditor.EdGeometryChangeEvent,
+                  GTools.GEditor.EdGeometryChangeEvent,
                   this._edGeometryChange,
                   this
                 ),
@@ -491,13 +491,13 @@ function (exports, module, require) {
       }),
       (c.prototype._getStatsNodeType = function (e) {
         switch (e) {
-          case o.GPathBase.AnchorPoint.Type.Mirror:
+          case GCore.GPathBase.AnchorPoint.Type.Mirror:
             return "Mirror";
-          case o.GPathBase.AnchorPoint.Type.Asymmetric:
+          case GCore.GPathBase.AnchorPoint.Type.Asymmetric:
             return "Asymmetric";
-          case o.GPathBase.AnchorPoint.Type.Symmetric:
+          case GCore.GPathBase.AnchorPoint.Type.Symmetric:
             return "Symmetric";
-          case o.GPathBase.AnchorPoint.Type.Connector:
+          case GCore.GPathBase.AnchorPoint.Type.Connector:
             return "Connector";
           default:
             return "Straight";
@@ -516,11 +516,11 @@ function (exports, module, require) {
           require.beginTransaction();
           try {
             let t = null,
-              i = null;
+              GTools = null;
             "-" === exports &&
               ((t = ["tp", "hlx", "hly", "hrx", "hry", "ah"]),
-              (i = [
-                o.GPathBase.CornerType.Rounded,
+              (GTools = [
+                GCore.GPathBase.CornerType.Rounded,
                 null,
                 null,
                 null,
@@ -531,72 +531,72 @@ function (exports, module, require) {
                 if (
                   "-" !== exports &&
                   ((t = ["ah", "tp"]),
-                  (i = [false, exports]),
+                  (GTools = [false, exports]),
                   null === n.getProperty("hlx") &&
                     null === n.getProperty("hrx"))
                 ) {
                   const a = n.getParent().getPreviousPoint(n),
                     r = a ? a.getProperty("hrx") : null,
-                    s = n.getParent().getNextPoint(n),
-                    l = s ? s.getProperty("hlx") : null;
+                    GProperties = n.getParent().getNextPoint(n),
+                    l = GProperties ? GProperties.getProperty("hlx") : null;
                   if (
-                    exports != o.GPathBase.AnchorPoint.Type.Asymmetric ||
+                    exports != GCore.GPathBase.AnchorPoint.Type.Asymmetric ||
                     null !== r ||
                     null !== l
                   )
-                    i[0] = true;
+                    GTools[0] = true;
                   else {
                     const e = n.getProperty("x"),
                       r = n.getProperty("y");
                     if (
                       a &&
                       a.getProperty("tp") !=
-                        o.GPathBase.AnchorPoint.Type.Connector
+                        GCore.GPathBase.AnchorPoint.Type.Connector
                     ) {
                       const n = a.getProperty("x"),
-                        s = a.getProperty("y");
+                        GProperties = a.getProperty("y");
                       if (
-                        !o.GMath.isEqualEps(e, n) ||
-                        !o.GMath.isEqualEps(r, s)
+                        !GCore.GMath.isEqualEps(e, n) ||
+                        !GCore.GMath.isEqualEps(r, GProperties)
                       ) {
                         const a =
-                            e + (n - e) * o.GPathBase.AnchorPoint.HANDLE_COEFF,
+                            e + (n - e) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF,
                           l =
-                            r + (s - r) * o.GPathBase.AnchorPoint.HANDLE_COEFF;
-                        t.push("hlx"), t.push("hly"), i.push(a), i.push(l);
+                            r + (GProperties - r) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
+                        t.push("hlx"), t.push("hly"), GTools.push(a), GTools.push(l);
                       }
                     }
                     if (
-                      s &&
-                      s.getProperty("tp") !=
-                        o.GPathBase.AnchorPoint.Type.Connector
+                      GProperties &&
+                      GProperties.getProperty("tp") !=
+                        GCore.GPathBase.AnchorPoint.Type.Connector
                     ) {
-                      const n = s.getProperty("x"),
-                        a = s.getProperty("y");
+                      const n = GProperties.getProperty("x"),
+                        a = GProperties.getProperty("y");
                       if (
-                        !o.GMath.isEqualEps(e, n) ||
-                        !o.GMath.isEqualEps(r, a)
+                        !GCore.GMath.isEqualEps(e, n) ||
+                        !GCore.GMath.isEqualEps(r, a)
                       ) {
-                        const s =
-                            e + (n - e) * o.GPathBase.AnchorPoint.HANDLE_COEFF,
+                        const GProperties =
+                            e + (n - e) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF,
                           l =
-                            r + (a - r) * o.GPathBase.AnchorPoint.HANDLE_COEFF;
-                        t.push("hrx"), t.push("hry"), i.push(s), i.push(l);
+                            r + (a - r) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
+                        t.push("hrx"), t.push("hry"), GTools.push(GProperties), GTools.push(l);
                       }
                     }
                   }
                 }
-                n.setProperties(t, i);
+                n.setProperties(t, GTools);
                 let a = n.getProperty("tp");
                 const r = n.getProperty("ah");
-                a == o.GPathBase.AnchorPoint.Type.Mirror &&
+                a == GCore.GPathBase.AnchorPoint.Type.Mirror &&
                   r &&
                   n.setProperty("ah", false);
               });
           } finally {
             require.commitTransaction(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GPathProperties",
                   "action.modify-path-node-type"
                 )
@@ -616,8 +616,8 @@ function (exports, module, require) {
       }),
       (c.prototype._afterFlagChange = function (e) {
         if (
-          e.flag === o.GNode.Flag.Selected &&
-          e.node instanceof o.GPathBase.AnchorPoint
+          e.flag === GCore.GNode.Flag.Selected &&
+          e.node instanceof GCore.GPathBase.AnchorPoint
         ) {
           var module = e.node.getParent() ? e.node.getParent().getParent() : null,
             require =
@@ -642,7 +642,7 @@ function (exports, module, require) {
         else {
           this._panel.find("[path-only]").css("display", "");
           var exports = this._pathes[0];
-          exports instanceof o.GPath
+          exports instanceof GCore.GPath
             ? (this._panel
                 .find('input[data-path-property="closed"]')
                 .prop("disabled", false)
@@ -690,13 +690,13 @@ function (exports, module, require) {
                   )
               );
           var require = true,
-            i = e.getProperty("tp");
-          for (var a in o.GPathBase.AnchorPoint.Type)
-            if (o.GPathBase.AnchorPoint.Type[a] === i) {
+            GTools = e.getProperty("tp");
+          for (var a in GCore.GPathBase.AnchorPoint.Type)
+            if (GCore.GPathBase.AnchorPoint.Type[a] === GTools) {
               require = false;
               break;
             }
-          var r = require ? "-" : i;
+          var r = require ? "-" : GTools;
           this._panel.find('select[data-point-property="tp"]').val(r),
             this._panel.find("[data-node-type]").each(function (e, t) {
               var n = $(t);
@@ -708,7 +708,7 @@ function (exports, module, require) {
               .css("display", require ? "" : "none")
               .gCornerTypePicker(
                 "value",
-                require ? i : o.GPathBase.CornerType.Rounded
+                require ? GTools : GCore.GPathBase.CornerType.Rounded
               ),
             this._panel
               .find('div[data-point-property="cl"]')
@@ -754,16 +754,16 @@ function (exports, module, require) {
         var t,
           n,
           a = e.getPath();
-        a && (t = i.GElementEditor.getEditor(a))
+        a && (t = GTools.GElementEditor.getEditor(a))
           ? (t.getPaintElement() != a && (e = t.getPathPointPreview(e)),
             (n = t.getPointCoord(e)))
-          : (n = new o.GPoint(e.getProperty("x"), e.getProperty("y")));
+          : (n = new GCore.GPoint(e.getProperty("x"), e.getProperty("y")));
         return n;
       }),
       (c.prototype._transformPoint = function (e, t, n) {
         t && (n = t.mapPoint(n));
-        var o = e.getPath(),
-          a = i.GElementEditor.getEditor(o);
+        var GCore = e.getPath(),
+          a = GTools.GElementEditor.getEditor(GCore);
         a
           ? a.movePoint(e, n)
           : e.setProperties(["x", "y"], [n.getX(), n.getY()]);
@@ -775,12 +775,12 @@ function (exports, module, require) {
         var n = this._document.getEditor();
         n.beginTransaction();
         try {
-          for (var i = 0; i < this._pathes.length; ++i)
-            this._pathes[i].setProperties(e, t);
+          for (var GTools = 0; GTools < this._pathes.length; ++GTools)
+            this._pathes[GTools].setProperties(e, t);
         } finally {
           n.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GPathProperties",
                 "action.modify-path-properties"
               )
@@ -792,20 +792,20 @@ function (exports, module, require) {
         var e,
           t,
           n = ["_ba"],
-          i = [o.GStylable.BorderAlignment.Center],
+          GTools = [GCore.GStylable.BorderAlignment.Center],
           a = this._document.getEditor();
         a.beginTransaction();
         try {
-          for (var r = 0, s = this._pathes.length; r < s; ++r) {
+          for (var r = 0, GProperties = this._pathes.length; r < GProperties; ++r) {
             e = this._pathes[r].getPaintLayers().getBorderLayers();
             for (var l = 0, c = e.length; l < c; l++)
-              (t = e[l]) instanceof o.GStylable.BorderPaintLayer &&
-                t.setProperties(n, i);
+              (t = e[l]) instanceof GCore.GStylable.BorderPaintLayer &&
+                t.setProperties(n, GTools);
           }
         } finally {
           a.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GPathProperties",
                 "action.modify-path-properties"
               )
@@ -817,22 +817,22 @@ function (exports, module, require) {
         var n = this._document.getEditor();
         n.beginTransaction();
         try {
-          for (var i = 0; i < this._points.length; ++i) {
-            var a = this._points[i];
+          for (var GTools = 0; GTools < this._points.length; ++GTools) {
+            var a = this._points[GTools];
             if ("x" === e) {
               var r = this._getPointCoord(a),
-                s = new o.GTransform(1, 0, 0, 1, t - r.getX(), 0);
-              this._transformPoint(a, s, r);
+                GProperties = new GCore.GTransform(1, 0, 0, 1, t - r.getX(), 0);
+              this._transformPoint(a, GProperties, r);
             } else if ("y" === e) {
               (r = this._getPointCoord(a)),
-                (s = new o.GTransform(1, 0, 0, 1, 0, t - r.getY()));
-              this._transformPoint(a, s, r);
+                (GProperties = new GCore.GTransform(1, 0, 0, 1, 0, t - r.getY()));
+              this._transformPoint(a, GProperties, r);
             } else a.setProperties([e], [t]);
           }
         } finally {
           n.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GPathProperties",
                 "action.modify-point-properties"
               )
@@ -845,12 +845,12 @@ function (exports, module, require) {
         var n = this._document.getEditor();
         n.beginTransaction();
         try {
-          for (var i = 0; i < this._points.length; ++i)
-            this._points[i].setProperties(e, t);
+          for (var GTools = 0; GTools < this._points.length; ++GTools)
+            this._points[GTools].setProperties(e, t);
         } finally {
           n.commitTransaction(
-            o.GLocale.get(
-              new o.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GPathProperties",
                 "action.modify-point-properties"
               )

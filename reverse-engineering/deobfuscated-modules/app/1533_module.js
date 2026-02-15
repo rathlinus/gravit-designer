@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const i = require(156) /* module_156 */,
       { FILE_FORMATS: a } = require(10) /* AppSettings */,
       r = a.find((e) => e.default),
@@ -16,8 +16,8 @@ function (exports, module, require) {
       constructor(e, t) {
         super(e, t);
       }
-      async updateFileSceneAndMetadata(e, t, n, o) {
-        const a = await this._requestWorkerToSave(e, t, n, o);
+      async updateFileSceneAndMetadata(e, t, n, GCore) {
+        const a = await this._requestWorkerToSave(e, t, n, GCore);
         return i.from(a);
       }
       _requestWorkerToSave(e, t, n, i) {
@@ -26,15 +26,15 @@ function (exports, module, require) {
             id: e,
             file: t,
             metadata: i,
-            scene: o.GNode.serialize(n, { save: true }),
+            scene: GCore.GNode.serialize(n, { save: true }),
             type: r.type,
           });
           this._worker.addEventListener(
             "message",
             function (e) {
-              const { cmd: t, id: n, data: o } = e.data;
+              const { cmd: t, id: n, data: GCore } = e.data;
               if ((t !== s.SUCCESS && t !== s.FAILED) || n !== c) return false;
-              t === s.SUCCESS ? a(o.file) : t === s.FAILED && l();
+              t === s.SUCCESS ? a(GCore.file) : t === s.FAILED && l();
               return true;
             }.bind(this),
             { once: true }

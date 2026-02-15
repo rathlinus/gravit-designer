@@ -7,16 +7,16 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
+    var GTools = require(53) /* module */,
       i = require(15) /* module */,
-      a = require(1) /* module */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */;
+      GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function l(e) {
       (this._category = e),
-        (this._title = new a.GLocaleKey("GSnapUnitAction", "title." + e));
+        (this._title = new GCore.GLocaleKey("GSnapUnitAction", "title." + e));
     }
-    a.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GAction),
       (l.Type = { FullUnit: "full", HalfUnit: "half" }),
       (l.ID = "arrange.snap-unit"),
       (l.prototype._category = null),
@@ -28,7 +28,7 @@ function (exports, module, require) {
         return this._title;
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_ALIGN;
+        return MenuItemBuilder.CATEGORY_MODIFY_ALIGN;
       }),
       (l.prototype.getGroup = function () {
         return "arrange/snap-unit";
@@ -57,31 +57,31 @@ function (exports, module, require) {
         var t = gDesigner.getActiveDocument(),
           n = t.getScene();
         e || (e = t.getEditor().getIndividualSelection()),
-          o.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             n,
             function () {
               for (var t = 0; t < e.length; ++t) {
                 var n = e[t];
-                if (n.hasMixin(a.GElement.Transform)) {
-                  var o = n.getGeometryBBox();
-                  if (o && o.getWidth() + o.getHeight() !== 0) {
-                    var i = a.GMath.round(o.getX(), true),
-                      r = a.GMath.round(o.getY(), true),
-                      s = a.GMath.round(o.getWidth(), true),
-                      c = a.GMath.round(o.getHeight(), true);
+                if (n.hasMixin(GCore.GElement.Transform)) {
+                  var GTools = n.getGeometryBBox();
+                  if (GTools && GTools.getWidth() + GTools.getHeight() !== 0) {
+                    var i = GCore.GMath.round(GTools.getX(), true),
+                      MenuItemBuilder = GCore.GMath.round(GTools.getY(), true),
+                      GAction = GCore.GMath.round(GTools.getWidth(), true),
+                      c = GCore.GMath.round(GTools.getHeight(), true);
                     this._category === l.Type.HalfUnit &&
-                      ((i += 0.5), (r += 0.5), (s += 0.5), (c += 0.5));
-                    var d = new a.GTransform()
-                      .translated(-o.getX(), -o.getY())
-                      .scaled(s / (o.getWidth() || 1), c / (o.getHeight() || 1))
-                      .translated(o.getX(), o.getY())
-                      .translated(i - o.getX(), r - o.getY());
+                      ((i += 0.5), (MenuItemBuilder += 0.5), (GAction += 0.5), (c += 0.5));
+                    var d = new GCore.GTransform()
+                      .translated(-GTools.getX(), -GTools.getY())
+                      .scaled(GAction / (GTools.getWidth() || 1), c / (GTools.getHeight() || 1))
+                      .translated(GTools.getX(), GTools.getY())
+                      .translated(i - GTools.getX(), MenuItemBuilder - GTools.getY());
                     n.transform(d);
                   }
                 }
               }
             }.bind(this),
-            a.GLocale.get(this.getTitle())
+            GCore.GLocale.get(this.getTitle())
           );
       }),
       (l.prototype.toString = function () {

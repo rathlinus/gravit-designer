@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e, t) {
       (this._builder = e), (this._onClose = t);
     }
-    o.GObject.inherit(i, o.GEventTarget),
+    GCore.GObject.inherit(i, GCore.GEventTarget),
       (i.prototype.build = function () {
         return this._builder();
       }),
@@ -21,7 +21,7 @@ function (exports, module, require) {
       (i.Event = function (e) {
         this.type = e;
       }),
-      o.GObject.inherit(i.Event, o.GEvent),
+      GCore.GObject.inherit(i.Event, GCore.GEvent),
       (i.Event.Type = { Close: 0 }),
       (exports.exports = i);
   }

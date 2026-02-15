@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
-    const i = require(31) /* GAction */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(256) /* GOfflineDialog */;
+    var GCore = require(1) /* module */;
+    const GAction = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GOfflineDialog = require(256) /* GOfflineDialog */;
     function s() {}
-    o.GObject.inherit(s, i),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "example-files"),
-      (s.TITLE = new o.GLocaleKey("GExampleFilesAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GExampleFilesAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_HELP_LEARN;
+        return MenuItemBuilder.CATEGORY_HELP_LEARN;
       }),
       (s.prototype.getGroup = function () {
         return "help/learn";
@@ -36,7 +36,7 @@ function (exports, module, require) {
             showExampleFiles: true,
           },
           module = () => gDesigner.openNewDocumentDialog(exports);
-        gDesigner.isOffline() ? r.openUnavailableFeature(module) : module();
+        gDesigner.isOffline() ? GOfflineDialog.openUnavailableFeature(module) : module();
       }),
       (s.prototype.toString = function () {
         return "[GObject GExampleFilesAction]";

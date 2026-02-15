@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
       a = require(608) /* GCreateSymbolAction */;
     function r(e) {
@@ -14,8 +14,8 @@ function (exports, module, require) {
         n = e.getMultireferenceId();
       if (t.symbolNodes[n])
         e.isMaster() &&
-          !e.hasEventListeners(o.GSymbol.AfterThumbnailUpdate) &&
-          e.addEventListener(o.GSymbol.AfterThumbnailUpdate, l.bind(this));
+          !e.hasEventListeners(GCore.GSymbol.AfterThumbnailUpdate) &&
+          e.addEventListener(GCore.GSymbol.AfterThumbnailUpdate, l.bind(this));
       else {
         var i = c.call(this, e);
         i && (i.appendTo($(this)), (t.symbolNodes[n] = e));
@@ -31,7 +31,7 @@ function (exports, module, require) {
             var r = d.call(this, e);
             if (
               r &&
-              (r.removeEventListener(o.GSymbol.AfterThumbnailUpdate, l), !t)
+              (r.removeEventListener(GCore.GSymbol.AfterThumbnailUpdate, l), !t)
             ) {
               var s = require.blockHandlers;
               (require.blockHandlers = true),
@@ -62,7 +62,7 @@ function (exports, module, require) {
         var u = e.image.getBitmap().getHTMLElement(true);
         if (
           ($(u).css({ width: c, height: d, margin: "5px" }),
-          t.hasFlag(o.GNode.Flag.Selected))
+          t.hasFlag(GCore.GNode.Flag.Selected))
         )
           a.find(".symbol-title-group").addClass("g-highlighted");
         $(u).appendTo(r);
@@ -71,7 +71,7 @@ function (exports, module, require) {
     function c(e) {
       var t = $(this).data("gsymbolspanel");
       if (e.isMaster()) {
-        if (!(e instanceof o.GSymbol)) throw new Error("item not symbol");
+        if (!(e instanceof GCore.GSymbol)) throw new Error("item not symbol");
         var require = $(this).find(".symbol-panel-info").parent();
         require.length && require.remove();
         var a = $("<div />")
@@ -81,8 +81,8 @@ function (exports, module, require) {
             .gRichTooltip(
               i.GRichTooltipConfig.from({
                 title: e.getProperty("name"),
-                description: o.GLocale.get(
-                  new o.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.symbol-panel-symbol-tooltip-description"
                   )
@@ -97,7 +97,7 @@ function (exports, module, require) {
         var s = e.getProperty("name");
         s = s || e.getNodeNameTranslated();
         var c = $("<span></span>");
-        e.addEventListener(o.GSymbol.AfterThumbnailUpdate, l.bind(this)),
+        e.addEventListener(GCore.GSymbol.AfterThumbnailUpdate, l.bind(this)),
           c.addClass("symbol-image").appendTo(r);
         var u = this;
         return (
@@ -116,8 +116,8 @@ function (exports, module, require) {
               $(this).addClass("g-dragging"),
                 (n.originalEvent.dataTransfer.effectAllowed = "move"),
                 n.originalEvent.dataTransfer.setData(
-                  o.GNode.MIME_TYPE,
-                  o.GNode.serialize(e)
+                  GCore.GNode.MIME_TYPE,
+                  GCore.GNode.serialize(e)
                 ),
                 (t.dragNode = e),
                 setTimeout(
@@ -132,16 +132,16 @@ function (exports, module, require) {
             })
             .on("click", function (n) {
               gDesigner.stats("symbol_click_select");
-              var o = d.call(u, e);
-              o &&
-                (o.getScene()
-                  ? t.options.clickCallback(o)
+              var GCore = d.call(u, e);
+              GCore &&
+                (GCore.getScene()
+                  ? t.options.clickCallback(GCore)
                   : r.toggleClass("g-highlighted"));
             })
             .on("dblclick", function (n) {
               gDesigner.stats("symbol_click_focus");
-              var o = d.call(u, e);
-              o && t.options.dblClickCallback(o);
+              var GCore = d.call(u, e);
+              GCore && t.options.dblClickCallback(GCore);
             }),
           a
         );
@@ -151,12 +151,12 @@ function (exports, module, require) {
       if (e.getScene()) return e;
       var t = $(this).data("gsymbolspanel");
       if (!t.scene) return null;
-      for (var require = t.scene.getSymbols(), o = 0; o < require.length; o++)
-        if (require[o].getMultireferenceId() === e.getMultireferenceId()) return require[o];
+      for (var require = t.scene.getSymbols(), GCore = 0; GCore < require.length; GCore++)
+        if (require[GCore].getMultireferenceId() === e.getMultireferenceId()) return require[GCore];
     }
     function u(e) {
       var t = $(this).data("gsymbolspanel");
-      if (!t.blockHandlers && e.node instanceof o.GSymbol)
+      if (!t.blockHandlers && e.node instanceof GCore.GSymbol)
         if (e.data.created) {
           r.call(this, e.node);
           var require = t.scene.getSymbolImage(e.node);
@@ -164,12 +164,12 @@ function (exports, module, require) {
         } else s.call(this, e.node, true);
     }
     function p(e) {
-      !$(this).data("gsymbolspanel").blockHandlers && (e.node, o.GSymbol);
+      !$(this).data("gsymbolspanel").blockHandlers && (e.node, GCore.GSymbol);
     }
     function g(e) {
       for (
         var module = $(this).data("gsymbolspanel"), require = e.node;
-        require && !(require instanceof o.GSymbol && require.isMaster());
+        require && !(require instanceof GCore.GSymbol && require.isMaster());
 
       )
         require = require.getParent();
@@ -178,7 +178,7 @@ function (exports, module, require) {
           a = $(this)
             .find("#symbol_" + i)
             .find(".symbol-title-group");
-        e.flag === o.GNode.Flag.Selected &&
+        e.flag === GCore.GNode.Flag.Selected &&
           (e.set
             ? a.addClass("g-highlighted")
             : a.removeClass("g-highlighted"));
@@ -191,9 +191,9 @@ function (exports, module, require) {
       $(this).data("gsymbolspanel"), $(this).data("gsymbolspanel");
       for (var exports = $(this).find(".symbol-image"), module = 0; module < exports.length; module++) {
         var require = $(exports[module]),
-          o = require.find("canvas");
-        (o.css("width") || "0px").split("px")[0];
-        h(require, 0, (o.css("height") || "0px").split("px")[0]);
+          GCore = require.find("canvas");
+        (GCore.css("width") || "0px").split("px")[0];
+        h(require, 0, (GCore.css("height") || "0px").split("px")[0]);
       }
     }
     function m() {
@@ -209,8 +209,8 @@ function (exports, module, require) {
               $("<div></div>")
                 .addClass("symbol-panel-infotitle")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCreateSymbolAction",
                       "common.nosymbolsdefined"
                     )
@@ -219,8 +219,8 @@ function (exports, module, require) {
             )
             .append(
               $("<span></span>").text(
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCreateSymbolAction",
                     "common.nosymbolsdefined-info"
                   )
@@ -272,8 +272,8 @@ function (exports, module, require) {
           t = $(this).find(".g-highlighted").parent().attr("id");
         if (t) {
           var require = t.split("_")[1],
-            o = e.symbolNodes[require];
-          o && s.call(this, o);
+            GCore = e.symbolNodes[require];
+          GCore && s.call(this, GCore);
         }
       },
       scene: function (e) {
@@ -283,19 +283,19 @@ function (exports, module, require) {
         if (
           e !== n.scene &&
           (n.scene &&
-            n.scene.hasMixin(o.GEventTarget) &&
+            n.scene.hasMixin(GCore.GEventTarget) &&
             (n.scene.removeEventListener(
-              o.GNode.AfterSpecialChangeEvent,
+              GCore.GNode.AfterSpecialChangeEvent,
               n.afterSpecialChangeHandler,
               this
             ),
             n.scene.removeEventListener(
-              o.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               n.afterPropertiesChangeHandler,
               this
             ),
             n.scene.removeEventListener(
-              o.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               n.afterFlagChangeHandler,
               this
             )),
@@ -303,22 +303,22 @@ function (exports, module, require) {
           (n.scene = e),
           n.scene)
         ) {
-          n.scene.hasMixin(o.GEventTarget) &&
+          n.scene.hasMixin(GCore.GEventTarget) &&
             ((n.afterSpecialChangeHandler = u.bind(this)),
             (n.afterPropertiesChangeHandler = p.bind(this)),
             (n.afterFlagChangeHandler = g.bind(this)),
             n.scene.addEventListener(
-              o.GNode.AfterSpecialChangeEvent,
+              GCore.GNode.AfterSpecialChangeEvent,
               n.afterSpecialChangeHandler,
               this
             ),
             n.scene.addEventListener(
-              o.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               n.afterPropertiesChangeHandler,
               this
             ),
             n.scene.addEventListener(
-              o.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               n.afterFlagChangeHandler,
               this
             ));

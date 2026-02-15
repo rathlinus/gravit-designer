@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(557) /* stub_requires_1102 */;
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */,
       require(96) /* polyfill_JSON_stringify */,
       require(30) /* polyfill_Object_assign */,
@@ -23,38 +23,38 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var i = require(1) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       r = require(593) /* module_593 */,
-      s = o(require(787) /* Exports_GoogleToCloudRoleMap */),
+      s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
-            o = new WeakMap();
+            _interopRequireDefault = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
-          var i,
-            a,
+          var GCore,
+            CollaborationMergeUtils,
             r = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
             return r;
-          if ((i = t ? o : require)) {
-            if (i.has(e)) return i.get(e);
-            i.set(e, r);
+          if ((GCore = t ? _interopRequireDefault : require)) {
+            if (GCore.has(e)) return GCore.get(e);
+            GCore.set(e, r);
           }
           for (const t in e)
             "default" !== t &&
               {}.hasOwnProperty.call(e, t) &&
-              ((a =
-                (i = Object.defineProperty) &&
+              ((CollaborationMergeUtils =
+                (GCore = Object.defineProperty) &&
                 Object.getOwnPropertyDescriptor(e, t)) &&
-              (a.get || a.set)
-                ? i(r, t, a)
+              (CollaborationMergeUtils.get || CollaborationMergeUtils.set)
+                ? GCore(r, t, CollaborationMergeUtils)
                 : (r[t] = e[t]));
           return r;
         })(e, t);
       })(require(789) /* Exports_NoAccessId */),
-      c = o(require(594) /* GError */);
+      GError = _interopRequireDefault(require(594) /* GError */);
     const d = require(1108) /* module_1108 */,
       u = require(595) /* module_595 */,
       { HTTP_STATUS_CODES: p } = require(10) /* AppSettings */;
@@ -70,7 +70,7 @@ function (exports, module, require) {
         );
       }),
       (g.ExceptionCode = { LoginAborted: 1 });
-    class h extends c.default {
+    class h extends GError.default {
       constructor(e, t) {
         super(e),
           (this.code = t),
@@ -99,16 +99,16 @@ function (exports, module, require) {
         );
       }),
       (g.prototype.upload = function (e, t, n) {
-        let o =
+        let _interopRequireDefault =
             arguments.length > 3 && undefined !== arguments[3]
               ? arguments[3]
               : g.DefaultUploadType,
-          i = arguments.length > 4 ? arguments[4] : undefined;
-        switch (o) {
+          GCore = arguments.length > 4 ? arguments[4] : undefined;
+        switch (_interopRequireDefault) {
           case g.UploadType.Simple:
             return this._simpleUpload(e, t, n);
           case g.UploadType.Resumable:
-            return this._resumableUpload(e, t, n, i);
+            return this._resumableUpload(e, t, n, GCore);
         }
       }),
       (g.prototype.isCorporate = function () {
@@ -125,43 +125,43 @@ function (exports, module, require) {
           !this.getTokenIssuerSettings().corporate
         )
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
         if (!e)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.no-file-found")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.no-file-found")
             )
           );
         let require = [];
-        const o = await this.getAccessToken(),
-          a = { fields: "*", supportsAllDrives: true, pageSize: 50 };
-        return new Promise((i, r) => {
-          !(function l(c) {
+        const _interopRequireDefault = await this.getAccessToken(),
+          CollaborationMergeUtils = { fields: "*", supportsAllDrives: true, pageSize: 50 };
+        return new Promise((GCore, r) => {
+          !(function l(GError) {
             const d = new URL(
                 "https://www.googleapis.com/drive/v3/files/".concat(
                   e,
                   "/permissions"
                 )
               ),
-              u = Object.assign({}, a);
-            c && (u.pageToken = c);
+              u = Object.assign({}, CollaborationMergeUtils);
+            GError && (u.pageToken = GError);
             for (var p in u) d.searchParams.append(p, u[p]);
             return fetch(d.toString(), {
               method: "GET",
-              headers: new Headers({ Authorization: "Bearer ".concat(o) }),
+              headers: new Headers({ Authorization: "Bearer ".concat(_interopRequireDefault) }),
             })
               .then((e) => e.json())
               .then((e) => {
-                const { permissions: o, nextPageToken: a } = e;
-                o.length && (require = require.concat(o)),
-                  a
+                const { permissions: _interopRequireDefault, nextPageToken: CollaborationMergeUtils } = e;
+                _interopRequireDefault.length && (require = require.concat(_interopRequireDefault)),
+                  CollaborationMergeUtils
                     ? setTimeout(function () {
-                        l(a);
+                        l(CollaborationMergeUtils);
                       })
-                    : i(
+                    : GCore(
                         module
                           ? require
                           : require.map((e) => {
@@ -181,8 +181,8 @@ function (exports, module, require) {
       (g.prototype.createOrUpdateUserShare = async function (e, t) {
         if (!e)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.no-file-found")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.no-file-found")
             )
           );
         if (
@@ -190,21 +190,21 @@ function (exports, module, require) {
           !this.getTokenIssuerSettings().corporate
         )
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        const { role: require, emailAddress: o } = t;
-        if (!require || !o)
+        const { role: require, emailAddress: _interopRequireDefault } = t;
+        if (!require || !_interopRequireDefault)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.not-enough-parameters")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.not-enough-parameters")
             )
           );
-        const a = await this.getShareIdForEmail(e, o).catch(() => []),
-          r = { type: "user", emailAddress: o, role: l.default[require.id] };
-        if (a && a.length > 0) {
-          const t = await this.removeShare(e, a[0]);
+        const CollaborationMergeUtils = await this.getShareIdForEmail(e, _interopRequireDefault).catch(() => []),
+          r = { type: "user", emailAddress: _interopRequireDefault, role: l.default[require.id] };
+        if (CollaborationMergeUtils && CollaborationMergeUtils.length > 0) {
+          const t = await this.removeShare(e, CollaborationMergeUtils[0]);
           if (t.error) {
             const {
               error: {
@@ -230,8 +230,8 @@ function (exports, module, require) {
       (g.prototype.createDomainShare = function (e, t) {
         if (!e)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.no-file-found")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.no-file-found")
             )
           );
         if (
@@ -239,24 +239,24 @@ function (exports, module, require) {
           !this.getTokenIssuerSettings().corporate
         )
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        const { role: require, domain: o } = t;
-        if (!require || !o)
+        const { role: require, domain: _interopRequireDefault } = t;
+        if (!require || !_interopRequireDefault)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.not-enough-parameters")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.not-enough-parameters")
             )
           );
-        const a = {
+        const CollaborationMergeUtils = {
           type: "domain",
-          domain: o,
+          domain: _interopRequireDefault,
           role: l.default[require.id],
           allowFileDiscovery: true,
         };
-        return this._createShare(e, a);
+        return this._createShare(e, CollaborationMergeUtils);
       }),
       (g.prototype._createShare = async function (e, t) {
         if (
@@ -264,8 +264,8 @@ function (exports, module, require) {
           !this.getTokenIssuerSettings().corporate
         )
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
         const require = new URL(
@@ -274,13 +274,13 @@ function (exports, module, require) {
               "/permissions"
             )
           ),
-          o = await this.getAccessToken(),
-          a = { fields: "*", supportsAllDrives: true, sendNotificationEmail: false };
-        for (var r in a) require.searchParams.append(r, a[r]);
+          _interopRequireDefault = await this.getAccessToken(),
+          CollaborationMergeUtils = { fields: "*", supportsAllDrives: true, sendNotificationEmail: false };
+        for (var r in CollaborationMergeUtils) require.searchParams.append(r, CollaborationMergeUtils[r]);
         return fetch(require.toString(), {
           method: "POST",
           headers: new Headers({
-            Authorization: "Bearer ".concat(o),
+            Authorization: "Bearer ".concat(_interopRequireDefault),
             "Content-Type": "application/json",
           }),
           body: JSON.stringify(t),
@@ -294,8 +294,8 @@ function (exports, module, require) {
               return require === t;
             })
           : Promise.reject(
-              i.GLocale.get(
-                new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
               )
             );
       }),
@@ -306,26 +306,26 @@ function (exports, module, require) {
           !this.getTokenIssuerSettings().corporate
         )
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        const o = new URL(
+        const _interopRequireDefault = new URL(
             "https://www.googleapis.com/drive/v3/files/"
               .concat(e, "/permissions/")
               .concat(require)
           ),
-          a = await this.getAccessToken(),
+          CollaborationMergeUtils = await this.getAccessToken(),
           r = { fields: "*", supportsAllDrives: true };
-        for (var s in r) o.searchParams.append(s, r[s]);
-        return fetch(o.toString(), {
+        for (var s in r) _interopRequireDefault.searchParams.append(s, r[s]);
+        return fetch(_interopRequireDefault.toString(), {
           method: "DELETE",
-          headers: new Headers({ Authorization: "Bearer ".concat(a) }),
+          headers: new Headers({ Authorization: "Bearer ".concat(CollaborationMergeUtils) }),
         }).then((e) => (204 !== e.status ? e.json() : e));
       }),
       (g.prototype._simpleUpload = async function (e, t, n) {
-        const o = await this.getAccessToken();
-        return new Promise((i, a) => {
+        const _interopRequireDefault = await this.getAccessToken();
+        return new Promise((GCore, CollaborationMergeUtils) => {
           var r = new FormData();
           r.append(
             "metadata",
@@ -338,34 +338,34 @@ function (exports, module, require) {
               )
             ),
             l = { uploadType: "multipart", fields: "*" };
-          for (var c in (n.hasOwnProperty("driveId") &&
+          for (var GError in (n.hasOwnProperty("driveId") &&
             (l.supportsAllDrives = true),
           l))
-            s.searchParams.append(c, l[c]);
+            s.searchParams.append(GError, l[GError]);
           fetch(s.toString(), {
             method: e ? "PATCH" : "POST",
-            headers: new Headers({ Authorization: "Bearer ".concat(o) }),
+            headers: new Headers({ Authorization: "Bearer ".concat(_interopRequireDefault) }),
             body: r,
           })
             .then((e) => e.json())
             .then((e) => {
-              i(e);
+              GCore(e);
             })
             .catch((e) => {
-              console.error(e), a(e);
+              console.error(e), CollaborationMergeUtils(e);
             });
         });
       }),
-      (g.prototype._resumableUpload = async function (e, t, n, o) {
-        const i = await this.getAccessToken();
-        return new Promise((a, r) => {
+      (g.prototype._resumableUpload = async function (e, t, n, _interopRequireDefault) {
+        const GCore = await this.getAccessToken();
+        return new Promise((CollaborationMergeUtils, r) => {
           var s = n.mimeType || "application/octet-stream";
           const l = { fields: "*" };
           n.hasOwnProperty("driveId") && (l.supportsAllDrives = true),
             new d({
               file: t,
               fileId: e,
-              token: i,
+              token: GCore,
               contentType: s,
               metadata: n,
               params: l,
@@ -376,78 +376,78 @@ function (exports, module, require) {
                 } catch (n) {
                   t = e;
                 }
-                a(t);
+                CollaborationMergeUtils(t);
               },
               onError: function (e) {
                 r(e);
               },
               onProgress: function (e) {
-                o && o(e.loaded / e.total);
+                _interopRequireDefault && _interopRequireDefault(e.loaded / e.total);
               },
             }).upload();
         });
       }),
-      (g.prototype._request = async function (e, t, n, o) {
-        o = "number" == typeof o ? o : 0;
-        const i = await this.getAccessToken(),
-          r = { Authorization: "Bearer ".concat(i) },
+      (g.prototype._request = async function (e, t, n, _interopRequireDefault) {
+        _interopRequireDefault = "number" == typeof _interopRequireDefault ? _interopRequireDefault : 0;
+        const GCore = await this.getAccessToken(),
+          r = { Authorization: "Bearer ".concat(GCore) },
           s = t.headers ? Object.assign(r, t.headers) : r;
         return (
           delete t.headers,
           fetch(
             e,
             Object.assign({ headers: new Headers(s), signal: n }, t)
-          ).then(async (i) => {
-            if (!i.ok) {
-              var r = await i.json();
-              return i.status === p.UNAUTHORIZED &&
-                (await gContainer.getGoogleAPI().signIn(), 0 === o)
-                ? this._request(e, t, n, ++o)
-                : i.status === p.FORBIDDEN &&
+          ).then(async (GCore) => {
+            if (!GCore.ok) {
+              var r = await GCore.json();
+              return GCore.status === p.UNAUTHORIZED &&
+                (await gContainer.getGoogleAPI().signIn(), 0 === _interopRequireDefault)
+                ? this._request(e, t, n, ++_interopRequireDefault)
+                : GCore.status === p.FORBIDDEN &&
                   g.isUsageLimitError(r) &&
-                  o < g.TRIAL_UNTIL_FAIL
-                ? (await (0, a.sleep)(1e3 * Math.pow(1 + o, 2)),
-                  this._request(e, t, n, ++o))
+                  _interopRequireDefault < g.TRIAL_UNTIL_FAIL
+                ? (await (0, CollaborationMergeUtils.sleep)(1e3 * Math.pow(1 + _interopRequireDefault, 2)),
+                  this._request(e, t, n, ++_interopRequireDefault))
                 : Promise.reject(r);
             }
-            return i;
+            return GCore;
           })
         );
       }),
-      (g.prototype._requestWithProgress = async function (e, t, n, o, i) {
-        i = "number" == typeof i ? i : 0;
+      (g.prototype._requestWithProgress = async function (e, t, n, _interopRequireDefault, GCore) {
+        GCore = "number" == typeof GCore ? GCore : 0;
         const s = await this.getAccessToken(),
           l = { Authorization: "Bearer ".concat(s) },
-          c = t.headers ? Object.assign(l, t.headers) : l;
+          GError = t.headers ? Object.assign(l, t.headers) : l;
         delete t.headers;
         const d = await fetch(
           e,
-          Object.assign({ headers: new Headers(c), signal: n }, t)
+          Object.assign({ headers: new Headers(GError), signal: n }, t)
         );
         if (!d.ok) {
           var u = await d.json();
           return d.status === p.UNAUTHORIZED &&
-            (await gContainer.getGoogleAPI().signIn(), 0 === i)
-            ? this._requestWithProgress(e, t, n, o, ++i)
+            (await gContainer.getGoogleAPI().signIn(), 0 === GCore)
+            ? this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore)
             : d.status === p.FORBIDDEN &&
               g.isUsageLimitError(u) &&
-              i < g.TRIAL_UNTIL_FAIL
-            ? (await (0, a.sleep)(1e3 * Math.pow(1 + i, 2)),
-              this._requestWithProgress(e, t, n, o, ++i))
+              GCore < g.TRIAL_UNTIL_FAIL
+            ? (await (0, CollaborationMergeUtils.sleep)(1e3 * Math.pow(1 + GCore, 2)),
+              this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore))
             : Promise.reject(u);
         }
-        return (0, r.readResponseWithProgress)(d, o, true);
+        return (0, r.readResponseWithProgress)(d, _interopRequireDefault, true);
       }),
-      (g.prototype.getFile = function (e, t, n, o) {
-        var i = new URL(
+      (g.prototype.getFile = function (e, t, n, _interopRequireDefault) {
+        var GCore = new URL(
           "https://www.googleapis.com/drive/v3/files/".concat(e, "?alt=media")
         );
-        for (var a in t) i.searchParams.append(a, t[a]);
+        for (var CollaborationMergeUtils in t) GCore.searchParams.append(CollaborationMergeUtils, t[CollaborationMergeUtils]);
         return this._requestWithProgress(
-          i.toString(),
+          GCore.toString(),
           { method: "GET" },
           n,
-          o
+          _interopRequireDefault
         ).then((e) => e.blob());
       }),
       (g.prototype.getFileDetails = function (e) {
@@ -456,7 +456,7 @@ function (exports, module, require) {
         var n = new URL(
           "https://www.googleapis.com/drive/v3/files/".concat(e, "?fields=*")
         );
-        for (var o in module) n.searchParams.append(o, module[o]);
+        for (var _interopRequireDefault in module) n.searchParams.append(_interopRequireDefault, module[_interopRequireDefault]);
         return this._request(n.toString(), { method: "GET" }).then((e) =>
           e.ok ? e.json() : e.json().then((e) => Promise.reject(e))
         );
@@ -481,9 +481,9 @@ function (exports, module, require) {
           require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         if (Object.keys(module).length < 1) return Promise.resolve();
-        var o = new URL("https://www.googleapis.com/drive/v3/files/".concat(e));
-        for (var i in require) o.searchParams.append(i, require[i]);
-        return this._request(o.toString(), {
+        var _interopRequireDefault = new URL("https://www.googleapis.com/drive/v3/files/".concat(e));
+        for (var GCore in require) _interopRequireDefault.searchParams.append(GCore, require[GCore]);
+        return this._request(_interopRequireDefault.toString(), {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(module),
@@ -506,8 +506,8 @@ function (exports, module, require) {
       (g.prototype.getAccountByEmail = function (e) {
         if (!e || e.indexOf("@") <= 0)
           return Promise.reject(
-            i.GLocale.get(
-              new i.GLocaleKey("GShareDialog", "text.invalid-email")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GShareDialog", "text.invalid-email")
             ).replace("%email", e)
           );
         var t = new URL(

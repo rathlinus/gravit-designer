@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(328) /* polyfill_Array_sort */,
@@ -32,23 +32,23 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(15) /* module */,
       s = require(1201) /* module */,
       l = require(797) /* module */,
-      c = require(10) /* AppSettings */,
-      d = require(40) /* CollaborationMergeUtils */,
-      u = o(require(1468) /* module_1468 */),
-      p = o(require(1470) /* module_1470 */),
-      g = o(require(1471) /* module_1471 */),
-      h = o(require(177) /* module_177 */),
+      AppSettings = require(10) /* AppSettings */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      u = _interopRequireDefault(require(1468) /* module_1468 */),
+      p = _interopRequireDefault(require(1470) /* module_1470 */),
+      g = _interopRequireDefault(require(1471) /* module_1471 */),
+      h = _interopRequireDefault(require(177) /* module_177 */),
       f = require(165) /* module_165 */;
     const m = require(1472) /* module_1472 */;
     var y = require(388) /* Item */,
-      v = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       _ = require(86) /* module_86 */,
-      b = require(217) /* GDocumentStatusEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       w = require(336) /* module_336 */,
       C = require(237) /* Item */,
       x = require(841) /* module_841 */,
@@ -56,19 +56,19 @@ function (exports, module, require) {
       E = require(219) /* module_219 */,
       A = require(1238) /* module_1238 */,
       T = require(1475) /* module_1475 */,
-      G = require(255) /* barrel_sidebars */,
+      barrel_sidebars = require(255) /* barrel_sidebars */,
       P = require(119) /* module_119 */,
       D = require(220) /* Item */,
-      L = require(85) /* GContainer */;
+      GContainer = require(85) /* GContainer */;
     const I = require(441) /* module_441 */,
       k = require(392) /* module_392 */,
-      O = require(291) /* GNetworkAvailabilityChangedEvent */,
+      GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       F = require(292) /* module_292 */,
-      R = require(44) /* GSystemDialog */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       M = require(442) /* module_442 */,
       N = require(389) /* module_389 */,
-      B = c.FILE_FORMATS.find((e) => e.default),
-      U = c.FILE_FORMATS.filter((e) => e.secondary),
+      B = AppSettings.FILE_FORMATS.find((e) => e.default),
+      U = AppSettings.FILE_FORMATS.filter((e) => e.secondary),
       $ = require(393) /* GCollaborationEvent */,
       j = require(436) /* module_436 */;
     require(1152) /* Item */;
@@ -77,17 +77,17 @@ function (exports, module, require) {
         (this._windows = []),
         (this._activeWindow = null),
         this._updateStatus(_.Init),
-        (this.sessionId = a.GUtil.uuid()),
-        e instanceof a.GScene
+        (this.sessionId = GCore.GUtil.uuid()),
+        e instanceof GCore.GScene
           ? this.setScene(e)
           : this.setScene(gDesigner.createScene()),
         this._storageItem &&
-          gDesigner.hasEventListeners(v) &&
-          gDesigner.trigger(new v(v.Type.StorageItemUpdated, this)),
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+          gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.StorageItemUpdated, this)),
         (this._activeStylesList = { Fill: null, Border: null, Effect: null }),
         (this._lockedSymbolInstances = false);
     }
-    a.GObject.inherit(K, a.GEventTarget),
+    GCore.GObject.inherit(K, GCore.GEventTarget),
       (K.FileTypes = N.getFileTypesArray()),
       (K.prototype._status = null),
       (K.prototype._errored = false),
@@ -108,7 +108,7 @@ function (exports, module, require) {
       (K.prototype._lockedSymbolInstances = false),
       (K.prototype._lockedByVersionHistory = false),
       (K.prototype._editable = true),
-      (K.prototype._annotationsEditable = c.HAS_ANNOTATIONS),
+      (K.prototype._annotationsEditable = AppSettings.HAS_ANNOTATIONS),
       (K.prototype._owner = null),
       (K.prototype._cloudSynchronismFlag = false),
       (K.prototype._documentFromTemplate = false),
@@ -187,8 +187,8 @@ function (exports, module, require) {
           !!this._editor &&
           (!!this._errored ||
             !!this._editor.isModified(
-              c.HAS_ANNOTATIONS
-                ? (e) => e.hasMixin(a.GAnnotation) || e instanceof a.GComment
+              AppSettings.HAS_ANNOTATIONS
+                ? (e) => e.hasMixin(GCore.GAnnotation) || e instanceof GCore.GComment
                 : null
             ) ||
             !(
@@ -231,8 +231,8 @@ function (exports, module, require) {
             this._storageItem.storeFileFormatVersion(
               this.getFileFormatVersion()
             ),
-          gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.StorageItemUpdated, this)));
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.StorageItemUpdated, this)));
       }),
       (K.prototype.getScene = function () {
         return this._scene;
@@ -262,7 +262,7 @@ function (exports, module, require) {
         );
         var n = t.map(
           function (e) {
-            return a.GPattern.deserialize(e);
+            return GCore.GPattern.deserialize(e);
           }.bind(this)
         );
         return "number" == typeof e && e > 0 && (n = n.slice(0, e)), n;
@@ -299,12 +299,12 @@ function (exports, module, require) {
           (this._scene &&
             (this._editor.release(),
             this._editor.removeEventListener(
-              i.GEditor.FileDropEvent,
+              GTools.GEditor.FileDropEvent,
               this._dropFileEvent,
               this
             ),
             this._editor.removeEventListener(
-              i.GEditor.ModifiedEvent,
+              GTools.GEditor.ModifiedEvent,
               this._modifiedEvent,
               this
             ),
@@ -312,37 +312,37 @@ function (exports, module, require) {
             this._scene
               .getDictionary()
               .removeEventListener(
-                a.GSceneDictionary.ResolvedMissingEntryEvent,
+                GCore.GSceneDictionary.ResolvedMissingEntryEvent,
                 this._resolvedMissingEntryEvent,
                 this
               ),
             this._scene.removeEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               this._afterInsertNodeEvent,
               this
             ),
             this._scene.removeEventListener(
-              a.GNode.AfterRemoveEvent,
+              GCore.GNode.AfterRemoveEvent,
               this._afterRemoveNodeEvent,
               this
             ),
             this._scene.removeEventListener(
-              a.GNode.BeforeRemoveEvent,
+              GCore.GNode.BeforeRemoveEvent,
               this._beforeRemoveNodeEvent,
               this
             ),
             this._scene.removeEventListener(
-              a.GNode.BeforePropertiesChangeEvent,
+              GCore.GNode.BeforePropertiesChangeEvent,
               this._beforePropertiesChangeEvent,
               this
             ),
             this._scene.removeEventListener(
-              a.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._afterPropertiesChangeEvent,
               this
             ),
             this._scene.removeEventListener(
-              a.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._afterFlagChangeEvent,
               this
             ),
@@ -359,30 +359,30 @@ function (exports, module, require) {
               this
             ),
             gDesigner.removeEventListener(
-              O,
+              GNetworkAvailabilityChangedEvent,
               this._networkAvailabilityChangedEvent,
               this
             ),
             gDesigner.removeEventListener(F, this._userLoggedEvent, this),
-            gDesigner.removeEventListener(v, this._handleDocumentEvent, this),
+            gDesigner.removeEventListener(GDocumentEvent, this._handleDocumentEvent, this),
             gDesigner.removeEventListener(
               w,
               this._handleStorageItemEvent,
               this
             ),
             this.removeEventListener($, this._collaborationEvent, this),
-            this.removeEventListener(b, this._handleDocumentStatusEvent, this),
+            this.removeEventListener(GDocumentStatusEvent, this._handleDocumentStatusEvent, this),
             (this._editor = null),
             (this._scene = null)),
           (this._documentColors = {}),
           (this._scene = e),
           this._scene)
         ) {
-          this._editor = i.GEditor.getEditor(e) || new i.GEditor(e);
+          this._editor = GTools.GEditor.getEditor(e) || new GTools.GEditor(e);
           const t = gDesigner.getSyncUser();
           t && this._editor.setUID(t.getUID()),
             this._editor.addEventListener(
-              i.GEditor.FileDropEvent,
+              GTools.GEditor.FileDropEvent,
               this._dropFileEvent,
               this,
               undefined,
@@ -390,7 +390,7 @@ function (exports, module, require) {
               true
             ),
             this._editor.addEventListener(
-              i.GEditor.ModifiedEvent,
+              GTools.GEditor.ModifiedEvent,
               this._modifiedEvent,
               this,
               undefined,
@@ -400,7 +400,7 @@ function (exports, module, require) {
             this._scene
               .getDictionary()
               .addEventListener(
-                a.GSceneDictionary.ResolvedMissingEntryEvent,
+                GCore.GSceneDictionary.ResolvedMissingEntryEvent,
                 this._resolvedMissingEntryEvent,
                 this,
                 undefined,
@@ -408,7 +408,7 @@ function (exports, module, require) {
                 true
               ),
             this._scene.addEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               this._afterInsertNodeEvent,
               this,
               undefined,
@@ -416,7 +416,7 @@ function (exports, module, require) {
               true
             ),
             this._scene.addEventListener(
-              a.GNode.AfterRemoveEvent,
+              GCore.GNode.AfterRemoveEvent,
               this._afterRemoveNodeEvent,
               this,
               undefined,
@@ -424,7 +424,7 @@ function (exports, module, require) {
               true
             ),
             this._scene.addEventListener(
-              a.GNode.BeforeRemoveEvent,
+              GCore.GNode.BeforeRemoveEvent,
               this._beforeRemoveNodeEvent,
               this,
               undefined,
@@ -432,7 +432,7 @@ function (exports, module, require) {
               true
             ),
             this._scene.addEventListener(
-              a.GNode.BeforePropertiesChangeEvent,
+              GCore.GNode.BeforePropertiesChangeEvent,
               this._beforePropertiesChangeEvent,
               this,
               undefined,
@@ -440,7 +440,7 @@ function (exports, module, require) {
               true
             ),
             this._scene.addEventListener(
-              a.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._afterPropertiesChangeEvent,
               this,
               undefined,
@@ -448,7 +448,7 @@ function (exports, module, require) {
               true
             ),
             this._scene.addEventListener(
-              a.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._afterFlagChangeEvent,
               this,
               undefined,
@@ -462,12 +462,12 @@ function (exports, module, require) {
               this
             ),
             gDesigner.addEventListener(
-              O,
+              GNetworkAvailabilityChangedEvent,
               this._networkAvailabilityChangedEvent,
               this
             ),
             gDesigner.addEventListener(F, this._userLoggedEvent, this),
-            gDesigner.addEventListener(v, this._handleDocumentEvent, this),
+            gDesigner.addEventListener(GDocumentEvent, this._handleDocumentEvent, this),
             gDesigner.addEventListener(w, this._handleStorageItemEvent, this),
             this.addEventListener(
               $,
@@ -478,7 +478,7 @@ function (exports, module, require) {
               true
             ),
             this.addEventListener(
-              b,
+              GDocumentStatusEvent,
               this._handleDocumentStatusEvent,
               this,
               undefined,
@@ -486,7 +486,7 @@ function (exports, module, require) {
               true
             ),
             e.acceptChildren((e) => {
-              if (e.hasMixin(a.GElement.Stylable) && e.getPaintLayers())
+              if (e.hasMixin(GCore.GElement.Stylable) && e.getPaintLayers())
                 for (
                   var t = e.getPaintLayers().getFirstChild();
                   null !== t;
@@ -521,8 +521,8 @@ function (exports, module, require) {
               return;
             (this._isUpdateAvailable = true),
               (this._isIgnoringCurrentUpdate = false),
-              gDesigner.hasEventListeners(v) &&
-                gDesigner.trigger(new v(v.Type.UpdateAvailable, this));
+              gDesigner.hasEventListeners(GDocumentEvent) &&
+                gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.UpdateAvailable, this));
         }
       }),
       (K.prototype._handleDocumentStatusEvent = async function (e) {
@@ -540,7 +540,7 @@ function (exports, module, require) {
               this._handleDocumentStatusSavedEventForRealtimeNotification(e);
             break;
           case _.Saving:
-            gDesigner.trigger(new v(v.Type.Saving, this, e.data));
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Saving, this, e.data));
         }
       }),
       (K.prototype._handleDocumentStatusSavedEventForRealtimeNotification =
@@ -583,8 +583,8 @@ function (exports, module, require) {
       (K.prototype.setOwner = function (e) {
         (this._owner && this._owner.id) !== (e && e.id) &&
           ((this._owner = e),
-          gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.OwnerUpdated, this)));
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.OwnerUpdated, this)));
       }),
       (K.prototype.getOwner = function () {
         return this._owner;
@@ -597,15 +597,15 @@ function (exports, module, require) {
           (this._owner.id === exports.getUID() ||
             gDesigner
               .getApplicationManager()
-              .hasPermission(this, c.SharePermissions.EDIT))
+              .hasPermission(this, AppSettings.SharePermissions.EDIT))
         );
       }),
       (K.prototype.setTitle = function (e) {
         e !== this._title &&
           ((this._title = e),
           this.isCloudFile() && this.getStorageItem().setFileName(e),
-          gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.Modified, this)));
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, this)));
       });
     var V = {},
       H = 1;
@@ -618,29 +618,29 @@ function (exports, module, require) {
           (V[this.sessionId] = V[this.sessionId] ? V[this.sessionId] : H++),
         this.isNew()
           ? this._title ||
-            a.GLocale.get(
-              new a.GLocaleKey("GDocument", "text.default-document-name")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GDocument", "text.default-document-name")
             ) +
               "-" +
               V[this.sessionId]
           : this._storageItem.getName()
       );
     }),
-      (K.prototype.insertElement = function (e, t, n, o) {
-        var i = this.getScene();
-        if (i.isFixedSized() && e.hasMixin(a.GElement.Transform)) {
+      (K.prototype.insertElement = function (e, t, n, _interopRequireDefault) {
+        var GTools = this.getScene();
+        if (GTools.isFixedSized() && e.hasMixin(GCore.GElement.Transform)) {
           var r = e.getGeometryBBox();
           if (!r) return;
           var s = r.getWidth(),
             l = r.getHeight(),
-            c = i.getProperty("w"),
-            d = i.getProperty("h"),
-            u = new a.GTransform();
-          if (n && (s > c || l > d)) {
+            AppSettings = GTools.getProperty("w"),
+            CollaborationMergeUtils = GTools.getProperty("h"),
+            u = new GCore.GTransform();
+          if (n && (s > AppSettings || l > CollaborationMergeUtils)) {
             var p = 1,
               g = 1;
-            s > c && (p = c / s),
-              l > d && (g = d / l),
+            s > AppSettings && (p = AppSettings / s),
+              l > CollaborationMergeUtils && (g = CollaborationMergeUtils / l),
               p < g ? (g = p) : (p = g),
               (u = u
                 .translated(-r.getX(), -r.getY())
@@ -650,39 +650,39 @@ function (exports, module, require) {
               (l *= g);
           }
           t &&
-            (u = u.translated((c - s) / 2 - r.getX(), (d - l) / 2 - r.getY())),
+            (u = u.translated((AppSettings - s) / 2 - r.getX(), (CollaborationMergeUtils - l) / 2 - r.getY())),
             e.transform(u, true);
           var h = u.getScaleFactor(),
             f = function (e) {
               if (
-                e instanceof a.GItem &&
-                e.hasMixin(a.GElement.Stylable) &&
+                e instanceof GCore.GItem &&
+                e.hasMixin(GCore.GElement.Stylable) &&
                 e.hasStyleBorder()
               ) {
                 var t = e.getPaintLayers();
                 t &&
-                  a.GUtil.each(t.getBorderLayers(), function (e, t) {
+                  GCore.GUtil.each(t.getBorderLayers(), function (e, t) {
                     t && t.setProperty("_bw", t.$_bw * h);
                   });
               }
             };
           e.beginUpdate(),
             f(e),
-            e.hasMixin(a.GNode.Container) && e.acceptChildren(f),
+            e.hasMixin(GCore.GNode.Container) && e.acceptChildren(f),
             e.endUpdate();
         }
-        this._editor.insertElements([e], true, o, e instanceof a.GItem);
+        this._editor.insertElements([e], true, _interopRequireDefault, e instanceof GCore.GItem);
       }),
       (K.prototype.loadFromData = function (e) {
         var t = { progress: null, checkAnnotations: false };
         this._updateStatus(_.Loading, t), this._loadDataIntoDocument(e, t);
       }),
       (K.prototype._loadDataIntoDocument = async function (e, t) {
-        t.progress && t.progress(5), await (0, d.sleep)(10);
+        t.progress && t.progress(5), await (0, CollaborationMergeUtils.sleep)(10);
         const require = P.unzipData(e);
         return (
           t.progress && t.progress(10),
-          await (0, d.sleep)(10),
+          await (0, CollaborationMergeUtils.sleep)(10),
           this.deserializeData(require, t)
         );
       }),
@@ -691,12 +691,12 @@ function (exports, module, require) {
         return (
           require && require.centerAndZoom(),
           this._updateCloudSynchronism(this.isCloudFile()),
-          new Promise(async (n, o) => {
+          new Promise(async (n, _interopRequireDefault) => {
             t || ((t = { progress: null }), this._updateStatus(_.Loading, t)),
               t.progress && t.progress(15);
-            const i = await new Promise((n, o) => {
+            const GTools = await new Promise((n, _interopRequireDefault) => {
               try {
-                a.GNode.deserializeAsync(
+                GCore.GNode.deserializeAsync(
                   e,
                   gDesigner.getWorkspace(),
                   t.progress,
@@ -704,45 +704,45 @@ function (exports, module, require) {
                   n
                 );
               } catch (e) {
-                o(e);
+                _interopRequireDefault(e);
               }
-            }).catch(o);
+            }).catch(_interopRequireDefault);
             (e = null),
-              i &&
+              GTools &&
                 (!this.isCloudFile() &&
                 !this.isExternalFile() &&
-                i &&
-                i.isCloudSynchronization()
+                GTools &&
+                GTools.isCloudSynchronization()
                   ? this.loadFromCloud(
-                      i,
+                      GTools,
                       t,
                       () => {
                         this._updateCloudSynchronism(true);
                       },
                       () => {
                         this._updateCloudSynchronism(false),
-                          gDesigner.isOffline() || i.setProperty("cfs", false);
+                          gDesigner.isOffline() || GTools.setProperty("cfs", false);
                       },
                       false
                     )
-                  : i
-                  ? (this.isExternalFile() && i.setProperty("cfs", false),
-                    this._updateScene(i),
+                  : GTools
+                  ? (this.isExternalFile() && GTools.setProperty("cfs", false),
+                    this._updateScene(GTools),
                     !this.isCloudFile() &&
                       t.checkAnnotations &&
                       this.loadCloudAnnotations(),
                     this._updateStatus(_.Loaded),
-                    this.setScene(i, true))
+                    this.setScene(GTools, true))
                   : this._updateStatus(_.LoadFailed),
                 n());
           })
         );
       }),
-      (K.prototype.loadFromCloud = function (e, t, n, o) {
-        let i =
+      (K.prototype.loadFromCloud = function (e, t, n, _interopRequireDefault) {
+        let GTools =
           !(arguments.length > 4 && undefined !== arguments[4]) || arguments[4];
         (t = t || { progress: null }), this._updateStatus(_.Syncing, t);
-        var a = () => {
+        var GCore = () => {
           this.chooseLatestDocument(
             e,
             (e) => {
@@ -755,22 +755,22 @@ function (exports, module, require) {
               this.setScene(e),
                 t.checkAnnotations && this.loadCloudAnnotations(),
                 this._updateStatus(_.SyncFailed),
-                o && o(n);
+                _interopRequireDefault && _interopRequireDefault(n);
             },
             null,
-            (i &&
+            (GTools &&
               (() => {
                 this._updateStatus(_.LoadCancelled);
               })) ||
               undefined
           );
         };
-        a();
+        GCore();
       }),
       (K.prototype.storeToCloud = async function (e, t, n) {
-        let o = arguments.length > 3 && undefined !== arguments[3] && arguments[3],
-          i = arguments.length > 4 ? arguments[4] : undefined;
-        var r = i || {};
+        let _interopRequireDefault = arguments.length > 3 && undefined !== arguments[3] && arguments[3],
+          GTools = arguments.length > 4 ? arguments[4] : undefined;
+        var r = GTools || {};
         this.isModified() ||
           Object.assign(r, { lastModifiedDate: e.getLastSavedTime() });
         const s = () => {
@@ -778,8 +778,8 @@ function (exports, module, require) {
               n
                 ? n.apply(null, arguments)
                 : new E(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDocument", "text.sync-to-cloud-error")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.sync-to-cloud-error")
                     )
                   ).open();
           },
@@ -787,7 +787,7 @@ function (exports, module, require) {
             this._updateCloudSynchronism(true), t && t.apply(null, arguments);
           };
         this.isExternalFile()
-          ? this.performCloudSave(l, s, r, o)
+          ? this.performCloudSave(l, s, r, _interopRequireDefault)
           : P.performSave(
               this,
               l,
@@ -798,7 +798,7 @@ function (exports, module, require) {
                 e.getProperty("cid"),
                 this.getTitle()
               ),
-              o
+              _interopRequireDefault
             );
       }),
       (K.prototype.saveAnnotations = function (e, t) {
@@ -808,19 +808,19 @@ function (exports, module, require) {
         return P.getCloudAnnotations(this);
       }),
       (K.prototype.performCloudSave = async function (e, t, n) {
-        let o = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
-        var i = this;
+        let _interopRequireDefault = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
+        var GTools = this;
         let r = false;
         if (this.isCommercialProductFile()) this.openPaywall();
         else {
           var s = this.getStorageItem(),
             l = (n) => {
-              o ||
+              _interopRequireDefault ||
                 (n && 507 === n.code
-                  ? (R.alert(n.message), n.noFailCall && (r = true))
-                  : R.confirm(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                  ? (GSystemDialog.alert(n.message), n.noFailCall && (r = true))
+                  : GSystemDialog.confirm(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.save-to-cloud-failed"
                         )
@@ -836,33 +836,33 @@ function (exports, module, require) {
                           ? "function" == typeof e && e(false)
                           : ((r = true), t());
                       },
-                      a.GLocale.get(new a.GLocaleKey("GLocale", "no")),
-                      a.GLocale.get(new a.GLocaleKey("GLocale", "yes"))
+                      GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "no")),
+                      GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "yes"))
                     )),
                 n && console.log(n),
                 this.setSynchronizing(false),
                 this._updateStatus(_.SyncFailed),
                 this._updateStatus(_.SaveFailed),
-                gDesigner.trigger(new v(v.Type.SynchronismUpdateFailed, this)),
+                gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.SynchronismUpdateFailed, this)),
                 this.setErrored(true),
                 t && !r && ((r = true), t());
             };
           try {
             this.setSynchronizing(true);
-            var c = async () => {
-              const t = !i.isCloudFile() || s.getType() !== B.type;
+            var AppSettings = async () => {
+              const t = !GTools.isCloudFile() || s.getType() !== B.type;
               await this.saveAnnotations(t),
                 (n = this.updateSaveOptionsLastModifiedDate(n)),
                 s.write(
                   this,
                   function () {
-                    i.setSynchronizing(false),
-                      i.setErrored(false),
-                      i._updateStatus(_.Saved, {}),
-                      gDesigner.hasEventListeners(v) &&
-                        gDesigner.trigger(new v(v.Type.Modified, i));
+                    GTools.setSynchronizing(false),
+                      GTools.setErrored(false),
+                      GTools._updateStatus(_.Saved, {}),
+                      gDesigner.hasEventListeners(GDocumentEvent) &&
+                        gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, GTools));
                     try {
-                      i.isCloudFile() &&
+                      GTools.isCloudFile() &&
                         gDesigner.updateRecentDocumentsAction();
                     } finally {
                       e && e();
@@ -876,7 +876,7 @@ function (exports, module, require) {
                 );
             };
             if (s.hasVersionControl() && (await s.hasUpdates())) {
-              var d = this.getScene(),
+              var CollaborationMergeUtils = this.getScene(),
                 u = await s.getLatestFileVersion(),
                 p = await new Promise((e, t) => {
                   u.read(
@@ -884,17 +884,17 @@ function (exports, module, require) {
                     (e) => t(e)
                   );
                 }),
-                g = a.GNode.deserialize(
+                g = GCore.GNode.deserialize(
                   P.unzipData(p),
                   gDesigner.getWorkspace()
                 );
               return new T(
-                d,
+                CollaborationMergeUtils,
                 g,
                 this.getTitle(),
                 u.getName(),
                 (e) => {
-                  if (e === d) c();
+                  if (e === CollaborationMergeUtils) AppSettings();
                   else {
                     this.setSynchronizing(false);
                     const t = new K(u);
@@ -903,26 +903,26 @@ function (exports, module, require) {
                 },
                 () => {
                   this.setSynchronizing(false),
-                    i.setErrored(false),
+                    GTools.setErrored(false),
                     this._updateStatus(_.SaveCancelled, {}),
                     e && e();
                 }
               ).open();
             }
-            c();
+            AppSettings();
           } catch (e) {
             l(e);
           }
         }
       }),
-      (K.prototype.chooseLatestDocument = async function (e, t, n, o, i) {
+      (K.prototype.chooseLatestDocument = async function (e, t, n, _interopRequireDefault, GTools) {
         var r = (e) => {
           n && n(e),
             (e instanceof Error || "string" == typeof e) && console.error(e);
         };
         let s;
         try {
-          s = await c.gApi.getFile(e.getProperty("cid"));
+          s = await AppSettings.gApi.getFile(e.getProperty("cid"));
         } catch (e) {
           return void r(e);
         }
@@ -941,23 +941,23 @@ function (exports, module, require) {
               gDesigner.getDefaultStorage(),
               e.getProperty("cid")
             )),
-              (o =
-                o ||
+              (_interopRequireDefault =
+                _interopRequireDefault ||
                 function (e, t) {
                   return (
                     e.lastModifiedDate().getTime() !==
-                      t.lastModifiedDate().getTime() && (0, d.isDifferent)(e, t)
+                      t.lastModifiedDate().getTime() && (0, CollaborationMergeUtils.isDifferent)(e, t)
                   );
                 });
-            var c = a.GNode.deserialize(
+            var AppSettings = GCore.GNode.deserialize(
               P.unzipData(s),
               gDesigner.getWorkspace()
             );
-            c
-              ? o(e, c)
+            AppSettings
+              ? _interopRequireDefault(e, AppSettings)
                 ? new T(
                     e,
-                    c,
+                    AppSettings,
                     this.getTitle(),
                     l.name,
                     (n) => {
@@ -970,7 +970,7 @@ function (exports, module, require) {
                             ),
                         t(n, true);
                     },
-                    i
+                    GTools
                   ).open()
                 : t(e)
               : r();
@@ -983,8 +983,8 @@ function (exports, module, require) {
       (K.prototype._updateCloudSynchronism = function (e) {
         this._cloudSynchronismFlag !== e &&
           ((this._cloudSynchronismFlag = e),
-          gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.CloudSynchronismUpdated, this)));
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.CloudSynchronismUpdated, this)));
       }),
       (K.prototype.isCloudFile = function () {
         return this.getStorageItem() instanceof D.Item;
@@ -1017,7 +1017,7 @@ function (exports, module, require) {
         return this.isCollaborative() ? this.getStorageItem().getToken() : null;
       }),
       (K.prototype.getAnnotationsId = function () {
-        if (!c.HAS_ANNOTATIONS) return null;
+        if (!AppSettings.HAS_ANNOTATIONS) return null;
         var e = this.getId();
         if (!e) {
           var module = this.getScene();
@@ -1027,28 +1027,28 @@ function (exports, module, require) {
         return e;
       }),
       (K.prototype.getAnnotationsToken = async function (e) {
-        if (!c.HAS_ANNOTATIONS) return null;
+        if (!AppSettings.HAS_ANNOTATIONS) return null;
         var t = null;
         let require = location.search.match(
           /token=(?:[\0-%'-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+/
         );
         require && (t = require[0].slice(6));
-        var o = null,
-          i = this.getScene(),
-          a = this.getId(),
-          r = i.getProperty("cid"),
+        var _interopRequireDefault = null,
+          GTools = this.getScene(),
+          GCore = this.getId(),
+          r = GTools.getProperty("cid"),
           s = this.getReservedId();
         return (
-          !t || (e !== a && e !== s)
-            ? e === r && e !== a && e !== s && (o = i.getProperty("asec"))
-            : (o = t),
-          o
+          !t || (e !== GCore && e !== s)
+            ? e === r && e !== GCore && e !== s && (_interopRequireDefault = GTools.getProperty("asec"))
+            : (_interopRequireDefault = t),
+          _interopRequireDefault
         );
       }),
       (K.prototype.updateSaveOptionsLastModifiedDate = function (e, t) {
         return (
           e ? (e.save = true) : (e = { save: true }),
-          c.HAS_ANNOTATIONS &&
+          AppSettings.HAS_ANNOTATIONS &&
             this._scene &&
             this._scene.getLastTimeAnnotationsFromCloudModified() &&
             (e.lastModifiedDate =
@@ -1061,8 +1061,8 @@ function (exports, module, require) {
         const exports = this.getStorageItem();
         return exports
           ? exports instanceof D.Item
-          : gContainer.getRuntime() === L.Runtime.Browser ||
-              gContainer.getRuntime() === L.Runtime.PWA;
+          : gContainer.getRuntime() === GContainer.Runtime.Browser ||
+              gContainer.getRuntime() === GContainer.Runtime.PWA;
       }),
       (K.prototype.isCommercialProductFile = function () {
         return (
@@ -1116,11 +1116,11 @@ function (exports, module, require) {
       (K.prototype.reload = async function () {
         let exports;
         if (
-          (gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.BeforeReload, this)),
+          (gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.BeforeReload, this)),
           this.isCloudFile())
         ) {
-          const t = await c.gApi.getFile(this.getId());
+          const t = await AppSettings.gApi.getFile(this.getId());
           (exports = await D.from(
             gDesigner.getDefaultStorage(),
             t,
@@ -1139,53 +1139,53 @@ function (exports, module, require) {
         if ("lts" !== gDesigner.getEnv() || gDesigner.isEnabledProFeatures()) {
           var require = e || this._storageItem;
           if (require) {
-            var o = require.getName(),
-              i = require.getExtension();
+            var _interopRequireDefault = require.getName(),
+              GTools = require.getExtension();
             (module = Object.assign(
               {},
-              { progress: null, filename: o, ext: i ? i.toLowerCase() : null },
+              { progress: null, filename: _interopRequireDefault, ext: GTools ? GTools.toLowerCase() : null },
               module
             )),
               this._updateStatus(_.Loading, module);
             var r = (e) => {
                 let module = false;
-                G.getInstance().query(
+                barrel_sidebars.getInstance().query(
                   (n) => {
-                    var o = [];
+                    var _interopRequireDefault = [];
                     n.faces.slice().map((e) => {
                       for (var module = [e.family], n = 0; n < e.fonts.length; n++)
                         e.fonts[n].family &&
                           module.indexOf(e.fonts[n].family) < 0 &&
                           module.push(e.fonts[n].family);
-                      o = o.concat(module);
+                      _interopRequireDefault = _interopRequireDefault.concat(module);
                     }),
-                      s.GPDFImport.updateFontFamilies(o),
+                      s.GPDFImport.updateFontFamilies(_interopRequireDefault),
                       module || ((module = true), e());
                   },
                   "%",
                   true
                 );
               },
-              l = function (e, o, r, s) {
+              l = function (e, _interopRequireDefault, r, s) {
                 if (e)
                   return (
                     new E(
-                      a.GLocale.get(
-                        new a.GLocaleKey("GDocument", "text.image-too-big")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GDocument", "text.image-too-big")
                       )
                     ).open(),
                     void this._updateStatus(_.LoadFailed)
                   );
                 module.progress(100);
                 var l = gDesigner.createScene(),
-                  c = l.getActivePage(),
-                  d = new a.GImage();
-                d.setProperties(["iw", "ih", "url"], [r, s, o]),
-                  c.setProperties(
+                  AppSettings = l.getActivePage(),
+                  CollaborationMergeUtils = new GCore.GImage();
+                CollaborationMergeUtils.setProperties(["iw", "ih", "url"], [r, s, _interopRequireDefault]),
+                  AppSettings.setProperties(
                     ["w", "h", "bck"],
-                    [r, s, "PNG" !== i ? a.GRGBColor.WHITE : null]
+                    [r, s, "PNG" !== GTools ? GCore.GRGBColor.WHITE : null]
                   ),
-                  c.appendChild(d),
+                  AppSettings.appendChild(CollaborationMergeUtils),
                   require.getName() && this.setTitle(require.getName()),
                   this.setScene(l),
                   this._updateStatus(_.Loaded),
@@ -1193,106 +1193,106 @@ function (exports, module, require) {
               }.bind(this);
             require.read(
               async (e) => {
-                if ("GVDESIGN" === i || i === B.ext.toUpperCase()) {
-                  gDesigner.stats("document_open_".concat(i.toLowerCase())),
+                if ("GVDESIGN" === GTools || GTools === B.ext.toUpperCase()) {
+                  gDesigner.stats("document_open_".concat(GTools.toLowerCase())),
                     (module.checkAnnotations = true);
-                  const o = G.getInstance();
-                  o.setShowMissingFontsDialog(false);
-                  const a = new p.default();
-                  a.start(),
+                  const _interopRequireDefault = barrel_sidebars.getInstance();
+                  _interopRequireDefault.setShowMissingFontsDialog(false);
+                  const GCore = new p.default();
+                  GCore.start(),
                     this._loadDataIntoDocument(e, module).finally(async () => {
                       try {
                         const e = gDesigner.getWorkspace().getFontManager();
                         await new g.default(e).waitForAllPendingFonts();
-                        const t = a.getMissingFonts();
+                        const t = GCore.getMissingFonts();
                         t && t.length && new x(this, t).open();
                       } finally {
-                        a.stop(), o.setShowMissingFontsDialog(true);
+                        GCore.stop(), _interopRequireDefault.setShowMissingFontsDialog(true);
                       }
                     }),
                     gDesigner.addToRecentFiles(require),
                     gDesigner.gtmEvent("DOCUMENT_OPEN_EVENT");
                 } else if (
                   U.length &&
-                  U.find((e) => e.ext.toUpperCase() === i)
+                  U.find((e) => e.ext.toUpperCase() === GTools)
                 ) {
                   await this._handleSecondaryFormatRead(require, e, module);
-                  var o = gDesigner.getWindows().getActiveWindow().getView();
+                  var _interopRequireDefault = gDesigner.getWindows().getActiveWindow().getView();
                   if (
-                    o &&
+                    _interopRequireDefault &&
                     this.hasCDR() &&
-                    !o.getViewConfiguration().multiPageView
+                    !_interopRequireDefault.getViewConfiguration().multiPageView
                   ) {
-                    var c = this._scene.getActivePage();
-                    if (c) {
-                      var d = c.getContentBBox();
-                      if (d && !d.isEmpty()) {
-                        var u = d.getSide(a.GRect.Side.CENTER);
-                        o.zoomAtCenter(u);
+                    var AppSettings = this._scene.getActivePage();
+                    if (AppSettings) {
+                      var CollaborationMergeUtils = AppSettings.getContentBBox();
+                      if (CollaborationMergeUtils && !CollaborationMergeUtils.isEmpty()) {
+                        var u = CollaborationMergeUtils.getSide(GCore.GRect.Side.CENTER);
+                        _interopRequireDefault.zoomAtCenter(u);
                       }
                     }
                   }
                   gDesigner.gtmEvent("DOCUMENT_OPEN_EVENT");
-                } else if ("SVG" === i || "SVGZ" === i)
+                } else if ("SVG" === GTools || "SVGZ" === GTools)
                   gDesigner.stats("document_open_svg"),
                     s.GSVGImport.import(
                       e,
                       { fontProvider: J },
                       gDesigner.getWorkspace().getFontManager(),
-                      (e, t, o) => {
+                      (e, t, _interopRequireDefault) => {
                         if (t) {
                           let e;
-                          if (t instanceof a.GPage)
+                          if (t instanceof GCore.GPage)
                             (e = gDesigner.createScene(true)),
                               e.appendChild(t),
                               e.setActivePage(t);
                           else {
                             e = gDesigner.createScene();
-                            var i = e.getActivePage(),
+                            var GTools = e.getActivePage(),
                               r = null,
                               s = [];
-                            if (t instanceof a.GGroup)
+                            if (t instanceof GCore.GGroup)
                               for (
                                 var l = 1 === t.getChildren().length;
                                 t.getFirstChild();
 
                               ) {
-                                var c = t.getFirstChild();
+                                var AppSettings = t.getFirstChild();
                                 if (
-                                  (t.removeChild(c),
-                                  i.appendChild(c),
-                                  l && c.hasMixin(a.GStylable))
+                                  (t.removeChild(AppSettings),
+                                  GTools.appendChild(AppSettings),
+                                  l && AppSettings.hasMixin(GCore.GStylable))
                                 ) {
-                                  var d = t.getEffects();
-                                  d &&
-                                    d.getChildren().length &&
-                                    d.getChildren().forEach(function (e) {
-                                      c.getEffects().appendChild(e.clone());
+                                  var CollaborationMergeUtils = t.getEffects();
+                                  CollaborationMergeUtils &&
+                                    CollaborationMergeUtils.getChildren().length &&
+                                    CollaborationMergeUtils.getChildren().forEach(function (e) {
+                                      AppSettings.getEffects().appendChild(e.clone());
                                     });
                                 }
                                 if (
-                                  !c.hasMixin(a.GStylable) ||
-                                  null === c.getPaintLayers() ||
-                                  c instanceof a.GImage ||
-                                  c.hasStyleBorder() ||
-                                  c.hasStyleFill()
+                                  !AppSettings.hasMixin(GCore.GStylable) ||
+                                  null === AppSettings.getPaintLayers() ||
+                                  AppSettings instanceof GCore.GImage ||
+                                  AppSettings.hasStyleBorder() ||
+                                  AppSettings.hasStyleFill()
                                 )
-                                  s.push(c),
-                                    c.getPaintBBox() &&
+                                  s.push(AppSettings),
+                                    AppSettings.getPaintBBox() &&
                                       (r = r
-                                        ? r.united(c.getPaintBBox())
-                                        : c.getPaintBBox());
+                                        ? r.united(AppSettings.getPaintBBox())
+                                        : AppSettings.getPaintBBox());
                               }
                             else
                               s.push(t),
-                                i.appendChild(t),
+                                GTools.appendChild(t),
                                 (r = t.getPaintBBox());
-                            a.GUtil.each(s, function () {}),
-                              i.setProperties(
+                            GCore.GUtil.each(s, function () {}),
+                              GTools.setProperties(
                                 ["w", "h"],
-                                [o ? o.width : 0, o ? o.height : 0]
+                                [_interopRequireDefault ? _interopRequireDefault.width : 0, _interopRequireDefault ? _interopRequireDefault.height : 0]
                               ),
-                              o.unit && e.setProperty("ut", o.unit);
+                              _interopRequireDefault.unit && e.setProperty("ut", _interopRequireDefault.unit);
                           }
                           this._updateStatus(_.Loaded),
                             require.getName() && this.setTitle(require.getName()),
@@ -1304,22 +1304,22 @@ function (exports, module, require) {
                           .getActiveWindow()
                           .getView();
                         (u.getViewConfiguration().paintMode =
-                          a.GScenePaintConfiguration.PaintMode.Output),
+                          GCore.GScenePaintConfiguration.PaintMode.Output),
                           u.invalidate();
                       }
                     );
-                else if ("EPS" === i)
+                else if ("EPS" === GTools)
                   gDesigner.stats("document_open_eps"),
                     this._preProcessFonts(
-                      a.GLocale.get(
-                        new a.GLocaleKey("GDocument", "text.keep-fonts-eps")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GDocument", "text.keep-fonts-eps")
                       )
                     ),
                     s.GEPSImport.import(
                       e,
                       gDesigner.getSetting("eps_outline_fonts", true),
                       gDesigner.getWorkspace().getFontManager(),
-                      (e, t, o, i) => {
+                      (e, t, _interopRequireDefault, GTools) => {
                         if ((this._postProcessFonts(), e || !t)) {
                           e && new E(e).open(),
                             this._updateStatus(_.LoadFailed);
@@ -1329,13 +1329,13 @@ function (exports, module, require) {
                             .getView();
                           return (
                             (r.getViewConfiguration().paintMode =
-                              a.GScenePaintConfiguration.PaintMode.Output),
+                              GCore.GScenePaintConfiguration.PaintMode.Output),
                             void r.invalidate()
                           );
                         }
                         var s = gDesigner.createScene(),
                           l = s.getActivePage(),
-                          c = null;
+                          AppSettings = null;
                         "production" !== gDesigner.getEnv() &&
                           "lts" !== gDesigner.getEnv() &&
                           ((z = 0), console.time("optimization time")),
@@ -1344,13 +1344,13 @@ function (exports, module, require) {
                             "lts" !== gDesigner.getEnv() &&
                             (console.timeEnd("optimization time"),
                             console.log("Nodes removed: " + z));
-                        var d = [];
+                        var CollaborationMergeUtils = [];
                         for (
                           s._beginBlockChanges([
-                            a.GNode._Change.BeforeChildRemove,
-                            a.GNode._Change.AfterChildRemove,
-                            a.GNode._Change.BeforeChildInsert,
-                            a.GNode._Change.AfterChildInsert,
+                            GCore.GNode._Change.BeforeChildRemove,
+                            GCore.GNode._Change.AfterChildRemove,
+                            GCore.GNode._Change.BeforeChildInsert,
+                            GCore.GNode._Change.AfterChildInsert,
                           ]),
                             t._blockUpdateChanges();
                           t.getFirstChild();
@@ -1359,38 +1359,38 @@ function (exports, module, require) {
                           var u = t.getFirstChild();
                           t.removeChild(u),
                             l.appendChild(u),
-                            d.push(u),
+                            CollaborationMergeUtils.push(u),
                             u.getPaintBBox() &&
-                              (c = c
-                                ? c.united(u.getPaintBBox())
+                              (AppSettings = AppSettings
+                                ? AppSettings.united(u.getPaintBBox())
                                 : u.getPaintBBox());
                         }
                         l.acceptChildren(function (e) {
-                          e instanceof a.GText &&
+                          e instanceof GCore.GText &&
                             e.hasFontsToResolve() &&
                             e.toFakeText();
                         }),
                           t._releaseUpdateChanges(),
-                          a.GUtil.each(d, function (e, t) {
+                          GCore.GUtil.each(CollaborationMergeUtils, function (e, t) {
                             t.transform(
-                              new a.GTransform().translated(
-                                -c.getX(),
-                                -c.getY()
+                              new GCore.GTransform().translated(
+                                -AppSettings.getX(),
+                                -AppSettings.getY()
                               )
                             );
                           }),
-                          o
+                          _interopRequireDefault
                             ? l.setProperties(
                                 ["w", "h"],
-                                [o ? o.width : 0, o ? o.height : 0]
+                                [_interopRequireDefault ? _interopRequireDefault.width : 0, _interopRequireDefault ? _interopRequireDefault.height : 0]
                               )
                             : l.trimToContent(),
-                          l.setProperty("bck", i || a.GRGBColor.WHITE),
+                          l.setProperty("bck", GTools || GCore.GRGBColor.WHITE),
                           s._endBlockChanges([
-                            a.GNode._Change.BeforeChildRemove,
-                            a.GNode._Change.AfterChildRemove,
-                            a.GNode._Change.BeforeChildInsert,
-                            a.GNode._Change.AfterChildInsert,
+                            GCore.GNode._Change.BeforeChildRemove,
+                            GCore.GNode._Change.AfterChildRemove,
+                            GCore.GNode._Change.BeforeChildInsert,
+                            GCore.GNode._Change.AfterChildInsert,
                           ]),
                           this._updateStatus(_.Loaded),
                           require.getName() && this.setTitle(require.getName()),
@@ -1405,16 +1405,16 @@ function (exports, module, require) {
                       },
                       this.initCancelHandler.bind(this)
                     );
-                else if ("PDF" === i || "AI" === i) {
-                  "PDF" === i
+                else if ("PDF" === GTools || "AI" === GTools) {
+                  "PDF" === GTools
                     ? gDesigner.stats("document_open_pdf")
                     : gDesigner.stats("document_open_ai"),
                     this._preProcessFonts();
                   var h = 0,
                     f = function (e) {
                       new E(
-                        a.GLocale.get(
-                          new a.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GDocument",
                             "text.ai-not-pdf-compatible"
                           )
@@ -1427,21 +1427,21 @@ function (exports, module, require) {
                       e,
                       {},
                       gDesigner.getWorkspace().getFontManager(),
-                      (e, t, o) => {
+                      (e, t, _interopRequireDefault) => {
                         if ((this._postProcessFonts(), e)) new E(e).open();
                         else {
-                          var i = gDesigner.createScene(true);
-                          i._beginBlockChanges([
-                            a.GNode._Change.BeforeChildRemove,
-                            a.GNode._Change.AfterChildRemove,
-                            a.GNode._Change.BeforeChildInsert,
-                            a.GNode._Change.AfterChildInsert,
+                          var GTools = gDesigner.createScene(true);
+                          GTools._beginBlockChanges([
+                            GCore.GNode._Change.BeforeChildRemove,
+                            GCore.GNode._Change.AfterChildRemove,
+                            GCore.GNode._Change.BeforeChildInsert,
+                            GCore.GNode._Change.AfterChildInsert,
                           ]),
-                            a.GUtil.each(t, function (e, t) {
+                            GCore.GUtil.each(t, function (e, t) {
                               t.setProperty(
                                 "name",
-                                a.GLocale.get(
-                                  new a.GLocaleKey("GCommonNames", "text.page")
+                                GCore.GLocale.get(
+                                  new GCore.GLocaleKey("GCommonNames", "text.page")
                                 ) +
                                   " " +
                                   (e + 1)
@@ -1454,24 +1454,24 @@ function (exports, module, require) {
                                   "lts" !== gDesigner.getEnv() &&
                                   (console.timeEnd("optimization time"),
                                   console.log("Nodes removed: " + z)),
-                                i.appendChild(t);
+                                GTools.appendChild(t);
                             }),
-                            i._endBlockChanges([
-                              a.GNode._Change.BeforeChildRemove,
-                              a.GNode._Change.AfterChildRemove,
-                              a.GNode._Change.BeforeChildInsert,
-                              a.GNode._Change.AfterChildInsert,
+                            GTools._endBlockChanges([
+                              GCore.GNode._Change.BeforeChildRemove,
+                              GCore.GNode._Change.AfterChildRemove,
+                              GCore.GNode._Change.BeforeChildInsert,
+                              GCore.GNode._Change.AfterChildInsert,
                             ]),
-                            i.setActivePage(t[0]),
+                            GTools.setActivePage(t[0]),
                             this._updateStatus(_.Loaded),
                             require.getName() && this.setTitle(require.getName()),
-                            this.setScene(i),
-                            o instanceof Array &&
-                              o.length &&
-                              new x(this, o, null, (e) => {
+                            this.setScene(GTools),
+                            _interopRequireDefault instanceof Array &&
+                              _interopRequireDefault.length &&
+                              new x(this, _interopRequireDefault, null, (e) => {
                                 e ||
-                                  i.acceptChildren((e) => {
-                                    e instanceof a.GText && e.toFakeText();
+                                  GTools.acceptChildren((e) => {
+                                    e instanceof GCore.GText && e.toFakeText();
                                   });
                               }).open();
                           var r = gDesigner
@@ -1479,7 +1479,7 @@ function (exports, module, require) {
                             .getActiveWindow()
                             .getView();
                           (r.getViewConfiguration().paintMode =
-                            a.GScenePaintConfiguration.PaintMode.Output),
+                            GCore.GScenePaintConfiguration.PaintMode.Output),
                             r.invalidate(),
                             gDesigner.gtmEvent("DOCUMENT_IMPORT_EVENT");
                         }
@@ -1490,7 +1490,7 @@ function (exports, module, require) {
                       f
                     )
                   );
-                } else if ("SKETCH" === i)
+                } else if ("SKETCH" === GTools)
                   gDesigner.stats("document_open_sketch"),
                     this._preProcessFonts(),
                     s.GSketchImport.import(
@@ -1503,35 +1503,35 @@ function (exports, module, require) {
                       (e) => {
                         this._postProcessFonts();
                         var t = (e = e || {}).pages,
-                          o = e.v50error;
+                          _interopRequireDefault = e.v50error;
                         if (t && Array.isArray(t)) {
                           e.replacedFonts &&
                             new x(this, e.replacedFonts).open();
-                          var i = gDesigner.createScene(true);
-                          i._beginBlockChanges([
-                            a.GNode._Change.BeforeChildRemove,
-                            a.GNode._Change.AfterChildRemove,
-                            a.GNode._Change.BeforeChildInsert,
-                            a.GNode._Change.AfterChildInsert,
+                          var GTools = gDesigner.createScene(true);
+                          GTools._beginBlockChanges([
+                            GCore.GNode._Change.BeforeChildRemove,
+                            GCore.GNode._Change.AfterChildRemove,
+                            GCore.GNode._Change.BeforeChildInsert,
+                            GCore.GNode._Change.AfterChildInsert,
                           ]),
                             t.forEach((e) => {
-                              i.appendChild(e);
+                              GTools.appendChild(e);
                             }),
-                            i._endBlockChanges([
-                              a.GNode._Change.BeforeChildRemove,
-                              a.GNode._Change.AfterChildRemove,
-                              a.GNode._Change.BeforeChildInsert,
-                              a.GNode._Change.AfterChildInsert,
+                            GTools._endBlockChanges([
+                              GCore.GNode._Change.BeforeChildRemove,
+                              GCore.GNode._Change.AfterChildRemove,
+                              GCore.GNode._Change.BeforeChildInsert,
+                              GCore.GNode._Change.AfterChildInsert,
                             ]),
-                            i.setActivePage(t[0]),
+                            GTools.setActivePage(t[0]),
                             this._updateStatus(_.Loaded),
                             require.getName() && this.setTitle(require.getName()),
-                            this.setScene(i),
+                            this.setScene(GTools),
                             gDesigner.gtmEvent("DOCUMENT_IMPORT_EVENT");
-                        } else if (o)
+                        } else if (_interopRequireDefault)
                           new E(
-                            a.GLocale.get(
-                              new a.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDocument",
                                 "text.unsupported-sketch-version-50+"
                               )
@@ -1545,14 +1545,14 @@ function (exports, module, require) {
                       }
                     );
                 else if (
-                  "JPG" === i ||
-                  "JPEG" === i ||
-                  "PNG" === i ||
-                  "HEIC" === i
+                  "JPG" === GTools ||
+                  "JPEG" === GTools ||
+                  "PNG" === GTools ||
+                  "HEIC" === GTools
                 )
                   if (
-                    (gDesigner.stats("document_open_".concat(i.toLowerCase())),
-                    "HEIC" === i)
+                    (gDesigner.stats("document_open_".concat(GTools.toLowerCase())),
+                    "HEIC" === GTools)
                   ) {
                     const t = new Blob([e]);
                     m.getInstance()
@@ -1566,8 +1566,8 @@ function (exports, module, require) {
                 e &&
                   (console.log(e),
                   new E(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDocument", "text.error-reading-file")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.error-reading-file")
                     )
                   ).open()),
                   this._updateStatus(_.LoadFailed);
@@ -1582,14 +1582,14 @@ function (exports, module, require) {
       }),
       (K.prototype._handleSecondaryFormatSave = async function (e, t, n) {
         n &&
-          n(a.GLocale.get(new a.GLocaleKey("GDocument", "text.cannot-save")));
+          n(GCore.GLocale.get(new GCore.GLocaleKey("GDocument", "text.cannot-save")));
       }),
       (K.prototype.store = async function (e, t, n) {
-        let o =
+        let _interopRequireDefault =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
-        const i = !o.export;
+        const GTools = !_interopRequireDefault.export;
         var r = (e) => {
-          i &&
+          GTools &&
             (this._updateStatus(_.SaveFailed, e), this._updateStatus(_.Ready)),
             n && n(e);
         };
@@ -1599,27 +1599,27 @@ function (exports, module, require) {
           return r();
         var s = e || this._storageItem;
         if (!s) throw new Error("Unable to save, no storage item available.");
-        var d = s.getExtension(),
+        var CollaborationMergeUtils = s.getExtension(),
           u = {
             progress: null,
-            filename: o.filename,
-            ext: d && d.toLowerCase(),
-            referer: o.referer,
+            filename: _interopRequireDefault.filename,
+            ext: CollaborationMergeUtils && CollaborationMergeUtils.toLowerCase(),
+            referer: _interopRequireDefault.referer,
           };
-        i && this._updateStatus(_.Saving, u);
+        GTools && this._updateStatus(_.Saving, u);
         var p = () => {
-            i && (this._updateStatus(_.Saved), this._updateStatus(_.Ready)),
-              (d !== B.ext.toUpperCase() &&
-                -1 === U.findIndex((e) => e.ext.toUpperCase() === d)) ||
+            GTools && (this._updateStatus(_.Saved), this._updateStatus(_.Ready)),
+              (CollaborationMergeUtils !== B.ext.toUpperCase() &&
+                -1 === U.findIndex((e) => e.ext.toUpperCase() === CollaborationMergeUtils)) ||
               !this._editor
                 ? gDesigner.gtmEvent("DOCUMENT_EXPORT_EVENT")
                 : (gDesigner.gtmEvent("DOCUMENT_SAVE_EVENT"),
-                  i && this._editor.markSavePoint()),
-              i &&
-                gDesigner.hasEventListeners(v) &&
-                gDesigner.trigger(new v(v.Type.Modified, this));
+                  GTools && this._editor.markSavePoint()),
+              GTools &&
+                gDesigner.hasEventListeners(GDocumentEvent) &&
+                gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, this));
             try {
-              d === B.ext.toUpperCase() && gDesigner.addToRecentFiles(s);
+              CollaborationMergeUtils === B.ext.toUpperCase() && gDesigner.addToRecentFiles(s);
             } finally {
               t && t();
             }
@@ -1633,31 +1633,31 @@ function (exports, module, require) {
             N.PNG.ext.toUpperCase(),
           ],
           m = [N.JPEG.ext.toUpperCase(), N.JPG.ext.toUpperCase()];
-        if (d === B.ext.toUpperCase()) {
+        if (CollaborationMergeUtils === B.ext.toUpperCase()) {
           var y = this._scene,
-            b = 0;
+            GDocumentStatusEvent = 0;
           y.acceptChildren(function () {
-            b++;
+            GDocumentStatusEvent++;
           }),
             u.progress && u.progress instanceof Function && u.progress(10),
             W(function () {
               var e;
               try {
-                e = a.GNode.serialize(y, a.GUtil.extend({ save: true }, o || {}));
+                e = GCore.GNode.serialize(y, GCore.GUtil.extend({ save: true }, _interopRequireDefault || {}));
               } catch (e) {
                 return (
                   console.error(e),
                   void r(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDocument", "text.cannot-save")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.cannot-save")
                     )
                   )
                 );
               }
-              null === e || "" === e || e.length < b
+              null === e || "" === e || e.length < GDocumentStatusEvent
                 ? r(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDocument", "text.cannot-save")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.cannot-save")
                     )
                   )
                 : (u.progress &&
@@ -1668,17 +1668,17 @@ function (exports, module, require) {
                     u.progress &&
                       u.progress instanceof Function &&
                       u.progress(75),
-                      t.byteLength > 20 + b ? g(t) : r("GZIP compression fail");
+                      t.byteLength > 20 + GDocumentStatusEvent ? g(t) : r("GZIP compression fail");
                   }));
             });
-        } else if (U && U.find((e) => e.ext.toUpperCase() === d))
-          await this._handleSecondaryFormatSave(u, g, r, o);
-        else if ("SVG" === d || "SVGZ" === d) {
-          const { exportOptions: e = {} } = o;
+        } else if (U && U.find((e) => e.ext.toUpperCase() === CollaborationMergeUtils))
+          await this._handleSecondaryFormatSave(u, g, r, _interopRequireDefault);
+        else if ("SVG" === CollaborationMergeUtils || "SVGZ" === CollaborationMergeUtils) {
+          const { exportOptions: e = {} } = _interopRequireDefault;
           l.GSVGExport.export(this._scene.getActivePage(), e, (e, t) => {
             if (e || !t) return r();
             if (
-              !o.suppressMessages &&
+              !_interopRequireDefault.suppressMessages &&
               !gDesigner.getSetting("disable_warning_unsupported_features", false)
             ) {
               let e = l.GSVGExport.getUnsupportedFeatures(
@@ -1686,7 +1686,7 @@ function (exports, module, require) {
               );
               e && e.length && new A(e).open();
             }
-            if ("SVGZ" === d) g(new Uint8Array(f.gzip(t, { level: 9 }).buffer));
+            if ("SVGZ" === CollaborationMergeUtils) g(new Uint8Array(f.gzip(t, { level: 9 }).buffer));
             else if ("function" == typeof TextEncoder)
               g(new TextEncoder("utf-8").encode(t));
             else {
@@ -1696,49 +1696,49 @@ function (exports, module, require) {
                     return String.fromCharCode("0x" + t);
                   }
                 ),
-                i = new Uint8Array(n.length);
+                GTools = new Uint8Array(n.length);
               Array.prototype.forEach.call(n, function (e, t) {
-                i[t] = e.charCodeAt(0);
+                GTools[t] = e.charCodeAt(0);
               }),
-                g(i);
+                g(GTools);
             }
           });
-        } else if (h.includes(d)) {
-          var w = a.GLength.DPI,
+        } else if (h.includes(CollaborationMergeUtils)) {
+          var w = GCore.GLength.DPI,
             C = this._scene.getActivePage();
           l.GBitmapExport.export(
             C,
             null,
-            m.includes(d) ? a.GRGBColor.WHITE : null,
+            m.includes(CollaborationMergeUtils) ? GCore.GRGBColor.WHITE : null,
             null,
             w,
             1,
             true
-          ).toImageBuffer(d, (e) => g(new Uint8Array(e)));
-        } else if ("PDF" === d) {
+          ).toImageBuffer(CollaborationMergeUtils, (e) => g(new Uint8Array(e)));
+        } else if ("PDF" === CollaborationMergeUtils) {
           var x = this;
           gDesigner.getUser().then(function (e) {
             var t;
             (t =
               e && e.getFullUserName()
                 ? e.getFullUserName()
-                : a.GLocale.get(
-                    new a.GLocaleKey("GDocument", "text.default-export-author")
+                : GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDocument", "text.default-export-author")
                   )),
               l.GPDFExport.export(
                 x._scene,
                 {
-                  dpi: o.dpi || 72,
+                  dpi: _interopRequireDefault.dpi || 72,
                   progress: u.progress,
                   user: t,
-                  jpegQuality: o.jpegQuality || c.JPEG_EXPORT_QUALITY_DEFAULT,
+                  jpegQuality: _interopRequireDefault.jpegQuality || AppSettings.JPEG_EXPORT_QUALITY_DEFAULT,
                   title: x.getTitle(),
                 },
                 (e, t) => {
                   if (e || !t)
                     return r(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.pdf-export-error"
                         )
@@ -1757,124 +1757,124 @@ function (exports, module, require) {
       (K.prototype.initCancelHandler = function (e) {
         this._activeWindow && this._activeWindow.activateCancelLoading(e);
       }),
-      (K.prototype.placeOrImport = function (e, t, n, o, i) {
-        var l = (e, o) => {
+      (K.prototype.placeOrImport = function (e, t, n, _interopRequireDefault, GTools) {
+        var l = (e, _interopRequireDefault) => {
             if (
-              (o && e instanceof a.GBlock && e.setProperty("name", o),
-              t && e.hasMixin(a.GElement.Transform))
+              (_interopRequireDefault && e instanceof GCore.GBlock && e.setProperty("name", _interopRequireDefault),
+              t && e.hasMixin(GCore.GElement.Transform))
             ) {
               var r = e.getGeometryBBox(),
                 s = r && r.getX() ? r.getX() : 0,
                 l = r && r.getY() ? r.getY() : 0,
-                c = t.center ? -r.getWidth() / 2 : 0,
-                d = t.center ? -r.getHeight() / 2 : 0;
+                AppSettings = t.center ? -r.getWidth() / 2 : 0,
+                CollaborationMergeUtils = t.center ? -r.getHeight() / 2 : 0;
               e.transform(
-                new a.GTransform(1, 0, 0, 1, t.x - s + c, t.y - l + d),
+                new GCore.GTransform(1, 0, 0, 1, t.x - s + AppSettings, t.y - l + CollaborationMergeUtils),
                 true
               );
             }
-            (i && i([e])) || this.insertElement(e, !t, true, n);
+            (GTools && GTools([e])) || this.insertElement(e, !t, true, n);
           },
-          c = (e, t) => {
-            s.GBitmapImport.import(e, function (e, n, o, i) {
+          AppSettings = (e, t) => {
+            s.GBitmapImport.import(e, function (e, n, _interopRequireDefault, GTools) {
               if (e)
                 new E(
-                  a.GLocale.get(
-                    new a.GLocaleKey("GDocument", "text.image-too-big")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDocument", "text.image-too-big")
                   )
                 ).open();
               else {
-                var r = new a.GImage();
-                r.setProperties(["iw", "ih", "url"], [o, i, n]), l(r, t);
+                var r = new GCore.GImage();
+                r.setProperties(["iw", "ih", "url"], [_interopRequireDefault, GTools, n]), l(r, t);
               }
             });
           };
-        const d = (e, t) => {
-          let o = t
+        const CollaborationMergeUtils = (e, t) => {
+          let _interopRequireDefault = t
               ? "".concat(
-                  a.GLocale.get(
-                    new a.GLocaleKey("GCommonNames", "text.loading-file")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.loading-file")
                   ).replace("%name", t),
                   "..."
                 )
-              : a.GLocale.get(
-                  new a.GLocaleKey("GDocument", "text.opening-your-image")
+              : GCore.GLocale.get(
+                  new GCore.GLocaleKey("GDocument", "text.opening-your-image")
                 ),
-            i = this._activateProgress(o);
+            GTools = this._activateProgress(_interopRequireDefault);
           try {
             this._preProcessFonts(
-              a.GLocale.get(
-                new a.GLocaleKey("GDocument", "text.keep-fonts-eps")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GDocument", "text.keep-fonts-eps")
               )
             ),
               s.GEPSImport.import(
                 e,
                 gDesigner.getSetting("eps_outline_fonts", true),
                 gDesigner.getWorkspace().getFontManager(),
-                (e, o, i, r) => {
+                (e, _interopRequireDefault, GTools, r) => {
                   if (
                     (this._deactivateProgress(),
                     this._postProcessFonts(),
-                    !e && o)
+                    !e && _interopRequireDefault)
                   ) {
                     "production" !== gDesigner.getEnv() &&
                       "lts" !== gDesigner.getEnv() &&
                       ((z = 0), console.time("optimization time")),
-                      Q(o),
+                      Q(_interopRequireDefault),
                       "production" !== gDesigner.getEnv() &&
                         "lts" !== gDesigner.getEnv() &&
                         (console.timeEnd("optimization time"),
                         console.log("Nodes removed: " + z));
-                    var s = o,
-                      l = o.getPaintBBox();
+                    var s = _interopRequireDefault,
+                      l = _interopRequireDefault.getPaintBBox();
                     if (r) {
-                      (s = new a.GRectangle()).setBounds(
+                      (s = new GCore.GRectangle()).setBounds(
                         0,
                         0,
                         l.getWidth(),
                         l.getHeight()
                       ),
                         s._blockUpdateChanges();
-                      var c = new a.GStylable.FillPaintLayer();
+                      var AppSettings = new GCore.GStylable.FillPaintLayer();
                       for (
-                        c.setProperties(["_pt"], [r]),
-                          s.getPaintLayers().appendChild(c);
-                        o.getFirstChild();
+                        AppSettings.setProperties(["_pt"], [r]),
+                          s.getPaintLayers().appendChild(AppSettings);
+                        _interopRequireDefault.getFirstChild();
 
                       ) {
-                        var d = o.getFirstChild();
-                        o.removeChild(d),
-                          d.transform(
-                            new a.GTransform().translated(-l.getX(), -l.getY())
+                        var CollaborationMergeUtils = _interopRequireDefault.getFirstChild();
+                        _interopRequireDefault.removeChild(CollaborationMergeUtils),
+                          CollaborationMergeUtils.transform(
+                            new GCore.GTransform().translated(-l.getX(), -l.getY())
                           ),
-                          s.appendChild(d);
+                          s.appendChild(CollaborationMergeUtils);
                       }
                       s._releaseUpdateChanges(),
                         s._invalidateGeometryForChildUpdate(true);
                     } else
                       s.transform(
-                        new a.GTransform().translated(-l.getX(), -l.getY())
+                        new GCore.GTransform().translated(-l.getX(), -l.getY())
                       );
                     s.setProperty(
                       "name",
                       t ||
-                        a.GLocale.get(
-                          new a.GLocaleKey("GCommonNames", "text.image")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "text.image")
                         )
                     ),
                       n || this._editor.beginTransaction();
                     try {
                       this._scene.appendChild(s),
                         s.acceptChildren(function (e) {
-                          e instanceof a.GText &&
+                          e instanceof GCore.GText &&
                             e.hasFontsToResolve() &&
                             e.toFakeText();
                         });
                     } finally {
                       n ||
                         this._editor.commitTransaction(
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GDocument",
                               "text.import-from-eps"
                             )
@@ -1886,40 +1886,40 @@ function (exports, module, require) {
                 (e) => {
                   this._deactivateProgress(), new E(e).open();
                 },
-                i,
+                GTools,
                 this.initCancelHandler.bind(this)
               );
           } catch (e) {
             throw (this._deactivateProgress(), e);
           }
         };
-        var u = (e, t, o) => {
-            let i = t
+        var u = (e, t, _interopRequireDefault) => {
+            let GTools = t
                 ? "".concat(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GCommonNames", "text.loading-file")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.loading-file")
                     ).replace("%name", t),
                     "..."
                   )
-                : a.GLocale.get(
-                    new a.GLocaleKey("GDocument", "text.opening-your-image")
+                : GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDocument", "text.opening-your-image")
                   ),
-              r = this._activateProgress(i);
+              r = this._activateProgress(GTools);
             try {
               this._preProcessFonts(),
                 s.GPDFImport.import(
                   e,
                   { startPage: 1 },
                   gDesigner.getWorkspace().getFontManager(),
-                  (e, i) => {
+                  (e, GTools) => {
                     if (
                       (this._deactivateProgress(), this._postProcessFonts(), e)
                     )
                       new E(e).open();
-                    else if (i && i.length) {
+                    else if (GTools && GTools.length) {
                       n || this._editor.beginTransaction();
                       try {
-                        var r = i.shift();
+                        var r = GTools.shift();
                         "production" !== gDesigner.getEnv() &&
                           "lts" !== gDesigner.getEnv() &&
                           (console.time("optimization time"), (z = 0)),
@@ -1929,12 +1929,12 @@ function (exports, module, require) {
                             (console.timeEnd("optimization time"),
                             console.log("Nodes removed: " + z));
                         var s = r.getGeometryBBox(),
-                          l = new a.GRectangle();
+                          l = new GCore.GRectangle();
                         l.setProperty(
                           "name",
                           t ||
-                            a.GLocale.get(
-                              new a.GLocaleKey("GCommonNames", "text.image")
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey("GCommonNames", "text.image")
                             )
                         ),
                           l.setBounds(
@@ -1949,16 +1949,16 @@ function (exports, module, require) {
                           }),
                           this._scene.appendChild(l),
                           l.acceptChildren((e) => {
-                            e instanceof a.GText && e.toFakeText();
+                            e instanceof GCore.GText && e.toFakeText();
                           }),
                           l.endUpdate();
                       } finally {
                         n ||
                           this._editor.commitTransaction(
-                            a.GLocale.get(
-                              new a.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GDocument",
-                                o
+                                _interopRequireDefault
                                   ? "text.import-from-ai"
                                   : "text.import-from-pdf"
                               )
@@ -1970,8 +1970,8 @@ function (exports, module, require) {
                   (e) => r(e),
                   function (e) {
                     new E(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GDocument",
                           "text.ai-not-pdf-compatible"
                         )
@@ -1986,12 +1986,12 @@ function (exports, module, require) {
           },
           p = (e, t, n) => {
             t = t && t.toUpperCase();
-            var o = r.GPlatform.maxPngDataSize;
+            var _interopRequireDefault = r.GPlatform.maxPngDataSize;
             switch (
               (("JPG" !== t && "JPEG" !== t) ||
-                (a.GSystem.operatingSystem !==
-                  a.GSystem.OperatingSystem.OSX_IOS &&
-                  (o >>= 2)),
+                (GCore.GSystem.operatingSystem !==
+                  GCore.GSystem.OperatingSystem.OSX_IOS &&
+                  (_interopRequireDefault >>= 2)),
               t)
             ) {
               case "JPG":
@@ -1999,19 +1999,19 @@ function (exports, module, require) {
               case "HEIC":
               case "GIF":
               case "PNG":
-                if (e.size > o)
+                if (e.size > _interopRequireDefault)
                   return void new E(
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDocument", "text.image-too-big")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDocument", "text.image-too-big")
                     )
                   ).open();
                 "HEIC" === t
                   ? m
                       .getInstance()
                       .then((t) => t.parse(e))
-                      .then((e) => c(e, n))
+                      .then((e) => AppSettings(e, n))
                       .catch(() => console.log("HEIC conversion failed"))
-                  : c(e, n);
+                  : AppSettings(e, n);
                 break;
               case "SVG":
               case "SVGZ":
@@ -2033,19 +2033,19 @@ function (exports, module, require) {
                 N.getFileTypesArray().includes(N.AI) && u(e, n, true);
                 break;
               case "EPS":
-                d(e, n);
+                CollaborationMergeUtils(e, n);
             }
           };
         if (e instanceof C.Item)
           e.read((t) => {
             var n = e.getExtension(),
-              o = e.getName();
-            p(new Blob([t]), n, o);
+              _interopRequireDefault = e.getName();
+            p(new Blob([t]), n, _interopRequireDefault);
           });
         else {
           var g = null,
             h = null;
-          if (!o && e.name) {
+          if (!_interopRequireDefault && e.name) {
             var f = e.name.lastIndexOf(".");
             f >= 0 && ((g = e.name.substr(f + 1)), (h = e.name.substr(0, f)));
           }
@@ -2066,19 +2066,19 @@ function (exports, module, require) {
         }
       }),
       (K.prototype._preProcessFonts = function (e) {
-        if (gContainer.getRuntime() === L.Runtime.Electron) {
+        if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
           let e = gContainer.getSystemFontsProvider();
-          e && G.enableProviders([e], true);
+          e && barrel_sidebars.enableProviders([e], true);
         }
-        let module = G.getInstance();
+        let module = barrel_sidebars.getInstance();
         module && (e && (module.keepFontsMessage = e), module.setShowMissingFontsDialog(false));
       }),
       (K.prototype._postProcessFonts = function () {
-        if (gContainer.getRuntime() === L.Runtime.Electron) {
+        if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
           let e = gContainer.getSystemFontsProvider();
-          e && G.disableProviders([e], true);
+          e && barrel_sidebars.disableProviders([e], true);
         }
-        let exports = G.getInstance();
+        let exports = barrel_sidebars.getInstance();
         exports && exports.setShowMissingFontsDialog(true);
       }),
       (K.prototype._activateProgress = function (e) {
@@ -2109,64 +2109,64 @@ function (exports, module, require) {
       (K.prototype.publish = function (e) {
         const module = this._storageItem && this._storageItem.getExtension(),
           require = !!U.find((e) => e.ext.toUpperCase() === module);
-        let o = false,
-          i = true;
+        let _interopRequireDefault = false,
+          GTools = true;
         return (
-          e && ((o = e.collabTextUpdate), (i = e.sendEmail)),
-          this.getId() && c.gApi.realtime && c.gApi.realtime.publishFile
-            ? c.gApi.realtime.publishFile(
+          e && ((_interopRequireDefault = e.collabTextUpdate), (GTools = e.sendEmail)),
+          this.getId() && AppSettings.gApi.realtime && AppSettings.gApi.realtime.publishFile
+            ? AppSettings.gApi.realtime.publishFile(
                 this.getId(),
                 { sessionId: this.sessionId },
                 require,
-                o,
-                i
+                _interopRequireDefault,
+                GTools
               )
             : Promise.resolve()
         );
       }),
       (K.prototype._afterInsertNodeEvent = function (e) {
-        if (e.node instanceof a.GGroup && e.node.getFirstChild())
+        if (e.node instanceof GCore.GGroup && e.node.getFirstChild())
           this._updateDocumentColorsFromGroup(e.node);
         else if (
-          e.node instanceof a.GElement &&
-          e.node.hasMixin(a.GElement.Stylable)
+          e.node instanceof GCore.GElement &&
+          e.node.hasMixin(GCore.GElement.Stylable)
         )
           this._updateDocumentColors(e.node);
-        else if (e.node instanceof a.GStylable.PaintLayer) {
+        else if (e.node instanceof GCore.GStylable.PaintLayer) {
           if (
             (this._updateDocumentColorsFromElement(e.node, ["_pt"]),
             this.hasCDR())
           ) {
             var module = e.node.getParent();
             module &&
-              (e.node instanceof a.GStylable.FillPaintLayer
+              (e.node instanceof GCore.GStylable.FillPaintLayer
                 ? module.getFillLayers(true).length > 1 &&
-                  R.showCDRUnsupportedObjectWarning()
-                : e.node instanceof a.GStylable.BorderPaintLayer &&
+                  GSystemDialog.showCDRUnsupportedObjectWarning()
+                : e.node instanceof GCore.GStylable.BorderPaintLayer &&
                   module.getBorderLayers(true).length > 1 &&
-                  R.showCDRUnsupportedObjectWarning());
+                  GSystemDialog.showCDRUnsupportedObjectWarning());
           }
         } else
-          e.node instanceof a.GStylable.Effect &&
+          e.node instanceof GCore.GStylable.Effect &&
             this.hasCDR() &&
-            R.showCDRUnsupportedObjectWarning(e.node);
+            GSystemDialog.showCDRUnsupportedObjectWarning(e.node);
         this._updateSymbolLock(this._scene.getActivePage());
       }),
       (K.prototype._beforeRemoveNodeEvent = function (e) {
         this._updateSymbolLock(e.node, true);
       }),
       (K.prototype._afterRemoveNodeEvent = function (e) {
-        e.node instanceof a.GGroup && e.node.getFirstChild()
+        e.node instanceof GCore.GGroup && e.node.getFirstChild()
           ? this._updateDocumentColorsFromGroup(e.node, true)
-          : e.node instanceof a.GElement && e.node.hasMixin(a.GElement.Stylable)
+          : e.node instanceof GCore.GElement && e.node.hasMixin(GCore.GElement.Stylable)
           ? this._updateDocumentColors(e.node, true)
-          : e.node instanceof a.GStylable.PaintLayer &&
+          : e.node instanceof GCore.GStylable.PaintLayer &&
             this._updateDocumentColorsFromElement(e.node, ["_pt"], true),
-          e.node instanceof a.GText &&
+          e.node instanceof GCore.GText &&
             this._updateDocumentColorsFromElement(e.node, ["content"], true);
       }),
       (K.prototype._beforePropertiesChangeEvent = function (e) {
-        e.node instanceof a.GSymbol &&
+        e.node instanceof GCore.GSymbol &&
           null === e.values[e.properties.indexOf("masterRef")] &&
           this._updateSymbolLock(e.node, true);
       }),
@@ -2175,17 +2175,17 @@ function (exports, module, require) {
           const t = (t) => {
             if (
               this.hasCDR() &&
-              !e.node.hasMixin(a.GAnnotation) &&
+              !e.node.hasMixin(GCore.GAnnotation) &&
               e.properties.includes(t)
             ) {
               const n = e.node.getProperty(t);
               n &&
-                n !== a.GPaintCanvas.BlendMode.Normal &&
-                R.showCDRUnsupportedObjectWarning();
+                n !== GCore.GPaintCanvas.BlendMode.Normal &&
+                GSystemDialog.showCDRUnsupportedObjectWarning();
             }
           };
           if (
-            (e.node instanceof a.GStylable.PaintLayer
+            (e.node instanceof GCore.GStylable.PaintLayer
               ? (this._handlePropertiesChangedForDocumentColorsElement(
                   e.node,
                   ["_pt"],
@@ -2193,8 +2193,8 @@ function (exports, module, require) {
                   e.values
                 ),
                 t("_bl"))
-              : (e.node.hasMixin(a.GStylable) && t("_sbl"),
-                e.node instanceof a.GText &&
+              : (e.node.hasMixin(GCore.GStylable) && t("_sbl"),
+                e.node instanceof GCore.GText &&
                   this._handlePropertiesChangedForDocumentColorsElement(
                     e.node,
                     ["content"],
@@ -2204,21 +2204,21 @@ function (exports, module, require) {
             !gDesigner.isEnabledProFeatures())
           ) {
             -1 !== e.properties.indexOf("lkt") &&
-              (0, d.isSymbolInstance)(e.node) &&
-              (e.node instanceof a.GSymbol
+              (0, CollaborationMergeUtils.isSymbolInstance)(e.node) &&
+              (e.node instanceof GCore.GSymbol
                 ? e.node.acceptChildren(
                     (e) =>
-                      e instanceof a.GElement &&
-                      e.setFlag(a.GElement.Flag.FullLocked)
+                      e instanceof GCore.GElement &&
+                      e.setFlag(GCore.GElement.Flag.FullLocked)
                   )
-                : e.node.setFlag(a.GElement.Flag.FullLocked));
+                : e.node.setFlag(GCore.GElement.Flag.FullLocked));
           }
         }
       }),
       (K.prototype._afterFlagChangeEvent = function (e) {
         const module = e.node;
-        e.flag === a.GNode.Flag.Selected &&
-          module instanceof a.GCollabText &&
+        e.flag === GCore.GNode.Flag.Selected &&
+          module instanceof GCore.GCollabText &&
           gDesigner.stats("document_canvas_select-collab-text");
       }),
       (K.prototype._licenseChangedEvent = function () {
@@ -2239,37 +2239,37 @@ function (exports, module, require) {
         if (this._scene) {
           if (this._editable)
             this._scene.accept((e) => {
-              if (e instanceof a.GElement) {
-                e.setProperty("plkt", a.GBlock.ProgramLck.NoLock);
+              if (e instanceof GCore.GElement) {
+                e.setProperty("plkt", GCore.GBlock.ProgramLck.NoLock);
                 const t = e.getProperty("_lkt", true);
                 undefined !== t && e.setProperty("lkt", t);
               }
             });
           else if (
             (this._scene.accept((e) => {
-              if (e instanceof a.GElement) {
+              if (e instanceof GCore.GElement) {
                 undefined === e.getProperty("_lkt", true) &&
                   e.setProperty("_lkt", e.getProperty("lkt") || null, true),
-                  e.setProperty("lkt", a.GBlock.LockType.Full);
+                  e.setProperty("lkt", GCore.GBlock.LockType.Full);
               }
             }),
             this._annotationsEditable)
           ) {
             const e =
-              a.GBlock.ProgramLck.NoSizeChanges |
-              a.GBlock.ProgramLck.NoEdit |
-              a.GBlock.ProgramLck.NoMove |
-              a.GBlock.ProgramLck.NoOrigChildrenEdit |
-              a.GBlock.ProgramLck.NoNewChildren |
-              a.GBlock.ProgramLck.NoDelete |
-              a.GBlock.ProgramLck.NoDirectVisibilityChange |
-              a.GBlock.ProgramLck.NoSelect;
+              GCore.GBlock.ProgramLck.NoSizeChanges |
+              GCore.GBlock.ProgramLck.NoEdit |
+              GCore.GBlock.ProgramLck.NoMove |
+              GCore.GBlock.ProgramLck.NoOrigChildrenEdit |
+              GCore.GBlock.ProgramLck.NoNewChildren |
+              GCore.GBlock.ProgramLck.NoDelete |
+              GCore.GBlock.ProgramLck.NoDirectVisibilityChange |
+              GCore.GBlock.ProgramLck.NoSelect;
             this._scene.iteratePages((t) => {
               t.acceptChildren((t) => {
-                t instanceof a.GElement && t.setProperty("plkt", e),
-                  t.hasMixin(a.GAnnotation) &&
+                t instanceof GCore.GElement && t.setProperty("plkt", e),
+                  t.hasMixin(GCore.GAnnotation) &&
                     (t.setProperty("lkt", null),
-                    t.setProperty("plkt", e & ~a.GBlock.ProgramLck.NoSelect));
+                    t.setProperty("plkt", e & ~GCore.GBlock.ProgramLck.NoSelect));
               }),
                 t.setProperty("plkt", e),
                 t.setProperty("lkt", null);
@@ -2282,36 +2282,36 @@ function (exports, module, require) {
         if (!this._editable) return;
         const require = !t;
         if ((e = e || this._scene)) {
-          const o = (t) => {
+          const _interopRequireDefault = (t) => {
             e.accept((e) => {
-              if ((0, d.isSymbolInstance)(e)) {
+              if ((0, CollaborationMergeUtils.isSymbolInstance)(e)) {
                 if (
-                  e instanceof a.GSymbol &&
+                  e instanceof GCore.GSymbol &&
                   null === e.getProperty("masterRef")
                 )
                   return false;
-                !(e instanceof a.GSymbol) && e instanceof a.GElement && t(e);
+                !(e instanceof GCore.GSymbol) && e instanceof GCore.GElement && t(e);
               }
             });
           };
           gDesigner.isEnabledProFeatures()
             ? this._lockedSymbolInstances &&
-              (o((e) => e.setProperty("lkt", e.getProperty("lkt"), require, true)),
+              (_interopRequireDefault((e) => e.setProperty("lkt", e.getProperty("lkt"), require, true)),
               (this._lockedSymbolInstances = false))
-            : (o((e) => {
+            : (_interopRequireDefault((e) => {
                 t
-                  ? e.hasFlag(a.GElement.Flag.FullLocked) &&
-                    e.removeFlag(a.GElement.Flag.FullLocked)
-                  : e.setFlag(a.GElement.Flag.FullLocked),
+                  ? e.hasFlag(GCore.GElement.Flag.FullLocked) &&
+                    e.removeFlag(GCore.GElement.Flag.FullLocked)
+                  : e.setFlag(GCore.GElement.Flag.FullLocked),
                   e.setProperty("_pro", require, true);
               }),
               (this._lockedSymbolInstances = true));
         }
       }),
       (K.prototype._modifiedEvent = function (e) {
-        gDesigner.hasEventListeners(v) &&
+        gDesigner.hasEventListeners(GDocumentEvent) &&
           gDesigner.trigger(
-            new v(v.Type.Modified, this, e.data ? e.data : null)
+            new GDocumentEvent(GDocumentEvent.Type.Modified, this, e.data ? e.data : null)
           );
       }),
       (K.prototype._dropFileEvent = function (e) {
@@ -2321,9 +2321,9 @@ function (exports, module, require) {
           require >= 0 && (t = e.file.name.substr(require + 1));
         }
         if (!t && e.file.type)
-          for (var o = 0; o < K.FileTypes.length; ++o)
-            if (K.FileTypes[o].mime === e.file.type) {
-              t = K.FileTypes[o].ext;
+          for (var _interopRequireDefault = 0; _interopRequireDefault < K.FileTypes.length; ++_interopRequireDefault)
+            if (K.FileTypes[_interopRequireDefault].mime === e.file.type) {
+              t = K.FileTypes[_interopRequireDefault].ext;
               break;
             }
         gDesigner.stats("document_drop_file", t),
@@ -2335,8 +2335,8 @@ function (exports, module, require) {
       (K.prototype._updateStatus = function (e, t) {
         e !== this._status &&
           ((this._status = e),
-          this.hasEventListeners(b) && this.trigger(new b(e, t)),
-          G.getInstance().trigger(new b(e, t)),
+          this.hasEventListeners(GDocumentStatusEvent) && this.trigger(new GDocumentStatusEvent(e, t)),
+          barrel_sidebars.getInstance().trigger(new GDocumentStatusEvent(e, t)),
           this._status === _.Loaded &&
             this.isCommercialProductFile() &&
             this.openPaywall());
@@ -2354,7 +2354,7 @@ function (exports, module, require) {
       }),
       (K.prototype._addDocumentColors = function (e) {
         for (var module = 0; module < e.length; ++module) {
-          var require = a.GPattern.serialize(e[module]);
+          var require = GCore.GPattern.serialize(e[module]);
           this._documentColors.hasOwnProperty(require)
             ? (this._documentColors[require] += 1)
             : (this._documentColors[require] = 1);
@@ -2362,7 +2362,7 @@ function (exports, module, require) {
       }),
       (K.prototype._clearDocumentColors = function (e) {
         for (var module = 0; module < e.length; ++module) {
-          var require = a.GPattern.serialize(e[module]);
+          var require = GCore.GPattern.serialize(e[module]);
           this._documentColors.hasOwnProperty(require) &&
             0 == --this._documentColors[require] &&
             delete this._documentColors[require];
@@ -2371,7 +2371,7 @@ function (exports, module, require) {
       (K.prototype._updateDocumentColors = function (e, t) {
         var n = e.getPaintLayers();
         n &&
-          a.GUtil.each(
+          GCore.GUtil.each(
             n.getLayers(),
             function (e, n) {
               t
@@ -2381,60 +2381,60 @@ function (exports, module, require) {
           );
       }),
       (K.prototype._updateDocumentColorsFromGroup = function (e, t) {
-        for (var require = e.getChildren(), o = 0; o < require.length; o++) {
-          var i = require[o];
-          i instanceof a.GGroup || !i.hasMixin(a.GElement.Stylable)
-            ? this._updateDocumentColorsFromGroup(i, t)
-            : this._updateDocumentColors(i, t);
+        for (var require = e.getChildren(), _interopRequireDefault = 0; _interopRequireDefault < require.length; _interopRequireDefault++) {
+          var GTools = require[_interopRequireDefault];
+          GTools instanceof GCore.GGroup || !GTools.hasMixin(GCore.GElement.Stylable)
+            ? this._updateDocumentColorsFromGroup(GTools, t)
+            : this._updateDocumentColors(GTools, t);
         }
       }),
       (K.prototype._updateDocumentColorsFromElement = function (e, t, n) {
-        for (var o = [], i = 0; i < t.length; ++i) {
-          var r = e.getProperty(t[i]);
+        for (var _interopRequireDefault = [], GTools = 0; GTools < t.length; ++GTools) {
+          var r = e.getProperty(t[GTools]);
           if (r) {
-            var s = function (n, i, r) {
-              if (n instanceof a.GColor) o.push(n);
-              else if (n instanceof a.GGradient)
-                for (var l = n.getStops(), c = 0; c < l.length; ++c)
-                  o.push(l[c].color);
-              else if ("content" === t[r] && e instanceof a.GText && i) {
-                var d = e.getTLCore().getRichContent();
-                if (d && d.length) {
-                  var u = e._getGravitValue("fontColor", d[0].fontColor);
+            var s = function (n, GTools, r) {
+              if (n instanceof GCore.GColor) _interopRequireDefault.push(n);
+              else if (n instanceof GCore.GGradient)
+                for (var l = n.getStops(), AppSettings = 0; AppSettings < l.length; ++AppSettings)
+                  _interopRequireDefault.push(l[AppSettings].color);
+              else if ("content" === t[r] && e instanceof GCore.GText && GTools) {
+                var CollaborationMergeUtils = e.getTLCore().getRichContent();
+                if (CollaborationMergeUtils && CollaborationMergeUtils.length) {
+                  var u = e._getGravitValue("fontColor", CollaborationMergeUtils[0].fontColor);
                   s(u, false, r);
                 }
               }
             };
-            s(r, true, i);
+            s(r, true, GTools);
           }
         }
-        o.length &&
-          (n ? this._clearDocumentColors(o) : this._addDocumentColors(o));
+        _interopRequireDefault.length &&
+          (n ? this._clearDocumentColors(_interopRequireDefault) : this._addDocumentColors(_interopRequireDefault));
       }),
       (K.prototype._handlePropertiesChangedForDocumentColorsElement = function (
         e,
         t,
         n,
-        o
+        _interopRequireDefault
       ) {
-        for (var i = [], r = [], s = [], l = 0; l < t.length; ++l) {
-          var c = n.indexOf(t[l]);
-          if (c >= 0) {
-            i.push(c), r.push(t[l]);
-            var d = function (t, o, i) {
-              if (t instanceof a.GColor) s.push(t);
-              else if (t instanceof a.GGradient)
+        for (var GTools = [], r = [], s = [], l = 0; l < t.length; ++l) {
+          var AppSettings = n.indexOf(t[l]);
+          if (AppSettings >= 0) {
+            GTools.push(AppSettings), r.push(t[l]);
+            var CollaborationMergeUtils = function (t, _interopRequireDefault, GTools) {
+              if (t instanceof GCore.GColor) s.push(t);
+              else if (t instanceof GCore.GGradient)
                 for (var r = t.getStops(), l = 0; l < r.length; ++l)
                   s.push(r[l].color);
-              else if ("content" === n[i] && e instanceof a.GText && t && o) {
-                var c = JSON.parse(t);
-                if (c[0] && c[0].fontColor) {
-                  var u = e._getGravitValue("fontColor", c[0].fontColor);
-                  d(u, false, i);
+              else if ("content" === n[GTools] && e instanceof GCore.GText && t && _interopRequireDefault) {
+                var AppSettings = JSON.parse(t);
+                if (AppSettings[0] && AppSettings[0].fontColor) {
+                  var u = e._getGravitValue("fontColor", AppSettings[0].fontColor);
+                  CollaborationMergeUtils(u, false, GTools);
                 }
               }
             };
-            d(o[c], true, c);
+            CollaborationMergeUtils(_interopRequireDefault[AppSettings], true, AppSettings);
           }
         }
         s.length && this._clearDocumentColors(s),
@@ -2443,8 +2443,8 @@ function (exports, module, require) {
       (K.prototype.setSynchronizing = function (e) {
         e !== this._synchronizing &&
           ((this._synchronizing = e),
-          gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.SynchronismUpdated, this)));
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.SynchronismUpdated, this)));
       }),
       (K.prototype.isSynchronizing = function () {
         return this._synchronizing;
@@ -2452,8 +2452,8 @@ function (exports, module, require) {
       (K.prototype.setErrored = function (e) {
         e !== this._errored &&
           ((this._errored = !!e),
-          gDesigner.hasEventListeners(v) &&
-            gDesigner.trigger(new v(v.Type.Modified, this)));
+          gDesigner.hasEventListeners(GDocumentEvent) &&
+            gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, this)));
       }),
       (K.prototype.buildPreview = function () {
         return new Promise((e) => {
@@ -2462,18 +2462,18 @@ function (exports, module, require) {
             null !== require;
             require = require.getNext()
           )
-            if (require instanceof a.GPage) {
+            if (require instanceof GCore.GPage) {
               module = require;
               break;
             }
           if (module) {
-            var o = module._getBitmapPaintArea(),
-              i = l.GBitmapExport.convertSizeToScale(
-                o.getWidth(),
-                o.getHeight(),
-                o.getWidth() > o.getHeight() ? "600w" : "600h"
+            var _interopRequireDefault = module._getBitmapPaintArea(),
+              GTools = l.GBitmapExport.convertSizeToScale(
+                _interopRequireDefault.getWidth(),
+                _interopRequireDefault.getHeight(),
+                _interopRequireDefault.getWidth() > _interopRequireDefault.getHeight() ? "600w" : "600h"
               );
-            module.toBitmap(i.getX(), i.getY(), 2, a.GRGBColor.WHITE).toImageBlob(
+            module.toBitmap(GTools.getX(), GTools.getY(), 2, GCore.GRGBColor.WHITE).toImageBlob(
               "image/jpeg",
               e
             );
@@ -2482,7 +2482,7 @@ function (exports, module, require) {
       }),
       (K.prototype.hasPagesWithInfiniteEmptyCanvas = function () {
         for (var exports = this._scene.getFirstChild(); null !== exports; exports = exports.getNext())
-          if (exports instanceof a.GPage && !exports.getGeometryBBox()) return true;
+          if (exports instanceof GCore.GPage && !exports.getGeometryBBox()) return true;
         return false;
       }),
       (K.prototype.setReservedId = function (e) {
@@ -2499,34 +2499,34 @@ function (exports, module, require) {
       }),
       (K.waitToRendererProcess = W);
     var z,
-      q = Object.keys(a.GShape.GeometryProperties)
-        .concat(Object.keys(a.GShape.MetaProperties))
-        .concat(Object.keys(a.GItem.MetaProperties))
-        .concat(Object.keys(a.GBlock.VisualProperties))
-        .concat(Object.keys(a.GBlock.MetaProperties))
-        .concat(Object.keys(a.GElement.Anchor.MetaProperties));
+      q = Object.keys(GCore.GShape.GeometryProperties)
+        .concat(Object.keys(GCore.GShape.MetaProperties))
+        .concat(Object.keys(GCore.GItem.MetaProperties))
+        .concat(Object.keys(GCore.GBlock.VisualProperties))
+        .concat(Object.keys(GCore.GBlock.MetaProperties))
+        .concat(Object.keys(GCore.GElement.Anchor.MetaProperties));
     function Y(e, t) {
       if (e.constructor !== t.constructor) return false;
-      if (!(e instanceof a.GShape)) return false;
+      if (!(e instanceof GCore.GShape)) return false;
       if (!t.getFirstChild()) return false;
       if (!e.arePropertiesEqual(t, q)) return false;
       var n = t.$ps;
       return (
         (t.$ps = e.getStylePropertySets()),
-        a.GStylable.prototype.equalsStyle.call(e, t)
+        GCore.GStylable.prototype.equalsStyle.call(e, t)
           ? ((t.$ps = n), true)
           : ((t.$ps = n), false)
       );
     }
     function X(e, t) {
-      if (!e.arePropertiesEqual(t, Object.keys(a.GPath.GeometryProperties)))
+      if (!e.arePropertiesEqual(t, Object.keys(GCore.GPath.GeometryProperties)))
         return false;
       for (
-        var require = Object.keys(a.GPathBase.AnchorPoint.GeometryProperties),
-          o = e.getAnchorPoints(),
-          i = t.getAnchorPoints(),
-          r = o.getFirstChild(),
-          s = i.getFirstChild();
+        var require = Object.keys(GCore.GPathBase.AnchorPoint.GeometryProperties),
+          _interopRequireDefault = e.getAnchorPoints(),
+          GTools = t.getAnchorPoints(),
+          r = _interopRequireDefault.getFirstChild(),
+          s = GTools.getFirstChild();
         r && s;
         r = r.getNext(), s = s.getNext()
       )
@@ -2543,7 +2543,7 @@ function (exports, module, require) {
             module = require;
             continue;
           }
-          if (!(module instanceof a.GPath)) {
+          if (!(module instanceof GCore.GPath)) {
             module = require;
             continue;
           }
@@ -2552,8 +2552,8 @@ function (exports, module, require) {
             continue;
           }
           e.removeChild(require), module._blockUpdateChanges();
-          for (var o = require.getFirstChild(); null !== o; o = o.getNext())
-            require.removeChild(o), module.appendChild(o);
+          for (var _interopRequireDefault = require.getFirstChild(); null !== _interopRequireDefault; _interopRequireDefault = _interopRequireDefault.getNext())
+            require.removeChild(_interopRequireDefault), module.appendChild(_interopRequireDefault);
           module._releaseUpdateChanges(), z++;
         } else module = require;
       }
@@ -2564,14 +2564,14 @@ function (exports, module, require) {
       queryFirst: function (e, t) {
         const require = (e, t) => {
           let require,
-            o,
-            i,
-            a,
+            _interopRequireDefault,
+            GTools,
+            GCore,
             r,
             s,
             l,
-            c,
-            d,
+            AppSettings,
+            CollaborationMergeUtils,
             u,
             p,
             g = e.length,
@@ -2581,42 +2581,42 @@ function (exports, module, require) {
           for (
             g > h && ((require = e), (e = t), (t = require)),
               s = new Int8Array(g + 1),
-              o = 0;
-            o <= g;
-            o++
+              _interopRequireDefault = 0;
+            _interopRequireDefault <= g;
+            _interopRequireDefault++
           )
-            s[o] = o;
-          for (o = 1; o <= h; o++) {
-            for (a = o, p = t[o - 1], i = 1; i <= g; i++)
-              p === e[i - 1]
-                ? (r = s[i - 1])
-                : ((l = a + 1),
-                  (c = s[i] + 1),
-                  (d = l - ((l - c) & ((c - l) >> 7))),
-                  (u = s[i - 1] + 1),
-                  (r = d - ((d - u) & ((u - d) >> 7)))),
-                (s[i - 1] = a),
-                (a = r);
-            s[g] = a;
+            s[_interopRequireDefault] = _interopRequireDefault;
+          for (_interopRequireDefault = 1; _interopRequireDefault <= h; _interopRequireDefault++) {
+            for (GCore = _interopRequireDefault, p = t[_interopRequireDefault - 1], GTools = 1; GTools <= g; GTools++)
+              p === e[GTools - 1]
+                ? (r = s[GTools - 1])
+                : ((l = GCore + 1),
+                  (AppSettings = s[GTools] + 1),
+                  (CollaborationMergeUtils = l - ((l - AppSettings) & ((AppSettings - l) >> 7))),
+                  (u = s[GTools - 1] + 1),
+                  (r = CollaborationMergeUtils - ((CollaborationMergeUtils - u) & ((u - CollaborationMergeUtils) >> 7)))),
+                (s[GTools - 1] = GCore),
+                (GCore = r);
+            s[g] = GCore;
           }
           return s[g];
         };
-        var o = 0,
-          i = [];
-        e.fontName && i.push(e.fontName),
-          i.length
-            ? i[0] !== e.fontFamily && i.push(e.fontFamily)
-            : i.push(e.fontFamily);
-        var a = function (r) {
+        var _interopRequireDefault = 0,
+          GTools = [];
+        e.fontName && GTools.push(e.fontName),
+          GTools.length
+            ? GTools[0] !== e.fontFamily && GTools.push(e.fontFamily)
+            : GTools.push(e.fontFamily);
+        var GCore = function (r) {
           var s;
           r.faces.length
             ? ((s = (function (t) {
-                var o = {
+                var _interopRequireDefault = {
                     family: t[0].fonts[0].family || t[0].family,
                     weight: t[0].fonts[0].weight,
                     style: t[0].fonts[0].style,
                   },
-                  i =
+                  GTools =
                     e.fontName ||
                     e.fontFamily ||
                     gDesigner
@@ -2624,49 +2624,49 @@ function (exports, module, require) {
                       .getFontManager()
                       .getDefaultFont()
                       .getFamily(),
-                  a = require(o.family, i),
+                  GCore = require(_interopRequireDefault.family, GTools),
                   r = 0,
-                  s = o.family;
+                  s = _interopRequireDefault.family;
                 for (let e = 0; e < t.length; e++) {
                   var l = t[e];
-                  let o;
+                  let _interopRequireDefault;
                   if (l.families)
-                    for (var c = 0; c < l.families.length; c++)
-                      (o = require(l.families[c], i)),
-                        o < a && ((a = o), (r = e), (s = l.families[c]));
+                    for (var AppSettings = 0; AppSettings < l.families.length; AppSettings++)
+                      (_interopRequireDefault = require(l.families[AppSettings], GTools)),
+                        _interopRequireDefault < GCore && ((GCore = _interopRequireDefault), (r = e), (s = l.families[AppSettings]));
                   else
-                    (o = require(l.family, i)),
-                      o < a && ((a = o), (r = e), (s = l.family));
+                    (_interopRequireDefault = require(l.family, GTools)),
+                      _interopRequireDefault < GCore && ((GCore = _interopRequireDefault), (r = e), (s = l.family));
                 }
-                o = null;
-                var d = t[r];
-                for (let t = 0; t < d.fonts.length; t++) {
-                  var u = d.fonts[t];
+                _interopRequireDefault = null;
+                var CollaborationMergeUtils = t[r];
+                for (let t = 0; t < CollaborationMergeUtils.fonts.length; t++) {
+                  var u = CollaborationMergeUtils.fonts[t];
                   if (!u.family || u.family === s) {
                     if (u.style === e.fontStyle && u.weight === e.fontWeight) {
-                      o = {
-                        family: u.family || d.family,
+                      _interopRequireDefault = {
+                        family: u.family || CollaborationMergeUtils.family,
                         weight: u.weight,
                         style: u.style,
                       };
                       break;
                     }
-                    o ||
-                      (o = {
-                        family: u.family || d.family,
+                    _interopRequireDefault ||
+                      (_interopRequireDefault = {
+                        family: u.family || CollaborationMergeUtils.family,
                         weight: u.weight,
                         style: u.style,
                       });
                   }
                 }
-                return o;
+                return _interopRequireDefault;
               })(r.faces)),
               t(s))
-            : o < i.length - 1
-            ? (o++, setTimeout(() => G.getInstance().query(a, i[o])))
+            : _interopRequireDefault < GTools.length - 1
+            ? (_interopRequireDefault++, setTimeout(() => barrel_sidebars.getInstance().query(GCore, GTools[_interopRequireDefault])))
             : t(null);
         };
-        G.getInstance().query(a, i[o]);
+        barrel_sidebars.getInstance().query(GCore, GTools[_interopRequireDefault]);
       },
     };
     exports.exports = K;

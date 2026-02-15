@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i() {}
     (i.DefaultStops = {
       Hue: function (e) {
-        return o.GColor.hsvToRGB([e, 1, 1]);
+        return GCore.GColor.hsvToRGB([e, 1, 1]);
       },
       Saturation: function (e) {
         return function (t) {
-          return o.GColor.hsvToRGB([e, t / 100, 1]);
+          return GCore.GColor.hsvToRGB([e, t / 100, 1]);
         };
       },
       Luminosity: function (e) {
-        return o.GColor.hsvToRGB([0, 0, e / 100]);
+        return GCore.GColor.hsvToRGB([0, 0, e / 100]);
       },
     }),
       (exports.exports = i);
@@ -37,7 +37,7 @@ function (exports, module, require) {
               var r = e.stops.call(null, require);
               (require += 20),
                 module && (module += ","),
-                (module += o.GColor.rgbToHtmlHex(r) + " " + (require / i) * 100 + "%");
+                (module += GCore.GColor.rgbToHtmlHex(r) + " " + (require / i) * 100 + "%");
             }
             (e.background = "linear-gradient(90deg," + module + ")"),
               $(this).gInputSlider(e);

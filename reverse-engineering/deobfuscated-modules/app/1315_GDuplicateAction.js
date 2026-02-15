@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "edit.duplicate"),
-      (s.TITLE = new o.GLocaleKey("GDuplicateAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GDuplicateAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,22 +22,22 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (s.prototype.getGroup = function () {
         return "ccp";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "D"];
+        return [GEditor.GKey.Constant.META, "D"];
       }),
       (s.prototype.getIcon = function () {
         return gDesigner.isTouchEnabled() ? "gravit-icon-duplicate" : null;
       }),
       (s.prototype.getAdditionalShortcuts = function () {
-        return [[i.GKey.Constant.SHIFT, i.GKey.Constant.META, "D"]];
+        return [[GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "D"]];
       }),
       (s.prototype.isEnabled = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         return e && null != e.getEditor().getSelection();
       }),
@@ -47,7 +47,7 @@ function (exports, module, require) {
         try {
           e.cloneSelection(false, true);
         } finally {
-          e.commitTransaction(o.GLocale.get(this.getTitle()));
+          e.commitTransaction(GCore.GLocale.get(this.getTitle()));
         }
       }),
       (s.prototype.toString = function () {

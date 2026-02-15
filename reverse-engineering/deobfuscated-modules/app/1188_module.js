@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i() {}
     (i.CheckingForUpdate = function () {
       let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       this.isSilent = exports.isSilent;
     }),
-      o.GObject.inherit(i.CheckingForUpdate, o.GEvent),
+      GCore.GObject.inherit(i.CheckingForUpdate, GCore.GEvent),
       (i.InstallUpdate = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         this.isSilent = exports.isSilent;
       }),
-      o.GObject.inherit(i.InstallUpdate, o.GEvent),
+      GCore.GObject.inherit(i.InstallUpdate, GCore.GEvent),
       (i.UpdateAvailable = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -27,13 +27,13 @@ function (exports, module, require) {
           (this.forceUpdate = exports.forceUpdate),
           (this.isSilent = exports.isSilent);
       }),
-      o.GObject.inherit(i.UpdateAvailable, o.GEvent),
+      GCore.GObject.inherit(i.UpdateAvailable, GCore.GEvent),
       (i.UpdateError = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         (this.error = exports.error), (this.isSilent = exports.isSilent);
       }),
-      o.GObject.inherit(i.UpdateError, o.GEvent),
+      GCore.GObject.inherit(i.UpdateError, GCore.GEvent),
       (i.Downloading = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -42,7 +42,7 @@ function (exports, module, require) {
           (this.newVersion = exports.newVersion),
           (this.isSilent = exports.isSilent);
       }),
-      o.GObject.inherit(i.Downloading, o.GEvent),
+      GCore.GObject.inherit(i.Downloading, GCore.GEvent),
       (i.DownloadComplete = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -50,24 +50,24 @@ function (exports, module, require) {
           (this.forceUpdate = exports.forceUpdate),
           (this.isSilent = exports.isSilent);
       }),
-      o.GObject.inherit(i.DownloadComplete, o.GEvent),
+      GCore.GObject.inherit(i.DownloadComplete, GCore.GEvent),
       (i.AfterUpdate = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         (this.currentVersion = exports.currentVersion), (this.isSilent = exports.isSilent);
       }),
-      o.GObject.inherit(i.AfterUpdate, o.GEvent),
+      GCore.GObject.inherit(i.AfterUpdate, GCore.GEvent),
       (i.UpdateNotAvailable = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         (this.currentVersion = exports.currentVersion), (this.isSilent = exports.isSilent);
       }),
-      o.GObject.inherit(i.UpdateNotAvailable, o.GEvent),
+      GCore.GObject.inherit(i.UpdateNotAvailable, GCore.GEvent),
       (i.BeforeInstallUpdate = function () {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         this.isSilent = exports.isSilent;
       }),
-      o.GObject.inherit(i.BeforeInstallUpdate, o.GEvent),
+      GCore.GObject.inherit(i.BeforeInstallUpdate, GCore.GEvent),
       (exports.exports = i);
   }

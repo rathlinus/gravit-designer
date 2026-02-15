@@ -17,28 +17,28 @@ function (exports, module, require) {
           o = new WeakMap();
       return (function (e, t) {
         if (!t && e && e.__esModule) return e;
-        var i,
+        var AppSettings,
           a,
           r = { __proto__: null, default: e };
         if (null === e || ("object" != typeof e && "function" != typeof e))
           return r;
-        if ((i = t ? o : require)) {
-          if (i.has(e)) return i.get(e);
-          i.set(e, r);
+        if ((AppSettings = t ? o : require)) {
+          if (AppSettings.has(e)) return AppSettings.get(e);
+          AppSettings.set(e, r);
         }
         for (const t in e)
           "default" !== t &&
             {}.hasOwnProperty.call(e, t) &&
             ((a =
-              (i = Object.defineProperty) &&
+              (AppSettings = Object.defineProperty) &&
               Object.getOwnPropertyDescriptor(e, t)) &&
             (a.get || a.set)
-              ? i(r, t, a)
+              ? AppSettings(r, t, a)
               : (r[t] = e[t]));
         return r;
       })(e, t);
     })(require(1480) /* Action_id */);
-    const i = require(10) /* AppSettings */;
+    const AppSettings = require(10) /* AppSettings */;
     let a = false,
       r = false,
       s = null;
@@ -70,14 +70,14 @@ function (exports, module, require) {
       isExecutingOnChannelOrChatSingletonPromise: () => r,
       initTeams: () => {
         if (s) return Promise.resolve();
-        const exports = i.msTeamsMode ? 15e3 : 0;
+        const exports = AppSettings.msTeamsMode ? 15e3 : 0;
         return new Promise((t, n) => {
-          const i = setTimeout(() => {
+          const AppSettings = setTimeout(() => {
             n();
           }, exports);
           o.initialize(() => {
             o.getContext((e) => {
-              (s = e), clearTimeout(i), t();
+              (s = e), clearTimeout(AppSettings), t();
             });
           });
         });

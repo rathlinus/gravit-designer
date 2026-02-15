@@ -7,9 +7,9 @@ function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(26) /* polyfill_DOMCollection_iterator */;
     require(53) /* module */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(40) /* CollaborationMergeUtils */, require(67) /* GRichTooltipConfig */, require(1351) /* module_1351 */),
-      a = require(451) /* IdxIterator */.GVirtualTree,
+      IdxIterator = require(451) /* IdxIterator */.GVirtualTree,
       r = (require(451) /* IdxIterator */.GVirtualTreeNode, require(451) /* IdxIterator */.GVirtualTreeNodeNamed),
       { VTREE_FREE_HEIGHT: s } = require(10) /* AppSettings */;
     require(173) /* stub_requires_1 */, require(450) /* module_450 */;
@@ -18,8 +18,8 @@ function (exports, module, require) {
       var t = $(this).data("gselectedpanel"),
         n = $(this).data("gselectedpanel").vtree;
       if (t.options.clickCallback) {
-        var o = g.call(this, e.id);
-        t.options.clickCallback(o);
+        var GCore = g.call(this, e.id);
+        t.options.clickCallback(GCore);
       }
       n.requestInvalidation();
     }
@@ -27,8 +27,8 @@ function (exports, module, require) {
       var t = g.call(this, e.id);
       t &&
         (e.expanded
-          ? t.setFlag(o.GNode.Flag.Expanded)
-          : t.removeFlag(o.GNode.Flag.Expanded));
+          ? t.setFlag(GCore.GNode.Flag.Expanded)
+          : t.removeFlag(GCore.GNode.Flag.Expanded));
     }
     function u(e, t) {
       var n = $(this).data("gselectedpanel");
@@ -36,9 +36,9 @@ function (exports, module, require) {
     }
     function p(e) {
       var t = $(this);
-      e.id === a.COLLAPSE_ID
+      e.id === IdxIterator.COLLAPSE_ID
         ? $(e).addClass(t.data("gselectedpanel").options.collapseStyle)
-        : e.id === a.EXPAND_ID &&
+        : e.id === IdxIterator.EXPAND_ID &&
           $(e).addClass(t.data("gselectedpanel").options.expandStyle);
     }
     function g(e) {
@@ -50,17 +50,17 @@ function (exports, module, require) {
     }
     function f(e, t, n) {
       $(this).data("glayerpanel");
-      var o = h.call(this, e),
-        a = o ? o.node : null;
-      if (a) {
-        var { hasSelection: r } = (0, i.getLayerOrItemStatus)(a),
-          { titleGroup: s } = (0, i.buildLayerItemContainer)(n, a, r, t);
-        o.element = s;
+      var GCore = h.call(this, e),
+        IdxIterator = GCore ? GCore.node : null;
+      if (IdxIterator) {
+        var { hasSelection: r } = (0, i.getLayerOrItemStatus)(IdxIterator),
+          { titleGroup: s } = (0, i.buildLayerItemContainer)(n, IdxIterator, r, t);
+        GCore.element = s;
       }
     }
     function m(e, t, n) {
-      var { newNode: o, vtree: i } = y.call(this, e, n);
-      return i.appendNode(t, o), o;
+      var { newNode: GCore, vtree: i } = y.call(this, e, n);
+      return i.appendNode(t, GCore), GCore;
     }
     function y(e, t) {
       return {
@@ -76,30 +76,30 @@ function (exports, module, require) {
         var {
             elementHits: require,
             filteredElementHits: i,
-            submenus: a,
+            submenus: IdxIterator,
           } = e.selections,
-          r = (t, n, o) => {
-            (e.layersTreeNodeMap[o] = { element: null, node: n, treeNode: t }),
+          r = (t, n, GCore) => {
+            (e.layersTreeNodeMap[GCore] = { element: null, node: n, treeNode: t }),
               e.layersTreeNodeMapByNodes.set(n, {
                 element: null,
                 treeNode: t,
-                treeId: o,
+                treeId: GCore,
               });
           },
           s = 0;
         s < i.length;
         s++
       ) {
-        var l = o.GUtil.uuid(),
+        var l = GCore.GUtil.uuid(),
           c = i[s].element,
           d =
-            (c instanceof o.GBlock ? c.getLabel() : c.getNodeNameTranslated(),
+            (c instanceof GCore.GBlock ? c.getLabel() : c.getNodeNameTranslated(),
             "temp-" + require.indexOf(i[s]));
-        if (a[d]) {
+        if (IdxIterator[d]) {
           r((p = m.call(this, l, null, true)), c, l);
-          for (let e = 0; e < a[d].length; e++) {
-            var u = o.GUtil.uuid();
-            r(m.call(this, u, p, false), a[d][e], u);
+          for (let e = 0; e < IdxIterator[d].length; e++) {
+            var u = GCore.GUtil.uuid();
+            r(m.call(this, u, p, false), IdxIterator[d][e], u);
           }
         } else {
           var p;
@@ -114,7 +114,7 @@ function (exports, module, require) {
         (e.layersTreeNodeMap = {}),
         (e.layersTreeNodeMapByNodes = new Map());
     }
-    o.GObject.inheritAndMix(l, o.GObject);
+    GCore.GObject.inheritAndMix(l, GCore.GObject);
     var b = {
       init: function (e) {
         return (
@@ -147,7 +147,7 @@ function (exports, module, require) {
             $(this)
               .addClass("g-selected-panel")
               .data("gselectedpanel", {
-                vtree: new a(
+                vtree: new IdxIterator(
                   this,
                   u.bind(this),
                   e.nodeStyle,

@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */,
       require(168) /* polyfill_Array_reduce */,
       require(328) /* polyfill_Array_sort */,
@@ -36,29 +36,29 @@ function (exports, module, require) {
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(1) /* module */,
+    var GCore = require(1) /* module */,
       a = require(1546) /* module_1546 */,
-      r = require(40) /* CollaborationMergeUtils */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       s = require(1154) /* module_1154 */,
       l = require(1552) /* Exports_GGoogleDrive */,
-      c = require(862) /* Exports_TYPES */,
+      TYPES = require(862) /* Exports_TYPES */,
       d = require(858) /* Exports_GFilesPanel */,
-      u = o(require(1556) /* module_1556 */),
-      p = o(require(86) /* module_86 */),
-      g = o(require(119) /* module_119 */),
-      h = o(require(802) /* CloudException */),
-      f = o(require(1240) /* module_1240 */),
-      m = o(require(445) /* GSaveAsAction */),
-      y = o(require(44) /* GSystemDialog */),
-      v = o(require(355) /* module_355 */),
-      _ = require(10) /* AppSettings */,
-      b = require(519) /* AppSettings */,
-      w = o(require(1557) /* module_1557 */);
+      u = _interopRequireDefault(require(1556) /* module_1556 */),
+      p = _interopRequireDefault(require(86) /* module_86 */),
+      g = _interopRequireDefault(require(119) /* module_119 */),
+      h = _interopRequireDefault(require(802) /* CloudException */),
+      f = _interopRequireDefault(require(1240) /* module_1240 */),
+      GSaveAsAction = _interopRequireDefault(require(445) /* GSaveAsAction */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+      v = _interopRequireDefault(require(355) /* module_355 */),
+      AppSettings = require(10) /* AppSettings */,
+      AppSettings2 = require(519) /* AppSettings */,
+      w = _interopRequireDefault(require(1557) /* module_1557 */);
     const C = require(156) /* module_156 */,
-      x = require(78) /* GDocumentEvent */;
-    var S = _.CloudIntegration.cloudOptions,
-      E = _.CloudIntegration.nativeOption,
-      A = [..._.CloudIntegration.cloudOptions, _.CloudIntegration.nativeOption];
+      GDocumentEvent = require(78) /* GDocumentEvent */;
+    var S = AppSettings.CloudIntegration.cloudOptions,
+      E = AppSettings.CloudIntegration.nativeOption,
+      A = [..._.CloudIntegration.cloudOptions, AppSettings.CloudIntegration.nativeOption];
     function T(e) {
       this._initializeDefaultValues(e),
         (this._initializingPromise = this._init(e));
@@ -73,7 +73,7 @@ function (exports, module, require) {
       (T.DriveAccountsSettingName = "designer.filespanel.cloud-accounts"),
       (T.DriveAccountsActiveSettingsName =
         "designer.filespanel.cloud-accounts.active"),
-      i.GObject.inherit(T, i.GObject),
+      GCore.GObject.inherit(T, GCore.GObject),
       (T.prototype._showEmptyPanel = false),
       (T.prototype._hasFolders = false),
       (T.prototype._showRecentFiles = false),
@@ -82,19 +82,19 @@ function (exports, module, require) {
       (T.prototype._initializeDefaultValues = function (e) {
         var t = this;
         let {
-          closeCallback: require = r.fakeFunction,
-          documentToSave: o,
-          cancelSave: i = r.fakeFunction,
+          closeCallback: require = CollaborationMergeUtils.fakeFunction,
+          documentToSave: _interopRequireDefault,
+          cancelSave: GCore = CollaborationMergeUtils.fakeFunction,
           defaultFilename: a,
           readyStateChange: s,
           showExampleFiles: l,
-          GUISettings: c,
+          GUISettings: TYPES,
           saveMode: u,
           driveSettings: p = null,
           isDashboard: g,
           isCorporateStoragesEnabled: h = true,
         } = e;
-        (this._GUISettings = c || new T.GUISettings()),
+        (this._GUISettings = TYPES || new T.GUISettings()),
           (this._driveSettings = p || new f.default()),
           (this.SELECTION = []),
           (this.TEMP_SELECTION = []),
@@ -108,27 +108,27 @@ function (exports, module, require) {
           (this._isDashboard = g),
           (this._isCorporateStoragesEnabled = h),
           (this.readyStateChange = s),
-          (this.search = (0, r.debounce)(this.search, 200));
-        var m = (e) =>
+          (this.search = (0, CollaborationMergeUtils.debounce)(this.search, 200));
+        var GSaveAsAction = (e) =>
           function () {
             t._removeEventListeners(), e(...arguments);
           };
-        (this._onCancelSaveCallback = i && m(i)),
-          (this._onCloseCallback = require && m(require)),
-          (this._documentToSave = o),
+        (this._onCancelSaveCallback = GCore && GSaveAsAction(GCore)),
+          (this._onCloseCallback = require && GSaveAsAction(require)),
+          (this._documentToSave = _interopRequireDefault),
           (this._isSaveMode = u || this._documentToSave);
       }),
       (T.prototype._init = async function (e) {
-        let { parentComponent: module, nativeCloud: require, initCallback: o } = e;
+        let { parentComponent: module, nativeCloud: require, initCallback: _interopRequireDefault } = e;
         return (
           (this.USER = await gDesigner.getUser()),
           (this.panel = $("<div/>").addClass("g-files-panel").appendTo(module)),
           this.initLayout(require)
             .then(() => {
-              o && o();
+              _interopRequireDefault && _interopRequireDefault();
             })
             .catch((e) => {
-              o && o(e);
+              _interopRequireDefault && _interopRequireDefault(e);
             })
         );
       }),
@@ -167,14 +167,14 @@ function (exports, module, require) {
         var t = this;
         let require = await gContainer.getProperty(T.DriveAccountsActiveSettingsName);
         return (async function (n) {
-          let o,
-            i = true;
+          let _interopRequireDefault,
+            GCore = true;
           await t.updateCloudSettings(),
             e
-              ? ((i = false), (o = E))
-              : (n && (o = t.getCloudSettingsById(n)), o || (o = E));
+              ? ((GCore = false), (_interopRequireDefault = E))
+              : (n && (_interopRequireDefault = t.getCloudSettingsById(n)), _interopRequireDefault || (_interopRequireDefault = E));
           try {
-            await t.setCloudDrive(o, i);
+            await t.setCloudDrive(_interopRequireDefault, GCore);
           } catch (e) {
             await t.setCloudDrive(E);
           }
@@ -187,16 +187,16 @@ function (exports, module, require) {
         var n = this;
         return gContainer
           .getProperty(n.accountSettingsKey)
-          .then(async function (o) {
-            let i,
-              a = o ? n._stringToSettings(o) : [];
+          .then(async function (_interopRequireDefault) {
+            let GCore,
+              a = _interopRequireDefault ? n._stringToSettings(_interopRequireDefault) : [];
             a instanceof Array || (a = []);
             for (let t = 0, n = a.length; t < n; t++)
               if (a[t].id === e) {
-                i = t;
+                GCore = t;
                 break;
               }
-            i > -1 && (a[i].name = t),
+            GCore > -1 && (a[GCore].name = t),
               gContainer.setProperty(
                 n.accountSettingsKey,
                 n._settingsToString(a)
@@ -211,15 +211,15 @@ function (exports, module, require) {
         return gContainer
           .getProperty(t.accountSettingsKey)
           .then(function (n) {
-            let o = n ? t._stringToSettings(n) : [];
+            let _interopRequireDefault = n ? t._stringToSettings(n) : [];
             return (
-              o instanceof Array || (o = []),
+              _interopRequireDefault instanceof Array || (_interopRequireDefault = []),
               (e.id = new Date().getTime()),
               (e.deletable = true),
-              o.push(e),
+              _interopRequireDefault.push(e),
               gContainer.setProperty(
                 t.accountSettingsKey,
-                t._settingsToString(o)
+                t._settingsToString(_interopRequireDefault)
               ),
               t.updateCloudSettings()
             );
@@ -231,19 +231,19 @@ function (exports, module, require) {
         return gContainer
           .getProperty(t.accountSettingsKey)
           .then(async function (n) {
-            let o,
-              i = n ? t._stringToSettings(n) : [];
-            i instanceof Array || (i = []);
-            for (let t = 0, n = i.length; t < n; t++)
-              if (i[t].id === e.id) {
-                o = t;
+            let _interopRequireDefault,
+              GCore = n ? t._stringToSettings(n) : [];
+            GCore instanceof Array || (GCore = []);
+            for (let t = 0, n = GCore.length; t < n; t++)
+              if (GCore[t].id === e.id) {
+                _interopRequireDefault = t;
                 break;
               }
-            o > -1 && i.splice(o, 1),
-              i.length > 0
+            _interopRequireDefault > -1 && GCore.splice(_interopRequireDefault, 1),
+              GCore.length > 0
                 ? gContainer.setProperty(
                     t.accountSettingsKey,
-                    t._settingsToString(i)
+                    t._settingsToString(GCore)
                   )
                 : gContainer.removeProperty(t.accountSettingsKey);
             try {
@@ -264,37 +264,37 @@ function (exports, module, require) {
         let require = false;
         gDesigner.stats("filespanel_create_cloudfolder"),
           this.view.toggleLoading(true);
-        let o = 0;
-        const a = (r) => {
-          if ((o++, o > b.MAX_FOLDER_DEPTH_FOR_CLOUD))
+        let _interopRequireDefault = 0;
+        const a = (CollaborationMergeUtils) => {
+          if ((_interopRequireDefault++, _interopRequireDefault > AppSettings2.MAX_FOLDER_DEPTH_FOR_CLOUD))
             return (
               (require = false),
               t.view.toggleLoading(false),
-              void y.default.alert(
-                i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanel", "text.error-creating-folder")
+              void GSystemDialog.default.alert(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanel", "text.error-creating-folder")
                 )
               )
             );
           let s = {};
           t.drive.hasTitleValidation() && (s = t.drive.getTitleValidator()),
             new u.default(
-              async function (o) {
+              async function (_interopRequireDefault) {
                 if (
-                  ((o = o.trim()),
+                  ((_interopRequireDefault = _interopRequireDefault.trim()),
                   t.view.toggleLoading(true),
                   t.drive.supportsSaveCollisionFlow())
                 ) {
                   if (
                     (await t.drive.folderExists(
-                      o,
+                      _interopRequireDefault,
                       t.drive.getCurrentFolder()
                     )) &&
-                    !(await ((l = o),
+                    !(await ((l = _interopRequireDefault),
                     new Promise((e) => {
-                      y.default.confirm(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                      GSystemDialog.default.confirm(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GFilesPanel",
                             "text.folder-already-exists-on-current-location"
                           )
@@ -308,37 +308,37 @@ function (exports, module, require) {
                       );
                     })))
                   )
-                    return a(o);
+                    return a(_interopRequireDefault);
                   if (t.drive.requiresOverwriteCollisionHandling()) {
                     for (
-                      var r = 0, s = o;
+                      var CollaborationMergeUtils = 0, s = _interopRequireDefault;
                       await t.drive.folderExists(s, t.drive.getCurrentFolder());
 
                     )
-                      s = "".concat(o, " (").concat(++r, ")");
-                    o = s;
+                      s = "".concat(_interopRequireDefault, " (").concat(++CollaborationMergeUtils, ")");
+                    _interopRequireDefault = s;
                   }
                 }
                 var l;
                 (require = true),
                   t.drive
-                    .createFolder(o)
+                    .createFolder(_interopRequireDefault)
                     .then(() => {
                       t.view.toggleLoading(false), e ? e() : t.updateFilesList();
                     })
                     .catch((e) => {
                       if ((t.view.toggleLoading(false), e && e.badName))
                         return (
-                          y.default.alert(e.message),
+                          GSystemDialog.default.alert(e.message),
                           setTimeout(() => {
-                            a(o);
+                            a(_interopRequireDefault);
                           })
                         );
                       (require = false),
                         console.error(e),
-                        y.default.alert(
-                          i.GLocale.get(
-                            new i.GLocaleKey(
+                        GSystemDialog.default.alert(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GFilesPanel",
                               "text.error-creating-folder"
                             )
@@ -350,7 +350,7 @@ function (exports, module, require) {
                 require || t.view.toggleLoading(false);
               },
               "primary",
-              r,
+              CollaborationMergeUtils,
               s
             ).open();
         };
@@ -385,16 +385,16 @@ function (exports, module, require) {
         );
         var e = this;
         return (
-          y.default.confirm(
-            i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "text.delete-confirm")
+          GSystemDialog.default.confirm(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "text.delete-confirm")
             ),
             function (t) {
               t && e.deleteSelection();
             }.bind(this),
             null,
-            i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.delete-button")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.delete-button")
             ),
             false,
             true,
@@ -414,11 +414,11 @@ function (exports, module, require) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         t || (t = this.getDefaultExtensionForSave());
-        const o = (e) =>
+        const _interopRequireDefault = (e) =>
           new Promise((t) => {
-            y.default.confirm(
-              i.GLocale.get(
-                new i.GLocaleKey(
+            GSystemDialog.default.confirm(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFilesPanel",
                   "text.file-already-exists-on-current-location"
                 )
@@ -434,7 +434,7 @@ function (exports, module, require) {
         if (
           (this.view.toggleLoading(true),
           gDesigner.stats("filespanel_save_cloudfile", t),
-          (e = (0, r.removeAllSuffixWhichLikeExtension)(e, t)).trim())
+          (e = (0, CollaborationMergeUtils.removeAllSuffixWhichLikeExtension)(e, t)).trim())
         ) {
           try {
             if (this.drive.supportsSaveCollisionFlow()) {
@@ -444,7 +444,7 @@ function (exports, module, require) {
                   t,
                   this.drive.getCurrentFolder()
                 )) &&
-                !(await o(e))
+                !(await _interopRequireDefault(e))
               )
                 return (
                   this.view.toggleLoading(false),
@@ -468,28 +468,28 @@ function (exports, module, require) {
           } catch (e) {
             if (e && e.badName)
               return (
-                this.view.toggleLoading(false), void y.default.alert(e.message)
+                this.view.toggleLoading(false), void GSystemDialog.default.alert(e.message)
               );
             this.getDocumentToSave() &&
               gDesigner.trigger(
-                new x(x.Type.SynchronismUpdateFailed, this.getDocumentToSave())
+                new GDocumentEvent(GDocumentEvent.Type.SynchronismUpdateFailed, this.getDocumentToSave())
               );
-            let t = i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "text.error-saving-file")
+            let t = GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "text.error-saving-file")
             );
             e && e.message && e.dontExtend
               ? (t = e.message)
               : e && e.message
               ? (t = "".concat(t, "<br />").concat(e.message))
               : e && (t = "".concat(t, "<br />").concat(e)),
-              y.default.alert(t),
+              GSystemDialog.default.alert(t),
               console.error(e);
           }
           this._onCloseCallback(true);
         } else
-          y.default.alert(
-            i.GLocale.get(
-              new i.GLocaleKey(
+          GSystemDialog.default.alert(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GFilesPanel",
                 "text.please-inform-valid-file-name"
               )
@@ -497,8 +497,8 @@ function (exports, module, require) {
             () => {
               this.view.toggleLoading(false),
                 this.view.focusFileNameInput({
-                  name: i.GLocale.get(
-                    new i.GLocaleKey("GFilesPanel", "text.untitled")
+                  name: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GFilesPanel", "text.untitled")
                   ),
                 });
             }
@@ -566,7 +566,7 @@ function (exports, module, require) {
         gDesigner.stats("filespanel_download_file", e),
           this._onCancelSaveCallback(),
           gDesigner.executeAction(
-            "".concat(m.default.ID, ".").concat(e.toLowerCase()),
+            "".concat(GSaveAsAction.default.ID, ".").concat(e.toLowerCase()),
             [null, null, null, t, n],
             undefined,
             true
@@ -575,7 +575,7 @@ function (exports, module, require) {
       (T.prototype.handleDownload = function () {
         return (
           gDesigner.stats("filespanel_download_multiple-files"),
-          this.downloadSelectedFiles(c.DEFAULT_TYPE),
+          this.downloadSelectedFiles(TYPES.DEFAULT_TYPE),
           this
         );
       }),
@@ -610,13 +610,13 @@ function (exports, module, require) {
             this._triggerFileOpen(e), this._onCloseCallback();
           } catch (e) {
             console.log(e.stack),
-              y.default.alert(e.message),
+              GSystemDialog.default.alert(e.message),
               this.updateFilesList();
           }
         else
-          y.default.alert(
-            i.GLocale.get(
-              new i.GLocaleKey(
+          GSystemDialog.default.alert(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GFilesPanel",
                 "text.file-can-not-be-accessed-missing-permissions"
               )
@@ -649,14 +649,14 @@ function (exports, module, require) {
       (T.prototype._getFullPathNames = function (e) {
         var t = this.drive.getFolders(),
           n = [e.name];
-        let o, i;
+        let _interopRequireDefault, GCore;
         if (!t) return n;
-        for (; e.parent && ((i = t[e.parent]), i) && ((o = i.folder), o.name); )
-          n.unshift(o.name), (e = o);
+        for (; e.parent && ((GCore = t[e.parent]), GCore) && ((_interopRequireDefault = GCore.folder), _interopRequireDefault.name); )
+          n.unshift(_interopRequireDefault.name), (e = _interopRequireDefault);
         return n;
       }),
-      (T.prototype.addFile = function (e, t, n, o) {
-        this.view.addFile(this.updateCloudItemForUserPermission(e), t, n, o);
+      (T.prototype.addFile = function (e, t, n, _interopRequireDefault) {
+        this.view.addFile(this.updateCloudItemForUserPermission(e), t, n, _interopRequireDefault);
       }),
       (T.prototype._convertBlob = function (e, t, n) {
         return Promise.resolve(e);
@@ -664,26 +664,26 @@ function (exports, module, require) {
       (T.prototype.downloadFile = function (e, t) {
         let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {},
-          o = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
-        if (o) {
+          _interopRequireDefault = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
+        if (_interopRequireDefault) {
           if (!(t = this.drive.getFileFormat(e)))
             return u(
               Promise.reject(
-                i.GLocale.get(
-                  new i.GLocaleKey("GCommonNames", "text.file-not-supported")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.file-not-supported")
                 )
               )
             );
-        } else t || (t = this.drive.getFileFormat(e) || c.DEFAULT_TYPE);
-        var { ext: a, type: r, mime: s, version: l } = t;
-        r = r || s;
-        const d = this._triggerFileDownload(e, require, a, r, l);
+        } else t || (t = this.drive.getFileFormat(e) || TYPES.DEFAULT_TYPE);
+        var { ext: a, type: CollaborationMergeUtils, mime: s, version: l } = t;
+        CollaborationMergeUtils = CollaborationMergeUtils || s;
+        const d = this._triggerFileDownload(e, require, a, CollaborationMergeUtils, l);
         function u(t) {
           return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
         }
         return u(d);
       }),
-      (T.prototype._triggerFileDownload = function (e, t, n, o, i) {
+      (T.prototype._triggerFileDownload = function (e, t, n, _interopRequireDefault, GCore) {
         const a = new AbortController(),
           l = a.signal;
         return (
@@ -694,18 +694,18 @@ function (exports, module, require) {
               let d,
                 u = l;
               if (
-                ((t.cancel = (0, r.chaining)(t.cancel, () => a.abort())),
-                e.type !== o
+                ((t.cancel = (0, CollaborationMergeUtils.chaining)(t.cancel, () => a.abort())),
+                e.type !== _interopRequireDefault
                   ? ((u = await this._convertBlob(
                       u,
-                      { ext: n, type: o, version: i },
+                      { ext: n, type: _interopRequireDefault, version: GCore },
                       t
                     ).catch((e) => (d = e || true))),
                     u ||
                       (d = new Error(
                         "Unsupported mime type: #".concat(e.type)
                       )))
-                  : o === c.DEFAULT_TYPE.type &&
+                  : _interopRequireDefault === TYPES.DEFAULT_TYPE.type &&
                     ((u = await this._repackNativeBlob(u, t).catch(
                       (e) => (d = e || true)
                     )),
@@ -721,10 +721,10 @@ function (exports, module, require) {
               }
               {
                 t.done && t.done();
-                let i = e.name || l.name;
-                i.endsWith(".".concat(n)) &&
-                  (i = i.replace(new RegExp(".".concat(n, "$")), "")),
-                  (0, s.downloadDataURI)(u, i, n, { type: o });
+                let GCore = e.name || l.name;
+                GCore.endsWith(".".concat(n)) &&
+                  (GCore = GCore.replace(new RegExp(".".concat(n, "$")), "")),
+                  (0, s.downloadDataURI)(u, GCore, n, { type: _interopRequireDefault });
               }
             })
             .catch((e) => {
@@ -738,27 +738,27 @@ function (exports, module, require) {
       (T.prototype._repackNativeBlob = function (e) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        return new Promise(async (n, o) => {
+        return new Promise(async (n, _interopRequireDefault) => {
           const a = new FileReader();
           (a.onload = async function () {
             const e = new Uint8Array(this.result),
-              a = i.GNode.deserialize(
+              a = GCore.GNode.deserialize(
                 g.default.unzipData(e),
                 gDesigner.getWorkspace()
               );
             var s = { cancelled: false };
-            (module.cancel = (0, r.chaining)(module.cancel, () => (s.cancelled = true))),
-              await (0, r.resolveDocumentImages)(
+            (module.cancel = (0, CollaborationMergeUtils.chaining)(module.cancel, () => (s.cancelled = true))),
+              await (0, CollaborationMergeUtils.resolveDocumentImages)(
                 a,
                 T.IMAGES_WAIT_TIMEOUT,
                 s
               ).catch(() => {
                 s.cancelled
-                  ? o()
-                  : o(
+                  ? _interopRequireDefault()
+                  : _interopRequireDefault(
                       new Error(
-                        i.GLocale.get(
-                          new i.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GCommonNames",
                             "text.file-no-images-cannot-be-processed"
                           )
@@ -766,12 +766,12 @@ function (exports, module, require) {
                       )
                     );
               });
-            var l = i.GNode.serialize(a, { save: true });
-            (null === l || "" === l || l.length < 1 || s.cancelled) && o();
-            var c = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
-            c.byteLength > 20 ? n(c) : o();
+            var l = GCore.GNode.serialize(a, { save: true });
+            (null === l || "" === l || l.length < 1 || s.cancelled) && _interopRequireDefault();
+            var TYPES = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
+            TYPES.byteLength > 20 ? n(TYPES) : _interopRequireDefault();
           }),
-            (a.onerror = o),
+            (a.onerror = _interopRequireDefault),
             a.readAsArrayBuffer(e);
         });
       }),
@@ -779,11 +779,11 @@ function (exports, module, require) {
         let { ext: exports, type: module } =
             arguments.length > 0 && undefined !== arguments[0]
               ? arguments[0]
-              : c.DEFAULT_TYPE,
+              : TYPES.DEFAULT_TYPE,
           require = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
-          o = arguments.length > 2 ? arguments[2] : undefined;
+          _interopRequireDefault = arguments.length > 2 ? arguments[2] : undefined;
         if (this.SELECTION.length < 1) return;
-        const i = await Promise.all(
+        const GCore = await Promise.all(
             this.SELECTION.map(
               async (e) =>
                 this.drive.isFileSupported(e) &&
@@ -794,37 +794,37 @@ function (exports, module, require) {
                   ))
             )
           ),
-          a = this.SELECTION.filter((e, t) => !!i[t]);
-        await this._triggerSelectedFilesDownload(a, exports, module, require, o);
+          a = this.SELECTION.filter((e, t) => !!GCore[t]);
+        await this._triggerSelectedFilesDownload(a, exports, module, require, _interopRequireDefault);
       }),
       (T.prototype._triggerSelectedFilesDownload = async function (
         e,
         t,
         n,
-        o,
+        _interopRequireDefault,
         a
       ) {
-        const r = e.map(() => 0),
+        const CollaborationMergeUtils = e.map(() => 0),
           s = e.length,
           l = 100 / s,
-          c = {};
+          TYPES = {};
         let d = gDesigner.getActiveDocument();
         d || (d = gDesigner.newInfiniteDocument()),
-          d.updateStatus(p.default.Downloading, c),
-          c.text(
-            i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "text.downloading-files")
+          d.updateStatus(p.default.Downloading, TYPES),
+          TYPES.text(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "text.downloading-files")
             ),
             true
           ),
-          c.progressInfo("0/".concat(s));
+          TYPES.progressInfo("0/".concat(s));
         let u = 0,
           g = false;
-        const h = () => c.progressInfo("".concat(++u, "/").concat(s)),
-          f = () => c.progressInfo("".concat(++u, "/").concat(s)),
-          m = () => (g = true),
-          v = e.map((e, i) => {
-            var s = o;
+        const h = () => TYPES.progressInfo("".concat(++u, "/").concat(s)),
+          f = () => TYPES.progressInfo("".concat(++u, "/").concat(s)),
+          GSaveAsAction = () => (g = true),
+          v = e.map((e, GCore) => {
+            var s = _interopRequireDefault;
             !s && this.fileRequiresSourceDownload(e) && (s = true);
             var d = {
               ext: ((s && (e.extension || e.ext)) || t).toLowerCase(),
@@ -836,15 +836,15 @@ function (exports, module, require) {
               d,
               {
                 progress(e) {
-                  r[i] = e;
-                  const t = r.reduce((e, t) => e + Math.min(t / 100, 1) * l, 0);
-                  c.progress(t);
+                  CollaborationMergeUtils[GCore] = e;
+                  const t = CollaborationMergeUtils.reduce((e, t) => e + Math.min(t / 100, 1) * l, 0);
+                  TYPES.progress(t);
                 },
                 done: h,
                 failed: f,
-                cancel: m,
+                cancel: GSaveAsAction,
               },
-              o
+              _interopRequireDefault
             );
           });
         v.length &&
@@ -856,7 +856,7 @@ function (exports, module, require) {
               d.updateStatus(p.default.DownloadCancelled);
             }
           });
-        const _ = await Promise.all(
+        const AppSettings = await Promise.all(
           v.map((e) => {
             let { file: t, promise: n } = e;
             return n.catch((e) =>
@@ -865,16 +865,16 @@ function (exports, module, require) {
           })
         );
         if (g) return void d.updateStatus(p.default.DownloadCancelled);
-        const b = _.filter((e) => e && "rejected" === e.status);
-        b.length
+        const AppSettings2 = AppSettings.filter((e) => e && "rejected" === e.status);
+        AppSettings2.length
           ? (d.updateStatus(p.default.DownloadFailed),
-            y.default.alert(
+            GSystemDialog.default.alert(
               $("<div/>")
                 .addClass("error-download-multiple-files")
                 .append(
                   $("<span/>").text(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GFilesPanel",
                         "text.error-download-multiple-files"
                       )
@@ -883,7 +883,7 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<ul/>").append(
-                    b.map((e) => {
+                    AppSettings2.map((e) => {
                       let { file: t, error: { message: n = "" } = {} } = e;
                       return $("<li/>").html(
                         "".concat(t.name).concat(n ? ": " + n : "")
@@ -899,18 +899,18 @@ function (exports, module, require) {
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         const require = this.getAvailableFileTypesFilter();
         this._navigateDriveToUserFolderOrRoot(e);
-        const o = this.getAvailableFileTypesFilter();
-        this._clearFileFiltersInCaseAvailableFiltersDoesNotMatch(require, o),
+        const _interopRequireDefault = this.getAvailableFileTypesFilter();
+        this._clearFileFiltersInCaseAvailableFiltersDoesNotMatch(require, _interopRequireDefault),
           module && this.updateFilesList(true, false);
-        var i = this.SELECTION.indexOf(e);
-        i > -1 && this.SELECTION.splice(i, 1);
+        var GCore = this.SELECTION.indexOf(e);
+        GCore > -1 && this.SELECTION.splice(GCore, 1);
         var a = this.TEMP_SELECTION.indexOf(e);
         a > -1 && this.TEMP_SELECTION.splice(a, 1),
           this.SELECTION.length < 1 && this.view.resetSelection();
       }),
       (T.prototype._clearFileFiltersInCaseAvailableFiltersDoesNotMatch =
         function (e, t) {
-          i.GUtil.equals(e, t, true) ||
+          GCore.GUtil.equals(e, t, true) ||
             this.clearAllFileTypesFromSelectedFilter();
         }),
       (T.prototype._navigateDriveToUserFolderOrRoot = function (e) {
@@ -975,8 +975,8 @@ function (exports, module, require) {
                 }));
           } catch (e) {
             throw new Error(
-              i.GLocale.get(
-                new i.GLocaleKey("GFilesPanel", "text.error-fetching-files")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GFilesPanel", "text.error-fetching-files")
               )
             );
           } finally {
@@ -991,29 +991,29 @@ function (exports, module, require) {
           return this.view.toggleLoading(false), Promise.reject();
         var n = this;
         if (this.BUILD_IN_PROGRESS) return Promise.reject(new w.default());
-        async function o(e) {
+        async function _interopRequireDefault(e) {
           let a = true;
           try {
-            var r,
+            var CollaborationMergeUtils,
               s = [];
-            let o = n.getSort();
+            let _interopRequireDefault = n.getSort();
             var l = n.view.getSearchValue();
             if (l) {
               if (n.hasMoreItemsToLoad()) {
                 try {
-                  s = await n.drive.fetchFiles(l, n.CURRENT_FILE_LOAD, o);
+                  s = await n.drive.fetchFiles(l, n.CURRENT_FILE_LOAD, _interopRequireDefault);
                 } catch (e) {
                   throw new Error(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GFilesPanel",
                         "text.error-fetching-files"
                       )
                     )
                   );
                 }
-                (r = (s = n._sortFilesByMimeType(s)).length),
-                  n._updateCurrentFileLoad(r);
+                (CollaborationMergeUtils = (s = n._sortFilesByMimeType(s)).length),
+                  n._updateCurrentFileLoad(CollaborationMergeUtils);
               }
               s.forEach((e) => {
                 (e._rootPath = "/ ".concat(n._getFullPathNames(e).join(" / "))),
@@ -1030,10 +1030,10 @@ function (exports, module, require) {
               if (n.hasMoreItemsToLoad() && !n._showExampleFiles) {
                 try {
                   (await n.drive.getPreviousSelectedFolder()) || (a = false),
-                    (r = (s = await n.drive.fetchFiles(
+                    (CollaborationMergeUtils = (s = await n.drive.fetchFiles(
                       null,
                       n.CURRENT_FILE_LOAD,
-                      o
+                      _interopRequireDefault
                     )).length),
                     n.isSaveMode() ||
                       n._isDashboard ||
@@ -1050,8 +1050,8 @@ function (exports, module, require) {
                     const t =
                       e && e.message
                         ? e.message
-                        : i.GLocale.get(
-                            new i.GLocaleKey(
+                        : GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GFilesPanel",
                               "text.error-fetching-files"
                             )
@@ -1059,17 +1059,17 @@ function (exports, module, require) {
                     throw new v.default(t);
                   }
                   await n.setCloudDrive(E),
-                    (r = (s = await n.drive.fetchFiles(
+                    (CollaborationMergeUtils = (s = await n.drive.fetchFiles(
                       null,
                       n.CURRENT_FILE_LOAD,
-                      o
+                      _interopRequireDefault
                     )).length),
                     n.isSaveMode() ||
                       n._isDashboard ||
                       (s = s.concat(await n.drive.loadExampleFiles())),
                     (s = n._sortFilesByMimeType(s));
                 }
-                n._updateCurrentFileLoad(r);
+                n._updateCurrentFileLoad(CollaborationMergeUtils);
               }
               if (
                 (await n._displayRecentFiles(),
@@ -1079,7 +1079,7 @@ function (exports, module, require) {
                     !!n.drive.getDefaultEmptyMessage() &&
                     n.isRootFolder() &&
                     !n._showRecentFiles &&
-                    0 === r &&
+                    0 === CollaborationMergeUtils &&
                     !((await n.drive.hasFolders()) && !n.isRootFolder())),
                   n._showExampleFiles && (s = await n.drive.loadExampleFiles()),
                   0 === s.length && (n._showEmptyPanel = false),
@@ -1107,11 +1107,11 @@ function (exports, module, require) {
           } catch (e) {
             return (
               console.error(e),
-              y.default.alert(
+              GSystemDialog.default.alert(
                 ""
                   .concat(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GCommonNames", "text.loading-failed")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
                     ),
                     ":<br />"
                   )
@@ -1125,17 +1125,17 @@ function (exports, module, require) {
             n.view.toggleLoading(false),
             n.view.shouldFilesBeRequested() &&
               n.hasMoreItemsToLoad() &&
-              (await o(false)),
+              (await _interopRequireDefault(false)),
             Promise.resolve(a)
           );
         }
         if ((this.view.toggleLoading(true), this.hasMoreItemsToLoad())) {
           this.BUILD_IN_PROGRESS = true;
           try {
-            const i = await o(e);
+            const GCore = await _interopRequireDefault(e);
             if (
               (n.view.toggleFolders(n._hasFolders && !n._showExampleFiles),
-              module && i)
+              module && GCore)
             ) {
               var a = await n.drive.getPreviousSelectedFolder();
               a &&
@@ -1210,8 +1210,8 @@ function (exports, module, require) {
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         if (!e)
           throw new Error(
-            i.GLocale.get(
-              new i.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GFilesPanel",
                 "text.error-incorrect-cloud-drive-settings"
               )
@@ -1221,8 +1221,8 @@ function (exports, module, require) {
         const require = A.find((t) => t.type === e.type);
         if (require.pro && !gDesigner.isEnabledProFeatures())
           return void gDesigner.handlePROFeatureInterruption();
-        const o = this.drive,
-          r = this.getCurrentDriveId()
+        const _interopRequireDefault = this.drive,
+          CollaborationMergeUtils = this.getCurrentDriveId()
             ? this.getCloudSettingsById(this.getCurrentDriveId())
             : null;
         try {
@@ -1254,8 +1254,8 @@ function (exports, module, require) {
             var s = await this.drive.getUser();
             s && this.view.updateUserDetails(s);
           }
-          o &&
-            o.removeEventListener(
+          _interopRequireDefault &&
+            _interopRequireDefault.removeEventListener(
               h.default.DriveEvent,
               this._handleDriveEvent,
               this
@@ -1266,16 +1266,16 @@ function (exports, module, require) {
               this
             );
         } catch (e) {
-          var c;
+          var TYPES;
           throw (
-            (e && e instanceof v.default && (c = e),
-            await this._setCorrectCloud(o, r),
+            (e && e instanceof v.default && (TYPES = e),
+            await this._setCorrectCloud(_interopRequireDefault, CollaborationMergeUtils),
             this.view && this.view.toggleLoading(false),
-            c ||
+            TYPES ||
               Error(
                 e.message ||
-                  i.GLocale.get(
-                    new i.GLocaleKey("GCommonNames", "text.loading-failed")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.loading-failed")
                   )
               ))
           );
@@ -1331,11 +1331,11 @@ function (exports, module, require) {
             !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         const require = Math.random();
         this.CURRENT_UPDATE_OPERATION_ID = require;
-        const o = this.view.getSearchValue();
+        const _interopRequireDefault = this.view.getSearchValue();
         if (
           (await this._waitForBuildToFinish(),
           require === this.CURRENT_UPDATE_OPERATION_ID &&
-            o === this.view.getSearchValue())
+            _interopRequireDefault === this.view.getSearchValue())
         ) {
           exports && module ? this.view.clearFilesAndFolders() : this.view.clearFiles(),
             (this.CURRENT_FILE_LOAD = 0),
@@ -1354,7 +1354,7 @@ function (exports, module, require) {
         } else exports && this.view.updateLayout();
       }),
       (T.prototype._waitForBuildToFinish = async function () {
-        for (; this.BUILD_IN_PROGRESS; ) await (0, r.sleep)(200);
+        for (; this.BUILD_IN_PROGRESS; ) await (0, CollaborationMergeUtils.sleep)(200);
       }),
       (T.prototype.search = function () {
         this.updateFilesList(false, false);
@@ -1423,15 +1423,15 @@ function (exports, module, require) {
                   t.updateFilesList();
               })
               .catch((e) => {
-                let t = i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanel", "text.error-moving")
+                let t = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanel", "text.error-moving")
                 );
                 e &&
                   e.cloud &&
                   e.message &&
                   e.message.trim() &&
                   (t = e.message),
-                  y.default.alert(t),
+                  GSystemDialog.default.alert(t),
                   this.view.toggleLoading(false),
                   console.error(e);
               }))
@@ -1458,15 +1458,15 @@ function (exports, module, require) {
                   t.updateFilesList();
               })
               .catch((e) => {
-                let t = i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanel", "text.error-moving")
+                let t = GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanel", "text.error-moving")
                 );
                 e &&
                   e.cloud &&
                   e.message &&
                   e.message.trim() &&
                   (t = e.message),
-                  y.default.alert(t),
+                  GSystemDialog.default.alert(t),
                   this.view.toggleLoading(false),
                   console.error(e);
               }))
@@ -1488,11 +1488,11 @@ function (exports, module, require) {
                 this.updateFilesList();
             })
             .catch((e) => {
-              let t = i.GLocale.get(
-                new i.GLocaleKey("GFilesPanel", "text.error-moving")
+              let t = GCore.GLocale.get(
+                new GCore.GLocaleKey("GFilesPanel", "text.error-moving")
               );
               e && e.cloud && e.message && e.message.trim() && (t = e.message),
-                y.default.alert(t),
+                GSystemDialog.default.alert(t),
                 this.view.toggleLoading(false),
                 console.error(e);
             });
@@ -1517,9 +1517,9 @@ function (exports, module, require) {
               }
             } catch (t) {
               return (
-                y.default.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GFilesPanel", "text.error-deleting")
+                GSystemDialog.default.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GFilesPanel", "text.error-deleting")
                   )
                 ),
                 e.view.toggleLoading(false),
@@ -1533,9 +1533,9 @@ function (exports, module, require) {
               let t = null;
               if (
                 (e.SELECTION[0].getParentId() &&
-                  e.panel.find(".g-gravit-folder").each((n, o) => {
-                    const i = $(o).data("node");
-                    i.id === e.SELECTION[0].getParentId() && (t = i);
+                  e.panel.find(".g-gravit-folder").each((n, _interopRequireDefault) => {
+                    const GCore = $(_interopRequireDefault).data("node");
+                    GCore.id === e.SELECTION[0].getParentId() && (t = GCore);
                   }),
                 !t)
               ) {
@@ -1679,25 +1679,25 @@ function (exports, module, require) {
           require < this.SELECTION.length && !exports;
           ++require
         ) {
-          var o = this.SELECTION[require],
-            i = this.drive
+          var _interopRequireDefault = this.SELECTION[require],
+            GCore = this.drive
               .getSupportedFileFormats()
-              .find((e) => o.type === e.type);
-          i && i.secondary && (module ? (exports = module.type !== i.type) : (module = i));
+              .find((e) => _interopRequireDefault.type === e.type);
+          GCore && GCore.secondary && (module ? (exports = module.type !== GCore.type) : (module = GCore));
         }
         return module
           ? exports
-            ? [c.DEFAULT_TYPE.ext.toUpperCase()]
-            : [c.DEFAULT_TYPE.ext.toUpperCase(), module.ext.toUpperCase()]
+            ? [TYPES.DEFAULT_TYPE.ext.toUpperCase()]
+            : [TYPES.DEFAULT_TYPE.ext.toUpperCase(), module.ext.toUpperCase()]
           : this.SELECTION.length
-          ? c.FILE_EXTENSIONS
+          ? TYPES.FILE_EXTENSIONS
           : [];
       }),
       (T.prototype.fileRequiresSourceDownload = function (e) {
         return !this.drive.getSupportedFileFormats().some((t) => {
           var n = e instanceof C ? e.getMimeType() : e.type;
-          const o = e.extension || e.ext || null;
-          return t.type === n || (o && t.ext.toLowerCase() === o.toLowerCase());
+          const _interopRequireDefault = e.extension || e.ext || null;
+          return t.type === n || (_interopRequireDefault && t.ext.toLowerCase() === _interopRequireDefault.toLowerCase());
         });
       }),
       (T.prototype.getUISettings = function () {
@@ -1723,18 +1723,18 @@ function (exports, module, require) {
         return [];
       }),
       (T.prototype.getFooterSaveDescriptionForFileExtension = function (e) {
-        return i.GLocale.get(
-          new i.GLocaleKey("GFilesPanel", "text.info-".concat(e.toLowerCase()))
+        return GCore.GLocale.get(
+          new GCore.GLocaleKey("GFilesPanel", "text.info-".concat(e.toLowerCase()))
         );
       }),
       (T.prototype.toString = function () {
         return "[Object GFilesPanel]";
       }),
       (T.prototype._stringToSettings = function (e) {
-        return JSON.parse((0, r.base64StringToString)(e));
+        return JSON.parse((0, CollaborationMergeUtils.base64StringToString)(e));
       }),
       (T.prototype._settingsToString = function (e) {
-        return (0, r.stringToBase64String)(JSON.stringify(e));
+        return (0, CollaborationMergeUtils.stringToBase64String)(JSON.stringify(e));
       }),
       (T.prototype.manageOpenFolder = function (e, t, n) {
         this.view.manageOpenFolder(e, t, n);

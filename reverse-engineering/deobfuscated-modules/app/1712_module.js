@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(8) /* polyfill_bundle_ES6 */,
@@ -21,12 +21,12 @@ function (exports, module, require) {
       require(1175) /* stub_requires_1559 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(882) /* module_882 */,
-      s = require(10) /* AppSettings */,
-      l = o(require(1354) /* GInvalidationOptions */);
-    const c = require(44) /* GSystemDialog */,
+      AppSettings = require(10) /* AppSettings */,
+      GInvalidationOptions = _interopRequireDefault(require(1354) /* GInvalidationOptions */);
+    const GSystemDialog = require(44) /* GSystemDialog */,
       d = require(358) /* module_358 */,
       u = require(1355) /* GSimpleTreeNodeNamed */,
       p = require(1713) /* module_1713 */,
@@ -77,8 +77,8 @@ function (exports, module, require) {
         n = $(this).data("gannotationpanel").annotTreeNodeMapByNodes;
       e.accept(
         function (e) {
-          var o = n.get(e);
-          o && (n.delete(e), (t[o.treeId] = null));
+          var _interopRequireDefault = n.get(e);
+          _interopRequireDefault && (n.delete(e), (t[_interopRequireDefault.treeId] = null));
         }.bind(this)
       );
     }
@@ -86,23 +86,23 @@ function (exports, module, require) {
       var t = $(this).data("gannotationpanel"),
         n = [];
       if (t.annotTreeNodeMap)
-        for (var o in (e instanceof a.GComment &&
+        for (var _interopRequireDefault in (e instanceof GCore.GComment &&
           n.push(E.call(this, e.getParent())),
         t.annotTreeNodeMap))
-          t.annotTreeNodeMap[o] &&
-            t.annotTreeNodeMap[o].annot &&
-            (t.annotTreeNodeMap[o].annot === e ||
-              (t.annotTreeNodeMap[o].annot instanceof a.GComment &&
-                t.annotTreeNodeMap[o].annot.getParent() === e)) &&
-            n.push(o);
+          t.annotTreeNodeMap[_interopRequireDefault] &&
+            t.annotTreeNodeMap[_interopRequireDefault].annot &&
+            (t.annotTreeNodeMap[_interopRequireDefault].annot === e ||
+              (t.annotTreeNodeMap[_interopRequireDefault].annot instanceof GCore.GComment &&
+                t.annotTreeNodeMap[_interopRequireDefault].annot.getParent() === e)) &&
+            n.push(_interopRequireDefault);
       return n;
     }
     function P() {
       return (
         !!gDesigner.getApplicationManager().isCommentingEditingEnabled() ||
-        (c.alert(
-          a.GLocale.get(
-            new a.GLocaleKey(
+        (GSystemDialog.alert(
+          GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GAnnotationPanel",
               "text.document-approved-no-annotations-update"
             )
@@ -121,72 +121,72 @@ function (exports, module, require) {
         }
     }
     function L(e, t, n) {
-      const o = gDesigner.getApplicationManager().isCommentingEditingEnabled();
+      const _interopRequireDefault = gDesigner.getApplicationManager().isCommentingEditingEnabled();
       var r = $(this).data("gannotationpanel"),
-        s = S.call(this, e),
-        l = s ? s.annot : null,
+        AppSettings = S.call(this, e),
+        GInvalidationOptions = AppSettings ? AppSettings.annot : null,
         u = null;
-      if (l) {
+      if (GInvalidationOptions) {
         var p = false,
           f = $(n);
         if (
           (f.attr("draggable", false),
-          l.hasMixin(a.GAnnotation)
+          GInvalidationOptions.hasMixin(GCore.GAnnotation)
             ? f.addClass("parent")
             : f.addClass("child"),
           !r.showResolved &&
-            ((l.hasMixin(a.GAnnotation) && l.getProperty("rsv")) ||
-              (l instanceof a.GComment && l.getParent().getProperty("rsv"))))
+            ((GInvalidationOptions.hasMixin(GCore.GAnnotation) && GInvalidationOptions.getProperty("rsv")) ||
+              (GInvalidationOptions instanceof GCore.GComment && GInvalidationOptions.getParent().getProperty("rsv"))))
         )
           return void f.css("display", "none");
         if (
           (f.hover(
             () =>
-              G.call(this, l).forEach((e) =>
+              G.call(this, GInvalidationOptions).forEach((e) =>
                 $("#".concat(e)).addClass("on-hover")
               ),
             () =>
-              G.call(this, l).forEach((e) =>
+              G.call(this, GInvalidationOptions).forEach((e) =>
                 $("#".concat(e)).removeClass("on-hover")
               )
           ),
-          !(l.hasMixin(a.GAnnotation) ? l : l.getParent()).hasFlag(
-            a.GNode.Flag.Selected
+          !(GInvalidationOptions.hasMixin(GCore.GAnnotation) ? GInvalidationOptions : GInvalidationOptions.getParent()).hasFlag(
+            GCore.GNode.Flag.Selected
           ) &&
-            ((l.hasMixin(a.GAnnotation) && !B(l).length) || U(l)) &&
+            ((GInvalidationOptions.hasMixin(GCore.GAnnotation) && !B(GInvalidationOptions).length) || U(GInvalidationOptions)) &&
             (p = true),
           !r.blockHighlight)
         ) {
-          var m = l.hasFlag(a.GNode.Flag.Highlighted);
+          var m = GInvalidationOptions.hasFlag(GCore.GNode.Flag.Highlighted);
           !m &&
-            l.hasMixin(a.GNode.Container) &&
-            (m = l.acceptChildren(
+            GInvalidationOptions.hasMixin(GCore.GNode.Container) &&
+            (m = GInvalidationOptions.acceptChildren(
               function (e) {
-                return e.hasFlag(a.GNode.Flag.Highlighted);
+                return e.hasFlag(GCore.GNode.Flag.Highlighted);
               },
               false,
               true
             )),
             $(f).toggleClass("g-highlighted-row", m);
         }
-        var y = k.call(this, l),
+        var y = k.call(this, GInvalidationOptions),
           v = S.call(this, y);
         undefined === v.expanded && (v.expanded = true);
         var _ = gDesigner.getActiveDocument();
         _ &&
-          l.getId() === _.getFocusAnnotationId() &&
+          GInvalidationOptions.getId() === _.getFocusAnnotationId() &&
           !_.isAnnotationFocused() &&
           (_.getScene().updateActivePageForElem(v.annot),
           _.getScene().updateActiveLayerForElem(v.annot),
           _.setAnnotationFocused(),
           (v.expanded = true),
-          v.annot.setFlag(a.GNode.Flag.Selected));
-        var b = O.call(this, l);
-        l.hasMixin(a.GAnnotation) && (u = I.call(this, l, r.showResolved));
+          v.annot.setFlag(GCore.GNode.Flag.Selected));
+        var b = O.call(this, GInvalidationOptions);
+        GInvalidationOptions.hasMixin(GCore.GAnnotation) && (u = I.call(this, GInvalidationOptions, r.showResolved));
         var w = new h({
-          isCommentingEditingEnable: o,
+          isCommentingEditingEnable: _interopRequireDefault,
           container: f,
-          annotation: l,
+          annotation: GInvalidationOptions,
           relatedNodesCount: b,
           sidebarActive: r.sidebarActive,
           isLastRow: p,
@@ -194,46 +194,46 @@ function (exports, module, require) {
           hasReopenAccess: r.vtree.hasReopenAccess(),
           mentionData: r.vtree.getMentionData(),
           onMouseEnter: () => {
-            l.hasMixin(a.GAnnotation) &&
-              !l.hasFlag(a.GAnnotation.Flag.Hidden) &&
-              l.setFlag(a.GNode.Flag.Highlighted);
+            GInvalidationOptions.hasMixin(GCore.GAnnotation) &&
+              !GInvalidationOptions.hasFlag(GCore.GAnnotation.Flag.Hidden) &&
+              GInvalidationOptions.setFlag(GCore.GNode.Flag.Highlighted);
           },
           onMouseLeave: () => {
-            l.hasMixin(a.GAnnotation) &&
-              !l.hasFlag(a.GAnnotation.Flag.Hidden) &&
-              l.removeFlag(a.GNode.Flag.Highlighted);
+            GInvalidationOptions.hasMixin(GCore.GAnnotation) &&
+              !GInvalidationOptions.hasFlag(GCore.GAnnotation.Flag.Hidden) &&
+              GInvalidationOptions.removeFlag(GCore.GNode.Flag.Highlighted);
           },
           onChange: (e) => {
             P() &&
-              (l.getProperty("text") === e
+              (GInvalidationOptions.getProperty("text") === e
                 ? D.call(this)
-                : i.GEditor.tryRunTransaction(
-                    l,
+                : GTools.GEditor.tryRunTransaction(
+                    GInvalidationOptions,
                     function () {
-                      l.setProperty("text", e);
+                      GInvalidationOptions.setProperty("text", e);
                     },
-                    a.GLocale.get(
-                      new a.GLocaleKey("GAnnotationPanel", "text.edit-comment")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAnnotationPanel", "text.edit-comment")
                     )
                   ));
           },
           onToggleState: () => {
             P() &&
-              (i.GEditor.tryRunTransaction(
-                l,
+              (GTools.GEditor.tryRunTransaction(
+                GInvalidationOptions,
                 function () {
                   r.showResolved ||
-                    l.getProperty("rsv") ||
-                    !l.hasFlag(a.GNode.Flag.Selected) ||
-                    l.removeFlag(a.GNode.Flag.Selected),
-                    l.setProperty("rsv", !l.getProperty("rsv"));
+                    GInvalidationOptions.getProperty("rsv") ||
+                    !GInvalidationOptions.hasFlag(GCore.GNode.Flag.Selected) ||
+                    GInvalidationOptions.removeFlag(GCore.GNode.Flag.Selected),
+                    GInvalidationOptions.setProperty("rsv", !GInvalidationOptions.getProperty("rsv"));
                 },
-                l.getProperty("rsv")
-                  ? a.GLocale.get(
-                      new a.GLocaleKey("GAnnotationPanel", "text.reopen")
+                GInvalidationOptions.getProperty("rsv")
+                  ? GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAnnotationPanel", "text.reopen")
                     )
-                  : a.GLocale.get(
-                      new a.GLocaleKey("GAnnotationPanel", "text.resolve")
+                  : GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAnnotationPanel", "text.resolve")
                     )
               ),
               ne.call(this),
@@ -241,16 +241,16 @@ function (exports, module, require) {
           },
           onResolve: () => {
             P() &&
-              (i.GEditor.tryRunTransaction(
-                l,
+              (GTools.GEditor.tryRunTransaction(
+                GInvalidationOptions,
                 function () {
                   !r.showResolved &&
-                    l.hasFlag(a.GNode.Flag.Selected) &&
-                    l.removeFlag(a.GNode.Flag.Selected),
-                    l.setProperty("rsv", true);
+                    GInvalidationOptions.hasFlag(GCore.GNode.Flag.Selected) &&
+                    GInvalidationOptions.removeFlag(GCore.GNode.Flag.Selected),
+                    GInvalidationOptions.setProperty("rsv", true);
                 },
-                a.GLocale.get(
-                  new a.GLocaleKey("GAnnotationPanel", "text.resolve")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GAnnotationPanel", "text.resolve")
                 )
               ),
               ne.call(this),
@@ -258,13 +258,13 @@ function (exports, module, require) {
           },
           onReopen: () => {
             P() &&
-              (i.GEditor.tryRunTransaction(
-                l,
+              (GTools.GEditor.tryRunTransaction(
+                GInvalidationOptions,
                 function () {
-                  l.setProperty("rsv", false);
+                  GInvalidationOptions.setProperty("rsv", false);
                 },
-                a.GLocale.get(
-                  new a.GLocaleKey("GAnnotationPanel", "text.reopen")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GAnnotationPanel", "text.reopen")
                 )
               ),
               ne.call(this),
@@ -272,20 +272,20 @@ function (exports, module, require) {
           },
           onDelete: () => {
             P() &&
-              c.confirm(
-                a.GLocale.get(
-                  new a.GLocaleKey("GAnnotationPanel", "text.confirm-remove")
+              GSystemDialog.confirm(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GAnnotationPanel", "text.confirm-remove")
                 ),
                 (e) => {
                   e &&
                     d.removeAnnotations(
-                      [l],
-                      l.getParent(),
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      [GInvalidationOptions],
+                      GInvalidationOptions.getParent(),
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GAnnotationPanel",
                           "text.remove-".concat(
-                            l.hasMixin(a.GAnnotation) ? "annotation" : "comment"
+                            GInvalidationOptions.hasMixin(GCore.GAnnotation) ? "annotation" : "comment"
                           )
                         )
                       )
@@ -310,8 +310,8 @@ function (exports, module, require) {
               "function" == typeof gdb_showScene &&
                 console.error("REPAIR THIS! component is NULL!");
             }
-            var o = n.annot;
-            G.call(this, o).forEach((e, t) => {
+            var _interopRequireDefault = n.annot;
+            G.call(this, _interopRequireDefault).forEach((e, t) => {
               if (t > 0) {
                 var n = S.call(this, e);
                 try {
@@ -331,72 +331,72 @@ function (exports, module, require) {
             }
           },
           onAssignTo: (e) => {
-            l.hasMixin(a.GAnnotation)
-              ? l.setProperty("asgn", e)
-              : l.getParent() &&
-                l.getParent().hasMixin(a.GAnnotation) &&
-                l.getParent().setProperty("asgn", e);
+            GInvalidationOptions.hasMixin(GCore.GAnnotation)
+              ? GInvalidationOptions.setProperty("asgn", e)
+              : GInvalidationOptions.getParent() &&
+                GInvalidationOptions.getParent().hasMixin(GCore.GAnnotation) &&
+                GInvalidationOptions.getParent().setProperty("asgn", e);
           },
           mainAnnotObject: v,
         });
-        (s.element = f), (s.component = w), r.vtree.addChild(w);
-      } else if (s && s.replyAnnot) {
+        (AppSettings.element = f), (AppSettings.component = w), r.vtree.addChild(w);
+      } else if (AppSettings && AppSettings.replyAnnot) {
         let e = $(n);
         if (
           (e.addClass("last-row"),
-          !o ||
-            !s.replyAnnot.hasFlag(a.GNode.Flag.Selected) ||
-            s.replyAnnot.getProperty("rsv") ||
-            (!r.showResolved && s.replyAnnot.getProperty("rsv")))
+          !_interopRequireDefault ||
+            !AppSettings.replyAnnot.hasFlag(GCore.GNode.Flag.Selected) ||
+            AppSettings.replyAnnot.getProperty("rsv") ||
+            (!r.showResolved && AppSettings.replyAnnot.getProperty("rsv")))
         )
           return void e.hide();
-        const t = !s.replyAnnot.isFillingCompleted(),
-          l = (e) => {
-            if (P() && (e.length || (t && s.replyAnnot.isEmptyTextAllowed()))) {
-              let c = gDesigner.getSyncUser();
-              if (d.canUpdate(c)) {
-                const d = s.replyAnnot.getScene(),
-                  u = d && i.GEditor.getEditor(d);
+        const t = !AppSettings.replyAnnot.isFillingCompleted(),
+          GInvalidationOptions = (e) => {
+            if (P() && (e.length || (t && AppSettings.replyAnnot.isEmptyTextAllowed()))) {
+              let GSystemDialog = gDesigner.getSyncUser();
+              if (d.canUpdate(GSystemDialog)) {
+                const d = AppSettings.replyAnnot.getScene(),
+                  u = d && GTools.GEditor.getEditor(d);
                 let p, g;
                 (p = t
-                  ? a.GLocale.get(
-                      new a.GLocaleKey(
+                  ? GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAnnotationPanel",
                         "text.set-annotation-text"
                       )
                     )
-                  : a.GLocale.get(
-                      new a.GLocaleKey("GAnnotationPanel", "text.add-comment")
+                  : GCore.GLocale.get(
+                      new GCore.GLocaleKey("GAnnotationPanel", "text.add-comment")
                     )),
                   u && u.beginTransaction();
                 try {
                   if (t) {
-                    s.replyAnnot.setProperty("text", e),
-                      s.replyAnnot.setProperty("email", c.getAccountName()),
-                      V.call(this, s.replyAnnot);
-                    var n = a.GUtil.uuid(),
-                      o = A.call(this, s.replyAnnot),
-                      l = {
+                    AppSettings.replyAnnot.setProperty("text", e),
+                      AppSettings.replyAnnot.setProperty("email", GSystemDialog.getAccountName()),
+                      V.call(this, AppSettings.replyAnnot);
+                    var n = GCore.GUtil.uuid(),
+                      _interopRequireDefault = A.call(this, AppSettings.replyAnnot),
+                      GInvalidationOptions = {
                         element: null,
                         annot: null,
-                        treeNode: M.call(this, n, o, true, true),
-                        replyAnnot: s.replyAnnot,
+                        treeNode: M.call(this, n, _interopRequireDefault, true, true),
+                        replyAnnot: AppSettings.replyAnnot,
                         treeId: n,
                       };
-                    (r.annotTreeNodeMap[n] = l),
-                      r.replyNodes.set(s.replyAnnot, l);
+                    (r.annotTreeNodeMap[n] = GInvalidationOptions),
+                      r.replyNodes.set(AppSettings.replyAnnot, GInvalidationOptions);
                   } else {
-                    V.call(this, s.replyAnnot);
-                    const t = s.replyAnnot.addComment(
+                    V.call(this, AppSettings.replyAnnot);
+                    const t = AppSettings.replyAnnot.addComment(
                       e,
-                      c.getUID(),
-                      i.GEditorOptions.userConfig.userName,
-                      c.avatar,
-                      c.getAccountName()
+                      GSystemDialog.getUID(),
+                      GTools.GEditorOptions.userConfig.userName,
+                      GSystemDialog.avatar,
+                      GSystemDialog.getAccountName()
                     );
-                    g = i.GAnnotationEditor.createAddAnnotationTransactionData(
+                    g = GTools.GAnnotationEditor.createAddAnnotationTransactionData(
                       [t],
-                      s.replyAnnot
+                      AppSettings.replyAnnot
                     );
                   }
                   ne.call(this), te.call(this);
@@ -406,102 +406,102 @@ function (exports, module, require) {
                   u && u.commitTransaction(p, g);
                 }
               }
-              H(this, s.replyAnnot);
+              H(this, AppSettings.replyAnnot);
             }
           },
-          c = () => {
-            H(this, s.replyAnnot), D.call(this);
+          GSystemDialog = () => {
+            H(this, AppSettings.replyAnnot), D.call(this);
           },
           u = (e) => {
-            s.replyAnnot.setProperty("asgn", e);
+            AppSettings.replyAnnot.setProperty("asgn", e);
           };
         var C = new g({
             container: e,
-            annotation: s.replyAnnot,
-            onSubmit: l,
-            onCancel: c,
+            annotation: AppSettings.replyAnnot,
+            onSubmit: GInvalidationOptions,
+            onCancel: GSystemDialog,
             onAssignTo: u,
             mentionData: r.vtree.getMentionData(),
           }),
-          x = r.annotTreeNodeMapByNodes.get(s.replyAnnot);
-        (s.reply = C), r.vtree.addChild(C), x && (x.reply = C);
+          x = r.annotTreeNodeMapByNodes.get(AppSettings.replyAnnot);
+        (AppSettings.reply = C), r.vtree.addChild(C), x && (x.reply = C);
       }
       return u;
     }
     function I(e, t) {
       let require = e.getProperty("asgn");
       if (!(require || []).length) return;
-      var o = e.getProperty("rsv");
-      let s = $("<div/>")
+      var _interopRequireDefault = e.getProperty("rsv");
+      let AppSettings = $("<div/>")
           .addClass("already-assigned-user-row")
           .appendTo($(this)),
-        l = $("<span/>").addClass("assigned-content-group").appendTo(s);
+        GInvalidationOptions = $("<span/>").addClass("assigned-content-group").appendTo(AppSettings);
       return (
         (0, r.getCollabInfo)(require[0]).then(async (n) => {
           let r = new m(n).getFullUserName();
           $("<span/>")
             .addClass("assign-to-text")
             .html(
-              a.GLocale.get(
-                new a.GLocaleKey("GAnnotationPanel", "text.assigned-to")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GAnnotationPanel", "text.assigned-to")
               ) +
                 (n && n.name
                   ? r
-                  : a.GLocale.get(
-                      new a.GLocaleKey("GCommonNames", "text.unknown-user")
+                  : GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.unknown-user")
                     ))
             )
-            .appendTo(l);
-          const s = !o;
-          ((await s) ? d.canResolveAnnotation(e) : d.canReopenAnnotation(e)) &&
+            .appendTo(GInvalidationOptions);
+          const AppSettings = !_interopRequireDefault;
+          ((await AppSettings) ? d.canResolveAnnotation(e) : d.canReopenAnnotation(e)) &&
             $("<span/>")
               .addClass("assigned-action-group")
               .append(
                 $("<span/>")
                   .addClass(
                     "icon " +
-                      (s ? "gravit-icon-resolve" : "gravit-icon-resolved")
+                      (AppSettings ? "gravit-icon-resolve" : "gravit-icon-resolved")
                   )
                   .addClass("assigned-icon-resolve")
                   .addClass("assigned-resolve-action")
                   .attr(
                     "data-title",
-                    s
-                      ? a.GLocale.get(
-                          new a.GLocaleKey(
+                    AppSettings
+                      ? GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GAnnotationPanel",
                             "text.assign-resolve"
                           )
                         )
-                      : a.GLocale.get(
-                          new a.GLocaleKey("GAnnotationPanel", "text.reopen")
+                      : GCore.GLocale.get(
+                          new GCore.GLocaleKey("GAnnotationPanel", "text.reopen")
                         )
                   )
                   .on("click", () => {
                     P() &&
-                      (s
-                        ? i.GEditor.tryRunTransaction(
+                      (AppSettings
+                        ? GTools.GEditor.tryRunTransaction(
                             e,
                             function () {
                               !t &&
-                                e.hasFlag(a.GNode.Flag.Selected) &&
-                                e.removeFlag(a.GNode.Flag.Selected),
+                                e.hasFlag(GCore.GNode.Flag.Selected) &&
+                                e.removeFlag(GCore.GNode.Flag.Selected),
                                 e.setProperty("rsv", true);
                             },
-                            a.GLocale.get(
-                              new a.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GAnnotationPanel",
                                 "text.resolve"
                               )
                             )
                           )
-                        : i.GEditor.tryRunTransaction(
+                        : GTools.GEditor.tryRunTransaction(
                             e,
                             function () {
                               e.setProperty("rsv", false);
                             },
-                            a.GLocale.get(
-                              new a.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GAnnotationPanel",
                                 "text.reopen"
                               )
@@ -511,9 +511,9 @@ function (exports, module, require) {
                       te.call(this));
                   })
               )
-              .appendTo(l);
+              .appendTo(GInvalidationOptions);
         }),
-        s
+        AppSettings
       );
     }
     function k(e) {
@@ -523,27 +523,27 @@ function (exports, module, require) {
       return G.call($(this), e).length;
     }
     function F(e, t, n) {
-      var o = new u.GSimpleTreeNodeNamed(e);
+      var _interopRequireDefault = new u.GSimpleTreeNodeNamed(e);
       return (
-        n && (o.virtualNode = true),
-        $(this).data("gannotationpanel").vtree.insertNodeAfter(t, o),
-        o
+        n && (_interopRequireDefault.virtualNode = true),
+        $(this).data("gannotationpanel").vtree.insertNodeAfter(t, _interopRequireDefault),
+        _interopRequireDefault
       );
     }
     function R(e, t, n) {
-      var o = new u.GSimpleTreeNodeNamed(e);
+      var _interopRequireDefault = new u.GSimpleTreeNodeNamed(e);
       return (
-        n && (o.virtualNode = true),
-        $(this).data("gannotationpanel").vtree.insertNodeBefore(t, o),
-        o
+        n && (_interopRequireDefault.virtualNode = true),
+        $(this).data("gannotationpanel").vtree.insertNodeBefore(t, _interopRequireDefault),
+        _interopRequireDefault
       );
     }
-    function M(e, t, n, o) {
-      var i = new u.GSimpleTreeNodeNamed(e);
+    function M(e, t, n, _interopRequireDefault) {
+      var GTools = new u.GSimpleTreeNodeNamed(e);
       return (
-        n && (i.virtualNode = true),
-        $(this).data("gannotationpanel").vtree.appendNode(t, i, o),
-        i
+        n && (GTools.virtualNode = true),
+        $(this).data("gannotationpanel").vtree.appendNode(t, GTools, _interopRequireDefault),
+        GTools
       );
     }
     function N(e) {
@@ -552,12 +552,12 @@ function (exports, module, require) {
     function B(e) {
       return e
         .getChildren()
-        .filter((e) => e instanceof a.GComment && !e.getProperty("rmd"));
+        .filter((e) => e instanceof GCore.GComment && !e.getProperty("rmd"));
     }
     function U(e) {
-      if (!(e instanceof a.GComment)) return false;
+      if (!(e instanceof GCore.GComment)) return false;
       for (var module = true, require = e.getNext(); require; ) {
-        if (require instanceof a.GComment && !require.getProperty("rmd")) {
+        if (require instanceof GCore.GComment && !require.getProperty("rmd")) {
           module = false;
           break;
         }
@@ -570,75 +570,75 @@ function (exports, module, require) {
       t && e.getProperty("uid") && d.isOwner(t, e)
         ? (e.$plkt = null)
         : (e.$plkt =
-            a.GBlock.ProgramLck.NoSizeChanges |
-            a.GBlock.ProgramLck.NoMove |
-            a.GBlock.ProgramLck.NoDelete);
+            GCore.GBlock.ProgramLck.NoSizeChanges |
+            GCore.GBlock.ProgramLck.NoMove |
+            GCore.GBlock.ProgramLck.NoDelete);
     }
     function K(e, t, n) {
-      var o = a.GUtil.uuid(),
-        i = $(this).data("gannotationpanel"),
-        r = i.vtree;
+      var _interopRequireDefault = GCore.GUtil.uuid(),
+        GTools = $(this).data("gannotationpanel"),
+        r = GTools.vtree;
       if (
         t ||
         !e.getParent() ||
-        e.getParent() instanceof a.GAnnotationsList ||
+        e.getParent() instanceof GCore.GAnnotationsList ||
         E.call(this, e.getParent())
       ) {
-        var s;
-        if ((r.beginUpdate(), e.hasMixin(a.GAnnotation))) {
+        var AppSettings;
+        if ((r.beginUpdate(), e.hasMixin(GCore.GAnnotation))) {
           V.call(this, e);
-          var l = (function (e) {
+          var GInvalidationOptions = (function (e) {
               for (var t = null, n = e; !t && n.getPrevious(); )
                 n.getPrevious().getProperty("rmd")
                   ? (n = n.getPrevious())
                   : (t = n.getPrevious());
               return t;
             })(e),
-            c = l ? A.call(this, l) : null;
-          s = c ? R.call(this, o, c, false) : M.call(this, o, null, false);
+            GSystemDialog = GInvalidationOptions ? A.call(this, GInvalidationOptions) : null;
+          AppSettings = GSystemDialog ? R.call(this, _interopRequireDefault, GSystemDialog, false) : M.call(this, _interopRequireDefault, null, false);
         } else {
           var d = e.getParent();
           V.call(this, d);
           var u = A.call(this, d);
-          s = M.call(this, o, u, false, true);
+          AppSettings = M.call(this, _interopRequireDefault, u, false, true);
         }
-        var p = { element: null, annot: e, treeNode: s, treeId: o };
+        var p = { element: null, annot: e, treeNode: AppSettings, treeId: _interopRequireDefault };
         if (
-          ((i.annotTreeNodeMap[o] = p),
-          i.annotTreeNodeMapByNodes.set(e, p),
-          e.hasMixin(a.GAnnotation))
+          ((GTools.annotTreeNodeMap[_interopRequireDefault] = p),
+          GTools.annotTreeNodeMapByNodes.set(e, p),
+          e.hasMixin(GCore.GAnnotation))
         ) {
           for (var g = e.getFirstChild(); null !== g; g = g.getNext())
-            g instanceof a.GComment &&
+            g instanceof GCore.GComment &&
               !g.getProperty("rmd") &&
               K.call(this, g, t);
           if (!B(e).length) {
-            var h = a.GUtil.uuid(),
+            var h = GCore.GUtil.uuid(),
               f = {
                 element: null,
                 annot: null,
                 treeNode: e.isFillingCompleted()
-                  ? M.call(this, h, s, true, true)
-                  : F.call(this, h, s, true),
+                  ? M.call(this, h, AppSettings, true, true)
+                  : F.call(this, h, AppSettings, true),
                 replyAnnot: e,
                 treeId: h,
               };
-            (i.annotTreeNodeMap[h] = f), i.replyNodes.set(e, f);
+            (GTools.annotTreeNodeMap[h] = f), GTools.replyNodes.set(e, f);
           }
           j(e);
-        } else if (e instanceof a.GComment && U(e)) {
+        } else if (e instanceof GCore.GComment && U(e)) {
           let t,
-            n = a.GUtil.uuid();
-          t = F.call(this, n, s, true);
+            n = GCore.GUtil.uuid();
+          t = F.call(this, n, AppSettings, true);
           var m = e.getParent();
-          let o = {
+          let _interopRequireDefault = {
             element: null,
             annot: null,
             treeNode: t,
             replyAnnot: m,
             treeId: n,
           };
-          (i.annotTreeNodeMap[n] = o), i.replyNodes.set(m, o);
+          (GTools.annotTreeNodeMap[n] = _interopRequireDefault), GTools.replyNodes.set(m, _interopRequireDefault);
         }
         r.endUpdate(n);
       }
@@ -663,8 +663,8 @@ function (exports, module, require) {
           d.removeAnnotations(
             [t],
             t.getParent(),
-            a.GLocale.get(
-              new a.GLocaleKey(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GAnnotationPanel",
                 "text.remove-empty-annotation"
               )
@@ -673,10 +673,10 @@ function (exports, module, require) {
       else {
         var require = gDesigner.getActiveDocument();
         if (require) {
-          var o = require.getEditor().getSelection();
-          o &&
-            o.map((t) => {
-              t.hasMixin(a.GAnnotation) && H(e, t);
+          var _interopRequireDefault = require.getEditor().getSelection();
+          _interopRequireDefault &&
+            _interopRequireDefault.map((t) => {
+              t.hasMixin(GCore.GAnnotation) && H(e, t);
             });
         }
       }
@@ -709,8 +709,8 @@ function (exports, module, require) {
     }
     function X(e, t) {
       let require = $(this).data("gannotationpanel"),
-        o = false;
-      const i = {};
+        _interopRequireDefault = false;
+      const GTools = {};
       if (!require) return;
       if (require.blockAnnotationsUpdate) return;
       if (null !== require.scheduledUpdate)
@@ -719,22 +719,22 @@ function (exports, module, require) {
         e &&
         e.node &&
         e.node.recordedTransaction &&
-        ((o = true),
+        ((_interopRequireDefault = true),
         e.properties && e.values && e.properties.length === e.values.length)
       )
-        for (var r = 0, s = e.values.length; r < s; r++)
-          i[e.properties[r]] = e.values[r];
+        for (var r = 0, AppSettings = e.values.length; r < AppSettings; r++)
+          GTools[e.properties[r]] = e.values[r];
       if (e && e.node) {
         if (e.custom) return;
         if (
-          e.node.hasMixin(a.GAnnotation) &&
+          e.node.hasMixin(GCore.GAnnotation) &&
           e.node.isPropertiesIgnorable(e.properties)
         )
           return;
       }
-      let l = gDesigner.getActiveDocument();
-      l &&
-        l.getAnnotationsId() &&
+      let GInvalidationOptions = gDesigner.getActiveDocument();
+      GInvalidationOptions &&
+        GInvalidationOptions.getAnnotationsId() &&
         (require.scheduledUpdate = setTimeout(() => {
           let e = $(this).data("gannotationpanel");
           if (!e) return;
@@ -743,56 +743,56 @@ function (exports, module, require) {
           console.log("updating annotations"), (e.updateInProgress = true);
           let require = e.page.getAnnotations();
           d.updateAndReturnCloudAnnotationsForDocument(
-            l,
-            a.GNode.store(require, { recordedTransaction: o, recordedProperties: i })
+            GInvalidationOptions,
+            GCore.GNode.store(require, { recordedTransaction: _interopRequireDefault, recordedProperties: GTools })
           )
             .then((e) => {
               let require = e.annotationsCollection,
                 r = false,
-                s = $(this).data("gannotationpanel");
-              if (!s) return r;
-              if (!s.updateInProgress) return r;
+                AppSettings = $(this).data("gannotationpanel");
+              if (!AppSettings) return r;
+              if (!AppSettings.updateInProgress) return r;
               if (
-                (Y.call(this) && (s.scheduleNextUpdate = true),
-                (s.updateInProgress = false),
-                !s.scheduleNextUpdate)
+                (Y.call(this) && (AppSettings.scheduleNextUpdate = true),
+                (AppSettings.updateInProgress = false),
+                !AppSettings.scheduleNextUpdate)
               ) {
-                let e = d.findAnnotationsListForPage(s.page, require);
+                let e = d.findAnnotationsListForPage(AppSettings.page, require);
                 if (e) {
-                  let n = a.GNode.restore(e),
-                    l = n.getChildren();
-                  n.clearChildren(), s.vtree.beginUpdate();
-                  let c = d.mergeAnnotations(
-                    s.page.getAnnotations(),
-                    s.page.getAnnotations().getChildren(),
+                  let n = GCore.GNode.restore(e),
+                    GInvalidationOptions = n.getChildren();
+                  n.clearChildren(), AppSettings.vtree.beginUpdate();
+                  let GSystemDialog = d.mergeAnnotations(
+                    AppSettings.page.getAnnotations(),
+                    AppSettings.page.getAnnotations().getChildren(),
                     n,
-                    l,
-                    o ? i : undefined
+                    GInvalidationOptions,
+                    _interopRequireDefault ? GTools : undefined
                   );
-                  (r = r || c),
-                    s.vtree.endUpdate(t),
+                  (r = r || GSystemDialog),
+                    AppSettings.vtree.endUpdate(t),
                     ne.call(this),
                     te.call(this);
                 }
                 e ||
-                  (s.vtree.beginUpdate(),
-                  s.page.getAnnotations().clearChildren(),
-                  s.vtree.endUpdate(t),
+                  (AppSettings.vtree.beginUpdate(),
+                  AppSettings.page.getAnnotations().clearChildren(),
+                  AppSettings.vtree.endUpdate(t),
                   ne.call(this)),
-                  s.options.updateAnnotationCache(require);
+                  AppSettings.options.updateAnnotationCache(require);
               }
               if (
-                ((s.scheduledUpdate = null),
-                s.scheduleNextUpdate &&
-                  ((s.scheduleNextUpdate = false), X.call(this)),
+                ((AppSettings.scheduledUpdate = null),
+                AppSettings.scheduleNextUpdate &&
+                  ((AppSettings.scheduleNextUpdate = false), X.call(this)),
                 r)
               ) {
-                let t = s.page.getScene();
+                let t = AppSettings.page.getScene();
                 t &&
                   t.getLastTimeAnnotationsFromCloudModified() <
                     e.lastUpdateTime &&
                   t.setLastTimeAnnotationsFromCloudModified(e.lastUpdateTime),
-                  gDesigner.notifyDocumentModified(l);
+                  gDesigner.notifyDocumentModified(GInvalidationOptions);
               }
               return r;
             })
@@ -808,42 +808,42 @@ function (exports, module, require) {
     function Q(e) {
       var t = $(this).data("gannotationpanel");
       if (q(t, e.node)) {
-        const n = e.node.findParent((e) => e instanceof a.GAnnotationsList),
-          o = () => {
-            const t = new l.default();
-            if (e.node instanceof a.GComment) {
+        const n = e.node.findParent((e) => e instanceof GCore.GAnnotationsList),
+          _interopRequireDefault = () => {
+            const t = new GInvalidationOptions.default();
+            if (e.node instanceof GCore.GComment) {
               const n = e.node.getProperty("text");
-              (n && s.NOTIFICATION_USER_MENTION_REGEX.test(n)) ||
+              (n && AppSettings.NOTIFICATION_USER_MENTION_REGEX.test(n)) ||
                 (t.collaboratorsCache = false);
             }
             return t;
           };
-        let i = false;
+        let GTools = false;
         const r = () => {
             if (!e.node.getProperty("rmd")) {
-              const t = n ? l.default.NO_CACHE_INVALIDATION : o();
+              const t = n ? GInvalidationOptions.default.NO_CACHE_INVALIDATION : _interopRequireDefault();
               K.call(this, e.node, null, t);
             }
           },
-          c = () => {
-            n && X.call(this, null, o());
+          GSystemDialog = () => {
+            n && X.call(this, null, _interopRequireDefault());
           };
-        (e.node.hasMixin(a.GAnnotation) ||
-          e.node instanceof a.GComment ||
-          e.node instanceof a.GAnnotationsList) &&
-          (e.node.getProperty("rmd") ? (i = true) : r()),
-          i
+        (e.node.hasMixin(GCore.GAnnotation) ||
+          e.node instanceof GCore.GComment ||
+          e.node instanceof GCore.GAnnotationsList) &&
+          (e.node.getProperty("rmd") ? (GTools = true) : r()),
+          GTools
             ? "number" != typeof t.delayedUpdate &&
               (t.delayedUpdate = setTimeout(() => {
-                r(), c(), (t.delayedUpdate = null);
+                r(), GSystemDialog(), (t.delayedUpdate = null);
               }))
-            : c();
+            : GSystemDialog();
       }
     }
     function J(e) {
       q($(this).data("gannotationpanel"), e.node) &&
         (z.call(this, e.node),
-        e.node.findParent((e) => e instanceof a.GAnnotationsList) &&
+        e.node.findParent((e) => e instanceof GCore.GAnnotationsList) &&
           X.call(this));
     }
     function Z(e) {
@@ -852,7 +852,7 @@ function (exports, module, require) {
           oe.requestInvalidation.call(this);
         let t = gDesigner.getSyncUser();
         d.canUpdate(t) &&
-          e.node.hasMixin(a.GAnnotation) &&
+          e.node.hasMixin(GCore.GAnnotation) &&
           e.properties.includes("rsv") &&
           setTimeout(() => {
             let require = e.values[e.properties.indexOf("rsv")];
@@ -861,27 +861,27 @@ function (exports, module, require) {
               e.node.addComment(
                 "",
                 t.getUID(),
-                i.GEditorOptions.userConfig.userName,
+                GTools.GEditorOptions.userConfig.userName,
                 t.avatar,
                 t.getAccountName(),
                 e.node.getProperty("rsv")
-                  ? a.GComment.Type.Close
-                  : a.GComment.Type.Open
+                  ? GCore.GComment.Type.Close
+                  : GCore.GComment.Type.Open
               ));
           }),
-          (e.node instanceof a.GAnnotationsList ||
-            e.node.findParent((e) => e instanceof a.GAnnotationsList)) &&
-            (e.node.hasMixin(a.GAnnotation) &&
+          (e.node instanceof GCore.GAnnotationsList ||
+            e.node.findParent((e) => e instanceof GCore.GAnnotationsList)) &&
+            (e.node.hasMixin(GCore.GAnnotation) &&
               e.properties.indexOf("uid") >= 0 &&
               j(e.node),
             X.call(this, e)),
           e.properties.includes("rmd") && e.node.getProperty("rmd")
-            ? (e.node.hasMixin(a.GAnnotation) && W(this, e.node),
+            ? (e.node.hasMixin(GCore.GAnnotation) && W(this, e.node),
               ne.call(this),
               te.call(this))
             : e.properties.includes("text") &&
               e.node.isFillingCompleted() &&
-              e.node.hasMixin(a.GAnnotation) &&
+              e.node.hasMixin(GCore.GAnnotation) &&
               W(this, e.node);
       }
     }
@@ -889,20 +889,20 @@ function (exports, module, require) {
       var t,
         n = $(this).data("gannotationpanel");
       if (q(n, e.node)) {
-        var o = false;
-        if (e.node instanceof a.GComment || e.node.hasMixin(a.GAnnotation))
+        var _interopRequireDefault = false;
+        if (e.node instanceof GCore.GComment || e.node.hasMixin(GCore.GAnnotation))
           if (
-            e.flag === a.GAnnotation.Flag.Hidden ||
-            e.flag === a.GNode.Flag.Selected ||
-            e.flag === a.GNode.Flag.Active
+            e.flag === GCore.GAnnotation.Flag.Hidden ||
+            e.flag === GCore.GNode.Flag.Selected ||
+            e.flag === GCore.GNode.Flag.Active
           ) {
             var r = e.node.getPage(),
-              s = e.node.getScene(),
-              d = s && s.getActivePage();
+              AppSettings = e.node.getScene(),
+              d = AppSettings && AppSettings.getActivePage();
             if (
-              ((d && r && d !== r) || (o = true),
-              e.node.hasMixin(a.GAnnotation) &&
-                e.flag === a.GNode.Flag.Selected &&
+              ((d && r && d !== r) || (_interopRequireDefault = true),
+              e.node.hasMixin(GCore.GAnnotation) &&
+                e.flag === GCore.GNode.Flag.Selected &&
                 false === e.set &&
                 !e.node.isFillingCompleted() &&
                 !(t = e.node).getProperty("rmd") &&
@@ -915,9 +915,9 @@ function (exports, module, require) {
                   t.reply.isVisible() &&
                   setTimeout(() => t.reply.forceSubmit());
               } else
-                c.confirm(
-                  a.GLocale.get(
-                    new a.GLocaleKey(
+                GSystemDialog.confirm(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GAnnotationPanel",
                       "text.confirm-discard-annotation"
                     )
@@ -934,17 +934,17 @@ function (exports, module, require) {
                         .updateSelection(false, [e.node]),
                         gDesigner
                           .getToolManager()
-                          .activateTool(i.GPointerTool, null, true);
-                      var o = n.annotTreeNodeMapByNodes.get(e.node);
-                      o &&
-                        o.reply &&
+                          .activateTool(GTools.GPointerTool, null, true);
+                      var _interopRequireDefault = n.annotTreeNodeMapByNodes.get(e.node);
+                      _interopRequireDefault &&
+                        _interopRequireDefault.reply &&
                         setTimeout(() => {
-                          o.reply.requestFocus();
+                          _interopRequireDefault.reply.requestFocus();
                         });
                     }
                   }
                 );
-          } else if (!n.blockHighlight && e.flag === a.GNode.Flag.Highlighted) {
+          } else if (!n.blockHighlight && e.flag === GCore.GNode.Flag.Highlighted) {
             var u = e.node,
               p = function (e) {
                 var t = A.call(this, e);
@@ -957,7 +957,7 @@ function (exports, module, require) {
                 : console.warn("element parent was null");
             }
           }
-        o && oe.requestInvalidation.call(this, l.default.NO_CACHE_INVALIDATION);
+        _interopRequireDefault && oe.requestInvalidation.call(this, GInvalidationOptions.default.NO_CACHE_INVALIDATION);
       }
     }
     function te() {
@@ -981,7 +981,7 @@ function (exports, module, require) {
         "number" == typeof t.delayedUpdate &&
           (clearTimeout(t.delayedUpdate), (t.delayedUpdate = null));
     }
-    a.GObject.inheritAndMix(v, a.GObject);
+    GCore.GObject.inheritAndMix(v, GCore.GObject);
     var oe = {
       init: function (e) {
         return (
@@ -1050,13 +1050,13 @@ function (exports, module, require) {
       relayout: function (e) {
         var t = $(this).data("gannotationpanel"),
           n = t.vtree,
-          o = t.currentFocus;
-        o && n.expandAndFocus(o),
+          _interopRequireDefault = t.currentFocus;
+        _interopRequireDefault && n.expandAndFocus(_interopRequireDefault),
           e
             ? (ne.call(this), te.call(this))
             : oe.requestInvalidation.call(
                 this,
-                l.default.NO_CACHE_INVALIDATION
+                GInvalidationOptions.default.NO_CACHE_INVALIDATION
               );
       },
       cleanEmptyAnnotations: function () {
@@ -1078,24 +1078,24 @@ function (exports, module, require) {
         return arguments.length
           ? (e !== n.page &&
               (n.page &&
-                n.page.hasMixin(a.GEventTarget) &&
+                n.page.hasMixin(GCore.GEventTarget) &&
                 (n.page.removeEventListener(
-                  a.GNode.AfterInsertEvent,
+                  GCore.GNode.AfterInsertEvent,
                   n.afterNodeInsertHandler,
                   this
                 ),
                 n.page.removeEventListener(
-                  a.GNode.BeforeRemoveEvent,
+                  GCore.GNode.BeforeRemoveEvent,
                   n.beforeNodeRemoveHandler,
                   this
                 ),
                 n.page.removeEventListener(
-                  a.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   n.afterPropertiesChangeHandler,
                   this
                 ),
                 n.page.removeEventListener(
-                  a.GNode.AfterFlagChangeEvent,
+                  GCore.GNode.AfterFlagChangeEvent,
                   n.afterFlagChangeHandler,
                   this
                 ),
@@ -1105,28 +1105,28 @@ function (exports, module, require) {
               ne.call(this, e),
               (n.page = e),
               n.page &&
-                (n.page.hasMixin(a.GEventTarget) &&
+                (n.page.hasMixin(GCore.GEventTarget) &&
                   ((n.beforeNodeRemoveHandler = J.bind(this)),
                   (n.afterPropertiesChangeHandler = Z.bind(this)),
                   (n.afterFlagChangeHandler = ee.bind(this)),
                   (n.afterNodeInsertHandler = Q.bind(this)),
                   n.page.addEventListener(
-                    a.GNode.AfterInsertEvent,
+                    GCore.GNode.AfterInsertEvent,
                     n.afterNodeInsertHandler,
                     this
                   ),
                   n.page.addEventListener(
-                    a.GNode.BeforeRemoveEvent,
+                    GCore.GNode.BeforeRemoveEvent,
                     n.beforeNodeRemoveHandler,
                     this
                   ),
                   n.page.addEventListener(
-                    a.GNode.AfterPropertiesChangeEvent,
+                    GCore.GNode.AfterPropertiesChangeEvent,
                     n.afterPropertiesChangeHandler,
                     this
                   ),
                   n.page.addEventListener(
-                    a.GNode.AfterFlagChangeEvent,
+                    GCore.GNode.AfterFlagChangeEvent,
                     n.afterFlagChangeHandler,
                     this
                   )),
@@ -1141,17 +1141,17 @@ function (exports, module, require) {
         let module = false;
         if (Y.call(this)) return f.DELAYED;
         let require = $(this).data("gannotationpanel"),
-          o = a.GNode.restore(e),
-          i = o.getChildren();
+          _interopRequireDefault = GCore.GNode.restore(e),
+          GTools = _interopRequireDefault.getChildren();
         return (
-          o.clearChildren(),
+          _interopRequireDefault.clearChildren(),
           (require.blockAnnotationsUpdate = true),
           require.vtree.beginUpdate(),
           (module = d.mergeAnnotations(
             require.page.getAnnotations(),
             require.page.getAnnotations().getChildren(),
-            o,
-            i
+            _interopRequireDefault,
+            GTools
           )),
           require.vtree.endUpdate(),
           (require.blockAnnotationsUpdate = false),

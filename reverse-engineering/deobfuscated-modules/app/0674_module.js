@@ -6,26 +6,26 @@
 function (exports, module, require) {
     "use strict";
     var o = require(309) /* module_309 */.charAt,
-      i = require(62) /* requireObjectCoercible */,
-      a = require(80) /* internalState */,
-      r = require(418) /* defineIterator */,
-      s = require(252) /* toStringClassof */,
-      l = a.set,
-      c = a.getterFor("String Iterator");
-    r(
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      internalState = require(80) /* internalState */,
+      defineIterator = require(418) /* defineIterator */,
+      toStringClassof = require(252) /* toStringClassof */,
+      l = internalState.set,
+      c = internalState.getterFor("String Iterator");
+    defineIterator(
       String,
       "String",
       function (e) {
-        l(this, { type: "String Iterator", string: i(e), index: 0 });
+        l(this, { type: "String Iterator", string: requireObjectCoercible(e), index: 0 });
       },
       function () {
         var e,
           t = c(this),
           n = t.string,
-          i = t.index;
-        return i >= n.length
-          ? s(undefined, true)
-          : ((e = o(n, i)), (t.index += e.length), s(e, false));
+          requireObjectCoercible = t.index;
+        return requireObjectCoercible >= n.length
+          ? toStringClassof(undefined, true)
+          : ((e = o(n, requireObjectCoercible)), (t.index += e.length), toStringClassof(e, false));
       }
     );
   }

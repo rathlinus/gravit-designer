@@ -7,25 +7,25 @@
 function (exports, module, require) {
     "use strict";
     require(328) /* polyfill_Array_sort */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* MenuItemBuilder */,
-      s = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function l(e) {
       (this._type = e),
-        (this._title = new i.GLocaleKey("GDistributeAction", "title." + e)),
+        (this._title = new GCore.GLocaleKey("GDistributeAction", "title." + e)),
         (l.TOOLTIP_CONFIG = {
           [a.TOOLTIP_AREA.SIDEBAR]: {
             [l.Type.Horizontal]: a.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GDistributeAction",
                   "text.horizontal-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GDistributeAction",
                   "text.horizontal-tooltip-description"
                 )
@@ -34,14 +34,14 @@ function (exports, module, require) {
                 "",
             }),
             [l.Type.Vertical]: a.GRichTooltipConfig.from({
-              title: i.GLocale.get(
-                new i.GLocaleKey(
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GDistributeAction",
                   "text.vertical-tooltip-title"
                 )
               ),
-              description: i.GLocale.get(
-                new i.GLocaleKey(
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GDistributeAction",
                   "text.vertical-tooltip-description"
                 )
@@ -52,7 +52,7 @@ function (exports, module, require) {
           },
         });
     }
-    i.GObject.inherit(l, s),
+    GCore.GObject.inherit(l, GAction),
       (l.Type = { Horizontal: "horizontal", Vertical: "vertical" }),
       (l.TOOLTIP_CONFIG = null),
       (l.ID = "arrange.distribute"),
@@ -75,7 +75,7 @@ function (exports, module, require) {
         }
       }),
       (l.prototype.getCategory = function () {
-        return r.CATEGORY_MODIFY_ALIGN;
+        return MenuItemBuilder.CATEGORY_MODIFY_ALIGN;
       }),
       (l.prototype.getGroup = function () {
         return "arrange/align-distribute";
@@ -98,13 +98,13 @@ function (exports, module, require) {
       }),
       (l.prototype.execute = function (e, t, n) {
         var a = gDesigner.getActiveDocument(),
-          r = a.getScene();
+          MenuItemBuilder = a.getScene();
         e || (e = a.getEditor().getSelection());
-        var s = (e = a.getEditor().filterIndividualElements(e));
+        var GAction = (e = a.getEditor().filterIndividualElements(e));
         e = [];
-        for (let t = 0; t < s.length; ++t) {
-          var c = s[t];
-          if (c.hasMixin(i.GElement.Transform)) {
+        for (let t = 0; t < GAction.length; ++t) {
+          var c = GAction[t];
+          if (c.hasMixin(GCore.GElement.Transform)) {
             var d = c.getGeometryBBox();
             if (!d || d.getWidth() + d.getHeight() === 0) continue;
             e.push({ elbbox: d, element: c });
@@ -126,41 +126,41 @@ function (exports, module, require) {
             let a = null;
             if (!n)
               if (e.length > 1) {
-                let o = 0;
-                for (let t = 0; t < e.length; ++t) o += e[t].elbbox.getWidth();
-                o <= t.getWidth()
-                  ? (n = (t.getWidth() - o) / (e.length - 1))
+                let GTools = 0;
+                for (let t = 0; t < e.length; ++t) GTools += e[t].elbbox.getWidth();
+                GTools <= t.getWidth()
+                  ? (n = (t.getWidth() - GTools) / (e.length - 1))
                   : (a =
                       (t.getWidth() -
                         e[0].elbbox.getWidth() / 2 -
                         e[e.length - 1].elbbox.getWidth() / 2) /
                       (e.length - 1));
               } else n = 0;
-            o.GEditor.tryRunTransaction(
-              r,
+            GTools.GEditor.tryRunTransaction(
+              MenuItemBuilder,
               function () {
-                var o = t.getX();
+                var GTools = t.getX();
                 if (null === a)
                   for (let t = 0; t < e.length; ++t)
-                    o !== e[t].elbbox.getX() &&
+                    GTools !== e[t].elbbox.getX() &&
                       e[t].element.transform(
-                        new i.GTransform(1, 0, 0, 1, o - e[t].elbbox.getX(), 0),
+                        new GCore.GTransform(1, 0, 0, 1, GTools - e[t].elbbox.getX(), 0),
                         true
                       ),
-                      (o += e[t].elbbox.getWidth() + n);
+                      (GTools += e[t].elbbox.getWidth() + n);
                 else {
-                  var r = o + e[0].elbbox.getWidth() / 2;
+                  var MenuItemBuilder = GTools + e[0].elbbox.getWidth() / 2;
                   for (let t = 0; t < e.length; ++t) {
-                    var s = r + a * t - e[t].elbbox.getWidth() / 2;
-                    s !== e[t].elbbox.getX() &&
+                    var GAction = MenuItemBuilder + a * t - e[t].elbbox.getWidth() / 2;
+                    GAction !== e[t].elbbox.getX() &&
                       e[t].element.transform(
-                        new i.GTransform(1, 0, 0, 1, s - e[t].elbbox.getX(), 0),
+                        new GCore.GTransform(1, 0, 0, 1, GAction - e[t].elbbox.getX(), 0),
                         true
                       );
                   }
                 }
               }.bind(this),
-              i.GLocale.get(this.getTitle())
+              GCore.GLocale.get(this.getTitle())
             );
           } else if (this._type === l.Type.Vertical) {
             e.sort(function (e, t) {
@@ -173,41 +173,41 @@ function (exports, module, require) {
             let a = null;
             if (!n)
               if (e.length > 1) {
-                let o = 0;
-                for (let t = 0; t < e.length; ++t) o += e[t].elbbox.getHeight();
-                o <= t.getHeight()
-                  ? (n = (t.getHeight() - o) / (e.length - 1))
+                let GTools = 0;
+                for (let t = 0; t < e.length; ++t) GTools += e[t].elbbox.getHeight();
+                GTools <= t.getHeight()
+                  ? (n = (t.getHeight() - GTools) / (e.length - 1))
                   : (a =
                       (t.getHeight() -
                         e[0].elbbox.getHeight() / 2 -
                         e[e.length - 1].elbbox.getHeight() / 2) /
                       (e.length - 1));
               } else n = 0;
-            o.GEditor.tryRunTransaction(
-              r,
+            GTools.GEditor.tryRunTransaction(
+              MenuItemBuilder,
               function () {
-                var o = t.getY();
+                var GTools = t.getY();
                 if (null === a)
                   for (let t = 0; t < e.length; ++t)
-                    o !== e[t].elbbox.getY() &&
+                    GTools !== e[t].elbbox.getY() &&
                       e[t].element.transform(
-                        new i.GTransform(1, 0, 0, 1, 0, o - e[t].elbbox.getY()),
+                        new GCore.GTransform(1, 0, 0, 1, 0, GTools - e[t].elbbox.getY()),
                         true
                       ),
-                      (o += e[t].elbbox.getHeight() + n);
+                      (GTools += e[t].elbbox.getHeight() + n);
                 else {
-                  var r = o + e[0].elbbox.getHeight() / 2;
+                  var MenuItemBuilder = GTools + e[0].elbbox.getHeight() / 2;
                   for (let t = 0; t < e.length; ++t) {
-                    var s = r + a * t - e[t].elbbox.getHeight() / 2;
-                    s !== e[t].elbbox.getX() &&
+                    var GAction = MenuItemBuilder + a * t - e[t].elbbox.getHeight() / 2;
+                    GAction !== e[t].elbbox.getX() &&
                       e[t].element.transform(
-                        new i.GTransform(1, 0, 0, 1, 0, s - e[t].elbbox.getY()),
+                        new GCore.GTransform(1, 0, 0, 1, 0, GAction - e[t].elbbox.getY()),
                         true
                       );
                   }
                 }
               }.bind(this),
-              i.GLocale.get(this.getTitle())
+              GCore.GLocale.get(this.getTitle())
             );
           }
       }),

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
-      i = o({}.toString),
-      a = o("".slice);
+    var uncurryThis = require(27) /* uncurryThis */,
+      i = uncurryThis({}.toString),
+      a = uncurryThis("".slice);
     exports.exports = function (e) {
       return a(i(e), 8, -1);
     };

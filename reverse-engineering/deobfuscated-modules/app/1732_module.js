@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var o = require(1) /* module */,
-      i = require(10) /* AppSettings */,
+    var GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       a = require(357) /* module_357 */,
       r = require(604) /* module_604 */,
       s = (require(1158) /* Action_help_purchase */, null),
@@ -41,9 +41,9 @@ function (exports, module, require) {
             })
             .gOverlay("open", this)),
             gDesigner.getUser().then(async (e) => {
-              let module = !i.PROFILE_DIALOG_URL;
-              i.PROFILE_DIALOG_URL &&
-                (module = await i.gApi.hasPurchases().catch(() => false)),
+              let module = !AppSettings.PROFILE_DIALOG_URL;
+              AppSettings.PROFILE_DIALOG_URL &&
+                (module = await AppSettings.gApi.hasPurchases().catch(() => false)),
                 s.removeClass("loading"),
                 s.append(
                   (function (e, t) {
@@ -61,8 +61,8 @@ function (exports, module, require) {
                             .append([
                               $("<button/>")
                                 .html(
-                                  o.GLocale.get(
-                                    new o.GLocaleKey(
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey(
                                       "GCommonNames",
                                       "action.settings"
                                     )
@@ -70,25 +70,25 @@ function (exports, module, require) {
                                 )
                                 .addClass("highlight")
                                 .css("display", a ? "" : "none")
-                                .on("click", async (o) => {
+                                .on("click", async (GCore) => {
                                   gDesigner.stats("profile_click_open-button"),
-                                    i.ALWAYS_SHOW_ACCOUNT_SETTING_DIALOG || t
+                                    AppSettings.ALWAYS_SHOW_ACCOUNT_SETTING_DIALOG || t
                                       ? new r(e).open()
-                                      : i.PROFILE_DIALOG_URL
+                                      : AppSettings.PROFILE_DIALOG_URL
                                       ? gContainer.openExternalLink(
-                                          o,
-                                          i.PROFILE_DIALOG_URL
+                                          GCore,
+                                          AppSettings.PROFILE_DIALOG_URL
                                         )
                                       : gContainer.openExternalLink(
-                                          o,
-                                          i.gApi.url + "/profile"
+                                          GCore,
+                                          AppSettings.gApi.url + "/profile"
                                         ),
                                     require();
                                 }),
                               $("<button/>")
                                 .html(
-                                  o.GLocale.get(
-                                    new o.GLocaleKey(
+                                  GCore.GLocale.get(
+                                    new GCore.GLocaleKey(
                                       "GCommonNames",
                                       "action.sign-out"
                                     )

@@ -22,7 +22,7 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     const {
         gApi: i,
         IS_TRUNK: a,
@@ -36,24 +36,24 @@ function (exports, module, require) {
         HAS_ANNOTATIONS: g,
       } = require(10) /* AppSettings */,
       { sleep: h, watchDog: f } = require(40) /* CollaborationMergeUtils */,
-      m = require(44) /* GSystemDialog */,
-      y = require(85) /* GContainer */,
+      GSystemDialog = require(44) /* GSystemDialog */,
+      GContainer = require(85) /* GContainer */,
       v = [
         {
           id: "copy",
-          label: new o.GLocaleKey("GShareDialog", "text.allow-to-save-label"),
-          info: new o.GLocaleKey("GShareDialog", "text.allow-to-save-info"),
+          label: new GCore.GLocaleKey("GShareDialog", "text.allow-to-save-label"),
+          info: new GCore.GLocaleKey("GShareDialog", "text.allow-to-save-info"),
           pro: false,
           sharePermissions: { copy: true, comment: !!g },
           analyticsRef: "save",
         },
         {
           id: "inspect",
-          label: new o.GLocaleKey(
+          label: new GCore.GLocaleKey(
             "GShareDialog",
             "text.allow-to-inspect-label"
           ),
-          info: new o.GLocaleKey("GShareDialog", "text.allow-to-inspect-info"),
+          info: new GCore.GLocaleKey("GShareDialog", "text.allow-to-inspect-info"),
           pro: true,
           default: true,
           sharePermissions: { inspect: true, comment: !!g },
@@ -71,8 +71,8 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("title")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey("GShareDialog", "text.title")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GShareDialog", "text.title")
                       )
                     )
                 )
@@ -81,8 +81,8 @@ function (exports, module, require) {
                     .addClass("share-switch")
                     .append(
                       $("<span/>").text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GShareDialog", "text.switch-on")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GShareDialog", "text.switch-on")
                         )
                       )
                     )
@@ -128,8 +128,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("subtitle")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GShareDialog", "text.subtitle-on")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GShareDialog", "text.subtitle-on")
                   )
                 )
             )
@@ -147,8 +147,8 @@ function (exports, module, require) {
                         .addClass("share-copied")
                         .append(
                           $("<span/>").text(
-                            o.GLocale.get(
-                              new o.GLocaleKey("GShareDialog", "text.copied")
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey("GShareDialog", "text.copied")
                             )
                           )
                         )
@@ -166,8 +166,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span/>").text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GShareDialog", "text.copy")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GShareDialog", "text.copy")
                         )
                       )
                     )
@@ -186,10 +186,10 @@ function (exports, module, require) {
                               e.removeClass("visible");
                           })
                           .catch((e) => {
-                            m.alert(
+                            GSystemDialog.alert(
                               (e && e.message) ||
-                                o.GLocale.get(
-                                  new o.GLocaleKey(
+                                GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GShareDialog",
                                     "text.failed-copying-to-clipboard"
                                   )
@@ -225,11 +225,11 @@ function (exports, module, require) {
                             (e, n) => ((e[n[0]] = n[1] && t), e),
                             {}
                           ),
-                          o = Object.assign(this._getSharePermissions(), require, {
+                          GCore = Object.assign(this._getSharePermissions(), require, {
                             access: true,
                           });
-                        (this._lastSharePermissions = o),
-                          this._setSharePermissions(o)
+                        (this._lastSharePermissions = GCore),
+                          this._setSharePermissions(GCore)
                             .catch(this._handleException)
                             .finally(() => {
                               this._toggleLoading(false);
@@ -257,13 +257,13 @@ function (exports, module, require) {
                             .append(
                               $("<span/>")
                                 .addClass("title")
-                                .text(o.GLocale.get(require))
+                                .text(GCore.GLocale.get(require))
                                 .append(s ? $("<span></span>").gPro() : "")
                             )
                             .append(
                               $("<span/>")
                                 .addClass("subtitle")
-                                .text(o.GLocale.get(i))
+                                .text(GCore.GLocale.get(i))
                             )
                         )
                         .appendTo(d),
@@ -311,7 +311,7 @@ function (exports, module, require) {
             });
       }
       _handleException(e) {
-        m.alert(i.formatError(e));
+        GSystemDialog.alert(i.formatError(e));
       }
       _isSharingByLink() {
         return true;
@@ -328,8 +328,8 @@ function (exports, module, require) {
               .forEach((t) => {
                 let { sharePermissions: require } = t;
                 Object.entries(require).forEach((t) => {
-                  let [require, o] = t;
-                  Object.assign(e, { [require]: f.check(e[require], o) });
+                  let [require, GCore] = t;
+                  Object.assign(e, { [require]: f.check(e[require], GCore) });
                 });
               }),
             e
@@ -370,8 +370,8 @@ function (exports, module, require) {
             .find(".subtitle")
             .first()
             .text(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GShareDialog",
                   "text.subtitle-".concat(module ? "on" : "off")
                 )
@@ -380,8 +380,8 @@ function (exports, module, require) {
           this._dialog
             .find(".share-switch > span")
             .text(
-              o.GLocale.get(
-                new o.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GShareDialog",
                   "text.switch-".concat(module ? "on" : "off")
                 )
@@ -406,8 +406,8 @@ function (exports, module, require) {
         this._dialog.find(".share-link > .share-input > input").val(a);
       }
       _getOrigin() {
-        return gContainer.getRuntime() === y.Runtime.Browser ||
-          gContainer.getRuntime() === y.Runtime.PWA
+        return gContainer.getRuntime() === GContainer.Runtime.Browser ||
+          gContainer.getRuntime() === GContainer.Runtime.PWA
           ? location.origin
           : a
           ? l

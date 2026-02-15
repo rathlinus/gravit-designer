@@ -17,27 +17,27 @@ function (exports, module, require) {
         const require = window.gDesigner.getActiveDocument();
         if (!require) return false;
         if (!window.gContainer) return false;
-        const o = window.gContainer.getStorage();
-        if (!o) return false;
+        const GCore = window.gContainer.getStorage();
+        if (!GCore) return false;
         exports = exports || require.getExtension();
         const i = "".concat(require.getTitle() || "Design", ".").concat(exports);
         return (
-          o.download(i, (e) => {
+          GCore.download(i, (e) => {
             require.store(e, console.log, console.error, module);
           }),
           true
         );
       }),
-      (module.downloadDataURI = function e(t, n, o, i) {
+      (module.downloadDataURI = function e(t, n, GCore, i) {
         if (t instanceof Blob) {
           var a = new FileReader();
           (a.onloadend = () => {
             r(a.result);
           }),
             a.readAsArrayBuffer(t);
-        } else "string" == typeof t ? e(new Blob([t], i), n, o, i) : r(t);
+        } else "string" == typeof t ? e(new Blob([t], i), n, GCore, i) : r(t);
         function r(e) {
-          gContainer.download({ buffer: e, name: n, extension: o, mime: i });
+          gContainer.download({ buffer: e, name: n, extension: GCore, mime: i });
         }
       }),
       require(19) /* polyfill_Array_iterator */,
@@ -51,7 +51,7 @@ function (exports, module, require) {
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(1210) /* module_1210 */,
       a = /["\*\/:<>\?\\\|]/g,
       r = /[\0-\x1F\x80-\x9F]/g,
@@ -59,7 +59,7 @@ function (exports, module, require) {
       l =
         /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\.(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)?$/i,
       c = /[ \.]+$/;
-    (o.GUtil.sanitizeFilename = function (e, t) {
+    (GCore.GUtil.sanitizeFilename = function (e, t) {
       return (
         (t = t || "_"),
         e
@@ -71,7 +71,7 @@ function (exports, module, require) {
           .substr(0, 255)
       );
     }),
-      (o.GUtil.dataUrlToBlob = function (e) {
+      (GCore.GUtil.dataUrlToBlob = function (e) {
         if (
           !/^data:(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]){0,255};ba[s\u017F]e64,/i.exec(
             e
@@ -79,12 +79,12 @@ function (exports, module, require) {
         ) {
           const t = e.split(","),
             n = t[0].split(":")[1],
-            o = t[1];
-          return new Blob([o], { type: n });
+            GCore = t[1];
+          return new Blob([GCore], { type: n });
         }
         var t,
           n = e.split(";base64,"),
-          o = n[0].split(":")[1];
+          GCore = n[0].split(":")[1];
         try {
           t = window.atob(n[1]);
         } catch (e) {
@@ -92,13 +92,13 @@ function (exports, module, require) {
         }
         for (var i = t.length, a = new Uint8Array(i), r = 0; r < i; ++r)
           a[r] = t.charCodeAt(r);
-        return new Blob([a], { type: o });
+        return new Blob([a], { type: GCore });
       }),
-      (o.GUtil.readACVFile = function (e) {
+      (GCore.GUtil.readACVFile = function (e) {
         var t = new i(e),
           n = { rgb: [], r: [], g: [], b: [] };
         t.seek(4);
-        var o = t.getUint16(),
+        var GCore = t.getUint16(),
           a = ["r", "g", "b"],
           r = null,
           s = null,
@@ -107,12 +107,12 @@ function (exports, module, require) {
           d = null;
         for (
           n.rgb.push([0, t.getUint16()]), t.seek(t.tell() + 2), c = 1;
-          c < o;
+          c < GCore;
           c++
         )
           (l = t.getUint16()), (s = t.getUint16()), n.rgb.push([s, l]);
         for (c = 0; c < 3; c++)
-          for (o = t.getUint16(), r = n[a[c]], d = 0; d < o; d++)
+          for (GCore = t.getUint16(), r = n[a[c]], d = 0; d < GCore; d++)
             (l = t.getUint16()), (s = t.getUint16()), r.push([s, l]);
         return n;
       });

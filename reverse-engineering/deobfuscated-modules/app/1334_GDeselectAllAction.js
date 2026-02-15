@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "edit.deselect-all"),
-      (s.TITLE = new o.GLocaleKey("GDeselectAllAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GDeselectAllAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT;
+        return MenuItemBuilder.CATEGORY_EDIT;
       }),
       (s.prototype.getGroup = function () {
         return "select";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "A"];
+        return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "A"];
       }),
       (s.prototype.isEnabled = function () {
         if (document.activeElement && $(document.activeElement).is(":editable"))

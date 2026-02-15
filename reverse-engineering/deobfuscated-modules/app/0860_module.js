@@ -19,11 +19,11 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = require(263) /* Exports_GRegex */,
-      a = require(40) /* CollaborationMergeUtils */;
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* AppSettings */,
-      c = require(85) /* GContainer */,
+      GContainer = require(85) /* GContainer */,
       d = require(1252) /* module_1252 */,
       u = require(859) /* module_859 */,
       p = function (e) {
@@ -35,7 +35,7 @@ function (exports, module, require) {
     function h(e) {
       (this._callback = e), (this._loginConfiguration = {});
     }
-    o.GObject.inherit(g, s.Impl),
+    GCore.GObject.inherit(g, s.Impl),
       (g.prototype.openOAuth = function (e) {
         let { dialog: module, provider: require } = e;
         p(require)
@@ -54,9 +54,9 @@ function (exports, module, require) {
         this._closeCallback();
       }),
       (g.prototype.getLanguage = function () {
-        return o.GLocale.getLanguage();
+        return GCore.GLocale.getLanguage();
       }),
-      o.GObject.inherit(h, o.GObject),
+      GCore.GObject.inherit(h, GCore.GObject),
       (h.prototype._callback = null),
       (h.prototype._newTitle = null),
       (h.prototype._oldTitle = null),
@@ -70,15 +70,15 @@ function (exports, module, require) {
         this._loginConfiguration = Object.assign({ runtime: require }, module);
         const {
           anonymous: i = false,
-          animate: a = false,
+          animate: CollaborationMergeUtils = false,
           version: l = "",
-          options: c = {},
+          options: GContainer = {},
         } = module;
         let h;
         if (
           ((this._oldTitle = document.title),
-          (this._newTitle = o.GLocale.get(
-            new o.GLocaleKey("GEmbeddedLogin", "text.title")
+          (this._newTitle = GCore.GLocale.get(
+            new GCore.GLocaleKey("GEmbeddedLogin", "text.title")
           )),
           (document.title = this._newTitle),
           gDesigner.isOffline())
@@ -94,7 +94,7 @@ function (exports, module, require) {
             origin: location.origin,
             anonymous: i,
             version: l,
-            options: c,
+            options: GContainer,
             runtime: require,
           }).open(this._frame);
         } else {
@@ -118,7 +118,7 @@ function (exports, module, require) {
               return e.close(t);
             },
           }).open(t)),
-            a &&
+            CollaborationMergeUtils &&
               ((h = this._crossFrame.getFrame()),
               h.css({ position: "fixed", height: "300%" }),
               h.on("load", f));
@@ -145,8 +145,8 @@ function (exports, module, require) {
                 $("<div/>")
                   .addClass("message")
                   .html(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GEmbeddedLogin",
                         "text.pop-has-been-blocked"
                       )
@@ -192,11 +192,11 @@ function (exports, module, require) {
           runtime: u,
         } = exports;
         let p, g, h, f;
-        if (gContainer.getRuntime() === c.Runtime.Electron) {
+        if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
           const e = gContainer.getPlatform();
           ("darwin" !== e && "win32" !== e) || (p = window.btoa("designer://")),
-            (g = (0, a.stringToBase64String)(gDesigner.getAssetsURL()));
-        } else g = (0, a.stringToBase64String)(location.origin);
+            (g = (0, CollaborationMergeUtils.stringToBase64String)(gDesigner.getAssetsURL()));
+        } else g = (0, CollaborationMergeUtils.stringToBase64String)(location.origin);
         const m = new URL("".concat(r.url, "/pro/login")),
           y = m.searchParams,
           v = gDesigner.getSignupOptions();
@@ -233,7 +233,7 @@ function (exports, module, require) {
           Object.keys(d).forEach((e) => {
             y.set(e, d[e]);
           }),
-          y.set("lang", o.GLocale.getLanguage()),
+          y.set("lang", GCore.GLocale.getLanguage()),
           m.toString()
         );
       }),

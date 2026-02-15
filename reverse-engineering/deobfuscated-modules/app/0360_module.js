@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* wellKnownSymbol */,
+    var wellKnownSymbol = require(43) /* wellKnownSymbol */,
       i = require(136) /* module_136 */,
-      a = require(88) /* createPropertyDescriptor */.f,
-      r = o("unscopables"),
+      createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f,
+      r = wellKnownSymbol("unscopables"),
       s = Array.prototype;
-    undefined === s[r] && a(s, r, { configurable: true, value: i(null) }),
+    undefined === s[r] && createPropertyDescriptor(s, r, { configurable: true, value: i(null) }),
       (exports.exports = function (e) {
         s[r][e] = true;
       });

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(37) /* toString_default */;
+    var toString_default = require(37) /* toString_default */;
     exports.exports = function () {
-      var e = o(this),
+      var e = toString_default(this),
         t = "";
       return (
         e.hasIndices && (t += "d"),

@@ -8,18 +8,18 @@ function (exports, module, require) {
     var o,
       i,
       a,
-      r = require(25) /* core_export */,
-      s = require(74) /* createNonEnumerableProperty */,
+      core_export = require(25) /* core_export */,
+      createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
       l = require(245) /* stub_requires_407 */,
-      c = require(23) /* globalThis */,
-      d = require(29) /* isCallable */,
-      u = require(79) /* defineBuiltIn */,
+      globalThis = require(23) /* globalThis */,
+      isCallable = require(29) /* isCallable */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
       p = require(175) /* module_175 */,
-      g = require(137) /* setToStringTag */,
+      setToStringTag = require(137) /* setToStringTag */,
       h = require(260) /* module_260 */,
       f = require(65) /* module_65 */,
-      m = require(35) /* anObject */,
-      y = require(46) /* toLength */,
+      anObject = require(35) /* anObject */,
+      toLength = require(46) /* toLength */,
       v = require(146) /* module_146 */,
       _ = require(342) /* module_342 */,
       b = require(409) /* module_409 */.set,
@@ -27,52 +27,52 @@ function (exports, module, require) {
       C = require(626) /* module_626 */,
       x = require(304) /* module_304 */,
       S = require(412) /* module_412 */,
-      E = require(80) /* internalState */,
+      internalState = require(80) /* internalState */,
       A = require(186) /* stub_requires_23 */,
       T = require(201) /* module_201 */,
       G = require(202) /* module_202 */,
       P = T.CONSTRUCTOR,
       D = T.REJECTION_EVENT,
       L = T.SUBCLASSING,
-      I = E.getterFor("Promise"),
-      k = E.set,
+      I = internalState.getterFor("Promise"),
+      k = internalState.set,
       O = A && A.prototype,
       F = A,
       R = O,
-      M = c.TypeError,
-      N = c.document,
-      B = c.process,
+      M = globalThis.TypeError,
+      N = globalThis.document,
+      B = globalThis.process,
       U = G.f,
       $ = U,
-      j = !!(N && N.createEvent && c.dispatchEvent),
+      j = !!(N && N.createEvent && globalThis.dispatchEvent),
       K = function (e) {
         var t;
-        return !(!y(e) || !m((t = e.then))) && t;
+        return !(!toLength(e) || !anObject((t = e.then))) && t;
       },
       V = function (e, t) {
         var n,
           o,
           i,
           a = t.value,
-          r = 1 === t.state,
-          s = r ? e.ok : e.fail,
+          core_export = 1 === t.state,
+          createNonEnumerableProperty = core_export ? e.ok : e.fail,
           l = e.resolve,
-          c = e.reject,
-          u = e.domain;
+          globalThis = e.reject,
+          defineBuiltIn = e.domain;
         try {
-          s
-            ? (r || (2 === t.rejection && Y(t), (t.rejection = 1)),
-              true === s
+          createNonEnumerableProperty
+            ? (core_export || (2 === t.rejection && Y(t), (t.rejection = 1)),
+              true === createNonEnumerableProperty
                 ? (n = a)
-                : (u && u.enter(), (n = s(a)), u && (u.exit(), (i = true))),
+                : (defineBuiltIn && defineBuiltIn.enter(), (n = createNonEnumerableProperty(a)), defineBuiltIn && (defineBuiltIn.exit(), (i = true))),
               n === e.promise
-                ? c(new M("Promise-chain cycle"))
+                ? globalThis(new M("Promise-chain cycle"))
                 : (o = K(n))
-                ? d(o, n, l, c)
+                ? isCallable(o, n, l, globalThis)
                 : l(n))
-            : c(a);
+            : globalThis(a);
         } catch (e) {
-          u && !i && u.exit(), c(e);
+          defineBuiltIn && !i && defineBuiltIn.exit(), globalThis(e);
         }
       },
       H = function (e, t) {
@@ -89,14 +89,14 @@ function (exports, module, require) {
           ? (((o = N.createEvent("Event")).promise = t),
             (o.reason = n),
             o.initEvent(e, false, true),
-            c.dispatchEvent(o))
+            globalThis.dispatchEvent(o))
           : (o = { promise: t, reason: n }),
-          !D && (i = c["on" + e])
+          !D && (i = globalThis["on" + e])
             ? i(o)
             : "unhandledrejection" === e && C("Unhandled promise rejection", n);
       },
       z = function (e) {
-        d(b, c, function () {
+        isCallable(b, globalThis, function () {
           var t,
             n = e.facade,
             o = e.value;
@@ -117,7 +117,7 @@ function (exports, module, require) {
         return 1 !== e.rejection && !e.parent;
       },
       Y = function (e) {
-        d(b, c, function () {
+        isCallable(b, globalThis, function () {
           var t = e.facade;
           l ? B.emit("rejectionHandled", t) : W("rejectionhandled", t, e.value);
         });
@@ -141,7 +141,7 @@ function (exports, module, require) {
               ? w(function () {
                   var n = { done: false };
                   try {
-                    d(o, t, X(J, n, e), X(Q, n, e));
+                    isCallable(o, t, X(J, n, e), X(Q, n, e));
                   } catch (t) {
                     Q(n, t, e);
                   }
@@ -155,7 +155,7 @@ function (exports, module, require) {
     if (
       P &&
       ((R = (F = function (e) {
-        v(this, R), f(e), d(o, this);
+        v(this, R), f(e), isCallable(o, this);
         var t = I(this);
         try {
           e(X(J, t), X(Q, t));
@@ -174,13 +174,13 @@ function (exports, module, require) {
           state: 0,
           value: null,
         });
-      }).prototype = u(R, "then", function (e, t) {
+      }).prototype = defineBuiltIn(R, "then", function (e, t) {
         var n = I(this),
           o = U(_(this, F));
         return (
           (n.parent = true),
-          (o.ok = !m(e) || e),
-          (o.fail = m(t) && t),
+          (o.ok = !anObject(e) || e),
+          (o.fail = anObject(t) && t),
           (o.domain = l ? B.domain : undefined),
           0 === n.state
             ? n.reactions.add(o)
@@ -199,17 +199,17 @@ function (exports, module, require) {
         function (e) {
           return e === F || undefined === e ? new i(e) : $(e);
         }),
-      !s && m(A) && O !== Object.prototype)
+      !createNonEnumerableProperty && anObject(A) && O !== Object.prototype)
     ) {
       (a = O.then),
         L ||
-          u(
+          defineBuiltIn(
             O,
             "then",
             function (e, t) {
               var n = this;
               return new F(function (e, t) {
-                d(a, n, e, t);
+                isCallable(a, n, e, t);
               }).then(e, t);
             },
             { unsafe: true }
@@ -219,7 +219,7 @@ function (exports, module, require) {
       } catch (e) {}
       p && p(O, R);
     }
-    r({ global: true, constructor: true, wrap: true, forced: P }, { Promise: F }),
-      g(F, "Promise", false, true),
+    core_export({ global: true, constructor: true, wrap: true, forced: P }, { Promise: F }),
+      setToStringTag(F, "Promise", false, true),
       h("Promise");
   }

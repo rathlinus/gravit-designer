@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */;
+    var globalThis = require(23) /* globalThis */;
     exports.exports = function (e, t) {
-      var n = o.Iterator,
+      var n = globalThis.Iterator,
         i = n && n.prototype,
         a = i && i[e],
         r = false;

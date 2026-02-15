@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(130) /* lengthOfArrayLike */,
-      i = require(62) /* requireObjectCoercible */,
-      a = require(92) /* classof */,
+    var lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      classof = require(92) /* classof */,
       r = RangeError;
     exports.exports = function (e) {
-      var t = i(a(this)),
+      var t = requireObjectCoercible(classof(this)),
         n = "",
-        s = o(e);
+        s = lengthOfArrayLike(e);
       if (s < 0 || s === 1 / 0) throw new r("Wrong number of repetitions");
       for (; s > 0; (s >>>= 1) && (t += t)) 1 & s && (n += t);
       return n;

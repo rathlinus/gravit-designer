@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
-      a = require(1156) /* GMenuCloseEvent */,
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
       r = require(444) /* module_444 */,
       s = require(339) /* GMenu */,
       l = require(1157) /* module_1157 */,
-      c = require(804) /* GMenuOpenEvent */,
-      d = require(31) /* GAction */;
+      GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
+      GAction = require(31) /* GAction */;
     function u(e, t) {
       (this._parent = e),
         (this._htmlElement = $("<ul></ul>").addClass("g-menu")),
@@ -25,13 +25,13 @@ function (exports, module, require) {
             (e.stopImmediatePropagation(),
             "touchmove" === e.type && this.closeMenus(true));
         },
-        o = !!(0, i.isPassiveSupported)() && { capture: false, passive: true };
-      this._htmlElement[0].addEventListener("touchstart", require, o),
-        this._htmlElement[0].addEventListener("touchmove", require, o),
-        this._htmlElement[0].addEventListener("touchend", require, o),
+        GCore = !!(0, CollaborationMergeUtils.isPassiveSupported)() && { capture: false, passive: true };
+      this._htmlElement[0].addEventListener("touchstart", require, GCore),
+        this._htmlElement[0].addEventListener("touchmove", require, GCore),
+        this._htmlElement[0].addEventListener("touchend", require, GCore),
         t && this._htmlElement.addClass(t);
     }
-    o.GObject.inherit(u, o.GEventTarget),
+    GCore.GObject.inherit(u, GCore.GEventTarget),
       (u.prototype._parent = null),
       (u.prototype._htmlElement = null),
       (u.prototype._items = null),
@@ -100,18 +100,18 @@ function (exports, module, require) {
         var t = new s(s.Type.Divider);
         return this.insertItem(e, t), t;
       }),
-      (u.prototype.createAddItem = function (e, t, n, o, i) {
-        return this.createInsertItem(this.getItemCount(), e, t, n, o, i);
+      (u.prototype.createAddItem = function (e, t, n, GCore, CollaborationMergeUtils) {
+        return this.createInsertItem(this.getItemCount(), e, t, n, GCore, CollaborationMergeUtils);
       }),
-      (u.prototype.createInsertItem = function (e, t, n, o, i, a) {
-        var r = new s(null, null, a);
+      (u.prototype.createInsertItem = function (e, t, n, GCore, CollaborationMergeUtils, GMenuCloseEvent) {
+        var r = new s(null, null, GMenuCloseEvent);
         return (
-          t instanceof d
+          t instanceof GAction
             ? r.setAction(t, this._tooltipType)
             : (r.setCaption(t),
               n && r.addEventListener(s.ActivateEvent, n),
-              o && r.addEventListener(s.EnterEvent, o),
-              i && r.addEventListener(s.LeaveEvent, i)),
+              GCore && r.addEventListener(s.EnterEvent, GCore),
+              CollaborationMergeUtils && r.addEventListener(s.LeaveEvent, CollaborationMergeUtils)),
           this.insertItem(e, r),
           r
         );
@@ -166,27 +166,27 @@ function (exports, module, require) {
       (u.prototype.isOpen = function () {
         return !!this._htmlElement.parent().length;
       }),
-      (u.prototype.open = function (e, t, n, o) {
+      (u.prototype.open = function (e, t, n, GCore) {
         (t = "number" == typeof t ? t : r.Position.Center),
           (n = "number" == typeof n ? n : r.Position.Center);
-        const i = e && "number" == typeof e.x && "number" == typeof e.y,
-          a = this._htmlElement.hasClass("g-touch"),
-          s = !i && $(e).hasClass("g-menu-button");
+        const CollaborationMergeUtils = e && "number" == typeof e.x && "number" == typeof e.y,
+          GMenuCloseEvent = this._htmlElement.hasClass("g-touch"),
+          s = !CollaborationMergeUtils && $(e).hasClass("g-menu-button");
         if (
           (this._htmlElement.toggleClass("g-menu-button", !!s),
           this.isOpen() ||
             (this.update(),
             this._htmlElement.appendTo($("body")),
-            this.isSubMenu() || l.setActiveMenu(this, false, o),
-            this.trigger(c.EVENT)),
+            this.isSubMenu() || l.setActiveMenu(this, false, GCore),
+            this.trigger(GMenuOpenEvent.EVENT)),
           this._htmlElement.parent().is("body"))
         ) {
-          var d = this._htmlElement.outerWidth(),
+          var GAction = this._htmlElement.outerWidth(),
             u = this._htmlElement.outerHeight(),
             p = $(window).width(),
             g = $(window).height(),
             h = { x: 0, y: 0, width: 0, height: 0 };
-          if (i) (h.x = e.x), (h.y = e.y);
+          if (CollaborationMergeUtils) (h.x = e.x), (h.y = e.y);
           else {
             var f = $(e),
               m = f.offset();
@@ -198,13 +198,13 @@ function (exports, module, require) {
           var y = 0;
           switch (t) {
             case r.Position.Left_Top:
-              (y = h.x - d) < 0 && (y = h.x + h.width);
+              (y = h.x - GAction) < 0 && (y = h.x + h.width);
               break;
             case r.Position.Center:
               y = h.x;
               break;
             case r.Position.Right_Bottom:
-              (y = h.x + h.width) + d > p && (y = h.x - d);
+              (y = h.x + h.width) + GAction > p && (y = h.x - GAction);
           }
           var v = 0;
           switch (n) {
@@ -217,17 +217,17 @@ function (exports, module, require) {
             case r.Position.Right_Bottom:
               (v = h.y + h.height) + u > g && (v = h.y - u);
           }
-          const o = this._rangeLeftX ? this._rangeLeftX : 0;
-          y < o && (y = o);
+          const GCore = this._rangeLeftX ? this._rangeLeftX : 0;
+          y < GCore && (y = GCore);
           const l = this._rangeRightX ? this._rangeRightX : p;
-          y + d >= l && (y = l - d);
-          const c = this._rangeLeftY ? this._rangeLeftY : 0;
-          v < c && (v = c);
+          y + GAction >= l && (y = l - GAction);
+          const GMenuOpenEvent = this._rangeLeftY ? this._rangeLeftY : 0;
+          v < GMenuOpenEvent && (v = GMenuOpenEvent);
           const _ = this._rangeRightY ? this._rangeRightY : g;
           if (
             (v + u >= _ && (v = _ - u),
             this._htmlElement.find(".g-menu-arrow").remove(),
-            a && s)
+            GMenuCloseEvent && s)
           ) {
             const e = $("<div/>")
               .addClass("g-menu-arrow")
@@ -265,7 +265,7 @@ function (exports, module, require) {
           ),
           this._htmlElement.detach(),
           this === l._activeMenu && l.setActiveMenu(null, true),
-          this.trigger(a.EVENT));
+          this.trigger(GMenuCloseEvent.EVENT));
       }),
       (u.prototype.setTouchMode = function (e) {
         this._htmlElement.toggleClass("g-touch", !!e);
@@ -306,10 +306,10 @@ function (exports, module, require) {
       (u.prototype.addClass = function (e) {
         this._htmlElement.addClass(e);
       }),
-      (u.prototype.setActiveRangeSize = function (e, t, n, o) {
+      (u.prototype.setActiveRangeSize = function (e, t, n, GCore) {
         (this._rangeLeftX = e),
           (this._rangeLeftY = t),
-          (this._rangeRightX = this._rangeLeftX + o),
+          (this._rangeRightX = this._rangeLeftX + GCore),
           (this._rangeRightY = this._rangeLeftY + n);
       }),
       (u.prototype.toString = function () {
@@ -319,8 +319,8 @@ function (exports, module, require) {
         ["file", "edit", "modify", "view"].forEach((t) => {
           $(
             '.g-menu-item-menu:contains("'.concat(
-              o.GLocale.get(
-                new o.GLocaleKey("GCategory", "category.".concat(t))
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCategory", "category.".concat(t))
               ),
               '")'
             )

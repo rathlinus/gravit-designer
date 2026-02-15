@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(46) /* toLength */,
-      a = o.document,
-      r = i(a) && i(a.createElement);
+    var globalThis = require(23) /* globalThis */,
+      toLength = require(46) /* toLength */,
+      a = globalThis.document,
+      r = toLength(a) && toLength(a.createElement);
     exports.exports = function (e) {
       return r ? a.createElement(e) : {};
     };

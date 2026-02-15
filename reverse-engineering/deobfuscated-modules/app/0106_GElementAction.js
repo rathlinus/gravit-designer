@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = o(require(31) /* GAction */),
-      r = o(require(567) /* GAnnotationsSidebar */),
-      s = o(require(10) /* AppSettings */);
+    var GCore = require(1) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */),
+      GAnnotationsSidebar = _interopRequireDefault(require(567) /* GAnnotationsSidebar */),
+      AppSettings = _interopRequireDefault(require(10) /* AppSettings */);
     function l() {}
-    i.GObject.inherit(l, a.default),
+    GCore.GObject.inherit(l, GAction.default),
       (l.prototype.isEnabled = function () {
         return (
-          !s.default ||
-          gDesigner.getRightSidebars().getActiveSidebar() !== r.default.ID
+          !AppSettings.default ||
+          gDesigner.getRightSidebars().getActiveSidebar() !== GAnnotationsSidebar.default.ID
         );
       }),
       (l.prototype.toString = function () {

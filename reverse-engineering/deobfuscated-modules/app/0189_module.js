@@ -9,19 +9,19 @@ function (exports, module, require) {
       i = require(427) /* module_427 */,
       a = require(429) /* module_429 */,
       r = require(131) /* module_131 */,
-      s = require(29) /* isCallable */,
-      l = require(27) /* uncurryThis */,
-      c = require(21) /* tryCall */,
+      isCallable = require(29) /* isCallable */,
+      uncurryThis = require(27) /* uncurryThis */,
+      tryCall = require(21) /* tryCall */,
       d = o.aTypedArray,
       u = o.exportTypedArrayMethod,
-      p = l("".slice);
+      p = uncurryThis("".slice);
     u(
       "fill",
       function (e) {
         var t = arguments.length;
         d(this);
         var n = "Big" === p(r(this), 0, 3) ? a(e) : +e;
-        return s(
+        return isCallable(
           i,
           this,
           n,
@@ -29,7 +29,7 @@ function (exports, module, require) {
           t > 2 ? arguments[2] : undefined
         );
       },
-      c(function () {
+      tryCall(function () {
         var e = 0;
         return (
           new Int8Array(2).fill({

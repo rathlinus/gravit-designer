@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */;
-    var o = require(15) /* module */,
+    var GEditor = require(15) /* module */,
       i = [],
       a = function (e) {
         var t = false;
         if (i.length > 0)
           for (var require = i.length - 1; require >= 0; --require) {
-            var o = $(i[require]),
-              a = o.closest(".g-overlay"),
+            var GEditor = $(i[require]),
+              a = GEditor.closest(".g-overlay"),
               r = $(e.target).closest("body > *"),
               s = false;
             a.parent().length > 0 &&
@@ -21,7 +21,7 @@ function (exports, module, require) {
               0 === $(e.target).closest(".g-overlay").length &&
               (s = true),
               ($(r).index() < a.index() || s) &&
-                ((t = true), o.gOverlay("close", e, require));
+                ((t = true), GEditor.gOverlay("close", e, require));
           }
         return t;
       };
@@ -39,8 +39,8 @@ function (exports, module, require) {
           if (27 === t) a(e) && e.stopPropagation();
           else if (13 === t && i.length > 0)
             for (var require = i.length - 1; require >= 0; --require) {
-              var o = $(i[require]).data("goverlay"),
-                r = o && o.options;
+              var GEditor = $(i[require]).data("goverlay"),
+                r = GEditor && GEditor.options;
               r.enterCallback && r.enterCallback(e);
             }
         },
@@ -99,7 +99,7 @@ function (exports, module, require) {
           var t = $(this),
             n = t.data("goverlay");
           if (!n || (!n.target && !n.isPoint)) return;
-          let o;
+          let GEditor;
           var i = t.closest(".g-overlay"),
             a = $(window),
             r = a.width(),
@@ -109,16 +109,16 @@ function (exports, module, require) {
             d = {};
           n.yTop && n.xLeft
             ? ((d.top = n.yTop), (d.left = n.xLeft))
-            : ((o = $(n.target)), (d = o.offset()));
+            : ((GEditor = $(n.target)), (d = GEditor.offset()));
           var u,
             p,
             g = d.top,
-            h = n.isPoint ? 0 : o.outerWidth() / 2,
+            h = n.isPoint ? 0 : GEditor.outerWidth() / 2,
             f = d.left + h,
             m = n.options.middle ? f : d.left,
-            y = n.isPoint ? 0 : o.outerWidth(),
+            y = n.isPoint ? 0 : GEditor.outerWidth(),
             v = n.options.middle ? f : d.left + y,
-            _ = n.isPoint ? 0 : o.outerHeight(),
+            _ = n.isPoint ? 0 : GEditor.outerHeight(),
             b = d.top + _;
           n.options.side
             ? (t.addClass(n.options.sideClazz),
@@ -186,8 +186,8 @@ function (exports, module, require) {
                   .append(p)
                   .appendTo(u)
               : p.appendTo(u),
-            o.GPlatform.addEventListener(
-              o.GModifiersChangedEvent,
+            GEditor.GPlatform.addEventListener(
+              GEditor.GModifiersChangedEvent,
               r,
               this[0],
               null,
@@ -210,8 +210,8 @@ function (exports, module, require) {
             };
             if ((n.trigger("close", [t, e]), s)) return;
             var l;
-            o.GPlatform.removeEventListener(
-              o.GModifiersChangedEvent,
+            GEditor.GPlatform.removeEventListener(
+              GEditor.GModifiersChangedEvent,
               r,
               this[0]
             ),

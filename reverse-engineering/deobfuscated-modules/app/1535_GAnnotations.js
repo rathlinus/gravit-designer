@@ -7,37 +7,37 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(449) /* GFitAllAction */,
-      s = require(566) /* GFitSelectionAction */,
-      l = require(123) /* GProperties */;
+      GFitAllAction = require(449) /* GFitAllAction */,
+      GFitSelectionAction = require(566) /* GFitSelectionAction */,
+      GProperties = require(123) /* GProperties */;
     const c = require(358) /* module_358 */,
       d = require(86) /* module_86 */,
       { SHOW_SIDEBAR_BADGE: u } = require(10) /* AppSettings */;
     function p() {
       this._elements = [];
     }
-    i.GObject.inherit(p, l),
+    GCore.GObject.inherit(p, GProperties),
       (p.prototype._panel = null),
       (p.prototype._toolbar = null),
       (p.prototype._document = null),
       (p.prototype._elements = null),
-      (p.prototype.init = function (e, t, n, o, a, r) {
+      (p.prototype.init = function (e, t, n, GTools, a, GFitAllAction) {
         (this._panel = e),
           (this._toolbar = t),
-          this._addListPanel(e, n, o, a, r),
+          this._addListPanel(e, n, GTools, a, GFitAllAction),
           t.append(
             $("<label>")
               .addClass("annotation-panel-label")
               .text(
-                i.GLocale.get(new i.GLocaleKey("GAnnotations", "text.page"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GAnnotations", "text.page"))
               )
           );
       }),
-      (p.prototype._addListPanel = function (e, t, n, o, s) {
-        var l = $("<div></div>").addClass("annotations-container").appendTo(e);
+      (p.prototype._addListPanel = function (e, t, n, GTools, GFitSelectionAction) {
+        var GProperties = $("<div></div>").addClass("annotations-container").appendTo(e);
         this._annotationPanel ||
           ((this._annotationPanel = $("<div></div>")
             .addClass("annotations")
@@ -48,8 +48,8 @@ function (exports, module, require) {
                 e &&
                   e.acceptChildren(function (e) {
                     return (
-                      e.hasFlag(i.GNode.Flag.Highlighted) &&
-                        e.removeFlag(i.GNode.Flag.Highlighted),
+                      e.hasFlag(GCore.GNode.Flag.Highlighted) &&
+                        e.removeFlag(GCore.GNode.Flag.Highlighted),
                       true
                     );
                   }),
@@ -72,7 +72,7 @@ function (exports, module, require) {
                 var e = this._document.getScene();
                 e && e.setActiveLayer(null),
                   a.GPlatform.modifiers.optionKey &&
-                    gDesigner.executeAction(r.ID, undefined, "outlinesidebar");
+                    gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
               }.bind(this)
             )
             .on("dragover", function (e) {
@@ -87,13 +87,13 @@ function (exports, module, require) {
                 e.preventDefault(), e.stopPropagation();
               }.bind(this)
             )
-            .appendTo(l)),
+            .appendTo(GProperties)),
           this._annotationPanel.gAnnotationPanel({
             clickCallback: this._clickTreeNodeCallback.bind(this),
             updateCommentCount: this._updateCommentCount.bind(this),
             showResolved: n,
-            updateSidebar: o,
-            updateAnnotationCache: s,
+            updateSidebar: GTools,
+            updateAnnotationCache: GFitSelectionAction,
             sidebarActive: t,
           }),
           (window.refreshannot = () =>
@@ -141,8 +141,8 @@ function (exports, module, require) {
       }),
       (p.prototype._clickTreeNodeCallback = function (e) {
         if (
-          (e instanceof i.GComment && (e = e.getParent()),
-          e && !e.hasFlag(i.GNode.Flag.Selected))
+          (e instanceof GCore.GComment && (e = e.getParent()),
+          e && !e.hasFlag(GCore.GNode.Flag.Selected))
         ) {
           this._document.getScene().updateActivePageForElem(e),
             this._document.getScene().updateActiveLayerForElem(e);
@@ -159,38 +159,38 @@ function (exports, module, require) {
               .find("> div[tabindex=0]")
               .focus(),
             a.GPlatform.modifiers.metaKey ||
-              (!e.hasFlag(i.GNode.Flag.Selected) &&
-                !e.hasFlag(i.GElement.Flag.FullLocked) &&
+              (!e.hasFlag(GCore.GNode.Flag.Selected) &&
+                !e.hasFlag(GCore.GElement.Flag.FullLocked) &&
                 !a.GPlatform.modifiers.shiftKey))
           ) {
-            let o = [e];
-            if (e.hasMixin(i.GAnnotation.Linkable)) {
+            let GTools = [e];
+            if (e.hasMixin(GCore.GAnnotation.Linkable)) {
               let t = e.getAnnotableReferences();
               t &&
-                ((t = t.filter((e) => !e.hasFlag(i.GNode.Flag.Selected))),
+                ((t = t.filter((e) => !e.hasFlag(GCore.GNode.Flag.Selected))),
                 t.length &&
-                  ((o = o.concat(t)),
+                  ((GTools = GTools.concat(t)),
                   this._document.getScene().updateActivePageForElem(t[0])));
             }
-            module.updateSelection(a.GPlatform.modifiers.metaKey, o), (require = true);
+            module.updateSelection(a.GPlatform.modifiers.metaKey, GTools), (require = true);
           }
           if (require && a.GPlatform.modifiers.optionKey)
             module.hasSelection()
-              ? gDesigner.executeAction(s.ID, undefined, "outlinesidebar")
-              : gDesigner.executeAction(r.ID, undefined, "outlinesidebar");
+              ? gDesigner.executeAction(GFitSelectionAction.ID, undefined, "outlinesidebar")
+              : gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
           else if (require) {
             let t;
-            if (e.hasMixin(i.GAnnotation.Linkable)) {
+            if (e.hasMixin(GCore.GAnnotation.Linkable)) {
               const n = e.getAnnotableReferences();
               n &&
                 n.length &&
                 n.forEach((e) => {
-                  if (e instanceof i.GElement) {
+                  if (e instanceof GCore.GElement) {
                     const n = e.getPaintBBox();
                     n && !n.isEmpty() && (t = t ? t.united(n) : n);
                   }
                 });
-            } else e instanceof i.GElement && (t = e.getPaintBBox());
+            } else e instanceof GCore.GElement && (t = e.getPaintBBox());
             const n = this._document && this._document.getActiveWindow();
             n && n.scrollIntoView(t);
           }
@@ -200,12 +200,12 @@ function (exports, module, require) {
         const exports = this._document && this._document.getEditor(),
           module = exports && exports.getSelection();
         if (module && module.length) {
-          module.filter((e) => e.hasMixin(i.GAnnotable)).forEach((e) => {
+          module.filter((e) => e.hasMixin(GCore.GAnnotable)).forEach((e) => {
             const module = e.getLinkedAnnotations();
             module &&
               module.forEach((e) => {
-                e.hasFlag(i.GNode.Flag.Selected) ||
-                  e.setFlag(i.GNode.Flag.Selected);
+                e.hasFlag(GCore.GNode.Flag.Selected) ||
+                  e.setFlag(GCore.GNode.Flag.Selected);
               });
           });
         }
@@ -214,31 +214,31 @@ function (exports, module, require) {
         return !(
           !(e.data && e.data.nodes && e.data.parent) ||
           (e.data.type !==
-            o.GAnnotationEditor.TransactionType.RemoveAnnotation &&
-            e.data.type !== o.GAnnotationEditor.TransactionType.AddAnnotation)
+            GTools.GAnnotationEditor.TransactionType.RemoveAnnotation &&
+            e.data.type !== GTools.GAnnotationEditor.TransactionType.AddAnnotation)
         );
       }),
       (p.prototype._handleModifiedEvent = function (e) {
         if (this._isSyncTransactionEvent(e)) {
-          const n = e.data.evtType === o.GEditor.ModifiedEvent.Type.Undo,
-            i = e.data.evtType === o.GEditor.ModifiedEvent.Type.Redo,
+          const n = e.data.evtType === GTools.GEditor.ModifiedEvent.Type.Undo,
+            GCore = e.data.evtType === GTools.GEditor.ModifiedEvent.Type.Redo,
             a =
               e.data.type ===
-              o.GAnnotationEditor.TransactionType.RemoveAnnotation,
-            r =
-              e.data.type === o.GAnnotationEditor.TransactionType.AddAnnotation,
-            s = !!this._document.getAnnotationsId(),
-            l = (n && a) || (n && r) || (i && r),
-            d = i && a;
+              GTools.GAnnotationEditor.TransactionType.RemoveAnnotation,
+            GFitAllAction =
+              e.data.type === GTools.GAnnotationEditor.TransactionType.AddAnnotation,
+            GFitSelectionAction = !!this._document.getAnnotationsId(),
+            GProperties = (n && a) || (n && GFitAllAction) || (GCore && GFitAllAction),
+            d = GCore && a;
           let u;
-          if (s && l)
+          if (GFitSelectionAction && GProperties)
             (u = c.filterAnnotationElements(e.data.nodes)),
               u.length &&
                 u.forEach((t) => {
                   c.removeSidFromAnnotations(t),
                     t.getParent() || e.data.parent.insertChild(t);
                 });
-          else if (s && d) {
+          else if (GFitSelectionAction && d) {
             var module = e.data.parent.getChildren();
             (u = c
               .filterAnnotationElements(e.data.nodes)
@@ -254,35 +254,35 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                i.GElement.GeometryChangeEvent,
+                GCore.GElement.GeometryChangeEvent,
                 this._geometryChange,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                i.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                o.GEditor.EdGeometryChangeEvent,
+                GTools.GEditor.EdGeometryChangeEvent,
                 this._edGeometryChange,
                 this
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                o.GEditor.ModifiedEvent,
+                GTools.GEditor.ModifiedEvent,
                 this._handleModifiedEvent,
                 this
               ),
             this._document
               .getEditor()
               .removeEventListener(
-                o.GEditor.SelectionChangedEvent,
+                GTools.GEditor.SelectionChangedEvent,
                 this._selectionChangedEvent,
                 this
               ),
@@ -297,35 +297,35 @@ function (exports, module, require) {
                 this._document
                   .getScene()
                   .addEventListener(
-                    i.GNode.AfterPropertiesChangeEvent,
+                    GCore.GNode.AfterPropertiesChangeEvent,
                     this._afterPropertiesChange,
                     this
                   ),
                 this._document
                   .getScene()
                   .addEventListener(
-                    i.GElement.GeometryChangeEvent,
+                    GCore.GElement.GeometryChangeEvent,
                     this._geometryChange,
                     this
                   ),
                 this._document
                   .getEditor()
                   .addEventListener(
-                    o.GEditor.EdGeometryChangeEvent,
+                    GTools.GEditor.EdGeometryChangeEvent,
                     this._edGeometryChange,
                     this
                   ),
                 this._document
                   .getEditor()
                   .addEventListener(
-                    o.GEditor.SelectionChangedEvent,
+                    GTools.GEditor.SelectionChangedEvent,
                     this._selectionChangedEvent,
                     this
                   ),
                 this._document
                   .getEditor()
                   .addEventListener(
-                    o.GEditor.ModifiedEvent,
+                    GTools.GEditor.ModifiedEvent,
                     this._handleModifiedEvent,
                     this
                   ),
@@ -343,7 +343,7 @@ function (exports, module, require) {
             this._document
               .getEditor()
               .addEventListener(
-                o.GEditor.ModifiedEvent,
+                GTools.GEditor.ModifiedEvent,
                 this._handleModifiedEvent,
                 this
               );
@@ -357,8 +357,8 @@ function (exports, module, require) {
           this._setAnnotationLabel(e.node.getProperty("name"));
       }),
       (p.prototype._geometryChange = function (e) {
-        (e.type !== i.GElement.GeometryChangeEvent.Type.After &&
-          e.type !== i.GElement.GeometryChangeEvent.Type.Child) ||
+        (e.type !== GCore.GElement.GeometryChangeEvent.Type.After &&
+          e.type !== GCore.GElement.GeometryChangeEvent.Type.Child) ||
           (this._elements.indexOf(e.element) >= 0 && this._updateDimensions());
       }),
       (p.prototype._edGeometryChange = function () {

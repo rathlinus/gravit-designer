@@ -5,24 +5,24 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(57) /* polyfill_parseInt */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i = require(15) /* module */,
-      a = require(53) /* module */,
-      r = require(1) /* module */,
-      s = require(10) /* AppSettings */,
+      GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       l = require(67) /* GRichTooltipConfig */,
-      c = o(require(340) /* GTouchTool */),
-      d = o(require(807) /* module_807 */),
-      u = o(require(198) /* Exports_GOutlineSidebar */),
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
+      d = _interopRequireDefault(require(807) /* module_807 */),
+      GOutlineSidebar = _interopRequireDefault(require(198) /* Exports_GOutlineSidebar */),
       p = require(1161) /* module_1161 */,
-      g = o(require(565) /* module_565 */),
-      h = require(123) /* GProperties */,
+      g = _interopRequireDefault(require(565) /* module_565 */),
+      GProperties = require(123) /* GProperties */,
       f = require(450) /* module_450 */;
     const m = require(607) /* module_607 */,
-      y = require(44) /* GSystemDialog */;
+      GSystemDialog = require(44) /* GSystemDialog */;
     function v() {}
-    r.GObject.inherit(v, h),
+    GCore.GObject.inherit(v, GProperties),
       (v.prototype._panel = null),
       (v.prototype._advancedFillPanel = null),
       (v.prototype._toolbar = null),
@@ -36,7 +36,7 @@ function (exports, module, require) {
         (this._panel = e.addClass("fill-properties-panel")),
           (this._toolbar = t),
           this.setTouchTools([
-            new c.default({
+            new GTouchTool.default({
               id: "fill",
               icon: "gravit-icon-touch-fill",
               panel: this._panel,
@@ -48,7 +48,7 @@ function (exports, module, require) {
         this._advancedFillPanel = $("<div></div>").gOverlay({
           releaseOnClose: false,
         });
-        var o = function (e) {
+        var _interopRequireDefault = function (e) {
           if ("evenodd" === e)
             return $("<select></select>")
               .attr("data-property", "evenodd")
@@ -56,8 +56,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "0")
                   .text(
-                    r.GLocale.get(
-                      new r.GLocaleKey("GCommonNames", "evenodd.non-zero")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "evenodd.non-zero")
                     )
                   )
               )
@@ -65,8 +65,8 @@ function (exports, module, require) {
                 $("<option></option>")
                   .attr("value", "1")
                   .text(
-                    r.GLocale.get(
-                      new r.GLocaleKey("GCommonNames", "evenodd.even-odd")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "evenodd.even-odd")
                     )
                   )
               )
@@ -78,8 +78,8 @@ function (exports, module, require) {
                   n._assignProperty(
                     "evenodd",
                     "1" === $(this).val(),
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "action.change-fill-rule"
                       )
@@ -91,16 +91,16 @@ function (exports, module, require) {
         this._toolbar.addClass("list-toolbar fill-toolbar"),
           $("<label></label>")
             .text(
-              r.GLocale.get(
-                new r.GLocaleKey("GFillPaintLayerProperties", "title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GFillPaintLayerProperties", "title")
               )
             )
             .appendTo(this._toolbar),
           $("<button></button>")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFillPaintLayerProperties",
                   "action.advanced-settings"
                 )
@@ -118,8 +118,8 @@ function (exports, module, require) {
                   n._assignProperty(
                     "evenodd",
                     false,
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "action.change-fill-rule"
                       )
@@ -131,8 +131,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFillPaintLayerProperties",
                   "action.advanced-settings"
                 )
@@ -150,8 +150,8 @@ function (exports, module, require) {
                   n._assignProperty(
                     "evenodd",
                     true,
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "action.change-fill-rule"
                       )
@@ -163,8 +163,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFillPaintLayerProperties",
                   "action.advanced-settings"
                 )
@@ -185,14 +185,14 @@ function (exports, module, require) {
             )
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: r.GLocale.get(
-                  new r.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GFillPaintLayerProperties",
                     "text.fill-rule-tooltip-title"
                   )
                 ),
-                description: r.GLocale.get(
-                  new r.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GFillPaintLayerProperties",
                     "text.fill-rule-tooltip-description"
                   )
@@ -206,8 +206,8 @@ function (exports, module, require) {
             .attr("data-action", "remove")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GFillPaintLayerProperties",
                   "action.remove-selected"
                 )
@@ -219,39 +219,39 @@ function (exports, module, require) {
               gDesigner.stats("fill_remove_fill"), e.stopPropagation();
               var t = n._getSelectedPaintLayer();
               t &&
-                a.GEditor.tryRunTransaction(
+                GTools.GEditor.tryRunTransaction(
                   n._elements[0],
                   function () {
                     var e = [];
                     n._iterateEqualPaintLayer(t, function (t) {
                       e.push(t);
                     }),
-                      r.GUtil.each(e, function (e, t) {
+                      GCore.GUtil.each(e, function (e, t) {
                         t.getParent().removeChild(t);
                       });
                   },
-                  r.GLocale.get(
-                    new r.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFillPaintLayerProperties",
                       "action.remove"
                     )
                   )
                 );
-              const o = gDesigner
+              const _interopRequireDefault = gDesigner
                 .getRightSidebars()
-                .getSidebar(u.default.SidebarsIds.GInspectorSidebar);
-              o.trigger(new d.default(d.default.Type.ChildRemoved, o));
+                .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
+              _interopRequireDefault.trigger(new d.default(d.default.Type.ChildRemoved, _interopRequireDefault));
             })
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: r.GLocale.get(
-                  new r.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GFillPaintLayerProperties",
                     "text.remove-layer-tooltip-title"
                   )
                 ),
-                description: r.GLocale.get(
-                  new r.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GFillPaintLayerProperties",
                     "text.remove-layer-tooltip-description"
                   )
@@ -265,8 +265,8 @@ function (exports, module, require) {
             .attr("data-action", "add")
             .attr(
               "data-title",
-              r.GLocale.get(
-                new r.GLocaleKey("GFillPaintLayerProperties", "action.add")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GFillPaintLayerProperties", "action.add")
               )
             )
             .append($("<span></span>").addClass("gravit-icon-plus"))
@@ -275,23 +275,23 @@ function (exports, module, require) {
               "click",
               function (e) {
                 gDesigner.stats("fill_add_fill"),
-                  a.GEditor.tryRunTransaction(
+                  GTools.GEditor.tryRunTransaction(
                     n._elements[0],
                     function () {
                       const e = n._document && n._document.getScene(),
                         t = e && e.getProperty("cm"),
-                        o = r.GColorHelper.convertColor(
-                          r.GRGBColor.BLACK,
-                          t || r.GColor.ColorModes.RGB
+                        _interopRequireDefault = GCore.GColorHelper.convertColor(
+                          GCore.GRGBColor.BLACK,
+                          t || GCore.GColor.ColorModes.RGB
                         );
                       for (var i = 0; i < n._elements.length; ++i) {
-                        var a = new r.GStylable.FillPaintLayer();
-                        a.setProperty("_pt", o),
-                          n._elements[i].getPaintLayers().appendChild(a);
+                        var GTools = new GCore.GStylable.FillPaintLayer();
+                        GTools.setProperty("_pt", _interopRequireDefault),
+                          n._elements[i].getPaintLayers().appendChild(GTools);
                       }
                     },
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GFillPaintLayerProperties",
                         "action.add"
                       )
@@ -301,20 +301,20 @@ function (exports, module, require) {
                   $(this._toolbar).gAccordion("init", $(this._panel));
                 const t = gDesigner
                   .getRightSidebars()
-                  .getSidebar(u.default.SidebarsIds.GInspectorSidebar);
+                  .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
                 t.trigger(new d.default(d.default.Type.ChildAdded, t));
               }.bind(this)
             )
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: r.GLocale.get(
-                  new r.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GFillPaintLayerProperties",
                     "text.add-layer-tooltip-title"
                   )
                 ),
-                description: r.GLocale.get(
-                  new r.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GFillPaintLayerProperties",
                     "text.add-layer-tooltip-description"
                   )
@@ -326,17 +326,17 @@ function (exports, module, require) {
             .appendTo(this._toolbar),
           $("<div></div>")
             .gPropertyRow({
-              label: r.GLocale.get(
-                new r.GLocaleKey("GFillPaintLayerProperties", "text.fill-rule")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GFillPaintLayerProperties", "text.fill-rule")
               ),
-              columns: [{ width: "100%", content: o("evenodd") }],
+              columns: [{ width: "100%", content: _interopRequireDefault("evenodd") }],
             })
             .appendTo(this._advancedFillPanel),
           gDesigner
             .getWorkspace()
             .getStyleEdManager()
             .addEventListener(
-              a.GStyleEdManager.EditorEvent,
+              GTools.GStyleEdManager.EditorEvent,
               this._styleEditorEventHandler,
               this
             ),
@@ -348,13 +348,13 @@ function (exports, module, require) {
               function (e) {
                 var t = this._panel.find(".copy-info-overlay").eq(0),
                   n = this._panel.find(".fill-block.g-selected") || null,
-                  o = (n && n.position().top) || 0,
+                  _interopRequireDefault = (n && n.position().top) || 0,
                   i = $("<span/>")
                     .addClass("copy-info-overlay")
-                    .css({ top: o })
+                    .css({ top: _interopRequireDefault })
                     .text(
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GFillPaintLayerProperties",
                           "text.copy-fill"
                         )
@@ -381,7 +381,7 @@ function (exports, module, require) {
           });
       }),
       (v.prototype.update = function (e, t, n) {
-        const o = this._styleEditorChange;
+        const _interopRequireDefault = this._styleEditorChange;
         if (
           (this._styleEditorChange && (this._styleEditorChange = false),
           this._ownChange)
@@ -393,21 +393,21 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                r.GNode.AfterInsertEvent,
+                GCore.GNode.AfterInsertEvent,
                 this._afterInsert,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                r.GNode.BeforeRemoveEvent,
+                GCore.GNode.BeforeRemoveEvent,
                 this._beforeRemove,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                r.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
@@ -417,18 +417,18 @@ function (exports, module, require) {
         ) {
           e.getEditor();
           for (var i = 0; i < t.length; ++i) {
-            var s = t[i],
+            var AppSettings = t[i],
               l = function (e, t) {
-                t.hasMixin(r.GStylable) &&
+                t.hasMixin(GCore.GStylable) &&
                   t
                     .getStylePropertySets()
-                    .indexOf(r.GStylable.PropertySet.FillPaintLayers) >= 0 &&
+                    .indexOf(GCore.GStylable.PropertySet.FillPaintLayers) >= 0 &&
                   this._elements.push(t);
               }.bind(this),
-              c = a.GElementEditor.getEditor(s);
-            c && c.getStylableParts()
-              ? r.GUtil.each(c.getStylableParts(), l)
-              : l(null, s);
+              GTouchTool = GTools.GElementEditor.getEditor(AppSettings);
+            GTouchTool && GTouchTool.getStylableParts()
+              ? GCore.GUtil.each(GTouchTool.getStylableParts(), l)
+              : l(null, AppSettings);
           }
           if (this._elements.length)
             return (
@@ -436,25 +436,25 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  r.GNode.AfterInsertEvent,
+                  GCore.GNode.AfterInsertEvent,
                   this._afterInsert,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  r.GNode.BeforeRemoveEvent,
+                  GCore.GNode.BeforeRemoveEvent,
                   this._beforeRemove,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  r.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
-              o || this._updateProperties(n),
+              _interopRequireDefault || this._updateProperties(n),
               true
             );
         }
@@ -462,7 +462,7 @@ function (exports, module, require) {
       }),
       (v.prototype._styleEditorEventHandler = function (e) {
         this._styleEdOn &&
-          e.type == a.GStyleEdManager.EditorEventType.PrepareModifiedEvent &&
+          e.type == GTools.GStyleEdManager.EditorEventType.PrepareModifiedEvent &&
           (this._styleEditorChange = true);
       }),
       (v.prototype._updateProperties = function (e) {
@@ -470,7 +470,7 @@ function (exports, module, require) {
           var module = this._elements[0];
           this._panel.find(".fill-block").remove();
           var require = module.getPaintLayers().getFillLayers();
-          r.GUtil.each(
+          GCore.GUtil.each(
             require,
             function (t, n) {
               n && this._insertPaintLayer(n, e);
@@ -489,16 +489,16 @@ function (exports, module, require) {
       (v.prototype._assignProperties = function (e, t, n) {
         if (this._document) {
           this._ownChange = true;
-          var o = this._document.getEditor();
-          o.beginTransaction();
+          var _interopRequireDefault = this._document.getEditor();
+          _interopRequireDefault.beginTransaction();
           try {
             for (var i = 0; i < this._elements.length; ++i)
               this._elements[i].setProperties(e, t);
           } finally {
-            o.commitTransaction(
+            _interopRequireDefault.commitTransaction(
               n ||
-                r.GLocale.get(
-                  new r.GLocaleKey("GFillPaintLayerProperties", "action.modify")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFillPaintLayerProperties", "action.modify")
                 )
             ),
               (this._ownChange = false);
@@ -518,54 +518,54 @@ function (exports, module, require) {
       }),
       (v.prototype._insertPaintLayer = function (e, t) {
         var n = this,
-          o = false,
-          c = null,
+          _interopRequireDefault = false,
+          GTouchTool = null,
           d = null,
-          u = null,
-          h = null,
+          GOutlineSidebar = null,
+          GProperties = null,
           m = null,
           v = 0,
           _ = 0,
-          b = function (t, n, o, i) {
-            if (o)
+          b = function (t, n, _interopRequireDefault, i) {
+            if (_interopRequireDefault)
               this._iterateEqualPaintLayer(e, function (e) {
                 e.setProperties(t, n, false, false, true);
               });
             else {
               if (!this._document) return;
-              var s = null;
+              var AppSettings = null;
               if (i) {
                 var l = e.getParent().getIndexOfChild(e);
-                s = $.extend({ fillLayerIndex: l }, i);
+                AppSettings = $.extend({ fillLayerIndex: l }, i);
               }
               this._ownChange = true;
-              var c = this._document.getEditor();
-              c.beginTransaction();
+              var GTouchTool = this._document.getEditor();
+              GTouchTool.beginTransaction();
               try {
-                this._iterateEqualPaintLayer(e, function (e, o) {
-                  var i = a.GElementEditor.getEditor(o);
+                this._iterateEqualPaintLayer(e, function (e, _interopRequireDefault) {
+                  var i = GTools.GElementEditor.getEditor(_interopRequireDefault);
                   (i && i.applyPropertiesToParts(t, n)) ||
                     e.setProperties(t, n);
                 });
               } finally {
-                c.commitTransaction(
-                  r.GLocale.get(
-                    new r.GLocaleKey(
+                GTouchTool.commitTransaction(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFillPaintLayerProperties",
                       "action.change-properties"
                     )
                   ),
-                  s
+                  AppSettings
                 ),
                   (this._ownChange = false);
               }
             }
           }.bind(this),
           w = function (e) {
-            if (c) {
+            if (GTouchTool) {
               var t = $(e).data("paintLayer");
-              if (t && (t !== c || i.GPlatform.modifiers.shiftKey))
-                return c.getParent() === t.getParent();
+              if (t && (t !== GTouchTool || i.GPlatform.modifiers.shiftKey))
+                return GTouchTool.getParent() === t.getParent();
             }
             return false;
           },
@@ -576,21 +576,21 @@ function (exports, module, require) {
                   .gBlendMode()
                   .gRichTooltip(
                     l.GRichTooltipConfig.from({
-                      title: r.GLocale.get(
-                        new r.GLocaleKey(
+                      title: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GAppearanceProperties",
                           "text.blend-tooltip-title"
                         )
                       ),
-                      description: r.GLocale.get(
-                        new r.GLocaleKey(
+                      description: GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GAppearanceProperties",
                           "text.blend-tooltip-description"
                         )
                       ),
                       middle: false,
                       forceShow: true,
-                      learnMore: s.LINKS.BLENDING_MODES_DOCUMENTATION_URL,
+                      learnMore: AppSettings.LINKS.BLENDING_MODES_DOCUMENTATION_URL,
                     })
                   )
                   .attr("data-property", "_bl")
@@ -613,7 +613,7 @@ function (exports, module, require) {
                         [
                           true,
                           (t ||
-                            r.GLength.parseEquationValue(
+                            GCore.GLength.parseEquationValue(
                               $(this).gInputBox("value")
                             )) / 100,
                         ]
@@ -623,7 +623,7 @@ function (exports, module, require) {
                         .find(".transparency")
                         .gInputSlider(
                           "value",
-                          r.GLength.parseEquationValue(
+                          GCore.GLength.parseEquationValue(
                             $(this).gInputBox("value")
                           )
                         );
@@ -642,8 +642,8 @@ function (exports, module, require) {
                   )
                   .attr(
                     "data-title",
-                    r.GLocale.get(
-                      new r.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "action.toggle-visibility"
                       )
@@ -678,7 +678,7 @@ function (exports, module, require) {
             .data("paintLayer", e)
             .attr("draggable", "true")
             .on("mousedown", function (e) {
-              (o =
+              (_interopRequireDefault =
                 gDesigner.isTouchEnabled() &&
                 e.originalEvent &&
                 e.originalEvent.target
@@ -690,22 +690,22 @@ function (exports, module, require) {
                     $(e.target).hasClass("column")),
                 $(e.target)
                   .closest(".fill-block")
-                  .toggleClass("g-draggable-disabled", !o);
+                  .toggleClass("g-draggable-disabled", !_interopRequireDefault);
             })
             .on("dragstart", function (e) {
-              if (!o) return e.preventDefault(), void e.stopPropagation();
+              if (!_interopRequireDefault) return e.preventDefault(), void e.stopPropagation();
               var t = $(e.target).closest(".fill-block"),
-                s = t.offset(),
+                AppSettings = t.offset(),
                 l = e.originalEvent;
               (d = window.gDragImage()).addClass(
                 "drag-delete gravit-icon-trash"
               ),
-                (h = n._panel.offset()),
+                (GProperties = n._panel.offset()),
                 (m = n._panel.outerHeight()),
-                (v = e.clientX - s.left),
-                (_ = e.clientY - s.top),
+                (v = e.clientX - AppSettings.left),
+                (_ = e.clientY - AppSettings.top),
                 l.stopPropagation(),
-                (c = t.data("paintLayer")),
+                (GTouchTool = t.data("paintLayer")),
                 (l.dataTransfer.effectAllowed = "move"),
                 l.dataTransfer.setData("text/plain", "dummy_data"),
                 n._panel.find(".fill-block").each(function (e, t) {
@@ -715,12 +715,12 @@ function (exports, module, require) {
                       .on("dragenter", function () {
                         var e = $(this.parentNode).data("paintLayer");
                         if (w(this.parentNode)) {
-                          if (c && e && c.getParent() === e.getParent()) {
-                            var t = c.getParent(),
-                              n = t.getIndexOfChild(c),
-                              o = t.getIndexOfChild(e);
-                            n !== o &&
-                              (n < o
+                          if (GTouchTool && e && GTouchTool.getParent() === e.getParent()) {
+                            var t = GTouchTool.getParent(),
+                              n = t.getIndexOfChild(GTouchTool),
+                              _interopRequireDefault = t.getIndexOfChild(e);
+                            n !== _interopRequireDefault &&
+                              (n < _interopRequireDefault
                                 ? C.insertBefore(this.parentNode)
                                 : C.insertAfter(this.parentNode));
                           }
@@ -744,107 +744,107 @@ function (exports, module, require) {
                         if (
                           (n._panel.find(".g-drop-indicator").remove(),
                           n._panel.find(".grid-drag-overlay").remove(),
-                          c && t && c.getParent() === t.getParent())
+                          GTouchTool && t && GTouchTool.getParent() === t.getParent())
                         ) {
-                          var o = c.getParent(),
-                            s = o.getIndexOfChild(c),
-                            l = o.getIndexOfChild(t);
-                          a.GEditor.tryRunTransaction(
-                            o,
+                          var _interopRequireDefault = GTouchTool.getParent(),
+                            AppSettings = _interopRequireDefault.getIndexOfChild(GTouchTool),
+                            l = _interopRequireDefault.getIndexOfChild(t);
+                          GTools.GEditor.tryRunTransaction(
+                            _interopRequireDefault,
                             function () {
                               if (i.GPlatform.modifiers.shiftKey) {
-                                var e = c.clone();
-                                o.insertChild(e, s < l ? t.getNext() : t);
+                                var e = GTouchTool.clone();
+                                _interopRequireDefault.insertChild(e, AppSettings < l ? t.getNext() : t);
                               } else
-                                s !== l &&
-                                  (o.removeChild(c),
-                                  o.insertChild(c, s < l ? t.getNext() : t));
+                                AppSettings !== l &&
+                                  (_interopRequireDefault.removeChild(GTouchTool),
+                                  _interopRequireDefault.insertChild(GTouchTool, AppSettings < l ? t.getNext() : t));
                             },
                             i.GPlatform.modifiers.shiftKey
-                              ? r.GLocale.get(
-                                  new r.GLocaleKey(
+                              ? GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GFillPaintLayerProperties",
                                     "action.duplicate"
                                   )
                                 )
-                              : r.GLocale.get(
-                                  new r.GLocaleKey(
+                              : GCore.GLocale.get(
+                                  new GCore.GLocaleKey(
                                     "GFillPaintLayerProperties",
                                     "action.move"
                                   )
                                 )
                           ),
                             n._updateProperties(),
-                            n._setSelectedPaintLayer(c);
+                            n._setSelectedPaintLayer(GTouchTool);
                         }
-                        c = null;
+                        GTouchTool = null;
                       })
                   );
                 });
             })
             .on("drag", function (e) {
-              u = (0, p.handleDragForDeleteIcon)(e, d, h, m, v, _);
+              GOutlineSidebar = (0, p.handleDragForDeleteIcon)(e, d, GProperties, m, v, _);
             })
             .on("dragend", function (e) {
               var t = e.originalEvent,
-                o = $(e.target)
+                _interopRequireDefault = $(e.target)
                   .closest(".fill-block")
                   .closest(".fill-block")
                   .data("paintLayer");
               if (
                 (n._panel.find(".g-drop-indicator").remove(),
                 n._panel.find(".grid-drag-overlay").remove(),
-                c && o && c.getParent() === o.getParent())
+                GTouchTool && _interopRequireDefault && GTouchTool.getParent() === _interopRequireDefault.getParent())
               ) {
-                var s = c.getParent(),
-                  l = s.getIndexOfChild(c),
-                  p = s.getIndexOfChild(o);
-                a.GEditor.tryRunTransaction(
-                  s,
+                var AppSettings = GTouchTool.getParent(),
+                  l = AppSettings.getIndexOfChild(GTouchTool),
+                  p = AppSettings.getIndexOfChild(_interopRequireDefault);
+                GTools.GEditor.tryRunTransaction(
+                  AppSettings,
                   function () {
                     if (i.GPlatform.modifiers.shiftKey) {
-                      var e = c.clone();
-                      s.insertChild(e, l < p ? o.getNext() : o);
+                      var e = GTouchTool.clone();
+                      AppSettings.insertChild(e, l < p ? _interopRequireDefault.getNext() : _interopRequireDefault);
                     } else
                       l !== p &&
-                        (s.removeChild(c),
-                        s.insertChild(
-                          c,
-                          l < p ? o.getNext() : o.getPrevious()
+                        (AppSettings.removeChild(GTouchTool),
+                        AppSettings.insertChild(
+                          GTouchTool,
+                          l < p ? _interopRequireDefault.getNext() : _interopRequireDefault.getPrevious()
                         ));
                   },
                   i.GPlatform.modifiers.shiftKey
-                    ? r.GLocale.get(
-                        new r.GLocaleKey(
+                    ? GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GFillPaintLayerProperties",
                           "action.duplicate"
                         )
                       )
-                    : r.GLocale.get(
-                        new r.GLocaleKey(
+                    : GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GFillPaintLayerProperties",
                           "action.move"
                         )
                       )
                 ),
                   n._updateProperties(),
-                  n._setSelectedPaintLayer(c);
+                  n._setSelectedPaintLayer(GTouchTool);
               }
-              c &&
-                u &&
-                a.GEditor.tryRunTransaction(
+              GTouchTool &&
+                GOutlineSidebar &&
+                GTools.GEditor.tryRunTransaction(
                   n._elements[0],
                   function () {
                     var e = [];
-                    n._iterateEqualPaintLayer(c, function (t) {
+                    n._iterateEqualPaintLayer(GTouchTool, function (t) {
                       e.push(t);
                     }),
-                      r.GUtil.each(e, function (e, t) {
+                      GCore.GUtil.each(e, function (e, t) {
                         t.getParent().removeChild(t);
                       });
                   },
-                  r.GLocale.get(
-                    new r.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFillPaintLayerProperties",
                       "action.remove"
                     )
@@ -853,7 +853,7 @@ function (exports, module, require) {
                 d && d.css("display", "none"),
                 (d = null),
                 t.stopPropagation(),
-                (c = null);
+                (GTouchTool = null);
             })
             .on("click", function () {
               n._setSelectedPaintLayer(e);
@@ -873,13 +873,13 @@ function (exports, module, require) {
                     .attr("data-property", "_pt")
                     .gPatternChooser({
                       types: [
-                        r.GColor,
-                        r.GLinearGradient,
-                        r.GRadialGradient,
-                        r.GAngularGradient,
-                        r.GBackground,
-                        r.GTexturePattern,
-                        r.GNoisePattern,
+                        GCore.GColor,
+                        GCore.GLinearGradient,
+                        GCore.GRadialGradient,
+                        GCore.GAngularGradient,
+                        GCore.GBackground,
+                        GCore.GTexturePattern,
+                        GCore.GNoisePattern,
                       ],
                       hasMask: true,
                     })
@@ -893,12 +893,12 @@ function (exports, module, require) {
                         (n._styleEdOn = true),
                         (n._chooserElem = $(this));
                     })
-                    .on("chooserclose", function (e, t, o) {
+                    .on("chooserclose", function (e, t, _interopRequireDefault) {
                       if (
                         gDesigner
                           .getWorkspace()
                           .getStyleEdManager()
-                          .getOverlayLock(o)
+                          .getOverlayLock(_interopRequireDefault)
                       )
                         t();
                       else if (
@@ -913,21 +913,21 @@ function (exports, module, require) {
                       ) {
                         var i = gPatternChooser.getPattern();
                         !i ||
-                          i instanceof r.GRGBColor ||
-                          y.showCDRUnsupportedObjectWarning();
+                          i instanceof GCore.GRGBColor ||
+                          GSystemDialog.showCDRUnsupportedObjectWarning();
                       }
                       n._chooserElem = null;
                     })
-                    .on("patternchange", function (e, t, n, o, i, a) {
-                      var r = ["_vs"],
-                        s = [true];
-                      undefined !== t && (r.push("_pt"), s.push(t)),
-                        "number" == typeof n && (r.push("_op"), s.push(n));
+                    .on("patternchange", function (e, t, n, _interopRequireDefault, i, GTools) {
+                      var GCore = ["_vs"],
+                        AppSettings = [true];
+                      undefined !== t && (GCore.push("_pt"), AppSettings.push(t)),
+                        "number" == typeof n && (GCore.push("_op"), AppSettings.push(n));
                       var l = null;
                       i &&
                         ((l = { chooserOn: true }),
-                        null != a && (l.activeStopIdx = a)),
-                        b(r, s, o, l);
+                        null != GTools && (l.activeStopIdx = GTools)),
+                        b(GCore, AppSettings, _interopRequireDefault, l);
                     }),
                 },
                 {
@@ -937,21 +937,21 @@ function (exports, module, require) {
                     .gBlendMode()
                     .gRichTooltip(
                       l.GRichTooltipConfig.from({
-                        title: r.GLocale.get(
-                          new r.GLocaleKey(
+                        title: GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GAppearanceProperties",
                             "text.blend-tooltip-title"
                           )
                         ),
-                        description: r.GLocale.get(
-                          new r.GLocaleKey(
+                        description: GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GAppearanceProperties",
                             "text.blend-tooltip-description"
                           )
                         ),
                         middle: false,
                         forceShow: true,
-                        learnMore: s.LINKS.BLENDING_MODES_DOCUMENTATION_URL,
+                        learnMore: AppSettings.LINKS.BLENDING_MODES_DOCUMENTATION_URL,
                       })
                     )
                     .attr("data-property", "_bl")
@@ -975,7 +975,7 @@ function (exports, module, require) {
                           ["_vs", "_op"],
                           [
                             true,
-                            r.GLength.parseEquationValue(
+                            GCore.GLength.parseEquationValue(
                               $(this).gInputBox("value")
                             ) / 100,
                           ]
@@ -997,8 +997,8 @@ function (exports, module, require) {
                     )
                     .attr(
                       "data-title",
-                      r.GLocale.get(
-                        new r.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "action.toggle-visibility"
                         )
@@ -1084,8 +1084,8 @@ function (exports, module, require) {
       }),
       (v.prototype._setSelectedPaintLayer = function (e) {
         this._panel.find(".fill-block").each(function (t, n) {
-          var o = $(n);
-          o.toggleClass("g-selected", o.data("paintLayer") === e);
+          var _interopRequireDefault = $(n);
+          _interopRequireDefault.toggleClass("g-selected", _interopRequireDefault.data("paintLayer") === e);
         }),
           this._document && this._document.updateActiveStylesList("Fill", e);
       }),
@@ -1094,14 +1094,14 @@ function (exports, module, require) {
       }),
       (v.prototype._removePaintLayer = function (e) {
         this._panel.find(".fill-block").each(function (t, n) {
-          var o = $(n);
-          if (o.data("paintLayer") === e) return o.remove(), false;
+          var _interopRequireDefault = $(n);
+          if (_interopRequireDefault.data("paintLayer") === e) return _interopRequireDefault.remove(), false;
         });
       }),
       (v.prototype._updatePaintLayer = function (e, t) {
         e &&
-          this._panel.find(".fill-block").each(function (n, o) {
-            var i = $(o);
+          this._panel.find(".fill-block").each(function (n, _interopRequireDefault) {
+            var i = $(_interopRequireDefault);
             if (i.data("paintLayer") === e) {
               i
                 .find('[data-property="_pt"]')
@@ -1111,21 +1111,21 @@ function (exports, module, require) {
                 i.find('[data-property="_op"]').each(function (t, n) {
                   $(n).gInputBox(
                     "value",
-                    r.GUtil.formatOpacity(
+                    GCore.GUtil.formatOpacity(
                       100 * e.getProperty("_op", false, false, true)
                     )
                   );
                 }),
                 i.find('[data-property="_bl"]').val(e.getProperty("_bl"));
-              var s = e.getProperty("_vs");
+              var AppSettings = e.getProperty("_vs");
               if (
                 (i
                   .find('[data-property="_vs"]')
-                  .removeClass("gravit-icon-" + (s ? "hide" : "display"))
-                  .addClass("gravit-icon-" + (s ? "display" : "hide")),
+                  .removeClass("gravit-icon-" + (AppSettings ? "hide" : "display"))
+                  .addClass("gravit-icon-" + (AppSettings ? "display" : "hide")),
                 t &&
-                  (t.evtType == a.GEditor.ModifiedEvent.Type.Undo ||
-                    t.evtType == a.GEditor.ModifiedEvent.Type.Redo) &&
+                  (t.evtType == GTools.GEditor.ModifiedEvent.Type.Undo ||
+                    t.evtType == GTools.GEditor.ModifiedEvent.Type.Redo) &&
                   t.chooserOn &&
                   null != t.fillLayerIndex)
               )
@@ -1140,26 +1140,26 @@ function (exports, module, require) {
           });
       }),
       (v.prototype._afterInsert = function (e) {
-        e.node instanceof r.GStylable.FillPaintLayer &&
+        e.node instanceof GCore.GStylable.FillPaintLayer &&
           e.node.getOwnerStylable() === this._elements[0] &&
           (this._insertPaintLayer(e.node), this._updateToolbar());
       }),
       (v.prototype._beforeRemove = function (e) {
         if (
-          e.node instanceof r.GStylable.FillPaintLayer &&
+          e.node instanceof GCore.GStylable.FillPaintLayer &&
           e.node.getOwnerStylable() === this._elements[0]
         ) {
           this._removePaintLayer(e.node);
           for (
             var module = e.node.getPrevious();
-            module && !(module instanceof r.GStylable.FillPaintLayer);
+            module && !(module instanceof GCore.GStylable.FillPaintLayer);
 
           )
             module = module.getPrevious();
-          if (!(module instanceof r.GStylable.FillPaintLayer))
+          if (!(module instanceof GCore.GStylable.FillPaintLayer))
             for (
               module = e.node.getNext();
-              module && !(module instanceof r.GStylable.FillPaintLayer);
+              module && !(module instanceof GCore.GStylable.FillPaintLayer);
 
             )
               module = module.getNext();
@@ -1167,25 +1167,25 @@ function (exports, module, require) {
         }
       }),
       (v.prototype._afterPropertiesChange = function (e) {
-        e.node instanceof r.GStylable.FillPaintLayer &&
+        e.node instanceof GCore.GStylable.FillPaintLayer &&
           e.node.getOwnerStylable() === this._elements[0] &&
           this._updatePaintLayer(e.node);
       }),
       (v.prototype._iterateEqualPaintLayer = function (e, t) {
         if (e)
           for (
-            var require = e.getParent().getIndexOfChild(e), o = 0;
-            o < this._elements.length;
-            ++o
+            var require = e.getParent().getIndexOfChild(e), _interopRequireDefault = 0;
+            _interopRequireDefault < this._elements.length;
+            ++_interopRequireDefault
           ) {
-            var i = this._elements[o].getPaintLayers();
-            r.GUtil.each(
+            var i = this._elements[_interopRequireDefault].getPaintLayers();
+            GCore.GUtil.each(
               i.getFillLayers(),
-              function (a, r) {
-                ((r && r === e) ||
-                  (r.constructor === e.constructor &&
-                    i.getIndexOfChild(r) === require)) &&
-                  t(r, this._elements[o]);
+              function (GTools, GCore) {
+                ((GCore && GCore === e) ||
+                  (GCore.constructor === e.constructor &&
+                    i.getIndexOfChild(GCore) === require)) &&
+                  t(GCore, this._elements[_interopRequireDefault]);
               }.bind(this)
             );
           }

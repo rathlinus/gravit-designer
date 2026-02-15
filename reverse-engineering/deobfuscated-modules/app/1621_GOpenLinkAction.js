@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(18) /* MenuItemBuilder */, require(31) /* GAction */);
     function a(e) {
       let { name: module, category: require, group: i, link: a, icon: r, builder: s } = e;
@@ -16,11 +16,11 @@ function (exports, module, require) {
         (this._group = i),
         (this._link = a),
         (this._builder = s),
-        (this._title = new o.GLocaleKey("GOpenLinkAction", "title." + module)),
+        (this._title = new GCore.GLocaleKey("GOpenLinkAction", "title." + module)),
         (this._icon = r);
     }
     (a.Links = require(1622) /* module_1622 */),
-      o.GObject.inherit(a, i),
+      GCore.GObject.inherit(a, i),
       (a.ID = "open-link"),
       (a.prototype._name = null),
       (a.prototype._title = null),

@@ -7,12 +7,12 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(238) /* GMenu */,
-      i = require(339) /* GMenu */,
+    var GMenu = require(238) /* GMenu */,
+      GMenu2 = require(339) /* GMenu */,
       a = require(1157) /* module_1157 */;
     function r(e) {
       (this._htmlElement = $("<nav></nav>").addClass("g-menu-bar")),
-        this.setMenu(e || new o(this));
+        this.setMenu(e || new GMenu(this));
     }
     (r.prototype._menu = null),
       (r.prototype.getMenu = function () {
@@ -21,7 +21,7 @@ function (exports, module, require) {
       (r.prototype.isActive = function () {
         var e = a.getActiveMenu();
         return (
-          !!(e && e._parent && e._parent instanceof i) &&
+          !!(e && e._parent && e._parent instanceof GMenu2) &&
           e._parent.getMenuBar() === this
         );
       }),

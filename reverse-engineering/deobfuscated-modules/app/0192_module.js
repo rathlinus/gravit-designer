@@ -5,29 +5,29 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* globalThis */,
-      i = require(200) /* advanceStringIndex */,
+    var globalThis = require(23) /* globalThis */,
+      advanceStringIndex = require(200) /* advanceStringIndex */,
       a = require(152) /* module_152 */,
-      r = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       s = require(157) /* stub_requires_27 */,
-      l = o.Int8Array,
+      l = globalThis.Int8Array,
       c = a.aTypedArray,
       d = a.exportTypedArrayMethod,
       u = [].toLocaleString,
       p =
         !!l &&
-        r(function () {
+        tryCall(function () {
           u.call(new l(1));
         });
     d(
       "toLocaleString",
       function () {
-        return i(u, p ? s(c(this)) : c(this), s(arguments));
+        return advanceStringIndex(u, p ? s(c(this)) : c(this), s(arguments));
       },
-      r(function () {
+      tryCall(function () {
         return [1, 2].toLocaleString() !== new l([1, 2]).toLocaleString();
       }) ||
-        !r(function () {
+        !tryCall(function () {
           l.prototype.toLocaleString.call([1, 2]);
         })
     );

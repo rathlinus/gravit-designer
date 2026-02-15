@@ -6,25 +6,25 @@
 function (exports, module, require) {
     "use strict";
     require(271) /* polyfill_String_endsWith */;
-    const o = require(10) /* AppSettings */,
+    const AppSettings = require(10) /* AppSettings */,
       { IS_LOCALHOST: i, IS_RC: a } = require(231) /* module_231 */;
-    o.IS_TEAMS = "teams.coreldraw.app" === window.location.hostname;
+    AppSettings.IS_TEAMS = "teams.coreldraw.app" === window.location.hostname;
     const r = window.location.hostname.endsWith(".ngrok.io");
-    o.IS_TEAMS
-      ? (o.gApi.url = o.cloudTeamsURL)
+    AppSettings.IS_TEAMS
+      ? (AppSettings.gApi.url = AppSettings.cloudTeamsURL)
       : i || r
-      ? (o.trunkwebcdr && (o.gApi.webcdr = o.cloudTrunkURL + "/api/webcdr"),
-        (o.gApi.url = o.cloudTrunkURL))
-      : o.IS_BETA
-      ? (o.cloudBetaURL && (o.gApi.url = o.cloudBetaURL),
-        o.betaWebcdr && (o.gApi.webcdr = o.betaWebcdr))
+      ? (AppSettings.trunkwebcdr && (AppSettings.gApi.webcdr = AppSettings.cloudTrunkURL + "/api/webcdr"),
+        (AppSettings.gApi.url = AppSettings.cloudTrunkURL))
+      : AppSettings.IS_BETA
+      ? (AppSettings.cloudBetaURL && (AppSettings.gApi.url = AppSettings.cloudBetaURL),
+        AppSettings.betaWebcdr && (AppSettings.gApi.webcdr = AppSettings.betaWebcdr))
       : a
-      ? (o.cloudRCURL && (o.gApi.url = o.cloudRCURL),
-        o.stagingWebcdr && (o.gApi.webcdr = o.stagingWebcdr))
-      : o.IS_TRUNK &&
-        ((o.gApi.url = o.cloudTrunkURL),
-        o.trunkwebcdr && (o.gApi.webcdr = o.trunkwebcdr)),
-      !o.gApi.webcdr && o.webcdr && (o.gApi.webcdr = o.webcdr),
-      (window.gApi = o.gApi),
-      (exports.exports = o);
+      ? (AppSettings.cloudRCURL && (AppSettings.gApi.url = AppSettings.cloudRCURL),
+        AppSettings.stagingWebcdr && (AppSettings.gApi.webcdr = AppSettings.stagingWebcdr))
+      : AppSettings.IS_TRUNK &&
+        ((AppSettings.gApi.url = AppSettings.cloudTrunkURL),
+        AppSettings.trunkwebcdr && (AppSettings.gApi.webcdr = AppSettings.trunkwebcdr)),
+      !AppSettings.gApi.webcdr && AppSettings.webcdr && (AppSettings.gApi.webcdr = AppSettings.webcdr),
+      (window.gApi = AppSettings.gApi),
+      (exports.exports = AppSettings);
   }

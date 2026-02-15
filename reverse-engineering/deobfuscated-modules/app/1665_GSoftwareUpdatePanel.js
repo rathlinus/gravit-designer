@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */;
-    const i = require(606) /* GPanel */,
-      a = require(394) /* GView */,
+    var GCore = require(1) /* module */;
+    const GPanel = require(606) /* GPanel */,
+      GView = require(394) /* GView */,
       r = require(1188) /* module_1188 */,
-      s = require(85) /* GContainer */,
-      l = require(44) /* GSystemDialog */,
+      GContainer = require(85) /* GContainer */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       { SOFTWARE_UPDATE: c, DateAPI: d } = require(10) /* AppSettings */;
     function u() {}
-    o.GObject.inherit(u, i),
+    GCore.GObject.inherit(u, GPanel),
       (u.ID = "software-update-panel"),
       (u.prototype._mustBeOpened = null),
       (u.prototype.init = function (e) {
@@ -40,7 +40,7 @@ function (exports, module, require) {
         e !== this._mustBeOpened &&
           (this._changePanelVisibility(e),
           (this._mustBeOpened = e),
-          this.trigger(a.UPDATE_EVENT));
+          this.trigger(GView.UPDATE_EVENT));
       }),
       (u.prototype._updateContent = function (e) {
         this._htmlElement.find(".content").remove(),
@@ -89,8 +89,8 @@ function (exports, module, require) {
       (u.prototype._handleAfterUpdate = function (e) {
         if (!this._shouldShowMessages(e)) return;
         const module = e.currentVersion,
-          require = o.GLocale.get(
-            new o.GLocaleKey("GSoftwareUpdatePanel", "text.after-update")
+          require = GCore.GLocale.get(
+            new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.after-update")
           ).replace("%currentVersion", module);
         this._updateContent(
           $("<div></div>")
@@ -101,8 +101,8 @@ function (exports, module, require) {
               c.SHOW_CHANGE_LOG
                 ? $("<a></a>")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GSoftwareUpdatePanel",
                           "text.see-release-notes"
                         )
@@ -124,8 +124,8 @@ function (exports, module, require) {
       (u.prototype._handleUpdateNotAvailable = function (e) {
         if (!this._shouldShowMessages(e)) return;
         const module = e.currentVersion,
-          require = o.GLocale.get(
-            new o.GLocaleKey(
+          require = GCore.GLocale.get(
+            new GCore.GLocaleKey(
               "GSoftwareUpdatePanel",
               "text.update-not-available"
             )
@@ -137,22 +137,22 @@ function (exports, module, require) {
         if (!this._shouldShowMessages(e)) return;
         const module = e.newVersion,
           require = e.forceUpdate,
-          i = o.GLocale.get(
-            new o.GLocaleKey("GSoftwareUpdatePanel", "text.download-ready")
+          GPanel = GCore.GLocale.get(
+            new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.download-ready")
           ).replace("%newVersion", module);
-        var a = false;
+        var GView = false;
         this._updateContent(
           $("<div></div>")
             .addClass("message")
             .addClass("featured")
-            .html(i)
+            .html(GPanel)
             .click(async () => {
-              a ||
+              GView ||
                 ((await gContainer.canUnload(
                   gDesigner.hasModifiedDocuments(),
                   gDesigner.hasSynchronizingDocuments()
                 )) &&
-                  ((a = true),
+                  ((GView = true),
                   gDesigner.getSoftwareUpdateManager().installUpdate(),
                   this._updateContent(
                     $("<div></div>")
@@ -165,8 +165,8 @@ function (exports, module, require) {
                           .addClass("spin")
                       )
                       .append(
-                        o.GLocale.get(
-                          new o.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GSoftwareUpdatePanel",
                             "text.updating"
                           )
@@ -182,15 +182,15 @@ function (exports, module, require) {
         if (!this._shouldShowMessages(e)) return;
         const module = e.percent,
           require = e.newVersion;
-        var i = this._htmlElement.find(".progress-content");
-        const a = o.GLocale.get(
-          new o.GLocaleKey("GSoftwareUpdatePanel", "text.download-progress")
+        var GPanel = this._htmlElement.find(".progress-content");
+        const GView = GCore.GLocale.get(
+          new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.download-progress")
         ).replace("%newVersion", require);
-        i.length ||
+        GPanel.length ||
           (this._updateContent(
             $("<div></div>")
               .addClass("message")
-              .text(a)
+              .text(GView)
               .append(
                 $("<div></div>")
                   .addClass("progress-content")
@@ -202,9 +202,9 @@ function (exports, module, require) {
                   .append($("<div></div>").addClass("percent"))
               )
           ),
-          (i = this._htmlElement.find(".progress-content")));
-        i.find(".progress-bar").css({ width: "".concat(module, "%") }),
-          i.find(".percent").text(module);
+          (GPanel = this._htmlElement.find(".progress-content")));
+        GPanel.find(".progress-bar").css({ width: "".concat(module, "%") }),
+          GPanel.find(".percent").text(module);
       }),
       (u.prototype._shouldShowMessages = function (e) {
         return !e.isSilent;
@@ -213,14 +213,14 @@ function (exports, module, require) {
         if (!this._shouldShowMessages(e)) return;
         const module = e.currentVersion,
           require = e.newVersion,
-          i = e.forceUpdate;
-        if (e.isSilent && !i) return;
-        !i ||
-          (gContainer.getRuntime() !== s.Runtime.Browser &&
-            gContainer.getRuntime() !== s.Runtime.PWA) ||
+          GPanel = e.forceUpdate;
+        if (e.isSilent && !GPanel) return;
+        !GPanel ||
+          (gContainer.getRuntime() !== GContainer.Runtime.Browser &&
+            gContainer.getRuntime() !== GContainer.Runtime.PWA) ||
           this._createForceUpdateMessageDialog();
-        const a = o.GLocale.get(
-            new o.GLocaleKey("GSoftwareUpdatePanel", "text.update-available")
+        const GView = GCore.GLocale.get(
+            new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.update-available")
           )
             .replace("%newVersion", require)
             .replace("%currentVersion", module),
@@ -232,12 +232,12 @@ function (exports, module, require) {
             .addClass("message")
             .addClass("featured")
             .append(r)
-            .append(a)
+            .append(GView)
             .append(
               $("<a></a>")
                 .append(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GSoftwareUpdatePanel", "text.update-now")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.update-now")
                   )
                 )
                 .click(() => {
@@ -255,17 +255,17 @@ function (exports, module, require) {
           )
         )
           switch (gContainer.getRuntime()) {
-            case s.Runtime.Browser:
-            case s.Runtime.PWA:
+            case GContainer.Runtime.Browser:
+            case GContainer.Runtime.PWA:
               gDesigner.getSoftwareUpdateManager().installUpdate();
               break;
-            case s.Runtime.Electron:
+            case GContainer.Runtime.Electron:
               gDesigner.getSoftwareUpdateManager().downloadUpdate();
           }
         else
-          l.alert(
-            o.GLocale.get(
-              new o.GLocaleKey(
+          GSystemDialog.alert(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GSoftwareUpdatePanel",
                 "text.dialog-unsaved-documents"
               )
@@ -276,7 +276,7 @@ function (exports, module, require) {
         let exports,
           module = false;
         const require = d.minutesToMilliseconds(5),
-          i = () => {
+          GPanel = () => {
             module ||
               ((module = true),
               exports.gDialog("close"),
@@ -287,12 +287,12 @@ function (exports, module, require) {
         (exports = $("<div></div>").gDialog({
           releaseOnClose: true,
           className: "g-force-update-app-dialog",
-          closeCallback: i,
+          closeCallback: GPanel,
         })),
           $("<div></div>")
             .addClass("g-btn-close")
             .append($("<span></span>").addClass("gravit-icon-close"))
-            .on("click", () => i())
+            .on("click", () => GPanel())
             .appendTo(exports),
           $("<div></div>").addClass("logo").appendTo(exports),
           $("<div></div>")
@@ -301,8 +301,8 @@ function (exports, module, require) {
               $("<span></span>")
                 .addClass("title")
                 .html(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSoftwareUpdatePanel",
                       "text.force-new-version-available"
                     )
@@ -316,8 +316,8 @@ function (exports, module, require) {
               $("<span></span>")
                 .addClass("subtitle")
                 .html(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSoftwareUpdatePanel",
                       "text.force-message-avoid-losing-progress"
                     )
@@ -328,8 +328,8 @@ function (exports, module, require) {
               $("<span></span>")
                 .addClass("update-information")
                 .html(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GSoftwareUpdatePanel",
                       "text.force-update-information-time"
                     )
@@ -343,12 +343,12 @@ function (exports, module, require) {
                   $("<button></button>")
                     .append(
                       $("<span></span>").text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GSoftwareUpdatePanel", "text.ok")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.ok")
                         )
                       )
                     )
-                    .on("click", () => i())
+                    .on("click", () => GPanel())
                 )
             )
             .appendTo(exports),
@@ -356,8 +356,8 @@ function (exports, module, require) {
       }),
       (u.prototype._handleUpdateError = function (e) {
         if (!this._shouldShowMessages(e)) return;
-        const module = o.GLocale.get(
-          new o.GLocaleKey("GSoftwareUpdatePanel", "text.update-error")
+        const module = GCore.GLocale.get(
+          new GCore.GLocaleKey("GSoftwareUpdatePanel", "text.update-error")
         );
         this._updateContent($("<div></div>").addClass("message").append(module)),
           this._updatePanelState(true);
@@ -383,7 +383,7 @@ function (exports, module, require) {
           );
       }),
       (u.prototype.getTitle = function () {
-        return o.GLocale.get(new o.GLocaleKey("GSoftwareUpdatePanel", "title"));
+        return GCore.GLocale.get(new GCore.GLocaleKey("GSoftwareUpdatePanel", "title"));
       }),
       (u.prototype.isEnabled = function () {
         return !!this._mustBeOpened;

@@ -6,28 +6,28 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(443) /* module_443 */),
-      s = o(require(1330) /* module_1330 */);
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      r = _interopRequireDefault(require(443) /* module_443 */),
+      s = _interopRequireDefault(require(1330) /* module_1330 */);
     const { isExecutingOnMSTeamsSync: l } = r.default;
     var c = require(863) /* module_863 */,
-      d = require(449) /* GFitAllAction */,
-      u = require(18) /* MenuItemBuilder */,
-      p = require(31) /* GAction */,
+      GFitAllAction = require(449) /* GFitAllAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       g = require(1588) /* module_1588 */;
     function h() {
       this._banner.setBannerText(
-        i.GLocale.get(
-          new i.GLocaleKey("GToggleFullscreenAction", "fullscreen-banner")
+        GCore.GLocale.get(
+          new GCore.GLocaleKey("GToggleFullscreenAction", "fullscreen-banner")
         )
       );
     }
-    i.GObject.inherit(h, p),
+    GCore.GObject.inherit(h, GAction),
       (h.ID = "view.fullscreen"),
-      (h.TITLE = new i.GLocaleKey("GToggleFullscreenAction", "title")),
+      (h.TITLE = new GCore.GLocaleKey("GToggleFullscreenAction", "title")),
       (h.prototype._lastStates = {}),
       (h.prototype._banner = new g()),
       (h.prototype.getId = function () {
@@ -37,10 +37,10 @@ function (exports, module, require) {
         return h.TITLE;
       }),
       (h.prototype.getCategory = function () {
-        return u.CATEGORY_VIEW;
+        return MenuItemBuilder.CATEGORY_VIEW;
       }),
       (h.prototype.getShortcut = function () {
-        return [a.GKey.Constant.ALT_LEFT, a.GKey.Constant.ENTER];
+        return [GEditor.GKey.Constant.ALT_LEFT, GEditor.GKey.Constant.ENTER];
       }),
       (h.prototype.isEnabled = function () {
         return !!gDesigner.getActiveDocument() && this._isSupported();
@@ -91,7 +91,7 @@ function (exports, module, require) {
             !!e && this._lastStates.leftSidebar
           ),
           gDesigner.relayout(),
-          gDesigner.executeAction(d.ID, undefined, undefined, true),
+          gDesigner.executeAction(GFitAllAction.ID, undefined, undefined, true),
           gDesigner.hasEventListeners(s.default) &&
             gDesigner.trigger(new s.default(e));
       }),

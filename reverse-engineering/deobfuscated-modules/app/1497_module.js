@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var o = require(10) /* AppSettings */;
+    var AppSettings = require(10) /* AppSettings */;
     const { GLocale: i, GLocaleKey: a } = require(1) /* module */;
     function r(e) {
       this._htmlElement = e;
@@ -21,12 +21,12 @@ function (exports, module, require) {
             .getValue("GBanner", "text.access-expire")
             .replace(
               "%link",
-              o.CloudUtils.getYearlySubscriptionUrl(
-                o.UTM.buildStoreCampaignParams(
-                  o.UTM.StoreCampaign.CorelVectorTrial,
-                  o.UTM.Vehicle.IPM,
-                  o.UTM.Source.APP,
-                  o.UTM.Medium.IPM
+              AppSettings.CloudUtils.getYearlySubscriptionUrl(
+                AppSettings.UTM.buildStoreCampaignParams(
+                  AppSettings.UTM.StoreCampaign.CorelVectorTrial,
+                  AppSettings.UTM.Vehicle.IPM,
+                  AppSettings.UTM.Source.APP,
+                  AppSettings.UTM.Medium.IPM
                 )
               )
             )

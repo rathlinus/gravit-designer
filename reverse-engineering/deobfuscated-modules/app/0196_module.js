@@ -5,32 +5,32 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(74) /* createNonEnumerableProperty */,
+    var core_export = require(25) /* core_export */,
+      createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
       a = require(186) /* stub_requires_23 */,
-      r = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       s = require(110) /* module_110 */,
-      l = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       c = require(342) /* module_342 */,
       d = require(453) /* module_453 */,
-      u = require(79) /* defineBuiltIn */,
+      defineBuiltIn = require(79) /* defineBuiltIn */,
       p = a && a.prototype;
     if (
-      (o(
+      (core_export(
         {
           target: "Promise",
           proto: true,
           real: true,
           forced:
             !!a &&
-            r(function () {
+            tryCall(function () {
               p.finally.call({ then: function () {} }, function () {});
             }),
         },
         {
           finally: function (e) {
             var t = c(this, s("Promise")),
-              n = l(e);
+              n = anObject(e);
             return this.then(
               n
                 ? function (n) {
@@ -50,9 +50,9 @@ function (exports, module, require) {
           },
         }
       ),
-      !i && l(a))
+      !createNonEnumerableProperty && anObject(a))
     ) {
       var g = s("Promise").prototype.finally;
-      p.finally !== g && u(p, "finally", g, { unsafe: true });
+      p.finally !== g && defineBuiltIn(p, "finally", g, { unsafe: true });
     }
   }

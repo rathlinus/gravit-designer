@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i() {}
-    o.GObject.inheritAndMix(i, o.GObject), (exports.exports = i);
+    GCore.GObject.inheritAndMix(i, GCore.GObject), (exports.exports = i);
   }

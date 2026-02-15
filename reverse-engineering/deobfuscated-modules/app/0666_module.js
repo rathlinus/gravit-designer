@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
+    var uncurryThis = require(27) /* uncurryThis */,
       i = require(348) /* module_348 */,
-      a = require(35) /* anObject */,
+      anObject = require(35) /* anObject */,
       r = require(116) /* module_116 */,
-      s = require(62) /* requireObjectCoercible */,
-      l = o([].push);
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      l = uncurryThis([].push);
     exports.exports = function (e) {
-      if (a(e)) return e;
+      if (anObject(e)) return e;
       if (i(e)) {
-        for (var module = e.length, require = [], o = 0; o < module; o++) {
-          var c = e[o];
+        for (var module = e.length, require = [], uncurryThis = 0; uncurryThis < module; uncurryThis++) {
+          var c = e[uncurryThis];
           "string" == typeof c
             ? l(require, c)
             : ("number" != typeof c &&
                 "Number" !== r(c) &&
                 "String" !== r(c)) ||
-              l(require, s(c));
+              l(require, requireObjectCoercible(c));
         }
         var d = require.length,
           u = true;
         return function (e, t) {
           if (u) return (u = false), t;
           if (i(this)) return t;
-          for (var o = 0; o < d; o++) if (require[o] === e) return t;
+          for (var uncurryThis = 0; uncurryThis < d; uncurryThis++) if (require[uncurryThis] === e) return t;
         };
       }
     };

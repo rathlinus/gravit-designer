@@ -5,52 +5,52 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(23) /* globalThis */,
+    var core_export = require(25) /* core_export */,
+      globalThis = require(23) /* globalThis */,
       a = require(146) /* module_146 */,
-      r = require(37) /* toString_default */,
-      s = require(35) /* anObject */,
+      toString_default = require(37) /* toString_default */,
+      anObject = require(35) /* anObject */,
       l = require(208) /* module_208 */,
       c = require(120) /* module_120 */,
       d = require(420) /* module_420 */,
-      u = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       p = require(61) /* module_61 */,
-      g = require(43) /* wellKnownSymbol */,
-      h = require(251) /* Exports_GGY */.IteratorPrototype,
-      f = require(49) /* hasOwnProperty_wrapper */,
-      m = require(74) /* createNonEnumerableProperty */,
-      y = g("toStringTag"),
+      wellKnownSymbol = require(43) /* wellKnownSymbol */,
+      GGY = require(251) /* Exports_GGY */.IteratorPrototype,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
+      createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
+      y = wellKnownSymbol("toStringTag"),
       v = TypeError,
-      _ = i.Iterator,
+      _ = globalThis.Iterator,
       b =
-        m ||
-        !s(_) ||
-        _.prototype !== h ||
-        !u(function () {
+        createNonEnumerableProperty ||
+        !anObject(_) ||
+        _.prototype !== GGY ||
+        !tryCall(function () {
           _({});
         }),
       w = function () {
-        if ((a(this, h), l(this) === h))
+        if ((a(this, GGY), l(this) === GGY))
           throw new v("Abstract class Iterator not directly constructable");
       },
       C = function (e, t) {
-        f
-          ? c(h, e, {
+        hasOwnProperty_wrapper
+          ? c(GGY, e, {
               configurable: true,
               get: function () {
                 return t;
               },
               set: function (t) {
-                if ((r(this), this === h))
+                if ((toString_default(this), this === GGY))
                   throw new v("You can't redefine this property");
                 p(this, e) ? (this[e] = t) : d(this, e, t);
               },
             })
-          : (h[e] = t);
+          : (GGY[e] = t);
       };
-    p(h, y) || C(y, "Iterator"),
-      (!b && p(h, "constructor") && h.constructor !== Object) ||
+    p(GGY, y) || C(y, "Iterator"),
+      (!b && p(GGY, "constructor") && GGY.constructor !== Object) ||
         C("constructor", w),
-      (w.prototype = h),
-      o({ global: true, constructor: true, forced: b }, { Iterator: w });
+      (w.prototype = GGY),
+      core_export({ global: true, constructor: true, forced: b }, { Iterator: w });
   }

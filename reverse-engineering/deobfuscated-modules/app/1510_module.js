@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var o = require(1) /* module */,
-      i = require(40) /* CollaborationMergeUtils */,
-      a = require(257) /* barrel_panels */;
+    var GCore = require(1) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
+      barrel_panels = require(257) /* barrel_panels */;
     class r {
       constructor(e) {
         let { closeCallback: module } =
@@ -31,8 +31,8 @@ function (exports, module, require) {
                     $("<span/>")
                       .addClass("label")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GCommonNames", "text.save-to-file")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "text.save-to-file")
                         )
                       )
                   )
@@ -52,15 +52,15 @@ function (exports, module, require) {
                   .addClass("content")
                   .append(
                     $("<span/>")
-                      .addClass(a["gravit-icon-cloud-save-choose"])
+                      .addClass(barrel_panels["gravit-icon-cloud-save-choose"])
                       .addClass("icon")
                   )
                   .append(
                     $("<span/>")
                       .addClass("label")
                       .text(
-                        o.GLocale.get(
-                          new o.GLocaleKey("GCommonNames", "text.save-to-cloud")
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GCommonNames", "text.save-to-cloud")
                         )
                       )
                   )
@@ -82,7 +82,7 @@ function (exports, module, require) {
         this._dialog.gDialog("open", true);
       }
       close() {
-        return this._dialog.gDialog("close", false), (0, i.sleep)(0);
+        return this._dialog.gDialog("close", false), (0, CollaborationMergeUtils.sleep)(0);
       }
       static file() {
         return "file";

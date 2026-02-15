@@ -7,75 +7,75 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(53) /* module */,
-      i = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(10) /* AppSettings */,
+      AppSettings = require(10) /* AppSettings */,
       s = require(67) /* GRichTooltipConfig */,
-      l = require(18) /* MenuItemBuilder */,
-      c = require(31) /* GAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     function d(e) {
       (this._type = e),
-        (this._title = new i.GLocaleKey("GArrangeAction", "title." + e)),
+        (this._title = new GCore.GLocaleKey("GArrangeAction", "title." + e)),
         (d.TOOLTIP_CONFIG = {
           [s.TOOLTIP_AREA.TOOLBAR]: {
-            [o.GEditor.ArrangeOrderType.BringForward]:
+            [GTools.GEditor.ArrangeOrderType.BringForward]:
               s.GRichTooltipConfig.from({
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GArrangeAction",
                     "bring-forward-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GArrangeAction",
                     "bring-forward-tooltip-description"
                   )
                 ),
-                shortcut: d.SHORTCUT[o.GEditor.ArrangeOrderType.BringForward],
-                video: r.gApi.getRichTooltipVideoURL("Bring_Forward.mp4"),
+                shortcut: d.SHORTCUT[GTools.GEditor.ArrangeOrderType.BringForward],
+                video: AppSettings.gApi.getRichTooltipVideoURL("Bring_Forward.mp4"),
                 learnMore:
                   "",
               }),
-            [o.GEditor.ArrangeOrderType.SendBackward]:
+            [GTools.GEditor.ArrangeOrderType.SendBackward]:
               s.GRichTooltipConfig.from({
-                title: i.GLocale.get(
-                  new i.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GArrangeAction",
                     "send-backward-tooltip-title"
                   )
                 ),
-                description: i.GLocale.get(
-                  new i.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GArrangeAction",
                     "send-backward-tooltip-description"
                   )
                 ),
-                shortcut: d.SHORTCUT[o.GEditor.ArrangeOrderType.SendBackward],
-                video: r.gApi.getRichTooltipVideoURL("Send_Backward.mp4"),
+                shortcut: d.SHORTCUT[GTools.GEditor.ArrangeOrderType.SendBackward],
+                video: AppSettings.gApi.getRichTooltipVideoURL("Send_Backward.mp4"),
                 learnMore:
                   "",
               }),
           },
         });
     }
-    i.GObject.inherit(d, c),
+    GCore.GObject.inherit(d, GAction),
       (d.SHORTCUT = {
-        [o.GEditor.ArrangeOrderType.SendToFront]: [
+        [GTools.GEditor.ArrangeOrderType.SendToFront]: [
           a.GKey.Constant.SHIFT,
           a.GKey.Constant.META,
           a.GKey.Constant.UP,
         ],
-        [o.GEditor.ArrangeOrderType.BringForward]: [
+        [GTools.GEditor.ArrangeOrderType.BringForward]: [
           a.GKey.Constant.META,
           a.GKey.Constant.UP,
         ],
-        [o.GEditor.ArrangeOrderType.SendBackward]: [
+        [GTools.GEditor.ArrangeOrderType.SendBackward]: [
           a.GKey.Constant.META,
           a.GKey.Constant.DOWN,
         ],
-        [o.GEditor.ArrangeOrderType.SendToBack]: [
+        [GTools.GEditor.ArrangeOrderType.SendToBack]: [
           a.GKey.Constant.SHIFT,
           a.GKey.Constant.META,
           a.GKey.Constant.DOWN,
@@ -92,7 +92,7 @@ function (exports, module, require) {
         return this._title;
       }),
       (d.prototype.getCategory = function () {
-        return l.CATEGORY_MODIFY_ARRANGE;
+        return MenuItemBuilder.CATEGORY_MODIFY_ARRANGE;
       }),
       (d.prototype.getGroup = function () {
         return "arrange/arrange";

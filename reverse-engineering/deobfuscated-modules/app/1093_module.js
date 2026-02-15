@@ -6,11 +6,11 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(10) /* AppSettings */,
-      i = require(1) /* module */,
-      a = require(10) /* AppSettings */;
-    const r = require(85) /* GContainer */,
-      s = require(44) /* GSystemDialog */,
+    var AppSettings = require(10) /* AppSettings */,
+      GCore = require(1) /* module */,
+      AppSettings2 = require(10) /* AppSettings */;
+    const GContainer = require(85) /* GContainer */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       l = require(177) /* module_177 */;
     function c(e) {
       let module =
@@ -19,7 +19,7 @@ function (exports, module, require) {
           : c.Forms.SignIn;
       (this._callback = e), this._init(module);
     }
-    i.GObject.inherit(c, i.GObject),
+    GCore.GObject.inherit(c, GCore.GObject),
       (c.Forms = {
         SignIn: "sign-in",
         SignUp: "sign-up",
@@ -48,10 +48,10 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("text")
             .text(
-              i.GLocale.get(
+              GCore.GLocale.get(
                 gDesigner.getStoreVendor()
-                  ? new i.GLocaleKey("GLoginDialog", "text.login-dialog-title")
-                  : new i.GLocaleKey("GLoginDialog", "text.sign-in")
+                  ? new GCore.GLocaleKey("GLoginDialog", "text.login-dialog-title")
+                  : new GCore.GLocaleKey("GLoginDialog", "text.sign-in")
               )
             )
             .appendTo(module);
@@ -61,19 +61,19 @@ function (exports, module, require) {
           .addClass("simple")
           .append(
             $("<span></span>").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.sign-in-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.sign-in-title")
               )
             )
           )
           .appendTo(require);
-        let s = $("<div></div>").addClass("subtitle").appendTo(require);
+        let GSystemDialog = $("<div></div>").addClass("subtitle").appendTo(require);
         gDesigner.getStoreVendor() &&
-          s
+          GSystemDialog
             .append(
               $("<span></span>").text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GLoginDialog", "text.not-register")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GLoginDialog", "text.not-register")
                 )
               )
             )
@@ -82,8 +82,8 @@ function (exports, module, require) {
                 .addClass("link")
                 .addClass("panel")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GLoginDialog", "text.sign-up")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLoginDialog", "text.sign-up")
                   )
                 )
                 .on("click", () => {
@@ -103,12 +103,12 @@ function (exports, module, require) {
             e.preventDefault();
           const module = $(e.target),
             require = module.find('input[data-property="email"]').val(),
-            i = module.find('input[data-property="password"]').val();
+            GCore = module.find('input[data-property="password"]').val();
           return (
-            o.gApi
-              .signin({ email: require, password: i, app: "designer" })
+            AppSettings.gApi
+              .signin({ email: require, password: GCore, app: "designer" })
               .then(() => {
-                o.gApi
+                AppSettings.gApi
                   .getUser()
                   .then((e) => {
                     this.close(), this._callback(new l(e));
@@ -119,12 +119,12 @@ function (exports, module, require) {
             false
           );
         }),
-          a.HAS_ENTERPRISE
+          AppSettings2.HAS_ENTERPRISE
             ? $("<label>")
                 .addClass("label")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GLoginDialog",
                       "text.placeholder-sign-in-login"
                     )
@@ -134,8 +134,8 @@ function (exports, module, require) {
             : $("<label>")
                 .addClass("label")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GLoginDialog", "text.sign-in-login")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLoginDialog", "text.sign-in-login")
                   )
                 )
                 .appendTo(p),
@@ -147,8 +147,8 @@ function (exports, module, require) {
           $("<label>")
             .addClass("label")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.sign-in-password")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.sign-in-password")
               )
             )
             .appendTo(p);
@@ -160,13 +160,13 @@ function (exports, module, require) {
                 .addClass("txt")
                 .addClass("link")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GLoginDialog", "text.forgot-password")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLoginDialog", "text.forgot-password")
                   )
                 )
                 .on("click", () => {
                   gDesigner.stats("login-signup_login_forgot-password"),
-                    a.FORGOT_PWD_LINK
+                    AppSettings2.FORGOT_PWD_LINK
                       ? gContainer.openExternalLink(
                           null,
                           "https://idp.corel.com/idp/accountForgotPwd.jsp"
@@ -179,16 +179,16 @@ function (exports, module, require) {
             .attr("type", "submit")
             .append(
               $("<span></span>").text(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GLoginDialog",
-                    a.HAS_ENTERPRISE ? "text.sign-in-button" : "text.sign-in"
+                    AppSettings2.HAS_ENTERPRISE ? "text.sign-in-button" : "text.sign-in"
                   )
                 )
               )
             )
             .appendTo(p);
-        a.HAS_ENTERPRISE
+        AppSettings2.HAS_ENTERPRISE
           ? (h.appendTo(p), g.appendTo(p), f.appendTo(p))
           : (g.appendTo(p),
             $("<div>")
@@ -197,7 +197,7 @@ function (exports, module, require) {
               .append(f)
               .appendTo(p));
         let m = $("<div></div>").addClass("oauth-buttons");
-        if (a.HAS_ENTERPRISE) {
+        if (AppSettings2.HAS_ENTERPRISE) {
           let e = $("<div></div>").addClass("enterprise-sign-in").appendTo(require),
             t = $("<div></div>").addClass("content").appendTo(e);
           t.append(
@@ -207,8 +207,8 @@ function (exports, module, require) {
                 $("<div><div/>")
                   .addClass("subtitle")
                   .html(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GLoginDialog",
                         "text.enterprise-sign-in-message"
                       )
@@ -219,7 +219,7 @@ function (exports, module, require) {
             m
               .append(
                 this._createGoogleButton(
-                  new i.GLocaleKey(
+                  new GCore.GLocaleKey(
                     "GLoginDialog",
                     "text.enterprise-sign-google"
                   )
@@ -227,7 +227,7 @@ function (exports, module, require) {
               )
               .append(
                 this._createMicrosoftButton(
-                  new i.GLocaleKey(
+                  new GCore.GLocaleKey(
                     "GLoginDialog",
                     "text.enterprise-sign-microsoft"
                   )
@@ -241,8 +241,8 @@ function (exports, module, require) {
                 $("<span></span>")
                   .addClass("message")
                   .html(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GLoginDialog",
                         "text.enterprise-login-message-1"
                       )
@@ -253,8 +253,8 @@ function (exports, module, require) {
                 $("<span></span>")
                   .addClass("message")
                   .html(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GLoginDialog",
                         "text.enterprise-login-message-2"
                       )
@@ -263,24 +263,24 @@ function (exports, module, require) {
               )
               .appendTo(t);
         } else {
-          gContainer.getRuntime() !== r.Runtime.Chrome &&
+          gContainer.getRuntime() !== GContainer.Runtime.Chrome &&
             ($("<div></div>")
               .addClass("sep")
               .append(
                 $("<span></span>").text(
-                  i.GLocale.get(new i.GLocaleKey("GLoginDialog", "text.or"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GLoginDialog", "text.or"))
                 )
               )
               .appendTo(require),
             m
               .append(
                 this._createFacebookButton(
-                  new i.GLocaleKey("GLoginDialog", "text.sign-facebook")
+                  new GCore.GLocaleKey("GLoginDialog", "text.sign-facebook")
                 ).attr("tabindex", 1)
               )
               .append(
                 this._createGoogleButton(
-                  new i.GLocaleKey("GLoginDialog", "text.sign-google")
+                  new GCore.GLocaleKey("GLoginDialog", "text.sign-google")
                 ).attr("tabindex", 2)
               )
               .appendTo(require)),
@@ -290,8 +290,8 @@ function (exports, module, require) {
                   $("<span></span>")
                     .addClass("link")
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GLoginDialog",
                           "text.continue-without-loggin-in"
                         )
@@ -311,7 +311,7 @@ function (exports, module, require) {
           .append(
             $("<span></span>").addClass("icon").addClass("gravit-icon-google")
           )
-          .append($("<span></span>").addClass("txt").text(i.GLocale.get(e)))
+          .append($("<span></span>").addClass("txt").text(GCore.GLocale.get(e)))
           .on("click", () => {
             let e = this._getStatMappedForm();
             gDesigner.stats("login-signup_".concat(e, "_login-google")),
@@ -324,7 +324,7 @@ function (exports, module, require) {
           .append(
             $("<span></span>").addClass("icon").addClass("gravit-icon-facebook")
           )
-          .append($("<span></span>").addClass("txt").text(i.GLocale.get(e)))
+          .append($("<span></span>").addClass("txt").text(GCore.GLocale.get(e)))
           .on("click", () => {
             let e = this._getStatMappedForm();
             gDesigner.stats("login-signup_".concat(e, "_login-facebook")),
@@ -339,7 +339,7 @@ function (exports, module, require) {
               .addClass("icon")
               .addClass("gravit-icon-microsoft")
           )
-          .append($("<span></span>").addClass("txt").text(i.GLocale.get(e)))
+          .append($("<span></span>").addClass("txt").text(GCore.GLocale.get(e)))
           .on("click", () => {
             let e = this._getStatMappedForm();
             gDesigner.stats("login-signup_".concat(e, "_login-microsoft")),
@@ -355,8 +355,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("text")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.login-dialog-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.login-dialog-title")
               )
             )
             .appendTo(module);
@@ -366,8 +366,8 @@ function (exports, module, require) {
           .addClass("simple")
           .append(
             $("<span></span>").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.sign-up-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.sign-up-title")
               )
             )
           )
@@ -376,8 +376,8 @@ function (exports, module, require) {
             .addClass("subtitle")
             .append(
               $("<span></span>").text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GLoginDialog", "text.already-registered")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GLoginDialog", "text.already-registered")
                 )
               )
             )
@@ -386,8 +386,8 @@ function (exports, module, require) {
                 .addClass("link")
                 .addClass("panel")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey("GLoginDialog", "text.login-here")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GLoginDialog", "text.login-here")
                   )
                 )
                 .on("click", () => {
@@ -396,12 +396,12 @@ function (exports, module, require) {
                 })
             )
             .appendTo(require);
-        let a = $("<div></div>")
+        let AppSettings2 = $("<div></div>")
           .addClass("message")
           .append($("<span></span>"))
           .appendTo(require);
-        const s = this._createMessageHandler(a),
-          d = gContainer.getRuntime() === r.Runtime.Electron;
+        const GSystemDialog = this._createMessageHandler(AppSettings2),
+          d = gContainer.getRuntime() === GContainer.Runtime.Electron;
         let u = $("<form></form>").attr("id", "signup-form").appendTo(require);
         const p =
             undefined !== window.grecaptcha &&
@@ -414,33 +414,33 @@ function (exports, module, require) {
                 u.find('input[data-property="firstname"]').val() +
                 " " +
                 u.find('input[data-property="lastname"]').val(),
-              i = u.find('input[data-property="password"]').val();
-            var a = e;
+              GCore = u.find('input[data-property="password"]').val();
+            var AppSettings2 = e;
             const g = u
               .find('input[data-property="newsletter"]')
               .is(":checked");
             let h, f;
             if (
-              (d && (a = await gContainer.generateGoogleRecaptchaToken()),
-              gContainer.getRuntime() === r.Runtime.Electron)
+              (d && (AppSettings2 = await gContainer.generateGoogleRecaptchaToken()),
+              gContainer.getRuntime() === GContainer.Runtime.Electron)
             ) {
               const e = gContainer.getPlatform();
               ("darwin" !== e && "win32" !== e) || (h = "designer://"),
                 (f = gDesigner.getAssetsURL());
             } else f = location.origin;
-            o.gApi
+            AppSettings.gApi
               .signup({
                 email: module,
                 name: require,
-                password: i,
+                password: GCore,
                 app: "designer",
-                recaptcha: a,
+                recaptcha: AppSettings2,
                 newsletter: g,
                 appUrl: h,
                 webUrl: f,
               })
               .then(() => {
-                o.gApi
+                AppSettings.gApi
                   .getUser()
                   .then((e) => {
                     (e = new l(e)),
@@ -448,13 +448,13 @@ function (exports, module, require) {
                       this._activatePanel(c.Forms.Thanks),
                       this._callback(e);
                   })
-                  .catch((e) => this._handlerError(e, s));
+                  .catch((e) => this._handlerError(e, GSystemDialog));
               })
               .catch((e) => {
                 if (e && e.errors) {
                   const t = new Map(e.errors);
-                  s(Array.from(t.values()).join("<br>"));
-                } else s(e.message || "");
+                  GSystemDialog(Array.from(t.values()).join("<br>"));
+                } else GSystemDialog(e.message || "");
                 p && grecaptcha.reset(this._recaptchaWidget);
               });
           };
@@ -462,7 +462,7 @@ function (exports, module, require) {
           "submit",
           (e) => (
             gDesigner.stats("login-signup_create-account_create-account"),
-            s(""),
+            GSystemDialog(""),
             e.preventDefault(),
             p ? grecaptcha.execute(this._recaptchaWidget) : g(),
             false
@@ -471,8 +471,8 @@ function (exports, module, require) {
           $("<label>")
             .addClass("label")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLoginDialog",
                   "text.placeholder-sign-up-email"
                 )
@@ -486,8 +486,8 @@ function (exports, module, require) {
             .attr("required", true)
             .attr(
               "title",
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLoginDialog",
                   "text.placeholder-sign-up-email"
                 )
@@ -500,8 +500,8 @@ function (exports, module, require) {
             $("<label>")
               .addClass("label")
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GLoginDialog",
                     "text.placeholder-sign-up-first-name"
                   )
@@ -515,8 +515,8 @@ function (exports, module, require) {
               .attr("required", true)
               .attr(
                 "title",
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GLoginDialog",
                     "text.placeholder-sign-up-first-name"
                   )
@@ -529,8 +529,8 @@ function (exports, module, require) {
               $("<label>")
                 .addClass("label")
                 .text(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GLoginDialog",
                       "text.placeholder-sign-up-last-name"
                     )
@@ -544,8 +544,8 @@ function (exports, module, require) {
                 .attr("required", true)
                 .attr(
                   "title",
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GLoginDialog",
                       "text.placeholder-sign-up-last-name"
                     )
@@ -556,8 +556,8 @@ function (exports, module, require) {
           $("<label>")
             .addClass("label")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLoginDialog",
                   "text.placeholder-sign-up-password"
                 )
@@ -582,8 +582,8 @@ function (exports, module, require) {
               $("<div></div>")
                 .append(
                   $("<span></span>").text(
-                    i.GLocale.get(
-                      new i.GLocaleKey("GLoginDialog", "text.agree")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GLoginDialog", "text.agree")
                     )
                   )
                 )
@@ -591,8 +591,8 @@ function (exports, module, require) {
                   $("<span></span>")
                     .addClass("link")
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey("GLoginDialog", "text.terms-use")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GLoginDialog", "text.terms-use")
                       )
                     )
                     .on(
@@ -614,8 +614,8 @@ function (exports, module, require) {
                   $("<span></span>")
                     .addClass("link")
                     .text(
-                      i.GLocale.get(
-                        new i.GLocaleKey("GLoginDialog", "text.privacy-policy")
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey("GLoginDialog", "text.privacy-policy")
                       )
                     )
                     .on(
@@ -649,13 +649,13 @@ function (exports, module, require) {
             })
             .append(
               $("<span></span>").text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GLoginDialog", "text.newsletter")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GLoginDialog", "text.newsletter")
                 )
               )
             )
             .appendTo(u);
-        let f = await o.gApi.recaptchaKey();
+        let f = await AppSettings.gApi.recaptchaKey();
         if (p) {
           let e = $(grecaptchaWidget);
           this._recaptchaWidget = grecaptcha.render(e[0], {
@@ -669,20 +669,20 @@ function (exports, module, require) {
           .addClass("sign-in")
           .append(
             $("<span></span>").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.sign-up-now")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.sign-up-now")
               )
             )
           )
           .addClass("g-disabled")
           .prop("disabled", true)
           .appendTo(u),
-          gContainer.getRuntime() !== r.Runtime.Chrome &&
+          gContainer.getRuntime() !== GContainer.Runtime.Chrome &&
             ($("<div></div>")
               .addClass("sep")
               .append(
                 $("<span></span>").text(
-                  i.GLocale.get(new i.GLocaleKey("GLoginDialog", "text.or"))
+                  GCore.GLocale.get(new GCore.GLocaleKey("GLoginDialog", "text.or"))
                 )
               )
               .appendTo(require),
@@ -690,12 +690,12 @@ function (exports, module, require) {
               .addClass("oauth-buttons")
               .append(
                 this._createFacebookButton(
-                  new i.GLocaleKey("GLoginDialog", "text.sign-facebook")
+                  new GCore.GLocaleKey("GLoginDialog", "text.sign-facebook")
                 )
               )
               .append(
                 this._createGoogleButton(
-                  new i.GLocaleKey("GLoginDialog", "text.sign-google")
+                  new GCore.GLocaleKey("GLoginDialog", "text.sign-google")
                 )
               )
               .appendTo(require));
@@ -704,8 +704,8 @@ function (exports, module, require) {
           gDesigner.getStoreVendor() &&
             m
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GLoginDialog",
                     "text.continue-without-loggin-in"
                   )
@@ -727,8 +727,8 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("text")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLoginDialog",
                   "text.reset-password-header-title"
                 )
@@ -741,48 +741,48 @@ function (exports, module, require) {
           .addClass("simple")
           .append(
             $("<span></span>").text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.reset-password-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.reset-password-title")
               )
             )
           )
           .appendTo(require);
-        let a = $("<div></div>")
+        let AppSettings2 = $("<div></div>")
           .addClass("message")
           .append($("<span></span>"))
           .appendTo(require);
-        const s = this._createMessageHandler(a);
+        const GSystemDialog = this._createMessageHandler(AppSettings2);
         let l = $("<form></form>")
           .attr("id", "reset-password-form")
           .appendTo(require);
         return (
           l.on("submit", (e) => {
             gDesigner.stats("login-signup_forgot-password_send-request"),
-              s(""),
+              GSystemDialog(""),
               e.preventDefault();
             const module = l.find('input[data-property="email"]').val(),
               require = location.href;
-            let i, a;
-            if (gContainer.getRuntime() === r.Runtime.Electron) {
+            let GCore, AppSettings2;
+            if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
               const e = gContainer.getPlatform();
-              ("darwin" !== e && "win32" !== e) || (i = "designer://"),
-                (a = gDesigner.getAssetsURL());
-            } else a = location.origin;
+              ("darwin" !== e && "win32" !== e) || (GCore = "designer://"),
+                (AppSettings2 = gDesigner.getAssetsURL());
+            } else AppSettings2 = location.origin;
             return (
-              o.gApi
-                .resetPassword({ email: module, redirect: require, appUrl: i, webUrl: a })
+              AppSettings.gApi
+                .resetPassword({ email: module, redirect: require, appUrl: GCore, webUrl: AppSettings2 })
                 .then((e) => {
-                  s(e && e.message, "info");
+                  GSystemDialog(e && e.message, "info");
                 })
-                .catch((e) => this._handlerError(e, s)),
+                .catch((e) => this._handlerError(e, GSystemDialog)),
               false
             );
           }),
           $("<label>")
             .addClass("label")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.sign-in-login")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.sign-in-login")
               )
             )
             .appendTo(l),
@@ -793,8 +793,8 @@ function (exports, module, require) {
             .attr("required", true)
             .attr(
               "title",
-              i.GLocale.get(
-                new i.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GLoginDialog",
                   "text.placeholder-reset-password-email"
                 )
@@ -808,8 +808,8 @@ function (exports, module, require) {
                 .addClass("link")
                 .text(
                   "‹ " +
-                    i.GLocale.get(
-                      new i.GLocaleKey("GLoginDialog", "text.back-sign-in")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GLoginDialog", "text.back-sign-in")
                     )
                 )
                 .on("click", () => {
@@ -822,8 +822,8 @@ function (exports, module, require) {
                 .attr("type", "submit")
                 .append(
                   $("<span></span>").text(
-                    i.GLocale.get(
-                      new i.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GLoginDialog",
                         "text.reset-password-send"
                       )
@@ -844,31 +844,31 @@ function (exports, module, require) {
           $("<div></div>")
             .addClass("text")
             .text(
-              i.GLocale.get(
-                new i.GLocaleKey("GLoginDialog", "text.login-dialog-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GLoginDialog", "text.login-dialog-title")
               )
             )
             .appendTo(require);
-        let o = $("<div></div>").addClass("body").appendTo(module);
+        let AppSettings = $("<div></div>").addClass("body").appendTo(module);
         return (
           $("<div></div>")
             .addClass("title")
             .append(
               $("<span></span>").html(
-                i.GLocale.get(
-                  new i.GLocaleKey("GLoginDialog", "text.sign-up-thanks")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GLoginDialog", "text.sign-up-thanks")
                 ).replace("%email", e.getEmail())
               )
             )
-            .appendTo(o),
+            .appendTo(AppSettings),
           $("<button></button>")
             .append(
               $("<span></span>").text(
-                i.GLocale.get(new i.GLocaleKey("GLoginDialog", "text.ok"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GLoginDialog", "text.ok"))
               )
             )
             .on("click", this.close.bind(this))
-            .appendTo(o),
+            .appendTo(AppSettings),
           module
         );
       }),
@@ -888,7 +888,7 @@ function (exports, module, require) {
           this._container.find(".panel." + e).addClass("g-active");
       }),
       (c.prototype._oauth = function (e, t) {
-        o.gApi
+        AppSettings.gApi
           .popup("/auth/" + e)
           .then((e) => {
             this.close(), this._callback(e);
@@ -944,9 +944,9 @@ function (exports, module, require) {
       (c.prototype.open = function () {
         gDesigner.isOfflineAsync().then((e) => {
           e
-            ? s.alert(
-                i.GLocale.get(
-                  new i.GLocaleKey("GLoginDialog", "text.you-are-offline")
+            ? GSystemDialog.alert(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GLoginDialog", "text.you-are-offline")
                 )
               )
             : this._dialog.gDialog("open", false);

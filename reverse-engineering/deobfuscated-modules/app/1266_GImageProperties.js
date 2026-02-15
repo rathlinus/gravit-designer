@@ -8,16 +8,16 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     require(53) /* module */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(1267) /* module_1267 */),
-      a = require(123) /* GProperties */,
+      GProperties = require(123) /* GProperties */,
       {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
       } = (require(173) /* stub_requires_1 */, require(219) /* module_219 */, require(1268) /* module_1268 */);
     function c() {}
-    o.GObject.inherit(c, a),
+    GCore.GObject.inherit(c, GProperties),
       (c.prototype._panel = null),
       (c.prototype._document = null),
       (c.prototype._image = null),
@@ -30,8 +30,8 @@ function (exports, module, require) {
             .css({ display: "none", "font-size": "8px" })
             .append(
               $("<span></span>").text(
-                o.GLocale.get(
-                  new o.GLocaleKey("GImageProperties", "text.checking-profile")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GImageProperties", "text.checking-profile")
                 ) + "..."
               )
             )
@@ -41,8 +41,8 @@ function (exports, module, require) {
             .gPropertyRow({
               columns: [
                 {
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GImageProperties", "action.replace")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GImageProperties", "action.replace")
                   ),
                   width: "25%",
                   content: $("<button></button>")
@@ -57,8 +57,8 @@ function (exports, module, require) {
                     }),
                 },
                 {
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GImageProperties", "action.original-size")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GImageProperties", "action.original-size")
                   ),
                   width: "25%",
                   content: $("<button></button>")
@@ -71,8 +71,8 @@ function (exports, module, require) {
                     }),
                 },
                 {
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GImageProperties", "action.no-crop")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GImageProperties", "action.no-crop")
                   ),
                   labelClass: "crop-label",
                   width: "25%",
@@ -88,8 +88,8 @@ function (exports, module, require) {
                     }),
                 },
                 {
-                  label: o.GLocale.get(
-                    new o.GLocaleKey("GCommonNames", "text.colors")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.colors")
                   ),
                   width: "25%",
                   content: $("<button></button>")
@@ -117,13 +117,13 @@ function (exports, module, require) {
         var n = function (e) {
           $("<div></div>")
             .gPatternTarget({ allowDrop: false })
-            .gPatternTarget("types", [o.GColor])
+            .gPatternTarget("types", [GCore.GColor])
             .gPatternTarget("value", e)
             .css({
               display: "inline-block",
               height: "100%",
               width: "12.5%",
-              background: o.GPattern.asCSSBackground(e),
+              background: GCore.GPattern.asCSSBackground(e),
             })
             .appendTo(t);
         }.bind(this);
@@ -132,26 +132,26 @@ function (exports, module, require) {
             this._panel
               .find('[data-image-palette="button"]')
               .prop("disabled", true);
-          var a = new i(),
+          var GProperties = new i(),
             r = null;
           try {
-            r = a.getColor(e);
+            r = GProperties.getColor(e);
           } catch (e) {
             console.warn("Cannot extract image palette");
           }
-          var s = r ? new o.GRGBColor(r) : o.GRGBColor.BLACK;
+          var s = r ? new GCore.GRGBColor(r) : GCore.GRGBColor.BLACK;
           n(s);
           var l = null;
           try {
-            l = a.getPalette(e, 16);
+            l = GProperties.getPalette(e, 16);
           } catch (e) {
             console.warn("Cannot extract image palette");
           }
           var c = 1;
           if (l)
             for (var d = 0; d < l.length; ++d) {
-              var u = new o.GRGBColor(l[d]);
-              if (!o.GUtil.equals(u, s) && (n(u), ++c >= 8)) break;
+              var u = new GCore.GRGBColor(l[d]);
+              if (!GCore.GUtil.equals(u, s) && (n(u), ++c >= 8)) break;
             }
         }
       }),
@@ -161,21 +161,21 @@ function (exports, module, require) {
             (this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                o.GImage.StatusEvent,
+                GCore.GImage.StatusEvent,
                 this._imageStatus,
                 this
               ),
             this._document
               .getScene()
               .removeEventListener(
-                o.GImage.ConvertStatusEvent,
+                GCore.GImage.ConvertStatusEvent,
                 this._imageConvertStatus,
                 this
               ),
@@ -184,7 +184,7 @@ function (exports, module, require) {
           e)
         ) {
           for (var require = 0; require < t.length; ++require)
-            if (t[require] instanceof o.GImage) {
+            if (t[require] instanceof GCore.GImage) {
               if (this._image) {
                 this._image = null;
                 break;
@@ -197,21 +197,21 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GImage.StatusEvent,
+                  GCore.GImage.StatusEvent,
                   this._imageStatus,
                   this
                 ),
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GImage.ConvertStatusEvent,
+                  GCore.GImage.ConvertStatusEvent,
                   this._imageConvertStatus,
                   this
                 ),
@@ -232,8 +232,8 @@ function (exports, module, require) {
       }),
       (c.prototype._imageStatus = function (e) {
         e.image !== this._image ||
-          (e.status !== o.GImage.ImageStatus.Error &&
-            e.status !== o.GImage.ImageStatus.Loaded) ||
+          (e.status !== GCore.GImage.ImageStatus.Error &&
+            e.status !== GCore.GImage.ImageStatus.Loaded) ||
           this._updateProperties();
       }),
       (c.prototype._imageConvertStatus = function (e) {
@@ -242,16 +242,16 @@ function (exports, module, require) {
       (c.prototype._updateConvertStatus = function (e) {
         var t;
         switch (e) {
-          case o.GImage.ConvertStatus.Checking:
+          case GCore.GImage.ConvertStatus.Checking:
             t =
-              o.GLocale.get(
-                new o.GLocaleKey("GImageProperties", "text.check-profile")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GImageProperties", "text.check-profile")
               ) + "...";
             break;
-          case o.GImage.ConvertStatus.Converting:
+          case GCore.GImage.ConvertStatus.Converting:
             t =
-              o.GLocale.get(
-                new o.GLocaleKey("GImageProperties", "text.loading-profile")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GImageProperties", "text.loading-profile")
               ) + "...";
         }
         t && this._controls.find(".g-image-convert-status > span").text(t),
@@ -265,7 +265,7 @@ function (exports, module, require) {
           t = this._image.getGeometryBBox(),
           n = t ? t.getWidth() : 0,
           i = t ? t.getHeight() : 0,
-          a = this._image.getWidth(),
+          GProperties = this._image.getWidth(),
           r = this._image.getHeight();
         if (gDesigner.getActiveDocument()) {
           var s = gDesigner
@@ -276,7 +276,7 @@ function (exports, module, require) {
             .find('button[data-action="reset-size"]')
             .prop(
               "disabled",
-              !e || (o.GMath.isEqualEps(a, n) && o.GMath.isEqualEps(r, i))
+              !e || (GCore.GMath.isEqualEps(GProperties, n) && GCore.GMath.isEqualEps(r, i))
             ),
             this._panel
               .find('button[data-action="handle-crop"]')
@@ -284,8 +284,8 @@ function (exports, module, require) {
             this._panel
               .find(".crop-label")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GImageProperties",
                     s ? "action.no-crop" : "action.crop"
                   )

@@ -8,15 +8,15 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
     require(53) /* module */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */;
     require(44) /* GSystemDialog */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "paste.paste"),
-      (s.TITLE = new o.GLocaleKey("GPasteAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GPasteAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -27,13 +27,13 @@ function (exports, module, require) {
         return "gravit-icon-paste";
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_EDIT_PASTE;
+        return MenuItemBuilder.CATEGORY_EDIT_PASTE;
       }),
       (s.prototype.getGroup = function () {
         return "ccp/paste";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, "V"];
+        return [GEditor.GKey.Constant.META, "V"];
       }),
       (s.prototype.isEnabled = function () {
         return !!gDesigner.getActiveDocument();
@@ -59,11 +59,11 @@ function (exports, module, require) {
           });
       }),
       (s.prototype._pasteFromInternalClipboard = function () {
-        gDesigner.getClipboardContent(o.GNode.MIME_TYPE) &&
+        gDesigner.getClipboardContent(GCore.GNode.MIME_TYPE) &&
           (gDesigner.getPaste().assignCallback(null),
           gDesigner.getPaste().handlePasteData({
-            [o.GNode.MIME_TYPE]: gDesigner.getClipboardContent(
-              o.GNode.MIME_TYPE
+            [GCore.GNode.MIME_TYPE]: gDesigner.getClipboardContent(
+              GCore.GNode.MIME_TYPE
             ),
           }));
       }),

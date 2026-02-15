@@ -12,12 +12,12 @@ function (exports, module, require) {
         module.GFilesPanelFileTypesFilter =
         module.GFilesPanelClipboardModes =
           undefined);
-    const o = require(47) /* GLocaleKey */,
+    const GLocaleKey = require(47) /* GLocaleKey */,
       i =
         ((module.GFilesPanelFileTypesFilter = [
           {
             id: "gvdesign",
-            name: new o("GFilesPanel", "text.filter-type-gvdesign"),
+            name: new GLocaleKey("GFilesPanel", "text.filter-type-gvdesign"),
             type: "application/gravit+design",
           },
         ]),

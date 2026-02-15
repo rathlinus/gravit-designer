@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var o = require(1) /* module */,
-      i = require(123) /* GProperties */;
-    const a = require(135) /* GSettingChangedEvent */;
+    var GCore = require(1) /* module */,
+      GProperties = require(123) /* GProperties */;
+    const GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function r() {
       this._items = [];
     }
-    o.GObject.inherit(r, i),
+    GCore.GObject.inherit(r, GProperties),
       (r.prototype._panel = null),
       (r.prototype._document = null),
       (r.prototype._items = null),
@@ -47,8 +47,8 @@ function (exports, module, require) {
                     .append(
                       $("<span></span>")
                         .text(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GItemProperties",
                               "text.click-through"
                             )
@@ -89,8 +89,8 @@ function (exports, module, require) {
                     )
                     .append(
                       $("<span></span>").text(
-                        o.GLocale.get(
-                          new o.GLocaleKey(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey(
                             "GItemProperties",
                             "text.scale-with-content"
                           )
@@ -106,20 +106,20 @@ function (exports, module, require) {
         if (
           (this._updateUI(),
           this._document &&
-            (gDesigner.removeEventListener(a, this._settingChanged, this),
+            (gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged, this),
             this._document
               .getScene()
               .removeEventListener(
-                o.GNode.AfterPropertiesChangeEvent,
+                GCore.GNode.AfterPropertiesChangeEvent,
                 this._afterPropertiesChange
               ),
             (this._document = null)),
           (this._items = []),
           e)
         ) {
-          gDesigner.addEventListener(a, this._settingChanged, this);
+          gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this);
           for (var require = 0; require < t.length; ++require)
-            t[require] instanceof o.GItem && this._items.push(t[require]);
+            t[require] instanceof GCore.GItem && this._items.push(t[require]);
           if (
             this._items.length &&
             this._items.length === t.length &&
@@ -130,7 +130,7 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  o.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
@@ -164,8 +164,8 @@ function (exports, module, require) {
               .find('input[data-item-property="clk"]')
               .prop("disabled", false)
               .prop("checked", e.getProperty("clk")),
-            e instanceof o.GShape &&
-            !(e instanceof o.GImage && e.getProperty("dblMode"))
+            e instanceof GCore.GShape &&
+            !(e instanceof GCore.GImage && e.getProperty("dblMode"))
               ? (this._panel.find("[major-shape-only]").css("display", ""),
                 this._panel
                   .find("[major-item-only]")
@@ -194,26 +194,26 @@ function (exports, module, require) {
       }),
       (r.prototype._assignProperty = function (e, t, n) {
         if ("clk" == e || "scc" == e) {
-          var i = this._document.getEditor();
-          i.beginTransaction();
+          var GProperties = this._document.getEditor();
+          GProperties.beginTransaction();
           try {
-            for (var a = 0; a < this._items.length; ++a) {
-              var r = this._items[a];
+            for (var GSettingChangedEvent = 0; GSettingChangedEvent < this._items.length; ++GSettingChangedEvent) {
+              var r = this._items[GSettingChangedEvent];
               this._hasChildItem(r) &&
-                ("clk" == e || r instanceof o.GShape) &&
-                this._items[a].setProperties([e], [t]);
+                ("clk" == e || r instanceof GCore.GShape) &&
+                this._items[GSettingChangedEvent].setProperties([e], [t]);
             }
           } finally {
-            i.commitTransaction(n);
+            GProperties.commitTransaction(n);
           }
         }
       }),
       (r.prototype._hasChildItem = function (e) {
         return (
-          !!e.hasMixin(o.GNode.Container) &&
+          !!e.hasMixin(GCore.GNode.Container) &&
           !e.acceptChildren(
             function (e) {
-              return !(e instanceof o.GItem);
+              return !(e instanceof GCore.GItem);
             },
             false,
             false

@@ -6,29 +6,29 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
-      r = o(require(358) /* module_358 */),
-      s = require(123) /* GProperties */;
-    const l = require(393) /* GCollaborationEvent */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      r = _interopRequireDefault(require(358) /* module_358 */),
+      GProperties = require(123) /* GProperties */;
+    const GCollaborationEvent = require(393) /* GCollaborationEvent */,
       c = require(392) /* module_392 */,
       d = require(1165) /* module_1165 */,
-      u = require(135) /* GSettingChangedEvent */;
-    function p(e, t, n, o, i, a, r, s) {
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
+    function p(e, t, n, _interopRequireDefault, GTools, GCore, r, GProperties) {
       (this._elements = []),
         (this._availableProperties = e || []),
         (this._propertyClass = t),
         (this._propertyTool = n),
-        (this._toolbarIcon = o),
-        (this._toolbarTooltip = i),
-        (this._tooltips = a),
+        (this._toolbarIcon = _interopRequireDefault),
+        (this._toolbarTooltip = GTools),
+        (this._tooltips = GCore),
         (this._pendingUpdates = new Map()),
         (this._statType = r),
-        (this._panelClass = s);
+        (this._panelClass = GProperties);
     }
-    a.GObject.inherit(p, s),
+    GCore.GObject.inherit(p, GProperties),
       (p.PropertySet = {
         BorderHeadMarker: "_bhm",
         BorderTailMarker: "_btm",
@@ -61,26 +61,26 @@ function (exports, module, require) {
               e === p.PropertySet.FillLayer
             ) {
               let n,
-                o = () =>
+                _interopRequireDefault = () =>
                   e === p.PropertySet.FillLayer
                     ? t._statType + "/FillColor"
                     : e === p.PropertySet.BorderLayer
                     ? t._statType + "/OutlineColor"
                     : undefined,
-                i = $("<div></div>")
+                GTools = $("<div></div>")
                   .attr("data-property", e)
                   .toggleClass(
                     "g-disabled",
                     !this._getAppManager().isCommentingEditingEnabled()
                   )
                   .gPatternChooser({
-                    types: [a.GColor],
+                    types: [GCore.GColor],
                     singleOption: true,
                     onOpen: function () {
-                      gDesigner.stats("annotations_open_patternchooser", o());
+                      gDesigner.stats("annotations_open_patternchooser", _interopRequireDefault());
                     },
                     onClickEyedropper: function () {
-                      gDesigner.stats("annotations_click_eyedropper", o());
+                      gDesigner.stats("annotations_click_eyedropper", _interopRequireDefault());
                     },
                   })
                   .on("chooseropen", function () {
@@ -91,12 +91,12 @@ function (exports, module, require) {
                       t.setIsEditing(true);
                     }
                   })
-                  .on("chooserclose", function (e, n, o) {
+                  .on("chooserclose", function (e, n, _interopRequireDefault) {
                     try {
                       gDesigner
                         .getWorkspace()
                         .getStyleEdManager()
-                        .getOverlayLock(o)
+                        .getOverlayLock(_interopRequireDefault)
                         ? n()
                         : ((t._styleEdOn = false),
                           gDesigner
@@ -110,28 +110,28 @@ function (exports, module, require) {
                       t.setIsEditing(false);
                     }
                   })
-                  .on("patternchange", function (n, o, i, r, s, l) {
+                  .on("patternchange", function (n, _interopRequireDefault, GTools, r, GProperties, GCollaborationEvent) {
                     if (t._getAppManager().isCommentingEditingEnabled()) {
                       var c = ["_vs"],
                         d = [true];
-                      undefined !== o && (c.push("_pt"), d.push(o)),
-                        "number" == typeof i && (c.push("_op"), d.push(i));
-                      var u = null;
-                      s &&
-                        ((u = { chooserOn: true }),
-                        null != l && (u.activeStopIdx = l)),
+                      undefined !== _interopRequireDefault && (c.push("_pt"), d.push(_interopRequireDefault)),
+                        "number" == typeof GTools && (c.push("_op"), d.push(GTools));
+                      var GSettingChangedEvent = null;
+                      GProperties &&
+                        ((GSettingChangedEvent = { chooserOn: true }),
+                        null != GCollaborationEvent && (GSettingChangedEvent.activeStopIdx = GCollaborationEvent)),
                         t._assignProperties(
                           c,
                           d,
-                          a.GLocale.get(
-                            new a.GLocaleKey(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAnnotationProperties",
                               "text.change-annotation-style"
                             )
                           ),
                           r,
                           e,
-                          u
+                          GSettingChangedEvent
                         );
                     }
                   })
@@ -153,23 +153,23 @@ function (exports, module, require) {
                       : null
                   );
               return (
-                i
+                GTools
                   .find("span.preview.g-button")
                   .attr(
                     "data-title",
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAnnotationProperties",
                         this._tooltips[e]
                       )
                     )
                   ),
-                i
+                GTools
                   .find("div.eyedropper")
                   .attr(
                     "data-title",
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GAnnotationProperties",
                         this._tooltips[e + "dropper"]
                       )
@@ -177,29 +177,29 @@ function (exports, module, require) {
                   ),
                 (n =
                   e === p.PropertySet.BorderLayer
-                    ? new a.GLocaleKey("GStylable", "layer.border")
-                    : new a.GLocaleKey("GStylable", "layer.fill")),
-                i.append(
-                  $("<span/>").addClass("layer-title").text(a.GLocale.get(n))
+                    ? new GCore.GLocaleKey("GStylable", "layer.border")
+                    : new GCore.GLocaleKey("GStylable", "layer.fill")),
+                GTools.append(
+                  $("<span/>").addClass("layer-title").text(GCore.GLocale.get(n))
                 ),
-                i
+                GTools
               );
             }
             if (e === p.PropertySet.BorderWidth) {
-              var n = (n, o) => {
+              var n = (n, _interopRequireDefault) => {
                 if (this._getAppManager().isCommentingEditingEnabled()) {
                   gDesigner.stats("annotations_line-width", this._statType);
-                  var i = $(n).gUnitBox("value"),
-                    r = i ? i.toUnit(a.GLength.Unit.PX) : null;
+                  var GTools = $(n).gUnitBox("value"),
+                    r = GTools ? GTools.toUnit(GCore.GLength.Unit.PX) : null;
                   if (null !== r && r >= 0) {
                     const n = ["_vs", e],
-                      i = [true, r],
-                      a = undefined,
-                      s = p.PropertyTarget.BorderLayer;
-                    o
-                      ? this._recordPendingUpdateForSelection(e, n, i, a, s)
+                      GTools = [true, r],
+                      GCore = undefined,
+                      GProperties = p.PropertyTarget.BorderLayer;
+                    _interopRequireDefault
+                      ? this._recordPendingUpdateForSelection(e, n, GTools, GCore, GProperties)
                       : this._cleanPendingUpdateForSelection(e),
-                      t._assignProperties(n, i, a, o, s);
+                      t._assignProperties(n, GTools, GCore, _interopRequireDefault, GProperties);
                   } else t._updateProperties();
                 }
               };
@@ -207,8 +207,8 @@ function (exports, module, require) {
                 .attr("data-property", e)
                 .attr(
                   "data-title",
-                  a.GLocale.get(
-                    new a.GLocaleKey("GAnnotationProperties", this._tooltips[e])
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GAnnotationProperties", this._tooltips[e])
                   )
                 )
                 .toggleClass(
@@ -234,21 +234,21 @@ function (exports, module, require) {
               const n = (n) => {
                   if (!this._getAppManager().isCommentingEditingEnabled())
                     return;
-                  const o = $(n.target).prop("checked"),
-                    i = e === p.PropertySet.BorderHeadMarker ? "head" : "tail";
+                  const _interopRequireDefault = $(n.target).prop("checked"),
+                    GTools = e === p.PropertySet.BorderHeadMarker ? "head" : "tail";
                   gDesigner.stats(
-                    "annotations_border-marker_".concat(i),
-                    o ? "on" : "off"
+                    "annotations_border-marker_".concat(GTools),
+                    _interopRequireDefault ? "on" : "off"
                   ),
                     t._assignProperty(
                       e,
-                      o ? a.GStylable.BorderMarker.Arrow : null,
+                      _interopRequireDefault ? GCore.GStylable.BorderMarker.Arrow : null,
                       undefined,
                       undefined,
                       p.PropertyTarget.BorderLayer
                     );
                 },
-                o = $("<input>")
+                _interopRequireDefault = $("<input>")
                   .attr("data-property", e)
                   .addClass("custom-checkbox-mode")
                   .attr("type", "checkbox")
@@ -262,20 +262,20 @@ function (exports, module, require) {
                   )
                   .on("change", n);
               return (
-                gDesigner.isTouchEnabled() && o.gCheckboxSlider(),
+                gDesigner.isTouchEnabled() && _interopRequireDefault.gCheckboxSlider(),
                 $("<label>")
-                  .append(o)
+                  .append(_interopRequireDefault)
                   .append(
                     $("<span>").text(
                       e === p.PropertySet.BorderTailMarker
-                        ? a.GLocale.get(
-                            new a.GLocaleKey(
+                        ? GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAnnotationProperties",
                               "text.end-arrow"
                             )
                           )
-                        : a.GLocale.get(
-                            new a.GLocaleKey(
+                        : GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GAnnotationProperties",
                               "text.start-arrow"
                             )
@@ -286,7 +286,7 @@ function (exports, module, require) {
             }
             throw new Error("Unknown input property: " + e);
           }.bind(this),
-          o = [];
+          _interopRequireDefault = [];
         this._availableProperties.indexOf(p.PropertySet.BorderHeadMarker) >=
           0 &&
           this._availableProperties.indexOf(p.PropertySet.BorderTailMarker) >=
@@ -302,7 +302,7 @@ function (exports, module, require) {
           this._availableProperties.push("arrows"));
         for (var r = 0; r < this._availableProperties.length; r++) {
           let e = this._availableProperties[r];
-          o.push({
+          _interopRequireDefault.push({
             clazz:
               this._availableProperties.includes(p.PropertySet.BorderLayer) &&
               this._availableProperties.includes(p.PropertySet.FillLayer)
@@ -319,7 +319,7 @@ function (exports, module, require) {
                 : n(e),
           });
         }
-        $("<div></div>").gPropertyRow({ columns: o }).appendTo(this._panel),
+        $("<div></div>").gPropertyRow({ columns: _interopRequireDefault }).appendTo(this._panel),
           this._availableProperties.indexOf(p.PropertySet.FillLayer) >= 0 &&
             this._availableProperties.indexOf(p.PropertySet.BorderLayer) >= 0 &&
             this._panel
@@ -339,8 +339,8 @@ function (exports, module, require) {
             )
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GAnnotationProperties", this._toolbarTooltip)
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GAnnotationProperties", this._toolbarTooltip)
               )
             )
             .on("click", () => {
@@ -355,7 +355,7 @@ function (exports, module, require) {
                 e === gDesigner.getToolManager().getActiveTool()
                   ? gDesigner
                       .getToolManager()
-                      .activateTool(i.GPointerTool, null, true)
+                      .activateTool(GTools.GPointerTool, null, true)
                   : gDesigner.getToolManager().activateTool(e, null, true);
               }
             })
@@ -383,16 +383,16 @@ function (exports, module, require) {
                 this._handleReviewUpdate,
                 this
               ),
-            gDesigner.removeEventListener(u, this._settingChanged, this),
+            gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged, this),
             this._document.getScene() &&
               this._document
                 .getScene()
                 .removeEventListener(
-                  a.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange
                 ),
             this._document.removeEventListener(
-              l,
+              GCollaborationEvent,
               this._collaborationEvent,
               this
             ),
@@ -405,17 +405,17 @@ function (exports, module, require) {
             gDesigner
               .getFileReviewManager()
               .addEventListener(d.UpdateEvent, this._handleReviewUpdate, this),
-            gDesigner.addEventListener(u, this._settingChanged, this),
+            gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
             t)
           )
-            for (var o = 0; o < t.length; ++o) {
-              var i = t[o];
-              ((i instanceof a.GStyle &&
+            for (var _interopRequireDefault = 0; _interopRequireDefault < t.length; ++_interopRequireDefault) {
+              var GTools = t[_interopRequireDefault];
+              ((GTools instanceof GCore.GStyle &&
                 n &&
                 n instanceof this._propertyTool) ||
-                (i instanceof this._propertyClass &&
-                  i.hasMixin(a.GAnnotation))) &&
-                this._elements.push(i);
+                (GTools instanceof this._propertyClass &&
+                  GTools.hasMixin(GCore.GAnnotation))) &&
+                this._elements.push(GTools);
             }
           if (this._elements.length)
             return (
@@ -423,12 +423,12 @@ function (exports, module, require) {
               this._document
                 .getScene()
                 .addEventListener(
-                  a.GNode.AfterPropertiesChangeEvent,
+                  GCore.GNode.AfterPropertiesChangeEvent,
                   this._afterPropertiesChange,
                   this
                 ),
               this._document.addEventListener(
-                l,
+                GCollaborationEvent,
                 this._collaborationEvent,
                 this
               ),
@@ -441,7 +441,7 @@ function (exports, module, require) {
       }),
       (p.prototype._collaborationEvent = async function (e) {
         switch (e.type) {
-          case l.Type.ReviewStatusChanged:
+          case GCollaborationEvent.Type.ReviewStatusChanged:
             this._updateToolbar(),
               this._elements.length && this._updateProperties();
         }
@@ -475,12 +475,12 @@ function (exports, module, require) {
           this._availableProperties.some((t) => e.properties.indexOf(t) >= 0) &&
           this._updateProperties();
       }),
-      (p.prototype._recordPendingUpdateForSelection = function (e, t, n, o, i) {
+      (p.prototype._recordPendingUpdateForSelection = function (e, t, n, _interopRequireDefault, GTools) {
         this._pendingUpdates.set(e, {
           props: t,
           values: n,
-          title: o,
-          target: i,
+          title: _interopRequireDefault,
+          target: GTools,
         });
       }),
       (p.prototype._cleanPendingUpdateForSelection = function (e) {
@@ -507,26 +507,26 @@ function (exports, module, require) {
         if (!this._document.getScene())
           return void console.warn("Scene is null");
         var e = this._elements[0];
-        i.GElementEditor.getEditor(e);
+        GTools.GElementEditor.getEditor(e);
         const module =
-            !e.hasMixin(a.GAnnotation) ||
+            !e.hasMixin(GCore.GAnnotation) ||
             r.default.isOwner(gDesigner.getSyncUser(), e),
           require = this._getAppManager().isCommentingEditingEnabled();
         if (this._availableProperties.indexOf(p.PropertySet.FillLayer) >= 0) {
-          var o = e.getPaintLayers().getFillLayers()[0];
+          var _interopRequireDefault = e.getPaintLayers().getFillLayers()[0];
           this._panel
             .find('[data-property="'.concat(p.PropertySet.FillLayer, '"]'))
             .gPatternChooser(
               "setPattern",
-              o ? o.getProperty("_pt", false, false, true) : null
+              _interopRequireDefault ? _interopRequireDefault.getProperty("_pt", false, false, true) : null
             )
             .gPatternChooser(
               "value",
-              o ? o.getProperty("_pt", false, false, true) : null
+              _interopRequireDefault ? _interopRequireDefault.getProperty("_pt", false, false, true) : null
             )
             .gPatternChooser(
               "opacity",
-              o ? o.getProperty("_op", false, false, true) : null
+              _interopRequireDefault ? _interopRequireDefault.getProperty("_op", false, false, true) : null
             ),
             module && require
               ? this._panel
@@ -541,20 +541,20 @@ function (exports, module, require) {
                   .addClass("g-disabled");
         }
         if (this._availableProperties.indexOf(p.PropertySet.BorderLayer) >= 0) {
-          o = e.getPaintLayers().getBorderLayers()[0];
+          _interopRequireDefault = e.getPaintLayers().getBorderLayers()[0];
           this._panel
             .find('[data-property="'.concat(p.PropertySet.BorderLayer, '"]'))
             .gPatternChooser(
               "setPattern",
-              o ? o.getProperty("_pt", false, false, true) : null
+              _interopRequireDefault ? _interopRequireDefault.getProperty("_pt", false, false, true) : null
             )
             .gPatternChooser(
               "value",
-              o ? o.getProperty("_pt", false, false, true) : null
+              _interopRequireDefault ? _interopRequireDefault.getProperty("_pt", false, false, true) : null
             )
             .gPatternChooser(
               "opacity",
-              o ? o.getProperty("_op", false, false, true) : null
+              _interopRequireDefault ? _interopRequireDefault.getProperty("_op", false, false, true) : null
             ),
             module && require
               ? this._panel
@@ -569,29 +569,29 @@ function (exports, module, require) {
                   .addClass("g-disabled");
         }
         if (this._availableProperties.indexOf(p.PropertySet.BorderWidth) >= 0) {
-          var s = (o = e.getPaintLayers().getBorderLayers()[0])
+          var GProperties = (_interopRequireDefault = e.getPaintLayers().getBorderLayers()[0])
               .getProperty(p.PropertySet.BorderWidth)
               .toString(),
-            l = this._panel.find(
+            GCollaborationEvent = this._panel.find(
               '[data-property="'.concat(p.PropertySet.BorderWidth, '"]')
             );
-          l
+          GCollaborationEvent
             .gUnitBox({
               unit:
-                this._document.getScene().$ut === a.GLength.Unit.PX
-                  ? a.GLength.Unit.PX
-                  : a.GLength.Unit.PT,
+                this._document.getScene().$ut === GCore.GLength.Unit.PX
+                  ? GCore.GLength.Unit.PX
+                  : GCore.GLength.Unit.PT,
               minValue: 0,
             })
             .gUnitBox(
               "value",
-              null !== s
-                ? new a.GLength.parseLength(s, a.GLength.Unit.PT)
+              null !== GProperties
+                ? new GCore.GLength.parseLength(GProperties, GCore.GLength.Unit.PT)
                 : null
             ),
             module && require
-              ? l.removeClass("g-disabled").attr("disabled", false)
-              : l.addClass("g-disabled").attr("disabled", true);
+              ? GCollaborationEvent.removeClass("g-disabled").attr("disabled", false)
+              : GCollaborationEvent.addClass("g-disabled").attr("disabled", true);
         }
         [p.PropertySet.BorderHeadMarker, p.PropertySet.BorderTailMarker]
           .filter(
@@ -599,50 +599,50 @@ function (exports, module, require) {
               this._availableProperties.indexOf(e) >= 0 ||
               this._availableProperties.includes("arrows")
           )
-          .forEach((o) => {
-            var i = e.getPaintLayers().getBorderLayers()[0].getProperty(o),
-              a = this._panel.find('[data-property="' + o + '"]');
-            a.prop("checked", !!i),
+          .forEach((_interopRequireDefault) => {
+            var GTools = e.getPaintLayers().getBorderLayers()[0].getProperty(_interopRequireDefault),
+              GCore = this._panel.find('[data-property="' + _interopRequireDefault + '"]');
+            GCore.prop("checked", !!GTools),
               module && require
-                ? (a.removeClass("g-disabled"), a.attr("disabled", false))
-                : (a.addClass("g-disabled"), a.attr("disabled", true));
+                ? (GCore.removeClass("g-disabled"), GCore.attr("disabled", false))
+                : (GCore.addClass("g-disabled"), GCore.attr("disabled", true));
           });
       }),
-      (p.prototype._assignProperty = function (e, t, n, o, i, a) {
-        this._assignProperties([e], [t], n, o, i, a);
+      (p.prototype._assignProperty = function (e, t, n, _interopRequireDefault, GTools, GCore) {
+        this._assignProperties([e], [t], n, _interopRequireDefault, GTools, GCore);
       }),
-      (p.prototype._assignProperties = function (e, t, n, o, i, r) {
+      (p.prototype._assignProperties = function (e, t, n, _interopRequireDefault, GTools, r) {
         if (this._document) {
-          var s = this._document.getEditor();
-          o || s.beginTransaction();
+          var GProperties = this._document.getEditor();
+          _interopRequireDefault || GProperties.beginTransaction();
           try {
-            for (var l = null, c = 0; c < this._elements.length; ++c) {
+            for (var GCollaborationEvent = null, c = 0; c < this._elements.length; ++c) {
               var d;
-              i === p.PropertyTarget.FillLayer
+              GTools === p.PropertyTarget.FillLayer
                 ? ((d = this._elements[c]
                     .getPaintLayers()
                     .getFillLayers()[0]) ||
-                    ((d = new a.GStylable.FillPaintLayer()),
+                    ((d = new GCore.GStylable.FillPaintLayer()),
                     this._elements[c].getPaintLayers().appendChild(d)),
-                  (l = $.extend(
+                  (GCollaborationEvent = $.extend(
                     { fillLayerIndex: d.getParent().getIndexOfChild(d) },
-                    l || r
+                    GCollaborationEvent || r
                   )))
-                : i === p.PropertyTarget.BorderLayer
+                : GTools === p.PropertyTarget.BorderLayer
                 ? ((d = this._elements[c]
                     .getPaintLayers()
                     .getBorderLayers()[0]) ||
-                    ((d = new a.GStylable.BorderPaintLayer()),
+                    ((d = new GCore.GStylable.BorderPaintLayer()),
                     this._elements[c].getPaintLayers().appendChild(d)),
-                  (l = $.extend(
+                  (GCollaborationEvent = $.extend(
                     { borderLayerIndex: d.getParent().getIndexOfChild(d) },
-                    l || r
+                    GCollaborationEvent || r
                   )))
                 : (d = this._elements[c]),
-                d && d.setProperties(e, t, false, false, o);
+                d && d.setProperties(e, t, false, false, _interopRequireDefault);
             }
           } finally {
-            o || s.commitTransaction(n, l);
+            _interopRequireDefault || GProperties.commitTransaction(n, GCollaborationEvent);
           }
         } else console.warn("GAnnotationProperties: empty _document property");
       }),

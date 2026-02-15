@@ -7,11 +7,11 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e) {
       this.connected = e;
     }
-    o.GObject.inherit(i, o.GEvent),
+    GCore.GObject.inherit(i, GCore.GEvent),
       (i.prototype.connected = false),
       (i.prototype.toString = function () {
         return "[Object GNetworkAvailabilityChangedEvent]";

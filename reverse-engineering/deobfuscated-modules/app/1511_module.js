@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e, t) {
       (this._neverRemind = false),
         (this._agreeCb = e),
@@ -18,7 +18,7 @@ function (exports, module, require) {
             (t = t || false) ? e() : this._init();
           });
     }
-    o.GObject.inherit(i, o.GObject),
+    GCore.GObject.inherit(i, GCore.GObject),
       (i.prototype._init = function () {
         (this._dialog = $("<div></div>")
           .addClass("container")
@@ -26,8 +26,8 @@ function (exports, module, require) {
             $("<div />")
               .addClass("text-content")
               .text(
-                o.GLocale.get(
-                  new o.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GWarnLinkedImageDialog",
                     "warn-linked-image.text"
                   )
@@ -53,8 +53,8 @@ function (exports, module, require) {
                 $("<span />")
                   .addClass("checkbox-text")
                   .html(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GWarnLinkedImageDialog",
                         "warn-linked-image.never-remind"
                       )
@@ -70,8 +70,8 @@ function (exports, module, require) {
                 .addClass("native-button")
                 .attr("type", "submit")
                 .html(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GWarnLinkedImageDialog",
                       "warn-linked-image.proceed"
                     )
@@ -81,8 +81,8 @@ function (exports, module, require) {
               $("<button />")
                 .addClass("native-button")
                 .html(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GWarnLinkedImageDialog",
                       "warn-linked-image.cancel"
                     )

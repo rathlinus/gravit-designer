@@ -5,44 +5,44 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
+    var core_export = require(25) /* core_export */,
       i = require(223) /* module_223 */,
-      a = require(21) /* tryCall */,
+      tryCall = require(21) /* tryCall */,
       r = require(324) /* module_324 */,
-      s = require(37) /* toString_default */,
+      toString_default = require(37) /* toString_default */,
       l = require(244) /* module_244 */,
-      c = require(117) /* toStringTagSupport */,
+      toStringTagSupport = require(117) /* toStringTagSupport */,
       d = r.ArrayBuffer,
       u = r.DataView,
       p = u.prototype,
       g = i(d.prototype.slice),
       h = i(p.getUint8),
       f = i(p.setUint8);
-    o(
+    core_export(
       {
         target: "ArrayBuffer",
         proto: true,
         unsafe: true,
-        forced: a(function () {
+        forced: tryCall(function () {
           return !new d(2).slice(1, undefined).byteLength;
         }),
       },
       {
         slice: function (e, t) {
-          if (g && undefined === t) return g(s(this), e);
+          if (g && undefined === t) return g(toString_default(this), e);
           for (
-            var require = s(this).byteLength,
-              o = l(e, require),
+            var require = toString_default(this).byteLength,
+              core_export = l(e, require),
               i = l(undefined === t ? require : t, require),
-              a = new d(c(i - o)),
+              tryCall = new d(toStringTagSupport(i - core_export)),
               r = new u(this),
-              p = new u(a),
+              p = new u(tryCall),
               m = 0;
-            o < i;
+            core_export < i;
 
           )
-            f(p, m++, h(r, o++));
-          return a;
+            f(p, m++, h(r, core_export++));
+          return tryCall;
         },
       }
     );

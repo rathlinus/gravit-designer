@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(27) /* uncurryThis */,
+    var core_export = require(25) /* core_export */,
+      uncurryThis = require(27) /* uncurryThis */,
       a = require(65) /* module_65 */,
       r = require(93) /* stub_requires_92 */,
       s = require(101) /* stub_requires_117 */,
       l = require(1038) /* module_1038 */,
-      c = require(62) /* requireObjectCoercible */,
-      d = require(21) /* tryCall */,
+      requireObjectCoercible = require(62) /* requireObjectCoercible */,
+      tryCall = require(21) /* tryCall */,
       u = require(351) /* module_351 */,
       p = require(350) /* module_350 */,
       g = require(521) /* stub_requires_129 */,
@@ -20,16 +20,16 @@ function (exports, module, require) {
       f = require(213) /* module_213 */,
       m = require(523) /* stub_requires_129 */,
       y = [],
-      v = i(y.sort),
-      _ = i(y.push),
-      b = d(function () {
+      v = uncurryThis(y.sort),
+      _ = uncurryThis(y.push),
+      b = tryCall(function () {
         y.sort(undefined);
       }),
-      w = d(function () {
+      w = tryCall(function () {
         y.sort(null);
       }),
       C = p("sort"),
-      x = !d(function () {
+      x = !tryCall(function () {
         if (f) return f < 70;
         if (!(g && g > 3)) {
           if (h) return true;
@@ -37,8 +37,8 @@ function (exports, module, require) {
           var exports,
             module,
             require,
-            o,
-            i = "";
+            core_export,
+            uncurryThis = "";
           for (exports = 65; exports < 76; exports++) {
             switch (((module = String.fromCharCode(exports)), exports)) {
               case 66:
@@ -54,21 +54,21 @@ function (exports, module, require) {
               default:
                 require = 2;
             }
-            for (o = 0; o < 47; o++) y.push({ k: module + o, v: require });
+            for (core_export = 0; core_export < 47; core_export++) y.push({ k: module + core_export, v: require });
           }
           for (
             y.sort(function (e, t) {
               return t.v - e.v;
             }),
-              o = 0;
-            o < y.length;
-            o++
+              core_export = 0;
+            core_export < y.length;
+            core_export++
           )
-            (module = y[o].k.charAt(0)), i.charAt(i.length - 1) !== module && (i += module);
-          return "DGBEFHACIJK" !== i;
+            (module = y[core_export].k.charAt(0)), uncurryThis.charAt(uncurryThis.length - 1) !== module && (uncurryThis += module);
+          return "DGBEFHACIJK" !== uncurryThis;
         }
       });
-    o(
+    core_export(
       { target: "Array", proto: true, forced: b || !w || !C || !x },
       {
         sort: function (e) {
@@ -76,13 +76,13 @@ function (exports, module, require) {
           var t = r(this);
           if (x) return undefined === e ? v(t) : v(t, e);
           var n,
-            o,
-            i = [],
-            d = s(t);
-          for (o = 0; o < d; o++) o in t && _(i, t[o]);
+            core_export,
+            uncurryThis = [],
+            tryCall = s(t);
+          for (core_export = 0; core_export < tryCall; core_export++) core_export in t && _(uncurryThis, t[core_export]);
           for (
             u(
-              i,
+              uncurryThis,
               (function (e) {
                 return function (t, n) {
                   return undefined === n
@@ -91,19 +91,19 @@ function (exports, module, require) {
                     ? 1
                     : undefined !== e
                     ? +e(t, n) || 0
-                    : c(t) > c(n)
+                    : requireObjectCoercible(t) > requireObjectCoercible(n)
                     ? 1
                     : -1;
                 };
               })(e)
             ),
-              n = s(i),
-              o = 0;
-            o < n;
+              n = s(uncurryThis),
+              core_export = 0;
+            core_export < n;
 
           )
-            t[o] = i[o++];
-          for (; o < d; ) l(t, o++);
+            t[core_export] = uncurryThis[core_export++];
+          for (; core_export < tryCall; ) l(t, core_export++);
           return t;
         },
       }

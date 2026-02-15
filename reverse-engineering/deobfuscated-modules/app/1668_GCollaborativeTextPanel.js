@@ -7,20 +7,20 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */;
-    const i = require(606) /* GPanel */,
-      a = require(394) /* GView */,
+    var GCore = require(1) /* module */;
+    const GPanel = require(606) /* GPanel */,
+      GView = require(394) /* GView */,
       r = require(392) /* module_392 */,
-      s = require(393) /* GCollaborationEvent */,
-      l = require(78) /* GDocumentEvent */,
-      c = require(291) /* GNetworkAvailabilityChangedEvent */,
-      d = require(1346) /* GUnloadEvent */,
+      GCollaborationEvent = require(393) /* GCollaborationEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
+      GUnloadEvent = require(1346) /* GUnloadEvent */,
       u = require(1348) /* StatusChangedEvent */,
-      p = require(44) /* GSystemDialog */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       g = require(177) /* module_177 */,
       { DateAPI: h, ShareRoles: f } = require(10) /* AppSettings */;
     function m() {}
-    o.GObject.inherit(m, i),
+    GCore.GObject.inherit(m, GPanel),
       (m.ID = "collaborative-text-panel"),
       (m.prototype._htmlElement = null),
       (m.prototype._requestLockDialog = null),
@@ -32,7 +32,7 @@ function (exports, module, require) {
       (m.prototype._documentEvent = function (e) {
         if (!e.document.isLockedByVersionHistory())
           switch (e.type) {
-            case l.Type.Activated:
+            case GDocumentEvent.Type.Activated:
               this._deactivate(),
                 (this._document = e.document),
                 this._document.addEventListener(
@@ -46,22 +46,22 @@ function (exports, module, require) {
                   this
                 ),
                 this._document.addEventListener(
-                  s,
+                  GCollaborationEvent,
                   this._collaborationEvent,
                   this
                 ),
                 gDesigner.addEventListener(
-                  c,
+                  GNetworkAvailabilityChangedEvent,
                   this._networkAvailabilityChangedEvent,
                   this
                 ),
                 this._update();
               break;
-            case l.Type.Deactivated:
+            case GDocumentEvent.Type.Deactivated:
               e.document === this._document &&
                 (this._deactivate(), this._htmlElement.css("display", "none"));
               break;
-            case l.Type.Modified:
+            case GDocumentEvent.Type.Modified:
               if (!this.isEnabled()) return;
               if (
                 e.document === this._document &&
@@ -85,15 +85,15 @@ function (exports, module, require) {
             this._update,
             this
           ),
-          this._document.removeEventListener(s, this._collaborationEvent, this),
+          this._document.removeEventListener(GCollaborationEvent, this._collaborationEvent, this),
           gDesigner.removeEventListener(
-            c,
+            GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
             this
           ));
       }),
       (m.prototype._collaborationEvent = function (e) {
-        e.type === s.Type.LockRequest &&
+        e.type === GCollaborationEvent.Type.LockRequest &&
           this._requestLock(e.data.from && e.data.from.name);
       }),
       (m.prototype._networkAvailabilityChangedEvent = function (e) {
@@ -130,7 +130,7 @@ function (exports, module, require) {
               }
             else this._showRequestPanel();
         }
-        this.trigger(a.UPDATE_EVENT);
+        this.trigger(GView.UPDATE_EVENT);
       }),
       (m.prototype._showOwnerPanel = function () {
         this._htmlElement.empty().append(
@@ -141,8 +141,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.owner-message"
                     )
@@ -160,8 +160,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.update-available-message"
                     )
@@ -177,8 +177,8 @@ function (exports, module, require) {
                     .addClass("highlighted")
                     .addClass("online-action")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCollaborativeTextPanel",
                           "text.update-now"
                         )
@@ -204,8 +204,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey("GCollaborativeTextPanel", "text.updating")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCollaborativeTextPanel", "text.updating")
                   )
                 )
             )
@@ -220,8 +220,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.finish-editing-message"
                     )
@@ -235,8 +235,8 @@ function (exports, module, require) {
                 .addClass("online-action")
                 .prop("disabled", !this._document.isModified())
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.finish-editing"
                     )
@@ -274,8 +274,8 @@ function (exports, module, require) {
                 )
                 .append(
                   $("<span/>").text(
-                    o.GLocale.get(
-                      new o.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCollaborativeTextPanel",
                         "text.preview-changes"
                       )
@@ -293,8 +293,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.send-changes-message"
                     )
@@ -309,8 +309,8 @@ function (exports, module, require) {
                     .addClass("g-highlight-button")
                     .addClass("secondary")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCollaborativeTextPanel",
                           "text.back-to-editing"
                         )
@@ -331,8 +331,8 @@ function (exports, module, require) {
                     .addClass("highlighted")
                     .addClass("online-action")
                     .text(
-                      o.GLocale.get(
-                        new o.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCollaborativeTextPanel",
                           "text.send-changes"
                         )
@@ -342,9 +342,9 @@ function (exports, module, require) {
                       gDesigner.stats(
                         "collabtextpanel_bottom-bar_send-changes"
                       ),
-                        p.confirm(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                        GSystemDialog.confirm(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GCollaborativeTextPanel",
                               "text.send-to-owner"
                             )
@@ -355,9 +355,9 @@ function (exports, module, require) {
                                 .getCollaborativeTextController()
                                 .sendChanges()
                                 .then(() => {
-                                  p.alert(
-                                    o.GLocale.get(
-                                      new o.GLocaleKey(
+                                  GSystemDialog.alert(
+                                    GCore.GLocale.get(
+                                      new GCore.GLocaleKey(
                                         "GCollaborativeTextPanel",
                                         "text.your-changes-were-applied"
                                       )
@@ -365,9 +365,9 @@ function (exports, module, require) {
                                   );
                                 })
                                 .catch(() => {
-                                  p.alert(
-                                    o.GLocale.get(
-                                      new o.GLocaleKey(
+                                  GSystemDialog.alert(
+                                    GCore.GLocale.get(
+                                      new GCore.GLocaleKey(
                                         "GCollaborativeTextPanel",
                                         "text.send-changes-failed"
                                       )
@@ -391,8 +391,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.rendering-preview"
                     )
@@ -411,8 +411,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.sending-changes"
                     )
@@ -438,8 +438,8 @@ function (exports, module, require) {
               $("<span/>")
                 .addClass("message")
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.request-access-message"
                     )
@@ -458,8 +458,8 @@ function (exports, module, require) {
                     .hasAlreadyRequestedAccess()
                 )
                 .text(
-                  o.GLocale.get(
-                    new o.GLocaleKey(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GCollaborativeTextPanel",
                       "text.request-access"
                     )
@@ -473,9 +473,9 @@ function (exports, module, require) {
                       .requestAccess()
                       .then(() => {
                         $(e.target).closest("button").attr("disabled", true),
-                          p.alert(
-                            o.GLocale.get(
-                              new o.GLocaleKey(
+                          GSystemDialog.alert(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GCollaborativeTextPanel",
                                 "text.request-has-been-sent"
                               )
@@ -485,7 +485,7 @@ function (exports, module, require) {
                       .catch((e) => {
                         e.status &&
                           e.status !== gApi.HTTP_STATUS_CODES.NOT_FOUND &&
-                          p.error(e);
+                          GSystemDialog.error(e);
                       })
                       .finally(() => {
                         this._update(), gDesigner.toggleLoading(false);
@@ -501,26 +501,26 @@ function (exports, module, require) {
           require = h.minutesToMilliseconds(5);
         (this._lastRequestLockTime && module - this._lastRequestLockTime < require) ||
           ((this._lastRequestLockTime = module),
-          (this._requestLockDialog = p.custom({
+          (this._requestLockDialog = GSystemDialog.custom({
             className: "g-request-lock-dialog",
             closeCallback: () => (this._requestLockDialog = null),
             closeable: false,
-            subtitle: o.GLocale.get(
-              new o.GLocaleKey(
+            subtitle: GCore.GLocale.get(
+              new GCore.GLocaleKey(
                 "GCollaborativeTextPanel",
                 "text.wants-to-take-over"
               )
             ).replace(
               /%name/g,
               e ||
-                o.GLocale.get(
-                  new o.GLocaleKey("GCommonNames", "text.unknown-user")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.unknown-user")
                 )
             ),
             buttons: [
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCollaborativeTextPanel",
                     "text.save-my-edits-and-allow"
                   )
@@ -531,9 +531,9 @@ function (exports, module, require) {
                       .getCollaborativeTextController()
                       .sendChanges()
                       .catch(() => {
-                        p.alert(
-                          o.GLocale.get(
-                            new o.GLocaleKey(
+                        GSystemDialog.alert(
+                          GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GCollaborativeTextPanel",
                               "text.send-changes-failed"
                             )
@@ -543,8 +543,8 @@ function (exports, module, require) {
                 },
               },
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey(
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCollaborativeTextPanel",
                     "text.discard-my-edits-and-allow"
                   )
@@ -555,7 +555,7 @@ function (exports, module, require) {
                       .getCollaborativeTextController()
                       .releaseLock()
                       .catch((e) => {
-                        p.error(e);
+                        GSystemDialog.error(e);
                       })
                       .finally(() => {
                         e.gDialog("close");
@@ -563,8 +563,8 @@ function (exports, module, require) {
                 },
               },
               {
-                label: o.GLocale.get(
-                  new o.GLocaleKey("GCollaborativeTextPanel", "text.decline")
+                label: GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCollaborativeTextPanel", "text.decline")
                 ),
                 highlighted: true,
                 onclick: (e) => {
@@ -579,8 +579,8 @@ function (exports, module, require) {
           this._htmlElement
             .addClass("g-collaborative-text-panel")
             .css("display", "none"),
-          gDesigner.addEventListener(l, this._documentEvent, this),
-          gDesigner.addEventListener(d, this._unloadEvent, this),
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
+          gDesigner.addEventListener(GUnloadEvent, this._unloadEvent, this),
           gDesigner.addEventListener(
             r,
             this._applicationStateChangedEvent,

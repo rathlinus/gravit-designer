@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     const o = require(1190) /* module_1190 */,
       i = require(292) /* module_292 */,
-      a = require(291) /* GNetworkAvailabilityChangedEvent */,
+      GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       {
         gApi: r,
         MicrosoftB2BKeyType: s,
@@ -31,7 +31,7 @@ function (exports, module, require) {
           this._store.initialize(module),
           gDesigner.addEventListener(i, this._userLoggedEvent, this),
           gDesigner.addEventListener(
-            a,
+            GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
             this
           ),
@@ -76,13 +76,13 @@ function (exports, module, require) {
             if (!o) return t();
             const i = this._getInAppOfferToken();
             if (!i) return t();
-            const a = Object.values(o).find((e) => e.inAppOfferToken === i);
-            if (!a) return t();
+            const GNetworkAvailabilityChangedEvent = Object.values(o).find((e) => e.inAppOfferToken === i);
+            if (!GNetworkAvailabilityChangedEvent) return t();
             e({
               provider: l.WindowsStore,
-              formattedPrice: a.price.formattedRecurrencePrice,
-              currency: a.price.currencyCode,
-              productId: a.storeId,
+              formattedPrice: GNetworkAvailabilityChangedEvent.price.formattedRecurrencePrice,
+              currency: GNetworkAvailabilityChangedEvent.price.currencyCode,
+              productId: GNetworkAvailabilityChangedEvent.storeId,
             });
           });
         });

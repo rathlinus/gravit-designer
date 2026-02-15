@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(31) /* GAction */,
-      s = require(1169) /* GShowGuideLinesAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
+      GShowGuideLinesAction = require(1169) /* GShowGuideLinesAction */;
     function l() {}
-    o.GObject.inherit(l, r),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "view.canvas.show-rulers"),
-      (l.TITLE = new o.GLocaleKey("GShowRulersAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GShowRulersAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,13 +23,13 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_VIEW_CANVAS;
+        return MenuItemBuilder.CATEGORY_VIEW_CANVAS;
       }),
       (l.prototype.getGroup = function () {
         return "show/canvas";
       }),
       (l.prototype.getShortcut = function () {
-        return [i.GKey.Constant.META, i.GKey.Constant.OPTION, "R"];
+        return [GEditor.GKey.Constant.META, GEditor.GKey.Constant.OPTION, "R"];
       }),
       (l.prototype.isEnabled = function () {
         return !(
@@ -50,10 +50,10 @@ function (exports, module, require) {
       (l.prototype.execute = function () {
         var e = gDesigner.getWindows().getActiveWindow().getView(),
           t = !e.hasRulers(),
-          n = gDesigner.getAction(s.ID);
+          n = gDesigner.getAction(GShowGuideLinesAction.ID);
         t &&
           !n.isChecked() &&
-          gDesigner.executeAction(s.ID, undefined, undefined, true),
+          gDesigner.executeAction(GShowGuideLinesAction.ID, undefined, undefined, true),
           e.setRulers(t),
           $("#mainframe").toggleClass("rulers", t),
           gDesigner.setSetting("rulers_visible", t);

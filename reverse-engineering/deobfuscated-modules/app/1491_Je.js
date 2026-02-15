@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(557) /* stub_requires_1102 */;
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(168) /* polyfill_Array_reduce */,
@@ -30,89 +30,89 @@ function (exports, module, require) {
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
-      r = require(15) /* module */,
-      s = require(10) /* AppSettings */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      AppSettings = require(10) /* AppSettings */,
       l = require(357) /* module_357 */,
-      c = o(require(1492) /* module_1492 */),
+      c = _interopRequireDefault(require(1492) /* module_1492 */),
       d = require(1246) /* Exports_GPersona */,
-      u = require(40) /* CollaborationMergeUtils */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       p = require(1247) /* module_1247 */,
       g = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
-            o = new WeakMap();
+            _interopRequireDefault = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
-          var i,
-            a,
-            r = { __proto__: null, default: e };
+          var GTools,
+            GCore,
+            GEditor = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
-            return r;
-          if ((i = t ? o : require)) {
-            if (i.has(e)) return i.get(e);
-            i.set(e, r);
+            return GEditor;
+          if ((GTools = t ? _interopRequireDefault : require)) {
+            if (GTools.has(e)) return GTools.get(e);
+            GTools.set(e, GEditor);
           }
           for (const t in e)
             "default" !== t &&
               {}.hasOwnProperty.call(e, t) &&
-              ((a =
-                (i = Object.defineProperty) &&
+              ((GCore =
+                (GTools = Object.defineProperty) &&
                 Object.getOwnPropertyDescriptor(e, t)) &&
-              (a.get || a.set)
-                ? i(r, t, a)
-                : (r[t] = e[t]));
-          return r;
+              (GCore.get || GCore.set)
+                ? GTools(GEditor, t, GCore)
+                : (GEditor[t] = e[t]));
+          return GEditor;
         })(e, t);
       })(require(1739) /* module_1739 */),
-      h = (o(require(1249) /* module_1249 */), o(require(1155) /* module_1155 */)),
-      f = o(require(556) /* Item */),
-      m = o(require(734) /* module_734 */),
-      y = o(require(1494) /* module_1494 */),
-      v = o(require(1496) /* module_1496 */),
-      _ = o(require(1497) /* module_1497 */),
-      b = o(require(1498) /* module_1498 */);
+      h = (_interopRequireDefault(require(1249) /* module_1249 */), _interopRequireDefault(require(1155) /* module_1155 */)),
+      f = _interopRequireDefault(require(556) /* Item */),
+      m = _interopRequireDefault(require(734) /* module_734 */),
+      y = _interopRequireDefault(require(1494) /* module_1494 */),
+      v = _interopRequireDefault(require(1496) /* module_1496 */),
+      _ = _interopRequireDefault(require(1497) /* module_1497 */),
+      b = _interopRequireDefault(require(1498) /* module_1498 */);
     var w = require(163) /* module_163 */,
-      C = require(238) /* GMenu */,
-      x = require(339) /* GMenu */,
-      S = require(804) /* GMenuOpenEvent */,
+      GMenu = require(238) /* GMenu */,
+      GMenu2 = require(339) /* GMenu */,
+      GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
       E = require(1500) /* module_1500 */,
       A = require(1521) /* module_1521 */,
-      T = require(1522) /* GInfo */,
-      G = require(1260) /* GOutlineSidebar */,
-      P = require(864) /* GInspectorSidebar */,
-      D = require(567) /* GAnnotationsSidebar */,
+      GInfo = require(1522) /* GInfo */,
+      GOutlineSidebar = require(1260) /* GOutlineSidebar */,
+      GInspectorSidebar = require(864) /* GInspectorSidebar */,
+      GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
       L = require(1539) /* module_1539 */,
       I = require(395) /* module_395 */;
     require(1540) /* module_1540 */;
-    var k = require(1541) /* GToolbar */,
+    var GToolbar = require(1541) /* GToolbar */,
       O = require(603) /* WindowEvent */,
       F = require(863) /* module_863 */,
-      R = require(1294) /* GDimensionProperties */,
-      M = require(135) /* GSettingChangedEvent */,
-      N = require(1151) /* GSwatchesChangedEvent */,
-      B = require(78) /* GDocumentEvent */,
-      U = require(1296) /* GNewWindowAction */,
-      j = require(1172) /* GInstallToDesktopAction */,
-      K = require(1170) /* GToggleSidebarAction */,
-      V = require(1297) /* GOutlineViewAction */,
+      GDimensionProperties = require(1294) /* GDimensionProperties */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
+      GSwatchesChangedEvent = require(1151) /* GSwatchesChangedEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GNewWindowAction = require(1296) /* GNewWindowAction */,
+      GInstallToDesktopAction = require(1172) /* GInstallToDesktopAction */,
+      GToggleSidebarAction = require(1170) /* GToggleSidebarAction */,
+      GOutlineViewAction = require(1297) /* GOutlineViewAction */,
       H = (require(1298) /* GUseCouponAction */, require(255) /* barrel_sidebars */),
-      W = require(590) /* barrel_editor_actions */,
+      barrel_editor_actions = require(590) /* barrel_editor_actions */,
       z = require(1544) /* module_1544 */,
       q = require(1560) /* module_1560 */,
-      Y = require(1562) /* GInstallPwaDialog */,
-      X = require(1303) /* GContextMenu */;
+      GInstallPwaDialog = require(1562) /* GInstallPwaDialog */,
+      GContextMenu = require(1303) /* GContextMenu */;
     require(1563) /* module_1563 */;
     var Q = require(119) /* module_119 */,
       J = require(220) /* Item */,
-      Z = require(85) /* GContainer */,
+      GContainer = require(85) /* GContainer */,
       ee = require(44) /* GSystemDialog */,
       te = require(1276) /* module_1276 */,
       ne = require(1564) /* module_1564 */,
       oe = require(1250) /* module_1250 */,
-      ie = require(291) /* GNetworkAvailabilityChangedEvent */,
-      ae = require(1313) /* URIListHandler */,
+      GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
+      URIListHandler = require(1313) /* URIListHandler */,
       re = require(860) /* module_860 */,
       se = require(441) /* module_441 */,
       le = require(292) /* module_292 */,
@@ -130,27 +130,27 @@ function (exports, module, require) {
       be = require(337) /* stub_requires_1098 */,
       we = require(1325) /* module_1325 */,
       Ce = require(785) /* module_785 */,
-      xe = require(256) /* GOfflineDialog */,
+      GOfflineDialog = require(256) /* GOfflineDialog */,
       Se = require(604) /* module_604 */,
       Ee = require(1326) /* module_1326 */,
       Ae = require(1328) /* module_1328 */,
-      Te = require(808) /* GApplicationStatusEvent */,
+      GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
       Ge = require(1188) /* module_1188 */,
-      Pe = require(447) /* GSaveAction */,
+      GSaveAction = require(447) /* GSaveAction */,
       De = require(86) /* module_86 */,
       Le = (require(18) /* MenuItemBuilder */, require(442) /* module_442 */);
     const {
       defaultLegacyUserSettings: { features: Ie },
-    } = s.defaultUserSettings;
-    var ke = require(10) /* AppSettings */;
-    const { gApi: Oe } = ke;
+    } = AppSettings.defaultUserSettings;
+    var AppSettings2 = require(10) /* AppSettings */;
+    const { gApi: Oe } = AppSettings2;
     var Fe = require(388) /* Item */,
       Re = require(1580) /* module_1580 */;
     const Me = require(1581) /* module_1581 */,
       Ne = require(1584) /* module_1584 */;
     var Be = require(1587) /* module_1587 */;
     require(607) /* module_607 */;
-    const Ue = require(40) /* CollaborationMergeUtils */,
+    const CollaborationMergeUtils2 = require(40) /* CollaborationMergeUtils */,
       $e = require(177) /* module_177 */,
       je = require(1338) /* module_1338 */,
       Ke = require(1173) /* module_1173 */,
@@ -170,14 +170,14 @@ function (exports, module, require) {
       (this._settings = {}),
         (this._settingsLoaded = false),
         (this._swatches = {}),
-        (this._workspace = new i.GEditorWorkspace()),
+        (this._workspace = new GTools.GEditorWorkspace()),
         (this._documents = []),
         (this._actions = []),
         (this._actionsMap = {}),
         (this._clipboardMimeTypes = {}),
         (this._license = undefined),
         (this._reloading = false),
-        (this._mainMenu = new C()),
+        (this._mainMenu = new GMenu()),
         (this._enabledSubscriptions = false),
         (this._documentTouchHandler = new Me(document)),
         (this._editorTouchHandler = new Ne()),
@@ -207,7 +207,7 @@ function (exports, module, require) {
         window.addEventListener(
           "wheel",
           (e) => {
-            (r.GPlatform.modifiers.ctrlKey || r.GPlatform.modifiers.metaKey) &&
+            (GEditor.GPlatform.modifiers.ctrlKey || GEditor.GPlatform.modifiers.metaKey) &&
               e.preventDefault();
           },
           { passive: false }
@@ -228,9 +228,9 @@ function (exports, module, require) {
               clientY: e.clientY,
               ctrlKey: true,
             }),
-            o = this.getWindows() && this.getWindows().getActiveWindow(),
-            i = o && o.getView() && o.getView()._htmlElement;
-          i && i.dispatchEvent(n);
+            _interopRequireDefault = this.getWindows() && this.getWindows().getActiveWindow(),
+            GTools = _interopRequireDefault && _interopRequireDefault.getView() && _interopRequireDefault.getView()._htmlElement;
+          GTools && GTools.dispatchEvent(n);
         }),
         document.addEventListener(
           "keydown",
@@ -244,14 +244,14 @@ function (exports, module, require) {
             ) {
               var module = document.activeElement,
                 require = this._windows.getActiveWindow(),
-                o =
+                _interopRequireDefault =
                   $(module).is("input") &&
                   "number" === $(module).attr("type") &&
                   !$(module).hasClass("g-disabled") &&
                   "true" !== $(module).attr("disabled");
               !require ||
                 !require.getView() ||
-                (module && ($(module).is(":editable") || o)) ||
+                (module && ($(module).is(":editable") || _interopRequireDefault)) ||
                 require.getView().focus();
             }
           }.bind(this),
@@ -268,12 +268,12 @@ function (exports, module, require) {
           true
         ),
         this._workspace.addEventListener(
-          a.GWorkspace.ResolveUrlEvent,
+          GCore.GWorkspace.ResolveUrlEvent,
           this._workspaceResolveUrlEvent,
           this
         ),
-        this.addEventListener(B, this._documentEvent, this),
-        this.addEventListener(M, this._settingChangedEvent, this),
+        this.addEventListener(GDocumentEvent, this._documentEvent, this),
+        this.addEventListener(GSettingChangedEvent, this._settingChangedEvent, this),
         this.addEventListener(le, this._userLoggedEvent, this),
         this.addEventListener(ce, this._userPropertiesChangedEvent, this),
         this.addEventListener(se, this._licenseChangedEvent, this),
@@ -282,19 +282,19 @@ function (exports, module, require) {
           this._beforeInstallUpdate,
           this
         ),
-        this.addEventListener(Te, this._applicationStatusEvent, this),
+        this.addEventListener(GApplicationStatusEvent, this._applicationStatusEvent, this),
         this.addEventListener(ue, this._applicationStateChangedEvent, this),
         this.addEventListener(pe, this._shareEvent, this),
         (this._settings.theme = "light"),
         (this._settings.snap_disabled = false),
         (this._settings.snap_zones = false),
         (this._settings.snap_guides = [
-          i.GGuideLinesGuide.ID,
-          i.GFullPixelsGuide.ID,
-          i.GPointsGuide.ID,
-          i.GBBoxGuide.ID,
-          i.GPageGuide.ID,
-          i.GGridGuide.ID,
+          GTools.GGuideLinesGuide.ID,
+          GTools.GFullPixelsGuide.ID,
+          GTools.GPointsGuide.ID,
+          GTools.GBBoxGuide.ID,
+          GTools.GPageGuide.ID,
+          GTools.GGridGuide.ID,
         ]),
         (this._settings.rulers_visible = false),
         (this._settings.guide_lines_visible = true),
@@ -313,7 +313,7 @@ function (exports, module, require) {
         (this._settings.eps_outline_fonts = true),
         (this._settings[te.AUTO_SAVE_SETTING] = false),
         (this._settings[te.AUTO_SAVE_INTERVAL_SETTING] =
-          s.AUTOSAVE_INTERVAL_DEFAULT),
+          AppSettings.AUTOSAVE_INTERVAL_DEFAULT),
         (this._settings.notifications_disabled = false),
         (this._settings.touch = false),
         (this._settings[I.getSettingNameForSidebar(I.Orientation.Left)] = true),
@@ -321,9 +321,9 @@ function (exports, module, require) {
         $(document).on("networkAvailable", () => {
           this._initialized && gDesigner.updateRecentDocumentsAction();
         }),
-        (this._paste = new ae());
+        (this._paste = new URIListHandler());
       const exports = (e) => {
-        this.hasEventListeners(ie) && this.trigger(new ie(e));
+        this.hasEventListeners(GNetworkAvailabilityChangedEvent) && this.trigger(new GNetworkAvailabilityChangedEvent(e));
       };
       $(window).on("online", () => exports(true)),
         $(window).on("offline", () => {
@@ -332,7 +332,7 @@ function (exports, module, require) {
             exports(false);
         });
     }
-    a.GObject.inherit(Je, a.GEventTarget),
+    GCore.GObject.inherit(Je, GCore.GEventTarget),
       (Je.prototype._documentTouchHandler = null),
       (Je.prototype._editorTouchHandler = null),
       (Je.prototype._persona = d.GPersona.GraphicDesign),
@@ -449,19 +449,19 @@ function (exports, module, require) {
         var t = (t) =>
           t.some((t) =>
             t instanceof Object
-              ? a.GSystem.operatingSystem == t.operatingSystem &&
+              ? GCore.GSystem.operatingSystem == t.operatingSystem &&
                 e == t.platform
               : e === t
           );
-        a.GSystem.hardware === a.GSystem.Hardware.Tablet
+        GCore.GSystem.hardware === GCore.GSystem.Hardware.Tablet
           ? (this._isBrowserSupported = t(this._supportedTabletBrowsers))
-          : a.GSystem.hardware == a.GSystem.Hardware.Desktop
+          : GCore.GSystem.hardware == GCore.GSystem.Hardware.Desktop
           ? (this._isBrowserSupported = t(this._supportedBrowsers))
           : (this._isBrowserSupported = false);
       }),
       (Je.prototype.isBrowserSupported = function () {
         return (
-          gContainer.getRuntime() === Z.Runtime.IPad || this._isBrowserSupported
+          gContainer.getRuntime() === GContainer.Runtime.IPad || this._isBrowserSupported
         );
       }),
       (Je.prototype.setUTM = function (e) {
@@ -570,47 +570,47 @@ function (exports, module, require) {
       (Je.prototype.getAction = function (e) {
         return this._actionsMap[e] || null;
       }),
-      (Je.prototype.addMenu = function (e, t, n, o, i) {
+      (Je.prototype.addMenu = function (e, t, n, _interopRequireDefault, GTools) {
         e = e || this._mainMenu;
-        var a = new x(x.Type.Menu, C);
+        var GCore = new GMenu2(GMenu2.Type.Menu, GMenu);
         return (
-          a.setCaption(t),
-          a.setIcon(o),
-          e.addItem(a),
-          n && a.getMenu().addEventListener(S, n),
-          i && a.addEventListener(x.UpdateEvent, () => i(a)),
-          a.getMenu()
+          GCore.setCaption(t),
+          GCore.setIcon(_interopRequireDefault),
+          e.addItem(GCore),
+          n && GCore.getMenu().addEventListener(GMenuOpenEvent, n),
+          GTools && GCore.addEventListener(GMenu2.UpdateEvent, () => GTools(GCore)),
+          GCore.getMenu()
         );
       }),
       (Je.prototype.addMenuSeparator = function (e, t) {
-        var n = new x(x.Type.Divider, null, null, t);
+        var n = new GMenu2(GMenu2.Type.Divider, null, null, t);
         return e.addItem(n), n;
       }),
-      (Je.prototype.addMenuItem = function (e, t, n, o, i, a, r, s, l, c, d) {
-        var u = new x(x.Type.Item);
+      (Je.prototype.addMenuItem = function (e, t, n, _interopRequireDefault, GTools, GCore, GEditor, AppSettings, l, c, d) {
+        var CollaborationMergeUtils = new GMenu2(GMenu2.Type.Item);
         return (
-          a && u.addEventListener(x.ActivateEvent, a),
-          i &&
+          GCore && CollaborationMergeUtils.addEventListener(GMenu2.ActivateEvent, GCore),
+          GTools &&
             (gDesigner.registerShortcut(
-              i,
+              GTools,
               function (e) {
-                return a("shortcut", e);
+                return GCore("shortcut", e);
               }.bind(this),
-              r
+              GEditor
             ),
-            u.setShortcutHint(i)),
-          u.setIcon(n),
-          u.setPro(s),
-          u.setNoHover(d),
-          c && u.addClass(c),
-          this.updateMenuItem(u, t, true, false),
-          e.addItem(u),
-          l && u.setAction(l),
-          u
+            CollaborationMergeUtils.setShortcutHint(GTools)),
+          CollaborationMergeUtils.setIcon(n),
+          CollaborationMergeUtils.setPro(AppSettings),
+          CollaborationMergeUtils.setNoHover(d),
+          c && CollaborationMergeUtils.addClass(c),
+          this.updateMenuItem(CollaborationMergeUtils, t, true, false),
+          e.addItem(CollaborationMergeUtils),
+          l && CollaborationMergeUtils.setAction(l),
+          CollaborationMergeUtils
         );
       }),
-      (Je.prototype.updateMenuItem = function (e, t, n, o, i, a) {
-        e.setCaption(t), e.setEnabled(n), e.setChecked(o), e.setPro(!!i, a);
+      (Je.prototype.updateMenuItem = function (e, t, n, _interopRequireDefault, GTools, GCore) {
+        e.setCaption(t), e.setEnabled(n), e.setChecked(_interopRequireDefault), e.setPro(!!GTools, GCore);
       }),
       (Je.prototype.removeMenuItem = function (e, t) {
         e.removeItem(e.indexOf(t));
@@ -636,28 +636,28 @@ function (exports, module, require) {
         if (this._settingsLoaded) {
           for (
             var require = e instanceof Array ? e : [e],
-              o = e instanceof Array ? t : [t],
-              i = false,
-              r = 0;
-            r < require.length;
-            ++r
+              _interopRequireDefault = e instanceof Array ? t : [t],
+              GTools = false,
+              GEditor = 0;
+            GEditor < require.length;
+            ++GEditor
           ) {
-            (e = require[r]), (t = o[r]);
+            (e = require[GEditor]), (t = _interopRequireDefault[GEditor]);
             if (
               !this._settings.hasOwnProperty(e) ||
-              !a.GUtil.equals(this._settings[e], t, true)
+              !GCore.GUtil.equals(this._settings[e], t, true)
             ) {
-              var s = this._settings[e];
+              var AppSettings = this._settings[e];
               (this._settings[e] = t),
-                this.trigger(new M(e, s || undefined, t)),
-                (i = true);
+                this.trigger(new GSettingChangedEvent(e, AppSettings || undefined, t)),
+                (GTools = true);
             }
           }
-          if (i)
+          if (GTools)
             try {
               gContainer.setProperty("designer.settings", this._settings);
             } catch (e) {}
-          return i;
+          return GTools;
         }
       }),
       (Je.prototype.getSwatches = function (e) {
@@ -665,16 +665,16 @@ function (exports, module, require) {
           var module = this.getActiveDocument().getScene().getSwatches(),
             require = [];
           if (module)
-            for (var o = module.getFirstChild(); null !== o; o = o.getNext()) {
-              var i = a.GPattern.serialize(o.getProperty("_pt"));
-              (((i.startsWith("C#") || i.startsWith("Y#")) &&
+            for (var _interopRequireDefault = module.getFirstChild(); null !== _interopRequireDefault; _interopRequireDefault = _interopRequireDefault.getNext()) {
+              var GTools = GCore.GPattern.serialize(_interopRequireDefault.getProperty("_pt"));
+              (((GTools.startsWith("C#") || GTools.startsWith("Y#")) &&
                 "document" === e) ||
-                (i.startsWith("L#") && "document-linear-gradient" === e) ||
-                (i.startsWith("R#") && "document-radial-gradient" === e) ||
-                (i.startsWith("A#") && "document-angular-gradient" === e) ||
-                (i.startsWith("T#") && "document-texture-pattern" === e) ||
-                (i.startsWith("N#") && "document-noise-pattern" === e)) &&
-                require.push(o);
+                (GTools.startsWith("L#") && "document-linear-gradient" === e) ||
+                (GTools.startsWith("R#") && "document-radial-gradient" === e) ||
+                (GTools.startsWith("A#") && "document-angular-gradient" === e) ||
+                (GTools.startsWith("T#") && "document-texture-pattern" === e) ||
+                (GTools.startsWith("N#") && "document-noise-pattern" === e)) &&
+                require.push(_interopRequireDefault);
             }
           return require;
         }
@@ -686,27 +686,27 @@ function (exports, module, require) {
           (e.startsWith("document") || this._swatches.hasOwnProperty(e))
         ) {
           e.startsWith("document") || (this._swatches[e] = t);
-          var o = e.startsWith("document"),
-            i = e.startsWith("global"),
-            r = this.getActiveDocument().getScene();
-          if (o) {
-            if (n) r.getSwatches().clearChildren();
+          var _interopRequireDefault = e.startsWith("document"),
+            GTools = e.startsWith("global"),
+            GEditor = this.getActiveDocument().getScene();
+          if (_interopRequireDefault) {
+            if (n) GEditor.getSwatches().clearChildren();
             else {
               for (
-                var s = this.getSwatches(e),
+                var AppSettings = this.getSwatches(e),
                   l = [],
-                  c = r.getSwatches().getFirstChild();
+                  c = GEditor.getSwatches().getFirstChild();
                 null !== c;
                 c = c.getNext()
               )
-                for (var d = 0; d < s.length; ++d)
-                  a.GUtil.equals(c, s[d]) && l.push(c);
-              for (d = 0; d < l.length; ++d) r.getSwatches().removeChild(l[d]);
+                for (var d = 0; d < AppSettings.length; ++d)
+                  GCore.GUtil.equals(c, AppSettings[d]) && l.push(c);
+              for (d = 0; d < l.length; ++d) GEditor.getSwatches().removeChild(l[d]);
             }
-            for (d = 0; d < t.length; ++d) r.getSwatches().appendChild(t[d]);
-          } else if (i) {
-            var u = this._swatches.global;
-            u = (u = (u = (u = (u = u.concat(
+            for (d = 0; d < t.length; ++d) GEditor.getSwatches().appendChild(t[d]);
+          } else if (GTools) {
+            var CollaborationMergeUtils = this._swatches.global;
+            CollaborationMergeUtils = (CollaborationMergeUtils = (CollaborationMergeUtils = (CollaborationMergeUtils = (CollaborationMergeUtils = CollaborationMergeUtils.concat(
               this._swatches["global-linear-gradient"]
             )).concat(this._swatches["global-angular-gradient"])).concat(
               this._swatches["global-radial-gradient"]
@@ -714,10 +714,10 @@ function (exports, module, require) {
               this._swatches["global-noise-pattern"]
             );
             var p = [];
-            for (d = 0; d < u.length; ++d) p.push(a.GNode.serialize(u[d]));
+            for (d = 0; d < CollaborationMergeUtils.length; ++d) p.push(GCore.GNode.serialize(CollaborationMergeUtils[d]));
             gContainer.setProperty("swatches", p);
           }
-          this.trigger(new N(e));
+          this.trigger(new GSwatchesChangedEvent(e));
         }
       }),
       (Je.prototype.getAllSwatches = function (e) {
@@ -746,18 +746,18 @@ function (exports, module, require) {
         var e = this.createScene();
         e.getActivePage().setProperties(
           ["bck", "w", "h"],
-          [a.GRGBColor.WHITE, 0, 0]
+          [GCore.GRGBColor.WHITE, 0, 0]
         );
         var t = new w(e);
         return this.addDocument(t), t;
       }),
       (Je.prototype.createScene = function (e) {
-        var t = new a.GScene(this.getWorkspace(), e);
+        var t = new GCore.GScene(this.getWorkspace(), e);
         return (
-          undefined !== i.GEditorOptions.scaleBorderWidth &&
-            t.setBorderScale(i.GEditorOptions.scaleBorderWidth),
-          undefined !== i.GEditorOptions.scaleCorners &&
-            t.setCornersScale(i.GEditorOptions.scaleCorners),
+          undefined !== GTools.GEditorOptions.scaleBorderWidth &&
+            t.setBorderScale(GTools.GEditorOptions.scaleBorderWidth),
+          undefined !== GTools.GEditorOptions.scaleCorners &&
+            t.setCornersScale(GTools.GEditorOptions.scaleCorners),
           t
         );
       }),
@@ -777,10 +777,10 @@ function (exports, module, require) {
                 .find(".option.cloud-option")
                 .click());
       }),
-      (Je.prototype.openCloudSaveDialog = function (e, t, n, o, i) {
+      (Je.prototype.openCloudSaveDialog = function (e, t, n, _interopRequireDefault, GTools) {
         0 === $(".g-new-document-dialog").length &&
           (this._newDocumentDialog || (this._newDocumentDialog = new z()),
-          this._newDocumentDialog.saveCloudFile(e, t, n, o, i));
+          this._newDocumentDialog.saveCloudFile(e, t, n, _interopRequireDefault, GTools));
       }),
       (Je.prototype._shouldOpenUserNameConfigDialog = function () {
         return (
@@ -788,13 +788,13 @@ function (exports, module, require) {
           !(
             this._user &&
             this._user.isAnonymous() &&
-            !s.ANONYMOUS_SESSION_ENABLED
+            !AppSettings.ANONYMOUS_SESSION_ENABLED
           ) &&
           (!this._user || !this._user.getFirstName())
         );
       }),
       (Je.prototype.openUserNameConfigDialog = function () {
-        if (!s.ENABLE_COLLABORATION) return;
+        if (!AppSettings.ENABLE_COLLABORATION) return;
         let exports = this._shouldOpenUserNameConfigDialog();
         if (!this._userNameConfigDialog && exports) {
           const e = this._user || { name: "", last_name: "", anonymous: "" };
@@ -811,15 +811,15 @@ function (exports, module, require) {
         undefined !== t
           ? this._documents.splice(t, 0, e)
           : this._documents.push(e),
-          this.hasEventListeners(B) && this.trigger(new B(B.Type.Added, e)),
+          this.hasEventListeners(GDocumentEvent) && this.trigger(new GDocumentEvent(GDocumentEvent.Type.Added, e)),
           this._windows.addWindow(e, false, t);
       }),
       (Je.prototype.notifyDocumentModified = function (e) {
-        this.hasEventListeners(B) &&
-          this.trigger(new B(B.Type.Modified, e, null));
+        this.hasEventListeners(GDocumentEvent) &&
+          this.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, e, null));
       }),
       (Je.prototype._isNativeDesign = function (e) {
-        return e === s.FILE_FORMATS.find((e) => e.default).ext.toUpperCase();
+        return e === AppSettings.FILE_FORMATS.find((e) => e.default).ext.toUpperCase();
       }),
       (Je.prototype.isInitialized = function () {
         return this._initialized;
@@ -844,23 +844,23 @@ function (exports, module, require) {
       }),
       (Je.prototype._processOpenDocument = function (e, t) {
         const require = e.getExtension(),
-          o = this._isNativeDesign(require),
-          i = new w(o ? e : null);
-        if (i.isExtensionAvailableForLoading(require))
+          _interopRequireDefault = this._isNativeDesign(require),
+          GTools = new w(_interopRequireDefault ? e : null);
+        if (GTools.isExtensionAvailableForLoading(require))
           return (
-            this.addDocument(i, t),
-            (i.fileExtension = require),
-            i.load(e),
-            this.trigger(new B(B.Type.Opened, i)),
-            i
+            this.addDocument(GTools, t),
+            (GTools.fileExtension = require),
+            GTools.load(e),
+            this.trigger(new GDocumentEvent(GDocumentEvent.Type.Opened, GTools)),
+            GTools
           );
-        var r = !!w.FileTypes.find(
+        var GEditor = !!w.FileTypes.find(
           (e) =>
             e.ext.toUpperCase() === require.toUpperCase() && "image" === e.category
         )
           ? "text.suggestion-open-image"
           : "text.unsupported-file-extension";
-        return ee.alert(a.GLocale.get(new a.GLocaleKey("GDocument", r))), null;
+        return ee.alert(GCore.GLocale.get(new GCore.GLocaleKey("GDocument", GEditor))), null;
       }),
       (Je.prototype.openDocumentWithReload = function (e, t) {
         if (this._canOpenDocument(e)) return this._processOpenDocument(e, t);
@@ -872,8 +872,8 @@ function (exports, module, require) {
         if (this._isNativeDesign(require)) {
           const t = e.getUniqueId();
           if (null != t)
-            for (var o = 0; o < this._documents.length; ++o) {
-              const n = this._documents[o];
+            for (var _interopRequireDefault = 0; _interopRequireDefault < this._documents.length; ++_interopRequireDefault) {
+              const n = this._documents[_interopRequireDefault];
               if (
                 n.getStorageItem() &&
                 n.getStorageItem().getUniqueId() === t &&
@@ -888,36 +888,36 @@ function (exports, module, require) {
       }),
       (Je.prototype.addToRecentFiles = function (e) {
         function module(t, n) {
-          let o =
+          let _interopRequireDefault =
             arguments.length > 2 && undefined !== arguments[2] && arguments[2];
-          gContainer.getProperty(t).then(function (i) {
-            o && i && (i = JSON.parse(Ue.base64StringToString(i))),
-              i || (i = []);
-            for (var a = 0; a < i.length; ++a) {
+          gContainer.getProperty(t).then(function (GTools) {
+            _interopRequireDefault && GTools && (GTools = JSON.parse(CollaborationMergeUtils2.base64StringToString(GTools))),
+              GTools || (GTools = []);
+            for (var GCore = 0; GCore < GTools.length; ++GCore) {
               let t = false;
-              if (gContainer.getRuntime() === Z.Runtime.Electron)
-                t = i[a] === n(e);
+              if (gContainer.getRuntime() === GContainer.Runtime.Electron)
+                t = GTools[GCore] === n(e);
               else {
-                let n = JSON.parse(i[a]),
-                  o = e.getFile();
-                t = n.file.id === o.id;
+                let n = JSON.parse(GTools[GCore]),
+                  _interopRequireDefault = e.getFile();
+                t = n.file.id === _interopRequireDefault.id;
               }
               if (t) {
-                i.splice(a, 1);
+                GTools.splice(GCore, 1);
                 break;
               }
             }
-            i.unshift(n(e)),
-              i.splice(10, i.length),
-              o && (i = Ue.stringToBase64String(JSON.stringify(i))),
-              gContainer.setProperty(t, i),
+            GTools.unshift(n(e)),
+              GTools.splice(10, GTools.length),
+              _interopRequireDefault && (GTools = CollaborationMergeUtils2.stringToBase64String(JSON.stringify(GTools))),
+              gContainer.setProperty(t, GTools),
               gDesigner.updateRecentDocumentsAction();
           });
         }
         e &&
           (e instanceof J.Item
             ? gDesigner.updateRecentDocumentsAction()
-            : gContainer.getRuntime() === Z.Runtime.Electron
+            : gContainer.getRuntime() === GContainer.Runtime.Electron
             ? module("recent_documents", (e) => e.getUniqueId())
             : e instanceof Fe.Item &&
               gDesigner.getUser().then((e) => {
@@ -938,8 +938,8 @@ function (exports, module, require) {
             var require = this._activeDocument;
             (this._activeDocument = null),
               require.deactivate(),
-              this.hasEventListeners(B) &&
-                this.trigger(new B(B.Type.Deactivated, require)),
+              this.hasEventListeners(GDocumentEvent) &&
+                this.trigger(new GDocumentEvent(GDocumentEvent.Type.Deactivated, require)),
               require.getActiveWindow() === this._windows.getActiveWindow() &&
                 this._windows.activateWindow(null);
           }
@@ -947,32 +947,32 @@ function (exports, module, require) {
             ((this._activeDocument = e),
             t || this._windows.activateWindow(e.getActiveWindow()),
             e.activate(),
-            this.hasEventListeners(B) &&
-              this.trigger(new B(B.Type.Activated, e)));
+            this.hasEventListeners(GDocumentEvent) &&
+              this.trigger(new GDocumentEvent(GDocumentEvent.Type.Activated, e)));
         }
       }),
       (Je.prototype.replaceDocument = function (e, t, n) {
-        var o = this._documents.indexOf(e);
-        o < 0 || (this.addDocument(t, o), this.removeDocument(e, null, n));
+        var _interopRequireDefault = this._documents.indexOf(e);
+        _interopRequireDefault < 0 || (this.addDocument(t, _interopRequireDefault), this.removeDocument(e, null, n));
       }),
       (Je.prototype.removeDocument = function (e, t, n) {
-        var o = this._documents.indexOf(e);
-        if (!(o < 0)) {
-          var i = e.getWindows();
-          if (i.length) {
-            var a = function () {
-              i.length > 0
-                ? this._windows.removeWindow(i[0], a, n)
+        var _interopRequireDefault = this._documents.indexOf(e);
+        if (!(_interopRequireDefault < 0)) {
+          var GTools = e.getWindows();
+          if (GTools.length) {
+            var GCore = function () {
+              GTools.length > 0
+                ? this._windows.removeWindow(GTools[0], GCore, n)
                 : this.removeDocument(e, t);
             }.bind(this);
-            a();
+            GCore();
           } else
             e === this.getActiveDocument() && this.activateDocument(null),
               e.release(),
-              this._documents.splice(o, 1),
+              this._documents.splice(_interopRequireDefault, 1),
               t && t(),
-              this.hasEventListeners(B) &&
-                this.trigger(new B(B.Type.Removed, e)),
+              this.hasEventListeners(GDocumentEvent) &&
+                this.trigger(new GDocumentEvent(GDocumentEvent.Type.Removed, e)),
               0 === this._documents.length &&
                 this.handleWelcomeScreenOpenWithUserPermissions();
         }
@@ -1001,44 +1001,44 @@ function (exports, module, require) {
         let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
         if (
           !module ||
-          !s.HAS_ANNOTATIONS ||
-          this.getRightSidebars().getActiveSidebar() != D.ID
+          !AppSettings.HAS_ANNOTATIONS ||
+          this.getRightSidebars().getActiveSidebar() != GAnnotationsSidebar.ID
         )
           return true;
         const require = ["path", "shape", "knife", "insert"],
-          o = ["special"];
+          _interopRequireDefault = ["special"];
         return !gravit.tools.some((t) => {
-          let { tool: i, group: a, category: r } = t;
-          return i === e && (require.includes(a) || o.includes(r));
+          let { tool: GTools, group: GCore, category: GEditor } = t;
+          return GTools === e && (require.includes(GCore) || _interopRequireDefault.includes(GEditor));
         });
       }),
-      (Je.prototype.executeAction = function (e, t, n, o) {
-        var i = this.getAction(e);
-        if (!i)
+      (Je.prototype.executeAction = function (e, t, n, _interopRequireDefault) {
+        var GTools = this.getAction(e);
+        if (!GTools)
           throw new Error(
             "Unable to execute action '" + e + "' - not registered."
           );
-        var a = this._windows.getActiveWindow();
-        if (!a || !a.isPreview()) {
-          if (i.isAvailable() && i.isEnabled.apply(i, t)) {
-            if (e === Pe.ID)
+        var GCore = this._windows.getActiveWindow();
+        if (!GCore || !GCore.isPreview()) {
+          if (GTools.isAvailable() && GTools.isEnabled.apply(GTools, t)) {
+            if (e === GSaveAction.ID)
               this.getPart(F.Toolbar)
                 .find(".toolbar-button[data-action='" + e + "']")
                 .find("button")
                 .toggleClass("g-disabled", true);
-            var r = i.execute;
-            if (("shortcut" === n && (r = i.executeFromShortcut), !o)) {
-              var s = i.isPro()
+            var GEditor = GTools.execute;
+            if (("shortcut" === n && (GEditor = GTools.executeFromShortcut), !_interopRequireDefault)) {
+              var AppSettings = GTools.isPro()
                 ? gDesigner.isEnabledProFeatures(e)
                   ? "execute"
                   : "nonprotriespro"
                 : "execute";
               this.stats(
-                "action_" + s + "_" + (n || "button"),
-                i.statsValue() || e
+                "action_" + AppSettings + "_" + (n || "button"),
+                GTools.statsValue() || e
               );
             }
-            var l = r.apply(i, t);
+            var l = GEditor.apply(GTools, t);
             if (undefined !== l) return l;
           }
           return true;
@@ -1047,14 +1047,14 @@ function (exports, module, require) {
       (Je.prototype.setOpenSansDefaultFont = function () {
         var e = this._workspace.getFontManager();
         e.setDefaultFont(
-          e.getFont("Open Sans", a.GFont.Style.Normal, a.GFont.Weight.Regular)
+          e.getFont("Open Sans", GCore.GFont.Style.Normal, GCore.GFont.Weight.Regular)
         ),
-          e.setDefaultFontStyles([a.GFont.Style.Normal, a.GFont.Style.Italic]),
+          e.setDefaultFontStyles([GCore.GFont.Style.Normal, GCore.GFont.Style.Italic]),
           e.setDefaultFontWeights([300, 400, 600, 700, 800]);
       }),
       (Je.prototype.isTouchDevice = function () {
         return (
-          s.TOUCH_LAYOUT &&
+          AppSettings.TOUCH_LAYOUT &&
           ("ontouchstart" in window ||
             !!navigator.msMaxTouchPoints ||
             !!navigator.maxTouchPoints)
@@ -1062,8 +1062,8 @@ function (exports, module, require) {
       }),
       (Je.prototype.isTouchEnabled = function () {
         return (
-          gContainer.getRuntime() === Z.Runtime.IPad ||
-          (!!s.TOUCH_LAYOUT &&
+          gContainer.getRuntime() === GContainer.Runtime.IPad ||
+          (!!AppSettings.TOUCH_LAYOUT &&
             this.isEnabledProFeatures() &&
             !!this.getSetting("touch", false))
         );
@@ -1081,86 +1081,86 @@ function (exports, module, require) {
         var e = this._workspace.getFontManager();
         if (
           (e.addEventListener(
-            a.GFontManager.ResolveFontEvent,
+            GCore.GFontManager.ResolveFontEvent,
             this._fontManagerResolveFontEvent,
             this
           ),
           e.addEventListener(
-            a.GFontManager.QueryFontFamilyEvent,
+            GCore.GFontManager.QueryFontFamilyEvent,
             this._fontManagerQueryFontFamilyEvent,
             this
           ),
           this.setOpenSansDefaultFont(),
-          a.GLocale.getLanguage() === a.GLocaleLanguage.Chinese ||
-            a.GLocale.getLanguage() === a.GLocaleLanguage.ChineseTaiwan)
+          GCore.GLocale.getLanguage() === GCore.GLocaleLanguage.Chinese ||
+            GCore.GLocale.getLanguage() === GCore.GLocaleLanguage.ChineseTaiwan)
         )
-          H.getProviderInstance(W).hasFont("Noto Sans CS") &&
+          H.getProviderInstance(barrel_editor_actions).hasFont("Noto Sans CS") &&
             (e.setDefaultFont(
               e.getFont(
                 "Noto Sans CS",
-                a.GFont.Style.Normal,
-                a.GFont.Weight.Regular
+                GCore.GFont.Style.Normal,
+                GCore.GFont.Weight.Regular
               )
             ),
-            e.setDefaultFontStyles([a.GFont.Style.Normal]),
+            e.setDefaultFontStyles([GCore.GFont.Style.Normal]),
             e.setDefaultFontWeights([100, 200, 300, 400, 500, 600, 800]));
-        else if (a.GLocale.getLanguage() === a.GLocaleLanguage.Japanese) {
-          H.getProviderInstance(W).hasFont("Noto Sans CJK JP") &&
+        else if (GCore.GLocale.getLanguage() === GCore.GLocaleLanguage.Japanese) {
+          H.getProviderInstance(barrel_editor_actions).hasFont("Noto Sans CJK JP") &&
             (e.setDefaultFont(
               e.getFont(
                 "Noto Sans CJK JP",
-                a.GFont.Style.Normal,
-                a.GFont.Weight.Regular
+                GCore.GFont.Style.Normal,
+                GCore.GFont.Weight.Regular
               )
             ),
-            e.setDefaultFontStyles([a.GFont.Style.Normal]),
+            e.setDefaultFontStyles([GCore.GFont.Style.Normal]),
             e.setDefaultFontWeights([400, 700]));
         }
         (this._CDRIntegrationEngine = Re.createCDRIntegrationEngine()),
-          (i.GEditorOptions.selectDoubleClickBehavior = "subselect"),
-          (i.GEditorOptions.coordinatesTooltip = true),
-          (i.GEditorOptions.bboxPositionTooltip = false),
-          (i.GEditorOptions.sizeTooltip = false),
-          (i.GEditorOptions.angleTooltip = false),
-          (i.GEditorOptions.showTooltips = true),
-          (i.GEditorOptions.propertiesExcludedFromCopying =
+          (GTools.GEditorOptions.selectDoubleClickBehavior = "subselect"),
+          (GTools.GEditorOptions.coordinatesTooltip = true),
+          (GTools.GEditorOptions.bboxPositionTooltip = false),
+          (GTools.GEditorOptions.sizeTooltip = false),
+          (GTools.GEditorOptions.angleTooltip = false),
+          (GTools.GEditorOptions.showTooltips = true),
+          (GTools.GEditorOptions.propertiesExcludedFromCopying =
             Le.PropertiesToExcludeFromCopying),
-          (i.GEditorOptions.adaptiveResizeHandles = true),
-          i.GSkewHorizontalAnnotation.setIcon(
+          (GTools.GEditorOptions.adaptiveResizeHandles = true),
+          GTools.GSkewHorizontalAnnotation.setIcon(
             "assets/annotation/touch/skew-horizontal-handle.png"
           ),
-          i.GSkewVerticalAnnotation.setIcon(
+          GTools.GSkewVerticalAnnotation.setIcon(
             "assets/annotation/touch/skew-vertical-handle.png"
           ),
-          i.GPreserveAspectRatioAnnotation.setIcon(
+          GTools.GPreserveAspectRatioAnnotation.setIcon(
             "assets/annotation/touch/preserve-aspect-ratio-handle.png"
           ),
-          i.GRotateAnnotation.setIcon(
+          GTools.GRotateAnnotation.setIcon(
             "assets/annotation/touch/rotate-handle.png"
           ),
           l.DESIGNER.HIGHLIGHT_COLOR &&
-            (a.GPaintContext.prototype.highlightOutlineColor =
+            (GCore.GPaintContext.prototype.highlightOutlineColor =
               l.DESIGNER.HIGHLIGHT_COLOR),
-          gContainer.getProperty(R._keepRatioName).then((e) => {
+          gContainer.getProperty(GDimensionProperties._keepRatioName).then((e) => {
             (e = e || false),
-              (i.GEditorOptions.preserveAspectRatio = e),
-              (i.GEditorOptions.allowTextRatioPreservation = e);
+              (GTools.GEditorOptions.preserveAspectRatio = e),
+              (GTools.GEditorOptions.allowTextRatioPreservation = e);
           }),
-          (a.GSceneOptions.scaleLabel = false),
-          (a.GSceneOptions.defaultBorderPositionForLines = true),
-          (i.GEditorPaintConfiguration.prototype.pageDecoration.shadow = 4),
-          (i.GEditorPaintConfiguration.prototype.pageDecoration.shadowOffsetY = 2),
-          (i.GEditorPaintConfiguration.prototype.pageDecoration.shadowBackground =
+          (GCore.GSceneOptions.scaleLabel = false),
+          (GCore.GSceneOptions.defaultBorderPositionForLines = true),
+          (GTools.GEditorPaintConfiguration.prototype.pageDecoration.shadow = 4),
+          (GTools.GEditorPaintConfiguration.prototype.pageDecoration.shadowOffsetY = 2),
+          (GTools.GEditorPaintConfiguration.prototype.pageDecoration.shadowBackground =
             "rgba(0,0,0,0.25)"),
-          gContainer.getProperty(V.StoragePropertyName).then((e) => {
+          gContainer.getProperty(GOutlineViewAction.StoragePropertyName).then((e) => {
             e &&
               this.updateGEditorSceneConfigurationPaintMode(
-                a.GScenePaintConfiguration.PaintMode.Outline
+                GCore.GScenePaintConfiguration.PaintMode.Outline
               );
           }),
-          (i.GGridGuide.MIN_CELL_SPACE = 5);
+          (GTools.GGridGuide.MIN_CELL_SPACE = 5);
         var t = $("body");
-        t.attr("data-long-press-delay", s.LONG_PRESS_TIME_OUT),
+        t.attr("data-long-press-delay", AppSettings.LONG_PRESS_TIME_OUT),
           t.on("long-press", (e) => {
             const t = jQuery.Event("contextmenu", {
               pageX: e.detail.clientX,
@@ -1175,14 +1175,14 @@ function (exports, module, require) {
             .css("display", "none")
             .prependTo(t));
         var n = (this._frame = $("<div></div>").appendTo(this._mainframe)),
-          o = $("<div></div>").attr("id", F.Windows.id).appendTo(n);
-        this._windows = new O(o);
+          _interopRequireDefault = $("<div></div>").attr("id", F.Windows.id).appendTo(n);
+        this._windows = new O(_interopRequireDefault);
         var c = $("<div></div>").attr("id", F.Info.id).appendTo(n);
-        this._info = new T(c);
+        this._info = new GInfo(c);
         var d = $("<div></div>").attr("id", F.Header.id).appendTo(n);
         this._header = new E(d);
         var p = $("<div></div>").attr("id", F.Toolbar.id).appendTo(n);
-        this._toolbar = new k(p);
+        this._toolbar = new GToolbar(p);
         var g = $("<div></div>").attr("id", F.Banner.id).appendTo(n);
         this._banner = new _.default(g);
         var h = $("<div></div>").attr("id", F.Overlay.id).appendTo(n);
@@ -1205,20 +1205,20 @@ function (exports, module, require) {
           .appendTo(n);
         (this._rightSidebars = new I(v, I.Orientation.Right, n)),
           this._updateStyles(t),
-          this._initBrowserSupported(r.GPlatform.webBrowser),
+          this._initBrowserSupported(GEditor.GPlatform.webBrowser),
           this.isBrowserSupported() ||
             ee.showOneTimeDialog(
-              a.GLocale.get(
-                new a.GLocaleKey(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSystemDialog",
-                  a.GSystem.hardware === a.GSystem.Hardware.Tablet
+                  GCore.GSystem.hardware === GCore.GSystem.Hardware.Tablet
                     ? "text.unsupported-browser-touch"
                     : "text.unsupported-browser"
                 )
-              ).replace("%app", ke.DESIGNER.TITLE),
+              ).replace("%app", AppSettings2.DESIGNER.TITLE),
               "designer.settings.dont_show_unsupported_browser_dialog"
             );
-        let w = (0, u.debounce)(
+        let w = (0, CollaborationMergeUtils.debounce)(
           function () {
             this.relayout(),
               setTimeout(() => {
@@ -1236,47 +1236,47 @@ function (exports, module, require) {
             w();
           }.bind(this)
         );
-        var C = -1;
+        var GMenu = -1;
         this._actions = gravit.actions.map(
-          (e, t) => (e.getId() === U.ID && (C = t), e)
+          (e, t) => (e.getId() === GNewWindowAction.ID && (GMenu = t), e)
         );
-        var x = gravit.sidebars.map((e) => new K(e));
+        var GMenu2 = gravit.sidebars.map((e) => new GToggleSidebarAction(e));
         if (
-          (Array.prototype.splice.apply(this._actions, [C, 0].concat(x)),
+          (Array.prototype.splice.apply(this._actions, [GMenu, 0].concat(GMenu2)),
           this._createMainMenu(),
           gravit.tools)
         ) {
           for (
-            var S = (e) => {
-                let { tool: t, pro: n = false, feature: o } = e;
+            var GMenuOpenEvent = (e) => {
+                let { tool: t, pro: n = false, feature: _interopRequireDefault } = e;
                 return () =>
-                  !(!this.isEnabledProFeatures(o) && n) &&
+                  !(!this.isEnabledProFeatures(_interopRequireDefault) && n) &&
                   !!this.canActivateTool(t, true) &&
                   (gDesigner.stats(
                     "tools_activate_shortcut",
-                    k.getToolName(t) || "unknown_tool"
+                    GToolbar.getToolName(t) || "unknown_tool"
                   ),
                   this.getToolManager().tempToolKeyActivate(t));
               },
-              M = (e) => {
-                let { tool: t, pro: n = false, feature: o } = e;
+              GSettingChangedEvent = (e) => {
+                let { tool: t, pro: n = false, feature: _interopRequireDefault } = e;
                 return () =>
-                  !this.isEnabledProFeatures(o) && n
+                  !this.isEnabledProFeatures(_interopRequireDefault) && n
                     ? (this.handlePROFeatureInterruption(), false)
                     : this.getToolManager().tempToolKeyRelease(t, 450);
               },
-              N = 0;
-            N < gravit.tools.length;
-            ++N
+              GSwatchesChangedEvent = 0;
+            GSwatchesChangedEvent < gravit.tools.length;
+            ++GSwatchesChangedEvent
           ) {
-            var B = gravit.tools[N];
-            if (B.key || B.shortcuts) {
-              var j = S(B),
-                z = M(B);
-              B.key && this.registerShortcut([B.key], j, false, z),
-                Array.isArray(B.shortcuts) &&
-                  B.shortcuts.forEach((e) => {
-                    this.registerShortcut(e, j, false, z);
+            var GDocumentEvent = gravit.tools[GSwatchesChangedEvent];
+            if (GDocumentEvent.key || GDocumentEvent.shortcuts) {
+              var GInstallToDesktopAction = GMenuOpenEvent(GDocumentEvent),
+                z = GSettingChangedEvent(GDocumentEvent);
+              GDocumentEvent.key && this.registerShortcut([GDocumentEvent.key], GInstallToDesktopAction, false, z),
+                Array.isArray(GDocumentEvent.shortcuts) &&
+                  GDocumentEvent.shortcuts.forEach((e) => {
+                    this.registerShortcut(e, GInstallToDesktopAction, false, z);
                   });
             }
           }
@@ -1284,16 +1284,16 @@ function (exports, module, require) {
           var q = function () {
             var e = this.getToolManager();
             return (
-              this.getRightSidebars().getActiveSidebar() == D.ID ||
+              this.getRightSidebars().getActiveSidebar() == GAnnotationsSidebar.ID ||
                 ((e.getActiveTool() &&
-                  e.getActiveTool() instanceof i.GSelectTool) ||
-                  e.activateTool(i.GPointerTool),
-                e.getActiveTool() instanceof i.GSelectTool &&
+                  e.getActiveTool() instanceof GTools.GSelectTool) ||
+                  e.activateTool(GTools.GPointerTool),
+                e.getActiveTool() instanceof GTools.GSelectTool &&
                   e.getActiveTool().getEditMode() !==
-                    i.GSelectTool.EditMode.Transform &&
+                    GTools.GSelectTool.EditMode.Transform &&
                   e
                     .getActiveTool()
-                    .setEditMode(i.GSelectTool.EditMode.Transform)),
+                    .setEditMode(GTools.GSelectTool.EditMode.Transform)),
               true
             );
           }.bind(this);
@@ -1309,12 +1309,12 @@ function (exports, module, require) {
           this._windows.init(),
           this._banner.init(),
           this._overlay.init(),
-          this._leftSidebars.setActiveSidebar(G.ID),
-          this._rightSidebars.setActiveSidebar(P.ID),
+          this._leftSidebars.setActiveSidebar(GOutlineSidebar.ID),
+          this._rightSidebars.setActiveSidebar(GInspectorSidebar.ID),
           this.setPartVisible(F.Panels, false),
           this.setPartVisible(F.Info, false),
           this._mainframe.css("display", ""),
-          a.GColor.setCMYKProfile("USWebCoatedSWOPv2", "assets/data/icc/"),
+          GCore.GColor.setCMYKProfile("USWebCoatedSWOPv2", "assets/data/icc/"),
           (this._initialized = true),
           this._windows.addEventListener(
             O.WindowEvent,
@@ -1331,56 +1331,56 @@ function (exports, module, require) {
             this._sidebarEvent,
             this
           ),
-          (this._contextMenu = new X(o)),
+          (this._contextMenu = new GContextMenu(_interopRequireDefault)),
           this.updateLicenseInfo(),
           this._updateTitle({ saveToSessionHistory: false }),
-          s.AUTO_SAVE_ENABLED && (this._autoSaveManager = te.getInstance()),
+          AppSettings.AUTO_SAVE_ENABLED && (this._autoSaveManager = te.getInstance()),
           this.getCursorManager().init(),
           this._updateLayout(),
           this._initAmplitudeProperties(),
           this._updateState();
       }),
       (Je.prototype._updateStyles = function (e) {
-        switch (r.GPlatform.webBrowser) {
-          case r.GPlatform.constructor.WebBrowser.Edge:
+        switch (GEditor.GPlatform.webBrowser) {
+          case GEditor.GPlatform.constructor.WebBrowser.Edge:
             e.addClass("g-edge");
             break;
-          case r.GPlatform.constructor.WebBrowser.Opera:
+          case GEditor.GPlatform.constructor.WebBrowser.Opera:
             e.addClass("g-opera");
             break;
-          case r.GPlatform.constructor.WebBrowser.Chrome:
+          case GEditor.GPlatform.constructor.WebBrowser.Chrome:
             e.addClass("g-chrome");
             break;
-          case r.GPlatform.constructor.WebBrowser.Firefox:
+          case GEditor.GPlatform.constructor.WebBrowser.Firefox:
             e.addClass("g-firefox");
             break;
-          case r.GPlatform.constructor.WebBrowser.Safari:
+          case GEditor.GPlatform.constructor.WebBrowser.Safari:
             e.addClass("g-safari");
             break;
-          case r.GPlatform.constructor.WebBrowser.MSIE:
+          case GEditor.GPlatform.constructor.WebBrowser.MSIE:
             e.addClass("g-msie");
         }
-        switch (a.GSystem.hardware) {
-          case a.GSystem.Hardware.Desktop:
+        switch (GCore.GSystem.hardware) {
+          case GCore.GSystem.Hardware.Desktop:
             e.addClass("g-desktop");
             break;
-          case a.GSystem.Hardware.Tablet:
+          case GCore.GSystem.Hardware.Tablet:
             e.addClass("g-tablet");
             break;
-          case a.GSystem.Hardware.Phone:
+          case GCore.GSystem.Hardware.Phone:
             e.addClass("g-phone");
         }
-        switch (a.GSystem.operatingSystem) {
-          case a.GSystem.OperatingSystem.Unix:
+        switch (GCore.GSystem.operatingSystem) {
+          case GCore.GSystem.OperatingSystem.Unix:
             e.addClass("g-os-unix");
             break;
-          case a.GSystem.OperatingSystem.Windows:
+          case GCore.GSystem.OperatingSystem.Windows:
             e.addClass("g-os-windows");
             break;
-          case a.GSystem.OperatingSystem.OSX_IOS:
+          case GCore.GSystem.OperatingSystem.OSX_IOS:
             e.addClass("g-os-osx_ios");
         }
-        gContainer.getRuntime() === Z.Runtime.IPad && e.addClass("g-ipad");
+        gContainer.getRuntime() === GContainer.Runtime.IPad && e.addClass("g-ipad");
       }),
       (Je.prototype.getContextMenu = function () {
         return this._contextMenu;
@@ -1410,13 +1410,13 @@ function (exports, module, require) {
           this._assistantBar.activate();
         } else this._assistantBar && this._assistantBar.deactivate();
       }),
-      (Je.prototype._toggleSideBarAndAssistBarZIndex = function (e, t, n, o) {
+      (Je.prototype._toggleSideBarAndAssistBarZIndex = function (e, t, n, _interopRequireDefault) {
         gDesigner.isTouchEnabled() &&
           (this._leftSidebars.getHtmlElement().toggleClass("bring-to-front", e),
           this._rightSidebars.getHtmlElement().toggleClass("bring-to-front", t),
           this._assistantBar.getHtmlElement().toggleClass("bring-to-front", n),
-          undefined !== o &&
-            $(".g-notification-panel").toggleClass("bring-to-front", o));
+          undefined !== _interopRequireDefault &&
+            $(".g-notification-panel").toggleClass("bring-to-front", _interopRequireDefault));
       }),
       (Je.prototype.sendSideBarAndAssistBarToBack = function () {
         this._toggleSideBarAndAssistBarZIndex(false, false, false);
@@ -1431,7 +1431,7 @@ function (exports, module, require) {
               for (var require in ((this._settings = e),
               (this._settingsLoaded = true),
               this._settings))
-                this.trigger(new M(require, undefined, this._settings[require], true));
+                this.trigger(new GSettingChangedEvent(require, undefined, this._settings[require], true));
             })
             .catch((e) => Promise.reject(e)),
           gContainer
@@ -1448,17 +1448,17 @@ function (exports, module, require) {
               )
                 for (var module = 0; module < e.length; ++module) {
                   var require =
-                      a.GNode.deserialize(e[module]) || a.GPattern.deserialize(e[module]),
-                    o = require instanceof a.GSwatch ? require : new a.GSwatch(require);
-                  this._addGlobalSwatch(o);
+                      GCore.GNode.deserialize(e[module]) || GCore.GPattern.deserialize(e[module]),
+                    _interopRequireDefault = require instanceof GCore.GSwatch ? require : new GCore.GSwatch(require);
+                  this._addGlobalSwatch(_interopRequireDefault);
                 }
-              this.trigger(new N("global"));
+              this.trigger(new GSwatchesChangedEvent("global"));
             })
             .catch((e) => Promise.reject(e)),
         ]);
       }),
       (Je.prototype._addGlobalSwatch = function (e) {
-        var t = a.GPattern.serialize(e.getProperty("_pt"));
+        var t = GCore.GPattern.serialize(e.getProperty("_pt"));
         t.startsWith("C#") || t.startsWith("Y#")
           ? this._swatches.global.push(e)
           : t.startsWith("L#")
@@ -1488,29 +1488,29 @@ function (exports, module, require) {
               : Promise.reject();
           })
           .then((t) => {
-            let [require, o, i] = t;
-            var a, r;
+            let [require, _interopRequireDefault, GTools] = t;
+            var GCore, GEditor;
             if (require)
-              for (a = 0, r = require.length; a < r; ++a) {
+              for (GCore = 0, GEditor = require.length; GCore < GEditor; ++GCore) {
                 let t = gContainer.getStorage(),
-                  o = new t.constructor.Item(t, require[a]);
-                exports.push(o);
+                  _interopRequireDefault = new t.constructor.Item(t, require[GCore]);
+                exports.push(_interopRequireDefault);
               }
-            if (i)
+            if (GTools)
               for (
-                i = JSON.parse(Ue.base64StringToString(i)), a = 0, r = i.length;
-                a < r;
-                ++a
+                GTools = JSON.parse(CollaborationMergeUtils2.base64StringToString(GTools)), GCore = 0, GEditor = GTools.length;
+                GCore < GEditor;
+                ++GCore
               ) {
                 let t,
                   n = gContainer.getStorage(),
-                  o = JSON.parse(i[a]);
-                "googledrive" === o.type &&
-                  (o.file.hasOwnProperty("version") && delete o.file.version,
-                  (t = new f.default.Item(n, o.file))),
+                  _interopRequireDefault = JSON.parse(GTools[GCore]);
+                "googledrive" === _interopRequireDefault.type &&
+                  (_interopRequireDefault.file.hasOwnProperty("version") && delete _interopRequireDefault.file.version,
+                  (t = new f.default.Item(n, _interopRequireDefault.file))),
                   t && exports.push(t);
               }
-            var s = function () {
+            var AppSettings = function () {
               gContainer.updateRecentDocumentsAction(exports);
             };
             Q.getRecentStorageItems()
@@ -1519,8 +1519,8 @@ function (exports, module, require) {
                   for (var require = 0; require < t.length; ++require)
                     exports.push(await J.from(gDesigner.getDefaultStorage(), t[require]));
               })
-              .then(s)
-              .catch(s);
+              .then(AppSettings)
+              .catch(AppSettings);
           });
       }),
       (Je.prototype.removeExternalRecentFiles = function (e, t) {
@@ -1535,27 +1535,27 @@ function (exports, module, require) {
               : Promise.reject()
           )
           .then((n) => {
-            let [o, i] = n,
-              a = i ? JSON.parse(Ue.base64StringToString(i)) : [];
-            a instanceof Array || (a = new Array());
-            const r = [];
-            for (let n = 0, o = a.length; n < o; n++) {
-              let o = JSON.parse(a[n]);
-              o &&
-                (o.type !== e ||
-                  (o.file && o.file.settings && !o.file.settings.accountId) ||
-                  (o.file &&
-                    o.file.settings &&
-                    o.file.settings.accountId !== t)) &&
-                r.push(JSON.stringify(o));
+            let [_interopRequireDefault, GTools] = n,
+              GCore = GTools ? JSON.parse(CollaborationMergeUtils2.base64StringToString(GTools)) : [];
+            GCore instanceof Array || (GCore = new Array());
+            const GEditor = [];
+            for (let n = 0, _interopRequireDefault = GCore.length; n < _interopRequireDefault; n++) {
+              let _interopRequireDefault = JSON.parse(GCore[n]);
+              _interopRequireDefault &&
+                (_interopRequireDefault.type !== e ||
+                  (_interopRequireDefault.file && _interopRequireDefault.file.settings && !_interopRequireDefault.file.settings.accountId) ||
+                  (_interopRequireDefault.file &&
+                    _interopRequireDefault.file.settings &&
+                    _interopRequireDefault.file.settings.accountId !== t)) &&
+                GEditor.push(JSON.stringify(_interopRequireDefault));
             }
-            a.length > 0
+            GCore.length > 0
               ? gContainer.setProperty(
-                  "recent_external_".concat(o.getUID()),
-                  Ue.stringToBase64String(JSON.stringify(r))
+                  "recent_external_".concat(_interopRequireDefault.getUID()),
+                  CollaborationMergeUtils2.stringToBase64String(JSON.stringify(GEditor))
                 )
               : gContainer.removeProperty(
-                  "recent_external_".concat(o.getUID())
+                  "recent_external_".concat(_interopRequireDefault.getUID())
                 ),
               gDesigner.updateRecentDocumentsAction();
           });
@@ -1565,19 +1565,19 @@ function (exports, module, require) {
         var e,
           t,
           n = 0,
-          o = 0;
-        (e = this._getTopOffset(n, o)),
+          _interopRequireDefault = 0;
+        (e = this._getTopOffset(n, _interopRequireDefault)),
           (n = this._getLeftOffset(e)),
-          (o = this._getRightOffset(e)),
-          (t = this._getBottomOffset(n, o));
-        const i = this.isTouchEnabled();
+          (_interopRequireDefault = this._getRightOffset(e)),
+          (t = this._getBottomOffset(n, _interopRequireDefault));
+        const GTools = this.isTouchEnabled();
         this._header.relayout(),
           this._toolbar.relayout(),
           this._panels.relayout(),
           this._footer.relayout(),
           this._leftSidebars.relayout(),
           this._rightSidebars.relayout(),
-          this._windows.relayout([i ? 0 : n, e, i ? 0 : o, t]);
+          this._windows.relayout([GTools ? 0 : n, e, GTools ? 0 : _interopRequireDefault, t]);
       }),
       (Je.prototype.updateCollabTextPreviews = async function () {
         var e,
@@ -1588,21 +1588,21 @@ function (exports, module, require) {
       }),
       (Je.prototype._getTopOffset = function (e, t) {
         var n = 0,
-          o = this.getPart(F.Info);
-        n += this.isPartVisible(F.Info) ? o.outerHeight() : 0;
-        var i = this.getPart(F.Header);
-        i.css("top", n.toString() + "px"),
-          (n += this.isPartVisible(F.Header) ? i.outerHeight() : 0);
+          _interopRequireDefault = this.getPart(F.Info);
+        n += this.isPartVisible(F.Info) ? _interopRequireDefault.outerHeight() : 0;
+        var GTools = this.getPart(F.Header);
+        GTools.css("top", n.toString() + "px"),
+          (n += this.isPartVisible(F.Header) ? GTools.outerHeight() : 0);
         this.getPart(F.Overlay).css("top", n.toString() + "px");
-        var a = this.getPart(F.Toolbar);
-        a.css("left", e.toString() + "px"),
-          a.css("top", n.toString() + "px"),
-          a.css("right", t.toString() + "px"),
-          (n += this.isPartVisible(F.Toolbar) ? a.outerHeight() : 0);
-        const r = this.getPart(F.Banner);
+        var GCore = this.getPart(F.Toolbar);
+        GCore.css("left", e.toString() + "px"),
+          GCore.css("top", n.toString() + "px"),
+          GCore.css("right", t.toString() + "px"),
+          (n += this.isPartVisible(F.Toolbar) ? GCore.outerHeight() : 0);
+        const GEditor = this.getPart(F.Banner);
         return (
-          r.css("top", n.toString() + "px"),
-          (n += this.isPartVisible(F.Banner) ? r.outerHeight() : 0)
+          GEditor.css("top", n.toString() + "px"),
+          (n += this.isPartVisible(F.Banner) ? GEditor.outerHeight() : 0)
         );
       }),
       (Je.prototype._getLeftOffset = function (e) {
@@ -1610,14 +1610,14 @@ function (exports, module, require) {
           n = this._leftSidebars.getSidebar(
             this._leftSidebars.getActiveSidebar()
           ),
-          o = n ? n.getMinimumWidth() : 0,
-          i = this.getPart(F.LeftSidebars),
-          a = this.isPartVisible(F.LeftSidebars);
+          _interopRequireDefault = n ? n.getMinimumWidth() : 0,
+          GTools = this.getPart(F.LeftSidebars),
+          GCore = this.isPartVisible(F.LeftSidebars);
         return (
-          i.outerWidth() < o && a && i.outerWidth(o),
-          i.css("top", e.toString() + "px"),
-          i.height(this._mainframe.height() - e),
-          (t += a ? i.outerWidth() : 0)
+          GTools.outerWidth() < _interopRequireDefault && GCore && GTools.outerWidth(_interopRequireDefault),
+          GTools.css("top", e.toString() + "px"),
+          GTools.height(this._mainframe.height() - e),
+          (t += GCore ? GTools.outerWidth() : 0)
         );
       }),
       (Je.prototype._getRightOffset = function (e) {
@@ -1625,76 +1625,76 @@ function (exports, module, require) {
           n = this._rightSidebars.getSidebar(
             this._rightSidebars.getActiveSidebar()
           ),
-          o = n ? n.getMinimumWidth() : 0,
-          i = this.getPart(F.RightSidebars),
-          a = this.isPartVisible(F.RightSidebars);
+          _interopRequireDefault = n ? n.getMinimumWidth() : 0,
+          GTools = this.getPart(F.RightSidebars),
+          GCore = this.isPartVisible(F.RightSidebars);
         return (
-          i.outerWidth() < o && a && i.outerWidth(o),
-          i.css("top", e.toString() + "px"),
-          i.height(this._mainframe.height() - e),
-          (t += a ? i.outerWidth() : 0)
+          GTools.outerWidth() < _interopRequireDefault && GCore && GTools.outerWidth(_interopRequireDefault),
+          GTools.css("top", e.toString() + "px"),
+          GTools.height(this._mainframe.height() - e),
+          (t += GCore ? GTools.outerWidth() : 0)
         );
       }),
       (Je.prototype._getBottomOffset = function (e, t) {
         var n = 0,
-          o = this.getPart(F.Panels);
-        o.css("left", e.toString() + "px"),
-          o.css("width", (this._mainframe.width() - e - t).toString() + "px");
-        var i = this.getPart(F.Footer);
+          _interopRequireDefault = this.getPart(F.Panels);
+        _interopRequireDefault.css("left", e.toString() + "px"),
+          _interopRequireDefault.css("width", (this._mainframe.width() - e - t).toString() + "px");
+        var GTools = this.getPart(F.Footer);
         return (
-          i.css("left", e.toString() + "px"),
-          i.css("width", (this._mainframe.width() - e - t).toString() + "px"),
-          (n += this.isPartVisible(F.Panels) ? o.outerHeight() : 0),
-          (n += this.isPartVisible(F.Footer) ? i.outerHeight() : 0)
+          GTools.css("left", e.toString() + "px"),
+          GTools.css("width", (this._mainframe.width() - e - t).toString() + "px"),
+          (n += this.isPartVisible(F.Panels) ? _interopRequireDefault.outerHeight() : 0),
+          (n += this.isPartVisible(F.Footer) ? GTools.outerHeight() : 0)
         );
       }),
       (Je.prototype.positionIsOnCanvas = function (e, t) {
         var n,
-          o,
-          i = 0,
-          a = 0;
+          _interopRequireDefault,
+          GTools = 0,
+          GCore = 0;
         return (
-          (n = this._getTopOffset(i, a)),
-          (i = this._getLeftOffset(n)),
-          (a = this._getRightOffset(n)),
-          (o = this._getBottomOffset(i, a)),
-          e > i &&
-            e < window.innerWidth - a &&
+          (n = this._getTopOffset(GTools, GCore)),
+          (GTools = this._getLeftOffset(n)),
+          (GCore = this._getRightOffset(n)),
+          (_interopRequireDefault = this._getBottomOffset(GTools, GCore)),
+          e > GTools &&
+            e < window.innerWidth - GCore &&
             t > n &&
-            t < window.innerHeight - o
+            t < window.innerHeight - _interopRequireDefault
         );
       }),
       (Je.prototype.updateGEditorSceneConfigurationPaintMode = function (e) {
         [
-          a.GScenePaintConfiguration.PaintMode.Full,
-          a.GScenePaintConfiguration.PaintMode.Outline,
-          a.GScenePaintConfiguration.PaintMode.Fast,
+          GCore.GScenePaintConfiguration.PaintMode.Full,
+          GCore.GScenePaintConfiguration.PaintMode.Outline,
+          GCore.GScenePaintConfiguration.PaintMode.Fast,
         ].indexOf(e) < 0 ||
-          (i.GEditorPaintConfiguration.prototype.paintMode = e);
+          (GTools.GEditorPaintConfiguration.prototype.paintMode = e);
       }),
-      (Je.prototype.registerShortcut = function (e, t, n, o) {
-        var s = function (e, t) {
+      (Je.prototype.registerShortcut = function (e, t, n, _interopRequireDefault) {
+        var AppSettings = function (e, t) {
             return (n) => {
-              var o,
-                r,
-                s = this.getActiveDocument();
-              if (s && (o = s.getEditor()) && o.isInlineEditing()) {
-                var l = o.getCurrentInlineEditorNode();
-                i.GElementEditor &&
-                  l instanceof a.GText &&
-                  (r = i.GElementEditor.getEditor(l));
+              var _interopRequireDefault,
+                GEditor,
+                AppSettings = this.getActiveDocument();
+              if (AppSettings && (_interopRequireDefault = AppSettings.getEditor()) && _interopRequireDefault.isInlineEditing()) {
+                var l = _interopRequireDefault.getCurrentInlineEditorNode();
+                GTools.GElementEditor &&
+                  l instanceof GCore.GText &&
+                  (GEditor = GTools.GElementEditor.getEditor(l));
               }
-              if (!((t && r && r.handleKeyDown(n) && (t || r)) || true !== e(n)))
+              if (!((t && GEditor && GEditor.handleKeyDown(n) && (t || GEditor)) || true !== e(n)))
                 return n.preventDefault(), n.stopPropagation(), false;
             };
           }.bind(this),
           l = n ? ze.bindGlobal : ze.bind;
-        2 === e.length && e[0] === r.GKey.Constant.META && "+" === e[1]
-          ? (l(this._shortcutToMouseTrapShortcut(e), s(t, true)),
-            l("mod+=", s(t, true), "keydown"),
-            o && l("mod+=", s(o, false), "keyup"))
-          : (l(this._shortcutToMouseTrapShortcut(e), s(t, true), "keydown"),
-            o && l(this._shortcutToMouseTrapShortcut(e), s(o, false), "keyup"));
+        2 === e.length && e[0] === GEditor.GKey.Constant.META && "+" === e[1]
+          ? (l(this._shortcutToMouseTrapShortcut(e), AppSettings(t, true)),
+            l("mod+=", AppSettings(t, true), "keydown"),
+            _interopRequireDefault && l("mod+=", AppSettings(_interopRequireDefault, false), "keyup"))
+          : (l(this._shortcutToMouseTrapShortcut(e), AppSettings(t, true), "keydown"),
+            _interopRequireDefault && l(this._shortcutToMouseTrapShortcut(e), AppSettings(_interopRequireDefault, false), "keyup"));
       }),
       (Je.prototype._createMainMenu = function () {
         for (
@@ -1704,56 +1704,56 @@ function (exports, module, require) {
               for (var require = 0; require < exports.length; ++require)
                 if (exports[require].item === t) return exports[require].group;
             },
-            o = function (t, o, i) {
+            _interopRequireDefault = function (t, _interopRequireDefault, GTools) {
               if (t.items.length > 0) {
-                var a = t.items[t.items.length - 1];
-                if (require(a) !== i) {
-                  var r = { type: "divider" };
-                  if ("item" === a.type && a.action) {
-                    var s = (function (t) {
-                      for (var o = require(t), i = [], a = 0; a < exports.length; ++a)
-                        exports[a].group === o && i.push(t);
-                      return i;
-                    })(a);
-                    r.isVisible = function () {
-                      return s.some((e) => e.action.isVisible());
+                var GCore = t.items[t.items.length - 1];
+                if (require(GCore) !== GTools) {
+                  var GEditor = { type: "divider" };
+                  if ("item" === GCore.type && GCore.action) {
+                    var AppSettings = (function (t) {
+                      for (var _interopRequireDefault = require(t), GTools = [], GCore = 0; GCore < exports.length; ++GCore)
+                        exports[GCore].group === _interopRequireDefault && GTools.push(t);
+                      return GTools;
+                    })(GCore);
+                    GEditor.isVisible = function () {
+                      return AppSettings.some((e) => e.action.isVisible());
                     };
                   }
-                  t.items.push(r);
+                  t.items.push(GEditor);
                 }
               }
-              exports.push({ item: o, group: i });
+              exports.push({ item: _interopRequireDefault, group: GTools });
             },
-            i = 0;
-          i < this._actions.length;
-          ++i
+            GTools = 0;
+          GTools < this._actions.length;
+          ++GTools
         ) {
-          var r = this._actions[i];
-          if (((this._actionsMap[r.getId()] = r), !r.isAvailable())) continue;
-          let e = r.getCategory();
-          for (var s = [e]; (e = e.parent); ) s.push(e);
-          s.reverse();
-          var l = r.getGroup(),
-            c = r.getGroupIcon(),
-            d = (r.getStyleClass(), l ? [""].concat(l.split("/")) : null);
-          if (d && s && s.length !== d.length - 1)
+          var GEditor = this._actions[GTools];
+          if (((this._actionsMap[GEditor.getId()] = GEditor), !GEditor.isAvailable())) continue;
+          let e = GEditor.getCategory();
+          for (var AppSettings = [e]; (e = e.parent); ) AppSettings.push(e);
+          AppSettings.reverse();
+          var l = GEditor.getGroup(),
+            c = GEditor.getGroupIcon(),
+            d = (GEditor.getStyleClass(), l ? [""].concat(l.split("/")) : null);
+          if (d && AppSettings && AppSettings.length !== d.length - 1)
             throw new Error(
               "The number of categories is different than the number of groups."
             );
-          var u = module;
-          if (s)
-            for (var p = 0; p < s.length; ++p) {
-              let e = s[p],
+          var CollaborationMergeUtils = module;
+          if (AppSettings)
+            for (var p = 0; p < AppSettings.length; ++p) {
+              let e = AppSettings[p],
                 t = d ? d[p] : null;
               for (
                 var g = null, h = e.label.split("/")[p], f = 0;
-                f < u.items.length;
+                f < CollaborationMergeUtils.items.length;
                 ++f
               )
-                h == u.items[f].caption && (g = u.items[f]);
+                h == CollaborationMergeUtils.items[f].caption && (g = CollaborationMergeUtils.items[f]);
               g ||
-                (o(
-                  u,
+                (_interopRequireDefault(
+                  CollaborationMergeUtils,
                   (g = {
                     type: "menu",
                     caption: h,
@@ -1763,11 +1763,11 @@ function (exports, module, require) {
                   }),
                   t
                 ),
-                u.items.push(g)),
-                (u = g);
+                CollaborationMergeUtils.items.push(g)),
+                (CollaborationMergeUtils = g);
             }
-          var m = { type: "item", action: r };
-          o(u, m, d ? d[d.length - 1] : null), u.items.push(m);
+          var m = { type: "item", action: GEditor };
+          _interopRequireDefault(CollaborationMergeUtils, m, d ? d[d.length - 1] : null), CollaborationMergeUtils.items.push(m);
         }
         var y = function (e, t) {
             "menu" === e.type
@@ -1777,7 +1777,7 @@ function (exports, module, require) {
               : "item" === e.type &&
                 ((e.item = this.addMenuItem(
                   t,
-                  a.GLocale.get(e.action.getTitle()),
+                  GCore.GLocale.get(e.action.getTitle()),
                   e.action.getIcon(),
                   e.action.isCheckable(),
                   e.action.getShortcut(),
@@ -1802,7 +1802,7 @@ function (exports, module, require) {
                 }
               : null;
             for (
-              var o = this.addMenu(
+              var _interopRequireDefault = this.addMenu(
                   t,
                   e.caption,
                   function () {
@@ -1811,7 +1811,7 @@ function (exports, module, require) {
                       "item" === require.type &&
                         this.updateMenuItem(
                           require.item,
-                          a.GLocale.get(require.action.getTitle()),
+                          GCore.GLocale.get(require.action.getTitle()),
                           require.action.isEnabled(),
                           !!require.action.isCheckable() && require.action.isChecked(),
                           require.action.isPro(),
@@ -1822,15 +1822,15 @@ function (exports, module, require) {
                   e.icon,
                   require
                 ),
-                i = 0;
-              i < e.items.length;
-              ++i
+                GTools = 0;
+              GTools < e.items.length;
+              ++GTools
             )
-              y(e.items[i], o);
-            return o;
+              y(e.items[GTools], _interopRequireDefault);
+            return _interopRequireDefault;
           }.bind(this);
-        for (i = 0; i < module.items.length; ++i)
-          (g = module.items[i]), v(module.items[i], null);
+        for (GTools = 0; GTools < module.items.length; ++GTools)
+          (g = module.items[GTools]), v(module.items[GTools], null);
         this._mainMenu.update();
       }),
       (Je.prototype._workspaceResolveUrlEvent = function (e) {
@@ -1851,18 +1851,18 @@ function (exports, module, require) {
         const exports = this.getApplicationManager(),
           module = exports.isInspectEnabled(),
           require = exports.isCommentingEnabled(),
-          o = exports.isEditingEnabled();
+          _interopRequireDefault = exports.isEditingEnabled();
         if (I.isOrientationActiveInSetting(I.Orientation.Right)) {
           const e = this._rightSidebars.getSidebar(
             this._rightSidebars.getActiveSidebar()
           );
           (e && e.isVisible()) ||
-            (o || module
-              ? this._rightSidebars.setActiveSidebar(P.ID)
+            (_interopRequireDefault || module
+              ? this._rightSidebars.setActiveSidebar(GInspectorSidebar.ID)
               : require
-              ? this._rightSidebars.setActiveSidebar(D.ID)
+              ? this._rightSidebars.setActiveSidebar(GAnnotationsSidebar.ID)
               : this._rightSidebars.setActiveSidebar(null)),
-            this.setPartVisible(F.RightSidebars, require || o || module),
+            this.setPartVisible(F.RightSidebars, require || _interopRequireDefault || module),
             this._rightSidebars.relayout();
         }
         if (I.isOrientationActiveInSetting(I.Orientation.Left)) {
@@ -1871,7 +1871,7 @@ function (exports, module, require) {
           );
           (e && e.isVisible()) ||
             (module
-              ? this._leftSidebars.setActiveSidebar(G.ID)
+              ? this._leftSidebars.setActiveSidebar(GOutlineSidebar.ID)
               : this._leftSidebars.setActiveSidebar(null)),
             this.setPartVisible(F.LeftSidebars, module),
             this._leftSidebars.relayout();
@@ -1894,30 +1894,30 @@ function (exports, module, require) {
       }),
       (Je.prototype._documentEvent = function (e) {
         switch (e.type) {
-          case B.Type.OwnerUpdated:
+          case GDocumentEvent.Type.OwnerUpdated:
             if (e.document) {
               const t = e.document.getOwner();
               if (t) {
                 const n = e.document.isCloudFile()
                     ? e.document.getStorageItem().getFile()
                     : null,
-                  o = n ? n.url_t || n.url : null,
-                  i = a.GLocale.get(
-                    new a.GLocaleKey("GDesigner", "text.preview-by")
+                  _interopRequireDefault = n ? n.url_t || n.url : null,
+                  GTools = GCore.GLocale.get(
+                    new GCore.GLocaleKey("GDesigner", "text.preview-by")
                   )
                     .replace("%name", t.name)
-                    .replace("%appname", ke.DESIGNER.TITLE);
-                $('meta[name="description"]').attr("content", i),
+                    .replace("%appname", AppSettings2.DESIGNER.TITLE);
+                $('meta[name="description"]').attr("content", GTools),
                   $('meta[property="og:title"]').attr(
                     "content",
-                    a.GLocale.get(
-                      new a.GLocaleKey("GDesigner", "text.design-by")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GDesigner", "text.design-by")
                     )
                       .replace("%name", t.name)
-                      .replace("%appname", ke.DESIGNER.TITLE)
+                      .replace("%appname", AppSettings2.DESIGNER.TITLE)
                   ),
-                  $('meta[property="og:description"]').attr("content", i),
-                  o && $('meta[property="og:image"]').attr("content", o),
+                  $('meta[property="og:description"]').attr("content", GTools),
+                  _interopRequireDefault && $('meta[property="og:image"]').attr("content", _interopRequireDefault),
                   $('meta[property="og:url"]').attr("content", location.href),
                   $('meta[name="twitter:card"]').attr(
                     "content",
@@ -1925,16 +1925,16 @@ function (exports, module, require) {
                   ),
                   $('meta[property="og:site_name"]').attr(
                     "content",
-                    ke.DESIGNER.TITLE
+                    AppSettings2.DESIGNER.TITLE
                   );
               }
             }
             this._updateTitle({ saveToSessionHistory: false });
             break;
-          case B.Type.StorageItemUpdated:
+          case GDocumentEvent.Type.StorageItemUpdated:
             this._updateTitle(), this._registerUsage(e.document);
             break;
-          case B.Type.Added:
+          case GDocumentEvent.Type.Added:
             this._newDocumentDialog && this._newDocumentDialog.close();
         }
       }),
@@ -1987,29 +1987,29 @@ function (exports, module, require) {
             this._setTheme(e.newValue);
             break;
           case "snap_disabled":
-            i.GGuides.options.disabled = e.newValue;
+            GTools.GGuides.options.disabled = e.newValue;
             break;
           case "snap_zones":
-            i.GGuides.options.zones = e.newValue;
+            GTools.GGuides.options.zones = e.newValue;
             break;
           case "snap_guides":
-            i.GGuides.options.guides = e.newValue;
+            GTools.GGuides.options.guides = e.newValue;
             break;
           case "highlight_on_hover":
-            i.GEditorOptions.highlightOnHover = e.newValue;
+            GTools.GEditorOptions.highlightOnHover = e.newValue;
             break;
           case "dont_store_textpath":
-            a.GText.dontStorePaths = e.newValue;
+            GCore.GText.dontStorePaths = e.newValue;
             break;
           case "decimals_num":
-            a.GScene.decimalsNum = e.newValue;
+            GCore.GScene.decimalsNum = e.newValue;
             break;
           case "enable_steps_debug":
-            i.GEditorOptions.debugTransactions = e.newValue;
+            GTools.GEditorOptions.debugTransactions = e.newValue;
             break;
           case "enable_cache":
             "function" == typeof gdb_loaddesign &&
-              ((a.GRendererConfig.ENABLE_CACHE = e.newValue),
+              ((GCore.GRendererConfig.ENABLE_CACHE = e.newValue),
               gDesigner.getActiveDocument() &&
                 gDesigner.getActiveDocument().getActiveWindow() &&
                 (gDesigner
@@ -2041,126 +2041,126 @@ function (exports, module, require) {
         const exports = this.getActiveDocument(),
           module = exports && exports.getActiveWindow(),
           require = module && module.getView();
-        require && r.GPlatform.scheduleFrame(() => require.invalidate(null, true));
+        require && GEditor.GPlatform.scheduleFrame(() => require.invalidate(null, true));
       }),
       (Je.prototype._applyTouchEditorOptions = function () {
-        const exports = a.GPaintCanvas.getScreenDPI();
-        (i.GEditorOptions.distanceHelperBehaviour =
-          i.GSelectTool._DistanceHelperBehaviour.Click),
-          (i.GEditorOptions.resizeHandlesInDetailMode = false),
-          (i.GEditorOptions.rotateHandleInDetailMode = false),
-          (i.GEditorOptions.annotationHandles.suppressRedundantCorners = true),
-          (i.GEditorOptions.annotationHandles.gradient.size = 16 * exports),
-          (i.GEditorOptions.annotationHandles.gradient.sizeBig = 20 * exports),
-          (i.GEditorOptions.annotationHandles.preserveAspectRatio.side =
-            a.GRect.Side.BOTTOM_RIGHT),
-          (i.GEditorOptions.annotationHandles.tranformBox.skew.enabled = true),
-          (i.GEditorOptions.annotationHandles.tranformBox.rotate.enabled = true),
-          (i.GEditorOptions.annotationHandles.preserveAspectRatio.enabled = true),
-          (a.GPaintContext.prototype.transformBoxOutlineColor =
-            a.GPaintContext.prototype.selectionOutlineColor),
-          (i.GTransformBox.OUTSIDE_TOLERANCE = 0),
-          (i.GEditorOptions.annotPickDistance = 4),
-          (i.GEditorOptions.pickDistance = 20),
-          (i.GEditorOptions.annotationHandles.tranformBox.size = 23 * exports),
-          (i.GEditorOptions.annotationHandles.tranformBox.outlineWidth = 3 * exports),
-          (i.GEditorOptions.annotationHandles.tranformBox.pivotSize = 23 * exports),
-          (i.GEditorOptions.annotationHandles.tranformBox.pivotOutlineWidth =
+        const exports = GCore.GPaintCanvas.getScreenDPI();
+        (GTools.GEditorOptions.distanceHelperBehaviour =
+          GTools.GSelectTool._DistanceHelperBehaviour.Click),
+          (GTools.GEditorOptions.resizeHandlesInDetailMode = false),
+          (GTools.GEditorOptions.rotateHandleInDetailMode = false),
+          (GTools.GEditorOptions.annotationHandles.suppressRedundantCorners = true),
+          (GTools.GEditorOptions.annotationHandles.gradient.size = 16 * exports),
+          (GTools.GEditorOptions.annotationHandles.gradient.sizeBig = 20 * exports),
+          (GTools.GEditorOptions.annotationHandles.preserveAspectRatio.side =
+            GCore.GRect.Side.BOTTOM_RIGHT),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.skew.enabled = true),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.rotate.enabled = true),
+          (GTools.GEditorOptions.annotationHandles.preserveAspectRatio.enabled = true),
+          (GCore.GPaintContext.prototype.transformBoxOutlineColor =
+            GCore.GPaintContext.prototype.selectionOutlineColor),
+          (GTools.GTransformBox.OUTSIDE_TOLERANCE = 0),
+          (GTools.GEditorOptions.annotPickDistance = 4),
+          (GTools.GEditorOptions.pickDistance = 20),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.size = 23 * exports),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.outlineWidth = 3 * exports),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.pivotSize = 23 * exports),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.pivotOutlineWidth =
             3 * exports),
-          (i.GEditorOptions.annotationHandles.tranformBox.outsideStroke = true),
-          (i.GEditorOptions.annotationHandles.tranformBox.shadowColor =
+          (GTools.GEditorOptions.annotationHandles.tranformBox.outsideStroke = true),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.shadowColor =
             "transparent"),
-          (i.GEditorOptions.rotateHandle = "bottom"),
-          (i.GEditorOptions.annotationHandles.rotate.size = 23 * exports),
-          (i.GEditorOptions.annotationHandles.rotate.iconSize = 23 * exports),
-          (i.GEditorOptions.annotationHandles.rotate.outlineWidth = exports),
-          (i.GEditorOptions.annotationHandles.rotate.shadowColor =
+          (GTools.GEditorOptions.rotateHandle = "bottom"),
+          (GTools.GEditorOptions.annotationHandles.rotate.size = 23 * exports),
+          (GTools.GEditorOptions.annotationHandles.rotate.iconSize = 23 * exports),
+          (GTools.GEditorOptions.annotationHandles.rotate.outlineWidth = exports),
+          (GTools.GEditorOptions.annotationHandles.rotate.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.rotate.distance = 46 * exports),
-          (i.GEditorOptions.annotationHandles.resize.size = 23 * exports),
-          (i.GEditorOptions.annotationHandles.resize.outlineWidth = 3 * exports),
-          (i.GEditorOptions.annotationHandles.resize.outsideStroke = true),
-          (i.GEditorOptions.annotationHandles.resize.shadowColor =
+          (GTools.GEditorOptions.annotationHandles.rotate.distance = 46 * exports),
+          (GTools.GEditorOptions.annotationHandles.resize.size = 23 * exports),
+          (GTools.GEditorOptions.annotationHandles.resize.outlineWidth = 3 * exports),
+          (GTools.GEditorOptions.annotationHandles.resize.outsideStroke = true),
+          (GTools.GEditorOptions.annotationHandles.resize.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.rectangle.size = 22 * exports),
-          (i.GEditorOptions.annotationHandles.rectangle.outlineWidth = 4 * exports),
-          (i.GEditorOptions.annotationHandles.rectangle.outsideStroke = true),
-          (i.GEditorOptions.annotationHandles.rectangle.shadowColor =
+          (GTools.GEditorOptions.annotationHandles.rectangle.size = 22 * exports),
+          (GTools.GEditorOptions.annotationHandles.rectangle.outlineWidth = 4 * exports),
+          (GTools.GEditorOptions.annotationHandles.rectangle.outsideStroke = true),
+          (GTools.GEditorOptions.annotationHandles.rectangle.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.rectangle.maxNumberOfDetailedSegments = 1),
-          (i.GEditorOptions.annotationHandles.polygon.size = 22 * exports),
-          (i.GEditorOptions.annotationHandles.polygon.outlineWidth = 4 * exports),
-          (i.GEditorOptions.annotationHandles.polygon.outsideStroke = true),
-          (i.GEditorOptions.annotationHandles.polygon.shadowColor =
+          (GTools.GEditorOptions.annotationHandles.rectangle.maxNumberOfDetailedSegments = 1),
+          (GTools.GEditorOptions.annotationHandles.polygon.size = 22 * exports),
+          (GTools.GEditorOptions.annotationHandles.polygon.outlineWidth = 4 * exports),
+          (GTools.GEditorOptions.annotationHandles.polygon.outsideStroke = true),
+          (GTools.GEditorOptions.annotationHandles.polygon.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.polygon.maxNumberOfDetailedSegments = 2),
-          (i.GEditorOptions.annotationHandles.ellipse.size = 22 * exports),
-          (i.GEditorOptions.annotationHandles.ellipse.outlineWidth = 4 * exports),
-          (i.GEditorOptions.annotationHandles.ellipse.outsideStroke = true),
-          (i.GEditorOptions.annotationHandles.ellipse.shadowColor =
+          (GTools.GEditorOptions.annotationHandles.polygon.maxNumberOfDetailedSegments = 2),
+          (GTools.GEditorOptions.annotationHandles.ellipse.size = 22 * exports),
+          (GTools.GEditorOptions.annotationHandles.ellipse.outlineWidth = 4 * exports),
+          (GTools.GEditorOptions.annotationHandles.ellipse.outsideStroke = true),
+          (GTools.GEditorOptions.annotationHandles.ellipse.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.ellipse.maxNumberOfDetailedSegments = 2),
-          (i.GEditorOptions.annotationHandles.path.node.size = 20 * exports),
-          (i.GEditorOptions.annotationHandles.path.node.outlineWidth = 2 * exports),
-          (i.GEditorOptions.annotationHandles.path.control.size = 10 * exports),
-          i.GSkewHorizontalAnnotation.setIconVisible(true),
-          i.GSkewVerticalAnnotation.setIconVisible(true),
-          i.GPreserveAspectRatioAnnotation.setIconVisible(true),
-          i.GRotateAnnotation.setIconVisible(true);
+          (GTools.GEditorOptions.annotationHandles.ellipse.maxNumberOfDetailedSegments = 2),
+          (GTools.GEditorOptions.annotationHandles.path.node.size = 20 * exports),
+          (GTools.GEditorOptions.annotationHandles.path.node.outlineWidth = 2 * exports),
+          (GTools.GEditorOptions.annotationHandles.path.control.size = 10 * exports),
+          GTools.GSkewHorizontalAnnotation.setIconVisible(true),
+          GTools.GSkewVerticalAnnotation.setIconVisible(true),
+          GTools.GPreserveAspectRatioAnnotation.setIconVisible(true),
+          GTools.GRotateAnnotation.setIconVisible(true);
       }),
       (Je.prototype._applyDefaultEditorOptions = function () {
-        const exports = a.GPaintCanvas.getScreenDPI();
-        (i.GEditorOptions.distanceHelperBehaviour =
-          i.GSelectTool._DistanceHelperBehaviour.Default),
-          (i.GEditorOptions.resizeHandlesInDetailMode = true),
-          (i.GEditorOptions.rotateHandleInDetailMode = true),
-          (i.GEditorOptions.annotationHandles.suppressRedundantCorners = false),
-          (i.GEditorOptions.annotationHandles.gradient.size = 9 * exports),
-          (i.GEditorOptions.annotationHandles.gradient.sizeBig = 12 * exports),
-          i.GSkewHorizontalAnnotation.setIconVisible(false),
-          i.GSkewVerticalAnnotation.setIconVisible(false),
-          i.GPreserveAspectRatioAnnotation.setIconVisible(false),
-          i.GRotateAnnotation.setIconVisible(false),
-          (a.GPaintContext.prototype.transformBoxOutlineColor = new a.GRGBColor(
+        const exports = GCore.GPaintCanvas.getScreenDPI();
+        (GTools.GEditorOptions.distanceHelperBehaviour =
+          GTools.GSelectTool._DistanceHelperBehaviour.Default),
+          (GTools.GEditorOptions.resizeHandlesInDetailMode = true),
+          (GTools.GEditorOptions.rotateHandleInDetailMode = true),
+          (GTools.GEditorOptions.annotationHandles.suppressRedundantCorners = false),
+          (GTools.GEditorOptions.annotationHandles.gradient.size = 9 * exports),
+          (GTools.GEditorOptions.annotationHandles.gradient.sizeBig = 12 * exports),
+          GTools.GSkewHorizontalAnnotation.setIconVisible(false),
+          GTools.GSkewVerticalAnnotation.setIconVisible(false),
+          GTools.GPreserveAspectRatioAnnotation.setIconVisible(false),
+          GTools.GRotateAnnotation.setIconVisible(false),
+          (GCore.GPaintContext.prototype.transformBoxOutlineColor = new GCore.GRGBColor(
             [23, 104, 196]
           )),
-          (i.GTransformBox.OUTSIDE_TOLERANCE = 100),
-          (i.GEditorOptions.annotPickDistance = 0),
-          (i.GEditorOptions.pickDistance = 4),
-          (i.GEditorOptions.annotationHandles.tranformBox.size = 10 * exports),
-          (i.GEditorOptions.annotationHandles.tranformBox.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.tranformBox.pivotSize = null),
-          (i.GEditorOptions.annotationHandles.tranformBox.pivotOutlineWidth =
+          (GTools.GTransformBox.OUTSIDE_TOLERANCE = 100),
+          (GTools.GEditorOptions.annotPickDistance = 0),
+          (GTools.GEditorOptions.pickDistance = 4),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.size = 10 * exports),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.pivotSize = null),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.pivotOutlineWidth =
             null),
-          (i.GEditorOptions.annotationHandles.tranformBox.outsideStroke = false),
-          (i.GEditorOptions.annotationHandles.tranformBox.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.tranformBox.skew.enabled = false),
-          (i.GEditorOptions.annotationHandles.tranformBox.rotate.enabled = false),
-          (i.GEditorOptions.annotationHandles.preserveAspectRatio.enabled = false),
-          (i.GEditorOptions.rotateHandle = "top"),
-          (i.GEditorOptions.annotationHandles.rotate.size = 10 * exports),
-          (i.GEditorOptions.annotationHandles.rotate.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.rotate.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.rotate.distance = 16 * exports),
-          (i.GEditorOptions.annotationHandles.resize.size = 10 * exports),
-          (i.GEditorOptions.annotationHandles.resize.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.resize.outsideStroke = false),
-          (i.GEditorOptions.annotationHandles.resize.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.rectangle.size = 8 * exports),
-          (i.GEditorOptions.annotationHandles.rectangle.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.rectangle.outsideStroke = false),
-          (i.GEditorOptions.annotationHandles.rectangle.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.polygon.size = 8 * exports),
-          (i.GEditorOptions.annotationHandles.polygon.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.polygon.outsideStroke = false),
-          (i.GEditorOptions.annotationHandles.polygon.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.ellipse.size = 8 * exports),
-          (i.GEditorOptions.annotationHandles.ellipse.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.ellipse.outsideStroke = false),
-          (i.GEditorOptions.annotationHandles.ellipse.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.path.node.size = 10 * exports),
-          (i.GEditorOptions.annotationHandles.path.node.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.path.control.size = 6 * exports);
+          (GTools.GEditorOptions.annotationHandles.tranformBox.outsideStroke = false),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.shadowColor = null),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.skew.enabled = false),
+          (GTools.GEditorOptions.annotationHandles.tranformBox.rotate.enabled = false),
+          (GTools.GEditorOptions.annotationHandles.preserveAspectRatio.enabled = false),
+          (GTools.GEditorOptions.rotateHandle = "top"),
+          (GTools.GEditorOptions.annotationHandles.rotate.size = 10 * exports),
+          (GTools.GEditorOptions.annotationHandles.rotate.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.rotate.shadowColor = null),
+          (GTools.GEditorOptions.annotationHandles.rotate.distance = 16 * exports),
+          (GTools.GEditorOptions.annotationHandles.resize.size = 10 * exports),
+          (GTools.GEditorOptions.annotationHandles.resize.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.resize.outsideStroke = false),
+          (GTools.GEditorOptions.annotationHandles.resize.shadowColor = null),
+          (GTools.GEditorOptions.annotationHandles.rectangle.size = 8 * exports),
+          (GTools.GEditorOptions.annotationHandles.rectangle.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.rectangle.outsideStroke = false),
+          (GTools.GEditorOptions.annotationHandles.rectangle.shadowColor = null),
+          (GTools.GEditorOptions.annotationHandles.polygon.size = 8 * exports),
+          (GTools.GEditorOptions.annotationHandles.polygon.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.polygon.outsideStroke = false),
+          (GTools.GEditorOptions.annotationHandles.polygon.shadowColor = null),
+          (GTools.GEditorOptions.annotationHandles.ellipse.size = 8 * exports),
+          (GTools.GEditorOptions.annotationHandles.ellipse.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.ellipse.outsideStroke = false),
+          (GTools.GEditorOptions.annotationHandles.ellipse.shadowColor = null),
+          (GTools.GEditorOptions.annotationHandles.path.node.size = 10 * exports),
+          (GTools.GEditorOptions.annotationHandles.path.node.outlineWidth = null),
+          (GTools.GEditorOptions.annotationHandles.path.control.size = 6 * exports);
       }),
       (Je.prototype._updateLayout = function () {
         $("body").toggleClass("g-touch", this.isTouchEnabled()),
@@ -2179,9 +2179,9 @@ function (exports, module, require) {
                 .toggleClass("bring-to-front", false)),
           this._initialized &&
             (this._leftSidebars.getActiveSidebar() ||
-              this._leftSidebars.setActiveSidebar(G.ID),
+              this._leftSidebars.setActiveSidebar(GOutlineSidebar.ID),
             this._rightSidebars.getActiveSidebar() ||
-              this._rightSidebars.setActiveSidebar(P.ID),
+              this._rightSidebars.setActiveSidebar(GInspectorSidebar.ID),
             this._leftSidebars.setActiveTouchTool(null),
             this._rightSidebars.setActiveTouchTool(null),
             this._setActiveAssistantBar(this.isTouchEnabled())),
@@ -2198,25 +2198,25 @@ function (exports, module, require) {
             function () {
               var t = this._windows.getWindows();
               l.DESIGNER.GUIDELINE_COLOR
-                ? (i.GEditorOptions.guideLineColor = l.DESIGNER.GUIDELINE_COLOR)
-                : (i.GEditorOptions.guideLineColor =
+                ? (GTools.GEditorOptions.guideLineColor = l.DESIGNER.GUIDELINE_COLOR)
+                : (GTools.GEditorOptions.guideLineColor =
                     "light" === e
-                      ? new a.GRGBColor([107, 156, 228])
-                      : new a.GRGBColor([227, 0, 97])),
+                      ? new GCore.GRGBColor([107, 156, 228])
+                      : new GCore.GRGBColor([227, 0, 97])),
                 l.DESIGNER.GUIDELINEHINT_COLOR
-                  ? (i.GEditorOptions.guideLineHintColor =
+                  ? (GTools.GEditorOptions.guideLineHintColor =
                       l.DESIGNER.GUIDELINEHINT_COLOR)
-                  : (i.GEditorOptions.guideLineHintColor =
+                  : (GTools.GEditorOptions.guideLineHintColor =
                       "light" === e ? "blue" : "#F790B6"),
                 l.DESIGNER.DISTANCEHELPER_COLOR &&
-                  (i.GEditorOptions.distanceHelperColor =
+                  (GTools.GEditorOptions.distanceHelperColor =
                     l.DESIGNER.DISTANCEHELPER_COLOR),
                 l.DESIGNER.HIGHLIGHTOUTLINE_COLOR &&
-                  (a.GPaintContext.prototype.highlightOutlineColor =
-                    new a.GRGBColor([197, 17, 98]));
+                  (GCore.GPaintContext.prototype.highlightOutlineColor =
+                    new GCore.GRGBColor([197, 17, 98]));
               for (var n = 0; n < t.length; ++n) {
-                var o = t[n].getView();
-                o && (o.setRulers(!o.hasRulers()), o.setRulers(!o.hasRulers()));
+                var _interopRequireDefault = t[n].getView();
+                _interopRequireDefault && (_interopRequireDefault.setRulers(!_interopRequireDefault.hasRulers()), _interopRequireDefault.setRulers(!_interopRequireDefault.hasRulers()));
               }
               this._updateTheme();
             }.bind(this)
@@ -2226,21 +2226,21 @@ function (exports, module, require) {
         var e = this._windows.getActiveWindow();
         e &&
           e.getView() &&
-          r.GPlatform.scheduleFrame(
+          GEditor.GPlatform.scheduleFrame(
             function () {
-              var t = a.GRGBColor.BLACK,
+              var t = GCore.GRGBColor.BLACK,
                 n = getComputedStyle(
                   this._windows.getHtmlElement()[0]
                 ).getPropertyValue("background-color"),
-                o = a.GRGBColor.fromCSSColor(n);
-              if (o) {
-                var i = o.toScreen();
+                _interopRequireDefault = GCore.GRGBColor.fromCSSColor(n);
+              if (_interopRequireDefault) {
+                var GTools = _interopRequireDefault.toScreen();
                 t =
-                  (299 * i[0] + 587 * i[1] + 114 * i[2]) / 1e3 >= 128
-                    ? a.GRGBColor.BLACK
-                    : a.GRGBColor.WHITE;
+                  (299 * GTools[0] + 587 * GTools[1] + 114 * GTools[2]) / 1e3 >= 128
+                    ? GCore.GRGBColor.BLACK
+                    : GCore.GRGBColor.WHITE;
               }
-              (a.GPaintContext.prototype.labelColor = t),
+              (GCore.GPaintContext.prototype.labelColor = t),
                 e && e.getView() && e.getView().invalidate();
             }.bind(this)
           ),
@@ -2250,26 +2250,26 @@ function (exports, module, require) {
         let { saveToSessionHistory: exports = true } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         var t = "";
-        let require = ke.DESIGNER.TITLE;
-        var o =
-          gContainer.getRuntime() === Z.Runtime.Browser ||
-          gContainer.getRuntime() === Z.Runtime.PWA;
-        o && exports && window.history.pushState(null, "Title", "/");
-        var i = this.getWindows().getActiveWindow();
-        if (i) {
-          t = i.getTitle() + " - ";
-          let e = i.getDocument();
+        let require = AppSettings2.DESIGNER.TITLE;
+        var _interopRequireDefault =
+          gContainer.getRuntime() === GContainer.Runtime.Browser ||
+          gContainer.getRuntime() === GContainer.Runtime.PWA;
+        _interopRequireDefault && exports && window.history.pushState(null, "Title", "/");
+        var GTools = this.getWindows().getActiveWindow();
+        if (GTools) {
+          t = GTools.getTitle() + " - ";
+          let e = GTools.getDocument();
           if (
             (e &&
               e.getOwner() &&
               !e.isDocumentFromTemplate() &&
               ((require = ""),
-              (t = a.GLocale.get(
-                new a.GLocaleKey("GDesigner", "text.design-by")
+              (t = GCore.GLocale.get(
+                new GCore.GLocaleKey("GDesigner", "text.design-by")
               )
                 .replace("%name", e.getOwner().name)
-                .replace("%appname", ke.DESIGNER.TITLE))),
-            o)
+                .replace("%appname", AppSettings2.DESIGNER.TITLE))),
+            _interopRequireDefault)
           ) {
             let t = e.getStorageItem();
             e &&
@@ -2308,7 +2308,7 @@ function (exports, module, require) {
                       )));
           }
         }
-        (t += require), (document.title = (0, u.decodeHTML)(t));
+        (t += require), (document.title = (0, CollaborationMergeUtils.decodeHTML)(t));
       }),
       (Je.prototype.addNotification = function (e, t) {
         this.hasEventListeners(de) && this.trigger(new de(e, t));
@@ -2316,109 +2316,109 @@ function (exports, module, require) {
       (Je.prototype._shortcutToMouseTrapShortcut = function (e) {
         for (var module = "", require = 0; require < e.length; ++require) {
           require > 0 && (module += "+");
-          var o = e[require];
-          if ("number" == typeof o)
-            switch ((o = r.GKey.transformKey(o))) {
-              case r.GKey.Constant.SPACE:
+          var _interopRequireDefault = e[require];
+          if ("number" == typeof _interopRequireDefault)
+            switch ((_interopRequireDefault = GEditor.GKey.transformKey(_interopRequireDefault))) {
+              case GEditor.GKey.Constant.SPACE:
                 module += "space";
                 break;
-              case r.GKey.Constant.ENTER:
+              case GEditor.GKey.Constant.ENTER:
                 module += "enter";
                 break;
-              case r.GKey.Constant.TAB:
+              case GEditor.GKey.Constant.TAB:
                 module += "tab";
                 break;
-              case r.GKey.Constant.BACKSPACE:
+              case GEditor.GKey.Constant.BACKSPACE:
                 module += "backspace";
                 break;
-              case r.GKey.Constant.CONTROL:
+              case GEditor.GKey.Constant.CONTROL:
                 module += "ctrl";
                 break;
-              case r.GKey.Constant.SHIFT:
+              case GEditor.GKey.Constant.SHIFT:
                 module += "shift";
                 break;
-              case r.GKey.Constant.ALT_LEFT:
-              case r.GKey.Constant.ALT_RIGHT:
+              case GEditor.GKey.Constant.ALT_LEFT:
+              case GEditor.GKey.Constant.ALT_RIGHT:
                 module += "alt";
                 break;
-              case r.GKey.Constant.LEFT:
+              case GEditor.GKey.Constant.LEFT:
                 module += "left";
                 break;
-              case r.GKey.Constant.UP:
+              case GEditor.GKey.Constant.UP:
                 module += "up";
                 break;
-              case r.GKey.Constant.RIGHT:
+              case GEditor.GKey.Constant.RIGHT:
                 module += "right";
                 break;
-              case r.GKey.Constant.DOWN:
+              case GEditor.GKey.Constant.DOWN:
                 module += "down";
                 break;
-              case r.GKey.Constant.PAGE_UP:
+              case GEditor.GKey.Constant.PAGE_UP:
                 module += "pageup";
                 break;
-              case r.GKey.Constant.PAGE_DOWN:
+              case GEditor.GKey.Constant.PAGE_DOWN:
                 module += "pagedown";
                 break;
-              case r.GKey.Constant.HOME:
+              case GEditor.GKey.Constant.HOME:
                 module += "home";
                 break;
-              case r.GKey.Constant.END:
+              case GEditor.GKey.Constant.END:
                 module += "end";
                 break;
-              case r.GKey.Constant.INSERT:
+              case GEditor.GKey.Constant.INSERT:
                 module += "ins";
                 break;
-              case r.GKey.Constant.DELETE:
+              case GEditor.GKey.Constant.DELETE:
                 module += "del";
                 break;
-              case r.GKey.Constant.COMMAND:
+              case GEditor.GKey.Constant.COMMAND:
                 module += "meta";
                 break;
-              case r.GKey.Constant.F1:
+              case GEditor.GKey.Constant.F1:
                 module += "f1";
                 break;
-              case r.GKey.Constant.F2:
+              case GEditor.GKey.Constant.F2:
                 module += "f2";
                 break;
-              case r.GKey.Constant.F3:
+              case GEditor.GKey.Constant.F3:
                 module += "f3";
                 break;
-              case r.GKey.Constant.F4:
+              case GEditor.GKey.Constant.F4:
                 module += "f4";
                 break;
-              case r.GKey.Constant.F5:
+              case GEditor.GKey.Constant.F5:
                 module += "f5";
                 break;
-              case r.GKey.Constant.F6:
+              case GEditor.GKey.Constant.F6:
                 module += "f6";
                 break;
-              case r.GKey.Constant.F7:
+              case GEditor.GKey.Constant.F7:
                 module += "f7";
                 break;
-              case r.GKey.Constant.F8:
+              case GEditor.GKey.Constant.F8:
                 module += "f8";
                 break;
-              case r.GKey.Constant.F9:
+              case GEditor.GKey.Constant.F9:
                 module += "f9";
                 break;
-              case r.GKey.Constant.F10:
+              case GEditor.GKey.Constant.F10:
                 module += "f10";
                 break;
-              case r.GKey.Constant.F11:
+              case GEditor.GKey.Constant.F11:
                 module += "f11";
                 break;
-              case r.GKey.Constant.F12:
+              case GEditor.GKey.Constant.F12:
                 module += "f12";
                 break;
               default:
                 throw new Error("Unknown key code");
             }
-          else module += o.toLowerCase();
+          else module += _interopRequireDefault.toLowerCase();
         }
         return module;
       }),
       (Je.prototype.isGravitIME = function (e) {
-        return e && e.className === r.GSceneWidget.GRAVIT_IME;
+        return e && e.className === GEditor.GSceneWidget.GRAVIT_IME;
       }),
       (Je.prototype.hasModifiedDocuments = function () {
         for (var exports = false, module = this.getDocuments(), require = 0; require < module.length; ++require)
@@ -2447,7 +2447,7 @@ function (exports, module, require) {
         );
       }),
       (Je.prototype.getCanvasCenter = function () {
-        var e = a.GPaintCanvas.getScreenDPI(),
+        var e = GCore.GPaintCanvas.getScreenDPI(),
           t = this.getCanvasWidth() / 2,
           n = this.getCanvasHeight() / 2;
         return (
@@ -2456,7 +2456,7 @@ function (exports, module, require) {
               ? $("#left-sidebars").width()
               : 0),
           (n += this.getHeader().getHeight() + this.getToolbar().getHeight()),
-          new a.GPoint(t * e, n * e)
+          new GCore.GPoint(t * e, n * e)
         );
       }),
       (Je.prototype.getStylePreview = function (e, t) {
@@ -2467,54 +2467,54 @@ function (exports, module, require) {
           : this.createNewStylePreview(e, true, t);
       }),
       (Je.prototype.createStyleElement = function (e, t) {
-        var n = new a.GRectangle(0, 0, 50, 50);
+        var n = new GCore.GRectangle(0, 0, 50, 50);
         if (
           t &&
-          $.inArray(a.GStylable.PropertySet.Text, e.getProperty("ps")) >= 0
+          $.inArray(GCore.GStylable.PropertySet.Text, e.getProperty("ps")) >= 0
         ) {
-          var o = new a.GText();
-          o.setText("Ab"),
-            o.assignStyleFrom(e),
-            o.setProperty("_tfi", "20"),
-            o.setBounds(7, 10, 50, 50),
-            n.appendChild(o);
+          var _interopRequireDefault = new GCore.GText();
+          _interopRequireDefault.setText("Ab"),
+            _interopRequireDefault.assignStyleFrom(e),
+            _interopRequireDefault.setProperty("_tfi", "20"),
+            _interopRequireDefault.setBounds(7, 10, 50, 50),
+            n.appendChild(_interopRequireDefault);
         } else
           n.assignStyleFrom(e),
             $.inArray(
-              a.GStylable.PropertySet.FillPaintLayers,
+              GCore.GStylable.PropertySet.FillPaintLayers,
               e.getProperty("ps")
             ) < 0 &&
               $.inArray(
-                a.GStylable.PropertySet.BorderPaintLayers,
+                GCore.GStylable.PropertySet.BorderPaintLayers,
                 e.getProperty("ps")
               ) < 0 &&
               n
                 .getPaintLayers()
                 .appendChild(
-                  new a.GStylable.FillPaintLayer(
-                    new a.GRGBColor([235, 235, 235]),
+                  new GCore.GStylable.FillPaintLayer(
+                    new GCore.GRGBColor([235, 235, 235]),
                     1
                   )
                 );
         return n;
       }),
       (Je.prototype.createNewStylePreview = function (e, t, n) {
-        var o = this.createStyleElement(e, false),
-          i = this.createStyleElement(e, true);
+        var _interopRequireDefault = this.createStyleElement(e, false),
+          GTools = this.createStyleElement(e, true);
         if (!gDesigner.getActiveDocument()) return null;
-        var r = gDesigner.getActiveDocument().getEditor().getSelection() || [];
-        r.length > 0 && r[0].appendChild(i);
-        var s = o.toBitmap().toImageDataUrl(a.GBitmap.ImageType.PNG),
-          l = i.toBitmap().toImageDataUrl(a.GBitmap.ImageType.PNG);
+        var GEditor = gDesigner.getActiveDocument().getEditor().getSelection() || [];
+        GEditor.length > 0 && GEditor[0].appendChild(GTools);
+        var AppSettings = _interopRequireDefault.toBitmap().toImageDataUrl(GCore.GBitmap.ImageType.PNG),
+          l = GTools.toBitmap().toImageDataUrl(GCore.GBitmap.ImageType.PNG);
         return (
-          r.length > 0 && r[0].removeChild(i),
+          GEditor.length > 0 && GEditor[0].removeChild(GTools),
           t &&
             (this._stylesPreview[e.getReferenceId()] = {
-              preview: o,
-              bitmap: s,
+              preview: _interopRequireDefault,
+              bitmap: AppSettings,
               textBitmap: l,
             }),
-          n ? l : s
+          n ? l : AppSettings
         );
       }),
       (Je.prototype.setVersion = function (e) {
@@ -2560,23 +2560,23 @@ function (exports, module, require) {
           this.executeWhenReady(() => {
             this.updateRecentDocumentsAction();
           }),
-            (i.GEditorOptions.userConfig = {
+            (GTools.GEditorOptions.userConfig = {
               userName: module.getFullUserName(),
               uid: module.getUID(),
             });
         else {
-          const e = a.GLocale.get(
-              new a.GLocaleKey("GCommonNames", "text.anonymous-user")
+          const e = GCore.GLocale.get(
+              new GCore.GLocaleKey("GCommonNames", "text.anonymous-user")
             ),
             n = (module && module.getFullUserName()) || e;
-          i.GEditorOptions.userConfig = { userName: n, uid: -1 };
+          GTools.GEditorOptions.userConfig = { userName: n, uid: -1 };
         }
       }),
       (Je.prototype._userPropertiesChangedEvent = function (e) {
         const { user: module } = e;
         module &&
           module.getUID() &&
-          (i.GEditorOptions.userConfig = {
+          (GTools.GEditorOptions.userConfig = {
             userName: module.getFullUserName(),
             uid: module.getUID(),
           });
@@ -2587,18 +2587,18 @@ function (exports, module, require) {
       (Je.prototype._updateDataLayerWithLicenseData = function () {
         if (this._user && "undefined" != typeof dataLayer) {
           dataLayer.push({ userType: this.getSubscriberUserType() });
-          const r = this.getLicense();
-          var exports = r.getExpirationDate() || new Date(0),
+          const GEditor = this.getLicense();
+          var exports = GEditor.getExpirationDate() || new Date(0),
             module = Math.floor(exports.getTime() / 1e3),
-            require = r.getCreationDate() || new Date(0),
-            o = Math.floor(require.getTime() / 1e3),
-            i = s.DateAPI.diff(require, exports),
-            a = s.DateAPI.millisecondsToDays(i);
-          s.DateAPI.eq(require, new Date(0)) && (o = "0000000000"),
-            s.DateAPI.eq(exports, new Date(0)) && ((a = 0), (module = "0000000000")),
+            require = GEditor.getCreationDate() || new Date(0),
+            _interopRequireDefault = Math.floor(require.getTime() / 1e3),
+            GTools = AppSettings.DateAPI.diff(require, exports),
+            GCore = AppSettings.DateAPI.millisecondsToDays(GTools);
+          AppSettings.DateAPI.eq(require, new Date(0)) && (_interopRequireDefault = "0000000000"),
+            AppSettings.DateAPI.eq(exports, new Date(0)) && ((GCore = 0), (module = "0000000000")),
             dataLayer.push({ expirationDate: module }),
-            dataLayer.push({ licenseDuration: a }),
-            dataLayer.push({ creationDate: o });
+            dataLayer.push({ licenseDuration: GCore }),
+            dataLayer.push({ creationDate: _interopRequireDefault });
         }
       }),
       (Je.prototype._licenseChangedEvent = async function (e) {
@@ -2614,25 +2614,25 @@ function (exports, module, require) {
             !this.isEnabledProFeatures("offline") &&
             this.reload({
               icon: "clock",
-              title: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.license-offline-title")
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.license-offline-title")
               ),
-              subtitle: a.GLocale.get(
-                new a.GLocaleKey(
+              subtitle: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GCommonNames",
                   "text.license-offline-subtitle"
                 )
               ),
-              footer: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.license-offline-footer")
+              footer: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.license-offline-footer")
               )
                 .replace(
                   "%close",
                   $("<span/>")
                     .addClass("link")
                     .text(
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GCommonNames",
                           "text.license-offline-footer-highlight"
                         )
@@ -2643,7 +2643,7 @@ function (exports, module, require) {
                 .replace("%time", 5),
               buttons: [
                 {
-                  label: a.GLocale.get(new a.GLocaleKey("GLocale", "ok")),
+                  label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")),
                   onclick: (e) => e.gDialog("close"),
                 },
               ],
@@ -2684,8 +2684,8 @@ function (exports, module, require) {
           if (this.getDocuments().some((e) => e.isModified()))
             return (
               ee.alert(
-                a.GLocale.get(
-                  new a.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     "text.save-before-logging-out"
                   )
@@ -2697,7 +2697,7 @@ function (exports, module, require) {
         return (
           Ce.clear(),
           new Promise(async (e, n) => {
-            await (0, u._tryAndCatch)(() => Oe.signout()),
+            await (0, CollaborationMergeUtils._tryAndCatch)(() => Oe.signout()),
               (this._user = null),
               this.hasEventListeners(le) && this.trigger(new le(null)),
               this.isEnabledSubscriptions() &&
@@ -2713,24 +2713,24 @@ function (exports, module, require) {
         let {
           title: module,
           subtitle: require,
-          icon: o,
-          footer: i,
-          buttons: a,
-          attachTimer: r,
+          icon: _interopRequireDefault,
+          footer: GTools,
+          buttons: GCore,
+          attachTimer: GEditor,
         } = e;
         this._initialized &&
           (this._reloading ||
             ((this._reloading = true),
             ee
               .custom({
-                icon: o,
+                icon: _interopRequireDefault,
                 title: module,
                 subtitle: require,
-                footer: i,
-                buttons: a,
+                footer: GTools,
+                buttons: GCore,
                 closeCallback: () => {
                   const e = this.createCountdown(() => this.signout(true), 3e5);
-                  r && r(e);
+                  GEditor && GEditor(e);
                 },
               })
               .css({ zIndex: 9999 })));
@@ -2743,35 +2743,35 @@ function (exports, module, require) {
       }),
       (Je.prototype.createCountdown = function (e, t) {
         let require = null;
-        const o = s.DateAPI.addTime(new Date(), t),
-          i = setInterval(() => {
-            const e = o - Date.now();
-            if (e < 0) return clearInterval(i), void (require && require.remove());
+        const _interopRequireDefault = AppSettings.DateAPI.addTime(new Date(), t),
+          GTools = setInterval(() => {
+            const e = _interopRequireDefault - Date.now();
+            if (e < 0) return clearInterval(GTools), void (require && require.remove());
             const t = Math.floor((e % 36e5) / 6e4),
-              r = Math.floor((e % 6e4) / 1e3);
+              GEditor = Math.floor((e % 6e4) / 1e3);
             require ||
               (require = $("<time></time>")
-                .attr("data-interval", i)
+                .attr("data-interval", GTools)
                 .addClass("g-timer")
                 .appendTo($("body"))),
               require.text(
-                a.GLocale.get(
-                  new a.GLocaleKey("GCommonNames", "text.countdown-timer")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GCommonNames", "text.countdown-timer")
                 )
                   .replace("%minutes", t)
-                  .replace("%seconds", r)
+                  .replace("%seconds", GEditor)
               );
           }, 1e3);
-        let r = null;
-        return e && (r = setTimeout(e, t)), { intervalID: i, timeoutID: r };
+        let GEditor = null;
+        return e && (GEditor = setTimeout(e, t)), { intervalID: GTools, timeoutID: GEditor };
       }),
       (Je.prototype.openDeactivatedUserDialog = async function (e) {
         const module = $(
           "<div>".concat(
-            a.GLocale.get(
-              new a.GLocaleKey("GDocument", "text.account-deactivated")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GDocument", "text.account-deactivated")
             )
-              .replace("%app", ke.DESIGNER.TITLE)
+              .replace("%app", AppSettings2.DESIGNER.TITLE)
               .replace("%name", e.getFullUserName() || e.getEmail()),
             "</div>"
           )
@@ -2796,8 +2796,8 @@ function (exports, module, require) {
         return new Promise(async (e, t) => {
           let require = await this.getCloudCommunicationManager().getUser();
           this._anonymous = !!require && require.isAnonymous();
-          let o = await this.isOfflineAsync();
-          if (!require && o) {
+          let _interopRequireDefault = await this.isOfflineAsync();
+          if (!require && _interopRequireDefault) {
             const e = Ce.getUser();
             e && (require = new $e(e));
           }
@@ -2818,7 +2818,7 @@ function (exports, module, require) {
               if (!require || (this._user && $e.equals(this._user, require))) {
                 if (this._user && require && !require.isDeactivated()) {
                   const e = { stats: undefined };
-                  a.GUtil.equals(
+                  GCore.GUtil.equals(
                     Object.assign({}, this._user, e),
                     Object.assign({}, require, e),
                     true
@@ -2838,20 +2838,20 @@ function (exports, module, require) {
                   this._updateDataLayerWithLicenseData(),
                   dataLayer.push({ event: "USER_LOGGED_EVENT" })),
                   this.hasEventListeners(le) && this.trigger(new le(require));
-            var i;
+            var GTools;
             this._user &&
               require &&
               this._user.getUID() === require.getUID() &&
-              (i = this._user.stats),
+              (GTools = this._user.stats),
               (this._user = require),
-              this._user && !o && Ce.updateUser(this._user),
-              i && (this._user.stats = i),
+              this._user && !_interopRequireDefault && Ce.updateUser(this._user),
+              GTools && (this._user.stats = GTools),
               e(this._user);
           } else e(null);
         });
       }),
-      (Je.prototype.stats = function (e, t, n, o) {
-        return y.default.pageStats(e, t, this._user, n, o);
+      (Je.prototype.stats = function (e, t, n, _interopRequireDefault) {
+        return y.default.pageStats(e, t, this._user, n, _interopRequireDefault);
       }),
       (Je.prototype.pageTracking = function (e, t) {
         return y.default.pageTracking(e, t);
@@ -2869,7 +2869,7 @@ function (exports, module, require) {
       }),
       (Je.prototype.saveStats = function () {
         if (this._user && this._user.stats) {
-          var exports = Ue.toMD5(JSON.stringify(this._user.stats || ""));
+          var exports = CollaborationMergeUtils2.toMD5(JSON.stringify(this._user.stats || ""));
           Ye !== exports && (Oe.updateUser({ stats: this._user.stats }), (Ye = exports));
         }
       }),
@@ -2889,26 +2889,26 @@ function (exports, module, require) {
       }),
       (Je.prototype.zoomAtViewCenter = function (e, t) {
         var n,
-          o,
-          i = this.getActiveDocument();
-        if (!i || !(o = i.getEditor().getSelectionBBox())) {
+          _interopRequireDefault,
+          GTools = this.getActiveDocument();
+        if (!GTools || !(_interopRequireDefault = GTools.getEditor().getSelectionBBox())) {
           n = true;
-          var r = e.getScene();
-          r && (o = r.getPaintBBox());
+          var GEditor = e.getScene();
+          GEditor && (_interopRequireDefault = GEditor.getPaintBBox());
         }
-        var s =
-          o && !o.isEmpty()
-            ? o.getSide(a.GRect.Side.CENTER)
-            : new a.GPoint(0, 0);
+        var AppSettings =
+          _interopRequireDefault && !_interopRequireDefault.isEmpty()
+            ? _interopRequireDefault.getSide(GCore.GRect.Side.CENTER)
+            : new GCore.GPoint(0, 0);
         if (n && !e.getViewConfiguration().multiPageView) {
           var l = e.getViewTransform().mapPoint(this.getCanvasCenter());
-          isNaN(l.getX()) || isNaN(l.getY()) || (s = l);
+          isNaN(l.getX()) || isNaN(l.getY()) || (AppSettings = l);
         }
         if (e.getViewConfiguration().multiPageView) {
           var c = e.getScene().getActivePage();
-          c && (s = s.add(c.getPosition(true)));
+          c && (AppSettings = AppSettings.add(c.getPosition(true)));
         }
-        e.zoomAtCenter(s, t);
+        e.zoomAtCenter(AppSettings, t);
       }),
       (Je.prototype.handleUnsavedDocuments = function () {
         return gDesigner.hasModifiedDocuments()
@@ -2920,11 +2920,11 @@ function (exports, module, require) {
                     () =>
                       new Promise(async (e, n) => {
                         this.canUnloadDocument(t)
-                          .then((o) => {
-                            o
+                          .then((_interopRequireDefault) => {
+                            _interopRequireDefault
                               ? e()
                               : this.executeAction(
-                                  Pe.ID,
+                                  GSaveAction.ID,
                                   [
                                     t,
                                     function () {
@@ -2933,8 +2933,8 @@ function (exports, module, require) {
                                         undefined !== arguments[0]
                                           ? arguments[0]
                                           : {};
-                                      const { documentStatus: o = null } = t;
-                                      o && o === De.SaveCancelled ? n(t) : e();
+                                      const { documentStatus: _interopRequireDefault = null } = t;
+                                      _interopRequireDefault && _interopRequireDefault === De.SaveCancelled ? n(t) : e();
                                     },
                                   ],
                                   "unsavedhandler"
@@ -2952,20 +2952,20 @@ function (exports, module, require) {
       (Je.prototype.canUnloadDocument = function (e) {
         let { changeActiveDocument: module = true } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        return new Promise((n, o) => {
+        return new Promise((n, _interopRequireDefault) => {
           if (!e.isModified() && !e.isSynchronizing()) return n(true);
           module && this.getActiveDocument() !== e && this.activateDocument(e),
-            gDesigner.canExecuteAction(Pe.ID, [e]) || n(true),
+            gDesigner.canExecuteAction(GSaveAction.ID, [e]) || n(true),
             ee.advanced({
-              title: a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.document-modified")
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.document-modified")
               ).replace("%title", e.getTitle()),
               closeCallback: (e) =>
-                e && o({ documentStatus: De.SaveCancelled }),
+                e && _interopRequireDefault({ documentStatus: De.SaveCancelled }),
               buttons: [
                 {
-                  label: a.GLocale.get(
-                    new a.GLocaleKey("GCommonNames", "text.dont-save")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.dont-save")
                   ),
                   onclick: () => {
                     n(true);
@@ -2975,23 +2975,23 @@ function (exports, module, require) {
                   shortcut: "n",
                 },
                 {
-                  label: a.GLocale.get(
-                    new a.GLocaleKey("GCommonNames", "text.cancel")
+                  label: GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.cancel")
                   ),
-                  onclick: () => o({ documentStatus: De.SaveCancelled }),
+                  onclick: () => _interopRequireDefault({ documentStatus: De.SaveCancelled }),
                   closeOnClick: true,
                   shortcut: "esc",
                 },
                 {
                   label:
-                    a.GLocale.get(
-                      new a.GLocaleKey("GCommonNames", "text.save")
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey("GCommonNames", "text.save")
                     ) + "...",
                   onclick: () => {
                     n(false);
                   },
                   shortcut: this._shortcutToMouseTrapShortcut(
-                    r.GKey.Constant.ENTER
+                    GEditor.GKey.Constant.ENTER
                   ),
                   highlighted: true,
                   closeOnClick: true,
@@ -3002,31 +3002,31 @@ function (exports, module, require) {
       }),
       (Je.prototype.exportSwatches = function (e) {
         for (
-          var module = this.getAllSwatches(e), require = new a.GSwatches(), o = 0;
-          o < module.length;
-          ++o
+          var module = this.getAllSwatches(e), require = new GCore.GSwatches(), _interopRequireDefault = 0;
+          _interopRequireDefault < module.length;
+          ++_interopRequireDefault
         ) {
-          var i = module[o].clone();
-          require.appendChild(i);
+          var GTools = module[_interopRequireDefault].clone();
+          require.appendChild(GTools);
         }
-        var r = pako.gzip(a.GNode.serialize(require), { level: 9 }),
-          s = this.getDefaultStorage();
-        if (s.canPromptSave())
-          s.savePrompt(
+        var GEditor = pako.gzip(GCore.GNode.serialize(require), { level: 9 }),
+          AppSettings = this.getDefaultStorage();
+        if (AppSettings.canPromptSave())
+          AppSettings.savePrompt(
             null,
             [{ ext: "gvswatch", mime: "application/gzip" }],
             (e) => {
               e.setSaveCounterMeasureEnabled(true),
-                e.write(r),
+                e.write(GEditor),
                 e.setSaveCounterMeasureEnabled(false);
             },
             null
           );
-        else if (s.canDownload()) {
-          s.download("Swatches.gvswatch", (e) => {
+        else if (AppSettings.canDownload()) {
+          AppSettings.download("Swatches.gvswatch", (e) => {
             e &&
               (e.setSaveCounterMeasureEnabled(true),
-              e.write(r),
+              e.write(GEditor),
               e.setSaveCounterMeasureEnabled(false));
           });
         }
@@ -3040,30 +3040,30 @@ function (exports, module, require) {
             t.read((t) => {
               try {
                 for (
-                  var o = this.getAllSwatches(e),
-                    i = a.GNode.deserialize(pako.ungzip(t, { to: "string" })),
-                    r = [],
-                    s = i.getFirstChild();
-                  null !== s;
-                  s = s.getNext()
+                  var _interopRequireDefault = this.getAllSwatches(e),
+                    GTools = GCore.GNode.deserialize(pako.ungzip(t, { to: "string" })),
+                    GEditor = [],
+                    AppSettings = GTools.getFirstChild();
+                  null !== AppSettings;
+                  AppSettings = AppSettings.getNext()
                 ) {
-                  for (var l = true, c = 0; c < o.length; ++c)
-                    if (a.GUtil.equals(s, o[c])) {
+                  for (var l = true, c = 0; c < _interopRequireDefault.length; ++c)
+                    if (GCore.GUtil.equals(AppSettings, _interopRequireDefault[c])) {
                       l = false;
                       break;
                     }
-                  l && r.push(s.clone());
+                  l && GEditor.push(AppSettings.clone());
                 }
-                if (((o = o.concat(r)), n)) this.setSwatches(e, o, true);
+                if (((_interopRequireDefault = _interopRequireDefault.concat(GEditor)), n)) this.setSwatches(e, _interopRequireDefault, true);
                 else {
-                  for (c = 0; c < r.length; ++c) this._addGlobalSwatch(r[c]);
+                  for (c = 0; c < GEditor.length; ++c) this._addGlobalSwatch(GEditor[c]);
                   this.setSwatches(e, this._swatches[e]);
                 }
               } catch (e) {
                 console.warn("error importing swatches: " + e),
                   ee.alert(
-                    a.GLocale.get(
-                      new a.GLocaleKey(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey(
                         "GCommonNames",
                         "text.fail-import-swatch"
                       )
@@ -3080,49 +3080,49 @@ function (exports, module, require) {
       }),
       (Je.prototype.calculateFontsSize = function (e) {
         var t = this;
-        return new Promise(function (n, o) {
-          var i = {},
-            a = function (e) {
-              return new Promise(function (n, o) {
-                var a = new XMLHttpRequest();
-                a.open("HEAD", t.getAssetsURL() + "" + e, true),
-                  (a.onload = function () {
+        return new Promise(function (n, _interopRequireDefault) {
+          var GTools = {},
+            GCore = function (e) {
+              return new Promise(function (n, _interopRequireDefault) {
+                var GCore = new XMLHttpRequest();
+                GCore.open("HEAD", t.getAssetsURL() + "" + e, true),
+                  (GCore.onload = function () {
                     this.status >= 200 && this.status < 400
-                      ? ((i[e] = parseInt(
-                          a.getResponseHeader("Content-Length")
+                      ? ((GTools[e] = parseInt(
+                          GCore.getResponseHeader("Content-Length")
                         )),
                         n())
-                      : o({ status: this.status, statusText: a.statusText });
+                      : _interopRequireDefault({ status: this.status, statusText: GCore.statusText });
                   }),
-                  (a.onerror = function () {
-                    o({ status: this.status, statusText: a.statusText });
+                  (GCore.onerror = function () {
+                    _interopRequireDefault({ status: this.status, statusText: GCore.statusText });
                   }),
-                  a.send();
+                  GCore.send();
               });
             },
-            r = [];
+            GEditor = [];
           e.forEach((e) => {
-            r.push(a(e.preview));
-            for (var t = 0; t < e.fonts.length; ++t) r.push(a(e.fonts[t].url));
+            GEditor.push(GCore(e.preview));
+            for (var t = 0; t < e.fonts.length; ++t) GEditor.push(GCore(e.fonts[t].url));
           }),
-            Promise.all(r).then(
+            Promise.all(GEditor).then(
               () => {
-                n(i);
+                n(GTools);
               },
               (e) => {
-                o(e);
+                _interopRequireDefault(e);
               }
             );
         });
       }),
       (Je.prototype.downloadFonts = function (e, t) {
         var n = this,
-          o = 0,
-          i = {},
-          r = Object.keys(t);
-        if (r.length) {
-          for (var s = 0, l = 0; l < r.length; ++l) s += t[r[l]];
-          o = s;
+          _interopRequireDefault = 0,
+          GTools = {},
+          GEditor = Object.keys(t);
+        if (GEditor.length) {
+          for (var AppSettings = 0, l = 0; l < GEditor.length; ++l) AppSettings += t[GEditor[l]];
+          _interopRequireDefault = AppSettings;
         }
         $("#right-sidebars").find(".fonts-download-progress").remove();
         var c = $("<div/>")
@@ -3130,8 +3130,8 @@ function (exports, module, require) {
             .append(
               $("<span/>")
                 .text(
-                  a.GLocale.get(
-                    new a.GLocaleKey("GCommonNames", "text.downloading-fonts")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GCommonNames", "text.downloading-fonts")
                   )
                 )
                 .addClass("info")
@@ -3142,8 +3142,8 @@ function (exports, module, require) {
             c
               .find(".info")
               .text(
-                a.GLocale.get(
-                  new a.GLocaleKey(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GCommonNames",
                     e ? "text.fonts-downloaded" : "text.error-downloading"
                   )
@@ -3160,51 +3160,51 @@ function (exports, module, require) {
                   })
               );
           };
-        return new Promise(function (t, a) {
-          var r = [];
+        return new Promise(function (t, GCore) {
+          var GEditor = [];
           try {
-            var s = function (e) {
-                return new Promise(function (t, a) {
-                  var r = new XMLHttpRequest();
-                  r.open("GET", n.getAssetsURL() + "" + e, true),
-                    (r.responseType = "blob"),
-                    (r.onprogress = function (t) {
-                      (i[e] = t.loaded),
+            var AppSettings = function (e) {
+                return new Promise(function (t, GCore) {
+                  var GEditor = new XMLHttpRequest();
+                  GEditor.open("GET", n.getAssetsURL() + "" + e, true),
+                    (GEditor.responseType = "blob"),
+                    (GEditor.onprogress = function (t) {
+                      (GTools[e] = t.loaded),
                         (function () {
-                          let e = Object.keys(i);
+                          let e = Object.keys(GTools);
                           if (e.length) {
                             let n = 0;
-                            for (var t = 0; t < e.length; ++t) n += i[e[t]];
-                            let a = Math.round((n / o) * 100);
+                            for (var t = 0; t < e.length; ++t) n += GTools[e[t]];
+                            let GCore = Math.round((n / _interopRequireDefault) * 100);
                             c.find(".count").text(
-                              " (" + (a < 100 ? a : 100) + "%)"
+                              " (" + (GCore < 100 ? GCore : 100) + "%)"
                             );
                           }
                         })();
                     }),
-                    (r.onload = function () {
+                    (GEditor.onload = function () {
                       this.status >= 200 && this.status < 400
-                        ? t({ blob: r.response, url: e })
-                        : a({ status: this.status, statusText: r.statusText });
+                        ? t({ blob: GEditor.response, url: e })
+                        : GCore({ status: this.status, statusText: GEditor.statusText });
                     }),
-                    (r.onerror = function () {
-                      a({ status: this.status, statusText: r.statusText });
+                    (GEditor.onerror = function () {
+                      GCore({ status: this.status, statusText: GEditor.statusText });
                     }),
-                    r.send();
+                    GEditor.send();
                 });
               },
               l = [],
-              u = function (e) {
-                r.push(e);
+              CollaborationMergeUtils = function (e) {
+                GEditor.push(e);
               },
               p = function () {
                 throw new Exception("error downloading fonts");
               };
             e.forEach((e) => {
               l.push(
-                s(e.preview)
+                AppSettings(e.preview)
                   .then(function (e) {
-                    u(e);
+                    CollaborationMergeUtils(e);
                   })
                   .catch(() => {
                     p();
@@ -3212,9 +3212,9 @@ function (exports, module, require) {
               );
               for (var t = 0; t < e.fonts.length; ++t)
                 l.push(
-                  s(e.fonts[t].url)
+                  AppSettings(e.fonts[t].url)
                     .then(function (e) {
-                      u(e);
+                      CollaborationMergeUtils(e);
                     })
                     .catch((e) => {
                       console.log(e), p();
@@ -3223,14 +3223,14 @@ function (exports, module, require) {
             }),
               Promise.all(l).then(
                 () => {
-                  d(true), t(r);
+                  d(true), t(GEditor);
                 },
                 (e) => {
-                  console.log(e), d(false), a();
+                  console.log(e), d(false), GCore();
                 }
               );
           } catch (e) {
-            console.log(e), d(false), a();
+            console.log(e), d(false), GCore();
           }
         });
       }),
@@ -3257,20 +3257,20 @@ function (exports, module, require) {
           try {
             const n = await this.getUser();
             if (0 === e.indexOf("purchase")) {
-              let o;
+              let _interopRequireDefault;
               return (
                 module.hasOwnProperty("newuser") && (this._showCreateAccount = true),
-                ke.PURCHASE.URL_TO_PRODUCT &&
-                  (o = ke.PURCHASE.URL_TO_PRODUCT[e]),
-                o &&
-                  (Object.assign(module, { productId: o }),
+                AppSettings2.PURCHASE.URL_TO_PRODUCT &&
+                  (_interopRequireDefault = AppSettings2.PURCHASE.URL_TO_PRODUCT[e]),
+                _interopRequireDefault &&
+                  (Object.assign(module, { productId: _interopRequireDefault }),
                   n
                     ? await Oe.updateUserSettings({
-                        subscription: { annual: { productId: o } },
+                        subscription: { annual: { productId: _interopRequireDefault } },
                       })
                     : gContainer.setCookie({
                         name: "_gproductid",
-                        value: o || "",
+                        value: _interopRequireDefault || "",
                         url: Oe.url,
                       })),
                 this.openPaymentDialog(null, Object.assign(module, { flow: e }))
@@ -3279,7 +3279,7 @@ function (exports, module, require) {
             if ("login_dialog" === e) this._user || Q.performLogin();
             else {
               if ("confirm_email" === e) {
-                const { confirm_email: e, flow: o } = module;
+                const { confirm_email: e, flow: _interopRequireDefault } = module;
                 return this.getCloudCommunicationManager()
                   .confirmEmail(e)
                   .then(async () => {
@@ -3289,23 +3289,23 @@ function (exports, module, require) {
                       this.executeWhenReady(() => {
                         const e = this.getLicense();
                         ee.custom({
-                          title: a.GLocale.get(
-                            new a.GLocaleKey(
+                          title: GCore.GLocale.get(
+                            new GCore.GLocaleKey(
                               "GCommonNames",
                               "text.activating-your-account"
                             )
                           ),
                           subtitle:
                             (e.isPro() || e.isTrial()) &&
-                            a.GLocale.get(
-                              new a.GLocaleKey(
+                            GCore.GLocale.get(
+                              new GCore.GLocaleKey(
                                 "GCommonNames",
                                 "text.activating-your-account-subtitle"
                               )
                             ),
                           icon: "ok",
                         }),
-                          o && "confirm_email" !== o && this.runDeepLink(o, module);
+                          _interopRequireDefault && "confirm_email" !== _interopRequireDefault && this.runDeepLink(_interopRequireDefault, module);
                       });
                   })
                   .catch((e) => {
@@ -3345,18 +3345,18 @@ function (exports, module, require) {
                   Q.activateCoupon(module.procoupon);
                 });
               else if ("annot" === e)
-                s.HAS_ANNOTATIONS &&
+                AppSettings.HAS_ANNOTATIONS &&
                   this.executeWhenReady(() => {
                     const { annot: e } = module;
                     this.setPartVisible(F.RightSidebars, true),
-                      this._rightSidebars.setActiveSidebar(D.ID);
+                      this._rightSidebars.setActiveSidebar(GAnnotationsSidebar.ID);
                   });
               else if (
-                e === Z.DeepLinking.CreateShare &&
-                "true" === module[Z.DeepLinking.CreateShare]
+                e === GContainer.DeepLinking.CreateShare &&
+                "true" === module[GContainer.DeepLinking.CreateShare]
               )
                 new h.default()
-                  .listen(Te)
+                  .listen(GApplicationStatusEvent)
                   .when(() => this._initialized)
                   .do(() => {
                     const e = (t) => {
@@ -3373,16 +3373,16 @@ function (exports, module, require) {
                     this.addEventListener(pe, e, this);
                   });
               else if (
-                e === Z.DeepLinking.ActivateTrial &&
-                module[Z.DeepLinking.ActivateTrial]
+                e === GContainer.DeepLinking.ActivateTrial &&
+                module[GContainer.DeepLinking.ActivateTrial]
               ) {
-                const e = module[Z.DeepLinking.ActivateTrial];
+                const e = module[GContainer.DeepLinking.ActivateTrial];
                 Oe.license.activateTrial(e).then(() => be.checkLicense());
               } else {
-                if (e === Z.DeepLinking.SetPassword) return new Ve().execute(module);
-                if (e === Z.DeepLinking.ResetPassword)
+                if (e === GContainer.DeepLinking.SetPassword) return new Ve().execute(module);
+                if (e === GContainer.DeepLinking.ResetPassword)
                   return new He().execute(module);
-                if (e === Z.DeepLinking.PasswordlessToken)
+                if (e === GContainer.DeepLinking.PasswordlessToken)
                   return new We().execute(module);
               }
             }
@@ -3413,11 +3413,11 @@ function (exports, module, require) {
         this.handlePROFeatureInterruption({ shareFile: true });
       }),
       (Je.prototype._applicationStatusEvent = function (e) {
-        e.status === Te.Status.Ready && (this._ready = true);
+        e.status === GApplicationStatusEvent.Status.Ready && (this._ready = true);
       }),
       (Je.prototype.executeWhenReady = function (e) {
         return new h.default()
-          .listen(Te)
+          .listen(GApplicationStatusEvent)
           .when(() => this._ready)
           .do(e);
       }),
@@ -3432,27 +3432,27 @@ function (exports, module, require) {
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return (
           this.getAmplitudeHelper().logEvent(
-            s.AmplitudeData.Events.ACCOUNT_CART_SCREEN
+            AppSettings.AmplitudeData.Events.ACCOUNT_CART_SCREEN
           ),
           gInAppPurchase.purchase(e, module)
         );
       }),
       (Je.prototype.getWebURL = function () {
-        return gContainer.getRuntime() === Z.Runtime.Browser ||
-          gContainer.getRuntime() === Z.Runtime.PWA
+        return gContainer.getRuntime() === GContainer.Runtime.Browser ||
+          gContainer.getRuntime() === GContainer.Runtime.PWA
           ? location.origin
           : gDesigner.getAssetsURL();
       }),
       (Je.prototype.getAssetsURL = function () {
         return "production" === this.getEnv()
-          ? s.prodURL
+          ? AppSettings.prodURL
           : this.isBeta()
-          ? s.betaURL
+          ? AppSettings.betaURL
           : "lts" === this.getEnv()
-          ? s.ltsURL
+          ? AppSettings.ltsURL
           : "rc" === this.getEnv()
-          ? s.rcURL
-          : "https://app-" + this.getEnv().split(".")[0] + "." + s.domain + "/";
+          ? AppSettings.rcURL
+          : "https://app-" + this.getEnv().split(".")[0] + "." + AppSettings.domain + "/";
       }),
       (Je.prototype.getTabByDocument = function (e) {
         return this.getHeader().getWindowTab(this.getWindows().getWindow(e));
@@ -3559,10 +3559,10 @@ function (exports, module, require) {
             this.toggleLoading(false);
           }
         };
-        gDesigner.isOffline() ? xe.openUnavailableFeature(exports) : exports();
+        gDesigner.isOffline() ? GOfflineDialog.openUnavailableFeature(exports) : exports();
       }),
       (Je.prototype.requestLicenseUpdate = function () {
-        let { showProOfferInTrial: exports = s.LICENSE.UPGRADEABLE } =
+        let { showProOfferInTrial: exports = AppSettings.LICENSE.UPGRADEABLE } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         return (
           we.reset("proOfferInTrial", exports ? undefined : gDesigner.now()),
@@ -3574,20 +3574,20 @@ function (exports, module, require) {
       }),
       (Je.prototype.isOffline = function (e) {
         if (!navigator.onLine) return (qe = true), (Xe = Date.now()), true;
-        const module = e || s.OFFLINE_CHECK_MIN_WAIT;
+        const module = e || AppSettings.OFFLINE_CHECK_MIN_WAIT;
         var n = !!qe;
         if (Date.now() - Xe > module) {
           n = false;
-          var o = new XMLHttpRequest();
-          o.onerror = function () {
+          var _interopRequireDefault = new XMLHttpRequest();
+          _interopRequireDefault.onerror = function () {
             console.log("OFFLINE!!!"), (n = true);
           };
           try {
-            o.open("HEAD", Oe.url + "/connection/test", false),
-              (o.withCredentials = s.CONNECTION_TEST_WITH_CREDENTIALS),
-              o.setRequestHeader("Accept", "text/plain"),
-              o.setRequestHeader("Content-Type", "text/plain"),
-              o.send();
+            _interopRequireDefault.open("HEAD", Oe.url + "/connection/test", false),
+              (_interopRequireDefault.withCredentials = AppSettings.CONNECTION_TEST_WITH_CREDENTIALS),
+              _interopRequireDefault.setRequestHeader("Accept", "text/plain"),
+              _interopRequireDefault.setRequestHeader("Content-Type", "text/plain"),
+              _interopRequireDefault.send();
           } catch (e) {
             n = true;
           }
@@ -3600,7 +3600,7 @@ function (exports, module, require) {
         if (t) {
           var require = t.getView();
           (require.getViewConfiguration().paintMode = e),
-            r.GPlatform.scheduleFrame(() => {
+            GEditor.GPlatform.scheduleFrame(() => {
               require.invalidateAndResetCache(null),
                 this.hasEventListeners(Ae) && this.trigger(new Ae(e));
             });
@@ -3614,33 +3614,33 @@ function (exports, module, require) {
           var require = this.getHeader();
           require &&
             require.showBusyIcon(
-              a.GLocale.get(
-                new a.GLocaleKey("GCommonNames", "text.checking-connectivity")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.checking-connectivity")
               )
             );
           try {
             await (() =>
-              new Promise((n, o) => {
-                let i;
-                i = this._initialized ? 3e3 : 2e4;
-                var a = new XMLHttpRequest();
-                (a.onerror = (o) => {
+              new Promise((n, _interopRequireDefault) => {
+                let GTools;
+                GTools = this._initialized ? 3e3 : 2e4;
+                var GCore = new XMLHttpRequest();
+                (GCore.onerror = (_interopRequireDefault) => {
                   (e = true), (t = true), n();
                 }),
-                  (a.onload = (o) => {
+                  (GCore.onload = (_interopRequireDefault) => {
                     (e = false), (t = true), n();
                   });
-                var r = (Qe = setTimeout(() => {
-                  r === Qe && (Qe = null), t || ((e = true), n());
-                }, i));
+                var GEditor = (Qe = setTimeout(() => {
+                  GEditor === Qe && (Qe = null), t || ((e = true), n());
+                }, GTools));
                 try {
-                  a.open("HEAD", Oe.url + "/connection/test", true),
-                    (a.withCredentials = s.CONNECTION_TEST_WITH_CREDENTIALS),
-                    (a.timeout = 2e3),
-                    a.setRequestHeader("Accept", "text/plain"),
-                    a.setRequestHeader("Content-Type", "text/plain"),
-                    a.send();
-                } catch (o) {
+                  GCore.open("HEAD", Oe.url + "/connection/test", true),
+                    (GCore.withCredentials = AppSettings.CONNECTION_TEST_WITH_CREDENTIALS),
+                    (GCore.timeout = 2e3),
+                    GCore.setRequestHeader("Accept", "text/plain"),
+                    GCore.setRequestHeader("Content-Type", "text/plain"),
+                    GCore.send();
+                } catch (_interopRequireDefault) {
                   (e = true), (t = true), n();
                 }
               }))();
@@ -3656,8 +3656,8 @@ function (exports, module, require) {
           const n = module.getAll && module.getAll();
           if (n)
             for (let module = 0; module < n.length; module++) {
-              let o = n[module];
-              if (!e || o.get("trackingId") === e) return o.get("linkerParam");
+              let _interopRequireDefault = n[module];
+              if (!e || _interopRequireDefault.get("trackingId") === e) return _interopRequireDefault.get("linkerParam");
             }
         }
         return null;
@@ -3683,38 +3683,38 @@ function (exports, module, require) {
           return;
         const module = gDesigner.now().getTime();
         gContainer
-          .getProperty(j.closedInstallPWADialogDatePropName)
+          .getProperty(GInstallToDesktopAction.closedInstallPWADialogDatePropName)
           .then((e) => {
-            e && module - e < s.DateAPI.daysToMilliseconds(30)
+            e && module - e < AppSettings.DateAPI.daysToMilliseconds(30)
               ? gContainer.setProperty(
-                  j.installPWA3timesAWeekPropName,
+                  GInstallToDesktopAction.installPWA3timesAWeekPropName,
                   JSON.stringify([])
                 )
               : gContainer
-                  .getProperty(j.installPWA3timesAWeekPropName)
+                  .getProperty(GInstallToDesktopAction.installPWA3timesAWeekPropName)
                   .then((e) => {
                     let require,
-                      o = [];
+                      _interopRequireDefault = [];
                     if (e && e.length)
                       try {
                         require = JSON.parse(e);
                       } catch (e) {}
                     require || (require = []);
-                    for (let e = 0, i = require.length; e < i; e++) {
-                      const i = require[e];
-                      module - i < s.DateAPI.daysToMilliseconds(7) && o.push(i);
+                    for (let e = 0, GTools = require.length; e < GTools; e++) {
+                      const GTools = require[e];
+                      module - GTools < AppSettings.DateAPI.daysToMilliseconds(7) && _interopRequireDefault.push(GTools);
                     }
-                    2 === o.length &&
+                    2 === _interopRequireDefault.length &&
                       (gDesigner._ready
                         ? gDesigner.showInstallPwaDialog()
                         : this.executeWhenReady(() => {
                             gDesigner.showInstallPwaDialog();
                           })),
-                      o.push(module),
-                      o.length > 2 && (o = o.slice(-2)),
+                      _interopRequireDefault.push(module),
+                      _interopRequireDefault.length > 2 && (_interopRequireDefault = _interopRequireDefault.slice(-2)),
                       gContainer.setProperty(
-                        j.installPWA3timesAWeekPropName,
-                        JSON.stringify(o)
+                        GInstallToDesktopAction.installPWA3timesAWeekPropName,
+                        JSON.stringify(_interopRequireDefault)
                       );
                   });
           });
@@ -3725,7 +3725,7 @@ function (exports, module, require) {
           this._shouldWaitForPWAEvent()
             ? ((this._waitingPwaDialog = true),
               (this._waitingPwaDialogDarkBackground = exports))
-            : ((this._installPwaDialog = new Y(exports)),
+            : ((this._installPwaDialog = new GInstallPwaDialog(exports)),
               this._installPwaDialog.open());
         }
       }),
@@ -3756,36 +3756,36 @@ function (exports, module, require) {
       }),
       (Je.prototype._initAmplitudeProperties = async function () {
         const exports = await this.getUser();
-        (this._amplitudeHelper = new s.AmplitudeHelper(g, {
+        (this._amplitudeHelper = new AppSettings.AmplitudeHelper(g, {
           userId: null == exports ? undefined : exports.id,
           apiKey: window.AMPLITUDE_API_KEY,
         })),
           new ne(this._amplitudeHelper);
       }),
       (Je.prototype._updateState = function () {
-        var e, t, n, o, i, a, r;
-        const s = gDesigner.getLicense();
+        var e, t, n, _interopRequireDefault, GTools, GCore, GEditor;
+        const AppSettings = gDesigner.getLicense();
         null === (e = this._toolbar) ||
           undefined === e ||
-          e.setEnabled(s.canAccessFreemium()),
+          e.setEnabled(AppSettings.canAccessFreemium()),
           null === (t = this._leftSidebars) ||
             undefined === t ||
-            t.setEnabled(this._leftSidebars, s.canAccessFreemium()),
+            t.setEnabled(this._leftSidebars, AppSettings.canAccessFreemium()),
           null === (n = this._rightSidebars) ||
             undefined === n ||
-            n.setEnabled(this._rightSidebars, s.canAccessFreemium()),
-          null === (o = this._banner) ||
-            undefined === o ||
-            o.setEnabled(s.canAccessFreemium()),
-          null === (i = this._overlay) ||
-            undefined === i ||
-            i.setEnabled(s.canAccessFreemium()),
-          null === (a = this._mainMenu) ||
-            undefined === a ||
-            a.setEnabled(s.canAccessFreemium()),
-          null === (r = this._header) ||
-            undefined === r ||
-            r.setWindowTabEnable(s.canAccessFreemium()),
+            n.setEnabled(this._rightSidebars, AppSettings.canAccessFreemium()),
+          null === (_interopRequireDefault = this._banner) ||
+            undefined === _interopRequireDefault ||
+            _interopRequireDefault.setEnabled(AppSettings.canAccessFreemium()),
+          null === (GTools = this._overlay) ||
+            undefined === GTools ||
+            GTools.setEnabled(AppSettings.canAccessFreemium()),
+          null === (GCore = this._mainMenu) ||
+            undefined === GCore ||
+            GCore.setEnabled(AppSettings.canAccessFreemium()),
+          null === (GEditor = this._header) ||
+            undefined === GEditor ||
+            GEditor.setWindowTabEnable(AppSettings.canAccessFreemium()),
           this.relayout();
       }),
       (Je.prototype.isUserActivelyUsingApp = function () {
@@ -3798,7 +3798,7 @@ function (exports, module, require) {
               ? undefined
               : e.getUndoStates(),
           require = (null == module ? undefined : module.length) && module[module.length - 1];
-        return !!require && Date.now() - require.createdAt < ke.ACTIVE_USAGE_IDLE_TIME;
+        return !!require && Date.now() - require.createdAt < AppSettings2.ACTIVE_USAGE_IDLE_TIME;
       }),
       (exports.exports = Je);
   }

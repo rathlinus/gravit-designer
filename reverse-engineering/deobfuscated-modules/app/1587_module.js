@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
       require(168) /* polyfill_Array_reduce */,
@@ -20,31 +20,31 @@ function (exports, module, require) {
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(15) /* module */,
-      a = require(53) /* module */,
-      r = require(1) /* module */,
-      s = o(require(78) /* GDocumentEvent */),
-      l = o(require(1330) /* module_1330 */),
-      c = o(require(238) /* GMenu */),
-      d = o(require(339) /* GMenu */),
-      u = o(require(1331) /* GCutCopyAction */),
-      p = o(require(877) /* GPasteAction */),
-      g = o(require(1183) /* GPasteInPlaceAction */),
-      h = o(require(1184) /* GPasteInsideAction */),
-      f = o(require(875) /* GPasteStyleAction */),
-      m = o(require(876) /* GPasteAndReplaceAction */),
-      y = o(require(1332) /* GDeleteAction */),
-      v = o(require(811) /* GGroupAction */),
-      _ = o(require(870) /* GSplitAction */),
-      b = o(require(1333) /* GSelectAllAction */),
-      w = o(require(1334) /* GDeselectAllAction */),
-      C = o(require(869) /* GArrangeAction */),
-      x = o(require(1335) /* GToggleFullscreenAction */),
-      S = o(require(810) /* GConvertToPathAction */),
-      E = o(require(1336) /* GOpenQuickHelpScreenAction */),
-      A = o(require(1337) /* module_1337 */),
-      T = o(require(1590) /* module_1590 */),
-      G = o(require(878) /* module_878 */),
-      P = o(require(879) /* module_879 */);
+      GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
+      GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
+      l = _interopRequireDefault(require(1330) /* module_1330 */),
+      GMenu = _interopRequireDefault(require(238) /* GMenu */),
+      GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
+      GCutCopyAction = _interopRequireDefault(require(1331) /* GCutCopyAction */),
+      GPasteAction = _interopRequireDefault(require(877) /* GPasteAction */),
+      GPasteInPlaceAction = _interopRequireDefault(require(1183) /* GPasteInPlaceAction */),
+      GPasteInsideAction = _interopRequireDefault(require(1184) /* GPasteInsideAction */),
+      GPasteStyleAction = _interopRequireDefault(require(875) /* GPasteStyleAction */),
+      GPasteAndReplaceAction = _interopRequireDefault(require(876) /* GPasteAndReplaceAction */),
+      GDeleteAction = _interopRequireDefault(require(1332) /* GDeleteAction */),
+      GGroupAction = _interopRequireDefault(require(811) /* GGroupAction */),
+      GSplitAction = _interopRequireDefault(require(870) /* GSplitAction */),
+      GSelectAllAction = _interopRequireDefault(require(1333) /* GSelectAllAction */),
+      GDeselectAllAction = _interopRequireDefault(require(1334) /* GDeselectAllAction */),
+      GArrangeAction = _interopRequireDefault(require(869) /* GArrangeAction */),
+      GToggleFullscreenAction = _interopRequireDefault(require(1335) /* GToggleFullscreenAction */),
+      GConvertToPathAction = _interopRequireDefault(require(810) /* GConvertToPathAction */),
+      GOpenQuickHelpScreenAction = _interopRequireDefault(require(1336) /* GOpenQuickHelpScreenAction */),
+      A = _interopRequireDefault(require(1337) /* module_1337 */),
+      T = _interopRequireDefault(require(1590) /* module_1590 */),
+      G = _interopRequireDefault(require(878) /* module_878 */),
+      P = _interopRequireDefault(require(879) /* module_879 */);
     class D extends G.default {
       constructor(e) {
         super(e),
@@ -68,10 +68,10 @@ function (exports, module, require) {
       I = Object.values(L),
       k = (e, t) => {
         const require = gDesigner.getActiveDocument(),
-          o = require && require.getActiveWindow(),
-          i = o && o.getView(),
-          a = i && i.getHtmlElement();
-        a && a.dispatchEvent(new KeyboardEvent(e, { keyCode: t }));
+          _interopRequireDefault = require && require.getActiveWindow(),
+          i = _interopRequireDefault && _interopRequireDefault.getView(),
+          GTools = i && i.getHtmlElement();
+        GTools && GTools.dispatchEvent(new KeyboardEvent(e, { keyCode: t }));
       },
       O = (e) =>
         e === i.GKey.Constant.ALT_LEFT ||
@@ -126,105 +126,105 @@ function (exports, module, require) {
               O(e) && i.GPlatform.holdKey(e),
               k("keydown", L[e]);
           },
-          o = (e) => {
-            let { key: o, icon: a, dblclick: r, actionClass: l } = e;
-            const c = s({
-              name: a ? null : i.GKey.toLocalizedShort(o, true),
-              icon: a,
+          _interopRequireDefault = (e) => {
+            let { key: _interopRequireDefault, icon: GTools, dblclick: GCore, actionClass: l } = e;
+            const GMenu = GDocumentEvent({
+              name: GTools ? null : i.GKey.toLocalizedShort(_interopRequireDefault, true),
+              icon: GTools,
               actionClass: "g-virtual-key" + (l ? " " + l : ""),
               mousedown: (e) => {
-                e.stopImmediatePropagation(), this._isHoldingKey(o) || require(o);
+                e.stopImmediatePropagation(), this._isHoldingKey(_interopRequireDefault) || require(_interopRequireDefault);
               },
               click: (e) => {
                 e.stopImmediatePropagation(),
-                  this._isHoldingKey(o) ||
-                    (module(o), gDesigner.stats("virtualkey_assistantbar_click", o));
+                  this._isHoldingKey(_interopRequireDefault) ||
+                    (module(_interopRequireDefault), gDesigner.stats("virtualkey_assistantbar_click", _interopRequireDefault));
               },
-              dblclick: r,
+              dblclick: GCore,
               mouseup: (e) => {
-                e.stopImmediatePropagation(), this._isHoldingKey(o) || module(o);
+                e.stopImmediatePropagation(), this._isHoldingKey(_interopRequireDefault) || module(_interopRequireDefault);
               },
               touchstart: () => {
-                this._isHoldingKey(o) || require(o);
+                this._isHoldingKey(_interopRequireDefault) || require(_interopRequireDefault);
               },
               touchend: () => {
-                this._isHoldingKey(o) || module(o);
+                this._isHoldingKey(_interopRequireDefault) || module(_interopRequireDefault);
               },
               touchcancel: () => {
-                this._isHoldingKey(o) || module(o);
+                this._isHoldingKey(_interopRequireDefault) || module(_interopRequireDefault);
               },
-              active: () => !!this._keyState[L[o]] || this._isHoldingKey(o),
+              active: () => !!this._keyState[L[_interopRequireDefault]] || this._isHoldingKey(_interopRequireDefault),
             });
-            return new D(c[0]), c;
+            return new D(GMenu[0]), GMenu;
           },
-          r = function (e) {
+          GCore = function (e) {
             let module =
               arguments.length > 1 && undefined !== arguments[1]
                 ? arguments[1]
                 : "";
             return e.reduce((e, t) => {
-              let { icon: require, action: o, isEnabled: i } = t;
-              const a = e.createAddItem(o);
+              let { icon: require, action: _interopRequireDefault, isEnabled: i } = t;
+              const GTools = e.createAddItem(_interopRequireDefault);
               return (
-                require && a.setIcon(require),
+                require && GTools.setIcon(require),
                 i &&
-                  a.addEventListener(d.default.UpdateEvent, () => {
-                    a.setEnabled(i());
+                  GTools.addEventListener(GMenu2.default.UpdateEvent, () => {
+                    GTools.setEnabled(i());
                   }),
                 e
               );
-            }, new c.default(null, "g-assistant-bar-menu" + (module ? " " + module : "")));
+            }, new GMenu.default(null, "g-assistant-bar-menu" + (module ? " " + module : "")));
           },
-          s = (e) => {
+          GDocumentEvent = (e) => {
             let {
               action: module,
               name: require,
-              menu: o,
+              menu: _interopRequireDefault,
               icon: i,
-              click: a,
-              dblclick: r,
-              mousedown: s,
+              click: GTools,
+              dblclick: GCore,
+              mousedown: GDocumentEvent,
               mouseup: l,
-              touchstart: c,
-              touchmove: d,
-              touchend: u,
-              touchcancel: p,
-              split: g = false,
-              active: h,
-              actionClass: f,
+              touchstart: GMenu,
+              touchmove: GMenu2,
+              touchend: GCutCopyAction,
+              touchcancel: GPasteAction,
+              split: GPasteInPlaceAction = false,
+              active: GPasteInsideAction,
+              actionClass: GPasteStyleAction,
             } = e;
-            const m = $("<div/>")
+            const GPasteAndReplaceAction = $("<div/>")
                 .addClass("toolbar-button")
-                .toggleClass("split", !!g),
-              y = $("<button/>").addClass("action-button").appendTo(m);
+                .toggleClass("split", !!GPasteInPlaceAction),
+              GDeleteAction = $("<button/>").addClass("action-button").appendTo(GPasteAndReplaceAction);
             if (
-              (f && y.addClass(f),
-              h && (m.data("active", h), m.toggleClass("g-active", !!h())),
+              (GPasteStyleAction && GDeleteAction.addClass(GPasteStyleAction),
+              GPasteInsideAction && (GPasteAndReplaceAction.data("active", GPasteInsideAction), GPasteAndReplaceAction.toggleClass("g-active", !!GPasteInsideAction())),
               module &&
-                (m.data("action", module),
+                (GPasteAndReplaceAction.data("action", module),
                 i || (i = module.getIcon()),
-                a ||
-                  (a = () =>
+                GTools ||
+                  (GTools = () =>
                     gDesigner.executeAction(
                       module.getId(),
                       undefined,
                       "assistantbar"
                     ))),
-              require && $("<span/>").text(require).appendTo(y),
-              i && $("<span/>").addClass(i).appendTo(y),
-              a && y.on("click", a),
-              r && y.on("dblclick", r),
-              s && m.on("mousedown", s),
-              l && m.on("mouseup", l),
-              c && m.on("touchstart", c),
-              d && m.on("touchmove", d),
-              u && m.on("touchend", u),
-              p && m.on("touchcancel", p),
-              o)
+              require && $("<span/>").text(require).appendTo(GDeleteAction),
+              i && $("<span/>").addClass(i).appendTo(GDeleteAction),
+              GTools && GDeleteAction.on("click", GTools),
+              GCore && GDeleteAction.on("dblclick", GCore),
+              GDocumentEvent && GPasteAndReplaceAction.on("mousedown", GDocumentEvent),
+              l && GPasteAndReplaceAction.on("mouseup", l),
+              GMenu && GPasteAndReplaceAction.on("touchstart", GMenu),
+              GMenu2 && GPasteAndReplaceAction.on("touchmove", GMenu2),
+              GCutCopyAction && GPasteAndReplaceAction.on("touchend", GCutCopyAction),
+              GPasteAction && GPasteAndReplaceAction.on("touchcancel", GPasteAction),
+              _interopRequireDefault)
             ) {
               let e;
-              (o.__which = "assistantbar"),
-                (e = g
+              (_interopRequireDefault.__which = "assistantbar"),
+                (e = GPasteInPlaceAction
                   ? $("<button/>")
                       .addClass("dropdown-button")
                       .append(
@@ -232,13 +232,13 @@ function (exports, module, require) {
                           "gravit-icon-touch-arrow-up"
                         )
                       )
-                      .appendTo(m)
-                  : y.append(
+                      .appendTo(GPasteAndReplaceAction)
+                  : GDeleteAction.append(
                       $("<span></span>").addClass("gravit-icon-touch-arrow-up")
                     )),
-                e.gMenuButton({ menu: o, touch: true });
+                e.gMenuButton({ menu: _interopRequireDefault, touch: true });
             }
-            return m;
+            return GPasteAndReplaceAction;
           },
           l = $("<div/>").addClass("left-side").appendTo(exports),
           T = $("<div/>")
@@ -258,7 +258,7 @@ function (exports, module, require) {
             columns: [
               {
                 width: "86px",
-                content: o({
+                content: _interopRequireDefault({
                   key: i.GKey.Constant.SHIFT,
                   actionClass: "g-virtual-key-".concat(i.GKey.Constant.SHIFT),
                   dblclick: () =>
@@ -267,33 +267,33 @@ function (exports, module, require) {
               },
               {
                 width: "auto",
-                content: s({
+                content: GDocumentEvent({
                   icon: "gravit-icon-touch-copy",
-                  action: gDesigner.getAction(u.default.ID_COPY),
+                  action: gDesigner.getAction(GCutCopyAction.default.ID_COPY),
                 }),
               },
               {
                 width: "68px",
-                content: s({
+                content: GDocumentEvent({
                   icon: "gravit-icon-touch-paste",
-                  action: gDesigner.getAction(p.default.ID),
-                  menu: r(
+                  action: gDesigner.getAction(GPasteAction.default.ID),
+                  menu: GCore(
                     [
                       {
                         icon: "gravit-icon-touch-paste-in-place",
-                        action: gDesigner.getAction(g.default.ID),
+                        action: gDesigner.getAction(GPasteInPlaceAction.default.ID),
                       },
                       {
                         icon: "gravit-icon-touch-paste-inside",
-                        action: gDesigner.getAction(h.default.ID),
+                        action: gDesigner.getAction(GPasteInsideAction.default.ID),
                       },
                       {
                         icon: "gravit-icon-touch-paste-and-replace",
-                        action: gDesigner.getAction(m.default.ID),
+                        action: gDesigner.getAction(GPasteAndReplaceAction.default.ID),
                       },
                       {
                         icon: "gravit-icon-touch-paste-style",
-                        action: gDesigner.getAction(f.default.ID),
+                        action: gDesigner.getAction(GPasteStyleAction.default.ID),
                       },
                     ],
                     "paste-menu"
@@ -303,14 +303,14 @@ function (exports, module, require) {
               },
               {
                 width: "auto",
-                content: s({
+                content: GDocumentEvent({
                   icon: "gravit-icon-touch-trash-2",
-                  action: gDesigner.getAction(y.default.ID),
+                  action: gDesigner.getAction(GDeleteAction.default.ID),
                 }),
               },
               {
                 width: "auto",
-                content: s({
+                content: GDocumentEvent({
                   icon: "gravit-icon-touch-selection",
                   click: () => {
                     const exports = gDesigner.getActiveDocument(),
@@ -318,12 +318,12 @@ function (exports, module, require) {
                     if (module) {
                       module.getSelection() && module.getSelection().length > 0
                         ? gDesigner.executeAction(
-                            w.default.ID,
+                            GDeselectAllAction.default.ID,
                             undefined,
                             "assistantbar"
                           )
                         : gDesigner.executeAction(
-                            b.default.ID,
+                            GSelectAllAction.default.ID,
                             undefined,
                             "assistantbar"
                           );
@@ -333,12 +333,12 @@ function (exports, module, require) {
               },
               {
                 width: "62px",
-                content: s({
+                content: GDocumentEvent({
                   icon: "gravit-icon-touch-arrange-order",
-                  menu: r(
-                    Object.values(a.GEditor.ArrangeOrderType).map((e) => ({
+                  menu: GCore(
+                    Object.values(GTools.GEditor.ArrangeOrderType).map((e) => ({
                       icon: "gravit-icon-touch-arrange-" + e,
-                      action: gDesigner.getAction(C.default.ID + "." + e),
+                      action: gDesigner.getAction(GArrangeAction.default.ID + "." + e),
                       isEnabled: () => this._isArrangeActionEnabled(e),
                     })),
                     "arrange-menu"
@@ -347,11 +347,11 @@ function (exports, module, require) {
               },
               {
                 width: "auto",
-                content: s({
+                content: GDocumentEvent({
                   icon: "gravit-icon-touch-fullscreen",
-                  action: gDesigner.getAction(x.default.ID),
+                  action: gDesigner.getAction(GToggleFullscreenAction.default.ID),
                   active: () =>
-                    gDesigner.getAction(x.default.ID).isFullscreen(),
+                    gDesigner.getAction(GToggleFullscreenAction.default.ID).isFullscreen(),
                 }),
               },
             ],
@@ -363,7 +363,7 @@ function (exports, module, require) {
               columns: [
                 {
                   width: "86px",
-                  content: o({
+                  content: _interopRequireDefault({
                     key: i.GKey.Constant.CONTROL,
                     actionClass: "g-virtual-key-".concat(
                       i.GKey.Constant.CONTROL
@@ -374,7 +374,7 @@ function (exports, module, require) {
                 },
                 {
                   width: "114px",
-                  content: o({
+                  content: _interopRequireDefault({
                     key: i.GKey.Constant.ALT_LEFT,
                     actionClass: "g-virtual-key-".concat(
                       i.GKey.Constant.ALT_LEFT
@@ -385,32 +385,32 @@ function (exports, module, require) {
                 },
                 {
                   width: "auto",
-                  content: s({
+                  content: GDocumentEvent({
                     icon: "gravit-icon-touch-group",
-                    action: gDesigner.getAction(v.default.ID),
+                    action: gDesigner.getAction(GGroupAction.default.ID),
                   }),
                 },
                 {
                   width: "auto",
-                  content: s({
+                  content: GDocumentEvent({
                     icon: "gravit-icon-touch-ungroup",
-                    action: gDesigner.getAction(_.default.ID),
+                    action: gDesigner.getAction(GSplitAction.default.ID),
                   }),
                 },
                 {
                   width: "62px",
-                  content: s({
+                  content: GDocumentEvent({
                     icon: "gravit-icon-touch-convert-to-path",
-                    action: gDesigner.getAction(S.default.ID),
+                    action: gDesigner.getAction(GConvertToPathAction.default.ID),
                   }),
                 },
                 {
                   width: "auto",
-                  content: s({
+                  content: GDocumentEvent({
                     icon: "gravit-icon-touch-help",
                     click: () =>
                       gDesigner.executeAction(
-                        E.default.ID,
+                        GOpenQuickHelpScreenAction.default.ID,
                         undefined,
                         "assistantbar"
                       ),
@@ -425,14 +425,14 @@ function (exports, module, require) {
               columns: [
                 {
                   width: "auto",
-                  content: o({
+                  content: _interopRequireDefault({
                     key: i.GKey.Constant.UP,
                     icon: "gravit-icon-touch-arrow-key-up",
                   }),
                 },
                 {
                   width: "auto",
-                  content: o({
+                  content: _interopRequireDefault({
                     key: i.GKey.Constant.DOWN,
                     icon: "gravit-icon-touch-arrow-key-down",
                   }),
@@ -446,14 +446,14 @@ function (exports, module, require) {
               columns: [
                 {
                   width: "auto",
-                  content: o({
+                  content: _interopRequireDefault({
                     key: i.GKey.Constant.LEFT,
                     icon: "gravit-icon-touch-arrow-key-left",
                   }),
                 },
                 {
                   width: "auto",
-                  content: o({
+                  content: _interopRequireDefault({
                     key: i.GKey.Constant.RIGHT,
                     icon: "gravit-icon-touch-arrow-key-right",
                   }),
@@ -502,7 +502,7 @@ function (exports, module, require) {
         document.addEventListener("keydown", this._keyDownBound, true),
           document.addEventListener("keyup", this._keyUpBound, true),
           document.addEventListener("mouseup", this._mouseUpBound, true),
-          gDesigner.addEventListener(s.default, this._documentEvent, this),
+          gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
           gDesigner.addEventListener(l.default, this._fullScreenEvent, this),
           i.GPlatform.addEventListener(
             i.GModifiersChangedEvent,
@@ -518,7 +518,7 @@ function (exports, module, require) {
         document.removeEventListener("keydown", this._keyDownBound, true),
           document.removeEventListener("keyup", this._keyUpBound, true),
           document.removeEventListener("mouseup", this._mouseUpBound, true),
-          gDesigner.removeEventListener(s.default, this._documentEvent, this),
+          gDesigner.removeEventListener(GDocumentEvent.default, this._documentEvent, this),
           gDesigner.removeEventListener(l.default, this._fullScreenEvent, this),
           i.GPlatform.removeEventListener(
             i.GModifiersChangedEvent,
@@ -538,7 +538,7 @@ function (exports, module, require) {
           e
             .getEditor()
             .addEventListener(
-              a.GEditor.SelectionChangedEvent,
+              GTools.GEditor.SelectionChangedEvent,
               this._selectionChangedEvent,
               this
             ),
@@ -549,7 +549,7 @@ function (exports, module, require) {
           e
             .getEditor()
             .removeEventListener(
-              a.GEditor.SelectionChangedEvent,
+              GTools.GEditor.SelectionChangedEvent,
               this._selectionChangedEvent,
               this
             ),
@@ -568,13 +568,13 @@ function (exports, module, require) {
         const module = e.document;
         if (!module.isLockedByVersionHistory())
           switch (e.type) {
-            case s.default.Type.Activated:
+            case GDocumentEvent.default.Type.Activated:
               this._activateDocument(module), this._updateActions();
               break;
-            case s.default.Type.Deactivated:
+            case GDocumentEvent.default.Type.Deactivated:
               this._deactivateDocument(module), this._updateActions();
               break;
-            case s.default.Type.Modified:
+            case GDocumentEvent.default.Type.Modified:
               this._updateActions();
           }
       }),
@@ -591,59 +591,59 @@ function (exports, module, require) {
         });
       }),
       (R.prototype._isArrangeActionEnabled = function (e) {
-        if (!gDesigner.getAction(C.default.ID + "." + e).isEnabled()) return false;
+        if (!gDesigner.getAction(GArrangeAction.default.ID + "." + e).isEnabled()) return false;
         const module = this._document
           ? this._document.getEditor().getIndividualSelection()
           : null;
         if (!module) return false;
         if (module.length > 1) return true;
         const require = module[0],
-          o = require.getParent();
+          _interopRequireDefault = require.getParent();
         switch (e) {
-          case a.GEditor.ArrangeOrderType.SendToFront:
+          case GTools.GEditor.ArrangeOrderType.SendToFront:
             if (require.getNext()) {
               let e = require.getNext(),
                 t = null;
               for (; !t && e; )
-                e instanceof r.GElement && (t = e), (e = e.getNext());
-              return !!t && a.GEditor.validateBlockInsertion(o, require);
+                e instanceof GCore.GElement && (t = e), (e = e.getNext());
+              return !!t && GTools.GEditor.validateBlockInsertion(_interopRequireDefault, require);
             }
             return false;
-          case a.GEditor.ArrangeOrderType.BringForward: {
+          case GTools.GEditor.ArrangeOrderType.BringForward: {
             let e = require.getNext();
             if (e) {
               let t = null;
               for (; !t && e; )
-                e instanceof r.GElement &&
-                  (e.hasFlag(r.GNode.Flag.Selected) || (t = e)),
+                e instanceof GCore.GElement &&
+                  (e.hasFlag(GCore.GNode.Flag.Selected) || (t = e)),
                   (e = e.getNext());
               if (null !== t) {
                 const e = t.getNext();
-                return a.GEditor.validateBlockInsertion(o, require, e);
+                return GTools.GEditor.validateBlockInsertion(_interopRequireDefault, require, e);
               }
             }
             return false;
           }
-          case a.GEditor.ArrangeOrderType.SendBackward: {
+          case GTools.GEditor.ArrangeOrderType.SendBackward: {
             let e = require.getPrevious();
             if (null !== e) {
               let t = null;
               for (; !t && e; )
-                e instanceof r.GElement &&
-                  (e.hasFlag(r.GNode.Flag.Selected) ||
-                    (a.GEditor.validateBlockInsertion(o, require, e) && (t = e))),
+                e instanceof GCore.GElement &&
+                  (e.hasFlag(GCore.GNode.Flag.Selected) ||
+                    (GTools.GEditor.validateBlockInsertion(_interopRequireDefault, require, e) && (t = e))),
                   (e = e.getPrevious());
               return !!t;
             }
             return false;
           }
-          case a.GEditor.ArrangeOrderType.SendToBack:
+          case GTools.GEditor.ArrangeOrderType.SendToBack:
             if (null !== require.getPrevious()) {
-              let e = o.getFirstChild(),
+              let e = _interopRequireDefault.getFirstChild(),
                 t = null;
               for (; !t && e && e !== require; )
-                e instanceof r.GElement &&
-                  a.GEditor.validateBlockInsertion(o, require, e) &&
+                e instanceof GCore.GElement &&
+                  GTools.GEditor.validateBlockInsertion(_interopRequireDefault, require, e) &&
                   (t = e),
                   (e = e.getNext());
               return !!t;

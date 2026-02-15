@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i(e) {
       let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1],
         require = arguments.length > 2 ? arguments[2] : undefined;
-      (this.label = o.GLocale.get(e)),
+      (this.label = GCore.GLocale.get(e)),
         (this.visible = module),
         (this.icon = require),
         (this.parent = null);
@@ -29,7 +29,7 @@ function (exports, module, require) {
       var r = new i();
       return (
         Object.defineProperties(r, {
-          label: { get: () => o.GLocale.get(new o.GLocaleKey(e[0], e[1])) },
+          label: { get: () => GCore.GLocale.get(new GCore.GLocaleKey(e[0], e[1])) },
           visible: { get: require },
           icon: { get: a },
           parent: { get: () => module },
@@ -37,7 +37,7 @@ function (exports, module, require) {
         r
       );
     }
-    o.GObject.inherit(i, o.GObject),
+    GCore.GObject.inherit(i, GCore.GObject),
       (i.prototype.label = null),
       (i.prototype.visible = true),
       (i.prototype.icon = null),

@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var i = require(1154) /* module_1154 */,
-      a = o(require(389) /* module_389 */),
-      r = o(require(163) /* module_163 */),
-      s = o(require(1245) /* module_1245 */),
-      l = require(1) /* module */;
+      a = _interopRequireDefault(require(389) /* module_389 */),
+      r = _interopRequireDefault(require(163) /* module_163 */),
+      s = _interopRequireDefault(require(1245) /* module_1245 */),
+      GCore = require(1) /* module */;
     exports.exports = {
       debugDownloadPNG: function () {
         (0, i.downloadActiveFile)(a.default.PNG.ext);
       },
       debugDownloadPDF: function (e) {
         (0, i.downloadActiveFile)(a.default.PDF.ext, {
-          dpi: e || l.GLength.DPI,
+          dpi: e || GCore.GLength.DPI,
         });
       },
       debugDownloadSVG: function () {
@@ -31,14 +31,14 @@ function (exports, module, require) {
         let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         const require = gDesigner.getDefaultStorage(),
-          o = Object.assign({ disableFileSystemAccessAPI: true, silent: true }, module);
+          _interopRequireDefault = Object.assign({ disableFileSystemAccessAPI: true, silent: true }, module);
         require.openPrompt(
           r.default.FileTypes.filter((e) => e.load),
           (t) => {
             gDesigner.openDocument(t), e && e();
           },
           false,
-          o
+          _interopRequireDefault
         );
       },
       debugImportFont: function (e) {
@@ -48,8 +48,8 @@ function (exports, module, require) {
             { disableFileSystemAccessAPI: true, silent: true },
             module
           ),
-          o = new s.default();
-        o.import(e, require);
+          _interopRequireDefault = new s.default();
+        _interopRequireDefault.import(e, require);
       },
     };
   }

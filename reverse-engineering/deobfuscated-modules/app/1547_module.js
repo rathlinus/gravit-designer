@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(557) /* stub_requires_1102 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(96) /* polyfill_JSON_stringify */,
       require(8) /* polyfill_bundle_ES6 */,
       require(356) /* module_356 */,
@@ -22,36 +22,36 @@ function (exports, module, require) {
       require(13) /* stub_requires_679 */,
       require(32) /* stub_requires_670 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(1) /* module */,
-      a = require(15) /* module */,
-      r = o(require(1300) /* module_1300 */),
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      r = _interopRequireDefault(require(1300) /* module_1300 */),
       s = require(1163) /* module_1163 */,
-      l = require(40) /* CollaborationMergeUtils */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       c = require(593) /* module_593 */,
-      d = o(require(44) /* GSystemDialog */),
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
       u = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
-            o = new WeakMap();
+            _interopRequireDefault = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
-          var i,
-            a,
+          var GCore,
+            GEditor,
             r = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
             return r;
-          if ((i = t ? o : require)) {
-            if (i.has(e)) return i.get(e);
-            i.set(e, r);
+          if ((GCore = t ? _interopRequireDefault : require)) {
+            if (GCore.has(e)) return GCore.get(e);
+            GCore.set(e, r);
           }
           for (const t in e)
             "default" !== t &&
               {}.hasOwnProperty.call(e, t) &&
-              ((a =
-                (i = Object.defineProperty) &&
+              ((GEditor =
+                (GCore = Object.defineProperty) &&
                 Object.getOwnPropertyDescriptor(e, t)) &&
-              (a.get || a.set)
-                ? i(r, t, a)
+              (GEditor.get || GEditor.set)
+                ? GCore(r, t, GEditor)
                 : (r[t] = e[t]));
           return r;
         })(e, t);
@@ -60,16 +60,16 @@ function (exports, module, require) {
     const g = require(156) /* module_156 */,
       { CLOUD_DIALOG: h } = require(10) /* AppSettings */,
       { GPlatform: f } = require(15) /* module */,
-      m = require(85) /* GContainer */,
+      GContainer = require(85) /* GContainer */,
       { GRegex: y } = require(263) /* Exports_GRegex */,
       v = function () {
         r.default.apply(this, arguments),
           (this._lockEnter = false),
           this.panel.addClass("full-width");
       };
-    i.GObject.inherit(v, r.default);
-    var _ = require(238) /* GMenu */,
-      b = require(339) /* GMenu */;
+    GCore.GObject.inherit(v, r.default);
+    var GMenu = require(238) /* GMenu */,
+      GMenu2 = require(339) /* GMenu */;
     (v.prototype._lockEnter = false),
       (v.prototype.filesPanel = null),
       (v.prototype.createHeader = function () {
@@ -93,26 +93,26 @@ function (exports, module, require) {
               .attr("size", "12")
               .attr(
                 "placeholder",
-                i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanel", "text.search-placeholder")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanel", "text.search-placeholder")
                 )
               )
               .on("keyup", function (t) {
                 t.stopPropagation();
-                var o = $(this).val().trim();
-                o !== n &&
+                var _interopRequireDefault = $(this).val().trim();
+                _interopRequireDefault !== n &&
                   ((n = $(this).val()),
-                  gDesigner.stats("filespanel-view_execute_search", o),
-                  e.filesPanel.search(o));
-                var i = e.panel
+                  gDesigner.stats("filespanel-view_execute_search", _interopRequireDefault),
+                  e.filesPanel.search(_interopRequireDefault));
+                var GCore = e.panel
                     .find(".header")
                     .find(".search-container")
                     .find(".clear-search-icon"),
-                  a = e.panel
+                  GEditor = e.panel
                     .find(".header")
                     .find(".search-container")
                     .find(".search-icon");
-                o.length ? (i.show(), a.hide()) : (i.hide(), a.show());
+                _interopRequireDefault.length ? (GCore.show(), GEditor.hide()) : (GCore.hide(), GEditor.show());
               })
               .on("focusin", function () {
                 e.panel
@@ -136,7 +136,7 @@ function (exports, module, require) {
                     .hide();
               })
               .on("keydown", function (t) {
-                if (a.GKey.translateCode(t.key) === a.GKey.Constant.TAB) {
+                if (GEditor.GKey.translateCode(t.key) === GEditor.GKey.Constant.TAB) {
                   var n = $(this).val().trim();
                   e.filesPanel.search(n),
                     t.preventDefault(),
@@ -152,21 +152,21 @@ function (exports, module, require) {
               )
               .on("click", function (t) {
                 t.stopPropagation();
-                var o = e.panel
+                var _interopRequireDefault = e.panel
                     .find(".header")
                     .find(".search-container")
                     .find(".search-field"),
-                  i = e.panel
+                  GCore = e.panel
                     .find(".header")
                     .find(".search-container")
                     .find(".search-icon");
-                o.val(""),
+                _interopRequireDefault.val(""),
                   (n = ""),
                   e.filesPanel.updateFilesList(false, false),
                   gDesigner.stats("filespanel-view_clear_search-field"),
                   $(this).hide(),
-                  o.focus(),
-                  i.show();
+                  _interopRequireDefault.focus(),
+                  GCore.show();
               })
               .hide()
           )
@@ -189,11 +189,11 @@ function (exports, module, require) {
           .appendTo(t),
           $("<div/>").addClass("fake").appendTo(t),
           this.renderSortButton(t);
-        const o = this.filesPanel.getAvailableFileTypesFilter();
+        const _interopRequireDefault = this.filesPanel.getAvailableFileTypesFilter();
         "function" == typeof u.default &&
           this.filesPanel.drive instanceof u.default &&
-          o &&
-          o.length > 1 &&
+          _interopRequireDefault &&
+          _interopRequireDefault.length > 1 &&
           this.renderFileTypeFilterButton(t),
           this.renderGridStyleButtons(t),
           this._buildContextMenu(),
@@ -205,14 +205,14 @@ function (exports, module, require) {
         if (this._isCreateFolderEnabled())
           exports.attr(
             "data-title",
-            i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.new-folder-tooltip")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.new-folder-tooltip")
             )
           ),
             exports.removeClass("g-disabled");
         else {
-          const t = i.GLocale.get(
-            new i.GLocaleKey("GFilesPanel", "text.option-isnt-available"),
+          const t = GCore.GLocale.get(
+            new GCore.GLocaleKey("GFilesPanel", "text.option-isnt-available"),
             "This option isn’t available for Cloud Drives"
           );
           exports.attr("data-title", t), exports.addClass("g-disabled");
@@ -223,8 +223,8 @@ function (exports, module, require) {
           .addClass("g-search-no-results")
           .hide()
           .text(
-            i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "text.search-not-found")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "text.search-not-found")
             )
           )
           .appendTo(e);
@@ -233,22 +233,22 @@ function (exports, module, require) {
         var t = $("<div/>").addClass("footer").appendTo(this.panel);
         if (this.filesPanel.isSaveMode()) {
           var require = $("<div />").addClass("save-form-container").appendTo(t);
-          const a = $("<div/>").addClass("input-container").appendTo(require);
-          var o = $("<input/>")
+          const GEditor = $("<div/>").addClass("input-container").appendTo(require);
+          var _interopRequireDefault = $("<input/>")
             .addClass("file-name")
             .val(
               e
-                ? (0, l.decodeHTML)(e)
-                : i.GLocale.get(
-                    new i.GLocaleKey("GFilesPanel", "text.untitled")
+                ? (0, CollaborationMergeUtils.decodeHTML)(e)
+                : GCore.GLocale.get(
+                    new GCore.GLocaleKey("GFilesPanel", "text.untitled")
                   )
             )
-            .appendTo(a);
+            .appendTo(GEditor);
           const r = f.webBrowser === f.constructor.WebBrowser.Safari,
-            s = gContainer.getRuntime() === m.Runtime.IPad;
+            s = gContainer.getRuntime() === GContainer.Runtime.IPad;
           (r || s) &&
-            o.on("click", () => {
-              o.focus();
+            _interopRequireDefault.on("click", () => {
+              _interopRequireDefault.focus();
             }),
             $("<div/>")
               .addClass("g-button")
@@ -256,24 +256,24 @@ function (exports, module, require) {
               .addClass("cancel")
               .attr(
                 "data-title",
-                i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanel", "action.cancel-tooltip")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanel", "action.cancel-tooltip")
                 )
               )
-              .html(i.GLocale.get(new i.GLocaleKey("GLocale", "cancel")))
+              .html(GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "cancel")))
               .on(
                 "click",
                 function (e) {
                   e.stopPropagation(), this.filesPanel.handleCancelSave();
                 }.bind(this)
               )
-              .appendTo(a),
+              .appendTo(GEditor),
             this.filesPanel.setKeyListener((e, t) => {
               if (13 === e && !this._lockEnter) {
                 const e = this._getSelectedExtension(),
                   n = this._getSaveOptions();
                 if (!this.filesPanel._canDownload(e)) return;
-                t.preventDefault(), this.filesPanel.handleSave(o.val(), e, n);
+                t.preventDefault(), this.filesPanel.handleSave(_interopRequireDefault.val(), e, n);
               }
             }),
             gDesigner.getApplicationManager().isSavingToCloudEnabled() &&
@@ -290,7 +290,7 @@ function (exports, module, require) {
                   $("<span/>")
                     .addClass("label")
                     .text(
-                      i.GLocale.get(new i.GLocaleKey("GSaveAction", "title"))
+                      GCore.GLocale.get(new GCore.GLocaleKey("GSaveAction", "title"))
                     )
                 )
                 .on(
@@ -300,15 +300,15 @@ function (exports, module, require) {
                     const t = this._getSelectedExtension(),
                       require = this._getSaveOptions();
                     this.filesPanel._canDownload(t) &&
-                      this.filesPanel.handleSave(o.val(), t, require);
+                      this.filesPanel.handleSave(_interopRequireDefault.val(), t, require);
                   }.bind(this)
                 )
-                .appendTo(a),
+                .appendTo(GEditor),
             this._setSelectedExtension(u.DEFAULT_TYPE.ext),
             this.panel
               .find(".g-items-container")
               .addClass("g-items-container-footer"),
-            o.focus();
+            _interopRequireDefault.focus();
         } else t.hide();
       }),
       (v.prototype._getSelectedExtension = function () {
@@ -323,7 +323,7 @@ function (exports, module, require) {
             u.DEFAULT_TYPE.ext
           );
         const module = this.filesPanel.getPossibleExtensions();
-        return (0, l.getExtensionFromString)(exports, module) || u.DEFAULT_TYPE.ext;
+        return (0, CollaborationMergeUtils.getExtensionFromString)(exports, module) || u.DEFAULT_TYPE.ext;
       }),
       (v.prototype._getSelectedVersion = function () {
         const exports = this.panel
@@ -350,12 +350,12 @@ function (exports, module, require) {
       (v.prototype.addFile = function (e) {
         let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
           require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
-        const o = this._removeCDRExtensionFromFileName(e.name);
-        var a = this,
+        const _interopRequireDefault = this._removeCDRExtensionFromFileName(e.name);
+        var GEditor = this,
           r = this.filesPanel.isItemSelected(e),
           c = this.filesPanel.isItemInClipboard(e),
-          d = null;
-        d = module
+          GSystemDialog = null;
+        GSystemDialog = module
           ? this.panel.find(".g-recent-files-list")
           : require
           ? this.panel.find(".g-example-files-list")
@@ -369,23 +369,23 @@ function (exports, module, require) {
           .addClass(r ? "selected" : "")
           .addClass(c && this.filesPanel.isClipboardModeCut() ? "cut" : "")
           .data("node", e)
-          .attr("data-title", e._rootPath ? e._rootPath : o)
+          .attr("data-title", e._rootPath ? e._rootPath : _interopRequireDefault)
           .on("dragstart", function (t) {
-            if (a._isDuringRenaming())
+            if (GEditor._isDuringRenaming())
               return t.stopPropagation(), void t.preventDefault();
             $(this).addClass("dragging"),
               $(".g-tooltip").toggleClass("visible", false);
             const require = t.dataTransfer || t.originalEvent.dataTransfer,
-              o = document.createElement("div"),
-              i = $(o);
-            i.addClass("drag-ghost-item"),
-              i.text(e.name),
-              document.getElementById(e.id).appendChild(o),
-              require.setDragImage(o, 30, 15),
+              _interopRequireDefault = document.createElement("div"),
+              GCore = $(_interopRequireDefault);
+            GCore.addClass("drag-ghost-item"),
+              GCore.text(e.name),
+              document.getElementById(e.id).appendChild(_interopRequireDefault),
+              require.setDragImage(_interopRequireDefault, 30, 15),
               require.setData("text/plain", JSON.stringify(e));
           })
           .on("drag", function (e) {
-            if (a._isDuringRenaming())
+            if (GEditor._isDuringRenaming())
               return e.stopPropagation(), void e.preventDefault();
             $(".g-tooltip").toggleClass("visible", false);
           })
@@ -398,7 +398,7 @@ function (exports, module, require) {
               if (
                 (t.stopPropagation(),
                 t.preventDefault(),
-                !a._isDuringRenaming())
+                !GEditor._isDuringRenaming())
               )
                 return this.filesPanel.handleFileDblClick(e), false;
             }.bind(this)
@@ -408,7 +408,7 @@ function (exports, module, require) {
             function (n) {
               n.stopPropagation(),
                 n.preventDefault(),
-                a._isDuringRenaming() ||
+                GEditor._isDuringRenaming() ||
                   (this.filesPanel.handleFileClick(e, u),
                   this._updateFileInfoPanel(e, u, module));
             }.bind(this)
@@ -416,39 +416,39 @@ function (exports, module, require) {
           .on(
             "contextmenu",
             function (t) {
-              t.stopPropagation(), a._handleFileContextMenu(e, u, t);
+              t.stopPropagation(), GEditor._handleFileContextMenu(e, u, t);
             }.bind(this)
           );
         e.example && u.addClass("g-gravit-example-file");
-        var f = d.find("#".concat(e.id));
-        f.length ? $(f).replaceWith(u) : u.appendTo(d);
-        var m,
+        var f = GSystemDialog.find("#".concat(e.id));
+        f.length ? $(f).replaceWith(u) : u.appendTo(GSystemDialog);
+        var GContainer,
           y,
           v = $("<div />").addClass("image-container").appendTo(u);
         this.filesPanel.getSortType() === p.GFilesPanelSortTypes.CREATED
-          ? ((m = (0, s.dateToFilePreviewFormat)(
+          ? ((GContainer = (0, s.dateToFilePreviewFormat)(
               e.created ? e.created : e.updated
             )),
-            (y = i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "text.created")
+            (y = GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "text.created")
             )))
-          : ((m = (0, s.dateToFilePreviewFormat)(
+          : ((GContainer = (0, s.dateToFilePreviewFormat)(
               e.updated ? e.updated : e.created
             )),
-            (y = i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "text.updated")
+            (y = GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "text.updated")
             )));
-        var _ = e instanceof g && e.getSize(),
-          b = "";
-        if (_ && h.SHOW_FILE_SIZE_INFO) {
-          var w = (0, l.getSizeInfo)(_);
+        var GMenu = e instanceof g && e.getSize(),
+          GMenu2 = "";
+        if (GMenu && h.SHOW_FILE_SIZE_INFO) {
+          var w = (0, CollaborationMergeUtils.getSizeInfo)(GMenu);
           w.gb
-            ? (b += (b ? "" : " ") + "".concat(w.gb, " GB"))
+            ? (GMenu2 += (GMenu2 ? "" : " ") + "".concat(w.gb, " GB"))
             : w.mb
-            ? (b += (b ? "" : " ") + "".concat(w.mb, " MB"))
+            ? (GMenu2 += (GMenu2 ? "" : " ") + "".concat(w.mb, " MB"))
             : w.kb
-            ? (b += (b ? "" : " ") + "".concat(w.kb, " KB"))
-            : (b += (b ? "" : " ") + "< 1 KB");
+            ? (GMenu2 += (GMenu2 ? "" : " ") + "".concat(w.kb, " KB"))
+            : (GMenu2 += (GMenu2 ? "" : " ") + "< 1 KB");
         }
         var C = null;
         e instanceof g && (C = e.getPreviewURL()),
@@ -459,13 +459,13 @@ function (exports, module, require) {
         var x = $("<div/>").addClass("name-container").appendTo(u);
         $("<div />")
           .addClass("file-name-container")
-          .append($("<div />").addClass("name").text(o))
+          .append($("<div />").addClass("name").text(_interopRequireDefault))
           .append(
             $("<input />")
               .attr("type", "text")
               .css("display", "none")
               .addClass("file-name")
-              .val(o)
+              .val(_interopRequireDefault)
               .css("width", $(this).parent().find(".name").outerWidth())
           )
           .appendTo(x),
@@ -476,14 +476,14 @@ function (exports, module, require) {
               "data-title",
               ""
                 .concat(y, " ")
-                .concat(m)
-                .concat(b ? ", " + b : "")
+                .concat(GContainer)
+                .concat(GMenu2 ? ", " + GMenu2 : "")
             )
             .text(
               ""
                 .concat(y, " ")
-                .concat(m)
-                .concat(b ? ", " + b : "")
+                .concat(GContainer)
+                .concat(GMenu2 ? ", " + GMenu2 : "")
             )
             .appendTo(u);
         var S = $("<div />").addClass("file-top-tile").appendTo(u);
@@ -502,7 +502,7 @@ function (exports, module, require) {
               .on(
                 "click",
                 function (t) {
-                  t.stopPropagation(), a._handleFileContextMenu(e, u, t);
+                  t.stopPropagation(), GEditor._handleFileContextMenu(e, u, t);
                 }.bind(this)
               )
               .on("dblclick", function (e) {
@@ -517,8 +517,8 @@ function (exports, module, require) {
             $("<button />")
               .addClass("open-design-button g-button cloud-button")
               .text(
-                i.GLocale.get(
-                  new i.GLocaleKey("GFilesPanel", "action.open-design")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GFilesPanel", "action.open-design")
                 )
               )
               .on("click", (t) => {
@@ -540,12 +540,12 @@ function (exports, module, require) {
       }),
       (v.prototype._updateFileNamePreview = function (e, t) {
         const require = this._removeCDRExtensionFromFileName(t.name);
-        var o = $(e).find(".file-name-container");
-        o.attr("data-ending", "..." + require.substr(require.length - 4));
-        var i = o.find(".name");
-        i.text(require),
-          ((e) => e && e.offsetWidth < e.scrollWidth)(i[0]) &&
-            o.addClass("ending");
+        var _interopRequireDefault = $(e).find(".file-name-container");
+        _interopRequireDefault.attr("data-ending", "..." + require.substr(require.length - 4));
+        var GCore = _interopRequireDefault.find(".name");
+        GCore.text(require),
+          ((e) => e && e.offsetWidth < e.scrollWidth)(GCore[0]) &&
+            _interopRequireDefault.addClass("ending");
       }),
       (v.prototype.addFolder = function (e) {
         let module =
@@ -573,14 +573,14 @@ function (exports, module, require) {
             .find(".g-files-list")
             .find(".g-gravit-file")
             .each(
-              function (n, o) {
-                if ($(o).data("node").id === e.id)
+              function (n, _interopRequireDefault) {
+                if ($(_interopRequireDefault).data("node").id === e.id)
                   return (
-                    (t = $(o).data("node")),
+                    (t = $(_interopRequireDefault).data("node")),
                     setTimeout(() => {
                       this.panel
                         .find(".g-items-container")
-                        .scrollTop($(o).position().top);
+                        .scrollTop($(_interopRequireDefault).position().top);
                     }),
                     false
                   );
@@ -595,16 +595,16 @@ function (exports, module, require) {
           : this.panel.find(".g-folders-list").hide();
         const module = this.panel.find(".header"),
           require = module.find(".new-folder"),
-          o = module.find(".back");
+          _interopRequireDefault = module.find(".back");
         this.getSearchValue()
           ? (require.addClass("g-disabled"),
-            o.addClass("g-hidden"),
+            _interopRequireDefault.addClass("g-hidden"),
             this.panel.find(".g-files-list").find(".g-gravit-file").length <
               1 && this._showNoResultsInfo())
           : this._isCreateFolderEnabled() && require.removeClass("g-disabled"),
           this.filesPanel.isRootFolder()
-            ? o.addClass("g-hidden")
-            : o.removeClass("g-hidden"),
+            ? _interopRequireDefault.addClass("g-hidden")
+            : _interopRequireDefault.removeClass("g-hidden"),
           e &&
             this.filesPanel.isSaveMode() &&
             this.panel.find(".footer").find("input.file-name").select();
@@ -625,54 +625,54 @@ function (exports, module, require) {
         this._contextMenu.open({ x: t, y: n });
       }),
       (v.prototype._renameFile = function (e, t, n) {
-        const o = this._removeCDRExtensionFromFileName(e.name),
+        const _interopRequireDefault = this._removeCDRExtensionFromFileName(e.name),
           r = this;
         r.toggleLoading(false);
         var s = t.find("input");
         s.off("focusout"), s.off("keypress");
-        var l = t.find("div.name");
+        var CollaborationMergeUtils = t.find("div.name");
         t.addClass("renaming"),
-          $(t).attr("data-title", o),
-          l.text(o),
-          s.css("width", l.outerWidth()),
-          s.val(o),
+          $(t).attr("data-title", _interopRequireDefault),
+          CollaborationMergeUtils.text(_interopRequireDefault),
+          s.css("width", CollaborationMergeUtils.outerWidth()),
+          s.val(_interopRequireDefault),
           $(t).find(".file-name-container").removeClass("ending"),
-          s.css("width", l.outerWidth());
+          s.css("width", CollaborationMergeUtils.outerWidth());
         var c = s.val(),
           u = false;
-        s.show(), l.hide(), s.focus();
+        s.show(), CollaborationMergeUtils.hide(), s.focus();
         const p = (t) => {
           let n;
           return (
             (n =
               e.getType() === g.Type.File
-                ? i.GLocale.get(
-                    new i.GLocaleKey(
+                ? GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFilesPanel",
                       "text.file-already-exists-on-current-location"
                     )
                   ).replace("%filename", '"'.concat(t, '"'))
-                : i.GLocale.get(
-                    new i.GLocaleKey(
+                : GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFilesPanel",
                       "text.folder-already-exists-on-current-location"
                     )
                   ).replace("%foldername", '"'.concat(t, '"'))),
             new Promise((e) => {
-              d.default.confirm(n, (t) => e(!!t), null, null, false, true, true);
+              GSystemDialog.default.confirm(n, (t) => e(!!t), null, null, false, true, true);
             })
           );
         };
         var h = async function () {
           try {
-            s.hide(), l.show();
-            let o,
-              a = s.val();
-            if (e.getType() === g.Type.File && !r._isUserInputValidFileName(a))
+            s.hide(), CollaborationMergeUtils.show();
+            let _interopRequireDefault,
+              GEditor = s.val();
+            if (e.getType() === g.Type.File && !r._isUserInputValidFileName(GEditor))
               return (
-                d.default.alert(
-                  i.GLocale.get(
-                    new i.GLocaleKey(
+                GSystemDialog.default.alert(
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey(
                       "GFilesPanel",
                       "text.new-file-name-invalid"
                     )
@@ -680,85 +680,85 @@ function (exports, module, require) {
                 ),
                 void s.val(c)
               );
-            if (a.trim() && a.trim() !== e.name) {
+            if (GEditor.trim() && GEditor.trim() !== e.name) {
               r.toggleLoading(true);
               try {
-                let i = 0;
+                let GCore = 0;
                 const s = e.ext || e.extension;
                 if (r.filesPanel.drive.supportsSaveCollisionFlow())
                   if (e.getType() === g.Type.File) {
                     if (
                       (await r.filesPanel.drive.fileExists(
-                        a,
+                        GEditor,
                         s,
                         e.parent || r.filesPanel.drive.getRootFolder()
                       )) &&
-                      !(await p(a))
+                      !(await p(GEditor))
                     )
                       return r._renameFile(e, t, n);
                     if (r.filesPanel.drive.requiresOverwriteCollisionHandling())
                       for (
-                        o = a;
+                        _interopRequireDefault = GEditor;
                         await r.filesPanel.drive.fileExists(
-                          o,
+                          _interopRequireDefault,
                           s,
                           e.parent || r.filesPanel.drive.getRootFolder()
                         );
 
                       )
-                        o = "".concat(a, " (").concat(++i, ")");
+                        _interopRequireDefault = "".concat(GEditor, " (").concat(++GCore, ")");
                   } else {
                     if (
                       (await r.filesPanel.drive.folderExists(
-                        a,
+                        GEditor,
                         e.parent || r.filesPanel.drive.getRootFolder()
                       )) &&
-                      !(await p(a))
+                      !(await p(GEditor))
                     )
                       return r._renameFile(e, t, n);
                     if (r.filesPanel.drive.requiresOverwriteCollisionHandling())
                       for (
-                        o = a;
+                        _interopRequireDefault = GEditor;
                         await r.filesPanel.drive.folderExists(
-                          o,
+                          _interopRequireDefault,
                           e.parent || r.filesPanel.drive.getRootFolder()
                         );
 
                       )
-                        o = "".concat(a, " (").concat(++i, ")");
+                        _interopRequireDefault = "".concat(GEditor, " (").concat(++GCore, ")");
                   }
-                o || (o = a), await r.filesPanel.renameItem(e, o);
+                _interopRequireDefault || (_interopRequireDefault = GEditor), await r.filesPanel.renameItem(e, _interopRequireDefault);
               } catch (e) {
                 return (
                   r.toggleLoading(false),
                   e && e.badName
-                    ? void d.default.alert(e.message)
+                    ? void GSystemDialog.default.alert(e.message)
                     : (s.val(c),
-                      void d.default.alert(
-                        i.GLocale.get(
-                          new i.GLocaleKey("GFilesPanel", "text.error-renaming")
+                      void GSystemDialog.default.alert(
+                        GCore.GLocale.get(
+                          new GCore.GLocaleKey("GFilesPanel", "text.error-renaming")
                         )
                       ))
                 );
               }
               !(function (t) {
                 const n = gDesigner.getWindows(),
-                  o = n && n.getWindows();
-                if (!o || !o.length) return;
-                for (let n = 0, i = o.length; n < i; n++) {
-                  let i = o[n].getDocument();
-                  if (i && i.getId() === e.id) {
-                    i.setTitle(t);
+                  _interopRequireDefault = n && n.getWindows();
+                if (!_interopRequireDefault || !_interopRequireDefault.length) return;
+                for (let n = 0, GCore = _interopRequireDefault.length; n < GCore; n++) {
+                  let GCore = _interopRequireDefault[n].getDocument();
+                  if (GCore && GCore.getId() === e.id) {
+                    GCore.setTitle(t);
                     break;
                   }
                 }
-              })(o),
-                (e.name = o),
-                s.css("width", l.outerWidth());
+              })(_interopRequireDefault),
+                (e.name = _interopRequireDefault),
+                s.css("width", CollaborationMergeUtils.outerWidth());
               const u = (t) => {
-                ($(t).data("node").name = o),
-                  $(t).attr("data-title", o),
-                  $(t).find("div.name").text(o),
+                ($(t).data("node").name = _interopRequireDefault),
+                  $(t).attr("data-title", _interopRequireDefault),
+                  $(t).find("div.name").text(_interopRequireDefault),
                   r._updateFileNamePreview(t, e);
               };
               e.getType() === g.Type.Folder
@@ -779,7 +779,7 @@ function (exports, module, require) {
           u || (h(), (u = true)), t.removeClass("renaming");
         }).on("keypress", function (e) {
           const n = e.which || e.charCode || e.keyCode;
-          a.GKey.translateKey(n) !== a.GKey.Constant.ENTER ||
+          GEditor.GKey.translateKey(n) !== GEditor.GKey.Constant.ENTER ||
             u ||
             (gDesigner.stats("filespanel-view_update_cloudfile-name"),
             h(),
@@ -790,14 +790,14 @@ function (exports, module, require) {
       (v.prototype._updateMenuItemCaption = function (e, t) {
         this.filesPanel.getSelection().length > 1
           ? e.setCaption(
-              i.GLocale.get(
-                new i.GLocaleKey("GFilesPanel", "text.selection-multiple")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GFilesPanel", "text.selection-multiple")
               )
                 .replace("%selection", t)
                 .replace(
                   "%multiple",
-                  i.GLocale.get(
-                    new i.GLocaleKey("GFilesPanel", "text.multiple")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GFilesPanel", "text.multiple")
                   )
                 )
             )
@@ -810,8 +810,8 @@ function (exports, module, require) {
       (v.prototype._getNativeMenuItems = function () {
         return [
           {
-            caption: i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.open")
+            caption: GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.open")
             ),
             click: () => {
               if (this._isFolderSelected()) {
@@ -837,8 +837,8 @@ function (exports, module, require) {
             },
           },
           {
-            caption: i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.rename")
+            caption: GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.rename")
             ),
             click: () => {
               var e = this.filesPanel.getSelection();
@@ -858,7 +858,7 @@ function (exports, module, require) {
             },
           },
           {
-            caption: i.GLocale.get(new i.GLocaleKey("GPasteAction", "title")),
+            caption: GCore.GLocale.get(new GCore.GLocaleKey("GPasteAction", "title")),
             click: () => {
               this.filesPanel.isClipboardModeCut()
                 ? this.filesPanel.performCutPaste()
@@ -877,8 +877,8 @@ function (exports, module, require) {
             },
           },
           {
-            caption: i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.copy")
+            caption: GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.copy")
             ),
             click: () => {
               this.filesPanel.performCopyPaste(
@@ -889,7 +889,7 @@ function (exports, module, require) {
               var t = this.filesPanel.getSelection();
               this._updateMenuItemCaption(
                 e.sender,
-                i.GLocale.get(new i.GLocaleKey("GFilesPanel", "action.copy"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GFilesPanel", "action.copy"))
               ),
                 e.sender.setEnabled(t.length > 0),
                 e.sender.setVisible(
@@ -899,8 +899,8 @@ function (exports, module, require) {
             },
           },
           {
-            caption: i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.cut")
+            caption: GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.cut")
             ),
             click: () => {
               this.filesPanel.performCutPaste(
@@ -911,7 +911,7 @@ function (exports, module, require) {
               var t = this.filesPanel.getSelection();
               this._updateMenuItemCaption(
                 e.sender,
-                i.GLocale.get(new i.GLocaleKey("GFilesPanel", "action.cut"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GFilesPanel", "action.cut"))
               ),
                 e.sender.setEnabled(t.length > 0),
                 e.sender.setVisible(
@@ -921,7 +921,7 @@ function (exports, module, require) {
             },
           },
           {
-            caption: i.GLocale.get(new i.GLocaleKey("GDeleteAction", "title")),
+            caption: GCore.GLocale.get(new GCore.GLocaleKey("GDeleteAction", "title")),
             click: () => {
               this.filesPanel.handleDelete();
             },
@@ -929,7 +929,7 @@ function (exports, module, require) {
               var t = this.filesPanel.getSelection();
               this._updateMenuItemCaption(
                 e.sender,
-                i.GLocale.get(new i.GLocaleKey("GDeleteAction", "title"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GDeleteAction", "title"))
               ),
                 e.sender.setEnabled(t.length > 0),
                 e.sender.setVisible(
@@ -939,8 +939,8 @@ function (exports, module, require) {
             },
           },
           {
-            caption: i.GLocale.get(
-              new i.GLocaleKey("GUnshareWithMeAction", "title")
+            caption: GCore.GLocale.get(
+              new GCore.GLocaleKey("GUnshareWithMeAction", "title")
             ),
             click: async () => {
               if (gDesigner.getShareManager().isShareProRestricted())
@@ -964,7 +964,7 @@ function (exports, module, require) {
               var t = this.filesPanel.getSelection();
               this._updateMenuItemCaption(
                 e.sender,
-                i.GLocale.get(new i.GLocaleKey("GUnshareWithMeAction", "title"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GUnshareWithMeAction", "title"))
               ),
                 e.sender.setEnabled(t.length > 0),
                 e.sender.setVisible(
@@ -976,12 +976,12 @@ function (exports, module, require) {
         ];
       }),
       (v.prototype._buildContextMenu = function () {
-        (this._contextMenu = new _(null, "g-file-panel-context-menu")),
+        (this._contextMenu = new GMenu(null, "g-file-panel-context-menu")),
           this._setContextMenuActiveRangeSize();
         this._getNativeMenuItems().forEach((e) => {
           this._contextMenu
             .createAddItem(e.caption, e.click)
-            .addEventListener(b.UpdateEvent, e.update.bind(this));
+            .addEventListener(GMenu2.UpdateEvent, e.update.bind(this));
         }),
           this._createContextMenuDownloadMenu();
       }),
@@ -989,8 +989,8 @@ function (exports, module, require) {
       (v.prototype._createContextMenuDownloadMenu = async function () {
         this._contextMenu
           .createAddItem(
-            i.GLocale.get(
-              new i.GLocaleKey("GFilesPanel", "action.download-title")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GFilesPanel", "action.download-title")
             ),
             () => {
               1 === this.filesPanel.getSelection().length
@@ -999,12 +999,12 @@ function (exports, module, require) {
                 this.filesPanel.handleDownload();
             }
           )
-          .addEventListener(b.UpdateEvent, (e) => {
+          .addEventListener(GMenu2.UpdateEvent, (e) => {
             var t = this.filesPanel.getSelection();
             this._updateMenuItemCaption(
               e.sender,
-              i.GLocale.get(
-                new i.GLocaleKey("GFilesPanel", "action.download-title")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GFilesPanel", "action.download-title")
               ),
               t
             ),

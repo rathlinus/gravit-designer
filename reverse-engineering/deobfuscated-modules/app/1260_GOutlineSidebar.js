@@ -6,33 +6,33 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(596) /* polyfill_Array_reverse */, require(30) /* polyfill_Object_assign */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(53) /* module */,
-      a = require(1) /* module */,
+    var GTools = require(53) /* module */,
+      GCore = require(1) /* module */,
       r = require(15) /* module */,
-      s = o(require(340) /* GTouchTool */),
+      GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       l = require(67) /* GRichTooltipConfig */,
-      c = o(require(442) /* module_442 */),
-      d = require(78) /* GDocumentEvent */,
-      u = require(217) /* GDocumentStatusEvent */,
+      c = _interopRequireDefault(require(442) /* module_442 */),
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       p = require(86) /* module_86 */,
       g = require(603) /* WindowEvent */,
-      h = require(449) /* GFitAllAction */,
-      f = require(566) /* GFitSelectionAction */,
-      m = require(806) /* GSidebar */,
+      GFitAllAction = require(449) /* GFitAllAction */,
+      GFitSelectionAction = require(566) /* GFitSelectionAction */,
+      GSidebar = require(806) /* GSidebar */,
       y = require(395) /* module_395 */,
-      v = require(1523) /* GExportProperties */,
-      _ = require(44) /* GSystemDialog */,
+      GExportProperties = require(1523) /* GExportProperties */,
+      GSystemDialog = require(44) /* GSystemDialog */,
       b = require(450) /* module_450 */;
-    const w = require(808) /* GApplicationStatusEvent */,
-      C = require(135) /* GSettingChangedEvent */;
+    const GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
+      GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function x() {
-      m.call(this);
+      GSidebar.call(this);
     }
-    a.GObject.inherit(x, m),
+    GCore.GObject.inherit(x, GSidebar),
       (x.ID = "outline"),
-      (x.TITLE = new a.GLocaleKey("GOutlineSidebar", "title")),
+      (x.TITLE = new GCore.GLocaleKey("GOutlineSidebar", "title")),
       (x.MULTIPAGE_MODE_ENABLED_OPTION_NAME = "OutlineSidebar/Multipage_Mode"),
       (x.prototype._document = null),
       (x.prototype._pageToolbar = null),
@@ -95,7 +95,7 @@ function (exports, module, require) {
       }),
       (x.prototype.getTouchTools = function () {
         return [
-          new s.default({
+          new GTouchTool.default({
             def: true,
             id: "pages",
             sidebar: this.getId(),
@@ -104,7 +104,7 @@ function (exports, module, require) {
             toolbar: ".page-toolbar",
             panelWidth: "320px",
           }),
-          new s.default({
+          new GTouchTool.default({
             id: "layers",
             sidebar: this.getId(),
             icon: "gravit-icon-touch-layers-panel",
@@ -116,12 +116,12 @@ function (exports, module, require) {
       }),
       (x.prototype.init = function (e) {
         (this._htmlElement = e),
-          m.prototype.init.call(this, e),
+          GSidebar.prototype.init.call(this, e),
           (this._pageToolbar = $("<div></div>")
             .addClass("toolbar page-toolbar")
             .append(
               $("<label></label>").text(
-                a.GLocale.get(new a.GLocaleKey("GOutlineSidebar", "text.pages"))
+                GCore.GLocale.get(new GCore.GLocaleKey("GOutlineSidebar", "text.pages"))
               )
             )
             .on("dragover", function (e) {
@@ -148,8 +148,8 @@ function (exports, module, require) {
             .addClass("g-switch")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.toggle-page-mode")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.toggle-page-mode")
               )
             )
             .css("margin-right", "5px")
@@ -164,14 +164,14 @@ function (exports, module, require) {
             .appendTo(this._pageToolbar)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.multipage-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.multipage-tooltip-description"
                   )
@@ -197,8 +197,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.delete-active-page")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.delete-active-page")
               )
             )
             .on("click", () => this._deletePage())
@@ -206,14 +206,14 @@ function (exports, module, require) {
             .appendTo(this._pageToolbar)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.delete-page-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.delete-page-tooltip-description"
                   )
@@ -225,8 +225,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.create-new-page")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.create-new-page")
               )
             )
             .on(
@@ -241,14 +241,14 @@ function (exports, module, require) {
             .appendTo(this._pageToolbar)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.create-new-page-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.create-new-page-tooltip-description"
                   )
@@ -259,7 +259,7 @@ function (exports, module, require) {
             );
         var t,
           n,
-          o = $("<div></div>").addClass("pages-container").appendTo(e);
+          _interopRequireDefault = $("<div></div>").addClass("pages-container").appendTo(e);
         (this._pagePanel = $("<div></div>")
           .addClass("pages")
           .gToolbarShadow("init", ".page-toolbar")
@@ -294,43 +294,43 @@ function (exports, module, require) {
               this._pagePanel.gPagePanel("setBlockHighlight", false);
             }.bind(this)
           )
-          .appendTo(o)),
+          .appendTo(_interopRequireDefault)),
           this._pagePanel.gPagePanel({
             moveCallback: this._movePageTreeNodeCallback.bind(this),
             clickCallback: this._clickPageTreeNodeCallback.bind(this),
             startDraggingCallback: this._startPageDraggingCallback.bind(this),
           });
         var r = false,
-          s = $("<div/>").attr("id", "page-layer-divider"),
+          GTouchTool = $("<div/>").attr("id", "page-layer-divider"),
           c = function (e) {
-            var i;
+            var GTools;
             r &&
-              ((i = n - t + e.clientY) < this._pageContainerMinHeight &&
-                (i = this._pageContainerMinHeight),
-              i > this._pageContainerMaxHeight &&
-                (i = this._pageContainerMaxHeight),
-              o.css("height", i + "px"));
+              ((GTools = n - t + e.clientY) < this._pageContainerMinHeight &&
+                (GTools = this._pageContainerMinHeight),
+              GTools > this._pageContainerMaxHeight &&
+                (GTools = this._pageContainerMaxHeight),
+              _interopRequireDefault.css("height", GTools + "px"));
           }.bind(this),
-          u = function () {
+          GDocumentStatusEvent = function () {
             $(document).off("mousemove", c),
-              $(document).off("mouseup", u),
+              $(document).off("mouseup", GDocumentStatusEvent),
               (r = false),
               (t = null),
               (n = null),
               e.removeClass("page-container-resizing");
           },
-          p = function (i) {
-            (t = i.clientY),
+          p = function (GTools) {
+            (t = GTools.clientY),
               (r = true),
-              (n = parseInt(o.css("height"), 10)),
+              (n = parseInt(_interopRequireDefault.css("height"), 10)),
               e.addClass("page-container-resizing"),
               $(document).on("mousemove", c),
-              $(document).on("mouseup", u);
+              $(document).on("mouseup", GDocumentStatusEvent);
           }.bind(this);
-        $(s).on("mousedown", p),
-          s.appendTo(e),
-          $("<hr />").appendTo(s),
-          s.append($("<div />")),
+        $(GTouchTool).on("mousedown", p),
+          GTouchTool.appendTo(e),
+          $("<hr />").appendTo(GTouchTool),
+          GTouchTool.append($("<div />")),
           this._addLayerPanel(e),
           $("<hr/>").appendTo(e),
           (this._exportToolbar = $("<div></div>")
@@ -340,18 +340,18 @@ function (exports, module, require) {
             .addClass("properties-panel")
             .addClass("export-panel")
             .appendTo(e)),
-          (this._exportInstance = new v()),
+          (this._exportInstance = new GExportProperties()),
           this._exportInstance.init(this._exportPanel, this._exportToolbar),
-          gDesigner.addEventListener(d, this._documentEvent, this),
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           gDesigner
             .getToolManager()
             .addEventListener(
-              i.GToolManager.ToolChangedEvent,
+              GTools.GToolManager.ToolChangedEvent,
               this._toolChangedEvent,
               this
             ),
-          gDesigner.addEventListener(w, this._applicationStatusEvent, this),
-          gDesigner.addEventListener(C, this._settingChanged, this),
+          gDesigner.addEventListener(GApplicationStatusEvent, this._applicationStatusEvent, this),
+          gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
           this._pageToolbar.gAccordion("init", ".pages-container", "label"),
           this._exportToolbar.gAccordion("init", ".properties-panel", "label"),
           (this._outlineSidebarElement = e);
@@ -386,11 +386,11 @@ function (exports, module, require) {
         this._refreshPageModeSwitch(module, { showAlert: true });
         const require = module.is(":checked");
         this._changePageMode(require, false);
-        const o = a.GLocale.get(
-          new a.GLocaleKey("GOutlineSidebar", "action.toggle-page-mode")
+        const _interopRequireDefault = GCore.GLocale.get(
+          new GCore.GLocaleKey("GOutlineSidebar", "action.toggle-page-mode")
         );
         this._document.getEditor().pushState(
-          o,
+          _interopRequireDefault,
           () => {
             this._changePageMode(require);
           },
@@ -408,7 +408,7 @@ function (exports, module, require) {
         "touch" === e.key && this._touchInterfaceUpdate();
       }),
       (x.prototype._applicationStatusEvent = function (e) {
-        e.status === w.Status.Ready && this._touchInterfaceUpdate();
+        e.status === GApplicationStatusEvent.Status.Ready && this._touchInterfaceUpdate();
       }),
       (x.prototype._touchInterfaceUpdate = function () {
         gDesigner.isTouchEnabled()
@@ -438,8 +438,8 @@ function (exports, module, require) {
               $("<label></label>")
                 .css("flex-grow", "1")
                 .text(
-                  a.GLocale.get(
-                    new a.GLocaleKey("GOutlineSidebar", "text.layers")
+                  GCore.GLocale.get(
+                    new GCore.GLocaleKey("GOutlineSidebar", "text.layers")
                   )
                 )
             )
@@ -469,8 +469,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.delete-layer-item")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.delete-layer-item")
               )
             )
             .on("click", () => this._deleteLayerOrItem())
@@ -478,14 +478,14 @@ function (exports, module, require) {
             .appendTo(this._layerToolbar)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.delete-layer-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.delete-layer-tooltip-description"
                   )
@@ -497,8 +497,8 @@ function (exports, module, require) {
           $("<button></button>")
             .attr(
               "data-title",
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.new-layer")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.new-layer")
               )
             )
             .on("click", () => this.insertLayer())
@@ -506,14 +506,14 @@ function (exports, module, require) {
             .appendTo(this._layerToolbar)
             .gRichTooltip(
               l.GRichTooltipConfig.from({
-                title: a.GLocale.get(
-                  new a.GLocaleKey(
+                title: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.new-layer-tooltip-title"
                   )
                 ),
-                description: a.GLocale.get(
-                  new a.GLocaleKey(
+                description: GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.new-layer-tooltip-description"
                   )
@@ -535,8 +535,8 @@ function (exports, module, require) {
                 t &&
                   t.acceptChildren(function (e) {
                     return (
-                      e.hasFlag(a.GNode.Flag.Highlighted) &&
-                        e.removeFlag(a.GNode.Flag.Highlighted),
+                      e.hasFlag(GCore.GNode.Flag.Highlighted) &&
+                        e.removeFlag(GCore.GNode.Flag.Highlighted),
                       true
                     );
                   }),
@@ -557,7 +557,7 @@ function (exports, module, require) {
                 var e = this._document.getScene();
                 e && e.setActiveLayer(null),
                   r.GPlatform.modifiers.optionKey &&
-                    gDesigner.executeAction(h.ID, undefined, "outlinesidebar");
+                    gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
               }.bind(this)
             )
             .on("dragover", function (e) {
@@ -593,12 +593,12 @@ function (exports, module, require) {
       }),
       (x.prototype._documentEvent = function (e) {
         var t, n;
-        e.type === d.Type.Activated
+        e.type === GDocumentEvent.Type.Activated
           ? ((this._document = e.document),
             (t = this._document.getScene()),
             this._pagePanel.gPagePanel("scene", t),
             this._layerPanel.gLayerPanel("scene", t),
-            this.trigger(m.UPDATE_EVENT),
+            this.trigger(GSidebar.UPDATE_EVENT),
             this._document.getStatus() === p.Ready ||
             this._document.getStatus() === p.Loaded
               ? this._document.getActiveWindow()
@@ -607,7 +607,7 @@ function (exports, module, require) {
                     .getWindows()
                     .addEventListener(g.WindowEvent, this._windowsEvent, this)
               : this._document.addEventListener(
-                  u,
+                  GDocumentStatusEvent,
                   this._documentStatusEvent,
                   this
                 ),
@@ -615,32 +615,32 @@ function (exports, module, require) {
             gDesigner
               .getToolManager()
               .addEventListener(
-                i.GToolManager.ToolChangedEvent,
+                GTools.GToolManager.ToolChangedEvent,
                 this._updateExport,
                 this
               ),
             n.addEventListener(
-              i.GEditor.SelectionChangedEvent,
+              GTools.GEditor.SelectionChangedEvent,
               this._updateExport,
               this
             ),
             t.addEventListener(
-              a.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._afterFlagChangeEvent,
               this
             ),
             t.addEventListener(
-              a.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._afterPropertiesChanged,
               this
             ),
             t.addEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               this._afterInsert,
               this
             ),
             this._updateExport())
-          : e.type === d.Type.Deactivated &&
+          : e.type === GDocumentEvent.Type.Deactivated &&
             (this._pagePanel.gPagePanel("scene", null),
             this._layerPanel.gLayerPanel("scene", null),
             (t = this._document.getScene()),
@@ -648,7 +648,7 @@ function (exports, module, require) {
             gDesigner
               .getToolManager()
               .removeEventListener(
-                i.GToolManager.ToolChangedEvent,
+                GTools.GToolManager.ToolChangedEvent,
                 this._updateExport,
                 this
               ),
@@ -656,40 +656,40 @@ function (exports, module, require) {
               .getWindows()
               .removeEventListener(g.WindowEvent, this._windowsEvent, this),
             n.removeEventListener(
-              i.GEditor.SelectionChangedEvent,
+              GTools.GEditor.SelectionChangedEvent,
               this._updateExport,
               this
             ),
             t.removeEventListener(
-              a.GNode.AfterFlagChangeEvent,
+              GCore.GNode.AfterFlagChangeEvent,
               this._afterFlagChangeEvent,
               this
             ),
             t.removeEventListener(
-              a.GNode.AfterPropertiesChangeEvent,
+              GCore.GNode.AfterPropertiesChangeEvent,
               this._afterPropertiesChanged,
               this
             ),
             t.removeEventListener(
-              a.GNode.AfterInsertEvent,
+              GCore.GNode.AfterInsertEvent,
               this._afterInsert,
               this
             ),
             this._document.removeEventListener(
-              u,
+              GDocumentStatusEvent,
               this._documentStatusEvent,
               this
             ),
             (this._document = null),
             (this._elements = null),
             this._updateExport(),
-            this.trigger(m.UPDATE_EVENT));
+            this.trigger(GSidebar.UPDATE_EVENT));
       }),
       (x.prototype._documentStatusEvent = function (e) {
         (e.status !== p.Ready && e.status !== p.Loaded) ||
           (this._updateMultiPageMode(),
           this._document.removeEventListener(
-            u,
+            GDocumentStatusEvent,
             this._documentStatusEvent,
             this
           ));
@@ -719,10 +719,10 @@ function (exports, module, require) {
         var t = e.previousTool,
           n = e.newTool;
         t &&
-          t instanceof i.GSelectTool &&
+          t instanceof GTools.GSelectTool &&
           (e.light || this._updateTransformMode(false),
           t.removeEventListener(
-            i.GSelectTool.Event,
+            GTools.GSelectTool.Event,
             this._selectToolEvent,
             this
           )),
@@ -730,27 +730,27 @@ function (exports, module, require) {
       }),
       (x.prototype._activeTool = function (e) {
         e &&
-          e instanceof i.GSelectTool &&
-          e.addEventListener(i.GSelectTool.Event, this._selectToolEvent, this);
+          e instanceof GTools.GSelectTool &&
+          e.addEventListener(GTools.GSelectTool.Event, this._selectToolEvent, this);
       }),
       (x.prototype._selectToolEvent = function (e) {
-        e.type === i.GSelectTool.Event.Type.EditModeChanged &&
+        e.type === GTools.GSelectTool.Event.Type.EditModeChanged &&
           this._updateTransformMode(
-            e.args.mode === i.GSelectTool.EditMode.Transform
+            e.args.mode === GTools.GSelectTool.EditMode.Transform
           );
       }),
       (x.prototype._insertPage = function () {
         if (gDesigner.getApplicationManager().isEditingEnabled()) {
           gDesigner.stats("pages_insert_page");
           var exports = this._document.getScene();
-          i.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             exports,
             function () {
               var t = exports.insertPage();
               exports.setActivePage(t);
             },
-            a.GLocale.get(
-              new a.GLocaleKey("GOutlineSidebar", "action.insert-page")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GOutlineSidebar", "action.insert-page")
             )
           ),
             this._navigateDrawingCenter(exports.getActivePage()),
@@ -769,18 +769,18 @@ function (exports, module, require) {
       (x.prototype._refreshPageModeSwitch = function (e) {
         let { showAlert: module = false, skipInvalidation: require = false } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const o = !this.sceneHasInfiniteCanvas();
+        const _interopRequireDefault = !this.sceneHasInfiniteCanvas();
         if (!this.isEnabled())
           return e.attr("data-title", ""), void e.prop("disabled", true);
         e.prop("disabled", false);
-        var i = this._document.getActiveWindow(),
-          r = i.getView();
-        (o ||
+        var GTools = this._document.getActiveWindow(),
+          r = GTools.getView();
+        (_interopRequireDefault ||
           (e.is(":checked") && e.prop("checked", false),
           module &&
-            _.alert(
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "text.multipage-alert")
+            GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "text.multipage-alert")
               )
             ),
           r.getViewConfiguration().multiPageView ||
@@ -789,31 +789,31 @@ function (exports, module, require) {
           (r.getViewConfiguration().pageLabelsVisible = e.is(":checked")),
           require ||
             (r.invalidate(null, true),
-            module && (i.centerAndZoom(), this._refreshSelection())));
+            module && (GTools.centerAndZoom(), this._refreshSelection())));
       }),
       (x.prototype._deletePage = function () {
         gDesigner.stats("pages_delete_page");
         this._document.getEditor();
         var e = this._document.getScene(),
           t = e.getActivePage();
-        t.getProperty("plkt") & a.GBlock.ProgramLck.NoDelete ||
+        t.getProperty("plkt") & GCore.GBlock.ProgramLck.NoDelete ||
           (t.getSlavePages().length > 0
-            ? _.confirm(
-                a.GLocale.get(
-                  new a.GLocaleKey(
+            ? GSystemDialog.confirm(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
                     "GOutlineSidebar",
                     "text.confirm-delete-masterpage"
                   )
                 ),
                 function (t) {
                   t &&
-                    i.GEditor.tryRunTransaction(
+                    GTools.GEditor.tryRunTransaction(
                       e,
                       function () {
                         e.deleteActivePage();
                       },
-                      a.GLocale.get(
-                        new a.GLocaleKey(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey(
                           "GOutlineSidebar",
                           "action.delete-page"
                         )
@@ -825,13 +825,13 @@ function (exports, module, require) {
                 true,
                 true
               )
-            : i.GEditor.tryRunTransaction(
+            : GTools.GEditor.tryRunTransaction(
                 e,
                 function () {
                   e.deleteActivePage();
                 },
-                a.GLocale.get(
-                  new a.GLocaleKey("GOutlineSidebar", "action.delete-page")
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey("GOutlineSidebar", "action.delete-page")
                 )
               ),
           this._navigateDrawingCenter(e.getActivePage()),
@@ -844,37 +844,37 @@ function (exports, module, require) {
             .getActiveWindow()
             .getView()
             .getViewConfiguration().multiPageView,
-          o = t.getActivePage(),
-          a = null;
+          _interopRequireDefault = t.getActivePage(),
+          GCore = null;
         if (e.hasSelection()) {
           var r = e.getSelection();
           n
-            ? e.updateSelection(false, [o])
-            : (a = r.filter(function (e) {
-                return i.GEditor.getElementPage(e) === o;
-              })).length !== r.length && e.updateSelection(false, a);
-        } else n && e.updateSelection(false, [o]);
+            ? e.updateSelection(false, [_interopRequireDefault])
+            : (GCore = r.filter(function (e) {
+                return GTools.GEditor.getElementPage(e) === _interopRequireDefault;
+              })).length !== r.length && e.updateSelection(false, GCore);
+        } else n && e.updateSelection(false, [_interopRequireDefault]);
       }),
       (x.prototype._movePageTreeNodeCallback = function (e, t, n) {
         if (n && e && n.length) {
           this._pagePanel.gPagePanel("blockHandlers", true);
-          var o = this._document.getScene();
-          i.GEditor.tryRunTransaction(
+          var _interopRequireDefault = this._document.getScene();
+          GTools.GEditor.tryRunTransaction(
             this._document.getScene(),
             function () {
               this._document.getEditor().clearSelection(),
-                o.startBlockReferenceChanges(),
+                _interopRequireDefault.startBlockReferenceChanges(),
                 n.length > 1 && e.beginUpdate();
-              for (var i = n.length; i > 0; --i) {
-                var a = n[i - 1];
-                a.getParent().removeChild(a), e.insertChild(a, t);
+              for (var GTools = n.length; GTools > 0; --GTools) {
+                var GCore = n[GTools - 1];
+                GCore.getParent().removeChild(GCore), e.insertChild(GCore, t);
               }
               n.length > 1 && e.endUpdate(),
-                o.endBlockReferenceChanges(),
-                o.isEvenOddMaster() && o.reassignMasterPages();
+                _interopRequireDefault.endBlockReferenceChanges(),
+                _interopRequireDefault.isEvenOddMaster() && _interopRequireDefault.reassignMasterPages();
             }.bind(this),
-            a.GLocale.get(
-              new a.GLocaleKey("GOutlineSidebar", "action.move-page")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GOutlineSidebar", "action.move-page")
             )
           ),
             this._pagePanel.gPagePanel("blockHandlers", false);
@@ -886,10 +886,10 @@ function (exports, module, require) {
         if (e) {
           t = [];
           var require = this._document.getEditor();
-          if (e.hasFlag(a.GNode.Flag.Selected)) {
-            var o = require.getSelection();
-            t = this._filterPageDraggable(o);
-            t = a.GNode.order(t, true);
+          if (e.hasFlag(GCore.GNode.Flag.Selected)) {
+            var _interopRequireDefault = require.getSelection();
+            t = this._filterPageDraggable(_interopRequireDefault);
+            t = GCore.GNode.order(t, true);
           } else require.clearSelection(), t.push(e);
         }
         return t;
@@ -898,10 +898,10 @@ function (exports, module, require) {
         var t = [];
         if (e)
           for (var require = 0; require < e.length; ++require) {
-            var o = e[require];
-            o instanceof a.GPage &&
-              !o.hasFlag(a.GElement.Flag.PartialLocked) &&
-              t.push(o);
+            var _interopRequireDefault = e[require];
+            _interopRequireDefault instanceof GCore.GPage &&
+              !_interopRequireDefault.hasFlag(GCore.GElement.Flag.PartialLocked) &&
+              t.push(_interopRequireDefault);
           }
         return t;
       }),
@@ -911,15 +911,15 @@ function (exports, module, require) {
           require = module && module.getScene();
         require &&
           e &&
-          i.GEditor.tryRunTransaction(
+          GTools.GEditor.tryRunTransaction(
             require,
             () => {
               require.setActivePage(e),
                 this._navigateDrawingCenter(e),
                 this._refreshSelection();
             },
-            a.GLocale.get(
-              new a.GLocaleKey("GOutlineSidebar", "action.change-active-page")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GOutlineSidebar", "action.change-active-page")
             )
           );
       }),
@@ -930,24 +930,24 @@ function (exports, module, require) {
         var t = this._document.getActiveWindow().getView();
         if (t.getViewConfiguration().multiPageView) {
           var require = e.getTransform(),
-            o = e.getGeometryBBox();
-          r = require.mapRect(o).getSide(a.GRect.Side.CENTER);
+            _interopRequireDefault = e.getGeometryBBox();
+          r = require.mapRect(_interopRequireDefault).getSide(GCore.GRect.Side.CENTER);
           t.zoomAtCenter(r);
         } else if (this._document.hasCDR()) {
-          var i = e.getContentBBox();
-          if (i && !i.isEmpty()) {
-            var r = i.getSide(a.GRect.Side.CENTER);
+          var GTools = e.getContentBBox();
+          if (GTools && !GTools.isEmpty()) {
+            var r = GTools.getSide(GCore.GRect.Side.CENTER);
             t.zoomAtCenter(r);
           }
         }
       }),
       (x.prototype.createLayer = function () {
         const exports = this._document.getScene(),
-          module = new a.GLayer();
+          module = new GCore.GLayer();
         return (
           module.setProperty(
             "name",
-            a.GLocale.get(new a.GLocaleKey("GOutlineSidebar", "text.layer")) +
+            GCore.GLocale.get(new GCore.GLocaleKey("GOutlineSidebar", "text.layer")) +
               " " +
               exports.queryCount("layer").toString()
           ),
@@ -958,24 +958,24 @@ function (exports, module, require) {
         if (!gDesigner.getApplicationManager().isEditingEnabled()) return;
         gDesigner.stats("layers_insert_layer");
         const exports = this._document.getScene();
-        i.GEditor.tryRunTransaction(
+        GTools.GEditor.tryRunTransaction(
           exports,
           () => {
             const module = gDesigner.getActiveDocument(),
               require = module && module.getEditor(),
-              o = (require && require.getSelection()) || [];
-            let i = exports.getActivePage();
-            i || ((i = exports.insertPage()), i.setFlag(a.GNode.Flag.Active));
+              _interopRequireDefault = (require && require.getSelection()) || [];
+            let GTools = exports.getActivePage();
+            GTools || ((GTools = exports.insertPage()), GTools.setFlag(GCore.GNode.Flag.Active));
             const r = this.createLayer(),
-              s = o.filter((e) => !this._hasSelectedParentLayer(e)),
-              l = a.GNode.order(s, true),
+              GTouchTool = _interopRequireDefault.filter((e) => !this._hasSelectedParentLayer(e)),
+              l = GCore.GNode.order(GTouchTool, true),
               c = l && l[0];
-            ((c && c.getParent()) || i).insertChild(r, c),
+            ((c && c.getParent()) || GTools).insertChild(r, c),
               exports.setActiveLayer(r),
-              this._moveLayers(r, null, s, false);
+              this._moveLayers(r, null, GTouchTool, false);
           },
-          a.GLocale.get(
-            new a.GLocaleKey("GOutlineSidebar", "action.insert-layer")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GOutlineSidebar", "action.insert-layer")
           )
         );
       }),
@@ -983,98 +983,98 @@ function (exports, module, require) {
         let module = false;
         for (
           let require = e.getParent();
-          require instanceof a.GLayer && !module;
+          require instanceof GCore.GLayer && !module;
           require = require.getParent()
         )
-          require.hasFlag(a.GNode.Flag.Selected) && (module = true);
+          require.hasFlag(GCore.GNode.Flag.Selected) && (module = true);
         return module;
       }),
-      (x.prototype._moveLayerTreeNodeCallback = function (e, t, n, o) {
+      (x.prototype._moveLayerTreeNodeCallback = function (e, t, n, _interopRequireDefault) {
         const r = this._document.getScene();
-        i.GEditor.tryRunTransaction(
+        GTools.GEditor.tryRunTransaction(
           r,
           () => {
-            this._moveLayers(e, t, n, o);
+            this._moveLayers(e, t, n, _interopRequireDefault);
           },
-          a.GLocale.get(
-            new a.GLocaleKey("GOutlineSidebar", "action.move-layer")
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GOutlineSidebar", "action.move-layer")
           )
         );
       }),
       (x.prototype._moveLayers = function (e, t, n) {
-        let o =
+        let _interopRequireDefault =
           !(arguments.length > 3 && undefined !== arguments[3]) || arguments[3];
-        if (!(e && e.hasMixin(a.GNode.Container) && n && n.length)) return;
+        if (!(e && e.hasMixin(GCore.GNode.Container) && n && n.length)) return;
         if (
           !(n = n
             .slice()
             .filter((e) =>
-              i.GEditor.validateBlockInsertion(e.getParent(), e, t)
+              GTools.GEditor.validateBlockInsertion(e.getParent(), e, t)
             )).length
         )
           return;
-        o && this._layerPanel.gLayerPanel("blockHandlers", true);
-        const s = this._document.getScene();
+        _interopRequireDefault && this._layerPanel.gLayerPanel("blockHandlers", true);
+        const GTouchTool = this._document.getScene();
         this._document.getEditor().clearSelection(),
-          s.startBlockReferenceChanges(),
+          GTouchTool.startBlockReferenceChanges(),
           n.length > 1 && e.beginUpdate(),
           n.forEach((n) => {
             r.GPlatform.modifiers.optionKey
-              ? n.hasMixin(a.GNode.Store) && (n = n.clone())
+              ? n.hasMixin(GCore.GNode.Store) && (n = n.clone())
               : n.getParent().removeChild(n),
               n &&
                 (e.insertChild(n, t),
-                e instanceof a.GCompoundShape && n.assignStyleFrom(e));
+                e instanceof GCore.GCompoundShape && n.assignStyleFrom(e));
           }),
           n.length > 1 && e.endUpdate(),
-          s.endBlockReferenceChanges(),
+          GTouchTool.endBlockReferenceChanges(),
           this._document.getEditor().updateSelection(false, n),
-          o && this._layerPanel.gLayerPanel("blockHandlers", false);
+          _interopRequireDefault && this._layerPanel.gLayerPanel("blockHandlers", false);
       }),
       (x.prototype._isDuplicateEffectCallback = function (e) {
         return e.altKey;
       }),
       (x.prototype._duplicateLayerTreeNodeCallback = function (e, t, n) {
-        if (n && e && e.hasMixin(a.GNode.Container) && n.length) {
+        if (n && e && e.hasMixin(GCore.GNode.Container) && n.length) {
           this._layerPanel.gLayerPanel("blockHandlers", false);
-          var o = this._document.getScene();
-          i.GEditor.tryRunTransaction(
-            o,
+          var _interopRequireDefault = this._document.getScene();
+          GTools.GEditor.tryRunTransaction(
+            _interopRequireDefault,
             function () {
               this._document.getEditor().clearSelection(),
                 n.length > 1 && e.beginUpdate();
-              for (var o = [], r = 0; r < n.length; ++r) {
-                var s = n[r];
-                s.validateInsertion(e) &&
-                  s.hasMixin(a.GNode.Store) &&
-                  i.GEditor.validateBlockInsertion(e, s) &&
-                  (s = s.clone()) &&
-                  o.push(s);
+              for (var _interopRequireDefault = [], r = 0; r < n.length; ++r) {
+                var GTouchTool = n[r];
+                GTouchTool.validateInsertion(e) &&
+                  GTouchTool.hasMixin(GCore.GNode.Store) &&
+                  GTools.GEditor.validateBlockInsertion(e, GTouchTool) &&
+                  (GTouchTool = GTouchTool.clone()) &&
+                  _interopRequireDefault.push(GTouchTool);
               }
               if (
                 (this._document
                   .getEditor()
-                  .insertElements(o, true, true, false, true, e, t),
-                e instanceof a.GCompoundShape)
+                  .insertElements(_interopRequireDefault, true, true, false, true, e, t),
+                e instanceof GCore.GCompoundShape)
               )
-                for (var l = 0; l < o.length; ++l) o[l].assignStyleFrom(e);
-              else if (e instanceof a.GShape) {
+                for (var l = 0; l < _interopRequireDefault.length; ++l) _interopRequireDefault[l].assignStyleFrom(e);
+              else if (e instanceof GCore.GShape) {
                 var c = e.getPaintBBox();
                 if (c) {
-                  var d = c.getX(),
-                    u = c.getY();
-                  for (r = 0; r < o.length; ++r) {
-                    var p = o[r],
-                      g = p instanceof a.GElement ? p.getPaintBBox() : null;
+                  var GDocumentEvent = c.getX(),
+                    GDocumentStatusEvent = c.getY();
+                  for (r = 0; r < _interopRequireDefault.length; ++r) {
+                    var p = _interopRequireDefault[r],
+                      g = p instanceof GCore.GElement ? p.getPaintBBox() : null;
                     if (g && !c.intersectsRect(g, true)) {
-                      var h = g.getX(),
-                        f = g.getY();
-                      null === d ||
-                        null === h ||
-                        (a.GMath.isEqualEps(d, h) &&
-                          a.GMath.isEqualEps(u, f)) ||
+                      var GFitAllAction = g.getX(),
+                        GFitSelectionAction = g.getY();
+                      null === GDocumentEvent ||
+                        null === GFitAllAction ||
+                        (GCore.GMath.isEqualEps(GDocumentEvent, GFitAllAction) &&
+                          GCore.GMath.isEqualEps(GDocumentStatusEvent, GFitSelectionAction)) ||
                         p.transform(
-                          new a.GTransform(1, 0, 0, 1, d - h, u - f),
+                          new GCore.GTransform(1, 0, 0, 1, GDocumentEvent - GFitAllAction, GDocumentStatusEvent - GFitSelectionAction),
                           true
                         );
                     }
@@ -1082,10 +1082,10 @@ function (exports, module, require) {
                 }
               }
               n.length > 1 && e.endUpdate(),
-                this._document.getEditor().updateSelection(false, o);
+                this._document.getEditor().updateSelection(false, _interopRequireDefault);
             }.bind(this),
-            a.GLocale.get(
-              new a.GLocaleKey("GOutlineSidebar", "action.move-layer")
+            GCore.GLocale.get(
+              new GCore.GLocaleKey("GOutlineSidebar", "action.move-layer")
             )
           );
         }
@@ -1095,9 +1095,9 @@ function (exports, module, require) {
         if (e) {
           gDesigner.stats("layers_start_drag"), (t = []);
           var require = this._document.getEditor();
-          if (e.hasFlag(a.GNode.Flag.Selected)) {
-            var o = require.getSelection();
-            (t = this._filterLayerDraggable(o)), (t = a.GNode.order(t, true));
+          if (e.hasFlag(GCore.GNode.Flag.Selected)) {
+            var _interopRequireDefault = require.getSelection();
+            (t = this._filterLayerDraggable(_interopRequireDefault)), (t = GCore.GNode.order(t, true));
           } else require.clearSelection(), t.push(e);
         }
         return t;
@@ -1109,33 +1109,33 @@ function (exports, module, require) {
         var t = [];
         if (e)
           for (var require = 0; require < e.length; ++require) {
-            var o = e[require];
-            if (!o.hasFlag(a.GElement.Flag.PartialLocked)) {
+            var _interopRequireDefault = e[require];
+            if (!_interopRequireDefault.hasFlag(GCore.GElement.Flag.PartialLocked)) {
               for (
-                var i = false, r = o.getParent();
-                null != r && !i;
+                var GTools = false, r = _interopRequireDefault.getParent();
+                null != r && !GTools;
                 r = r.getParent()
               )
-                i = r.hasFlag(a.GNode.Flag.Selected);
-              i || t.push(o);
+                GTools = r.hasFlag(GCore.GNode.Flag.Selected);
+              GTools || t.push(_interopRequireDefault);
             }
           }
         return t;
       }),
       (x.prototype._clickLayerTreeNodeCallback = function (e) {
         if (e) {
-          e instanceof a.GCollabText
+          e instanceof GCore.GCollabText
             ? gDesigner.stats("layers_select_collab-text")
             : gDesigner.stats("layers_select_layer"),
             this._document.getScene().updateActivePageForElem(e),
             this._document.getScene().updateActiveLayerForElem(e);
           var module = this._document.getEditor(),
             require = null,
-            o = false;
+            _interopRequireDefault = false;
           if (
-            (e instanceof a.GItem
-              ? (require = a.GItem)
-              : e instanceof a.GLayer && (require = a.GLayer),
+            (e instanceof GCore.GItem
+              ? (require = GCore.GItem)
+              : e instanceof GCore.GLayer && (require = GCore.GLayer),
             require)
           ) {
             if (
@@ -1149,21 +1149,21 @@ function (exports, module, require) {
                 .find("> div[tabindex=0]")
                 .focus(),
               r.GPlatform.modifiers.metaKey ||
-                (!e.hasFlag(a.GNode.Flag.Selected) &&
-                  !e.hasFlag(a.GElement.Flag.FullLocked) &&
+                (!e.hasFlag(GCore.GNode.Flag.Selected) &&
+                  !e.hasFlag(GCore.GElement.Flag.FullLocked) &&
                   !r.GPlatform.modifiers.shiftKey))
             )
               this._layerPanel.gLayerPanel("onlyUpdateStyle", true),
                 module.updateSelection(r.GPlatform.modifiers.metaKey, [e]),
                 this._layerPanel.gLayerPanel("onlyUpdateStyle", false),
-                (o = true);
+                (_interopRequireDefault = true);
             else if (r.GPlatform.modifiers.shiftKey) {
-              var i = module.getSelection(),
-                s = null;
-              if (i && i.length) {
-                for (var l = i.length - 1; l >= 0 && !s; --l)
-                  i[l] instanceof require && (s = i[l]);
-                if (s && s !== e) {
+              var GTools = module.getSelection(),
+                GTouchTool = null;
+              if (GTools && GTools.length) {
+                for (var l = GTools.length - 1; l >= 0 && !GTouchTool; --l)
+                  GTools[l] instanceof require && (GTouchTool = GTools[l]);
+                if (GTouchTool && GTouchTool !== e) {
                   var c = [];
                   if (
                     (this._document.getScene().accept(
@@ -1175,55 +1175,55 @@ function (exports, module, require) {
                     ),
                     c)
                   ) {
-                    c = a.GNode.order(c);
-                    var d = [],
-                      u = false,
+                    c = GCore.GNode.order(c);
+                    var GDocumentEvent = [],
+                      GDocumentStatusEvent = false,
                       p = null,
                       g = null;
                     for (l = 0; l < c.length && (null === p || null === g); ++l)
-                      c[l] === s || c[l] === e
-                        ? ((u = !u),
-                          d.push(c[l]),
-                          c[l] === s ? (p = l) : (g = l))
-                        : u && d.push(c[l]);
-                    var m = s.getParent(),
+                      c[l] === GTouchTool || c[l] === e
+                        ? ((GDocumentStatusEvent = !GDocumentStatusEvent),
+                          GDocumentEvent.push(c[l]),
+                          c[l] === GTouchTool ? (p = l) : (g = l))
+                        : GDocumentStatusEvent && GDocumentEvent.push(c[l]);
+                    var GSidebar = GTouchTool.getParent(),
                       y = e.getParent();
-                    d = d.filter(
+                    GDocumentEvent = GDocumentEvent.filter(
                       function (t) {
                         var n = this._layerPanel.gLayerPanel("getTreeNode", t);
-                        if (e === t || s === t) return true;
-                        var o = this._layerPanel.gLayerPanel(
+                        if (e === t || GTouchTool === t) return true;
+                        var _interopRequireDefault = this._layerPanel.gLayerPanel(
                           "getItem",
                           n.parent
                         );
-                        return o ? m === o : t !== m && t !== y;
+                        return _interopRequireDefault ? GSidebar === _interopRequireDefault : t !== GSidebar && t !== y;
                       }.bind(this)
                     );
-                    var v = gDesigner.getSetting("auto_expand_layers");
+                    var GExportProperties = gDesigner.getSetting("auto_expand_layers");
                     gDesigner.setSetting("auto_expand_layers", false),
-                      d.length &&
-                        (p > g && d.reverse(),
-                        module.updateSelection(false, d),
-                        (o = true)),
+                      GDocumentEvent.length &&
+                        (p > g && GDocumentEvent.reverse(),
+                        module.updateSelection(false, GDocumentEvent),
+                        (_interopRequireDefault = true)),
                       setTimeout(function () {
-                        gDesigner.setSetting("auto_expand_layers", v);
+                        gDesigner.setSetting("auto_expand_layers", GExportProperties);
                       }, 50);
                   }
-                } else module.updateSelection(false, [e]), (o = true);
+                } else module.updateSelection(false, [e]), (_interopRequireDefault = true);
               }
             } else
-              e.hasFlag(a.GNode.Flag.Selected) &&
+              e.hasFlag(GCore.GNode.Flag.Selected) &&
                 (this._layerPanel.gLayerPanel("onlyUpdateStyle", true),
                 module.clearSelection(),
                 this._layerPanel.gLayerPanel("onlyUpdateStyle", false),
-                (o = true));
-            if (o)
+                (_interopRequireDefault = true));
+            if (_interopRequireDefault)
               if (r.GPlatform.modifiers.optionKey)
                 module.hasSelection()
-                  ? gDesigner.executeAction(f.ID, undefined, "outlinesidebar")
-                  : gDesigner.executeAction(h.ID, undefined, "outlinesidebar");
+                  ? gDesigner.executeAction(GFitSelectionAction.ID, undefined, "outlinesidebar")
+                  : gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
               else if (
-                e.hasMixin(a.GNode.Properties) &&
+                e.hasMixin(GCore.GNode.Properties) &&
                 e.getProperty("collab")
               ) {
                 const t = this._document && this._document.getActiveWindow();
@@ -1238,34 +1238,34 @@ function (exports, module, require) {
           t = this._document.getScene(),
           n = t.getActiveLayer();
         e.hasSelection()
-          ? i.GEditor.tryRunTransaction(
+          ? GTools.GEditor.tryRunTransaction(
               t,
               function () {
                 e.deleteSelection(true);
-                var o = t.getActiveLayer();
+                var _interopRequireDefault = t.getActiveLayer();
                 n &&
-                  n === o &&
+                  n === _interopRequireDefault &&
                   (n.acceptChildren(
                     function (e) {
-                      return e instanceof a.GItem;
+                      return e instanceof GCore.GItem;
                     },
                     false,
                     true
                   ) ||
                     t.deleteActiveLayer(n));
               },
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.delete-layer-item")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.delete-layer-item")
               )
             )
           : n &&
-            i.GEditor.tryRunTransaction(
+            GTools.GEditor.tryRunTransaction(
               t,
               function () {
                 t.deleteActiveLayer(n);
               },
-              a.GLocale.get(
-                new a.GLocaleKey("GOutlineSidebar", "action.delete-layer-item")
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GOutlineSidebar", "action.delete-layer-item")
               )
             );
       }),
@@ -1277,19 +1277,19 @@ function (exports, module, require) {
           ((this._transformMode = e), this._updateExport());
       }),
       (x.prototype._afterFlagChangeEvent = function (e) {
-        e.node instanceof a.GPage &&
-          e.flag === a.GNode.Flag.Active &&
+        e.node instanceof GCore.GPage &&
+          e.flag === GCore.GNode.Flag.Active &&
           (this._document.getEditor().hasSelection() || this._updateExport());
       }),
       (x.prototype._afterPropertiesChanged = function (e) {
         !e.temporary &&
-          (e.node instanceof a.GScene || e.node instanceof a.GPage) &&
-          a.GUtil.containsOneOf(e.properties, ["w", "h"]) &&
+          (e.node instanceof GCore.GScene || e.node instanceof GCore.GPage) &&
+          GCore.GUtil.containsOneOf(e.properties, ["w", "h"]) &&
           this._refreshPageModeSwitch(this._getMultiPageSwitcher());
       }),
       (x.prototype._afterInsert = function (e) {
         var t = e.node;
-        t instanceof a.GPage &&
+        t instanceof GCore.GPage &&
           0 === t.getProperty("w") &&
           this._refreshPageModeSwitch(this._getMultiPageSwitcher());
       }),

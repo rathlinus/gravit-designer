@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     exports.exports = class {
       constructor(e, t) {
         (this._cb = t || null),
@@ -20,7 +20,7 @@ function (exports, module, require) {
             buttons: [
               $(
                 "<button>" +
-                  o.GLocale.get(new o.GLocaleKey("GLocale", "ok")) +
+                  GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")) +
                   "</button>"
               ).on("click", () => this.close()),
             ],

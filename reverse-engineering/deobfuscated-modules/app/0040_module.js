@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(91) /* polyfill_String_trim */, require(842) /* polyfill_String_trimStart */;
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module._cloneChildrenIntoReceiver = E),
       (module._mergeChildren = x),
@@ -29,38 +29,38 @@ function (exports, module, require) {
       (module.base64URLSafeEncode = function (e) {
         return (0, r.trim)((0, r.encode)(e));
       }),
-      (module.blockChanges = function (e, t, n, o) {
+      (module.blockChanges = function (e, t, n, _interopRequireDefault) {
         n && n.startBlockReferenceChanges();
-        o && o.beginUpdate();
+        _interopRequireDefault && _interopRequireDefault.beginUpdate();
         e && e._beginSelectionUpdate();
         t &&
           t.forEach((e) => {
             e.beginUpdate();
           });
       }),
-      (module.buildDialogDocumentHasUpdates = function (e, t, n, o) {
-        return c.custom({
-          subtitle: i.GLocale.get(
-            new i.GLocaleKey("GSaveAction", "has-new-version-when-save-message")
+      (module.buildDialogDocumentHasUpdates = function (e, t, n, _interopRequireDefault) {
+        return GSystemDialog.custom({
+          subtitle: GCore.GLocale.get(
+            new GCore.GLocaleKey("GSaveAction", "has-new-version-when-save-message")
           ),
           className: "g-has-updates-warning-dialog",
           icon: "info",
           closeable: false,
           buttons: [
             {
-              label: i.GLocale.get(
-                new i.GLocaleKey("GCommonNames", "text.cancel")
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey("GCommonNames", "text.cancel")
               ),
               closeOnClick: true,
-              shortcut: c.Shortcut.Esc,
+              shortcut: GSystemDialog.Shortcut.Esc,
               position: "left",
               onclick: () => {
-                o && o.call(this, e);
+                _interopRequireDefault && _interopRequireDefault.call(this, e);
               },
             },
             {
-              label: i.GLocale.get(
-                new i.GLocaleKey(
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSaveAction",
                   "has-new-version-when-save-reload"
                 )
@@ -71,15 +71,15 @@ function (exports, module, require) {
               },
             },
             {
-              label: i.GLocale.get(
-                new i.GLocaleKey(
+              label: GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GSaveAction",
                   "has-new-version-when-save-save"
                 )
               ),
               className: "primary",
               closeOnClick: true,
-              shortcut: c.Shortcut.Enter,
+              shortcut: GSystemDialog.Shortcut.Enter,
               onclick: () => {
                 n.call(this, e);
               },
@@ -91,11 +91,11 @@ function (exports, module, require) {
       (module.debounce = function (e, t) {
         let require;
         return function () {
-          const o = arguments;
-          let i = () => {
-            (require = 0), e.apply(this, o);
+          const _interopRequireDefault = arguments;
+          let GCore = () => {
+            (require = 0), e.apply(this, _interopRequireDefault);
           };
-          require && clearTimeout(require), (require = setTimeout(i, t));
+          require && clearTimeout(require), (require = setTimeout(GCore, t));
         };
       }),
       (module.decodeFromUTF8 = f),
@@ -106,10 +106,10 @@ function (exports, module, require) {
         try {
           var module = e.split(":"),
             require = module.shift(),
-            o = s.enc.Hex.parse(require),
-            i = module.join(":");
-          return s.AES.decrypt(i, g, {
-            iv: o,
+            _interopRequireDefault = s.enc.Hex.parse(require),
+            GCore = module.join(":");
+          return s.AES.decrypt(GCore, g, {
+            iv: _interopRequireDefault,
             format: s.format.OpenSSL,
             mode: s.mode.CBC,
           }).toString(s.enc.Utf8);
@@ -142,8 +142,8 @@ function (exports, module, require) {
       }),
       (module.getExtensionFromString = function (e, t) {
         var n = new RegExp("\\b" + t.join("|") + "\\b", "gim"),
-          o = e.match(n);
-        return o ? o[0] : null;
+          _interopRequireDefault = e.match(n);
+        return _interopRequireDefault ? _interopRequireDefault[0] : null;
       }),
       (module.getFileNameWithoutExtension = function (e, t) {
         e.toLowerCase().endsWith(".".concat(t).toLowerCase()) &&
@@ -158,12 +158,12 @@ function (exports, module, require) {
           .SHA256(
             (function (e) {
               for (
-                var module = new Uint8Array(e), require = [], o = 0;
-                o < module.length;
-                o += 4
+                var module = new Uint8Array(e), require = [], _interopRequireDefault = 0;
+                _interopRequireDefault < module.length;
+                _interopRequireDefault += 4
               )
                 require.push(
-                  (module[o] << 24) | (module[o + 1] << 16) | (module[o + 2] << 8) | module[o + 3]
+                  (module[_interopRequireDefault] << 24) | (module[_interopRequireDefault + 1] << 16) | (module[_interopRequireDefault + 2] << 8) | module[_interopRequireDefault + 3]
                 );
               return s.lib.WordArray.create(require, module.length);
             })(e)
@@ -172,23 +172,23 @@ function (exports, module, require) {
       }),
       (module.getFileStateAndRole = function (e, t) {
         let require,
-          o =
+          _interopRequireDefault =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
-        const i = t.getPrivateShareList();
-        i.forEach((t) => {
+        const GCore = t.getPrivateShareList();
+        GCore.forEach((t) => {
           const {
-            id: i,
-            copy: a,
+            id: GCore,
+            copy: GAnnotation,
             inspect: r,
             comment: s,
             owner: l,
-            access: c,
+            access: GSystemDialog,
             edit: p,
           } = t;
-          e.getUID() === i
+          e.getUID() === GCore
             ? ((require = d.makeFromShare(t)),
               l
-                ? Object.assign(o, {
+                ? Object.assign(_interopRequireDefault, {
                     owner: true,
                     edit: true,
                     inspect: true,
@@ -196,47 +196,47 @@ function (exports, module, require) {
                     comment: !!u,
                     share: true,
                   })
-                : Object.assign(o, {
+                : Object.assign(_interopRequireDefault, {
                     owner: false,
                     share: false,
                     edit: p,
-                    copy: a,
+                    copy: GAnnotation,
                     inspect: r,
                     comment: !!u && s,
-                    sharing: c,
+                    sharing: GSystemDialog,
                   }))
-            : c && Object.assign(o, { sharing: true });
+            : GSystemDialog && Object.assign(_interopRequireDefault, { sharing: true });
         });
-        const a = i.find((e) => e.owner);
-        if (a) {
-          const t = e.getUID() === a.id;
-          (o.owner = t), (o.share = t);
+        const GAnnotation = GCore.find((e) => e.owner);
+        if (GAnnotation) {
+          const t = e.getUID() === GAnnotation.id;
+          (_interopRequireDefault.owner = t), (_interopRequireDefault.share = t);
         }
         const r = t.getPublicShare();
-        r && r.access && ((o.isPrivate = false), (o.sharing = true));
+        r && r.access && ((_interopRequireDefault.isPrivate = false), (_interopRequireDefault.sharing = true));
         return (
-          Object.assign(o, {
-            isPrivate: i && i.filter((e) => !e.owner).length > 0,
+          Object.assign(_interopRequireDefault, {
+            isPrivate: GCore && GCore.filter((e) => !e.owner).length > 0,
           }),
-          { state: o, role: require, publicShare: r }
+          { state: _interopRequireDefault, role: require, publicShare: r }
         );
       }),
       (module.getSizeInfo = function (e) {
         var t = e;
         const require = 1e6,
-          o = 1e3 * require;
-        var i = { gb: 0, mb: 0, kb: 0 },
-          a = Math.floor(t / o);
-        a && ((i.gb = a), (t -= a * o));
+          _interopRequireDefault = 1e3 * require;
+        var GCore = { gb: 0, mb: 0, kb: 0 },
+          GAnnotation = Math.floor(t / _interopRequireDefault);
+        GAnnotation && ((GCore.gb = GAnnotation), (t -= GAnnotation * _interopRequireDefault));
         var r = Math.floor(t / require);
-        r && ((i.mb = r), (t -= r * require));
+        r && ((GCore.mb = r), (t -= r * require));
         var s = Math.floor(t / 1e3);
-        s && ((i.kb = s), (t -= 1e3 * s));
-        return i;
+        s && ((GCore.kb = s), (t -= 1e3 * s));
+        return GCore;
       }),
       (module.getVersionFromString = function (e, t, n) {
-        var o = e.match(t.join("|"));
-        return o ? o[0] : n;
+        var _interopRequireDefault = e.match(t.join("|"));
+        return _interopRequireDefault ? _interopRequireDefault[0] : n;
       }),
       (module.isDifferent = v),
       (module.isFunction = function (e) {
@@ -269,7 +269,7 @@ function (exports, module, require) {
         return T;
       }),
       (module.isSupportedScreenSize = function (e) {
-        if (!e && i.GSystem.hardware === i.GSystem.Hardware.Tablet) {
+        if (!e && GCore.GSystem.hardware === GCore.GSystem.Hardware.Tablet) {
           return (
             (window.screen.height > window.screen.width
               ? window.screen.height
@@ -281,24 +281,24 @@ function (exports, module, require) {
       (module.isSymbol = h),
       (module.isSymbolInstance = undefined),
       (module.iterateAroundIndex = function (e, t, n) {
-        var o = 0,
-          i = 0,
-          a = e.length;
-        for (; o < a; ) {
-          var r = t + i;
+        var _interopRequireDefault = 0,
+          GCore = 0,
+          GAnnotation = e.length;
+        for (; _interopRequireDefault < GAnnotation; ) {
+          var r = t + GCore;
           n(e[r], r),
-            o++,
-            i > 0 && t - i >= 0
-              ? (i = -i)
-              : i > 0
-              ? i++
-              : t - i + 1 < a
-              ? (i = 1 - i)
-              : i--;
+            _interopRequireDefault++,
+            GCore > 0 && t - GCore >= 0
+              ? (GCore = -GCore)
+              : GCore > 0
+              ? GCore++
+              : t - GCore + 1 < GAnnotation
+              ? (GCore = 1 - GCore)
+              : GCore--;
         }
       }),
-      (module.iterateEqualStyleLayers = function (e, t, n, o) {
-        var a = [];
+      (module.iterateEqualStyleLayers = function (e, t, n, _interopRequireDefault) {
+        var GAnnotation = [];
         if (n.length > 1) {
           for (var r = 0; r < n.length; r++) {
             var s = n[r],
@@ -307,23 +307,23 @@ function (exports, module, require) {
             else if ("border" === e) l = s.getPaintLayers().getBorderLayers();
             else if ("effect" === e)
               for (
-                var c = s.getEffects().getFirstChild();
-                null !== c;
-                c = c.getNext()
+                var GSystemDialog = s.getEffects().getFirstChild();
+                null !== GSystemDialog;
+                GSystemDialog = GSystemDialog.getNext()
               )
-                l.push(c);
+                l.push(GSystemDialog);
             for (var d = 0; d < l.length; d++) {
               var u = l[d];
-              (("fill" === e && i.GStylable.FillPaintLayer.equals(u, t)) ||
-                ("border" === e && i.GStylable.BorderPaintLayer.equals(u, t)) ||
-                ("effect" === e && i.GUtil.equals(u, t))) &&
-                a.push(u);
+              (("fill" === e && GCore.GStylable.FillPaintLayer.equals(u, t)) ||
+                ("border" === e && GCore.GStylable.BorderPaintLayer.equals(u, t)) ||
+                ("effect" === e && GCore.GUtil.equals(u, t))) &&
+                GAnnotation.push(u);
             }
           }
-          a.forEach(function (e) {
-            o(e);
+          GAnnotation.forEach(function (e) {
+            _interopRequireDefault(e);
           });
-        } else o(t);
+        } else _interopRequireDefault(t);
       }),
       (module.mergeNode = _),
       (module.releaseChanges = function (e, t, n) {
@@ -333,13 +333,13 @@ function (exports, module, require) {
           });
         e && e._finishSelectionUpdate();
         for (
-          var o = arguments.length, i = new Array(o > 3 ? o - 3 : 0), a = 3;
-          a < o;
-          a++
+          var _interopRequireDefault = arguments.length, GCore = new Array(_interopRequireDefault > 3 ? _interopRequireDefault - 3 : 0), GAnnotation = 3;
+          GAnnotation < _interopRequireDefault;
+          GAnnotation++
         )
-          i[a - 3] = arguments[a];
-        i &&
-          i.forEach((e) => {
+          GCore[GAnnotation - 3] = arguments[GAnnotation];
+        GCore &&
+          GCore.forEach((e) => {
             e.endUpdate();
           });
         n && n.endBlockReferenceChanges();
@@ -353,48 +353,48 @@ function (exports, module, require) {
       (module.resolveDocumentImages = function (e, t) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
-        return new Promise(async (o, a) => {
+        return new Promise(async (_interopRequireDefault, GAnnotation) => {
           const r = (e) =>
-            e === i.GImage.ImageStatus.Loaded ||
-            e === i.GImage.ImageStatus.Error;
+            e === GCore.GImage.ImageStatus.Loaded ||
+            e === GCore.GImage.ImageStatus.Error;
           let s = 0;
           if (
             (e.accept((e) => {
-              e instanceof i.GImage && !r(e.getStatus()) && s++;
+              e instanceof GCore.GImage && !r(e.getStatus()) && s++;
             }),
             s > 0)
           ) {
             let l = setTimeout(() => {
               (s > 0 || require.cancelled) &&
-                (e.removeEventListener(i.GImage.StatusEvent, c), a());
+                (e.removeEventListener(GCore.GImage.StatusEvent, GSystemDialog), GAnnotation());
             }, t);
-            const c = (t) => {
+            const GSystemDialog = (t) => {
               let { status: d } = t;
               r(d) &&
                 --s <= 0 &&
                 (l && (clearTimeout(l), (l = null)),
-                e.removeEventListener(i.GImage.StatusEvent, c),
-                o(true)),
+                e.removeEventListener(GCore.GImage.StatusEvent, GSystemDialog),
+                _interopRequireDefault(true)),
                 require.cancelled &&
                   (l && (clearTimeout(l), (l = null)),
-                  e.removeEventListener(i.GImage.StatusEvent, c),
-                  a());
+                  e.removeEventListener(GCore.GImage.StatusEvent, GSystemDialog),
+                  GAnnotation());
             };
-            e.addEventListener(i.GImage.StatusEvent, c);
-          } else o(true);
+            e.addEventListener(GCore.GImage.StatusEvent, GSystemDialog);
+          } else _interopRequireDefault(true);
         });
       }),
       (module.saveBBoxes = function (e) {
         var t = [];
         e.accept(function (e) {
-          if (e instanceof i.GElement) {
+          if (e instanceof GCore.GElement) {
             var require = e.getPaintBBox(false, null, true);
             t.push(require);
           }
         });
-        for (var require = new Float64Array(4 * t.length), o = 0; o < t.length; ++o)
-          for (var a = i.GRect.serialize(t[o]), r = 0; r < 4; ++r)
-            require[4 * o + r] = a[r];
+        for (var require = new Float64Array(4 * t.length), _interopRequireDefault = 0; _interopRequireDefault < t.length; ++_interopRequireDefault)
+          for (var GAnnotation = GCore.GRect.serialize(t[_interopRequireDefault]), r = 0; r < 4; ++r)
+            require[4 * _interopRequireDefault + r] = GAnnotation[r];
         (s = "Test_invisible-.dat"),
           (l = require),
           navigator.webkitTemporaryStorage.requestQuota(1e3, function (e) {
@@ -450,8 +450,8 @@ function (exports, module, require) {
       (module.throttle = function (e, t) {
         let require;
         return function () {
-          const o = arguments;
-          require || (e.apply(this, o), (require = true), setTimeout(() => (require = false), t));
+          const _interopRequireDefault = arguments;
+          require || (e.apply(this, _interopRequireDefault), (require = true), setTimeout(() => (require = false), t));
         };
       }),
       (module.toCapitalize = function (e) {
@@ -492,26 +492,26 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var i = require(1) /* module */,
-      a = o(require(84) /* GAnnotation */),
+    var GCore = require(1) /* module */,
+      GAnnotation = _interopRequireDefault(require(84) /* GAnnotation */),
       r = require(1042) /* module_1042 */;
     const s = require(1043) /* module_1043 */;
     var l = require(250) /* module_250 */,
-      c = require(44) /* GSystemDialog */;
+      GSystemDialog = require(44) /* GSystemDialog */;
     const d = require(433) /* module_433 */,
       { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = require(10) /* AppSettings */;
     module.watchDog = {
-      trap: (e, t, n, o) => (i) =>
-        ((e, t, n, o, i) =>
-          gDesigner.isEnabledProFeatures(i) || (n && n(e))
+      trap: (e, t, n, _interopRequireDefault) => (GCore) =>
+        ((e, t, n, _interopRequireDefault, GCore) =>
+          gDesigner.isEnabledProFeatures(GCore) || (n && n(e))
             ? t
               ? t(e)
               : undefined
-            : (o && o(e),
+            : (_interopRequireDefault && _interopRequireDefault(e),
               e.stopImmediatePropagation(),
               e.preventDefault(),
               gDesigner.handlePROFeatureInterruption(),
-              false))(i, e, t, n, o),
+              false))(GCore, e, t, n, _interopRequireDefault),
       check: (e, t) => (gDesigner.isEnabledProFeatures() ? e : t),
     };
     module._tryAndCatch = async (e) => {
@@ -527,7 +527,7 @@ function (exports, module, require) {
       )
     );
     function h(e, t) {
-      const require = (e) => e && e instanceof i.GSymbol && (!t || !e.isMaster());
+      const require = (e) => e && e instanceof GCore.GSymbol && (!t || !e.isMaster());
       return !!require(e) || !!e.findParent(require);
     }
     function f(e) {
@@ -540,15 +540,15 @@ function (exports, module, require) {
     function y(e, t) {
       let require =
         arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : [];
-      const o = (e) =>
+      const _interopRequireDefault = (e) =>
           Object.keys(e)
             .filter(
               (e) => (e.startsWith("$") || e.startsWith("@")) && !require.includes(e)
             )
             .map((e) => e.slice(1)),
-        a = o(e),
-        r = o(t);
-      return !i.GUtil.equals(a, r) || !e.arePropertiesEqual(t, a);
+        GAnnotation = _interopRequireDefault(e),
+        r = _interopRequireDefault(t);
+      return !GCore.GUtil.equals(GAnnotation, r) || !e.arePropertiesEqual(t, GAnnotation);
     }
     function v(e, t, n) {
       if (
@@ -556,42 +556,42 @@ function (exports, module, require) {
         !(e instanceof t.constructor))
       )
         return true;
-      if (e.hasMixin(i.GNode.Properties) !== t.hasMixin(i.GNode.Properties))
+      if (e.hasMixin(GCore.GNode.Properties) !== t.hasMixin(GCore.GNode.Properties))
         return true;
-      if (e.hasMixin(i.GNode.Properties) && y(e, t, n)) return true;
-      if (e.hasMixin(i.GElement.Stylable) !== t.hasMixin(i.GElement.Stylable))
+      if (e.hasMixin(GCore.GNode.Properties) && y(e, t, n)) return true;
+      if (e.hasMixin(GCore.GElement.Stylable) !== t.hasMixin(GCore.GElement.Stylable))
         return true;
-      if (e.hasMixin(i.GElement.Stylable)) {
-        const o = e.getEffects(),
-          i = t.getEffects();
-        if (Boolean(o) !== Boolean(i)) return true;
-        if (o && v(o, i, n)) return true;
-        const a = e.getPaintLayers(),
+      if (e.hasMixin(GCore.GElement.Stylable)) {
+        const _interopRequireDefault = e.getEffects(),
+          GCore = t.getEffects();
+        if (Boolean(_interopRequireDefault) !== Boolean(GCore)) return true;
+        if (_interopRequireDefault && v(_interopRequireDefault, GCore, n)) return true;
+        const GAnnotation = e.getPaintLayers(),
           r = t.getPaintLayers();
-        if (Boolean(a) !== Boolean(r)) return true;
-        if (a && v(a, r, n)) return true;
+        if (Boolean(GAnnotation) !== Boolean(r)) return true;
+        if (GAnnotation && v(GAnnotation, r, n)) return true;
       }
-      if (e.hasMixin(i.GNode.Container) !== t.hasMixin(i.GNode.Container))
+      if (e.hasMixin(GCore.GNode.Container) !== t.hasMixin(GCore.GNode.Container))
         return true;
-      if (e instanceof i.GPathBase != t instanceof i.GPathBase) return true;
-      if (e instanceof i.GPathBase) {
-        var o = e.getAnchorPoints(),
-          a = o.getChildren(),
+      if (e instanceof GCore.GPathBase != t instanceof GCore.GPathBase) return true;
+      if (e instanceof GCore.GPathBase) {
+        var _interopRequireDefault = e.getAnchorPoints(),
+          GAnnotation = _interopRequireDefault.getChildren(),
           r = t.getAnchorPoints(),
           s = r.getChildren();
-        if (a.length !== s.length) return true;
-        for (var l = 0; l < a.length; l++) {
-          var c = o.getChildByIndex(l),
+        if (GAnnotation.length !== s.length) return true;
+        for (var l = 0; l < GAnnotation.length; l++) {
+          var GSystemDialog = _interopRequireDefault.getChildByIndex(l),
             d = r.getChildByIndex(l);
-          if (c ^ d) return true;
-          if (y(c, d, n)) return true;
+          if (GSystemDialog ^ d) return true;
+          if (y(GSystemDialog, d, n)) return true;
         }
       }
-      if (e.hasMixin(i.GNode.Container)) {
-        const o = e.getChildren(),
-          i = t.getChildren();
-        if (o.length !== i.length) return true;
-        for (let e = 0; e < o.length; e++) if (v(o[e], i[e], n)) return true;
+      if (e.hasMixin(GCore.GNode.Container)) {
+        const _interopRequireDefault = e.getChildren(),
+          GCore = t.getChildren();
+        if (_interopRequireDefault.length !== GCore.length) return true;
+        for (let e = 0; e < _interopRequireDefault.length; e++) if (v(_interopRequireDefault[e], GCore[e], n)) return true;
       }
       return false;
     }
@@ -612,28 +612,28 @@ function (exports, module, require) {
       e.setProperties(require, t.getProperties(require));
     }
     function w(e, t) {
-      if (e.hasMixin(i.GElement.Stylable)) {
+      if (e.hasMixin(GCore.GElement.Stylable)) {
         var require = e.getPaintLayers(),
-          o = t.getPaintLayers(),
+          _interopRequireDefault = t.getPaintLayers(),
           r = require.getBorderLayers(),
-          s = o.getBorderLayers(),
+          s = _interopRequireDefault.getBorderLayers(),
           l = require.getFillLayers(),
-          c = o.getFillLayers();
-        e.hasMixin(a.default)
+          GSystemDialog = _interopRequireDefault.getFillLayers();
+        e.hasMixin(GAnnotation.default)
           ? (s.length && r.length && r[0].assignFrom(s[0]),
-            c.length && l.length && l[0].assignFrom(c[0]))
+            GSystemDialog.length && l.length && l[0].assignFrom(GSystemDialog[0]))
           : (r.forEach((e) => {
               var t = s.find((t) => t.getId() === e.getId());
               t && e.assignFrom(t);
             }),
             l.forEach((e) => {
-              var t = c.find((t) => t.getId() === e.getId());
+              var t = GSystemDialog.find((t) => t.getId() === e.getId());
               t && e.assignFrom(t);
             }));
       }
     }
     function C(e, t) {
-      if (e instanceof i.GPathBase) {
+      if (e instanceof GCore.GPathBase) {
         var require = e.getAnchorPoints();
         require.beginUpdate(),
           require.clearChildren(),
@@ -642,24 +642,24 @@ function (exports, module, require) {
       }
     }
     function x(e, t) {
-      if (!e.hasMixin(i.GNode.Container)) return;
+      if (!e.hasMixin(GCore.GNode.Container)) return;
       let require = e.getChildren(),
-        o = t.getChildren();
-      S(e, t), E(e, t), A(require, o);
+        _interopRequireDefault = t.getChildren();
+      S(e, t), E(e, t), A(require, _interopRequireDefault);
     }
     function S(e, t) {
       let require = e.getChildren(),
-        o = t.getChildren();
+        _interopRequireDefault = t.getChildren();
       require.forEach((t) => {
-        o.some((e) => e.getId() === t.getId()) || e.removeChild(t);
+        _interopRequireDefault.some((e) => e.getId() === t.getId()) || e.removeChild(t);
       });
     }
     function E(e, t) {
       for (var require = t.getLastChild(); null !== require; require = require.getPrevious()) {
         if (e.getChildren().some((e) => e.getId() === require.getId())) continue;
         let t = require.getNext(),
-          o = t && e.getChildren().find((e) => e.getId() === t.getId());
-        e.insertChild(require.clone(), o);
+          _interopRequireDefault = t && e.getChildren().find((e) => e.getId() === t.getId());
+        e.insertChild(require.clone(), _interopRequireDefault);
       }
     }
     function A(e, t) {

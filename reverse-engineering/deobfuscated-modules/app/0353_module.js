@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* core_export */,
-      i = require(23) /* globalThis */,
-      a = require(29) /* isCallable */,
-      r = require(49) /* hasOwnProperty_wrapper */,
+    var core_export = require(25) /* core_export */,
+      globalThis = require(23) /* globalThis */,
+      isCallable = require(29) /* isCallable */,
+      hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
       s = require(693) /* module_693 */,
       l = require(152) /* module_152 */,
       c = require(324) /* module_324 */,
       d = require(146) /* module_146 */,
       u = require(174) /* module_174 */,
-      p = require(100) /* createProperty */,
+      createProperty = require(100) /* createProperty */,
       g = require(694) /* module_694 */,
-      h = require(117) /* toStringTagSupport */,
+      toStringTagSupport = require(117) /* toStringTagSupport */,
       f = require(426) /* module_426 */,
       m = require(428) /* module_428 */,
       y = require(695) /* module_695 */,
       v = require(294) /* module_294 */,
       _ = require(61) /* module_61 */,
       b = require(131) /* module_131 */,
-      w = require(46) /* toLength */,
+      toLength = require(46) /* toLength */,
       C = require(241) /* module_241 */,
       x = require(136) /* module_136 */,
       S = require(144) /* stub_requires_27 */,
@@ -33,17 +33,17 @@ function (exports, module, require) {
       G = require(349) /* module_349 */.forEach,
       P = require(260) /* module_260 */,
       D = require(120) /* module_120 */,
-      L = require(88) /* createPropertyDescriptor */,
-      I = require(222) /* objectGetOwnPropertyDescriptor */,
+      createPropertyDescriptor = require(88) /* createPropertyDescriptor */,
+      objectGetOwnPropertyDescriptor = require(222) /* objectGetOwnPropertyDescriptor */,
       k = require(698) /* module_698 */,
-      O = require(80) /* internalState */,
+      internalState = require(80) /* internalState */,
       F = require(288) /* module_288 */,
-      R = O.get,
-      M = O.set,
-      N = O.enforce,
-      B = L.f,
-      U = I.f,
-      $ = i.RangeError,
+      R = internalState.get,
+      M = internalState.set,
+      N = internalState.enforce,
+      B = createPropertyDescriptor.f,
+      U = objectGetOwnPropertyDescriptor.f,
+      $ = globalThis.RangeError,
       j = c.ArrayBuffer,
       K = j.prototype,
       V = c.DataView,
@@ -75,7 +75,7 @@ function (exports, module, require) {
       ee = function (e, t, n) {
         return (
           (t = v(t)),
-          !(J(e, t) && w(n) && _(n, "value")) ||
+          !(J(e, t) && toLength(n) && _(n, "value")) ||
           _(n, "get") ||
           _(n, "set") ||
           n.configurable ||
@@ -85,24 +85,24 @@ function (exports, module, require) {
             : ((e[t] = n.value), e)
         );
       };
-    r
+    hasOwnProperty_wrapper
       ? (H ||
-          ((I.f = Z),
-          (L.f = ee),
+          ((objectGetOwnPropertyDescriptor.f = Z),
+          (createPropertyDescriptor.f = ee),
           X(q, "buffer"),
           X(q, "byteOffset"),
           X(q, "byteLength"),
           X(q, "length")),
-        o(
+        core_export(
           { target: "Object", stat: true, forced: !H },
           { getOwnPropertyDescriptor: Z, defineProperty: ee }
         ),
         (exports.exports = function (e, t, n) {
-          var r = e.match(/\d+/)[0] / 8,
+          var hasOwnProperty_wrapper = e.match(/\d+/)[0] / 8,
             l = e + (n ? "Clamped" : "") + "Array",
             c = "get" + e,
             u = "set" + e,
-            g = i[l],
+            g = globalThis[l],
             v = g,
             _ = v && v.prototype,
             b = {},
@@ -111,13 +111,13 @@ function (exports, module, require) {
                 get: function () {
                   return (function (e, t) {
                     var n = R(e);
-                    return n.view[c](t * r + n.byteOffset, true);
+                    return n.view[c](t * hasOwnProperty_wrapper + n.byteOffset, true);
                   })(this, t);
                 },
                 set: function (e) {
-                  return (function (e, t, o) {
-                    var i = R(e);
-                    i.view[u](t * r + i.byteOffset, n ? y(o) : o, true);
+                  return (function (e, t, core_export) {
+                    var globalThis = R(e);
+                    globalThis.view[u](t * hasOwnProperty_wrapper + globalThis.byteOffset, n ? y(core_export) : core_export, true);
                   })(this, t, e);
                 },
                 enumerable: true,
@@ -125,20 +125,20 @@ function (exports, module, require) {
             };
           H
             ? s &&
-              ((v = t(function (e, t, n, o) {
+              ((v = t(function (e, t, n, core_export) {
                 return (
                   d(e, _),
                   F(
-                    w(t)
+                    toLength(t)
                       ? Q(t)
-                        ? undefined !== o
-                          ? new g(t, m(n, r), o)
+                        ? undefined !== core_export
+                          ? new g(t, m(n, hasOwnProperty_wrapper), core_export)
                           : undefined !== n
-                          ? new g(t, m(n, r))
+                          ? new g(t, m(n, hasOwnProperty_wrapper))
                           : new g(t)
                         : Y(t)
                         ? k(v, t)
-                        : a(T, v, t)
+                        : isCallable(T, v, t)
                       : new g(f(t)),
                     e,
                     v
@@ -147,34 +147,34 @@ function (exports, module, require) {
               })),
               E && E(v, z),
               G(A(g), function (e) {
-                e in v || p(v, e, g[e]);
+                e in v || createProperty(v, e, g[e]);
               }),
               (v.prototype = _))
-            : ((v = t(function (e, t, n, o) {
+            : ((v = t(function (e, t, n, core_export) {
                 d(e, _);
-                var i,
+                var globalThis,
                   s,
                   l,
                   c = 0,
                   u = 0;
-                if (w(t)) {
-                  if (!Q(t)) return Y(t) ? k(v, t) : a(T, v, t);
-                  (i = t), (u = m(n, r));
-                  var p = t.byteLength;
-                  if (undefined === o) {
-                    if (p % r) throw new $("Wrong length");
-                    if ((s = p - u) < 0) throw new $("Wrong length");
-                  } else if ((s = h(o) * r) + u > p)
+                if (toLength(t)) {
+                  if (!Q(t)) return Y(t) ? k(v, t) : isCallable(T, v, t);
+                  (globalThis = t), (u = m(n, hasOwnProperty_wrapper));
+                  var createProperty = t.byteLength;
+                  if (undefined === core_export) {
+                    if (createProperty % hasOwnProperty_wrapper) throw new $("Wrong length");
+                    if ((s = createProperty - u) < 0) throw new $("Wrong length");
+                  } else if ((s = toStringTagSupport(core_export) * hasOwnProperty_wrapper) + u > createProperty)
                     throw new $("Wrong length");
-                  l = s / r;
-                } else (l = f(t)), (i = new j((s = l * r)));
+                  l = s / hasOwnProperty_wrapper;
+                } else (l = f(t)), (globalThis = new j((s = l * hasOwnProperty_wrapper)));
                 for (
                   M(e, {
-                    buffer: i,
+                    buffer: globalThis,
                     byteOffset: u,
                     byteLength: s,
                     length: l,
-                    view: new V(i),
+                    view: new V(globalThis),
                   });
                   c < l;
 
@@ -183,14 +183,14 @@ function (exports, module, require) {
               })),
               E && E(v, z),
               (_ = v.prototype = x(q))),
-            _.constructor !== v && p(_, "constructor", v),
+            _.constructor !== v && createProperty(_, "constructor", v),
             (N(_).TypedArrayConstructor = v),
-            W && p(_, W, l);
+            W && createProperty(_, W, l);
           var S = v !== g;
           (b[l] = v),
-            o({ global: true, constructor: true, forced: S, sham: !H }, b),
-            "BYTES_PER_ELEMENT" in v || p(v, "BYTES_PER_ELEMENT", r),
-            "BYTES_PER_ELEMENT" in _ || p(_, "BYTES_PER_ELEMENT", r),
+            core_export({ global: true, constructor: true, forced: S, sham: !H }, b),
+            "BYTES_PER_ELEMENT" in v || createProperty(v, "BYTES_PER_ELEMENT", hasOwnProperty_wrapper),
+            "BYTES_PER_ELEMENT" in _ || createProperty(_, "BYTES_PER_ELEMENT", hasOwnProperty_wrapper),
             P(l);
         }))
       : (exports.exports = function () {});

@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(18) /* MenuItemBuilder */,
-      r = require(106) /* GElementAction */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function s() {}
-    o.GObject.inherit(s, r),
+    GCore.GObject.inherit(s, GElementAction),
       (s.ID = "modify.split-path"),
-      (s.TITLE = new o.GLocaleKey("GSplitPathAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GSplitPathAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,13 +22,13 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return a.CATEGORY_MODIFY_PATH;
+        return MenuItemBuilder.CATEGORY_MODIFY_PATH;
       }),
       (s.prototype.getGroup = function () {
         return "structure/path";
       }),
       (s.prototype.getShortcut = function () {
-        return [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "J"];
+        return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "J"];
       }),
       (s.prototype.getIcon = function () {
         return gDesigner.isTouchEnabled() ? "gravit-icon-split-path" : null;
@@ -39,33 +39,33 @@ function (exports, module, require) {
           var module = e.getEditor().getSelection();
           if (module)
             for (var require = 0; require < module.length; ++require)
-              if (module[require] instanceof o.GCompoundPath) return true;
+              if (module[require] instanceof GCore.GCompoundPath) return true;
         }
         return false;
       }),
       (s.prototype.execute = function () {
-        if (!r.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument().getEditor(),
           t = e.getSelection().slice();
         if (t && t.length) {
           e.beginTransaction();
           try {
-            for (var require = [], i = 0; i < t.length; ++i) {
-              var a = t[i];
-              if (a instanceof o.GCompoundPath) {
-                var s = new o.GRectangle();
-                o.GElement.prototype.assignFrom.call(s, a);
-                var l = e.splitCompoundPath(a);
+            for (var require = [], GEditor = 0; GEditor < t.length; ++GEditor) {
+              var MenuItemBuilder = t[GEditor];
+              if (MenuItemBuilder instanceof GCore.GCompoundPath) {
+                var s = new GCore.GRectangle();
+                GCore.GElement.prototype.assignFrom.call(s, MenuItemBuilder);
+                var l = e.splitCompoundPath(MenuItemBuilder);
                 if (l && l.length)
                   for (var c = 0; c < l.length; ++c) {
                     var d = l[c];
-                    o.GElement.prototype.assignFrom.call(d, s), require.push(d);
+                    GCore.GElement.prototype.assignFrom.call(d, s), require.push(d);
                   }
               }
             }
             require.length && e.updateSelection(false, require);
           } finally {
-            e.commitTransaction(o.GLocale.get(this.getTitle()));
+            e.commitTransaction(GCore.GLocale.get(this.getTitle()));
           }
         }
       }),

@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */;
-    function i(e, t, n, o) {
+    var GCore = require(1) /* module */;
+    function i(e, t, n, GCore) {
       (this.key = e),
         (this.previousValue = t),
         (this.newValue = n),
-        (this.restoring = o);
+        (this.restoring = GCore);
     }
-    o.GObject.inherit(i, o.GEvent),
+    GCore.GObject.inherit(i, GCore.GEvent),
       (i.prototype.key = null),
       (i.prototype.previousValue = null),
       (i.prototype.newValue = null),

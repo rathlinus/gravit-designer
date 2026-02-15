@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(619) /* module_619 */,
-      i = require(46) /* toLength */,
-      a = require(92) /* classof */,
+      toLength = require(46) /* toLength */,
+      classof = require(92) /* classof */,
       r = require(620) /* module_620 */;
     exports.exports =
       Object.setPrototypeOf ||
@@ -22,7 +22,7 @@ function (exports, module, require) {
             } catch (e) {}
             return function (n, o) {
               return (
-                a(n), r(o), i(n) ? (t ? e(n, o) : (n.__proto__ = o), n) : n
+                classof(n), r(o), toLength(n) ? (t ? e(n, o) : (n.__proto__ = o), n) : n
               );
             };
           })()

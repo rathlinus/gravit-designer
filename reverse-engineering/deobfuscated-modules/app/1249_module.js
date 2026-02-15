@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
-    var i = o(require(1493) /* module_1493 */);
+    var i = _interopRequireDefault(require(1493) /* module_1493 */);
     class a extends i.default {
       constructor() {
         let exports =

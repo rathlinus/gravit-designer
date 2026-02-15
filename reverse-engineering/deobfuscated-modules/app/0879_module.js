@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */, require(4) /* stub_requires_668 */, require(322) /* stub_requires_669 */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */;
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */;
     const a = require(880) /* module_880 */;
     class r extends a {
       constructor() {
@@ -45,7 +45,7 @@ function (exports, module, require) {
                 this._dispatchEventFromTouch(
                   "mousedown",
                   e,
-                  i.GMouseEvent.BUTTON_LEFT,
+                  GEditor.GMouseEvent.BUTTON_LEFT,
                   !t.isSwiping()
                 );
               });
@@ -66,7 +66,7 @@ function (exports, module, require) {
             this._dispatchEventFromTouch(
               "mouseup",
               e,
-              i.GMouseEvent.BUTTON_LEFT,
+              GEditor.GMouseEvent.BUTTON_LEFT,
               !t.isSwiping()
             );
           }),
@@ -83,7 +83,7 @@ function (exports, module, require) {
             (this._isDblClick(a, require) &&
               this._dispatchEventFromTouch("dblclick", a)),
           (this._lastClickEventTime = require),
-          (this._lastClickPoint = new o.GPoint(a.screenX, a.screenY)));
+          (this._lastClickPoint = new GCore.GPoint(a.screenX, a.screenY)));
       }
       cancel(e) {
         e.iterateChangedTouches((e) => {
@@ -93,7 +93,7 @@ function (exports, module, require) {
       _isDblClick(e, t) {
         if (this._lastClickPoint && this._lastClickEventTime) {
           if (
-            o.GMath.ptDist(
+            GCore.GMath.ptDist(
               e.screenX,
               e.screenY,
               this._lastClickPoint.getX(),
@@ -109,11 +109,11 @@ function (exports, module, require) {
         const module = e.length;
         if (module > 1)
           for (let require = 0; require < module; require++)
-            for (let i = require + 1; i < module; i++) {
+            for (let GEditor = require + 1; GEditor < module; GEditor++) {
               const t = e[require],
-                a = e[i];
+                a = e[GEditor];
               if (
-                o.GMath.ptDist(t.screenX, t.screenY, a.screenX, a.screenY) <=
+                GCore.GMath.ptDist(t.screenX, t.screenY, a.screenX, a.screenY) <=
                 this._config.doubleTapThreshold
               )
                 return [t, a];

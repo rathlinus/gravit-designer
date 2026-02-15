@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */,
-      i = require(15) /* module */,
-      a = require(1) /* module */,
-      r = o(require(18) /* MenuItemBuilder */),
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+      GEditor = require(15) /* module */,
+      GCore = require(1) /* module */,
+      MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       s = require(198) /* Exports_GOutlineSidebar */;
-    const l = require(31) /* GAction */;
-    class c extends l {
+    const GAction = require(31) /* GAction */;
+    class c extends GAction {
       getId() {
         return c.ID;
       }
@@ -20,10 +20,10 @@ function (exports, module, require) {
         return c.TITLE;
       }
       getCategory() {
-        return r.default.CATEGORY_EDIT;
+        return MenuItemBuilder.default.CATEGORY_EDIT;
       }
       getShortcut() {
-        return [i.GKey.Constant.OPTION, "R"];
+        return [GEditor.GKey.Constant.OPTION, "R"];
       }
       isVisible() {
         return false;
@@ -34,9 +34,9 @@ function (exports, module, require) {
             .getLeftSidebars()
             .getSidebar(s.SidebarsIds.GOutlineSidebar),
           require = module.getLayerPanel(),
-          { currentFocus: o } = require.data("glayerpanel");
-        if (o && exports === module.getId()) {
-          const e = require.gLayerPanel("getTitleOfLayer", $(o.row));
+          { currentFocus: _interopRequireDefault } = require.data("glayerpanel");
+        if (_interopRequireDefault && exports === module.getId()) {
+          const e = require.gLayerPanel("getTitleOfLayer", $(_interopRequireDefault.row));
           e.gAutoEdit("open", e.data("gautoedit"));
         }
       }
@@ -45,6 +45,6 @@ function (exports, module, require) {
       }
     }
     (c.ID = "edit.rename-layer"),
-      (c.TITLE = new a.GLocaleKey("GRenameLayerAction", "title")),
+      (c.TITLE = new GCore.GLocaleKey("GRenameLayerAction", "title")),
       (exports.exports = c);
   }

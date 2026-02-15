@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var o = require(1) /* module */;
-    const i = require(238) /* GMenu */,
+    var GCore = require(1) /* module */;
+    const GMenu = require(238) /* GMenu */,
       a = require(444) /* module_444 */;
     var r = {
       value: function (e) {
@@ -18,13 +18,13 @@ function (exports, module, require) {
       init: function (e) {
         return (
           this.each(function () {
-            e = o.GUtil.extend({ list: [] }, e);
-            const module = new i();
+            e = GCore.GUtil.extend({ list: [] }, e);
+            const module = new GMenu();
             e.list
               .map((e) => ("object" != typeof e ? { title: e, data: e } : e))
               .forEach((e) => {
-                let { title: require, data: o } = e;
-                return module.createAddItem(require).setData(o);
+                let { title: require, data: GCore } = e;
+                return module.createAddItem(require).setData(GCore);
               });
             const require = $(this);
             require.addClass("g-input-select")

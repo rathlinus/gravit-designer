@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */;
     const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* AppSettings */,
       a = require(337) /* stub_requires_1098 */,
-      r = require(44) /* GSystemDialog */;
+      GSystemDialog = require(44) /* GSystemDialog */;
     exports.exports = class {
       async execute() {
         let { [o.PasswordlessToken]: exports } =
@@ -23,7 +23,7 @@ function (exports, module, require) {
           );
         } catch (e) {
           gDesigner.executeWhenReady(() => {
-            r.error(e);
+            GSystemDialog.error(e);
           });
         }
       }

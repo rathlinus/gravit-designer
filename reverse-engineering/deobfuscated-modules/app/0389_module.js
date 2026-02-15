@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1) /* module */;
+    var GCore = require(1) /* module */;
     function i() {}
     (i.GVDESIGN = {
       ext: "gvdesign",
       mime: "application/gravit+design",
-      name: new o.GLocaleKey("GDocument", "file-type.gvdesign"),
-      title: new o.GLocaleKey("GDocument", "title.save-gvdesign"),
+      name: new GCore.GLocaleKey("GDocument", "file-type.gvdesign"),
+      title: new GCore.GLocaleKey("GDocument", "title.save-gvdesign"),
       category: "gravit",
       load: true,
       store: true,
@@ -21,7 +21,7 @@ function (exports, module, require) {
       (i.HEIC = {
         ext: "heic",
         mime: "image/heic",
-        name: new o.GLocaleKey("GDocument", "file-type.png"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.png"),
         category: "image",
         load: true,
         store: false,
@@ -30,7 +30,7 @@ function (exports, module, require) {
       (i.PNG = {
         ext: "png",
         mime: "image/png",
-        name: new o.GLocaleKey("GDocument", "file-type.png"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.png"),
         category: "image",
         load: true,
         store: true,
@@ -39,7 +39,7 @@ function (exports, module, require) {
       (i.JPG = {
         ext: "jpg",
         mime: "image/jpeg",
-        name: new o.GLocaleKey("GDocument", "file-type.jpeg"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.jpeg"),
         category: "image",
         load: true,
         store: true,
@@ -55,7 +55,7 @@ function (exports, module, require) {
       (i.SVG = {
         ext: "svg",
         mime: "image/svg+xml",
-        name: new o.GLocaleKey("GDocument", "file-type.svg"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.svg"),
         category: "vector",
         load: true,
         store: true,
@@ -64,7 +64,7 @@ function (exports, module, require) {
       (i.SVGZ = {
         ext: "svgz",
         mime: "image/svg+xml",
-        name: new o.GLocaleKey("GDocument", "file-type.svgz"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.svgz"),
         category: "vector",
         load: true,
         store: false,
@@ -73,7 +73,7 @@ function (exports, module, require) {
       (i.PDF = {
         ext: "pdf",
         mime: "application/pdf",
-        name: new o.GLocaleKey("GDocument", "file-type.pdf"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.pdf"),
         category: "document",
         load: true,
         store: true,
@@ -82,7 +82,7 @@ function (exports, module, require) {
       (i.AI = {
         ext: "ai",
         mime: "application/pdf",
-        name: new o.GLocaleKey("GDocument", "file-type.ai"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.ai"),
         category: "document",
         load: true,
         store: false,
@@ -92,7 +92,7 @@ function (exports, module, require) {
       (i.EPS = {
         ext: "eps",
         mime: "application/postscript",
-        name: new o.GLocaleKey("GDocument", "file-type.eps"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.eps"),
         category: "document",
         load: true,
         store: false,
@@ -102,7 +102,7 @@ function (exports, module, require) {
       (i.SKETCH = {
         ext: "sketch",
         mime: "application/zip",
-        name: new o.GLocaleKey("GDocument", "file-type.sketch"),
+        name: new GCore.GLocaleKey("GDocument", "file-type.sketch"),
         category: "document",
         load: true,
         store: false,

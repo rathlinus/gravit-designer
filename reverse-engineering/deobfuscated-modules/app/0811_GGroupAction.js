@@ -7,20 +7,20 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
-    var o = require(1) /* module */,
-      i = require(15) /* module */,
-      a = require(40) /* CollaborationMergeUtils */,
+    var GCore = require(1) /* module */,
+      GEditor = require(15) /* module */,
+      CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(18) /* MenuItemBuilder */,
-      l = require(106) /* GElementAction */;
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GElementAction = require(106) /* GElementAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
-          title: o.GLocale.get(
-            new o.GLocaleKey("GGroupAction", "tooltip-title")
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey("GGroupAction", "tooltip-title")
           ),
-          description: o.GLocale.get(
-            new o.GLocaleKey("GGroupAction", "tooltip-description")
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey("GGroupAction", "tooltip-description")
           ),
           shortcut: c.SHORTCUT,
           learnMore:
@@ -28,10 +28,10 @@ function (exports, module, require) {
         }),
       };
     }
-    o.GObject.inherit(c, l),
+    GCore.GObject.inherit(c, GElementAction),
       (c.ID = "modify.group"),
-      (c.TITLE = new o.GLocaleKey("GGroupAction", "title")),
-      (c.SHORTCUT = [i.GKey.Constant.META, "G"]),
+      (c.TITLE = new GCore.GLocaleKey("GGroupAction", "title")),
+      (c.SHORTCUT = [GEditor.GKey.Constant.META, "G"]),
       (c.TOOLTIP_CONFIG = null),
       (c.prototype.getId = function () {
         return c.ID;
@@ -43,7 +43,7 @@ function (exports, module, require) {
         return "gravit-icon-group";
       }),
       (c.prototype.getCategory = function () {
-        return s.CATEGORY_MODIFY;
+        return MenuItemBuilder.CATEGORY_MODIFY;
       }),
       (c.prototype.getGroup = function () {
         return "structure-group";
@@ -52,17 +52,17 @@ function (exports, module, require) {
         return c.SHORTCUT;
       }),
       (c.prototype.isEnabled = function () {
-        if (!l.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getIndividualSelection();
           if (module && module.length > 0)
-            for (var require = new o.GGroup(), i = module.length - 1; i >= 0; --i) {
-              var a = module[i];
+            for (var require = new GCore.GGroup(), GEditor = module.length - 1; GEditor >= 0; --GEditor) {
+              var CollaborationMergeUtils = module[GEditor];
               if (
-                a.validateInsertion(require) &&
-                !a.getParent().isLocked() &&
-                require.validateInsertion(a.getParent())
+                CollaborationMergeUtils.validateInsertion(require) &&
+                !CollaborationMergeUtils.getParent().isLocked() &&
+                require.validateInsertion(CollaborationMergeUtils.getParent())
               )
                 return true;
             }
@@ -71,37 +71,37 @@ function (exports, module, require) {
       }),
       (c.prototype.execute = function () {
         var e = gDesigner.getActiveDocument().getEditor(),
-          t = o.GNode.order(e.getIndividualSelection().slice());
+          t = GCore.GNode.order(e.getIndividualSelection().slice());
         e.beginTransaction();
         try {
-          for (var require = new o.GGroup(), i = [], r = 0; r < t.length; ++r) {
-            (p = t[r]).validateInsertion(require) && i.push(p);
+          for (var require = new GCore.GGroup(), GEditor = [], r = 0; r < t.length; ++r) {
+            (p = t[r]).validateInsertion(require) && GEditor.push(p);
           }
-          if (i.length > 0) {
-            var s = i[i.length - 1],
-              l = s.getParent(),
-              c = s.getNext();
-            if (!l.isLocked() && require.validateInsertion(l)) {
-              l.insertChild(require, c);
+          if (GEditor.length > 0) {
+            var MenuItemBuilder = GEditor[GEditor.length - 1],
+              GElementAction = MenuItemBuilder.getParent(),
+              c = MenuItemBuilder.getNext();
+            if (!GElementAction.isLocked() && require.validateInsertion(GElementAction)) {
+              GElementAction.insertChild(require, c);
               var d,
                 u = gDesigner.getActiveDocument().getScene();
               try {
                 d = new Set();
-                for (r = 0; r < i.length; ++r) d.add(i[r].getParent());
-                (0, a.blockChanges)(e, d, u, require);
-                for (r = 0; r < i.length; ++r) {
+                for (r = 0; r < GEditor.length; ++r) d.add(GEditor[r].getParent());
+                (0, CollaborationMergeUtils.blockChanges)(e, d, u, require);
+                for (r = 0; r < GEditor.length; ++r) {
                   var p;
-                  (p = i[r]).getParent().removeChild(p), require.appendChild(p);
+                  (p = GEditor[r]).getParent().removeChild(p), require.appendChild(p);
                 }
               } finally {
-                (0, a.releaseChanges)(e, d, u, require);
+                (0, CollaborationMergeUtils.releaseChanges)(e, d, u, require);
               }
             }
             e.updateSelection(false, [require]);
           }
         } finally {
           e.commitTransaction(
-            o.GLocale.get(new o.GLocaleKey("GGroupAction", "title"))
+            GCore.GLocale.get(new GCore.GLocaleKey("GGroupAction", "title"))
           );
         }
       }),

@@ -7,15 +7,15 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(31) /* GAction */,
-      a = require(18) /* MenuItemBuilder */;
-    const r = require(44) /* GSystemDialog */,
+    var GCore = require(1) /* module */,
+      GAction = require(31) /* GAction */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */;
+    const GSystemDialog = require(44) /* GSystemDialog */,
       s = require(119) /* module_119 */;
     function l() {}
-    o.GObject.inherit(l, i),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "use-coupon-action"),
-      (l.TITLE = new o.GLocaleKey("GUseCouponAction", "title")),
+      (l.TITLE = new GCore.GLocaleKey("GUseCouponAction", "title")),
       (l.prototype.getId = function () {
         return l.ID;
       }),
@@ -23,7 +23,7 @@ function (exports, module, require) {
         return l.TITLE;
       }),
       (l.prototype.getCategory = function () {
-        return a.CATEGORY_HELP;
+        return MenuItemBuilder.CATEGORY_HELP;
       }),
       (l.prototype.getGroup = function () {
         return "help";
@@ -33,19 +33,19 @@ function (exports, module, require) {
         const exports = gDesigner.getLicense(),
           module = !(exports.isPro() && !exports.isExpired()),
           require = !gDesigner.isAnonymous(),
-          o = !exports.isGuest();
-        return module && require && o;
+          GCore = !exports.isGuest();
+        return module && require && GCore;
       }),
       (l.prototype.execute = function () {
-        r.prompt(
-          o.GLocale.get(
-            new o.GLocaleKey("GUseCouponAction", "text.hava-coupon")
+        GSystemDialog.prompt(
+          GCore.GLocale.get(
+            new GCore.GLocaleKey("GUseCouponAction", "text.hava-coupon")
           ),
           async (e) => {
             if (e) return s.activateCoupon(e);
-            r.alert(
-              o.GLocale.get(
-                new o.GLocaleKey("GUseCouponAction", "text.invalid-coupon")
+            GSystemDialog.alert(
+              GCore.GLocale.get(
+                new GCore.GLocaleKey("GUseCouponAction", "text.invalid-coupon")
               )
             );
           }

@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var i = require(1) /* module */,
-      a = o(require(31) /* GAction */);
-    class r extends a.default {
+    var GCore = require(1) /* module */,
+      GAction = _interopRequireDefault(require(31) /* GAction */);
+    class r extends GAction.default {
       static getSubActionId(e, t) {
         return "".concat(e, ".").concat(t);
       }
@@ -42,10 +42,10 @@ function (exports, module, require) {
       getShortcutHint(e) {
         const module = this.getMainAction().getShortcut(),
           require = this.getShortcutSubKey(),
-          o = a.default.getActionShortcutHint(module, e);
-        return o && require
-          ? i.GLocale.getValue("GSubAction", "shortcut-hint-template")
-              .replace("%mainShortcutHint", o)
+          _interopRequireDefault = GAction.default.getActionShortcutHint(module, e);
+        return _interopRequireDefault && require
+          ? GCore.GLocale.getValue("GSubAction", "shortcut-hint-template")
+              .replace("%mainShortcutHint", _interopRequireDefault)
               .replace("%shortcutSubKeyHint", require)
           : null;
       }

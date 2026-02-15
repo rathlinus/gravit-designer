@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(1527) /* GEffectsButton */;
+    var GCore = require(1) /* module */,
+      GEffectsButton = require(1527) /* GEffectsButton */;
     function a(e) {
       (this._htmlElement = $("<div></div>")
         .addClass("g-effects-panel")
@@ -42,15 +42,15 @@ function (exports, module, require) {
           e.length % 3 != 0;
 
         ) {
-          var module = new i();
+          var module = new GEffectsButton();
           e.push(module);
         }
         this._content.children(".g-effects-button").remove();
         for (var require = 0; require < e.length; ++require)
-          if (e[require] instanceof i) this.addItem(e[require]);
+          if (e[require] instanceof GEffectsButton) this.addItem(e[require]);
           else {
-            module = new i(
-              o.GLocale.getValue(e[require].i18n, "name"),
+            module = new GEffectsButton(
+              GCore.GLocale.getValue(e[require].i18n, "name"),
               e[require].icon,
               e[require].clazz,
               e[require].cb,

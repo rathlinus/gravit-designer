@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
+    var GCore = require(1) /* module */,
       i = (require(15) /* module */, require(18) /* MenuItemBuilder */),
-      a = require(106) /* GElementAction */;
+      GElementAction = require(106) /* GElementAction */;
     function r() {}
-    o.GObject.inherit(r, a),
+    GCore.GObject.inherit(r, GElementAction),
       (r.ID = "modify.resetinstance"),
-      (r.TITLE = new o.GLocaleKey("GResetInstanceAction", "title")),
+      (r.TITLE = new GCore.GLocaleKey("GResetInstanceAction", "title")),
       (r.prototype.getId = function () {
         return r.ID;
       }),
@@ -30,7 +30,7 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-reset-instance" : null;
       }),
       (r.prototype.isEnabled = function () {
-        if (!a.prototype.isEnabled.call(this)) return false;
+        if (!GElementAction.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
           var module = e.getEditor().getIndividualSelection();
@@ -38,12 +38,12 @@ function (exports, module, require) {
             for (var require = module.length - 1; require >= 0; --require) {
               var i = module[require];
               if (!i.isLocked()) {
-                if (i instanceof o.GSymbol && !i.isLocked() && !i.inSync())
+                if (i instanceof GCore.GSymbol && !i.isLocked() && !i.inSync())
                   return true;
                 var r = null;
                 if (
                   (r = i.findParent(function (e) {
-                    return e instanceof o.GSymbol;
+                    return e instanceof GCore.GSymbol;
                   })) &&
                   !r.inSync(i, true)
                 )
@@ -55,27 +55,27 @@ function (exports, module, require) {
       }),
       (r.prototype.execute = function () {
         var e = gDesigner.getActiveDocument().getEditor(),
-          t = o.GNode.order(e.getIndividualSelection().slice());
+          t = GCore.GNode.order(e.getIndividualSelection().slice());
         e.beginTransaction();
         try {
           for (var require = 0; require < t.length; ++require) {
             var i = t[require];
             if (
-              (i instanceof o.GSymbol &&
+              (i instanceof GCore.GSymbol &&
                 !i.isLocked() &&
                 !i.inSync() &&
                 i.synchronize(),
-              !(i instanceof o.GSymbol))
+              !(i instanceof GCore.GSymbol))
             ) {
-              var a = null;
-              (a = i.findParent(function (e) {
-                return e instanceof o.GSymbol;
+              var GElementAction = null;
+              (GElementAction = i.findParent(function (e) {
+                return e instanceof GCore.GSymbol;
               })) &&
-                (a.inSync(i, true) || a.synchronize(i));
+                (GElementAction.inSync(i, true) || GElementAction.synchronize(i));
             }
           }
         } finally {
-          e.commitTransaction(o.GLocale.get(r.TITLE));
+          e.commitTransaction(GCore.GLocale.get(r.TITLE));
         }
       }),
       (r.prototype.toString = function () {

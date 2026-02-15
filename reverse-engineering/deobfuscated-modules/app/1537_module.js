@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var i = o(require(1155) /* module_1155 */);
+    var i = _interopRequireDefault(require(1155) /* module_1155 */);
     const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* module */,
       l = require(392) /* module_392 */,
       c = require(1165) /* module_1165 */,
-      d = require(123) /* GProperties */,
-      u = require(78) /* GDocumentEvent */,
-      p = require(447) /* GSaveAction */,
+      GProperties = require(123) /* GProperties */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
+      GSaveAction = require(447) /* GSaveAction */,
       {
         FileStatus: {
           IN_REVIEW: g,
@@ -33,7 +33,7 @@ function (exports, module, require) {
       } = require(10) /* AppSettings */,
       S = require(1538) /* module_1538 */;
     function E() {}
-    s.inherit(E, d),
+    s.inherit(E, GProperties),
       (E.prototype.init = function (e, t) {
         (this._container = e),
           (this._fileStatusHistoryDialog = new S()),
@@ -172,14 +172,14 @@ function (exports, module, require) {
             );
           case f:
             n = await module.hasAccess(b, true);
-            var o = this._getStatus();
+            var _interopRequireDefault = this._getStatus();
             return {
               status: e,
               getLabel: () =>
                 a.get(
                   new r(
                     "GReviewDockerProperties",
-                    n && e !== o ? "text.approve-title" : "text.approved-title"
+                    n && e !== _interopRequireDefault ? "text.approve-title" : "text.approved-title"
                   )
                 ),
               getDescription: () =>
@@ -260,7 +260,7 @@ function (exports, module, require) {
           this._document.getStorageItem()
             ? exports.share()
             : (new i.default()
-                .listen(u)
+                .listen(GDocumentEvent)
                 .when(
                   (e) =>
                     !!(
@@ -268,7 +268,7 @@ function (exports, module, require) {
                       e.type &&
                       e.document &&
                       !e.document.isLockedByVersionHistory() &&
-                      e.type === u.Type.StorageItemUpdated &&
+                      e.type === GDocumentEvent.Type.StorageItemUpdated &&
                       e.document.getId()
                     ) &&
                     (this._document === e.document ||
@@ -276,7 +276,7 @@ function (exports, module, require) {
                         this._document.getId() === e.document.getId()))
                 )
                 .do(() => exports.share()),
-              gDesigner.executeAction(p.ID));
+              gDesigner.executeAction(GSaveAction.ID));
       }),
       (E.prototype._requestUIUpdate = async function () {
         this.isAvailable() &&
@@ -368,7 +368,7 @@ function (exports, module, require) {
           (this._statusSelector = $("<div/>")
             .addClass("g-file-status-selector")
             .appendTo(this._statusListOverlay));
-        const o = async (e) => {
+        const _interopRequireDefault = async (e) => {
           var n = await this._makeItemForDAO(e, {
             selected: e.status === t,
             canHover: true,
@@ -416,7 +416,7 @@ function (exports, module, require) {
           for (let e = 0; e < w.length; e++) {
             var i = w[e],
               a = await this._getDAOStatus(i);
-            await o(a);
+            await _interopRequireDefault(a);
           }
           e.on("click", async () => {
             this._updatingStatus ||
@@ -430,7 +430,7 @@ function (exports, module, require) {
       (E.prototype._makeItemForDAO = async function (e, t) {
         let {
           selected: require = false,
-          canHover: o = true,
+          canHover: _interopRequireDefault = true,
           loading: i = false,
           disabled: a = false,
         } = t;
@@ -439,7 +439,7 @@ function (exports, module, require) {
             .data("status", e)
             .attr("status-id", e.status)
             .toggleClass("disabled", a || (!require && !(await e.isAvailable())))
-            .toggleClass("can-hover", o)
+            .toggleClass("can-hover", _interopRequireDefault)
             .toggleClass("loading", i),
           s = $("<div/>")
             .addClass("icon-container")

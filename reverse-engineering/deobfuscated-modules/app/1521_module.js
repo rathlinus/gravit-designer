@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
-    const o = require(394) /* GView */,
-      i = require(78) /* GDocumentEvent */,
+    const GView = require(394) /* GView */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       a = require(86) /* module_86 */,
-      r = require(217) /* GDocumentStatusEvent */;
+      GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */;
     function s(e) {
       this._htmlElement = e;
     }
@@ -27,24 +27,24 @@ function (exports, module, require) {
               this._panels.push({ container: module, panel: e }),
               this._activePanel || this.setActivePanel(e.getId()),
               e.addEventListener(
-                o.UpdateEvent,
+                GView.UpdateEvent,
                 function () {
                   this._updateFooter(), gDesigner.relayout();
                 }.bind(this)
               );
           }),
           this._updateFooter(),
-          gDesigner.addEventListener(i, this._documentEvent, this);
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this);
       }),
       (s.prototype._documentEvent = function (e) {
         const module = e.document;
         switch (e.type) {
-          case i.Type.Activated:
-            module.addEventListener(r, this._documentStatusChanged, this),
+          case GDocumentEvent.Type.Activated:
+            module.addEventListener(GDocumentStatusEvent, this._documentStatusChanged, this),
               (this._document = module);
             break;
-          case i.Type.Deactivated:
-            module.removeEventListener(r, this._documentStatusChanged, this),
+          case GDocumentEvent.Type.Deactivated:
+            module.removeEventListener(GDocumentStatusEvent, this._documentStatusChanged, this),
               (this._document = null);
         }
       }),
@@ -84,11 +84,11 @@ function (exports, module, require) {
       (s.prototype.setActivePanel = function (e) {
         for (var module = 0; module < this._panels.length; ++module) {
           var require = this._panels[module],
-            o = require.panel.getId();
-          o === e
+            GView = require.panel.getId();
+          GView === e
             ? (require.container.css("display", ""), require.panel.activate())
             : (require.container.css("display", "none"),
-              o === this._activePanel && require.panel.deactivate());
+              GView === this._activePanel && require.panel.deactivate());
         }
         this._activePanel = e;
       }),

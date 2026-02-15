@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* _interopRequireDefault */;
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var i = require(1) /* module */,
-      a = o(require(44) /* GSystemDialog */);
+    var GCore = require(1) /* module */,
+      GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */);
     const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = require(10) /* AppSettings */,
-      l = require(78) /* GDocumentEvent */,
+      GDocumentEvent = require(78) /* GDocumentEvent */,
       c = r.minutesToMilliseconds(1),
       d = 0.8,
       u = r.minutesToMilliseconds(30);
@@ -27,7 +27,7 @@ function (exports, module, require) {
       }
       start() {
         this.stop(),
-          gDesigner.addEventListener(l, this._documentEvent, this),
+          gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           this._memoryUsageThreshold <= 0 ||
             (gContainer.isMemoryInfoAvailable() &&
               (this._memoryCheckIntervalId = setInterval(
@@ -42,7 +42,7 @@ function (exports, module, require) {
           this._memoryCheckIntervalId &&
             (clearInterval(this._memoryCheckIntervalId),
             delete this._memoryCheckIntervalId),
-          gDesigner.removeEventListener(l, this._documentEvent, this);
+          gDesigner.removeEventListener(GDocumentEvent, this._documentEvent, this);
       }
       _checkMemory() {
         this._calculateThreshold() >= this._memoryUsageThreshold &&
@@ -61,22 +61,22 @@ function (exports, module, require) {
       _openWarningDialog() {
         this._dialog ||
           (gDesigner.stats("memorywarningdialog_open"),
-          (this._dialog = a.default.custom({
+          (this._dialog = GSystemDialog.default.custom({
             closeCallback: () => {
               delete this._dialog;
             },
             className: "g-memory-warn-dialog",
             closeable: false,
             icon: "info",
-            title: i.GLocale.get(
-              new i.GLocaleKey("GMemoryManager", "text.title")
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey("GMemoryManager", "text.title")
             ).replace("%app", s),
-            subtitle: i.GLocale.get(
-              new i.GLocaleKey("GMemoryManager", "text.subtitle")
+            subtitle: GCore.GLocale.get(
+              new GCore.GLocaleKey("GMemoryManager", "text.subtitle")
             ),
             buttons: [
               {
-                label: i.GLocale.get(new i.GLocaleKey("GLocale", "ok")),
+                label: GCore.GLocale.get(new GCore.GLocaleKey("GLocale", "ok")),
                 onclick: (e) => {
                   e.gDialog("close");
                 },
@@ -86,8 +86,8 @@ function (exports, module, require) {
           })));
       }
       _documentEvent(e) {
-        e.type === l.Type.Removed &&
-          (gDesigner.hasDocuments() || i.GRendererCtx.freeMemory());
+        e.type === GDocumentEvent.Type.Removed &&
+          (gDesigner.hasDocuments() || GCore.GRendererCtx.freeMemory());
       }
     };
   }

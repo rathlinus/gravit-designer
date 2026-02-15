@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* uncurryThis */,
+    var uncurryThis = require(27) /* uncurryThis */,
       i = require(93) /* stub_requires_92 */,
       a = Math.floor,
-      r = o("".charAt),
-      s = o("".replace),
-      l = o("".slice),
+      r = uncurryThis("".charAt),
+      s = uncurryThis("".replace),
+      l = uncurryThis("".slice),
       c = /\$([$&'`]|\d{1,2}|<[^>]*>)/g,
       d = /\$([$&'`]|\d{1,2})/g;
-    exports.exports = function (e, t, n, o, u, p) {
+    exports.exports = function (e, t, n, uncurryThis, u, p) {
       var g = n + e.length,
-        h = o.length,
+        h = uncurryThis.length,
         f = d;
       return (
         undefined !== u && ((u = i(u)), (f = c)),
@@ -41,12 +41,12 @@ function (exports, module, require) {
                 return 0 === p
                   ? i
                   : p <= h
-                  ? undefined === o[p - 1]
+                  ? undefined === uncurryThis[p - 1]
                     ? r(s, 1)
-                    : o[p - 1] + r(s, 1)
+                    : uncurryThis[p - 1] + r(s, 1)
                   : i;
               }
-              c = o[d - 1];
+              c = uncurryThis[d - 1];
           }
           return undefined === c ? "" : c;
         })

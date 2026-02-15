@@ -7,14 +7,14 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var o = require(1) /* module */,
-      i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */,
+    var GCore = require(1) /* module */,
+      MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
       r = require(119) /* module_119 */;
     function s() {}
-    o.GObject.inherit(s, a),
+    GCore.GObject.inherit(s, GAction),
       (s.ID = "file.open-from-template"),
-      (s.TITLE = new o.GLocaleKey("GNewFromTemplateAction", "title")),
+      (s.TITLE = new GCore.GLocaleKey("GNewFromTemplateAction", "title")),
       (s.prototype.getId = function () {
         return s.ID;
       }),
@@ -22,7 +22,7 @@ function (exports, module, require) {
         return s.TITLE;
       }),
       (s.prototype.getCategory = function () {
-        return i.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (s.prototype.getGroup = function () {
         return "document";

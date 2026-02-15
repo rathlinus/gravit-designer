@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* tryCall */;
-    exports.exports = !o(function () {
+    var tryCall = require(21) /* tryCall */;
+    exports.exports = !tryCall(function () {
       function exports() {}
       return (
         (exports.prototype.constructor = null),

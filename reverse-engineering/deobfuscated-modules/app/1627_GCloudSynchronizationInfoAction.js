@@ -7,13 +7,13 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var o = require(1) /* module */;
-    const i = require(18) /* MenuItemBuilder */,
-      a = require(31) /* GAction */,
-      r = require(85) /* GContainer */,
+    var GCore = require(1) /* module */;
+    const MenuItemBuilder = require(18) /* MenuItemBuilder */,
+      GAction = require(31) /* GAction */,
+      GContainer = require(85) /* GContainer */,
       { CLOUD_SYNC_FEATURE: { NEW_LAYOUT: s } = {} } = require(10) /* AppSettings */;
     function l() {}
-    o.GObject.inherit(l, a),
+    GCore.GObject.inherit(l, GAction),
       (l.ID = "sync.info"),
       (l.prototype.getId = function () {
         return l.ID;
@@ -23,14 +23,14 @@ function (exports, module, require) {
         if (exports && exports.getScene()) {
           const t = exports.getScene().lastModifiedDate();
           return t
-            ? o.GLocale.get(
-                new o.GLocaleKey(
+            ? GCore.GLocale.get(
+                new GCore.GLocaleKey(
                   "GCloudSynchronizationAction",
                   "text.last-synced-at"
                 )
               ).replace(
                 "%date",
-                o.GLocale.toLocaleDate(t, {
+                GCore.GLocale.toLocaleDate(t, {
                   year: "numeric",
                   month: "numeric",
                   day: "numeric",
@@ -39,16 +39,16 @@ function (exports, module, require) {
                   second: "numeric",
                 })
               )
-            : o.GLocale.get(
-                new o.GLocaleKey("GDocumentChooser", "text.unavailable")
+            : GCore.GLocale.get(
+                new GCore.GLocaleKey("GDocumentChooser", "text.unavailable")
               );
         }
-        return o.GLocale.get(
-          new o.GLocaleKey("GDocumentChooser", "text.unavailable")
+        return GCore.GLocale.get(
+          new GCore.GLocaleKey("GDocumentChooser", "text.unavailable")
         );
       }),
       (l.prototype.getCategory = function () {
-        return i.CATEGORY_FILE;
+        return MenuItemBuilder.CATEGORY_FILE;
       }),
       (l.prototype.getGroup = function () {
         return "file";
@@ -63,8 +63,8 @@ function (exports, module, require) {
       (l.prototype.isAvailable = function () {
         return (
           !!s &&
-          gContainer.getRuntime() === r.Runtime.Electron &&
-          o.GSystem.operatingSystem === o.GSystem.OperatingSystem.OSX_IOS
+          gContainer.getRuntime() === GContainer.Runtime.Electron &&
+          GCore.GSystem.operatingSystem === GCore.GSystem.OperatingSystem.OSX_IOS
         );
       }),
       (l.prototype.toString = function () {
