@@ -40,3 +40,13 @@ coverage/
 # Package manager locks
 package-lock.json
 
+# Generated reverse-engineering outputs
+reverse-engineering/annotated-modules/
+reverse-engineering/deobfuscated-modules/
+reverse-engineering/css/designer.browser.*.css
+reverse-engineering/readable-modules/
+reverse-engineering/workers/
+reverse-engineering/standalone/
+reverse-engineering/cross-reference/
+reverse-engineering/reconstructed-full/
+
