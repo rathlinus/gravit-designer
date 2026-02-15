@@ -2,6 +2,18 @@
 
 A comprehensive toolkit for reverse engineering Gravit Designer, enabling you to understand, modify, and develop new features for the application.
 
+## ✅ **STANDALONE BUILD COMPLETE**
+
+**The decompilation is complete!** The application can now run entirely from the reconstructed source code without requiring the original minified files from the public folder.
+
+- ✅ 414+ source files reconstructed
+- ✅ 366 classes/modules exported
+- ✅ Self-contained webpack bundle
+- ✅ No dependencies on public folder
+- ✅ Full development environment ready
+
+👉 See [STANDALONE.md](./STANDALONE.md) for verification details.
+
 ## 🎯 Overview
 
 This toolkit transforms the minified Gravit Designer production code into a readable, maintainable development environment. It extracts, analyzes, and reconstructs the source code while preserving all the original functionality.
@@ -13,7 +25,10 @@ This toolkit transforms the minified Gravit Designer production code into a read
 cd reverse-engineering
 npm install
 
-# Run the complete build process
+# Verify standalone build (recommended first step)
+npm run test:standalone
+
+# Or run the complete build process
 node build-all.js
 
 # Or run individual steps

@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
     
     devServer: {
       static: {
-        directory: path.join(__dirname, '..', 'public'),
+        directory: path.join(__dirname, 'dist'),
       },
       port: 3001,
       hot: true,
@@ -64,18 +64,7 @@ module.exports = (env, argv) => {
     },
     
     module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        }
-      ]
+      rules: []
     },
     
     plugins: [

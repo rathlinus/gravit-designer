@@ -16,7 +16,9 @@
     "rename": "node rename-variables.js",
     "all": "node build-all.js",
     "build-all": "node build-all.js",
-    "quick": "npm run beautify && npm run unbundle && npm run analyze"
+    "quick": "npm run beautify && npm run unbundle && npm run analyze",
+    "test": "node test-standalone.js",
+    "test:standalone": "npm run build && npm run test"
   },
   "keywords": ["gravit", "reverse-engineering", "decompiler"],
   "author": "",
