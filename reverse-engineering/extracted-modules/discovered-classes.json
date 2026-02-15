@@ -1,0 +1,2088 @@
+{
+  "24": {
+    "name": "GEditorOptions",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/24-module.js"
+  },
+  "36": {
+    "name": "PartsPropertyVals",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 3,
+    "source": "other/36-module.js"
+  },
+  "39": {
+    "name": "PartInfo",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 5,
+    "source": "other/39-module.js"
+  },
+  "66": {
+    "name": "EdTransformOptions",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/66-module.js"
+  },
+  "77": {
+    "name": "Wheel",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 17,
+    "source": "other/77-module.js"
+  },
+  "82": {
+    "name": "SavePoint",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 17,
+    "source": "other/82-module.js"
+  },
+  "90": {
+    "name": "Container",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 2,
+    "source": "other/90-module.js"
+  },
+  "99": {
+    "name": "Map",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 7,
+    "source": "other/99-module.js"
+  },
+  "127": {
+    "name": "P",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/127-module.js"
+  },
+  "128": {
+    "name": "y",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/128-module.js"
+  },
+  "140": {
+    "name": "Element",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 5,
+    "source": "other/140-module.js"
+  },
+  "141": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/141-module.js"
+  },
+  "150": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/150-module.js"
+  },
+  "154": {
+    "name": "LabelHolder",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 1,
+    "source": "other/154-module.js"
+  },
+  "155": {
+    "name": "h",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/155-module.js"
+  },
+  "164": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/164-module.js"
+  },
+  "167": {
+    "name": "Down",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 3,
+    "source": "other/167-module.js"
+  },
+  "182": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/182-module.js"
+  },
+  "187": {
+    "name": "PolyLine",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 27,
+    "source": "other/187-module.js"
+  },
+  "197": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/197-module.js"
+  },
+  "206": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/206-module.js"
+  },
+  "210": {
+    "name": "InvalidationRequestEvent",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 2,
+    "source": "other/210-module.js"
+  },
+  "211": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/211-module.js"
+  },
+  "226": {
+    "name": "c",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/226-module.js"
+  },
+  "235": {
+    "name": "g",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/235-module.js"
+  },
+  "236": {
+    "name": "GShapeTool",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/236-module.js"
+  },
+  "254": {
+    "name": "GCommonNames",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/254-module.js"
+  },
+  "261": {
+    "name": "e",
+    "confidence": "medium",
+    "hasTypeId": true,
+    "protoMethods": 0,
+    "source": "other/261-module.js"
+  },
+  "267": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/267-module.js"
+  },
+  "269": {
+    "name": "e",
+    "confidence": "medium",
+    "hasTypeId": true,
+    "protoMethods": 0,
+    "source": "other/269-module.js"
+  },
+  "274": {
+    "name": "d",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/274-module.js"
+  },
+  "275": {
+    "name": "F",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/275-module.js"
+  },
+  "276": {
+    "name": "P",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/276-module.js"
+  },
+  "287": {
+    "name": "Object",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/287-module.js"
+  },
+  "293": {
+    "name": "Stroke",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 13,
+    "source": "other/293-module.js"
+  },
+  "315": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/315-module.js"
+  },
+  "329": {
+    "name": "ImageBoxEditor",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 12,
+    "source": "other/329-module.js"
+  },
+  "330": {
+    "name": "y",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/330-module.js"
+  },
+  "332": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/332-module.js"
+  },
+  "334": {
+    "name": "AreaSelector",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 14,
+    "source": "other/334-module.js"
+  },
+  "335": {
+    "name": "SmoothingManager",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 15,
+    "source": "other/335-module.js"
+  },
+  "346": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/346-module.js"
+  },
+  "363": {
+    "name": "TransformEvent",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 1,
+    "source": "other/363-module.js"
+  },
+  "364": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/364-module.js"
+  },
+  "365": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/365-module.js"
+  },
+  "383": {
+    "name": "GET",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/383-module.js"
+  },
+  "384": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/384-module.js"
+  },
+  "385": {
+    "name": "c",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/385-module.js"
+  },
+  "386": {
+    "name": "d",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/386-module.js"
+  },
+  "387": {
+    "name": "k",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/387-module.js"
+  },
+  "391": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/391-module.js"
+  },
+  "437": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/437-module.js"
+  },
+  "439": {
+    "name": "b",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/439-module.js"
+  },
+  "440": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/440-module.js"
+  },
+  "472": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/472-module.js"
+  },
+  "474": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/474-module.js"
+  },
+  "475": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/475-module.js"
+  },
+  "476": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/476-module.js"
+  },
+  "477": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/477-module.js"
+  },
+  "478": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/478-module.js"
+  },
+  "479": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/479-module.js"
+  },
+  "480": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/480-module.js"
+  },
+  "481": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/481-module.js"
+  },
+  "482": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/482-module.js"
+  },
+  "483": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/483-module.js"
+  },
+  "484": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/484-module.js"
+  },
+  "485": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/485-module.js"
+  },
+  "486": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/486-module.js"
+  },
+  "487": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/487-module.js"
+  },
+  "488": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/488-module.js"
+  },
+  "489": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/489-module.js"
+  },
+  "490": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/490-module.js"
+  },
+  "491": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/491-module.js"
+  },
+  "492": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/492-module.js"
+  },
+  "493": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/493-module.js"
+  },
+  "494": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/494-module.js"
+  },
+  "495": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/495-module.js"
+  },
+  "496": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/496-module.js"
+  },
+  "497": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/497-module.js"
+  },
+  "498": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/498-module.js"
+  },
+  "499": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/499-module.js"
+  },
+  "500": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/500-module.js"
+  },
+  "501": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/501-module.js"
+  },
+  "502": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/502-module.js"
+  },
+  "503": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/503-module.js"
+  },
+  "504": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/504-module.js"
+  },
+  "505": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/505-module.js"
+  },
+  "540": {
+    "name": "InvalidationRequestEvent",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 2,
+    "source": "other/540-module.js"
+  },
+  "541": {
+    "name": "T",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/541-module.js"
+  },
+  "542": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/542-module.js"
+  },
+  "543": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/543-module.js"
+  },
+  "545": {
+    "name": "b",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/545-module.js"
+  },
+  "547": {
+    "name": "B",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/547-module.js"
+  },
+  "548": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/548-module.js"
+  },
+  "549": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/549-module.js"
+  },
+  "550": {
+    "name": "h",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/550-module.js"
+  },
+  "551": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/551-module.js"
+  },
+  "552": {
+    "name": "b",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/552-module.js"
+  },
+  "553": {
+    "name": "ToolChangedEvent",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 7,
+    "source": "other/553-module.js"
+  },
+  "560": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/560-module.js"
+  },
+  "563": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/563-module.js"
+  },
+  "568": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/568-module.js"
+  },
+  "585": {
+    "name": "Object",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/585-module.js"
+  },
+  "597": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/597-module.js"
+  },
+  "599": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/599-module.js"
+  },
+  "600": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/600-module.js"
+  },
+  "602": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/602-module.js"
+  },
+  "638": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/638-module.js"
+  },
+  "639": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/639-module.js"
+  },
+  "641": {
+    "name": "MFTHeaderData",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 5,
+    "source": "other/641-module.js"
+  },
+  "645": {
+    "name": "RecordItem",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/645-module.js"
+  },
+  "647": {
+    "name": "Polynomial",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 29,
+    "source": "other/647-module.js"
+  },
+  "652": {
+    "name": "f",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/652-module.js"
+  },
+  "653": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/653-module.js"
+  },
+  "654": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/654-module.js"
+  },
+  "657": {
+    "name": "OrderedEdge",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/657-module.js"
+  },
+  "659": {
+    "name": "GET",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/659-module.js"
+  },
+  "664": {
+    "name": "Matcher",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 10,
+    "source": "other/664-module.js"
+  },
+  "704": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/704-module.js"
+  },
+  "705": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/705-module.js"
+  },
+  "721": {
+    "name": "GSUB",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/721-module.js"
+  },
+  "738": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/738-module.js"
+  },
+  "743": {
+    "name": "p",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/743-module.js"
+  },
+  "744": {
+    "name": "LabelItem",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 5,
+    "source": "other/744-module.js"
+  },
+  "745": {
+    "name": "g",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/745-module.js"
+  },
+  "746": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/746-module.js"
+  },
+  "747": {
+    "name": "m",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/747-module.js"
+  },
+  "748": {
+    "name": "AreaSelector",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 11,
+    "source": "other/748-module.js"
+  },
+  "749": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/749-module.js"
+  },
+  "750": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/750-module.js"
+  },
+  "751": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/751-module.js"
+  },
+  "752": {
+    "name": "b",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/752-module.js"
+  },
+  "753": {
+    "name": "B",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/753-module.js"
+  },
+  "754": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/754-module.js"
+  },
+  "755": {
+    "name": "p",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/755-module.js"
+  },
+  "756": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/756-module.js"
+  },
+  "757": {
+    "name": "GKnifeTool",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/757-module.js"
+  },
+  "758": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/758-module.js"
+  },
+  "759": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/759-module.js"
+  },
+  "760": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/760-module.js"
+  },
+  "762": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/762-module.js"
+  },
+  "763": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/763-module.js"
+  },
+  "764": {
+    "name": "g",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/764-module.js"
+  },
+  "777": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/777-module.js"
+  },
+  "778": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/778-module.js"
+  },
+  "779": {
+    "name": "EditorChangedEvent",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 6,
+    "source": "other/779-module.js"
+  },
+  "780": {
+    "name": "v",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/780-module.js"
+  },
+  "781": {
+    "name": "E",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/781-module.js"
+  },
+  "782": {
+    "name": "y",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/782-module.js"
+  },
+  "793": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/793-module.js"
+  },
+  "794": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/794-module.js"
+  },
+  "795": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/795-module.js"
+  },
+  "796": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/796-module.js"
+  },
+  "799": {
+    "name": "Group",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 2,
+    "source": "other/799-module.js"
+  },
+  "800": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/800-module.js"
+  },
+  "818": {
+    "name": "ColorMap",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 9,
+    "source": "other/818-module.js"
+  },
+  "830": {
+    "name": "GCommonNames",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/830-module.js"
+  },
+  "838": {
+    "name": "Buffer",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 18,
+    "source": "other/838-module.js"
+  },
+  "853": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/853-module.js"
+  },
+  "854": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/854-module.js"
+  },
+  "855": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/855-module.js"
+  },
+  "856": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/856-module.js"
+  },
+  "891": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/891-module.js"
+  },
+  "893": {
+    "name": "h",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/893-module.js"
+  },
+  "895": {
+    "name": "Chunk",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/895-module.js"
+  },
+  "897": {
+    "name": "ImageData",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 22,
+    "source": "other/897-module.js"
+  },
+  "899": {
+    "name": "WebGLRenderingContext",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 30,
+    "source": "other/899-module.js"
+  },
+  "900": {
+    "name": "PaintLayer",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 12,
+    "source": "other/900-module.js"
+  },
+  "901": {
+    "name": "FillPaintLayer",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 3,
+    "source": "other/901-module.js"
+  },
+  "902": {
+    "name": "BorderPaintLayer",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/902-module.js"
+  },
+  "904": {
+    "name": "PaintLayers",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 13,
+    "source": "other/904-module.js"
+  },
+  "905": {
+    "name": "Effects",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 7,
+    "source": "other/905-module.js"
+  },
+  "906": {
+    "name": "Effect",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 22,
+    "source": "other/906-module.js"
+  },
+  "908": {
+    "name": "Transform",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 10,
+    "source": "other/908-module.js"
+  },
+  "909": {
+    "name": "Layout",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 6,
+    "source": "other/909-module.js"
+  },
+  "910": {
+    "name": "Anchor",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 14,
+    "source": "other/910-module.js"
+  },
+  "911": {
+    "name": "Stylable",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 30,
+    "source": "other/911-module.js"
+  },
+  "912": {
+    "name": "Accelerated",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 15,
+    "source": "other/912-module.js"
+  },
+  "914": {
+    "name": "Linkable",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/914-module.js"
+  },
+  "919": {
+    "name": "PositionedChar",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 11,
+    "source": "other/919-module.js"
+  },
+  "920": {
+    "name": "InlineNode",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 21,
+    "source": "other/920-module.js"
+  },
+  "921": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/921-module.js"
+  },
+  "922": {
+    "name": "String",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/922-module.js"
+  },
+  "924": {
+    "name": "VertexSource",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 6,
+    "source": "other/924-module.js"
+  },
+  "926": {
+    "name": "Character",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 6,
+    "source": "other/926-module.js"
+  },
+  "933": {
+    "name": "Entry",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 2,
+    "source": "other/933-module.js"
+  },
+  "934": {
+    "name": "CacheEntry",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 3,
+    "source": "other/934-module.js"
+  },
+  "947": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/947-module.js"
+  },
+  "956": {
+    "name": "GET",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/956-module.js"
+  },
+  "974": {
+    "name": "GCommonNames",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/974-module.js"
+  },
+  "995": {
+    "name": "GPOS",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/995-module.js"
+  },
+  "1000": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1000-module.js"
+  },
+  "1009": {
+    "name": "Array",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 1,
+    "source": "other/1009-module.js"
+  },
+  "1077": {
+    "name": "c",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1077-module.js"
+  },
+  "1078": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1078-module.js"
+  },
+  "1081": {
+    "name": "D",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1081-module.js"
+  },
+  "1082": {
+    "name": "g",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1082-module.js"
+  },
+  "1083": {
+    "name": "c",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1083-module.js"
+  },
+  "1084": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1084-module.js"
+  },
+  "1085": {
+    "name": "u",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1085-module.js"
+  },
+  "1096": {
+    "name": "GSuite",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1096-module.js"
+  },
+  "1110": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1110-module.js"
+  },
+  "1121": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1121-module.js"
+  },
+  "1122": {
+    "name": "m",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1122-module.js"
+  },
+  "1123": {
+    "name": "c",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1123-module.js"
+  },
+  "1124": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1124-module.js"
+  },
+  "1125": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1125-module.js"
+  },
+  "1126": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1126-module.js"
+  },
+  "1128": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1128-module.js"
+  },
+  "1129": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1129-module.js"
+  },
+  "1130": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1130-module.js"
+  },
+  "1131": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1131-module.js"
+  },
+  "1132": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1132-module.js"
+  },
+  "1133": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1133-module.js"
+  },
+  "1135": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1135-module.js"
+  },
+  "1136": {
+    "name": "g",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1136-module.js"
+  },
+  "1140": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1140-module.js"
+  },
+  "1141": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1141-module.js"
+  },
+  "1143": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1143-module.js"
+  },
+  "1144": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1144-module.js"
+  },
+  "1146": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1146-module.js"
+  },
+  "1147": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1147-module.js"
+  },
+  "1205": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1205-module.js"
+  },
+  "1206": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1206-module.js"
+  },
+  "1207": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1207-module.js"
+  },
+  "1208": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1208-module.js"
+  },
+  "1209": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1209-module.js"
+  },
+  "1211": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1211-module.js"
+  },
+  "1212": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1212-module.js"
+  },
+  "1213": {
+    "name": "m",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1213-module.js"
+  },
+  "1214": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1214-module.js"
+  },
+  "1217": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1217-module.js"
+  },
+  "1218": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1218-module.js"
+  },
+  "1219": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1219-module.js"
+  },
+  "1220": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1220-module.js"
+  },
+  "1221": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1221-module.js"
+  },
+  "1222": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1222-module.js"
+  },
+  "1223": {
+    "name": "d",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1223-module.js"
+  },
+  "1224": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1224-module.js"
+  },
+  "1225": {
+    "name": "h",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1225-module.js"
+  },
+  "1226": {
+    "name": "f",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1226-module.js"
+  },
+  "1227": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1227-module.js"
+  },
+  "1228": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1228-module.js"
+  },
+  "1229": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1229-module.js"
+  },
+  "1230": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1230-module.js"
+  },
+  "1231": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1231-module.js"
+  },
+  "1237": {
+    "name": "c",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1237-module.js"
+  },
+  "1391": {
+    "name": "Property",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 23,
+    "source": "other/1391-module.js"
+  },
+  "1393": {
+    "name": "FontManagerProxy",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 12,
+    "source": "other/1393-module.js"
+  },
+  "1394": {
+    "name": "j",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1394-module.js"
+  },
+  "1395": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1395-module.js"
+  },
+  "1396": {
+    "name": "p",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1396-module.js"
+  },
+  "1397": {
+    "name": "p",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1397-module.js"
+  },
+  "1398": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1398-module.js"
+  },
+  "1403": {
+    "name": "GEPSParser",
+    "confidence": "low",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1403-module.js"
+  },
+  "1404": {
+    "name": "E",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1404-module.js"
+  },
+  "1405": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1405-module.js"
+  },
+  "1406": {
+    "name": "V",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1406-module.js"
+  },
+  "1407": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1407-module.js"
+  },
+  "1408": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1408-module.js"
+  },
+  "1409": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1409-module.js"
+  },
+  "1410": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1410-module.js"
+  },
+  "1411": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1411-module.js"
+  },
+  "1412": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1412-module.js"
+  },
+  "1413": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1413-module.js"
+  },
+  "1414": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1414-module.js"
+  },
+  "1415": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1415-module.js"
+  },
+  "1416": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1416-module.js"
+  },
+  "1417": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1417-module.js"
+  },
+  "1418": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1418-module.js"
+  },
+  "1420": {
+    "name": "BezierCurveTo",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 6,
+    "source": "other/1420-module.js"
+  },
+  "1421": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1421-module.js"
+  },
+  "1422": {
+    "name": "Job",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 9,
+    "source": "other/1422-module.js"
+  },
+  "1424": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1424-module.js"
+  },
+  "1425": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1425-module.js"
+  },
+  "1426": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1426-module.js"
+  },
+  "1427": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1427-module.js"
+  },
+  "1429": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1429-module.js"
+  },
+  "1430": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1430-module.js"
+  },
+  "1431": {
+    "name": "d",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1431-module.js"
+  },
+  "1432": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1432-module.js"
+  },
+  "1433": {
+    "name": "l",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1433-module.js"
+  },
+  "1435": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1435-module.js"
+  },
+  "1436": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1436-module.js"
+  },
+  "1437": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1437-module.js"
+  },
+  "1438": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1438-module.js"
+  },
+  "1439": {
+    "name": "A",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1439-module.js"
+  },
+  "1440": {
+    "name": "s",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1440-module.js"
+  },
+  "1441": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1441-module.js"
+  },
+  "1443": {
+    "name": "r",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1443-module.js"
+  },
+  "1444": {
+    "name": "h",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1444-module.js"
+  },
+  "1445": {
+    "name": "d",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1445-module.js"
+  },
+  "1446": {
+    "name": "GPDFTLRender",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 6,
+    "source": "other/1446-module.js"
+  },
+  "1447": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1447-module.js"
+  },
+  "1450": {
+    "name": "a",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1450-module.js"
+  },
+  "1456": {
+    "name": "h",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1456-module.js"
+  },
+  "1457": {
+    "name": "o",
+    "confidence": "medium",
+    "hasTypeId": false,
+    "protoMethods": 0,
+    "source": "other/1457-module.js"
+  },
+  "1466": {
+    "name": "GSVGTLRender",
+    "confidence": "high",
+    "hasTypeId": false,
+    "protoMethods": 4,
+    "source": "other/1466-module.js"
+  }
+}
