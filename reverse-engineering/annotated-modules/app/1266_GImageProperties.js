@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     n(53) /* module */;
     var o = n(1) /* module */,
       i = (n(15) /* module */, n(1267) /* module_1267 */),
@@ -15,7 +15,7 @@ function (e, t, n) {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
-      } = (n(173) /* module_173 */, n(219) /* module_219 */, n(1268) /* module_1268 */);
+      } = (n(173) /* stub_requires_1 */, n(219) /* module_219 */, n(1268) /* module_1268 */);
     function c() {}
     o.GObject.inherit(c, a),
       (c.prototype._panel = null),

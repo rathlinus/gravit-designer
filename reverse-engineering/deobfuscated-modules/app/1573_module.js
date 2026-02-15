@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(196) /* module_196 */;
+    require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */;
     exports.exports = class {
       constructor() {
         this._promiseQueue = [];

@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     const o = require(1244) /* module_1244 */,
       i = require(85) /* GContainer */,
-      { Runtime: a, msTeamsMode: r } = require(10) /* module_10 */,
+      { Runtime: a, msTeamsMode: r } = require(10) /* AppSettings */,
       { storeVendor: s } = require(803) /* module_803 */,
       l = "darwin",
       c = "win32",

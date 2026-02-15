@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(306) /* module_306 */;
+    var o = n(25) /* core_export */,
+      i = n(306) /* regexpExec */;
     o({ target: "RegExp", proto: !0, forced: /./.exec !== i }, { exec: i });
   }

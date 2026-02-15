@@ -5,27 +5,27 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(71) /* module_71 */,
+    var o = n(16) /* _interopRequireDefault */;
+    n(58) /* polyfill_Array_includes */,
+      n(19) /* polyfill_Array_iterator */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(71) /* polyfill_String_includes */,
       n(151) /* module_151 */,
-      n(34) /* module_34 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(10) /* module_10 */,
+      n(34) /* polyfill_String_replace */,
+      n(91) /* polyfill_String_trim */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */;
+    var i = n(10) /* AppSettings */,
       a = n(882) /* module_882 */,
       r = n(1353) /* Exports_GAnnotationPanel */,
-      s = n(263) /* module_263 */,
+      s = n(263) /* Exports_GRegex */,
       l = n(67) /* GRichTooltipConfig */,
       c = o(n(358) /* module_358 */),
       d = o(n(1324) /* module_1324 */),
@@ -44,11 +44,11 @@ function (e, t, n) {
         NEW_COMMENT_READ_TIMEOUT: b,
         ANNOTATION_PERMANENT_LINK: w,
         IS_COREL: C,
-      } = ((0, r.createAdditionalMentions)(), n(10) /* module_10 */),
+      } = ((0, r.createAdditionalMentions)(), n(10) /* AppSettings */),
       x = n(1191) /* module_1191 */,
       S = n(1166) /* module_1166 */,
-      E = n(434) /* module_434 */,
-      { getAnnotationType: A } = n(40) /* module_40 */;
+      E = n(434) /* stub_requires_30_1072 */,
+      { getAnnotationType: A } = n(40) /* CollaborationMergeUtils */;
     function T(e) {
       let {
         container: t,

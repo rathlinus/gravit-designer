@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */, require(151) /* module_151 */;
+    require(20) /* polyfill_RegExp_exec */, require(151) /* module_151 */;
     var o = require(1) /* module */;
     (o.GUtil.image2Canvas = function (e, t) {
       if ("string" == typeof e) {

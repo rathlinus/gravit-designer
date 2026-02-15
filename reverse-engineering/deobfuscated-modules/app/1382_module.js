@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(1383) /* module_1383 */,
+    var o = require(1383) /* stub_requires_23 */,
       i = require(61) /* module_61 */,
-      a = require(1384) /* module_1384 */,
-      r = require(88) /* module_88 */.f;
+      a = require(1384) /* stub_requires_43 */,
+      r = require(88) /* createPropertyDescriptor */.f;
     exports.exports = function (e) {
       var t = o.Symbol || (o.Symbol = {});
       i(t, e) || r(t, e, { value: a.f(e) });

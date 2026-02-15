@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(117) /* module_117 */;
+    var o = require(117) /* toStringTagSupport */;
     exports.exports = function (e) {
       return o(e.length);
     };

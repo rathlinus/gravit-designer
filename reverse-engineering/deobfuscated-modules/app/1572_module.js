@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */(require(1573) /* module_1573 */);
+    var o = require(16) /* _interopRequireDefault */(require(1573) /* module_1573 */);
     exports.exports = class {
       constructor(e, t) {
         this._promiseManager = new o.default();

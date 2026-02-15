@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
     var o = require(1) /* module */;
-    const { FILE_FORMATS: i, gApi: a } = require(10) /* module_10 */,
+    const { FILE_FORMATS: i, gApi: a } = require(10) /* AppSettings */,
       r = i.find((e) => e.default),
       { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,
       c = require(1164) /* module_1164 */;

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */;
     var i = o(n(1249) /* module_1249 */),
       a = o(n(1155) /* module_1155 */),
       r = n(1) /* module */;
@@ -15,7 +15,7 @@ function (e, t, n) {
         IN_APP_PURCHASE: {
           CLEVERBRIDGE: { openCartInAPopup: l = !1 } = {},
         } = {},
-      } = n(10) /* module_10 */,
+      } = n(10) /* AppSettings */,
       c = n(808) /* GApplicationStatusEvent */,
       d = n(292) /* module_292 */,
       u = n(604) /* module_604 */,

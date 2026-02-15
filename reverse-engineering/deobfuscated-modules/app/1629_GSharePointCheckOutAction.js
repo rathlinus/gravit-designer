@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(8) /* module_8 */, require(3) /* module_3 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
     var i = require(1) /* module */,
       a = o(require(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
-    var s = require(18) /* module_18 */,
+    var s = require(18) /* MenuItemBuilder */,
       l = require(31) /* GAction */;
-    const c = require(1152) /* module_1152 */,
+    const c = require(1152) /* Item */,
       d = require(44) /* GSystemDialog */;
     function u() {}
     i.GObject.inherit(u, l),

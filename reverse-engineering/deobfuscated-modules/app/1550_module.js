@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */;
     var i = require(1) /* module */,
       a = require(1163) /* module_1163 */,
       r = o(require(1090) /* module_1090 */),
       s = o(require(358) /* module_358 */),
-      l = require(40) /* module_40 */,
-      c = require(10) /* module_10 */;
+      l = require(40) /* CollaborationMergeUtils */,
+      c = require(10) /* AppSettings */;
     const d = require(0) /* GObject */,
       u = require(1551) /* module_1551 */,
       p = require(1174) /* module_1174 */;

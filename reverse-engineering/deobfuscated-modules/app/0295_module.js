@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(213) /* module_213 */,
-      i = require(21) /* module_21 */,
-      a = require(23) /* module_23 */.String;
+      i = require(21) /* tryCall */,
+      a = require(23) /* globalThis */.String;
     exports.exports =
       !!Object.getOwnPropertySymbols &&
       !i(function () {

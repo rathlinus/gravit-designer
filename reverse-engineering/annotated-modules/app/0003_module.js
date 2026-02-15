@@ -6,11 +6,11 @@
 function (e, t, n) {
     "use strict";
     var o = n(199) /* Exports_GURABLE */.PROPER,
-      i = n(79) /* module_79 */,
-      a = n(37) /* module_37 */,
-      r = n(62) /* module_62 */,
-      s = n(21) /* module_21 */,
-      l = n(460) /* module_460 */,
+      i = n(79) /* defineBuiltIn */,
+      a = n(37) /* toString_default */,
+      r = n(62) /* requireObjectCoercible */,
+      s = n(21) /* tryCall */,
+      l = n(460) /* regexpStickyHelpers */,
       c = RegExp.prototype,
       d = c.toString,
       u = s(function () {

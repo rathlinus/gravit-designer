@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(20) /* module_20 */, require(34) /* module_34 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
     var i = require(1) /* module */,
       a = o(require(31) /* GAction */);
     class r extends a.default {

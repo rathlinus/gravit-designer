@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     var i,
-      a = n(10) /* module_10 */,
-      r = n(40) /* module_40 */,
+      a = n(10) /* AppSettings */,
+      r = n(40) /* CollaborationMergeUtils */,
       s = o(n(565) /* module_565 */);
     !(function (e) {
       var t = (function () {

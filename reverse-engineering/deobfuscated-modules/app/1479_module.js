@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(271) /* module_271 */;
-    const o = require(10) /* module_10 */,
+    require(271) /* polyfill_String_endsWith */;
+    const o = require(10) /* AppSettings */,
       { IS_LOCALHOST: i, IS_RC: a } = require(231) /* module_231 */;
     o.IS_TEAMS = "teams.coreldraw.app" === window.location.hostname;
     const r = window.location.hostname.endsWith(".ngrok.io");

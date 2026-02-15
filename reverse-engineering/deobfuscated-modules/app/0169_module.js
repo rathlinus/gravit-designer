@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    require(683) /* module_683 */;
+    require(683) /* polyfill_Iterator_reduce */;
   }

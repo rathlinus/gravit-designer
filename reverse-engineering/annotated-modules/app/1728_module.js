@@ -5,15 +5,15 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(290) /* module_290 */, n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(290) /* module_290 */, n(57) /* polyfill_parseInt */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var i,
       a,
       r,
       s = n(15) /* module */,
       l = n(1) /* module */,
       c = o(n(11) /* GUtil */),
-      d = n(10) /* module_10 */,
+      d = n(10) /* AppSettings */,
       u = n(67) /* GRichTooltipConfig */,
       p = o(n(1342) /* GEnhancedTooltipsAction */),
       g = {

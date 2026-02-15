@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(30) /* module_30 */, require(3) /* module_3 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    require(19) /* polyfill_Array_iterator */, require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */, require(125) /* stub_requires_673 */, require(126) /* polyfill_URL_toJSON */, require(114) /* stub_requires_424 */;
     var o = require(1) /* module */,
       i = require(15) /* module */,
       a = require(797) /* module */,
-      r = require(40) /* module_40 */,
-      s = require(18) /* module_18 */,
+      r = require(40) /* CollaborationMergeUtils */,
+      s = require(18) /* MenuItemBuilder */,
       l = require(31) /* GAction */,
       c = require(446) /* module_446 */,
       d = require(219) /* module_219 */,
-      u = require(1610) /* module_1610 */,
+      u = require(1610) /* Item */,
       p = require(85) /* GContainer */;
     const g = require(44) /* GSystemDialog */;
     var h = null,

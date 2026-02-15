@@ -5,13 +5,13 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
+    n(58) /* polyfill_Array_includes */, n(8) /* polyfill_bundle_ES6 */, n(71) /* polyfill_String_includes */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(38) /* stub_requires_680 */;
     var o = n(1) /* module */;
     const i = n(1507) /* module_1507 */,
       a = n(1508) /* module_1508 */,
       r = n(1509) /* GChangePasswordPanel */,
       s = (n(1158) /* Action_help_purchase */, n(805) /* module_805 */),
-      { gApi: l } = (n(177) /* module_177 */, n(10) /* module_10 */);
+      { gApi: l } = (n(177) /* module_177 */, n(10) /* AppSettings */);
     function c(e, t) {
       let n =
         arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};

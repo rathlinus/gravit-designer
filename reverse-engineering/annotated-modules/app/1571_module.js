@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(26) /* module_26 */;
-    var o = n(10) /* module_10 */;
+    n(19) /* polyfill_Array_iterator */, n(26) /* polyfill_DOMCollection_iterator */;
+    var o = n(10) /* AppSettings */;
     const {
         ANNOTATION_EVENT: i,
         SHARE_EVENT: a,

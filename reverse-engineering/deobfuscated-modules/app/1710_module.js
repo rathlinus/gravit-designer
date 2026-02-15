@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */,
-      require(3) /* module_3 */,
-      require(4) /* module_4 */,
-      require(1352) /* module_1352 */,
+    require(8) /* polyfill_bundle_ES6 */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(4) /* stub_requires_668 */,
+      require(1352) /* stub_requires_1707 */,
       (exports.exports = (e) => {
         (e._DragAndDropHelper = function (e) {
           this._vtree = e;

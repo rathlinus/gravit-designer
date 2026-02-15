@@ -5,28 +5,28 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
-      require(596) /* module_596 */,
-      require(30) /* module_30 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */,
+      require(596) /* polyfill_Array_reverse */,
+      require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */,
       i = require(797) /* module */,
       a = require(15) /* module */,
-      r = require(40) /* module_40 */,
-      s = require(10) /* module_10 */,
+      r = require(40) /* CollaborationMergeUtils */,
+      s = require(10) /* AppSettings */,
       l = require(238) /* GMenu */,
       c = require(444) /* module_444 */,
-      d = require(257) /* module_257 */,
-      u = require(1253) /* module_1253 */;
+      d = require(257) /* barrel_panels */,
+      u = require(1253) /* ZipDirectory */;
     const p = require(1238) /* module_1238 */;
     var g = require(44) /* GSystemDialog */;
     const h = require(389) /* module_389 */;

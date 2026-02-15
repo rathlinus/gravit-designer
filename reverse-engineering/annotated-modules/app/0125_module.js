@@ -5,5 +5,5 @@
 
 function (e, t, n) {
     "use strict";
-    n(673) /* module_673 */;
+    n(673) /* polyfill_String_startsWith */;
   }

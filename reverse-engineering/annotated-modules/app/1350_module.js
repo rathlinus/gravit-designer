@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    const o = n(337) /* module_337 */,
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
+    const o = n(337) /* stub_requires_1098 */,
       i = n(1338) /* module_1338 */,
-      { gApi: a, PurchaseStatus: r } = n(10) /* module_10 */,
+      { gApi: a, PurchaseStatus: r } = n(10) /* AppSettings */,
       { IS_TRUNK: s } = n(231) /* module_231 */;
     let l;
     class c {

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(168) /* module_168 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(169) /* module_169 */;
+    require(168) /* polyfill_Array_reduce */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(169) /* stub_requires_683 */;
     var o = require(1) /* module */;
     const i = require(238) /* GMenu */,
       a = (e) => {

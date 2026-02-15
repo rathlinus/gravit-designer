@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
-      a = require(18) /* module_18 */,
+      a = require(18) /* MenuItemBuilder */,
       r = require(31) /* GAction */;
-    const { TOUCH_LAYOUT: s } = require(10) /* module_10 */,
+    const { TOUCH_LAYOUT: s } = require(10) /* AppSettings */,
       l = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {

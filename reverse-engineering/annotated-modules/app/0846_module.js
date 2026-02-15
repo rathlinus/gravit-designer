@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */;
+    n(30) /* polyfill_Object_assign */;
     var o = n(231) /* module_231 */;
-    const { License: i, LicenseType: a, DateAPI: r } = n(10) /* module_10 */,
+    const { License: i, LicenseType: a, DateAPI: r } = n(10) /* AppSettings */,
       {
         defaultUserSettings: {
           license: { offlineCountdown: s, offlineExpirationTime: l },
         },
-      } = n(10) /* module_10 */.defaultUserSettings,
+      } = n(10) /* AppSettings */.defaultUserSettings,
       c = n(785) /* module_785 */,
       d = n(1099) /* module_1099 */;
     e.exports = class {

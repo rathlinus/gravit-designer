@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i = require(1) /* module */,
       a = require(53) /* module */,
       r = o(require(340) /* GTouchTool */),
       s = require(123) /* GProperties */,
-      l = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */);
+      l = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function c() {
       this._slices = [];
     }

@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var i = require(1) /* module */,
-      a = o(require(18) /* module_18 */),
+      a = o(require(18) /* MenuItemBuilder */),
       r = o(require(163) /* module_163 */),
       s = o(require(85) /* GContainer */),
       l = o(require(106) /* GElementAction */);

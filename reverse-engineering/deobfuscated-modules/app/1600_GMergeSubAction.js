@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
-      r = o(require(18) /* module_18 */),
+      r = o(require(18) /* MenuItemBuilder */),
       s = o(require(1168) /* GSubAction */),
-      l = require(40) /* module_40 */,
+      l = require(40) /* CollaborationMergeUtils */,
       c = require(67) /* GRichTooltipConfig */,
       d = o(require(812) /* GMergeMainAction */),
-      u = require(10) /* module_10 */;
+      u = require(10) /* AppSettings */;
     class p extends s.default {
       constructor(e) {
         super(e),

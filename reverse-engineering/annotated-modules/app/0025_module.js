@@ -5,12 +5,12 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(222) /* module_222 */.f,
-      a = n(100) /* module_100 */,
-      r = n(79) /* module_79 */,
-      s = n(298) /* module_298 */,
-      l = n(341) /* module_341 */,
+    var o = n(23) /* globalThis */,
+      i = n(222) /* objectGetOwnPropertyDescriptor */.f,
+      a = n(100) /* createProperty */,
+      r = n(79) /* defineBuiltIn */,
+      s = n(298) /* defineGlobalProperty */,
+      l = n(341) /* copyConstructorProperties */,
       c = n(277) /* module_277 */;
     e.exports = function (e, t) {
       var n,

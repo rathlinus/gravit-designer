@@ -6,16 +6,16 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(30) /* module_30 */, n(3) /* module_3 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
+    n(19) /* polyfill_Array_iterator */, n(30) /* polyfill_Object_assign */, n(3) /* polyfill_RegExp_toString */, n(26) /* polyfill_DOMCollection_iterator */, n(125) /* stub_requires_673 */, n(126) /* polyfill_URL_toJSON */, n(114) /* stub_requires_424 */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
       a = n(797) /* module */,
-      r = n(40) /* module_40 */,
-      s = n(18) /* module_18 */,
+      r = n(40) /* CollaborationMergeUtils */,
+      s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */,
       c = n(446) /* module_446 */,
       d = n(219) /* module_219 */,
-      u = n(1610) /* module_1610 */,
+      u = n(1610) /* Item */,
       p = n(85) /* GContainer */;
     const g = n(44) /* GSystemDialog */;
     var h = null,

@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */,
-      n(3) /* module_3 */,
-      n(4) /* module_4 */,
-      n(1352) /* module_1352 */,
+    n(8) /* polyfill_bundle_ES6 */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(4) /* stub_requires_668 */,
+      n(1352) /* stub_requires_1707 */,
       (e.exports = (e) => {
         (e._DragAndDropHelper = function (e) {
           this._vtree = e;

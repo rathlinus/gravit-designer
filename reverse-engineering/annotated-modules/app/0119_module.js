@@ -5,31 +5,31 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */,
+    n(19) /* polyfill_Array_iterator */,
       n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(107) /* polyfill_RegExp_test */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
       n(218) /* module_218 */,
       n(189) /* module_189 */,
       n(190) /* module_190 */,
       n(191) /* module_191 */,
       n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var o = n(10) /* module_10 */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(38) /* stub_requires_680 */,
+      n(26) /* polyfill_DOMCollection_iterator */,
+      n(125) /* stub_requires_673 */,
+      n(126) /* polyfill_URL_toJSON */,
+      n(114) /* stub_requires_424 */;
+    var o = n(10) /* AppSettings */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(40) /* module_40 */,
+      r = n(40) /* CollaborationMergeUtils */,
       s = n(845) /* module_845 */;
     const l = n(1092) /* module_1092 */;
     var c = n(78) /* GDocumentEvent */,
@@ -40,7 +40,7 @@ function (e, t, n) {
       h = n(358) /* module_358 */;
     const f = n(86) /* module_86 */,
       m = (n(156) /* module_156 */, n(256) /* GOfflineDialog */),
-      y = n(337) /* module_337 */,
+      y = n(337) /* stub_requires_1098 */,
       v = n(435) /* Md5 */,
       _ = n(165) /* module_165 */;
     var b = o.FILE_FORMATS.find((e) => e.default),

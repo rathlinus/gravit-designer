@@ -9,9 +9,9 @@ function (e, t, n) {
       i = n(427) /* module_427 */,
       a = n(429) /* module_429 */,
       r = n(131) /* module_131 */,
-      s = n(29) /* module_29 */,
-      l = n(27) /* module_27 */,
-      c = n(21) /* module_21 */,
+      s = n(29) /* isCallable */,
+      l = n(27) /* uncurryThis */,
+      c = n(21) /* tryCall */,
       d = o.aTypedArray,
       u = o.exportTypedArrayMethod,
       p = l("".slice);

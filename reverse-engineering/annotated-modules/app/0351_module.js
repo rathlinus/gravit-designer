@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(157) /* module_157 */,
+    var o = n(157) /* stub_requires_27 */,
       i = Math.floor,
       a = function (e, t) {
         var n = e.length;

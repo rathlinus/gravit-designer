@@ -5,13 +5,13 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(71) /* module_71 */, n(91) /* module_91 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(26) /* module_26 */;
+    n(58) /* polyfill_Array_includes */, n(19) /* polyfill_Array_iterator */, n(71) /* polyfill_String_includes */, n(91) /* polyfill_String_trim */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(15) /* module */,
       i = n(882) /* module_882 */;
     const a = n(44) /* GSystemDialog */,
       { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = n(1) /* module */,
       u = n(1191) /* module_1191 */,
-      { getAnnotationType: p } = n(40) /* module_40 */;
+      { getAnnotationType: p } = n(40) /* CollaborationMergeUtils */;
     n(85) /* GContainer */;
     function g(e) {
       let {

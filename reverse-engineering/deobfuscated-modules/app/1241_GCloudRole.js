@@ -13,7 +13,7 @@ function (exports, module, require) {
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.GCloudRole = o),
       (module.default = undefined),
-      require(3) /* module_3 */,
+      require(3) /* polyfill_RegExp_toString */,
       (o.Type = {
         Viewer: "Viewer",
         Coauthor: "Coauthor",

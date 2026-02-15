@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */;
+    n(30) /* polyfill_Object_assign */;
     const { GObject: o } = n(1) /* module */;
     class i {
       constructor(e) {

@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(328) /* module_328 */, n(3) /* module_3 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(328) /* polyfill_Array_sort */, n(3) /* polyfill_RegExp_toString */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */,
-      a = n(18) /* module_18 */,
+      i = n(40) /* CollaborationMergeUtils */,
+      a = n(18) /* MenuItemBuilder */,
       r = n(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),

@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
-      require(30) /* module_30 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */,
+      require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */,
       i = require(15) /* module */;
     class a {

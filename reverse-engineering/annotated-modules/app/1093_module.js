@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(8) /* module_8 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(10) /* module_10 */,
+    n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
+    var o = n(10) /* AppSettings */,
       i = n(1) /* module */,
-      a = n(10) /* module_10 */;
+      a = n(10) /* AppSettings */;
     const r = n(85) /* GContainer */,
       s = n(44) /* GSystemDialog */,
       l = n(177) /* module_177 */;

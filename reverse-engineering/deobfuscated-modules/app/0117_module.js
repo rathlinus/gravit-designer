@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(130) /* module_130 */,
+    var o = require(130) /* lengthOfArrayLike */,
       i = Math.min;
     exports.exports = function (e) {
       var t = o(e);

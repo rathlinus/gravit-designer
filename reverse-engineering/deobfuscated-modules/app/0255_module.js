@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(328) /* module_328 */, require(20) /* module_20 */, require(34) /* module_34 */, require(38) /* module_38 */;
+    require(328) /* polyfill_Array_sort */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(38) /* stub_requires_680 */;
     var o = require(1) /* module */,
       i = require(841) /* module_841 */,
       a = require(217) /* GDocumentStatusEvent */,

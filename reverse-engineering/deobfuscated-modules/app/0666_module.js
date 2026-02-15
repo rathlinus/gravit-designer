@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* module_27 */,
+    var o = require(27) /* uncurryThis */,
       i = require(348) /* module_348 */,
-      a = require(35) /* module_35 */,
+      a = require(35) /* anObject */,
       r = require(116) /* module_116 */,
-      s = require(62) /* module_62 */,
+      s = require(62) /* requireObjectCoercible */,
       l = o([].push);
     exports.exports = function (e) {
       if (a(e)) return e;

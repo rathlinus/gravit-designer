@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(37) /* module_37 */,
-      i = require(46) /* module_46 */,
+    var o = require(37) /* toString_default */,
+      i = require(46) /* toLength */,
       a = require(202) /* module_202 */;
     exports.exports = function (e, t) {
       if ((o(e), i(t) && t.constructor === e)) return t;

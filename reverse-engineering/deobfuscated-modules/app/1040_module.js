@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(88) /* module_88 */.f;
+    var o = require(88) /* createPropertyDescriptor */.f;
     exports.exports = function (e, t, n) {
       n in e ||
         o(e, n, {

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(222) /* module_222 */.f,
-      a = require(100) /* module_100 */,
-      r = require(79) /* module_79 */,
-      s = require(298) /* module_298 */,
-      l = require(341) /* module_341 */,
+    var o = require(23) /* globalThis */,
+      i = require(222) /* objectGetOwnPropertyDescriptor */.f,
+      a = require(100) /* createProperty */,
+      r = require(79) /* defineBuiltIn */,
+      s = require(298) /* defineGlobalProperty */,
+      l = require(341) /* copyConstructorProperties */,
       c = require(277) /* module_277 */;
     exports.exports = function (e, t) {
       var n,

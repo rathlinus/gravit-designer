@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
-    const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* module_10 */,
-      a = n(337) /* module_337 */,
+    n(8) /* polyfill_bundle_ES6 */;
+    const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* AppSettings */,
+      a = n(337) /* stub_requires_1098 */,
       r = n(44) /* GSystemDialog */;
     e.exports = class {
       async execute() {

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(8) /* module_8 */;
-    const o = require(337) /* module_337 */,
+    require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
+    const o = require(337) /* stub_requires_1098 */,
       i = require(1338) /* module_1338 */,
-      { gApi: a, PurchaseStatus: r } = require(10) /* module_10 */,
+      { gApi: a, PurchaseStatus: r } = require(10) /* AppSettings */,
       { IS_TRUNK: s } = require(231) /* module_231 */;
     let l;
     class c {

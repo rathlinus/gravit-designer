@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(865) /* module_865 */, require(193) /* module_193 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */,
       i = require(15) /* module */,
-      a = require(40) /* module_40 */,
-      r = require(18) /* module_18 */,
+      a = require(40) /* CollaborationMergeUtils */,
+      r = require(18) /* MenuItemBuilder */,
       s = require(106) /* GElementAction */,
       l = require(44) /* GSystemDialog */;
     function c() {}

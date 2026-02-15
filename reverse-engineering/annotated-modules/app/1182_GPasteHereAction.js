@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(1) /* module */,
-      i = (n(15) /* module */, n(18) /* module_18 */, n(31) /* GAction */);
-    n(1313) /* module_1313 */;
+      i = (n(15) /* module */, n(18) /* MenuItemBuilder */, n(31) /* GAction */);
+    n(1313) /* URIListHandler */;
     function a() {
       this._targetPosition = null;
     }

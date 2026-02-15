@@ -330,5 +330,5 @@ function (e, t, n) {
               (l.dispatchEvent("load"), l.dispatchEvent("loadend")));
         };
       };
-    }).call(this, n(221) /* module_221 */.Buffer, n(183) /* module_183 */);
+    }).call(this, n(221) /* Exports_Buffer */.Buffer, n(183) /* module_183 */);
   }

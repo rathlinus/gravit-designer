@@ -5,24 +5,24 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    require(19) /* polyfill_Array_iterator */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var o = require(1) /* module */,
-      i = require(263) /* module_263 */,
-      a = require(40) /* module_40 */;
-    const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* module_10 */,
+      i = require(263) /* Exports_GRegex */,
+      a = require(40) /* CollaborationMergeUtils */;
+    const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* AppSettings */,
       c = require(85) /* GContainer */,
       d = require(1252) /* module_1252 */,
       u = require(859) /* module_859 */,

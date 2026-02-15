@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    require(673) /* module_673 */;
+    require(673) /* polyfill_String_startsWith */;
   }

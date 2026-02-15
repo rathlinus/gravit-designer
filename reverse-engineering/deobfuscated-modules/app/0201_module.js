@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(186) /* module_186 */,
-      a = require(35) /* module_35 */,
+    var o = require(23) /* globalThis */,
+      i = require(186) /* stub_requires_23 */,
+      a = require(35) /* anObject */,
       r = require(277) /* module_277 */,
       s = require(299) /* module_299 */,
-      l = require(43) /* module_43 */,
+      l = require(43) /* wellKnownSymbol */,
       c = require(407) /* module_407 */,
-      d = require(74) /* module_74 */,
+      d = require(74) /* createNonEnumerableProperty */,
       u = require(213) /* module_213 */,
       p = i && i.prototype,
       g = l("species"),

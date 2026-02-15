@@ -6,13 +6,13 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(1) /* module */,
       a = n(53) /* module */,
       r = n(15) /* module */,
       s = o(n(31) /* GAction */),
-      l = o(n(18) /* module_18 */);
+      l = o(n(18) /* MenuItemBuilder */);
     class c extends s.default {
       constructor(e) {
         super(),

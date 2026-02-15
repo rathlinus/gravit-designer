@@ -5,17 +5,17 @@
 
 function (e, t, n) {
     "use strict";
-    n(290) /* module_290 */, n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
+    n(290) /* module_290 */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(357) /* module_357 */,
       i = n(1) /* module */,
-      a = n(40) /* module_40 */;
+      a = n(40) /* CollaborationMergeUtils */;
     const {
         gApi: r,
         LINKS: s,
         DESIGNER: { TITLE: l } = {},
         SubscriptionStatus: c,
-      } = n(10) /* module_10 */,
-      d = (n(173) /* module_173 */, n(337) /* module_337 */),
+      } = n(10) /* AppSettings */,
+      d = (n(173) /* stub_requires_1 */, n(337) /* stub_requires_1098 */),
       u = ["number", "name", "price", "date"];
     function p(e, t) {
       let n =

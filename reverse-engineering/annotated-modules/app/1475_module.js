@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     var o = n(797) /* module */,
       i = n(1) /* module */;
-    n(257) /* module_257 */;
+    n(257) /* barrel_panels */;
     function a(e, t, n, o, a, r) {
       (this._currentDocument = e),
         (this._newDocument = t),

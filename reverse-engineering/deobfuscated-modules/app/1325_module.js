@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(8) /* module_8 */, require(20) /* module_20 */, require(527) /* module_527 */, require(107) /* module_107 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
-    var o = require(10) /* module_10 */;
+    require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(527) /* module_527 */, require(107) /* polyfill_RegExp_test */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
+    var o = require(10) /* AppSettings */;
     const i = require(1326) /* module_1326 */,
       a = require(1578) /* module_1578 */,
       r = require(256) /* GOfflineDialog */,

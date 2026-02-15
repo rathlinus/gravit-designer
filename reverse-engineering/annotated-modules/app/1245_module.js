@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(57) /* module_57 */, n(8) /* module_8 */;
+    n(57) /* polyfill_parseInt */, n(8) /* polyfill_bundle_ES6 */;
     var o = n(1) /* module */,
       i = n(1198) /* module_1198 */,
-      a = n(255) /* module_255 */,
+      a = n(255) /* barrel_sidebars */,
       r = n(1118) /* module_1118 */;
     function s() {
       try {

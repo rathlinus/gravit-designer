@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.cdrFormatVersionToReleaseYear = function (e) {
         return parseFloat(e) + 2e3 - 2;
@@ -14,8 +14,8 @@ function (exports, module, require) {
       (module.releaseYearToCdrFormatVersion = function (e) {
         return e && e >= 2020 ? e - 2e3 + 2 : 0;
       }),
-      require(193) /* module_193 */,
-      require(8) /* module_8 */;
+      require(193) /* polyfill_Object_keys */,
+      require(8) /* polyfill_bundle_ES6 */;
     var i = require(1) /* module */,
       a = o(require(217) /* GDocumentStatusEvent */),
       r = o(require(86) /* module_86 */);

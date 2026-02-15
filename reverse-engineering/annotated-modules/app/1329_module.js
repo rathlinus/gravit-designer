@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */,
+    var o = n(16) /* _interopRequireDefault */,
       i = o(n(880) /* module_880 */),
       a = o(n(1189) /* module_1189 */);
     class r extends i.default {

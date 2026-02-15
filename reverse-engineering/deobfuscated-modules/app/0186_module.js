@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */;
+    var o = require(23) /* globalThis */;
     exports.exports = o.Promise;
   }

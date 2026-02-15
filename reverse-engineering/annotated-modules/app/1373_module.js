@@ -8,7 +8,7 @@ function (e, t, n) {
     var o,
       i,
       a = n(1374) /* GBrowserContainer */,
-      r = n(1483) /* module_1483 */;
+      r = n(1483) /* AppSettings */;
     function s() {
       var e = new a();
       e.initLanguage(function () {

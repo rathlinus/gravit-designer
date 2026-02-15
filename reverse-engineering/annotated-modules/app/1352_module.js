@@ -5,5 +5,5 @@
 
 function (e, t, n) {
     "use strict";
-    n(1707) /* module_1707 */;
+    n(1707) /* polyfill_Iterator_drop */;
   }

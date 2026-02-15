@@ -6,14 +6,14 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
+    n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
-      a = n(18) /* module_18 */,
+      a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */,
       s = n(844) /* module_844 */,
       l = n(86) /* module_86 */,
-      c = n(220) /* module_220 */,
+      c = n(220) /* Item */,
       d = n(119) /* module_119 */,
       u = n(446) /* module_446 */;
     const p = n(256) /* GOfflineDialog */;

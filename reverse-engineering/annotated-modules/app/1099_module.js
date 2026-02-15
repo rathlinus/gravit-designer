@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(10) /* module_10 */;
+    var o = n(10) /* AppSettings */;
     class i extends o.License {
       isExpired(e) {
         return super.isExpired(e || gDesigner.now());

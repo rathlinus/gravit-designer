@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(193) /* module_193 */, n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
+    n(58) /* polyfill_Array_includes */, n(19) /* polyfill_Array_iterator */, n(193) /* polyfill_Object_keys */, n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */, n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */;
     const {
         gApi: i,
@@ -14,11 +14,11 @@ function (e, t, n) {
         CloudIntegration: s,
         DESIGNER: l,
         EXTERNAL_APP: c,
-      } = n(10) /* module_10 */,
-      { buildDialogDocumentHasUpdates: d } = n(40) /* module_40 */,
+      } = n(10) /* AppSettings */,
+      { buildDialogDocumentHasUpdates: d } = n(40) /* CollaborationMergeUtils */,
       u = n(85) /* GContainer */,
       p = n(44) /* GSystemDialog */,
-      g = n(556) /* module_556 */,
+      g = n(556) /* Item */,
       h = n(448) /* GGravitCloudAction */,
       f = n(78) /* GDocumentEvent */,
       m = n(135) /* GSettingChangedEvent */,

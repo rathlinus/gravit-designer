@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
       require(356) /* module_356 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(3) /* module_3 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(3) /* polyfill_RegExp_toString */,
       require(151) /* module_151 */,
-      require(34) /* module_34 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(26) /* module_26 */;
+      require(34) /* polyfill_String_replace */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(10) /* module_10 */,
+      r = require(10) /* AppSettings */,
       s = require(357) /* module_357 */,
       l = o(require(238) /* GMenu */),
       c = o(require(339) /* GMenu */),
       d = o(require(1501) /* GMenuBar */),
       u = o(require(1502) /* module_1502 */),
-      p = o(require(603) /* module_603 */),
+      p = o(require(603) /* WindowEvent */),
       g = o(require(78) /* GDocumentEvent */),
       h = o(require(217) /* GDocumentStatusEvent */),
       f = o(require(86) /* module_86 */),
@@ -38,15 +38,15 @@ function (exports, module, require) {
       _ = o(require(861) /* GExportAction */),
       b = o(require(1254) /* GOpenSharedFileAction */),
       w = o(require(1256) /* GVersionsHistoryAction */),
-      C = o(require(388) /* module_388 */),
-      x = o(require(220) /* module_220 */),
+      C = o(require(388) /* Item */),
+      x = o(require(220) /* Item */),
       S = o(require(44) /* GSystemDialog */),
-      E = o(require(862) /* module_862 */),
+      E = o(require(862) /* Exports_TYPES */),
       A = o(require(156) /* module_156 */),
       T = o(require(163) /* module_163 */),
-      G = require(263) /* module_263 */,
-      P = require(1517) /* module_1517 */;
-    const D = require(257) /* module_257 */;
+      G = require(263) /* Exports_GRegex */,
+      P = require(1517) /* Exports_REARRANGE_TAB_ */;
+    const D = require(257) /* barrel_panels */;
     let L = null;
     r.LICENSE.UPGRADEABLE && (L = require(441) /* module_441 */);
     const I = require(135) /* GSettingChangedEvent */,

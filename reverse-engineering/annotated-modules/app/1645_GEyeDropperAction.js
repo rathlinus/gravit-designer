@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */;
     var i = n(15) /* module */,
       a = n(1) /* module */,
-      r = o(n(18) /* module_18 */),
+      r = o(n(18) /* MenuItemBuilder */),
       s = n(198) /* Exports_GOutlineSidebar */;
     const l = n(31) /* GAction */;
     class c extends l {

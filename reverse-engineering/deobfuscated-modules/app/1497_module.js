@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */, require(34) /* module_34 */;
-    var o = require(10) /* module_10 */;
+    require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
+    var o = require(10) /* AppSettings */;
     const { GLocale: i, GLocaleKey: a } = require(1) /* module */;
     function r(e) {
       this._htmlElement = e;

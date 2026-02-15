@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
+    var o = n(23) /* globalThis */,
       i = Object.defineProperty;
     e.exports = function (e, t) {
       try {

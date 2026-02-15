@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var { ipcRenderer: o } = n(881) /* module_881 */;
     const i = n(1349) /* module_1349 */;
     function a() {}

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(8) /* module_8 */;
-    var o = require(10) /* module_10 */;
+    require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
+    var o = require(10) /* AppSettings */;
     function i(e) {
       const {
         accessToken: module,

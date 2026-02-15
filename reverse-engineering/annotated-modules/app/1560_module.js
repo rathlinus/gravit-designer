@@ -5,13 +5,13 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(96) /* polyfill_JSON_stringify */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     var i = n(1) /* module */,
       a = n(53) /* module */,
       r = o(n(1561) /* module_1561 */),
       s = o(n(177) /* module_177 */);
-    const { gApi: l } = n(10) /* module_10 */;
+    const { gApi: l } = n(10) /* AppSettings */;
     e.exports = class {
       constructor(e, t) {
         let n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];

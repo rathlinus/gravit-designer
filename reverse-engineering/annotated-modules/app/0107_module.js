@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */;
+    n(20) /* polyfill_RegExp_exec */;
     var o,
       i,
-      a = n(25) /* module_25 */,
-      r = n(29) /* module_29 */,
-      s = n(35) /* module_35 */,
-      l = n(37) /* module_37 */,
-      c = n(62) /* module_62 */,
+      a = n(25) /* core_export */,
+      r = n(29) /* isCallable */,
+      s = n(35) /* anObject */,
+      l = n(37) /* toString_default */,
+      c = n(62) /* requireObjectCoercible */,
       d =
         ((o = !1),
         ((i = /[ac]/).exec = function () {

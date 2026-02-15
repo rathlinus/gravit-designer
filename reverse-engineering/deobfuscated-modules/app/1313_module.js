@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */, require(19) /* module_19 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    require(58) /* polyfill_Array_includes */, require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(53) /* module */,
       i = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(255) /* module_255 */,
-      s = require(590) /* module_590 */,
+      r = require(255) /* barrel_sidebars */,
+      s = require(590) /* barrel_editor_actions */,
       l = require(567) /* GAnnotationsSidebar */;
     const c = ["text/xml", "text/plain"],
       d = [

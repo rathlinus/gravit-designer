@@ -1764,7 +1764,7 @@ function (e, t, n) {
       ie = function (e) {
         return e && void 0 !== e._q;
       },
-      ae = n(610) /* module_610 */,
+      ae = n(610) /* UAParser */,
       re = n.n(ae),
       se = function () {
         var e, t, n, o;

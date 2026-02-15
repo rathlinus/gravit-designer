@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
-      require(96) /* module_96 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(34) /* module_34 */,
+    require(19) /* polyfill_Array_iterator */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(34) /* polyfill_String_replace */,
       require(247) /* module_247 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */;
-    const { TRANSLATION_MANAGER: i } = require(10) /* module_10 */;
+    const { TRANSLATION_MANAGER: i } = require(10) /* AppSettings */;
     function a() {}
     o.GObject.inherit(a, o.GObject),
       (a.prototype._translationBase = null),

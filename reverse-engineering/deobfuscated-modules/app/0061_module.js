@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* module_27 */,
-      i = require(93) /* module_93 */,
+    var o = require(27) /* uncurryThis */,
+      i = require(93) /* stub_requires_92 */,
       a = o({}.hasOwnProperty);
     exports.exports =
       Object.hasOwn ||

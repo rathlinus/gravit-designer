@@ -9,8 +9,8 @@ function (e, t, n) {
     function o(e) {
       Object.assign(this, e);
     }
-    n(30) /* module_30 */,
-      n(3) /* module_3 */,
+    n(30) /* polyfill_Object_assign */,
+      n(3) /* polyfill_RegExp_toString */,
       (o.prototype.def = !1),
       (o.prototype.id = null),
       (o.prototype.sidebar = null),

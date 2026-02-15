@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */,
+    var o = n(16) /* _interopRequireDefault */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = o(n(18) /* module_18 */),
+      r = o(n(18) /* MenuItemBuilder */),
       s = o(n(1168) /* GSubAction */),
       l = n(198) /* Exports_GOutlineSidebar */,
       c = o(n(1345) /* GChangeAnchorPointsJointTypeMainAction */);

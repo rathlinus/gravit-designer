@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */;
-    var o = require(10) /* module_10 */,
+    require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
+    var o = require(10) /* AppSettings */,
       i = require(1) /* module */;
     function a(e, t, n) {
       let a =

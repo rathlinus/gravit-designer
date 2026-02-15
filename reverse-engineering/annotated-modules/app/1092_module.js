@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
+    n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     const o = n(156) /* module_156 */,
-      i = n(10) /* module_10 */;
+      i = n(10) /* AppSettings */;
     e.exports = class {
       static createFrom(e) {
         let t = !1;

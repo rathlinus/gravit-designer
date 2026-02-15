@@ -6,40 +6,40 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(96) /* module_96 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var o = require(0) /* GObject */,
       i = require(9) /* GLocale */,
       a = require(47) /* GLocaleKey */,
       r = require(85) /* GContainer */,
-      s = require(1195) /* module_1195 */;
+      s = require(1195) /* Item */;
     const l = require(1378) /* GMarketingFileStorageItem */;
-    var c = require(255) /* module_255 */,
+    var c = require(255) /* barrel_sidebars */,
       d = require(1379) /* module_1379 */,
       u = require(1380) /* module_1380 */,
       p = require(1118) /* module_1118 */,
       g = require(1199) /* module_1199 */,
-      h = require(220) /* module_220 */,
-      f = require(1385) /* module_1385 */,
-      m = require(1386) /* module_1386 */,
+      h = require(220) /* Item */,
+      f = require(1385) /* Item */,
+      m = require(1386) /* Item */,
       y = require(119) /* module_119 */,
       v = require(163) /* module_163 */,
       _ = require(86) /* module_86 */,
       b = require(1153) /* module_1153 */,
       w = require(44) /* GSystemDialog */,
-      C = require(10) /* module_10 */.LOCAL_FONTS_API_ENABLED;
+      C = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
     const x = require(1482) /* module_1482 */,
-      { base64StringToString: S } = require(40) /* module_40 */;
+      { base64StringToString: S } = require(40) /* CollaborationMergeUtils */;
     function E() {
       (this._storage = new s()),
         "serviceWorker" in navigator &&

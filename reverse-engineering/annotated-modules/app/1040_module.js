@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(88) /* module_88 */.f;
+    var o = n(88) /* createPropertyDescriptor */.f;
     e.exports = function (e, t, n) {
       n in e ||
         o(e, n, {

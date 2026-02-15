@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(38) /* module_38 */;
+    n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(38) /* stub_requires_680 */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
-      a = n(40) /* module_40 */,
-      r = n(10) /* module_10 */,
+      a = n(40) /* CollaborationMergeUtils */,
+      r = n(10) /* AppSettings */,
       s = n(357) /* module_357 */;
     function l(e, t, n) {
       const a = (e) => {

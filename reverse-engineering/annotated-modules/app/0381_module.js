@@ -8,9 +8,9 @@ function (e, t, n) {
     function o(e) {
       this._providerManager = e;
     }
-    n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
+    n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
       (o.Errors = { UnknownError: 0, ConnectionError: 1 }),
       (o.prototype._providerManager = null),
       (o.prototype._enabled = !0),

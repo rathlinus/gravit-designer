@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(30) /* module_30 */, require(8) /* module_8 */, require(196) /* module_196 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */;
     var i = o(require(1249) /* module_1249 */),
       a = o(require(1155) /* module_1155 */),
       r = require(1) /* module */;
@@ -15,7 +15,7 @@ function (exports, module, require) {
         IN_APP_PURCHASE: {
           CLEVERBRIDGE: { openCartInAPopup: l = false } = {},
         } = {},
-      } = require(10) /* module_10 */,
+      } = require(10) /* AppSettings */,
       c = require(808) /* GApplicationStatusEvent */,
       d = require(292) /* module_292 */,
       u = require(604) /* module_604 */,

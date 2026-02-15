@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
       i = n(31) /* GAction */,
-      a = n(18) /* module_18 */;
+      a = n(18) /* MenuItemBuilder */;
     function r() {}
     o.GObject.inherit(r, i),
       (r.ID = "open-welcome-screen"),

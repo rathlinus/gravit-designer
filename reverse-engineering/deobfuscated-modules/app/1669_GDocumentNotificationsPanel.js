@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(3) /* module_3 */;
+    require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */;
     const i = require(606) /* GPanel */,
       a = require(394) /* GView */,
@@ -14,7 +14,7 @@ function (exports, module, require) {
       s = require(291) /* GNetworkAvailabilityChangedEvent */,
       l = require(217) /* GDocumentStatusEvent */,
       c = require(86) /* module_86 */;
-    require(1348) /* module_1348 */;
+    require(1348) /* StatusChangedEvent */;
     function d() {}
     o.GObject.inherit(d, i),
       (d.ID = "document-notifications-panel"),

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */;
+    n(30) /* polyfill_Object_assign */;
     const o = n(177) /* module_177 */;
     class i extends o {
       constructor() {

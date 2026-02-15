@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     require(53) /* module */;
     var o = require(1) /* module */,
       i = (require(15) /* module */, require(1267) /* module_1267 */),
@@ -15,7 +15,7 @@ function (exports, module, require) {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
-      } = (require(173) /* module_173 */, require(219) /* module_219 */, require(1268) /* module_1268 */);
+      } = (require(173) /* stub_requires_1 */, require(219) /* module_219 */, require(1268) /* module_1268 */);
     function c() {}
     o.GObject.inherit(c, a),
       (c.prototype._panel = null),

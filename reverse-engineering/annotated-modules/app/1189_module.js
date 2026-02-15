@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(4) /* module_4 */, n(97) /* module_97 */;
+    n(4) /* stub_requires_668 */, n(97) /* stub_requires_684 */;
     e.exports = class {
       constructor() {
         this._swiping = !1;

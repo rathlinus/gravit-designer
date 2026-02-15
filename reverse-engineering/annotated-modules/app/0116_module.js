@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(27) /* module_27 */,
+    var o = n(27) /* uncurryThis */,
       i = o({}.toString),
       a = o("".slice);
     e.exports = function (e) {

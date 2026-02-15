@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(238) /* GMenu */,
       i = require(339) /* GMenu */,
       a = require(1157) /* module_1157 */;

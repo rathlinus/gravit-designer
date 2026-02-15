@@ -6,13 +6,13 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(41) /* module_41 */;
+    n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var o = n(1) /* module */,
       i = n(53) /* module */,
       a = n(15) /* module */,
-      r = n(10) /* module_10 */,
-      s = n(40) /* module_40 */;
-    const l = n(18) /* module_18 */,
+      r = n(10) /* AppSettings */,
+      s = n(40) /* CollaborationMergeUtils */;
+    const l = n(18) /* MenuItemBuilder */,
       c = n(31) /* GAction */,
       d = n(607) /* module_607 */,
       u = n(44) /* GSystemDialog */;

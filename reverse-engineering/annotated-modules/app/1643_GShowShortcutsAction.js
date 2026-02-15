@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     const { GObject: o, GLocaleKey: i } = n(1) /* module */,
       a = n(31) /* GAction */,
-      r = n(18) /* module_18 */,
+      r = n(18) /* MenuItemBuilder */,
       s = n(1644) /* module_1644 */;
     function l() {}
     o.inherit(l, a),

@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */;
+    n(58) /* polyfill_Array_includes */, n(8) /* polyfill_bundle_ES6 */, n(71) /* polyfill_String_includes */;
     const o = n(177) /* module_177 */,
       i = n(805) /* module_805 */,
-      { gApi: a } = n(10) /* module_10 */,
+      { gApi: a } = n(10) /* AppSettings */,
       r = {};
     let s = !1;
     const l = (e) => {

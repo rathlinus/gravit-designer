@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
     var i = n(1) /* module */,
       a = o(n(44) /* GSystemDialog */);
-    const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = n(10) /* module_10 */,
+    const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = n(10) /* AppSettings */,
       l = n(78) /* GDocumentEvent */,
       c = r.minutesToMilliseconds(1),
       d = 0.8,

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(35) /* module_35 */,
+    var o = n(21) /* tryCall */,
+      i = n(35) /* anObject */,
       a = /#|\.prototype\./,
       r = function (e, t) {
         var n = l[s(e)];

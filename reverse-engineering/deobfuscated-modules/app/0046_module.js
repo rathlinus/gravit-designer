@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(35) /* module_35 */;
+    var o = require(35) /* anObject */;
     exports.exports = function (e) {
       return "object" == typeof e ? null !== e : o(e);
     };

@@ -40,16 +40,16 @@ function (e, t, n) {
           });
         }).then((e) => new Response(e));
       }),
-      n(19) /* module_19 */,
+      n(19) /* polyfill_Array_iterator */,
       n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(57) /* polyfill_parseInt */,
+      n(8) /* polyfill_bundle_ES6 */,
       n(218) /* module_218 */,
       n(189) /* module_189 */,
       n(190) /* module_190 */,
       n(191) /* module_191 */,
       n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(97) /* module_97 */;
+      n(4) /* stub_requires_668 */,
+      n(97) /* stub_requires_684 */;
   }

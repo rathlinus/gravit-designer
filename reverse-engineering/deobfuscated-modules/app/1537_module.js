@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i = o(require(1155) /* module_1155 */);
     const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* module */,
       l = require(392) /* module_392 */,
@@ -30,7 +30,7 @@ function (exports, module, require) {
         FileReviewStatusAvailable: w,
         ShareRoles: C,
         FILE_REVIEW_ENABLED: x,
-      } = require(10) /* module_10 */,
+      } = require(10) /* AppSettings */,
       S = require(1538) /* module_1538 */;
     function E() {}
     s.inherit(E, d),

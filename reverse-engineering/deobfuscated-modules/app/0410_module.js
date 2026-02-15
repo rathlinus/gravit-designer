@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(129) /* module_129 */;
+    var o = require(129) /* stub_requires_23 */;
     exports.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(o);
   }

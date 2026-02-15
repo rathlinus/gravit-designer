@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(30) /* module_30 */, require(8) /* module_8 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
     var i = o(require(11) /* GUtil */);
     require(1322) /* module_1322 */;
     const a = require(808) /* GApplicationStatusEvent */,
@@ -21,7 +21,7 @@ function (exports, module, require) {
         FileStatus: { APPROVED: g },
         FILE_REVIEW_ENABLED: h,
         LEGACY_SHARE_DIALOG: f,
-      } = require(10) /* module_10 */;
+      } = require(10) /* AppSettings */;
     function m(e) {
       (this._state = new r()),
         d && gDesigner.addEventListener(l, this._shareStateChangedEvent, this),

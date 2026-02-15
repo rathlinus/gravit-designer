@@ -5,17 +5,17 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(271) /* module_271 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(271) /* polyfill_String_endsWith */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(40) /* module_40 */,
-      s = n(10) /* module_10 */,
+      r = n(40) /* CollaborationMergeUtils */,
+      s = n(10) /* AppSettings */,
       l = n(86) /* module_86 */,
       c = n(217) /* GDocumentStatusEvent */,
       d = n(78) /* GDocumentEvent */,
-      u = (n(173) /* module_173 */, n(445) /* GSaveAsAction */),
-      p = n(255) /* module_255 */,
+      u = (n(173) /* stub_requires_1 */, n(445) /* GSaveAsAction */),
+      p = n(255) /* barrel_sidebars */,
       g = (n(163) /* module_163 */, n(442) /* module_442 */);
     const h = s.FILE_FORMATS.find((e) => e.default).ext;
     function f(e, t) {

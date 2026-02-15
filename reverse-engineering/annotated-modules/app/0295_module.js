@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     var o = n(213) /* module_213 */,
-      i = n(21) /* module_21 */,
-      a = n(23) /* module_23 */.String;
+      i = n(21) /* tryCall */,
+      a = n(23) /* globalThis */.String;
     e.exports =
       !!Object.getOwnPropertySymbols &&
       !i(function () {

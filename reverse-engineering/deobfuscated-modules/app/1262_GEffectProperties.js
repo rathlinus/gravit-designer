@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(328) /* module_328 */, require(96) /* module_96 */, require(865) /* module_865 */, require(193) /* module_193 */, require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(328) /* polyfill_Array_sort */, require(96) /* polyfill_JSON_stringify */, require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i = require(53) /* module */,
       a = require(1) /* module */,
       r = require(15) /* module */,

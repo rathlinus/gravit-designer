@@ -5,13 +5,13 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */;
-    const { FILE_FORMATS: i } = n(10) /* module_10 */,
+    const { FILE_FORMATS: i } = n(10) /* AppSettings */,
       a = i.find((e) => e.default),
       { COMMAND_SAVE: r } = n(591) /* module_591 */,
       s = n(1164) /* module_1164 */,
-      l = n(556) /* module_556 */;
+      l = n(556) /* Item */;
     e.exports = class extends s {
       constructor(e, t) {
         super(e, t);

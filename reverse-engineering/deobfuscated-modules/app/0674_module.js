@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     var o = require(309) /* module_309 */.charAt,
-      i = require(62) /* module_62 */,
-      a = require(80) /* module_80 */,
-      r = require(418) /* module_418 */,
-      s = require(252) /* module_252 */,
+      i = require(62) /* requireObjectCoercible */,
+      a = require(80) /* internalState */,
+      r = require(418) /* defineIterator */,
+      s = require(252) /* toStringClassof */,
       l = a.set,
       c = a.getterFor("String Iterator");
     r(

@@ -5,27 +5,27 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(71) /* module_71 */,
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(71) /* polyfill_String_includes */,
       require(151) /* module_151 */,
-      require(34) /* module_34 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
-    var i = require(10) /* module_10 */,
+      require(34) /* polyfill_String_replace */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
+    var i = require(10) /* AppSettings */,
       a = require(882) /* module_882 */,
       r = require(1353) /* Exports_GAnnotationPanel */,
-      s = require(263) /* module_263 */,
+      s = require(263) /* Exports_GRegex */,
       l = require(67) /* GRichTooltipConfig */,
       c = o(require(358) /* module_358 */),
       d = o(require(1324) /* module_1324 */),
@@ -44,11 +44,11 @@ function (exports, module, require) {
         NEW_COMMENT_READ_TIMEOUT: b,
         ANNOTATION_PERMANENT_LINK: w,
         IS_COREL: C,
-      } = ((0, r.createAdditionalMentions)(), require(10) /* module_10 */),
+      } = ((0, r.createAdditionalMentions)(), require(10) /* AppSettings */),
       x = require(1191) /* module_1191 */,
       S = require(1166) /* module_1166 */,
-      E = require(434) /* module_434 */,
-      { getAnnotationType: A } = require(40) /* module_40 */;
+      E = require(434) /* stub_requires_30_1072 */,
+      { getAnnotationType: A } = require(40) /* CollaborationMergeUtils */;
     function T(e) {
       let {
         container: module,

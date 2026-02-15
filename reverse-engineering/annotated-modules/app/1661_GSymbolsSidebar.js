@@ -6,8 +6,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var i = n(1) /* module */,
       a = n(53) /* module */,
       r = n(67) /* GRichTooltipConfig */,

@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(27) /* module_27 */,
+    var o = n(27) /* uncurryThis */,
       i = n(348) /* module_348 */,
-      a = n(35) /* module_35 */,
+      a = n(35) /* anObject */,
       r = n(116) /* module_116 */,
-      s = n(62) /* module_62 */,
+      s = n(62) /* requireObjectCoercible */,
       l = o([].push);
     e.exports = function (e) {
       if (a(e)) return e;

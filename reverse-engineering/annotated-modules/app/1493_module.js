@@ -7,9 +7,9 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.default = void 0),
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
+      n(4) /* stub_requires_668 */,
+      n(32) /* stub_requires_670 */,
+      n(33) /* polyfill_DOMCollection_forEach */;
     t.default = class {
       constructor() {
         this._executions = [];

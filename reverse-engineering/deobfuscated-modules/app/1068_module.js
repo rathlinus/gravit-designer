@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(8) /* module_8 */, require(4) /* module_4 */, require(322) /* module_322 */, require(32) /* module_32 */, require(38) /* module_38 */, require(97) /* module_97 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(322) /* stub_requires_669 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
     const { GObject: o } = require(1) /* module */,
       i = require(1069) /* module_1069 */;
     function a() {

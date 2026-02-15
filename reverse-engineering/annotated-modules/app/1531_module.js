@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
+    n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(38) /* stub_requires_680 */;
     var o = n(1) /* module */;
-    const { FILE_FORMATS: i, gApi: a } = n(10) /* module_10 */,
+    const { FILE_FORMATS: i, gApi: a } = n(10) /* AppSettings */,
       r = i.find((e) => e.default),
       { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = n(591) /* module_591 */,
       c = n(1164) /* module_1164 */;

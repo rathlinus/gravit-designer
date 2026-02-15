@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(592) /* module_592 */;
     const { isUTS: i, UTStoCDA: a } = require(1095) /* module */;
     function r(e, t, n, r) {

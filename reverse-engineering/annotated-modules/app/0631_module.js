@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
+    var o = n(25) /* core_export */,
       i = n(110) /* module_110 */,
-      a = n(74) /* module_74 */,
-      r = n(186) /* module_186 */,
+      a = n(74) /* createNonEnumerableProperty */,
+      r = n(186) /* stub_requires_23 */,
       s = n(201) /* module_201 */.CONSTRUCTOR,
       l = n(453) /* module_453 */,
       c = i("Promise"),

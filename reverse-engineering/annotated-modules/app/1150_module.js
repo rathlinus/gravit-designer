@@ -5,21 +5,21 @@
 
 function (e, t, n) {
     "use strict";
-    n(193) /* module_193 */,
-      n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
+    n(193) /* polyfill_Object_keys */,
+      n(57) /* polyfill_parseInt */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(107) /* polyfill_RegExp_test */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
+      n(4) /* stub_requires_668 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(40) /* module_40 */,
+      r = n(40) /* CollaborationMergeUtils */,
       s = n(67) /* GRichTooltipConfig */,
       l = n(1151) /* GSwatchesChangedEvent */,
       c = n(857) /* module_857 */,

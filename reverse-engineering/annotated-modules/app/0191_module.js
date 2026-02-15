@@ -5,16 +5,16 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
+    var o = n(23) /* globalThis */,
       i = n(223) /* module_223 */,
-      a = n(21) /* module_21 */,
+      a = n(21) /* tryCall */,
       r = n(65) /* module_65 */,
       s = n(351) /* module_351 */,
       l = n(152) /* module_152 */,
-      c = n(521) /* module_521 */,
-      d = n(522) /* module_522 */,
+      c = n(521) /* stub_requires_129 */,
+      d = n(522) /* stub_requires_129 */,
       u = n(213) /* module_213 */,
-      p = n(523) /* module_523 */,
+      p = n(523) /* stub_requires_129 */,
       g = l.aTypedArray,
       h = l.exportTypedArrayMethod,
       f = o.Uint16Array,

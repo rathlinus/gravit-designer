@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(34) /* module_34 */,
+    n(57) /* polyfill_parseInt */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(34) /* polyfill_String_replace */,
       (function (e) {
         jQuery.fn.extend({
           elastic: function () {

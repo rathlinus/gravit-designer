@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */,
       i = require(15) /* module */,
-      a = require(40) /* module_40 */,
+      a = require(40) /* CollaborationMergeUtils */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(10) /* module_10 */,
-      l = require(18) /* module_18 */,
+      s = require(10) /* AppSettings */,
+      l = require(18) /* MenuItemBuilder */,
       c = require(106) /* GElementAction */;
     function d() {
       d.TOOLTIP_CONFIG = {

@@ -6,14 +6,14 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
-      a = n(40) /* module_40 */,
+      a = n(40) /* CollaborationMergeUtils */,
       r = n(1247) /* module_1247 */,
-      s = n(10) /* module_10 */,
+      s = n(10) /* AppSettings */,
       l = n(67) /* GRichTooltipConfig */,
-      c = n(18) /* module_18 */,
+      c = n(18) /* MenuItemBuilder */,
       d = n(31) /* GAction */,
       u = n(445) /* GSaveAsAction */,
       p = n(448) /* GGravitCloudAction */,
@@ -22,7 +22,7 @@ function (e, t, n) {
       f = n(1510) /* module_1510 */,
       m = n(1511) /* module_1511 */;
     const y = n(44) /* GSystemDialog */,
-      v = n(1512) /* module_1512 */;
+      v = n(1512) /* Item */;
     var _ = n(85) /* GContainer */,
       b = "." + s.FILE_FORMATS.find((e) => e.default).ext;
     function w() {

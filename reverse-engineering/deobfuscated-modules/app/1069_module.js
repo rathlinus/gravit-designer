@@ -10,8 +10,8 @@ function (exports, module, require) {
         module[require] = arguments[require];
       module && this._updateFromArguments(module);
     }
-    require(19) /* module_19 */,
-      require(26) /* module_26 */,
+    require(19) /* polyfill_Array_iterator */,
+      require(26) /* polyfill_DOMCollection_iterator */,
       (o.prototype._updateFromArguments = function () {
         for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
           module[require] = arguments[require];

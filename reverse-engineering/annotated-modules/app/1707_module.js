@@ -5,16 +5,16 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(29) /* module_29 */,
-      a = n(37) /* module_37 */,
+    var o = n(25) /* core_export */,
+      i = n(29) /* isCallable */,
+      a = n(37) /* toString_default */,
       r = n(143) /* module_143 */,
       s = n(1708) /* module_1708 */,
       l = n(576) /* module_576 */,
       c = n(102) /* module_102 */,
       d = n(371) /* module_371 */,
       u = n(149) /* module_149 */,
-      p = n(74) /* module_74 */,
+      p = n(74) /* createNonEnumerableProperty */,
       g = !p && u("drop", RangeError),
       h = d(function () {
         for (var e, t = this.iterator, n = this.next; this.remaining; )

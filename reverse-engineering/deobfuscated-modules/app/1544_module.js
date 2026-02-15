@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */, require(57) /* module_57 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
-      a = require(10) /* module_10 */,
+      a = require(10) /* AppSettings */,
       r = require(357) /* module_357 */,
-      s = require(40) /* module_40 */,
+      s = require(40) /* CollaborationMergeUtils */,
       l = o(require(256) /* GOfflineDialog */),
       c = o(require(44) /* GSystemDialog */),
       d = o(require(734) /* module_734 */),
@@ -23,7 +23,7 @@ function (exports, module, require) {
       y = require(1153) /* module_1153 */,
       { youtubePlaylist: v } = require(1302) /* module_1302 */,
       _ = require(446) /* module_446 */;
-    require(220) /* module_220 */;
+    require(220) /* Item */;
     const b = require(859) /* module_859 */,
       w = require(441) /* module_441 */;
     function C() {

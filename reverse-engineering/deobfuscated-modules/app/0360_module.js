@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* module_43 */,
+    var o = require(43) /* wellKnownSymbol */,
       i = require(136) /* module_136 */,
-      a = require(88) /* module_88 */.f,
+      a = require(88) /* createPropertyDescriptor */.f,
       r = o("unscopables"),
       s = Array.prototype;
     undefined === s[r] && a(s, r, { configurable: true, value: i(null) }),

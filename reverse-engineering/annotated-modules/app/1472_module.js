@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     let o;
-    n(19) /* module_19 */, n(8) /* module_8 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(26) /* polyfill_DOMCollection_iterator */;
     class i {
       static async getInstance() {
         if (!o) {

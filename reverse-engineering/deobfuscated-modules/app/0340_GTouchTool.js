@@ -9,8 +9,8 @@ function (exports, module, require) {
     function o(e) {
       Object.assign(this, e);
     }
-    require(30) /* module_30 */,
-      require(3) /* module_3 */,
+    require(30) /* polyfill_Object_assign */,
+      require(3) /* polyfill_RegExp_toString */,
       (o.prototype.def = false),
       (o.prototype.id = null),
       (o.prototype.sidebar = null),

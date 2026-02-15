@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
+    var o = require(23) /* globalThis */,
       i = require(223) /* module_223 */,
-      a = require(21) /* module_21 */,
+      a = require(21) /* tryCall */,
       r = require(65) /* module_65 */,
       s = require(351) /* module_351 */,
       l = require(152) /* module_152 */,
-      c = require(521) /* module_521 */,
-      d = require(522) /* module_522 */,
+      c = require(521) /* stub_requires_129 */,
+      d = require(522) /* stub_requires_129 */,
       u = require(213) /* module_213 */,
-      p = require(523) /* module_523 */,
+      p = require(523) /* stub_requires_129 */,
       g = l.aTypedArray,
       h = l.exportTypedArrayMethod,
       f = o.Uint16Array,

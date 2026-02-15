@@ -6,12 +6,12 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
+    n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
       a = n(198) /* Exports_GOutlineSidebar */,
       r = n(567) /* GAnnotationsSidebar */,
-      s = n(18) /* module_18 */,
+      s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */,
       c = n(395) /* module_395 */;
     function d(e) {

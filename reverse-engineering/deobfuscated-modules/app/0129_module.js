@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */.navigator,
+    var o = require(23) /* globalThis */.navigator,
       i = o && o.userAgent;
     exports.exports = i ? String(i) : "";
   }

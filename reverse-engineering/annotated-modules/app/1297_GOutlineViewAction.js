@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
-      r = o(n(18) /* module_18 */),
+      r = o(n(18) /* MenuItemBuilder */),
       s = o(n(31) /* GAction */),
       l = o(n(442) /* module_442 */);
     function c() {}

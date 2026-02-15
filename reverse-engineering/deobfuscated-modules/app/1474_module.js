@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */, require(8) /* module_8 */, require(20) /* module_20 */, require(71) /* module_71 */, require(34) /* module_34 */;
+    require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(71) /* polyfill_String_includes */, require(34) /* polyfill_String_replace */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */;
+      i = require(40) /* CollaborationMergeUtils */;
     function a(e, t) {
       let require =
         arguments.length > 2 && undefined !== arguments[2]

@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */;
     const i = require(606) /* GPanel */,
       a = require(394) /* GView */,
       r = require(1188) /* module_1188 */,
       s = require(85) /* GContainer */,
       l = require(44) /* GSystemDialog */,
-      { SOFTWARE_UPDATE: c, DateAPI: d } = require(10) /* module_10 */;
+      { SOFTWARE_UPDATE: c, DateAPI: d } = require(10) /* AppSettings */;
     function u() {}
     o.GObject.inherit(u, i),
       (u.ID = "software-update-panel"),

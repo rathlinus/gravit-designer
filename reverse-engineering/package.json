@@ -31,27 +31,39 @@
     "dev-serve": "npm run dev-build && cd .. && node server.js",
     "resolve-requires": "node resolve-requires.cjs",
     "deobfuscate": "node deobfuscate-vars.cjs",
+    "prettify": "node prettify-modules.cjs",
+    "auto-name": "node auto-name-modules.cjs",
+    "extract-barrels": "node extract-barrel-names.cjs",
+    "apply-names": "node apply-names.cjs",
+    "reconstruct": "node reconstruct-bodies.cjs",
+    "cross-reference": "node cross-reference-original.cjs",
     "beautify-css": "node beautify-css.cjs",
+    "pipeline": "npm run auto-name && npm run extract-barrels && npm run resolve-requires && npm run deobfuscate && npm run apply-names && npm run prettify && npm run reconstruct && npm run dev-build && npm run build-vendor",
     "use-dev": "node -e \"const fs=require('fs'),p=require('path'),d=p.join(__dirname,'..','public');fs.copyFileSync(p.join(d,'chunk.vendor.dev.js'),p.join(d,'chunk.vendor.js'));fs.copyFileSync(p.join(d,'designer.browser.dev.js'),p.join(d,'designer.browser.js'));console.log('Switched to dev bundles')\"",
     "use-orig": "node -e \"const fs=require('fs'),p=require('path'),d=p.join(__dirname,'..','public');fs.copyFileSync(p.join(d,'chunk.vendor.original.js'),p.join(d,'chunk.vendor.js'));fs.copyFileSync(p.join(d,'designer.browser.original.js'),p.join(d,'designer.browser.js'));console.log('Restored original bundles')\""
   },
-  "keywords": ["gravit", "reverse-engineering", "decompiler"],
+  "keywords": [
+    "gravit",
+    "reverse-engineering",
+    "decompiler"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^11.3.3",
     "acorn": "^8.11.0",
     "acorn-walk": "^8.3.0",
     "astring": "^1.8.6",
     "escodegen": "^2.1.0",
     "esprima": "^4.0.1",
+    "fs-extra": "^11.3.3",
     "glob": "^10.3.10"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.3",
+    "prettier": "^3.8.1",
+    "terser-webpack-plugin": "^5.3.9",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "html-webpack-plugin": "^5.5.3",
-    "terser-webpack-plugin": "^5.3.9"
+    "webpack-dev-server": "^4.15.1"
   }
 }

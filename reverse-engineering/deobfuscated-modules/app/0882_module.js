@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.getCollabInfo = c),
       (module.handleCollabsData = async function (e) {
@@ -151,22 +151,22 @@ function (exports, module, require) {
         });
       }),
       (module.updateAssignee = d),
-      require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(168) /* module_168 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(71) /* module_71 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
-    var i = require(10) /* module_10 */,
+      require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(168) /* polyfill_Array_reduce */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(71) /* polyfill_String_includes */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
+    var i = require(10) /* AppSettings */,
       a = o(require(883) /* module_883 */),
       r = require(1353) /* Exports_GAnnotationPanel */;
     const s = (0, r.createAdditionalMentions)(),

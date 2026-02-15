@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
       i = n(123) /* GProperties */;
-    n(173) /* module_173 */;
+    n(173) /* stub_requires_1 */;
     function a() {
       this._ellipses = [];
     }

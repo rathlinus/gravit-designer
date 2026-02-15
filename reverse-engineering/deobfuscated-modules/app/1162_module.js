@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */, require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(15) /* module */,
       a = require(53) /* module */,
       r = require(1) /* module */,
@@ -16,7 +16,7 @@ function (exports, module, require) {
       d = o(require(198) /* Exports_GOutlineSidebar */),
       u = require(1161) /* module_1161 */,
       p = o(require(565) /* module_565 */),
-      g = require(10) /* module_10 */,
+      g = require(10) /* AppSettings */,
       h = require(123) /* GProperties */,
       f = require(450) /* module_450 */;
     const m = require(607) /* module_607 */,

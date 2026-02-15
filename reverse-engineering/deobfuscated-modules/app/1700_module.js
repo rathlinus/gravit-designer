@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */,
-      a = require(255) /* module_255 */,
+      i = require(40) /* CollaborationMergeUtils */,
+      a = require(255) /* barrel_sidebars */,
       r = require(1118) /* module_1118 */,
       s = require(1199) /* module_1199 */,
       l = require(85) /* GContainer */,

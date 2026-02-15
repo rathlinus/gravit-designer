@@ -5,28 +5,28 @@
 
 function (exports, module, require) {
     "use strict";
-    require(1196) /* module_1196 */,
-      require(19) /* module_19 */,
-      require(1197) /* module_1197 */,
+    require(1196) /* polyfill_Array_flat */,
+      require(19) /* polyfill_Array_iterator */,
+      require(1197) /* stub_requires_360 */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(134) /* module_134 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(134) /* polyfill_String_startsWith */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */,
-      require(4) /* module_4 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(33) /* module_33 */;
+      require(4) /* stub_requires_668 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(176) /* GSystem */,
       i = require(0) /* GObject */,
-      a = require(237) /* module_237 */;
-    const { GRegex: r } = require(263) /* module_263 */;
+      a = require(237) /* Item */;
+    const { GRegex: r } = require(263) /* Exports_GRegex */;
     var s = require(1117) /* module_1117 */.saveAs,
       l = false,
       c = null,

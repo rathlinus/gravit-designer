@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
-      i = require(27) /* module_27 */,
+    var o = require(25) /* core_export */,
+      i = require(27) /* uncurryThis */,
       a = require(244) /* module_244 */,
       r = RangeError,
       s = String.fromCharCode,

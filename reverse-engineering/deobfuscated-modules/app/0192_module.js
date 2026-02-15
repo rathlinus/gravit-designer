@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(200) /* module_200 */,
+    var o = require(23) /* globalThis */,
+      i = require(200) /* advanceStringIndex */,
       a = require(152) /* module_152 */,
-      r = require(21) /* module_21 */,
-      s = require(157) /* module_157 */,
+      r = require(21) /* tryCall */,
+      s = require(157) /* stub_requires_27 */,
       l = o.Int8Array,
       c = a.aTypedArray,
       d = a.exportTypedArrayMethod,

@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(29) /* module_29 */,
-      i = n(35) /* module_35 */,
-      a = n(46) /* module_46 */,
+    var o = n(29) /* isCallable */,
+      i = n(35) /* anObject */,
+      a = n(46) /* toLength */,
       r = TypeError;
     e.exports = function (e, t) {
       var n, s;

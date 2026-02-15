@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(1) /* module */;
-    require(173) /* module_173 */;
+    require(173) /* stub_requires_1 */;
     function i() {}
     o.GObject.inheritAndMix(i, o.GObject);
     var a = null;

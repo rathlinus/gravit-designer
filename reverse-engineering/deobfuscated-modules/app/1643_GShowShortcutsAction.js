@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     const { GObject: o, GLocaleKey: i } = require(1) /* module */,
       a = require(31) /* GAction */,
-      r = require(18) /* module_18 */,
+      r = require(18) /* MenuItemBuilder */,
       s = require(1644) /* module_1644 */;
     function l() {}
     o.inherit(l, a),

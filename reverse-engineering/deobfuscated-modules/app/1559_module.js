@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
-      i = require(37) /* module_37 */,
+    var o = require(25) /* core_export */,
+      i = require(37) /* toString_default */,
       a = require(121) /* module_121 */,
       r = require(143) /* module_143 */,
       s = [].push;

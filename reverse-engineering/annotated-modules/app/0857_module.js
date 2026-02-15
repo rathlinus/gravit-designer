@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(193) /* module_193 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(193) /* polyfill_Object_keys */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */;
     function i() {}
     i.prototype.OPACITY_DEFAULT = {

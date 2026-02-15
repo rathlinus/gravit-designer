@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(196) /* module_196 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     const o = require(1190) /* module_1190 */,
       i = require(292) /* module_292 */,
       a = require(291) /* GNetworkAvailabilityChangedEvent */,
@@ -17,7 +17,7 @@ function (exports, module, require) {
         IN_APP_PURCHASE: {
           WINDOWS: { production: d, trunk: u, rc: p, beta: g, lts: h } = {},
         } = {},
-      } = require(10) /* module_10 */,
+      } = require(10) /* AppSettings */,
       { IS_PRODUCTION: f, IS_LTS: m, IS_RC: y, IS_BETA: v } = require(231) /* module_231 */,
       {
         ERROR_CODES: { ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_NOT_FOUND: _ },

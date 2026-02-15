@@ -7,8 +7,8 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.default = void 0),
-      n(19) /* module_19 */,
-      n(26) /* module_26 */;
+      n(19) /* polyfill_Array_iterator */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     class o extends Error {
       constructor() {
         super(...arguments),

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(57) /* module_57 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    n(57) /* polyfill_parseInt */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(1) /* module */,
       i = n(381) /* module_381 */;
     function a(e) {

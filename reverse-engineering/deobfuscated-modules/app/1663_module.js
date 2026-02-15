@@ -5,36 +5,36 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */,
-      require(168) /* module_168 */,
-      require(30) /* module_30 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(34) /* module_34 */,
-      require(134) /* module_134 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(1175) /* module_1175 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */,
+      require(168) /* polyfill_Array_reduce */,
+      require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(34) /* polyfill_String_replace */,
+      require(134) /* polyfill_String_startsWith */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(1175) /* stub_requires_1559 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var i = require(1201) /* module */,
       a = require(1) /* module */,
       r = require(15) /* module */,
-      s = require(10) /* module_10 */,
+      s = require(10) /* AppSettings */,
       l = o(require(1664) /* module_1664 */),
       c = require(219) /* module_219 */,
       d = require(809) /* GClipAction */,
-      { debounce: u, stringToBase64String: p } = require(40) /* module_40 */;
+      { debounce: u, stringToBase64String: p } = require(40) /* CollaborationMergeUtils */;
     const g = l.default.getElements();
     exports.exports = class {
       constructor(e) {

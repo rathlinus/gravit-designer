@@ -7,11 +7,11 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.GGoogleAPI = module.GDefaultGoogleAPI = undefined),
-      require(19) /* module_19 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(26) /* module_26 */;
-    var o = require(10) /* module_10 */,
+      require(19) /* polyfill_Array_iterator */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(26) /* polyfill_DOMCollection_iterator */;
+    var o = require(10) /* AppSettings */,
       i = require(1) /* module */;
     class a {
       isLoaded() {

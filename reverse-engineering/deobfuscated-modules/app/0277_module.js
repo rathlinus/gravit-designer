@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* module_21 */,
-      i = require(35) /* module_35 */,
+    var o = require(21) /* tryCall */,
+      i = require(35) /* anObject */,
       a = /#|\.prototype\./,
       r = function (e, t) {
         var n = l[s(e)];

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(29) /* module_29 */,
-      i = require(35) /* module_35 */,
-      a = require(46) /* module_46 */,
+    var o = require(29) /* isCallable */,
+      i = require(35) /* anObject */,
+      a = require(46) /* toLength */,
       r = TypeError;
     exports.exports = function (e, t) {
       var n, s;

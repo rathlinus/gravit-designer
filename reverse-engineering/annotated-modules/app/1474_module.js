@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(8) /* module_8 */, n(20) /* module_20 */, n(71) /* module_71 */, n(34) /* module_34 */;
+    n(58) /* polyfill_Array_includes */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(71) /* polyfill_String_includes */, n(34) /* polyfill_String_replace */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */;
+      i = n(40) /* CollaborationMergeUtils */;
     function a(e, t) {
       let n =
         arguments.length > 2 && void 0 !== arguments[2]

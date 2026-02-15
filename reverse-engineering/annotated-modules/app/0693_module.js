@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(21) /* module_21 */,
+    var o = n(23) /* globalThis */,
+      i = n(21) /* tryCall */,
       a = n(343) /* module_343 */,
       r = n(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
       s = o.ArrayBuffer,

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(38) /* module_38 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(38) /* stub_requires_680 */, require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */;
     require(1150) /* module_1150 */;
     function i(e) {

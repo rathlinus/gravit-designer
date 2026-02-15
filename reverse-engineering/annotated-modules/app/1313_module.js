@@ -5,12 +5,12 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */, n(26) /* module_26 */;
+    n(58) /* polyfill_Array_includes */, n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(71) /* polyfill_String_includes */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(255) /* module_255 */,
-      s = n(590) /* module_590 */,
+      r = n(255) /* barrel_sidebars */,
+      s = n(590) /* barrel_editor_actions */,
       l = n(567) /* GAnnotationsSidebar */;
     const c = ["text/xml", "text/plain"],
       d = [

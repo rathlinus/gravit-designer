@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
+    var o = n(16) /* _interopRequireDefault */;
     Object.defineProperty(t, "__esModule", { value: !0 }),
       Object.defineProperty(t, "GFilesPanelViewBase", {
         enumerable: !0,

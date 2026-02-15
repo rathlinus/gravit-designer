@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */;
-    const { FILE_FORMATS: o } = require(10) /* module_10 */;
+    require(30) /* polyfill_Object_assign */;
+    const { FILE_FORMATS: o } = require(10) /* AppSettings */;
     class i {
       constructor() {
         (this.onlyListFilesOwnedByUser = false), (this.supportedFileFormats = o);

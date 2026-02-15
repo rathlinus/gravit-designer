@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */,
+    var o = require(16) /* _interopRequireDefault */,
       i = require(1) /* module */,
       a = require(15) /* module */,
       r = o(require(813) /* GOpenAction */);

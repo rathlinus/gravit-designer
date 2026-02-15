@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(37) /* module_37 */,
+    var o = require(37) /* toString_default */,
       i = require(408) /* module_408 */,
       a = require(194) /* module_194 */,
-      r = require(43) /* module_43 */("species");
+      r = require(43) /* wellKnownSymbol */("species");
     exports.exports = function (e, t) {
       var n,
         s = o(e).constructor;

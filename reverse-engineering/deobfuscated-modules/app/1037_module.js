@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */, require(8) /* module_8 */, require(134) /* module_134 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
-      a = require(10) /* module_10 */,
+      a = require(10) /* AppSettings */,
       r = o(require(536) /* module_536 */);
     class s {
       static async setLanguage(e) {

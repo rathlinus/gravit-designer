@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
       r = require(67) /* GRichTooltipConfig */,
       s = o(require(85) /* GContainer */),
-      l = require(10) /* module_10 */,
-      c = require(18) /* module_18 */,
+      l = require(10) /* AppSettings */,
+      c = require(18) /* MenuItemBuilder */,
       d = require(163) /* module_163 */,
       u = require(31) /* GAction */;
     function p() {

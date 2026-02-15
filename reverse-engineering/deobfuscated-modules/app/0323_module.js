@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(37) /* module_37 */,
+    var o = require(37) /* toString_default */,
       i = require(102) /* module_102 */;
     exports.exports = function (e, t, n, a) {
       try {

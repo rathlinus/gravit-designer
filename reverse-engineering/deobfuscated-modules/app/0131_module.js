@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(622) /* module_622 */,
-      i = require(35) /* module_35 */,
+    var o = require(622) /* stub_requires_43 */,
+      i = require(35) /* anObject */,
       a = require(116) /* module_116 */,
-      r = require(43) /* module_43 */("toStringTag"),
+      r = require(43) /* wellKnownSymbol */("toStringTag"),
       s = Object,
       l =
         "Arguments" ===

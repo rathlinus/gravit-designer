@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(49) /* module_49 */,
+    var o = n(49) /* hasOwnProperty_wrapper */,
       i = n(400) /* module_400 */,
-      a = n(88) /* module_88 */,
-      r = n(37) /* module_37 */,
-      s = n(184) /* module_184 */,
+      a = n(88) /* createPropertyDescriptor */,
+      r = n(37) /* toString_default */,
+      s = n(184) /* toIndexedObject */,
       l = n(405) /* module_405 */;
     t.f =
       o && !i

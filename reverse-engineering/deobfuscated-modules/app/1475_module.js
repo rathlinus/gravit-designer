@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     var o = require(797) /* module */,
       i = require(1) /* module */;
-    require(257) /* module_257 */;
+    require(257) /* barrel_panels */;
     function a(e, t, n, o, a, r) {
       (this._currentDocument = e),
         (this._newDocument = t),

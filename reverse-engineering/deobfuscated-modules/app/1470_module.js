@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(26) /* module_26 */;
-    const o = require(255) /* module_255 */;
+    require(19) /* polyfill_Array_iterator */, require(26) /* polyfill_DOMCollection_iterator */;
+    const o = require(255) /* barrel_sidebars */;
     exports.exports = class {
       constructor() {
         this._missingFonts = [];

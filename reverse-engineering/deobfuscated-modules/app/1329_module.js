@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */,
+    var o = require(16) /* _interopRequireDefault */,
       i = o(require(880) /* module_880 */),
       a = o(require(1189) /* module_1189 */);
     class r extends i.default {

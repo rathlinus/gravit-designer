@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(8) /* polyfill_bundle_ES6 */;
     var i = o(n(176) /* GSystem */),
       a = n(1) /* module */,
       r = o(n(1242) /* module_1242 */),
       s = o(n(44) /* GSystemDialog */),
       l = o(n(443) /* module_443 */),
-      c = n(1243) /* module_1243 */;
+      c = n(1243) /* Exports_SHAREPOINT_COMMAND */;
     const { isPrivateChat: d, isTeamsChannel: u } = l.default;
     function p(e) {
       if ("function" != typeof e)

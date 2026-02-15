@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(415) /* module_415 */;
+    var o = n(25) /* core_export */,
+      i = n(415) /* objectAssignPolyfill */;
     o(
       { target: "Object", stat: !0, arity: 2, forced: Object.assign !== i },
       { assign: i }

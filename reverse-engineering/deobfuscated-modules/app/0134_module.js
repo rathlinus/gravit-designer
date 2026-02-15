@@ -6,15 +6,15 @@
 function (exports, module, require) {
     "use strict";
     var o,
-      i = require(25) /* module_25 */,
+      i = require(25) /* core_export */,
       a = require(223) /* module_223 */,
-      r = require(222) /* module_222 */.f,
-      s = require(117) /* module_117 */,
-      l = require(62) /* module_62 */,
+      r = require(222) /* objectGetOwnPropertyDescriptor */.f,
+      s = require(117) /* toStringTagSupport */,
+      l = require(62) /* requireObjectCoercible */,
       c = require(361) /* module_361 */,
-      d = require(92) /* module_92 */,
+      d = require(92) /* classof */,
       u = require(362) /* module_362 */,
-      p = require(74) /* module_74 */,
+      p = require(74) /* createNonEnumerableProperty */,
       g = a("".slice),
       h = Math.min,
       f = u("startsWith");

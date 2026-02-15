@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */;
+    require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
     var o = require(1) /* module */;
     const i = require(44) /* GSystemDialog */,
-      { DESIGNER: { TITLE: a } = {} } = require(10) /* module_10 */;
+      { DESIGNER: { TITLE: a } = {} } = require(10) /* AppSettings */;
     exports.exports = class {
       async init() {
         (await this._shouldOpenWarningDialog()) &&

@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     var o = n(15) /* module */;
-    const i = n(519) /* module_519 */,
-      a = n(520) /* module_520 */,
+    const i = n(519) /* AppSettings */,
+      a = n(520) /* barrel_purchase_urls */,
       r = n(231) /* module_231 */;
     (i.GoogleTagManagerSettings = n(820) /* module */),
       (i.AUTO_SAVE_ENABLED =

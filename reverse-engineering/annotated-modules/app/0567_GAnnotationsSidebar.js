@@ -6,8 +6,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(8) /* module_8 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(97) /* module_97 */, n(33) /* module_33 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(58) /* polyfill_Array_includes */, n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(71) /* polyfill_String_includes */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(97) /* stub_requires_684 */, n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(53) /* module */,
       a = n(1) /* module */,
       r = n(15) /* module */,
@@ -23,7 +23,7 @@ function (e, t, n) {
       m = n(864) /* GInspectorSidebar */,
       y = n(123) /* GProperties */,
       v = n(1535) /* GAnnotations */,
-      _ = n(603) /* module_603 */,
+      _ = n(603) /* WindowEvent */,
       b = n(1536) /* GAnnotationProperties */,
       w = n(358) /* module_358 */,
       C = n(592) /* module_592 */;
@@ -33,15 +33,15 @@ function (e, t, n) {
     const A = n(291) /* GNetworkAvailabilityChangedEvent */,
       T = n(393) /* GCollaborationEvent */,
       G = n(336) /* module_336 */,
-      P = n(434) /* module_434 */,
-      { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = n(10) /* module_10 */,
+      P = n(434) /* stub_requires_30_1072 */,
+      { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = n(10) /* AppSettings */,
       I = n(86) /* module_86 */,
       k = n(217) /* GDocumentStatusEvent */,
       O = n(1279) /* module_1279 */,
       {
         DateAPI: F,
         FileStatus: { APPROVED: R },
-      } = n(10) /* module_10 */,
+      } = n(10) /* AppSettings */,
       M = n(198) /* Exports_GOutlineSidebar */;
     function N() {
       h.call(this),

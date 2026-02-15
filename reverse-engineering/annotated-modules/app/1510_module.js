@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */,
-      a = n(257) /* module_257 */;
+      i = n(40) /* CollaborationMergeUtils */,
+      a = n(257) /* barrel_panels */;
     class r {
       constructor(e) {
         let { closeCallback: t } =

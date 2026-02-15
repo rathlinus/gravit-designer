@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(21) /* module_21 */;
+    var o = n(21) /* tryCall */;
     e.exports = !o(function () {
       return Object.isExtensible(Object.preventExtensions({}));
     });

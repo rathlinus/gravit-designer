@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(130) /* module_130 */,
+    var o = n(130) /* lengthOfArrayLike */,
       i = RangeError;
     e.exports = function (e) {
       var t = o(e);

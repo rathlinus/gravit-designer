@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     const o = require(1252) /* module_1252 */,
       i = require(1187) /* module_1187 */,
-      { gApi: a } = require(10) /* module_10 */;
+      { gApi: a } = require(10) /* AppSettings */;
     exports.exports = class extends i {
       constructor(e, t) {
         super(), (this._id = e), (this._url = t);

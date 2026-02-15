@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(10) /* module_10 */;
+    n(8) /* polyfill_bundle_ES6 */;
+    var o = n(10) /* AppSettings */;
     const i = n(292) /* module_292 */,
       a = n(846) /* module_846 */;
     e.exports = class {

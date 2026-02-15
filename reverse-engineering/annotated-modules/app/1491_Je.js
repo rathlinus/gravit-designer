@@ -6,38 +6,38 @@
 
 function (e, t, n) {
     "use strict";
-    n(557) /* module_557 */;
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(596) /* module_596 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
+    n(557) /* stub_requires_1102 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(58) /* polyfill_Array_includes */,
+      n(19) /* polyfill_Array_iterator */,
+      n(168) /* polyfill_Array_reduce */,
+      n(596) /* polyfill_Array_reverse */,
+      n(96) /* polyfill_JSON_stringify */,
+      n(30) /* polyfill_Object_assign */,
+      n(57) /* polyfill_parseInt */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(71) /* polyfill_String_includes */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(169) /* stub_requires_683 */,
+      n(97) /* stub_requires_684 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(53) /* module */,
       a = n(1) /* module */,
       r = n(15) /* module */,
-      s = n(10) /* module_10 */,
+      s = n(10) /* AppSettings */,
       l = n(357) /* module_357 */,
       c = o(n(1492) /* module_1492 */),
-      d = n(1246) /* module_1246 */,
-      u = n(40) /* module_40 */,
+      d = n(1246) /* Exports_GPersona */,
+      u = n(40) /* CollaborationMergeUtils */,
       p = n(1247) /* module_1247 */,
       g = (function (e, t) {
         if ("function" == typeof WeakMap)
@@ -67,7 +67,7 @@ function (e, t, n) {
         })(e, t);
       })(n(1739) /* module_1739 */),
       h = (o(n(1249) /* module_1249 */), o(n(1155) /* module_1155 */)),
-      f = o(n(556) /* module_556 */),
+      f = o(n(556) /* Item */),
       m = o(n(734) /* module_734 */),
       y = o(n(1494) /* module_1494 */),
       v = o(n(1496) /* module_1496 */),
@@ -87,7 +87,7 @@ function (e, t, n) {
       I = n(395) /* module_395 */;
     n(1540) /* module_1540 */;
     var k = n(1541) /* GToolbar */,
-      O = n(603) /* module_603 */,
+      O = n(603) /* WindowEvent */,
       F = n(863) /* module_863 */,
       R = n(1294) /* GDimensionProperties */,
       M = n(135) /* GSettingChangedEvent */,
@@ -97,22 +97,22 @@ function (e, t, n) {
       j = n(1172) /* GInstallToDesktopAction */,
       K = n(1170) /* GToggleSidebarAction */,
       V = n(1297) /* GOutlineViewAction */,
-      H = (n(1298) /* GUseCouponAction */, n(255) /* module_255 */),
-      W = n(590) /* module_590 */,
+      H = (n(1298) /* GUseCouponAction */, n(255) /* barrel_sidebars */),
+      W = n(590) /* barrel_editor_actions */,
       z = n(1544) /* module_1544 */,
       q = n(1560) /* module_1560 */,
       Y = n(1562) /* GInstallPwaDialog */,
       X = n(1303) /* GContextMenu */;
     n(1563) /* module_1563 */;
     var Q = n(119) /* module_119 */,
-      J = n(220) /* module_220 */,
+      J = n(220) /* Item */,
       Z = n(85) /* GContainer */,
       ee = n(44) /* GSystemDialog */,
       te = n(1276) /* module_1276 */,
       ne = n(1564) /* module_1564 */,
       oe = n(1250) /* module_1250 */,
       ie = n(291) /* GNetworkAvailabilityChangedEvent */,
-      ae = n(1313) /* module_1313 */,
+      ae = n(1313) /* URIListHandler */,
       re = n(860) /* module_860 */,
       se = n(441) /* module_441 */,
       le = n(292) /* module_292 */,
@@ -127,7 +127,7 @@ function (e, t, n) {
       ye = n(1165) /* module_1165 */,
       ve = n(1572) /* module_1572 */,
       _e = n(846) /* module_846 */,
-      be = n(337) /* module_337 */,
+      be = n(337) /* stub_requires_1098 */,
       we = n(1325) /* module_1325 */,
       Ce = n(785) /* module_785 */,
       xe = n(256) /* GOfflineDialog */,
@@ -138,19 +138,19 @@ function (e, t, n) {
       Ge = n(1188) /* module_1188 */,
       Pe = n(447) /* GSaveAction */,
       De = n(86) /* module_86 */,
-      Le = (n(18) /* module_18 */, n(442) /* module_442 */);
+      Le = (n(18) /* MenuItemBuilder */, n(442) /* module_442 */);
     const {
       defaultLegacyUserSettings: { features: Ie },
     } = s.defaultUserSettings;
-    var ke = n(10) /* module_10 */;
+    var ke = n(10) /* AppSettings */;
     const { gApi: Oe } = ke;
-    var Fe = n(388) /* module_388 */,
+    var Fe = n(388) /* Item */,
       Re = n(1580) /* module_1580 */;
     const Me = n(1581) /* module_1581 */,
       Ne = n(1584) /* module_1584 */;
     var Be = n(1587) /* module_1587 */;
     n(607) /* module_607 */;
-    const Ue = n(40) /* module_40 */,
+    const Ue = n(40) /* CollaborationMergeUtils */,
       $e = n(177) /* module_177 */,
       je = n(1338) /* module_1338 */,
       Ke = n(1173) /* module_1173 */,

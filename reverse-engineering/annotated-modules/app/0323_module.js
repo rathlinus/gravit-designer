@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(37) /* module_37 */,
+    var o = n(37) /* toString_default */,
       i = n(102) /* module_102 */;
     e.exports = function (e, t, n, a) {
       try {

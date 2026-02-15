@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(35) /* module_35 */,
-      i = require(88) /* module_88 */,
+    var o = require(35) /* anObject */,
+      i = require(88) /* createPropertyDescriptor */,
       a = require(401) /* module_401 */,
-      r = require(298) /* module_298 */;
+      r = require(298) /* defineGlobalProperty */;
     exports.exports = function (e, t, n, s) {
       s || (s = {});
       var l = s.enumerable,

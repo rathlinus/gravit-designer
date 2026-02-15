@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(8) /* module_8 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(8) /* polyfill_bundle_ES6 */;
     var i = require(1) /* module */,
-      a = require(10) /* module_10 */,
+      a = require(10) /* AppSettings */,
       r = o(require(1091) /* module_1091 */),
       s = require(165) /* module_165 */,
       l = require(219) /* module_219 */,

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(3) /* module_3 */;
+    require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */;
     function i(e, t) {
       (this.notification = Object.assign(

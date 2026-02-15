@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */,
-      a = require(257) /* module_257 */;
+      i = require(40) /* CollaborationMergeUtils */,
+      a = require(257) /* barrel_panels */;
     class r {
       constructor(e) {
         let { closeCallback: module } =

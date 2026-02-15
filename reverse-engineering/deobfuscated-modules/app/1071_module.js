@@ -19,8 +19,8 @@ function (exports, module, require) {
           ACTION_REOPEN: d,
           ACTION_APPROVE: u,
         },
-      } = require(10) /* module_10 */,
-      p = require(434) /* module_434 */;
+      } = require(10) /* AppSettings */,
+      p = require(434) /* stub_requires_30_1072 */;
     exports.exports = {
       [r.id]: [
         l,

@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     var o = require(803) /* module_803 */,
-      i = require(10) /* module_10 */;
+      i = require(10) /* AppSettings */;
     const a =
         window && window.location && "localhost" === window.location.hostname,
       r = {

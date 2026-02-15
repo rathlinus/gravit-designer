@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
-      a = o(n(18) /* module_18 */),
+      a = o(n(18) /* MenuItemBuilder */),
       r = o(n(31) /* GAction */);
     const s = "designer.settings.enhanced-tooltips.enabled";
     let l = !0;

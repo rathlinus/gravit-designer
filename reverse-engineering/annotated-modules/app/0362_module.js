@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(43) /* module_43 */("match");
+    var o = n(43) /* wellKnownSymbol */("match");
     e.exports = function (e) {
       var t = /./;
       try {

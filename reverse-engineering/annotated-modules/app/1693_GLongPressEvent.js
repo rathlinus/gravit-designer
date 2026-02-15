@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */;
+    n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
-      a = n(10) /* module_10 */,
-      r = n(40) /* module_40 */;
+      a = n(10) /* AppSettings */,
+      r = n(40) /* CollaborationMergeUtils */;
     function s() {}
     o.GObject.inherit(s, o.GEvent),
       (s.prototype._startX = 0),

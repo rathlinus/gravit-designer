@@ -5,28 +5,28 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */,
-      n(596) /* module_596 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */,
+      n(596) /* polyfill_Array_reverse */,
+      n(30) /* polyfill_Object_assign */,
+      n(57) /* polyfill_parseInt */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(38) /* stub_requires_680 */,
+      n(97) /* stub_requires_684 */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */,
       i = n(797) /* module */,
       a = n(15) /* module */,
-      r = n(40) /* module_40 */,
-      s = n(10) /* module_10 */,
+      r = n(40) /* CollaborationMergeUtils */,
+      s = n(10) /* AppSettings */,
       l = n(238) /* GMenu */,
       c = n(444) /* module_444 */,
-      d = n(257) /* module_257 */,
-      u = n(1253) /* module_1253 */;
+      d = n(257) /* barrel_panels */,
+      u = n(1253) /* ZipDirectory */;
     const p = n(1238) /* module_1238 */;
     var g = n(44) /* GSystemDialog */;
     const h = n(389) /* module_389 */;

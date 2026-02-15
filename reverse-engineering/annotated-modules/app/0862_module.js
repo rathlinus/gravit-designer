@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
+    var o = n(16) /* _interopRequireDefault */;
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.lookupByMimeType =
         t.lookupByExtension =
@@ -15,26 +15,26 @@ function (e, t, n) {
         t.FILE_EXTENSIONS =
         t.DEFAULT_TYPE =
           void 0),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(71) /* module_71 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
+      n(58) /* polyfill_Array_includes */,
+      n(19) /* polyfill_Array_iterator */,
+      n(168) /* polyfill_Array_reduce */,
+      n(96) /* polyfill_JSON_stringify */,
+      n(30) /* polyfill_Object_assign */,
+      n(57) /* polyfill_parseInt */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(71) /* polyfill_String_includes */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(169) /* stub_requires_683 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* module */,
-      a = n(10) /* module_10 */,
+      a = n(10) /* AppSettings */,
       r = o(n(119) /* module_119 */),
-      s = o(n(220) /* module_220 */),
+      s = o(n(220) /* Item */),
       l = o(n(163) /* module_163 */),
       c = o(n(86) /* module_86 */),
       d = o(n(802) /* CloudException */),
@@ -44,7 +44,7 @@ function (e, t, n) {
         FILE_FORMATS: g,
         FOLDER_FORMAT: h,
         MAX_FOLDER_DEPTH_FOR_CLOUD: f,
-      } = n(10) /* module_10 */;
+      } = n(10) /* AppSettings */;
     let m;
     function y() {
       d.default.apply(this, arguments),

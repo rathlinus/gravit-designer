@@ -5,21 +5,21 @@
 
 function (exports, module, require) {
     "use strict";
-    require(193) /* module_193 */,
-      require(57) /* module_57 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(34) /* module_34 */,
-      require(134) /* module_134 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(33) /* module_33 */;
+    require(193) /* polyfill_Object_keys */,
+      require(57) /* polyfill_parseInt */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(34) /* polyfill_String_replace */,
+      require(134) /* polyfill_String_startsWith */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(53) /* module */,
       i = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(40) /* module_40 */,
+      r = require(40) /* CollaborationMergeUtils */,
       s = require(67) /* GRichTooltipConfig */,
       l = require(1151) /* GSwatchesChangedEvent */,
       c = require(857) /* module_857 */,

@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(49) /* module_49 */,
+    var o = n(49) /* hasOwnProperty_wrapper */,
       i = n(61) /* module_61 */,
       a = Function.prototype,
       r = o && Object.getOwnPropertyDescriptor,

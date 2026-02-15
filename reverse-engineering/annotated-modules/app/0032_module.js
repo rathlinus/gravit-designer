@@ -5,5 +5,5 @@
 
 function (e, t, n) {
     "use strict";
-    n(670) /* module_670 */;
+    n(670) /* polyfill_Iterator_forEach */;
   }

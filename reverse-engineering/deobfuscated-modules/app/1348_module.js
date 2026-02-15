@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(196) /* module_196 */;
+    require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */;
     var o = require(53) /* module */,
       i = require(1) /* module */;
-    const { gApi: a } = require(10) /* module_10 */,
+    const { gApi: a } = require(10) /* AppSettings */,
       r = require(393) /* GCollaborationEvent */,
       s = require(217) /* GDocumentStatusEvent */,
       l = require(86) /* module_86 */;

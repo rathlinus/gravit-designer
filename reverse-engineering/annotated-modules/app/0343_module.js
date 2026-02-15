@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(43) /* module_43 */("iterator"),
+    var o = n(43) /* wellKnownSymbol */("iterator"),
       i = !1;
     try {
       var a = 0,

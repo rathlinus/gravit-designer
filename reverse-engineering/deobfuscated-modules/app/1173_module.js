@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */,
+    var o = require(16) /* _interopRequireDefault */,
       i = require(15) /* module */,
       a = o(require(85) /* GContainer */);
     class r {

@@ -6,8 +6,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = o(n(340) /* GTouchTool */),
       r = n(806) /* GSidebar */,

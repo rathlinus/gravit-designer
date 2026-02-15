@@ -10,5 +10,5 @@ function (e, t, n) {
         arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
       Object.assign(this, e);
     }
-    n(30) /* module_30 */, (o.prototype.getUID = function () {}), (e.exports = o);
+    n(30) /* polyfill_Object_assign */, (o.prototype.getUID = function () {}), (e.exports = o);
   }

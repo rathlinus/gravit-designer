@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(96) /* module_96 */, require(57) /* module_57 */, require(20) /* module_20 */, require(151) /* module_151 */, require(38) /* module_38 */;
+    require(96) /* polyfill_JSON_stringify */, require(57) /* polyfill_parseInt */, require(20) /* polyfill_RegExp_exec */, require(151) /* module_151 */, require(38) /* stub_requires_680 */;
     var i = function () {
       (this.interval = 1e3), (this.maxInterval = 6e4);
     };

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(4) /* module_4 */, n(41) /* module_41 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(30) /* polyfill_Object_assign */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var i = n(1154) /* module_1154 */,
       a = o(n(389) /* module_389 */),
       r = o(n(163) /* module_163 */),

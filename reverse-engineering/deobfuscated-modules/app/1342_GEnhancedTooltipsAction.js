@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */;
     var i = require(1) /* module */,
-      a = o(require(18) /* module_18 */),
+      a = o(require(18) /* MenuItemBuilder */),
       r = o(require(31) /* GAction */);
     const s = "designer.settings.enhanced-tooltips.enabled";
     let l = true;

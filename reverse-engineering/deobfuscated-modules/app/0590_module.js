@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */, require(34) /* module_34 */, require(134) /* module_134 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(1) /* module */,
       i = require(1075) /* module_1075 */,
       a = require(381) /* module_381 */;

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.lookupByMimeType =
         module.lookupByExtension =
@@ -15,26 +15,26 @@ function (exports, module, require) {
         module.FILE_EXTENSIONS =
         module.DEFAULT_TYPE =
           undefined),
-      require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(168) /* module_168 */,
-      require(96) /* module_96 */,
-      require(30) /* module_30 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(71) /* module_71 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
+      require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(168) /* polyfill_Array_reduce */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(71) /* polyfill_String_includes */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
-      a = require(10) /* module_10 */,
+      a = require(10) /* AppSettings */,
       r = o(require(119) /* module_119 */),
-      s = o(require(220) /* module_220 */),
+      s = o(require(220) /* Item */),
       l = o(require(163) /* module_163 */),
       c = o(require(86) /* module_86 */),
       d = o(require(802) /* CloudException */),
@@ -44,7 +44,7 @@ function (exports, module, require) {
         FILE_FORMATS: g,
         FOLDER_FORMAT: h,
         MAX_FOLDER_DEPTH_FOR_CLOUD: f,
-      } = require(10) /* module_10 */;
+      } = require(10) /* AppSettings */;
     let m;
     function y() {
       d.default.apply(this, arguments),

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */,
+    var o = n(16) /* _interopRequireDefault */,
       i = n(1) /* module */,
       a = n(15) /* module */,
       r = o(n(813) /* GOpenAction */);

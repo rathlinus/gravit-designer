@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
       a = require(608) /* GCreateSymbolAction */;

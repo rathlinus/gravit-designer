@@ -6,16 +6,16 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */, n(26) /* module_26 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
-      r = o(n(18) /* module_18 */),
+      r = o(n(18) /* MenuItemBuilder */),
       s = o(n(1168) /* GSubAction */),
-      l = n(40) /* module_40 */,
+      l = n(40) /* CollaborationMergeUtils */,
       c = n(67) /* GRichTooltipConfig */,
       d = o(n(812) /* GMergeMainAction */),
-      u = n(10) /* module_10 */;
+      u = n(10) /* AppSettings */;
     class p extends s.default {
       constructor(e) {
         super(e),

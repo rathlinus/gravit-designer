@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(46) /* module_46 */,
+    var o = n(21) /* tryCall */,
+      i = n(46) /* toLength */,
       a = n(116) /* module_116 */,
       r = n(1105) /* module_1105 */,
       s = Object.isExtensible,

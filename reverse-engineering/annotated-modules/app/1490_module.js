@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
-    const { gApi: o } = n(10) /* module_10 */,
+    n(8) /* polyfill_bundle_ES6 */;
+    const { gApi: o } = n(10) /* AppSettings */,
       i = n(536) /* module_536 */;
     class a {
       static async checkMaintenance() {

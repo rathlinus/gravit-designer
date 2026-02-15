@@ -5,30 +5,30 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */,
+      n(57) /* polyfill_parseInt */,
+      n(8) /* polyfill_bundle_ES6 */,
       n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(3) /* module_3 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(107) /* polyfill_RegExp_test */,
+      n(3) /* polyfill_RegExp_toString */,
       n(151) /* module_151 */,
-      n(34) /* module_34 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(26) /* module_26 */;
+      n(34) /* polyfill_String_replace */,
+      n(91) /* polyfill_String_trim */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(10) /* module_10 */,
+      r = n(10) /* AppSettings */,
       s = n(357) /* module_357 */,
       l = o(n(238) /* GMenu */),
       c = o(n(339) /* GMenu */),
       d = o(n(1501) /* GMenuBar */),
       u = o(n(1502) /* module_1502 */),
-      p = o(n(603) /* module_603 */),
+      p = o(n(603) /* WindowEvent */),
       g = o(n(78) /* GDocumentEvent */),
       h = o(n(217) /* GDocumentStatusEvent */),
       f = o(n(86) /* module_86 */),
@@ -38,15 +38,15 @@ function (e, t, n) {
       _ = o(n(861) /* GExportAction */),
       b = o(n(1254) /* GOpenSharedFileAction */),
       w = o(n(1256) /* GVersionsHistoryAction */),
-      C = o(n(388) /* module_388 */),
-      x = o(n(220) /* module_220 */),
+      C = o(n(388) /* Item */),
+      x = o(n(220) /* Item */),
       S = o(n(44) /* GSystemDialog */),
-      E = o(n(862) /* module_862 */),
+      E = o(n(862) /* Exports_TYPES */),
       A = o(n(156) /* module_156 */),
       T = o(n(163) /* module_163 */),
-      G = n(263) /* module_263 */,
-      P = n(1517) /* module_1517 */;
-    const D = n(257) /* module_257 */;
+      G = n(263) /* Exports_GRegex */,
+      P = n(1517) /* Exports_REARRANGE_TAB_ */;
+    const D = n(257) /* barrel_panels */;
     let L = null;
     r.LICENSE.UPGRADEABLE && (L = n(441) /* module_441 */);
     const I = n(135) /* GSettingChangedEvent */,

@@ -6,9 +6,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */,
+      i = n(40) /* CollaborationMergeUtils */,
       a = n(1156) /* GMenuCloseEvent */,
       r = n(444) /* module_444 */,
       s = n(339) /* GMenu */,

@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
-      i = require(74) /* module_74 */,
+    var o = require(25) /* core_export */,
+      i = require(74) /* createNonEnumerableProperty */,
       a = require(201) /* module_201 */.CONSTRUCTOR,
-      r = require(186) /* module_186 */,
+      r = require(186) /* stub_requires_23 */,
       s = require(110) /* module_110 */,
-      l = require(35) /* module_35 */,
-      c = require(79) /* module_79 */,
+      l = require(35) /* anObject */,
+      c = require(79) /* defineBuiltIn */,
       d = r && r.prototype;
     if (
       (o(

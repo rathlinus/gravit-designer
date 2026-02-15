@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(8) /* module_8 */, n(20) /* module_20 */, n(851) /* module_851 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(851) /* module_851 */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */,
+      i = n(40) /* CollaborationMergeUtils */,
       a = n(1200) /* module_1200 */,
-      r = n(255) /* module_255 */;
+      r = n(255) /* barrel_sidebars */;
     function s(e, t) {
       var n = $(this);
       n.empty(),

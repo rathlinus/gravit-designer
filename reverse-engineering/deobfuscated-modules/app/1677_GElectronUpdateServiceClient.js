@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var { ipcRenderer: o } = require(881) /* module_881 */;
     const i = require(1349) /* module_1349 */;
     function a() {}

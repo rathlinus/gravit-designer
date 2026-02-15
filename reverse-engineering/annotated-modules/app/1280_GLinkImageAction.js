@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var o = n(1) /* module */,
       i = n(67) /* GRichTooltipConfig */,
-      a = n(18) /* module_18 */,
+      a = n(18) /* MenuItemBuilder */,
       r = n(163) /* module_163 */,
       s = n(31) /* GAction */,
       l = n(85) /* GContainer */;

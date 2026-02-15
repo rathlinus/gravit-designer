@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(35) /* module_35 */,
+    var o = n(23) /* globalThis */,
+      i = n(35) /* anObject */,
       a = o.WeakMap;
     e.exports = i(a) && /native code/.test(String(a));
   }

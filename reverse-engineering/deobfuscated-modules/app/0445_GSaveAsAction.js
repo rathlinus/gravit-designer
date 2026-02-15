@@ -6,26 +6,26 @@
 
 function (exports, module, require) {
     "use strict";
-    require(32) /* module_32 */, require(33) /* module_33 */;
-    var o = require(16) /* module_16 */,
+    require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
+    var o = require(16) /* _interopRequireDefault */,
       i = o(require(1504) /* module_1504 */);
-    require(58) /* module_58 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(271) /* module_271 */,
-      require(71) /* module_71 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */;
+    require(58) /* polyfill_Array_includes */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(271) /* polyfill_String_endsWith */,
+      require(71) /* polyfill_String_includes */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */;
     var a = require(1) /* module */,
       r = require(15) /* module */,
       s = require(67) /* GRichTooltipConfig */,
       l = o(require(1248) /* module_1248 */),
-      c = require(10) /* module_10 */;
+      c = require(10) /* AppSettings */;
     function d(e, t) {
       var n = Object.keys(e);
       if (Object.getOwnPropertySymbols) {
@@ -58,7 +58,7 @@ function (exports, module, require) {
       return e;
     }
     var p = require(163) /* module_163 */,
-      g = require(18) /* module_18 */,
+      g = require(18) /* MenuItemBuilder */,
       h = require(31) /* GAction */,
       f = require(446) /* module_446 */,
       m = require(86) /* module_86 */;

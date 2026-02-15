@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */;
+    require(30) /* polyfill_Object_assign */;
     const o = require(1186) /* module_1186 */;
     exports.exports = class extends o {
       constructor(e) {

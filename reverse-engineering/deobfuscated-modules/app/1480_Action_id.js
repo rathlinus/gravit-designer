@@ -82,9 +82,9 @@ function (exports, module, require) {
               t.initializeCommunication =
               t.Communication =
                 undefined);
-          var i = n(4) /* module_4 */,
+          var i = n(4) /* stub_requires_668 */,
             a = n(7) /* GTransform */,
-            r = n(3) /* module_3 */,
+            r = n(3) /* polyfill_RegExp_toString */,
             s = function () {};
           t.Communication = s;
           var l = (function () {
@@ -291,7 +291,7 @@ function (exports, module, require) {
                 undefined);
           var o = n(2) /* GNode */,
             i = n(6) /* GRect */,
-            a = n(4) /* module_4 */,
+            a = n(4) /* stub_requires_668 */,
             r = n(7) /* GTransform */,
             s = n(5) /* GPoint */;
           function l(e) {
@@ -440,7 +440,7 @@ function (exports, module, require) {
               t.callHandler =
               t.initializeHandlers =
                 undefined);
-          var i = n(8) /* module_8 */,
+          var i = n(8) /* polyfill_bundle_ES6 */,
             a = n(0) /* GObject */,
             r = (function () {
               function e() {}
@@ -720,7 +720,7 @@ function (exports, module, require) {
               t.authentication =
               t.appInitialization =
                 undefined);
-          var o = n(25) /* module_25 */;
+          var o = n(25) /* core_export */;
           Object.defineProperty(t, "appInitialization", {
             enumerable: true,
             get: function () {
@@ -784,7 +784,7 @@ function (exports, module, require) {
                 return r.FileOpenPreference;
               },
             });
-          var s = n(26) /* module_26 */;
+          var s = n(26) /* polyfill_DOMCollection_iterator */;
           Object.defineProperty(t, "enablePrintCapability", {
             enumerable: true,
             get: function () {
@@ -905,7 +905,7 @@ function (exports, module, require) {
                 return s.shareDeepLink;
               },
             });
-          var l = n(27) /* module_27 */;
+          var l = n(27) /* uncurryThis */;
           Object.defineProperty(t, "returnFocus", {
             enumerable: true,
             get: function () {
@@ -944,7 +944,7 @@ function (exports, module, require) {
               return d.tasks;
             },
           });
-          var u = n(16) /* module_16 */;
+          var u = n(16) /* _interopRequireDefault */;
           Object.defineProperty(t, "ChildAppWindow", {
             enumerable: true,
             get: function () {
@@ -971,14 +971,14 @@ function (exports, module, require) {
               return g.media;
             },
           });
-          var h = n(29) /* module_29 */;
+          var h = n(29) /* isCallable */;
           Object.defineProperty(t, "location", {
             enumerable: true,
             get: function () {
               return h.location;
             },
           });
-          var f = n(30) /* module_30 */;
+          var f = n(30) /* polyfill_Object_assign */;
           Object.defineProperty(t, "meeting", {
             enumerable: true,
             get: function () {
@@ -992,28 +992,28 @@ function (exports, module, require) {
               return m.monetization;
             },
           });
-          var y = n(32) /* module_32 */;
+          var y = n(32) /* stub_requires_670 */;
           Object.defineProperty(t, "people", {
             enumerable: true,
             get: function () {
               return y.people;
             },
           });
-          var v = n(33) /* module_33 */;
+          var v = n(33) /* polyfill_DOMCollection_forEach */;
           Object.defineProperty(t, "video", {
             enumerable: true,
             get: function () {
               return v.video;
             },
           });
-          var _ = n(34) /* module_34 */;
+          var _ = n(34) /* polyfill_String_replace */;
           Object.defineProperty(t, "sharing", {
             enumerable: true,
             get: function () {
               return _.sharing;
             },
           });
-          var b = n(35) /* module_35 */;
+          var b = n(35) /* anObject */;
           Object.defineProperty(t, "stageView", {
             enumerable: true,
             get: function () {
@@ -1081,7 +1081,7 @@ function (exports, module, require) {
             i = n(7) /* GTransform */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */,
-            s = n(3) /* module_3 */;
+            s = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             var t, n;
             function l() {
@@ -1325,7 +1325,7 @@ function (exports, module, require) {
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
-            s = n(3) /* module_3 */;
+            s = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             var t, n;
             function l(e) {
@@ -1436,7 +1436,7 @@ function (exports, module, require) {
             (t.logs = undefined);
           var o = n(1) /* module */,
             i = n(0) /* GObject */,
-            a = n(3) /* module_3 */;
+            a = n(3) /* polyfill_RegExp_toString */;
           (t.logs || (t.logs = {})).registerGetLogHandler = function (e) {
             (0, o.ensureInitialized)(),
               e
@@ -1468,10 +1468,10 @@ function (exports, module, require) {
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
-            s = n(3) /* module_3 */,
+            s = n(3) /* polyfill_RegExp_toString */,
             l = n(7) /* GTransform */,
             c = n(6) /* GRect */,
-            d = n(4) /* module_4 */;
+            d = n(4) /* stub_requires_668 */;
           (t.initializePrivateApis = function () {}),
             (t.getUserJoinedTeams = function (e, t) {
               if (
@@ -1574,7 +1574,7 @@ function (exports, module, require) {
             (t.menus = undefined);
           var o = n(1) /* module */,
             i = n(0) /* GObject */,
-            a = n(3) /* module_3 */;
+            a = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             !(function (e) {
               (e[(e.ifRoom = 0)] = "ifRoom"),
@@ -1635,7 +1635,7 @@ function (exports, module, require) {
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
-            s = n(3) /* module_3 */;
+            s = n(3) /* polyfill_RegExp_toString */;
           (n = (function () {
             function e() {}
             return (
@@ -1723,10 +1723,10 @@ function (exports, module, require) {
             s = n(1) /* module */,
             l = n(2) /* GNode */,
             c = n(5) /* GPoint */,
-            d = n(18) /* module_18 */,
+            d = n(18) /* MenuItemBuilder */,
             u = n(0) /* GObject */,
-            p = n(3) /* module_3 */,
-            g = n(4) /* module_4 */;
+            p = n(3) /* polyfill_RegExp_toString */,
+            g = n(4) /* stub_requires_668 */;
           !(function (e) {
             !(function (e) {
               (e.Base64 = "base64"), (e.ID = "id");
@@ -2058,7 +2058,7 @@ function (exports, module, require) {
               t.createFile =
                 undefined);
           var o = n(17) /* GRGBColor */,
-            i = n(4) /* module_4 */,
+            i = n(4) /* stub_requires_668 */,
             a = n(1) /* module */;
           function r(e) {
             var t;
@@ -2207,8 +2207,8 @@ function (exports, module, require) {
                     o(t, e, n);
               };
           Object.defineProperty(t, "__esModule", { value: true }),
-            i(n(20) /* module_20 */, t),
-            i(n(8) /* module_8 */, t);
+            i(n(20) /* polyfill_RegExp_exec */, t),
+            i(n(8) /* polyfill_bundle_ES6 */, t);
         },
         function (e, t, n) {
           "use strict";
@@ -2237,14 +2237,14 @@ function (exports, module, require) {
               t.logs =
               t.bot =
                 undefined);
-          var o = n(21) /* module_21 */;
+          var o = n(21) /* tryCall */;
           Object.defineProperty(t, "bot", {
             enumerable: true,
             get: function () {
               return o.bot;
             },
           });
-          var i = n(13) /* module_13 */;
+          var i = n(13) /* stub_requires_679 */;
           Object.defineProperty(t, "logs", {
             enumerable: true,
             get: function () {
@@ -2343,14 +2343,14 @@ function (exports, module, require) {
                 return r.registerUserSettingsChangeHandler;
               },
             });
-          var s = n(37) /* module_37 */;
+          var s = n(37) /* toString_default */;
           Object.defineProperty(t, "conversations", {
             enumerable: true,
             get: function () {
               return s.conversations;
             },
           });
-          var l = n(38) /* module_38 */;
+          var l = n(38) /* stub_requires_680 */;
           Object.defineProperty(t, "meetingRoom", {
             enumerable: true,
             get: function () {
@@ -2364,14 +2364,14 @@ function (exports, module, require) {
               return c.remoteCamera;
             },
           });
-          var d = n(40) /* module_40 */;
+          var d = n(40) /* CollaborationMergeUtils */;
           Object.defineProperty(t, "files", {
             enumerable: true,
             get: function () {
               return d.files;
             },
           });
-          var u = n(41) /* module_41 */;
+          var u = n(41) /* stub_requires_682 */;
           Object.defineProperty(t, "appEntity", {
             enumerable: true,
             get: function () {
@@ -2428,7 +2428,7 @@ function (exports, module, require) {
           })(t.bot || (t.bot = {}));
         },
         function (e, t, n) {
-          var o = n(23) /* module_23 */,
+          var o = n(23) /* globalThis */,
             i = n(24) /* GEditorOptions */;
           ((n = i).v1 = o), (n.v4 = i), (e.exports = n);
         },
@@ -2436,7 +2436,7 @@ function (exports, module, require) {
           var o,
             i,
             a = n(9) /* GLocale */,
-            r = n(10) /* module_10 */,
+            r = n(10) /* AppSettings */,
             s = 0,
             l = 0;
           e.exports = function (e, t, n) {
@@ -2481,7 +2481,7 @@ function (exports, module, require) {
         },
         function (e, t, n) {
           var o = n(9) /* GLocale */,
-            i = n(10) /* module_10 */;
+            i = n(10) /* AppSettings */;
           e.exports = function (e, t, n) {
             var a = (t && n) || 0;
             "string" == typeof e &&
@@ -2497,7 +2497,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.appInitialization = undefined);
           var o = n(1) /* module */,
-            i = n(4) /* module_4 */,
+            i = n(4) /* stub_requires_668 */,
             a = n(0) /* GObject */;
           !(function (e) {
             (e.Messages = {
@@ -2570,16 +2570,16 @@ function (exports, module, require) {
                 undefined);
           var o = n(1) /* module */,
             i = n(7) /* GTransform */,
-            a = n(4) /* module_4 */,
+            a = n(4) /* stub_requires_668 */,
             r = n(12) /* GMath */,
             s = n(5) /* GPoint */,
-            l = n(13) /* module_13 */,
+            l = n(13) /* stub_requires_679 */,
             c = n(2) /* GNode */,
             d = n(0) /* GObject */,
             u = n(11) /* GUtil */,
             p = n(14) /* GPaintCanvas */,
             g = n(15) /* module */,
-            h = n(3) /* module_3 */;
+            h = n(3) /* polyfill_RegExp_toString */;
           function f(e, t) {
             i.GlobalVars.initializeCalled ||
               ((i.GlobalVars.initializeCalled = true),
@@ -2827,7 +2827,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.tasks = undefined);
           var i = n(2) /* GNode */,
-            a = n(16) /* module_16 */,
+            a = n(16) /* _interopRequireDefault */,
             r = n(0) /* GObject */,
             s = n(1) /* module */;
           !(function (e) {
@@ -2880,7 +2880,7 @@ function (exports, module, require) {
             i = n(1) /* module */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */,
-            s = n(4) /* module_4 */;
+            s = n(4) /* stub_requires_668 */;
           !(function (e) {
             (e.getLocation = function (e, t) {
               if (!t)
@@ -2923,7 +2923,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.meeting = undefined);
           var o = n(0) /* GObject */,
-            i = n(3) /* module_3 */,
+            i = n(3) /* polyfill_RegExp_toString */,
             a = n(1) /* module */,
             r = n(2) /* GNode */;
           !(function (e) {
@@ -3124,9 +3124,9 @@ function (exports, module, require) {
           var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(6) /* GRect */,
-            r = n(18) /* module_18 */,
+            r = n(18) /* MenuItemBuilder */,
             s = n(0) /* GObject */,
-            l = n(4) /* module_4 */;
+            l = n(4) /* stub_requires_668 */;
           (t.people || (t.people = {})).selectPeople = function (e, t) {
             if (!e) throw new Error("[people picker] Callback cannot be null");
             (0, o.ensureInitialized)(
@@ -3148,7 +3148,7 @@ function (exports, module, require) {
           var o = n(0) /* GObject */,
             i = n(1) /* module */,
             a = n(2) /* GNode */,
-            r = n(3) /* module_3 */;
+            r = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             function t() {
               (0, o.sendMessageToParent)("video.videoFrameProcessed");
@@ -3307,7 +3307,7 @@ function (exports, module, require) {
           var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(0) /* GObject */,
-            r = n(3) /* module_3 */;
+            r = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             (e.openConversation = function (e) {
               (0, o.ensureInitialized)(i.FrameContexts.content),
@@ -3365,7 +3365,7 @@ function (exports, module, require) {
             (t.meetingRoom = undefined);
           var o = n(1) /* module */,
             i = n(0) /* GObject */,
-            a = n(3) /* module_3 */;
+            a = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             !(function (e) {
               (e.toggleMute = "toggleMute"),
@@ -3437,7 +3437,7 @@ function (exports, module, require) {
           var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(0) /* GObject */,
-            r = n(3) /* module_3 */;
+            r = n(3) /* polyfill_RegExp_toString */;
           !(function (e) {
             !(function (e) {
               (e.Reset = "Reset"),
@@ -3569,7 +3569,7 @@ function (exports, module, require) {
             (t.files = undefined);
           var o = n(0) /* GObject */,
             i = n(1) /* module */,
-            a = n(8) /* module_8 */;
+            a = n(8) /* polyfill_bundle_ES6 */;
           !(function (e) {
             !(function (e) {
               (e.Dropbox = "DROPBOX"),
@@ -3771,7 +3771,7 @@ function (exports, module, require) {
             (t.appEntity = undefined);
           var o = n(0) /* GObject */,
             i = n(1) /* module */,
-            a = n(8) /* module_8 */;
+            a = n(8) /* polyfill_bundle_ES6 */;
           (t.appEntity || (t.appEntity = {})).selectAppEntity = function (
             e,
             t,
@@ -3802,7 +3802,7 @@ function (exports, module, require) {
             (t.teams = undefined);
           var o = n(0) /* GObject */,
             i = n(1) /* module */,
-            a = n(8) /* module_8 */;
+            a = n(8) /* polyfill_bundle_ES6 */;
           !(function (e) {
             !(function (e) {
               (e[(e.Regular = 0)] = "Regular"),

@@ -8,7 +8,7 @@ function (exports, module, require) {
     function o() {
       this.stack = [];
     }
-    require(38) /* module_38 */,
+    require(38) /* stub_requires_680 */,
       (o.RawValue = function (e) {
         this.value = e;
       }),

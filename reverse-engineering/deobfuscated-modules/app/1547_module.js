@@ -5,28 +5,28 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(557) /* module_557 */, require(26) /* module_26 */;
-    var o = require(16) /* module_16 */;
-    require(96) /* module_96 */,
-      require(8) /* module_8 */,
+    require(19) /* polyfill_Array_iterator */, require(557) /* stub_requires_1102 */, require(26) /* polyfill_DOMCollection_iterator */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(96) /* polyfill_JSON_stringify */,
+      require(8) /* polyfill_bundle_ES6 */,
       require(356) /* module_356 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(3) /* module_3 */,
-      require(271) /* module_271 */,
-      require(34) /* module_34 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(271) /* polyfill_String_endsWith */,
+      require(34) /* polyfill_String_replace */,
       require(851) /* module_851 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(322) /* module_322 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(33) /* module_33 */;
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(322) /* stub_requires_669 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
       r = o(require(1300) /* module_1300 */),
       s = require(1163) /* module_1163 */,
-      l = require(40) /* module_40 */,
+      l = require(40) /* CollaborationMergeUtils */,
       c = require(593) /* module_593 */,
       d = o(require(44) /* GSystemDialog */),
       u = (function (e, t) {
@@ -55,13 +55,13 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(require(862) /* module_862 */),
-      p = require(858) /* module_858 */;
+      })(require(862) /* Exports_TYPES */),
+      p = require(858) /* Exports_GFilesPanel */;
     const g = require(156) /* module_156 */,
-      { CLOUD_DIALOG: h } = require(10) /* module_10 */,
+      { CLOUD_DIALOG: h } = require(10) /* AppSettings */,
       { GPlatform: f } = require(15) /* module */,
       m = require(85) /* GContainer */,
-      { GRegex: y } = require(263) /* module_263 */,
+      { GRegex: y } = require(263) /* Exports_GRegex */,
       v = function () {
         r.default.apply(this, arguments),
           (this._lockEnter = false),

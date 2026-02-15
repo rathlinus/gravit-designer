@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
       i = require(31) /* GAction */,
-      a = require(18) /* module_18 */;
+      a = require(18) /* MenuItemBuilder */;
     function r() {}
     o.GObject.inherit(r, i),
       (r.ID = "help.purchase"),

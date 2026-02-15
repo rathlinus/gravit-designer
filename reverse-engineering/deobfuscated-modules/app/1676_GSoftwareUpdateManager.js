@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */, require(96) /* module_96 */, require(865) /* module_865 */, require(193) /* module_193 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(97) /* module_97 */;
+    require(58) /* polyfill_Array_includes */, require(96) /* polyfill_JSON_stringify */, require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(97) /* stub_requires_684 */;
     var o = require(1) /* module */,
-      i = require(10) /* module_10 */,
-      a = require(40) /* module_40 */;
+      i = require(10) /* AppSettings */,
+      a = require(40) /* CollaborationMergeUtils */;
     const r = require(85) /* GContainer */,
       s = require(1188) /* module_1188 */,
       l = require(1349) /* module_1349 */;

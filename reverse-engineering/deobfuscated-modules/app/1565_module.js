@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(3) /* module_3 */;
+    require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */;
     const o = require(433) /* module_433 */;
     function i() {
       let exports =

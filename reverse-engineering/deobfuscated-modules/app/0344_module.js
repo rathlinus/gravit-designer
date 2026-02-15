@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* module_21 */,
-      i = require(23) /* module_23 */.RegExp,
+    var o = require(21) /* tryCall */,
+      i = require(23) /* globalThis */.RegExp,
       a = o(function () {
         var e = i("a", "y");
         return (e.lastIndex = 2), null !== e.exec("abcd");

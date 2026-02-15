@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* module_49 */,
+    var o = require(49) /* hasOwnProperty_wrapper */,
       i = require(399) /* module_399 */,
       a = require(400) /* module_400 */,
-      r = require(37) /* module_37 */,
+      r = require(37) /* toString_default */,
       s = require(294) /* module_294 */,
       l = TypeError,
       c = Object.defineProperty,

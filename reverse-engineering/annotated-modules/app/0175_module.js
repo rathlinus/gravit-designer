@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     var o = n(619) /* module_619 */,
-      i = n(46) /* module_46 */,
-      a = n(92) /* module_92 */,
+      i = n(46) /* toLength */,
+      a = n(92) /* classof */,
       r = n(620) /* module_620 */;
     e.exports =
       Object.setPrototypeOf ||

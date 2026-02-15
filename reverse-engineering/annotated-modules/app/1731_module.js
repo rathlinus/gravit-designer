@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
+    n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */,
-      a = (n(173) /* module_173 */, !1),
+      i = n(40) /* CollaborationMergeUtils */,
+      a = (n(173) /* stub_requires_1 */, !1),
       r = null,
       s = null;
     function l() {}

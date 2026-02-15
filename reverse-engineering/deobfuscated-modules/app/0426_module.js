@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(130) /* module_130 */,
-      i = require(117) /* module_117 */,
+    var o = require(130) /* lengthOfArrayLike */,
+      i = require(117) /* toStringTagSupport */,
       a = RangeError;
     exports.exports = function (e) {
       if (undefined === e) return 0;

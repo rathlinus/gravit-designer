@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
-      i = require(49) /* module_49 */,
-      a = require(23) /* module_23 */,
-      r = require(27) /* module_27 */,
+    var o = require(25) /* core_export */,
+      i = require(49) /* hasOwnProperty_wrapper */,
+      a = require(23) /* globalThis */,
+      r = require(27) /* uncurryThis */,
       s = require(61) /* module_61 */,
-      l = require(35) /* module_35 */,
-      c = require(144) /* module_144 */,
-      d = require(62) /* module_62 */,
+      l = require(35) /* anObject */,
+      c = require(144) /* stub_requires_27 */,
+      d = require(62) /* requireObjectCoercible */,
       u = require(120) /* module_120 */,
-      p = require(341) /* module_341 */,
+      p = require(341) /* copyConstructorProperties */,
       g = a.Symbol,
       h = g && g.prototype;
     if (i && l(g) && (!("description" in h) || undefined !== g().description)) {

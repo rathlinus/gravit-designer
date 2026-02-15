@@ -5,28 +5,28 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(557) /* module_557 */, n(26) /* module_26 */;
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */,
-      n(8) /* module_8 */,
+    n(19) /* polyfill_Array_iterator */, n(557) /* stub_requires_1102 */, n(26) /* polyfill_DOMCollection_iterator */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(96) /* polyfill_JSON_stringify */,
+      n(8) /* polyfill_bundle_ES6 */,
       n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(34) /* module_34 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(107) /* polyfill_RegExp_test */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(271) /* polyfill_String_endsWith */,
+      n(34) /* polyfill_String_replace */,
       n(851) /* module_851 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(322) /* module_322 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
+      n(91) /* polyfill_String_trim */,
+      n(4) /* stub_requires_668 */,
+      n(322) /* stub_requires_669 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
       r = o(n(1300) /* module_1300 */),
       s = n(1163) /* module_1163 */,
-      l = n(40) /* module_40 */,
+      l = n(40) /* CollaborationMergeUtils */,
       c = n(593) /* module_593 */,
       d = o(n(44) /* GSystemDialog */),
       u = (function (e, t) {
@@ -55,13 +55,13 @@ function (e, t, n) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(n(862) /* module_862 */),
-      p = n(858) /* module_858 */;
+      })(n(862) /* Exports_TYPES */),
+      p = n(858) /* Exports_GFilesPanel */;
     const g = n(156) /* module_156 */,
-      { CLOUD_DIALOG: h } = n(10) /* module_10 */,
+      { CLOUD_DIALOG: h } = n(10) /* AppSettings */,
       { GPlatform: f } = n(15) /* module */,
       m = n(85) /* GContainer */,
-      { GRegex: y } = n(263) /* module_263 */,
+      { GRegex: y } = n(263) /* Exports_GRegex */,
       v = function () {
         r.default.apply(this, arguments),
           (this._lockEnter = !1),

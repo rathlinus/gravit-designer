@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(49) /* module_49 */,
+    var o = n(23) /* globalThis */,
+      i = n(49) /* hasOwnProperty_wrapper */,
       a = Object.getOwnPropertyDescriptor;
     e.exports = function (e) {
       if (!i) return o[e];

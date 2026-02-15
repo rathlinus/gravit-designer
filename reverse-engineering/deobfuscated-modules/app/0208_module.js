@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(61) /* module_61 */,
-      i = require(35) /* module_35 */,
-      a = require(93) /* module_93 */,
+      i = require(35) /* anObject */,
+      a = require(93) /* stub_requires_92 */,
       r = require(300) /* module_300 */,
       s = require(665) /* module_665 */,
       l = r("IE_PROTO"),

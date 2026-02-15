@@ -6,11 +6,11 @@
 function (e, t, n) {
     "use strict";
     var o,
-      i = n(37) /* module_37 */,
+      i = n(37) /* toString_default */,
       a = n(617) /* module_617 */,
       r = n(301) /* module_301 */,
       s = n(259) /* module_259 */,
-      l = n(406) /* module_406 */,
+      l = n(406) /* stub_requires_110 */,
       c = n(242) /* module_242 */,
       d = n(300) /* module_300 */,
       u = d("IE_PROTO"),

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(57) /* polyfill_parseInt */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i = require(15) /* module */,
       a = require(53) /* module */,
       r = require(1) /* module */,
-      s = require(10) /* module_10 */,
+      s = require(10) /* AppSettings */,
       l = require(67) /* GRichTooltipConfig */,
       c = o(require(340) /* GTouchTool */),
       d = o(require(807) /* module_807 */),

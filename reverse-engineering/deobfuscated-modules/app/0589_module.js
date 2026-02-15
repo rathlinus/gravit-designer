@@ -10,5 +10,5 @@ function (exports, module, require) {
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       Object.assign(this, exports);
     }
-    require(30) /* module_30 */, (o.prototype.getUID = function () {}), (exports.exports = o);
+    require(30) /* polyfill_Object_assign */, (o.prototype.getUID = function () {}), (exports.exports = o);
   }

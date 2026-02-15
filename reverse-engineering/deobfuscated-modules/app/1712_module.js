@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(71) /* module_71 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(1175) /* module_1175 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(71) /* polyfill_String_includes */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(1175) /* stub_requires_1559 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(53) /* module */,
       a = require(1) /* module */,
       r = require(882) /* module_882 */,
-      s = require(10) /* module_10 */,
+      s = require(10) /* AppSettings */,
       l = o(require(1354) /* GInvalidationOptions */);
     const c = require(44) /* GSystemDialog */,
       d = require(358) /* module_358 */,
-      u = require(1355) /* module_1355 */,
+      u = require(1355) /* GSimpleTreeNodeNamed */,
       p = require(1713) /* module_1713 */,
       g = require(1357) /* module_1357 */,
       h = require(1356) /* module_1356 */,

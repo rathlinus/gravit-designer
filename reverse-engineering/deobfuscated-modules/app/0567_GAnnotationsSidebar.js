@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */, require(8) /* module_8 */, require(3) /* module_3 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(97) /* module_97 */, require(33) /* module_33 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(53) /* module */,
       a = require(1) /* module */,
       r = require(15) /* module */,
@@ -23,7 +23,7 @@ function (exports, module, require) {
       m = require(864) /* GInspectorSidebar */,
       y = require(123) /* GProperties */,
       v = require(1535) /* GAnnotations */,
-      _ = require(603) /* module_603 */,
+      _ = require(603) /* WindowEvent */,
       b = require(1536) /* GAnnotationProperties */,
       w = require(358) /* module_358 */,
       C = require(592) /* module_592 */;
@@ -33,15 +33,15 @@ function (exports, module, require) {
     const A = require(291) /* GNetworkAvailabilityChangedEvent */,
       T = require(393) /* GCollaborationEvent */,
       G = require(336) /* module_336 */,
-      P = require(434) /* module_434 */,
-      { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = require(10) /* module_10 */,
+      P = require(434) /* stub_requires_30_1072 */,
+      { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = require(10) /* AppSettings */,
       I = require(86) /* module_86 */,
       k = require(217) /* GDocumentStatusEvent */,
       O = require(1279) /* module_1279 */,
       {
         DateAPI: F,
         FileStatus: { APPROVED: R },
-      } = require(10) /* module_10 */,
+      } = require(10) /* AppSettings */,
       M = require(198) /* Exports_GOutlineSidebar */;
     function N() {
       h.call(this),

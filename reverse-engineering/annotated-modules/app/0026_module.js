@@ -5,13 +5,13 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(421) /* module_421 */,
-      a = n(422) /* module_422 */,
-      r = n(19) /* module_19 */,
-      s = n(100) /* module_100 */,
-      l = n(137) /* module_137 */,
-      c = n(43) /* module_43 */("iterator"),
+    var o = n(23) /* globalThis */,
+      i = n(421) /* domIterables */,
+      a = n(422) /* domTokenListPrototype */,
+      r = n(19) /* polyfill_Array_iterator */,
+      s = n(100) /* createProperty */,
+      l = n(137) /* setToStringTag */,
+      c = n(43) /* wellKnownSymbol */("iterator"),
       d = r.values,
       u = function (e, t) {
         if (e) {

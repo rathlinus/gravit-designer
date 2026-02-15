@@ -5,12 +5,12 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     var o = n(1) /* module */,
-      i = n(10) /* module_10 */,
-      a = n(237) /* module_237 */,
-      r = (n(220) /* module_220 */, n(40) /* module_40 */.decrypt);
-    n(173) /* module_173 */;
+      i = n(10) /* AppSettings */,
+      a = n(237) /* Item */,
+      r = (n(220) /* Item */, n(40) /* CollaborationMergeUtils */.decrypt);
+    n(173) /* stub_requires_1 */;
     function s() {}
     o.GObject.inherit(s, a),
       (s.prototype.canPromptOpen = function () {

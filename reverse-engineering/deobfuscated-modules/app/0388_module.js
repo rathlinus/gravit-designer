@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(3) /* module_3 */;
+    require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */;
-    const i = require(237) /* module_237 */,
+    const i = require(237) /* Item */,
       a = require(156) /* module_156 */;
     function r() {}
     o.GObject.inherit(r, i),

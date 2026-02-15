@@ -6,14 +6,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = o(n(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
-    var s = n(18) /* module_18 */,
+    var s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */;
-    const c = n(1152) /* module_1152 */,
+    const c = n(1152) /* Item */,
       d = n(44) /* GSystemDialog */;
     function u() {}
     i.GObject.inherit(u, l),

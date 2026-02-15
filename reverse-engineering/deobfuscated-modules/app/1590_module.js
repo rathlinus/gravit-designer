@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */(require(879) /* module_879 */);
+    var o = require(16) /* _interopRequireDefault */(require(879) /* module_879 */);
     const i = require(878) /* module_878 */;
     exports.exports = class extends i {
       constructor(e) {

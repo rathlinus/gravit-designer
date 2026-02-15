@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(290) /* module_290 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const { watchDog: o } = n(40) /* module_40 */,
+    n(290) /* module_290 */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(38) /* stub_requires_680 */;
+    const { watchDog: o } = n(40) /* CollaborationMergeUtils */,
       i = n(433) /* module_433 */,
       a = {
         init: function (e) {

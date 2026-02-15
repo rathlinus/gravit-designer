@@ -8,9 +8,9 @@ function (e, t, n) {
     function o() {
       this._queue = new Set();
     }
-    n(19) /* module_19 */,
-      n(8) /* module_8 */,
-      n(26) /* module_26 */,
+    n(19) /* polyfill_Array_iterator */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(26) /* polyfill_DOMCollection_iterator */,
       (o.prototype._queue = null),
       (o.prototype._isProcessing = !1),
       (o.prototype._onNext = null),

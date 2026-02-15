@@ -6,12 +6,12 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = o(n(1339) /* GPageProperties */),
       r = o(n(31) /* GAction */),
-      s = o(n(18) /* module_18 */);
+      s = o(n(18) /* MenuItemBuilder */);
     function l() {}
     i.GObject.inherit(l, r.default),
       (l.ID = "view.fast-view"),

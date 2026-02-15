@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
-      i = require(29) /* module_29 */;
+    var o = require(25) /* core_export */,
+      i = require(29) /* isCallable */;
     o(
       { target: "URL", proto: true, enumerable: true },
       {

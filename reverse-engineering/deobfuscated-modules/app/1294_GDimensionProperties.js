@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(57) /* module_57 */, require(20) /* module_20 */, require(107) /* module_107 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(57) /* polyfill_parseInt */, require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var i = require(53) /* module */,
       a = require(1) /* module */,
       r = require(67) /* GRichTooltipConfig */,
@@ -15,8 +15,8 @@ function (exports, module, require) {
       l = require(866) /* GAlignAction */,
       c = require(867) /* GDistributeAction */,
       d = require(123) /* GProperties */,
-      u = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */),
-      p = require(257) /* module_257 */,
+      u = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */),
+      p = require(257) /* barrel_panels */,
       g = require(1295) /* GSnapUnitAction */;
     function h() {
       this._elements = [];

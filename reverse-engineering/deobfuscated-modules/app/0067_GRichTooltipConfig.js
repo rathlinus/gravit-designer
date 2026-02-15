@@ -9,7 +9,7 @@ function (exports, module, require) {
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.TOOLTIP_AREA = module.GRichTooltipConfig = undefined),
       require(290) /* module_290 */,
-      require(3) /* module_3 */;
+      require(3) /* polyfill_RegExp_toString */;
     const o = (module.GRichTooltipConfig = function (e) {
       let {
         title: module,

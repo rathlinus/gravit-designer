@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     function o() {}
-    n(30) /* module_30 */,
-      n(57) /* module_57 */,
+    n(30) /* polyfill_Object_assign */,
+      n(57) /* polyfill_parseInt */,
       (o.prototype.type = null),
       (o.prototype.hasKey = function (e) {
         return this.hasOwnProperty(e);

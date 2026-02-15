@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(37) /* module_37 */,
-      i = n(46) /* module_46 */,
+    var o = n(37) /* toString_default */,
+      i = n(46) /* toLength */,
       a = n(202) /* module_202 */;
     e.exports = function (e, t) {
       if ((o(e), i(t) && t.constructor === e)) return t;

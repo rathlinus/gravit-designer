@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(27) /* module_27 */,
+    var o = n(25) /* core_export */,
+      i = n(27) /* uncurryThis */,
       a = n(348) /* module_348 */,
       r = i([].reverse),
       s = [1, 2];

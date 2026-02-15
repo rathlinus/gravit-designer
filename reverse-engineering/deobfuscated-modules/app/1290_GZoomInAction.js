@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(53) /* module */,
       i = require(1) /* module */,
       a = require(15) /* module */,
       r = require(67) /* GRichTooltipConfig */,
-      s = require(18) /* module_18 */,
+      s = require(18) /* MenuItemBuilder */,
       l = require(31) /* GAction */;
     function c() {
       c.TOOLTIP_CONFIG = {

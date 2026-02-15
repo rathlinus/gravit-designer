@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(271) /* module_271 */;
-    const o = n(10) /* module_10 */,
+    n(271) /* polyfill_String_endsWith */;
+    const o = n(10) /* AppSettings */,
       { IS_LOCALHOST: i, IS_RC: a } = n(231) /* module_231 */;
     o.IS_TEAMS = "teams.coreldraw.app" === window.location.hostname;
     const r = window.location.hostname.endsWith(".ngrok.io");

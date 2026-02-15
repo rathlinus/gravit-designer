@@ -7,9 +7,9 @@ function (exports, module, require) {
     "use strict";
     require(53) /* module */;
     var o = require(1) /* module */,
-      i = (require(15) /* module */, require(40) /* module_40 */),
+      i = (require(15) /* module */, require(40) /* CollaborationMergeUtils */),
       a = (require(67) /* GRichTooltipConfig */, require(238) /* GMenu */),
-      r = (require(1151) /* GSwatchesChangedEvent */, require(857) /* module_857 */, require(173) /* module_173 */, require(877) /* GPasteAction */, require(44) /* GSystemDialog */),
+      r = (require(1151) /* GSwatchesChangedEvent */, require(857) /* module_857 */, require(173) /* stub_requires_1 */, require(877) /* GPasteAction */, require(44) /* GSystemDialog */),
       s = require(1150) /* module_1150 */;
     function l() {
       this.initLayout(),

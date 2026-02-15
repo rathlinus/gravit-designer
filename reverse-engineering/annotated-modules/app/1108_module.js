@@ -5,7 +5,7 @@
 
 function (t, n, o) {
     "use strict";
-    o(96) /* module_96 */, o(57) /* module_57 */, o(20) /* module_20 */, o(151) /* module_151 */, o(38) /* module_38 */;
+    o(96) /* polyfill_JSON_stringify */, o(57) /* polyfill_parseInt */, o(20) /* polyfill_RegExp_exec */, o(151) /* module_151 */, o(38) /* stub_requires_680 */;
     var i = function () {
       (this.interval = 1e3), (this.maxInterval = 6e4);
     };

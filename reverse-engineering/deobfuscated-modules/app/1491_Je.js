@@ -6,38 +6,38 @@
 
 function (exports, module, require) {
     "use strict";
-    require(557) /* module_557 */;
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(168) /* module_168 */,
-      require(596) /* module_596 */,
-      require(96) /* module_96 */,
-      require(30) /* module_30 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(71) /* module_71 */,
-      require(34) /* module_34 */,
-      require(134) /* module_134 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(97) /* module_97 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
+    require(557) /* stub_requires_1102 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(168) /* polyfill_Array_reduce */,
+      require(596) /* polyfill_Array_reverse */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(71) /* polyfill_String_includes */,
+      require(34) /* polyfill_String_replace */,
+      require(134) /* polyfill_String_startsWith */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(97) /* stub_requires_684 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(53) /* module */,
       a = require(1) /* module */,
       r = require(15) /* module */,
-      s = require(10) /* module_10 */,
+      s = require(10) /* AppSettings */,
       l = require(357) /* module_357 */,
       c = o(require(1492) /* module_1492 */),
-      d = require(1246) /* module_1246 */,
-      u = require(40) /* module_40 */,
+      d = require(1246) /* Exports_GPersona */,
+      u = require(40) /* CollaborationMergeUtils */,
       p = require(1247) /* module_1247 */,
       g = (function (e, t) {
         if ("function" == typeof WeakMap)
@@ -67,7 +67,7 @@ function (exports, module, require) {
         })(e, t);
       })(require(1739) /* module_1739 */),
       h = (o(require(1249) /* module_1249 */), o(require(1155) /* module_1155 */)),
-      f = o(require(556) /* module_556 */),
+      f = o(require(556) /* Item */),
       m = o(require(734) /* module_734 */),
       y = o(require(1494) /* module_1494 */),
       v = o(require(1496) /* module_1496 */),
@@ -87,7 +87,7 @@ function (exports, module, require) {
       I = require(395) /* module_395 */;
     require(1540) /* module_1540 */;
     var k = require(1541) /* GToolbar */,
-      O = require(603) /* module_603 */,
+      O = require(603) /* WindowEvent */,
       F = require(863) /* module_863 */,
       R = require(1294) /* GDimensionProperties */,
       M = require(135) /* GSettingChangedEvent */,
@@ -97,22 +97,22 @@ function (exports, module, require) {
       j = require(1172) /* GInstallToDesktopAction */,
       K = require(1170) /* GToggleSidebarAction */,
       V = require(1297) /* GOutlineViewAction */,
-      H = (require(1298) /* GUseCouponAction */, require(255) /* module_255 */),
-      W = require(590) /* module_590 */,
+      H = (require(1298) /* GUseCouponAction */, require(255) /* barrel_sidebars */),
+      W = require(590) /* barrel_editor_actions */,
       z = require(1544) /* module_1544 */,
       q = require(1560) /* module_1560 */,
       Y = require(1562) /* GInstallPwaDialog */,
       X = require(1303) /* GContextMenu */;
     require(1563) /* module_1563 */;
     var Q = require(119) /* module_119 */,
-      J = require(220) /* module_220 */,
+      J = require(220) /* Item */,
       Z = require(85) /* GContainer */,
       ee = require(44) /* GSystemDialog */,
       te = require(1276) /* module_1276 */,
       ne = require(1564) /* module_1564 */,
       oe = require(1250) /* module_1250 */,
       ie = require(291) /* GNetworkAvailabilityChangedEvent */,
-      ae = require(1313) /* module_1313 */,
+      ae = require(1313) /* URIListHandler */,
       re = require(860) /* module_860 */,
       se = require(441) /* module_441 */,
       le = require(292) /* module_292 */,
@@ -127,7 +127,7 @@ function (exports, module, require) {
       ye = require(1165) /* module_1165 */,
       ve = require(1572) /* module_1572 */,
       _e = require(846) /* module_846 */,
-      be = require(337) /* module_337 */,
+      be = require(337) /* stub_requires_1098 */,
       we = require(1325) /* module_1325 */,
       Ce = require(785) /* module_785 */,
       xe = require(256) /* GOfflineDialog */,
@@ -138,19 +138,19 @@ function (exports, module, require) {
       Ge = require(1188) /* module_1188 */,
       Pe = require(447) /* GSaveAction */,
       De = require(86) /* module_86 */,
-      Le = (require(18) /* module_18 */, require(442) /* module_442 */);
+      Le = (require(18) /* MenuItemBuilder */, require(442) /* module_442 */);
     const {
       defaultLegacyUserSettings: { features: Ie },
     } = s.defaultUserSettings;
-    var ke = require(10) /* module_10 */;
+    var ke = require(10) /* AppSettings */;
     const { gApi: Oe } = ke;
-    var Fe = require(388) /* module_388 */,
+    var Fe = require(388) /* Item */,
       Re = require(1580) /* module_1580 */;
     const Me = require(1581) /* module_1581 */,
       Ne = require(1584) /* module_1584 */;
     var Be = require(1587) /* module_1587 */;
     require(607) /* module_607 */;
-    const Ue = require(40) /* module_40 */,
+    const Ue = require(40) /* CollaborationMergeUtils */,
       $e = require(177) /* module_177 */,
       je = require(1338) /* module_1338 */,
       Ke = require(1173) /* module_1173 */,

@@ -5,22 +5,22 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
+    n(19) /* polyfill_Array_iterator */,
+      n(96) /* polyfill_JSON_stringify */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
       n(247) /* module_247 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
+      n(91) /* polyfill_String_trim */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */;
-    const { TRANSLATION_MANAGER: i } = n(10) /* module_10 */;
+    const { TRANSLATION_MANAGER: i } = n(10) /* AppSettings */;
     function a() {}
     o.GObject.inherit(a, o.GObject),
       (a.prototype._translationBase = null),

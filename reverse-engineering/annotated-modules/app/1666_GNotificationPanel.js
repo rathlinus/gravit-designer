@@ -6,17 +6,17 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */;
     const {
         DESIGNER: { TITLE: i },
-      } = n(10) /* module_10 */,
+      } = n(10) /* AppSettings */,
       a = n(606) /* GPanel */,
       r = n(394) /* GView */,
       s = n(1321) /* module_1321 */,
       l = n(78) /* GDocumentEvent */,
       c = n(860) /* module_860 */,
-      d = n(1667) /* module_1667 */;
+      d = n(1667) /* Type */;
     function u() {}
     o.GObject.inherit(u, a),
       (u.ID = "notification-panel"),

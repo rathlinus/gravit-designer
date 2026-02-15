@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    require(168) /* module_168 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(196) /* module_196 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(1175) /* module_1175 */,
-      require(33) /* module_33 */;
+    require(168) /* polyfill_Array_reduce */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(196) /* polyfill_Promise_finally */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(1175) /* stub_requires_1559 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(1) /* module */,
-      i = require(10) /* module_10 */,
+      i = require(10) /* AppSettings */,
       a = require(119) /* module_119 */,
       r = require(163) /* module_163 */;
-    const { debounce: s } = require(40) /* module_40 */,
+    const { debounce: s } = require(40) /* CollaborationMergeUtils */,
       l = i.FILE_FORMATS.find((e) => e.default);
     var c = {},
       d = null;

@@ -6,19 +6,19 @@
 function (e, t, n) {
     "use strict";
     n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(57) /* polyfill_parseInt */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(1) /* module */,
       i = n(381) /* module_381 */,
-      a = n(255) /* module_255 */,
+      a = n(255) /* barrel_sidebars */,
       r = n(1198) /* module_1198 */,
       s = n(44) /* GSystemDialog */;
     function l(e) {

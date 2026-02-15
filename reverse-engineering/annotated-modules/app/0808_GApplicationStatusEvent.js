@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */;
     function i(e) {
       this.status = e;

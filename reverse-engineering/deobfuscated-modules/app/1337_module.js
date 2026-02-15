@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    require(4) /* module_4 */,
-      require(13) /* module_13 */,
+    require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
       (o.Orientation = { Vertical: "vertical", Horizontal: "horizontal" }),
       (function (e) {
         const module = {

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(592) /* module_592 */;
     const { isUTS: i, UTStoCDA: a } = n(1095) /* module */;
     function r(e, t, n, r) {

@@ -6,12 +6,12 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = o(n(443) /* module_443 */),
-      r = n(10) /* module_10 */,
-      s = n(18) /* module_18 */,
+      r = n(10) /* AppSettings */,
+      s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */,
       c = n(219) /* module_219 */,
       d = n(85) /* GContainer */,

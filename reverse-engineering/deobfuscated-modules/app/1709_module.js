@@ -22,8 +22,8 @@ function (exports, module, require) {
         n && this.rowCount(n),
         this.endUpdate();
     }
-    require(57) /* module_57 */,
-      require(3) /* module_3 */,
+    require(57) /* polyfill_parseInt */,
+      require(3) /* polyfill_RegExp_toString */,
       (o.prototype._renderer = null),
       (o.prototype._rowHeight = 0),
       (o.prototype._rowCount = 0),

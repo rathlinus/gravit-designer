@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */;
+    require(20) /* polyfill_RegExp_exec */;
     var o,
       i,
-      a = require(25) /* module_25 */,
-      r = require(29) /* module_29 */,
-      s = require(35) /* module_35 */,
-      l = require(37) /* module_37 */,
-      c = require(62) /* module_62 */,
+      a = require(25) /* core_export */,
+      r = require(29) /* isCallable */,
+      s = require(35) /* anObject */,
+      l = require(37) /* toString_default */,
+      c = require(62) /* requireObjectCoercible */,
       d =
         ((o = false),
         ((i = /[ac]/).exec = function () {

@@ -146,5 +146,5 @@ function (e, t, n) {
     var o = n(1) /* module */,
       i = n(15) /* module */,
       a = n(53) /* module */,
-      r = (n(1267) /* module_1267 */, n(123) /* GProperties */, n(173) /* module_173 */, n(219) /* module_219 */);
+      r = (n(1267) /* module_1267 */, n(123) /* GProperties */, n(173) /* stub_requires_1 */, n(219) /* module_219 */);
   }

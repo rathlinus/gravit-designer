@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     const o = n(1574) /* module_1574 */,
       i = n(1576) /* module_1576 */;
     n(1186) /* module_1186 */;

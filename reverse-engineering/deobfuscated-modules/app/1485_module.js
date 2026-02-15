@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = async function (e, t, n, o) {
         var i = undefined !== window.dataLayer ? window.dataLayer : [],
@@ -23,16 +23,16 @@ function (exports, module, require) {
         var c = a.default.getRuntimeCode();
         i.push({ installType: c }), i.push({ event: "INIT_GTM_EVENT" });
       }),
-      require(8) /* module_8 */,
-      require(4) /* module_4 */,
-      require(32) /* module_32 */,
-      require(33) /* module_33 */;
+      require(8) /* polyfill_bundle_ES6 */,
+      require(4) /* stub_requires_668 */,
+      require(32) /* stub_requires_670 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
       a = o(require(859) /* module_859 */),
-      r = require(40) /* module_40 */,
+      r = require(40) /* CollaborationMergeUtils */,
       s = require(803) /* module_803 */;
     const { GA: { customDimensions: l } = {}, GoogleTagManagerSettings: c } =
-      require(10) /* module_10 */;
+      require(10) /* AppSettings */;
     window.dataLayer = [];
     const d = c.getContainerId(s.nodeEnv);
     !(function (e, t, n, o, i) {

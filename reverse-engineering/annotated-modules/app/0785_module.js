@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     e.exports = new (class {
       constructor() {
         (this._cache = {}), (this._initiliazed = !1);

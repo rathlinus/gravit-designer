@@ -7,12 +7,12 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.default = void 0),
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(271) /* module_271 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(38) /* module_38 */;
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(271) /* polyfill_String_endsWith */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
+      n(38) /* stub_requires_680 */;
     const { isBeta: o } = n(803) /* module_803 */;
     var i = n(1495) /* module_1495 */;
     let a = 0,

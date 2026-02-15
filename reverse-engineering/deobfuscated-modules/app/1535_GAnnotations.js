@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */, require(3) /* module_3 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */;
+    require(58) /* polyfill_Array_includes */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(53) /* module */,
       i = require(1) /* module */,
       a = require(15) /* module */,
@@ -15,7 +15,7 @@ function (exports, module, require) {
       l = require(123) /* GProperties */;
     const c = require(358) /* module_358 */,
       d = require(86) /* module_86 */,
-      { SHOW_SIDEBAR_BADGE: u } = require(10) /* module_10 */;
+      { SHOW_SIDEBAR_BADGE: u } = require(10) /* AppSettings */;
     function p() {
       this._elements = [];
     }

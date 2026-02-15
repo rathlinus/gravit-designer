@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
+    require(19) /* polyfill_Array_iterator */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(8) /* module_8 */,
-      require(91) /* module_91 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(91) /* polyfill_String_trim */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */;
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */;
     var o = require(1) /* module */,
       i = require(797) /* module */,
-      a = require(40) /* module_40 */,
-      r = require(10) /* module_10 */,
-      s = require(237) /* module_237 */,
+      a = require(40) /* CollaborationMergeUtils */,
+      r = require(10) /* AppSettings */,
+      s = require(237) /* Item */,
       l = require(163) /* module_163 */,
       c = require(442) /* module_442 */;
     const d = require(389) /* module_389 */;

@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(49) /* module_49 */,
+    var o = n(49) /* hasOwnProperty_wrapper */,
       i = n(399) /* module_399 */,
       a = n(400) /* module_400 */,
-      r = n(37) /* module_37 */,
+      r = n(37) /* toString_default */,
       s = n(294) /* module_294 */,
       l = TypeError,
       c = Object.defineProperty,

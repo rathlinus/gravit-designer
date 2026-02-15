@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(53) /* module */,
       i = n(15) /* module */,
       a = n(1) /* module */,
-      r = n(18) /* module_18 */,
+      r = n(18) /* MenuItemBuilder */,
       s = n(31) /* GAction */;
     function l(e) {
       (this._category = e),

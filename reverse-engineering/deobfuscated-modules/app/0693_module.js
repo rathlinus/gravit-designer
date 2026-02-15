@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(21) /* module_21 */,
+    var o = require(23) /* globalThis */,
+      i = require(21) /* tryCall */,
       a = require(343) /* module_343 */,
       r = require(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
       s = o.ArrayBuffer,

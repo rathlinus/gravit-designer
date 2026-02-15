@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     require(1) /* module */;
     require(1327) /* module_1327 */, require(1579) /* module_1579 */;
     class o {

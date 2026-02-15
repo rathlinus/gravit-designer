@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(290) /* module_290 */, n(38) /* module_38 */;
+    n(290) /* module_290 */, n(38) /* stub_requires_680 */;
     const {
         ShareRoles: o,
         defaultUserSettings: {
@@ -16,7 +16,7 @@ function (e, t, n) {
             } = {},
           } = {},
         } = {},
-      } = n(10) /* module_10 */,
+      } = n(10) /* AppSettings */,
       r = n(1067) /* module_1067 */,
       s = n(1070) /* module_1070 */,
       l = n(1071) /* module_1071 */;

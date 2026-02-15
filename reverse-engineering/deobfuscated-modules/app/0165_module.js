@@ -6,5 +6,5 @@
 function (exports, module, require) {
     "use strict";
     var o = {};
-    (0, require(94) /* module_94 */.assign)(o, require(462) /* module_462 */, require(465) /* module_465 */, require(314) /* module_314 */), (exports.exports = o);
+    (0, require(94) /* Exports_Buf */.assign)(o, require(462) /* Deflate */, require(465) /* Inflate */, require(314) /* module_314 */), (exports.exports = o);
   }

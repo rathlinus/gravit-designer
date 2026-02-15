@@ -5,21 +5,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */,
-      require(30) /* module_30 */,
-      require(20) /* module_20 */,
-      require(271) /* module_271 */,
-      require(71) /* module_71 */,
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */,
+      require(30) /* polyfill_Object_assign */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(271) /* polyfill_String_endsWith */,
+      require(71) /* polyfill_String_includes */,
       require(151) /* module_151 */,
-      require(34) /* module_34 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(32) /* module_32 */,
-      require(33) /* module_33 */;
-    var i = require(40) /* module_40 */,
-      a = o(require(263) /* module_263 */);
-    const { FILE_ID_PREFIX: r } = require(10) /* module_10 */;
+      require(34) /* polyfill_String_replace */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(32) /* stub_requires_670 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
+    var i = require(40) /* CollaborationMergeUtils */,
+      a = o(require(263) /* Exports_GRegex */);
+    const { FILE_ID_PREFIX: r } = require(10) /* AppSettings */;
     function s() {
       this._permissions = [];
     }

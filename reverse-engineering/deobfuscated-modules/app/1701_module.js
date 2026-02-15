@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(8) /* module_8 */, require(20) /* module_20 */, require(851) /* module_851 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(851) /* module_851 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */,
+      i = require(40) /* CollaborationMergeUtils */,
       a = require(1200) /* module_1200 */,
-      r = require(255) /* module_255 */;
+      r = require(255) /* barrel_sidebars */;
     function s(e, t) {
       var n = $(this);
       n.empty(),

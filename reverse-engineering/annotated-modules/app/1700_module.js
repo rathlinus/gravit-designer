@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */,
-      a = n(255) /* module_255 */,
+      i = n(40) /* CollaborationMergeUtils */,
+      a = n(255) /* barrel_sidebars */,
       r = n(1118) /* module_1118 */,
       s = n(1199) /* module_1199 */,
       l = n(85) /* GContainer */,

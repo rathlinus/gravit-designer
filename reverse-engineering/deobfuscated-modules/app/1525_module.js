@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(130) /* module_130 */,
-      i = require(62) /* module_62 */,
-      a = require(92) /* module_92 */,
+    var o = require(130) /* lengthOfArrayLike */,
+      i = require(62) /* requireObjectCoercible */,
+      a = require(92) /* classof */,
       r = RangeError;
     exports.exports = function (e) {
       var t = i(a(this)),

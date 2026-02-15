@@ -10,8 +10,8 @@ function (e, t, n) {
         t[n] = arguments[n];
       t && this._updateFromArguments(t);
     }
-    n(19) /* module_19 */,
-      n(26) /* module_26 */,
+    n(19) /* polyfill_Array_iterator */,
+      n(26) /* polyfill_DOMCollection_iterator */,
       (o.prototype._updateFromArguments = function () {
         for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++)
           t[n] = arguments[n];

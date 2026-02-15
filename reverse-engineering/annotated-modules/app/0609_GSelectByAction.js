@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
       i = n(53) /* module */;
-    const a = n(18) /* module_18 */,
+    const a = n(18) /* MenuItemBuilder */,
       r = n(106) /* GElementAction */;
     function s(e, t) {
       r.call(this), (this._id = e), (this._title = t);

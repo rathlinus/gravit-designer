@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */, n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(58) /* polyfill_Array_includes */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */, n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = n(847) /* module_847 */,
       r = o(n(1239) /* SharepointException */),
-      s = o(n(388) /* module_388 */),
+      s = o(n(388) /* Item */),
       l = o(n(1481) /* module_1481 */),
-      c = n(10) /* module_10 */,
+      c = n(10) /* AppSettings */,
       d = o(n(594) /* GError */);
     const u = n(86) /* module_86 */,
       p = n(336) /* module_336 */,

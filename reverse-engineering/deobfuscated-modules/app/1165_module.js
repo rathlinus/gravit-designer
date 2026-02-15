@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */, require(97) /* module_97 */;
+    require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */, require(97) /* stub_requires_684 */;
     var o = require(1) /* module */;
     const i = require(78) /* GDocumentEvent */,
       a = require(393) /* GCollaborationEvent */,
@@ -19,7 +19,7 @@ function (exports, module, require) {
         FILE_REVIEW_ENABLED: p,
         Notification: g,
         NotificationConstants: { FILE_REVIEW_FLOW: h = [] },
-      } = require(10) /* module_10 */;
+      } = require(10) /* AppSettings */;
     function f() {
       if (!p) return this;
       gDesigner.addEventListener(i, this._documentEvent, this),

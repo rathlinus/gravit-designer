@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(96) /* module_96 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    require(96) /* polyfill_JSON_stringify */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(1) /* module */;
     function i(e, t, n, i) {
       (this._dialog = $("<div></div>")),

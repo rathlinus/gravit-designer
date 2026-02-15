@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(74) /* module_74 */,
-      i = n(23) /* module_23 */,
-      a = n(298) /* module_298 */,
+    var o = n(74) /* createNonEnumerableProperty */,
+      i = n(23) /* globalThis */,
+      a = n(298) /* defineGlobalProperty */,
       r = (e.exports = i["__core-js_shared__"] || a("__core-js_shared__", {}));
     (r.versions || (r.versions = [])).push({
       version: "3.42.0",

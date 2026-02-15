@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(57) /* module_57 */;
+    require(57) /* polyfill_parseInt */;
     var o = require(1156) /* GMenuCloseEvent */,
       i = require(444) /* module_444 */,
       a = {

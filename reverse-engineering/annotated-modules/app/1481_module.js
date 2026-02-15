@@ -8,7 +8,7 @@ function (e, t, n) {
     function o(e, t) {
       (this._low = parseInt(e, 10)), (this._hight = parseInt(t, 10));
     }
-    n(57) /* module_57 */,
+    n(57) /* polyfill_parseInt */,
       (o.Permissions = {
         ViewListItems: 1,
         AddListItems: 2,

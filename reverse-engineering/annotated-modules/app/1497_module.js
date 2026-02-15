@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */, n(34) /* module_34 */;
-    var o = n(10) /* module_10 */;
+    n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
+    var o = n(10) /* AppSettings */;
     const { GLocale: i, GLocaleKey: a } = n(1) /* module */;
     function r(e) {
       this._htmlElement = e;

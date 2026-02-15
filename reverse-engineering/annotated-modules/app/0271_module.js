@@ -6,15 +6,15 @@
 function (e, t, n) {
     "use strict";
     var o,
-      i = n(25) /* module_25 */,
+      i = n(25) /* core_export */,
       a = n(223) /* module_223 */,
-      r = n(222) /* module_222 */.f,
-      s = n(117) /* module_117 */,
-      l = n(62) /* module_62 */,
+      r = n(222) /* objectGetOwnPropertyDescriptor */.f,
+      s = n(117) /* toStringTagSupport */,
+      l = n(62) /* requireObjectCoercible */,
       c = n(361) /* module_361 */,
-      d = n(92) /* module_92 */,
+      d = n(92) /* classof */,
       u = n(362) /* module_362 */,
-      p = n(74) /* module_74 */,
+      p = n(74) /* createNonEnumerableProperty */,
       g = a("".slice),
       h = Math.min,
       f = u("endsWith");

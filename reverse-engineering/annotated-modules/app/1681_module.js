@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     const o = n(44) /* GSystemDialog */,
-      { gApi: i } = n(10) /* module_10 */,
+      { gApi: i } = n(10) /* AppSettings */,
       a = n(1350) /* module_1350 */;
     e.exports = class {
       async open(e) {

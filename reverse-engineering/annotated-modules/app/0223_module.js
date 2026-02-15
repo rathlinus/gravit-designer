@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(116) /* module_116 */,
-      i = n(27) /* module_27 */;
+      i = n(27) /* uncurryThis */;
     e.exports = function (e) {
       if ("Function" === o(e)) return i(e);
     };

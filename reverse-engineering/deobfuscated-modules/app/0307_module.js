@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(37) /* module_37 */;
+    var o = require(37) /* toString_default */;
     exports.exports = function () {
       var e = o(this),
         t = "";

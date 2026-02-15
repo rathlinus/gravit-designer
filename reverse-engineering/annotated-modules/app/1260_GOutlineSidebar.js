@@ -6,8 +6,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(596) /* module_596 */, n(30) /* module_30 */, n(57) /* module_57 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(596) /* polyfill_Array_reverse */, n(30) /* polyfill_Object_assign */, n(57) /* polyfill_parseInt */, n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(53) /* module */,
       a = n(1) /* module */,
       r = n(15) /* module */,
@@ -17,7 +17,7 @@ function (e, t, n) {
       d = n(78) /* GDocumentEvent */,
       u = n(217) /* GDocumentStatusEvent */,
       p = n(86) /* module_86 */,
-      g = n(603) /* module_603 */,
+      g = n(603) /* WindowEvent */,
       h = n(449) /* GFitAllAction */,
       f = n(566) /* GFitSelectionAction */,
       m = n(806) /* GSidebar */,

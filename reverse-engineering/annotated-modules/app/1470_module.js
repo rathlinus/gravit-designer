@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(26) /* module_26 */;
-    const o = n(255) /* module_255 */;
+    n(19) /* polyfill_Array_iterator */, n(26) /* polyfill_DOMCollection_iterator */;
+    const o = n(255) /* barrel_sidebars */;
     e.exports = class {
       constructor() {
         this._missingFonts = [];

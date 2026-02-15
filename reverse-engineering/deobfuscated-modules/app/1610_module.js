@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(1) /* module */,
-      i = require(237) /* module_237 */;
+      i = require(237) /* Item */;
     function a() {}
     o.GObject.inherit(a, i),
       (a.Item = function (e) {

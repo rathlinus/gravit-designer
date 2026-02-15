@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(193) /* module_193 */, n(3) /* module_3 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(193) /* polyfill_Object_keys */, n(3) /* polyfill_RegExp_toString */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */,
       i = n(15) /* module */,
-      a = n(40) /* module_40 */,
-      r = n(18) /* module_18 */,
+      a = n(40) /* CollaborationMergeUtils */,
+      r = n(18) /* MenuItemBuilder */,
       s = n(106) /* GElementAction */,
       l = n(44) /* GSystemDialog */;
     function c() {}

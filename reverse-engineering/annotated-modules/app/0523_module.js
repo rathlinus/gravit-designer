@@ -5,6 +5,6 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(129) /* module_129 */.match(/AppleWebKit\/(\d+)\./);
+    var o = n(129) /* stub_requires_23 */.match(/AppleWebKit\/(\d+)\./);
     e.exports = !!o && +o[1];
   }

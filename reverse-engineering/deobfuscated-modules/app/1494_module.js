@@ -7,12 +7,12 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = undefined),
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(271) /* module_271 */,
-      require(34) /* module_34 */,
-      require(134) /* module_134 */,
-      require(38) /* module_38 */;
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(271) /* polyfill_String_endsWith */,
+      require(34) /* polyfill_String_replace */,
+      require(134) /* polyfill_String_startsWith */,
+      require(38) /* stub_requires_680 */;
     const { isBeta: o } = require(803) /* module_803 */;
     var i = require(1495) /* module_1495 */;
     let a = 0,

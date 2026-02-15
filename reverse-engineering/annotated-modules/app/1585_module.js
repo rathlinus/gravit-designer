@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */,
+    var o = n(16) /* _interopRequireDefault */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(10) /* module_10 */,
+      r = n(10) /* AppSettings */,
       s = o(n(880) /* module_880 */),
       l = o(n(1189) /* module_1189 */);
     let c = !1,

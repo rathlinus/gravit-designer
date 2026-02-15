@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     const o = n(1244) /* module_1244 */,
       i = n(85) /* GContainer */,
-      { Runtime: a, msTeamsMode: r } = n(10) /* module_10 */,
+      { Runtime: a, msTeamsMode: r } = n(10) /* AppSettings */,
       { storeVendor: s } = n(803) /* module_803 */,
       l = "darwin",
       c = "win32",

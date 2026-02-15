@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(622) /* module_622 */,
-      i = n(35) /* module_35 */,
+    var o = n(622) /* stub_requires_43 */,
+      i = n(35) /* anObject */,
       a = n(116) /* module_116 */,
-      r = n(43) /* module_43 */("toStringTag"),
+      r = n(43) /* wellKnownSymbol */("toStringTag"),
       s = Object,
       l =
         "Arguments" ===

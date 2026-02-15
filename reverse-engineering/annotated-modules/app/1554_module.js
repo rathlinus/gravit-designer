@@ -8,7 +8,7 @@ function (e, t, n) {
     function o() {
       this.stack = [];
     }
-    n(38) /* module_38 */,
+    n(38) /* stub_requires_680 */,
       (o.RawValue = function (e) {
         this.value = e;
       }),

@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
-      i = (require(18) /* module_18 */, require(31) /* GAction */);
+      i = (require(18) /* MenuItemBuilder */, require(31) /* GAction */);
     function a(e) {
       let { name: module, category: require, group: i, link: a, icon: r, builder: s } = e;
       (this._name = module),

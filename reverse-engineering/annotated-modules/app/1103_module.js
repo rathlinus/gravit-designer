@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     var o = n(116) /* module_116 */,
-      i = n(184) /* module_184 */,
+      i = n(184) /* toIndexedObject */,
       a = n(243) /* module_243 */.f,
-      r = n(157) /* module_157 */,
+      r = n(157) /* stub_requires_27 */,
       s =
         "object" == typeof window && window && Object.getOwnPropertyNames
           ? Object.getOwnPropertyNames(window)

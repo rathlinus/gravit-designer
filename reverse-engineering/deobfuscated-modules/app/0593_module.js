@@ -40,16 +40,16 @@ function (exports, module, require) {
           });
         }).then((e) => new Response(e));
       }),
-      require(19) /* module_19 */,
+      require(19) /* polyfill_Array_iterator */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */,
-      require(4) /* module_4 */,
-      require(97) /* module_97 */;
+      require(4) /* stub_requires_668 */,
+      require(97) /* stub_requires_684 */;
   }

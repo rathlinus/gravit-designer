@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */;
     var i = n(1) /* module */,
       a = n(1163) /* module_1163 */,
       r = o(n(1090) /* module_1090 */),
       s = o(n(358) /* module_358 */),
-      l = n(40) /* module_40 */,
-      c = n(10) /* module_10 */;
+      l = n(40) /* CollaborationMergeUtils */,
+      c = n(10) /* AppSettings */;
     const d = n(0) /* GObject */,
       u = n(1551) /* module_1551 */,
       p = n(1174) /* module_1174 */;

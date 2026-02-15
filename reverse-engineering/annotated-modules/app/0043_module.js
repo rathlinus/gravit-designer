@@ -5,12 +5,12 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
+    var o = n(23) /* globalThis */,
       i = n(296) /* module_296 */,
       a = n(61) /* module_61 */,
       r = n(258) /* module_258 */,
       s = n(295) /* module_295 */,
-      l = n(398) /* module_398 */,
+      l = n(398) /* _typeof */,
       c = o.Symbol,
       d = i("wks"),
       u = l ? c.for || c : (c && c.withoutSetter) || r;

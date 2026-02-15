@@ -55,9 +55,9 @@ function (e, t, n) {
           .css("display", t ? "" : "none");
       }),
       (t.updateTabsInterface = a),
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
+      n(4) /* stub_requires_668 */,
+      n(13) /* stub_requires_679 */,
+      n(38) /* stub_requires_680 */,
       n(1518) /* module_1518 */;
     const o = (t.REARRANGE_TAB_CLASS = "more-button"),
       i = (t.REARRANGE_TAB_SELECTOR = ".".concat(o));

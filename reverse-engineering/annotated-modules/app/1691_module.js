@@ -21,5 +21,5 @@ function (e, t, n) {
         function (e) {
           window.setTimeout(e, 1e3 / 60);
         }),
-      n(1692) /* module_1692 */;
+      n(1692) /* File */;
   }

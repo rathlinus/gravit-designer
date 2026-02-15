@@ -6,10 +6,10 @@
 function (e, t, n) {
     "use strict";
     var o = n(309) /* module_309 */.charAt,
-      i = n(62) /* module_62 */,
-      a = n(80) /* module_80 */,
-      r = n(418) /* module_418 */,
-      s = n(252) /* module_252 */,
+      i = n(62) /* requireObjectCoercible */,
+      a = n(80) /* internalState */,
+      r = n(418) /* defineIterator */,
+      s = n(252) /* toStringClassof */,
       l = a.set,
       c = a.getterFor("String Iterator");
     r(

@@ -7,7 +7,7 @@ function (e, t, n) {
     var o, i, a, r, s, l;
     e.exports =
       ((l = n(55) /* module_55 */),
-      n(736) /* module_736 */,
+      n(736) /* Exports_SHA256 */,
       (i = (o = l).lib.WordArray),
       (a = o.algo),
       (r = a.SHA256),

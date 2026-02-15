@@ -6,8 +6,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(57) /* module_57 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(57) /* polyfill_parseInt */, n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var i = n(53) /* module */,
       a = n(1) /* module */,
       r = n(67) /* GRichTooltipConfig */,
@@ -15,8 +15,8 @@ function (e, t, n) {
       l = n(866) /* GAlignAction */,
       c = n(867) /* GDistributeAction */,
       d = n(123) /* GProperties */,
-      u = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */),
-      p = n(257) /* module_257 */,
+      u = (n(173) /* stub_requires_1 */, n(135) /* GSettingChangedEvent */),
+      p = n(257) /* barrel_panels */,
       g = n(1295) /* GSnapUnitAction */;
     function h() {
       this._elements = [];

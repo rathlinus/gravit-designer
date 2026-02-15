@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var o = n(10) /* module_10 */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
+    var o = n(10) /* AppSettings */;
     function i(e) {
       const {
         accessToken: t,

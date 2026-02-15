@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */;
+      i = require(40) /* CollaborationMergeUtils */;
     function a(e, t, n, a, r, s, l) {
       var c = e && t && n && a && l;
       if (

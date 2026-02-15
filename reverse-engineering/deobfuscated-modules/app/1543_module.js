@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(168) /* module_168 */, require(4) /* module_4 */, require(13) /* module_13 */, require(169) /* module_169 */;
+    require(168) /* polyfill_Array_reduce */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(169) /* stub_requires_683 */;
     const o = require(449) /* GFitAllAction */,
       i = require(566) /* GFitSelectionAction */,
       a = require(447) /* GSaveAction */,
@@ -17,10 +17,10 @@ function (exports, module, require) {
       u = require(1293) /* GCloudSynchronizationAction */,
       p = require(238) /* GMenu */,
       g = require(339) /* GMenu */,
-      h = require(257) /* module_257 */,
+      h = require(257) /* barrel_panels */,
       f = require(85) /* GContainer */,
       { GSystem: m, GMath: y } = require(1) /* module */,
-      { FILE_FORMATS: v } = require(10) /* module_10 */;
+      { FILE_FORMATS: v } = require(10) /* AppSettings */;
     exports.exports = function (e) {
       (e.prototype._windowButton = null),
         (e.prototype._nativeButton = null),

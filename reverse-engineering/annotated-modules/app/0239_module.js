@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(21) /* module_21 */;
+    var o = n(21) /* tryCall */;
     e.exports = !o(function () {
       var e = function () {}.bind();
       return "function" != typeof e || e.hasOwnProperty("prototype");

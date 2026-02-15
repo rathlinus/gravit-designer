@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */;
     function i(e, t, n, o, i, a, r, s, l, c) {
       (this._container = e),

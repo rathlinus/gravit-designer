@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(96) /* polyfill_JSON_stringify */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     var i = n(1) /* module */,
       a = n(1479) /* module_1479 */,
       r = o(n(44) /* GSystemDialog */),
       s = o(n(443) /* module_443 */),
-      l = n(1243) /* module_1243 */,
-      c = n(40) /* module_40 */;
+      l = n(1243) /* Exports_SHAREPOINT_COMMAND */,
+      c = n(40) /* CollaborationMergeUtils */;
     const { getAuthenticator: d, getTeamsContext: u } = s.default;
     function p() {}
     (p.Error = {

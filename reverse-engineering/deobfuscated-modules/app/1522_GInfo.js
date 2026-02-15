@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
-    var i = require(10) /* module_10 */,
+    var o = require(16) /* _interopRequireDefault */;
+    require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
+    var i = require(10) /* AppSettings */,
       a = require(1) /* module */,
       r = o(require(78) /* GDocumentEvent */);
     const s = require(44) /* GSystemDialog */,

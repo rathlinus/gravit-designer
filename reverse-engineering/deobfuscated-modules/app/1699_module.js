@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(40) /* module_40 */;
+    var o = require(40) /* CollaborationMergeUtils */;
     function i(e, t, n) {
       (this.element = e),
         (this.mouseMoveCallback = t || o.fakeFunction),

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(290) /* module_290 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(38) /* module_38 */;
-    const { watchDog: o } = require(40) /* module_40 */,
+    require(290) /* module_290 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
+    const { watchDog: o } = require(40) /* CollaborationMergeUtils */,
       i = require(433) /* module_433 */,
       a = {
         init: function (e) {

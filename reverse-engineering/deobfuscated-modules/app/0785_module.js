@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(8) /* module_8 */;
+    require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
     exports.exports = new (class {
       constructor() {
         (this._cache = {}), (this._initiliazed = false);

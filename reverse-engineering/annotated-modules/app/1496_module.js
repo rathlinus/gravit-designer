@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }), (t.default = void 0);
     var o = n(803) /* module_803 */,
-      i = n(10) /* module_10 */;
+      i = n(10) /* AppSettings */;
     const a =
         window && window.location && "localhost" === window.location.hostname,
       r = {

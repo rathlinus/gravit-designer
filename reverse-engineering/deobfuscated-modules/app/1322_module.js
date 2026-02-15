@@ -5,32 +5,32 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var i = require(1) /* module */,
       a = o(require(256) /* GOfflineDialog */),
       r = o(require(355) /* module_355 */),
-      s = require(40) /* module_40 */;
+      s = require(40) /* CollaborationMergeUtils */;
     const l = require(44) /* GSystemDialog */,
       c = require(292) /* module_292 */,
       d = require(78) /* GDocumentEvent */,
       u = require(217) /* GDocumentStatusEvent */,
-      p = require(220) /* module_220 */,
+      p = require(220) /* Item */,
       g = require(393) /* GCollaborationEvent */,
       h = require(1323) /* module_1323 */,
       f = require(86) /* module_86 */,
@@ -44,14 +44,14 @@ function (exports, module, require) {
         Share: C,
         LEGACY_SHARE_DIALOG: x,
         ENABLE_REQUEST_ACCESS: S,
-      } = require(10) /* module_10 */,
+      } = require(10) /* AppSettings */,
       E = require(433) /* module_433 */,
       A = require(1324) /* module_1324 */,
       T = require(177) /* module_177 */,
       G = require(1565) /* module_1565 */,
       P = require(868) /* module_868 */,
       D = require(536) /* module_536 */,
-      L = require(237) /* module_237 */,
+      L = require(237) /* Item */,
       I = require(x ? 1566 : 1567);
     function k() {
       y &&

@@ -5,25 +5,25 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(96) /* polyfill_JSON_stringify */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(1) /* module */,
       a = o(n(163) /* module_163 */),
       r = o(n(78) /* GDocumentEvent */),
       s = o(n(86) /* module_86 */),
       l = o(n(802) /* CloudException */),
       c = o(n(355) /* module_355 */);
-    const d = n(1554) /* module_1554 */,
+    const d = n(1554) /* RawValue */,
       u = n(1301) /* module_1301 */,
-      p = n(556) /* module_556 */,
+      p = n(556) /* Item */,
       g = n(156) /* module_156 */,
       h = n(1555) /* module_1555 */,
       f = n(848) /* GoogleDriveException */,
       m = n(595) /* module_595 */,
-      y = n(520) /* module_520 */,
+      y = n(520) /* barrel_purchase_urls */,
       v = n(119) /* module_119 */,
-      { gApi: _, CloudIntegration: b } = n(10) /* module_10 */,
-      { decrypt: w } = n(40) /* module_40 */,
+      { gApi: _, CloudIntegration: b } = n(10) /* AppSettings */,
+      { decrypt: w } = n(40) /* CollaborationMergeUtils */,
       C = n(44) /* GSystemDialog */;
     let x;
     function S() {

@@ -8,7 +8,7 @@ function (exports, module, require) {
     function o(e, t) {
       (this._low = parseInt(e, 10)), (this._hight = parseInt(t, 10));
     }
-    require(57) /* module_57 */,
+    require(57) /* polyfill_parseInt */,
       (o.Permissions = {
         ViewListItems: 1,
         AddListItems: 2,

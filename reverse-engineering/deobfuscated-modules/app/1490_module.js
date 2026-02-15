@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
-    const { gApi: o } = require(10) /* module_10 */,
+    require(8) /* polyfill_bundle_ES6 */;
+    const { gApi: o } = require(10) /* AppSettings */,
       i = require(536) /* module_536 */;
     class a {
       static async checkMaintenance() {

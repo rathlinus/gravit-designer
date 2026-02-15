@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(168) /* module_168 */, n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(169) /* module_169 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(168) /* polyfill_Array_reduce */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(169) /* stub_requires_683 */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(78) /* GDocumentEvent */,

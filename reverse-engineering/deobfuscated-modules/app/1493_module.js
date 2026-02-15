@@ -7,9 +7,9 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = undefined),
-      require(4) /* module_4 */,
-      require(32) /* module_32 */,
-      require(33) /* module_33 */;
+      require(4) /* stub_requires_668 */,
+      require(32) /* stub_requires_670 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     module.default = class {
       constructor() {
         this._executions = [];

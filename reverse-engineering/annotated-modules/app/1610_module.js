@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(1) /* module */,
-      i = n(237) /* module_237 */;
+      i = n(237) /* Item */;
     function a() {}
     o.GObject.inherit(a, i),
       (a.Item = function (e) {

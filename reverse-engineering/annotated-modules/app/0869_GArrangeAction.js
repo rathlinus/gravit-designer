@@ -6,13 +6,13 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(10) /* module_10 */,
+      r = n(10) /* AppSettings */,
       s = n(67) /* GRichTooltipConfig */,
-      l = n(18) /* module_18 */,
+      l = n(18) /* MenuItemBuilder */,
       c = n(31) /* GAction */;
     function d(e) {
       (this._type = e),

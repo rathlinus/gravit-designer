@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(557) /* module_557 */, require(26) /* module_26 */;
-    var o = require(16) /* module_16 */;
-    require(8) /* module_8 */, require(271) /* module_271 */;
+    require(19) /* polyfill_Array_iterator */, require(557) /* stub_requires_1102 */, require(26) /* polyfill_DOMCollection_iterator */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(8) /* polyfill_bundle_ES6 */, require(271) /* polyfill_String_endsWith */;
     var i = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
@@ -34,7 +34,7 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(require(10) /* module_10 */),
+      })(require(10) /* AppSettings */),
       a = o(require(389) /* module_389 */),
       r = require(1) /* module */;
     const s = require(78) /* GDocumentEvent */,

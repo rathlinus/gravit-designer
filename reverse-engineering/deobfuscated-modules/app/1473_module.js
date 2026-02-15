@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */;
-    require(10) /* module_10 */;
-    require(1474) /* module_1474 */, require(220) /* module_220 */, require(44) /* GSystemDialog */, require(119) /* module_119 */;
+      i = require(40) /* CollaborationMergeUtils */;
+    require(10) /* AppSettings */;
+    require(1474) /* module_1474 */, require(220) /* Item */, require(44) /* GSystemDialog */, require(119) /* module_119 */;
     function a(e, t, n) {
       (this._document = e),
         (this._storageItem = t),

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(8) /* module_8 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     var i = o(n(11) /* GUtil */);
     n(1322) /* module_1322 */;
     const a = n(808) /* GApplicationStatusEvent */,
@@ -21,7 +21,7 @@ function (e, t, n) {
         FileStatus: { APPROVED: g },
         FILE_REVIEW_ENABLED: h,
         LEGACY_SHARE_DIALOG: f,
-      } = n(10) /* module_10 */;
+      } = n(10) /* AppSettings */;
     function m(e) {
       (this._state = new r()),
         d && gDesigner.addEventListener(l, this._shareStateChangedEvent, this),

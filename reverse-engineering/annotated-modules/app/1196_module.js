@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
+    var o = n(25) /* core_export */,
       i = n(1375) /* module_1375 */,
-      a = n(93) /* module_93 */,
-      r = n(101) /* module_101 */,
-      s = n(130) /* module_130 */,
+      a = n(93) /* stub_requires_92 */,
+      r = n(101) /* stub_requires_117 */,
+      s = n(130) /* lengthOfArrayLike */,
       l = n(573) /* module_573 */;
     o(
       { target: "Array", proto: !0 },

@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */;
     var i = require(1) /* module */,
       a = (require(15) /* module */, o(require(31) /* GAction */)),
-      r = (o(require(85) /* GContainer */), o(require(18) /* module_18 */)),
+      r = (o(require(85) /* GContainer */), o(require(18) /* MenuItemBuilder */)),
       s = o(require(1173) /* module_1173 */);
     function l() {}
     i.GObject.inherit(l, a.default),

@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */;
-    var o = require(29) /* module_29 */,
-      i = require(79) /* module_79 */,
-      a = require(306) /* module_306 */,
-      r = require(21) /* module_21 */,
-      s = require(43) /* module_43 */,
-      l = require(100) /* module_100 */,
+    require(20) /* polyfill_RegExp_exec */;
+    var o = require(29) /* isCallable */,
+      i = require(79) /* defineBuiltIn */,
+      a = require(306) /* regexpExec */,
+      r = require(21) /* tryCall */,
+      s = require(43) /* wellKnownSymbol */,
+      l = require(100) /* createProperty */,
       c = s("species"),
       d = RegExp.prototype;
     exports.exports = function (e, t, n, u) {

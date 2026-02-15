@@ -6,12 +6,12 @@
 
 function (e, t, n) {
     "use strict";
-    n(865) /* module_865 */, n(193) /* module_193 */, n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(865) /* polyfill_Number_toFixed */, n(193) /* polyfill_Object_keys */, n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(67) /* GRichTooltipConfig */,
       r = n(123) /* GProperties */,
-      s = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);
+      s = (n(173) /* stub_requires_1 */, n(135) /* GSettingChangedEvent */);
     n(1162) /* module_1162 */;
     function l() {
       this._elements = [];

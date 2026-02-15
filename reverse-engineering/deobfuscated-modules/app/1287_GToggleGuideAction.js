@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
     var o = require(1) /* module */,
-      i = require(18) /* module_18 */,
+      i = require(18) /* MenuItemBuilder */,
       a = require(31) /* GAction */;
-    require(173) /* module_173 */;
+    require(173) /* stub_requires_1 */;
     function r(e, t) {
       (this._guideId = e), (this._guideName = t);
     }

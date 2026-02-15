@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(57) /* module_57 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(1352) /* module_1352 */, n(13) /* module_13 */;
+    n(57) /* polyfill_parseInt */, n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(1352) /* stub_requires_1707 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
       i = n(1709) /* module_1709 */;
     function a() {}
@@ -1135,7 +1135,7 @@ function (e, t, n) {
               }))
           : (this._elem[e] = t);
       }),
-      n(1710) /* module_1710 */(s),
+      n(1710) /* _DragAndDropHelper */(s),
       (e.exports.GVirtualTreeNode = a),
       (e.exports.GVirtualTreeNodeNamed = r),
       (e.exports.GVirtualTree = s);

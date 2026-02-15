@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
+    var o = require(25) /* core_export */,
       i = require(681) /* module_681 */.left,
       a = require(350) /* module_350 */,
       r = require(213) /* module_213 */;
@@ -13,7 +13,7 @@ function (exports, module, require) {
       {
         target: "Array",
         proto: true,
-        forced: (!require(245) /* module_245 */ && r > 79 && r < 83) || !a("reduce"),
+        forced: (!require(245) /* stub_requires_407 */ && r > 79 && r < 83) || !a("reduce"),
       },
       {
         reduce: function (e) {

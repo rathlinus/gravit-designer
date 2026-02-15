@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.shouldShowExternalFileError = function (e) {
         return e instanceof s.Item && !e.hasFileSettings();
@@ -32,9 +32,9 @@ function (exports, module, require) {
         }
         return e;
       }),
-      require(38) /* module_38 */;
-    var i = require(40) /* module_40 */,
-      a = require(10) /* module_10 */,
+      require(38) /* stub_requires_680 */;
+    var i = require(40) /* CollaborationMergeUtils */,
+      a = require(10) /* AppSettings */,
       r = o(require(1248) /* module_1248 */);
-    const s = require(388) /* module_388 */;
+    const s = require(388) /* Item */;
   }

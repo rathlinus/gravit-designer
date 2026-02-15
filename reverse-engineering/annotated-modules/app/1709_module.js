@@ -22,8 +22,8 @@ function (e, t, n) {
         n && this.rowCount(n),
         this.endUpdate();
     }
-    n(57) /* module_57 */,
-      n(3) /* module_3 */,
+    n(57) /* polyfill_parseInt */,
+      n(3) /* polyfill_RegExp_toString */,
       (o.prototype._renderer = null),
       (o.prototype._rowHeight = 0),
       (o.prototype._rowCount = 0),

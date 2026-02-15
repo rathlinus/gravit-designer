@@ -8,8 +8,8 @@ function (exports, module, require) {
     var o = require(251) /* Exports_GGY */.IteratorPrototype,
       i = require(136) /* module_136 */,
       a = require(174) /* module_174 */,
-      r = require(137) /* module_137 */,
-      s = require(203) /* module_203 */,
+      r = require(137) /* setToStringTag */,
+      s = require(203) /* iteratorPrototype */,
       l = function () {
         return this;
       };

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
     const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
       a = require(1166) /* module_1166 */,
       r = require(177) /* module_177 */,
@@ -20,7 +20,7 @@ function (exports, module, require) {
             ACTION_IN_REVIEW: p,
           } = {},
         },
-      } = require(10) /* module_10 */;
+      } = require(10) /* AppSettings */;
     function g() {
       (this._container = null), (this._opened = false);
     }

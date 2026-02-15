@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(290) /* module_290 */, require(38) /* module_38 */;
+    require(290) /* module_290 */, require(38) /* stub_requires_680 */;
     const {
         ShareRoles: o,
         defaultUserSettings: {
@@ -16,7 +16,7 @@ function (exports, module, require) {
             } = {},
           } = {},
         } = {},
-      } = require(10) /* module_10 */,
+      } = require(10) /* AppSettings */,
       r = require(1067) /* module_1067 */,
       s = require(1070) /* module_1070 */,
       l = require(1071) /* module_1071 */;

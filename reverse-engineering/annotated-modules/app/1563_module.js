@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */;
+    n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(97) /* stub_requires_684 */, n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(1) /* module */,
       i = n(53) /* module */,
       a = n(1303) /* GContextMenu */,

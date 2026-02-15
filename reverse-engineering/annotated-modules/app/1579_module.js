@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var i = n(10) /* module_10 */,
+    var o = n(16) /* _interopRequireDefault */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
+    var i = n(10) /* AppSettings */,
       a = n(1) /* module */,
       r = o(n(1187) /* module_1187 */);
     class s extends i.GReminderDialog.Impl {

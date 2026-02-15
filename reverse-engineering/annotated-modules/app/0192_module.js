@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(200) /* module_200 */,
+    var o = n(23) /* globalThis */,
+      i = n(200) /* advanceStringIndex */,
       a = n(152) /* module_152 */,
-      r = n(21) /* module_21 */,
-      s = n(157) /* module_157 */,
+      r = n(21) /* tryCall */,
+      s = n(157) /* stub_requires_27 */,
       l = o.Int8Array,
       c = a.aTypedArray,
       d = a.exportTypedArrayMethod,

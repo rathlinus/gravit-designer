@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */, require(57) /* module_57 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(53) /* module */,
       a = require(1) /* module */,
       r = (require(15) /* module */, o(require(565) /* module_565 */)),
       s = require(67) /* GRichTooltipConfig */,
       l = o(require(135) /* GSettingChangedEvent */),
-      c = require(451) /* module_451 */.GVirtualTree,
-      d = (require(451) /* module_451 */.GVirtualTreeNode, require(451) /* module_451 */.GVirtualTreeNodeNamed),
-      { VTREE_FREE_HEIGHT: u, VTREE_FREE_HEIGHT_TOUCH: p } = require(10) /* module_10 */,
-      g = (require(173) /* module_173 */, require(450) /* module_450 */);
+      c = require(451) /* IdxIterator */.GVirtualTree,
+      d = (require(451) /* IdxIterator */.GVirtualTreeNode, require(451) /* IdxIterator */.GVirtualTreeNodeNamed),
+      { VTREE_FREE_HEIGHT: u, VTREE_FREE_HEIGHT_TOUCH: p } = require(10) /* AppSettings */,
+      g = (require(173) /* stub_requires_1 */, require(450) /* module_450 */);
     function h() {}
     function f(e, t, n, o, i) {
       var a = true,

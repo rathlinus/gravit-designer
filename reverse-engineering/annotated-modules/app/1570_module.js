@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(3) /* module_3 */;
-    const { HAS_ANNOTATIONS: o } = n(10) /* module_10 */;
+    n(30) /* polyfill_Object_assign */, n(3) /* polyfill_RegExp_toString */;
+    const { HAS_ANNOTATIONS: o } = n(10) /* AppSettings */;
     function i() {
       let e =
         arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};

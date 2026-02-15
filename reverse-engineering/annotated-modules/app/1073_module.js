@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    const o = n(257) /* module_257 */;
+    const o = n(257) /* barrel_panels */;
     e.exports = {
       NEWDOCUMENTDIALOG: { HR_UNDER_PRESETS: !1 },
       OFFLINEDIALOG: { HAS_FOOTER: !0 },

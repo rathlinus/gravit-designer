@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(35) /* module_35 */,
+    var o = require(35) /* anObject */,
       i = require(185) /* module_185 */,
       a = TypeError;
     exports.exports = function (e) {

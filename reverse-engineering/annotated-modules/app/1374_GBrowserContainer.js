@@ -6,40 +6,40 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
+    n(58) /* polyfill_Array_includes */,
+      n(19) /* polyfill_Array_iterator */,
+      n(96) /* polyfill_JSON_stringify */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(4) /* stub_requires_668 */,
+      n(13) /* stub_requires_679 */,
+      n(26) /* polyfill_DOMCollection_iterator */,
+      n(125) /* stub_requires_673 */,
+      n(126) /* polyfill_URL_toJSON */,
+      n(114) /* stub_requires_424 */;
     var o = n(0) /* GObject */,
       i = n(9) /* GLocale */,
       a = n(47) /* GLocaleKey */,
       r = n(85) /* GContainer */,
-      s = n(1195) /* module_1195 */;
+      s = n(1195) /* Item */;
     const l = n(1378) /* GMarketingFileStorageItem */;
-    var c = n(255) /* module_255 */,
+    var c = n(255) /* barrel_sidebars */,
       d = n(1379) /* module_1379 */,
       u = n(1380) /* module_1380 */,
       p = n(1118) /* module_1118 */,
       g = n(1199) /* module_1199 */,
-      h = n(220) /* module_220 */,
-      f = n(1385) /* module_1385 */,
-      m = n(1386) /* module_1386 */,
+      h = n(220) /* Item */,
+      f = n(1385) /* Item */,
+      m = n(1386) /* Item */,
       y = n(119) /* module_119 */,
       v = n(163) /* module_163 */,
       _ = n(86) /* module_86 */,
       b = n(1153) /* module_1153 */,
       w = n(44) /* GSystemDialog */,
-      C = n(10) /* module_10 */.LOCAL_FONTS_API_ENABLED;
+      C = n(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
     const x = n(1482) /* module_1482 */,
-      { base64StringToString: S } = n(40) /* module_40 */;
+      { base64StringToString: S } = n(40) /* CollaborationMergeUtils */;
     function E() {
       (this._storage = new s()),
         "serviceWorker" in navigator &&

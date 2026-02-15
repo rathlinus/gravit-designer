@@ -9,9 +9,9 @@ function (exports, module, require) {
       i = require(427) /* module_427 */,
       a = require(429) /* module_429 */,
       r = require(131) /* module_131 */,
-      s = require(29) /* module_29 */,
-      l = require(27) /* module_27 */,
-      c = require(21) /* module_21 */,
+      s = require(29) /* isCallable */,
+      l = require(27) /* uncurryThis */,
+      c = require(21) /* tryCall */,
       d = o.aTypedArray,
       u = o.exportTypedArrayMethod,
       p = l("".slice);

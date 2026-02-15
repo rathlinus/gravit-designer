@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
     var i = require(1) /* module */,
       a = require(53) /* module */,
       r = o(require(1561) /* module_1561 */),
       s = o(require(177) /* module_177 */);
-    const { gApi: l } = require(10) /* module_10 */;
+    const { gApi: l } = require(10) /* AppSettings */;
     exports.exports = class {
       constructor(e, t) {
         let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];

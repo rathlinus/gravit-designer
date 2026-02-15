@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(168) /* module_168 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(169) /* module_169 */;
+    n(168) /* polyfill_Array_reduce */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(169) /* stub_requires_683 */;
     var o = n(1) /* module */;
     const i = n(238) /* GMenu */,
       a = (e) => {

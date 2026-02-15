@@ -5,16 +5,16 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(26) /* module_26 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */, n(96) /* polyfill_JSON_stringify */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* module */,
-      a = n(10) /* module_10 */,
+      a = n(10) /* AppSettings */,
       r = o(n(336) /* module_336 */),
       s = o(n(44) /* GSystemDialog */),
-      l = n(40) /* module_40 */,
+      l = n(40) /* CollaborationMergeUtils */,
       c = o(n(554) /* module_554 */),
       d = o(n(555) /* module_555 */),
-      u = n(237) /* module_237 */,
+      u = n(237) /* Item */,
       p = n(119) /* module_119 */;
     const g = n(436) /* module_436 */,
       h = n(86) /* module_86 */;
@@ -457,7 +457,7 @@ function (e, t, n) {
           }
         }
       }),
-      n(1100) /* module_1100 */(b),
+      n(1100) /* CommercialProduct */(b),
       (b.Item.prototype.getUniqueId = function () {
         return this._id;
       }),

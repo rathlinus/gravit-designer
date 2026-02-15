@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(421) /* module_421 */,
-      a = n(422) /* module_422 */,
-      r = n(671) /* module_671 */,
-      s = n(100) /* module_100 */,
+    var o = n(23) /* globalThis */,
+      i = n(421) /* domIterables */,
+      a = n(422) /* domTokenListPrototype */,
+      r = n(671) /* arrayForEach */,
+      s = n(100) /* createProperty */,
       l = function (e) {
         if (e && e.forEach !== r)
           try {

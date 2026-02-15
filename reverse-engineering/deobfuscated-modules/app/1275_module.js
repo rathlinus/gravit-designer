@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(57) /* module_57 */, require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
       a = require(53) /* module */,
-      r = require(10) /* module_10 */,
+      r = require(10) /* AppSettings */,
       s = require(1276) /* module_1276 */,
       l = o(require(1278) /* module_1278 */),
       c = require(85) /* GContainer */,

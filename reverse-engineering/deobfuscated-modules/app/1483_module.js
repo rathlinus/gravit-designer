@@ -5,37 +5,37 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(168) /* module_168 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(196) /* module_196 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
-    var i = require(10) /* module_10 */,
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(168) /* polyfill_Array_reduce */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(196) /* polyfill_Promise_finally */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
+    var i = require(10) /* AppSettings */,
       a = require(231) /* module_231 */,
       r = require(53) /* module */,
       s = require(1) /* module */,
       l = require(15) /* module */,
-      c = require(40) /* module_40 */,
+      c = require(40) /* CollaborationMergeUtils */,
       d = require(67) /* GRichTooltipConfig */,
       u = o(require(1484) /* module_1484 */),
       p = o(require(443) /* module_443 */),
-      g = o(require(1485) /* module_1485 */),
+      g = o(require(1485) /* AppSettings */),
       h = o(require(1486) /* module_1486 */),
       f = o(require(1487) /* module_1487 */);
     const {
@@ -223,13 +223,13 @@ function (exports, module, require) {
       In = require(1670) /* module_1670 */,
       kn = require(85) /* GContainer */,
       On = require(1672) /* module_1672 */,
-      Fn = (require(237) /* module_237 */, require(1673) /* module_1673 */),
+      Fn = (require(237) /* Item */, require(1673) /* module_1673 */),
       Rn = require(119) /* module_119 */,
       Mn = require(1674) /* module_1674 */,
       Nn = require(44) /* GSystemDialog */,
       Bn = require(860) /* module_860 */,
       Un = require(1675) /* module_1675 */,
-      $n = require(337) /* module_337 */,
+      $n = require(337) /* stub_requires_1098 */,
       jn = require(1325) /* module_1325 */,
       Kn = require(785) /* module_785 */,
       Vn = require(1676) /* GSoftwareUpdateManager */,
@@ -250,10 +250,10 @@ function (exports, module, require) {
         isTeamsChannel: oo,
         getTeamsLocale: io,
       } = p.default;
-    require(18) /* module_18 */, require(1688) /* module_1688 */, require(1154) /* module_1154 */, require(1689) /* module_1689 */, require(1690) /* module_1690 */, require(1691) /* module_1691 */, require(1693) /* GLongPressEvent */, require(1694) /* module_1694 */;
+    require(18) /* MenuItemBuilder */, require(1688) /* module_1688 */, require(1154) /* module_1154 */, require(1689) /* module_1689 */, require(1690) /* stub_requires_1 */, require(1691) /* module_1691 */, require(1693) /* GLongPressEvent */, require(1694) /* module_1694 */;
     var ao = window;
     const ro = !!/^trunk/.test("production") && !y;
-    (ao.gApi = require(10) /* module_10 */.gApi), (ao.gApi.webcdr = null);
+    (ao.gApi = require(10) /* AppSettings */.gApi), (ao.gApi.webcdr = null);
     const so = async () => S.checkMaintenance();
     so(),
       ro &&
@@ -292,7 +292,7 @@ function (exports, module, require) {
       (ao.gQA = h.default);
     const co = ao.gDesigner.isOfflineAsync();
     ao.gInAppPurchase = Yn.newInAppPurchase(v);
-    const { GA: { customDimensions: uo } = {} } = require(10) /* module_10 */;
+    const { GA: { customDimensions: uo } = {} } = require(10) /* AppSettings */;
     gDesigner.addEventListener(Wn, (e) => {
       let { user: module } = e;
       module &&

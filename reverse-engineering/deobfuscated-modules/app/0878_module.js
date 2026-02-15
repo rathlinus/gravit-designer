@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */,
-      i = require(10) /* module_10 */,
+    var o = require(16) /* _interopRequireDefault */,
+      i = require(10) /* AppSettings */,
       a = o(require(1582) /* module_1582 */);
     exports.exports = class {
       constructor(e) {

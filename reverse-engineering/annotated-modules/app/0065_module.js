@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(35) /* module_35 */,
+    var o = n(35) /* anObject */,
       i = n(185) /* module_185 */,
       a = TypeError;
     e.exports = function (e) {

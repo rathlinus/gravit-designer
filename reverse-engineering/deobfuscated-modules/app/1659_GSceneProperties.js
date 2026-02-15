@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(193) /* module_193 */, require(57) /* module_57 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
       i = require(357) /* module_357 */,
       a = require(67) /* GRichTooltipConfig */,
@@ -19,9 +19,9 @@ function (exports, module, require) {
       p = require(78) /* GDocumentEvent */,
       g = require(135) /* GSettingChangedEvent */,
       h = (require(446) /* module_446 */, require(44) /* GSystemDialog */),
-      f = require(257) /* module_257 */;
+      f = require(257) /* barrel_panels */;
     const { FILE_FORMATS: m, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: y } = {} } =
-      require(10) /* module_10 */;
+      require(10) /* AppSettings */;
     var v = "." + m.find((e) => e.default).ext;
     function _() {}
     o.GObject.inherit(_, r),

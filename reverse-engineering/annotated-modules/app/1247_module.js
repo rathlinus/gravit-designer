@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
+    var o = n(16) /* _interopRequireDefault */;
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.shouldShowExternalFileError = function (e) {
         return e instanceof s.Item && !e.hasFileSettings();
@@ -32,9 +32,9 @@ function (e, t, n) {
         }
         return e;
       }),
-      n(38) /* module_38 */;
-    var i = n(40) /* module_40 */,
-      a = n(10) /* module_10 */,
+      n(38) /* stub_requires_680 */;
+    var i = n(40) /* CollaborationMergeUtils */,
+      a = n(10) /* AppSettings */,
       r = o(n(1248) /* module_1248 */);
-    const s = n(388) /* module_388 */;
+    const s = n(388) /* Item */;
   }

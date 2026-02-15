@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    require(424) /* module_424 */;
+    require(424) /* polyfill_Array_isArray */;
   }

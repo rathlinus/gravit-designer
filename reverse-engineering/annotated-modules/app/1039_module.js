@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
+    var o = n(25) /* core_export */,
       i = n(735) /* module_735 */;
     o(
       {

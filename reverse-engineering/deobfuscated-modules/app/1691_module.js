@@ -21,5 +21,5 @@ function (exports, module, require) {
         function (e) {
           window.setTimeout(e, 1e3 / 60);
         }),
-      require(1692) /* module_1692 */;
+      require(1692) /* File */;
   }

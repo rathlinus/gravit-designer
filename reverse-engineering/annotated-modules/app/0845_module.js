@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
+    var o = n(16) /* _interopRequireDefault */;
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.updateFileFn =
         t.syncImagesToCloud =
@@ -14,22 +14,22 @@ function (e, t, n) {
         t.default =
         t.createFileAndGetSignedPutUrlsFn =
           void 0),
-      n(19) /* module_19 */,
+      n(19) /* polyfill_Array_iterator */,
       n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(134) /* module_134 */,
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(96) /* polyfill_JSON_stringify */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(134) /* polyfill_String_startsWith */,
       n(218) /* module_218 */,
       n(189) /* module_189 */,
       n(190) /* module_190 */,
       n(191) /* module_191 */,
       n(192) /* module_192 */,
-      n(26) /* module_26 */,
-      n(114) /* module_114 */;
+      n(26) /* polyfill_DOMCollection_iterator */,
+      n(114) /* stub_requires_424 */;
     var i = o(n(227) /* GDictionary */);
     const a = n(435) /* Md5 */,
       r = (t.syncImagesToCloud = async function (e, t, n, o, r, s, l, c, d) {

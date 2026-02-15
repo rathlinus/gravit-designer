@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(96) /* module_96 */, n(865) /* module_865 */, n(193) /* module_193 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(97) /* module_97 */;
+    n(58) /* polyfill_Array_includes */, n(96) /* polyfill_JSON_stringify */, n(865) /* polyfill_Number_toFixed */, n(193) /* polyfill_Object_keys */, n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(97) /* stub_requires_684 */;
     var o = n(1) /* module */,
-      i = n(10) /* module_10 */,
-      a = n(40) /* module_40 */;
+      i = n(10) /* AppSettings */,
+      a = n(40) /* CollaborationMergeUtils */;
     const r = n(85) /* GContainer */,
       s = n(1188) /* module_1188 */,
       l = n(1349) /* module_1349 */;

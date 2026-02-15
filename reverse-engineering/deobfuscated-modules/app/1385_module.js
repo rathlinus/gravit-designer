@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     var o = require(1) /* module */,
-      i = require(10) /* module_10 */,
-      a = require(237) /* module_237 */,
-      r = require(220) /* module_220 */,
-      s = require(40) /* module_40 */.decrypt;
-    require(173) /* module_173 */;
+      i = require(10) /* AppSettings */,
+      a = require(237) /* Item */,
+      r = require(220) /* Item */,
+      s = require(40) /* CollaborationMergeUtils */.decrypt;
+    require(173) /* stub_requires_1 */;
     function l() {}
     o.GObject.inherit(l, a),
       (l.prototype.canPromptOpen = function () {

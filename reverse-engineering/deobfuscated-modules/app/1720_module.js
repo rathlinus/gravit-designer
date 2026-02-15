@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     var o = require(1) /* module */,
-      i = require(10) /* module_10 */;
+      i = require(10) /* AppSettings */;
     const a = {
       init: function (e) {
         e = $.extend(

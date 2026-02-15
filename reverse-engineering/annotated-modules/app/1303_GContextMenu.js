@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,

@@ -6,8 +6,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
     var i = n(1) /* module */,
       a = o(n(31) /* GAction */);
     class r extends a.default {

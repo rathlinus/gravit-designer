@@ -5,26 +5,26 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */,
-      n(596) /* module_596 */,
+    n(19) /* polyfill_Array_iterator */,
+      n(596) /* polyfill_Array_reverse */,
       n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(57) /* polyfill_parseInt */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
+      n(134) /* polyfill_String_startsWith */,
       n(218) /* module_218 */,
       n(692) /* module_692 */,
       n(189) /* module_189 */,
       n(190) /* module_190 */,
       n(191) /* module_191 */,
       n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(32) /* stub_requires_670 */,
+      n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(1) /* module */,
-      i = n(10) /* module_10 */,
+      i = n(10) /* AppSettings */,
       a = n(381) /* module_381 */;
     function r(e) {
       if (r._instance)

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(37) /* module_37 */,
+    var o = n(25) /* core_export */,
+      i = n(37) /* toString_default */,
       a = n(121) /* module_121 */,
       r = n(143) /* module_143 */,
       s = [].push;

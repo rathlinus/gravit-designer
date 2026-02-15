@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(130) /* module_130 */,
-      i = n(117) /* module_117 */,
+    var o = n(130) /* lengthOfArrayLike */,
+      i = n(117) /* toStringTagSupport */,
       a = RangeError;
     e.exports = function (e) {
       if (void 0 === e) return 0;

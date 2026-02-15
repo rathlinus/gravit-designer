@@ -77,12 +77,12 @@ function (exports, module, require) {
               a = n(162) /* GPathsGraph */,
               r = n(163) /* module_163 */,
               s = n(151) /* module_151 */,
-              l = n(164) /* module */,
+              l = n(164) /* GKey */,
               c = n(154) /* LabelHolder */,
-              d = n(155) /* module */,
+              d = n(155) /* GPathBaseEditor */,
               u = n(156) /* module_156 */,
-              p = n(153) /* module */;
-            if (n(4) /* module_4 */()) {
+              p = n(153) /* GBBoxGuide */;
+            if (n(4) /* stub_requires_668 */()) {
               var g = n(165) /* module_165 */.PDFNodeStream;
               i.setPDFNetworkStreamFactory(function (e) {
                 return new g(e);
@@ -92,12 +92,12 @@ function (exports, module, require) {
               "body" in Response.prototype &&
               "undefined" != typeof ReadableStream
             ) {
-              var h = n(168) /* module_168 */.PDFFetchStream;
+              var h = n(168) /* polyfill_Array_reduce */.PDFFetchStream;
               i.setPDFNetworkStreamFactory(function (e) {
                 return new h(e);
               });
             } else {
-              var f = n(169) /* module_169 */.PDFNetworkStream;
+              var f = n(169) /* stub_requires_683 */.PDFNetworkStream;
               i.setPDFNetworkStreamFactory(function (e) {
                 return new f(e);
               });
@@ -447,7 +447,7 @@ function (exports, module, require) {
                   undefined),
               n(2) /* GNode */;
             var o = n(142) /* GDate */,
-              i = n(144) /* module_144 */;
+              i = n(144) /* stub_requires_27 */;
             function a(e) {
               return (a =
                 "function" == typeof Symbol &&
@@ -1161,10 +1161,10 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(25) /* module_25 */,
-              a = n(27) /* module_27 */,
+              i = n(25) /* core_export */,
+              a = n(27) /* uncurryThis */,
               r = "".startsWith;
-            o(o.P + o.F * n(34) /* module_34 */("startsWith"), "String", {
+            o(o.P + o.F * n(34) /* polyfill_String_replace */("startsWith"), "String", {
               startsWith: function (e) {
                 var t = a(this, e, "startsWith"),
                   n = i(
@@ -1180,11 +1180,11 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */,
+            var o = n(8) /* polyfill_bundle_ES6 */,
               i = n(9) /* GLocale */,
-              a = n(10) /* module_10 */,
-              r = n(20) /* module_20 */,
-              s = n(23) /* module_23 */,
+              a = n(10) /* AppSettings */,
+              r = n(20) /* polyfill_RegExp_exec */,
+              s = n(23) /* globalThis */,
               l = function e(t, n, l) {
                 var c,
                   d,
@@ -1242,7 +1242,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(11) /* GUtil */,
-              i = n(19) /* module_19 */;
+              i = n(19) /* polyfill_Array_iterator */;
             e.exports = n(15) /* module */
               ? function (e, t, n) {
                   return o.f(e, t, i(1, n));
@@ -1255,7 +1255,7 @@ function (exports, module, require) {
             "use strict";
             var o = n(12) /* GMath */,
               i = n(14) /* GPaintCanvas */,
-              a = n(18) /* module_18 */,
+              a = n(18) /* MenuItemBuilder */,
               r = Object.defineProperty;
             t.f = n(15) /* module */
               ? Object.defineProperty
@@ -1271,7 +1271,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */;
+            var o = n(13) /* stub_requires_679 */;
             e.exports = function (e) {
               if (!o(e)) throw TypeError(e + " is not an object!");
               return e;
@@ -1303,7 +1303,7 @@ function (exports, module, require) {
             "use strict";
             e.exports =
               !n(15) /* module */ &&
-              !n(16) /* module_16 */(function () {
+              !n(16) /* _interopRequireDefault */(function () {
                 return (
                   7 !=
                   Object.defineProperty(n(17) /* GRGBColor */("div"), "a", {
@@ -1316,7 +1316,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            e.exports = !n(16) /* module_16 */(function () {
+            e.exports = !n(16) /* _interopRequireDefault */(function () {
               return (
                 7 !=
                 Object.defineProperty({}, "a", {
@@ -1339,8 +1339,8 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */,
-              i = n(8) /* module_8 */.document,
+            var o = n(13) /* stub_requires_679 */,
+              i = n(8) /* polyfill_bundle_ES6 */.document,
               a = o(i) && o(i.createElement);
             e.exports = function (e) {
               return a ? i.createElement(e) : {};
@@ -1348,7 +1348,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */;
+            var o = n(13) /* stub_requires_679 */;
             e.exports = function (e, t) {
               if (!o(e)) return e;
               var n, i;
@@ -1382,9 +1382,9 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */,
-              i = n(10) /* module_10 */,
-              a = n(21) /* module_21 */,
+            var o = n(8) /* polyfill_bundle_ES6 */,
+              i = n(10) /* AppSettings */,
+              a = n(21) /* tryCall */,
               r = n(22) /* GElement */("src"),
               s = Function.toString,
               l = ("" + s).split("toString");
@@ -1462,7 +1462,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(26) /* module_26 */,
+            var o = n(26) /* polyfill_DOMCollection_iterator */,
               i = Math.min;
             e.exports = function (e) {
               return e > 0 ? i(o(e), 9007199254740991) : 0;
@@ -1479,7 +1479,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(28) /* GStylable */,
-              i = n(33) /* module_33 */;
+              i = n(33) /* polyfill_DOMCollection_forEach */;
             e.exports = function (e, t, n) {
               if (o(t))
                 throw TypeError("String#" + n + " doesn't accept regex!");
@@ -1488,9 +1488,9 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */,
-              i = n(29) /* module_29 */,
-              a = n(30) /* module_30 */("match");
+            var o = n(13) /* stub_requires_679 */,
+              i = n(29) /* isCallable */,
+              a = n(30) /* polyfill_Object_assign */("match");
             e.exports = function (e) {
               var t;
               return o(e) && (undefined !== (t = e[a]) ? !!t : "RegExp" == i(e));
@@ -1507,7 +1507,7 @@ function (exports, module, require) {
             "use strict";
             var o = n(31) /* GAction */("wks"),
               i = n(22) /* GElement */,
-              a = n(8) /* module_8 */.Symbol,
+              a = n(8) /* polyfill_bundle_ES6 */.Symbol,
               r = "function" == typeof a;
             (e.exports = function (e) {
               return o[e] || (o[e] = (r && a[e]) || (r ? a : i)("Symbol." + e));
@@ -1516,13 +1516,13 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(9) /* GLocale */,
-              i = n(8) /* module_8 */,
+              i = n(8) /* polyfill_bundle_ES6 */,
               a = i["__core-js_shared__"] || (i["__core-js_shared__"] = {});
             (e.exports = function (e, t) {
               return a[e] || (a[e] = undefined !== t ? t : {});
             })("versions", []).push({
               version: o.version,
-              mode: n(32) /* module_32 */ ? "pure" : "global",
+              mode: n(32) /* stub_requires_670 */ ? "pure" : "global",
               copyright: "© 2019 Denis Pushkarev (zloirock.ru)",
             });
           },
@@ -1539,7 +1539,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(30) /* module_30 */("match");
+            var o = n(30) /* polyfill_Object_assign */("match");
             e.exports = function (e) {
               var t = /./;
               try {
@@ -1559,10 +1559,10 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(25) /* module_25 */,
-              a = n(27) /* module_27 */,
+              i = n(25) /* core_export */,
+              a = n(27) /* uncurryThis */,
               r = "".endsWith;
-            o(o.P + o.F * n(34) /* module_34 */("endsWith"), "String", {
+            o(o.P + o.F * n(34) /* polyfill_String_replace */("endsWith"), "String", {
               endsWith: function (e) {
                 var t = a(this, e, "endsWith"),
                   n = arguments.length > 1 ? arguments[1] : undefined,
@@ -1575,13 +1575,13 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(38) /* module_38 */, (e.exports = n(9) /* GLocale */.String.includes);
+            n(38) /* stub_requires_680 */, (e.exports = n(9) /* GLocale */.String.includes);
           },
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(27) /* module_27 */;
-            o(o.P + o.F * n(34) /* module_34 */("includes"), "String", {
+              i = n(27) /* uncurryThis */;
+            o(o.P + o.F * n(34) /* polyfill_String_replace */("includes"), "String", {
               includes: function (e) {
                 return !!~i(this, e, "includes").indexOf(
                   e,
@@ -1592,12 +1592,12 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(40) /* module_40 */, (e.exports = n(9) /* GLocale */.Array.includes);
+            n(40) /* CollaborationMergeUtils */, (e.exports = n(9) /* GLocale */.Array.includes);
           },
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(41) /* module_41 */(true);
+              i = n(41) /* stub_requires_682 */(true);
             o(o.P, "Array", {
               includes: function (e) {
                 return i(this, e, arguments.length > 1 ? arguments[1] : undefined);
@@ -1608,7 +1608,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(42) /* module */,
-              i = n(25) /* module_25 */,
+              i = n(25) /* core_export */,
               a = n(44) /* GSystemDialog */;
             e.exports = function (e) {
               return function (t, n, r) {
@@ -1627,15 +1627,15 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(43) /* module_43 */,
-              i = n(33) /* module_33 */;
+            var o = n(43) /* wellKnownSymbol */,
+              i = n(33) /* polyfill_DOMCollection_forEach */;
             e.exports = function (e) {
               return o(i(e));
             };
           },
           function (e, t, n) {
             "use strict";
-            var o = n(29) /* module_29 */;
+            var o = n(29) /* isCallable */;
             e.exports = Object("z").propertyIsEnumerable(0)
               ? Object
               : function (e) {
@@ -1644,7 +1644,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(26) /* module_26 */,
+            var o = n(26) /* polyfill_DOMCollection_iterator */,
               i = Math.max,
               a = Math.min;
             e.exports = function (e, t) {
@@ -1653,21 +1653,21 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(30) /* module_30 */("unscopables"),
+            var o = n(30) /* polyfill_Object_assign */("unscopables"),
               i = Array.prototype;
-            null == i[o] && n(10) /* module_10 */(i, o, {}),
+            null == i[o] && n(10) /* AppSettings */(i, o, {}),
               (e.exports = function (e) {
                 i[o][e] = true;
               });
           },
           function (e, t, n) {
             "use strict";
-            n(47) /* GLocaleKey */, n(62) /* module_62 */, (e.exports = n(9) /* GLocale */.Array.from);
+            n(47) /* GLocaleKey */, n(62) /* requireObjectCoercible */, (e.exports = n(9) /* GLocale */.Array.from);
           },
           function (e, t, n) {
             "use strict";
             var o = n(48) /* GVertex */(true);
-            n(49) /* module_49 */(
+            n(49) /* hasOwnProperty_wrapper */(
               String,
               "String",
               function (e) {
@@ -1687,8 +1687,8 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(26) /* module_26 */,
-              i = n(33) /* module_33 */;
+            var o = n(26) /* polyfill_DOMCollection_iterator */,
+              i = n(33) /* polyfill_DOMCollection_forEach */;
             e.exports = function (e) {
               return function (t, n) {
                 var a,
@@ -1716,15 +1716,15 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(32) /* module_32 */,
+            var o = n(32) /* stub_requires_670 */,
               i = n(7) /* GTransform */,
-              a = n(20) /* module_20 */,
-              r = n(10) /* module_10 */,
+              a = n(20) /* polyfill_RegExp_exec */,
+              r = n(10) /* AppSettings */,
               s = n(50) /* GPattern */,
               l = n(51) /* GWebGLEffect */,
               c = n(59) /* GVertexInfo */,
               d = n(60) /* GPath */,
-              u = n(30) /* module_30 */("iterator"),
+              u = n(30) /* polyfill_Object_assign */("iterator"),
               p = !([].keys && "next" in [].keys()),
               g = function () {
                 return this;
@@ -1792,10 +1792,10 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(52) /* module */,
-              i = n(19) /* module_19 */,
+              i = n(19) /* polyfill_Array_iterator */,
               a = n(59) /* GVertexInfo */,
               r = {};
-            n(10) /* module_10 */(r, n(30) /* module_30 */("iterator"), function () {
+            n(10) /* AppSettings */(r, n(30) /* polyfill_Object_assign */("iterator"), function () {
               return this;
             }),
               (e.exports = function (e, t, n) {
@@ -1806,7 +1806,7 @@ function (exports, module, require) {
             "use strict";
             var o = n(12) /* GMath */,
               i = n(53) /* module */,
-              a = n(57) /* module_57 */,
+              a = n(57) /* polyfill_parseInt */,
               r = n(56) /* GShape */("IE_PROTO"),
               s = function () {},
               l = function () {
@@ -1815,7 +1815,7 @@ function (exports, module, require) {
                   o = a.length;
                 for (
                   t.style.display = "none",
-                    n(58) /* module_58 */.appendChild(t),
+                    n(58) /* polyfill_Array_includes */.appendChild(t),
                     t.src = "javascript:",
                     (e = t.contentWindow.document).open(),
                     e.write("<script>document.F=Object</script>"),
@@ -1859,7 +1859,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(55) /* module_55 */,
-              i = n(57) /* module_57 */;
+              i = n(57) /* polyfill_parseInt */;
             e.exports =
               Object.keys ||
               function (e) {
@@ -1868,9 +1868,9 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(21) /* module_21 */,
+            var o = n(21) /* tryCall */,
               i = n(42) /* module */,
-              a = n(41) /* module_41 */(false),
+              a = n(41) /* stub_requires_682 */(false),
               r = n(56) /* GShape */("IE_PROTO");
             e.exports = function (e, t) {
               var n,
@@ -1900,14 +1900,14 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */.document;
+            var o = n(8) /* polyfill_bundle_ES6 */.document;
             e.exports = o && o.documentElement;
           },
           function (e, t, n) {
             "use strict";
             var o = n(11) /* GUtil */.f,
-              i = n(21) /* module_21 */,
-              a = n(30) /* module_30 */("toStringTag");
+              i = n(21) /* tryCall */,
+              a = n(30) /* polyfill_Object_assign */("toStringTag");
             e.exports = function (e, t, n) {
               e &&
                 !i((e = n ? e : e.prototype), a) &&
@@ -1916,7 +1916,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(21) /* module_21 */,
+            var o = n(21) /* tryCall */,
               i = n(61) /* module_61 */,
               a = n(56) /* GShape */("IE_PROTO"),
               r = Object.prototype;
@@ -1938,19 +1938,19 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(33) /* module_33 */;
+            var o = n(33) /* polyfill_DOMCollection_forEach */;
             e.exports = function (e) {
               return Object(o(e));
             };
           },
           function (e, t, n) {
             "use strict";
-            var o = n(23) /* module_23 */,
+            var o = n(23) /* globalThis */,
               i = n(7) /* GTransform */,
               a = n(61) /* module_61 */,
               r = n(63) /* GVertexTransformer */,
-              s = n(64) /* module */,
-              l = n(25) /* module_25 */,
+              s = n(64) /* GPlatform */,
+              l = n(25) /* core_export */,
               c = n(65) /* module_65 */,
               d = n(66) /* EdTransformOptions */;
             i(
@@ -2002,7 +2002,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(50) /* GPattern */,
-              i = n(30) /* module_30 */("iterator"),
+              i = n(30) /* polyfill_Object_assign */("iterator"),
               a = Array.prototype;
             e.exports = function (e) {
               return undefined !== e && (o.Array === e || a[i] === e);
@@ -2011,7 +2011,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(11) /* GUtil */,
-              i = n(19) /* module_19 */;
+              i = n(19) /* polyfill_Array_iterator */;
             e.exports = function (e, t, n) {
               t in e ? o.f(e, t, i(0, n)) : (e[t] = n);
             };
@@ -2019,7 +2019,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(67) /* GRichTooltipConfig */,
-              i = n(30) /* module_30 */("iterator"),
+              i = n(30) /* polyfill_Object_assign */("iterator"),
               a = n(50) /* GPattern */;
             e.exports = n(9) /* GLocale */.getIteratorMethod = function (e) {
               if (null != e) return e[i] || e["@@iterator"] || a[o(e)];
@@ -2027,8 +2027,8 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(29) /* module_29 */,
-              i = n(30) /* module_30 */("toStringTag"),
+            var o = n(29) /* isCallable */,
+              i = n(30) /* polyfill_Object_assign */("toStringTag"),
               a =
                 "Arguments" ==
                 o(
@@ -2058,7 +2058,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(30) /* module_30 */("iterator"),
+            var o = n(30) /* polyfill_Object_assign */("iterator"),
               i = false;
             try {
               var a = [7][o]();
@@ -2093,7 +2093,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */;
-            o(o.S + o.F, "Object", { assign: n(71) /* module_71 */ });
+            o(o.S + o.F, "Object", { assign: n(71) /* polyfill_String_includes */ });
           },
           function (e, t, n) {
             "use strict";
@@ -2101,11 +2101,11 @@ function (exports, module, require) {
               i = n(72) /* GEvent */,
               a = n(73) /* GRectangle */,
               r = n(61) /* module_61 */,
-              s = n(43) /* module_43 */,
+              s = n(43) /* wellKnownSymbol */,
               l = Object.assign;
             e.exports =
               !l ||
-              n(16) /* module_16 */(function () {
+              n(16) /* _interopRequireDefault */(function () {
                 var e = {},
                   t = {},
                   n = Symbol(),
@@ -2178,16 +2178,16 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(79) /* module_79 */, (e.exports = n(9) /* GLocale */.Number.isInteger);
+            n(79) /* defineBuiltIn */, (e.exports = n(9) /* GLocale */.Number.isInteger);
           },
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */;
-            o(o.S, "Number", { isInteger: n(80) /* module_80 */ });
+            o(o.S, "Number", { isInteger: n(80) /* internalState */ });
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */,
+            var o = n(13) /* stub_requires_679 */,
               i = Math.floor;
             e.exports = function (e) {
               return !o(e) && isFinite(e) && i(e) === e;
@@ -2200,16 +2200,16 @@ function (exports, module, require) {
               n(83) /* GPage */,
               n(86) /* module_86 */,
               n(99) /* module */,
-              n(100) /* module_100 */,
+              n(100) /* createProperty */,
               (e.exports = n(9) /* GLocale */.Promise);
           },
           function (e, t, n) {
             "use strict";
             var o = n(67) /* GRichTooltipConfig */,
               i = {};
-            (i[n(30) /* module_30 */("toStringTag")] = "z"),
+            (i[n(30) /* polyfill_Object_assign */("toStringTag")] = "z"),
               i + "" != "[object z]" &&
-                n(20) /* module_20 */(
+                n(20) /* polyfill_RegExp_exec */(
                   Object.prototype,
                   "toString",
                   function () {
@@ -2223,11 +2223,11 @@ function (exports, module, require) {
             for (
               var o = n(84) /* GAnnotation */,
                 i = n(54) /* GVertexContainer */,
-                a = n(20) /* module_20 */,
-                r = n(8) /* module_8 */,
-                s = n(10) /* module_10 */,
+                a = n(20) /* polyfill_RegExp_exec */,
+                r = n(8) /* polyfill_bundle_ES6 */,
+                s = n(10) /* AppSettings */,
                 l = n(50) /* GPattern */,
-                c = n(30) /* module_30 */,
+                c = n(30) /* polyfill_Object_assign */,
                 d = c("iterator"),
                 u = c("toStringTag"),
                 p = l.Array,
@@ -2284,7 +2284,7 @@ function (exports, module, require) {
               i = n(85) /* GContainer */,
               a = n(50) /* GPattern */,
               r = n(42) /* module */;
-            (e.exports = n(49) /* module_49 */(
+            (e.exports = n(49) /* hasOwnProperty_wrapper */(
               Array,
               "Array",
               function (e, t) {
@@ -2317,22 +2317,22 @@ function (exports, module, require) {
               i,
               a,
               r,
-              s = n(32) /* module_32 */,
-              l = n(8) /* module_8 */,
-              c = n(23) /* module_23 */,
+              s = n(32) /* stub_requires_670 */,
+              l = n(8) /* polyfill_bundle_ES6 */,
+              c = n(23) /* globalThis */,
               d = n(67) /* GRichTooltipConfig */,
               u = n(7) /* GTransform */,
-              p = n(13) /* module_13 */,
+              p = n(13) /* stub_requires_679 */,
               g = n(24) /* GEditorOptions */,
               h = n(87) /* GVertexSource */,
-              f = n(88) /* module_88 */,
+              f = n(88) /* createPropertyDescriptor */,
               m = n(89) /* module */,
               y = n(90) /* Container */.set,
-              v = n(92) /* module_92 */(),
-              _ = n(93) /* module_93 */,
-              b = n(94) /* module_94 */,
+              v = n(92) /* classof */(),
+              _ = n(93) /* stub_requires_92 */,
+              b = n(94) /* Exports_Buf */,
               w = n(95) /* GImage */,
-              C = n(96) /* module_96 */,
+              C = n(96) /* polyfill_JSON_stringify */,
               x = l.TypeError,
               S = l.process,
               E = S && S.versions,
@@ -2344,7 +2344,7 @@ function (exports, module, require) {
               L = !!(function () {
                 try {
                   var e = T.resolve(1),
-                    t = ((e.constructor = {})[n(30) /* module_30 */("species")] = function (e) {
+                    t = ((e.constructor = {})[n(30) /* polyfill_Object_assign */("species")] = function (e) {
                       e(P, P);
                     });
                   return (
@@ -2487,7 +2487,7 @@ function (exports, module, require) {
                   (this._v = undefined),
                   (this._h = 0),
                   (this._n = false);
-              }).prototype = n(97) /* module_97 */(T.prototype, {
+              }).prototype = n(97) /* stub_requires_684 */(T.prototype, {
                 then: function (e, t) {
                   var n = D(m(this, T));
                   return (
@@ -2586,11 +2586,11 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(23) /* module_23 */,
+            var o = n(23) /* globalThis */,
               i = n(63) /* GVertexTransformer */,
-              a = n(64) /* module */,
+              a = n(64) /* GPlatform */,
               r = n(12) /* GMath */,
-              s = n(25) /* module_25 */,
+              s = n(25) /* core_export */,
               l = n(66) /* EdTransformOptions */,
               c = {},
               d = {},
@@ -2625,7 +2625,7 @@ function (exports, module, require) {
             "use strict";
             var o = n(12) /* GMath */,
               i = n(24) /* GEditorOptions */,
-              a = n(30) /* module_30 */("species");
+              a = n(30) /* polyfill_Object_assign */("species");
             e.exports = function (e, t) {
               var n,
                 r = o(e).constructor;
@@ -2637,11 +2637,11 @@ function (exports, module, require) {
             var o,
               i,
               a,
-              r = n(23) /* module_23 */,
-              s = n(91) /* module_91 */,
-              l = n(58) /* module_58 */,
+              r = n(23) /* globalThis */,
+              s = n(91) /* polyfill_String_trim */,
+              l = n(58) /* polyfill_Array_includes */,
               c = n(17) /* GRGBColor */,
-              d = n(8) /* module_8 */,
+              d = n(8) /* polyfill_bundle_ES6 */,
               u = d.process,
               p = d.setImmediate,
               g = d.clearImmediate,
@@ -2674,7 +2674,7 @@ function (exports, module, require) {
               (g = function (e) {
                 delete y[e];
               }),
-              "process" == n(29) /* module_29 */(u)
+              "process" == n(29) /* isCallable */(u)
                 ? (o = function (e) {
                     u.nextTick(r(v, e, 1));
                   })
@@ -2729,12 +2729,12 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */,
+            var o = n(8) /* polyfill_bundle_ES6 */,
               i = n(90) /* Container */.set,
               a = o.MutationObserver || o.WebKitMutationObserver,
               r = o.process,
               s = o.Promise,
-              l = "process" == n(29) /* module_29 */(r);
+              l = "process" == n(29) /* isCallable */(r);
             e.exports = function () {
               var e,
                 t,
@@ -2808,14 +2808,14 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */.navigator;
+            var o = n(8) /* polyfill_bundle_ES6 */.navigator;
             e.exports = (o && o.userAgent) || "";
           },
           function (e, t, n) {
             "use strict";
             var o = n(12) /* GMath */,
-              i = n(13) /* module_13 */,
-              a = n(93) /* module_93 */;
+              i = n(13) /* stub_requires_679 */,
+              a = n(93) /* stub_requires_92 */;
             e.exports = function (e, t) {
               if ((o(e), i(t) && t.constructor === e)) return t;
               var n = a.f(e);
@@ -2824,7 +2824,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(20) /* module_20 */;
+            var o = n(20) /* polyfill_RegExp_exec */;
             e.exports = function (e, t, n) {
               for (var i in t) o(e, i, t[i], n);
               return e;
@@ -2832,10 +2832,10 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */,
+            var o = n(8) /* polyfill_bundle_ES6 */,
               i = n(11) /* GUtil */,
               a = n(15) /* module */,
-              r = n(30) /* module_30 */("species");
+              r = n(30) /* polyfill_Object_assign */("species");
             e.exports = function (e) {
               var t = o[e];
               a &&
@@ -2853,9 +2853,9 @@ function (exports, module, require) {
             "use strict";
             var o = n(7) /* GTransform */,
               i = n(9) /* GLocale */,
-              a = n(8) /* module_8 */,
+              a = n(8) /* polyfill_bundle_ES6 */,
               r = n(89) /* module */,
-              s = n(96) /* module_96 */;
+              s = n(96) /* polyfill_JSON_stringify */;
             o(o.P + o.R, "Promise", {
               finally: function (e) {
                 var t = r(this, i.Promise || a.Promise),
@@ -2882,8 +2882,8 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(93) /* module_93 */,
-              a = n(94) /* module_94 */;
+              i = n(93) /* stub_requires_92 */,
+              a = n(94) /* Exports_Buf */;
             o(o.S, "Promise", {
               try: function (e) {
                 var t = i.f(this),
@@ -2894,18 +2894,18 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(82) /* SavePoint */, n(83) /* GPage */, n(102) /* module_102 */, n(114) /* module_114 */, n(116) /* module_116 */, (e.exports = n(9) /* GLocale */.WeakMap);
+            n(82) /* SavePoint */, n(83) /* GPage */, n(102) /* module_102 */, n(114) /* stub_requires_424 */, n(116) /* module_116 */, (e.exports = n(9) /* GLocale */.WeakMap);
           },
           function (e, t, n) {
             "use strict";
             var o,
               i = n(103) /* module */(0),
-              a = n(20) /* module_20 */,
-              r = n(107) /* module_107 */,
-              s = n(71) /* module_71 */,
+              a = n(20) /* polyfill_RegExp_exec */,
+              r = n(107) /* polyfill_RegExp_test */,
+              s = n(71) /* polyfill_String_includes */,
               l = n(108) /* GFont */,
-              c = n(13) /* module_13 */,
-              d = n(16) /* module_16 */,
+              c = n(13) /* stub_requires_679 */,
+              d = n(16) /* _interopRequireDefault */,
               u = n(109) /* module_109 */,
               p = r.getWeak,
               g = Object.isExtensible,
@@ -2952,10 +2952,10 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(23) /* module_23 */,
-              i = n(43) /* module_43 */,
+            var o = n(23) /* globalThis */,
+              i = n(43) /* wellKnownSymbol */,
               a = n(61) /* module_61 */,
-              r = n(25) /* module_25 */,
+              r = n(25) /* core_export */,
               s = n(104) /* GItem */;
             e.exports = function (e, t) {
               var n = 1 == e,
@@ -3005,9 +3005,9 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */,
+            var o = n(13) /* stub_requires_679 */,
               i = n(106) /* GElementAction */,
-              a = n(30) /* module_30 */("species");
+              a = n(30) /* polyfill_Object_assign */("species");
             e.exports = function (e) {
               var t;
               return (
@@ -3022,7 +3022,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(29) /* module_29 */;
+            var o = n(29) /* isCallable */;
             e.exports =
               Array.isArray ||
               function (e) {
@@ -3048,8 +3048,8 @@ function (exports, module, require) {
                     })(e);
             }
             var i = n(22) /* GElement */("meta"),
-              a = n(13) /* module_13 */,
-              r = n(21) /* module_21 */,
+              a = n(13) /* stub_requires_679 */,
+              r = n(21) /* tryCall */,
               s = n(11) /* GUtil */.f,
               l = 0,
               c =
@@ -3057,7 +3057,7 @@ function (exports, module, require) {
                 function () {
                   return true;
                 },
-              d = !n(16) /* module_16 */(function () {
+              d = !n(16) /* _interopRequireDefault */(function () {
                 return c(Object.preventExtensions({}));
               }),
               u = function (e) {
@@ -3093,14 +3093,14 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(97) /* module_97 */,
-              i = n(107) /* module_107 */.getWeak,
+            var o = n(97) /* stub_requires_684 */,
+              i = n(107) /* polyfill_RegExp_test */.getWeak,
               a = n(12) /* GMath */,
-              r = n(13) /* module_13 */,
+              r = n(13) /* stub_requires_679 */,
               s = n(87) /* GVertexSource */,
-              l = n(88) /* module_88 */,
+              l = n(88) /* createPropertyDescriptor */,
               c = n(103) /* module */,
-              d = n(21) /* module_21 */,
+              d = n(21) /* tryCall */,
               u = n(109) /* module_109 */,
               p = c(5),
               g = c(6),
@@ -3173,7 +3173,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */;
+            var o = n(13) /* stub_requires_679 */;
             e.exports = function (e, t) {
               if (!o(e) || e._t !== t)
                 throw TypeError("Incompatible receiver, " + t + " required!");
@@ -3182,15 +3182,15 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */,
+            var o = n(8) /* polyfill_bundle_ES6 */,
               i = n(7) /* GTransform */,
-              a = n(20) /* module_20 */,
-              r = n(97) /* module_97 */,
-              s = n(107) /* module_107 */,
-              l = n(88) /* module_88 */,
+              a = n(20) /* polyfill_RegExp_exec */,
+              r = n(97) /* stub_requires_684 */,
+              s = n(107) /* polyfill_RegExp_test */,
+              l = n(88) /* createPropertyDescriptor */,
               c = n(87) /* GVertexSource */,
-              d = n(13) /* module_13 */,
-              u = n(16) /* module_16 */,
+              d = n(13) /* stub_requires_679 */,
+              u = n(16) /* _interopRequireDefault */,
               p = n(68) /* GColor */,
               g = n(59) /* GVertexInfo */,
               h = n(111) /* GRendererCtx */;
@@ -3271,7 +3271,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */,
+            var o = n(13) /* stub_requires_679 */,
               i = n(112) /* module */.set;
             e.exports = function (e, t, n) {
               var a,
@@ -3289,7 +3289,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(13) /* module_13 */,
+            var o = n(13) /* stub_requires_679 */,
               i = n(12) /* GMath */,
               a = function (e, t) {
                 if ((i(e), !o(t) && null !== t))
@@ -3301,7 +3301,7 @@ function (exports, module, require) {
                 ("__proto__" in {}
                   ? (function (e, t, o) {
                       try {
-                        (o = n(23) /* module_23 */(
+                        (o = n(23) /* globalThis */(
                           Function.call,
                           n(113) /* GCompoundPath */.f(Object.prototype, "__proto__").set,
                           2
@@ -3321,10 +3321,10 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(73) /* GRectangle */,
-              i = n(19) /* module_19 */,
+              i = n(19) /* polyfill_Array_iterator */,
               a = n(42) /* module */,
-              r = n(18) /* module_18 */,
-              s = n(21) /* module_21 */,
+              r = n(18) /* MenuItemBuilder */,
+              s = n(21) /* tryCall */,
               l = n(14) /* GPaintCanvas */,
               c = Object.getOwnPropertyDescriptor;
             t.f = n(15) /* module */
@@ -3356,14 +3356,14 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(117) /* module_117 */("WeakMap");
+            n(117) /* toStringTagSupport */("WeakMap");
           },
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
               i = n(24) /* GEditorOptions */,
-              a = n(23) /* module_23 */,
-              r = n(88) /* module_88 */;
+              a = n(23) /* globalThis */,
+              r = n(88) /* createPropertyDescriptor */;
             e.exports = function (e) {
               o(o.S, e, {
                 from: function (e) {
@@ -3422,7 +3422,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(117) /* module_117 */("WeakSet");
+            n(117) /* toStringTagSupport */("WeakSet");
           },
           function (e, t, n) {
             "use strict";
@@ -3440,7 +3440,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(125) /* module_125 */, (e.exports = n(9) /* GLocale */.String.fromCodePoint);
+            n(125) /* stub_requires_673 */, (e.exports = n(9) /* GLocale */.String.fromCodePoint);
           },
           function (e, t, n) {
             "use strict";
@@ -3465,7 +3465,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(127) /* module */, n(82) /* SavePoint */, (e.exports = n(9) /* GLocale */.Symbol);
+            n(127) /* GPathEditor */, n(82) /* SavePoint */, (e.exports = n(9) /* GLocale */.Symbol);
           },
           function (e, t, n) {
             "use strict";
@@ -3485,26 +3485,26 @@ function (exports, module, require) {
                         : typeof e;
                     })(e);
             }
-            var i = n(8) /* module_8 */,
-              a = n(21) /* module_21 */,
+            var i = n(8) /* polyfill_bundle_ES6 */,
+              a = n(21) /* tryCall */,
               r = n(15) /* module */,
               s = n(7) /* GTransform */,
-              l = n(20) /* module_20 */,
-              c = n(107) /* module_107 */.KEY,
-              d = n(16) /* module_16 */,
+              l = n(20) /* polyfill_RegExp_exec */,
+              c = n(107) /* polyfill_RegExp_test */.KEY,
+              d = n(16) /* _interopRequireDefault */,
               u = n(31) /* GAction */,
               p = n(59) /* GVertexInfo */,
               g = n(22) /* GElement */,
-              h = n(30) /* module_30 */,
-              f = n(128) /* module */,
-              m = n(129) /* module_129 */,
-              y = n(130) /* module_130 */,
+              h = n(30) /* polyfill_Object_assign */,
+              f = n(128) /* GShapeEditor */,
+              m = n(129) /* stub_requires_23 */,
+              y = n(130) /* lengthOfArrayLike */,
               v = n(106) /* GElementAction */,
               _ = n(12) /* GMath */,
-              b = n(13) /* module_13 */,
+              b = n(13) /* stub_requires_679 */,
               w = n(42) /* module */,
-              C = n(18) /* module_18 */,
-              x = n(19) /* module_19 */,
+              C = n(18) /* MenuItemBuilder */,
+              x = n(19) /* polyfill_Array_iterator */,
               S = n(52) /* module */,
               E = n(131) /* module_131 */,
               A = n(113) /* GCompoundPath */,
@@ -3642,7 +3642,7 @@ function (exports, module, require) {
               (n(132) /* GLength */.f = E.f = J),
               (n(73) /* GRectangle */.f = X),
               (n(72) /* GEvent */.f = Z),
-              r && !n(32) /* module_32 */ && l($, "propertyIsEnumerable", X, true),
+              r && !n(32) /* stub_requires_670 */ && l($, "propertyIsEnumerable", X, true),
               (f.f = function (e) {
                 return W(h(e));
               })),
@@ -3718,21 +3718,21 @@ function (exports, module, require) {
                     },
                   }
                 ),
-              I.prototype[R] || n(10) /* module_10 */(I.prototype, R, I.prototype.valueOf),
+              I.prototype[R] || n(10) /* AppSettings */(I.prototype, R, I.prototype.valueOf),
               p(I, "Symbol"),
               p(Math, "Math", true),
               p(i.JSON, "JSON", true);
           },
           function (e, t, n) {
             "use strict";
-            t.f = n(30) /* module_30 */;
+            t.f = n(30) /* polyfill_Object_assign */;
           },
           function (e, t, n) {
             "use strict";
-            var o = n(8) /* module_8 */,
+            var o = n(8) /* polyfill_bundle_ES6 */,
               i = n(9) /* GLocale */,
-              a = n(32) /* module_32 */,
-              r = n(128) /* module */,
+              a = n(32) /* stub_requires_670 */,
+              r = n(128) /* GShapeEditor */,
               s = n(11) /* GUtil */.f;
             e.exports = function (e) {
               var t = i.Symbol || (i.Symbol = a ? {} : o.Symbol || {});
@@ -3796,7 +3796,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(55) /* module_55 */,
-              i = n(57) /* module_57 */.concat("length", "prototype");
+              i = n(57) /* polyfill_parseInt */.concat("length", "prototype");
             t.f =
               Object.getOwnPropertyNames ||
               function (e) {
@@ -3805,7 +3805,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(134) /* module_134 */, (e.exports = n(9) /* GLocale */.String.padStart);
+            n(134) /* polyfill_String_startsWith */, (e.exports = n(9) /* GLocale */.String.padStart);
           },
           function (e, t, n) {
             "use strict";
@@ -3829,9 +3829,9 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(25) /* module_25 */,
+            var o = n(25) /* core_export */,
               i = n(136) /* module_136 */,
-              a = n(33) /* module_33 */;
+              a = n(33) /* polyfill_DOMCollection_forEach */;
             e.exports = function (e, t, n, r) {
               var s = String(a(e)),
                 l = s.length,
@@ -3845,8 +3845,8 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(26) /* module_26 */,
-              i = n(33) /* module_33 */;
+            var o = n(26) /* polyfill_DOMCollection_iterator */,
+              i = n(33) /* polyfill_DOMCollection_forEach */;
             e.exports = function (e) {
               var t = String(i(this)),
                 n = "",
@@ -4168,7 +4168,7 @@ function (exports, module, require) {
                     d = n(1) /* module */,
                     u = d.assert,
                     p = d.rethrowAssertionErrorRejection,
-                    g = n(3) /* module_3 */,
+                    g = n(3) /* polyfill_RegExp_toString */,
                     h = g.DequeueValue,
                     f = g.EnqueueValueWithSize,
                     m = g.PeekQueueValue,
@@ -5120,7 +5120,7 @@ function (exports, module, require) {
                     v = n(1) /* module */,
                     _ = v.assert,
                     b = v.rethrowAssertionErrorRejection,
-                    w = n(3) /* module_3 */,
+                    w = n(3) /* polyfill_RegExp_toString */,
                     C = w.DequeueValue,
                     x = w.EnqueueValueWithSize,
                     S = w.ResetQueue,
@@ -6672,7 +6672,7 @@ function (exports, module, require) {
                 },
                 function (e, t, n) {
                   var o = n(6) /* GRect */,
-                    i = n(4) /* module_4 */,
+                    i = n(4) /* stub_requires_668 */,
                     a = n(2) /* GNode */;
                   (t.TransformStream = o.TransformStream),
                     (t.ReadableStream = i.ReadableStream),
@@ -6725,7 +6725,7 @@ function (exports, module, require) {
                     l = r.PromiseInvokeOrPerformFallback,
                     c = r.PromiseInvokeOrNoop,
                     d = r.typeIsObject,
-                    u = n(4) /* module_4 */,
+                    u = n(4) /* stub_requires_668 */,
                     p = u.ReadableStream,
                     g = u.ReadableStreamDefaultControllerClose,
                     h = u.ReadableStreamDefaultControllerEnqueue,
@@ -7143,8 +7143,8 @@ function (exports, module, require) {
             } catch (e) {}
             if (i) t.URL = URL;
             else {
-              var r = n(145) /* module_145 */.URL,
-                s = n(3) /* module_3 */.URL;
+              var r = n(145) /* getSubstitution */.URL,
+                s = n(3) /* polyfill_RegExp_toString */.URL;
               s &&
                 ((r.createObjectURL = function (e) {
                   return s.createObjectURL.apply(s, arguments);
@@ -10601,7 +10601,7 @@ function (exports, module, require) {
                   );
                 })() || Function("return this")()
               );
-            }).call(this, n(150) /* module */(e));
+            }).call(this, n(150) /* GModifiersChangedEvent */(e));
           },
           function (e, t, n) {
             "use strict";
@@ -11648,7 +11648,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = Object.create(null),
-              i = n(4) /* module_4 */,
+              i = n(4) /* stub_requires_668 */,
               a =
                 ("undefined" != typeof navigator && navigator.userAgent) || "",
               r = /Trident/.test(a),
@@ -11664,7 +11664,7 @@ function (exports, module, require) {
             Object.defineProperty(t, "__esModule", { value: true }),
               (t.CanvasGraphics = undefined);
             var o = n(1) /* module */,
-              i = n(155) /* module */,
+              i = n(155) /* GPathBaseEditor */,
               a = {
                 get value() {
                   return (0, o.shadow)(a, "value", (0, o.isLittleEndian)());
@@ -15648,7 +15648,7 @@ function (exports, module, require) {
               (t.renderTextLayer = undefined);
             var o,
               i = n(1) /* module */,
-              a = (o = n(3) /* module_3 */) && o.__esModule ? o : { default: o },
+              a = (o = n(3) /* polyfill_RegExp_toString */) && o.__esModule ? o : { default: o },
               r = (function () {
                 var e = /\S/,
                   t = [
@@ -19794,7 +19794,7 @@ function (exports, module, require) {
             var o = s(n(147) /* GLinearGradient */),
               i = n(1) /* module */,
               a = n(166) /* GRendererConfig */,
-              r = s(n(3) /* module_3 */);
+              r = s(n(3) /* polyfill_RegExp_toString */);
             function s(e) {
               return e && e.__esModule ? e : { default: e };
             }
@@ -20275,5 +20275,5 @@ function (exports, module, require) {
         ]);
       }),
         (exports.exports = a());
-    }).call(this, require(221) /* module_221 */.Buffer, require(109) /* module_109 */, require(183) /* module_183 */);
+    }).call(this, require(221) /* Exports_Buffer */.Buffer, require(109) /* module_109 */, require(183) /* module_183 */);
   }

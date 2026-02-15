@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
       r = o(require(1172) /* GInstallToDesktopAction */),

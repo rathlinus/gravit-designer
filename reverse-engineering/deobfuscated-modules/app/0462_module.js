@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(463) /* module_463 */,
-      i = require(94) /* module_94 */,
+      i = require(94) /* Exports_Buf */,
       a = require(312) /* module_312 */,
       r = require(225) /* module_225 */,
       s = require(313) /* module_313 */,

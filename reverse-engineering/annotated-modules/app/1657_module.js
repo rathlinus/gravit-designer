@@ -7,9 +7,9 @@ function (e, t, n) {
     "use strict";
     n(53) /* module */;
     var o = n(1) /* module */,
-      i = (n(15) /* module */, n(40) /* module_40 */),
+      i = (n(15) /* module */, n(40) /* CollaborationMergeUtils */),
       a = (n(67) /* GRichTooltipConfig */, n(238) /* GMenu */),
-      r = (n(1151) /* GSwatchesChangedEvent */, n(857) /* module_857 */, n(173) /* module_173 */, n(877) /* GPasteAction */, n(44) /* GSystemDialog */),
+      r = (n(1151) /* GSwatchesChangedEvent */, n(857) /* module_857 */, n(173) /* stub_requires_1 */, n(877) /* GPasteAction */, n(44) /* GSystemDialog */),
       s = n(1150) /* module_1150 */;
     function l() {
       this.initLayout(),

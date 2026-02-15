@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
       i = require(15) /* module */,
       a = require(67) /* GRichTooltipConfig */,

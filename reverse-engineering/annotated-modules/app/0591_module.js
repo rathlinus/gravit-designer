@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     function o() {}
-    n(30) /* module_30 */,
+    n(30) /* polyfill_Object_assign */,
       Object.assign(o, {
         SETUP: { ENDPOINT: "SETUP_URL_ENDPOINT" },
         COMMAND_SAVE: {

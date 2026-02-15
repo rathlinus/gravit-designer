@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(40) /* module_40 */;
+    var o = n(40) /* CollaborationMergeUtils */;
     function i(e, t, n) {
       (this.element = e),
         (this.mouseMoveCallback = t || o.fakeFunction),

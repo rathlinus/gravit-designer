@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */, n(57) /* polyfill_parseInt */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(15) /* module */,
       a = n(53) /* module */,
       r = n(1) /* module */,
@@ -16,7 +16,7 @@ function (e, t, n) {
       d = o(n(198) /* Exports_GOutlineSidebar */),
       u = n(1161) /* module_1161 */,
       p = o(n(565) /* module_565 */),
-      g = n(10) /* module_10 */,
+      g = n(10) /* AppSettings */,
       h = n(123) /* GProperties */,
       f = n(450) /* module_450 */;
     const m = n(607) /* module_607 */,

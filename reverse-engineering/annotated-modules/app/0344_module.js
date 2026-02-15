@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(23) /* module_23 */.RegExp,
+    var o = n(21) /* tryCall */,
+      i = n(23) /* globalThis */.RegExp,
       a = o(function () {
         var e = i("a", "y");
         return (e.lastIndex = 2), null !== e.exec("abcd");

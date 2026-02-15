@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(71) /* module_71 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(71) /* polyfill_String_includes */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var i = require(1) /* module */,
       a = o(require(1343) /* module_1343 */),
       r = o(require(44) /* GSystemDialog */),
-      s = require(40) /* module_40 */;
+      s = require(40) /* CollaborationMergeUtils */;
     function l() {}
     i.GObject.inherit(l, i.GObject),
       (l.prototype._translationManager = null),

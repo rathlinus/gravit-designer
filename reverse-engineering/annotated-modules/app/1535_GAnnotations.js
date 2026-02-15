@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(58) /* module_58 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */;
+    n(58) /* polyfill_Array_includes */, n(3) /* polyfill_RegExp_toString */, n(71) /* polyfill_String_includes */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(97) /* stub_requires_684 */, n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,
@@ -15,7 +15,7 @@ function (e, t, n) {
       l = n(123) /* GProperties */;
     const c = n(358) /* module_358 */,
       d = n(86) /* module_86 */,
-      { SHOW_SIDEBAR_BADGE: u } = n(10) /* module_10 */;
+      { SHOW_SIDEBAR_BADGE: u } = n(10) /* AppSettings */;
     function p() {
       this._elements = [];
     }

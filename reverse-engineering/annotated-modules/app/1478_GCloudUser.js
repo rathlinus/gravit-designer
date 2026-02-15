@@ -9,9 +9,9 @@ function (e, t, n) {
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.GCloudUser = r),
       (t.default = void 0),
-      n(58) /* module_58 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */;
+      n(58) /* polyfill_Array_includes */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(71) /* polyfill_String_includes */;
     var o = n(1241) /* GCloudRole */;
     const i = n(0) /* GObject */,
       a = n(177) /* module_177 */;

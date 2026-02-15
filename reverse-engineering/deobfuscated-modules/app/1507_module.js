@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    require(290) /* module_290 */, require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */;
+    require(290) /* module_290 */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(357) /* module_357 */,
       i = require(1) /* module */,
-      a = require(40) /* module_40 */;
+      a = require(40) /* CollaborationMergeUtils */;
     const {
         gApi: r,
         LINKS: s,
         DESIGNER: { TITLE: l } = {},
         SubscriptionStatus: c,
-      } = require(10) /* module_10 */,
-      d = (require(173) /* module_173 */, require(337) /* module_337 */),
+      } = require(10) /* AppSettings */,
+      d = (require(173) /* stub_requires_1 */, require(337) /* stub_requires_1098 */),
       u = ["number", "name", "price", "date"];
     function p(e, t) {
       let require =

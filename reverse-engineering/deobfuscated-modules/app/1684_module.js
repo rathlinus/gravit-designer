@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(527) /* module_527 */;
+    require(8) /* polyfill_bundle_ES6 */, require(527) /* module_527 */;
     const o = require(292) /* module_292 */,
       i = require(1685) /* module_1685 */,
-      { gApi: a, DateAPI: r } = require(10) /* module_10 */;
+      { gApi: a, DateAPI: r } = require(10) /* AppSettings */;
     exports.exports = class {
       init() {
         gDesigner.addEventListener(o, this._userLoggedEvent, this);

@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var i = require(1) /* module */,
       a = require(53) /* module */,
       r = require(15) /* module */,
-      s = require(10) /* module_10 */,
-      l = require(40) /* module_40 */,
+      s = require(10) /* AppSettings */,
+      l = require(40) /* CollaborationMergeUtils */,
       c = o(require(44) /* GSystemDialog */),
       d = require(567) /* GAnnotationsSidebar */,
-      u = require(18) /* module_18 */,
+      u = require(18) /* MenuItemBuilder */,
       p = require(31) /* GAction */;
     const g = require(358) /* module_358 */,
       h = require(607) /* module_607 */;

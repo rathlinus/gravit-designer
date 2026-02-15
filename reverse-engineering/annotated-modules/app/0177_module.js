@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(247) /* module_247 */, n(91) /* module_91 */;
-    var o = n(263) /* module_263 */,
-      i = n(10) /* module_10 */;
+    n(30) /* polyfill_Object_assign */, n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(3) /* polyfill_RegExp_toString */, n(247) /* module_247 */, n(91) /* polyfill_String_trim */;
+    var o = n(263) /* Exports_GRegex */,
+      i = n(10) /* AppSettings */;
     const { GObject: a } = n(1) /* module */,
       r = n(733) /* module_733 */,
       s = n(589) /* module_589 */,

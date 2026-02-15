@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
+    n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */;
     var o = n(1) /* module */;
     const i = n(606) /* GPanel */,
       a = n(394) /* GView */,
@@ -15,10 +15,10 @@ function (e, t, n) {
       l = n(78) /* GDocumentEvent */,
       c = n(291) /* GNetworkAvailabilityChangedEvent */,
       d = n(1346) /* GUnloadEvent */,
-      u = n(1348) /* module_1348 */,
+      u = n(1348) /* StatusChangedEvent */,
       p = n(44) /* GSystemDialog */,
       g = n(177) /* module_177 */,
-      { DateAPI: h, ShareRoles: f } = n(10) /* module_10 */;
+      { DateAPI: h, ShareRoles: f } = n(10) /* AppSettings */;
     function m() {}
     o.GObject.inherit(m, i),
       (m.ID = "collaborative-text-panel"),

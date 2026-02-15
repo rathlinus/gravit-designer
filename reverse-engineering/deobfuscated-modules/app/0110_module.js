@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(35) /* module_35 */,
+    var o = require(23) /* globalThis */,
+      i = require(35) /* anObject */,
       a = function (e) {
         return i(e) ? e : undefined;
       };

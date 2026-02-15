@@ -5,37 +5,37 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(196) /* module_196 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(10) /* module_10 */,
+    var o = n(16) /* _interopRequireDefault */;
+    n(58) /* polyfill_Array_includes */,
+      n(19) /* polyfill_Array_iterator */,
+      n(168) /* polyfill_Array_reduce */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(196) /* polyfill_Promise_finally */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(107) /* polyfill_RegExp_test */,
+      n(34) /* polyfill_String_replace */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(169) /* stub_requires_683 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */,
+      n(125) /* stub_requires_673 */,
+      n(126) /* polyfill_URL_toJSON */,
+      n(114) /* stub_requires_424 */;
+    var i = n(10) /* AppSettings */,
       a = n(231) /* module_231 */,
       r = n(53) /* module */,
       s = n(1) /* module */,
       l = n(15) /* module */,
-      c = n(40) /* module_40 */,
+      c = n(40) /* CollaborationMergeUtils */,
       d = n(67) /* GRichTooltipConfig */,
       u = o(n(1484) /* module_1484 */),
       p = o(n(443) /* module_443 */),
-      g = o(n(1485) /* module_1485 */),
+      g = o(n(1485) /* AppSettings */),
       h = o(n(1486) /* module_1486 */),
       f = o(n(1487) /* module_1487 */);
     const {
@@ -223,13 +223,13 @@ function (e, t, n) {
       In = n(1670) /* module_1670 */,
       kn = n(85) /* GContainer */,
       On = n(1672) /* module_1672 */,
-      Fn = (n(237) /* module_237 */, n(1673) /* module_1673 */),
+      Fn = (n(237) /* Item */, n(1673) /* module_1673 */),
       Rn = n(119) /* module_119 */,
       Mn = n(1674) /* module_1674 */,
       Nn = n(44) /* GSystemDialog */,
       Bn = n(860) /* module_860 */,
       Un = n(1675) /* module_1675 */,
-      $n = n(337) /* module_337 */,
+      $n = n(337) /* stub_requires_1098 */,
       jn = n(1325) /* module_1325 */,
       Kn = n(785) /* module_785 */,
       Vn = n(1676) /* GSoftwareUpdateManager */,
@@ -250,10 +250,10 @@ function (e, t, n) {
         isTeamsChannel: oo,
         getTeamsLocale: io,
       } = p.default;
-    n(18) /* module_18 */, n(1688) /* module_1688 */, n(1154) /* module_1154 */, n(1689) /* module_1689 */, n(1690) /* module_1690 */, n(1691) /* module_1691 */, n(1693) /* GLongPressEvent */, n(1694) /* module_1694 */;
+    n(18) /* MenuItemBuilder */, n(1688) /* module_1688 */, n(1154) /* module_1154 */, n(1689) /* module_1689 */, n(1690) /* stub_requires_1 */, n(1691) /* module_1691 */, n(1693) /* GLongPressEvent */, n(1694) /* module_1694 */;
     var ao = window;
     const ro = !!/^trunk/.test("production") && !y;
-    (ao.gApi = n(10) /* module_10 */.gApi), (ao.gApi.webcdr = null);
+    (ao.gApi = n(10) /* AppSettings */.gApi), (ao.gApi.webcdr = null);
     const so = async () => S.checkMaintenance();
     so(),
       ro &&
@@ -292,7 +292,7 @@ function (e, t, n) {
       (ao.gQA = h.default);
     const co = ao.gDesigner.isOfflineAsync();
     ao.gInAppPurchase = Yn.newInAppPurchase(v);
-    const { GA: { customDimensions: uo } = {} } = n(10) /* module_10 */;
+    const { GA: { customDimensions: uo } = {} } = n(10) /* AppSettings */;
     gDesigner.addEventListener(Wn, (e) => {
       let { user: t } = e;
       t &&

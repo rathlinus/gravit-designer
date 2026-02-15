@@ -6,27 +6,27 @@
 
 function (e, t, n) {
     "use strict";
-    n(557) /* module_557 */;
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
+    n(557) /* stub_requires_1102 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */,
+      n(96) /* polyfill_JSON_stringify */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(34) /* polyfill_String_replace */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(38) /* stub_requires_680 */,
+      n(97) /* stub_requires_684 */,
+      n(26) /* polyfill_DOMCollection_iterator */,
+      n(125) /* stub_requires_673 */,
+      n(126) /* polyfill_URL_toJSON */,
+      n(114) /* stub_requires_424 */;
     var i = n(1) /* module */,
-      a = n(40) /* module_40 */,
+      a = n(40) /* CollaborationMergeUtils */,
       r = n(593) /* module_593 */,
-      s = o(n(787) /* module_787 */),
+      s = o(n(787) /* Exports_GoogleToCloudRoleMap */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)
           var n = new WeakMap(),
@@ -53,11 +53,11 @@ function (e, t, n) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(n(789) /* module_789 */),
+      })(n(789) /* Exports_NoAccessId */),
       c = o(n(594) /* GError */);
     const d = n(1108) /* module_1108 */,
       u = n(595) /* module_595 */,
-      { HTTP_STATUS_CODES: p } = n(10) /* module_10 */;
+      { HTTP_STATUS_CODES: p } = n(10) /* AppSettings */;
     function g(e) {
       this.setTokenIssuer(e);
     }

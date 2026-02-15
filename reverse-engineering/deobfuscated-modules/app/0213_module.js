@@ -7,8 +7,8 @@ function (exports, module, require) {
     "use strict";
     var o,
       i,
-      a = require(23) /* module_23 */,
-      r = require(129) /* module_129 */,
+      a = require(23) /* globalThis */,
+      r = require(129) /* stub_requires_23 */,
       s = a.process,
       l = a.Deno,
       c = (s && s.versions) || (l && l.version),

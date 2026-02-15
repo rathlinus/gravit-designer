@@ -6,41 +6,41 @@
 
 function (exports, module, require) {
     "use strict";
-    require(842) /* module_842 */;
-    var o = require(16) /* module_16 */;
+    require(842) /* polyfill_String_trimStart */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.TEAMS_COMMANDS = module.GSharePointClient = undefined),
-      require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(96) /* module_96 */,
-      require(30) /* module_30 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
+      require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
       require(356) /* module_356 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(3) /* module_3 */,
-      require(271) /* module_271 */,
-      require(34) /* module_34 */,
-      require(134) /* module_134 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(271) /* polyfill_String_endsWith */,
+      require(34) /* polyfill_String_replace */,
+      require(134) /* polyfill_String_startsWith */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var i = require(1) /* module */,
       a = o(require(1476) /* module_1476 */),
       r = require(802) /* CloudException */,
       s = o(require(119) /* module_119 */),
-      l = require(10) /* module_10 */,
+      l = require(10) /* AppSettings */,
       c = require(593) /* module_593 */,
       d = o(require(594) /* GError */),
-      u = o(require(1477) /* module_1477 */),
+      u = o(require(1477) /* GMicrosoftUser */),
       p = o(require(1242) /* module_1242 */),
-      g = require(40) /* module_40 */;
+      g = require(40) /* CollaborationMergeUtils */;
     const h = require(156) /* module_156 */;
     let f = null,
       m = {};

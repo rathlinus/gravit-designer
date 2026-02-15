@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
-    var o = require(10) /* module_10 */;
+    require(8) /* polyfill_bundle_ES6 */;
+    var o = require(10) /* AppSettings */;
     const i = require(292) /* module_292 */,
       a = require(846) /* module_846 */;
     exports.exports = class {

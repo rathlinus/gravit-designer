@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     function o() {}
-    n(4) /* module_4 */,
-      n(13) /* module_13 */,
+    n(4) /* stub_requires_668 */,
+      n(13) /* stub_requires_679 */,
       (o.Orientation = { Vertical: "vertical", Horizontal: "horizontal" }),
       (function (e) {
         const t = {

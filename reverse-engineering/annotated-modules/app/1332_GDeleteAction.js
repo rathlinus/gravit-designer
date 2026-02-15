@@ -6,16 +6,16 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var i = n(1) /* module */,
       a = n(53) /* module */,
       r = n(15) /* module */,
-      s = n(10) /* module_10 */,
-      l = n(40) /* module_40 */,
+      s = n(10) /* AppSettings */,
+      l = n(40) /* CollaborationMergeUtils */,
       c = o(n(44) /* GSystemDialog */),
       d = n(567) /* GAnnotationsSidebar */,
-      u = n(18) /* module_18 */,
+      u = n(18) /* MenuItemBuilder */,
       p = n(31) /* GAction */;
     const g = n(358) /* module_358 */,
       h = n(607) /* module_607 */;

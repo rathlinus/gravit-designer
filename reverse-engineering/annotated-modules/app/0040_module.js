@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(91) /* module_91 */, n(842) /* module_842 */;
-    var o = n(16) /* module_16 */;
+    n(91) /* polyfill_String_trim */, n(842) /* polyfill_String_trimStart */;
+    var o = n(16) /* _interopRequireDefault */;
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t._cloneChildrenIntoReceiver = E),
       (t._mergeChildren = x),
@@ -466,32 +466,32 @@ function (e, t, n) {
         return e.substring(t.length);
       }),
       (t.watchDog = void 0),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
+      n(58) /* polyfill_Array_includes */,
+      n(19) /* polyfill_Array_iterator */,
       n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
       n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(71) /* module_71 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(271) /* polyfill_String_endsWith */,
+      n(71) /* polyfill_String_includes */,
       n(151) /* module_151 */,
-      n(134) /* module_134 */,
+      n(134) /* polyfill_String_startsWith */,
       n(1041) /* module_1041 */,
       n(218) /* module_218 */,
       n(189) /* module_189 */,
       n(190) /* module_190 */,
       n(191) /* module_191 */,
       n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */;
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(97) /* stub_requires_684 */,
+      n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(1) /* module */,
       a = o(n(84) /* GAnnotation */),
       r = n(1042) /* module_1042 */;
@@ -499,7 +499,7 @@ function (e, t, n) {
     var l = n(250) /* module_250 */,
       c = n(44) /* GSystemDialog */;
     const d = n(433) /* module_433 */,
-      { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = n(10) /* module_10 */;
+      { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = n(10) /* AppSettings */;
     t.watchDog = {
       trap: (e, t, n, o) => (i) =>
         ((e, t, n, o, i) =>

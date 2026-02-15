@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(20) /* module_20 */, require(34) /* module_34 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
     var i = o(require(78) /* GDocumentEvent */),
       a = o(require(86) /* module_86 */),
       r = o(require(449) /* GFitAllAction */),
       s = o(require(85) /* GContainer */),
-      l = o(require(237) /* module_237 */),
+      l = o(require(237) /* Item */),
       c = require(1) /* module */;
     exports.exports = class {
       static handleOpenFileRequest(e, t) {

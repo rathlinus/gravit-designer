@@ -5,6 +5,6 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(43) /* module_43 */;
+    var o = n(43) /* wellKnownSymbol */;
     t.f = o;
   }

@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(21) /* module_21 */,
-      a = n(27) /* module_27 */,
-      r = n(62) /* module_62 */,
+    var o = n(23) /* globalThis */,
+      i = n(21) /* tryCall */,
+      a = n(27) /* uncurryThis */,
+      r = n(62) /* requireObjectCoercible */,
       s = n(262) /* module_262 */.trim,
       l = n(248) /* module_248 */,
       c = o.parseInt,

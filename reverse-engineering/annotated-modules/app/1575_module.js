@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     const o = n(1252) /* module_1252 */,
       i = n(1187) /* module_1187 */,
-      { gApi: a } = n(10) /* module_10 */;
+      { gApi: a } = n(10) /* AppSettings */;
     e.exports = class extends i {
       constructor(e, t) {
         super(), (this._id = e), (this._url = t);

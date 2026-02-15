@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */;
+    require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */;
-    const i = require(18) /* module_18 */,
+    const i = require(18) /* MenuItemBuilder */,
       a = require(31) /* GAction */;
     var r = require(219) /* module_219 */,
       s = require(85) /* GContainer */;

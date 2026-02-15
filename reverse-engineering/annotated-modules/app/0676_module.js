@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(27) /* module_27 */,
+    var o = n(27) /* uncurryThis */,
       i = /[^\0-\u007E]/,
       a = /[.\u3002\uFF0E\uFF61]/g,
       r = "Overflow: input needs wider integers to process",

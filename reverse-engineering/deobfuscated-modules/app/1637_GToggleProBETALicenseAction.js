@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(527) /* module_527 */, require(3) /* module_3 */;
+    require(8) /* polyfill_bundle_ES6 */, require(527) /* module_527 */, require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
       i = require(31) /* GAction */,
-      a = require(18) /* module_18 */;
-    const { gApi: r } = require(10) /* module_10 */;
-    var s = require(337) /* module_337 */;
+      a = require(18) /* MenuItemBuilder */;
+    const { gApi: r } = require(10) /* AppSettings */;
+    var s = require(337) /* stub_requires_1098 */;
     function l() {}
     o.GObject.inherit(l, i),
       (l.ID = "toggle-pro-beta-license"),

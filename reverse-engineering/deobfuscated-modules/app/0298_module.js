@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
+    var o = require(23) /* globalThis */,
       i = Object.defineProperty;
     exports.exports = function (e, t) {
       try {

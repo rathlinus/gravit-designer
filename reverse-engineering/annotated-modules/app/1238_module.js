@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(38) /* module_38 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(38) /* stub_requires_680 */, n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */;
     n(1150) /* module_1150 */;
     function i(e) {

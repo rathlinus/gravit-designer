@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
-    const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* module_10 */,
-      a = require(337) /* module_337 */,
+    require(8) /* polyfill_bundle_ES6 */;
+    const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* AppSettings */,
+      a = require(337) /* stub_requires_1098 */,
       r = require(44) /* GSystemDialog */;
     exports.exports = class {
       async execute() {

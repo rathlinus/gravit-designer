@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(49) /* module_49 */,
+    var o = n(23) /* globalThis */,
+      i = n(49) /* hasOwnProperty_wrapper */,
       a = n(120) /* module_120 */,
       r = n(307) /* module_307 */,
-      s = n(21) /* module_21 */,
+      s = n(21) /* tryCall */,
       l = o.RegExp,
       c = l.prototype;
     i &&

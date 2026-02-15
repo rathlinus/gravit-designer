@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* module_49 */,
+    var o = require(49) /* hasOwnProperty_wrapper */,
       i = require(61) /* module_61 */,
       a = Function.prototype,
       r = o && Object.getOwnPropertyDescriptor,

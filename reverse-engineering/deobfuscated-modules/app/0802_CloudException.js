@@ -6,29 +6,29 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.WINDOW_STATUS_BLOCKED = undefined),
-      require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(96) /* module_96 */,
-      require(57) /* module_57 */,
-      require(8) /* module_8 */,
-      require(71) /* module_71 */,
-      require(134) /* module_134 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(26) /* module_26 */;
+      require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(57) /* polyfill_parseInt */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(71) /* polyfill_String_includes */,
+      require(134) /* polyfill_String_startsWith */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
       a = o(require(355) /* module_355 */),
       r = o(require(594) /* GError */),
-      s = require(858) /* module_858 */;
+      s = require(858) /* Exports_GFilesPanel */;
     const l = require(1240) /* module_1240 */,
-      c = require(520) /* module_520 */,
-      { FILE_FORMATS: d } = require(10) /* module_10 */;
+      c = require(520) /* barrel_purchase_urls */,
+      { FILE_FORMATS: d } = require(10) /* AppSettings */;
     module.WINDOW_STATUS_BLOCKED = "window-blocked";
     function u(e) {
       (this._settings = e),

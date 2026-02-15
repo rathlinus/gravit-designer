@@ -5,13 +5,13 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
+    var o = n(25) /* core_export */,
       i = n(223) /* module_223 */,
-      a = n(21) /* module_21 */,
+      a = n(21) /* tryCall */,
       r = n(324) /* module_324 */,
-      s = n(37) /* module_37 */,
+      s = n(37) /* toString_default */,
       l = n(244) /* module_244 */,
-      c = n(117) /* module_117 */,
+      c = n(117) /* toStringTagSupport */,
       d = r.ArrayBuffer,
       u = r.DataView,
       p = u.prototype,

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */;
+    n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */;
     e.exports = class {
       constructor() {
         this._promiseQueue = [];

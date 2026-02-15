@@ -6,14 +6,14 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
       i = n(53) /* module */,
       a = n(67) /* GRichTooltipConfig */,
       r = n(238) /* GMenu */,
       s = n(444) /* module_444 */,
       l = n(123) /* GProperties */,
-      c = n(1253) /* module_1253 */,
+      c = n(1253) /* ZipDirectory */,
       d = n(446) /* module_446 */,
       u = n(442) /* module_442 */;
     const p = n(135) /* GSettingChangedEvent */;

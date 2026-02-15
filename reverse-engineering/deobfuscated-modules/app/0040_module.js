@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(91) /* module_91 */, require(842) /* module_842 */;
-    var o = require(16) /* module_16 */;
+    require(91) /* polyfill_String_trim */, require(842) /* polyfill_String_trimStart */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module._cloneChildrenIntoReceiver = E),
       (module._mergeChildren = x),
@@ -466,32 +466,32 @@ function (exports, module, require) {
         return e.substring(t.length);
       }),
       (module.watchDog = undefined),
-      require(58) /* module_58 */,
-      require(19) /* module_19 */,
+      require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
       require(356) /* module_356 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(271) /* module_271 */,
-      require(71) /* module_71 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(271) /* polyfill_String_endsWith */,
+      require(71) /* polyfill_String_includes */,
       require(151) /* module_151 */,
-      require(134) /* module_134 */,
+      require(134) /* polyfill_String_startsWith */,
       require(1041) /* module_1041 */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(33) /* module_33 */;
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
       a = o(require(84) /* GAnnotation */),
       r = require(1042) /* module_1042 */;
@@ -499,7 +499,7 @@ function (exports, module, require) {
     var l = require(250) /* module_250 */,
       c = require(44) /* GSystemDialog */;
     const d = require(433) /* module_433 */,
-      { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = require(10) /* module_10 */;
+      { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = require(10) /* AppSettings */;
     module.watchDog = {
       trap: (e, t, n, o) => (i) =>
         ((e, t, n, o, i) =>

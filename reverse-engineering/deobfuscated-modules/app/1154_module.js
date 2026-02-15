@@ -40,11 +40,11 @@ function (exports, module, require) {
           gContainer.download({ buffer: e, name: n, extension: o, mime: i });
         }
       }),
-      require(19) /* module_19 */,
+      require(19) /* polyfill_Array_iterator */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(20) /* module_20 */,
-      require(34) /* module_34 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(34) /* polyfill_String_replace */,
       require(247) /* module_247 */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,

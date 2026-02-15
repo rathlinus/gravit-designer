@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */,
-      i = n(40) /* module_40 */;
-    n(10) /* module_10 */;
-    n(1474) /* module_1474 */, n(220) /* module_220 */, n(44) /* GSystemDialog */, n(119) /* module_119 */;
+      i = n(40) /* CollaborationMergeUtils */;
+    n(10) /* AppSettings */;
+    n(1474) /* module_1474 */, n(220) /* Item */, n(44) /* GSystemDialog */, n(119) /* module_119 */;
     function a(e, t, n) {
       (this._document = e),
         (this._storageItem = t),

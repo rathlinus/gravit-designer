@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */, n(26) /* polyfill_DOMCollection_iterator */;
     n(53) /* module */;
     var o = n(1) /* module */,
-      i = (n(15) /* module */, n(40) /* module_40 */, n(67) /* GRichTooltipConfig */, n(1351) /* module_1351 */),
-      a = n(451) /* module_451 */.GVirtualTree,
-      r = (n(451) /* module_451 */.GVirtualTreeNode, n(451) /* module_451 */.GVirtualTreeNodeNamed),
-      { VTREE_FREE_HEIGHT: s } = n(10) /* module_10 */;
-    n(173) /* module_173 */, n(450) /* module_450 */;
+      i = (n(15) /* module */, n(40) /* CollaborationMergeUtils */, n(67) /* GRichTooltipConfig */, n(1351) /* module_1351 */),
+      a = n(451) /* IdxIterator */.GVirtualTree,
+      r = (n(451) /* IdxIterator */.GVirtualTreeNode, n(451) /* IdxIterator */.GVirtualTreeNodeNamed),
+      { VTREE_FREE_HEIGHT: s } = n(10) /* AppSettings */;
+    n(173) /* stub_requires_1 */, n(450) /* module_450 */;
     function l() {}
     function c(e) {
       var t = $(this).data("gselectedpanel"),

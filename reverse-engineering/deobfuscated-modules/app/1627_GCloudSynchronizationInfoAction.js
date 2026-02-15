@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
     var o = require(1) /* module */;
-    const i = require(18) /* module_18 */,
+    const i = require(18) /* MenuItemBuilder */,
       a = require(31) /* GAction */,
       r = require(85) /* GContainer */,
-      { CLOUD_SYNC_FEATURE: { NEW_LAYOUT: s } = {} } = require(10) /* module_10 */;
+      { CLOUD_SYNC_FEATURE: { NEW_LAYOUT: s } = {} } = require(10) /* AppSettings */;
     function l() {}
     o.GObject.inherit(l, a),
       (l.ID = "sync.info"),

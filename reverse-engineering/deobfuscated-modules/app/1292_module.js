@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
     const { GLocale: o, GLocaleKey: i } = require(1) /* module */;
     function a() {
       throw "No instantiate";

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(57) /* module_57 */, require(8) /* module_8 */;
+    require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */;
     var o = require(1) /* module */,
       i = require(1198) /* module_1198 */,
-      a = require(255) /* module_255 */,
+      a = require(255) /* barrel_sidebars */,
       r = require(1118) /* module_1118 */;
     function s() {
       try {

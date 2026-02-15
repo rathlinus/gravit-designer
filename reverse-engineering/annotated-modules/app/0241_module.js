@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     var o = n(110) /* module_110 */,
-      i = n(35) /* module_35 */,
-      a = n(144) /* module_144 */,
-      r = n(398) /* module_398 */,
+      i = n(35) /* anObject */,
+      a = n(144) /* stub_requires_27 */,
+      r = n(398) /* _typeof */,
       s = Object;
     e.exports = r
       ? function (e) {

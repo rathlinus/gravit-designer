@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    require(670) /* module_670 */;
+    require(670) /* polyfill_Iterator_forEach */;
   }

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    require(30) /* module_30 */, require(3) /* module_3 */;
-    const { HAS_ANNOTATIONS: o } = require(10) /* module_10 */;
+    require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */;
+    const { HAS_ANNOTATIONS: o } = require(10) /* AppSettings */;
     function i() {
       let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(27) /* module_27 */,
-      i = require(35) /* module_35 */,
+    var o = require(27) /* uncurryThis */,
+      i = require(35) /* anObject */,
       a = require(297) /* module_297 */,
       r = o(Function.toString);
     i(a.inspectSource) ||

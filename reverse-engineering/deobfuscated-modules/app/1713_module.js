@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(8) /* module_8 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
     const { GObject: o } = require(1) /* module */,
       { GPlatform: i } = require(15) /* module */,
-      a = require(1355) /* module_1355 */,
+      a = require(1355) /* GSimpleTreeNodeNamed */,
       r = require(1191) /* module_1191 */,
       s = require(1356) /* module_1356 */,
       l = require(1357) /* module_1357 */,
       { handleCollabsData: c } = (require(536) /* module_536 */, require(882) /* module_882 */),
       d = require(1354) /* GInvalidationOptions */,
-      u = require(434) /* module_434 */;
+      u = require(434) /* stub_requires_30_1072 */;
     function p() {
       for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
         module[require] = arguments[require];

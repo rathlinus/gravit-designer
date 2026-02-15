@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(96) /* module_96 */, n(3) /* module_3 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
-    var o = n(10) /* module_10 */,
-      i = n(40) /* module_40 */;
+    n(19) /* polyfill_Array_iterator */, n(96) /* polyfill_JSON_stringify */, n(3) /* polyfill_RegExp_toString */, n(26) /* polyfill_DOMCollection_iterator */, n(125) /* stub_requires_673 */, n(126) /* polyfill_URL_toJSON */, n(114) /* stub_requires_424 */;
+    var o = n(10) /* AppSettings */,
+      i = n(40) /* CollaborationMergeUtils */;
     const a = n(1186) /* module_1186 */,
       r = n(1575) /* module_1575 */;
     e.exports = class extends a {

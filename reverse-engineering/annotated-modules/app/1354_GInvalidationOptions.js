@@ -11,8 +11,8 @@ function (e, t, n) {
         arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
       Object.assign(this, { fileCache: !0, collaboratorsCache: !0 }, e);
     }
-    n(30) /* module_30 */,
-      n(3) /* module_3 */,
+    n(30) /* polyfill_Object_assign */,
+      n(3) /* polyfill_RegExp_toString */,
       (o.NO_CACHE_INVALIDATION = Object.freeze(
         new o({ fileCache: !1, collaboratorsCache: !1 })
       )),

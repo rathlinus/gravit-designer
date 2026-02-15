@@ -9,9 +9,9 @@ function (exports, module, require) {
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.GCloudUser = r),
       (module.default = undefined),
-      require(58) /* module_58 */,
-      require(3) /* module_3 */,
-      require(71) /* module_71 */;
+      require(58) /* polyfill_Array_includes */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(71) /* polyfill_String_includes */;
     var o = require(1241) /* GCloudRole */;
     const i = require(0) /* GObject */,
       a = require(177) /* module_177 */;

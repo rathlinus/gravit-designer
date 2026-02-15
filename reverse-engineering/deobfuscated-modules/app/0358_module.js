@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    require(58) /* module_58 */,
-      require(19) /* module_19 */,
-      require(8) /* module_8 */,
-      require(71) /* module_71 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */;
+    require(58) /* polyfill_Array_includes */,
+      require(19) /* polyfill_Array_iterator */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(71) /* polyfill_String_includes */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     var o = require(1) /* module */,
       i = require(53) /* module */,
-      a = require(40) /* module_40 */,
-      r = require(10) /* module_10 */,
+      a = require(40) /* CollaborationMergeUtils */,
+      r = require(10) /* AppSettings */,
       s = require(592) /* module_592 */,
       l = require(1094) /* module_1094 */;
-    const c = require(434) /* module_434 */;
+    const c = require(434) /* stub_requires_30_1072 */;
     function d() {}
     async function u(e, t) {
       const require = gDesigner.getSyncUser(),

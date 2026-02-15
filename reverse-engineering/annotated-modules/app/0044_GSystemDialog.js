@@ -6,18 +6,18 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
+    n(19) /* polyfill_Array_iterator */,
+      n(30) /* polyfill_Object_assign */,
+      n(57) /* polyfill_parseInt */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
+      n(4) /* stub_requires_668 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(1) /* module */,
       i = n(15) /* module */;
     class a {

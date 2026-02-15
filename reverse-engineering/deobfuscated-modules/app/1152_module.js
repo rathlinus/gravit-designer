@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */, require(30) /* module_30 */, require(8) /* module_8 */, require(196) /* module_196 */, require(3) /* module_3 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(3) /* polyfill_RegExp_toString */;
     var i = require(1) /* module */,
       a = require(847) /* module_847 */,
       r = o(require(1239) /* SharepointException */),
-      s = o(require(388) /* module_388 */),
+      s = o(require(388) /* Item */),
       l = o(require(1481) /* module_1481 */),
-      c = require(10) /* module_10 */,
+      c = require(10) /* AppSettings */,
       d = o(require(594) /* GError */);
     const u = require(86) /* module_86 */,
       p = require(336) /* module_336 */,

@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
       i = require(123) /* GProperties */,
       a = require(1160) /* GAppearanceProperties */;

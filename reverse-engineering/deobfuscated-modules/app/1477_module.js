@@ -8,7 +8,7 @@ function (exports, module, require) {
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.GMicrosoftUser = r),
       (module.default = undefined),
-      require(3) /* module_3 */;
+      require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
       i = require(1478) /* GCloudUser */,
       a = require(1241) /* GCloudRole */;

@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
-      i = require(40) /* module_40 */,
+      i = require(40) /* CollaborationMergeUtils */,
       a = require(1156) /* GMenuCloseEvent */,
       r = require(444) /* module_444 */,
       s = require(339) /* GMenu */,

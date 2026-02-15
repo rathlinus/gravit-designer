@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */, n(20) /* module_20 */, n(527) /* module_527 */, n(107) /* module_107 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(10) /* module_10 */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(527) /* module_527 */, n(107) /* polyfill_RegExp_test */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
+    var o = n(10) /* AppSettings */;
     const i = n(1326) /* module_1326 */,
       a = n(1578) /* module_1578 */,
       r = n(256) /* GOfflineDialog */,

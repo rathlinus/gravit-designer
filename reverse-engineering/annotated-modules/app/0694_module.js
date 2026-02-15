@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(46) /* module_46 */,
+    var o = n(46) /* toLength */,
       i = Math.floor;
     e.exports =
       Number.isInteger ||

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(129) /* module_129 */,
+    var o = n(23) /* globalThis */,
+      i = n(129) /* stub_requires_23 */,
       a = n(116) /* module_116 */,
       r = function (e) {
         return i.slice(0, e.length) === e;

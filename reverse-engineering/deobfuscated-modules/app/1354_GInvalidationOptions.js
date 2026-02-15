@@ -11,8 +11,8 @@ function (exports, module, require) {
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       Object.assign(this, { fileCache: true, collaboratorsCache: true }, exports);
     }
-    require(30) /* module_30 */,
-      require(3) /* module_3 */,
+    require(30) /* polyfill_Object_assign */,
+      require(3) /* polyfill_RegExp_toString */,
       (o.NO_CACHE_INVALIDATION = Object.freeze(
         new o({ fileCache: false, collaboratorsCache: false })
       )),

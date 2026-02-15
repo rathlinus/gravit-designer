@@ -5,31 +5,31 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
+    require(19) /* polyfill_Array_iterator */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(107) /* module_107 */,
-      require(34) /* module_34 */,
-      require(134) /* module_134 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(107) /* polyfill_RegExp_test */,
+      require(34) /* polyfill_String_replace */,
+      require(134) /* polyfill_String_startsWith */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(13) /* module_13 */,
-      require(38) /* module_38 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
-    var o = require(10) /* module_10 */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(13) /* stub_requires_679 */,
+      require(38) /* stub_requires_680 */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
+    var o = require(10) /* AppSettings */,
       i = require(1) /* module */,
       a = require(15) /* module */,
-      r = require(40) /* module_40 */,
+      r = require(40) /* CollaborationMergeUtils */,
       s = require(845) /* module_845 */;
     const l = require(1092) /* module_1092 */;
     var c = require(78) /* GDocumentEvent */,
@@ -40,7 +40,7 @@ function (exports, module, require) {
       h = require(358) /* module_358 */;
     const f = require(86) /* module_86 */,
       m = (require(156) /* module_156 */, require(256) /* GOfflineDialog */),
-      y = require(337) /* module_337 */,
+      y = require(337) /* stub_requires_1098 */,
       v = require(435) /* Md5 */,
       _ = require(165) /* module_165 */;
     var b = o.FILE_FORMATS.find((e) => e.default),

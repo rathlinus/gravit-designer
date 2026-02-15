@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(168) /* module_168 */, n(4) /* module_4 */, n(13) /* module_13 */, n(169) /* module_169 */;
+    n(168) /* polyfill_Array_reduce */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(169) /* stub_requires_683 */;
     const o = n(449) /* GFitAllAction */,
       i = n(566) /* GFitSelectionAction */,
       a = n(447) /* GSaveAction */,
@@ -17,10 +17,10 @@ function (e, t, n) {
       u = n(1293) /* GCloudSynchronizationAction */,
       p = n(238) /* GMenu */,
       g = n(339) /* GMenu */,
-      h = n(257) /* module_257 */,
+      h = n(257) /* barrel_panels */,
       f = n(85) /* GContainer */,
       { GSystem: m, GMath: y } = n(1) /* module */,
-      { FILE_FORMATS: v } = n(10) /* module_10 */;
+      { FILE_FORMATS: v } = n(10) /* AppSettings */;
     e.exports = function (e) {
       (e.prototype._windowButton = null),
         (e.prototype._nativeButton = null),

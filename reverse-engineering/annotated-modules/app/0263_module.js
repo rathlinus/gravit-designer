@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.default = t.GRegex = void 0);
-    const { NOTIFICATION_USER_MENTION_REGEX: o } = n(10) /* module_10 */,
+    const { NOTIFICATION_USER_MENTION_REGEX: o } = n(10) /* AppSettings */,
       i = (t.GRegex = {
         String: {
           InParenthesis: { NotNegativeNumberInTheEnd: /\(\d+\)$/ },

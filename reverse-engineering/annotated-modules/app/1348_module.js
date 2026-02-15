@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */;
+    n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */;
     var o = n(53) /* module */,
       i = n(1) /* module */;
-    const { gApi: a } = n(10) /* module_10 */,
+    const { gApi: a } = n(10) /* AppSettings */,
       r = n(393) /* GCollaborationEvent */,
       s = n(217) /* GDocumentStatusEvent */,
       l = n(86) /* module_86 */;

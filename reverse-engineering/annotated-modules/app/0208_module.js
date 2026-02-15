@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     var o = n(61) /* module_61 */,
-      i = n(35) /* module_35 */,
-      a = n(93) /* module_93 */,
+      i = n(35) /* anObject */,
+      a = n(93) /* stub_requires_92 */,
       r = n(300) /* module_300 */,
       s = n(665) /* module_665 */,
       l = r("IE_PROTO"),

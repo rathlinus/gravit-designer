@@ -5,10 +5,10 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(43) /* module_43 */,
-      a = n(49) /* module_49 */,
-      r = n(74) /* module_74 */,
+    var o = n(21) /* tryCall */,
+      i = n(43) /* wellKnownSymbol */,
+      a = n(49) /* hasOwnProperty_wrapper */,
+      r = n(74) /* createNonEnumerableProperty */,
       s = i("iterator");
     e.exports = !o(function () {
       var e = new URL("b?a=1&b=2&c=3", "https://a"),

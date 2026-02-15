@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(29) /* module_29 */,
-      i = require(278) /* module_278 */,
-      a = require(37) /* module_37 */,
-      r = require(46) /* module_46 */,
-      s = require(117) /* module_117 */,
-      l = require(62) /* module_62 */,
-      c = require(92) /* module_92 */,
-      d = require(145) /* module_145 */,
-      u = require(308) /* module_308 */,
+    var o = require(29) /* isCallable */,
+      i = require(278) /* fixRegExpWKS */,
+      a = require(37) /* toString_default */,
+      r = require(46) /* toLength */,
+      s = require(117) /* toStringTagSupport */,
+      l = require(62) /* requireObjectCoercible */,
+      c = require(92) /* classof */,
+      d = require(145) /* getSubstitution */,
+      u = require(308) /* regExpFlags */,
       p = require(279) /* module_279 */;
     i("match", function (e, t, n) {
       return [

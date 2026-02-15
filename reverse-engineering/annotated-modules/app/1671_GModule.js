@@ -9,10 +9,10 @@ function (e, t, n) {
     function o(e) {
       (this.id = e), (this._intervals = []), (this._timeouts = []);
     }
-    n(3) /* module_3 */,
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */,
+    n(3) /* polyfill_RegExp_toString */,
+      n(4) /* stub_requires_668 */,
+      n(32) /* stub_requires_670 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
       (o.prototype.exports = null),
       (o.prototype.id = null),
       (o.prototype._intervals = null),

@@ -40,11 +40,11 @@ function (e, t, n) {
           gContainer.download({ buffer: e, name: n, extension: o, mime: i });
         }
       }),
-      n(19) /* module_19 */,
+      n(19) /* polyfill_Array_iterator */,
       n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
+      n(181) /* polyfill_ArrayBuffer_slice */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(34) /* polyfill_String_replace */,
       n(247) /* module_247 */,
       n(218) /* module_218 */,
       n(189) /* module_189 */,

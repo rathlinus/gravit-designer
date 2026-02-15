@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(3) /* module_3 */;
+    require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
     var o = require(1) /* module */,
       i = require(31) /* GAction */,
-      a = require(18) /* module_18 */;
+      a = require(18) /* MenuItemBuilder */;
     const r = require(44) /* GSystemDialog */,
       s = require(119) /* module_119 */;
     function l() {}

@@ -6,9 +6,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
+    n(19) /* polyfill_Array_iterator */, n(3) /* polyfill_RegExp_toString */, n(26) /* polyfill_DOMCollection_iterator */, n(125) /* stub_requires_673 */, n(126) /* polyfill_URL_toJSON */, n(114) /* stub_requires_424 */;
     var o = n(1) /* module */;
-    const i = n(18) /* module_18 */,
+    const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
       r = n(44) /* GSystemDialog */,
       s = n(163) /* module_163 */,

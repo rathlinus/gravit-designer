@@ -5,32 +5,32 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(34) /* polyfill_String_replace */,
+      n(4) /* stub_requires_668 */,
+      n(13) /* stub_requires_679 */,
+      n(32) /* stub_requires_670 */,
+      n(38) /* stub_requires_680 */,
+      n(97) /* stub_requires_684 */,
+      n(33) /* polyfill_DOMCollection_forEach */,
+      n(26) /* polyfill_DOMCollection_iterator */,
+      n(125) /* stub_requires_673 */,
+      n(126) /* polyfill_URL_toJSON */,
+      n(114) /* stub_requires_424 */;
     var i = n(1) /* module */,
       a = o(n(256) /* GOfflineDialog */),
       r = o(n(355) /* module_355 */),
-      s = n(40) /* module_40 */;
+      s = n(40) /* CollaborationMergeUtils */;
     const l = n(44) /* GSystemDialog */,
       c = n(292) /* module_292 */,
       d = n(78) /* GDocumentEvent */,
       u = n(217) /* GDocumentStatusEvent */,
-      p = n(220) /* module_220 */,
+      p = n(220) /* Item */,
       g = n(393) /* GCollaborationEvent */,
       h = n(1323) /* module_1323 */,
       f = n(86) /* module_86 */,
@@ -44,14 +44,14 @@ function (e, t, n) {
         Share: C,
         LEGACY_SHARE_DIALOG: x,
         ENABLE_REQUEST_ACCESS: S,
-      } = n(10) /* module_10 */,
+      } = n(10) /* AppSettings */,
       E = n(433) /* module_433 */,
       A = n(1324) /* module_1324 */,
       T = n(177) /* module_177 */,
       G = n(1565) /* module_1565 */,
       P = n(868) /* module_868 */,
       D = n(536) /* module_536 */,
-      L = n(237) /* module_237 */,
+      L = n(237) /* Item */,
       I = n(x ? 1566 : 1567);
     function k() {
       y &&

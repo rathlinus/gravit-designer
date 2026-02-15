@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(35) /* module_35 */,
-      i = n(46) /* module_46 */,
+    var o = n(35) /* anObject */,
+      i = n(46) /* toLength */,
       a = n(175) /* module_175 */;
     e.exports = function (e, t, n) {
       var r, s;

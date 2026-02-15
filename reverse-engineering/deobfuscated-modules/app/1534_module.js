@@ -8,9 +8,9 @@ function (exports, module, require) {
     function o() {
       this._queue = new Set();
     }
-    require(19) /* module_19 */,
-      require(8) /* module_8 */,
-      require(26) /* module_26 */,
+    require(19) /* polyfill_Array_iterator */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(26) /* polyfill_DOMCollection_iterator */,
       (o.prototype._queue = null),
       (o.prototype._isProcessing = false),
       (o.prototype._onNext = null),

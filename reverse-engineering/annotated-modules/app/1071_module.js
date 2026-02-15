@@ -19,8 +19,8 @@ function (e, t, n) {
           ACTION_REOPEN: d,
           ACTION_APPROVE: u,
         },
-      } = n(10) /* module_10 */,
-      p = n(434) /* module_434 */;
+      } = n(10) /* AppSettings */,
+      p = n(434) /* stub_requires_30_1072 */;
     e.exports = {
       [r.id]: [
         l,

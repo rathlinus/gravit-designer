@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     const { GFontManager: o } = require(1) /* module */;
     exports.exports = class {
       constructor(e) {

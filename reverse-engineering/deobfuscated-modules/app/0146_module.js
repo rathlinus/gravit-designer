@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(144) /* module_144 */,
+    var o = require(144) /* stub_requires_27 */,
       i = TypeError;
     exports.exports = function (e, t) {
       if (o(t, e)) return e;

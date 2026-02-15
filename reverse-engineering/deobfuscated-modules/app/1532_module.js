@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */;
-    const { FILE_FORMATS: i } = require(10) /* module_10 */,
+    const { FILE_FORMATS: i } = require(10) /* AppSettings */,
       a = i.find((e) => e.default),
       { COMMAND_SAVE: r } = require(591) /* module_591 */,
       s = require(1164) /* module_1164 */,
-      l = require(556) /* module_556 */;
+      l = require(556) /* Item */;
     exports.exports = class extends s {
       constructor(e, t) {
         super(e, t);

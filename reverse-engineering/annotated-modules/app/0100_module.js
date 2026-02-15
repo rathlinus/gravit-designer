@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(49) /* module_49 */,
-      i = n(88) /* module_88 */,
+    var o = n(49) /* hasOwnProperty_wrapper */,
+      i = n(88) /* createPropertyDescriptor */,
       a = n(174) /* module_174 */;
     e.exports = o
       ? function (e, t, n) {

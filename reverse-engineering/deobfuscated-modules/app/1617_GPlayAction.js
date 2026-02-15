@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(20) /* module_20 */, require(107) /* module_107 */, require(34) /* module_34 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(34) /* polyfill_String_replace */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
       r = o(require(1618) /* module_1618 */),
       s = o(require(85) /* GContainer */),
       l = o(require(31) /* GAction */),
-      c = o(require(18) /* module_18 */),
+      c = o(require(18) /* MenuItemBuilder */),
       d = o(require(44) /* GSystemDialog */),
       u = o(require(443) /* module_443 */),
       p = o(require(1341) /* GChangeActivePageAction */);

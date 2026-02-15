@@ -6,27 +6,27 @@
 
 function (exports, module, require) {
     "use strict";
-    require(557) /* module_557 */;
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */,
-      require(96) /* module_96 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(34) /* module_34 */,
-      require(4) /* module_4 */,
-      require(41) /* module_41 */,
-      require(38) /* module_38 */,
-      require(97) /* module_97 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    require(557) /* stub_requires_1102 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(34) /* polyfill_String_replace */,
+      require(4) /* stub_requires_668 */,
+      require(41) /* stub_requires_682 */,
+      require(38) /* stub_requires_680 */,
+      require(97) /* stub_requires_684 */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var i = require(1) /* module */,
-      a = require(40) /* module_40 */,
+      a = require(40) /* CollaborationMergeUtils */,
       r = require(593) /* module_593 */,
-      s = o(require(787) /* module_787 */),
+      s = o(require(787) /* Exports_GoogleToCloudRoleMap */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
@@ -53,11 +53,11 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(require(789) /* module_789 */),
+      })(require(789) /* Exports_NoAccessId */),
       c = o(require(594) /* GError */);
     const d = require(1108) /* module_1108 */,
       u = require(595) /* module_595 */,
-      { HTTP_STATUS_CODES: p } = require(10) /* module_10 */;
+      { HTTP_STATUS_CODES: p } = require(10) /* AppSettings */;
     function g(e) {
       this.setTokenIssuer(e);
     }

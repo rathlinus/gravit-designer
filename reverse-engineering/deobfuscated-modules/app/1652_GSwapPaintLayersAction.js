@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
       a = require(15) /* module */,
       r = o(require(31) /* GAction */),
-      s = o(require(18) /* module_18 */);
+      s = o(require(18) /* MenuItemBuilder */);
     class l extends r.default {
       getId() {
         return l.ID;

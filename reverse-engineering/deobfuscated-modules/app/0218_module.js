@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(353) /* module_353 */("Uint8", function (e) {
+    require(353) /* polyfill_Object_getOwnPropertyDescriptor */("Uint8", function (e) {
       return function (t, n, o) {
         return e(this, t, n, o);
       };

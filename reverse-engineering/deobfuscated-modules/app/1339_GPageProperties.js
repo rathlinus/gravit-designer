@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(58) /* module_58 */, require(20) /* module_20 */, require(3) /* module_3 */, require(71) /* module_71 */, require(34) /* module_34 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(58) /* polyfill_Array_includes */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
       a = require(53) /* module */,
-      r = require(40) /* module_40 */,
-      s = require(10) /* module_10 */,
+      r = require(40) /* CollaborationMergeUtils */,
+      s = require(10) /* AppSettings */,
       l = require(67) /* GRichTooltipConfig */,
       c = o(require(340) /* GTouchTool */),
       d = require(123) /* GProperties */,
       u = require(1153) /* module_1153 */,
       p = require(135) /* GSettingChangedEvent */,
-      g = require(603) /* module_603 */,
+      g = require(603) /* WindowEvent */,
       h = require(1328) /* module_1328 */,
       f = require(442) /* module_442 */;
     const m = require(44) /* GSystemDialog */,

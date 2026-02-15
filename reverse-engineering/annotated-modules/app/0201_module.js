@@ -5,14 +5,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(186) /* module_186 */,
-      a = n(35) /* module_35 */,
+    var o = n(23) /* globalThis */,
+      i = n(186) /* stub_requires_23 */,
+      a = n(35) /* anObject */,
       r = n(277) /* module_277 */,
       s = n(299) /* module_299 */,
-      l = n(43) /* module_43 */,
+      l = n(43) /* wellKnownSymbol */,
       c = n(407) /* module_407 */,
-      d = n(74) /* module_74 */,
+      d = n(74) /* createNonEnumerableProperty */,
       u = n(213) /* module_213 */,
       p = i && i.prototype,
       g = l("species"),

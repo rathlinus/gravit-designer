@@ -8,7 +8,7 @@ function (exports, module, require) {
     var o,
       i,
       a = require(1374) /* GBrowserContainer */,
-      r = require(1483) /* module_1483 */;
+      r = require(1483) /* AppSettings */;
     function s() {
       var e = new a();
       e.initLanguage(function () {

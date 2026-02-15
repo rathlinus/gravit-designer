@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(10) /* module_10 */,
+    var o = n(16) /* _interopRequireDefault */,
+      i = n(10) /* AppSettings */,
       a = o(n(880) /* module_880 */);
     class r extends a.default {
       canActivate(e) {

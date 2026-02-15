@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(421) /* module_421 */,
-      a = require(422) /* module_422 */,
-      r = require(671) /* module_671 */,
-      s = require(100) /* module_100 */,
+    var o = require(23) /* globalThis */,
+      i = require(421) /* domIterables */,
+      a = require(422) /* domTokenListPrototype */,
+      r = require(671) /* arrayForEach */,
+      s = require(100) /* createProperty */,
       l = function (e) {
         if (e && e.forEach !== r)
           try {

@@ -1764,7 +1764,7 @@ function (exports, module, require) {
       ie = function (e) {
         return e && undefined !== e._q;
       },
-      ae = require(610) /* module_610 */,
+      ae = require(610) /* UAParser */,
       re = require.n(ae),
       se = function () {
         var e, t, n, o;

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     n(1) /* module */;
     n(1327) /* module_1327 */, n(1579) /* module_1579 */;
     class o {

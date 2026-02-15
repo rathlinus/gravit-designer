@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */,
+    var o = require(16) /* _interopRequireDefault */,
       i = require(1) /* module */,
       a = require(15) /* module */,
       r = o(require(31) /* GAction */),
-      s = o(require(18) /* module_18 */),
+      s = o(require(18) /* MenuItemBuilder */),
       l = require(198) /* Exports_GOutlineSidebar */;
     class c extends r.default {
       constructor(e) {

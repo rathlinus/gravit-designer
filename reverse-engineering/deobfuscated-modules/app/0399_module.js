@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* module_49 */,
-      i = require(21) /* module_21 */,
+    var o = require(49) /* hasOwnProperty_wrapper */,
+      i = require(21) /* tryCall */,
       a = require(242) /* module_242 */;
     exports.exports =
       !o &&

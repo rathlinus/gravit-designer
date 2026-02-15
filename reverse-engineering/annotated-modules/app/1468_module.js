@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
+    n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     var o = n(1469) /* module_1469 */,
-      i = n(10) /* module_10 */;
+      i = n(10) /* AppSettings */;
     e.exports = new (class {
       async register(e) {
         const t = gDesigner.getEnv();

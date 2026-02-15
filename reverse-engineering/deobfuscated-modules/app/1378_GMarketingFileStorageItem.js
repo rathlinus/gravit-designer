@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(3) /* module_3 */;
-    var i = o(require(1195) /* module_1195 */);
+    var o = require(16) /* _interopRequireDefault */;
+    require(3) /* polyfill_RegExp_toString */;
+    var i = o(require(1195) /* Item */);
     function a(e, t, n, o) {
       i.default.Item.call(this, e, t, n), (this._fileId = o);
     }

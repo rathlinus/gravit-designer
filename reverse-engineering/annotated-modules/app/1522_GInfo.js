@@ -6,9 +6,9 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var i = n(10) /* module_10 */,
+    var o = n(16) /* _interopRequireDefault */;
+    n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */;
+    var i = n(10) /* AppSettings */,
       a = n(1) /* module */,
       r = o(n(78) /* GDocumentEvent */);
     const s = n(44) /* GSystemDialog */,

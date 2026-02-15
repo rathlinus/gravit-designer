@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* module_43 */,
-      i = require(203) /* module_203 */,
+    var o = require(43) /* wellKnownSymbol */,
+      i = require(203) /* iteratorPrototype */,
       a = o("iterator"),
       r = Array.prototype;
     exports.exports = function (e) {

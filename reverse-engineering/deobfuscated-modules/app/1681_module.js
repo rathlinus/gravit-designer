@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* module_8 */;
+    require(8) /* polyfill_bundle_ES6 */;
     const o = require(44) /* GSystemDialog */,
-      { gApi: i } = require(10) /* module_10 */,
+      { gApi: i } = require(10) /* AppSettings */,
       a = require(1350) /* module_1350 */;
     exports.exports = class {
       async open(e) {

@@ -6,15 +6,15 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(30) /* module_30 */, n(193) /* module_193 */, n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(19) /* polyfill_Array_iterator */, n(30) /* polyfill_Object_assign */, n(193) /* polyfill_Object_keys */, n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(53) /* module */,
       a = n(1) /* module */,
       r = n(67) /* GRichTooltipConfig */,
       s = o(n(340) /* GTouchTool */),
       l = n(123) /* GProperties */,
       c = n(857) /* module_857 */;
-    n(173) /* module_173 */;
+    n(173) /* stub_requires_1 */;
     const d = n(135) /* GSettingChangedEvent */;
     function u() {
       this._elements = [];

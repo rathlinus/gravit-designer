@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(57) /* module_57 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(1352) /* module_1352 */, require(13) /* module_13 */;
+    require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(1352) /* stub_requires_1707 */, require(13) /* stub_requires_679 */;
     var o = require(1) /* module */,
       i = require(1709) /* module_1709 */;
     function a() {}
@@ -1135,7 +1135,7 @@ function (exports, module, require) {
               }))
           : (this._elem[e] = t);
       }),
-      require(1710) /* module_1710 */(s),
+      require(1710) /* _DragAndDropHelper */(s),
       (exports.exports.GVirtualTreeNode = a),
       (exports.exports.GVirtualTreeNodeNamed = r),
       (exports.exports.GVirtualTree = s);

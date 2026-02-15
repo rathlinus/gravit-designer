@@ -13,7 +13,7 @@ function (e, t, n) {
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.GCloudRole = o),
       (t.default = void 0),
-      n(3) /* module_3 */,
+      n(3) /* polyfill_RegExp_toString */,
       (o.Type = {
         Viewer: "Viewer",
         Coauthor: "Coauthor",

@@ -5,12 +5,12 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */, n(34) /* module_34 */;
+    n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
     const o = n(177) /* module_177 */,
       {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,
-      } = n(10) /* module_10 */,
+      } = n(10) /* AppSettings */,
       { GLocale: s, GLocaleKey: l } = n(1) /* module */;
     e.exports = class extends o {
       constructor() {

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(29) /* module_29 */,
+    var o = require(29) /* isCallable */,
       i = require(61) /* module_61 */,
-      a = require(144) /* module_144 */,
+      a = require(144) /* stub_requires_27 */,
       r = require(307) /* module_307 */,
       s = RegExp.prototype;
     exports.exports = function (e) {

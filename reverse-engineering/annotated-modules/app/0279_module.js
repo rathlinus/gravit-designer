@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(29) /* module_29 */,
-      i = n(37) /* module_37 */,
-      a = n(35) /* module_35 */,
+    var o = n(29) /* isCallable */,
+      i = n(37) /* toString_default */,
+      a = n(35) /* anObject */,
       r = n(116) /* module_116 */,
-      s = n(306) /* module_306 */,
+      s = n(306) /* regexpExec */,
       l = TypeError;
     e.exports = function (e, t) {
       var n = e.exec;

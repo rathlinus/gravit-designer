@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    require(30) /* module_30 */,
-      require(57) /* module_57 */,
+    require(30) /* polyfill_Object_assign */,
+      require(57) /* polyfill_parseInt */,
       (o.prototype.type = null),
       (o.prototype.hasKey = function (e) {
         return this.hasOwnProperty(e);

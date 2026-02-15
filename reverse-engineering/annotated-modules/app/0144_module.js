@@ -5,6 +5,6 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(27) /* module_27 */;
+    var o = n(27) /* uncurryThis */;
     e.exports = o({}.isPrototypeOf);
   }

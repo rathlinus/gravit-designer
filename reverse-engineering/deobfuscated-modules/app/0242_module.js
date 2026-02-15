@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(46) /* module_46 */,
+    var o = require(23) /* globalThis */,
+      i = require(46) /* toLength */,
       a = o.document,
       r = i(a) && i(a.createElement);
     exports.exports = function (e) {

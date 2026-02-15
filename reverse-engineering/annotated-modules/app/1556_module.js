@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(91) /* polyfill_String_trim */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var i = n(1) /* module */,
       a = o(n(44) /* GSystemDialog */);
     function r(e, t, n, o) {

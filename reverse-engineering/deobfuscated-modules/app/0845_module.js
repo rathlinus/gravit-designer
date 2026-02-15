@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.updateFileFn =
         module.syncImagesToCloud =
@@ -14,22 +14,22 @@ function (exports, module, require) {
         module.default =
         module.createFileAndGetSignedPutUrlsFn =
           undefined),
-      require(19) /* module_19 */,
+      require(19) /* polyfill_Array_iterator */,
       require(180) /* module_180 */,
-      require(181) /* module_181 */,
-      require(96) /* module_96 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(20) /* module_20 */,
-      require(3) /* module_3 */,
-      require(134) /* module_134 */,
+      require(181) /* polyfill_ArrayBuffer_slice */,
+      require(96) /* polyfill_JSON_stringify */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(20) /* polyfill_RegExp_exec */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(134) /* polyfill_String_startsWith */,
       require(218) /* module_218 */,
       require(189) /* module_189 */,
       require(190) /* module_190 */,
       require(191) /* module_191 */,
       require(192) /* module_192 */,
-      require(26) /* module_26 */,
-      require(114) /* module_114 */;
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(114) /* stub_requires_424 */;
     var i = o(require(227) /* GDictionary */);
     const a = require(435) /* Md5 */,
       r = (module.syncImagesToCloud = async function (e, t, n, o, r, s, l, c, d) {

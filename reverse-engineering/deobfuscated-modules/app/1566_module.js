@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */,
-      require(168) /* module_168 */,
-      require(30) /* module_30 */,
-      require(8) /* module_8 */,
-      require(196) /* module_196 */,
-      require(3) /* module_3 */,
-      require(91) /* module_91 */,
-      require(4) /* module_4 */,
-      require(13) /* module_13 */,
-      require(32) /* module_32 */,
-      require(38) /* module_38 */,
-      require(169) /* module_169 */,
-      require(33) /* module_33 */,
-      require(26) /* module_26 */,
-      require(125) /* module_125 */,
-      require(126) /* module_126 */,
-      require(114) /* module_114 */;
+    require(19) /* polyfill_Array_iterator */,
+      require(168) /* polyfill_Array_reduce */,
+      require(30) /* polyfill_Object_assign */,
+      require(8) /* polyfill_bundle_ES6 */,
+      require(196) /* polyfill_Promise_finally */,
+      require(3) /* polyfill_RegExp_toString */,
+      require(91) /* polyfill_String_trim */,
+      require(4) /* stub_requires_668 */,
+      require(13) /* stub_requires_679 */,
+      require(32) /* stub_requires_670 */,
+      require(38) /* stub_requires_680 */,
+      require(169) /* stub_requires_683 */,
+      require(33) /* polyfill_DOMCollection_forEach */,
+      require(26) /* polyfill_DOMCollection_iterator */,
+      require(125) /* stub_requires_673 */,
+      require(126) /* polyfill_URL_toJSON */,
+      require(114) /* stub_requires_424 */;
     var o = require(1) /* module */;
     const {
         gApi: i,
@@ -34,8 +34,8 @@ function (exports, module, require) {
         rcURL: u,
         prodURL: p,
         HAS_ANNOTATIONS: g,
-      } = require(10) /* module_10 */,
-      { sleep: h, watchDog: f } = require(40) /* module_40 */,
+      } = require(10) /* AppSettings */,
+      { sleep: h, watchDog: f } = require(40) /* CollaborationMergeUtils */,
       m = require(44) /* GSystemDialog */,
       y = require(85) /* GContainer */,
       v = [

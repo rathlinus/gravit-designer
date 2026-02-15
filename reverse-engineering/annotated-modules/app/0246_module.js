@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(29) /* module_29 */,
+    var o = n(29) /* isCallable */,
       i = n(65) /* module_65 */,
-      a = n(37) /* module_37 */,
+      a = n(37) /* toString_default */,
       r = n(185) /* module_185 */,
       s = n(204) /* module_204 */,
       l = TypeError;

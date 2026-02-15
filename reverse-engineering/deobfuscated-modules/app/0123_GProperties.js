@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    require(3) /* module_3 */,
+    require(3) /* polyfill_RegExp_toString */,
       (o.prototype._touchTools = null),
       (o.prototype.init = function (e, t) {
         throw new Error("Not Supported.");

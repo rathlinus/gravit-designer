@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    n(30) /* module_30 */;
-    const { FILE_FORMATS: o } = n(10) /* module_10 */;
+    n(30) /* polyfill_Object_assign */;
+    const { FILE_FORMATS: o } = n(10) /* AppSettings */;
     class i {
       constructor() {
         (this.onlyListFilesOwnedByUser = !1), (this.supportedFileFormats = o);

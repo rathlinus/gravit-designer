@@ -6,11 +6,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
+    n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */;
     var o = n(1) /* module */,
-      i = n(18) /* module_18 */,
+      i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */;
-    n(173) /* module_173 */;
+    n(173) /* stub_requires_1 */;
     function r(e, t) {
       (this._guideId = e), (this._guideName = t);
     }

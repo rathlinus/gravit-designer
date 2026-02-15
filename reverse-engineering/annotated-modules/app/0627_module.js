@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(29) /* module_29 */,
+    var o = n(25) /* core_export */,
+      i = n(29) /* isCallable */,
       a = n(65) /* module_65 */,
       r = n(202) /* module_202 */,
       s = n(304) /* module_304 */,

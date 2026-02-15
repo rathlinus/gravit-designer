@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var o = require(15) /* module */;
-    const i = require(519) /* module_519 */,
-      a = require(520) /* module_520 */,
+    const i = require(519) /* AppSettings */,
+      a = require(520) /* barrel_purchase_urls */,
       r = require(231) /* module_231 */;
     (i.GoogleTagManagerSettings = require(820) /* module */),
       (i.AUTO_SAVE_ENABLED =

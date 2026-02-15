@@ -7,11 +7,11 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.GGoogleAPI = t.GDefaultGoogleAPI = void 0),
-      n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(26) /* module_26 */;
-    var o = n(10) /* module_10 */,
+      n(19) /* polyfill_Array_iterator */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(26) /* polyfill_DOMCollection_iterator */;
+    var o = n(10) /* AppSettings */,
       i = n(1) /* module */;
     class a {
       isLoaded() {

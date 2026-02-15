@@ -330,5 +330,5 @@ function (exports, module, require) {
               (l.dispatchEvent("load"), l.dispatchEvent("loadend")));
         };
       };
-    }).call(this, require(221) /* module_221 */.Buffer, require(183) /* module_183 */);
+    }).call(this, require(221) /* Exports_Buffer */.Buffer, require(183) /* module_183 */);
   }

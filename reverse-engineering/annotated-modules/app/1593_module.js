@@ -5,11 +5,11 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
-    const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* module_10 */,
+    n(8) /* polyfill_bundle_ES6 */;
+    const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* AppSettings */,
       a = n(44) /* GSystemDialog */,
       r = n(604) /* module_604 */,
-      s = n(337) /* module_337 */;
+      s = n(337) /* stub_requires_1098 */;
     e.exports = class {
       async execute() {
         let { [o.ResetPassword]: e } =

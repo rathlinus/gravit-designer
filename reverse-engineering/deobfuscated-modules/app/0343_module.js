@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* module_43 */("iterator"),
+    var o = require(43) /* wellKnownSymbol */("iterator"),
       i = false;
     try {
       var a = 0,

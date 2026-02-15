@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(18) /* module_18 */,
+    var o = require(18) /* MenuItemBuilder */,
       i = require(1302) /* module_1302 */;
     exports.exports = [
       {

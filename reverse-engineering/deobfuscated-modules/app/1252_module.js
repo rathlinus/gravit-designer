@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(30) /* module_30 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    require(19) /* polyfill_Array_iterator */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */, require(125) /* stub_requires_673 */, require(126) /* polyfill_URL_toJSON */, require(114) /* stub_requires_424 */;
     const o = require(604) /* module_604 */;
     exports.exports = class {
       constructor() {

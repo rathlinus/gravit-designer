@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    require(328) /* module_328 */, require(3) /* module_3 */;
+    require(328) /* polyfill_Array_sort */, require(3) /* polyfill_RegExp_toString */;
     var o = require(53) /* module */,
       i = require(1) /* module */,
       a = require(67) /* GRichTooltipConfig */,
-      r = require(18) /* module_18 */,
+      r = require(18) /* MenuItemBuilder */,
       s = require(31) /* GAction */;
     function l(e) {
       (this._type = e),

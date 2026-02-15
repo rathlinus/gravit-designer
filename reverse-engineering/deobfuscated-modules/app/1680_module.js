@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(26) /* polyfill_DOMCollection_iterator */, require(125) /* stub_requires_673 */, require(126) /* polyfill_URL_toJSON */, require(114) /* stub_requires_424 */;
     var o = require(1) /* module */,
-      i = require(10) /* module_10 */;
+      i = require(10) /* AppSettings */;
     const a = require(256) /* GOfflineDialog */,
       r = require(44) /* GSystemDialog */,
       s = require(1350) /* module_1350 */;

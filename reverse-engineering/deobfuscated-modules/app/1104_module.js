@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(21) /* module_21 */,
-      i = require(46) /* module_46 */,
+    var o = require(21) /* tryCall */,
+      i = require(46) /* toLength */,
       a = require(116) /* module_116 */,
       r = require(1105) /* module_1105 */,
       s = Object.isExtensible,

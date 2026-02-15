@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
+    var o = require(16) /* _interopRequireDefault */;
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = module.NoAccessId = module.CloudToGoogleRoleMap = undefined);
-    var i = require(10) /* module_10 */,
-      a = o(require(788) /* module_788 */);
+    var i = require(10) /* AppSettings */,
+      a = o(require(788) /* Exports_GoogleShareRoles */);
     const r = (module.NoAccessId = "NoAccess"),
       s = (module.CloudToGoogleRoleMap = {
         [i.ShareRoles.Viewer.id]: a.default.Reader,

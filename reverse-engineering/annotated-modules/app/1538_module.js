@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
+    n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(38) /* stub_requires_680 */;
     const { GLocale: o, GLocaleKey: i } = n(1) /* module */,
       a = n(1166) /* module_1166 */,
       r = n(177) /* module_177 */,
@@ -20,7 +20,7 @@ function (e, t, n) {
             ACTION_IN_REVIEW: p,
           } = {},
         },
-      } = n(10) /* module_10 */;
+      } = n(10) /* AppSettings */;
     function g() {
       (this._container = null), (this._opened = !1);
     }

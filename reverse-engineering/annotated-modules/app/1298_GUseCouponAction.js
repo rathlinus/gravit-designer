@@ -6,10 +6,10 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
+    n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
       i = n(31) /* GAction */,
-      a = n(18) /* module_18 */;
+      a = n(18) /* MenuItemBuilder */;
     const r = n(44) /* GSystemDialog */,
       s = n(119) /* module_119 */;
     function l() {}

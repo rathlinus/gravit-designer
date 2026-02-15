@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = require(401) /* module_401 */,
-      i = require(88) /* module_88 */;
+      i = require(88) /* createPropertyDescriptor */;
     exports.exports = function (e, t, n) {
       return (
         n.get && o(n.get, t, { getter: true }),

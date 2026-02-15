@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(49) /* module_49 */,
+    var o = require(49) /* hasOwnProperty_wrapper */,
       i = require(400) /* module_400 */,
-      a = require(88) /* module_88 */,
-      r = require(37) /* module_37 */,
-      s = require(184) /* module_184 */,
+      a = require(88) /* createPropertyDescriptor */,
+      r = require(37) /* toString_default */,
+      s = require(184) /* toIndexedObject */,
       l = require(405) /* module_405 */;
     module.f =
       o && !i

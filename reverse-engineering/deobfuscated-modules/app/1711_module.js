@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    require(19) /* module_19 */, require(26) /* module_26 */;
+    require(19) /* polyfill_Array_iterator */, require(26) /* polyfill_DOMCollection_iterator */;
     require(53) /* module */;
     var o = require(1) /* module */,
-      i = (require(15) /* module */, require(40) /* module_40 */, require(67) /* GRichTooltipConfig */, require(1351) /* module_1351 */),
-      a = require(451) /* module_451 */.GVirtualTree,
-      r = (require(451) /* module_451 */.GVirtualTreeNode, require(451) /* module_451 */.GVirtualTreeNodeNamed),
-      { VTREE_FREE_HEIGHT: s } = require(10) /* module_10 */;
-    require(173) /* module_173 */, require(450) /* module_450 */;
+      i = (require(15) /* module */, require(40) /* CollaborationMergeUtils */, require(67) /* GRichTooltipConfig */, require(1351) /* module_1351 */),
+      a = require(451) /* IdxIterator */.GVirtualTree,
+      r = (require(451) /* IdxIterator */.GVirtualTreeNode, require(451) /* IdxIterator */.GVirtualTreeNodeNamed),
+      { VTREE_FREE_HEIGHT: s } = require(10) /* AppSettings */;
+    require(173) /* stub_requires_1 */, require(450) /* module_450 */;
     function l() {}
     function c(e) {
       var t = $(this).data("gselectedpanel"),

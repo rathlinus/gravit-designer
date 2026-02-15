@@ -6,14 +6,14 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(107) /* module_107 */, n(34) /* module_34 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(34) /* polyfill_String_replace */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
       r = o(n(1618) /* module_1618 */),
       s = o(n(85) /* GContainer */),
       l = o(n(31) /* GAction */),
-      c = o(n(18) /* module_18 */),
+      c = o(n(18) /* MenuItemBuilder */),
       d = o(n(44) /* GSystemDialog */),
       u = o(n(443) /* module_443 */),
       p = o(n(1341) /* GChangeActivePageAction */);

@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var o = require(1) /* module */,
       i = require(123) /* GProperties */,
-      a = (require(173) /* module_173 */, require(874) /* GDetachSymbolAction */),
+      a = (require(173) /* stub_requires_1 */, require(874) /* GDetachSymbolAction */),
       r = require(566) /* GFitSelectionAction */;
     const s = require(135) /* GSettingChangedEvent */;
     function l() {}

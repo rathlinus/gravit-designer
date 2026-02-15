@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* module_8 */;
+    n(8) /* polyfill_bundle_ES6 */;
     const o = n(11) /* GUtil */;
     e.exports = class {
       constructor(e, t) {

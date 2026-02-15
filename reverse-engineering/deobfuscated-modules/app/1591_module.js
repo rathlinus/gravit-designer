@@ -7,8 +7,8 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = undefined),
-      require(19) /* module_19 */,
-      require(26) /* module_26 */;
+      require(19) /* polyfill_Array_iterator */,
+      require(26) /* polyfill_DOMCollection_iterator */;
     class o extends Error {
       constructor() {
         super(...arguments),

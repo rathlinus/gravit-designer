@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     const { GObject: o } = n(1) /* module */,
       { GPlatform: i } = n(15) /* module */;
     function a() {

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(25) /* module_25 */,
+    var o = require(25) /* core_export */,
       i = require(202) /* module_202 */;
     o(
       { target: "Promise", stat: true, forced: require(201) /* module_201 */.CONSTRUCTOR },

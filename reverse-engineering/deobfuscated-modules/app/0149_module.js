@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */;
+    var o = require(23) /* globalThis */;
     exports.exports = function (e, t) {
       var n = o.Iterator,
         i = n && n.prototype,

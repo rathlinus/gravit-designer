@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(23) /* module_23 */,
-      i = require(421) /* module_421 */,
-      a = require(422) /* module_422 */,
-      r = require(19) /* module_19 */,
-      s = require(100) /* module_100 */,
-      l = require(137) /* module_137 */,
-      c = require(43) /* module_43 */("iterator"),
+    var o = require(23) /* globalThis */,
+      i = require(421) /* domIterables */,
+      a = require(422) /* domTokenListPrototype */,
+      r = require(19) /* polyfill_Array_iterator */,
+      s = require(100) /* createProperty */,
+      l = require(137) /* setToStringTag */,
+      c = require(43) /* wellKnownSymbol */("iterator"),
       d = r.values,
       u = function (e, t) {
         if (e) {

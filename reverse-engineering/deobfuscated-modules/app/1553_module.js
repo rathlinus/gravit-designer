@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */, require(196) /* module_196 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */;
     var i = require(1) /* module */,
       a = o(require(163) /* module_163 */),
       r = o(require(78) /* GDocumentEvent */),
       s = o(require(86) /* module_86 */),
       l = o(require(802) /* CloudException */),
       c = o(require(355) /* module_355 */);
-    const d = require(1554) /* module_1554 */,
+    const d = require(1554) /* RawValue */,
       u = require(1301) /* module_1301 */,
-      p = require(556) /* module_556 */,
+      p = require(556) /* Item */,
       g = require(156) /* module_156 */,
       h = require(1555) /* module_1555 */,
       f = require(848) /* GoogleDriveException */,
       m = require(595) /* module_595 */,
-      y = require(520) /* module_520 */,
+      y = require(520) /* barrel_purchase_urls */,
       v = require(119) /* module_119 */,
-      { gApi: _, CloudIntegration: b } = require(10) /* module_10 */,
-      { decrypt: w } = require(40) /* module_40 */,
+      { gApi: _, CloudIntegration: b } = require(10) /* AppSettings */,
+      { decrypt: w } = require(40) /* CollaborationMergeUtils */,
       C = require(44) /* GSystemDialog */;
     let x;
     function S() {

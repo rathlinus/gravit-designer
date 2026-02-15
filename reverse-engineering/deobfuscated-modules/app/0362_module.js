@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(43) /* module_43 */("match");
+    var o = require(43) /* wellKnownSymbol */("match");
     exports.exports = function (e) {
       var t = /./;
       try {

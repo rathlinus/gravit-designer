@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    require(4) /* module_4 */, require(13) /* module_13 */;
+    require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     const o = require(156) /* module_156 */,
-      i = require(10) /* module_10 */;
+      i = require(10) /* AppSettings */;
     exports.exports = class {
       static createFrom(e) {
         let module = false;

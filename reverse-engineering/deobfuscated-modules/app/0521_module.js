@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(129) /* module_129 */.match(/firefox\/(\d+)/i);
+    var o = require(129) /* stub_requires_23 */.match(/firefox\/(\d+)/i);
     exports.exports = !!o && +o[1];
   }

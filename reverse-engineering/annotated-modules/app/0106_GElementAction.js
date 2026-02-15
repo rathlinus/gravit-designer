@@ -6,12 +6,12 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
+    var o = n(16) /* _interopRequireDefault */;
+    n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = o(n(31) /* GAction */),
       r = o(n(567) /* GAnnotationsSidebar */),
-      s = o(n(10) /* module_10 */);
+      s = o(n(10) /* AppSettings */);
     function l() {}
     i.GObject.inherit(l, a.default),
       (l.prototype.isEnabled = function () {

@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(43) /* module_43 */,
-      i = n(203) /* module_203 */,
+    var o = n(43) /* wellKnownSymbol */,
+      i = n(203) /* iteratorPrototype */,
       a = o("iterator"),
       r = Array.prototype;
     e.exports = function (e) {

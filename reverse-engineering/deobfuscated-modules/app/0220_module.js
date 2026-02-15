@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(16) /* module_16 */;
-    require(19) /* module_19 */, require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(16) /* _interopRequireDefault */;
+    require(19) /* polyfill_Array_iterator */, require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var i = require(1) /* module */,
-      a = require(10) /* module_10 */,
+      a = require(10) /* AppSettings */,
       r = o(require(336) /* module_336 */),
       s = o(require(44) /* GSystemDialog */),
-      l = require(40) /* module_40 */,
+      l = require(40) /* CollaborationMergeUtils */,
       c = o(require(554) /* module_554 */),
       d = o(require(555) /* module_555 */),
-      u = require(237) /* module_237 */,
+      u = require(237) /* Item */,
       p = require(119) /* module_119 */;
     const g = require(436) /* module_436 */,
       h = require(86) /* module_86 */;
@@ -457,7 +457,7 @@ function (exports, module, require) {
           }
         }
       }),
-      require(1100) /* module_1100 */(b),
+      require(1100) /* CommercialProduct */(b),
       (b.Item.prototype.getUniqueId = function () {
         return this._id;
       }),

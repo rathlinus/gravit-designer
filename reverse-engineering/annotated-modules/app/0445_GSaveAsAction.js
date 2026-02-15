@@ -6,26 +6,26 @@
 
 function (e, t, n) {
     "use strict";
-    n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(16) /* module_16 */,
+    n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
+    var o = n(16) /* _interopRequireDefault */,
       i = o(n(1504) /* module_1504 */);
-    n(58) /* module_58 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */;
+    n(58) /* polyfill_Array_includes */,
+      n(30) /* polyfill_Object_assign */,
+      n(8) /* polyfill_bundle_ES6 */,
+      n(20) /* polyfill_RegExp_exec */,
+      n(3) /* polyfill_RegExp_toString */,
+      n(271) /* polyfill_String_endsWith */,
+      n(71) /* polyfill_String_includes */,
+      n(34) /* polyfill_String_replace */,
+      n(4) /* stub_requires_668 */,
+      n(41) /* stub_requires_682 */,
+      n(13) /* stub_requires_679 */,
+      n(38) /* stub_requires_680 */;
     var a = n(1) /* module */,
       r = n(15) /* module */,
       s = n(67) /* GRichTooltipConfig */,
       l = o(n(1248) /* module_1248 */),
-      c = n(10) /* module_10 */;
+      c = n(10) /* AppSettings */;
     function d(e, t) {
       var n = Object.keys(e);
       if (Object.getOwnPropertySymbols) {
@@ -58,7 +58,7 @@ function (e, t, n) {
       return e;
     }
     var p = n(163) /* module_163 */,
-      g = n(18) /* module_18 */,
+      g = n(18) /* MenuItemBuilder */,
       h = n(31) /* GAction */,
       f = n(446) /* module_446 */,
       m = n(86) /* module_86 */;

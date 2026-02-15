@@ -6,9 +6,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(3) /* module_3 */;
+    n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
-      i = (n(18) /* module_18 */, n(31) /* GAction */);
+      i = (n(18) /* MenuItemBuilder */, n(31) /* GAction */);
     function a(e) {
       let { name: t, category: n, group: i, link: a, icon: r, builder: s } = e;
       (this._name = t),
