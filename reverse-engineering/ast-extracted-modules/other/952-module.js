@@ -1,0 +1,30 @@
+/**
+ * Module 952
+ * Extracted from chunk.vendor.js
+ *
+ * Original: Gravit Designer by Corel
+ * Reverse engineered for educational purposes
+ *
+ * Note: This is minified code. Variable names are compressed.
+ * Common patterns:
+ *   e = exports object
+ *   t = module object
+ *   n = require function
+ *   i, o, a, r, s, l, c, h, u, d = local variables
+ */
+
+function (e, t, i) {
+  "use strict";
+  e.exports = {
+    ERR_SUBSCRIPTION_COULD_NOT_BE_DEACTIVATED: 1000,
+    ERR_SUBSCRIPTION_IS_NOT_EXPIRED: 1001,
+    ERR_SUBSCRIPTION_IS_ACTIVE: 1002,
+    ERR_SUBSCRIPTION_IS_LIFETIME: 1003,
+    ERR_SHARE_SAME_DOMAIN_NOT_ALLOWED: 1100,
+    ERR_MICROSOFT_STORE_SERVICES_ACCESS_TOKEN_COULD_NOT_BE_CREATED: 2000,
+    ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_NOT_FOUND: 2001,
+    ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_COULD_NOT_BE_RENEWED: 2002,
+    ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_COULD_NOT_BE_CREATED: 2003,
+    ERR_POPUP_HAS_BEEN_BLOCKED: 3000
+  };
+}

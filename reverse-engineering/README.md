@@ -32,38 +32,47 @@ npm run dev
 
 ```
 gravit-designer/
-├── public/                    # Minified production code
-│   ├── designer.browser.js   # Main application (~6.7 MB)
-│   ├── chunk.vendor.js       # Core engine (~11.7 MB)
+├── public/                        # Minified production code
+│   ├── designer.browser.js       # Main application (~6.7 MB)
+│   ├── chunk.vendor.js           # Core engine (~11.7 MB, 1468 modules)
+│   ├── chunk.vendors~heic2any.js # HEIC image support (~1.15 MB)
+│   ├── chunk.vendors~pdfjsWorker.js # PDF.js library (~0.72 MB)
 │   └── ...
-├── reverse-engineering/       # This toolkit
-│   ├── beautified/           # Formatted minified code
-│   ├── extracted-modules/    # Module ID mappings
-│   ├── modules/              # Extracted webpack modules
-│   ├── analysis/             # Class analysis reports
-│   ├── reconstructed/        # Reconstructed source code
-│   ├── renamed/              # Code with improved variable names
-│   ├── dev-server/           # Development server files
-│   ├── comparison/           # Source comparison reports
+├── reverse-engineering/           # This toolkit
+│   ├── beautified/               # Formatted minified code (all chunks)
+│   ├── extracted-modules/        # Module ID mappings
+│   ├── ast-extracted-modules/    # **NEW** 756 modules from chunk.vendor.js
+│   ├── other-vendors/            # **NEW** heic2any & pdfjsWorker extracted
+│   ├── modules/                  # Extracted webpack modules (legacy)
+│   ├── decompiled/               # Decompiled classes
+│   ├── analysis/                 # Class analysis reports
+│   ├── reconstructed/            # Reconstructed source code
+│   ├── renamed/                  # Code with improved variable names
+│   ├── dev-server/               # Development server files
+│   ├── comparison/               # Source comparison reports
 │   │
-│   ├── build-all.js          # Master build script
-│   ├── beautify.js           # Code formatter
-│   ├── extract-modules.js    # Module extractor
-│   ├── unbundle.js           # Webpack unbundler
-│   ├── analyze-classes.js    # Class analyzer
-│   ├── reconstruct-source.js # Source reconstructor
-│   ├── rename-variables.js   # Variable renamer
-│   ├── compare-sources.js    # Source comparator
-│   ├── webpack.config.js     # Development build config
+│   ├── build-all.js              # Master build script
+│   ├── beautify.js               # Code formatter (all chunks)
+│   ├── extract-modules.js        # Module mapper
+│   ├── extract-modules-ast.js    # **NEW** AST-based vendor extraction
+│   ├── extract-vendor-modules.js # **NEW** Comprehensive vendor extraction
+│   ├── extract-by-class.js       # **NEW** Class-based extraction
+│   ├── process-other-vendors.js  # **NEW** heic2any/pdfjsWorker processor
+│   ├── unbundle.js               # Webpack unbundler (legacy)
+│   ├── analyze-classes.js        # Class analyzer
+│   ├── reconstruct-source.js     # Source reconstructor
+│   ├── rename-variables.js       # Variable renamer
+│   ├── compare-sources.js        # Source comparator
+│   ├── webpack.config.js         # Development build config
 │   └── package.json
-└── server.js                 # Local server with license bypass
+└── server.js                     # Local server with license bypass
 
-../gravit-original/           # Original open-source code (reference)
+../gravit-original/               # Original open-source code (reference)
 └── src/
-    ├── infinity/             # Core rendering engine
-    ├── infinity-editor/      # Editor tools
-    ├── gravit/               # Application module
-    └── application/          # App framework
+    ├── infinity/                 # Core rendering engine
+    ├── infinity-editor/          # Editor tools
+    ├── gravit/                   # Application module
+    └── application/              # App framework
 ```
 
 ## 🔑 Key Findings
@@ -90,13 +99,45 @@ Unlike many minified apps, Gravit Designer preserves:
 
 ## Usage
 
+### Full Vendor Chunk Extraction (New!)
+
+Extract all modules from chunk.vendor.js using AST parsing:
+
+```bash
+cd reverse-engineering
+npm install
+node extract-modules-ast.js
+```
+
+This creates `ast-extracted-modules/` with 756 individual module files organized by category:
+- **core/** - 14 modules (GObject, GNode, GEvent, etc.)
+- **scene/** - 23 modules (GScene, GElement, GLayer, etc.)
+- **geometry/** - 30 modules (GPoint, GRect, GPath, GVertex, etc.)
+- **effects/** - 43 modules (all GL effects, shadows, blurs, etc.)
+- **rendering/** - 22 modules (GPaintCanvas, colors, gradients, etc.)
+- **text/** - 9 modules (GText, GFont, etc.)
+- **annotations/** - 7 modules (comment, highlight, etc.)
+- **other/** - 608 modules (utilities, helpers, third-party libs)
+
+### Process Other Vendor Chunks
+
+Extract and document heic2any and pdfjsWorker chunks:
+
+```bash
+node process-other-vendors.js
+```
+
+Creates `other-vendors/` with:
+- `heic2any/` - HEIC image format support (original, beautified, docs)
+- `pdfjsWorker/` - PDF.js library (original, beautified, docs)
+
 ### 1. Extract Module Map
 ```bash
 cd reverse-engineering
 npm install
 node extract-modules.js
 ```
-Creates `extracted-modules/module-map.json` with class name → module ID mapping.
+Creates `extracted-modules/module-map.json` with class name → module ID mapping (150 known classes).
 
 ### 2. Compare Sources
 ```bash
