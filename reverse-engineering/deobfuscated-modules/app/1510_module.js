@@ -10,7 +10,7 @@ function (exports, module, require) {
       i = require(40) /* module_40 */,
       a = require(257) /* module_257 */;
     class r {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         let { closeCallback: module } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         var n = this;

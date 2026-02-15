@@ -150,8 +150,8 @@ function renameWebpackParams(code) {
     }
   }
 
-  // Build rename map
-  const renameMap = {};
+  // Build rename map (null-prototype to avoid Object.prototype collisions like toString)
+  const renameMap = Object.create(null);
   const existingBindings = collectBindings(funcNode);
 
   for (let i = 0; i < origNames.length; i++) {

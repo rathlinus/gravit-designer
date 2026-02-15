@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     class o {
-      function Object() { [native code] }() {
+      constructor() {
         (this._condition = () => true), (this._finished = false);
       }
       _do(e, t) {

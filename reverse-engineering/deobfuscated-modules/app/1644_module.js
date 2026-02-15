@@ -9,7 +9,7 @@ function (exports, module, require) {
     var o = require(1) /* module */,
       i = require(15) /* module */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         (this._dialog = this._createDialog()),
           this._dialog.append(
             this._createCloseButton(),

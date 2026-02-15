@@ -13,7 +13,7 @@ function (exports, module, require) {
       { COMMAND_SAVE: s } = require(591) /* module_591 */,
       l = require(1164) /* module_1164 */;
     exports.exports = class extends l {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         super(e, t);
       }
       async updateFileSceneAndMetadata(e, t, n, o) {

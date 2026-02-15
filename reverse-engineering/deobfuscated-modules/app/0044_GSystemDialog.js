@@ -849,7 +849,7 @@ function (exports, module, require) {
           r
         );
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GSystemDialog]";
       }
     }

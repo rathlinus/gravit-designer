@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     class o extends Error {
-      function Object() { [native code] }() {
+      constructor() {
         super("REPEAT"), (this.name = "GRepeatActionError");
       }
     }

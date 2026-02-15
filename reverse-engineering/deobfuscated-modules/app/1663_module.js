@@ -37,7 +37,7 @@ function (exports, module, require) {
       { debounce: u, stringToBase64String: p } = require(40) /* module_40 */;
     const g = l.default.getElements();
     exports.exports = class {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         (this._parent = e),
           (this._CURRENT_SKIP_COUNT = 0),
           (this._IMAGE_PAGE_COUNT = 1),

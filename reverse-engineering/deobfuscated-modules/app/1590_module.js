@@ -8,7 +8,7 @@ function (exports, module, require) {
     var o = require(16) /* module_16 */(require(879) /* module_879 */);
     const i = require(878) /* module_878 */;
     exports.exports = class extends i {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(e),
           this.addGesture(new o.default()),
           this.setDelayedTouchEventsEnabled(false);

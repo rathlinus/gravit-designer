@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(8) /* module_8 */;
     const { GFontManager: o } = require(1) /* module */;
     exports.exports = class {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         (this._fontManager = e),
           this._fontManager.addEventListener(
             o.FontAvailableEvent,

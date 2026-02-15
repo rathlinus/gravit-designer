@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(30) /* module_30 */;
     const { GObject: o } = require(1) /* module */;
     class i {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         Object.assign(this, e);
       }
     }

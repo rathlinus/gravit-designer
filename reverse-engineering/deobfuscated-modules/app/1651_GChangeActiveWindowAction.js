@@ -12,7 +12,7 @@ function (exports, module, require) {
       r = o(require(31) /* GAction */),
       s = o(require(18) /* module_18 */);
     class l extends r.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(),
           (this._type = e),
           (this._title = new i.GLocaleKey(
@@ -68,7 +68,7 @@ function (exports, module, require) {
             return null;
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GChangeActiveWindowAction]";
       }
     }

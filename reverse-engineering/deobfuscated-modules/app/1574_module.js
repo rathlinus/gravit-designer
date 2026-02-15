@@ -11,7 +11,7 @@ function (exports, module, require) {
     const a = require(1186) /* module_1186 */,
       r = require(1575) /* module_1575 */;
     exports.exports = class extends a {
-      function Object() { [native code] }() {
+      constructor() {
         super(), (this._url = new URL(o.gApi.url));
       }
       setId(e) {

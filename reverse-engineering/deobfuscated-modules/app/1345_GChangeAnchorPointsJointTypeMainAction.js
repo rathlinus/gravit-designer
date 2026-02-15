@@ -38,7 +38,7 @@ function (exports, module, require) {
           l.SidebarsIds.GInspectorSidebar
         );
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GChangeAnchorPointsJointTypeMainAction]";
       }
     }

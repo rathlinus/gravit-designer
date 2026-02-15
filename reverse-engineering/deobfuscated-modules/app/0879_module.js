@@ -10,7 +10,7 @@ function (exports, module, require) {
       i = require(15) /* module */;
     const a = require(880) /* module_880 */;
     class r extends a {
-      function Object() { [native code] }() {
+      constructor() {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         super(),

@@ -38,7 +38,7 @@ function (exports, module, require) {
           module = exports && exports.getActiveWindow();
         gDesigner.getWindows().removeWindow(module);
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GCloseActiveWindowAction]";
       }
     }

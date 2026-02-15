@@ -9,7 +9,7 @@ function (exports, module, require) {
     Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     var i = o(require(1493) /* module_1493 */);
     class a extends i.default {
-      function Object() { [native code] }() {
+      constructor() {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         super(), (this._options = exports);

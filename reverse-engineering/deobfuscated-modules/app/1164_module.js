@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(8) /* module_8 */;
     const o = require(11) /* GUtil */;
     exports.exports = class {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         (this._worker = e), (this._user = t);
       }
       async updateFileSceneAndMetadata(e, t, n) {

@@ -9,7 +9,7 @@ function (exports, module, require) {
       i = require(1187) /* module_1187 */,
       { gApi: a } = require(10) /* module_10 */;
     exports.exports = class extends i {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         super(), (this._id = e), (this._url = t);
       }
       open() {

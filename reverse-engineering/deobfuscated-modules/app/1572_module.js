@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var o = require(16) /* module_16 */(require(1573) /* module_1573 */);
     exports.exports = class {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         this._promiseManager = new o.default();
       }
       getAnnotations(e, t) {

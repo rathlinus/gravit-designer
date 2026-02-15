@@ -19,7 +19,7 @@ function (exports, module, require) {
       p = o(require(1341) /* GChangeActivePageAction */);
     const { isExecutingOnMSTeamsSync: g } = u.default;
     class h extends l.default {
-      function Object() { [native code] }() {
+      constructor() {
         super(),
           (this._scene = null),
           (this._isInPlayMode = null),
@@ -236,7 +236,7 @@ function (exports, module, require) {
       _setIsErrorMessageDisplaying(e) {
         this._isErrorMessageDisplaying = e;
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GPlayAction]";
       }
     }

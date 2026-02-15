@@ -9,7 +9,7 @@ function (exports, module, require) {
       i = require(10) /* module_10 */,
       a = o(require(1582) /* module_1582 */);
     exports.exports = class {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         (this._target = e),
           (this._lastTouchStartEvent = 0),
           (this._touchmoved = false),

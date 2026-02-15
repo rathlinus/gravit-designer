@@ -14,7 +14,7 @@ function (exports, module, require) {
       s = o(require(31) /* GAction */),
       l = o(require(18) /* module_18 */);
     class c extends s.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(),
           (this._type = e),
           (this._title = new i.GLocaleKey(
@@ -129,7 +129,7 @@ function (exports, module, require) {
           }
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GTogglePaintLayersVisibilityAction]";
       }
     }

@@ -15,7 +15,7 @@ function (exports, module, require) {
       d = 0.8,
       u = r.minutesToMilliseconds(30);
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         let {
           memoryCheckInterval: exports = c,
           memoryUsageThreshold: module = d,

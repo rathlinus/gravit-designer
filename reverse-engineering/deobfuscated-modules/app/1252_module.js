@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(19) /* module_19 */, require(30) /* module_30 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
     const o = require(604) /* module_604 */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         this._settings = exports;

@@ -12,7 +12,7 @@ function (exports, module, require) {
       s = require(1586) /* module_1586 */,
       l = require(1329) /* module_1329 */;
     exports.exports = class extends i {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(e),
           this.addGesture(new a()),
           this.addGesture(new r()),

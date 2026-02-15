@@ -14,7 +14,7 @@ function (exports, module, require) {
       [o.GLocaleLanguage.French]: "fr",
     };
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         const exports = i[o.GLocale.getLanguage()] || 'en',
           module = $('<iframe>')
             .attr(

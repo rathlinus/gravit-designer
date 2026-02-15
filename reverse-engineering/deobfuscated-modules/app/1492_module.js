@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var o = require(1) /* module */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         this._lastMousePoint = null;
       }
       init() {

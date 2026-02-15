@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var o = require(1) /* module */;
     exports.exports = class {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         (this._cb = t || null),
           (this._dialog = $("<div></div>")),
           $("<div/>")

@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(8) /* module_8 */, require(196) /* module_196 */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         this._promiseQueue = [];
       }
       pushPromise(e) {

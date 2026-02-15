@@ -9,7 +9,7 @@ function (exports, module, require) {
       i = require(879) /* module_879 */,
       a = require(1329) /* module_1329 */;
     exports.exports = class extends o {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(e),
           this.addGesture(
             new i({

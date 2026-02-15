@@ -90,7 +90,7 @@ function (exports, module, require) {
             !e.$closed &&
             t.setProperty("_ba", i.GStylable.BorderAlignment.Center);
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GSwapPaintLayersAction]";
       }
     }

@@ -56,7 +56,7 @@ function (exports, module, require) {
       D = require(436) /* module_436 */,
       L = require(336) /* module_336 */;
     class I {
-      function Object() { [native code] }(e, t, n) {
+      constructor(e, t, n) {
         (this._user = e),
           (this._sharedFile = new a()),
           (this._initialSharedFile = null),

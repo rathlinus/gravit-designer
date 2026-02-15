@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(30) /* module_30 */, require(8) /* module_8 */;
     exports.exports = new (class {
-      function Object() { [native code] }() {
+      constructor() {
         (this._cache = {}), (this._initiliazed = false);
       }
       updateLicense(e) {

@@ -15,7 +15,7 @@ function (exports, module, require) {
       l = require(1349) /* module_1349 */;
     var c;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         (this._intervalPID = null),
           (this._releaseStatus = { version: undefined, forceUpdate: false }),
           (this._downloadCompleted = false);
@@ -274,7 +274,7 @@ function (exports, module, require) {
       getReleaseNotesLink() {
         return i.SOFTWARE_UPDATE.CHANGE_LOG_LINK;
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GSoftwareUpdateManager]";
       }
     };

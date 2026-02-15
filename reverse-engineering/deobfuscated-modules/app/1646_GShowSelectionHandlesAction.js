@@ -14,7 +14,7 @@ function (exports, module, require) {
       s = o(require(18) /* module_18 */),
       l = o(require(31) /* GAction */);
     class c extends l.default {
-      function Object() { [native code] }() {
+      constructor() {
         super(), (this._lastIsCheckedValue = true);
       }
       getId() {
@@ -61,7 +61,7 @@ function (exports, module, require) {
           module = exports && exports.getSelection();
         return module && module.length > 0 ? module : null;
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GShowSelectionHandlesAction]";
       }
     }

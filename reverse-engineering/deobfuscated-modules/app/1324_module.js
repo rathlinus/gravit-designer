@@ -13,7 +13,7 @@ function (exports, module, require) {
       } = require(10) /* module_10 */,
       { GLocale: s, GLocaleKey: l } = require(1) /* module */;
     exports.exports = class extends o {
-      function Object() { [native code] }() {
+      constructor() {
         let {
           access_id: exports,
           file_id: module,

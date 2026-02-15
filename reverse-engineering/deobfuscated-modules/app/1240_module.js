@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(30) /* module_30 */;
     const { FILE_FORMATS: o } = require(10) /* module_10 */;
     class i {
-      function Object() { [native code] }() {
+      constructor() {
         (this.onlyListFilesOwnedByUser = false), (this.supportedFileFormats = o);
       }
       static from() {

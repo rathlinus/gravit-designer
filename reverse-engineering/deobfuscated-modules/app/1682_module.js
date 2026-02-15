@@ -23,7 +23,7 @@ function (exports, module, require) {
         ERROR_CODES: { ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_NOT_FOUND: _ },
       } = r;
     exports.exports = class extends o {
-      function Object() { [native code] }() {
+      constructor() {
         if ((super(), !window.napi)) return;
         const { remote: exports } = require(881) /* module_881 */,
           module = exports.getCurrentWindow().getNativeWindowHandle();

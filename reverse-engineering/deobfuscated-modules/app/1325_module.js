@@ -26,7 +26,7 @@ function (exports, module, require) {
         proOfferInFree: () => i.openOfferReminder(),
       };
     exports.exports = new (class {
-      function Object() { [native code] }() {
+      constructor() {
         (this._settings = Object.assign(
           {},
           o.defaultUserSettings.defaultUserSettings

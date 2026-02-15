@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     exports.exports = class {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         this._event = e;
       }
       areThereTwoTouchPoints() {

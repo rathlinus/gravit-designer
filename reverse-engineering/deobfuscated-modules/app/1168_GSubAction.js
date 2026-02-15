@@ -14,7 +14,7 @@ function (exports, module, require) {
       static getSubActionId(e, t) {
         return "".concat(e, ".").concat(t);
       }
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(), (this._type = e), (this._title = null);
       }
       getId() {
@@ -49,7 +49,7 @@ function (exports, module, require) {
               .replace("%shortcutSubKeyHint", require)
           : null;
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GSubAction]";
       }
     }

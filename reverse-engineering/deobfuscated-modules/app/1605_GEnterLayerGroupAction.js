@@ -13,7 +13,7 @@ function (exports, module, require) {
       s = o(require(18) /* module_18 */),
       l = o(require(31) /* GAction */);
     class c extends l.default {
-      function Object() { [native code] }() {
+      constructor() {
         let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         super(),
           (this._isReverse = exports),
@@ -60,7 +60,7 @@ function (exports, module, require) {
             module.expandAndFocus(r);
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GEnterLayerGroupAction]";
       }
     }

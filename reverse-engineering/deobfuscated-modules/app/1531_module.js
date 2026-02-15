@@ -12,7 +12,7 @@ function (exports, module, require) {
       { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,
       c = require(1164) /* module_1164 */;
     exports.exports = class extends c {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         super(e, t);
       }
       async updateFileSceneAndMetadata(e, t, n, o) {

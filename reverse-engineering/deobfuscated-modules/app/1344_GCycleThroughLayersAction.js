@@ -13,7 +13,7 @@ function (exports, module, require) {
       s = o(require(31) /* GAction */),
       l = require(198) /* Exports_GOutlineSidebar */;
     class c extends s.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(),
           (this._type = e),
           (this._title = new a.GLocaleKey(
@@ -95,7 +95,7 @@ function (exports, module, require) {
             return null;
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GCycleThroughLayersAction]";
       }
     }

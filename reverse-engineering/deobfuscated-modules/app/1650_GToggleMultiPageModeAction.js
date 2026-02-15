@@ -33,7 +33,7 @@ function (exports, module, require) {
           module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar);
         module && module.toggleMultiPageMode();
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GToggleMultiPageModeAction]";
       }
     }

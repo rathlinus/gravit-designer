@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(19) /* module_19 */, require(26) /* module_26 */;
     class o extends Error {
-      function Object() { [native code] }() {
+      constructor() {
         super(...arguments),
           Error.captureStackTrace(this, o),
           (this.code = 57005);

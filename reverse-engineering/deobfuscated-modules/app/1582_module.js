@@ -8,7 +8,7 @@ function (exports, module, require) {
     const o = require(1583) /* module_1583 */,
       i = require(1189) /* module_1189 */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         (this._gestures = []),
           (this._state = new i()),
           (this._delayedTouchEventsEnabled = true),

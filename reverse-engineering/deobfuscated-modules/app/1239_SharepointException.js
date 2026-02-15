@@ -333,13 +333,13 @@ function (exports, module, require) {
       }),
       (v.ExceptionCode = { LoginAborted: 1, FileAlreadyCheckedOut: 423 });
     class _ extends d.default {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         super(e),
           (this.code = t),
           (this.__proto__ = _.prototype),
           (this.name = "SharepointException");
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object SharepointException]";
       }
     }

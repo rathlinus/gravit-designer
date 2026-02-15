@@ -43,7 +43,7 @@ function (exports, module, require) {
         );
         exports.isChecked() || exports.execute();
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GCreateNewLayerAction]";
       }
     }

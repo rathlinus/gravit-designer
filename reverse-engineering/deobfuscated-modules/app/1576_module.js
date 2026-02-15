@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(30) /* module_30 */;
     const o = require(1186) /* module_1186 */;
     exports.exports = class extends o {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(), (this._crossViewClass = e), (this._dialogOptions = {});
       }
       setTime(e) {

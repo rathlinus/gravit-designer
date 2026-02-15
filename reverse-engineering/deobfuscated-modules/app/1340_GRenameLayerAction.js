@@ -40,7 +40,7 @@ function (exports, module, require) {
           e.gAutoEdit("open", e.data("gautoedit"));
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GRenameLayerAction]";
       }
     }

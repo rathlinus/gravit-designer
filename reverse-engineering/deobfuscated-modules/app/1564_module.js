@@ -47,7 +47,7 @@ function (exports, module, require) {
         PRODUCT_ENVIRONMENT: g,
       } = i.AmplitudeData.UserProperties;
     exports.exports = class {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         gDesigner.addEventListener(s, this._handleDocumentEvent, this),
           gDesigner.addEventListener(l, this._handleLicenseChangedEvent, this),
           (this._amplitudeHelper = e),

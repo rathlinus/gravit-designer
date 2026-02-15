@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(4) /* module_4 */, require(97) /* module_97 */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         this._swiping = false;
       }
       update(e) {

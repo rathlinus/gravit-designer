@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(30) /* module_30 */;
     const o = require(177) /* module_177 */;
     class i extends o {
-      function Object() { [native code] }() {
+      constructor() {
         let {
           id: exports,
           name: module,

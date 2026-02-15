@@ -214,7 +214,7 @@ function (exports, module, require) {
       },
     ];
     exports.exports = new (class {
-      function Object() { [native code] }() {
+      constructor() {
         this._resizeBound = this._resize.bind(this);
       }
       open() {

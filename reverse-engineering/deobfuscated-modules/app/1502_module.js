@@ -9,7 +9,7 @@ function (exports, module, require) {
     var o = require(1246) /* module_1246 */,
       i = require(1250) /* module_1250 */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         (this._htmlElement = $("<div></div>").addClass("g-persona-bar")),
           (this._container = $("<div></div>")
             .addClass("g-persona-container")

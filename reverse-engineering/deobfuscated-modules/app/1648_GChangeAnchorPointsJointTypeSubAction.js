@@ -14,7 +14,7 @@ function (exports, module, require) {
       l = require(198) /* Exports_GOutlineSidebar */,
       c = o(require(1345) /* GChangeAnchorPointsJointTypeMainAction */);
     class d extends s.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(e),
           (this._title = new i.GLocaleKey(
             "GChangeAnchorPointsJointTypeSubAction",
@@ -66,7 +66,7 @@ function (exports, module, require) {
             return null;
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GChangeAnchorPointsJointTypeSubAction]";
       }
     }

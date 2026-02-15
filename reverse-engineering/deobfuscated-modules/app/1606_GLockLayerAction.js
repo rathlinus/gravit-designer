@@ -41,7 +41,7 @@ function (exports, module, require) {
             require.gLayerPanel("toggleLockStatusOfLayerOrItem", e);
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GLockLayerAction]";
       }
     }

@@ -51,7 +51,7 @@ function (exports, module, require) {
       }
     }
     class l extends r.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(), (this._dialogOptions = e);
       }
       async open() {

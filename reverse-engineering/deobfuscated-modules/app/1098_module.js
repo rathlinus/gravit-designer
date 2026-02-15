@@ -10,7 +10,7 @@ function (exports, module, require) {
     const i = require(292) /* module_292 */,
       a = require(846) /* module_846 */;
     exports.exports = class {
-      function Object() { [native code] }() {
+      constructor() {
         this._isListening = false;
       }
       async checkLicense() {

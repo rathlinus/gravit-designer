@@ -10,13 +10,13 @@ function (exports, module, require) {
       require(19) /* module_19 */,
       require(26) /* module_26 */;
     class o extends Error {
-      function Object() { [native code] }() {
+      constructor() {
         super(...arguments),
           (this.constructor = o),
           (this.__proto__ = o.prototype),
           (this.name = "GMSTeamsModeUserNotFoundError");
       }
-      function toString() { [native code] }() {
+      toString() {
         return this.message;
       }
     }

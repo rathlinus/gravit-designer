@@ -27,7 +27,7 @@ function (exports, module, require) {
       d = null;
     const u = i.CATEGORIES.filter((e) => e.active);
     class p {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         (this._templatesPanel = $("<div/>")
           .addClass("g-templates-panel")
           .appendTo($("body"))),

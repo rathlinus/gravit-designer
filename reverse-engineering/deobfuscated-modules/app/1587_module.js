@@ -46,7 +46,7 @@ function (exports, module, require) {
       G = o(require(878) /* module_878 */),
       P = o(require(879) /* module_879 */);
     class D extends G.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(e),
           this.addGesture(new P.default()),
           this.setDelayedTouchEventsEnabled(false);

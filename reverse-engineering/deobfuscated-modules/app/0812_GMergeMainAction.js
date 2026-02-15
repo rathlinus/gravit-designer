@@ -76,7 +76,7 @@ function (exports, module, require) {
         const exports = c.getActionSubId(this.Type.Union);
         gDesigner.executeAction(exports);
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GMergeMainAction]";
       }
     }

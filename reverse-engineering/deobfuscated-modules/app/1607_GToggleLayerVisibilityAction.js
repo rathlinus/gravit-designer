@@ -41,7 +41,7 @@ function (exports, module, require) {
             require.gLayerPanel("toggleHideStatusOfLayerOrItem", e);
         }
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GToggleLayerVisibilityAction]";
       }
     }

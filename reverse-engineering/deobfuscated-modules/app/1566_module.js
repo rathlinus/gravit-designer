@@ -61,7 +61,7 @@ function (exports, module, require) {
         },
       ];
     exports.exports = class {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         (this._user = e),
           (this._dialog = $("<div/>")
             .append(

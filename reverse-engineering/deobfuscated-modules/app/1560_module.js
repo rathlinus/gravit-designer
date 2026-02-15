@@ -13,7 +13,7 @@ function (exports, module, require) {
       s = o(require(177) /* module_177 */);
     const { gApi: l } = require(10) /* module_10 */;
     exports.exports = class {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         (this._firstName = e),
           (this._lastName = t),

@@ -71,13 +71,13 @@ function (exports, module, require) {
       }),
       (g.ExceptionCode = { LoginAborted: 1 });
     class h extends c.default {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         super(e),
           (this.code = t),
           (this.__proto__ = h.prototype),
           (this.name = "GoogleDriveException");
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GoogleDriveException]";
       }
     }

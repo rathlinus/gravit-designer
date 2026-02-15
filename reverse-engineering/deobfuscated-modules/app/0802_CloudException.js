@@ -60,13 +60,13 @@ function (exports, module, require) {
       }),
       (u.ExceptionCode = { InvalidCredentials: 1 });
     class p extends r.default {
-      function Object() { [native code] }(e, t) {
+      constructor(e, t) {
         super(e),
           (this.code = t),
           (this.__proto__ = p.prototype),
           (this.name = "CloudException");
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object CloudException]";
       }
     }

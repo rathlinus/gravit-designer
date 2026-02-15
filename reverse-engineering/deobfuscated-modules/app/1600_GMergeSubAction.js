@@ -17,7 +17,7 @@ function (exports, module, require) {
       d = o(require(812) /* GMergeMainAction */),
       u = require(10) /* module_10 */;
     class p extends s.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(e),
           (this._title = new i.GLocaleKey(
             "GMergeSubAction",
@@ -205,7 +205,7 @@ function (exports, module, require) {
           ? p.TOOLTIP_CONFIG[e][this._type]
           : null;
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GMergeSubAction]";
       }
     }

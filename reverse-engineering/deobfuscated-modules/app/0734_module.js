@@ -8,13 +8,13 @@ function (exports, module, require) {
     require.r(module);
     require(355) /* module_355 */;
     class o extends Error {
-      function Object() { [native code] }(...e) {
+      constructor(...e) {
         super(...e),
           (this.constructor = o),
           (this.__proto__ = o.prototype),
           (this.name = "ExternalFileSettingsError");
       }
-      function toString() { [native code] }() {
+      toString() {
         return this.message;
       }
     }

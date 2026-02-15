@@ -11,7 +11,7 @@ function (exports, module, require) {
       require(32) /* module_32 */,
       require(33) /* module_33 */;
     module.default = class {
-      function Object() { [native code] }() {
+      constructor() {
         this._executions = [];
       }
       step(e) {

@@ -14,7 +14,7 @@ function (exports, module, require) {
       s = o(require(31) /* GAction */),
       l = o(require(18) /* module_18 */);
     class c extends s.default {
-      function Object() { [native code] }() {
+      constructor() {
         super(),
           (this._opacityLevel = null),
           (this._timeoutId = null),
@@ -114,7 +114,7 @@ function (exports, module, require) {
       _clearTimeout() {
         this._timeoutId && clearTimeout(this._timeoutId);
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GChangeOpacityAction]";
       }
     }

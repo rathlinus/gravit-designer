@@ -14,7 +14,7 @@ function (exports, module, require) {
       s = require(198) /* Exports_GOutlineSidebar */;
     const l = require(31) /* GAction */;
     class c extends l {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(),
           (this._type = e),
           (this._title = new a.GLocaleKey(
@@ -86,7 +86,7 @@ function (exports, module, require) {
         const exports = gDesigner.getCursorManager().getLastCursorPoint();
         return { pageX: (exports && exports.getX()) || 0, pageY: (exports && exports.getY()) || 0 };
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GEyeDropperAction]";
       }
     }

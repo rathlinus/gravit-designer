@@ -12,7 +12,7 @@ function (exports, module, require) {
       a = o(require(31) /* GAction */),
       r = o(require(1168) /* GSubAction */);
     class s extends a.default {
-      function Object() { [native code] }(e) {
+      constructor(e) {
         super(), (this.Type = e.Type);
         const module = Object.values(this.Type);
         (this._subActionIds = module.map((e) =>
@@ -76,7 +76,7 @@ function (exports, module, require) {
           clearTimeout(this._timeoutId),
           (this._timeoutId = null));
       }
-      function toString() { [native code] }() {
+      toString() {
         return "[Object GMainAction]";
       }
     }
