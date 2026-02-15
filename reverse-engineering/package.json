@@ -18,7 +18,8 @@
     "build-all": "node build-all.js",
     "quick": "npm run beautify && npm run unbundle && npm run analyze",
     "test": "node test-standalone.js",
-    "test:standalone": "npm run build && npm run test"
+    "test:standalone": "npm run build && npm run test",
+    "test:no-public": "bash test-without-public.sh"
   },
   "keywords": ["gravit", "reverse-engineering", "decompiler"],
   "author": "",
