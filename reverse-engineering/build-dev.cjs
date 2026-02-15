@@ -209,25 +209,33 @@ function build() {
  */
 function watch() {
   console.log('Watch mode enabled - watching for file changes...\n');
+  console.log('Note: Using fs.watch which may have platform limitations.');
+  console.log('For better cross-platform support, consider using chokidar.\n');
   
   const source = getSourceDirectory();
   
   // Initial build
   build();
   
-  // Watch for changes
-  fs.watch(source.dir, { recursive: true }, (eventType, filename) => {
-    if (filename && filename.endsWith('.js')) {
-      console.log(`\nFile changed: ${filename}`);
-      // Debounce builds
-      clearTimeout(watch.buildTimeout);
-      watch.buildTimeout = setTimeout(() => {
-        build();
-      }, 100);
-    }
-  });
-  
-  console.log('Watching for changes... Press Ctrl+C to stop.\n');
+  try {
+    // Watch for changes
+    fs.watch(source.dir, { recursive: true }, (eventType, filename) => {
+      if (filename && filename.endsWith('.js')) {
+        console.log(`\nFile changed: ${filename}`);
+        // Debounce builds
+        clearTimeout(watch.buildTimeout);
+        watch.buildTimeout = setTimeout(() => {
+          build();
+        }, 100);
+      }
+    });
+    
+    console.log('Watching for changes... Press Ctrl+C to stop.\n');
+  } catch (e) {
+    console.error('Watch mode error:', e.message);
+    console.log('Watch mode may not be supported on this platform.');
+    console.log('Falling back to single build...');
+  }
 }
 
 // Run

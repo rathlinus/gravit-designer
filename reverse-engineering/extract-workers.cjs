@@ -19,22 +19,18 @@ const OUTPUT_DIR = path.join(__dirname, 'workers');
 const WORKERS = {
   'autosave.worker.js': {
     type: 'webpack',
-    size: '4.9 MB',
     purpose: 'Autosave logic'
   },
   'pdf.worker.js': {
     type: 'standalone',
-    size: '769 KB',
     purpose: 'PDF rendering (mozilla pdf.js)'
   },
   'pdfexport.worker.js': {
     type: 'standalone',
-    size: '183 KB',
     purpose: 'PDF export'
   },
   'ps.worker.js': {
     type: 'standalone',
-    size: '2 KB',
     purpose: 'PostScript support'
   }
 };
@@ -189,18 +185,27 @@ console.log('⚠️  This script is a stub.');
 console.log('To rebuild workers, you need to:');
 console.log('');
 
-${results.map(r => {
-  if (r.isWebpack) {
-    return `// ${r.filename} (webpack bundle)
-// - Extract individual modules using a proper webpack extractor
-// - Bundle them back using webpack
-`;
-  } else {
-    return `// ${r.filename} (standalone)
-// - Use the beautified version from workers/${path.basename(r.filename, '.js')}/${r.filename}
-`;
-  }
-}).join('\n')}
+// autosave.worker.js (webpack bundle)
+console.log('// autosave.worker.js (webpack bundle)');
+console.log('// - Extract individual modules using a proper webpack extractor');
+console.log('// - Bundle them back using webpack');
+console.log('');
+
+// pdf.worker.js (standalone/webpack)
+console.log('// pdf.worker.js (may be webpack or standalone)');
+console.log('// - Check the extracted file to determine type');
+console.log('// - Use appropriate rebuild method');
+console.log('');
+
+// pdfexport.worker.js (standalone)
+console.log('// pdfexport.worker.js (standalone)');
+console.log('// - Use the beautified version from workers/pdfexport.worker/');
+console.log('');
+
+// ps.worker.js (standalone)
+console.log('// ps.worker.js (standalone)');
+console.log('// - Use the beautified version from workers/ps.worker/');
+console.log('');
 
 console.log('For now, use the original worker files from public/');
 process.exit(1);

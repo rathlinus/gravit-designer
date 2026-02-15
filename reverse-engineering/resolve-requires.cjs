@@ -211,8 +211,13 @@ function generateReport() {
   console.log('='.repeat(60));
   console.log(`Files processed:         ${stats.filesProcessed}`);
   console.log(`Total require() calls:   ${stats.requireCallsTotal}`);
-  console.log(`Resolved:                ${stats.requireCallsResolved} (${Math.round(stats.requireCallsResolved / stats.requireCallsTotal * 100)}%)`);
-  console.log(`Unresolved:              ${stats.requireCallsUnresolved} (${Math.round(stats.requireCallsUnresolved / stats.requireCallsTotal * 100)}%)`);
+  if (stats.requireCallsTotal > 0) {
+    console.log(`Resolved:                ${stats.requireCallsResolved} (${Math.round(stats.requireCallsResolved / stats.requireCallsTotal * 100)}%)`);
+    console.log(`Unresolved:              ${stats.requireCallsUnresolved} (${Math.round(stats.requireCallsUnresolved / stats.requireCallsTotal * 100)}%)`);
+  } else {
+    console.log(`Resolved:                0`);
+    console.log(`Unresolved:              0`);
+  }
   console.log('='.repeat(60));
   
   // Save report to file
@@ -223,7 +228,7 @@ function generateReport() {
       total: stats.requireCallsTotal,
       resolved: stats.requireCallsResolved,
       unresolved: stats.requireCallsUnresolved,
-      resolvedPercentage: Math.round(stats.requireCallsResolved / stats.requireCallsTotal * 100)
+      resolvedPercentage: stats.requireCallsTotal > 0 ? Math.round(stats.requireCallsResolved / stats.requireCallsTotal * 100) : 0
     }
   };
   
