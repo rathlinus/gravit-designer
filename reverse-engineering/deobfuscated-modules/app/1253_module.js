@@ -23,7 +23,7 @@ function (exports, module, require) {
       i = require(797) /* module */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       AppSettings = require(10) /* AppSettings */,
-      s = require(237) /* Item */,
+      Item = require(237) /* Item */,
       l = require(163) /* GDocument */,
       DataModule_442 = require(442) /* DataModule_442 */;
     const GDocument_389 = require(389) /* GDocument_389 */;
@@ -41,7 +41,7 @@ function (exports, module, require) {
             .filter((e) => e instanceof GCore.GPage && e.isVisible()));
         var CollaborationMergeUtils = [],
           AppSettings = {};
-        function s(e) {
+        function Item(e) {
           var t = e.getProperty("name");
           if (!t) {
             var n = GCore.GObject.getTypeId(e);
@@ -56,13 +56,13 @@ function (exports, module, require) {
             CollaborationMergeUtils.push(
               GCore.GUtil.extend({}, t, {
                 element: e,
-                name: 1 === i.length && t.name ? t.name : s(e),
+                name: 1 === i.length && t.name ? t.name : Item(e),
               })
             );
           else if (e.hasMixin(GCore.GNode.Properties)) {
             var AppSettings = e.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
             if (AppSettings && AppSettings instanceof Array && AppSettings.length)
-              for (var GDocument_389 = s(e), u = 0; u < AppSettings.length; ++u) {
+              for (var GDocument_389 = Item(e), u = 0; u < AppSettings.length; ++u) {
                 var p = AppSettings[u];
                 p.fm &&
                   CollaborationMergeUtils.push(
@@ -92,7 +92,7 @@ function (exports, module, require) {
         const exports = gDesigner.getActiveDocument();
         return !exports || !exports.isCommercialProductFile() || (exports.openPaywall(), false);
       }),
-      (u.exportExportable = function (e, t, n, s) {
+      (u.exportExportable = function (e, t, n, Item) {
         if (this._validateCommercialDocument()) {
           var l = e.element,
             DataModule_442 = e.format;
@@ -177,15 +177,15 @@ function (exports, module, require) {
                   p,
                   function (e, n) {
                     !e && n && t(new Blob([n], { type: GDocument_389.PDF.mime })),
-                      s &&
+                      Item &&
                         (g.isAbort()
-                          ? s.close && s.close()
-                          : e && s.error && s.error(e));
+                          ? Item.close && Item.close()
+                          : e && Item.error && Item.error(e));
                   },
                   null,
-                  s
+                  Item
                 );
-              s && (s.abort = () => g && g.abort());
+              Item && (Item.abort = () => g && g.abort());
             });
           }
         }
@@ -203,7 +203,7 @@ function (exports, module, require) {
       }),
       (u.exportToDirectory = async function (e, t, n, i) {
         if (this._validateCommercialDocument())
-          for (var CollaborationMergeUtils = {}, AppSettings = 0, s = [], l = 0; l < e.length; ++l) {
+          for (var CollaborationMergeUtils = {}, AppSettings = 0, Item = [], l = 0; l < e.length; ++l) {
             var DataModule_442 = null,
               GDocument_389 = t;
             if ((DataModule_442 = e[l].name)) {
@@ -257,7 +257,7 @@ function (exports, module, require) {
                         }
                       else ++AppSettings === e.length && n && n();
                     };
-                  })(GDocument_389, u.generateExportName(e[l], DataModule_442, s)),
+                  })(GDocument_389, u.generateExportName(e[l], DataModule_442, Item)),
                   i
                 );
             }
@@ -273,9 +273,9 @@ function (exports, module, require) {
                 GCore.readAsArrayBuffer(e);
             },
             m = (e, n, GCore, i, AppSettings, l) => {
-              t instanceof s.Item
+              t instanceof Item.Item
                 ? f(e, t, GCore)
-                : t instanceof s &&
+                : t instanceof Item &&
                   (!AppSettings && t.canPromptSave()
                     ? t.savePrompt(
                         n,
@@ -307,7 +307,7 @@ function (exports, module, require) {
                 (y.element = e.map((e) => e.element)))),
             v)
           )
-            if (t instanceof s && t.canChooseDirectory())
+            if (t instanceof Item && t.canChooseDirectory())
               t.chooseDirectory(
                 (t) => {
                   u.exportToDirectory(e, t, i, DataModule_442);
@@ -352,7 +352,7 @@ function (exports, module, require) {
               y,
               function (e) {
                 const n =
-                  t instanceof s && t.canDownload() && _ && _.ext === GDocument_389.PDF.ext;
+                  t instanceof Item && t.canDownload() && _ && _.ext === GDocument_389.PDF.ext;
                 m(e, u.generateExportName(y), i, _, n, h);
               },
               DataModule_442,
@@ -361,11 +361,11 @@ function (exports, module, require) {
         }
       }),
       (u.ZipDirectory = function (e, t) {
-        s.Directory.call(this, e),
+        Item.Directory.call(this, e),
           (this._zipRoot = t ? null : new zip.fs.FS()),
           (this._zipDirectory = t || this._zipRoot.root);
       }),
-      GCore.GObject.inherit(u.ZipDirectory, s.Directory),
+      GCore.GObject.inherit(u.ZipDirectory, Item.Directory),
       (u.ZipDirectory.prototype.addDirectory = async function (e) {
         return new u.ZipDirectory(
           this._storage,

@@ -13,7 +13,7 @@ function (exports, module, require) {
     const { isExecutingOnMSTeamsSync: r } = a.default;
     var MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
-    const c = require(1152) /* Item */,
+    const Item = require(1152) /* Item */,
       GSystemDialog = require(44) /* GSystemDialog */,
       GSharepointCheckInDialog = require(1631) /* GSharepointCheckInDialog */,
       GDocumentEvent = require(78) /* GDocumentEvent */;
@@ -44,7 +44,7 @@ function (exports, module, require) {
         const exports = gDesigner.getActiveDocument();
         if (!exports) return false;
         const module = exports.getStorageItem();
-        return !!module && module instanceof c.Item;
+        return !!module && module instanceof Item.Item;
       }),
       (g.prototype.isVisible = function () {
         return this._isSupported();

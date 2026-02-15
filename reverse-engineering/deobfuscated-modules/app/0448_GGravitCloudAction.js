@@ -13,7 +13,7 @@ function (exports, module, require) {
       GAction = require(31) /* GAction */,
       GActionIconMap = require(844) /* GActionIconMap */,
       l = require(86) /* module_86 */,
-      c = require(220) /* Item */,
+      Item = require(220) /* Item */,
       GCloudStorage = require(119) /* GCloudStorage */,
       GLoginPanel = require(446) /* GLoginPanel */;
     const GOfflineDialog = require(256) /* GOfflineDialog */;
@@ -94,7 +94,7 @@ function (exports, module, require) {
           if (GEditor.isCommercialProductFile())
             return void GEditor.openPaywall(this.getId());
           var MenuItemBuilder = GEditor.getStorageItem();
-          MenuItemBuilder && MenuItemBuilder instanceof c.Item
+          MenuItemBuilder && MenuItemBuilder instanceof Item.Item
             ? GCloudStorage.performSave(
                 GEditor,
                 () => {

@@ -1,0 +1,107 @@
+/**
+ * Module 751
+ * Extracted from chunk.vendor.js
+ *
+ * Original: Gravit Designer by Corel
+ * Reverse engineered for educational purposes
+ *
+ * Note: This is minified code. Variable names are compressed.
+ * Common patterns:
+ *   e = exports object
+ *   t = module object
+ *   n = require function
+ *   i, o, a, r, s, l, c, h, u, d = local variables
+ */
+
+function (exports, module, require) {
+  var n = require(0) /* GObject */, r = require(36) /* PartsPropertyVals */, o = require(66) /* EdTransformOptions */, a = require(39) /* PartInfo */, s = require(274) /* GItemEditor */, l = require(22) /* GElement */, h = require(122) /* GGroup */, A = require(70) /* GText */, c = require(7) /* GTransform */, p = require(24) /* GEditorOptions */;
+  function u(e) {
+    s.call(this, e);
+  }
+  n.inherit(u, s), r.exports(u, h), u.prototype._paintOutline = function (e, t, i, n, r) {
+    if (this._transform && this._editors && !this._element.getProperty("frm"))
+      for (var o = 0; o < this._editors.length; ++o) {
+        this._editors[o]._paintOutline(e, t, i, n, r);
+      }
+    else
+      s.prototype._paintOutline.call(this, e, t, i, n);
+  }, u.prototype._applyTransform = function (e, t, i, n) {
+    if (!this._transform.isIdentity()) {
+      e.beginUpdate(), e.assignTransformFrom(this._transform, this._element);
+      for (var a = e.getProperty("frm"), s = e.getFirstChild(); null != s; s = s.getNext())
+        if (s instanceof l && (!i || i.indexOf(s) < 0) && (!a || t || s.hasMixin(l.Transform) && !s.getProperty("hacr") && !s.getProperty("vacr"))) {
+          var h = r.openEditor(s), A = new o.EdTransformOptions();
+          A.fullContentsTransform = !!t, s.dependentUpdate = true, h.edTransform(this._transform, null, null, A), h.applyTransform(s, t, i, n), s.dependentUpdate = false;
+        }
+      e.endUpdate();
+    }
+    o.prototype._applyTransform.call(this, e);
+  }, u.prototype.edTransform = function (e, t, i, n) {
+    var o = this.getElement();
+    if (!o.getProperty("frm"))
+      for (var a = o.getFirstChild(); null != a; a = a.getNext()) {
+        if (a instanceof l)
+          a.dependentUpdate = true, r.openEditor(a).edTransform(e, null, null, n), a.dependentUpdate = false;
+      }
+    s.prototype.edTransform.call(this, e, t, i, n);
+  }, u.prototype.getBBox = function (e) {
+    return this.hasFlag(a.Flag.Selected) || this.hasFlag(a.Flag.Highlighted) ? o.prototype.getBBox.call(this, e) : null;
+  }, u.prototype._getBBox = function (e, t) {
+    for (var require = o.prototype._getBBox.call(this, e, t), n = this.getElement().getFirstChild(); null != n; n = n.getNext())
+      if (n instanceof A) {
+        var a = r.getEditor(n);
+        if (a) {
+          var s = a._getBBox(e, t);
+          s && (require = require ? require.united(s) : s);
+        }
+      }
+    return require;
+  }, u.prototype.getPEGeometryBBox = function () {
+    var e = null;
+    if (this._transform && !this._element.getProperty("frm") && this._editors && 0 != this._editors.length)
+      for (var module = 0; module < this._editors.length; ++module) {
+        var require = this._editors[module];
+        if (require instanceof r) {
+          var n = require.getPEGeometryBBox();
+          n && (e = e ? e.united(n) : n);
+        }
+      }
+    else
+      e = s.prototype.getPEGeometryBBox.call(this);
+    return e;
+  }, u.prototype.resetTransform = function () {
+    for (var exports = this._editors ? this._editors.length : 0; exports > 0; --exports) {
+      this._editors[exports - 1].resetTransform();
+    }
+    s.prototype.resetTransform.call(this);
+  }, u.prototype.movePart = function (e, t, i, n, r, l, h, A) {
+    if (e !== o.RESIZE_HANDLE_PART_ID)
+      return s.prototype.movePart.call(this, e, t, i, n, r, l, h);
+    a.prototype.movePart.call(this, e, t, i, n, r, l, h);
+    var u = null;
+    A && ((u = new o.EdTransformOptions()).isMultiPage = true);
+    var d = n.mapPoint(i);
+    d = r.mapPoint(d);
+    var g = this._element.getSourceBBox();
+    if (g) {
+      var f = this.getBoxTransform();
+      if (f && !f.isIdentity() && f.invertible()) {
+        var m = f.inverted();
+        m && (d = m.mapPoint(d));
+      }
+      var y = g.getSide(t.side), _ = d.getX() - y.getX(), v = d.getY() - y.getY(), b = l;
+      p.isPreserveAspectRatioEnabledForSide(t.side) && (b = true);
+      var C = c.getResizeTransform(g, t.side, _, v, b, h);
+      return m && (C = m.multiplied(C).multiplied(f)), this.edTransform(C, null, null, u), C;
+    }
+    return null;
+  }, u.prototype._scaleBorder = function (e, t) {
+    if (e instanceof h)
+      for (var require = this._editors ? this._editors.length : 0; require > 0; --require) {
+        var n = this._editors[require - 1];
+        n._scaleBorder(n.getElement(), t);
+      }
+  }, u.prototype.toString = function () {
+    return "[Object GGroupEditor]";
+  }, exports.exports = u;
+}

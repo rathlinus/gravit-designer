@@ -10,20 +10,20 @@ function (exports, module, require) {
       (module.default = undefined),
       require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */,
-      i = require(1478) /* GCloudUser */,
-      a = require(1241) /* GCloudRole */;
+      GCloudUser = require(1478) /* GCloudUser */,
+      GCloudRole = require(1241) /* GCloudRole */;
     function r(e) {
-      let { Id: module, Email: require, Title: GCore, UserId: i, UserPrincipalName: a } = e;
+      let { Id: module, Email: require, Title: GCore, UserId: GCloudUser, UserPrincipalName: GCloudRole } = e;
       (this._id = module),
         (this._email = require),
         (this._name = GCore),
-        (this._userId = i),
-        (this._userPrincipalName = a);
+        (this._userId = GCloudUser),
+        (this._userPrincipalName = GCloudRole);
     }
-    GCore.GObject.inherit(r, i.GCloudUser),
+    GCore.GObject.inherit(r, GCloudUser.GCloudUser),
       (r.ValidRoles = [
-        a.GCloudRole.Type.Viewer,
-        a.GCloudRole.Type.ContentEditor,
+        GCloudRole.GCloudRole.Type.Viewer,
+        GCloudRole.GCloudRole.Type.ContentEditor,
       ]),
       (r.prototype._userId = null),
       (r.prototype.getValidRoles = function () {

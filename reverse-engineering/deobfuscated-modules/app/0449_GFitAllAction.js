@@ -9,12 +9,12 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GFitAllAction", "tooltip-title")
           ),
@@ -62,8 +62,8 @@ function (exports, module, require) {
             .getView()
             .getViewConfiguration().multiPageView;
         if (n.isFixedSized() && !GEditor) {
-          var a = n.getActivePage();
-          e = new GCore.GRect(0, 0, a.getProperty("w"), a.getProperty("h"));
+          var GRichTooltipConfig = n.getActivePage();
+          e = new GCore.GRect(0, 0, GRichTooltipConfig.getProperty("w"), GRichTooltipConfig.getProperty("h"));
         } else e = n.getPaintBBox(GEditor);
         e && !e.isEmpty() && t.getActiveWindow().getView().zoomAll(e, false);
       }),

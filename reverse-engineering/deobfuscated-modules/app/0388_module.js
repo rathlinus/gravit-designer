@@ -7,14 +7,14 @@ function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */;
-    const i = require(237) /* Item */,
+    const Item = require(237) /* Item */,
       GCloudStorageItem = require(156) /* GCloudStorageItem */;
     function r() {}
-    GCore.GObject.inherit(r, i),
+    GCore.GObject.inherit(r, Item),
       (r.Item = function (e, t) {
-        i.Item.call(this, e), this.setFile(t);
+        Item.Item.call(this, e), this.setFile(t);
       }),
-      GCore.GObject.inherit(r.Item, i.Item),
+      GCore.GObject.inherit(r.Item, Item.Item),
       (r.Item.prototype._app = null),
       (r.Item.prototype._filename = null),
       (r.Item.prototype._ext = null),

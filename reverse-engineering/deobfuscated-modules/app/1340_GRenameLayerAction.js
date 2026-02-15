@@ -10,7 +10,7 @@ function (exports, module, require) {
       GEditor = require(15) /* GEditor */,
       GCore = require(1) /* GCore */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-      s = require(198) /* Exports_GOutlineSidebar */;
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
     const GAction = require(31) /* GAction */;
     class c extends GAction {
       getId() {
@@ -32,7 +32,7 @@ function (exports, module, require) {
         const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
           module = gDesigner
             .getLeftSidebars()
-            .getSidebar(s.SidebarsIds.GOutlineSidebar),
+            .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
           require = module.getLayerPanel(),
           { currentFocus: _interopRequireDefault } = require.data("glayerpanel");
         if (_interopRequireDefault && exports === module.getId()) {

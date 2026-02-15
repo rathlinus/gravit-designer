@@ -10,14 +10,14 @@ function (exports, module, require) {
     require(596) /* polyfill_Array_reverse */, require(30) /* polyfill_Object_assign */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      r = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-      l = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       DataModule_442 = _interopRequireDefault(require(442) /* DataModule_442 */),
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       p = require(86) /* module_86 */,
-      g = require(603) /* WindowEvent */,
+      WindowEvent = require(603) /* WindowEvent */,
       GFitAllAction = require(449) /* GFitAllAction */,
       GFitSelectionAction = require(566) /* GFitSelectionAction */,
       GSidebar = require(806) /* GSidebar */,
@@ -163,7 +163,7 @@ function (exports, module, require) {
             .append($("<div></div>"))
             .appendTo(this._pageToolbar)
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GOutlineSidebar",
@@ -205,7 +205,7 @@ function (exports, module, require) {
             .append($("<span></span>").addClass("gravit-icon-trash"))
             .appendTo(this._pageToolbar)
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GOutlineSidebar",
@@ -240,7 +240,7 @@ function (exports, module, require) {
             .append($("<span></span>").addClass("gravit-icon-addpage"))
             .appendTo(this._pageToolbar)
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GOutlineSidebar",
@@ -300,11 +300,11 @@ function (exports, module, require) {
             clickCallback: this._clickPageTreeNodeCallback.bind(this),
             startDraggingCallback: this._startPageDraggingCallback.bind(this),
           });
-        var r = false,
+        var GEditor = false,
           GTouchTool = $("<div/>").attr("id", "page-layer-divider"),
           DataModule_442 = function (e) {
             var GTools;
-            r &&
+            GEditor &&
               ((GTools = n - t + e.clientY) < this._pageContainerMinHeight &&
                 (GTools = this._pageContainerMinHeight),
               GTools > this._pageContainerMaxHeight &&
@@ -314,14 +314,14 @@ function (exports, module, require) {
           GDocumentStatusEvent = function () {
             $(document).off("mousemove", DataModule_442),
               $(document).off("mouseup", GDocumentStatusEvent),
-              (r = false),
+              (GEditor = false),
               (t = null),
               (n = null),
               e.removeClass("page-container-resizing");
           },
           p = function (GTools) {
             (t = GTools.clientY),
-              (r = true),
+              (GEditor = true),
               (n = parseInt(_interopRequireDefault.css("height"), 10)),
               e.addClass("page-container-resizing"),
               $(document).on("mousemove", DataModule_442),
@@ -477,7 +477,7 @@ function (exports, module, require) {
             .append($("<span></span>").addClass("gravit-icon-trash"))
             .appendTo(this._layerToolbar)
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GOutlineSidebar",
@@ -505,7 +505,7 @@ function (exports, module, require) {
             .append($("<span></span>").addClass("gravit-icon-addlayer"))
             .appendTo(this._layerToolbar)
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GOutlineSidebar",
@@ -556,7 +556,7 @@ function (exports, module, require) {
                   this._document.getEditor().clearSelection();
                 var e = this._document.getScene();
                 e && e.setActiveLayer(null),
-                  r.GPlatform.modifiers.optionKey &&
+                  GEditor.GPlatform.modifiers.optionKey &&
                     gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
               }.bind(this)
             )
@@ -605,7 +605,7 @@ function (exports, module, require) {
                 ? this._updateMultiPageMode()
                 : gDesigner
                     .getWindows()
-                    .addEventListener(g.WindowEvent, this._windowsEvent, this)
+                    .addEventListener(WindowEvent.WindowEvent, this._windowsEvent, this)
               : this._document.addEventListener(
                   GDocumentStatusEvent,
                   this._documentStatusEvent,
@@ -654,7 +654,7 @@ function (exports, module, require) {
               ),
             gDesigner
               .getWindows()
-              .removeEventListener(g.WindowEvent, this._windowsEvent, this),
+              .removeEventListener(WindowEvent.WindowEvent, this._windowsEvent, this),
             n.removeEventListener(
               GTools.GEditor.SelectionChangedEvent,
               this._updateExport,
@@ -695,11 +695,11 @@ function (exports, module, require) {
           ));
       }),
       (x.prototype._windowsEvent = function (e) {
-        e.type === g.WindowEvent.Type.Activated &&
+        e.type === WindowEvent.WindowEvent.Type.Activated &&
           (this._updateMultiPageMode(),
           gDesigner
             .getWindows()
-            .removeEventListener(g.WindowEvent, this._windowsEvent, this));
+            .removeEventListener(WindowEvent.WindowEvent, this._windowsEvent, this));
       }),
       (x.prototype._isMultiPageModeEnabled = function () {
         const exports = this._document
@@ -774,7 +774,7 @@ function (exports, module, require) {
           return e.attr("data-title", ""), void e.prop("disabled", true);
         e.prop("disabled", false);
         var GTools = this._document.getActiveWindow(),
-          r = GTools.getView();
+          GEditor = GTools.getView();
         (_interopRequireDefault ||
           (e.is(":checked") && e.prop("checked", false),
           module &&
@@ -783,12 +783,12 @@ function (exports, module, require) {
                 new GCore.GLocaleKey("GOutlineSidebar", "text.multipage-alert")
               )
             ),
-          r.getViewConfiguration().multiPageView ||
-            r.getViewConfiguration().pageLabelsVisible)) &&
-          ((r.getViewConfiguration().multiPageView = e.is(":checked")),
-          (r.getViewConfiguration().pageLabelsVisible = e.is(":checked")),
+          GEditor.getViewConfiguration().multiPageView ||
+            GEditor.getViewConfiguration().pageLabelsVisible)) &&
+          ((GEditor.getViewConfiguration().multiPageView = e.is(":checked")),
+          (GEditor.getViewConfiguration().pageLabelsVisible = e.is(":checked")),
           require ||
-            (r.invalidate(null, true),
+            (GEditor.invalidate(null, true),
             module && (GTools.centerAndZoom(), this._refreshSelection())));
       }),
       (x.prototype._deletePage = function () {
@@ -847,12 +847,12 @@ function (exports, module, require) {
           _interopRequireDefault = t.getActivePage(),
           GCore = null;
         if (e.hasSelection()) {
-          var r = e.getSelection();
+          var GEditor = e.getSelection();
           n
             ? e.updateSelection(false, [_interopRequireDefault])
-            : (GCore = r.filter(function (e) {
+            : (GCore = GEditor.filter(function (e) {
                 return GTools.GEditor.getElementPage(e) === _interopRequireDefault;
-              })).length !== r.length && e.updateSelection(false, GCore);
+              })).length !== GEditor.length && e.updateSelection(false, GCore);
         } else n && e.updateSelection(false, [_interopRequireDefault]);
       }),
       (x.prototype._movePageTreeNodeCallback = function (e, t, n) {
@@ -931,13 +931,13 @@ function (exports, module, require) {
         if (t.getViewConfiguration().multiPageView) {
           var require = e.getTransform(),
             _interopRequireDefault = e.getGeometryBBox();
-          r = require.mapRect(_interopRequireDefault).getSide(GCore.GRect.Side.CENTER);
-          t.zoomAtCenter(r);
+          GEditor = require.mapRect(_interopRequireDefault).getSide(GCore.GRect.Side.CENTER);
+          t.zoomAtCenter(GEditor);
         } else if (this._document.hasCDR()) {
           var GTools = e.getContentBBox();
           if (GTools && !GTools.isEmpty()) {
-            var r = GTools.getSide(GCore.GRect.Side.CENTER);
-            t.zoomAtCenter(r);
+            var GEditor = GTools.getSide(GCore.GRect.Side.CENTER);
+            t.zoomAtCenter(GEditor);
           }
         }
       }),
@@ -966,13 +966,13 @@ function (exports, module, require) {
               _interopRequireDefault = (require && require.getSelection()) || [];
             let GTools = exports.getActivePage();
             GTools || ((GTools = exports.insertPage()), GTools.setFlag(GCore.GNode.Flag.Active));
-            const r = this.createLayer(),
+            const GEditor = this.createLayer(),
               GTouchTool = _interopRequireDefault.filter((e) => !this._hasSelectedParentLayer(e)),
-              l = GCore.GNode.order(GTouchTool, true),
-              DataModule_442 = l && l[0];
-            ((DataModule_442 && DataModule_442.getParent()) || GTools).insertChild(r, DataModule_442),
-              exports.setActiveLayer(r),
-              this._moveLayers(r, null, GTouchTool, false);
+              GRichTooltipConfig = GCore.GNode.order(GTouchTool, true),
+              DataModule_442 = GRichTooltipConfig && GRichTooltipConfig[0];
+            ((DataModule_442 && DataModule_442.getParent()) || GTools).insertChild(GEditor, DataModule_442),
+              exports.setActiveLayer(GEditor),
+              this._moveLayers(GEditor, null, GTouchTool, false);
           },
           GCore.GLocale.get(
             new GCore.GLocaleKey("GOutlineSidebar", "action.insert-layer")
@@ -990,9 +990,9 @@ function (exports, module, require) {
         return module;
       }),
       (x.prototype._moveLayerTreeNodeCallback = function (e, t, n, _interopRequireDefault) {
-        const r = this._document.getScene();
+        const GEditor = this._document.getScene();
         GTools.GEditor.tryRunTransaction(
-          r,
+          GEditor,
           () => {
             this._moveLayers(e, t, n, _interopRequireDefault);
           },
@@ -1019,7 +1019,7 @@ function (exports, module, require) {
           GTouchTool.startBlockReferenceChanges(),
           n.length > 1 && e.beginUpdate(),
           n.forEach((n) => {
-            r.GPlatform.modifiers.optionKey
+            GEditor.GPlatform.modifiers.optionKey
               ? n.hasMixin(GCore.GNode.Store) && (n = n.clone())
               : n.getParent().removeChild(n),
               n &&
@@ -1043,8 +1043,8 @@ function (exports, module, require) {
             function () {
               this._document.getEditor().clearSelection(),
                 n.length > 1 && e.beginUpdate();
-              for (var _interopRequireDefault = [], r = 0; r < n.length; ++r) {
-                var GTouchTool = n[r];
+              for (var _interopRequireDefault = [], GEditor = 0; GEditor < n.length; ++GEditor) {
+                var GTouchTool = n[GEditor];
                 GTouchTool.validateInsertion(e) &&
                   GTouchTool.hasMixin(GCore.GNode.Store) &&
                   GTools.GEditor.validateBlockInsertion(e, GTouchTool) &&
@@ -1057,18 +1057,18 @@ function (exports, module, require) {
                   .insertElements(_interopRequireDefault, true, true, false, true, e, t),
                 e instanceof GCore.GCompoundShape)
               )
-                for (var l = 0; l < _interopRequireDefault.length; ++l) _interopRequireDefault[l].assignStyleFrom(e);
+                for (var GRichTooltipConfig = 0; GRichTooltipConfig < _interopRequireDefault.length; ++GRichTooltipConfig) _interopRequireDefault[GRichTooltipConfig].assignStyleFrom(e);
               else if (e instanceof GCore.GShape) {
                 var DataModule_442 = e.getPaintBBox();
                 if (DataModule_442) {
                   var GDocumentEvent = DataModule_442.getX(),
                     GDocumentStatusEvent = DataModule_442.getY();
-                  for (r = 0; r < _interopRequireDefault.length; ++r) {
-                    var p = _interopRequireDefault[r],
-                      g = p instanceof GCore.GElement ? p.getPaintBBox() : null;
-                    if (g && !DataModule_442.intersectsRect(g, true)) {
-                      var GFitAllAction = g.getX(),
-                        GFitSelectionAction = g.getY();
+                  for (GEditor = 0; GEditor < _interopRequireDefault.length; ++GEditor) {
+                    var p = _interopRequireDefault[GEditor],
+                      WindowEvent = p instanceof GCore.GElement ? p.getPaintBBox() : null;
+                    if (WindowEvent && !DataModule_442.intersectsRect(WindowEvent, true)) {
+                      var GFitAllAction = WindowEvent.getX(),
+                        GFitSelectionAction = WindowEvent.getY();
                       null === GDocumentEvent ||
                         null === GFitAllAction ||
                         (GCore.GMath.isEqualEps(GDocumentEvent, GFitAllAction) &&
@@ -1112,11 +1112,11 @@ function (exports, module, require) {
             var _interopRequireDefault = e[require];
             if (!_interopRequireDefault.hasFlag(GCore.GElement.Flag.PartialLocked)) {
               for (
-                var GTools = false, r = _interopRequireDefault.getParent();
-                null != r && !GTools;
-                r = r.getParent()
+                var GTools = false, GEditor = _interopRequireDefault.getParent();
+                null != GEditor && !GTools;
+                GEditor = GEditor.getParent()
               )
-                GTools = r.hasFlag(GCore.GNode.Flag.Selected);
+                GTools = GEditor.hasFlag(GCore.GNode.Flag.Selected);
               GTools || t.push(_interopRequireDefault);
             }
           }
@@ -1148,21 +1148,21 @@ function (exports, module, require) {
               )
                 .find("> div[tabindex=0]")
                 .focus(),
-              r.GPlatform.modifiers.metaKey ||
+              GEditor.GPlatform.modifiers.metaKey ||
                 (!e.hasFlag(GCore.GNode.Flag.Selected) &&
                   !e.hasFlag(GCore.GElement.Flag.FullLocked) &&
-                  !r.GPlatform.modifiers.shiftKey))
+                  !GEditor.GPlatform.modifiers.shiftKey))
             )
               this._layerPanel.gLayerPanel("onlyUpdateStyle", true),
-                module.updateSelection(r.GPlatform.modifiers.metaKey, [e]),
+                module.updateSelection(GEditor.GPlatform.modifiers.metaKey, [e]),
                 this._layerPanel.gLayerPanel("onlyUpdateStyle", false),
                 (_interopRequireDefault = true);
-            else if (r.GPlatform.modifiers.shiftKey) {
+            else if (GEditor.GPlatform.modifiers.shiftKey) {
               var GTools = module.getSelection(),
                 GTouchTool = null;
               if (GTools && GTools.length) {
-                for (var l = GTools.length - 1; l >= 0 && !GTouchTool; --l)
-                  GTools[l] instanceof require && (GTouchTool = GTools[l]);
+                for (var GRichTooltipConfig = GTools.length - 1; GRichTooltipConfig >= 0 && !GTouchTool; --GRichTooltipConfig)
+                  GTools[GRichTooltipConfig] instanceof require && (GTouchTool = GTools[GRichTooltipConfig]);
                 if (GTouchTool && GTouchTool !== e) {
                   var DataModule_442 = [];
                   if (
@@ -1179,13 +1179,13 @@ function (exports, module, require) {
                     var GDocumentEvent = [],
                       GDocumentStatusEvent = false,
                       p = null,
-                      g = null;
-                    for (l = 0; l < DataModule_442.length && (null === p || null === g); ++l)
-                      DataModule_442[l] === GTouchTool || DataModule_442[l] === e
+                      WindowEvent = null;
+                    for (GRichTooltipConfig = 0; GRichTooltipConfig < DataModule_442.length && (null === p || null === WindowEvent); ++GRichTooltipConfig)
+                      DataModule_442[GRichTooltipConfig] === GTouchTool || DataModule_442[GRichTooltipConfig] === e
                         ? ((GDocumentStatusEvent = !GDocumentStatusEvent),
-                          GDocumentEvent.push(DataModule_442[l]),
-                          DataModule_442[l] === GTouchTool ? (p = l) : (g = l))
-                        : GDocumentStatusEvent && GDocumentEvent.push(DataModule_442[l]);
+                          GDocumentEvent.push(DataModule_442[GRichTooltipConfig]),
+                          DataModule_442[GRichTooltipConfig] === GTouchTool ? (p = GRichTooltipConfig) : (WindowEvent = GRichTooltipConfig))
+                        : GDocumentStatusEvent && GDocumentEvent.push(DataModule_442[GRichTooltipConfig]);
                     var GSidebar = GTouchTool.getParent(),
                       GSidebarContainer = e.getParent();
                     GDocumentEvent = GDocumentEvent.filter(
@@ -1202,7 +1202,7 @@ function (exports, module, require) {
                     var GExportProperties = gDesigner.getSetting("auto_expand_layers");
                     gDesigner.setSetting("auto_expand_layers", false),
                       GDocumentEvent.length &&
-                        (p > g && GDocumentEvent.reverse(),
+                        (p > WindowEvent && GDocumentEvent.reverse(),
                         module.updateSelection(false, GDocumentEvent),
                         (_interopRequireDefault = true)),
                       setTimeout(function () {
@@ -1218,7 +1218,7 @@ function (exports, module, require) {
                 this._layerPanel.gLayerPanel("onlyUpdateStyle", false),
                 (_interopRequireDefault = true));
             if (_interopRequireDefault)
-              if (r.GPlatform.modifiers.optionKey)
+              if (GEditor.GPlatform.modifiers.optionKey)
                 module.hasSelection()
                   ? gDesigner.executeAction(GFitSelectionAction.ID, undefined, "outlinesidebar")
                   : gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");

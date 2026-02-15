@@ -9,13 +9,13 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GElementAction = require(106) /* GElementAction */,
       GSystemDialog = require(44) /* GSystemDialog */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GCreateSymbolAction", "tooltip-title")
           ),
@@ -69,11 +69,11 @@ function (exports, module, require) {
           var module = e.getEditor().getIndividualSelection();
           if (module && module.length)
             for (
-              var require = 0, GEditor = new GCore.GSymbol(), a = module.length - 1;
-              a >= 0;
-              --a
+              var require = 0, GEditor = new GCore.GSymbol(), GRichTooltipConfig = module.length - 1;
+              GRichTooltipConfig >= 0;
+              --GRichTooltipConfig
             ) {
-              var MenuItemBuilder = module[a];
+              var MenuItemBuilder = module[GRichTooltipConfig];
               if (
                 (MenuItemBuilder instanceof GCore.GSymbol && !MenuItemBuilder.getMasterSymbol()) ||
                 (MenuItemBuilder.validateInsertion(GEditor) &&
@@ -100,9 +100,9 @@ function (exports, module, require) {
             require = module + " " + exports,
             GEditor = gDesigner.getActiveDocument();
           if (GEditor) {
-            var a = GEditor.getScene();
-            if (a)
-              (a.getSymbols() || []).forEach(function (GEditor) {
+            var GRichTooltipConfig = GEditor.getScene();
+            if (GRichTooltipConfig)
+              (GRichTooltipConfig.getSymbols() || []).forEach(function (GEditor) {
                 GEditor instanceof GCore.GSymbol &&
                   GEditor.isMaster() &&
                   GEditor.getProperty("name") === require &&
@@ -122,7 +122,7 @@ function (exports, module, require) {
                       module.beginTransaction();
                       try {
                         for (
-                          var GEditor = new GCore.GSymbol(), a = null, MenuItemBuilder = require.length - 1;
+                          var GEditor = new GCore.GSymbol(), GRichTooltipConfig = null, MenuItemBuilder = require.length - 1;
                           MenuItemBuilder >= 0;
                           --MenuItemBuilder
                         ) {
@@ -134,14 +134,14 @@ function (exports, module, require) {
                             !GCore.GSymbol.containsUnsupportedNodes(GElementAction)
                           ) {
                             if (
-                              !(a = GElementAction.getParent()).isLocked() &&
-                              GEditor.validateInsertion(a)
+                              !(GRichTooltipConfig = GElementAction.getParent()).isLocked() &&
+                              GEditor.validateInsertion(GRichTooltipConfig)
                             )
                               break;
-                            a = null;
+                            GRichTooltipConfig = null;
                           }
                         }
-                        a && module.updateSelection(false, [GCore.GSymbol.create(require, a, e)]);
+                        GRichTooltipConfig && module.updateSelection(false, [GCore.GSymbol.create(require, GRichTooltipConfig, e)]);
                       } finally {
                         module.commitTransaction(
                           GCore.GLocale.get(

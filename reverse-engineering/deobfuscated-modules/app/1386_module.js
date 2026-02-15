@@ -8,11 +8,11 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */;
     var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
-      a = require(237) /* Item */,
+      Item = require(237) /* Item */,
       r = (require(220) /* Item */, require(40) /* CollaborationMergeUtils */.decrypt);
     require(173) /* stub_requires_1 */;
     function s() {}
-    GCore.GObject.inherit(s, a),
+    GCore.GObject.inherit(s, Item),
       (s.prototype.canPromptOpen = function () {
         return false;
       }),
@@ -26,13 +26,13 @@ function (exports, module, require) {
         return true;
       }),
       (s.Item = function (e, t, n, GCore, AppSettings) {
-        a.Item.call(this, e),
+        Item.Item.call(this, e),
           (this._filename = n),
           (this._id = t),
           (this._file = GCore),
           (this._hash = AppSettings);
       }),
-      GCore.GObject.inherit(s.Item, a.Item),
+      GCore.GObject.inherit(s.Item, Item.Item),
       (s.Item.prototype.getName = function () {
         return this._filename
           ? this._filename

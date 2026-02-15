@@ -10,12 +10,12 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GElementAction = require(106) /* GElementAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GSplitAction", "tooltip-title")
           ),
@@ -77,7 +77,7 @@ function (exports, module, require) {
         try {
           var require,
             GEditor,
-            r = [],
+            GRichTooltipConfig = [],
             MenuItemBuilder = gDesigner.getActiveDocument().getScene();
           e.clearSelection();
           try {
@@ -101,7 +101,7 @@ function (exports, module, require) {
                   require.beginUpdate();
                   for (var p = 0; p < u.length; ++p) {
                     var g = u[p];
-                    require.removeChild(g), d.insertChild(g, require), r.push(g);
+                    require.removeChild(g), d.insertChild(g, require), GRichTooltipConfig.push(g);
                   }
                 } finally {
                   require.endUpdate();
@@ -113,17 +113,17 @@ function (exports, module, require) {
                   require.beginUpdate();
                   for (p = u.length - 1; p >= 0; --p) {
                     g = u[p];
-                    require.removeChild(g), d.insertChild(g, require.getNext()), r.push(g);
+                    require.removeChild(g), d.insertChild(g, require.getNext()), GRichTooltipConfig.push(g);
                   }
                 } finally {
                   require.endUpdate();
                 }
-                r.push(require);
-              } else r.push(require);
+                GRichTooltipConfig.push(require);
+              } else GRichTooltipConfig.push(require);
           } finally {
             (0, CollaborationMergeUtils.releaseChanges)(e, GEditor, MenuItemBuilder);
           }
-          r.length > 0 && e.updateSelection(false, r);
+          GRichTooltipConfig.length > 0 && e.updateSelection(false, GRichTooltipConfig);
         } finally {
           e.commitTransaction(GCore.GLocale.get(c.TITLE));
         }

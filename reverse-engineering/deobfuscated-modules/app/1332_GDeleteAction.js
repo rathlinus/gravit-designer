@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
-      r = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       AppSettings = require(10) /* AppSettings */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
@@ -37,14 +37,14 @@ function (exports, module, require) {
         return "ccp";
       }),
       (f.prototype.getShortcut = function () {
-        return [r.GKey.Constant.REMOVE];
+        return [GEditor.GKey.Constant.REMOVE];
       }),
       (f.prototype.getAdditionalShortcuts = function () {
         var e = [];
         return (
           GCore.GSystem.operatingSystem === GCore.GSystem.OperatingSystem.OSX_IOS
-            ? e.push([r.GKey.Constant.DELETE])
-            : e.push([r.GKey.Constant.BACKSPACE]),
+            ? e.push([GEditor.GKey.Constant.DELETE])
+            : e.push([GEditor.GKey.Constant.BACKSPACE]),
           e
         );
       }),
@@ -69,8 +69,8 @@ function (exports, module, require) {
           AppSettings.HAS_ANNOTATIONS &&
           gDesigner.getRightSidebars().getActiveSidebar() === GAnnotationsSidebar.ID
         ) {
-          var r = t.getSelection().filter((e) => GAnnotationsUtils.canDeleteAnnotation(e));
-          r.length &&
+          var GEditor = t.getSelection().filter((e) => GAnnotationsUtils.canDeleteAnnotation(e));
+          GEditor.length &&
             (this._setIsConfirmWindowDisplaying(true),
             GSystemDialog.default.confirm(
               GCore.GLocale.get(
@@ -81,8 +81,8 @@ function (exports, module, require) {
                   gDesigner.getActiveDocument() &&
                   gDesigner.getActiveDocument().getEditor() === t &&
                   GAnnotationsUtils.removeAnnotations(
-                    r,
-                    r[0].getParent(),
+                    GEditor,
+                    GEditor[0].getParent(),
                     GCore.GLocale.get(this.getTitle())
                   ),
                   this._setIsConfirmWindowDisplaying(false);

@@ -8,14 +8,14 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */,
-      i = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     const { TOUCH_LAYOUT: s } = require(10) /* AppSettings */,
       GContainer = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey(
               "GToggleTouchAction",
@@ -66,7 +66,7 @@ function (exports, module, require) {
         gDesigner.setTouchEnabled(!gDesigner.isTouchEnabled());
       }),
       (c.prototype.getTooltipArea = function () {
-        return i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+        return GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
       }),
       (c.prototype.getTooltipConfig = function (e) {
         return (e && c.TOOLTIP_CONFIG[e]) || null;

@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
-      r = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
     class c extends GAction.default {
@@ -40,17 +40,17 @@ function (exports, module, require) {
       }
       getAdditionalShortcuts() {
         return [
-          r.GKey.Constant.Digit0,
-          r.GKey.Constant.Digit1,
-          r.GKey.Constant.Digit2,
-          r.GKey.Constant.Digit3,
-          r.GKey.Constant.Digit4,
-          r.GKey.Constant.Digit5,
-          r.GKey.Constant.Digit6,
-          r.GKey.Constant.Digit7,
-          r.GKey.Constant.Digit8,
-          r.GKey.Constant.Digit9,
-        ].map((e) => [r.GKey.Constant.SHIFT, e]);
+          GEditor.GKey.Constant.Digit0,
+          GEditor.GKey.Constant.Digit1,
+          GEditor.GKey.Constant.Digit2,
+          GEditor.GKey.Constant.Digit3,
+          GEditor.GKey.Constant.Digit4,
+          GEditor.GKey.Constant.Digit5,
+          GEditor.GKey.Constant.Digit6,
+          GEditor.GKey.Constant.Digit7,
+          GEditor.GKey.Constant.Digit8,
+          GEditor.GKey.Constant.Digit9,
+        ].map((e) => [GEditor.GKey.Constant.SHIFT, e]);
       }
       execute() {
         const exports = gDesigner.getActiveDocument(),
@@ -72,7 +72,7 @@ function (exports, module, require) {
           this._setOpacityLevel());
       }
       executeFromShortcut(e) {
-        const module = r.GKey.translateCode(e.code),
+        const module = GEditor.GKey.translateCode(e.code),
           require = this._currentValue;
         this._setCurrentValue(module),
           require
@@ -85,7 +85,7 @@ function (exports, module, require) {
         return true;
       }
       getShortcutHint(e) {
-        const module = [r.GKey.Constant.SHIFT, "0 (1, 2, 25, 26, 3, 4, ... 9)"];
+        const module = [GEditor.GKey.Constant.SHIFT, "0 (1, 2, 25, 26, 3, 4, ... 9)"];
         return GAction.default.getActionShortcutHint(module, e);
       }
       _processDefinedCurrentValue() {

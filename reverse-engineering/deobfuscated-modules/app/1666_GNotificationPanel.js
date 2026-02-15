@@ -16,7 +16,7 @@ function (exports, module, require) {
       GEvent_notification = require(1321) /* GEvent_notification */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
-      d = require(1667) /* Type */;
+      Type = require(1667) /* Type */;
     function u() {}
     GCore.GObject.inherit(u, GPanel),
       (u.ID = "notification-panel"),
@@ -206,9 +206,9 @@ function (exports, module, require) {
             });
           }
         } else
-          e.builder instanceof d
-            ? (e.builder.addEventListener(d.Event, (e) => {
-                e.type === d.Event.Type.Close && this._close();
+          e.builder instanceof Type
+            ? (e.builder.addEventListener(Type.Event, (e) => {
+                e.type === Type.Event.Type.Close && this._close();
               }),
               this._updateContent(
                 $("<div></div>")

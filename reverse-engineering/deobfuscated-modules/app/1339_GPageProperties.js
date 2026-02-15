@@ -12,12 +12,12 @@ function (exports, module, require) {
       GTools = require(53) /* GTools */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       AppSettings = require(10) /* AppSettings */,
-      l = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GProperties = require(123) /* GProperties */,
       GPresets = require(1153) /* GPresets */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-      g = require(603) /* WindowEvent */,
+      WindowEvent = require(603) /* WindowEvent */,
       GEvent_paintMode = require(1328) /* GEvent_paintMode */,
       DataModule_442 = require(442) /* DataModule_442 */;
     const GSystemDialog = require(44) /* GSystemDialog */,
@@ -84,16 +84,16 @@ function (exports, module, require) {
               n._chooserElem = null;
             })
             .on("patternchange", function (e, t, _interopRequireDefault, GTools, CollaborationMergeUtils, AppSettings) {
-              var l = [],
+              var GRichTooltipConfig = [],
                 GTouchTool = [];
               if (
-                (undefined !== t && (l.push("bck"), GTouchTool.push(t)),
-                "number" == typeof _interopRequireDefault && (l.push("bop"), GTouchTool.push(_interopRequireDefault)),
+                (undefined !== t && (GRichTooltipConfig.push("bck"), GTouchTool.push(t)),
+                "number" == typeof _interopRequireDefault && (GRichTooltipConfig.push("bop"), GTouchTool.push(_interopRequireDefault)),
                 n._pages)
               )
                 if (GTools)
                   n._pages.forEach(function (e) {
-                    e.setProperties(l, GTouchTool, false, false, GTools);
+                    e.setProperties(GRichTooltipConfig, GTouchTool, false, false, GTools);
                   });
                 else {
                   var GProperties = null;
@@ -101,7 +101,7 @@ function (exports, module, require) {
                     ((GProperties = { chooserOn: true, pagePattern: true }),
                     null !== AppSettings && (GProperties.activeStopIdx = AppSettings)),
                     n._assignProperties(
-                      l,
+                      GRichTooltipConfig,
                       GTouchTool,
                       GCore.GLocale.get(
                         new GCore.GLocaleKey(
@@ -388,9 +388,9 @@ function (exports, module, require) {
       }),
       (_.prototype._windowEvent = function (e) {
         const { type: module, window: require } = e;
-        if (module !== g.WindowEvent.Type.Activated)
+        if (module !== WindowEvent.WindowEvent.Type.Activated)
           return void (
-            module === g.WindowEvent.Type.Removed &&
+            module === WindowEvent.WindowEvent.Type.Removed &&
             this._lastScene &&
             (this._lastScene.removeEventListener(
               GCore.GNode.AfterPropertiesChangeEvent,
@@ -582,7 +582,7 @@ function (exports, module, require) {
           (this._toolbar = t),
           gDesigner
             .getWindows()
-            .addEventListener(g.WindowEvent, this._windowEvent, this),
+            .addEventListener(WindowEvent.WindowEvent, this._windowEvent, this),
           gDesigner.addEventListener(GEvent_paintMode, this._paintModeEvent, this),
           gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           this.setTouchTools([
@@ -608,7 +608,7 @@ function (exports, module, require) {
           (this._hrAfterbleedRow = $("<hr/>")
             .attr("data-property-row", "fixed-size")
             .appendTo(e));
-        const require = l.GRichTooltipConfig.from({
+        const require = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GPageProperties", "text.margin-tooltip-title")
           ),
@@ -699,7 +699,7 @@ function (exports, module, require) {
                   .append(this._createInput("master-page"))
                   .append($("<span></span>").gPro())
                   .gRichTooltip(
-                    l.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GPageProperties",
@@ -728,7 +728,7 @@ function (exports, module, require) {
             .find('[data-property="rotate-canvas"]')
             .parent(".content")
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GPageProperties",
@@ -749,7 +749,7 @@ function (exports, module, require) {
             .find('[data-property="trim-canvas"]')
             .parent(".content")
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GPageProperties",
@@ -770,7 +770,7 @@ function (exports, module, require) {
             .find('[data-property="clip-content"]')
             .parent(".content")
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GPageProperties",
@@ -789,7 +789,7 @@ function (exports, module, require) {
             .find('[data-property="bl"]')
             .parent(".content")
             .gRichTooltip(
-              l.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GPageProperties",
@@ -1037,26 +1037,26 @@ function (exports, module, require) {
                 var CollaborationMergeUtils = t.includes;
                 if (CollaborationMergeUtils)
                   for (var AppSettings = 0; AppSettings < CollaborationMergeUtils.length; AppSettings++) {
-                    var l = CollaborationMergeUtils[AppSettings];
+                    var GRichTooltipConfig = CollaborationMergeUtils[AppSettings];
                     $("<option></option>")
                       .attr("data-preset-id", n.id)
                       .attr(
                         "data-preset-locale-en",
                         GCore.GLocale.get(
-                          l.localeClass,
+                          GRichTooltipConfig.localeClass,
                           null,
                           GCore.GLocaleLanguage.English
                         )
                       )
                       .attr(
                         "value",
-                        l.width + "x" + l.height + "x" + (t.dpi || 72)
+                        GRichTooltipConfig.width + "x" + GRichTooltipConfig.height + "x" + (t.dpi || 72)
                       )
                       .text(
                         ""
-                          .concat(l.name)
+                          .concat(GRichTooltipConfig.name)
                           .concat(
-                            l.displaySize ? " " + l.width + "x" + l.height : ""
+                            GRichTooltipConfig.displaySize ? " " + GRichTooltipConfig.width + "x" + GRichTooltipConfig.height : ""
                           )
                       )
                       .appendTo(_interopRequireDefault);
@@ -1120,26 +1120,26 @@ function (exports, module, require) {
             ),
           n.getProperty("bck") ||
             (n.setProperty("bck", GCore.GRGBColor.WHITE), n.setProperty("bop", 0));
-        var l = n.getProperty("bck", false, false, true);
+        var GRichTooltipConfig = n.getProperty("bck", false, false, true);
         if (
           (this._panel
             .find('[data-property-row="background"]')
             .css("display", ""),
           this._panel
             .find('[data-property="bck"]')
-            .css("display", l ? "" : "none")
+            .css("display", GRichTooltipConfig ? "" : "none")
             .gPatternChooser(
               "updateSettings",
               _interopRequireDefault
                 ? { types: [GCore.GColor, GCore.GGradient, GCore.GTexturePattern] }
                 : { types: [GCore.GColor] }
             )
-            .gPatternChooser("setPattern", l)
-            .gPatternChooser("value", l)
+            .gPatternChooser("setPattern", GRichTooltipConfig)
+            .gPatternChooser("value", GRichTooltipConfig)
             .gPatternChooser("opacity", n.getProperty("bop", false, false, true)),
           this._panel
             .find('input[data-property="bop"]')
-            .css("display", l ? "" : "none")
+            .css("display", GRichTooltipConfig ? "" : "none")
             .gInputBox(
               "value",
               GCore.GUtil.formatOpacity(100 * n.getProperty("bop"))
@@ -1199,10 +1199,10 @@ function (exports, module, require) {
             .empty()
             .append($("<option></option>")),
           GSettingChangedEvent = -1,
-          g = null;
+          WindowEvent = null;
         this._pages.forEach(function (e) {
           var t = e.getMasterPages();
-          t.length && (null === g ? (g = t[0]) : g !== t[0] && (g = undefined));
+          t.length && (null === WindowEvent ? (WindowEvent = t[0]) : WindowEvent !== t[0] && (WindowEvent = undefined));
         }),
           t.iteratePages((e) => {
             if (this._pages.indexOf(e) < 0) {
@@ -1212,7 +1212,7 @@ function (exports, module, require) {
                 .attr("value", GSettingChangedEvent)
                 .text(e.getProperty("name"))
                 .appendTo(GPresets);
-              g === e && t.prop("selected", true);
+              WindowEvent === e && t.prop("selected", true);
             }
           }, true),
           e &&
@@ -1262,8 +1262,8 @@ function (exports, module, require) {
           var GTools = e.getProperty("bck", false, false, true),
             CollaborationMergeUtils = this._panel.find('select[data-property="preset-size"]'),
             AppSettings = CollaborationMergeUtils.find('option[value="' + CollaborationMergeUtils.val() + '"]').data("preset-id"),
-            l = _interopRequireDefault && this._excludedPresets.includes(AppSettings);
-          CollaborationMergeUtils.attr("disabled", l),
+            GRichTooltipConfig = _interopRequireDefault && this._excludedPresets.includes(AppSettings);
+          CollaborationMergeUtils.attr("disabled", GRichTooltipConfig),
             this._panel.find('[data-property="bck"]').attr("disabled", !GTools),
             this._panel.find('input[data-property="bop"]').attr("disabled", !GTools),
             this._panel.find('input[data-property="w"]').attr("disabled", false),
@@ -1317,7 +1317,7 @@ function (exports, module, require) {
           }),
           this._panel.find(":disabled").each(function () {
             const e = $(this);
-            l ||
+            GRichTooltipConfig ||
               (e.attr("default-data-title", e.attr("default-data-title") || ""),
               e.attr(
                 "data-title",
@@ -1345,7 +1345,7 @@ function (exports, module, require) {
             );
         this._panel.find(".tooltip-wrapper").remove(),
           this._panel.find("select:disabled").each(function () {
-            l || GSettingChangedEvent($(this)).insertAfter($(this));
+            GRichTooltipConfig || GSettingChangedEvent($(this)).insertAfter($(this));
           }),
           GSettingChangedEvent().insertAfter(this._panel.find('[data-property="bck"][disabled]'));
       }),

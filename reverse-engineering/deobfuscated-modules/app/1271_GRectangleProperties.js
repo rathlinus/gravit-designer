@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
       s = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function l() {
@@ -142,7 +142,7 @@ function (exports, module, require) {
                   .gInputSlider({
                     min: 0,
                     max: 100,
-                    richTooltipConfig: a.GRichTooltipConfig.from({
+                    richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GCommonNames",
@@ -172,7 +172,7 @@ function (exports, module, require) {
                         true
                       ),
                       t = n._document.getScene().getProperty("ut"),
-                      a =
+                      GRichTooltipConfig =
                         (t == GCore.GLength.Unit.PX || t == GCore.GLength.Unit.PT) &&
                         GTools.GGuides.options.guides &&
                         GTools.GGuides.options.guides.indexOf(
@@ -182,7 +182,7 @@ function (exports, module, require) {
                           : n._document.getScene().getOptimalDecimalsCount();
                     n._panel
                       .find('[type="text"][data-property="corners-radius"]')
-                      .val(n._document.getScene().pointToString(e, a));
+                      .val(n._document.getScene().pointToString(e, GRichTooltipConfig));
                   })
                   .on("change", function () {
                     gDesigner.stats("rectangleproperties_input_corners-radius"),
@@ -424,7 +424,7 @@ function (exports, module, require) {
         var e = this._rectangles[0],
           t = e.getProperty("tl_sx"),
           n = e.getGeometryBBox(),
-          a = this._panel.find(
+          GRichTooltipConfig = this._panel.find(
             '.g-input-slider[data-property="corners-radius"]'
           ),
           GProperties = this._panel.find(
@@ -433,7 +433,7 @@ function (exports, module, require) {
           s = this._advancedPanel.find('[data-property="corners-type"]'),
           l = null === n;
         if (
-          (a.prop("disabled", l),
+          (GRichTooltipConfig.prop("disabled", l),
           GProperties.prop("disabled", l),
           this._panel.find("button").prop("disabled", l),
           l)
@@ -449,7 +449,7 @@ function (exports, module, require) {
               GTools.GGuides.options.guides.indexOf(GTools.GFullPixelsGuide.ID) >= 0
                 ? 0
                 : this._document.getScene().getOptimalDecimalsCount();
-          a.gInputSlider("value", Math.round(c)),
+          GRichTooltipConfig.gInputSlider("value", Math.round(c)),
             GProperties.gInputBox("value", this._document.getScene().pointToString(t, u)),
             s.gCornerTypePicker("value", e.getProperty("tl_ct")),
             this._advancedPanel
@@ -472,7 +472,7 @@ function (exports, module, require) {
                     GTools = this._advancedPanel.find(
                       'button[data-property="' + GCore + '_uf"]'
                     ),
-                    a = this._advancedPanel.find(
+                    GRichTooltipConfig = this._advancedPanel.find(
                       'input[data-property="' + GCore + '_sx"]'
                     ),
                     GProperties = this._advancedPanel.find(
@@ -481,7 +481,7 @@ function (exports, module, require) {
                     s = this._advancedPanel.find(
                       'button[data-property="' + GCore + '_ct"]'
                     );
-                  a.val(
+                  GRichTooltipConfig.val(
                     this._document
                       .getScene()
                       .pointToString(e.getProperty(GCore + "_sx"), u)
@@ -504,10 +504,10 @@ function (exports, module, require) {
         n || this._document.getEditor().beginTransaction();
         var GTools = 0;
         try {
-          for (var a = 0; a < this._rectangles.length; ++a)
-            if (this._rectangles[a].isVisible()) {
-              var GProperties = this._rectangles[a].getProperty("tl_sx"),
-                s = this._rectangles[a].getProperty("tl_ct");
+          for (var GRichTooltipConfig = 0; GRichTooltipConfig < this._rectangles.length; ++GRichTooltipConfig)
+            if (this._rectangles[GRichTooltipConfig].isVisible()) {
+              var GProperties = this._rectangles[GRichTooltipConfig].getProperty("tl_sx"),
+                s = this._rectangles[GRichTooltipConfig].getProperty("tl_ct");
               if (
                 (0 === GProperties &&
                   "string" == typeof t &&
@@ -515,12 +515,12 @@ function (exports, module, require) {
                   (e = 0.25),
                 "number" == typeof e)
               ) {
-                this._rectangles[a].getGeometryBBox();
-                GProperties = e * (this._rectangles[a].getPointsMinDistance() / 2);
+                this._rectangles[GRichTooltipConfig].getGeometryBBox();
+                GProperties = e * (this._rectangles[GRichTooltipConfig].getPointsMinDistance() / 2);
               }
               "string" == typeof t && (s = t),
-                0 === a && (GTools = GProperties),
-                this._rectangles[a].setProperties(
+                0 === GRichTooltipConfig && (GTools = GProperties),
+                this._rectangles[GRichTooltipConfig].setProperties(
                   ["uf", "tl_sx", "tl_ct"],
                   [true, GProperties, s],
                   false,

@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(19) /* polyfill_Array_iterator */, require(30) /* polyfill_Object_assign */, require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GProperties = require(123) /* GProperties */,
       GInputSliderWidget = require(857) /* GInputSliderWidget */;
@@ -59,7 +59,7 @@ function (exports, module, require) {
               )
           )
           .gRichTooltip(
-            r.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GAppearanceProperties",
@@ -140,7 +140,7 @@ function (exports, module, require) {
               .addClass("gravit-icon-touch-transparency")
               .gInputSlider(
                 Object.assign({}, GInputSliderWidget.prototype.OPACITY_DEFAULT, {
-                  richTooltipConfig: r.GRichTooltipConfig.from({
+                  richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey(
                         "GAppearanceProperties",
@@ -167,11 +167,11 @@ function (exports, module, require) {
                   var n = $(e.target),
                     _interopRequireDefault = n.attr("data-property"),
                     GTools = parseInt(n.gInputSlider("value")) / 100,
-                    r = 0;
-                  r < t._elements.length;
-                  ++r
+                    GRichTooltipConfig = 0;
+                  GRichTooltipConfig < t._elements.length;
+                  ++GRichTooltipConfig
                 )
-                  t._elements[r].setProperty(_interopRequireDefault, GTools, false, false, true);
+                  t._elements[GRichTooltipConfig].setProperty(_interopRequireDefault, GTools, false, false, true);
                 t._panel
                   .find('[type="text"][data-property="' + _interopRequireDefault + '"]')
                   .gInputBox("value", GCore.GUtil.formatOpacity(100 * GTools));
@@ -284,7 +284,7 @@ function (exports, module, require) {
                       )
                       .gDesignerStyleEditor()
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               "GAppearanceProperties",
@@ -449,8 +449,8 @@ function (exports, module, require) {
               if (GCore) {
                 if (GCore.values.length) {
                   if (1 == GCore.values.length || _interopRequireDefault) return GCore.values[0];
-                  for (var r = GCore.values, GTouchTool = r[0], GProperties = 1; GProperties < r.length; ++GProperties)
-                    if (r[GProperties] !== GTouchTool) return GTools;
+                  for (var GRichTooltipConfig = GCore.values, GTouchTool = GRichTooltipConfig[0], GProperties = 1; GProperties < GRichTooltipConfig.length; ++GProperties)
+                    if (GRichTooltipConfig[GProperties] !== GTouchTool) return GTools;
                   return GTouchTool;
                 }
                 return GTools;
@@ -465,7 +465,7 @@ function (exports, module, require) {
               .find('[type="text"][data-property="_stop"]')
               .gInputBox("value", GCore.GUtil.formatOpacity(_interopRequireDefault)),
             this._panel.find('[data-property="_sbl"]').val(require("_sbl", true));
-          var r = null,
+          var GRichTooltipConfig = null,
             GTouchTool = null;
           if (
             1 === this._elements.length &&
@@ -473,14 +473,14 @@ function (exports, module, require) {
             this._elements[0].getReferencedStyle()
           ) {
             var GProperties = this._elements[0].getReferencedStyle();
-            (r = gDesigner.getStylePreview(
+            (GRichTooltipConfig = gDesigner.getStylePreview(
               GProperties,
               this._elements[0] instanceof GCore.GText
             )),
               (GTouchTool = GProperties.getProperty("name"));
           }
-          if ((this._checkSyncState(), r))
-            this._addPreview(r),
+          if ((this._checkSyncState(), GRichTooltipConfig))
+            this._addPreview(GRichTooltipConfig),
               this._panel.find(".g-styles-field").text(GTouchTool),
               this._panel.find(".g-styles-field").removeClass("g-disabled");
           else {
@@ -536,8 +536,8 @@ function (exports, module, require) {
           try {
             for (var GCore = 0; GCore < this._elements.length; ++GCore) {
               this._elements[GCore];
-              var r = GTools.GElementEditor.getEditor(this._elements[GCore]);
-              (r && r.applyPropertiesToParts(e, t)) ||
+              var GRichTooltipConfig = GTools.GElementEditor.getEditor(this._elements[GCore]);
+              (GRichTooltipConfig && GRichTooltipConfig.applyPropertiesToParts(e, t)) ||
                 this._elements[GCore].setProperties(e, t);
             }
           } finally {

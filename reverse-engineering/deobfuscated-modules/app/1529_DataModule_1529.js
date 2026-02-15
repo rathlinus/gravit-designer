@@ -1,0 +1,36 @@
+/**
+ * Webpack Module #1529
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    const GSidebarContainer = require(395) /* GSidebarContainer */;
+    exports.exports = function (e) {
+      (e.prototype._versionHistoryPanelOverlay = null),
+        (e.prototype._updateVersionsPanelTouch = function () {
+          if (this._versionHistoryMode) {
+            this._versionHistoryPanelOverlay ||
+              (this._versionHistoryPanelOverlay = $("<div/>")
+                .append(this._versionHistoryPanel)
+                .gOverlay({
+                  clazz: "g-version-history-panel-overlay",
+                  closeCallback: () => this._versionHistoryProperties.close(),
+                }));
+            const e = (
+                this.getOrientation() === GSidebarContainer.Orientation.Left
+                  ? gDesigner.getLeftSidebars()
+                  : gDesigner.getRightSidebars()
+              ).getHtmlElement(),
+              t = e.offset(),
+              n = e.width();
+            this._versionHistoryPanelOverlay
+              .css({ minWidth: n })
+              .gOverlay("open", { x: t.left + n, y: t.top });
+          } else
+            this._versionHistoryPanelOverlay &&
+              this._versionHistoryPanelOverlay.gOverlay("close"),
+              (this._versionHistoryPanelOverlay = null);
+        });
+    };
+  }

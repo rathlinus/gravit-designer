@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GExportDialog = require(1513) /* GExportDialog */,
@@ -20,7 +20,7 @@ function (exports, module, require) {
     function g(e) {
       (this._options = e || null),
         (g.TOOLTIP_CONFIG = {
-          [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey("GExportAction", "tooltip-title")
             ),
@@ -31,7 +31,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          [a.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: a.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GExportAction",
@@ -50,8 +50,8 @@ function (exports, module, require) {
             middle: false,
             side: true,
           }),
-          [a.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING]:
-            a.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING]:
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GExportAction",
@@ -79,8 +79,8 @@ function (exports, module, require) {
       (g.SHORTCUT = [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "E"]),
       (g.TOOLTIP_CONFIG = null),
       (g.prototype._initProTooltip = function () {
-        g.TOOLTIP_CONFIG[a.TOOLTIP_AREA.TOOLBAR] = a.GRichTooltipConfig.from(
-          Object.assign(g.TOOLTIP_CONFIG[a.TOOLTIP_AREA.TOOLBAR].getConfig(), {
+        g.TOOLTIP_CONFIG[GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR] = GRichTooltipConfig.GRichTooltipConfig.from(
+          Object.assign(g.TOOLTIP_CONFIG[GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR].getConfig(), {
             isPro: gDesigner.isProTooltipNeeded(g.ID),
           })
         );
@@ -183,8 +183,8 @@ function (exports, module, require) {
       }),
       (g.prototype.getTooltipArea = function () {
         return this._options && "pdf" === this._options.format
-          ? a.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING
-          : a.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+          ? GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING
+          : GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
       }),
       (g.prototype.getTooltipConfig = function (e) {
         return this._options

@@ -9,7 +9,7 @@ function (exports, module, require) {
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
       GEditor = require(15) /* GEditor */,
       GCore = require(1) /* GCore */,
-      r = require(198) /* Exports_GOutlineSidebar */,
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GAction = _interopRequireDefault(require(31) /* GAction */);
     class c extends GAction.default {
@@ -32,7 +32,7 @@ function (exports, module, require) {
         const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
           module = gDesigner
             .getLeftSidebars()
-            .getSidebar(r.SidebarsIds.GOutlineSidebar),
+            .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
           require = module.getLayerPanel(),
           _interopRequireDefault = require.gLayerPanel("getCurrentFocusedNode");
         if (_interopRequireDefault && exports === module.getId()) {

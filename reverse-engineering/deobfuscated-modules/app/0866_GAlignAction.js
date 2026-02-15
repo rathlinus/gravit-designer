@@ -9,16 +9,16 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      a = require(15) /* GEditor */,
-      r = require(67) /* GRichTooltipConfig */,
+      GEditor = require(15) /* GEditor */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function c(e) {
       (this._type = e),
         (this._title = new GCore.GLocaleKey("GAlignAction", "title." + e)),
         (c.TOOLTIP_CONFIG = {
-          [r.TOOLTIP_AREA.SIDEBAR]: {
-            [GTools.GEditor.ArrangeAlignType.AlignLeft]: r.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR]: {
+            [GTools.GEditor.ArrangeAlignType.AlignLeft]: GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GAlignAction",
@@ -34,7 +34,7 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [GTools.GEditor.ArrangeAlignType.AlignCenter]: r.GRichTooltipConfig.from(
+            [GTools.GEditor.ArrangeAlignType.AlignCenter]: GRichTooltipConfig.GRichTooltipConfig.from(
               {
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
@@ -52,7 +52,7 @@ function (exports, module, require) {
                   "",
               }
             ),
-            [GTools.GEditor.ArrangeAlignType.AlignRight]: r.GRichTooltipConfig.from({
+            [GTools.GEditor.ArrangeAlignType.AlignRight]: GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GAlignAction",
@@ -68,7 +68,7 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [GTools.GEditor.ArrangeAlignType.AlignTop]: r.GRichTooltipConfig.from({
+            [GTools.GEditor.ArrangeAlignType.AlignTop]: GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey("GAlignAction", "text.align-top-tooltip-title")
               ),
@@ -81,7 +81,7 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [GTools.GEditor.ArrangeAlignType.AlignMiddle]: r.GRichTooltipConfig.from(
+            [GTools.GEditor.ArrangeAlignType.AlignMiddle]: GRichTooltipConfig.GRichTooltipConfig.from(
               {
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
@@ -99,7 +99,7 @@ function (exports, module, require) {
                   "",
               }
             ),
-            [GTools.GEditor.ArrangeAlignType.AlignBottom]: r.GRichTooltipConfig.from(
+            [GTools.GEditor.ArrangeAlignType.AlignBottom]: GRichTooltipConfig.GRichTooltipConfig.from(
               {
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
@@ -154,7 +154,7 @@ function (exports, module, require) {
         return "arrange/align-" + e;
       }),
       (c.prototype.getShortcut = function () {
-        const exports = [a.GKey.Constant.OPTION];
+        const exports = [GEditor.GKey.Constant.OPTION];
         switch (this._type) {
           case GTools.GEditor.ArrangeAlignType.AlignLeft:
             return exports.concat("A");
@@ -188,8 +188,8 @@ function (exports, module, require) {
           ((e = e || (GCore ? GCore.getIndividualSelection() : null)),
           GCore && e && 1 === e.length && !n)
         ) {
-          var a = GTools.GElementEditor.getEditor(e[0]);
-          if (!a || !a.isAlignPartsAllowed())
+          var GEditor = GTools.GElementEditor.getEditor(e[0]);
+          if (!GEditor || !GEditor.isAlignPartsAllowed())
             if (GCore.getScene().isFixedSized())
               n = GCore.getScene().getActivePage().getGeometryBBox();
             else n = GCore.getScene().getPaintBBox();

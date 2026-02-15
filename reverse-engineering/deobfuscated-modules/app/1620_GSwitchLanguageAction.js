@@ -13,7 +13,7 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      c = require(219) /* GLocale */,
+      GLocale = require(219) /* GLocale */,
       GContainer = require(85) /* GContainer */,
       GCloudStorage = require(119) /* GCloudStorage */;
     const GSystemDialog = require(44) /* GSystemDialog */,
@@ -81,7 +81,7 @@ function (exports, module, require) {
         gContainer.getRuntime() === GContainer.Runtime.Browser ||
         gContainer.getRuntime() === GContainer.Runtime.PWA
           ? location.reload()
-          : new c(
+          : new GLocale(
               GCore.GLocale.get(
                 new GCore.GLocaleKey("GNewDocumentDialog", "text.restart-app")
               )

@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GCore = require(1) /* GCore */,
-      i = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
       r = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function s() {
@@ -75,10 +75,10 @@ function (exports, module, require) {
                 .addClass("g-flat")
                 .attr("data-property", e)
                 .gCornerTypePicker()
-                .on("cornertypechange", function (t, i) {
+                .on("cornertypechange", function (t, GRichTooltipConfig) {
                   n._assignProperty(
                     e,
-                    i,
+                    GRichTooltipConfig,
                     GCore.GLocale.get(
                       new GCore.GLocaleKey(
                         "GPolygonProperties",
@@ -93,11 +93,11 @@ function (exports, module, require) {
                 .attr("data-property", e)
                 .on("change", function (t) {
                   gDesigner.stats("polygonproperties_change_corner-radius");
-                  var i = n._document.getScene().stringToPoint($(this).val());
-                  null !== i && "number" == typeof i && i >= 0
+                  var GRichTooltipConfig = n._document.getScene().stringToPoint($(this).val());
+                  null !== GRichTooltipConfig && "number" == typeof GRichTooltipConfig && GRichTooltipConfig >= 0
                     ? n._assignProperty(
                         e,
-                        i < 0 ? 0 : i,
+                        GRichTooltipConfig < 0 ? 0 : GRichTooltipConfig,
                         GCore.GLocale.get(
                           new GCore.GLocaleKey(
                             "GPolygonProperties",
@@ -115,7 +115,7 @@ function (exports, module, require) {
                   .gInputSlider({
                     min: 0,
                     max: 100,
-                    richTooltipConfig: i.GRichTooltipConfig.from({
+                    richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GCommonNames",
@@ -582,9 +582,9 @@ function (exports, module, require) {
       (s.prototype._updateProperties = function (e) {
         var t = this._polygons[0],
           n = t.getProperty("or"),
-          i = t.getProperty("ir"),
+          GRichTooltipConfig = t.getProperty("ir"),
           GProperties = t.getProperty("pts"),
-          r = (i / n) * 100,
+          r = (GRichTooltipConfig / n) * 100,
           s = t.isPlainEdges(),
           l = t.getProperty("ocr");
         this._panel
@@ -704,7 +704,7 @@ function (exports, module, require) {
       }),
       (s.prototype._assignCornersRadius = function (e, t, n) {
         t || this._document.getEditor().beginTransaction();
-        var i = 0;
+        var GRichTooltipConfig = 0;
         try {
           for (var GProperties = 0; GProperties < this._polygons.length; ++GProperties) {
             var r = this._polygons[GProperties];
@@ -715,7 +715,7 @@ function (exports, module, require) {
                 ? r.setProperties(["ocr"], [s], false, false, t)
                 : (n || (s /= 2),
                   r.setProperties(["ocr", "icr"], [s, s], false, false, t)),
-                0 === GProperties && (i = s);
+                0 === GProperties && (GRichTooltipConfig = s);
             }
           }
         } finally {
@@ -728,7 +728,7 @@ function (exports, module, require) {
                 )
               );
         }
-        return i;
+        return GRichTooltipConfig;
       }),
       (s.prototype._assignProperty = function (e, t, n) {
         this._assignProperties([e], [t], n);
@@ -737,8 +737,8 @@ function (exports, module, require) {
         var GCore = this._document.getEditor();
         GCore.beginTransaction();
         try {
-          for (var i = 0; i < this._polygons.length; ++i)
-            this._polygons[i].setProperties(e, t);
+          for (var GRichTooltipConfig = 0; GRichTooltipConfig < this._polygons.length; ++GRichTooltipConfig)
+            this._polygons[GRichTooltipConfig].setProperties(e, t);
         } finally {
           GCore.commitTransaction(n);
         }
@@ -747,9 +747,9 @@ function (exports, module, require) {
         t || this._document.getEditor().beginTransaction();
         try {
           for (var require = 0; require < this._polygons.length; ++require) {
-            var i = this._polygons[require],
-              GProperties = i.getProperty("or") * e;
-            i.setProperty("ir", GProperties, false, false, t);
+            var GRichTooltipConfig = this._polygons[require],
+              GProperties = GRichTooltipConfig.getProperty("or") * e;
+            GRichTooltipConfig.setProperty("ir", GProperties, false, false, t);
           }
         } finally {
           t ||
@@ -769,14 +769,14 @@ function (exports, module, require) {
         t || this._document.getEditor().beginTransaction();
         try {
           for (var require = 0; require < this._polygons.length; ++require) {
-            var i = this._polygons[require],
-              GProperties = i.isPlainEdges(),
+            var GRichTooltipConfig = this._polygons[require],
+              GProperties = GRichTooltipConfig.isPlainEdges(),
               r = Math.PI / e,
-              s = GCore.GMath.normalizeAngleRadians(i.getProperty("oa") + r);
+              s = GCore.GMath.normalizeAngleRadians(GRichTooltipConfig.getProperty("oa") + r);
             if (GProperties) {
-              var l = i.getProperty("or") * Math.cos(r);
-              i.setProperties(["pts", "ia", "ir"], [e, s, l], false, false, t);
-            } else i.setProperties(["pts", "ia"], [e, s], false, false, t);
+              var l = GRichTooltipConfig.getProperty("or") * Math.cos(r);
+              GRichTooltipConfig.setProperties(["pts", "ia", "ir"], [e, s, l], false, false, t);
+            } else GRichTooltipConfig.setProperties(["pts", "ia"], [e, s], false, false, t);
           }
         } finally {
           t ||
@@ -797,14 +797,14 @@ function (exports, module, require) {
           t || this._document.getEditor().beginTransaction();
           try {
             for (var require = 0; require < this._polygons.length; ++require) {
-              var i = this._polygons[require],
-                GProperties = i.getProperty("or"),
-                r = i.getProperty("pts"),
-                s = i.getProperty("oa"),
+              var GRichTooltipConfig = this._polygons[require],
+                GProperties = GRichTooltipConfig.getProperty("or"),
+                r = GRichTooltipConfig.getProperty("pts"),
+                s = GRichTooltipConfig.getProperty("oa"),
                 l = Math.PI / r,
                 c = s + l,
                 d = GProperties * Math.cos(l);
-              i.setProperties(["ir", "ia"], [d, c], false, false, t);
+              GRichTooltipConfig.setProperties(["ir", "ia"], [d, c], false, false, t);
             }
           } finally {
             t ||

@@ -1,0 +1,48 @@
+/**
+ * Module 732 - GGLHueSaturationEffect
+ * Extracted from chunk.vendor.js
+ *
+ * Original: Gravit Designer by Corel
+ * Reverse engineered for educational purposes
+ *
+ * Note: This is minified code. Variable names are compressed.
+ * Common patterns:
+ *   e = exports object
+ *   t = module object
+ *   n = require function
+ *   i, o, a, r, s, l, c, h, u, d = local variables
+ */
+
+function (exports, module, require) {
+  var n = require(2) /* GNode */, r = require(51) /* GWebGLEffect */, o = require(14) /* GPaintCanvas */, a = require(12) /* GMath */, s = require(9) /* GLocale */;
+  function l() {
+    r.call(this), this._setDefaultProperties(l.GeometryProperties);
+  }
+  n.inherit("GGLHueSaturationEffect", l, r), l.GeometryProperties = {
+    shp: {
+      hue: 0,
+      saturation: 0
+    },
+    sh: "GGLHueSaturationShader"
+  }, l.prototype.getNodeNameTranslated = function () {
+    return s.getValue("GGLHueSaturationEffect", "name", this.getNodeName());
+  }, l.RANGES = {
+    hue: [
+      -1,
+      1
+    ],
+    saturation: [
+      -1,
+      1
+    ]
+  }, l.prototype.getEffectPadding = function () {
+    return 0;
+  }, l.prototype.canApplyNativeEffect = function () {
+    return !!o.hasFilters() && 0 == this.$shp.hue && !(this.$shp.saturation < 0);
+  }, l.prototype.applyNativeEffect = function (e, t, i, n) {
+    var r = this.$shp.saturation;
+    r > 0 ? (r > 1 && (r = 1), r = 1 + r / (1.001 - r)) : r = 1 + a.clamp(-1, r, 0), e.setFilter(o.Filter.Saturate, r);
+  }, l.prototype.removeNativeEffect = function (e, t, i) {
+    e.setFilter(o.Filter.Saturate, null);
+  }, exports.exports = l;
+}

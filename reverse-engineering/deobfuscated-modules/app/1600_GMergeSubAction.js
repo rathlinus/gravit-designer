@@ -13,7 +13,7 @@ function (exports, module, require) {
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GSubAction = _interopRequireDefault(require(1168) /* GSubAction */),
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      c = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GMergeMainAction = _interopRequireDefault(require(812) /* GMergeMainAction */),
       AppSettings = require(10) /* AppSettings */;
     class p extends GSubAction.default {
@@ -126,11 +126,11 @@ function (exports, module, require) {
         ) {
           const MenuItemBuilder = t[t.length - 1];
           let GSubAction = MenuItemBuilder.getParent(),
-            c = MenuItemBuilder.getNext();
+            GRichTooltipConfig = MenuItemBuilder.getNext();
           for (; !require.validateInsertion(GSubAction); )
-            (c = GSubAction.getNext()), (GSubAction = GSubAction.getParent());
+            (GRichTooltipConfig = GSubAction.getNext()), (GSubAction = GSubAction.getParent());
           if (!GSubAction) return;
-          GSubAction.insertChild(require, c);
+          GSubAction.insertChild(require, GRichTooltipConfig);
           try {
             const t = [],
               MenuItemBuilder = [];
@@ -143,13 +143,13 @@ function (exports, module, require) {
                   _interopRequireDefault.add(e.getParent());
               }),
               (GEditor = t.concat(MenuItemBuilder));
-            const c = GSubAction || GEditor[0];
+            const GRichTooltipConfig = GSubAction || GEditor[0];
             if (
               ((0, CollaborationMergeUtils.blockChanges)(e, _interopRequireDefault, null, require),
-              require.assignStyleFrom(c),
-              c instanceof GCore.GText)
+              require.assignStyleFrom(GRichTooltipConfig),
+              GRichTooltipConfig instanceof GCore.GText)
             ) {
-              const e = c;
+              const e = GRichTooltipConfig;
               if (
                 !e.getPaintLayers().getFillLayers(true).length &&
                 e.getProperty("_fc")
@@ -217,8 +217,8 @@ function (exports, module, require) {
     }),
       (p.TransactionType = { Merge: "merge", Combine: "combine" }),
       (p.TOOLTIP_CONFIG = {
-        [c.TOOLTIP_AREA.TOOLBAR]: {
-          [p.Type.Union]: c.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: {
+          [p.Type.Union]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.getValue("GMergeSubAction", "tooltip.union.title"),
             description: GCore.GLocale.getValue(
               "GMergeSubAction",
@@ -229,7 +229,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          [p.Type.Subtract]: c.GRichTooltipConfig.from({
+          [p.Type.Subtract]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.getValue(
               "GMergeSubAction",
               "tooltip.substract.title"
@@ -243,7 +243,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          [p.Type.Intersect]: c.GRichTooltipConfig.from({
+          [p.Type.Intersect]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.getValue(
               "GMergeSubAction",
               "tooltip.intersect.title"
@@ -257,7 +257,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          [p.Type.Difference]: c.GRichTooltipConfig.from({
+          [p.Type.Difference]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.getValue(
               "GMergeSubAction",
               "tooltip.difference.title"

@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GMenu = require(238) /* GMenu */,
       s = require(444) /* module_444 */,
       GProperties = require(123) /* GProperties */,
@@ -63,7 +63,7 @@ function (exports, module, require) {
             .on("click", this._createSlice.bind(this))
             .appendTo(t)
             .gRichTooltip(
-              a.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GExportProperties",
@@ -89,7 +89,7 @@ function (exports, module, require) {
             .on("click", this._addExport.bind(this))
             .appendTo(t)
             .gRichTooltip(
-              a.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GExportProperties",
@@ -200,7 +200,7 @@ function (exports, module, require) {
           for (var module = [], require = 0; require < this._elements.length; ++require) {
             var GTools = this._elements[require];
             if (!(GTools instanceof GCore.GSlice)) {
-              var a = (
+              var GRichTooltipConfig = (
                   GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
                 GMenu = GTools.getPaintBBox();
@@ -210,7 +210,7 @@ function (exports, module, require) {
                 ["x", "y", "w", "h"],
                 [GMenu.getX(), GMenu.getY(), GMenu.getWidth(), GMenu.getHeight()]
               ),
-                s.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true),
+                s.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GRichTooltipConfig, true),
                 module.push(s);
             }
           }
@@ -234,7 +234,7 @@ function (exports, module, require) {
                 GTools = (
                   require.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
-                a = { sz: "", sf: "", fm: "png" },
+                GRichTooltipConfig = { sz: "", sf: "", fm: "png" },
                 GMenu = [
                   { sz: "1x", sf: "@1x" },
                   { sz: "2x", sf: "@2x" },
@@ -252,11 +252,11 @@ function (exports, module, require) {
                   break;
                 }
               if (!ZipDirectory) {
-                (a.sz = GProperties.sz), (a.sf = GTools.length > 0 ? GProperties.sf : "");
+                (GRichTooltipConfig.sz = GProperties.sz), (GRichTooltipConfig.sf = GTools.length > 0 ? GProperties.sf : "");
                 break;
               }
             }
-            GTools.push(a), require.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GTools, true);
+            GTools.push(GRichTooltipConfig), require.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GTools, true);
           }
         } finally {
           e.commitTransaction(
@@ -271,8 +271,8 @@ function (exports, module, require) {
         var GTools = this._document.getEditor();
         GTools.beginTransaction();
         try {
-          for (var a = 0; a < this._elements.length; ++a) {
-            var GMenu = this._elements[a],
+          for (var GRichTooltipConfig = 0; GRichTooltipConfig < this._elements.length; ++GRichTooltipConfig) {
+            var GMenu = this._elements[GRichTooltipConfig],
               s = GMenu.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
             !s ||
               e >= s.length ||
@@ -294,11 +294,11 @@ function (exports, module, require) {
         try {
           for (var require = 0; require < this._elements.length; ++require) {
             var GTools = this._elements[require],
-              a = GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
-            !a ||
-              e >= a.length ||
-              ((a = a.slice()).splice(e, 1),
-              GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true));
+              GRichTooltipConfig = GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
+            !GRichTooltipConfig ||
+              e >= GRichTooltipConfig.length ||
+              ((GRichTooltipConfig = GRichTooltipConfig.slice()).splice(e, 1),
+              GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GRichTooltipConfig, true));
           }
         } finally {
           t.commitTransaction(
@@ -320,7 +320,7 @@ function (exports, module, require) {
           t = gDesigner.isTouchEnabled(),
           n = t ? "40%" : "30%",
           GTools = t ? "25%" : "35%",
-          a = t ? "25%" : "30%",
+          GRichTooltipConfig = t ? "25%" : "30%",
           GMenu = t ? "12%" : "5%";
         if (this._elements)
           for (let t = 0; t < this._elements.length; ++t) {
@@ -456,7 +456,7 @@ function (exports, module, require) {
                     ),
                 },
                 {
-                  width: a,
+                  width: GRichTooltipConfig,
                   label: GLoginPanel
                     ? GCore.GLocale.get(
                         new GCore.GLocaleKey("GExportProperties", "text.format")

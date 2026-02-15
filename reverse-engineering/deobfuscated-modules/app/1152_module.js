@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       a = require(847) /* module_847 */,
       SharepointException = _interopRequireDefault(require(1239) /* SharepointException */),
-      s = _interopRequireDefault(require(388) /* Item */),
+      Item = _interopRequireDefault(require(388) /* Item */),
       l = _interopRequireDefault(require(1481) /* module_1481 */),
       AppSettings = require(10) /* AppSettings */,
       GError = _interopRequireDefault(require(594) /* GError */);
@@ -24,17 +24,17 @@ function (exports, module, require) {
       v = 80,
       _ = 100;
     function b() {}
-    GCore.GObject.inherit(b, s.default),
+    GCore.GObject.inherit(b, Item.default),
       (b.Item = function (e, t) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
-        s.default.Item.call(this, e, t),
+        Item.default.Item.call(this, e, t),
           (this._ext = null),
           (this._token = require),
           this._setExtension(),
           DataModule_436.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT);
       }),
-      GCore.GObject.inheritAndMix(b.Item, s.default.Item, [DataModule_436]),
+      GCore.GObject.inheritAndMix(b.Item, Item.default.Item, [DataModule_436]),
       (b.Item.prototype._app = AppSettings.FILE_ID_PREFIX.SHAREPOINT),
       (b.Item.prototype.getId = function () {
         const exports = this._getSharepointId();
@@ -48,7 +48,7 @@ function (exports, module, require) {
             (e.relativeUrl =
               e.parent &&
               e.parent.relativeUrl + "/" + e.getNameWithExtension())),
-          s.default.Item.prototype.setFile.call(this, e);
+          Item.default.Item.prototype.setFile.call(this, e);
       }),
       (b.Item.prototype._getSharepointId = function () {
         return this._id ? this._id : null;
@@ -203,9 +203,9 @@ function (exports, module, require) {
             (SharepointException = e.getEditor().markSavePoint());
           const n = {};
           e.updateStatus(u.Saving, n);
-          const s = _interopRequireDefault || n.progress,
+          const Item = _interopRequireDefault || n.progress,
             l = (e) => {
-              s && s(e);
+              Item && Item(e);
             },
             AppSettings = e.isNew();
           l(m), GCore.GUtil.prepareForSaving(e.getScene(), this.getExtension());
@@ -243,8 +243,8 @@ function (exports, module, require) {
           _interopRequireDefault = await this._exportDocumentToCDR(e, a, n);
         } else {
           var SharepointException = e.getScene(),
-            s = GCore.GNode.serialize(SharepointException, GCore.GUtil.extend({ save: true }, n));
-          _interopRequireDefault = new Blob([s]);
+            Item = GCore.GNode.serialize(SharepointException, GCore.GUtil.extend({ save: true }, n));
+          _interopRequireDefault = new Blob([Item]);
         }
         return _interopRequireDefault;
       }),

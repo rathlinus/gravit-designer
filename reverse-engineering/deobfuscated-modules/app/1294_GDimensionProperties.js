@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(57) /* polyfill_parseInt */, require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GAlignAction = require(866) /* GAlignAction */,
       GDistributeAction = require(867) /* GDistributeAction */,
@@ -145,7 +145,7 @@ function (exports, module, require) {
         function _interopRequireDefault(e) {
           var t = GAlignAction.ID + "." + e,
             n = gDesigner.getAction(t);
-          const _interopRequireDefault = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
+          const _interopRequireDefault = n.getTooltipConfig(GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR),
             GTools = $("<span></span>");
           return (
             barrel_panels.icon
@@ -169,7 +169,7 @@ function (exports, module, require) {
         function GProperties(e) {
           var t = GDistributeAction.ID + "." + e,
             n = gDesigner.getAction(t);
-          const _interopRequireDefault = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
+          const _interopRequireDefault = n.getTooltipConfig(GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR),
             GTools = $("<span></span>").append(n.getIcon());
           return (
             _interopRequireDefault && GTools.gRichTooltip(_interopRequireDefault),
@@ -365,7 +365,7 @@ function (exports, module, require) {
               )
             )
             .prependTo(t);
-        const h = r.GRichTooltipConfig.from({
+        const h = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GDimensionProperties",
@@ -382,7 +382,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          f = r.GRichTooltipConfig.from({
+          f = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GDimensionProperties",
@@ -399,7 +399,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          m = r.GRichTooltipConfig.from({
+          m = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GDimensionProperties",
@@ -413,7 +413,7 @@ function (exports, module, require) {
               )
             ),
           }),
-          y = r.GRichTooltipConfig.from({
+          y = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GDimensionProperties",
@@ -430,7 +430,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          v = r.GRichTooltipConfig.from({
+          v = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GDimensionProperties",
@@ -544,7 +544,7 @@ function (exports, module, require) {
                           }.bind(this)
                         )
                         .gRichTooltip(
-                          r.GRichTooltipConfig.from({
+                          GRichTooltipConfig.GRichTooltipConfig.from({
                             title: GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 "GDimensionProperties",
@@ -595,7 +595,7 @@ function (exports, module, require) {
                           }.bind(this)
                         )
                         .gRichTooltip(
-                          r.GRichTooltipConfig.from({
+                          GRichTooltipConfig.GRichTooltipConfig.from({
                             title: GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 "GDimensionProperties",
@@ -646,7 +646,7 @@ function (exports, module, require) {
                           }.bind(this)
                         )
                         .gRichTooltip(
-                          r.GRichTooltipConfig.from({
+                          GRichTooltipConfig.GRichTooltipConfig.from({
                             title: GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 "GDimensionProperties",
@@ -701,7 +701,7 @@ function (exports, module, require) {
                           }.bind(this)
                         )
                         .gRichTooltip(
-                          r.GRichTooltipConfig.from({
+                          GRichTooltipConfig.GRichTooltipConfig.from({
                             title: GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 "GDimensionProperties",
@@ -752,7 +752,7 @@ function (exports, module, require) {
                           }.bind(this)
                         )
                         .gRichTooltip(
-                          r.GRichTooltipConfig.from({
+                          GRichTooltipConfig.GRichTooltipConfig.from({
                             title: GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 "GDimensionProperties",
@@ -803,7 +803,7 @@ function (exports, module, require) {
                           }.bind(this)
                         )
                         .gRichTooltip(
-                          r.GRichTooltipConfig.from({
+                          GRichTooltipConfig.GRichTooltipConfig.from({
                             title: GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 "GDimensionProperties",
@@ -989,8 +989,8 @@ function (exports, module, require) {
           _interopRequireDefault = 0;
         if (!e) {
           (this._elementsBBox = null), (this._firstElementsBBox = null);
-          for (var r = 0; r < this._elements.length; ++r) {
-            var GTouchTool = this._elements[r];
+          for (var GRichTooltipConfig = 0; GRichTooltipConfig < this._elements.length; ++GRichTooltipConfig) {
+            var GTouchTool = this._elements[GRichTooltipConfig];
             if (GTouchTool.hasMixin(GCore.GElement.Transform)) {
               var GAlignAction = null;
               if (t) {
@@ -1107,25 +1107,25 @@ function (exports, module, require) {
         if (this._document) {
           var require = null,
             _interopRequireDefault = null,
-            r = "",
+            GRichTooltipConfig = "",
             GTouchTool = this._getCurrentDimensions(false, false);
           switch (e) {
             case "x":
             case "y":
-              (r = "Move"),
+              (GRichTooltipConfig = "Move"),
                 (require = this._document.getScene().stringToPoint(t)),
                 (_interopRequireDefault = GTouchTool ? ("x" == e ? GTouchTool.x : GTouchTool.y) : null);
               break;
             case "w":
             case "h":
-              (r = GCore.GLocale.get(
+              (GRichTooltipConfig = GCore.GLocale.get(
                 new GCore.GLocaleKey("GDimensionProperties", "action.change-size")
               )),
                 (require = this._document.getScene().stringToPoint(t)),
                 (_interopRequireDefault = GTouchTool ? ("w" == e ? GTouchTool.w : GTouchTool.h) : null);
               break;
             case "rotate":
-              (r = GCore.GLocale.get(
+              (GRichTooltipConfig = GCore.GLocale.get(
                 new GCore.GLocaleKey("GCommonNames", "action.rotate")
               )),
                 (require = GCore.GLength.parseEquationValue(t)),
@@ -1156,18 +1156,18 @@ function (exports, module, require) {
                     ("h" === e && t.getHeight() <= 0)
                   )
                     return new GCore.GTransform();
-                  var r = 1,
+                  var GRichTooltipConfig = 1,
                     GTouchTool = 1;
                   switch (e) {
                     case "w":
-                      (r = require / t.getWidth()), _interopRequireDefault && (GTouchTool = r);
+                      (GRichTooltipConfig = require / t.getWidth()), _interopRequireDefault && (GTouchTool = GRichTooltipConfig);
                       break;
                     case "h":
-                      (GTouchTool = require / t.getHeight()), _interopRequireDefault && (r = GTouchTool);
+                      (GTouchTool = require / t.getHeight()), _interopRequireDefault && (GRichTooltipConfig = GTouchTool);
                   }
                   return new GCore.GTransform()
                     .translated(-t.getX(), -t.getY())
-                    .scaled(r, GTouchTool)
+                    .scaled(GRichTooltipConfig, GTouchTool)
                     .translated(t.getX(), t.getY());
                 }
                 if ("x" === e)
@@ -1189,13 +1189,13 @@ function (exports, module, require) {
             barrel_panels.beginTransaction();
             try {
               for (
-                var GSnapUnitAction = function (t, n, _interopRequireDefault, r) {
+                var GSnapUnitAction = function (t, n, _interopRequireDefault, GRichTooltipConfig) {
                     if ((t = _interopRequireDefault.length && _interopRequireDefault.indexOf(t) >= 0 ? null : t)) {
                       var GTouchTool =
                           (t instanceof GCore.GSymbol &&
                             ("x" === e || "y" === e)) ||
                           "rotate" === e ||
-                          (r && r.fullContentTransform),
+                          (GRichTooltipConfig && GRichTooltipConfig.fullContentTransform),
                         GAlignAction = GTools.GElementEditor.openEditor(t);
                       GAlignAction
                         ? (GAlignAction._setTransform(n), GAlignAction.applyTransform(t, GTouchTool, _interopRequireDefault))
@@ -1229,7 +1229,7 @@ function (exports, module, require) {
                       GSnapUnitAction(this._elements[f], y, h, barrel_panels.getEdTransformSettings());
                 }
             } finally {
-              barrel_panels.commitTransaction(r);
+              barrel_panels.commitTransaction(GRichTooltipConfig);
             }
           }
         }
@@ -1392,8 +1392,8 @@ function (exports, module, require) {
           require.beginTransaction();
           try {
             for (var _interopRequireDefault = 0; _interopRequireDefault < this._elements.length; ++_interopRequireDefault) {
-              var r = this._elements[_interopRequireDefault];
-              if (r.getParent().hasMixin(GCore.GElement.Layout)) {
+              var GRichTooltipConfig = this._elements[_interopRequireDefault];
+              if (GRichTooltipConfig.getParent().hasMixin(GCore.GElement.Layout)) {
                 var GTouchTool = GTools.GElementEditor.getEditor(this._elements[_interopRequireDefault]);
                 (GTouchTool && GTouchTool.applyPropertiesToParts(e, t)) ||
                   this._elements[_interopRequireDefault].setProperties(e, t);

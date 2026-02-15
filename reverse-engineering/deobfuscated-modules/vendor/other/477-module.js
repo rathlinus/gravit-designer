@@ -1,0 +1,44 @@
+/**
+ * Module 477
+ * Extracted from chunk.vendor.js
+ *
+ * Original: Gravit Designer by Corel
+ * Reverse engineered for educational purposes
+ *
+ * Note: This is minified code. Variable names are compressed.
+ * Common patterns:
+ *   e = exports object
+ *   t = module object
+ *   n = require function
+ *   i, o, a, r, s, l, c, h, u, d = local variables
+ */
+
+function (exports, module, require) {
+  var n = require(42) /* module */;
+  function r(e) {
+    n.call(this, e, null, n.warpShader("        uniform highp float radius;        uniform highp float strength;        uniform highp vec2 center;    ", "        coord -= center;        highp float distance = length(coord);        if (distance < radius) {            highp float percent = distance / radius;            if (strength > 0.0) {                coord *= mix(1.0, smoothstep(0.0, radius / distance, percent), strength * 0.75);            } else {                coord *= mix(1.0, pow(percent, 1.0 + strength * 0.75) * radius / distance, 1.0 - percent);            }        }        coord += center;    "));
+  }
+  require(0) /* GObject */.inherit(r, n), r.prototype.render = function (e, t, i, r, o, a) {
+    var s = o, l = a, h = 0.01 * e.centerX * s, A = 0.01 * e.centerY * l, c = 0.01 * e.radius * Math.max(s, l), p = e.strength;
+    this.simpleShader.call(this, {
+      radius: c,
+      strength: n.clamp(-1, p, 1),
+      center: [
+        h,
+        A
+      ],
+      texSize: [
+        s,
+        l
+      ],
+      tileSize: [
+        this.glEffect.width,
+        this.glEffect.height
+      ],
+      offset: [
+        i,
+        r
+      ]
+    });
+  }, exports.exports = r;
+}

@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
     var GTools = require(53) /* GTools */,
-      i = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GCore = require(1) /* GCore */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
@@ -36,7 +36,7 @@ function (exports, module, require) {
       (l.prototype.getShortcut = function () {
         switch (this._category) {
           case l.Type.FullUnit:
-            return [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "U"];
+            return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, "U"];
           default:
             return null;
         }
@@ -65,17 +65,17 @@ function (exports, module, require) {
                 if (n.hasMixin(GCore.GElement.Transform)) {
                   var GTools = n.getGeometryBBox();
                   if (GTools && GTools.getWidth() + GTools.getHeight() !== 0) {
-                    var i = GCore.GMath.round(GTools.getX(), true),
+                    var GEditor = GCore.GMath.round(GTools.getX(), true),
                       MenuItemBuilder = GCore.GMath.round(GTools.getY(), true),
                       GAction = GCore.GMath.round(GTools.getWidth(), true),
                       c = GCore.GMath.round(GTools.getHeight(), true);
                     this._category === l.Type.HalfUnit &&
-                      ((i += 0.5), (MenuItemBuilder += 0.5), (GAction += 0.5), (c += 0.5));
+                      ((GEditor += 0.5), (MenuItemBuilder += 0.5), (GAction += 0.5), (c += 0.5));
                     var d = new GCore.GTransform()
                       .translated(-GTools.getX(), -GTools.getY())
                       .scaled(GAction / (GTools.getWidth() || 1), c / (GTools.getHeight() || 1))
                       .translated(GTools.getX(), GTools.getY())
-                      .translated(i - GTools.getX(), MenuItemBuilder - GTools.getY());
+                      .translated(GEditor - GTools.getX(), MenuItemBuilder - GTools.getY());
                     n.transform(d);
                   }
                 }

@@ -23,7 +23,7 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      s = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       l = _interopRequireDefault(require(1248) /* module_1248 */),
       AppSettings = require(10) /* AppSettings */;
     function d(e, t) {
@@ -75,7 +75,7 @@ function (exports, module, require) {
         (this._mime = n.mime),
         (this._options = module),
         (w.TOOLTIP_CONFIG = {
-          [s.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: s.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GSaveAsAction",
@@ -158,7 +158,7 @@ function (exports, module, require) {
         return "pdf" === this._fileExt && 300 === this._options.dpi;
       }),
       (w.prototype.getTooltipArea = function () {
-        return s.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+        return GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
       }),
       (w.prototype.getTooltipConfig = function (e) {
         return (
@@ -232,8 +232,8 @@ function (exports, module, require) {
         )
           return;
         _interopRequireDefault.referer = this.getId();
-        const s = !e.canDownload() || this._fileExt !== GDocument_389.PDF.ext;
-        if (e.canPromptSave() && s) {
+        const GRichTooltipConfig = !e.canDownload() || this._fileExt !== GDocument_389.PDF.ext;
+        if (e.canPromptSave() && GRichTooltipConfig) {
           const i = t.getStorageItem();
           !GEditor && i && (GEditor = i.getName()),
             GEditor || (GEditor = t.getTitle()),

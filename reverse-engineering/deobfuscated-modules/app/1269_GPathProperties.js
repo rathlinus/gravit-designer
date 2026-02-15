@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
       a = require(357) /* module_357 */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
       l = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     function c() {
@@ -128,7 +128,7 @@ function (exports, module, require) {
               .gInputSlider({
                 min: 0,
                 max: 100,
-                richTooltipConfig: r.GRichTooltipConfig.from({
+                richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                   title: GCore.GLocale.get(
                     new GCore.GLocaleKey(
                       "GCommonNames",
@@ -433,7 +433,7 @@ function (exports, module, require) {
             if (t[require] instanceof GCore.GPath || t[require] instanceof GCore.GCompoundPath) {
               var a = t[require];
               this._pathes.push(a);
-              var r = function (e) {
+              var GRichTooltipConfig = function (e) {
                 for (
                   var t = e.getAnchorPoints().getFirstChild();
                   null !== t;
@@ -443,14 +443,14 @@ function (exports, module, require) {
                     (this._points.push(t),
                     1 == this._points.legth && (this._mainPath = e));
               }.bind(this);
-              if (a instanceof GCore.GPath) r(a);
+              if (a instanceof GCore.GPath) GRichTooltipConfig(a);
               else
                 for (
                   var GProperties = a.getPaths().getFirstChild();
                   null !== GProperties;
                   GProperties = GProperties.getNext()
                 )
-                  r(GProperties);
+                  GRichTooltipConfig(GProperties);
             }
           if (this._pathes.length && this._pathes.length === t.length)
             return (
@@ -536,18 +536,18 @@ function (exports, module, require) {
                     null === n.getProperty("hrx"))
                 ) {
                   const a = n.getParent().getPreviousPoint(n),
-                    r = a ? a.getProperty("hrx") : null,
+                    GRichTooltipConfig = a ? a.getProperty("hrx") : null,
                     GProperties = n.getParent().getNextPoint(n),
                     l = GProperties ? GProperties.getProperty("hlx") : null;
                   if (
                     exports != GCore.GPathBase.AnchorPoint.Type.Asymmetric ||
-                    null !== r ||
+                    null !== GRichTooltipConfig ||
                     null !== l
                   )
                     GTools[0] = true;
                   else {
                     const e = n.getProperty("x"),
-                      r = n.getProperty("y");
+                      GRichTooltipConfig = n.getProperty("y");
                     if (
                       a &&
                       a.getProperty("tp") !=
@@ -557,12 +557,12 @@ function (exports, module, require) {
                         GProperties = a.getProperty("y");
                       if (
                         !GCore.GMath.isEqualEps(e, n) ||
-                        !GCore.GMath.isEqualEps(r, GProperties)
+                        !GCore.GMath.isEqualEps(GRichTooltipConfig, GProperties)
                       ) {
                         const a =
                             e + (n - e) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF,
                           l =
-                            r + (GProperties - r) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
+                            GRichTooltipConfig + (GProperties - GRichTooltipConfig) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
                         t.push("hlx"), t.push("hly"), GTools.push(a), GTools.push(l);
                       }
                     }
@@ -575,12 +575,12 @@ function (exports, module, require) {
                         a = GProperties.getProperty("y");
                       if (
                         !GCore.GMath.isEqualEps(e, n) ||
-                        !GCore.GMath.isEqualEps(r, a)
+                        !GCore.GMath.isEqualEps(GRichTooltipConfig, a)
                       ) {
                         const GProperties =
                             e + (n - e) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF,
                           l =
-                            r + (a - r) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
+                            GRichTooltipConfig + (a - GRichTooltipConfig) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
                         t.push("hrx"), t.push("hry"), GTools.push(GProperties), GTools.push(l);
                       }
                     }
@@ -588,9 +588,9 @@ function (exports, module, require) {
                 }
                 n.setProperties(t, GTools);
                 let a = n.getProperty("tp");
-                const r = n.getProperty("ah");
+                const GRichTooltipConfig = n.getProperty("ah");
                 a == GCore.GPathBase.AnchorPoint.Type.Mirror &&
-                  r &&
+                  GRichTooltipConfig &&
                   n.setProperty("ah", false);
               });
           } finally {
@@ -696,11 +696,11 @@ function (exports, module, require) {
               require = false;
               break;
             }
-          var r = require ? "-" : GTools;
-          this._panel.find('select[data-point-property="tp"]').val(r),
+          var GRichTooltipConfig = require ? "-" : GTools;
+          this._panel.find('select[data-point-property="tp"]').val(GRichTooltipConfig),
             this._panel.find("[data-node-type]").each(function (e, t) {
               var n = $(t);
-              n.toggleClass("g-active", n.attr("data-node-type") === r);
+              n.toggleClass("g-active", n.attr("data-node-type") === GRichTooltipConfig);
             }),
             this._panel.find("[corner-only]").css("display", require ? "" : "none"),
             this._panel
@@ -796,8 +796,8 @@ function (exports, module, require) {
           a = this._document.getEditor();
         a.beginTransaction();
         try {
-          for (var r = 0, GProperties = this._pathes.length; r < GProperties; ++r) {
-            e = this._pathes[r].getPaintLayers().getBorderLayers();
+          for (var GRichTooltipConfig = 0, GProperties = this._pathes.length; GRichTooltipConfig < GProperties; ++GRichTooltipConfig) {
+            e = this._pathes[GRichTooltipConfig].getPaintLayers().getBorderLayers();
             for (var l = 0, c = e.length; l < c; l++)
               (t = e[l]) instanceof GCore.GStylable.BorderPaintLayer &&
                 t.setProperties(n, GTools);
@@ -820,13 +820,13 @@ function (exports, module, require) {
           for (var GTools = 0; GTools < this._points.length; ++GTools) {
             var a = this._points[GTools];
             if ("x" === e) {
-              var r = this._getPointCoord(a),
-                GProperties = new GCore.GTransform(1, 0, 0, 1, t - r.getX(), 0);
-              this._transformPoint(a, GProperties, r);
+              var GRichTooltipConfig = this._getPointCoord(a),
+                GProperties = new GCore.GTransform(1, 0, 0, 1, t - GRichTooltipConfig.getX(), 0);
+              this._transformPoint(a, GProperties, GRichTooltipConfig);
             } else if ("y" === e) {
-              (r = this._getPointCoord(a)),
-                (GProperties = new GCore.GTransform(1, 0, 0, 1, 0, t - r.getY()));
-              this._transformPoint(a, GProperties, r);
+              (GRichTooltipConfig = this._getPointCoord(a)),
+                (GProperties = new GCore.GTransform(1, 0, 0, 1, 0, t - GRichTooltipConfig.getY()));
+              this._transformPoint(a, GProperties, GRichTooltipConfig);
             } else a.setProperties([e], [t]);
           }
         } finally {

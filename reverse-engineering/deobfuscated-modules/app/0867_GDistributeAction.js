@@ -9,15 +9,15 @@ function (exports, module, require) {
     require(328) /* polyfill_Array_sort */, require(3) /* polyfill_RegExp_toString */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function l(e) {
       (this._type = e),
         (this._title = new GCore.GLocaleKey("GDistributeAction", "title." + e)),
         (l.TOOLTIP_CONFIG = {
-          [a.TOOLTIP_AREA.SIDEBAR]: {
-            [l.Type.Horizontal]: a.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR]: {
+            [l.Type.Horizontal]: GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GDistributeAction",
@@ -33,7 +33,7 @@ function (exports, module, require) {
               learnMore:
                 "",
             }),
-            [l.Type.Vertical]: a.GRichTooltipConfig.from({
+            [l.Type.Vertical]: GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GDistributeAction",
@@ -97,10 +97,10 @@ function (exports, module, require) {
         );
       }),
       (l.prototype.execute = function (e, t, n) {
-        var a = gDesigner.getActiveDocument(),
-          MenuItemBuilder = a.getScene();
-        e || (e = a.getEditor().getSelection());
-        var GAction = (e = a.getEditor().filterIndividualElements(e));
+        var GRichTooltipConfig = gDesigner.getActiveDocument(),
+          MenuItemBuilder = GRichTooltipConfig.getScene();
+        e || (e = GRichTooltipConfig.getEditor().getSelection());
+        var GAction = (e = GRichTooltipConfig.getEditor().filterIndividualElements(e));
         e = [];
         for (let t = 0; t < GAction.length; ++t) {
           var c = GAction[t];
@@ -123,14 +123,14 @@ function (exports, module, require) {
                 t.elbbox.getWidth() / 2
               );
             });
-            let a = null;
+            let GRichTooltipConfig = null;
             if (!n)
               if (e.length > 1) {
                 let GTools = 0;
                 for (let t = 0; t < e.length; ++t) GTools += e[t].elbbox.getWidth();
                 GTools <= t.getWidth()
                   ? (n = (t.getWidth() - GTools) / (e.length - 1))
-                  : (a =
+                  : (GRichTooltipConfig =
                       (t.getWidth() -
                         e[0].elbbox.getWidth() / 2 -
                         e[e.length - 1].elbbox.getWidth() / 2) /
@@ -140,7 +140,7 @@ function (exports, module, require) {
               MenuItemBuilder,
               function () {
                 var GTools = t.getX();
-                if (null === a)
+                if (null === GRichTooltipConfig)
                   for (let t = 0; t < e.length; ++t)
                     GTools !== e[t].elbbox.getX() &&
                       e[t].element.transform(
@@ -151,7 +151,7 @@ function (exports, module, require) {
                 else {
                   var MenuItemBuilder = GTools + e[0].elbbox.getWidth() / 2;
                   for (let t = 0; t < e.length; ++t) {
-                    var GAction = MenuItemBuilder + a * t - e[t].elbbox.getWidth() / 2;
+                    var GAction = MenuItemBuilder + GRichTooltipConfig * t - e[t].elbbox.getWidth() / 2;
                     GAction !== e[t].elbbox.getX() &&
                       e[t].element.transform(
                         new GCore.GTransform(1, 0, 0, 1, GAction - e[t].elbbox.getX(), 0),
@@ -170,14 +170,14 @@ function (exports, module, require) {
                 (t.elbbox.getY() + t.elbbox.getHeight() / 2)
               );
             });
-            let a = null;
+            let GRichTooltipConfig = null;
             if (!n)
               if (e.length > 1) {
                 let GTools = 0;
                 for (let t = 0; t < e.length; ++t) GTools += e[t].elbbox.getHeight();
                 GTools <= t.getHeight()
                   ? (n = (t.getHeight() - GTools) / (e.length - 1))
-                  : (a =
+                  : (GRichTooltipConfig =
                       (t.getHeight() -
                         e[0].elbbox.getHeight() / 2 -
                         e[e.length - 1].elbbox.getHeight() / 2) /
@@ -187,7 +187,7 @@ function (exports, module, require) {
               MenuItemBuilder,
               function () {
                 var GTools = t.getY();
-                if (null === a)
+                if (null === GRichTooltipConfig)
                   for (let t = 0; t < e.length; ++t)
                     GTools !== e[t].elbbox.getY() &&
                       e[t].element.transform(
@@ -198,7 +198,7 @@ function (exports, module, require) {
                 else {
                   var MenuItemBuilder = GTools + e[0].elbbox.getHeight() / 2;
                   for (let t = 0; t < e.length; ++t) {
-                    var GAction = MenuItemBuilder + a * t - e[t].elbbox.getHeight() / 2;
+                    var GAction = MenuItemBuilder + GRichTooltipConfig * t - e[t].elbbox.getHeight() / 2;
                     GAction !== e[t].elbbox.getX() &&
                       e[t].element.transform(
                         new GCore.GTransform(1, 0, 0, 1, 0, GAction - e[t].elbbox.getY()),

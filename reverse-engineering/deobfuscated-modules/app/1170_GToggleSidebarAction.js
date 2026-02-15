@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      a = require(198) /* Exports_GOutlineSidebar */,
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
       GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
@@ -44,9 +44,9 @@ function (exports, module, require) {
       }),
       (d.prototype.getShortcut = function () {
         switch (this._sidebar.getId()) {
-          case a.SidebarsIds.GOutlineSidebar:
+          case GOutlineSidebar.SidebarsIds.GOutlineSidebar:
             return [GEditor.GKey.Constant.OPTION, "1"];
-          case a.SidebarsIds.GInspectorSidebar:
+          case GOutlineSidebar.SidebarsIds.GInspectorSidebar:
             return [GEditor.GKey.Constant.OPTION, "2"];
           default:
             return null;

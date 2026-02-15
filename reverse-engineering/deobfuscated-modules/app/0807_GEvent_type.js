@@ -1,0 +1,26 @@
+/**
+ * Webpack Module #807
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    require(3) /* polyfill_RegExp_toString */;
+    var GCore = require(1) /* GCore */;
+    function i(e, t) {
+      (this.type = e), (this.sidebar = t);
+    }
+    GCore.GObject.inherit(i, GCore.GEvent),
+      (i.Type = {
+        Deactivated: 10,
+        Activated: 11,
+        ChildAdded: 12,
+        ChildRemoved: 14,
+      }),
+      (i.prototype.type = null),
+      (i.prototype.sidebar = null),
+      (i.prototype.toString = function () {
+        return "[Object GSidebars.SidebarEvent]";
+      }),
+      (exports.exports = i);
+  }

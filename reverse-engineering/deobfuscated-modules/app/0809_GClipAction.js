@@ -10,13 +10,13 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       AppSettings = require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GElementAction = require(106) /* GElementAction */;
     function d() {
       d.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GClipAction", "tooltip-title")
           ),
@@ -63,19 +63,19 @@ function (exports, module, require) {
       (d.prototype.execute = function (e, t) {
         var n = gDesigner.getActiveDocument().getEditor(),
           GEditor = gDesigner.getActiveDocument().getScene(),
-          r = GCore.GNode.order(n.getIndividualSelection().slice(), e),
-          AppSettings = r.shift();
+          GRichTooltipConfig = GCore.GNode.order(n.getIndividualSelection().slice(), e),
+          AppSettings = GRichTooltipConfig.shift();
         if (!AppSettings.isLocked()) {
           var MenuItemBuilder,
             GElementAction = AppSettings.getPaintBBox();
           t || n.beginTransaction();
           try {
             MenuItemBuilder = new Set();
-            for (var d = 0; d < r.length; ++d) MenuItemBuilder.add(r[d].getParent());
+            for (var d = 0; d < GRichTooltipConfig.length; ++d) MenuItemBuilder.add(GRichTooltipConfig[d].getParent());
             try {
               (0, CollaborationMergeUtils.blockChanges)(n, MenuItemBuilder, GEditor, AppSettings);
-              for (d = 0; d < r.length; ++d) {
-                var u = r[d];
+              for (d = 0; d < GRichTooltipConfig.length; ++d) {
+                var u = GRichTooltipConfig[d];
                 u.validateInsertion(AppSettings) &&
                   u.getPaintBBox() &&
                   GElementAction &&

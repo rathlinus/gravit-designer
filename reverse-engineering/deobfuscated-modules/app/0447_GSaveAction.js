@@ -12,7 +12,7 @@ function (exports, module, require) {
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       DataModule_1247 = require(1247) /* DataModule_1247 */,
       AppSettings = require(10) /* AppSettings */,
-      l = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GSaveAsAction = require(445) /* GSaveAsAction */,
@@ -22,12 +22,12 @@ function (exports, module, require) {
       GCommonNames = require(1510) /* GCommonNames */,
       GWarnLinkedImageDialog = require(1511) /* GWarnLinkedImageDialog */;
     const GSystemDialog = require(44) /* GSystemDialog */,
-      v = require(1512) /* Item */;
+      Item = require(1512) /* Item */;
     var GContainer = require(85) /* GContainer */,
       b = "." + AppSettings.FILE_FORMATS.find((e) => e.default).ext;
     function w() {
       w.TOOLTIP_CONFIG = {
-        [l.TOOLTIP_AREA.TOOLBAR]: l.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GSaveAction", "tooltip-title")
           ),
@@ -197,7 +197,7 @@ function (exports, module, require) {
         else {
           const n = e.getStorageItem();
           let GCore = {};
-          n instanceof v.Item && (GCore = (0, DataModule_1247.updateSaveOptions)(GCore, e, n)),
+          n instanceof Item.Item && (GCore = (0, DataModule_1247.updateSaveOptions)(GCore, e, n)),
             e.store(n, t, null, GCore);
         }
       }),

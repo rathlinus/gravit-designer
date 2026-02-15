@@ -8,12 +8,12 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */;
     var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
-      a = require(237) /* Item */,
-      r = require(220) /* Item */,
+      Item = require(237) /* Item */,
+      Item2 = require(220) /* Item */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */.decrypt;
     require(173) /* stub_requires_1 */;
     function l() {}
-    GCore.GObject.inherit(l, a),
+    GCore.GObject.inherit(l, Item),
       (l.prototype.canPromptOpen = function () {
         return false;
       }),
@@ -27,9 +27,9 @@ function (exports, module, require) {
         return false;
       }),
       (l.Item = function (e, t, n, GCore) {
-        r.CommercialProduct.call(this, e, t, n, GCore);
+        Item2.CommercialProduct.call(this, e, t, n, GCore);
       }),
-      GCore.GObject.inherit(l.Item, r.CommercialProduct),
+      GCore.GObject.inherit(l.Item, Item2.CommercialProduct),
       (l.Item.prototype.getPrice = async function () {
         return Promise.resolve(this._file.price);
       }),

@@ -15,7 +15,7 @@ function (exports, module, require) {
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       GUnloadEvent = require(1346) /* GUnloadEvent */,
-      u = require(1348) /* StatusChangedEvent */,
+      StatusChangedEvent = require(1348) /* StatusChangedEvent */,
       GSystemDialog = require(44) /* GSystemDialog */,
       GUserModel = require(177) /* GUserModel */,
       { DateAPI: h, ShareRoles: f } = require(10) /* AppSettings */;
@@ -36,12 +36,12 @@ function (exports, module, require) {
               this._deactivate(),
                 (this._document = e.document),
                 this._document.addEventListener(
-                  u.StatusChangedEvent,
+                  StatusChangedEvent.StatusChangedEvent,
                   this._update,
                   this
                 ),
                 this._document.addEventListener(
-                  u.LockUpdateEvent,
+                  StatusChangedEvent.LockUpdateEvent,
                   this._update,
                   this
                 ),
@@ -76,12 +76,12 @@ function (exports, module, require) {
       (m.prototype._deactivate = function () {
         this._document &&
           (this._document.removeEventListener(
-            u.StatusChangedEvent,
+            StatusChangedEvent.StatusChangedEvent,
             this._update,
             this
           ),
           this._document.removeEventListener(
-            u.LockUpdateEvent,
+            StatusChangedEvent.LockUpdateEvent,
             this._update,
             this
           ),
@@ -106,26 +106,26 @@ function (exports, module, require) {
         ) {
           const e = this._document.getCollaborativeTextController();
           if (e)
-            if (e.getStatus() === u.Status.UpdateAvailable)
+            if (e.getStatus() === StatusChangedEvent.Status.UpdateAvailable)
               this._document.lock(), this._showUpdatePanel();
-            else if (e.getStatus() === u.Status.Updating)
+            else if (e.getStatus() === StatusChangedEvent.Status.Updating)
               this._showUpdatingPanel();
             else if (gDesigner.getApplicationManager().hasRole(f.Owner))
               this._showOwnerPanel();
             else if (await e.canLock())
               switch (e.getStatus()) {
-                case u.Status.Initial:
-                case u.Status.Editing:
+                case StatusChangedEvent.Status.Initial:
+                case StatusChangedEvent.Status.Editing:
                   this._showEditPanel();
                   break;
-                case u.Status.Finished:
-                case u.Status.Previewed:
+                case StatusChangedEvent.Status.Finished:
+                case StatusChangedEvent.Status.Previewed:
                   this._showFinishedPanel();
                   break;
-                case u.Status.Previewing:
+                case StatusChangedEvent.Status.Previewing:
                   this._showPreviewPanel();
                   break;
-                case u.Status.Sending:
+                case StatusChangedEvent.Status.Sending:
                   this._showSendingPanel();
               }
             else this._showRequestPanel();
@@ -262,7 +262,7 @@ function (exports, module, require) {
                   "disabled",
                   this._document
                     .getCollaborativeTextController()
-                    .getStatus() === u.Status.Previewed
+                    .getStatus() === StatusChangedEvent.Status.Previewed
                 )
                 .addClass("g-highlight-button")
                 .addClass("outlined")

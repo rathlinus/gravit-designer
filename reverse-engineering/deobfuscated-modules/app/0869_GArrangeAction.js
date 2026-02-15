@@ -9,18 +9,18 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      a = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       AppSettings = require(10) /* AppSettings */,
-      s = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function d(e) {
       (this._type = e),
         (this._title = new GCore.GLocaleKey("GArrangeAction", "title." + e)),
         (d.TOOLTIP_CONFIG = {
-          [s.TOOLTIP_AREA.TOOLBAR]: {
+          [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: {
             [GTools.GEditor.ArrangeOrderType.BringForward]:
-              s.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GArrangeAction",
@@ -39,7 +39,7 @@ function (exports, module, require) {
                   "",
               }),
             [GTools.GEditor.ArrangeOrderType.SendBackward]:
-              s.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GArrangeAction",
@@ -63,22 +63,22 @@ function (exports, module, require) {
     GCore.GObject.inherit(d, GAction),
       (d.SHORTCUT = {
         [GTools.GEditor.ArrangeOrderType.SendToFront]: [
-          a.GKey.Constant.SHIFT,
-          a.GKey.Constant.META,
-          a.GKey.Constant.UP,
+          GEditor.GKey.Constant.SHIFT,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.UP,
         ],
         [GTools.GEditor.ArrangeOrderType.BringForward]: [
-          a.GKey.Constant.META,
-          a.GKey.Constant.UP,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.UP,
         ],
         [GTools.GEditor.ArrangeOrderType.SendBackward]: [
-          a.GKey.Constant.META,
-          a.GKey.Constant.DOWN,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.DOWN,
         ],
         [GTools.GEditor.ArrangeOrderType.SendToBack]: [
-          a.GKey.Constant.SHIFT,
-          a.GKey.Constant.META,
-          a.GKey.Constant.DOWN,
+          GEditor.GKey.Constant.SHIFT,
+          GEditor.GKey.Constant.META,
+          GEditor.GKey.Constant.DOWN,
         ],
       }),
       (d.TOOLTIP_CONFIG = null),

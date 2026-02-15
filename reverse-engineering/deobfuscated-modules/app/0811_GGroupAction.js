@@ -10,12 +10,12 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GElementAction = require(106) /* GElementAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GGroupAction", "tooltip-title")
           ),
@@ -74,8 +74,8 @@ function (exports, module, require) {
           t = GCore.GNode.order(e.getIndividualSelection().slice());
         e.beginTransaction();
         try {
-          for (var require = new GCore.GGroup(), GEditor = [], r = 0; r < t.length; ++r) {
-            (p = t[r]).validateInsertion(require) && GEditor.push(p);
+          for (var require = new GCore.GGroup(), GEditor = [], GRichTooltipConfig = 0; GRichTooltipConfig < t.length; ++GRichTooltipConfig) {
+            (p = t[GRichTooltipConfig]).validateInsertion(require) && GEditor.push(p);
           }
           if (GEditor.length > 0) {
             var MenuItemBuilder = GEditor[GEditor.length - 1],
@@ -87,11 +87,11 @@ function (exports, module, require) {
                 u = gDesigner.getActiveDocument().getScene();
               try {
                 d = new Set();
-                for (r = 0; r < GEditor.length; ++r) d.add(GEditor[r].getParent());
+                for (GRichTooltipConfig = 0; GRichTooltipConfig < GEditor.length; ++GRichTooltipConfig) d.add(GEditor[GRichTooltipConfig].getParent());
                 (0, CollaborationMergeUtils.blockChanges)(e, d, u, require);
-                for (r = 0; r < GEditor.length; ++r) {
+                for (GRichTooltipConfig = 0; GRichTooltipConfig < GEditor.length; ++GRichTooltipConfig) {
                   var p;
-                  (p = GEditor[r]).getParent().removeChild(p), require.appendChild(p);
+                  (p = GEditor[GRichTooltipConfig]).getParent().removeChild(p), require.appendChild(p);
                 }
               } finally {
                 (0, CollaborationMergeUtils.releaseChanges)(e, d, u, require);

@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      a = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GAlignAction = require(866) /* GAlignAction */,
       GArrangeAction = require(869) /* GArrangeAction */,
       GAttachToPathAction = require(1176) /* GAttachToPathAction */,
@@ -51,7 +51,7 @@ function (exports, module, require) {
       var t = this._createContextMenu(),
         n = this._createCropMenu(),
         GCore = this._createPageMenu(),
-        a = this._createTouchContextMenu(),
+        GEditor = this._createTouchContextMenu(),
         GAlignAction = this._createFillPropertyMenu(),
         GArrangeAction = this._createBorderPropertyMenu(),
         GAttachToPathAction = this._createEffectPropertyMenu();
@@ -93,7 +93,7 @@ function (exports, module, require) {
                 (this._mouseEvent = e.pageX ? e : GCreateSymbolAction),
                 (this._options = GConvertToPathAction),
                 gDesigner.isTouchEnabled() && GDistributeAction
-                  ? a.gOverlay("open", { x: GJoinPathsAction, y: GMergeMainAction }, undefined, () => {
+                  ? GEditor.gOverlay("open", { x: GJoinPathsAction, y: GMergeMainAction }, undefined, () => {
                       gDesigner.trigger(
                         new GDocumentEvent(
                           GDocumentEvent.Type.ContextMenuOpened,
@@ -102,7 +102,7 @@ function (exports, module, require) {
                       );
                     })
                   : GDetachFromPathAction.open({ x: GJoinPathsAction, y: GMergeMainAction }),
-                (this._contextMenuTouch = a),
+                (this._contextMenuTouch = GEditor),
                 (this._contextMenuDesktop = GDetachFromPathAction),
                 true
               );
@@ -335,7 +335,7 @@ function (exports, module, require) {
                                   .getActiveDocument()
                                   .getEditor()
                                   .updateSelection(
-                                    a.GPlatform.modifiers.shiftKey,
+                                    GEditor.GPlatform.modifiers.shiftKey,
                                     [this.element]
                                   );
                             },
@@ -356,7 +356,7 @@ function (exports, module, require) {
                           gDesigner
                             .getActiveDocument()
                             .getEditor()
-                            .updateSelection(a.GPlatform.modifiers.shiftKey, [
+                            .updateSelection(GEditor.GPlatform.modifiers.shiftKey, [
                               this.element,
                             ]);
                       },
@@ -392,8 +392,8 @@ function (exports, module, require) {
             .getView()
             ._convertClientPositionFromMousePosition(e),
           n = gDesigner.getActiveDocument().getScene(),
-          a = gDesigner.getWindows().getActiveWindow().getView(),
-          GAlignAction = a.getWorldTransform(n),
+          GEditor = gDesigner.getWindows().getActiveWindow().getView(),
+          GAlignAction = GEditor.getWorldTransform(n),
           GArrangeAction = function (e) {
             return !(e instanceof GCore.GPage);
           }.bind(this),
@@ -408,7 +408,7 @@ function (exports, module, require) {
             null,
             true,
             false,
-            a.getViewConfiguration().multiPageView
+            GEditor.getViewConfiguration().multiPageView
           );
         if (
           (GAttachToPathAction &&
@@ -473,22 +473,22 @@ function (exports, module, require) {
                       GTools.GEditorOptions.propertiesExcludedFromCopying,
                   });
                 e.insertChild(n), e.renameClone(t, n);
-                var a = n.getPosition(true, true, true, true);
+                var GEditor = n.getPosition(true, true, true, true);
                 n.setProperty(
                   "off",
-                  new GCore.GTransform(1, 0, 0, 1, a.getX(), a.getY())
+                  new GCore.GTransform(1, 0, 0, 1, GEditor.getX(), GEditor.getY())
                 );
               },
               t.DUPLICATE
             ),
               gDesigner.stats("contextmenu_pages_duplicate");
           }),
-          a = e.createAddItem(t.DELETE, function () {
+          GEditor = e.createAddItem(t.DELETE, function () {
             var e = gDesigner.getActiveDocument().getScene(),
               n = e.getActivePage(),
-              a = n.getSlavePages().length > 0;
+              GEditor = n.getSlavePages().length > 0;
             n.getProperty("plkt") & GCore.GBlock.ProgramLck.NoDelete ||
-              (a
+              (GEditor
                 ? GSystemDialog.confirm(
                     GCore.GLocale.get(
                       new GCore.GLocaleKey(
@@ -534,8 +534,8 @@ function (exports, module, require) {
                 var t =
                     e.isCommercialProductFile() ||
                     !gDesigner.getApplicationManager().isCopyPasteEnabled(),
-                  a = n.getActivePage(),
-                  GAlignAction = GCore.GNode.serialize(a, {
+                  GEditor = n.getActivePage(),
+                  GAlignAction = GCore.GNode.serialize(GEditor, {
                     copy: true,
                     copyIgnoreProperties:
                       GTools.GEditorOptions.propertiesExcludedFromCopying,
@@ -561,7 +561,7 @@ function (exports, module, require) {
           });
         return (
           n.setIcon("gravit-icon-duplicate"),
-          a.setIcon("gravit-icon-delete"),
+          GEditor.setIcon("gravit-icon-delete"),
           GAlignAction.setIcon("gravit-icon-copy"),
           GArrangeAction.setIcon("gravit-icon-export"),
           GArrangeAction.setProFeatureInterruption(false),
@@ -597,11 +597,11 @@ function (exports, module, require) {
                 function () {
                   for (var n = 0; n < e.length; n++)
                     for (
-                      var GTools = e[n].getPaintLayers().getFillLayers(), a = 0;
-                      a < GTools.length;
-                      a++
+                      var GTools = e[n].getPaintLayers().getFillLayers(), GEditor = 0;
+                      GEditor < GTools.length;
+                      GEditor++
                     ) {
-                      var GAlignAction = GTools[a];
+                      var GAlignAction = GTools[GEditor];
                       if (GCore.GStylable.FillPaintLayer.equals(GAlignAction, t)) {
                         GAlignAction.getParent().removeChild(GAlignAction);
                         break;
@@ -633,8 +633,8 @@ function (exports, module, require) {
         return (
           GAlignAction.setIcon("gravit-icon-trash"),
           GArrangeAction.setIcon("gravit-icon-copy"),
-          GAlignAction.setShortcutHint([a.GKey.Constant.DELETE]),
-          GArrangeAction.setShortcutHint([a.GKey.Constant.META, "C"]),
+          GAlignAction.setShortcutHint([GEditor.GKey.Constant.DELETE]),
+          GArrangeAction.setShortcutHint([GEditor.GKey.Constant.META, "C"]),
           e.addEventListener(
             GMenuOpenEvent,
             function () {
@@ -688,11 +688,11 @@ function (exports, module, require) {
                 function () {
                   for (var n = 0; n < e.length; n++)
                     for (
-                      var GTools = e[n].getPaintLayers().getBorderLayers(), a = 0;
-                      a < GTools.length;
-                      a++
+                      var GTools = e[n].getPaintLayers().getBorderLayers(), GEditor = 0;
+                      GEditor < GTools.length;
+                      GEditor++
                     ) {
-                      var GAlignAction = GTools[a];
+                      var GAlignAction = GTools[GEditor];
                       if (GCore.GStylable.BorderPaintLayer.equals(GAlignAction, t)) {
                         GAlignAction.getParent().removeChild(GAlignAction);
                         break;
@@ -725,8 +725,8 @@ function (exports, module, require) {
           GAlignAction.setIcon("gravit-icon-settings"),
           GArrangeAction.setIcon("gravit-icon-trash"),
           GAttachToPathAction.setIcon("gravit-icon-copy"),
-          GArrangeAction.setShortcutHint([a.GKey.Constant.DELETE]),
-          GAttachToPathAction.setShortcutHint([a.GKey.Constant.META, "C"]),
+          GArrangeAction.setShortcutHint([GEditor.GKey.Constant.DELETE]),
+          GAttachToPathAction.setShortcutHint([GEditor.GKey.Constant.META, "C"]),
           e.addEventListener(
             GMenuOpenEvent,
             function () {
@@ -813,20 +813,20 @@ function (exports, module, require) {
           GArrangeAction.setIcon("gravit-icon-circle"),
           GAttachToPathAction.setIcon("gravit-icon-fill"),
           GConvertToPathAction.setIcon("gravit-icon-stroke"),
-          GCreateSymbolAction.setShortcutHint([a.GKey.Constant.META, "C"]),
+          GCreateSymbolAction.setShortcutHint([GEditor.GKey.Constant.META, "C"]),
           e.addItem(GAlignAction),
           e.addEventListener(
             GMenuOpenEvent,
             function () {
               let e = null,
                 GTools = null,
-                a = (t =
+                GEditor = (t =
                   this._options &&
                   this._options.data &&
                   this._options.data.effect).getProperty("ly");
-              a === GCore.GStylable.StyleLayer.Fill
+              GEditor === GCore.GStylable.StyleLayer.Fill
                 ? ((e = "gravit-icon-fill"), (GTools = n.APPLY_TO_FILL))
-                : a === GCore.GStylable.StyleLayer.Border
+                : GEditor === GCore.GStylable.StyleLayer.Border
                 ? ((e = "gravit-icon-stroke"), (GTools = n.APPLY_TO_BORDER))
                 : ((e = "gravit-icon-circle"), (GTools = n.APPLY_TO_ELEMENT)),
                 GAlignAction.setIcon(e),

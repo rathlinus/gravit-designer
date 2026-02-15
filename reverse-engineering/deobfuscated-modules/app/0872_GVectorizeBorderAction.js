@@ -9,12 +9,12 @@ function (exports, module, require) {
     require(19) /* polyfill_Array_iterator */, require(3) /* polyfill_RegExp_toString */, require(26) /* polyfill_DOMCollection_iterator */;
     var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GElementAction = require(106) /* GElementAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GVectorizeBorderAction", "tooltip-title")
           ),
@@ -59,8 +59,8 @@ function (exports, module, require) {
               e[require].hasMixin(GCore.GStylable)
             ) {
               var CollaborationMergeUtils = e[require].getPaintLayers(),
-                a = CollaborationMergeUtils ? CollaborationMergeUtils.getBorderLayers(true) : null;
-              t = a && a.length >= 1;
+                GRichTooltipConfig = CollaborationMergeUtils ? CollaborationMergeUtils.getBorderLayers(true) : null;
+              t = GRichTooltipConfig && GRichTooltipConfig.length >= 1;
             }
         return t;
       }),
@@ -68,11 +68,11 @@ function (exports, module, require) {
         var e,
           t = gDesigner.getActiveDocument(),
           n = t ? t.getEditor() : null,
-          a = (t && t.getScene(), n ? n.getIndividualSelection() : null),
+          GRichTooltipConfig = (t && t.getScene(), n ? n.getIndividualSelection() : null),
           MenuItemBuilder = [];
-        if (a)
-          for (var GElementAction = 0; GElementAction < a.length; ++GElementAction) {
-            var l = a[GElementAction];
+        if (GRichTooltipConfig)
+          for (var GElementAction = 0; GElementAction < GRichTooltipConfig.length; ++GElementAction) {
+            var l = GRichTooltipConfig[GElementAction];
             !l.hasMixin(GCore.GVertexSource) ||
               l instanceof GCore.GImage ||
               !l.hasMixin(GCore.GStylable) ||
@@ -83,13 +83,13 @@ function (exports, module, require) {
             if (t instanceof GCore.GPath) e.getPaths().appendChild(t);
             else
               for (
-                var n, CollaborationMergeUtils = t.cloneSubPaths(), a = CollaborationMergeUtils.getFirstChild();
-                null !== a;
-                a = n
+                var n, CollaborationMergeUtils = t.cloneSubPaths(), GRichTooltipConfig = CollaborationMergeUtils.getFirstChild();
+                null !== GRichTooltipConfig;
+                GRichTooltipConfig = n
               )
-                (n = a.getNext()),
-                  CollaborationMergeUtils.removeChild(a),
-                  e.getPaths().appendChild(a);
+                (n = GRichTooltipConfig.getNext()),
+                  CollaborationMergeUtils.removeChild(GRichTooltipConfig),
+                  e.getPaths().appendChild(GRichTooltipConfig);
           };
           n.beginTransaction();
           try {
@@ -100,10 +100,10 @@ function (exports, module, require) {
                   n = e.getProperty("_bw");
                 n = n || 1;
                 var CollaborationMergeUtils,
-                  a = t == GCore.GStylable.BorderAlignment.Center ? 0.5 * n : n,
+                  GRichTooltipConfig = t == GCore.GStylable.BorderAlignment.Center ? 0.5 * n : n,
                   MenuItemBuilder = new GCore.GVertexOffsetter(
                     GCore.GPathUtil.makeClockWise(d),
-                    a,
+                    GRichTooltipConfig,
                     t != GCore.GStylable.BorderAlignment.Outside,
                     t != GCore.GStylable.BorderAlignment.Inside,
                     0,

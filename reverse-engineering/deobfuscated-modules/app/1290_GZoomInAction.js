@@ -10,12 +10,12 @@ function (exports, module, require) {
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GZoomInAction", "tooltip-title")
           ),
@@ -65,13 +65,13 @@ function (exports, module, require) {
           for (
             var require = GTools.GZoomTool.options.zoomLevels,
               GCore = e.getZoom(),
-              r = require.length - 1,
+              GRichTooltipConfig = require.length - 1,
               MenuItemBuilder = 0;
             MenuItemBuilder < require.length;
             MenuItemBuilder++
           )
-            if ((GCore < require[r - MenuItemBuilder] && (t = require[r - MenuItemBuilder]), GCore === require[MenuItemBuilder])) {
-              t = r > 0 ? require[MenuItemBuilder + 1] : GEditor.GSceneWidget.options.maxZoomFactor;
+            if ((GCore < require[GRichTooltipConfig - MenuItemBuilder] && (t = require[GRichTooltipConfig - MenuItemBuilder]), GCore === require[MenuItemBuilder])) {
+              t = GRichTooltipConfig > 0 ? require[MenuItemBuilder + 1] : GEditor.GSceneWidget.options.maxZoomFactor;
               break;
             }
         } else t = e.getZoom() * c.ZOOM_STEP;

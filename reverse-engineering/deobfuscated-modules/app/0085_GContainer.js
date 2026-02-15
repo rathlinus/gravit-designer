@@ -31,7 +31,7 @@ function (exports, module, require) {
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GOpenRecentAction = require(843) /* GOpenRecentAction */,
       barrel_panels = require(257) /* barrel_panels */,
-      h = require(219) /* GLocale */,
+      GLocale = require(219) /* GLocale */,
       GSystemDialog = require(44) /* GSystemDialog */,
       GDocumentEvent = require(78) /* GDocumentEvent */;
     function y() {}
@@ -84,7 +84,7 @@ function (exports, module, require) {
         PWA: "pwa",
         IPad: "ipad",
       }),
-      (y.GravitLanguages = [...i.GLocale.getAvailableLanguages()]),
+      (y.GravitLanguages = [...GCore.GLocale.getAvailableLanguages()]),
       (y.prototype._recentDocuments = null),
       (y.prototype._deepLinking = null),
       (y.prototype.getRuntime = function () {
@@ -356,7 +356,7 @@ function (exports, module, require) {
               var _interopRequireDefault = GCore.GLocale.get(
                 new GCore.GLocaleKey("GContainer", "text.not-memary-enough")
               );
-              new h(_interopRequireDefault).open();
+              new GLocale(_interopRequireDefault).open();
             }
           }
         } catch (e) {

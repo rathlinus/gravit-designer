@@ -8,14 +8,14 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GCore = require(1) /* GCore */,
-      i = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GDocument = require(163) /* GDocument */,
       GAction = require(31) /* GAction */,
       GContainer = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GLinkImageAction", "tooltip-title")
           ),
@@ -62,8 +62,8 @@ function (exports, module, require) {
         (e = e || n.getStorage() || gDesigner.getDefaultStorage()).openPrompt(
           GDocument.FileTypes.filter((e) => 0 === e.mime.indexOf("image")),
           (e) => {
-            var i = "file://" + e.getUniqueId(),
-              MenuItemBuilder = i,
+            var GRichTooltipConfig = "file://" + e.getUniqueId(),
+              MenuItemBuilder = GRichTooltipConfig,
               GDocument = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
             GDocument && (MenuItemBuilder = GDocument.getUrl());
             var GAction = new Image();
@@ -76,7 +76,7 @@ function (exports, module, require) {
                 n.insertElement(e, true, true),
                 t && t();
             }),
-              (GAction.src = i);
+              (GAction.src = GRichTooltipConfig);
           },
           false
         );

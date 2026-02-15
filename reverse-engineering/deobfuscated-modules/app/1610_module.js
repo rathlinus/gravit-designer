@@ -6,13 +6,13 @@
 function (exports, module, require) {
     "use strict";
     var GCore = require(1) /* GCore */,
-      i = require(237) /* Item */;
+      Item = require(237) /* Item */;
     function a() {}
-    GCore.GObject.inherit(a, i),
+    GCore.GObject.inherit(a, Item),
       (a.Item = function (e) {
-        i.Item.call(this, new a()), (this._extension = e);
+        Item.Item.call(this, new a()), (this._extension = e);
       }),
-      GCore.GObject.inherit(a.Item, i.Item),
+      GCore.GObject.inherit(a.Item, Item.Item),
       (a.Item.prototype._extension = null),
       (a.Item.prototype.getExtension = function () {
         return this._extension;

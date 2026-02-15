@@ -9,7 +9,7 @@ function (exports, module, require) {
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
       GEditor = require(15) /* GEditor */,
       GCore = require(1) /* GCore */,
-      r = require(198) /* Exports_GOutlineSidebar */,
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GAction = _interopRequireDefault(require(31) /* GAction */);
     class c extends GAction.default {
@@ -42,7 +42,7 @@ function (exports, module, require) {
       execute() {
         const exports = gDesigner
             .getLeftSidebars()
-            .getSidebar(r.SidebarsIds.GOutlineSidebar)
+            .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar)
             .getLayerPanel(),
           { vtree: module, currentFocus: require } = exports.data("glayerpanel");
         if (!require) return;
@@ -54,10 +54,10 @@ function (exports, module, require) {
           _interopRequireDefault)
         ) {
           const GEditor = exports.gLayerPanel("getItem", require),
-            r = exports.gLayerPanel("getItem", _interopRequireDefault);
+            GOutlineSidebar = exports.gLayerPanel("getItem", _interopRequireDefault);
           GEditor.removeFlag(GCore.GNode.Flag.Selected),
-            r.setFlag(GCore.GNode.Flag.Selected),
-            module.expandAndFocus(r);
+            GOutlineSidebar.setFlag(GCore.GNode.Flag.Selected),
+            module.expandAndFocus(GOutlineSidebar);
         }
       }
       toString() {

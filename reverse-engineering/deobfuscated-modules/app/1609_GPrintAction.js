@@ -14,8 +14,8 @@ function (exports, module, require) {
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GLoginPanel = require(446) /* GLoginPanel */,
-      d = require(219) /* GLocale */,
-      u = require(1610) /* Item */,
+      GLocale = require(219) /* GLocale */,
+      Item = require(1610) /* Item */,
       GContainer = require(85) /* GContainer */;
     const GSystemDialog = require(44) /* GSystemDialog */;
     var h = null,
@@ -51,7 +51,7 @@ function (exports, module, require) {
       (y.prototype.execute = function () {
         var e = gDesigner.getActiveDocument(),
           t = e.getScene(),
-          n = new u.Item("PDF"),
+          n = new Item.Item("PDF"),
           GEditor = {
             suppressMessages: true,
             dpi: gDesigner.isEnabledProFeatures() ? 300 : 150,
@@ -92,12 +92,12 @@ function (exports, module, require) {
                 if (t || !GLoginPanel) return MenuItemBuilder();
                 if ((GCore.push(GLoginPanel), n.shift(), n.length))
                   return void a.GSVGExport.export(n[0], GEditor, GAction);
-                let d = "";
-                for (var u = 0; u < GCore.length; u++) {
+                let GLocale = "";
+                for (var Item = 0; Item < GCore.length; Item++) {
                   let e =
                     "data:image/svg+xml;base64," +
-                    (0, CollaborationMergeUtils.stringToBase64String)(GCore[u]);
-                  d = d.concat(
+                    (0, CollaborationMergeUtils.stringToBase64String)(GCore[Item]);
+                  GLocale = GLocale.concat(
                     "<img style='height:100%;width:auto;max-width:100%;display:block;' src='" +
                       e +
                       "'/>"
@@ -108,7 +108,7 @@ function (exports, module, require) {
                   "<style type='text/css' media='print'>@page { margin: 0mm; }</style>"),
                   (GContainer.body.style.margin = "0"),
                   (GContainer.body.style.height = "100%"),
-                  (GContainer.body.innerHTML = d),
+                  (GContainer.body.innerHTML = GLocale),
                   (GContainer.title = e.getTitle()),
                   $(h.contentWindow.document).ready(function () {
                     h.contentWindow.focus();
@@ -122,7 +122,7 @@ function (exports, module, require) {
             n.length && a.GSVGExport.export(n[0], GEditor, GAction);
           },
           v = () =>
-            new d(
+            new GLocale(
               GCore.GLocale.get(
                 new GCore.GLocaleKey("GPrintAction", "printing-disabled")
               )

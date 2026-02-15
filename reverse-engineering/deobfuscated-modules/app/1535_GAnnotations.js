@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(58) /* polyfill_Array_includes */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      a = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GFitAllAction = require(449) /* GFitAllAction */,
       GFitSelectionAction = require(566) /* GFitSelectionAction */,
       GProperties = require(123) /* GProperties */;
@@ -24,10 +24,10 @@ function (exports, module, require) {
       (p.prototype._toolbar = null),
       (p.prototype._document = null),
       (p.prototype._elements = null),
-      (p.prototype.init = function (e, t, n, GTools, a, GFitAllAction) {
+      (p.prototype.init = function (e, t, n, GTools, GEditor, GFitAllAction) {
         (this._panel = e),
           (this._toolbar = t),
-          this._addListPanel(e, n, GTools, a, GFitAllAction),
+          this._addListPanel(e, n, GTools, GEditor, GFitAllAction),
           t.append(
             $("<label>")
               .addClass("annotation-panel-label")
@@ -71,7 +71,7 @@ function (exports, module, require) {
                 this._document.getEditor().clearSelection();
                 var e = this._document.getScene();
                 e && e.setActiveLayer(null),
-                  a.GPlatform.modifiers.optionKey &&
+                  GEditor.GPlatform.modifiers.optionKey &&
                     gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
               }.bind(this)
             )
@@ -158,10 +158,10 @@ function (exports, module, require) {
             )
               .find("> div[tabindex=0]")
               .focus(),
-            a.GPlatform.modifiers.metaKey ||
+            GEditor.GPlatform.modifiers.metaKey ||
               (!e.hasFlag(GCore.GNode.Flag.Selected) &&
                 !e.hasFlag(GCore.GElement.Flag.FullLocked) &&
-                !a.GPlatform.modifiers.shiftKey))
+                !GEditor.GPlatform.modifiers.shiftKey))
           ) {
             let GTools = [e];
             if (e.hasMixin(GCore.GAnnotation.Linkable)) {
@@ -172,9 +172,9 @@ function (exports, module, require) {
                   ((GTools = GTools.concat(t)),
                   this._document.getScene().updateActivePageForElem(t[0])));
             }
-            module.updateSelection(a.GPlatform.modifiers.metaKey, GTools), (require = true);
+            module.updateSelection(GEditor.GPlatform.modifiers.metaKey, GTools), (require = true);
           }
-          if (require && a.GPlatform.modifiers.optionKey)
+          if (require && GEditor.GPlatform.modifiers.optionKey)
             module.hasSelection()
               ? gDesigner.executeAction(GFitSelectionAction.ID, undefined, "outlinesidebar")
               : gDesigner.executeAction(GFitAllAction.ID, undefined, "outlinesidebar");
@@ -222,14 +222,14 @@ function (exports, module, require) {
         if (this._isSyncTransactionEvent(e)) {
           const n = e.data.evtType === GTools.GEditor.ModifiedEvent.Type.Undo,
             GCore = e.data.evtType === GTools.GEditor.ModifiedEvent.Type.Redo,
-            a =
+            GEditor =
               e.data.type ===
               GTools.GAnnotationEditor.TransactionType.RemoveAnnotation,
             GFitAllAction =
               e.data.type === GTools.GAnnotationEditor.TransactionType.AddAnnotation,
             GFitSelectionAction = !!this._document.getAnnotationsId(),
-            GProperties = (n && a) || (n && GFitAllAction) || (GCore && GFitAllAction),
-            d = GCore && a;
+            GProperties = (n && GEditor) || (n && GFitAllAction) || (GCore && GFitAllAction),
+            d = GCore && GEditor;
           let u;
           if (GFitSelectionAction && GProperties)
             (u = GAnnotationsUtils.filterAnnotationElements(e.data.nodes)),
@@ -290,7 +290,7 @@ function (exports, module, require) {
           (this._elements = []),
           e)
         ) {
-          for (var a = 0; a < t.length; ++a) this._elements.push(t[a]);
+          for (var GEditor = 0; GEditor < t.length; ++GEditor) this._elements.push(t[GEditor]);
           if (this._elements.length === t.length) {
             if (((this._document = e), this._elements.length))
               return (

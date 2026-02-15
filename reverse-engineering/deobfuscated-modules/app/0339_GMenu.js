@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(30) /* polyfill_Object_assign */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GMenuActivateEvent = require(1499) /* GMenuActivateEvent */,
       GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
       l = require(444) /* module_444 */,
@@ -138,7 +138,7 @@ function (exports, module, require) {
         let GMenuCloseEvent = this._action.getTooltipConfig(this._action.getTooltipArea());
         GMenuCloseEvent &&
           this._htmlElement.gRichTooltip(
-            a.GRichTooltipConfig.from(
+            GRichTooltipConfig.GRichTooltipConfig.from(
               Object.assign({}, GMenuCloseEvent.getConfig(), {
                 isPro:
                   !gDesigner.isEnabledProFeatures() ||
@@ -238,7 +238,7 @@ function (exports, module, require) {
               let e = this._action.getTooltipConfig(t);
               e &&
                 this.setTooltipConfig(
-                  a.GRichTooltipConfig.from(
+                  GRichTooltipConfig.GRichTooltipConfig.from(
                     Object.assign({}, e.getConfig(), { side: true })
                   )
                 );

@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
-      r = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
     class c extends GAction.default {
@@ -36,7 +36,7 @@ function (exports, module, require) {
           case c.Type.Fill:
             return ["F"];
           case c.Type.Border:
-            return [r.GKey.Constant.SHIFT, "B"];
+            return [GEditor.GKey.Constant.SHIFT, "B"];
         }
       }
       isVisible() {

@@ -11,7 +11,7 @@ function (exports, module, require) {
       GCore = require(1) /* GCore */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GAction = _interopRequireDefault(require(31) /* GAction */),
-      l = require(198) /* Exports_GOutlineSidebar */;
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
     class c extends GAction.default {
       constructor(e) {
         super(),
@@ -51,7 +51,7 @@ function (exports, module, require) {
         const module = gDesigner.getLeftSidebars().getActiveSidebar(),
           require = gDesigner
             .getLeftSidebars()
-            .getSidebar(l.SidebarsIds.GOutlineSidebar),
+            .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
           _interopRequireDefault = require.getLayerPanel(),
           GEditor = _interopRequireDefault.gLayerPanel("getCurrentFocusedNode");
         if (!GEditor || module !== require.getId()) return;

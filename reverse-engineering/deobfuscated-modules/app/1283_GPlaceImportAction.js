@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GContainer = _interopRequireDefault(require(85) /* GContainer */),
       AppSettings = require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -18,7 +18,7 @@ function (exports, module, require) {
       GAction = require(31) /* GAction */;
     function p() {
       p.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GPlaceImportAction", "tooltip-title")
           ),

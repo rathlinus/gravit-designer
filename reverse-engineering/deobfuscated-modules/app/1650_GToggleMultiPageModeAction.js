@@ -11,7 +11,7 @@ function (exports, module, require) {
       GEditor = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-      l = require(198) /* Exports_GOutlineSidebar */;
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
     class c extends GAction.default {
       getId() {
         return c.ID;
@@ -30,7 +30,7 @@ function (exports, module, require) {
       }
       execute() {
         const exports = gDesigner.getLeftSidebars(),
-          module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar);
+          module = exports && exports.getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar);
         module && module.toggleMultiPageMode();
       }
       toString() {

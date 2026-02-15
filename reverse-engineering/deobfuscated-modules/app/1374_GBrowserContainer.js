@@ -22,16 +22,16 @@ function (exports, module, require) {
       i = require(9) /* GLocale */,
       GLocaleKey = require(47) /* GLocaleKey */,
       r = require(85) /* GContainer */,
-      s = require(1195) /* Item */;
+      Item = require(1195) /* Item */;
     const GMarketingFileStorageItem = require(1378) /* GMarketingFileStorageItem */;
     var GFontsProviderManager = require(255) /* GFontsProviderManager */,
       GGoogleFontsProvider = require(1379) /* GGoogleFontsProvider */,
       GFontLauncherProvider = require(1380) /* GFontLauncherProvider */,
       GCustomFontsProvider = require(1118) /* GCustomFontsProvider */,
       GLocalFontsProvider = require(1199) /* GLocalFontsProvider */,
-      h = require(220) /* Item */,
-      f = require(1385) /* Item */,
-      m = require(1386) /* Item */,
+      Item2 = require(220) /* Item */,
+      Item3 = require(1385) /* Item */,
+      Item4 = require(1386) /* Item */,
       GCloudStorage = require(119) /* GCloudStorage */,
       GDocument = require(163) /* GDocument */,
       _ = require(86) /* module_86 */,
@@ -41,7 +41,7 @@ function (exports, module, require) {
     const DataModule_1482 = require(1482) /* DataModule_1482 */,
       { base64StringToString: S } = require(40) /* CollaborationMergeUtils */;
     function E() {
-      (this._storage = new s()),
+      (this._storage = new Item()),
         "serviceWorker" in navigator &&
           setTimeout(function () {
             navigator.serviceWorker.register("/cacher.js").then(function (e) {
@@ -136,35 +136,35 @@ function (exports, module, require) {
           for (
             var GLocaleKey =
                 /[&\?]((?:[\0-"\$-<>-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)=((?:[\0-"\$%'-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)/g,
-              s = {};
+              Item = {};
             (n = GLocaleKey.exec(window.location.href));
 
           )
-            s[n[1]] = n[2];
-          if (s.token && s.d)
+            Item[n[1]] = n[2];
+          if (Item.token && Item.d)
             i = new r.OpenFileRequest(r.OpenFileRequest.Type.DocumentOrToken, {
-              token: s[r.OpenFileRequest.Type.Token],
-              doc: s.d,
+              token: Item[r.OpenFileRequest.Type.Token],
+              doc: Item.d,
             });
-          else if (s.token)
+          else if (Item.token)
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.Token,
-              s[r.OpenFileRequest.Type.Token]
+              Item[r.OpenFileRequest.Type.Token]
             );
-          else if (s.d)
-            i = new r.OpenFileRequest(r.OpenFileRequest.Type.Document, s.d);
-          else if (s.storeContent)
+          else if (Item.d)
+            i = new r.OpenFileRequest(r.OpenFileRequest.Type.Document, Item.d);
+          else if (Item.storeContent)
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.StoreContent,
-              s[r.OpenFileRequest.Type.StoreContent]
+              Item[r.OpenFileRequest.Type.StoreContent]
             );
-          else if (s[r.OpenFileRequest.Type.ExternalAsset])
+          else if (Item[r.OpenFileRequest.Type.ExternalAsset])
             i = new r.OpenFileRequest(
               r.OpenFileRequest.Type.StoreContent,
-              s[r.OpenFileRequest.Type.ExternalAsset]
+              Item[r.OpenFileRequest.Type.ExternalAsset]
             );
-          else if (s.directlink) {
-            t = s.directlink;
+          else if (Item.directlink) {
+            t = Item.directlink;
             try {
               (e = JSON.parse(S(decodeURIComponent(t))).type) ===
               r.OpenFileRequest.Type.Preset
@@ -216,8 +216,8 @@ function (exports, module, require) {
         E.openStorageFile(e, t, n, this._storage);
       }),
       (E.openStorageFile = function (e, t, n, GObject) {
-        var s = { progress: null };
-        e.updateStatus(_.Loading, s),
+        var Item = { progress: null };
+        e.updateStatus(_.Loading, Item),
           (async function () {
             try {
               let GGoogleFontsProvider,
@@ -225,10 +225,10 @@ function (exports, module, require) {
                 GCustomFontsProvider = t.getContent();
               if (GFontLauncherProvider === r.OpenFileRequest.Type.StoreContent)
                 (GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
-                  GGoogleFontsProvider && n(new f.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider), { loadingData: s });
+                  GGoogleFontsProvider && n(new Item3.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider), { loadingData: Item });
               else if (GFontLauncherProvider === r.OpenFileRequest.Type.ExternalAsset)
                 (GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
-                  GGoogleFontsProvider && n(new m.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider, GCustomFontsProvider), { loadingData: s });
+                  GGoogleFontsProvider && n(new Item4.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider, GCustomFontsProvider), { loadingData: Item });
               else if (GFontLauncherProvider === r.OpenFileRequest.Type.Preset) {
                 let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
                   t =
@@ -257,12 +257,12 @@ function (exports, module, require) {
                       GGoogleFontsProvider &&
                         n(
                           new GMarketingFileStorageItem(GObject, GGoogleFontsProvider.data, "".concat(e.id, ".gvdesign"), GGoogleFontsProvider.id),
-                          { content: e, file: GGoogleFontsProvider, preset: t, loadingData: s }
+                          { content: e, file: GGoogleFontsProvider, preset: t, loadingData: Item }
                         ))
                     : n(t, {
                         content: e,
                         category: t.presetCategory,
-                        loadingData: s,
+                        loadingData: Item,
                       }));
               } else if (GFontLauncherProvider === r.OpenFileRequest.Type.Template) {
                 let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
@@ -274,7 +274,7 @@ function (exports, module, require) {
                     content: e,
                     file: t,
                     category: t.path,
-                    loadingData: s,
+                    loadingData: Item,
                   });
               } else {
                 let t;
@@ -291,12 +291,12 @@ function (exports, module, require) {
                       ((t = GCustomFontsProvider),
                       (GGoogleFontsProvider = await gApi.getShare(t, true).catch(() => null)));
                 if (GGoogleFontsProvider)
-                  n(new h.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider, null, t, GGoogleFontsProvider.autosave), {
-                    loadingData: s,
+                  n(new Item2.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider, null, t, GGoogleFontsProvider.autosave), {
+                    loadingData: Item,
                   });
                 else {
-                  (s.text = i.get(new GLocaleKey("GContainer", "text.load-failed"))),
-                    e.updateStatus(_.LoadFailed, s),
+                  (Item.text = i.get(new GLocaleKey("GContainer", "text.load-failed"))),
+                    e.updateStatus(_.LoadFailed, Item),
                     e.setFailedDocumentIdOrToken(GCustomFontsProvider),
                     n(null);
                   var GFontsProviderManager = [];
@@ -370,9 +370,9 @@ function (exports, module, require) {
             } catch (t) {
               console.log(t),
                 setTimeout(function () {
-                  e.updateStatus(_.LoadFailed, s);
+                  e.updateStatus(_.LoadFailed, Item);
                 }, 10),
-                e.updateStatus(_.LoadFailed, s),
+                e.updateStatus(_.LoadFailed, Item),
                 n(null);
             }
           })();

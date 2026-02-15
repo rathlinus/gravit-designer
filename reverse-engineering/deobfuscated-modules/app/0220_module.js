@@ -14,7 +14,7 @@ function (exports, module, require) {
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       c = _interopRequireDefault(require(554) /* module_554 */),
       d = _interopRequireDefault(require(555) /* module_555 */),
-      u = require(237) /* Item */,
+      Item = require(237) /* Item */,
       p = require(119) /* GCloudStorage */;
     const DataModule_436 = require(436) /* DataModule_436 */,
       h = require(86) /* module_86 */;
@@ -32,7 +32,7 @@ function (exports, module, require) {
       });
     }
     function b() {}
-    GCore.GObject.inherit(b, u),
+    GCore.GObject.inherit(b, Item),
       (b.ProgressStages = {
         Preparing: 0,
         SyncingImages: 50,
@@ -50,7 +50,7 @@ function (exports, module, require) {
       }),
       (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, GEvent_storageItem) {
         if (
-          (u.Item.call(this, e),
+          (Item.Item.call(this, e),
           (this._filename = n),
           (this._id = t),
           (this._file = _interopRequireDefault && p.convertToCloudItem(_interopRequireDefault)),
@@ -70,7 +70,7 @@ function (exports, module, require) {
             GSystemDialog && ((this._ext = GSystemDialog.ext.toUpperCase()), (this._type = GSystemDialog.type));
         }
       }),
-      GCore.GObject.inheritAndMix(b.Item, u.Item, [DataModule_436]),
+      GCore.GObject.inheritAndMix(b.Item, Item.Item, [DataModule_436]),
       (b.Item.prototype._filename = null),
       (b.Item.prototype._ext = null),
       (b.Item.prototype._type = null),
@@ -230,8 +230,8 @@ function (exports, module, require) {
                   n && n("scene is null")
                 );
               try {
-                const u = v.gzip(c, { level: 9 }),
-                  p = u.hasOwnProperty("size") ? u.size : u.length;
+                const Item = v.gzip(c, { level: 9 }),
+                  p = Item.hasOwnProperty("size") ? Item.size : Item.length;
                 if (p <= 0)
                   return (
                     _({
@@ -241,7 +241,7 @@ function (exports, module, require) {
                     (this._writing = false),
                     n && n("empty blob")
                   );
-                const DataModule_436 = v.ungzip(u, { to: "string" });
+                const DataModule_436 = v.ungzip(Item, { to: "string" });
                 if ((this._verifyFileNotTooSmall(p, e), !DataModule_436))
                   return (
                     _({
@@ -257,7 +257,7 @@ function (exports, module, require) {
                         "Scene invalid, sending error, please try again or submit a bug issue on https://discuss.gravit.io"
                       )
                   );
-                var _interopRequireDefault = Md5.base64(u);
+                var _interopRequireDefault = Md5.base64(Item);
                 const m = await e.buildPreview().catch(() => null),
                   w = await AppSettings.gApi.signedPutUrls(this._id, {
                     type: f.type,
@@ -272,7 +272,7 @@ function (exports, module, require) {
                       "Cache-Control": "public,max-age=31536000",
                       "Content-MD5": _interopRequireDefault,
                     },
-                    body: u,
+                    body: Item,
                     onProgress: (e) => {
                       GSystemDialog(
                         d.default.calculateProgress(
@@ -297,7 +297,7 @@ function (exports, module, require) {
                   );
                 await this._syncPreviewThumbnailWithCloud(m);
                 const x = AppSettings.COMPUTE_SHA256_FOR_FILES
-                  ? await (0, CollaborationMergeUtils.getFileSHA256Digest)(u)
+                  ? await (0, CollaborationMergeUtils.getFileSHA256Digest)(Item)
                   : null;
                 await AppSettings.gApi.commitManualFileUpdate(this._id, [
                   AppSettings.FileTypes.MainFile,

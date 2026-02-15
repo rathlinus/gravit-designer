@@ -26,7 +26,7 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       DataModule_593 = require(593) /* DataModule_593 */,
-      s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
+      GoogleToCloudRoleMap = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)
           var require = new WeakMap(),
@@ -168,7 +168,7 @@ function (exports, module, require) {
                               let { emailAddress: module, role: require } = e;
                               return {
                                 email: module,
-                                role: s.default[require],
+                                role: GoogleToCloudRoleMap.default[require],
                                 externalRole: require,
                               };
                             })
@@ -317,7 +317,7 @@ function (exports, module, require) {
           ),
           CollaborationMergeUtils = await this.getAccessToken(),
           DataModule_593 = { fields: "*", supportsAllDrives: true };
-        for (var s in DataModule_593) _interopRequireDefault.searchParams.append(s, DataModule_593[s]);
+        for (var GoogleToCloudRoleMap in DataModule_593) _interopRequireDefault.searchParams.append(GoogleToCloudRoleMap, DataModule_593[GoogleToCloudRoleMap]);
         return fetch(_interopRequireDefault.toString(), {
           method: "DELETE",
           headers: new Headers({ Authorization: "Bearer ".concat(CollaborationMergeUtils) }),
@@ -332,7 +332,7 @@ function (exports, module, require) {
             new Blob([JSON.stringify(n)], { type: "application/json" })
           ),
             DataModule_593.append("file", t);
-          var s = new URL(
+          var GoogleToCloudRoleMap = new URL(
               "https://www.googleapis.com/upload/drive/v3/files/".concat(
                 e || ""
               )
@@ -341,8 +341,8 @@ function (exports, module, require) {
           for (var GError in (n.hasOwnProperty("driveId") &&
             (l.supportsAllDrives = true),
           l))
-            s.searchParams.append(GError, l[GError]);
-          fetch(s.toString(), {
+            GoogleToCloudRoleMap.searchParams.append(GError, l[GError]);
+          fetch(GoogleToCloudRoleMap.toString(), {
             method: e ? "PATCH" : "POST",
             headers: new Headers({ Authorization: "Bearer ".concat(_interopRequireDefault) }),
             body: DataModule_593,
@@ -359,14 +359,14 @@ function (exports, module, require) {
       (g.prototype._resumableUpload = async function (e, t, n, _interopRequireDefault) {
         const GCore = await this.getAccessToken();
         return new Promise((CollaborationMergeUtils, DataModule_593) => {
-          var s = n.mimeType || "application/octet-stream";
+          var GoogleToCloudRoleMap = n.mimeType || "application/octet-stream";
           const l = { fields: "*" };
           n.hasOwnProperty("driveId") && (l.supportsAllDrives = true),
             new GoogleDriveResumableUpload({
               file: t,
               fileId: e,
               token: GCore,
-              contentType: s,
+              contentType: GoogleToCloudRoleMap,
               metadata: n,
               params: l,
               onComplete: function (e) {
@@ -391,12 +391,12 @@ function (exports, module, require) {
         _interopRequireDefault = "number" == typeof _interopRequireDefault ? _interopRequireDefault : 0;
         const GCore = await this.getAccessToken(),
           DataModule_593 = { Authorization: "Bearer ".concat(GCore) },
-          s = t.headers ? Object.assign(DataModule_593, t.headers) : DataModule_593;
+          GoogleToCloudRoleMap = t.headers ? Object.assign(DataModule_593, t.headers) : DataModule_593;
         return (
           delete t.headers,
           fetch(
             e,
-            Object.assign({ headers: new Headers(s), signal: n }, t)
+            Object.assign({ headers: new Headers(GoogleToCloudRoleMap), signal: n }, t)
           ).then(async (GCore) => {
             if (!GCore.ok) {
               var DataModule_593 = await GCore.json();
@@ -416,8 +416,8 @@ function (exports, module, require) {
       }),
       (g.prototype._requestWithProgress = async function (e, t, n, _interopRequireDefault, GCore) {
         GCore = "number" == typeof GCore ? GCore : 0;
-        const s = await this.getAccessToken(),
-          l = { Authorization: "Bearer ".concat(s) },
+        const GoogleToCloudRoleMap = await this.getAccessToken(),
+          l = { Authorization: "Bearer ".concat(GoogleToCloudRoleMap) },
           GError = t.headers ? Object.assign(l, t.headers) : l;
         delete t.headers;
         const GoogleDriveResumableUpload = await fetch(
@@ -544,7 +544,7 @@ function (exports, module, require) {
       (g.UploadType = { Simple: "simple", Resumable: "resumeable" }),
       (g.DefaultUploadType = g.UploadType.Resumable),
       (g.CloudToGoogleRoleMap = l.default),
-      (g.GoogleToCloudRoleMap = s.default),
+      (g.GoogleToCloudRoleMap = GoogleToCloudRoleMap.default),
       (g.SearchEngine = {
         Sorts: { Ascending: "", Descending: "desc" },
         OrderBy: {

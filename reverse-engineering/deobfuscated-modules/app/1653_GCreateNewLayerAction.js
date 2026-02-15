@@ -11,7 +11,7 @@ function (exports, module, require) {
       GEditor = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-      l = require(198) /* Exports_GOutlineSidebar */,
+      GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
       GToggleSidebarAction = _interopRequireDefault(require(1170) /* GToggleSidebarAction */);
     class d extends GAction.default {
       getId() {
@@ -35,11 +35,11 @@ function (exports, module, require) {
       execute() {
         this._showOutlineSidebar();
         const exports = gDesigner.getLeftSidebars();
-        (exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar)).insertLayer();
+        (exports && exports.getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar)).insertLayer();
       }
       _showOutlineSidebar() {
         const exports = gDesigner.getAction(
-          "".concat(GToggleSidebarAction.default.ID, ".").concat(l.SidebarsIds.GOutlineSidebar)
+          "".concat(GToggleSidebarAction.default.ID, ".").concat(GOutlineSidebar.SidebarsIds.GOutlineSidebar)
         );
         exports.isChecked() || exports.execute();
       }

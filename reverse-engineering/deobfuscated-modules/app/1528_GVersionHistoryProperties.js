@@ -13,9 +13,9 @@ function (exports, module, require) {
       DataModule_1163 = require(1163) /* DataModule_1163 */,
       GProperties = _interopRequireDefault(require(123) /* GProperties */),
       GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
-      c = _interopRequireDefault(require(220) /* Item */),
+      Item = _interopRequireDefault(require(220) /* Item */),
       GDocument = _interopRequireDefault(require(163) /* GDocument */),
-      u = _interopRequireDefault(require(219) /* GLocale */),
+      GLocale = _interopRequireDefault(require(219) /* GLocale */),
       GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
       g = _interopRequireDefault(require(86) /* module_86 */),
       GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
@@ -205,7 +205,7 @@ function (exports, module, require) {
             })
             .catch(
               (e) => (
-                new u.default(
+                new GLocale.default(
                   GCore.GLocale.get(
                     new GCore.GLocaleKey(
                       "GVersionHistoryProperties",
@@ -223,9 +223,9 @@ function (exports, module, require) {
           _interopRequireDefault = this,
           GProperties = gDesigner.getActiveDocument().getStorageItem(),
           GEvent_fileId = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
-          c = !!GEvent_fileId;
+          Item = !!GEvent_fileId;
         let GDocument,
-          u = this._versionsContainer.find(".content");
+          GLocale = this._versionsContainer.find(".content");
         AppSettings.AUTO_SAVE_ENABLED && (GDocument = this._autoSaveContainer.find(".content"));
         const g = e.find((e) => e.version.latest);
         let GDocumentStatusEvent = g,
@@ -236,17 +236,17 @@ function (exports, module, require) {
             ((GDocumentStatusEvent = e), (GRichTooltipConfig = true));
         }
         const y = (e, t, AppSettings) => {
-          let { version: GProperties, thumbnail: GDocument, autosave: u } = e;
+          let { version: GProperties, thumbnail: GDocument, autosave: GLocale } = e;
           return $("<div />")
             .addClass("version-history-item")
             .addClass(
-              (c ? GEvent_fileId === GProperties.versionId : ((GRichTooltipConfig && u) || (!GRichTooltipConfig && !u)) && GProperties.latest)
+              (Item ? GEvent_fileId === GProperties.versionId : ((GRichTooltipConfig && GLocale) || (!GRichTooltipConfig && !GLocale)) && GProperties.latest)
                 ? "vhi-initial"
                 : ""
             )
             .addClass(require || GProperties.latest ? "" : "vhi-disabled")
             .addClass(
-              (c ? GEvent_fileId === GProperties.versionId : GProperties.versionId === GDocumentStatusEvent.version.versionId)
+              (Item ? GEvent_fileId === GProperties.versionId : GProperties.versionId === GDocumentStatusEvent.version.versionId)
                 ? "vhi-active"
                 : ""
             )
@@ -324,7 +324,7 @@ function (exports, module, require) {
                               GProperties.versionId,
                               GDocument.name,
                               $(this).closest(".version-history-item"),
-                              u
+                              GLocale
                             ),
                             $(this).parent(".vhi-settings-list").hide();
                         })
@@ -348,7 +348,7 @@ function (exports, module, require) {
                             gDesigner.intercomStats(
                               "Open version from history"
                             ),
-                            _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, u),
+                            _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, GLocale),
                             $(this).parent(".vhi-settings-list").hide();
                         })
                     )
@@ -369,7 +369,7 @@ function (exports, module, require) {
                   : (gDesigner.stats(
                       "version-history-panel_show-preview_from-main-panel"
                     ),
-                    _interopRequireDefault._showPreview(GProperties.versionId, GDocument.name, $(t), u),
+                    _interopRequireDefault._showPreview(GProperties.versionId, GDocument.name, $(t), GLocale),
                     gDesigner.intercomStats("Preview version from history"));
               }, 500);
             })
@@ -382,7 +382,7 @@ function (exports, module, require) {
                 );
               $(this).data("dblclicked", 2),
                 gDesigner.stats("version-history-panel_apply-version"),
-                _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, u),
+                _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, GLocale),
                 gDesigner.intercomStats("Open version from history");
             })
             .on("mouseenter", function () {
@@ -397,10 +397,10 @@ function (exports, module, require) {
           for (let t = 0, require = e.length; t < require; t++) {
             let _interopRequireDefault = e[t],
               GCore = null;
-            (GCore = _interopRequireDefault.autosave ? GDocument : u), GCore.append(y(_interopRequireDefault, t, require));
+            (GCore = _interopRequireDefault.autosave ? GDocument : GLocale), GCore.append(y(_interopRequireDefault, t, require));
           }
         }
-        u.empty(),
+        GLocale.empty(),
           GDocument && GDocument.empty(),
           v(e),
           AppSettings.AUTO_SAVE_ENABLED && v(t),
@@ -429,7 +429,7 @@ function (exports, module, require) {
         if (require === GDocumentEvent.default.Type.AutoSaveSynchronized)
           return void this._updateVersionHistory(this._fileId);
         if (this._loadingPreview) return;
-        const _interopRequireDefault = module.getStorageItem() instanceof c.default.Item,
+        const _interopRequireDefault = module.getStorageItem() instanceof Item.default.Item,
           GCore = module.getScene();
         ((_interopRequireDefault && module.getStorageItem().getId() !== this._fileId) ||
           (!_interopRequireDefault && GCore && GCore.getProperty("cid") !== this._fileId)) &&
@@ -438,7 +438,7 @@ function (exports, module, require) {
       (y.prototype._storageEventHandler = function (e) {
         let { type: module, storageItem: require } = e;
         module === GEvent_storageItem.default.Type.VersionUpdate &&
-          require instanceof c.default.Item &&
+          require instanceof Item.default.Item &&
           this._fileId === require.getId() &&
           this._updateVersionHistory(this._fileId);
       }),
@@ -446,7 +446,7 @@ function (exports, module, require) {
         var AppSettings = gDesigner.getActiveDocument();
         if (AppSettings.isModified())
           return (
-            new u.default(
+            new GLocale.default(
               GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GVersionsHistoryAction",
@@ -458,7 +458,7 @@ function (exports, module, require) {
           );
         this._loadingPreview = true;
         var DataModule_1163 = new GDocument.default(
-          await c.default.from(
+          await Item.default.from(
             gDesigner.getDefaultStorage(),
             this._fileId,
             t,
@@ -623,7 +623,7 @@ function (exports, module, require) {
         var _interopRequireDefault = gDesigner.getActiveDocument();
         if (_interopRequireDefault.isModified())
           return (
-            new u.default(
+            new GLocale.default(
               GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GVersionsHistoryAction",
@@ -634,7 +634,7 @@ function (exports, module, require) {
             false
           );
         var AppSettings = gDesigner.openDocumentWithReload(
-          await c.default.from(
+          await Item.default.from(
             gDesigner.getDefaultStorage(),
             this._fileId,
             t,

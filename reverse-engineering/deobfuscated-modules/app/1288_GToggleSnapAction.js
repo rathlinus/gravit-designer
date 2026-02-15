@@ -9,12 +9,12 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GToggleSnapAction", "tooltip-title")
           ),

@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      r = require(15) /* GEditor */,
+      GEditor = require(15) /* GEditor */,
       GMenu = _interopRequireDefault(require(238) /* GMenu */),
       GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
       GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
@@ -23,7 +23,7 @@ function (exports, module, require) {
       GInspectorSidebar = require(864) /* GInspectorSidebar */,
       GProperties = require(123) /* GProperties */,
       GAnnotations = require(1535) /* GAnnotations */,
-      _ = require(603) /* WindowEvent */,
+      WindowEvent = require(603) /* WindowEvent */,
       GAnnotationProperties = require(1536) /* GAnnotationProperties */,
       GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
       C = require(592) /* module_592 */;
@@ -161,10 +161,10 @@ function (exports, module, require) {
                             _interopRequireDefault,
                             n.properties.getPage()
                           ),
-                          r = n.properties.setAnnotations(t);
-                        r === O.UPDATED
+                          GEditor = n.properties.setAnnotations(t);
+                        GEditor === O.UPDATED
                           ? (GTools = true)
-                          : r === O.DELAYED &&
+                          : GEditor === O.DELAYED &&
                             ((GCore = true),
                             n.properties.setDelayedSyncCallback(
                               this.syncAnnotations.bind(this, e)
@@ -219,7 +219,7 @@ function (exports, module, require) {
         this._annotationsToolbarPanel = $("<div></div>")
           .addClass("properties-panel")
           .addClass("annotations-properties-panel");
-        var r = $("<div></div>")
+        var GEditor = $("<div></div>")
           .addClass("annotation-options-box")
           .appendTo(this._annotationToolbar);
         require
@@ -238,7 +238,7 @@ function (exports, module, require) {
                 require.addClass("g-active");
             }.bind(this)
           )
-          .appendTo(r),
+          .appendTo(GEditor),
           $("<span></span>")
             .addClass("indicator")
             .appendTo(this._annotationToolbar),
@@ -384,7 +384,7 @@ function (exports, module, require) {
           gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           gDesigner
             .getWindows()
-            .addEventListener(_.WindowEvent, this._windowEvent, this),
+            .addEventListener(WindowEvent.WindowEvent, this._windowEvent, this),
           gDesigner
             .getToolManager()
             .addEventListener(
@@ -560,7 +560,7 @@ function (exports, module, require) {
           (this._showDistance = GTools.GEditorOptions.showDistance),
           (this._toolExitKey = GTools.GEditorOptions.toolExitKey),
           (GTools.GEditorOptions.showDistance = false),
-          (GTools.GEditorOptions.toolExitKey = r.GKey.Constant.ESC),
+          (GTools.GEditorOptions.toolExitKey = GEditor.GKey.Constant.ESC),
           this._document
             .getActiveWindow()
             .getView()
@@ -684,7 +684,7 @@ function (exports, module, require) {
         module && require ? _interopRequireDefault.parent().show() : _interopRequireDefault.parent().hide();
       }),
       (N.prototype._windowEvent = function (e) {
-        e.type === _.WindowEvent.Type.Activated &&
+        e.type === WindowEvent.WindowEvent.Type.Activated &&
           this._active &&
           this._activateAnnotations();
       }),
@@ -976,7 +976,7 @@ function (exports, module, require) {
           GTools = $("<div></div>")
             .css("display", "none")
             .addClass("properties-panel"),
-          r = false;
+          GEditor = false;
         const GMenu = this._panelsContainer.find(".scrolling-panels");
         if (e instanceof GProperties) {
           require = e;
@@ -985,7 +985,7 @@ function (exports, module, require) {
             (require.init(GMenu2, this._annotationToolbar),
             e._availableProperties && 0 === e._availableProperties.length)
           )
-            return r;
+            return GEditor;
           var GRichTooltipConfig = $("<div></div>").css("display", "none");
           e instanceof GAnnotationProperties &&
             GRichTooltipConfig.append(
@@ -1055,10 +1055,10 @@ function (exports, module, require) {
                 ) {
                   n.setProperty("aid", t.getProperty("aid")), n.clearChildren();
                   for (let e = 0; e < _interopRequireDefault.length; e++) n.appendChild(_interopRequireDefault[e]);
-                  r = true;
+                  GEditor = true;
                 } else {
                   let e = GAnnotationsUtils.mergeAnnotations(n, n.getChildren(), t, _interopRequireDefault);
-                  r = r || e;
+                  GEditor = GEditor || e;
                 }
               }
             }
@@ -1070,7 +1070,7 @@ function (exports, module, require) {
               properties: require,
             });
         }
-        return r;
+        return GEditor;
       }),
       (N.prototype._updateToolbarButtons = function () {
         this._annotationProperties.forEach((e, t) => {
@@ -1093,8 +1093,8 @@ function (exports, module, require) {
           try {
             e && (_interopRequireDefault = this._updateAnnotationArray());
             var GTools = this._annotationProperties.concat(this._annotationPanels),
-              r = this._annotationToolbar.find(".indicator");
-            r.css("visibility", "hidden");
+              GEditor = this._annotationToolbar.find(".indicator");
+            GEditor.css("visibility", "hidden");
             for (var GMenu = 0; GMenu < GTools.length; ++GMenu) {
               var GMenu2 = GTools[GMenu],
                 GRichTooltipConfig = GMenu2.properties,
@@ -1137,8 +1137,8 @@ function (exports, module, require) {
                 GTouchTool && !(GRichTooltipConfig instanceof GFileReviewProperties))
               ) {
                 let e = this._annotationToolbar.find("." + GRichTooltipConfig._toolbarIcon);
-                r.css("left", e.position().left + e.width() / 2 - 6),
-                  r.css("visibility", "visible");
+                GEditor.css("left", e.position().left + e.width() / 2 - 6),
+                  GEditor.css("visibility", "visible");
               }
               GTouchTool && this._annotationsToolbarPanel.css("display", "");
             }
@@ -1240,14 +1240,14 @@ function (exports, module, require) {
                   if (!n.getProperty("rsv"))
                     if (n.getChildren().length > 0) {
                       for (
-                        var r = n.getFirstChild();
-                        null !== r && r instanceof GCore.GComment;
-                        r = r.getNext()
+                        var GEditor = n.getFirstChild();
+                        null !== GEditor && GEditor instanceof GCore.GComment;
+                        GEditor = GEditor.getNext()
                       )
                         GTools &&
-                          GTools.getUID() !== r.getProperty("uid") &&
-                          r.getProperty("type") !== GCore.GComment.Type.Close &&
-                          !(r.getProperty("read") || []).includes(GTools.getUID()) &&
+                          GTools.getUID() !== GEditor.getProperty("uid") &&
+                          GEditor.getProperty("type") !== GCore.GComment.Type.Close &&
+                          !(GEditor.getProperty("read") || []).includes(GTools.getUID()) &&
                           t.unread++,
                           t.total++;
                       _interopRequireDefault ||
@@ -1342,7 +1342,7 @@ function (exports, module, require) {
           var _interopRequireDefault = module.outerWidth(),
             GTools = module.outerHeight(),
             GCore = $(window).width(),
-            r = $(window).height(),
+            GEditor = $(window).height(),
             GMenu = { x: 0, y: 0, width: 0, height: 0 },
             GMenu2 = $(e),
             GRichTooltipConfig = GMenu2.offset();
@@ -1353,14 +1353,14 @@ function (exports, module, require) {
           var GTouchTool = 0;
           (GTouchTool = GMenu.x + GMenu.width) + _interopRequireDefault > GCore && (GTouchTool = GMenu.x - _interopRequireDefault);
           var GSettingsDialog = 0;
-          (GSettingsDialog = GMenu.y + GMenu.height) + GTools > r && (GSettingsDialog = GMenu.y - GTools);
+          (GSettingsDialog = GMenu.y + GMenu.height) + GTools > GEditor && (GSettingsDialog = GMenu.y - GTools);
           const n = this._rangeLeftX ? this._rangeLeftX : 0;
           GTouchTool < n && (GTouchTool = n);
           const p = this._rangeRightX ? this._rangeRightX : GCore;
           GTouchTool + _interopRequireDefault >= p && (GTouchTool = p - _interopRequireDefault);
           const GDocumentEvent = this._rangeLeftY ? this._rangeLeftY : 0;
           GSettingsDialog < GDocumentEvent && (GSettingsDialog = GDocumentEvent);
-          const h = this._rangeRightY ? this._rangeRightY : r;
+          const h = this._rangeRightY ? this._rangeRightY : GEditor;
           GSettingsDialog + GTools >= h && (GSettingsDialog = h - GTools);
           const GSidebarContainer = GSettingsDialog - GTools - 10;
           module.css("left", GTouchTool),

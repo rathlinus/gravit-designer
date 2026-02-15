@@ -24,7 +24,7 @@ function (exports, module, require) {
     var GSystem = require(176) /* GSystem */,
       GObject = require(0) /* GObject */;
     require(10) /* AppSettings */;
-    var a = require(237) /* Item */,
+    var Item = require(237) /* Item */,
       FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
       s = null,
       l = null;
@@ -41,11 +41,11 @@ function (exports, module, require) {
           if ("granted" !== e) throw new Error("Cannot get write access");
         });
     }
-    GObject.inherit(c, a),
+    GObject.inherit(c, Item),
       (c.Directory = function (e, t) {
-        a.Directory.call(this, e), (this._dirHandle = t), (this._id = null);
+        Item.Directory.call(this, e), (this._dirHandle = t), (this._id = null);
       }),
-      GObject.inherit(c.Directory, a.Directory),
+      GObject.inherit(c.Directory, Item.Directory),
       (c.Directory.prototype._dirHandle = null),
       (c.Directory.prototype._id = null),
       (c.Directory.prototype.getUniqueId = function () {
@@ -76,12 +76,12 @@ function (exports, module, require) {
         }
       }),
       (c.Item = function (e, t, n, GSystem) {
-        a.Item.call(this, e),
+        Item.Item.call(this, e),
           (this._data = t),
           (this._filename = n),
           (this._fileHandle = GSystem);
       }),
-      GObject.inherit(c.Item, a.Item),
+      GObject.inherit(c.Item, Item.Item),
       (c.Item.prototype._data = null),
       (c.Item.prototype._filename = null),
       (c.Item.prototype._fileHandle = null),
@@ -146,23 +146,23 @@ function (exports, module, require) {
         if (!this._isFileAPIAvailable() || !this.canChooseDirectory()) return;
         var GSystem = { type: l || "open-directory" };
         let GObject = null;
-        var a = false;
+        var Item = false;
         window
           .chooseFileSystemEntries(GSystem)
           .then((e) => ((GObject = e), d(e)))
           .then(() => {
             let t = e(new c.Directory(this, GObject));
-            return (a = true), t;
+            return (Item = true), t;
           })
           .catch((e) => {
             if (e instanceof DOMException && "SecurityError" === e.name) {
               if ((console.warn("Bugged!"), n)) return void n();
-            } else !a && !l && e instanceof TypeError && (l = "openDirectory");
+            } else !Item && !l && e instanceof TypeError && (l = "openDirectory");
             t && t();
           });
       }),
       (c.prototype.openPrompt = function (e, t, n) {
-        let { disableFileSystemAccessAPI: GObject = false, silent: a = false } =
+        let { disableFileSystemAccessAPI: GObject = false, silent: Item = false } =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
         if (!GObject && this._isFileAPIAvailable()) {
           var FileSaverJS = { multiple: !!n };
@@ -256,7 +256,7 @@ function (exports, module, require) {
           : this._fileInput.removeAttribute("accept"),
           (this._fileInputCallback = t),
           this._fileInput.focus(),
-          a || this._fileInput.click();
+          Item || this._fileInput.click();
       }),
       (c.prototype.savePrompt = function (e, t, n, GSystem) {
         if (this._isFileAPIAvailable()) {
@@ -287,14 +287,14 @@ function (exports, module, require) {
               })),
               (GObject.types = n);
           }
-          var a = false;
+          var Item = false;
           window
             .showSaveFilePicker(GObject)
-            .then((e) => ((a = true), n(new c.Item(this, null, e.name, e))))
+            .then((e) => ((Item = true), n(new c.Item(this, null, e.name, e))))
             .catch((t) => {
               if (
-                (!a && !s && t instanceof TypeError && (s = "saveFile"),
-                !a && t.code !== DOMException.ABORT_ERR)
+                (!Item && !s && t instanceof TypeError && (s = "saveFile"),
+                !Item && t.code !== DOMException.ABORT_ERR)
               )
                 return this.download(e, n);
               GSystem && GSystem();

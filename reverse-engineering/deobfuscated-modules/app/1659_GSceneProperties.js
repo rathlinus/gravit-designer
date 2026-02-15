@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GCore = require(1) /* GCore */,
       i = require(357) /* module_357 */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
       GGravitCloudAction = require(448) /* GGravitCloudAction */,
       GSaveAsAction = require(445) /* GSaveAsAction */,
@@ -143,8 +143,8 @@ function (exports, module, require) {
               .gInputBox({ postfix: "°" });
           if (0 === e.indexOf("gm-")) {
             var i = "",
-              a = e.substr("gm-".length);
-            switch (a) {
+              GRichTooltipConfig = e.substr("gm-".length);
+            switch (GRichTooltipConfig) {
               case GCore.GScene.GridMode.Boxed:
                 i = GCore.GLocale.get(
                   new GCore.GLocaleKey("GSceneProperties", "text.on")
@@ -169,11 +169,11 @@ function (exports, module, require) {
                   .on("change", function () {
                     gDesigner.stats(
                       "sceneproperties_change_grid-mode",
-                      "box" === a ? "on" : "axo" === a ? "isometric" : "off"
+                      "box" === GRichTooltipConfig ? "on" : "axo" === GRichTooltipConfig ? "isometric" : "off"
                     ),
                       n._assignProperty(
                         "gm",
-                        a || null,
+                        GRichTooltipConfig || null,
                         GCore.GLocale.get(
                           new GCore.GLocaleKey(
                             "GSceneProperties",
@@ -202,8 +202,8 @@ function (exports, module, require) {
                     $(this).val(i.getProperty("cm")),
                     void gDesigner.handlePROFeatureInterruption()
                   );
-                const a = $(this).val();
-                gDesigner.stats("sceneproperties_change_color-mode", a);
+                const GRichTooltipConfig = $(this).val();
+                gDesigner.stats("sceneproperties_change_color-mode", GRichTooltipConfig);
                 var GProperties = i.getActivePage().getChildren();
                 !!GProperties &&
                   GProperties.find((e) => !(e instanceof GCore.GAnnotationsList)) &&
@@ -212,10 +212,10 @@ function (exports, module, require) {
                       new GCore.GLocaleKey("GSceneProperties", "text.reminder")
                     )
                   ),
-                  gDesigner.setSetting("color_mode", a),
+                  gDesigner.setSetting("color_mode", GRichTooltipConfig),
                   n._assignProperty(
                     e,
-                    a,
+                    GRichTooltipConfig,
                     GCore.GLocale.get(
                       new GCore.GLocaleKey(
                         "GSceneProperties",
@@ -310,7 +310,7 @@ function (exports, module, require) {
                   clazz: "unit-selector-column",
                   content: n(
                     "ut",
-                    a.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GSceneProperties",
@@ -347,7 +347,7 @@ function (exports, module, require) {
                   clazz: "color-mode-selector-column",
                   content: n(
                     "cm",
-                    a.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GSceneProperties",
@@ -384,7 +384,7 @@ function (exports, module, require) {
                   clazz: "dpi-selector-column",
                   content: n(
                     "dpi",
-                    a.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GSceneProperties",
@@ -417,7 +417,7 @@ function (exports, module, require) {
                   clazz: "grid-mode-off-column",
                   content: n(
                     "gm-",
-                    a.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GSceneProperties",
@@ -439,7 +439,7 @@ function (exports, module, require) {
                   clazz: "grid-mode-box-column",
                   content: n(
                     "gm-" + GCore.GScene.GridMode.Boxed,
-                    a.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GSceneProperties",
@@ -461,7 +461,7 @@ function (exports, module, require) {
                   clazz: "grid-mode-axo-column",
                   content: n(
                     "gm-" + GCore.GScene.GridMode.Axonometric,
-                    a.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey(
                           "GSceneProperties",
@@ -870,16 +870,16 @@ function (exports, module, require) {
           }),
           !y)
         ) {
-          var a = this._document.isCloudFile()
+          var GRichTooltipConfig = this._document.isCloudFile()
               ? !this._document.getScene().getProperty("cid")
               : !this._document.hasCloudReference(),
             GProperties =
-              !a &&
+              !GRichTooltipConfig &&
               (this._document.isCloudFile() ||
                 this._document.hasCloudReference());
           this._panel
             .find('[data-property="enable-cloud-sync"]')
-            .css("display", a ? "" : "none")
+            .css("display", GRichTooltipConfig ? "" : "none")
             .find("button")
             .prop("disabled", this._document.getStatus() === c.Loading),
             this._panel

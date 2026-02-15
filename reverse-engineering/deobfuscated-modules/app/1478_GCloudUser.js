@@ -12,25 +12,25 @@ function (exports, module, require) {
       require(58) /* polyfill_Array_includes */,
       require(3) /* polyfill_RegExp_toString */,
       require(71) /* polyfill_String_includes */;
-    var o = require(1241) /* GCloudRole */;
+    var GCloudRole = require(1241) /* GCloudRole */;
     const GObject = require(0) /* GObject */,
       GUserModel = require(177) /* GUserModel */;
     function r() {}
     GObject.inherit(r, GUserModel),
       (r.ValidRoles = [
-        o.GCloudRole.Type.Viewer,
-        o.GCloudRole.Type.Coauthor,
-        o.GCloudRole.Type.Creator,
-        o.GCloudRole.Type.Reviewer,
-        o.GCloudRole.Type.Approver,
-        o.GCloudRole.Type.ContentEditor,
+        GCloudRole.GCloudRole.Type.Viewer,
+        GCloudRole.GCloudRole.Type.Coauthor,
+        GCloudRole.GCloudRole.Type.Creator,
+        GCloudRole.GCloudRole.Type.Reviewer,
+        GCloudRole.GCloudRole.Type.Approver,
+        GCloudRole.GCloudRole.Type.ContentEditor,
       ]),
       (r.prototype._role = null),
       (r.prototype._id = null),
       (r.prototype._name = null),
       (r.prototype._email = null),
       (r.prototype.setRole = function (e) {
-        if (!(e instanceof o.GCloudRole))
+        if (!(e instanceof GCloudRole.GCloudRole))
           throw new Error("Incorrect type parameter");
         if (!this.getValidRoles().includes(e.getRole()))
           throw new Error("Incorrect User role");

@@ -8,11 +8,11 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var i = _interopRequireDefault(require(1195) /* Item */);
+    var Item = _interopRequireDefault(require(1195) /* Item */);
     function a(e, t, n, _interopRequireDefault) {
-      i.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault);
+      Item.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault);
     }
-    require(1) /* GCore */.GObject.inheritAndMix(a, i.default.Item),
+    require(1) /* GCore */.GObject.inheritAndMix(a, Item.default.Item),
       (a.prototype.isRegistrable = function () {
         return !!this.getId();
       }),

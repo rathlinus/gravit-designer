@@ -13,13 +13,13 @@ function (exports, module, require) {
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
-      c = _interopRequireDefault(require(219) /* GLocale */),
+      GLocale = _interopRequireDefault(require(219) /* GLocale */),
       GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
-      u = require(67) /* GRichTooltipConfig */;
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */;
     function p() {
       (this._title = new GCore.GLocaleKey("GVersionsHistoryAction", "title")),
         (p.TOOLTIP_CONFIG = {
-          [u.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: u.GRichTooltipConfig.from({
+          [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GVersionsHistoryAction",
@@ -55,7 +55,7 @@ function (exports, module, require) {
         return true;
       }),
       (p.prototype.getTooltipArea = function () {
-        return u.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+        return GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
       }),
       (p.prototype.getTooltipConfig = function (e) {
         return (e && p.TOOLTIP_CONFIG[e]) || null;
@@ -83,7 +83,7 @@ function (exports, module, require) {
       (p.prototype.execute = function () {
         if (gDesigner.getWindows().getActiveWindow().getDocument().isModified())
           return (
-            new c.default(
+            new GLocale.default(
               GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   "GVersionsHistoryAction",

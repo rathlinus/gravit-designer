@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GCore = require(1) /* GCore */,
       GTools = require(53) /* GTools */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GCreateSymbolAction = require(608) /* GCreateSymbolAction */,
@@ -93,7 +93,7 @@ function (exports, module, require) {
             .append($("<span></span>").addClass("gravit-icon-touch-trash"))
             .appendTo(this._symbolsToolbar)
             .gRichTooltip(
-              r.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GSymbolsSidebar",
@@ -134,7 +134,7 @@ function (exports, module, require) {
             .appendTo(this._symbolsToolbar)
             .addClass("g-disabled")
             .gRichTooltip(
-              r.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     "GSymbolsSidebar",

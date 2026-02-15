@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
-      a = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
       s = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
     require(1162) /* GBorderProperties */;
@@ -132,7 +132,7 @@ function (exports, module, require) {
               }.bind(this)
             )
             .appendTo(t);
-        const GTools = a.GRichTooltipConfig.from({
+        const GTools = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -149,7 +149,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          GProperties = a.GRichTooltipConfig.from({
+          GProperties = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -166,7 +166,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          s = a.GRichTooltipConfig.from({
+          s = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -183,7 +183,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          l = a.GRichTooltipConfig.from({
+          l = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -200,7 +200,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          c = a.GRichTooltipConfig.from({
+          c = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -217,7 +217,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          d = a.GRichTooltipConfig.from({
+          d = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -234,7 +234,7 @@ function (exports, module, require) {
             learnMore:
               "",
           }),
-          u = a.GRichTooltipConfig.from({
+          u = GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey(
                 "GTransformProperties",
@@ -669,7 +669,7 @@ function (exports, module, require) {
             ? this._copiesAndApplyTouch
             : this._copiesAndApply,
           n = parseInt(t.find('[data-property="copies"]').gInputBox("value")),
-          a = t.find('[data-property="pivot"]').gPivot("value"),
+          GRichTooltipConfig = t.find('[data-property="pivot"]').gPivot("value"),
           GProperties =
             e.stringToPoint(
               this._panel.find('[data-property="move-x"]').gInputBox("value")
@@ -753,15 +753,15 @@ function (exports, module, require) {
               0 !== g)
             ) {
               var GTools = Math.cos(g),
-                a = Math.sin(g);
+                GRichTooltipConfig = Math.sin(g);
               e % 2 &&
                 h(
                   t,
                   new GCore.GTransform()
                     .translated(-n.getX(), -n.getY())
-                    .multiplied(new GCore.GTransform(GTools, -a, a, GTools, 0, 0))
+                    .multiplied(new GCore.GTransform(GTools, -GRichTooltipConfig, GRichTooltipConfig, GTools, 0, 0))
                     .multiplied(new GCore.GTransform(1, 0, 0, -1, 0, 0))
-                    .multiplied(new GCore.GTransform(GTools, a, -a, GTools, 0, 0))
+                    .multiplied(new GCore.GTransform(GTools, GRichTooltipConfig, -GRichTooltipConfig, GTools, 0, 0))
                     .translated(n.getX(), n.getY())
                 );
             }
@@ -778,7 +778,7 @@ function (exports, module, require) {
               ++GProperties
             ) {
               var s = this._elements[GProperties];
-              a && (GTools = s.getGeometryBBox()) && (t = t ? t.united(GTools) : GTools);
+              GRichTooltipConfig && (GTools = s.getGeometryBBox()) && (t = t ? t.united(GTools) : GTools);
               var l = [s];
               if (n > 0)
                 for (
@@ -798,7 +798,7 @@ function (exports, module, require) {
               e.push(l);
             }
             var g = null;
-            if ((t && !t.isEmpty() && (g = t.getSide(a)), g))
+            if ((t && !t.isEmpty() && (g = t.getSide(GRichTooltipConfig)), g))
               for (GProperties = 0; GProperties < e.length; ++GProperties) {
                 if ((l = e[GProperties]).length > 1)
                   for (var h = 0; h < l.length; ++h) f(h, l[h], g);

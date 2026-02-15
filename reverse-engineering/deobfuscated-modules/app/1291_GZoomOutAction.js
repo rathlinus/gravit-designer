@@ -10,12 +10,12 @@ function (exports, module, require) {
     var GTools = require(53) /* GTools */,
       GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
-      r = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GZoomOutAction", "tooltip-title")
           ),
@@ -65,12 +65,12 @@ function (exports, module, require) {
           for (
             var require = GTools.GZoomTool.options.zoomLevels,
               GCore = e.getZoom(),
-              r = (require.length, 0);
-            r < require.length;
-            r++
+              GRichTooltipConfig = (require.length, 0);
+            GRichTooltipConfig < require.length;
+            GRichTooltipConfig++
           )
-            if ((GCore > require[r] && (t = require[r]), GCore === require[r])) {
-              t = r > 0 ? require[r - 1] : GEditor.GSceneWidget.options.minZoomFactor;
+            if ((GCore > require[GRichTooltipConfig] && (t = require[GRichTooltipConfig]), GCore === require[GRichTooltipConfig])) {
+              t = GRichTooltipConfig > 0 ? require[GRichTooltipConfig - 1] : GEditor.GSceneWidget.options.minZoomFactor;
               break;
             }
         } else t = e.getZoom() / c.ZOOM_STEP;

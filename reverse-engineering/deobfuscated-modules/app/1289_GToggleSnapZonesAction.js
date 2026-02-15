@@ -8,12 +8,12 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* GCore */,
-      i = require(67) /* GRichTooltipConfig */,
+      GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     function s() {
       s.TOOLTIP_CONFIG = {
-        [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey("GToggleSnapZonesAction", "tooltip-title")
           ),

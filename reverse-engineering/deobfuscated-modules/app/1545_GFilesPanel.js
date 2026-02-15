@@ -40,13 +40,13 @@ function (exports, module, require) {
       DataModule_1546 = require(1546) /* DataModule_1546 */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
-      l = require(1552) /* Exports_GGoogleDrive */,
+      GGoogleDrive = require(1552) /* Exports_GGoogleDrive */,
       TYPES = require(862) /* Exports_TYPES */,
       d = require(858) /* Exports_GFilesPanel */,
       GObject_1556 = _interopRequireDefault(require(1556) /* GObject_1556 */),
       p = _interopRequireDefault(require(86) /* module_86 */),
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
-      h = _interopRequireDefault(require(802) /* CloudException */),
+      CloudException = _interopRequireDefault(require(802) /* CloudException */),
       f = _interopRequireDefault(require(1240) /* module_1240 */),
       GSaveAsAction = _interopRequireDefault(require(445) /* GSaveAsAction */),
       GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
@@ -58,7 +58,7 @@ function (exports, module, require) {
       GDocumentEvent = require(78) /* GDocumentEvent */;
     var S = AppSettings.CloudIntegration.cloudOptions,
       E = AppSettings.CloudIntegration.nativeOption,
-      A = [..._.CloudIntegration.cloudOptions, AppSettings.CloudIntegration.nativeOption];
+      A = [...AppSettings.CloudIntegration.cloudOptions, AppSettings.CloudIntegration.nativeOption];
     function T(e) {
       this._initializeDefaultValues(e),
         (this._initializingPromise = this._init(e));
@@ -87,12 +87,12 @@ function (exports, module, require) {
           cancelSave: GCore = CollaborationMergeUtils.fakeFunction,
           defaultFilename: DataModule_1546,
           readyStateChange: GFileDownloadUtils,
-          showExampleFiles: l,
+          showExampleFiles: GGoogleDrive,
           GUISettings: TYPES,
           saveMode: GObject_1556,
           driveSettings: p = null,
           isDashboard: GCloudStorage,
-          isCorporateStoragesEnabled: h = true,
+          isCorporateStoragesEnabled: CloudException = true,
         } = e;
         (this._GUISettings = TYPES || new T.GUISettings()),
           (this._driveSettings = p || new f.default()),
@@ -104,9 +104,9 @@ function (exports, module, require) {
           (this.BUILD_IN_PROGRESS = false),
           (this.DEFAULT_FILENAME = DataModule_1546),
           (this._newClipBoard = false),
-          (this._showExampleFiles = l),
+          (this._showExampleFiles = GGoogleDrive),
           (this._isDashboard = GCloudStorage),
-          (this._isCorporateStoragesEnabled = h),
+          (this._isCorporateStoragesEnabled = CloudException),
           (this.readyStateChange = GFileDownloadUtils),
           (this.search = (0, CollaborationMergeUtils.debounce)(this.search, 200));
         var GSaveAsAction = (e) =>
@@ -158,7 +158,7 @@ function (exports, module, require) {
         };
       }),
       (T.prototype.initLayout = async function (e) {
-        (this.drive = l.GCloudDrive.getInstance()),
+        (this.drive = GGoogleDrive.GCloudDrive.getInstance()),
           this.drive.setQueryLimit(20),
           (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)),
           (this.accountSettingsKey = ""
@@ -248,7 +248,7 @@ function (exports, module, require) {
                 : gContainer.removeProperty(t.accountSettingsKey);
             try {
               if ("googledrive" === e.type) {
-                var DataModule_1546 = new l.GGoogleDrive();
+                var DataModule_1546 = new GGoogleDrive.GGoogleDrive();
                 await DataModule_1546.install(), await DataModule_1546.uninstall();
               }
               gDesigner.removeExternalRecentFiles(e.type, e.id);
@@ -290,7 +290,7 @@ function (exports, module, require) {
                       _interopRequireDefault,
                       t.drive.getCurrentFolder()
                     )) &&
-                    !(await ((l = _interopRequireDefault),
+                    !(await ((GGoogleDrive = _interopRequireDefault),
                     new Promise((e) => {
                       GSystemDialog.default.confirm(
                         GCore.GLocale.get(
@@ -298,7 +298,7 @@ function (exports, module, require) {
                             "GFilesPanel",
                             "text.folder-already-exists-on-current-location"
                           )
-                        ).replace("%foldername", '"'.concat(l, '"')),
+                        ).replace("%foldername", '"'.concat(GGoogleDrive, '"')),
                         (t) => e(!!t),
                         null,
                         null,
@@ -319,7 +319,7 @@ function (exports, module, require) {
                     _interopRequireDefault = GFileDownloadUtils;
                   }
                 }
-                var l;
+                var GGoogleDrive;
                 (require = true),
                   t.drive
                     .createFolder(_interopRequireDefault)
@@ -675,9 +675,9 @@ function (exports, module, require) {
               )
             );
         } else t || (t = this.drive.getFileFormat(e) || TYPES.DEFAULT_TYPE);
-        var { ext: DataModule_1546, type: CollaborationMergeUtils, mime: GFileDownloadUtils, version: l } = t;
+        var { ext: DataModule_1546, type: CollaborationMergeUtils, mime: GFileDownloadUtils, version: GGoogleDrive } = t;
         CollaborationMergeUtils = CollaborationMergeUtils || GFileDownloadUtils;
-        const d = this._triggerFileDownload(e, require, DataModule_1546, CollaborationMergeUtils, l);
+        const d = this._triggerFileDownload(e, require, DataModule_1546, CollaborationMergeUtils, GGoogleDrive);
         function GObject_1556(t) {
           return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
         }
@@ -685,14 +685,14 @@ function (exports, module, require) {
       }),
       (T.prototype._triggerFileDownload = function (e, t, n, _interopRequireDefault, GCore) {
         const DataModule_1546 = new AbortController(),
-          l = DataModule_1546.signal;
+          GGoogleDrive = DataModule_1546.signal;
         return (
           (t.progress = t.progress || (() => {})),
           this.drive
-            .getRawFile(e, l, t)
-            .then(async (l) => {
+            .getRawFile(e, GGoogleDrive, t)
+            .then(async (GGoogleDrive) => {
               let d,
-                GObject_1556 = l;
+                GObject_1556 = GGoogleDrive;
               if (
                 ((t.cancel = (0, CollaborationMergeUtils.chaining)(t.cancel, () => DataModule_1546.abort())),
                 e.type !== _interopRequireDefault
@@ -721,7 +721,7 @@ function (exports, module, require) {
               }
               {
                 t.done && t.done();
-                let GCore = e.name || l.name;
+                let GCore = e.name || GGoogleDrive.name;
                 GCore.endsWith(".".concat(n)) &&
                   (GCore = GCore.replace(new RegExp(".".concat(n, "$")), "")),
                   (0, GFileDownloadUtils.downloadDataURI)(GObject_1556, GCore, n, { type: _interopRequireDefault });
@@ -766,9 +766,9 @@ function (exports, module, require) {
                       )
                     );
               });
-            var l = GCore.GNode.serialize(DataModule_1546, { save: true });
-            (null === l || "" === l || l.length < 1 || GFileDownloadUtils.cancelled) && _interopRequireDefault();
-            var TYPES = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
+            var GGoogleDrive = GCore.GNode.serialize(DataModule_1546, { save: true });
+            (null === GGoogleDrive || "" === GGoogleDrive || GGoogleDrive.length < 1 || GFileDownloadUtils.cancelled) && _interopRequireDefault();
+            var TYPES = new Uint8Array(pako.gzip(GGoogleDrive, { level: 9 }).buffer);
             TYPES.byteLength > 20 ? n(TYPES) : _interopRequireDefault();
           }),
             (DataModule_1546.onerror = _interopRequireDefault),
@@ -806,7 +806,7 @@ function (exports, module, require) {
       ) {
         const CollaborationMergeUtils = e.map(() => 0),
           GFileDownloadUtils = e.length,
-          l = 100 / GFileDownloadUtils,
+          GGoogleDrive = 100 / GFileDownloadUtils,
           TYPES = {};
         let d = gDesigner.getActiveDocument();
         d || (d = gDesigner.newInfiniteDocument()),
@@ -820,7 +820,7 @@ function (exports, module, require) {
           TYPES.progressInfo("0/".concat(GFileDownloadUtils));
         let GObject_1556 = 0,
           GCloudStorage = false;
-        const h = () => TYPES.progressInfo("".concat(++GObject_1556, "/").concat(GFileDownloadUtils)),
+        const CloudException = () => TYPES.progressInfo("".concat(++GObject_1556, "/").concat(GFileDownloadUtils)),
           f = () => TYPES.progressInfo("".concat(++GObject_1556, "/").concat(GFileDownloadUtils)),
           GSaveAsAction = () => (GCloudStorage = true),
           AppError = e.map((e, GCore) => {
@@ -837,10 +837,10 @@ function (exports, module, require) {
               {
                 progress(e) {
                   CollaborationMergeUtils[GCore] = e;
-                  const t = CollaborationMergeUtils.reduce((e, t) => e + Math.min(t / 100, 1) * l, 0);
+                  const t = CollaborationMergeUtils.reduce((e, t) => e + Math.min(t / 100, 1) * GGoogleDrive, 0);
                   TYPES.progress(t);
                 },
-                done: h,
+                done: CloudException,
                 failed: f,
                 cancel: GSaveAsAction,
               },
@@ -997,11 +997,11 @@ function (exports, module, require) {
             var CollaborationMergeUtils,
               GFileDownloadUtils = [];
             let _interopRequireDefault = n.getSort();
-            var l = n.view.getSearchValue();
-            if (l) {
+            var GGoogleDrive = n.view.getSearchValue();
+            if (GGoogleDrive) {
               if (n.hasMoreItemsToLoad()) {
                 try {
-                  GFileDownloadUtils = await n.drive.fetchFiles(l, n.CURRENT_FILE_LOAD, _interopRequireDefault);
+                  GFileDownloadUtils = await n.drive.fetchFiles(GGoogleDrive, n.CURRENT_FILE_LOAD, _interopRequireDefault);
                 } catch (e) {
                   throw new Error(
                     GCore.GLocale.get(
@@ -1043,8 +1043,8 @@ function (exports, module, require) {
                   if (
                     (console.error(e),
                     !(
-                      e instanceof h.default.CloudException &&
-                      e.code === h.default.ExceptionCode.InvalidCredentials
+                      e instanceof CloudException.default.CloudException &&
+                      e.code === CloudException.default.ExceptionCode.InvalidCredentials
                     ))
                   ) {
                     const t =
@@ -1228,7 +1228,7 @@ function (exports, module, require) {
         try {
           switch (e.type) {
             case "googledrive":
-              (this.drive = new l.GGoogleDrive(undefined, e.id)),
+              (this.drive = new GGoogleDrive.GGoogleDrive(undefined, e.id)),
                 await this.drive.install(),
                 await this.drive.signIn(),
                 (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)),
@@ -1238,7 +1238,7 @@ function (exports, module, require) {
                 );
               break;
             default:
-              (this.drive = l.GCloudDrive.getInstance()),
+              (this.drive = GGoogleDrive.GCloudDrive.getInstance()),
                 (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this));
           }
           this._currentDriveId = e.id;
@@ -1256,12 +1256,12 @@ function (exports, module, require) {
           }
           _interopRequireDefault &&
             _interopRequireDefault.removeEventListener(
-              h.default.DriveEvent,
+              CloudException.default.DriveEvent,
               this._handleDriveEvent,
               this
             ),
             this.drive.addEventListener(
-              h.default.DriveEvent,
+              CloudException.default.DriveEvent,
               this._handleDriveEvent,
               this
             );
@@ -1285,12 +1285,12 @@ function (exports, module, require) {
         e ? await this.setCloudDrive(t) : await this.setCloudDrive(E);
       }),
       (T.prototype._handleDriveEvent = async function (e) {
-        if (e.type === h.default.DriveEvent.Type.UserUpdated) {
+        if (e.type === CloudException.default.DriveEvent.Type.UserUpdated) {
           if (this.drive.hasUserProfile()) {
             var module = await this.drive.getUser();
             module && this.view.updateUserDetails(module);
           }
-        } else if (e.type === h.default.DriveEvent.Type.FolderSwitchRequired) {
+        } else if (e.type === CloudException.default.DriveEvent.Type.FolderSwitchRequired) {
           const { folder: module } = e.data;
           this.drive.isRootFolder(module)
             ? (this.isRootFolder() || this.navigateToRoot(false),
@@ -1506,11 +1506,11 @@ function (exports, module, require) {
               for (var module = 0; module < e.SELECTION.length; ++module) {
                 var require = e.SELECTION[module];
                 await e.drive.deleteItem(require),
-                  gDesigner.hasEventListeners(h.default.DriveEvent) &&
+                  gDesigner.hasEventListeners(CloudException.default.DriveEvent) &&
                     gDesigner.trigger(
-                      new h.default.DriveEvent(
+                      new CloudException.default.DriveEvent(
                         null,
-                        h.default.DriveEvent.Type.FileDeleted,
+                        CloudException.default.DriveEvent.Type.FileDeleted,
                         require
                       )
                     );
