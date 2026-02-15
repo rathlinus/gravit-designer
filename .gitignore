@@ -50,3 +50,9 @@ reverse-engineering/standalone/
 reverse-engineering/cross-reference/
 reverse-engineering/reconstructed-full/
 
+# Development builds
+public/designer.browser.dev.js
+public/designer.browser.dev.js.map
+public/chunk.vendor.dev.js
+public/chunk.vendor.dev.js.map
+

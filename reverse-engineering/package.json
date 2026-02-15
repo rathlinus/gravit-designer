@@ -16,7 +16,13 @@
     "rename": "node rename-variables.js",
     "all": "node build-all.js",
     "build-all": "node build-all.js",
-    "quick": "npm run beautify && npm run unbundle && npm run analyze"
+    "quick": "npm run beautify && npm run unbundle && npm run analyze",
+    "dev-build": "node build-dev.cjs",
+    "dev-watch": "node build-dev.cjs --watch",
+    "dev-serve": "npm run dev-build && cd .. && node server.js",
+    "resolve-requires": "node resolve-requires.cjs",
+    "deobfuscate": "node deobfuscate-vars.cjs",
+    "beautify-css": "node beautify-css.cjs"
   },
   "keywords": ["gravit", "reverse-engineering", "decompiler"],
   "author": "",
