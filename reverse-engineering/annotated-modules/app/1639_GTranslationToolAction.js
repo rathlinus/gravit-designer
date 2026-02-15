@@ -11,7 +11,7 @@ function (e, t, n) {
     const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
       r = n(1640) /* GTranslationToolDialog */,
-      { IS_TRUNK: s, IS_LOCALHOST: l } = n(231) /* module_231 */;
+      { IS_TRUNK: s, IS_LOCALHOST: l } = n(231) /* DataModule_231 */;
     function c() {}
     o.GObject.inherit(c, a),
       (c.ID = "help.translationtool"),

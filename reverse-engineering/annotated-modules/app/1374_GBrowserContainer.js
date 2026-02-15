@@ -38,7 +38,7 @@ function (e, t, n) {
       b = n(1153) /* GPresets */,
       w = n(44) /* GSystemDialog */,
       C = n(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
-    const x = n(1482) /* module_1482 */,
+    const x = n(1482) /* DataModule_1482 */,
       { base64StringToString: S } = n(40) /* CollaborationMergeUtils */;
     function E() {
       (this._storage = new s()),

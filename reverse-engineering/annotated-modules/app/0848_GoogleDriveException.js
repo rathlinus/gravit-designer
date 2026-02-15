@@ -25,7 +25,7 @@ function (e, t, n) {
       n(114) /* stub_requires_424 */;
     var i = n(1) /* GCore */,
       a = n(40) /* CollaborationMergeUtils */,
-      r = n(593) /* module_593 */,
+      r = n(593) /* DataModule_593 */,
       s = o(n(787) /* Exports_GoogleToCloudRoleMap */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)

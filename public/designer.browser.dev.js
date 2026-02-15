@@ -193,7 +193,7 @@ function (exports, module, require) {
   var GEditor = require(15); /* GEditor */
   const AppSettings = require(519) /* AppSettings */,
     barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
-    r = require(231); /* module_231 */
+    DataModule_231 = require(231); /* DataModule_231 */
   ((AppSettings.GoogleTagManagerSettings = require(820)) /* module */,
     (AppSettings.AUTO_SAVE_ENABLED =
       GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari),
@@ -267,7 +267,7 @@ function (exports, module, require) {
     (AppSettings.User = require(830)) /* GCommonNames */,
     (AppSettings.CloudUtils = require(254)) /* GCommonNames */,
     (AppSettings.UTM = require(354)) /* module */,
-    r.IS_WEB_WORKER ||
+    DataModule_231.IS_WEB_WORKER ||
       ((AppSettings.GLoginDialog = require(270) /* module */.GLoginDialog),
       (AppSettings.GReminderDialogFactory = require(270) /* module */.GReminderDialogFactory),
       (AppSettings.GReminderDialog = require(270) /* module */.GReminderDialog),
@@ -580,7 +580,7 @@ function (exports, module, require) {
     defineBuiltIn = require(79) /* defineBuiltIn */,
     defineGlobalProperty = require(298) /* defineGlobalProperty */,
     copyConstructorProperties = require(341) /* copyConstructorProperties */,
-    c = require(277); /* module_277 */
+    DataModule_277 = require(277); /* DataModule_277 */
   exports.exports = function (e, t) {
     var n,
       d,
@@ -601,7 +601,7 @@ function (exports, module, require) {
         if (
           ((p = t[d]),
           (u = e.dontCallGetSet ? (g = objectGetOwnPropertyDescriptor(n, d)) && g.value : n[d]),
-          !c(f ? d : h + (m ? '.' : '#') + d, e.forced) && undefined !== u)
+          !DataModule_277(f ? d : h + (m ? '.' : '#') + d, e.forced) && undefined !== u)
         ) {
           if (typeof p == typeof u) continue;
           copyConstructorProperties(p, u);
@@ -645,11 +645,11 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(239) /* module_239 */,
+  var DataModule_239 = require(239) /* DataModule_239 */,
     i = Function.prototype,
     a = i.call,
-    r = o && i.bind.bind(a, a);
-  exports.exports = o
+    r = DataModule_239 && i.bind.bind(a, a);
+  exports.exports = DataModule_239
     ? r
     : function (e) {
         return function () {
@@ -661,9 +661,9 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(239) /* module_239 */,
+  var DataModule_239 = require(239) /* DataModule_239 */,
     i = Function.prototype.call;
-  exports.exports = o
+  exports.exports = DataModule_239
     ? i.bind(i)
     : function () {
         return i.apply(i, arguments);
@@ -820,8 +820,8 @@ function (exports, module, require) {
     classof = require(92) /* classof */,
     regExpFlags = require(308) /* regExpFlags */,
     getSubstitution = require(145) /* getSubstitution */,
-    y = require(667) /* module_667 */,
-    v = require(279) /* module_279 */,
+    DataModule_667 = require(667) /* DataModule_667 */,
+    DataModule_279 = require(279) /* DataModule_279 */,
     wellKnownSymbol = require(43)(/* wellKnownSymbol */ 'replace'),
     b = Math.max,
     w = Math.min,
@@ -862,7 +862,7 @@ function (exports, module, require) {
             ((getSubstitution = fixRegExpWKS.unicode), (fixRegExpWKS.lastIndex = 0));
           for (
             var A, T = [];
-            null !== (A = v(fixRegExpWKS, tryCall)) && (x(T, A), wellKnownSymbol);
+            null !== (A = DataModule_279(fixRegExpWKS, tryCall)) && (x(T, A), wellKnownSymbol);
           ) {
             '' === requireObjectCoercible(A[0]) &&
               (fixRegExpWKS.lastIndex = regExpFlags(
@@ -887,7 +887,7 @@ function (exports, module, require) {
               var N = C([k], F, O, tryCall);
               (undefined !== M && x(N, M),
                 (I = requireObjectCoercible(advanceStringIndex(isCallable, undefined, N))));
-            } else I = y(k, tryCall, O, F, M, isCallable);
+            } else I = DataModule_667(k, tryCall, O, F, M, isCallable);
             O >= D && ((P += E(tryCall, D, O) + I), (D = O + k.length));
           }
           return P + E(tryCall, D);
@@ -964,7 +964,7 @@ function (exports, module, require) {
       return module;
     }),
     (module.base64URLSafeEncode = function (e) {
-      return (0, r.trim)((0, r.encode)(e));
+      return (0, DataModule_1042.trim)((0, DataModule_1042.encode)(e));
     }),
     (module.blockChanges = function (e, t, n, _interopRequireDefault) {
       n && n.startBlockReferenceChanges();
@@ -1109,7 +1109,7 @@ function (exports, module, require) {
         const {
           id: GCore,
           copy: GAnnotation,
-          inspect: r,
+          inspect: DataModule_1042,
           comment: s,
           owner: l,
           access: GSystemDialog,
@@ -1131,7 +1131,7 @@ function (exports, module, require) {
                   share: false,
                   edit: p,
                   copy: GAnnotation,
-                  inspect: r,
+                  inspect: DataModule_1042,
                   comment: !!u && s,
                   sharing: GSystemDialog,
                 }))
@@ -1142,15 +1142,15 @@ function (exports, module, require) {
         const t = e.getUID() === GAnnotation.id;
         ((_interopRequireDefault.owner = t), (_interopRequireDefault.share = t));
       }
-      const r = t.getPublicShare();
-      r &&
-        r.access &&
+      const DataModule_1042 = t.getPublicShare();
+      DataModule_1042 &&
+        DataModule_1042.access &&
         ((_interopRequireDefault.isPrivate = false), (_interopRequireDefault.sharing = true));
       return (
         Object.assign(_interopRequireDefault, {
           isPrivate: GCore && GCore.filter((e) => !e.owner).length > 0,
         }),
-        { state: _interopRequireDefault, role: require, publicShare: r }
+        { state: _interopRequireDefault, role: require, publicShare: DataModule_1042 }
       );
     }),
     (module.getSizeInfo = function (e) {
@@ -1160,8 +1160,8 @@ function (exports, module, require) {
       var GCore = { gb: 0, mb: 0, kb: 0 },
         GAnnotation = Math.floor(t / _interopRequireDefault);
       GAnnotation && ((GCore.gb = GAnnotation), (t -= GAnnotation * _interopRequireDefault));
-      var r = Math.floor(t / require);
-      r && ((GCore.mb = r), (t -= r * require));
+      var DataModule_1042 = Math.floor(t / require);
+      DataModule_1042 && ((GCore.mb = DataModule_1042), (t -= DataModule_1042 * require));
       var s = Math.floor(t / 1e3);
       s && ((GCore.kb = s), (t -= 1e3 * s));
       return GCore;
@@ -1216,8 +1216,8 @@ function (exports, module, require) {
         GCore = 0,
         GAnnotation = e.length;
       for (; _interopRequireDefault < GAnnotation; ) {
-        var r = t + GCore;
-        (n(e[r], r),
+        var DataModule_1042 = t + GCore;
+        (n(e[DataModule_1042], DataModule_1042),
           _interopRequireDefault++,
           GCore > 0 && t - GCore >= 0
             ? (GCore = -GCore)
@@ -1231,8 +1231,8 @@ function (exports, module, require) {
     (module.iterateEqualStyleLayers = function (e, t, n, _interopRequireDefault) {
       var GAnnotation = [];
       if (n.length > 1) {
-        for (var r = 0; r < n.length; r++) {
-          var s = n[r],
+        for (var DataModule_1042 = 0; DataModule_1042 < n.length; DataModule_1042++) {
+          var s = n[DataModule_1042],
             l = [];
           if ('fill' === e) l = s.getPaintLayers().getFillLayers();
           else if ('border' === e) l = s.getPaintLayers().getBorderLayers();
@@ -1285,12 +1285,12 @@ function (exports, module, require) {
     (module.resolveDocumentImages = function (e, t) {
       let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
       return new Promise(async (_interopRequireDefault, GAnnotation) => {
-        const r = (e) =>
+        const DataModule_1042 = (e) =>
           e === GCore.GImage.ImageStatus.Loaded || e === GCore.GImage.ImageStatus.Error;
         let s = 0;
         if (
           (e.accept((e) => {
-            e instanceof GCore.GImage && !r(e.getStatus()) && s++;
+            e instanceof GCore.GImage && !DataModule_1042(e.getStatus()) && s++;
           }),
           s > 0)
         ) {
@@ -1300,7 +1300,7 @@ function (exports, module, require) {
           }, t);
           const GSystemDialog = (t) => {
             let { status: d } = t;
-            (r(d) &&
+            (DataModule_1042(d) &&
               --s <= 0 &&
               (l && (clearTimeout(l), (l = null)),
               e.removeEventListener(GCore.GImage.StatusEvent, GSystemDialog),
@@ -1327,8 +1327,12 @@ function (exports, module, require) {
         _interopRequireDefault < t.length;
         ++_interopRequireDefault
       )
-        for (var GAnnotation = GCore.GRect.serialize(t[_interopRequireDefault]), r = 0; r < 4; ++r)
-          require[4 * _interopRequireDefault + r] = GAnnotation[r];
+        for (
+          var GAnnotation = GCore.GRect.serialize(t[_interopRequireDefault]), DataModule_1042 = 0;
+          DataModule_1042 < 4;
+          ++DataModule_1042
+        )
+          require[4 * _interopRequireDefault + DataModule_1042] = GAnnotation[DataModule_1042];
       ((s = 'Test_invisible-.dat'),
         (l = require),
         navigator.webkitTemporaryStorage.requestQuota(1e3, function (e) {
@@ -1405,7 +1409,7 @@ function (exports, module, require) {
     (module.watchDog = undefined),
     require(58) /* polyfill_Array_includes */,
     require(19) /* polyfill_Array_iterator */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(30) /* polyfill_Object_assign */,
     require(8) /* polyfill_bundle_ES6 */,
@@ -1414,14 +1418,14 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(271) /* polyfill_String_endsWith */,
     require(71) /* polyfill_String_includes */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(134) /* polyfill_String_startsWith */,
     require(1041) /* module_1041 */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
@@ -1431,7 +1435,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* GCore */,
     GAnnotation = _interopRequireDefault(require(84) /* GAnnotation */),
-    r = require(1042); /* module_1042 */
+    DataModule_1042 = require(1042); /* DataModule_1042 */
   const s = require(1043); /* module_1043 */
   var l = require(250) /* module_250 */,
     GSystemDialog = require(44); /* GSystemDialog */
@@ -1479,8 +1483,10 @@ function (exports, module, require) {
           .filter((e) => (e.startsWith('$') || e.startsWith('@')) && !require.includes(e))
           .map((e) => e.slice(1)),
       GAnnotation = _interopRequireDefault(e),
-      r = _interopRequireDefault(t);
-    return !GCore.GUtil.equals(GAnnotation, r) || !e.arePropertiesEqual(t, GAnnotation);
+      DataModule_1042 = _interopRequireDefault(t);
+    return (
+      !GCore.GUtil.equals(GAnnotation, DataModule_1042) || !e.arePropertiesEqual(t, GAnnotation)
+    );
   }
   function v(e, t, n) {
     if ((n || (n = ['$lmd', '$storedUrl', '$__ids']), !(e instanceof t.constructor))) return true;
@@ -1493,21 +1499,21 @@ function (exports, module, require) {
       if (Boolean(_interopRequireDefault) !== Boolean(GCore)) return true;
       if (_interopRequireDefault && v(_interopRequireDefault, GCore, n)) return true;
       const GAnnotation = e.getPaintLayers(),
-        r = t.getPaintLayers();
-      if (Boolean(GAnnotation) !== Boolean(r)) return true;
-      if (GAnnotation && v(GAnnotation, r, n)) return true;
+        DataModule_1042 = t.getPaintLayers();
+      if (Boolean(GAnnotation) !== Boolean(DataModule_1042)) return true;
+      if (GAnnotation && v(GAnnotation, DataModule_1042, n)) return true;
     }
     if (e.hasMixin(GCore.GNode.Container) !== t.hasMixin(GCore.GNode.Container)) return true;
     if (e instanceof GCore.GPathBase != t instanceof GCore.GPathBase) return true;
     if (e instanceof GCore.GPathBase) {
       var _interopRequireDefault = e.getAnchorPoints(),
         GAnnotation = _interopRequireDefault.getChildren(),
-        r = t.getAnchorPoints(),
-        s = r.getChildren();
+        DataModule_1042 = t.getAnchorPoints(),
+        s = DataModule_1042.getChildren();
       if (GAnnotation.length !== s.length) return true;
       for (var l = 0; l < GAnnotation.length; l++) {
         var GSystemDialog = _interopRequireDefault.getChildByIndex(l),
-          d = r.getChildByIndex(l);
+          d = DataModule_1042.getChildByIndex(l);
         if (GSystemDialog ^ d) return true;
         if (y(GSystemDialog, d, n)) return true;
       }
@@ -1541,14 +1547,14 @@ function (exports, module, require) {
     if (e.hasMixin(GCore.GElement.Stylable)) {
       var require = e.getPaintLayers(),
         _interopRequireDefault = t.getPaintLayers(),
-        r = require.getBorderLayers(),
+        DataModule_1042 = require.getBorderLayers(),
         s = _interopRequireDefault.getBorderLayers(),
         l = require.getFillLayers(),
         GSystemDialog = _interopRequireDefault.getFillLayers();
       e.hasMixin(GAnnotation.default)
-        ? (s.length && r.length && r[0].assignFrom(s[0]),
+        ? (s.length && DataModule_1042.length && DataModule_1042[0].assignFrom(s[0]),
           GSystemDialog.length && l.length && l[0].assignFrom(GSystemDialog[0]))
-        : (r.forEach((e) => {
+        : (DataModule_1042.forEach((e) => {
             var t = s.find((t) => t.getId() === e.getId());
             t && e.assignFrom(t);
           }),
@@ -1609,14 +1615,14 @@ function (exports, module, require) {
   var globalThis = require(23) /* globalThis */,
     i = require(296) /* module_296 */,
     a = require(61) /* module_61 */,
-    r = require(258) /* module_258 */,
-    s = require(295) /* module_295 */,
+    DataModule_258 = require(258) /* DataModule_258 */,
+    DataModule_295 = require(295) /* DataModule_295 */,
     _typeof = require(398) /* _typeof */,
     c = globalThis.Symbol,
     d = i('wks'),
-    u = _typeof ? c.for || c : (c && c.withoutSetter) || r;
+    u = _typeof ? c.for || c : (c && c.withoutSetter) || DataModule_258;
   exports.exports = function (e) {
-    return (a(d, e) || (d[e] = s && a(c, e) ? c[e] : u('Symbol.' + e)), d[e]);
+    return (a(d, e) || (d[e] = DataModule_295 && a(c, e) ? c[e] : u('Symbol.' + e)), d[e]);
   };
 }
 ,
@@ -2648,10 +2654,11 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(131) /* module_131 */,
+  var DataModule_131 = require(131) /* DataModule_131 */,
     i = String;
   exports.exports = function (e) {
-    if ('Symbol' === o(e)) throw new TypeError('Cannot convert a Symbol value to a string');
+    if ('Symbol' === DataModule_131(e))
+      throw new TypeError('Cannot convert a Symbol value to a string');
     return i(e);
   };
 }
@@ -2661,11 +2668,11 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var anObject = require(35) /* anObject */,
-    i = require(185) /* module_185 */,
+    DataModule_185 = require(185) /* DataModule_185 */,
     a = TypeError;
   exports.exports = function (e) {
     if (anObject(e)) return e;
-    throw new a(i(e) + ' is not a function');
+    throw new a(DataModule_185(e) + ' is not a function');
   };
 }
 ,
@@ -2674,7 +2681,7 @@ function (exports, module, require) {
   'use strict';
   (Object.defineProperty(module, '__esModule', { value: true }),
     (module.default = module.TOOLTIP_AREA = module.GRichTooltipConfig = undefined),
-    require(290) /* module_290 */,
+    require(290) /* DataModule_290 */,
     require(3)) /* polyfill_RegExp_toString */;
   const o = (module.GRichTooltipConfig = function (e) {
     let {
@@ -2796,7 +2803,7 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     uncurryThis = require(27) /* uncurryThis */,
-    a = require(361) /* module_361 */,
+    DataModule_361 = require(361) /* DataModule_361 */,
     classof = require(92) /* classof */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     l = require(362) /* module_362 */,
@@ -2807,7 +2814,7 @@ function (exports, module, require) {
       includes: function (e) {
         return !!~c(
           requireObjectCoercible(classof(this)),
-          requireObjectCoercible(a(e)),
+          requireObjectCoercible(DataModule_361(e)),
           arguments.length > 1 ? arguments[1] : undefined
         );
       },
@@ -2865,13 +2872,14 @@ function (exports, module, require) {
   'use strict';
   var anObject = require(35) /* anObject */,
     createPropertyDescriptor = require(88) /* createPropertyDescriptor */,
-    a = require(401) /* module_401 */,
+    DataModule_401 = require(401) /* DataModule_401 */,
     defineGlobalProperty = require(298); /* defineGlobalProperty */
   exports.exports = function (e, t, n, s) {
     s || (s = {});
     var l = s.enumerable,
       c = undefined !== s.name ? s.name : t;
-    if ((anObject(n) && a(n, c, s), s.global)) l ? (e[t] = n) : defineGlobalProperty(t, n);
+    if ((anObject(n) && DataModule_401(n, c, s), s.global))
+      l ? (e[t] = n) : defineGlobalProperty(t, n);
     else {
       try {
         s.unsafe ? e[t] && (l = true) : delete e[t];
@@ -2899,13 +2907,13 @@ function (exports, module, require) {
     toLength = require(46) /* toLength */,
     createProperty = require(100) /* createProperty */,
     d = require(61) /* module_61 */,
-    u = require(297) /* module_297 */,
+    DataModule_297 = require(297) /* DataModule_297 */,
     p = require(300) /* module_300 */,
     g = require(259) /* module_259 */,
     h = globalThis.TypeError,
     f = globalThis.WeakMap;
-  if (r || u.state) {
-    var m = u.state || (u.state = new f());
+  if (r || DataModule_297.state) {
+    var m = DataModule_297.state || (DataModule_297.state = new f());
     ((m.get = m.get),
       (m.has = m.has),
       (m.set = m.set),
@@ -2975,16 +2983,18 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GGoogleAPI = require(1036) /* Exports_GGoogleAPI */,
     AppSettings = require(10) /* AppSettings */,
-    s = _interopRequireDefault(require(734) /* module_734 */),
+    ExternalFileSettingsError = _interopRequireDefault(
+      require(734) /* ExternalFileSettingsError */
+    ),
     l =
-      (_interopRequireDefault(require(355) /* module_355 */),
+      (_interopRequireDefault(require(355) /* AppError */),
       _interopRequireDefault(require(1037) /* module_1037 */)),
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GOpenRecentAction = require(843) /* GOpenRecentAction */,
     barrel_panels = require(257) /* barrel_panels */,
-    h = require(219) /* module_219 */,
+    h = require(219) /* GLocale */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   function y() {}
@@ -3218,7 +3228,7 @@ function (exports, module, require) {
               try {
                 gDesigner.openDocument(n);
               } catch (e) {
-                if (!(e instanceof s.default)) throw e;
+                if (!(e instanceof ExternalFileSettingsError.default)) throw e;
                 GSystemDialog.externalFileError(true);
               }
             });
@@ -3366,19 +3376,19 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
-    i = require(399) /* module_399 */,
-    a = require(400) /* module_400 */,
+    DataModule_399 = require(399) /* DataModule_399 */,
+    DataModule_400 = require(400) /* DataModule_400 */,
     toString_default = require(37) /* toString_default */,
-    s = require(294) /* module_294 */,
+    DataModule_294 = require(294) /* DataModule_294 */,
     l = TypeError,
     c = Object.defineProperty,
     d = Object.getOwnPropertyDescriptor;
   module.f = hasOwnProperty_wrapper
-    ? a
+    ? DataModule_400
       ? function (e, t, n) {
           if (
             (toString_default(e),
-            (t = s(t)),
+            (t = DataModule_294(t)),
             toString_default(n),
             'function' == typeof e &&
               'prototype' === t &&
@@ -3401,7 +3411,7 @@ function (exports, module, require) {
         }
       : c
     : function (e, t, n) {
-        if ((toString_default(e), (t = s(t)), toString_default(n), i))
+        if ((toString_default(e), (t = DataModule_294(t)), toString_default(n), DataModule_399))
           try {
             return c(e, t, n);
           } catch (e) {}
@@ -3415,12 +3425,12 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(262) /* module_262 */.trim;
+    DataModule_262 = require(262) /* DataModule_262 */.trim;
   core_export(
-    { target: 'String', proto: true, forced: require(461)(/* module_461 */ 'trim') },
+    { target: 'String', proto: true, forced: require(461)(/* DataModule_461 */ 'trim') },
     {
       trim: function () {
-        return i(this);
+        return DataModule_262(this);
       },
     }
   );
@@ -3512,10 +3522,10 @@ function (exports, module, require) {
     uncurryThis = require(27) /* uncurryThis */,
     tryCall = require(21) /* tryCall */,
     anObject = require(35) /* anObject */,
-    d = require(241) /* module_241 */,
+    DataModule_241 = require(241) /* DataModule_241 */,
     u = require(157) /* stub_requires_27 */,
-    p = require(666) /* module_666 */,
-    g = require(295) /* module_295 */,
+    DataModule_666 = require(666) /* DataModule_666 */,
+    DataModule_295 = require(295) /* DataModule_295 */,
     h = String,
     f = i('JSON', 'stringify'),
     m = uncurryThis(/./.exec),
@@ -3527,7 +3537,7 @@ function (exports, module, require) {
     C = /^[\uD800-\uDBFF]$/,
     x = /^[\uDC00-\uDFFF]$/,
     S =
-      !g ||
+      !DataModule_295 ||
       tryCall(function () {
         var e = i('Symbol')('stringify detection');
         return '[null]' !== f([e]) || '{}' !== f({ a: e }) || '{}' !== f(Object(e));
@@ -3537,11 +3547,14 @@ function (exports, module, require) {
     }),
     A = function (e, t) {
       var n = u(arguments),
-        core_export = p(t);
-      if (anObject(core_export) || (undefined !== e && !d(e)))
+        core_export = DataModule_666(t);
+      if (anObject(core_export) || (undefined !== e && !DataModule_241(e)))
         return (
           (n[1] = function (e, t) {
-            if ((anObject(core_export) && (t = isCallable(core_export, this, h(e), t)), !d(t)))
+            if (
+              (anObject(core_export) && (t = isCallable(core_export, this, h(e), t)),
+              !DataModule_241(t))
+            )
               return t;
           }),
           advanceStringIndex(f, null, n)
@@ -3981,7 +3994,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(19) /* polyfill_Array_iterator */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
@@ -3989,10 +4002,10 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(134) /* polyfill_String_startsWith */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
@@ -4011,7 +4024,7 @@ function (exports, module, require) {
     GSystemDialog = require(44); /* GSystemDialog */
   const GLoginDialog = require(1093); /* GLoginDialog */
   var GContainer = require(85) /* GContainer */,
-    g = require(219) /* module_219 */,
+    g = require(219) /* GLocale */,
     GAnnotationsUtils = require(358); /* GAnnotationsUtils */
   const f = require(86) /* module_86 */,
     m = (require(156) /* GCloudStorageItem */, require(256)) /* GOfflineDialog */,
@@ -4849,12 +4862,12 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(401) /* module_401 */,
+  var DataModule_401 = require(401) /* DataModule_401 */,
     createPropertyDescriptor = require(88); /* createPropertyDescriptor */
   exports.exports = function (e, t, n) {
     return (
-      n.get && o(n.get, t, { getter: true }),
-      n.set && o(n.set, t, { setter: true }),
+      n.get && DataModule_401(n.get, t, { getter: true }),
+      n.set && DataModule_401(n.set, t, { setter: true }),
       createPropertyDescriptor.f(e, t, n)
     );
   };
@@ -4865,13 +4878,13 @@ function (exports, module, require) {
   var o = require(124) /* module_124 */,
     isCallable = require(29) /* isCallable */,
     toString_default = require(37) /* toString_default */,
-    r = require(185) /* module_185 */,
-    s = require(305) /* module_305 */,
+    DataModule_185 = require(185) /* DataModule_185 */,
+    DataModule_305 = require(305) /* DataModule_305 */,
     l = require(101) /* stub_requires_117 */,
     c = require(144) /* stub_requires_27 */,
-    d = require(246) /* module_246 */,
-    u = require(204) /* module_204 */,
-    p = require(102) /* module_102 */,
+    DataModule_246 = require(246) /* DataModule_246 */,
+    DataModule_204 = require(204) /* DataModule_204 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     g = TypeError,
     h = function (e, t) {
       ((this.stopped = e), (this.result = t));
@@ -4892,7 +4905,7 @@ function (exports, module, require) {
       T = !(!n || !n.INTERRUPTED),
       G = o(t, x),
       P = function (e) {
-        return (m && p(m, 'normal', e), new h(true, e));
+        return (m && DataModule_102(m, 'normal', e), new h(true, e));
       },
       D = function (e) {
         return S ? (toString_default(e), T ? G(e[0], e[1], P) : G(e[0], e[1])) : T ? G(e, P) : G(e);
@@ -4900,18 +4913,18 @@ function (exports, module, require) {
     if (E) m = e.iterator;
     else if (A) m = e;
     else {
-      if (!(y = u(e))) throw new g(r(e) + ' is not iterable');
-      if (s(y)) {
+      if (!(y = DataModule_204(e))) throw new g(DataModule_185(e) + ' is not iterable');
+      if (DataModule_305(y)) {
         for (v = 0, _ = l(e); _ > v; v++) if ((b = D(e[v])) && c(f, b)) return b;
         return new h(false);
       }
-      m = d(e, y);
+      m = DataModule_246(e, y);
     }
     for (w = E ? e.next : m.next; !(C = isCallable(w, m)).done; ) {
       try {
         b = D(C.value);
       } catch (e) {
-        p(m, 'throw', e);
+        DataModule_102(m, 'throw', e);
       }
       if ('object' == typeof b && b && c(f, b)) return b;
     }
@@ -4960,16 +4973,16 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(223) /* module_223 */,
-    i = require(65) /* module_65 */,
-    a = require(239) /* module_239 */,
-    r = o(o.bind);
+  var DataModule_223 = require(223) /* DataModule_223 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
+    DataModule_239 = require(239) /* DataModule_239 */,
+    r = DataModule_223(DataModule_223.bind);
   exports.exports = function (e, t) {
     return (
-      i(e),
+      DataModule_65(e),
       undefined === t
         ? e
-        : a
+        : DataModule_239
           ? r(e, t)
           : function () {
               return e.apply(t, arguments);
@@ -5019,18 +5032,18 @@ function (exports, module, require) {
   'use strict';
   var o = require(622) /* stub_requires_43 */,
     anObject = require(35) /* anObject */,
-    a = require(116) /* module_116 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
     wellKnownSymbol = require(43)(/* wellKnownSymbol */ 'toStringTag'),
     s = Object,
     l =
       'Arguments' ===
-      a(
+      DataModule_116(
         (function () {
           return arguments;
         })()
       );
   exports.exports = o
-    ? a
+    ? DataModule_116
     : function (e) {
         var t, n, o;
         return undefined === e
@@ -5045,8 +5058,8 @@ function (exports, module, require) {
                 })((t = s(e)), wellKnownSymbol))
               ? n
               : l
-                ? a(t)
-                : 'Object' === (o = a(t)) && anObject(t.callee)
+                ? DataModule_116(t)
+                : 'Object' === (o = DataModule_116(t)) && anObject(t.callee)
                   ? 'Arguments'
                   : o;
       };
@@ -5058,15 +5071,15 @@ function (exports, module, require) {
   'use strict';
   var o,
     core_export = require(25) /* core_export */,
-    a = require(223) /* module_223 */,
+    DataModule_223 = require(223) /* DataModule_223 */,
     objectGetOwnPropertyDescriptor = require(222) /* objectGetOwnPropertyDescriptor */.f,
     toStringTagSupport = require(117) /* toStringTagSupport */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
-    c = require(361) /* module_361 */,
+    DataModule_361 = require(361) /* DataModule_361 */,
     classof = require(92) /* classof */,
     u = require(362) /* module_362 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
-    g = a(''.slice),
+    g = DataModule_223(''.slice),
     h = Math.min,
     f = u('startsWith');
   core_export(
@@ -5083,7 +5096,7 @@ function (exports, module, require) {
     {
       startsWith: function (e) {
         var t = requireObjectCoercible(classof(this));
-        c(e);
+        DataModule_361(e);
         var n = toStringTagSupport(h(arguments.length > 1 ? arguments[1] : undefined, t.length)),
           o = requireObjectCoercible(e);
         return g(t, n, n + o.length) === o;
@@ -5197,11 +5210,11 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(65) /* module_65 */,
+  var DataModule_65 = require(65) /* DataModule_65 */,
     i = require(194); /* module_194 */
   exports.exports = function (e, t) {
     var n = e[t];
-    return i(n) ? undefined : o(n);
+    return i(n) ? undefined : DataModule_65(n);
   };
 }
 ,
@@ -5257,7 +5270,7 @@ function (exports, module, require) {
     classof = require(92) /* classof */,
     getSubstitution = require(145) /* getSubstitution */,
     regExpFlags = require(308) /* regExpFlags */,
-    p = require(279); /* module_279 */
+    DataModule_279 = require(279); /* DataModule_279 */
   fixRegExpWKS('match', function (e, t, n) {
     return [
       function (t) {
@@ -5272,12 +5285,12 @@ function (exports, module, require) {
           fixRegExpWKS = requireObjectCoercible(e),
           toLength = n(t, isCallable, fixRegExpWKS);
         if (toLength.done) return toLength.value;
-        if (!isCallable.global) return p(isCallable, fixRegExpWKS);
+        if (!isCallable.global) return DataModule_279(isCallable, fixRegExpWKS);
         var classof = isCallable.unicode;
         isCallable.lastIndex = 0;
         for (
           var getSubstitution, g = [], h = 0;
-          null !== (getSubstitution = p(isCallable, fixRegExpWKS));
+          null !== (getSubstitution = DataModule_279(isCallable, fixRegExpWKS));
         ) {
           var f = requireObjectCoercible(getSubstitution[0]);
           ((g[h] = f),
@@ -5306,16 +5319,16 @@ function (exports, module, require) {
     anObject = require(35) /* anObject */,
     toLength = require(46) /* toLength */,
     u = require(61) /* module_61 */,
-    p = require(131) /* module_131 */,
-    g = require(185) /* module_185 */,
+    DataModule_131 = require(131) /* DataModule_131 */,
+    DataModule_185 = require(185) /* DataModule_185 */,
     createProperty = require(100) /* createProperty */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     m = require(120) /* module_120 */,
     y = require(144) /* stub_requires_27 */,
-    v = require(208) /* module_208 */,
-    _ = require(175) /* module_175 */,
+    DataModule_208 = require(208) /* DataModule_208 */,
+    DataModule_175 = require(175) /* DataModule_175 */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
-    w = require(258) /* module_258 */,
+    DataModule_258 = require(258) /* DataModule_258 */,
     internalState = require(80) /* internalState */,
     x = internalState.enforce,
     S = internalState.get,
@@ -5323,13 +5336,13 @@ function (exports, module, require) {
     A = E && E.prototype,
     T = globalThis.Uint8ClampedArray,
     G = T && T.prototype,
-    P = E && v(E),
-    D = A && v(A),
+    P = E && DataModule_208(E),
+    D = A && DataModule_208(A),
     L = Object.prototype,
     I = globalThis.TypeError,
     k = wellKnownSymbol('toStringTag'),
-    O = w('TYPED_ARRAY_TAG'),
-    F = r && !!_ && 'Opera' !== p(globalThis.opera),
+    O = DataModule_258('TYPED_ARRAY_TAG'),
+    F = r && !!DataModule_175 && 'Opera' !== DataModule_131(globalThis.opera),
     R = false,
     M = {
       Int8Array: 1,
@@ -5344,7 +5357,7 @@ function (exports, module, require) {
     },
     N = { BigInt64Array: 8, BigUint64Array: 8 },
     B = function (e) {
-      var t = v(e);
+      var t = DataModule_208(e);
       if (toLength(t)) {
         var require = S(t);
         return require && u(require, 'TypedArrayConstructor')
@@ -5354,7 +5367,7 @@ function (exports, module, require) {
     },
     U = function (e) {
       if (!toLength(e)) return false;
-      var t = p(e);
+      var t = DataModule_131(e);
       return u(M, t) || u(N, t);
     };
   for (o in M)
@@ -5367,10 +5380,10 @@ function (exports, module, require) {
     }),
     F)
   )
-    for (o in M) globalThis[o] && _(globalThis[o], P);
+    for (o in M) globalThis[o] && DataModule_175(globalThis[o], P);
   if ((!F || !D || D === L) && ((D = P.prototype), F))
-    for (o in M) globalThis[o] && _(globalThis[o].prototype, D);
-  if ((F && v(G) !== D && _(G, D), hasOwnProperty_wrapper && !u(D, k)))
+    for (o in M) globalThis[o] && DataModule_175(globalThis[o].prototype, D);
+  if ((F && DataModule_208(G) !== D && DataModule_175(G, D), hasOwnProperty_wrapper && !u(D, k)))
     for (o in ((R = true),
     m(D, k, {
       configurable: true,
@@ -5388,8 +5401,8 @@ function (exports, module, require) {
       throw new I('Target is not a typed array');
     },
     aTypedArrayConstructor: function (e) {
-      if (anObject(e) && (!_ || y(P, e))) return e;
-      throw new I(g(e) + ' is not a typed array constructor');
+      if (anObject(e) && (!DataModule_175 || y(P, e))) return e;
+      throw new I(DataModule_185(e) + ' is not a typed array constructor');
     },
     exportTypedArrayMethod: function (e, t, n, o) {
       if (hasOwnProperty_wrapper) {
@@ -5411,7 +5424,7 @@ function (exports, module, require) {
     exportTypedArrayStaticMethod: function (e, t, n) {
       var o, i;
       if (hasOwnProperty_wrapper) {
-        if (_) {
+        if (DataModule_175) {
           if (n)
             for (o in M)
               if ((i = globalThis[o]) && u(i, e))
@@ -5429,7 +5442,7 @@ function (exports, module, require) {
     getTypedArrayConstructor: B,
     isView: function (e) {
       if (!toLength(e)) return false;
-      var t = p(e);
+      var t = DataModule_131(e);
       return 'DataView' === t || u(M, t) || u(N, t);
     },
     isTypedArray: U,
@@ -5449,7 +5462,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(271) /* polyfill_String_endsWith */,
     require(71) /* polyfill_String_includes */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(34) /* polyfill_String_replace */,
     require(91) /* polyfill_String_trim */,
     require(4) /* stub_requires_668 */,
@@ -5682,22 +5695,22 @@ function (exports, module, require) {
   (require(58) /* polyfill_Array_includes */,
     require(19) /* polyfill_Array_iterator */,
     require(328) /* polyfill_Array_sort */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(30) /* polyfill_Object_assign */,
     require(8) /* polyfill_bundle_ES6 */,
     require(196) /* polyfill_Promise_finally */,
     require(20) /* polyfill_RegExp_exec */,
     require(71) /* polyfill_String_includes */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(34) /* polyfill_String_replace */,
-    require(851) /* module_851 */,
+    require(851) /* DataModule_851 */,
     require(1388) /* module_1388 */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
@@ -5712,7 +5725,7 @@ function (exports, module, require) {
     l = require(797) /* module */,
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    u = _interopRequireDefault(require(1468) /* module_1468 */),
+    DataModule_1468 = _interopRequireDefault(require(1468) /* DataModule_1468 */),
     p = _interopRequireDefault(require(1470) /* module_1470 */),
     g = _interopRequireDefault(require(1471) /* module_1471 */),
     GUserModel = _interopRequireDefault(require(177) /* GUserModel */),
@@ -5722,28 +5735,28 @@ function (exports, module, require) {
     GDocumentEvent = require(78) /* GDocumentEvent */,
     _ = require(86) /* module_86 */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
-    w = require(336) /* module_336 */,
+    GEvent_storageItem = require(336) /* GEvent_storageItem */,
     C = require(237) /* Item */,
     GMissingFontsDialog = require(841) /* GMissingFontsDialog */,
-    S = require(1473) /* module_1473 */,
-    E = require(219) /* module_219 */,
+    GPaywallDialog = require(1473) /* GPaywallDialog */,
+    E = require(219) /* GLocale */,
     GUnsupportedFeaturesDialog = require(1238) /* GUnsupportedFeaturesDialog */,
     GDocumentChooser = require(1475) /* GDocumentChooser */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     GCloudStorage = require(119) /* GCloudStorage */,
     D = require(220) /* Item */,
     GContainer = require(85); /* GContainer */
-  const I = require(441) /* module_441 */,
-    k = require(392) /* module_392 */,
+  const GEvent_license = require(441) /* GEvent_license */,
+    GEvent_document = require(392) /* GEvent_document */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
-    F = require(292) /* module_292 */,
+    GEvent_user = require(292) /* GEvent_user */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    M = require(442) /* module_442 */,
-    N = require(389) /* module_389 */,
+    DataModule_442 = require(442) /* DataModule_442 */,
+    GDocument_389 = require(389) /* GDocument_389 */,
     B = AppSettings.FILE_FORMATS.find((e) => e.default),
     U = AppSettings.FILE_FORMATS.filter((e) => e.secondary),
     $ = require(393) /* GCollaborationEvent */,
-    j = require(436); /* module_436 */
+    DataModule_436 = require(436); /* DataModule_436 */
   require(1152) /* Item */;
   function K(e) {
     ((this._storageItem = e instanceof C.Item ? e : null),
@@ -5759,7 +5772,7 @@ function (exports, module, require) {
       (this._lockedSymbolInstances = false));
   }
   (GCore.GObject.inherit(K, GCore.GEventTarget),
-    (K.FileTypes = N.getFileTypesArray()),
+    (K.FileTypes = GDocument_389.getFileTypesArray()),
     (K.prototype._status = null),
     (K.prototype._errored = false),
     (K.prototype._storageItem = null),
@@ -5842,7 +5855,7 @@ function (exports, module, require) {
     }),
     (K.prototype.openPaywall = function (e) {
       (this._paywall && this._paywall.close(),
-        (this._paywall = new S(this, this.getStorageItem(), e)),
+        (this._paywall = new GPaywallDialog(this, this.getStorageItem(), e)),
         this._paywall.open());
     }),
     (K.prototype.getStatus = function () {
@@ -5881,9 +5894,9 @@ function (exports, module, require) {
     }),
     (K.prototype.hasCDR = function () {
       return !!(
-        M.CDR_ORIGIN_PROPERTY_NAME &&
+        DataModule_442.CDR_ORIGIN_PROPERTY_NAME &&
         this._scene &&
-        this._scene.getProperty(M.CDR_ORIGIN_PROPERTY_NAME, true)
+        this._scene.getProperty(DataModule_442.CDR_ORIGIN_PROPERTY_NAME, true)
       );
     }),
     (K.prototype.getTempCloudStorageItem = function () {
@@ -5949,7 +5962,7 @@ function (exports, module, require) {
     (K.prototype._resolvedMissingEntryEvent = function (e) {
       try {
         const t = this.isCloudFile() ? this.getStorageItem().getId() : null;
-        u.default.register({
+        DataModule_1468.default.register({
           message: 'DICTIONARY_MISSING_ENTRY',
           data: { entry: e.entry.uuid, file_id: t },
         });
@@ -6007,16 +6020,16 @@ function (exports, module, require) {
           }, true),
           this._scene.getDictionary().removeAllEventListeners(),
           this._scene.getSymbolDictionary().removeAllEventListeners(),
-          gDesigner.removeEventListener(I, this._licenseChangedEvent, this),
-          gDesigner.removeEventListener(k, this._applicationStateChangedEvent, this),
+          gDesigner.removeEventListener(GEvent_license, this._licenseChangedEvent, this),
+          gDesigner.removeEventListener(GEvent_document, this._applicationStateChangedEvent, this),
           gDesigner.removeEventListener(
             GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
             this
           ),
-          gDesigner.removeEventListener(F, this._userLoggedEvent, this),
+          gDesigner.removeEventListener(GEvent_user, this._userLoggedEvent, this),
           gDesigner.removeEventListener(GDocumentEvent, this._handleDocumentEvent, this),
-          gDesigner.removeEventListener(w, this._handleStorageItemEvent, this),
+          gDesigner.removeEventListener(GEvent_storageItem, this._handleStorageItemEvent, this),
           this.removeEventListener($, this._collaborationEvent, this),
           this.removeEventListener(GDocumentStatusEvent, this._handleDocumentStatusEvent, this),
           (this._editor = null),
@@ -6102,16 +6115,16 @@ function (exports, module, require) {
             undefined,
             true
           ),
-          gDesigner.addEventListener(I, this._licenseChangedEvent, this),
-          gDesigner.addEventListener(k, this._applicationStateChangedEvent, this),
+          gDesigner.addEventListener(GEvent_license, this._licenseChangedEvent, this),
+          gDesigner.addEventListener(GEvent_document, this._applicationStateChangedEvent, this),
           gDesigner.addEventListener(
             GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
             this
           ),
-          gDesigner.addEventListener(F, this._userLoggedEvent, this),
+          gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this),
           gDesigner.addEventListener(GDocumentEvent, this._handleDocumentEvent, this),
-          gDesigner.addEventListener(w, this._handleStorageItemEvent, this),
+          gDesigner.addEventListener(GEvent_storageItem, this._handleStorageItemEvent, this),
           this.addEventListener($, this._collaborationEvent, this, undefined, undefined, true),
           this.addEventListener(
             GDocumentStatusEvent,
@@ -6258,24 +6271,26 @@ function (exports, module, require) {
           l = r.getHeight(),
           AppSettings = GTools.getProperty('w'),
           CollaborationMergeUtils = GTools.getProperty('h'),
-          u = new GCore.GTransform();
+          DataModule_1468 = new GCore.GTransform();
         if (n && (s > AppSettings || l > CollaborationMergeUtils)) {
           var p = 1,
             g = 1;
           (s > AppSettings && (p = AppSettings / s),
             l > CollaborationMergeUtils && (g = CollaborationMergeUtils / l),
             p < g ? (g = p) : (p = g),
-            (u = u.translated(-r.getX(), -r.getY()).scaled(p, g).translated(r.getX(), r.getY())),
+            (DataModule_1468 = DataModule_1468.translated(-r.getX(), -r.getY())
+              .scaled(p, g)
+              .translated(r.getX(), r.getY())),
             (s *= p),
             (l *= g));
         }
         (t &&
-          (u = u.translated(
+          (DataModule_1468 = DataModule_1468.translated(
             (AppSettings - s) / 2 - r.getX(),
             (CollaborationMergeUtils - l) / 2 - r.getY()
           )),
-          e.transform(u, true));
-        var GUserModel = u.getScaleFactor(),
+          e.transform(DataModule_1468, true));
+        var GUserModel = DataModule_1468.getScaleFactor(),
           f = function (e) {
             if (
               e instanceof GCore.GItem &&
@@ -6484,9 +6499,9 @@ function (exports, module, require) {
           };
           if (s.hasVersionControl() && (await s.hasUpdates())) {
             var CollaborationMergeUtils = this.getScene(),
-              u = await s.getLatestFileVersion(),
+              DataModule_1468 = await s.getLatestFileVersion(),
               p = await new Promise((e, t) => {
-                u.read(
+                DataModule_1468.read(
                   (t) => e(t),
                   (e) => t(e)
                 );
@@ -6496,12 +6511,12 @@ function (exports, module, require) {
               CollaborationMergeUtils,
               g,
               this.getTitle(),
-              u.getName(),
+              DataModule_1468.getName(),
               (e) => {
                 if (e === CollaborationMergeUtils) AppSettings();
                 else {
                   this.setSynchronizing(false);
-                  const t = new K(u);
+                  const t = new K(DataModule_1468);
                   (t.setScene(e), gDesigner.replaceDocument(this, t, true));
                 }
               },
@@ -6590,7 +6605,7 @@ function (exports, module, require) {
       return this.getStorageItem() instanceof D.Item;
     }),
     (K.prototype.isCollaborative = function () {
-      return this.getStorageItem() && this.getStorageItem().hasMixin(j);
+      return this.getStorageItem() && this.getStorageItem().hasMixin(DataModule_436);
     }),
     (K.prototype.isShareable = function () {
       const exports = this.getStorageItem();
@@ -6820,8 +6835,10 @@ function (exports, module, require) {
                   if (AppSettings) {
                     var CollaborationMergeUtils = AppSettings.getContentBBox();
                     if (CollaborationMergeUtils && !CollaborationMergeUtils.isEmpty()) {
-                      var u = CollaborationMergeUtils.getSide(GCore.GRect.Side.CENTER);
-                      _interopRequireDefault.zoomAtCenter(u);
+                      var DataModule_1468 = CollaborationMergeUtils.getSide(
+                        GCore.GRect.Side.CENTER
+                      );
+                      _interopRequireDefault.zoomAtCenter(DataModule_1468);
                     }
                   }
                 }
@@ -6887,10 +6904,10 @@ function (exports, module, require) {
                           this.setScene(e),
                           gDesigner.gtmEvent('DOCUMENT_IMPORT_EVENT'));
                       } else this._updateStatus(_.LoadFailed);
-                      var u = gDesigner.getWindows().getActiveWindow().getView();
-                      ((u.getViewConfiguration().paintMode =
+                      var DataModule_1468 = gDesigner.getWindows().getActiveWindow().getView();
+                      ((DataModule_1468.getViewConfiguration().paintMode =
                         GCore.GScenePaintConfiguration.PaintMode.Output),
-                        u.invalidate());
+                        DataModule_1468.invalidate());
                     }
                   ));
               else if ('EPS' === GTools)
@@ -6934,14 +6951,14 @@ function (exports, module, require) {
                           t._blockUpdateChanges();
                         t.getFirstChild();
                       ) {
-                        var u = t.getFirstChild();
-                        (t.removeChild(u),
-                          l.appendChild(u),
-                          CollaborationMergeUtils.push(u),
-                          u.getPaintBBox() &&
+                        var DataModule_1468 = t.getFirstChild();
+                        (t.removeChild(DataModule_1468),
+                          l.appendChild(DataModule_1468),
+                          CollaborationMergeUtils.push(DataModule_1468),
+                          DataModule_1468.getPaintBBox() &&
                             (AppSettings = AppSettings
-                              ? AppSettings.united(u.getPaintBBox())
-                              : u.getPaintBBox()));
+                              ? AppSettings.united(DataModule_1468.getPaintBBox())
+                              : DataModule_1468.getPaintBBox()));
                       }
                       (l.acceptChildren(function (e) {
                         e instanceof GCore.GText && e.hasFontsToResolve() && e.toFakeText();
@@ -7161,13 +7178,13 @@ function (exports, module, require) {
       var s = e || this._storageItem;
       if (!s) throw new Error('Unable to save, no storage item available.');
       var CollaborationMergeUtils = s.getExtension(),
-        u = {
+        DataModule_1468 = {
           progress: null,
           filename: _interopRequireDefault.filename,
           ext: CollaborationMergeUtils && CollaborationMergeUtils.toLowerCase(),
           referer: _interopRequireDefault.referer,
         };
-      GTools && this._updateStatus(_.Saving, u);
+      GTools && this._updateStatus(_.Saving, DataModule_1468);
       var p = () => {
           (GTools && (this._updateStatus(_.Saved), this._updateStatus(_.Ready)),
             (CollaborationMergeUtils !== B.ext.toUpperCase() &&
@@ -7185,21 +7202,23 @@ function (exports, module, require) {
           }
         },
         g = (e) => {
-          s.write(e, p, r, u.progress, this);
+          s.write(e, p, r, DataModule_1468.progress, this);
         };
       const GUserModel = [
-          N.JPEG.ext.toUpperCase(),
-          N.JPG.ext.toUpperCase(),
-          N.PNG.ext.toUpperCase(),
+          GDocument_389.JPEG.ext.toUpperCase(),
+          GDocument_389.JPG.ext.toUpperCase(),
+          GDocument_389.PNG.ext.toUpperCase(),
         ],
-        m = [N.JPEG.ext.toUpperCase(), N.JPG.ext.toUpperCase()];
+        m = [GDocument_389.JPEG.ext.toUpperCase(), GDocument_389.JPG.ext.toUpperCase()];
       if (CollaborationMergeUtils === B.ext.toUpperCase()) {
         var y = this._scene,
           GDocumentStatusEvent = 0;
         (y.acceptChildren(function () {
           GDocumentStatusEvent++;
         }),
-          u.progress && u.progress instanceof Function && u.progress(10),
+          DataModule_1468.progress &&
+            DataModule_1468.progress instanceof Function &&
+            DataModule_1468.progress(10),
           W(function () {
             var e;
             try {
@@ -7215,15 +7234,19 @@ function (exports, module, require) {
             }
             null === e || '' === e || e.length < GDocumentStatusEvent
               ? r(GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.cannot-save')))
-              : (u.progress && u.progress instanceof Function && u.progress(50),
+              : (DataModule_1468.progress &&
+                  DataModule_1468.progress instanceof Function &&
+                  DataModule_1468.progress(50),
                 W(function () {
                   var t = new Uint8Array(f.gzip(e, { level: 9 }).buffer);
-                  (u.progress && u.progress instanceof Function && u.progress(75),
+                  (DataModule_1468.progress &&
+                    DataModule_1468.progress instanceof Function &&
+                    DataModule_1468.progress(75),
                     t.byteLength > 20 + GDocumentStatusEvent ? g(t) : r('GZIP compression fail'));
                 }));
           }));
       } else if (U && U.find((e) => e.ext.toUpperCase() === CollaborationMergeUtils))
-        await this._handleSecondaryFormatSave(u, g, r, _interopRequireDefault);
+        await this._handleSecondaryFormatSave(DataModule_1468, g, r, _interopRequireDefault);
       else if ('SVG' === CollaborationMergeUtils || 'SVGZ' === CollaborationMergeUtils) {
         const { exportOptions: e = {} } = _interopRequireDefault;
         l.GSVGExport.export(this._scene.getActivePage(), e, (e, t) => {
@@ -7249,14 +7272,14 @@ function (exports, module, require) {
           }
         });
       } else if (GUserModel.includes(CollaborationMergeUtils)) {
-        var w = GCore.GLength.DPI,
+        var GEvent_storageItem = GCore.GLength.DPI,
           C = this._scene.getActivePage();
         l.GBitmapExport.export(
           C,
           null,
           m.includes(CollaborationMergeUtils) ? GCore.GRGBColor.WHITE : null,
           null,
-          w,
+          GEvent_storageItem,
           1,
           true
         ).toImageBuffer(CollaborationMergeUtils, (e) => g(new Uint8Array(e)));
@@ -7272,7 +7295,7 @@ function (exports, module, require) {
               GMissingFontsDialog._scene,
               {
                 dpi: _interopRequireDefault.dpi || 72,
-                progress: u.progress,
+                progress: DataModule_1468.progress,
                 user: t,
                 jpegQuality:
                   _interopRequireDefault.jpegQuality || AppSettings.JPEG_EXPORT_QUALITY_DEFAULT,
@@ -7288,7 +7311,7 @@ function (exports, module, require) {
                   n.readAsArrayBuffer(new Blob([t])));
               },
               null,
-              { message: (e) => u.progressInfo && u.progressInfo(e) }
+              { message: (e) => DataModule_1468.progressInfo && DataModule_1468.progressInfo(e) }
             ));
         });
       } else r();
@@ -7414,7 +7437,7 @@ function (exports, module, require) {
           throw (this._deactivateProgress(), e);
         }
       };
-      var u = (e, t, _interopRequireDefault) => {
+      var DataModule_1468 = (e, t, _interopRequireDefault) => {
           let GTools = t
               ? ''.concat(
                   GCore.GLocale.get(
@@ -7529,10 +7552,11 @@ function (exports, module, require) {
               })(e, n);
               break;
             case 'PDF':
-              u(e, n, false);
+              DataModule_1468(e, n, false);
               break;
             case 'AI':
-              N.getFileTypesArray().includes(N.AI) && u(e, n, true);
+              GDocument_389.getFileTypesArray().includes(GDocument_389.AI) &&
+                DataModule_1468(e, n, true);
               break;
             case 'EPS':
               CollaborationMergeUtils(e, n);
@@ -7887,8 +7911,11 @@ function (exports, module, require) {
             else if ('content' === t[r] && e instanceof GCore.GText && GTools) {
               var CollaborationMergeUtils = e.getTLCore().getRichContent();
               if (CollaborationMergeUtils && CollaborationMergeUtils.length) {
-                var u = e._getGravitValue('fontColor', CollaborationMergeUtils[0].fontColor);
-                s(u, false, r);
+                var DataModule_1468 = e._getGravitValue(
+                  'fontColor',
+                  CollaborationMergeUtils[0].fontColor
+                );
+                s(DataModule_1468, false, r);
               }
             }
           };
@@ -7922,8 +7949,8 @@ function (exports, module, require) {
             ) {
               var AppSettings = JSON.parse(t);
               if (AppSettings[0] && AppSettings[0].fontColor) {
-                var u = e._getGravitValue('fontColor', AppSettings[0].fontColor);
-                CollaborationMergeUtils(u, false, GTools);
+                var DataModule_1468 = e._getGravitValue('fontColor', AppSettings[0].fontColor);
+                CollaborationMergeUtils(DataModule_1468, false, GTools);
               }
             }
           };
@@ -8067,7 +8094,7 @@ function (exports, module, require) {
           l,
           AppSettings,
           CollaborationMergeUtils,
-          u,
+          DataModule_1468,
           p,
           g = e.length,
           GUserModel = t.length;
@@ -8096,10 +8123,11 @@ function (exports, module, require) {
               : ((l = GCore + 1),
                 (AppSettings = s[GTools] + 1),
                 (CollaborationMergeUtils = l - ((l - AppSettings) & ((AppSettings - l) >> 7))),
-                (u = s[GTools - 1] + 1),
+                (DataModule_1468 = s[GTools - 1] + 1),
                 (r =
                   CollaborationMergeUtils -
-                  ((CollaborationMergeUtils - u) & ((u - CollaborationMergeUtils) >> 7)))),
+                  ((CollaborationMergeUtils - DataModule_1468) &
+                    ((DataModule_1468 - CollaborationMergeUtils) >> 7)))),
               (s[GTools - 1] = GCore),
               (GCore = r));
           s[g] = GCore;
@@ -8144,21 +8172,24 @@ function (exports, module, require) {
               _interopRequireDefault = null;
               var CollaborationMergeUtils = t[r];
               for (let t = 0; t < CollaborationMergeUtils.fonts.length; t++) {
-                var u = CollaborationMergeUtils.fonts[t];
-                if (!u.family || u.family === s) {
-                  if (u.style === e.fontStyle && u.weight === e.fontWeight) {
+                var DataModule_1468 = CollaborationMergeUtils.fonts[t];
+                if (!DataModule_1468.family || DataModule_1468.family === s) {
+                  if (
+                    DataModule_1468.style === e.fontStyle &&
+                    DataModule_1468.weight === e.fontWeight
+                  ) {
                     _interopRequireDefault = {
-                      family: u.family || CollaborationMergeUtils.family,
-                      weight: u.weight,
-                      style: u.style,
+                      family: DataModule_1468.family || CollaborationMergeUtils.family,
+                      weight: DataModule_1468.weight,
+                      style: DataModule_1468.style,
                     };
                     break;
                   }
                   _interopRequireDefault ||
                     (_interopRequireDefault = {
-                      family: u.family || CollaborationMergeUtils.family,
-                      weight: u.weight,
-                      style: u.style,
+                      family: DataModule_1468.family || CollaborationMergeUtils.family,
+                      weight: DataModule_1468.weight,
+                      style: DataModule_1468.style,
                     });
                 }
               }
@@ -8196,19 +8227,21 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(681) /* module_681 */.left,
+    DataModule_681 = require(681) /* DataModule_681 */.left,
     a = require(350) /* module_350 */,
-    r = require(213); /* module_213 */
+    DataModule_213 = require(213); /* DataModule_213 */
   core_export(
     {
       target: 'Array',
       proto: true,
-      forced: (!require(245) /* stub_requires_407 */ && r > 79 && r < 83) || !a('reduce'),
+      forced:
+        (!require(245) /* stub_requires_407 */ && DataModule_213 > 79 && DataModule_213 < 83) ||
+        !a('reduce'),
     },
     {
       reduce: function (e) {
         var t = arguments.length;
-        return i(this, e, t, t > 1 ? arguments[1] : undefined);
+        return DataModule_681(this, e, t, t > 1 ? arguments[1] : undefined);
       },
     }
   );
@@ -8249,7 +8282,7 @@ function (exports, module, require) {
   var o = require(619) /* module_619 */,
     toLength = require(46) /* toLength */,
     classof = require(92) /* classof */,
-    r = require(620); /* module_620 */
+    DataModule_620 = require(620); /* DataModule_620 */
   exports.exports =
     Object.setPrototypeOf ||
     ('__proto__' in {}
@@ -8261,7 +8294,11 @@ function (exports, module, require) {
             ((e = o(Object.prototype, '__proto__', 'set'))(n, []), (t = n instanceof Array));
           } catch (e) {}
           return function (n, o) {
-            return (classof(n), r(o), toLength(n) ? (t ? e(n, o) : (n.__proto__ = o), n) : n);
+            return (
+              classof(n),
+              DataModule_620(o),
+              toLength(n) ? (t ? e(n, o) : (n.__proto__ = o), n) : n
+            );
           };
         })()
       : undefined);
@@ -8398,19 +8435,19 @@ function (exports, module, require) {
   var core_export = require(25) /* core_export */,
     globalThis = require(23) /* globalThis */,
     a = require(324) /* polyfill_ArrayBuffer_DataView */,
-    r = require(260) /* module_260 */,
+    DataModule_260 = require(260) /* DataModule_260 */,
     s = a.ArrayBuffer;
   (core_export(
     { global: true, constructor: true, forced: globalThis.ArrayBuffer !== s },
     { ArrayBuffer: s }
   ),
-    r('ArrayBuffer'));
+    DataModule_260('ArrayBuffer'));
 }
 ,
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(223) /* module_223 */,
+    DataModule_223 = require(223) /* DataModule_223 */,
     tryCall = require(21) /* tryCall */,
     r = require(324) /* polyfill_ArrayBuffer_DataView */,
     toString_default = require(37) /* toString_default */,
@@ -8419,9 +8456,9 @@ function (exports, module, require) {
     d = r.ArrayBuffer,
     u = r.DataView,
     p = u.prototype,
-    g = i(d.prototype.slice),
-    h = i(p.getUint8),
-    f = i(p.setUint8);
+    g = DataModule_223(d.prototype.slice),
+    h = DataModule_223(p.getUint8),
+    f = DataModule_223(p.setUint8);
   core_export(
     {
       target: 'ArrayBuffer',
@@ -8437,12 +8474,12 @@ function (exports, module, require) {
         for (
           var require = toString_default(this).byteLength,
             core_export = l(e, require),
-            i = l(undefined === t ? require : t, require),
-            tryCall = new d(toStringTagSupport(i - core_export)),
+            DataModule_223 = l(undefined === t ? require : t, require),
+            tryCall = new d(toStringTagSupport(DataModule_223 - core_export)),
             r = new u(this),
             p = new u(tryCall),
             m = 0;
-          core_export < i;
+          core_export < DataModule_223;
         )
           f(p, m++, h(r, core_export++));
         return tryCall;
@@ -8565,10 +8602,10 @@ function (exports, module) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(240) /* module_240 */,
+  var DataModule_240 = require(240) /* DataModule_240 */,
     classof = require(92); /* classof */
   exports.exports = function (e) {
-    return o(classof(e));
+    return DataModule_240(classof(e));
   };
 }
 ,
@@ -8596,8 +8633,8 @@ function (exports, module, require) {
   'use strict';
   var o = require(152) /* polyfill_TypedArrays */,
     i = require(427) /* module_427 */,
-    a = require(429) /* module_429 */,
-    r = require(131) /* module_131 */,
+    DataModule_429 = require(429) /* DataModule_429 */,
+    DataModule_131 = require(131) /* DataModule_131 */,
     isCallable = require(29) /* isCallable */,
     uncurryThis = require(27) /* uncurryThis */,
     tryCall = require(21) /* tryCall */,
@@ -8609,7 +8646,7 @@ function (exports, module, require) {
     function (e) {
       var t = arguments.length;
       d(this);
-      var n = 'Big' === p(r(this), 0, 3) ? a(e) : +e;
+      var n = 'Big' === p(DataModule_131(this), 0, 3) ? DataModule_429(e) : +e;
       return isCallable(
         i,
         this,
@@ -8638,7 +8675,7 @@ function (exports, module, require) {
     isCallable = require(29) /* isCallable */,
     a = require(152) /* polyfill_TypedArrays */,
     r = require(101) /* stub_requires_117 */,
-    s = require(428) /* module_428 */,
+    DataModule_428 = require(428) /* DataModule_428 */,
     l = require(93) /* stub_requires_92 */,
     tryCall = require(21) /* tryCall */,
     d = globalThis.RangeError,
@@ -8662,7 +8699,7 @@ function (exports, module, require) {
     'set',
     function (e) {
       h(this);
-      var t = s(arguments.length > 1 ? arguments[1] : undefined, 1),
+      var t = DataModule_428(arguments.length > 1 ? arguments[1] : undefined, 1),
         n = l(e);
       if (m) return isCallable(g, this, n, t);
       var globalThis = this.length,
@@ -8678,19 +8715,19 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var globalThis = require(23) /* globalThis */,
-    i = require(223) /* module_223 */,
+    DataModule_223 = require(223) /* DataModule_223 */,
     tryCall = require(21) /* tryCall */,
-    r = require(65) /* module_65 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     s = require(351) /* module_351 */,
     l = require(152) /* polyfill_TypedArrays */,
     c = require(521) /* stub_requires_129 */,
     d = require(522) /* stub_requires_129 */,
-    u = require(213) /* module_213 */,
+    DataModule_213 = require(213) /* DataModule_213 */,
     p = require(523) /* stub_requires_129 */,
     g = l.aTypedArray,
     h = l.exportTypedArrayMethod,
     f = globalThis.Uint16Array,
-    m = f && i(f.prototype.sort),
+    m = f && DataModule_223(f.prototype.sort),
     y = !(
       !m ||
       (tryCall(function () {
@@ -8703,7 +8740,7 @@ function (exports, module, require) {
     v =
       !!m &&
       !tryCall(function () {
-        if (u) return u < 74;
+        if (DataModule_213) return DataModule_213 < 74;
         if (c) return c < 67;
         if (d) return true;
         if (p) return p < 602;
@@ -8726,7 +8763,7 @@ function (exports, module, require) {
     'sort',
     function (e) {
       return (
-        undefined !== e && r(e),
+        undefined !== e && DataModule_65(e),
         v
           ? m(this, e)
           : s(
@@ -8786,8 +8823,11 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(702); /* module_702 */
-  core_export({ global: true, forced: parseFloat !== i }, { parseFloat: i });
+    DataModule_702 = require(702); /* DataModule_702 */
+  core_export(
+    { global: true, forced: parseFloat !== DataModule_702 },
+    { parseFloat: DataModule_702 }
+  );
 }
 ,
 function (exports, module, require) {
@@ -8806,7 +8846,7 @@ function (exports, module, require) {
     tryCall = require(21) /* tryCall */,
     s = require(110) /* module_110 */,
     anObject = require(35) /* anObject */,
-    c = require(342) /* module_342 */,
+    DataModule_342 = require(342) /* DataModule_342 */,
     d = require(453) /* module_453 */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     p = a && a.prototype;
@@ -8824,7 +8864,7 @@ function (exports, module, require) {
       },
       {
         finally: function (e) {
-          var t = c(this, s('Promise')),
+          var t = DataModule_342(this, s('Promise')),
             n = anObject(e);
           return this.then(
             n
@@ -8878,13 +8918,13 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(239) /* module_239 */,
+  var DataModule_239 = require(239) /* DataModule_239 */,
     i = Function.prototype,
     a = i.apply,
     r = i.call;
   exports.exports =
     ('object' == typeof Reflect && Reflect.apply) ||
-    (o
+    (DataModule_239
       ? r.bind(a)
       : function () {
           return r.apply(a, arguments);
@@ -8896,22 +8936,22 @@ function (exports, module, require) {
   var globalThis = require(23) /* globalThis */,
     i = require(186) /* stub_requires_23 */,
     anObject = require(35) /* anObject */,
-    r = require(277) /* module_277 */,
+    DataModule_277 = require(277) /* DataModule_277 */,
     s = require(299) /* module_299 */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
-    c = require(407) /* module_407 */,
+    DataModule_407 = require(407) /* DataModule_407 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
-    u = require(213) /* module_213 */,
+    DataModule_213 = require(213) /* DataModule_213 */,
     p = i && i.prototype,
     g = wellKnownSymbol('species'),
     h = false,
     f = anObject(globalThis.PromiseRejectionEvent),
-    m = r('Promise', function () {
+    m = DataModule_277('Promise', function () {
       var e = s(i),
         t = e !== String(i);
-      if (!t && 66 === u) return true;
+      if (!t && 66 === DataModule_213) return true;
       if (createNonEnumerableProperty && (!p.catch || !p.finally)) return true;
-      if (!u || u < 51 || !/native code/.test(e)) {
+      if (!DataModule_213 || DataModule_213 < 51 || !/native code/.test(e)) {
         var require = new i(function (e) {
             e(1);
           }),
@@ -8927,23 +8967,23 @@ function (exports, module, require) {
         )
           return true;
       }
-      return !(t || ('BROWSER' !== c && 'DENO' !== c) || f);
+      return !(t || ('BROWSER' !== DataModule_407 && 'DENO' !== DataModule_407) || f);
     });
   exports.exports = { CONSTRUCTOR: m, REJECTION_EVENT: f, SUBCLASSING: h };
 }
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(65) /* module_65 */,
+  var DataModule_65 = require(65) /* DataModule_65 */,
     i = TypeError,
     a = function (e) {
       var t, n;
-      ((this.promise = new e(function (e, o) {
+      ((this.promise = new e(function (e, DataModule_65) {
         if (undefined !== t || undefined !== n) throw new i('Bad Promise constructor');
-        ((t = e), (n = o));
+        ((t = e), (n = DataModule_65));
       })),
-        (this.resolve = o(t)),
-        (this.reject = o(n)));
+        (this.resolve = DataModule_65(t)),
+        (this.reject = DataModule_65(n)));
     };
   exports.exports.f = function (e) {
     return new a(e);
@@ -8957,7 +8997,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(131) /* module_131 */,
+  var DataModule_131 = require(131) /* DataModule_131 */,
     getSubstitution = require(145) /* getSubstitution */,
     a = require(194) /* module_194 */,
     iteratorPrototype = require(203) /* iteratorPrototype */,
@@ -8967,7 +9007,7 @@ function (exports, module, require) {
       return (
         getSubstitution(e, wellKnownSymbol) ||
         getSubstitution(e, '@@iterator') ||
-        iteratorPrototype[o(e)]
+        iteratorPrototype[DataModule_131(e)]
       );
   };
 }
@@ -9089,14 +9129,14 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
-    r = _interopRequireDefault(require(336) /* module_336 */),
+    GEvent_storageItem = _interopRequireDefault(require(336) /* GEvent_storageItem */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     c = _interopRequireDefault(require(554) /* module_554 */),
     d = _interopRequireDefault(require(555) /* module_555 */),
     u = require(237) /* Item */,
     p = require(119); /* GCloudStorage */
-  const g = require(436) /* module_436 */,
+  const DataModule_436 = require(436) /* DataModule_436 */,
     h = require(86); /* module_86 */
   var f = AppSettings.FILE_FORMATS.find((e) => e.default),
     m = AppSettings.FILE_FORMATS.filter((e) => !e.default);
@@ -9134,7 +9174,7 @@ function (exports, module, require) {
           : null
       );
     }),
-    (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, r) {
+    (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, GEvent_storageItem) {
       if (
         (u.Item.call(this, e),
         (this._filename = n),
@@ -9143,8 +9183,8 @@ function (exports, module, require) {
         (this._versionId = GCore),
         (this._token = AppSettings),
         (this._isAutoSave =
-          'boolean' == typeof r
-            ? r
+          'boolean' == typeof GEvent_storageItem
+            ? GEvent_storageItem
             : !(!_interopRequireDefault || !_interopRequireDefault.autosave)),
         (this._fileLastModifiedDate =
           _interopRequireDefault &&
@@ -9162,7 +9202,7 @@ function (exports, module, require) {
             ((this._ext = GSystemDialog.ext.toUpperCase()), (this._type = GSystemDialog.type)));
       }
     }),
-    GCore.GObject.inheritAndMix(b.Item, u.Item, [g]),
+    GCore.GObject.inheritAndMix(b.Item, u.Item, [DataModule_436]),
     (b.Item.prototype._filename = null),
     (b.Item.prototype._ext = null),
     (b.Item.prototype._type = null),
@@ -9209,8 +9249,8 @@ function (exports, module, require) {
       if (this._file.status !== e) {
         var module = this._file.status;
         ((this._file.status = e),
-          gDesigner.hasEventListeners(r.default.FileStatusUpdate) &&
-            gDesigner.trigger(new r.default.FileStatusUpdate(this, module, e)));
+          gDesigner.hasEventListeners(GEvent_storageItem.default.FileStatusUpdate) &&
+            gDesigner.trigger(new GEvent_storageItem.default.FileStatusUpdate(this, module, e)));
       }
     }),
     (b.Item.prototype.getCollaborativeFile = async function () {
@@ -9241,8 +9281,10 @@ function (exports, module, require) {
         (this._isAutoSave = !!require.isAutoSave()),
         this._file.status !== module &&
           null != module &&
-          gDesigner.hasEventListeners(r.default.FileStatusUpdate) &&
-          gDesigner.trigger(new r.default.FileStatusUpdate(this, module, this._file.status)));
+          gDesigner.hasEventListeners(GEvent_storageItem.default.FileStatusUpdate) &&
+          gDesigner.trigger(
+            new GEvent_storageItem.default.FileStatusUpdate(this, module, this._file.status)
+          ));
     }),
     (b.Item.prototype.getFile = function () {
       return this._file;
@@ -9324,15 +9366,15 @@ function (exports, module, require) {
                   (this._writing = false),
                   n && n('empty blob')
                 );
-              const g = v.ungzip(u, { to: 'string' });
-              if ((this._verifyFileNotTooSmall(p, e), !g))
+              const DataModule_436 = v.ungzip(u, { to: 'string' });
+              if ((this._verifyFileNotTooSmall(p, e), !DataModule_436))
                 return (
                   _({
                     message: '[cloud] invalid Scene',
                     stack: 'id: '
                       .concat(this._id, '\nscene original: ')
                       .concat(c, '\nscene parsed: ')
-                      .concat(g),
+                      .concat(DataModule_436),
                   }),
                   (this._writing = false),
                   n &&
@@ -9384,8 +9426,13 @@ function (exports, module, require) {
               ]),
                 await AppSettings.gApi.updateFile(this._id, { trashed: false, sha256: x }),
                 this.setVersionId(null),
-                gDesigner.hasEventListeners(r.default) &&
-                  gDesigner.trigger(new r.default(r.default.Type.VersionUpdate, this)),
+                gDesigner.hasEventListeners(GEvent_storageItem.default) &&
+                  gDesigner.trigger(
+                    new GEvent_storageItem.default(
+                      GEvent_storageItem.default.Type.VersionUpdate,
+                      this
+                    )
+                  ),
                 e.updateStatus(h.Saved, GCore),
                 t && t(),
                 (this._writing = false));
@@ -10586,14 +10633,14 @@ function (exports, module, require) {
     a = require(396) /* module_396 */,
     r = require(174) /* module_174 */,
     toIndexedObject = require(184) /* toIndexedObject */,
-    l = require(294) /* module_294 */,
+    DataModule_294 = require(294) /* DataModule_294 */,
     c = require(61) /* module_61 */,
-    d = require(399) /* module_399 */,
+    DataModule_399 = require(399) /* DataModule_399 */,
     u = Object.getOwnPropertyDescriptor;
   module.f = hasOwnProperty_wrapper
     ? u
     : function (e, t) {
-        if (((e = toIndexedObject(e)), (t = l(t)), d))
+        if (((e = toIndexedObject(e)), (t = DataModule_294(t)), DataModule_399))
           try {
             return u(e, t);
           } catch (e) {}
@@ -10603,10 +10650,10 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(116) /* module_116 */,
+  var DataModule_116 = require(116) /* DataModule_116 */,
     uncurryThis = require(27); /* uncurryThis */
   exports.exports = function (e) {
-    if ('Function' === o(e)) return uncurryThis(e);
+    if ('Function' === DataModule_116(e)) return uncurryThis(e);
   };
 }
 ,
@@ -10708,8 +10755,8 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     r = _interopRequireDefault(require(1091) /* module_1091 */),
     s = require(165) /* module_165 */,
-    l = require(219) /* module_219 */,
-    GLocale = require(9) /* GLocale */,
+    GLocale = require(219) /* GLocale */,
+    GLocale2 = require(9) /* GLocale */,
     GLocaleKey = require(47); /* GLocaleKey */
   function u() {}
   ((u.Directory = function (e) {
@@ -10854,7 +10901,7 @@ function (exports, module, require) {
       try {
         (e < AppSettings.UN_BELIVEVABLE_FEW_BYTES_TO_SAVE &&
           !this.isSaveCounterMeasureEnabled() &&
-          new l(GLocale.get(new GLocaleKey('GDocument', 'text.saveing-error'))).open(),
+          new GLocale(GLocale2.get(new GLocaleKey('GDocument', 'text.saveing-error'))).open(),
           this.getDocumentRealSizeAfterSave(t));
       } catch (e) {
         console.error(e);
@@ -10867,13 +10914,13 @@ function (exports, module, require) {
           this.getFileSizeBeforeSaved() / 2 > this.getFileSizeAfterSaved())() &&
           this.getFileSizeAfterSaved() &&
           this.getFileSizeAfterSaved() > 0 &&
-          new l(GLocale.get(new GLocaleKey('GDocument', 'text.saveing-error'))).open();
+          new GLocale(GLocale2.get(new GLocaleKey('GDocument', 'text.saveing-error'))).open();
       } catch (e) {
         console.error(e);
       }
     }),
     (u.Item.prototype.notEnoughDiskSpace = function () {
-      new l(GLocale.get(new GLocaleKey('GDocument', 'text.save-no-space'))).open();
+      new GLocale(GLocale2.get(new GLocaleKey('GDocument', 'text.save-no-space'))).open();
     }),
     (u.Item.prototype.getDocumentRealSizeAfterSave = function (e) {
       let module = null;
@@ -11284,14 +11331,14 @@ function (exports, module, require) {
   'use strict';
   var uncurryThis = require(27) /* uncurryThis */,
     tryCall = require(21) /* tryCall */,
-    a = require(116) /* module_116 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
     r = Object,
     s = uncurryThis(''.split);
   exports.exports = tryCall(function () {
     return !r('z').propertyIsEnumerable(0);
   })
     ? function (e) {
-        return 'String' === a(e) ? s(e, '') : r(e);
+        return 'String' === DataModule_116(e) ? s(e, '') : r(e);
       }
     : r;
 }
@@ -11349,22 +11396,22 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(407); /* module_407 */
-  exports.exports = 'NODE' === o;
+  var DataModule_407 = require(407); /* DataModule_407 */
+  exports.exports = 'NODE' === DataModule_407;
 }
 ,
 function (exports, module, require) {
   'use strict';
   var isCallable = require(29) /* isCallable */,
-    i = require(65) /* module_65 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
-    r = require(185) /* module_185 */,
-    s = require(204) /* module_204 */,
+    DataModule_185 = require(185) /* DataModule_185 */,
+    DataModule_204 = require(204) /* DataModule_204 */,
     l = TypeError;
   exports.exports = function (e, t) {
-    var n = arguments.length < 2 ? s(e) : t;
-    if (i(n)) return toString_default(isCallable(n, e));
-    throw new l(r(e) + ' is not iterable');
+    var n = arguments.length < 2 ? DataModule_204(e) : t;
+    if (DataModule_65(n)) return toString_default(isCallable(n, e));
+    throw new l(DataModule_185(e) + ' is not iterable');
   };
 }
 ,
@@ -11376,15 +11423,15 @@ function (exports, module, require) {
     toString_default = require(37) /* toString_default */,
     toLength = require(46) /* toLength */,
     classof = require(92) /* classof */,
-    c = require(342) /* module_342 */,
+    DataModule_342 = require(342) /* DataModule_342 */,
     regExpFlags = require(308) /* regExpFlags */,
     toStringTagSupport = require(117) /* toStringTagSupport */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     getSubstitution = require(145) /* getSubstitution */,
-    h = require(279) /* module_279 */,
-    f = require(344) /* module_344 */,
+    DataModule_279 = require(279) /* DataModule_279 */,
+    DataModule_344 = require(344) /* DataModule_344 */,
     tryCall = require(21) /* tryCall */,
-    y = f.UNSUPPORTED_Y,
+    y = DataModule_344.UNSUPPORTED_Y,
     v = Math.min,
     _ = uncurryThis([].push),
     b = uncurryThis(''.slice),
@@ -11427,8 +11474,8 @@ function (exports, module, require) {
             var classof = n(uncurryThis, fixRegExpWKS, toLength, isCallable, uncurryThis !== t);
             if (classof.done) return classof.value;
           }
-          var getSubstitution = c(fixRegExpWKS, RegExp),
-            f = fixRegExpWKS.unicode,
+          var getSubstitution = DataModule_342(fixRegExpWKS, RegExp),
+            DataModule_344 = fixRegExpWKS.unicode,
             tryCall =
               (fixRegExpWKS.ignoreCase ? 'i' : '') +
               (fixRegExpWKS.multiline ? 'm' : '') +
@@ -11437,16 +11484,16 @@ function (exports, module, require) {
             w = new getSubstitution(y ? '^(?:' + fixRegExpWKS.source + ')' : fixRegExpWKS, tryCall),
             x = undefined === isCallable ? 4294967295 : isCallable >>> 0;
           if (0 === x) return [];
-          if (0 === toLength.length) return null === h(w, toLength) ? [toLength] : [];
+          if (0 === toLength.length) return null === DataModule_279(w, toLength) ? [toLength] : [];
           for (var S = 0, E = 0, A = []; E < toLength.length; ) {
             w.lastIndex = y ? 0 : E;
             var T,
-              G = h(w, y ? b(toLength, E) : toLength);
+              G = DataModule_279(w, y ? b(toLength, E) : toLength);
             if (
               null === G ||
               (T = v(toStringTagSupport(w.lastIndex + (y ? E : 0)), toLength.length)) === S
             )
-              E = regExpFlags(toLength, E, f);
+              E = regExpFlags(toLength, E, DataModule_344);
             else {
               if ((_(A, b(toLength, S, E)), A.length === x)) return A;
               for (var P = 1; P <= G.length - 1; P++) if ((_(A, G[P]), A.length === x)) return A;
@@ -11557,22 +11604,24 @@ function (exports, module, require) {
     tryCall = require(21) /* tryCall */,
     anObject = require(35) /* anObject */,
     toLength = require(46) /* toLength */,
-    c = require(136) /* module_136 */,
-    d = require(208) /* module_208 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
+    DataModule_208 = require(208) /* DataModule_208 */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
     h = wellKnownSymbol('iterator'),
     f = false;
   ([].keys &&
-    ('next' in (a = [].keys()) ? (i = d(d(a))) !== Object.prototype && (o = i) : (f = true)),
+    ('next' in (a = [].keys())
+      ? (i = DataModule_208(DataModule_208(a))) !== Object.prototype && (o = i)
+      : (f = true)),
     !toLength(o) ||
     tryCall(function () {
       var e = {};
       return o[h].call(e) !== e;
     })
       ? (o = {})
-      : createNonEnumerableProperty && (o = c(o)),
+      : createNonEnumerableProperty && (o = DataModule_136(o)),
     anObject(o[h]) ||
       defineBuiltIn(o, h, function () {
         return this;
@@ -12413,15 +12462,15 @@ function (exports, module, require) {
   'use strict';
   var o,
     core_export = require(25) /* core_export */,
-    a = require(223) /* module_223 */,
+    DataModule_223 = require(223) /* DataModule_223 */,
     objectGetOwnPropertyDescriptor = require(222) /* objectGetOwnPropertyDescriptor */.f,
     toStringTagSupport = require(117) /* toStringTagSupport */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
-    c = require(361) /* module_361 */,
+    DataModule_361 = require(361) /* DataModule_361 */,
     classof = require(92) /* classof */,
     u = require(362) /* module_362 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
-    g = a(''.slice),
+    g = DataModule_223(''.slice),
     h = Math.min,
     f = u('endsWith');
   core_export(
@@ -12438,12 +12487,12 @@ function (exports, module, require) {
     {
       endsWith: function (e) {
         var t = requireObjectCoercible(classof(this));
-        c(e);
+        DataModule_361(e);
         var n = arguments.length > 1 ? arguments[1] : undefined,
           o = t.length,
           core_export = undefined === n ? o : h(toStringTagSupport(n), o),
-          a = requireObjectCoercible(e);
-        return g(t, core_export - a.length, core_export) === a;
+          DataModule_223 = requireObjectCoercible(e);
+        return g(t, core_export - DataModule_223.length, core_export) === DataModule_223;
       },
     }
   );
@@ -12747,7 +12796,7 @@ function (exports, module, require) {
   var isCallable = require(29) /* isCallable */,
     toString_default = require(37) /* toString_default */,
     anObject = require(35) /* anObject */,
-    r = require(116) /* module_116 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
     regexpExec = require(306) /* regexpExec */,
     l = TypeError;
   exports.exports = function (e, t) {
@@ -12756,7 +12805,7 @@ function (exports, module, require) {
       var c = isCallable(n, e, t);
       return (null !== c && toString_default(c), c);
     }
-    if ('RegExp' === r(e)) return isCallable(regexpExec, e, t);
+    if ('RegExp' === DataModule_116(e)) return isCallable(regexpExec, e, t);
     throw new l('RegExp#exec called on incompatible receiver');
   };
 }
@@ -12776,16 +12825,16 @@ function (exports, module, require) {
   'use strict';
   var anObject = require(35) /* anObject */,
     toLength = require(46) /* toLength */,
-    a = require(175); /* module_175 */
+    DataModule_175 = require(175); /* DataModule_175 */
   exports.exports = function (e, t, n) {
     var r, s;
     return (
-      a &&
+      DataModule_175 &&
         anObject((r = t.constructor)) &&
         r !== n &&
         toLength((s = r.prototype)) &&
         s !== n.prototype &&
-        a(e, s),
+        DataModule_175(e, s),
       e
     );
   };
@@ -12868,32 +12917,36 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(397) /* module_397 */,
-    i = require(241); /* module_241 */
+  var DataModule_397 = require(397) /* DataModule_397 */,
+    DataModule_241 = require(241); /* DataModule_241 */
   exports.exports = function (e) {
-    var t = o(e, 'string');
-    return i(t) ? t : t + '';
+    var t = DataModule_397(e, 'string');
+    return DataModule_241(t) ? t : t + '';
   };
 }
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(213) /* module_213 */,
+  var DataModule_213 = require(213) /* DataModule_213 */,
     tryCall = require(21) /* tryCall */,
     globalThis = require(23) /* globalThis */.String;
   exports.exports =
     !!Object.getOwnPropertySymbols &&
     !tryCall(function () {
       var e = Symbol('symbol detection');
-      return !globalThis(e) || !(Object(e) instanceof Symbol) || (!Symbol.sham && o && o < 41);
+      return (
+        !globalThis(e) ||
+        !(Object(e) instanceof Symbol) ||
+        (!Symbol.sham && DataModule_213 && DataModule_213 < 41)
+      );
     });
 }
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(297); /* module_297 */
+  var DataModule_297 = require(297); /* DataModule_297 */
   exports.exports = function (e, t) {
-    return o[e] || (o[e] = t || {});
+    return DataModule_297[e] || (DataModule_297[e] = t || {});
   };
 }
 ,
@@ -12931,22 +12984,22 @@ function (exports, module, require) {
   'use strict';
   var uncurryThis = require(27) /* uncurryThis */,
     anObject = require(35) /* anObject */,
-    a = require(297) /* module_297 */,
+    DataModule_297 = require(297) /* DataModule_297 */,
     r = uncurryThis(Function.toString);
-  (anObject(a.inspectSource) ||
-    (a.inspectSource = function (e) {
+  (anObject(DataModule_297.inspectSource) ||
+    (DataModule_297.inspectSource = function (e) {
       return r(e);
     }),
-    (exports.exports = a.inspectSource));
+    (exports.exports = DataModule_297.inspectSource));
 }
 ,
 function (exports, module, require) {
   'use strict';
   var o = require(296) /* module_296 */,
-    i = require(258) /* module_258 */,
+    DataModule_258 = require(258) /* DataModule_258 */,
     a = o('keys');
   exports.exports = function (e) {
-    return a[e] || (a[e] = i(e));
+    return a[e] || (a[e] = DataModule_258(e));
   };
 }
 ,
@@ -12968,7 +13021,7 @@ function (exports, module, require) {
   var uncurryThis = require(27) /* uncurryThis */,
     tryCall = require(21) /* tryCall */,
     anObject = require(35) /* anObject */,
-    r = require(131) /* module_131 */,
+    DataModule_131 = require(131) /* DataModule_131 */,
     s = require(110) /* module_110 */,
     l = require(299) /* module_299 */,
     c = function () {},
@@ -12986,7 +13039,7 @@ function (exports, module, require) {
     },
     f = function (e) {
       if (!anObject(e)) return false;
-      switch (r(e)) {
+      switch (DataModule_131(e)) {
         case 'AsyncFunction':
         case 'GeneratorFunction':
         case 'AsyncGeneratorFunction':
@@ -13054,13 +13107,13 @@ function (exports, module, require) {
     isCallable = require(29) /* isCallable */,
     uncurryThis = require(27) /* uncurryThis */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
-    l = require(307) /* module_307 */,
-    c = require(344) /* module_344 */,
+    DataModule_307 = require(307) /* DataModule_307 */,
+    DataModule_344 = require(344) /* DataModule_344 */,
     d = require(296) /* module_296 */,
-    u = require(136) /* module_136 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     internalState = require(80) /* internalState */.get,
-    g = require(458) /* module_458 */,
-    h = require(459) /* module_459 */,
+    DataModule_458 = require(458) /* DataModule_458 */,
+    DataModule_459 = require(459) /* DataModule_459 */,
     f = d('native-string-replace', String.prototype.replace),
     m = RegExp.prototype.exec,
     y = m,
@@ -13073,54 +13126,57 @@ function (exports, module, require) {
       isCallable(m, (o = /a/), 'a'),
       isCallable(m, i, 'a'),
       0 !== o.lastIndex || 0 !== i.lastIndex),
-    x = c.BROKEN_CARET,
+    x = DataModule_344.BROKEN_CARET,
     S = undefined !== /()??/.exec('')[1];
-  ((C || S || x || g || h) &&
+  ((C || S || x || DataModule_458 || DataModule_459) &&
     (y = function (e) {
       var t,
         n,
         o,
         i,
         uncurryThis,
-        c,
+        DataModule_344,
         d,
-        g = this,
-        h = internalState(g),
+        DataModule_458 = this,
+        DataModule_459 = internalState(DataModule_458),
         E = requireObjectCoercible(e),
-        A = h.raw;
+        A = DataModule_459.raw;
       if (A)
         return (
-          (A.lastIndex = g.lastIndex),
+          (A.lastIndex = DataModule_458.lastIndex),
           (t = isCallable(y, A, E)),
-          (g.lastIndex = A.lastIndex),
+          (DataModule_458.lastIndex = A.lastIndex),
           t
         );
-      var T = h.groups,
-        G = x && g.sticky,
-        P = isCallable(l, g),
-        D = g.source,
+      var T = DataModule_459.groups,
+        G = x && DataModule_458.sticky,
+        P = isCallable(DataModule_307, DataModule_458),
+        D = DataModule_458.source,
         L = 0,
         I = E;
       if (
         (G &&
           ((P = b(P, 'y', '')),
           -1 === _(P, 'g') && (P += 'g'),
-          (I = w(E, g.lastIndex)),
-          g.lastIndex > 0 &&
-            (!g.multiline || (g.multiline && '\n' !== v(E, g.lastIndex - 1))) &&
+          (I = w(E, DataModule_458.lastIndex)),
+          DataModule_458.lastIndex > 0 &&
+            (!DataModule_458.multiline ||
+              (DataModule_458.multiline && '\n' !== v(E, DataModule_458.lastIndex - 1))) &&
             ((D = '(?: ' + D + ')'), (I = ' ' + I), L++),
           (n = new RegExp('^(?:' + D + ')', P))),
         S && (n = new RegExp('^' + D + '$(?!\\s)', P)),
-        C && (o = g.lastIndex),
-        (i = isCallable(m, G ? n : g, I)),
+        C && (o = DataModule_458.lastIndex),
+        (i = isCallable(m, G ? n : DataModule_458, I)),
         G
           ? i
             ? ((i.input = w(i.input, L)),
               (i[0] = w(i[0], L)),
-              (i.index = g.lastIndex),
-              (g.lastIndex += i[0].length))
-            : (g.lastIndex = 0)
-          : C && i && (g.lastIndex = g.global ? i.index + i[0].length : o),
+              (i.index = DataModule_458.lastIndex),
+              (DataModule_458.lastIndex += i[0].length))
+            : (DataModule_458.lastIndex = 0)
+          : C &&
+            i &&
+            (DataModule_458.lastIndex = DataModule_458.global ? i.index + i[0].length : o),
         S &&
           i &&
           i.length > 1 &&
@@ -13130,8 +13186,12 @@ function (exports, module, require) {
           }),
         i && T)
       )
-        for (i.groups = c = u(null), uncurryThis = 0; uncurryThis < T.length; uncurryThis++)
-          c[(d = T[uncurryThis])[0]] = i[d[1]];
+        for (
+          i.groups = DataModule_344 = DataModule_136(null), uncurryThis = 0;
+          uncurryThis < T.length;
+          uncurryThis++
+        )
+          DataModule_344[(d = T[uncurryThis])[0]] = i[d[1]];
       return i;
     }),
     (exports.exports = y));
@@ -13159,9 +13219,9 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(309) /* module_309 */.charAt;
+  var DataModule_309 = require(309) /* DataModule_309 */.charAt;
   exports.exports = function (e, t, n) {
-    return t + (n ? o(e, t).length : 1);
+    return t + (n ? DataModule_309(e, t).length : 1);
   };
 }
 ,
@@ -13404,12 +13464,12 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var toString_default = require(37) /* toString_default */,
-    i = require(102); /* module_102 */
+    DataModule_102 = require(102); /* DataModule_102 */
   exports.exports = function (e, t, n, a) {
     try {
       return a ? t(toString_default(n)[0], n[1]) : t(n);
     } catch (t) {
-      i(e, 'throw', t);
+      DataModule_102(e, 'throw', t);
     }
   };
 }
@@ -13425,14 +13485,14 @@ function (exports, module, require) {
     c = require(120) /* module_120 */,
     d = require(232) /* module_232 */,
     tryCall = require(21) /* tryCall */,
-    p = require(146) /* module_146 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
     toStringTagSupport = require(117) /* toStringTagSupport */,
-    f = require(426) /* module_426 */,
+    DataModule_426 = require(426) /* DataModule_426 */,
     m = require(687) /* module_687 */,
     y = require(691) /* module_691 */,
-    v = require(208) /* module_208 */,
-    _ = require(175) /* module_175 */,
+    DataModule_208 = require(208) /* DataModule_208 */,
+    DataModule_175 = require(175) /* DataModule_175 */,
     b = require(427) /* module_427 */,
     w = require(157) /* stub_requires_27 */,
     C = require(288) /* module_288 */,
@@ -13484,7 +13544,7 @@ function (exports, module, require) {
     },
     X = function (e, t, n, globalThis) {
       var uncurryThis = P(e),
-        hasOwnProperty_wrapper = f(n),
+        hasOwnProperty_wrapper = DataModule_426(n),
         r = !!globalThis;
       if (hasOwnProperty_wrapper + t > uncurryThis.byteLength) throw new N('Wrong index');
       var GURABLE = uncurryThis.bytes,
@@ -13494,12 +13554,16 @@ function (exports, module, require) {
     },
     Q = function (e, t, n, globalThis, uncurryThis, hasOwnProperty_wrapper) {
       var r = P(e),
-        GURABLE = f(n),
+        GURABLE = DataModule_426(n),
         createProperty = globalThis(+uncurryThis),
         c = !!hasOwnProperty_wrapper;
       if (GURABLE + t > r.byteLength) throw new N('Wrong index');
-      for (var d = r.bytes, tryCall = GURABLE + r.byteOffset, p = 0; p < t; p++)
-        d[tryCall + p] = createProperty[c ? p : t - p - 1];
+      for (
+        var d = r.bytes, tryCall = GURABLE + r.byteOffset, DataModule_146 = 0;
+        DataModule_146 < t;
+        DataModule_146++
+      )
+        d[tryCall + DataModule_146] = createProperty[c ? DataModule_146 : t - DataModule_146 - 1];
     };
   if (r) {
     var J = A && 'ArrayBuffer' !== L.name;
@@ -13514,11 +13578,11 @@ function (exports, module, require) {
     })
       ? J && T && createProperty(L, 'name', 'ArrayBuffer')
       : (((I = function (e) {
-          return (p(this, k), C(new L(f(e)), this, I));
+          return (DataModule_146(this, k), C(new L(DataModule_426(e)), this, I));
         }).prototype = k),
         (k.constructor = I),
         copyConstructorProperties(I, L)),
-      _ && v(F) !== R && _(F, R));
+      DataModule_175 && DataModule_208(F) !== R && DataModule_175(F, R));
     var Z = new O(new I(2)),
       ee = uncurryThis(F.setInt8);
     (Z.setInt8(0, 2147483648),
@@ -13538,13 +13602,13 @@ function (exports, module, require) {
         ));
   } else
     ((k = (I = function (e) {
-      p(this, k);
-      var t = f(e);
+      DataModule_146(this, k);
+      var t = DataModule_426(e);
       (D(this, { type: 'ArrayBuffer', bytes: B(M(t), 0), byteLength: t }),
         hasOwnProperty_wrapper || ((this.byteLength = t), (this.detached = false)));
     }).prototype),
       (F = (O = function (e, t, n) {
-        (p(this, F), p(e, k));
+        (DataModule_146(this, F), DataModule_146(e, k));
         var globalThis = G(e),
           uncurryThis = globalThis.byteLength,
           r = lengthOfArrayLike(t);
@@ -13627,17 +13691,17 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     uncurryThis = require(27) /* uncurryThis */,
-    a = require(65) /* module_65 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     r = require(93) /* stub_requires_92 */,
     s = require(101) /* stub_requires_117 */,
-    l = require(1038) /* module_1038 */,
+    DataModule_1038 = require(1038) /* DataModule_1038 */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     tryCall = require(21) /* tryCall */,
     u = require(351) /* module_351 */,
     p = require(350) /* module_350 */,
     g = require(521) /* stub_requires_129 */,
     h = require(522) /* stub_requires_129 */,
-    f = require(213) /* module_213 */,
+    DataModule_213 = require(213) /* DataModule_213 */,
     m = require(523) /* stub_requires_129 */,
     y = [],
     v = uncurryThis(y.sort),
@@ -13650,7 +13714,7 @@ function (exports, module, require) {
     }),
     C = p('sort'),
     x = !tryCall(function () {
-      if (f) return f < 70;
+      if (DataModule_213) return DataModule_213 < 70;
       if (!(g && g > 3)) {
         if (h) return true;
         if (m) return m < 603;
@@ -13694,7 +13758,7 @@ function (exports, module, require) {
     { target: 'Array', proto: true, forced: b || !w || !C || !x },
     {
       sort: function (e) {
-        undefined !== e && a(e);
+        undefined !== e && DataModule_65(e);
         var t = r(this);
         if (x) return undefined === e ? v(t) : v(t, e);
         var n,
@@ -13725,7 +13789,7 @@ function (exports, module, require) {
           core_export < n;
         )
           t[core_export] = uncurryThis[core_export++];
-        for (; core_export < tryCall; ) l(t, core_export++);
+        for (; core_export < tryCall; ) DataModule_1038(t, core_export++);
         return t;
       },
     }
@@ -13763,8 +13827,8 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const o = require(1098); /* module_1098 */
-  exports.exports = new o();
+  const DataModule_1098 = require(1098); /* DataModule_1098 */
+  exports.exports = new DataModule_1098();
 }
 ,
 ,
@@ -14293,12 +14357,15 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var o = require(61) /* module_61 */,
-    i = require(615) /* module_615 */,
+    DataModule_615 = require(615) /* DataModule_615 */,
     objectGetOwnPropertyDescriptor = require(222) /* objectGetOwnPropertyDescriptor */,
     createPropertyDescriptor = require(88); /* createPropertyDescriptor */
   exports.exports = function (e, t, n) {
     for (
-      var s = i(t), l = createPropertyDescriptor.f, c = objectGetOwnPropertyDescriptor.f, d = 0;
+      var s = DataModule_615(t),
+        l = createPropertyDescriptor.f,
+        c = objectGetOwnPropertyDescriptor.f,
+        d = 0;
       d < s.length;
       d++
     ) {
@@ -14311,13 +14378,13 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var toString_default = require(37) /* toString_default */,
-    i = require(408) /* module_408 */,
+    DataModule_408 = require(408) /* DataModule_408 */,
     a = require(194) /* module_194 */,
     wellKnownSymbol = require(43)(/* wellKnownSymbol */ 'species');
   exports.exports = function (e, t) {
     var n,
       s = toString_default(e).constructor;
-    return undefined === s || a((n = toString_default(s)[wellKnownSymbol])) ? t : i(n);
+    return undefined === s || a((n = toString_default(s)[wellKnownSymbol])) ? t : DataModule_408(n);
   };
 }
 ,
@@ -14391,11 +14458,11 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(116); /* module_116 */
+  var DataModule_116 = require(116); /* DataModule_116 */
   exports.exports =
     Array.isArray ||
     function (e) {
-      return 'Array' === o(e);
+      return 'Array' === DataModule_116(e);
     };
 }
 ,
@@ -14403,7 +14470,7 @@ function (exports, module, require) {
   'use strict';
   var o = require(124) /* module_124 */,
     uncurryThis = require(27) /* uncurryThis */,
-    a = require(240) /* module_240 */,
+    DataModule_240 = require(240) /* DataModule_240 */,
     r = require(93) /* stub_requires_92 */,
     s = require(101) /* stub_requires_117 */,
     l = require(573) /* module_573 */,
@@ -14421,7 +14488,7 @@ function (exports, module, require) {
           var v,
             _,
             b = r(h),
-            w = a(b),
+            w = DataModule_240(b),
             C = s(w),
             x = o(f, m),
             S = 0,
@@ -14525,26 +14592,26 @@ function (exports, module, require) {
     s = require(693) /* module_693 */,
     l = require(152) /* polyfill_TypedArrays */,
     c = require(324) /* polyfill_ArrayBuffer_DataView */,
-    d = require(146) /* module_146 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     u = require(174) /* module_174 */,
     createProperty = require(100) /* createProperty */,
     g = require(694) /* module_694 */,
     toStringTagSupport = require(117) /* toStringTagSupport */,
-    f = require(426) /* module_426 */,
-    m = require(428) /* module_428 */,
+    DataModule_426 = require(426) /* DataModule_426 */,
+    DataModule_428 = require(428) /* DataModule_428 */,
     y = require(695) /* module_695 */,
-    v = require(294) /* module_294 */,
+    DataModule_294 = require(294) /* DataModule_294 */,
     _ = require(61) /* module_61 */,
-    b = require(131) /* module_131 */,
+    DataModule_131 = require(131) /* DataModule_131 */,
     toLength = require(46) /* toLength */,
-    C = require(241) /* module_241 */,
-    x = require(136) /* module_136 */,
+    DataModule_241 = require(241) /* DataModule_241 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     S = require(144) /* stub_requires_27 */,
-    E = require(175) /* module_175 */,
+    DataModule_175 = require(175) /* DataModule_175 */,
     A = require(243) /* module_243 */.f,
     T = require(696) /* module_696 */,
     G = require(349) /* module_349 */.forEach,
-    P = require(260) /* module_260 */,
+    DataModule_260 = require(260) /* DataModule_260 */,
     D = require(120) /* module_120 */,
     createPropertyDescriptor = require(88) /* createPropertyDescriptor */,
     objectGetOwnPropertyDescriptor = require(222) /* objectGetOwnPropertyDescriptor */,
@@ -14575,17 +14642,17 @@ function (exports, module, require) {
     },
     Q = function (e) {
       var t;
-      return S(K, e) || 'ArrayBuffer' === (t = b(e)) || 'SharedArrayBuffer' === t;
+      return S(K, e) || 'ArrayBuffer' === (t = DataModule_131(e)) || 'SharedArrayBuffer' === t;
     },
     J = function (e, t) {
-      return Y(e) && !C(t) && t in e && g(+t) && t >= 0;
+      return Y(e) && !DataModule_241(t) && t in e && g(+t) && t >= 0;
     },
     Z = function (e, t) {
-      return ((t = v(t)), J(e, t) ? u(2, e[t]) : U(e, t));
+      return ((t = DataModule_294(t)), J(e, t) ? u(2, e[t]) : U(e, t));
     },
     ee = function (e, t, n) {
       return (
-        (t = v(t)),
+        (t = DataModule_294(t)),
         !(J(e, t) && toLength(n) && _(n, 'value')) ||
         _(n, 'get') ||
         _(n, 'set') ||
@@ -14614,10 +14681,10 @@ function (exports, module, require) {
           c = 'get' + e,
           u = 'set' + e,
           g = globalThis[l],
-          v = g,
-          _ = v && v.prototype,
-          b = {},
-          C = function (e, t) {
+          DataModule_294 = g,
+          _ = DataModule_294 && DataModule_294.prototype,
+          DataModule_131 = {},
+          DataModule_241 = function (e, t) {
             B(e, t, {
               get: function () {
                 return (function (e, t) {
@@ -14640,41 +14707,41 @@ function (exports, module, require) {
           };
         (H
           ? s &&
-            ((v = t(function (e, t, n, core_export) {
+            ((DataModule_294 = t(function (e, t, n, core_export) {
               return (
-                d(e, _),
+                DataModule_146(e, _),
                 F(
                   toLength(t)
                     ? Q(t)
                       ? undefined !== core_export
-                        ? new g(t, m(n, hasOwnProperty_wrapper), core_export)
+                        ? new g(t, DataModule_428(n, hasOwnProperty_wrapper), core_export)
                         : undefined !== n
-                          ? new g(t, m(n, hasOwnProperty_wrapper))
+                          ? new g(t, DataModule_428(n, hasOwnProperty_wrapper))
                           : new g(t)
                       : Y(t)
-                        ? k(v, t)
-                        : isCallable(T, v, t)
-                    : new g(f(t)),
+                        ? k(DataModule_294, t)
+                        : isCallable(T, DataModule_294, t)
+                    : new g(DataModule_426(t)),
                   e,
-                  v
+                  DataModule_294
                 )
               );
             })),
-            E && E(v, z),
+            DataModule_175 && DataModule_175(DataModule_294, z),
             G(A(g), function (e) {
-              e in v || createProperty(v, e, g[e]);
+              e in DataModule_294 || createProperty(DataModule_294, e, g[e]);
             }),
-            (v.prototype = _))
-          : ((v = t(function (e, t, n, core_export) {
-              d(e, _);
+            (DataModule_294.prototype = _))
+          : ((DataModule_294 = t(function (e, t, n, core_export) {
+              DataModule_146(e, _);
               var globalThis,
                 s,
                 l,
                 c = 0,
                 u = 0;
               if (toLength(t)) {
-                if (!Q(t)) return Y(t) ? k(v, t) : isCallable(T, v, t);
-                ((globalThis = t), (u = m(n, hasOwnProperty_wrapper)));
+                if (!Q(t)) return Y(t) ? k(DataModule_294, t) : isCallable(T, DataModule_294, t);
+                ((globalThis = t), (u = DataModule_428(n, hasOwnProperty_wrapper)));
                 var createProperty = t.byteLength;
                 if (undefined === core_export) {
                   if (createProperty % hasOwnProperty_wrapper) throw new $('Wrong length');
@@ -14685,7 +14752,8 @@ function (exports, module, require) {
                 )
                   throw new $('Wrong length');
                 l = s / hasOwnProperty_wrapper;
-              } else ((l = f(t)), (globalThis = new j((s = l * hasOwnProperty_wrapper))));
+              } else
+                ((l = DataModule_426(t)), (globalThis = new j((s = l * hasOwnProperty_wrapper))));
               for (
                 M(e, {
                   buffer: globalThis,
@@ -14696,21 +14764,21 @@ function (exports, module, require) {
                 });
                 c < l;
               )
-                C(e, c++);
+                DataModule_241(e, c++);
             })),
-            E && E(v, z),
-            (_ = v.prototype = x(q))),
-          _.constructor !== v && createProperty(_, 'constructor', v),
-          (N(_).TypedArrayConstructor = v),
+            DataModule_175 && DataModule_175(DataModule_294, z),
+            (_ = DataModule_294.prototype = DataModule_136(q))),
+          _.constructor !== DataModule_294 && createProperty(_, 'constructor', DataModule_294),
+          (N(_).TypedArrayConstructor = DataModule_294),
           W && createProperty(_, W, l));
-        var S = v !== g;
-        ((b[l] = v),
-          core_export({ global: true, constructor: true, forced: S, sham: !H }, b),
-          'BYTES_PER_ELEMENT' in v ||
-            createProperty(v, 'BYTES_PER_ELEMENT', hasOwnProperty_wrapper),
+        var S = DataModule_294 !== g;
+        ((DataModule_131[l] = DataModule_294),
+          core_export({ global: true, constructor: true, forced: S, sham: !H }, DataModule_131),
+          'BYTES_PER_ELEMENT' in DataModule_294 ||
+            createProperty(DataModule_294, 'BYTES_PER_ELEMENT', hasOwnProperty_wrapper),
           'BYTES_PER_ELEMENT' in _ ||
             createProperty(_, 'BYTES_PER_ELEMENT', hasOwnProperty_wrapper),
-          P(l));
+          DataModule_260(l));
       }))
     : (exports.exports = function () {});
 }
@@ -14738,25 +14806,25 @@ function (exports, module, require) {
   var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
     globalThis = require(23) /* globalThis */,
     uncurryThis = require(27) /* uncurryThis */,
-    r = require(277) /* module_277 */,
+    DataModule_277 = require(277) /* DataModule_277 */,
     s = require(288) /* module_288 */,
     createProperty = require(100) /* createProperty */,
-    c = require(136) /* module_136 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     d = require(243) /* module_243 */.f,
     u = require(144) /* stub_requires_27 */,
-    p = require(454) /* module_454 */,
+    DataModule_454 = require(454) /* DataModule_454 */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     regexpStickyHelpers = require(460) /* regexpStickyHelpers */,
-    f = require(344) /* module_344 */,
+    DataModule_344 = require(344) /* DataModule_344 */,
     m = require(1040) /* module_1040 */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     tryCall = require(21) /* tryCall */,
     _ = require(61) /* module_61 */,
     internalState = require(80) /* internalState */.enforce,
-    w = require(260) /* module_260 */,
+    DataModule_260 = require(260) /* DataModule_260 */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
-    x = require(458) /* module_458 */,
-    S = require(459) /* module_459 */,
+    DataModule_458 = require(458) /* DataModule_458 */,
+    DataModule_459 = require(459) /* DataModule_459 */,
     E = wellKnownSymbol('match'),
     A = globalThis.RegExp,
     T = A.prototype,
@@ -14770,38 +14838,39 @@ function (exports, module, require) {
     F = /a/g,
     R = /a/g,
     M = new A(F) !== F,
-    N = f.MISSED_STICKY,
-    B = f.UNSUPPORTED_Y,
+    N = DataModule_344.MISSED_STICKY,
+    B = DataModule_344.UNSUPPORTED_Y,
     U =
       hasOwnProperty_wrapper &&
       (!M ||
         N ||
-        x ||
-        S ||
+        DataModule_458 ||
+        DataModule_459 ||
         tryCall(function () {
           return ((R[E] = false), A(F) !== F || A(R) === R || '/a/i' !== String(A(F, 'i')));
         }));
-  if (r('RegExp', U)) {
+  if (DataModule_277('RegExp', U)) {
     for (
       var $ = function (e, t) {
           var n,
             hasOwnProperty_wrapper,
             globalThis,
             uncurryThis,
-            r,
+            DataModule_277,
             d,
-            f = u(T, this),
-            m = p(e),
+            DataModule_344 = u(T, this),
+            m = DataModule_454(e),
             defineBuiltIn = undefined === t,
             tryCall = [],
-            w = e;
-          if (!f && m && defineBuiltIn && e.constructor === $) return e;
+            DataModule_260 = e;
+          if (!DataModule_344 && m && defineBuiltIn && e.constructor === $) return e;
           if (
-            ((m || u(T, e)) && ((e = e.source), defineBuiltIn && (t = regexpStickyHelpers(w))),
+            ((m || u(T, e)) &&
+              ((e = e.source), defineBuiltIn && (t = regexpStickyHelpers(DataModule_260))),
             (e = undefined === e ? '' : requireObjectCoercible(e)),
             (t = undefined === t ? '' : requireObjectCoercible(t)),
-            (w = e),
-            x &&
+            (DataModule_260 = e),
+            DataModule_458 &&
               ('dotAll' in F) &&
               (hasOwnProperty_wrapper = !!t && I(t, 's') > -1) &&
               (t = L(t, /s/g, '')),
@@ -14811,7 +14880,7 @@ function (exports, module, require) {
               (globalThis = !!t && I(t, 'y') > -1) &&
               B &&
               (t = L(t, /y/g, '')),
-            S &&
+            DataModule_459 &&
               ((e = (uncurryThis = (function (e) {
                 for (
                   var t,
@@ -14819,7 +14888,7 @@ function (exports, module, require) {
                     hasOwnProperty_wrapper = 0,
                     globalThis = '',
                     uncurryThis = [],
-                    r = c(null),
+                    DataModule_277 = DataModule_136(null),
                     s = false,
                     createProperty = false,
                     d = 0,
@@ -14846,8 +14915,9 @@ function (exports, module, require) {
                           d++);
                         continue;
                       case '>' === t && l:
-                        if ('' === u || _(r, u)) throw new G('Invalid capture group name');
-                        ((r[u] = true),
+                        if ('' === u || _(DataModule_277, u))
+                          throw new G('Invalid capture group name');
+                        ((DataModule_277[u] = true),
                           (uncurryThis[uncurryThis.length] = [u, d]),
                           (createProperty = false),
                           (u = ''));
@@ -14858,9 +14928,9 @@ function (exports, module, require) {
                 return [globalThis, uncurryThis];
               })(e))[0]),
               (tryCall = uncurryThis[1])),
-            (r = s(A(e, t), f ? this : T, $)),
+            (DataModule_277 = s(A(e, t), DataModule_344 ? this : T, $)),
             (hasOwnProperty_wrapper || globalThis || tryCall.length) &&
-              ((d = internalState(r)),
+              ((d = internalState(DataModule_277)),
               hasOwnProperty_wrapper &&
                 ((d.dotAll = true),
                 (d.raw = $(
@@ -14886,12 +14956,16 @@ function (exports, module, require) {
                 ))),
               globalThis && (d.sticky = true),
               tryCall.length && (d.groups = tryCall)),
-            e !== w)
+            e !== DataModule_260)
           )
             try {
-              createProperty(r, 'source', '' === w ? '(?:)' : w);
+              createProperty(
+                DataModule_277,
+                'source',
+                '' === DataModule_260 ? '(?:)' : DataModule_260
+              );
             } catch (e) {}
-          return r;
+          return DataModule_277;
         },
         j = d(A),
         K = 0;
@@ -14902,17 +14976,17 @@ function (exports, module, require) {
       ($.prototype = T),
       defineBuiltIn(globalThis, 'RegExp', $, { constructor: true }));
   }
-  w('RegExp');
+  DataModule_260('RegExp');
 }
 ,
 function (exports, module, require) {
   'use strict';
   var GCore = require(1) /* GCore */,
-    i = require(1073); /* module_1073 */
-  ((i.DESIGNER.HIGHLIGHTOUTLINE_COLOR = new GCore.GRGBColor([197, 17, 98])),
-    (i.PURCHASEPANEL.HAS_PRODUCT_DESCRIPTION = false),
-    (i.USERLOGIN.loadLogo = () => {}),
-    (exports.exports = i));
+    DataModule_1073 = require(1073); /* DataModule_1073 */
+  ((DataModule_1073.DESIGNER.HIGHLIGHTOUTLINE_COLOR = new GCore.GRGBColor([197, 17, 98])),
+    (DataModule_1073.PURCHASEPANEL.HAS_PRODUCT_DESCRIPTION = false),
+    (DataModule_1073.USERLOGIN.loadLogo = () => {}),
+    (exports.exports = DataModule_1073));
 }
 ,
 function (exports, module, require) {
@@ -14934,7 +15008,7 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     s = require(592) /* module_592 */,
-    l = require(1094); /* module_1094 */
+    DataModule_1094 = require(1094); /* DataModule_1094 */
   const c = require(434); /* stub_requires_30_1072 */
   function d() {}
   async function u(e, t) {
@@ -14956,7 +15030,7 @@ function (exports, module, require) {
     return gDesigner
       .getAnnotationsManager()
       .getAnnotations(module, require)
-      .then((GCore) => new l(GCore, module, require, e));
+      .then((GCore) => new DataModule_1094(GCore, module, require, e));
   }),
     (d.updateAndReturnCloudAnnotationsForDocument = async function (e, t) {
       const require = e.getAnnotationsId();
@@ -14969,7 +15043,7 @@ function (exports, module, require) {
       return gDesigner
         .getAnnotationsManager()
         .updateAnnotations(require, this._prepareAnnotations(e, t), GCore)
-        .then((t) => new l(t, require, GCore, e));
+        .then((t) => new DataModule_1094(t, require, GCore, e));
     }),
     (d._prepareAnnotations = function (e, t) {
       return t;
@@ -15026,7 +15100,7 @@ function (exports, module, require) {
           .getAnnotationsManager()
           .updateAnnotations(p, f, g)
           .then((t) => {
-            var AppSettings = new l(t, p, g, e);
+            var AppSettings = new DataModule_1094(t, p, g, e);
             let s,
               c = AppSettings.annotationsCollection;
             return (
@@ -15092,10 +15166,11 @@ function (exports, module, require) {
     }),
     (d.mergeAnnotations = function (e, t, n, GTools, AppSettings) {
       let s = {},
-        l = {},
+        DataModule_1094 = {},
         c = false;
       (t.forEach((e) => {
-        ((l[e.getId()] = e), e.hasFlag(GCore.GNode.Flag.Selected) && (s[e.getId()] = 1));
+        ((DataModule_1094[e.getId()] = e),
+          e.hasFlag(GCore.GNode.Flag.Selected) && (s[e.getId()] = 1));
       }),
         t.forEach((t) => {
           GTools.some((e) => e.getId() === t.getId()) || (e.removeChild(t), (c = true));
@@ -15106,7 +15181,7 @@ function (exports, module, require) {
         d.push(...Object.keys(AppSettings).map((e) => '$' + e));
       for (let t = 0; t < GTools.length; t++) {
         let n = GTools[t],
-          AppSettings = l[n.getId()];
+          AppSettings = DataModule_1094[n.getId()];
         (AppSettings &&
           ((0, CollaborationMergeUtils.isDifferent)(
             n,
@@ -15115,7 +15190,7 @@ function (exports, module, require) {
           ) && ((0, CollaborationMergeUtils.mergeNode)(AppSettings, n), (c = true)),
           AppSettings.setProperty('mtime', n.getProperty('mtime'))),
           1 === s[n.getId()] && n.setFlag(GCore.GNode.Flag.Selected),
-          l[n.getId()] || (e.appendChild(n), (c = true)));
+          DataModule_1094[n.getId()] || (e.appendChild(n), (c = true)));
       }
       e.setProperty('sid', n.getProperty('sid') || null);
       const u = n.getProperty('Guid');
@@ -15173,7 +15248,7 @@ function (exports, module, require) {
       if (!e.annotations) return 0;
       let module = 0;
       const require = { annotationsCollection: e.annotations, lastUpdateTime: 0 };
-      let GCore = new l(require, e.id);
+      let GCore = new DataModule_1094(require, e.id);
       return (
         GCore &&
           GCore.annotationsCollection &&
@@ -15213,11 +15288,12 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var wellKnownSymbol = require(43) /* wellKnownSymbol */,
-    i = require(136) /* module_136 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f,
     r = wellKnownSymbol('unscopables'),
     s = Array.prototype;
-  (undefined === s[r] && createPropertyDescriptor(s, r, { configurable: true, value: i(null) }),
+  (undefined === s[r] &&
+    createPropertyDescriptor(s, r, { configurable: true, value: DataModule_136(null) }),
     (exports.exports = function (e) {
       s[r][e] = true;
     }));
@@ -15225,10 +15301,10 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(454) /* module_454 */,
+  var DataModule_454 = require(454) /* DataModule_454 */,
     i = TypeError;
   exports.exports = function (e) {
-    if (o(e)) throw new i("The method doesn't accept regular expressions");
+    if (DataModule_454(e)) throw new i("The method doesn't accept regular expressions");
     return e;
   };
 }
@@ -15260,7 +15336,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var isCallable = require(29) /* isCallable */,
-    i = require(136) /* module_136 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     createProperty = require(100) /* createProperty */,
     r = require(232) /* module_232 */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
@@ -15268,12 +15344,12 @@ function (exports, module, require) {
     getSubstitution = require(145) /* getSubstitution */,
     GGY = require(251) /* Exports_GGY */.IteratorPrototype,
     toStringClassof = require(252) /* toStringClassof */,
-    p = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     g = wellKnownSymbol('toStringTag'),
     h = internalState.set,
     f = function (e) {
       var t = internalState.getterFor(e ? 'WrapForValidIterator' : 'IteratorHelper');
-      return r(i(GGY), {
+      return r(DataModule_136(GGY), {
         next: function () {
           var n = t(this);
           if (e) return n.nextHandler();
@@ -15287,20 +15363,23 @@ function (exports, module, require) {
         },
         return: function () {
           var n = t(this),
-            i = n.iterator;
+            DataModule_136 = n.iterator;
           if (((n.done = true), e)) {
-            var createProperty = getSubstitution(i, 'return');
+            var createProperty = getSubstitution(DataModule_136, 'return');
             return createProperty
-              ? isCallable(createProperty, i)
+              ? isCallable(createProperty, DataModule_136)
               : toStringClassof(undefined, true);
           }
           if (n.inner)
             try {
-              p(n.inner.iterator, 'normal');
+              DataModule_102(n.inner.iterator, 'normal');
             } catch (e) {
-              return p(i, 'throw', e);
+              return DataModule_102(DataModule_136, 'throw', e);
             }
-          return (i && p(i, 'normal'), toStringClassof(undefined, true));
+          return (
+            DataModule_136 && DataModule_102(DataModule_136, 'normal'),
+            toStringClassof(undefined, true)
+          );
         },
       });
     },
@@ -15308,14 +15387,17 @@ function (exports, module, require) {
     y = f(false);
   (createProperty(y, g, 'Iterator Helper'),
     (exports.exports = function (e, t, n) {
-      var isCallable = function (isCallable, i) {
-        (i ? ((i.iterator = isCallable.iterator), (i.next = isCallable.next)) : (i = isCallable),
-          (i.type = t ? 'WrapForValidIterator' : 'IteratorHelper'),
-          (i.returnHandlerResult = !!n),
-          (i.nextHandler = e),
-          (i.counter = 0),
-          (i.done = false),
-          h(this, i));
+      var isCallable = function (isCallable, DataModule_136) {
+        (DataModule_136
+          ? ((DataModule_136.iterator = isCallable.iterator),
+            (DataModule_136.next = isCallable.next))
+          : (DataModule_136 = isCallable),
+          (DataModule_136.type = t ? 'WrapForValidIterator' : 'IteratorHelper'),
+          (DataModule_136.returnHandlerResult = !!n),
+          (DataModule_136.nextHandler = e),
+          (DataModule_136.counter = 0),
+          (DataModule_136.done = false),
+          h(this, DataModule_136));
       };
       return ((isCallable.prototype = t ? m : y), isCallable);
     }));
@@ -15761,7 +15843,7 @@ function (exports, module, require) {
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     s = require(863) /* module_863 */,
     { SidebarsIds: l } = require(198) /* Exports_GOutlineSidebar */,
-    c = require(807); /* module_807 */
+    GEvent_type = require(807); /* GEvent_type */
   function d(e, t, n) {
     ((this._htmlElement = e),
       (this._orientation = t),
@@ -15772,7 +15854,7 @@ function (exports, module, require) {
   }
   (GCore.GObject.inherit(d, GCore.GEventTarget),
     (d.Orientation = { Left: 'left', Right: 'right' }),
-    (d.SidebarEvent = c),
+    (d.SidebarEvent = GEvent_type),
     (d.prototype._htmlElement = null),
     (d.prototype._orientation = null),
     (d.prototype._sidebars = null),
@@ -16179,33 +16261,33 @@ function (exports, module, require) {
   'use strict';
   var isCallable = require(29) /* isCallable */,
     toLength = require(46) /* toLength */,
-    a = require(241) /* module_241 */,
+    DataModule_241 = require(241) /* DataModule_241 */,
     getSubstitution = require(145) /* getSubstitution */,
-    s = require(614) /* module_614 */,
+    DataModule_614 = require(614) /* DataModule_614 */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
     c = TypeError,
     d = wellKnownSymbol('toPrimitive');
   exports.exports = function (e, t) {
-    if (!toLength(e) || a(e)) return e;
+    if (!toLength(e) || DataModule_241(e)) return e;
     var n,
       wellKnownSymbol = getSubstitution(e, d);
     if (wellKnownSymbol) {
       if (
         (undefined === t && (t = 'default'),
         (n = isCallable(wellKnownSymbol, e, t)),
-        !toLength(n) || a(n))
+        !toLength(n) || DataModule_241(n))
       )
         return n;
       throw new c("Can't convert object to primitive value");
     }
-    return (undefined === t && (t = 'number'), s(e, t));
+    return (undefined === t && (t = 'number'), DataModule_614(e, t));
   };
 }
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(295); /* module_295 */
-  exports.exports = o && !Symbol.sham && 'symbol' == typeof Symbol.iterator;
+  var DataModule_295 = require(295); /* DataModule_295 */
+  exports.exports = DataModule_295 && !Symbol.sham && 'symbol' == typeof Symbol.iterator;
 }
 ,
 function (exports, module, require) {
@@ -16356,7 +16438,7 @@ function (exports, module, require) {
   'use strict';
   var globalThis = require(23) /* globalThis */,
     i = require(129) /* stub_requires_23 */,
-    a = require(116) /* module_116 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
     r = function (e) {
       return i.slice(0, e.length) === e;
     };
@@ -16372,7 +16454,7 @@ function (exports, module, require) {
             ? 'BUN'
             : globalThis.Deno && 'object' == typeof Deno.version
               ? 'DENO'
-              : 'process' === a(globalThis.process)
+              : 'process' === DataModule_116(globalThis.process)
                 ? 'NODE'
                 : globalThis.window && globalThis.document
                   ? 'BROWSER'
@@ -16381,12 +16463,12 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(302) /* module_302 */,
-    i = require(185) /* module_185 */,
+  var DataModule_302 = require(302) /* DataModule_302 */,
+    DataModule_185 = require(185) /* DataModule_185 */,
     a = TypeError;
   exports.exports = function (e) {
-    if (o(e)) return e;
-    throw new a(i(e) + ' is not a constructor');
+    if (DataModule_302(e)) return e;
+    throw new a(DataModule_185(e) + ' is not a constructor');
   };
 }
 ,
@@ -16524,9 +16606,9 @@ function (exports, module, require) {
   'use strict';
   var o = require(186) /* stub_requires_23 */,
     i = require(343) /* module_343 */,
-    a = require(201) /* module_201 */.CONSTRUCTOR;
+    DataModule_201 = require(201) /* DataModule_201 */.CONSTRUCTOR;
   exports.exports =
-    a ||
+    DataModule_201 ||
     !i(function (e) {
       o.all(e).then(undefined, function () {});
     });
@@ -16548,7 +16630,7 @@ function (exports, module, require) {
     l = require(404) /* module_404 */,
     c = require(396) /* module_396 */,
     d = require(93) /* stub_requires_92 */,
-    u = require(240) /* module_240 */,
+    DataModule_240 = require(240) /* DataModule_240 */,
     p = Object.assign,
     g = Object.defineProperty,
     h = uncurryThis([].concat);
@@ -16589,7 +16671,11 @@ function (exports, module, require) {
             uncurryThis > tryCall;
           )
             for (
-              var f, m = u(arguments[tryCall++]), y = p ? h(s(m), p(m)) : s(m), v = y.length, _ = 0;
+              var f,
+                m = DataModule_240(arguments[tryCall++]),
+                y = p ? h(s(m), p(m)) : s(m),
+                v = y.length,
+                _ = 0;
               v > _;
             )
               ((f = y[_++]),
@@ -16608,9 +16694,9 @@ function (exports, module, require) {
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
     GURABLE = require(199) /* Exports_GURABLE */,
     anObject = require(35) /* anObject */,
-    l = require(419) /* module_419 */,
-    c = require(208) /* module_208 */,
-    d = require(175) /* module_175 */,
+    DataModule_419 = require(419) /* DataModule_419 */,
+    DataModule_208 = require(208) /* DataModule_208 */,
+    DataModule_175 = require(175) /* DataModule_175 */,
     setToStringTag = require(137) /* setToStringTag */,
     createProperty = require(100) /* createProperty */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
@@ -16626,7 +16712,7 @@ function (exports, module, require) {
       return this;
     };
   exports.exports = function (e, t, n, GURABLE, wellKnownSymbol, GGY, x) {
-    l(n, t, GURABLE);
+    DataModule_419(n, t, GURABLE);
     var S,
       E,
       A,
@@ -16653,11 +16739,11 @@ function (exports, module, require) {
       k = ('Array' === t && D.entries) || L;
     if (
       (k &&
-        (S = c(k.call(new e()))) !== Object.prototype &&
+        (S = DataModule_208(k.call(new e()))) !== Object.prototype &&
         S.next &&
         (createNonEnumerableProperty ||
-          c(S) === _ ||
-          (d ? d(S, _) : anObject(S[w]) || defineBuiltIn(S, w, C)),
+          DataModule_208(S) === _ ||
+          (DataModule_175 ? DataModule_175(S, _) : anObject(S[w]) || defineBuiltIn(S, w, C)),
         setToStringTag(S, G, true, true),
         createNonEnumerableProperty && (iteratorPrototype[G] = C)),
       y &&
@@ -16695,7 +16781,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var GGY = require(251) /* Exports_GGY */.IteratorPrototype,
-    i = require(136) /* module_136 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     a = require(174) /* module_174 */,
     setToStringTag = require(137) /* setToStringTag */,
     iteratorPrototype = require(203) /* iteratorPrototype */,
@@ -16705,7 +16791,7 @@ function (exports, module, require) {
   exports.exports = function (e, t, n, c) {
     var d = t + ' Iterator';
     return (
-      (e.prototype = i(GGY, { next: a(+!c, n) })),
+      (e.prototype = DataModule_136(GGY, { next: a(+!c, n) })),
       setToStringTag(e, d, false, true),
       (iteratorPrototype[d] = l),
       e
@@ -16814,25 +16900,25 @@ function (exports, module, require) {
     isCallable = require(29) /* isCallable */,
     uncurryThis = require(27) /* uncurryThis */,
     hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
-    d = require(423) /* module_423 */,
+    DataModule_423 = require(423) /* DataModule_423 */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     p = require(120) /* module_120 */,
     g = require(232) /* module_232 */,
     setToStringTag = require(137) /* setToStringTag */,
-    f = require(419) /* module_419 */,
+    DataModule_419 = require(419) /* DataModule_419 */,
     internalState = require(80) /* internalState */,
-    y = require(146) /* module_146 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     anObject = require(35) /* anObject */,
     _ = require(61) /* module_61 */,
     b = require(124) /* module_124 */,
-    w = require(131) /* module_131 */,
+    DataModule_131 = require(131) /* DataModule_131 */,
     toString_default = require(37) /* toString_default */,
     toLength = require(46) /* toLength */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
-    E = require(136) /* module_136 */,
+    DataModule_136 = require(136) /* DataModule_136 */,
     A = require(174) /* module_174 */,
-    T = require(246) /* module_246 */,
-    G = require(204) /* module_204 */,
+    DataModule_246 = require(246) /* DataModule_246 */,
+    DataModule_204 = require(204) /* DataModule_204 */,
     toStringClassof = require(252) /* toStringClassof */,
     D = require(303) /* module_303 */,
     wellKnownSymbol = require(43) /* wellKnownSymbol */,
@@ -16928,8 +17014,8 @@ function (exports, module, require) {
               require += '�';
               continue;
             }
-            var d = re(isCallable);
-            null === d ? (require += '�') : (globalThis = H(d));
+            var DataModule_423 = re(isCallable);
+            null === DataModule_423 ? (require += '�') : (globalThis = H(DataModule_423));
           }
         }
         ((require += globalThis), core_export++);
@@ -16951,7 +17037,7 @@ function (exports, module, require) {
     ue = function (e) {
       return X(K(e), le, de);
     },
-    pe = f(
+    pe = DataModule_419(
       function (e, t) {
         O(this, {
           type: 'URLSearchParamsIterator',
@@ -17001,11 +17087,14 @@ function (exports, module, require) {
         r,
         uncurryThis,
         hasOwnProperty_wrapper = this.entries,
-        d = G(e);
-      if (d)
-        for (n = (t = T(e, d)).next; !(core_export = isCallable(n, t)).done; ) {
+        DataModule_423 = DataModule_204(e);
+      if (DataModule_423)
+        for (
+          n = (t = DataModule_246(e, DataModule_423)).next;
+          !(core_export = isCallable(n, t)).done;
+        ) {
           if (
-            ((a = (globalThis = T(toString_default(core_export.value))).next),
+            ((a = (globalThis = DataModule_246(toString_default(core_export.value))).next),
             (r = isCallable(a, globalThis)).done ||
               (uncurryThis = isCallable(a, globalThis)).done ||
               !isCallable(a, globalThis).done)
@@ -17050,7 +17139,7 @@ function (exports, module, require) {
     },
   };
   var he = function () {
-      y(this, fe);
+      DataModule_146(this, fe);
       var e = arguments.length > 0 ? arguments[0] : undefined,
         t = O(this, new ge(e));
       hasOwnProperty_wrapper || (this.size = t.entries.length);
@@ -17191,8 +17280,11 @@ function (exports, module, require) {
         enumerable: true,
       }),
     setToStringTag(he, 'URLSearchParams'),
-    core_export({ global: true, constructor: true, forced: !d }, { URLSearchParams: he }),
-    !d && anObject(B))
+    core_export(
+      { global: true, constructor: true, forced: !DataModule_423 },
+      { URLSearchParams: he }
+    ),
+    !DataModule_423 && anObject(B))
   ) {
     var me = uncurryThis($.has),
       ye = uncurryThis($.set),
@@ -17200,12 +17292,15 @@ function (exports, module, require) {
         if (toLength(e)) {
           var module,
             require = e.body;
-          if ('URLSearchParams' === w(require))
+          if ('URLSearchParams' === DataModule_131(require))
             return (
               (module = e.headers ? new B(e.headers) : new B()),
               me(module, 'content-type') ||
                 ye(module, 'content-type', 'application/x-www-form-urlencoded;charset=UTF-8'),
-              E(e, { body: A(0, requireObjectCoercible(require)), headers: A(0, module) })
+              DataModule_136(e, {
+                body: A(0, requireObjectCoercible(require)),
+                headers: A(0, module),
+              })
             );
         }
         return e;
@@ -17223,7 +17318,7 @@ function (exports, module, require) {
       anObject(N))
     ) {
       var _e = function (e) {
-        return (y(this, U), new N(e, arguments.length > 1 ? ve(arguments[1]) : {}));
+        return (DataModule_146(this, U), new N(e, arguments.length > 1 ? ve(arguments[1]) : {}));
       };
       ((U.constructor = _e),
         (_e.prototype = U),
@@ -17277,10 +17372,10 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(576) /* module_576 */,
+  var DataModule_576 = require(576) /* DataModule_576 */,
     i = RangeError;
   exports.exports = function (e, t) {
-    var n = o(e);
+    var n = DataModule_576(e);
     if (n % t) throw new i('Wrong offset');
     return n;
   };
@@ -17288,10 +17383,10 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(397) /* module_397 */,
+  var DataModule_397 = require(397) /* DataModule_397 */,
     i = TypeError;
   exports.exports = function (e) {
-    var t = o(e, 'number');
+    var t = DataModule_397(e, 'number');
     if ('number' == typeof t) throw new i("Can't convert number to bigint");
     return BigInt(t);
   };
@@ -17302,7 +17397,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(290) /* module_290 */, require(38)) /* stub_requires_680 */;
+  (require(290) /* DataModule_290 */, require(38)) /* stub_requires_680 */;
   const {
       ShareRoles: o,
       defaultUserSettings: {
@@ -18349,10 +18444,10 @@ function (exports, module, require) {
   var p = require(163) /* GDocument */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    f = require(446) /* module_446 */,
+    GLoginPanel = require(446) /* GLoginPanel */,
     m = require(86); /* module_86 */
   const GSystemDialog = require(44) /* GSystemDialog */,
-    v = require(389); /* module_389 */
+    GDocument_389 = require(389); /* GDocument_389 */
   var _ = AppSettings.FILE_FORMATS.map((e) => e.ext);
   const b = AppSettings.FILE_FORMATS.find((e) => e.default).ext;
   function w(e) {
@@ -18475,7 +18570,7 @@ function (exports, module, require) {
         i = arguments.length > 4 ? arguments[4] : undefined;
       const GCore = t || gDesigner.getActiveDocument();
       if (GCore && GCore.isCommercialProductFile()) return (GCore.openPaywall(this.getId()), false);
-      new f(
+      new GLoginPanel(
         () => {
           this._performSave(e, GCore, n, _interopRequireDefault, i);
         },
@@ -18502,7 +18597,7 @@ function (exports, module, require) {
       )
         return;
       _interopRequireDefault.referer = this.getId();
-      const s = !e.canDownload() || this._fileExt !== v.PDF.ext;
+      const s = !e.canDownload() || this._fileExt !== GDocument_389.PDF.ext;
       if (e.canPromptSave() && s) {
         const i = t.getStorageItem();
         (!GEditor && i && (GEditor = i.getName()),
@@ -18670,7 +18765,7 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    r = require(1247) /* module_1247 */,
+    DataModule_1247 = require(1247) /* DataModule_1247 */,
     AppSettings = require(10) /* AppSettings */,
     l = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -18679,8 +18774,8 @@ function (exports, module, require) {
     GGravitCloudAction = require(448) /* GGravitCloudAction */,
     g = require(86) /* module_86 */,
     GCloudStorage = require(119) /* GCloudStorage */,
-    f = require(1510) /* module_1510 */,
-    m = require(1511); /* module_1511 */
+    GCommonNames = require(1510) /* GCommonNames */,
+    GWarnLinkedImageDialog = require(1511); /* GWarnLinkedImageDialog */
   const GSystemDialog = require(44) /* GSystemDialog */,
     v = require(1512); /* Item */
   var GContainer = require(85) /* GContainer */,
@@ -18752,7 +18847,7 @@ function (exports, module, require) {
     (w.prototype._save = async function (e, t, n) {
       if (gDesigner.getDefaultStorage().canSave()) {
         if (!e.getScene().hasLinkedFiles()) return this._saveDesktop(e, t, n);
-        new m(() => {
+        new GWarnLinkedImageDialog(() => {
           this._saveDesktop(e, t, n);
         }).open();
       } else {
@@ -18784,13 +18879,13 @@ function (exports, module, require) {
       let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
       if (e.isNew()) {
         if (require) return this._saveToCloud(e, t);
-        new f(
+        new GCommonNames(
           async function (n) {
-            if (n === f.file()) {
+            if (n === GCommonNames.file()) {
               if (await GGravitCloudAction.prototype._hasUnsupported.call(this, e)) return;
               return gDesigner.executeAction(GSaveAsAction.ID + b, [null, e, t], undefined, true);
             }
-            if (n === f.cloud()) return this._saveToCloud(e, t);
+            if (n === GCommonNames.cloud()) return this._saveToCloud(e, t);
           }.bind(this),
           {
             closeCallback: (e) => e && t && t({ documentStatus: g.SaveCancelled }),
@@ -18827,7 +18922,7 @@ function (exports, module, require) {
       else {
         const n = e.getStorageItem();
         let GCore = {};
-        (n instanceof v.Item && (GCore = (0, r.updateSaveOptions)(GCore, e, n)),
+        (n instanceof v.Item && (GCore = (0, DataModule_1247.updateSaveOptions)(GCore, e, n)),
           e.store(n, t, null, GCore));
       }
     }),
@@ -18868,7 +18963,7 @@ function (exports, module, require) {
     l = require(86) /* module_86 */,
     c = require(220) /* Item */,
     GCloudStorage = require(119) /* GCloudStorage */,
-    u = require(446); /* module_446 */
+    GLoginPanel = require(446); /* GLoginPanel */
   const GOfflineDialog = require(256); /* GOfflineDialog */
   function g(e) {
     ((this._type = e), (this._title = new GCore.GLocaleKey('GGravitCloudAction', 'title.' + e)));
@@ -18920,7 +19015,7 @@ function (exports, module, require) {
     }),
     (g.prototype.execute = function (e, t, n) {
       const GCore = () =>
-        new u(
+        new GLoginPanel(
           () => {
             this._executeAction(e, t, n);
           },
@@ -20086,10 +20181,10 @@ function (exports, module, require) {
   'use strict';
   var toString_default = require(37) /* toString_default */,
     toLength = require(46) /* toLength */,
-    a = require(202); /* module_202 */
+    DataModule_202 = require(202); /* DataModule_202 */
   exports.exports = function (e, t) {
     if ((toString_default(e), toLength(t) && t.constructor === e)) return t;
-    var n = a.f(e);
+    var n = DataModule_202.f(e);
     return ((0, n.resolve)(t), n.promise);
   };
 }
@@ -20097,11 +20192,13 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var toLength = require(46) /* toLength */,
-    i = require(116) /* module_116 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
     wellKnownSymbol = require(43)(/* wellKnownSymbol */ 'match');
   exports.exports = function (e) {
     var t;
-    return toLength(e) && (undefined !== (t = e[wellKnownSymbol]) ? !!t : 'RegExp' === i(e));
+    return (
+      toLength(e) && (undefined !== (t = e[wellKnownSymbol]) ? !!t : 'RegExp' === DataModule_116(e))
+    );
   };
 }
 ,
@@ -20133,11 +20230,13 @@ function (exports, module, require) {
   var isCallable = require(29) /* isCallable */,
     i = require(61) /* module_61 */,
     a = require(144) /* stub_requires_27 */,
-    r = require(307) /* module_307 */,
+    DataModule_307 = require(307) /* DataModule_307 */,
     s = RegExp.prototype;
   exports.exports = function (e) {
     var t = e.flags;
-    return undefined !== t || 'flags' in s || i(e, 'flags') || !a(s, e) ? t : isCallable(r, e);
+    return undefined !== t || 'flags' in s || i(e, 'flags') || !a(s, e)
+      ? t
+      : isCallable(DataModule_307, e);
   };
 }
 ,
@@ -20159,7 +20258,7 @@ function (exports, module, require) {
     Buf = require(94) /* Exports_Buf */,
     a = require(312) /* module_312 */,
     r = require(225) /* module_225 */,
-    s = require(313) /* module_313 */,
+    DataModule_313 = require(313) /* DataModule_313 */,
     l = Object.prototype.toString;
   function c(e) {
     if (!(this instanceof c)) return new c(e);
@@ -20183,7 +20282,7 @@ function (exports, module, require) {
       (this.msg = ''),
       (this.ended = false),
       (this.chunks = []),
-      (this.strm = new s()),
+      (this.strm = new DataModule_313()),
       (this.strm.avail_out = 0));
     var n = ZlibDeflate.deflateInit2(
       this.strm,
@@ -20217,31 +20316,36 @@ function (exports, module, require) {
   ((c.prototype.push = function (e, t) {
     var n,
       r,
-      s = this.strm,
+      DataModule_313 = this.strm,
       c = this.options.chunkSize;
     if (this.ended) return false;
     ((r = t === ~~t ? t : true === t ? 4 : 0),
       'string' == typeof e
-        ? (s.input = a.string2buf(e))
+        ? (DataModule_313.input = a.string2buf(e))
         : '[object ArrayBuffer]' === l.call(e)
-          ? (s.input = new Uint8Array(e))
-          : (s.input = e),
-      (s.next_in = 0),
-      (s.avail_in = s.input.length));
+          ? (DataModule_313.input = new Uint8Array(e))
+          : (DataModule_313.input = e),
+      (DataModule_313.next_in = 0),
+      (DataModule_313.avail_in = DataModule_313.input.length));
     do {
       if (
-        (0 === s.avail_out && ((s.output = new Buf.Buf8(c)), (s.next_out = 0), (s.avail_out = c)),
-        1 !== (n = ZlibDeflate.deflate(s, r)) && 0 !== n)
+        (0 === DataModule_313.avail_out &&
+          ((DataModule_313.output = new Buf.Buf8(c)),
+          (DataModule_313.next_out = 0),
+          (DataModule_313.avail_out = c)),
+        1 !== (n = ZlibDeflate.deflate(DataModule_313, r)) && 0 !== n)
       )
         return (this.onEnd(n), (this.ended = true), false);
-      (0 !== s.avail_out && (0 !== s.avail_in || (4 !== r && 2 !== r))) ||
+      (0 !== DataModule_313.avail_out && (0 !== DataModule_313.avail_in || (4 !== r && 2 !== r))) ||
         ('string' === this.options.to
-          ? this.onData(a.buf2binstring(Buf.shrinkBuf(s.output, s.next_out)))
-          : this.onData(Buf.shrinkBuf(s.output, s.next_out)));
-    } while ((s.avail_in > 0 || 0 === s.avail_out) && 1 !== n);
+          ? this.onData(
+              a.buf2binstring(Buf.shrinkBuf(DataModule_313.output, DataModule_313.next_out))
+            )
+          : this.onData(Buf.shrinkBuf(DataModule_313.output, DataModule_313.next_out)));
+    } while ((DataModule_313.avail_in > 0 || 0 === DataModule_313.avail_out) && 1 !== n);
     return 4 === r
       ? ((n = ZlibDeflate.deflateEnd(this.strm)), this.onEnd(n), (this.ended = true), 0 === n)
-      : 2 !== r || (this.onEnd(0), (s.avail_out = 0), true);
+      : 2 !== r || (this.onEnd(0), (DataModule_313.avail_out = 0), true);
   }),
     (c.prototype.onData = function (e) {
       this.chunks.push(e);
@@ -21418,8 +21522,8 @@ function (exports, module, require) {
     a = require(312) /* module_312 */,
     r = require(314) /* module_314 */,
     s = require(225) /* module_225 */,
-    l = require(313) /* module_313 */,
-    c = require(469) /* module_469 */,
+    DataModule_313 = require(313) /* DataModule_313 */,
+    DataModule_469 = require(469) /* DataModule_469 */,
     d = Object.prototype.toString;
   function u(e) {
     if (!(this instanceof u)) return new u(e);
@@ -21435,12 +21539,12 @@ function (exports, module, require) {
       (this.msg = ''),
       (this.ended = false),
       (this.chunks = []),
-      (this.strm = new l()),
+      (this.strm = new DataModule_313()),
       (this.strm.avail_out = 0));
     var n = ZlibInflateStream.inflateInit2(this.strm, t.windowBits);
     if (n !== r.Z_OK) throw new Error(s[n]);
     if (
-      ((this.header = new c()),
+      ((this.header = new DataModule_469()),
       ZlibInflateStream.inflateGetHeader(this.strm, this.header),
       t.dictionary &&
         ('string' == typeof t.dictionary
@@ -21459,8 +21563,8 @@ function (exports, module, require) {
   ((u.prototype.push = function (e, t) {
     var n,
       s,
-      l,
-      c,
+      DataModule_313,
+      DataModule_469,
       u,
       p = this.strm,
       g = this.options.chunkSize,
@@ -21490,12 +21594,12 @@ function (exports, module, require) {
           n !== r.Z_STREAM_END &&
           (0 !== p.avail_in || (s !== r.Z_FINISH && s !== r.Z_SYNC_FLUSH))) ||
           ('string' === this.options.to
-            ? ((l = a.utf8border(p.output, p.next_out)),
-              (c = p.next_out - l),
-              (u = a.buf2string(p.output, l)),
-              (p.next_out = c),
-              (p.avail_out = g - c),
-              c && Buf.arraySet(p.output, p.output, l, c, 0),
+            ? ((DataModule_313 = a.utf8border(p.output, p.next_out)),
+              (DataModule_469 = p.next_out - DataModule_313),
+              (u = a.buf2string(p.output, DataModule_313)),
+              (p.next_out = DataModule_469),
+              (p.avail_out = g - DataModule_469),
+              DataModule_469 && Buf.arraySet(p.output, p.output, DataModule_313, DataModule_469, 0),
               this.onData(u))
             : this.onData(Buf.shrinkBuf(p.output, p.next_out)))),
         0 === p.avail_in && 0 === p.avail_out && (f = true));
@@ -22835,7 +22939,7 @@ function (exports, module, require) {
   var globalThis = require(23) /* globalThis */,
     hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
     a = require(120) /* module_120 */,
-    r = require(307) /* module_307 */,
+    DataModule_307 = require(307) /* DataModule_307 */,
     tryCall = require(21) /* tryCall */,
     l = globalThis.RegExp,
     c = l.prototype;
@@ -22864,12 +22968,13 @@ function (exports, module, require) {
           multiline: 'm',
           sticky: 'y',
         };
-      for (var r in (e && (a.hasIndices = 'd'), a)) hasOwnProperty_wrapper(r, a[r]);
+      for (var DataModule_307 in (e && (a.hasIndices = 'd'), a))
+        hasOwnProperty_wrapper(DataModule_307, a[DataModule_307]);
       return (
         Object.getOwnPropertyDescriptor(c, 'flags').get.call(t) !== globalThis || n !== globalThis
       );
     }) &&
-    a(c, 'flags', { configurable: true, get: r });
+    a(c, 'flags', { configurable: true, get: DataModule_307 });
 }
 ,
 ,
@@ -23112,11 +23217,11 @@ function (exports, module, require) {
   const g = require(388) /* Item */,
     GCloudStorage = require(119) /* GCloudStorage */,
     f = require(595) /* module_595 */,
-    m = require(336) /* module_336 */,
-    y = require(436) /* module_436 */,
+    GEvent_storageItem = require(336) /* GEvent_storageItem */,
+    DataModule_436 = require(436) /* DataModule_436 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GCloudStorageItem = require(156) /* GCloudStorageItem */,
-    b = require(389) /* module_389 */,
+    GDocument_389 = require(389) /* GDocument_389 */,
     w = require(86) /* module_86 */,
     C = require(790) /* module_790 */,
     x = require(554) /* module_554 */,
@@ -23129,7 +23234,7 @@ function (exports, module, require) {
   function D() {}
   (GCore.GObject.inherit(D, g),
     (D.getSupportedFileFormats = function () {
-      return b.getFileTypesArray().filter((e) => e.load);
+      return GDocument_389.getFileTypesArray().filter((e) => e.load);
     }),
     (D.convertToCloudItem = function (e) {
       var t = GCloudStorageItem.from(e);
@@ -23176,7 +23281,7 @@ function (exports, module, require) {
         (this._token = _interopRequireDefault),
         t && (this._setExtension(), t.version && (this._version = t.version)));
     }),
-    GCore.GObject.inheritAndMix(D.Item, g.Item, [y]),
+    GCore.GObject.inheritAndMix(D.Item, g.Item, [DataModule_436]),
     (D.Item.prototype._version = null),
     (D.Item.prototype._writing = false),
     (D.Item.prototype.setFile = function (e) {
@@ -23226,8 +23331,8 @@ function (exports, module, require) {
       if (module && Number(module.status) !== Number(e)) {
         var require = module.status;
         ((module.status = e),
-          gDesigner.hasEventListeners(m.FileStatusUpdate) &&
-            gDesigner.trigger(new m.FileStatusUpdate(this, require, e)));
+          gDesigner.hasEventListeners(GEvent_storageItem.FileStatusUpdate) &&
+            gDesigner.trigger(new GEvent_storageItem.FileStatusUpdate(this, require, e)));
       }
     }),
     (D.Item.prototype.getOrCreateCollaborativeFile = async function () {
@@ -23297,34 +23402,44 @@ function (exports, module, require) {
             GCloudStorage = (e) => {
               GSystemDialog && GSystemDialog(e);
             };
-          let m;
+          let GEvent_storageItem;
           var r = this.getExtension();
-          const y = e.isNew();
+          const DataModule_436 = e.isNew();
           if (
             (GCloudStorage(A),
             GCore.GUtil.prepareForSaving(e.getScene(), r),
             'CDR' === r || 'DES' === r)
           ) {
             var AppSettings = { progress: _interopRequireDefault, ext: r.toLowerCase() };
-            m = await this._exportDocumentToCDR(e, AppSettings, CollaborationMergeUtils);
+            GEvent_storageItem = await this._exportDocumentToCDR(
+              e,
+              AppSettings,
+              CollaborationMergeUtils
+            );
           } else {
             var GoogleToCloudRoleMap = e.getScene(),
               NoAccessId = GCore.GNode.serialize(
                 GoogleToCloudRoleMap,
                 GCore.GUtil.extend({ save: true }, CollaborationMergeUtils)
               );
-            m = new Blob([NoAccessId]);
+            GEvent_storageItem = new Blob([NoAccessId]);
           }
           (GCloudStorage(T),
-            this._verifyFileNotTooSmall(m.size, e),
-            this._setFileSizeBeforeSaved(m.size));
+            this._verifyFileNotTooSmall(GEvent_storageItem.size, e),
+            this._setFileSizeBeforeSaved(GEvent_storageItem.size));
           const GCloudStorageItem = await this._buildGoogleMetadataForDoc(e),
-            b = (e) => {
+            GDocument_389 = (e) => {
               GCloudStorage(p.default.calculateProgress(T, G, e));
             };
           var g = this._id ? this._id : null;
           await this._getOrCreateClient()
-            .upload(g, m, GCloudStorageItem, GoogleDriveException.default.DefaultUploadType, b)
+            .upload(
+              g,
+              GEvent_storageItem,
+              GCloudStorageItem,
+              GoogleDriveException.default.DefaultUploadType,
+              GDocument_389
+            )
             .then(async (n) => {
               this._updateInternalFileWithGoogleResponse(n);
               try {
@@ -23332,7 +23447,7 @@ function (exports, module, require) {
               } catch (e) {
                 console.error(e);
               }
-              if ((e.updateStatus(w.Saved), y && this.supportsShadowFile()))
+              if ((e.updateStatus(w.Saved), DataModule_436 && this.supportsShadowFile()))
                 return this.createShadowFile().then(() => {
                   (gDesigner.hasEventListeners(GDocumentEvent) &&
                     gDesigner.trigger(
@@ -23658,12 +23773,12 @@ function (exports, module, require) {
     s = require(61) /* module_61 */,
     createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f,
     c = require(243) /* module_243 */,
-    d = require(1103) /* module_1103 */,
-    u = require(1104) /* module_1104 */,
-    p = require(258) /* module_258 */,
+    DataModule_1103 = require(1103) /* DataModule_1103 */,
+    DataModule_1104 = require(1104) /* DataModule_1104 */,
+    DataModule_258 = require(258) /* DataModule_258 */,
     g = require(786) /* module_786 */,
     h = false,
-    f = p('meta'),
+    f = DataModule_258('meta'),
     m = 0,
     y = function (e) {
       createPropertyDescriptor(e, f, { value: { objectID: 'O' + m++, weakData: {} } });
@@ -23690,13 +23805,13 @@ function (exports, module, require) {
             }),
             core_export(
               { target: 'Object', stat: true, forced: true },
-              { getOwnPropertyNames: d.f }
+              { getOwnPropertyNames: DataModule_1103.f }
             )));
       },
       fastKey: function (e, t) {
         if (!toLength(e)) return 'symbol' == typeof e ? e : ('string' == typeof e ? 'S' : 'P') + e;
         if (!s(e, f)) {
-          if (!u(e)) return 'F';
+          if (!DataModule_1104(e)) return 'F';
           if (!t) return 'E';
           y(e);
         }
@@ -23704,14 +23819,14 @@ function (exports, module, require) {
       },
       getWeakData: function (e, t) {
         if (!s(e, f)) {
-          if (!u(e)) return true;
+          if (!DataModule_1104(e)) return true;
           if (!t) return false;
           y(e);
         }
         return e[f].weakData;
       },
       onFreeze: function (e) {
-        return (g && h && u(e) && !s(e, f) && y(e), e);
+        return (g && h && DataModule_1104(e) && !s(e, f) && y(e), e);
       },
     });
   a[f] = true;
@@ -23799,12 +23914,12 @@ function (exports, module, require) {
     GAnnotationProperties = require(1536) /* GAnnotationProperties */,
     GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
     C = require(592); /* module_592 */
-  const x = require(392) /* module_392 */,
+  const GEvent_document = require(392) /* GEvent_document */,
     GSettingChangedEvent = require(135); /* GSettingChangedEvent */
   var GFileReviewProperties = require(1537); /* GFileReviewProperties */
   const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
-    G = require(336) /* module_336 */,
+    GEvent_storageItem = require(336) /* GEvent_storageItem */,
     P = require(434) /* stub_requires_30_1072 */,
     { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = require(10) /* AppSettings */,
     I = require(86) /* module_86 */,
@@ -24103,7 +24218,7 @@ function (exports, module, require) {
         gDesigner
           .getToolManager()
           .addEventListener(GTools.GToolManager.ToolChangedEvent, this._toolChangedEvent, this),
-        gDesigner.addEventListener(x, this._stateChangedEvent, this),
+        gDesigner.addEventListener(GEvent_document, this._stateChangedEvent, this),
         gDesigner.addEventListener(
           GNetworkAvailabilityChangedEvent,
           this._networkAvailabilityChangedEvent,
@@ -24359,7 +24474,11 @@ function (exports, module, require) {
             this.trigger(h.UPDATE_EVENT),
             this._document.addEventListener(GDocumentStatusEvent, this._documentStatusEvent, this),
             this._document.addEventListener(GCollaborationEvent, this._collaborationEvent, this),
-            gDesigner.addEventListener(G.FileStatusUpdate, this._storageItemFileStatusEvent, this),
+            gDesigner.addEventListener(
+              GEvent_storageItem.FileStatusUpdate,
+              this._storageItemFileStatusEvent,
+              this
+            ),
             this._updateNotificationMenu());
         } else
           e.type === GDocumentEvent.Type.Deactivated
@@ -24376,7 +24495,7 @@ function (exports, module, require) {
                 this
               ),
               gDesigner.removeEventListener(
-                G.FileStatusUpdate,
+                GEvent_storageItem.FileStatusUpdate,
                 this._storageItemFileStatusEvent,
                 this
               ),
@@ -24992,9 +25111,9 @@ function (exports, module) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(672); /* module_672 */
+  var DataModule_672 = require(672); /* DataModule_672 */
   exports.exports = function (e, t) {
-    return new (o(e))(0 === t ? 0 : t);
+    return new (DataModule_672(e))(0 === t ? 0 : t);
   };
 }
 ,
@@ -25280,7 +25399,10 @@ function (exports, module, require) {
   function o(e, t) {
     ((this.description = e), (this.cid = t));
   }
-  (require(290) /* module_290 */, (o.description = null), (o.cid = null), (exports.exports = o));
+  (require(290) /* DataModule_290 */,
+    (o.description = null),
+    (o.cid = null),
+    (exports.exports = o));
 }
 ,
 function (exports, module, require) {
@@ -25321,15 +25443,15 @@ function (exports, module, require) {
       }).then((e) => new Response(e));
     }),
     require(19) /* polyfill_Array_iterator */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(57) /* polyfill_parseInt */,
     require(8) /* polyfill_bundle_ES6 */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(97)) /* stub_requires_684 */;
 }
@@ -25413,14 +25535,14 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     uncurryThis = require(27) /* uncurryThis */,
-    a = require(348) /* module_348 */,
+    DataModule_348 = require(348) /* DataModule_348 */,
     r = uncurryThis([].reverse),
     s = [1, 2];
   core_export(
     { target: 'Array', proto: true, forced: String(s) === String(s.reverse()) },
     {
       reverse: function () {
-        return (a(this) && (this.length = this.length), r(this));
+        return (DataModule_348(this) && (this.length = this.length), r(this));
       },
     }
   );
@@ -25597,7 +25719,7 @@ function (exports, module, require) {
   const GPurchasePanel = require(1507) /* GPurchasePanel */,
     a = require(1508) /* GAccountPanel */,
     GChangePasswordPanel = require(1509) /* GChangePasswordPanel */,
-    s = (require(1158) /* Action_help_purchase */, require(805)) /* module_805 */,
+    s = (require(1158) /* Action_help_purchase */, require(805)) /* GEvent_user_805 */,
     { gApi: l } = (require(177) /* GUserModel */, require(10)) /* AppSettings */;
   function c(e, t) {
     let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
@@ -26833,21 +26955,29 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
-    i = require(400) /* module_400 */,
+    DataModule_400 = require(400) /* DataModule_400 */,
     createPropertyDescriptor = require(88) /* createPropertyDescriptor */,
     toString_default = require(37) /* toString_default */,
     toIndexedObject = require(184) /* toIndexedObject */,
     l = require(405); /* module_405 */
   module.f =
-    hasOwnProperty_wrapper && !i
+    hasOwnProperty_wrapper && !DataModule_400
       ? Object.defineProperties
       : function (e, t) {
           toString_default(e);
           for (
-            var require, hasOwnProperty_wrapper = toIndexedObject(t), i = l(t), c = i.length, d = 0;
+            var require,
+              hasOwnProperty_wrapper = toIndexedObject(t),
+              DataModule_400 = l(t),
+              c = DataModule_400.length,
+              d = 0;
             c > d;
           )
-            createPropertyDescriptor.f(e, (require = i[d++]), hasOwnProperty_wrapper[require]);
+            createPropertyDescriptor.f(
+              e,
+              (require = DataModule_400[d++]),
+              hasOwnProperty_wrapper[require]
+            );
           return e;
         };
 }
@@ -26863,26 +26993,26 @@ function (exports, module, require) {
     globalThis = require(23) /* globalThis */,
     isCallable = require(29) /* isCallable */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
-    p = require(175) /* module_175 */,
+    DataModule_175 = require(175) /* DataModule_175 */,
     setToStringTag = require(137) /* setToStringTag */,
-    h = require(260) /* module_260 */,
-    f = require(65) /* module_65 */,
+    DataModule_260 = require(260) /* DataModule_260 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     anObject = require(35) /* anObject */,
     toLength = require(46) /* toLength */,
-    v = require(146) /* module_146 */,
-    _ = require(342) /* module_342 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
+    DataModule_342 = require(342) /* DataModule_342 */,
     b = require(409) /* module_409 */.set,
-    w = require(623) /* module_623 */,
+    DataModule_623 = require(623) /* DataModule_623 */,
     C = require(626) /* module_626 */,
     x = require(304) /* module_304 */,
     S = require(412) /* module_412 */,
     internalState = require(80) /* internalState */,
     A = require(186) /* stub_requires_23 */,
-    T = require(201) /* module_201 */,
-    G = require(202) /* module_202 */,
-    P = T.CONSTRUCTOR,
-    D = T.REJECTION_EVENT,
-    L = T.SUBCLASSING,
+    DataModule_201 = require(201) /* DataModule_201 */,
+    DataModule_202 = require(202) /* DataModule_202 */,
+    P = DataModule_201.CONSTRUCTOR,
+    D = DataModule_201.REJECTION_EVENT,
+    L = DataModule_201.SUBCLASSING,
     I = internalState.getterFor('Promise'),
     k = internalState.set,
     O = A && A.prototype,
@@ -26891,7 +27021,7 @@ function (exports, module, require) {
     M = globalThis.TypeError,
     N = globalThis.document,
     B = globalThis.process,
-    U = G.f,
+    U = DataModule_202.f,
     $ = U,
     j = !!(N && N.createEvent && globalThis.dispatchEvent),
     K = function (e) {
@@ -26929,7 +27059,7 @@ function (exports, module, require) {
     H = function (e, t) {
       e.notified ||
         ((e.notified = true),
-        w(function () {
+        DataModule_623(function () {
           for (var require, o = e.reactions; (require = o.get()); ) V(require, e);
           ((e.notified = false), t && !e.rejection && z(e));
         }));
@@ -26986,7 +27116,7 @@ function (exports, module, require) {
           if (e.facade === t) throw new M("Promise can't be resolved itself");
           var o = K(t);
           o
-            ? w(function () {
+            ? DataModule_623(function () {
                 var n = { done: false };
                 try {
                   isCallable(o, t, X(J, n, e), X(Q, n, e));
@@ -27003,7 +27133,7 @@ function (exports, module, require) {
   if (
     P &&
     ((R = (F = function (e) {
-      (v(this, R), f(e), isCallable(o, this));
+      (DataModule_146(this, R), DataModule_65(e), isCallable(o, this));
       var t = I(this);
       try {
         e(X(J, t), X(Q, t));
@@ -27024,7 +27154,7 @@ function (exports, module, require) {
       });
     }).prototype = defineBuiltIn(R, 'then', function (e, t) {
       var n = I(this),
-        o = U(_(this, F));
+        o = U(DataModule_342(this, F));
       return (
         (n.parent = true),
         (o.ok = !anObject(e) || e),
@@ -27032,7 +27162,7 @@ function (exports, module, require) {
         (o.domain = l ? B.domain : undefined),
         0 === n.state
           ? n.reactions.add(o)
-          : w(function () {
+          : DataModule_623(function () {
               V(o, n);
             }),
         o.promise
@@ -27043,7 +27173,7 @@ function (exports, module, require) {
         t = I(e);
       ((this.promise = e), (this.resolve = X(J, t)), (this.reject = X(Q, t)));
     }),
-    (G.f = U =
+    (DataModule_202.f = U =
       function (e) {
         return e === F || undefined === e ? new i(e) : $(e);
       }),
@@ -27065,20 +27195,20 @@ function (exports, module, require) {
     try {
       delete O.constructor;
     } catch (e) {}
-    p && p(O, R);
+    DataModule_175 && DataModule_175(O, R);
   }
   (core_export({ global: true, constructor: true, wrap: true, forced: P }, { Promise: F }),
     setToStringTag(F, 'Promise', false, true),
-    h('Promise'));
+    DataModule_260('Promise'));
 }
 ,
 function (exports, module, require) {
   'use strict';
   var uncurryThis = require(27) /* uncurryThis */,
-    i = require(65); /* module_65 */
+    DataModule_65 = require(65); /* DataModule_65 */
   exports.exports = function (e, t, n) {
     try {
-      return uncurryThis(i(Object.getOwnPropertyDescriptor(e, t)[n]));
+      return uncurryThis(DataModule_65(Object.getOwnPropertyDescriptor(e, t)[n]));
     } catch (e) {}
   };
 }
@@ -27195,32 +27325,35 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(65) /* module_65 */,
-    r = require(202) /* module_202 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
+    DataModule_202 = require(202) /* DataModule_202 */,
     s = require(304) /* module_304 */,
-    l = require(121); /* module_121 */
+    DataModule_121 = require(121); /* DataModule_121 */
   core_export(
     { target: 'Promise', stat: true, forced: require(413) /* module_413 */ },
     {
       all: function (e) {
         var t = this,
-          n = r.f(t),
+          n = DataModule_202.f(t),
           core_export = n.resolve,
           c = n.reject,
           d = s(function () {
-            var n = a(t.resolve),
-              r = [],
+            var n = DataModule_65(t.resolve),
+              DataModule_202 = [],
               s = 0,
               d = 1;
-            (l(e, function (e) {
-              var a = s++,
-                l = false;
+            (DataModule_121(e, function (e) {
+              var DataModule_65 = s++,
+                DataModule_121 = false;
               (d++,
                 isCallable(n, t, e).then(function (e) {
-                  l || ((l = true), (r[a] = e), --d || core_export(r));
+                  DataModule_121 ||
+                    ((DataModule_121 = true),
+                    (DataModule_202[DataModule_65] = e),
+                    --d || core_export(DataModule_202));
                 }, c));
             }),
-              --d || core_export(r));
+              --d || core_export(DataModule_202));
           });
         return (d.error && c(d.value), n.promise);
       },
@@ -27232,7 +27365,7 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
-    a = require(201) /* module_201 */.CONSTRUCTOR,
+    DataModule_201 = require(201) /* DataModule_201 */.CONSTRUCTOR,
     r = require(186) /* stub_requires_23 */,
     s = require(110) /* module_110 */,
     anObject = require(35) /* anObject */,
@@ -27240,7 +27373,7 @@ function (exports, module, require) {
     d = r && r.prototype;
   if (
     (core_export(
-      { target: 'Promise', proto: true, forced: a, real: true },
+      { target: 'Promise', proto: true, forced: DataModule_201, real: true },
       {
         catch: function (e) {
           return this.then(undefined, e);
@@ -27258,21 +27391,21 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(65) /* module_65 */,
-    r = require(202) /* module_202 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
+    DataModule_202 = require(202) /* DataModule_202 */,
     s = require(304) /* module_304 */,
-    l = require(121); /* module_121 */
+    DataModule_121 = require(121); /* DataModule_121 */
   core_export(
     { target: 'Promise', stat: true, forced: require(413) /* module_413 */ },
     {
       race: function (e) {
         var t = this,
-          n = r.f(t),
+          n = DataModule_202.f(t),
           core_export = n.reject,
           c = s(function () {
-            var r = a(t.resolve);
-            l(e, function (e) {
-              isCallable(r, t, e).then(n.resolve, core_export);
+            var DataModule_202 = DataModule_65(t.resolve);
+            DataModule_121(e, function (e) {
+              isCallable(DataModule_202, t, e).then(n.resolve, core_export);
             });
           });
         return (c.error && core_export(c.value), n.promise);
@@ -27284,12 +27417,12 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(202); /* module_202 */
+    DataModule_202 = require(202); /* DataModule_202 */
   core_export(
-    { target: 'Promise', stat: true, forced: require(201) /* module_201 */.CONSTRUCTOR },
+    { target: 'Promise', stat: true, forced: require(201) /* DataModule_201 */.CONSTRUCTOR },
     {
       reject: function (e) {
-        var t = i.f(this);
+        var t = DataModule_202.f(this);
         return ((0, t.reject)(e), t.promise);
       },
     }
@@ -27302,12 +27435,12 @@ function (exports, module, require) {
     i = require(110) /* module_110 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
     r = require(186) /* stub_requires_23 */,
-    s = require(201) /* module_201 */.CONSTRUCTOR,
+    DataModule_201 = require(201) /* DataModule_201 */.CONSTRUCTOR,
     l = require(453) /* module_453 */,
     c = i('Promise'),
-    d = createNonEnumerableProperty && !s;
+    d = createNonEnumerableProperty && !DataModule_201;
   core_export(
-    { target: 'Promise', stat: true, forced: createNonEnumerableProperty || s },
+    { target: 'Promise', stat: true, forced: createNonEnumerableProperty || DataModule_201 },
     {
       resolve: function (e) {
         return l(d && this === c ? r : this, e);
@@ -27367,14 +27500,14 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var uncurryThis = require(27) /* uncurryThis */,
-    i = require(348) /* module_348 */,
+    DataModule_348 = require(348) /* DataModule_348 */,
     anObject = require(35) /* anObject */,
-    r = require(116) /* module_116 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     l = uncurryThis([].push);
   exports.exports = function (e) {
     if (anObject(e)) return e;
-    if (i(e)) {
+    if (DataModule_348(e)) {
       for (
         var module = e.length, require = [], uncurryThis = 0;
         uncurryThis < module;
@@ -27383,14 +27516,16 @@ function (exports, module, require) {
         var c = e[uncurryThis];
         'string' == typeof c
           ? l(require, c)
-          : ('number' != typeof c && 'Number' !== r(c) && 'String' !== r(c)) ||
+          : ('number' != typeof c &&
+              'Number' !== DataModule_116(c) &&
+              'String' !== DataModule_116(c)) ||
             l(require, requireObjectCoercible(c));
       }
       var d = require.length,
         u = true;
       return function (e, t) {
         if (u) return ((u = false), t);
-        if (i(this)) return t;
+        if (DataModule_348(this)) return t;
         for (var uncurryThis = 0; uncurryThis < d; uncurryThis++)
           if (require[uncurryThis] === e) return t;
       };
@@ -27453,10 +27588,10 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     globalThis = require(23) /* globalThis */,
-    a = require(146) /* module_146 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     toString_default = require(37) /* toString_default */,
     anObject = require(35) /* anObject */,
-    l = require(208) /* module_208 */,
+    DataModule_208 = require(208) /* DataModule_208 */,
     c = require(120) /* module_120 */,
     d = require(420) /* module_420 */,
     tryCall = require(21) /* tryCall */,
@@ -27476,7 +27611,7 @@ function (exports, module, require) {
         _({});
       }),
     w = function () {
-      if ((a(this, GGY), l(this) === GGY))
+      if ((DataModule_146(this, GGY), DataModule_208(this) === GGY))
         throw new v('Abstract class Iterator not directly constructable');
     },
     C = function (e, t) {
@@ -27504,11 +27639,11 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(121) /* module_121 */,
-    r = require(65) /* module_65 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     l = require(143) /* module_143 */,
-    c = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     d = require(149)(/* module_149 */ 'every', TypeError);
   core_export(
     { target: 'Iterator', proto: true, real: true, forced: d },
@@ -27516,14 +27651,14 @@ function (exports, module, require) {
       every: function (e) {
         toString_default(this);
         try {
-          r(e);
+          DataModule_65(e);
         } catch (e) {
-          c(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         if (d) return isCallable(d, this, e);
         var t = l(this),
           n = 0;
-        return !a(
+        return !DataModule_121(
           t,
           function (t, core_export) {
             if (!e(t, n++)) return core_export();
@@ -27539,11 +27674,11 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(121) /* module_121 */,
-    r = require(65) /* module_65 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     l = require(143) /* module_143 */,
-    c = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     d = require(149)(/* module_149 */ 'forEach', TypeError);
   core_export(
     { target: 'Iterator', proto: true, real: true, forced: d },
@@ -27551,14 +27686,14 @@ function (exports, module, require) {
       forEach: function (e) {
         toString_default(this);
         try {
-          r(e);
+          DataModule_65(e);
         } catch (e) {
-          c(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         if (d) return isCallable(d, this, e);
         var t = l(this),
           n = 0;
-        a(
+        DataModule_121(
           t,
           function (t) {
             e(t, n++);
@@ -27583,17 +27718,17 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(348) /* module_348 */,
-    i = require(302) /* module_302 */,
+  var DataModule_348 = require(348) /* DataModule_348 */,
+    DataModule_302 = require(302) /* DataModule_302 */,
     toLength = require(46) /* toLength */,
     wellKnownSymbol = require(43)(/* wellKnownSymbol */ 'species'),
     s = Array;
   exports.exports = function (e) {
     var t;
     return (
-      o(e) &&
+      DataModule_348(e) &&
         ((t = e.constructor),
-        ((i(t) && (t === s || o(t.prototype))) ||
+        ((DataModule_302(t) && (t === s || DataModule_348(t.prototype))) ||
           (toLength(t) && null === (t = t[wellKnownSymbol]))) &&
           (t = undefined)),
       undefined === t ? s : t
@@ -27603,22 +27738,22 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  require(674) /* module_674 */;
+  require(674) /* DataModule_674 */;
   var o,
     core_export = require(25) /* core_export */,
     hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
-    r = require(423) /* module_423 */,
+    DataModule_423 = require(423) /* DataModule_423 */,
     globalThis = require(23) /* globalThis */,
     l = require(124) /* module_124 */,
     uncurryThis = require(27) /* uncurryThis */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     u = require(120) /* module_120 */,
-    p = require(146) /* module_146 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     g = require(61) /* module_61 */,
     objectAssignPolyfill = require(415) /* objectAssignPolyfill */,
     f = require(675) /* module_675 */,
     m = require(157) /* stub_requires_27 */,
-    y = require(309) /* module_309 */.codeAt,
+    DataModule_309 = require(309) /* DataModule_309 */.codeAt,
     v = require(676) /* module_676 */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     setToStringTag = require(137) /* setToStringTag */,
@@ -27707,7 +27842,7 @@ function (exports, module, require) {
       '|': 1,
     }),
     le = function (e, t) {
-      var n = y(e, 0);
+      var n = DataModule_309(e, 0);
       return n > 32 && n < 127 && !g(t, e) ? e : encodeURIComponent(e);
     },
     ce = { ftp: 21, file: null, http: 80, https: 443, ws: 80, wss: 443 },
@@ -27751,12 +27886,15 @@ function (exports, module, require) {
       var o,
         core_export,
         hasOwnProperty_wrapper,
-        r = requireObjectCoercible(e);
+        DataModule_423 = requireObjectCoercible(e);
       if (t) {
-        if ((core_export = this.parse(r))) throw new P(core_export);
+        if ((core_export = this.parse(DataModule_423))) throw new P(core_export);
         this.searchParams = null;
       } else {
-        if ((undefined !== n && (o = new Oe(n, true)), (core_export = this.parse(r, null, o))))
+        if (
+          (undefined !== n && (o = new Oe(n, true)),
+          (core_export = this.parse(DataModule_423, null, o)))
+        )
           throw new P(core_export);
         ((hasOwnProperty_wrapper = T(new A())).bindURL(this),
           (this.searchParams = hasOwnProperty_wrapper));
@@ -27767,15 +27905,15 @@ function (exports, module, require) {
     parse: function (e, t, n) {
       var core_export,
         hasOwnProperty_wrapper,
-        r,
+        DataModule_423,
         globalThis,
         l,
         uncurryThis = this,
         defineBuiltIn = t || ge,
         u = 0,
-        p = '',
+        DataModule_146 = '',
         objectAssignPolyfill = false,
-        y = false,
+        DataModule_309 = false,
         v = false;
       for (
         e = requireObjectCoercible(e),
@@ -27802,7 +27940,7 @@ function (exports, module, require) {
               defineBuiltIn = fe;
               continue;
             }
-            ((p += K(hasOwnProperty_wrapper)), (defineBuiltIn = he));
+            ((DataModule_146 += K(hasOwnProperty_wrapper)), (defineBuiltIn = he));
             break;
           case he:
             if (
@@ -27812,28 +27950,28 @@ function (exports, module, require) {
                 '-' === hasOwnProperty_wrapper ||
                 '.' === hasOwnProperty_wrapper)
             )
-              p += K(hasOwnProperty_wrapper);
+              DataModule_146 += K(hasOwnProperty_wrapper);
             else {
               if (':' !== hasOwnProperty_wrapper) {
                 if (t) return 'Invalid scheme';
-                ((p = ''), (defineBuiltIn = fe), (u = 0));
+                ((DataModule_146 = ''), (defineBuiltIn = fe), (u = 0));
                 continue;
               }
               if (
                 t &&
-                (uncurryThis.isSpecial() !== g(ce, p) ||
-                  ('file' === p &&
+                (uncurryThis.isSpecial() !== g(ce, DataModule_146) ||
+                  ('file' === DataModule_146 &&
                     (uncurryThis.includesCredentials() || null !== uncurryThis.port)) ||
                   ('file' === uncurryThis.scheme && !uncurryThis.host))
               )
                 return;
-              if (((uncurryThis.scheme = p), t))
+              if (((uncurryThis.scheme = DataModule_146), t))
                 return void (
                   uncurryThis.isSpecial() &&
                   ce[uncurryThis.scheme] === uncurryThis.port &&
                   (uncurryThis.port = null)
                 );
-              ((p = ''),
+              ((DataModule_146 = ''),
                 'file' === uncurryThis.scheme
                   ? (defineBuiltIn = Ae)
                   : uncurryThis.isSpecial() && n && n.scheme === uncurryThis.scheme
@@ -27934,7 +28072,10 @@ function (exports, module, require) {
             } else defineBuiltIn = we;
             break;
           case be:
-            if (((defineBuiltIn = we), '/' !== hasOwnProperty_wrapper || '/' !== k(p, u + 1)))
+            if (
+              ((defineBuiltIn = we),
+              '/' !== hasOwnProperty_wrapper || '/' !== k(DataModule_146, u + 1))
+            )
               continue;
             u++;
             break;
@@ -27946,15 +28087,21 @@ function (exports, module, require) {
             break;
           case Ce:
             if ('@' === hasOwnProperty_wrapper) {
-              (objectAssignPolyfill && (p = '%40' + p), (objectAssignPolyfill = true), (r = f(p)));
-              for (var setToStringTag = 0; setToStringTag < r.length; setToStringTag++) {
-                var w = r[setToStringTag];
+              (objectAssignPolyfill && (DataModule_146 = '%40' + DataModule_146),
+                (objectAssignPolyfill = true),
+                (DataModule_423 = f(DataModule_146)));
+              for (
+                var setToStringTag = 0;
+                setToStringTag < DataModule_423.length;
+                setToStringTag++
+              ) {
+                var w = DataModule_423[setToStringTag];
                 if (':' !== w || v) {
                   var C = le(w, se);
                   v ? (uncurryThis.password += C) : (uncurryThis.username += C);
                 } else v = true;
               }
-              p = '';
+              DataModule_146 = '';
             } else if (
               hasOwnProperty_wrapper === o ||
               '/' === hasOwnProperty_wrapper ||
@@ -27962,9 +28109,9 @@ function (exports, module, require) {
               '#' === hasOwnProperty_wrapper ||
               ('\\' === hasOwnProperty_wrapper && uncurryThis.isSpecial())
             ) {
-              if (objectAssignPolyfill && '' === p) return 'Invalid authority';
-              ((u -= f(p).length + 1), (p = ''), (defineBuiltIn = xe));
-            } else p += hasOwnProperty_wrapper;
+              if (objectAssignPolyfill && '' === DataModule_146) return 'Invalid authority';
+              ((u -= f(DataModule_146).length + 1), (DataModule_146 = ''), (defineBuiltIn = xe));
+            } else DataModule_146 += hasOwnProperty_wrapper;
             break;
           case xe:
           case Se:
@@ -27972,7 +28119,7 @@ function (exports, module, require) {
               defineBuiltIn = Ge;
               continue;
             }
-            if (':' !== hasOwnProperty_wrapper || y) {
+            if (':' !== hasOwnProperty_wrapper || DataModule_309) {
               if (
                 hasOwnProperty_wrapper === o ||
                 '/' === hasOwnProperty_wrapper ||
@@ -27980,25 +28127,25 @@ function (exports, module, require) {
                 '#' === hasOwnProperty_wrapper ||
                 ('\\' === hasOwnProperty_wrapper && uncurryThis.isSpecial())
               ) {
-                if (uncurryThis.isSpecial() && '' === p) return 'Invalid host';
+                if (uncurryThis.isSpecial() && '' === DataModule_146) return 'Invalid host';
                 if (
                   t &&
-                  '' === p &&
+                  '' === DataModule_146 &&
                   (uncurryThis.includesCredentials() || null !== uncurryThis.port)
                 )
                   return;
-                if ((globalThis = uncurryThis.parseHost(p))) return globalThis;
-                if (((p = ''), (defineBuiltIn = Pe), t)) return;
+                if ((globalThis = uncurryThis.parseHost(DataModule_146))) return globalThis;
+                if (((DataModule_146 = ''), (defineBuiltIn = Pe), t)) return;
                 continue;
               }
               ('[' === hasOwnProperty_wrapper
-                ? (y = true)
-                : ']' === hasOwnProperty_wrapper && (y = false),
-                (p += hasOwnProperty_wrapper));
+                ? (DataModule_309 = true)
+                : ']' === hasOwnProperty_wrapper && (DataModule_309 = false),
+                (DataModule_146 += hasOwnProperty_wrapper));
             } else {
-              if ('' === p) return 'Invalid host';
-              if ((globalThis = uncurryThis.parseHost(p))) return globalThis;
-              if (((p = ''), (defineBuiltIn = Ee), t === Se)) return;
+              if ('' === DataModule_146) return 'Invalid host';
+              if ((globalThis = uncurryThis.parseHost(DataModule_146))) return globalThis;
+              if (((DataModule_146 = ''), (defineBuiltIn = Ee), t === Se)) return;
             }
             break;
           case Ee:
@@ -28011,14 +28158,14 @@ function (exports, module, require) {
                 ('\\' === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
                 t
               ) {
-                if ('' !== p) {
-                  var internalState = D(p, 10);
+                if ('' !== DataModule_146) {
+                  var internalState = D(DataModule_146, 10);
                   if (internalState > 65535) return 'Invalid port';
                   ((uncurryThis.port =
                     uncurryThis.isSpecial() && internalState === ce[uncurryThis.scheme]
                       ? null
                       : internalState),
-                    (p = ''));
+                    (DataModule_146 = ''));
                 }
                 if (t) return;
                 defineBuiltIn = Pe;
@@ -28026,7 +28173,7 @@ function (exports, module, require) {
               }
               return 'Invalid port';
             }
-            p += hasOwnProperty_wrapper;
+            DataModule_146 += hasOwnProperty_wrapper;
             break;
           case Ae:
             if (
@@ -28087,18 +28234,18 @@ function (exports, module, require) {
               '?' === hasOwnProperty_wrapper ||
               '#' === hasOwnProperty_wrapper
             ) {
-              if (!t && de(p)) defineBuiltIn = De;
-              else if ('' === p) {
+              if (!t && de(DataModule_146)) defineBuiltIn = De;
+              else if ('' === DataModule_146) {
                 if (((uncurryThis.host = ''), t)) return;
                 defineBuiltIn = Pe;
               } else {
-                if ((globalThis = uncurryThis.parseHost(p))) return globalThis;
+                if ((globalThis = uncurryThis.parseHost(DataModule_146))) return globalThis;
                 if (('localhost' === uncurryThis.host && (uncurryThis.host = ''), t)) return;
-                ((p = ''), (defineBuiltIn = Pe));
+                ((DataModule_146 = ''), (defineBuiltIn = Pe));
               }
               continue;
             }
-            p += hasOwnProperty_wrapper;
+            DataModule_146 += hasOwnProperty_wrapper;
             break;
           case Pe:
             if (uncurryThis.isSpecial()) {
@@ -28125,21 +28272,25 @@ function (exports, module, require) {
               (!t && ('?' === hasOwnProperty_wrapper || '#' === hasOwnProperty_wrapper))
             ) {
               if (
-                ('..' === (l = K((l = p))) || '%2e.' === l || '.%2e' === l || '%2e%2e' === l
+                ('..' === (l = K((l = DataModule_146))) ||
+                '%2e.' === l ||
+                '.%2e' === l ||
+                '%2e%2e' === l
                   ? (uncurryThis.shortenPath(),
                     '/' === hasOwnProperty_wrapper ||
                       ('\\' === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
                       N(uncurryThis.path, ''))
-                  : pe(p)
+                  : pe(DataModule_146)
                     ? '/' === hasOwnProperty_wrapper ||
                       ('\\' === hasOwnProperty_wrapper && uncurryThis.isSpecial()) ||
                       N(uncurryThis.path, '')
                     : ('file' === uncurryThis.scheme &&
                         !uncurryThis.path.length &&
-                        de(p) &&
-                        (uncurryThis.host && (uncurryThis.host = ''), (p = k(p, 0) + ':')),
-                      N(uncurryThis.path, p)),
-                (p = ''),
+                        de(DataModule_146) &&
+                        (uncurryThis.host && (uncurryThis.host = ''),
+                        (DataModule_146 = k(DataModule_146, 0) + ':')),
+                      N(uncurryThis.path, DataModule_146)),
+                (DataModule_146 = ''),
                 'file' === uncurryThis.scheme &&
                   (hasOwnProperty_wrapper === o ||
                     '?' === hasOwnProperty_wrapper ||
@@ -28151,7 +28302,7 @@ function (exports, module, require) {
                 ? ((uncurryThis.query = ''), (defineBuiltIn = Ie))
                 : '#' === hasOwnProperty_wrapper &&
                   ((uncurryThis.fragment = ''), (defineBuiltIn = ke));
-            } else p += le(hasOwnProperty_wrapper, re);
+            } else DataModule_146 += le(hasOwnProperty_wrapper, re);
             break;
           case Le:
             '?' === hasOwnProperty_wrapper
@@ -28188,34 +28339,37 @@ function (exports, module, require) {
               o,
               core_export,
               hasOwnProperty_wrapper,
-              r,
+              DataModule_423,
               globalThis,
               l = [0, 0, 0, 0, 0, 0, 0, 0],
               uncurryThis = 0,
               defineBuiltIn = null,
               u = 0,
-              p = function () {
+              DataModule_146 = function () {
                 return k(e, u);
               };
-            if (':' === p()) {
+            if (':' === DataModule_146()) {
               if (':' !== k(e, 1)) return;
               ((u += 2), (defineBuiltIn = ++uncurryThis));
             }
-            for (; p(); ) {
+            for (; DataModule_146(); ) {
               if (8 === uncurryThis) return;
-              if (':' !== p()) {
-                for (t = n = 0; n < 4 && O(Q, p()); ) ((t = 16 * t + D(p(), 16)), u++, n++);
-                if ('.' === p()) {
+              if (':' !== DataModule_146()) {
+                for (t = n = 0; n < 4 && O(Q, DataModule_146()); )
+                  ((t = 16 * t + D(DataModule_146(), 16)), u++, n++);
+                if ('.' === DataModule_146()) {
                   if (0 === n) return;
                   if (((u -= n), uncurryThis > 6)) return;
-                  for (o = 0; p(); ) {
+                  for (o = 0; DataModule_146(); ) {
                     if (((core_export = null), o > 0)) {
-                      if (!('.' === p() && o < 4)) return;
+                      if (!('.' === DataModule_146() && o < 4)) return;
                       u++;
                     }
-                    if (!O(z, p())) return;
-                    for (; O(z, p()); ) {
-                      if (((hasOwnProperty_wrapper = D(p(), 10)), null === core_export))
+                    if (!O(z, DataModule_146())) return;
+                    for (; O(z, DataModule_146()); ) {
+                      if (
+                        ((hasOwnProperty_wrapper = D(DataModule_146(), 10)), null === core_export)
+                      )
                         core_export = hasOwnProperty_wrapper;
                       else {
                         if (0 === core_export) return;
@@ -28230,9 +28384,9 @@ function (exports, module, require) {
                   if (4 !== o) return;
                   break;
                 }
-                if (':' === p()) {
-                  if ((u++, !p())) return;
-                } else if (p()) return;
+                if (':' === DataModule_146()) {
+                  if ((u++, !DataModule_146())) return;
+                } else if (DataModule_146()) return;
                 l[uncurryThis++] = t;
               } else {
                 if (null !== defineBuiltIn) return;
@@ -28240,10 +28394,13 @@ function (exports, module, require) {
               }
             }
             if (null !== defineBuiltIn)
-              for (r = uncurryThis - defineBuiltIn, uncurryThis = 7; 0 !== uncurryThis && r > 0; )
+              for (
+                DataModule_423 = uncurryThis - defineBuiltIn, uncurryThis = 7;
+                0 !== uncurryThis && DataModule_423 > 0;
+              )
                 ((globalThis = l[uncurryThis]),
-                  (l[uncurryThis--] = l[defineBuiltIn + r - 1]),
-                  (l[defineBuiltIn + --r] = globalThis));
+                  (l[uncurryThis--] = l[defineBuiltIn + DataModule_423 - 1]),
+                  (l[defineBuiltIn + --DataModule_423] = globalThis));
             else if (8 !== uncurryThis) return;
             return l;
           })(j(e, 1, -1)))
@@ -28260,7 +28417,7 @@ function (exports, module, require) {
               o,
               core_export,
               hasOwnProperty_wrapper,
-              r,
+              DataModule_423,
               globalThis,
               l = $(e, '.');
             if ((l.length && '' === l[l.length - 1] && l.length--, (t = l.length) > 4)) return e;
@@ -28274,7 +28431,7 @@ function (exports, module, require) {
                   (core_export = j(core_export, 8 === hasOwnProperty_wrapper ? 1 : 2))),
                 '' === core_export)
               )
-                r = 0;
+                DataModule_423 = 0;
               else {
                 if (
                   !O(
@@ -28283,14 +28440,14 @@ function (exports, module, require) {
                   )
                 )
                   return e;
-                r = D(core_export, hasOwnProperty_wrapper);
+                DataModule_423 = D(core_export, hasOwnProperty_wrapper);
               }
-              N(n, r);
+              N(n, DataModule_423);
             }
             for (o = 0; o < t; o++)
-              if (((r = n[o]), o === t - 1)) {
-                if (r >= I(256, 5 - t)) return null;
-              } else if (r > 255) return null;
+              if (((DataModule_423 = n[o]), o === t - 1)) {
+                if (DataModule_423 >= I(256, 5 - t)) return null;
+              } else if (DataModule_423 > 255) return null;
             for (globalThis = M(n), o = 0; o < n.length; o++) globalThis += n[o] * I(256, 3 - o);
             return globalThis;
           })(e))
@@ -28324,7 +28481,7 @@ function (exports, module, require) {
         o = e.password,
         core_export = e.host,
         hasOwnProperty_wrapper = e.port,
-        r = e.path,
+        DataModule_423 = e.path,
         globalThis = e.query,
         l = e.fragment,
         uncurryThis = t + ':';
@@ -28335,7 +28492,11 @@ function (exports, module, require) {
             (uncurryThis += oe(core_export)),
             null !== hasOwnProperty_wrapper && (uncurryThis += ':' + hasOwnProperty_wrapper))
           : 'file' === t && (uncurryThis += '//'),
-        (uncurryThis += e.cannotBeABaseURL ? r[0] : r.length ? '/' + F(r, '/') : ''),
+        (uncurryThis += e.cannotBeABaseURL
+          ? DataModule_423[0]
+          : DataModule_423.length
+            ? '/' + F(DataModule_423, '/')
+            : ''),
         null !== globalThis && (uncurryThis += '?' + globalThis),
         null !== l && (uncurryThis += '#' + l),
         uncurryThis
@@ -28442,7 +28603,7 @@ function (exports, module, require) {
     },
   };
   var Fe = function (e) {
-      var t = p(this, Re),
+      var t = DataModule_146(this, Re),
         n = w(arguments.length, 1) > 1 ? arguments[1] : undefined,
         o = S(t, new Oe(e, false, n));
       hasOwnProperty_wrapper ||
@@ -28513,14 +28674,14 @@ function (exports, module, require) {
   }
   (setToStringTag(Fe, 'URL'),
     core_export(
-      { global: true, constructor: true, forced: !r, sham: !hasOwnProperty_wrapper },
+      { global: true, constructor: true, forced: !DataModule_423, sham: !hasOwnProperty_wrapper },
       { URL: Fe }
     ));
 }
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(309) /* module_309 */.charAt,
+  var DataModule_309 = require(309) /* DataModule_309 */.charAt,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     internalState = require(80) /* internalState */,
     defineIterator = require(418) /* defineIterator */,
@@ -28540,7 +28701,9 @@ function (exports, module, require) {
         requireObjectCoercible = t.index;
       return requireObjectCoercible >= n.length
         ? toStringClassof(undefined, true)
-        : ((e = o(n, requireObjectCoercible)), (t.index += e.length), toStringClassof(e, false));
+        : ((e = DataModule_309(n, requireObjectCoercible)),
+          (t.index += e.length),
+          toStringClassof(e, false));
     }
   );
 }
@@ -28550,17 +28713,17 @@ function (exports, module, require) {
   var o = require(124) /* module_124 */,
     isCallable = require(29) /* isCallable */,
     a = require(93) /* stub_requires_92 */,
-    r = require(323) /* module_323 */,
-    s = require(305) /* module_305 */,
-    l = require(302) /* module_302 */,
+    DataModule_323 = require(323) /* DataModule_323 */,
+    DataModule_305 = require(305) /* DataModule_305 */,
+    DataModule_302 = require(302) /* DataModule_302 */,
     c = require(101) /* stub_requires_117 */,
     d = require(420) /* module_420 */,
-    u = require(246) /* module_246 */,
-    p = require(204) /* module_204 */,
+    DataModule_246 = require(246) /* DataModule_246 */,
+    DataModule_204 = require(204) /* DataModule_204 */,
     g = Array;
   exports.exports = function (e) {
     var t = a(e),
-      n = l(this),
+      n = DataModule_302(this),
       h = arguments.length,
       f = h > 1 ? arguments[1] : undefined,
       m = undefined !== f;
@@ -28571,14 +28734,18 @@ function (exports, module, require) {
       b,
       w,
       C,
-      x = p(t),
+      x = DataModule_204(t),
       S = 0;
-    if (!x || (this === g && s(x)))
+    if (!x || (this === g && DataModule_305(x)))
       for (y = c(t), v = n ? new this(y) : g(y); y > S; S++)
         ((C = m ? f(t[S], S) : t[S]), d(v, S, C));
     else
-      for (v = n ? new this() : [], w = (b = u(t, x)).next; !(_ = isCallable(w, b)).done; S++)
-        ((C = m ? r(b, f, [_.value, S], true) : _.value), d(v, S, C));
+      for (
+        v = n ? new this() : [], w = (b = DataModule_246(t, x)).next;
+        !(_ = isCallable(w, b)).done;
+        S++
+      )
+        ((C = m ? DataModule_323(b, f, [_.value, S], true) : _.value), d(v, S, C));
     return ((v.length = S), v);
   };
 }
@@ -28696,7 +28863,7 @@ function (exports, module, require) {
     tryCall = require(21) /* tryCall */,
     uncurryThis = require(27) /* uncurryThis */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
-    s = require(262) /* module_262 */.trim,
+    DataModule_262 = require(262) /* DataModule_262 */.trim,
     l = require(248) /* module_248 */,
     c = globalThis.parseInt,
     d = globalThis.Symbol,
@@ -28712,7 +28879,7 @@ function (exports, module, require) {
         }));
   exports.exports = h
     ? function (e, t) {
-        var n = s(requireObjectCoercible(e));
+        var n = DataModule_262(requireObjectCoercible(e));
         return c(n, t >>> 0 || (g(p, n) ? 16 : 10));
       }
     : c;
@@ -28722,11 +28889,11 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(121) /* module_121 */,
-    r = require(65) /* module_65 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     l = require(143) /* module_143 */,
-    c = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     d = require(149)(/* module_149 */ 'find', TypeError);
   core_export(
     { target: 'Iterator', proto: true, real: true, forced: d },
@@ -28734,14 +28901,14 @@ function (exports, module, require) {
       find: function (e) {
         toString_default(this);
         try {
-          r(e);
+          DataModule_65(e);
         } catch (e) {
-          c(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         if (d) return isCallable(d, this, e);
         var t = l(this),
           n = 0;
-        return a(
+        return DataModule_121(
           t,
           function (t, core_export) {
             if (e(t, n++)) return core_export(t);
@@ -28757,19 +28924,20 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(65) /* module_65 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     s = require(143) /* module_143 */,
     l = require(371) /* module_371 */,
-    c = require(323) /* module_323 */,
-    d = require(102) /* module_102 */,
+    DataModule_323 = require(323) /* DataModule_323 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     u = require(149) /* module_149 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
     g = !createNonEnumerableProperty && u('map', TypeError),
     h = l(function () {
       var e = this.iterator,
         t = toString_default(isCallable(this.next, e));
-      if (!(this.done = !!t.done)) return c(e, this.mapper, [t.value, this.counter++], true);
+      if (!(this.done = !!t.done))
+        return DataModule_323(e, this.mapper, [t.value, this.counter++], true);
     });
   core_export(
     { target: 'Iterator', proto: true, real: true, forced: createNonEnumerableProperty || g },
@@ -28777,9 +28945,9 @@ function (exports, module, require) {
       map: function (e) {
         toString_default(this);
         try {
-          a(e);
+          DataModule_65(e);
         } catch (e) {
-          d(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         return g ? isCallable(g, this, e) : new h(s(this), { mapper: e });
       },
@@ -28789,18 +28957,18 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(65) /* module_65 */,
+  var DataModule_65 = require(65) /* DataModule_65 */,
     i = require(93) /* stub_requires_92 */,
-    a = require(240) /* module_240 */,
+    DataModule_240 = require(240) /* DataModule_240 */,
     r = require(101) /* stub_requires_117 */,
     s = TypeError,
     l = 'Reduce of empty array with no initial value',
     c = function (e) {
       return function (t, n, c, d) {
         var u = i(t),
-          p = a(u),
+          p = DataModule_240(u),
           g = r(u);
-        if ((o(n), 0 === g && c < 2)) throw new s(l);
+        if ((DataModule_65(n), 0 === g && c < 2)) throw new s(l);
         var h = e ? g - 1 : 0,
           f = e ? -1 : 1;
         if (c < 2)
@@ -28822,23 +28990,33 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(65) /* module_65 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     s = require(143) /* module_143 */,
     l = require(371) /* module_371 */,
-    c = require(323) /* module_323 */,
+    DataModule_323 = require(323) /* DataModule_323 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
-    u = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     p = require(149) /* module_149 */,
     g = !createNonEnumerableProperty && p('filter', TypeError),
     h = l(function () {
       for (
-        var exports, module, require = this.iterator, core_export = this.predicate, a = this.next;
+        var exports,
+          module,
+          require = this.iterator,
+          core_export = this.predicate,
+          DataModule_65 = this.next;
         ;
       ) {
-        if (((exports = toString_default(isCallable(a, require))), (this.done = !!exports.done)))
+        if (
+          ((exports = toString_default(isCallable(DataModule_65, require))),
+          (this.done = !!exports.done))
+        )
           return;
-        if (((module = exports.value), c(require, core_export, [module, this.counter++], true)))
+        if (
+          ((module = exports.value),
+          DataModule_323(require, core_export, [module, this.counter++], true))
+        )
           return module;
       }
     });
@@ -28848,9 +29026,9 @@ function (exports, module, require) {
       filter: function (e) {
         toString_default(this);
         try {
-          a(e);
+          DataModule_65(e);
         } catch (e) {
-          u(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         return g ? isCallable(g, this, e) : new h(s(this), { predicate: e });
       },
@@ -28861,11 +29039,11 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(121) /* module_121 */,
-    a = require(65) /* module_65 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     s = require(143) /* module_143 */,
-    l = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     c = require(149) /* module_149 */,
     advanceStringIndex = require(200) /* advanceStringIndex */,
     tryCall = require(21) /* tryCall */,
@@ -28880,9 +29058,9 @@ function (exports, module, require) {
       reduce: function (e) {
         toString_default(this);
         try {
-          a(e);
+          DataModule_65(e);
         } catch (e) {
-          l(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         var t = arguments.length < 2,
           n = t ? undefined : arguments[1];
@@ -28890,7 +29068,7 @@ function (exports, module, require) {
         var core_export = s(this),
           c = 0;
         if (
-          (i(
+          (DataModule_121(
             core_export,
             function (core_export) {
               (t ? ((t = false), (n = core_export)) : (n = e(n, core_export, c)), c++);
@@ -28910,11 +29088,11 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     isCallable = require(29) /* isCallable */,
-    a = require(121) /* module_121 */,
-    r = require(65) /* module_65 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
+    DataModule_65 = require(65) /* DataModule_65 */,
     toString_default = require(37) /* toString_default */,
     l = require(143) /* module_143 */,
-    c = require(102) /* module_102 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     d = require(149)(/* module_149 */ 'some', TypeError);
   core_export(
     { target: 'Iterator', proto: true, real: true, forced: d },
@@ -28922,14 +29100,14 @@ function (exports, module, require) {
       some: function (e) {
         toString_default(this);
         try {
-          r(e);
+          DataModule_65(e);
         } catch (e) {
-          c(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         if (d) return isCallable(d, this, e);
         var t = l(this),
           n = 0;
-        return a(
+        return DataModule_121(
           t,
           function (t, core_export) {
             if (e(t, n++)) return core_export();
@@ -29102,15 +29280,15 @@ function (exports, module, require) {
   'use strict';
   var o = require(124) /* module_124 */,
     isCallable = require(29) /* isCallable */,
-    a = require(408) /* module_408 */,
+    DataModule_408 = require(408) /* DataModule_408 */,
     r = require(93) /* stub_requires_92 */,
     s = require(101) /* stub_requires_117 */,
-    l = require(246) /* module_246 */,
-    c = require(204) /* module_204 */,
-    d = require(305) /* module_305 */,
-    u = require(697) /* module_697 */,
+    DataModule_246 = require(246) /* DataModule_246 */,
+    DataModule_204 = require(204) /* DataModule_204 */,
+    DataModule_305 = require(305) /* DataModule_305 */,
+    DataModule_697 = require(697) /* DataModule_697 */,
     p = require(152) /* polyfill_TypedArrays */.aTypedArrayConstructor,
-    g = require(429); /* module_429 */
+    DataModule_429 = require(429); /* DataModule_429 */
   exports.exports = function (e) {
     var t,
       n,
@@ -29120,29 +29298,34 @@ function (exports, module, require) {
       y,
       v,
       _,
-      b = a(this),
+      b = DataModule_408(this),
       w = r(e),
       C = arguments.length,
       x = C > 1 ? arguments[1] : undefined,
       S = undefined !== x,
-      E = c(w);
-    if (E && !d(E))
-      for (_ = (v = l(w, E)).next, w = []; !(y = isCallable(_, v)).done; ) w.push(y.value);
+      E = DataModule_204(w);
+    if (E && !DataModule_305(E))
+      for (_ = (v = DataModule_246(w, E)).next, w = []; !(y = isCallable(_, v)).done; )
+        w.push(y.value);
     for (
-      S && C > 2 && (x = o(x, arguments[2])), n = s(w), h = new (p(b))(n), f = u(h), t = 0;
+      S && C > 2 && (x = o(x, arguments[2])),
+        n = s(w),
+        h = new (p(b))(n),
+        f = DataModule_697(h),
+        t = 0;
       n > t;
       t++
     )
-      ((m = S ? x(w[t], t) : w[t]), (h[t] = f ? g(m) : +m));
+      ((m = S ? x(w[t], t) : w[t]), (h[t] = f ? DataModule_429(m) : +m));
     return h;
   };
 }
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(131); /* module_131 */
+  var DataModule_131 = require(131); /* DataModule_131 */
   exports.exports = function (e) {
-    var t = o(e);
+    var t = DataModule_131(e);
     return 'BigInt64Array' === t || 'BigUint64Array' === t;
   };
 }
@@ -29165,7 +29348,7 @@ function (exports, module, require) {
     tryCall = require(21) /* tryCall */,
     uncurryThis = require(27) /* uncurryThis */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
-    s = require(262) /* module_262 */.trim,
+    DataModule_262 = require(262) /* DataModule_262 */.trim,
     l = require(248) /* module_248 */,
     c = uncurryThis(''.charAt),
     d = globalThis.parseFloat,
@@ -29179,7 +29362,7 @@ function (exports, module, require) {
         }));
   exports.exports = g
     ? function (e) {
-        var t = s(requireObjectCoercible(e)),
+        var t = DataModule_262(requireObjectCoercible(e)),
           n = d(t);
         return 0 === n && '-' === c(t, 0) ? -0 : n;
       }
@@ -29240,7 +29423,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require.r(module);
-  require(355) /* module_355 */;
+  require(355) /* AppError */;
   class o extends Error {
     constructor(...e) {
       (super(...e),
@@ -29257,11 +29440,11 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(262) /* module_262 */.start,
-    i = require(461); /* module_461 */
-  exports.exports = i('trimStart')
+  var DataModule_262 = require(262) /* DataModule_262 */.start,
+    DataModule_461 = require(461); /* DataModule_461 */
+  exports.exports = DataModule_461('trimStart')
     ? function () {
-        return o(this);
+        return DataModule_262(this);
       }
     : ''.trimStart;
 }
@@ -29903,10 +30086,10 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           var o = n(1) /* GCore */,
-            i = n(146) /* module_146 */,
+            i = n(146) /* DataModule_146 */,
             a = n(162) /* GPathsGraph */,
             r = n(163) /* GDocument */,
-            s = n(151) /* module_151 */,
+            s = n(151) /* DataModule_151 */,
             l = n(164) /* GKey */,
             c = n(154) /* LabelHolder */,
             d = n(155) /* GPathBaseEditor */,
@@ -31664,7 +31847,7 @@ function (exports, module, require) {
             r = n(63) /* GVertexTransformer */,
             s = n(64) /* GPlatform */,
             l = n(25) /* core_export */,
-            c = n(65) /* module_65 */,
+            c = n(65) /* DataModule_65 */,
             d = n(66); /* EdTransformOptions */
           i(
             i.S +
@@ -32586,9 +32769,9 @@ function (exports, module, require) {
           'use strict';
           (n(82) /* SavePoint */,
             n(83) /* GPage */,
-            n(102) /* module_102 */,
+            n(102) /* DataModule_102 */,
             n(114) /* stub_requires_424 */,
-            n(116) /* module_116 */,
+            n(116) /* DataModule_116 */,
             (e.exports = n(9) /* GLocale */.WeakMap));
         },
         function (e, t, n) {
@@ -33077,7 +33260,7 @@ function (exports, module, require) {
             n(83) /* GPage */,
             n(119) /* GCloudStorage */,
             n(120) /* module_120 */,
-            n(121) /* module_121 */,
+            n(121) /* DataModule_121 */,
             (e.exports = n(9) /* GLocale */.WeakSet));
         },
         function (e, t, n) {
@@ -33188,7 +33371,7 @@ function (exports, module, require) {
             C = n(18) /* MenuItemBuilder */,
             x = n(19) /* polyfill_Array_iterator */,
             S = n(52) /* module */,
-            E = n(131) /* module_131 */,
+            E = n(131) /* DataModule_131 */,
             A = n(113) /* GCompoundPath */,
             T = n(11) /* GUtil */,
             G = n(54) /* GVertexContainer */,
@@ -33473,7 +33656,7 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           var o = n(25) /* core_export */,
-            i = n(136) /* module_136 */,
+            i = n(136) /* DataModule_136 */,
             a = n(33); /* polyfill_DOMCollection_forEach */
           e.exports = function (e, t, n, r) {
             var s = String(a(e)),
@@ -44255,7 +44438,7 @@ function (exports, module, require) {
           'use strict';
           (Object.defineProperty(t, '__esModule', { value: true }),
             (t.AnnotationLayer = undefined));
-          var o = n(151) /* module_151 */,
+          var o = n(151) /* DataModule_151 */,
             i = n(1); /* GCore */
           function a(e, t, n) {
             return (a =
@@ -47940,7 +48123,7 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* GCore */,
-    a = _interopRequireDefault(require(355) /* module_355 */),
+    AppError = _interopRequireDefault(require(355) /* AppError */),
     GError = _interopRequireDefault(require(594) /* GError */),
     GFilesPanel = require(858); /* Exports_GFilesPanel */
   const l = require(1240) /* module_1240 */,
@@ -48179,7 +48362,7 @@ function (exports, module, require) {
         : GCore(null);
     }),
     (u.prototype.saveLastTeamDriveId = function (e, t) {
-      if (!e) throw new a.default('Invalid arguments for saving last team drive id');
+      if (!e) throw new AppError.default('Invalid arguments for saving last team drive id');
       return (gContainer.setProperty(e, t), this);
     }),
     (u.prototype.getCorporateStorage = function () {
@@ -48823,7 +49006,7 @@ function (exports, module, require) {
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GDocument = require(163); /* GDocument */
-  const l = require(446); /* module_446 */
+  const GLoginPanel = require(446); /* GLoginPanel */
   function c() {}
   (GCore.GObject.inherit(c, GAction),
     (c.ID = 'file.open'),
@@ -48853,7 +49036,7 @@ function (exports, module, require) {
       return GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari;
     }),
     (c.prototype.execute = function (e, t) {
-      new l(
+      new GLoginPanel(
         () => {
           (e = e || gDesigner.getDefaultStorage()).openPrompt(
             GDocument.FileTypes.filter((e) => e.load),
@@ -49936,15 +50119,15 @@ function (exports, module, require) {
   'use strict';
   require(1039) /* polyfill_String_trimLeft */;
   var core_export = require(25) /* core_export */,
-    i = require(735); /* module_735 */
+    DataModule_735 = require(735); /* DataModule_735 */
   core_export(
     {
       target: 'String',
       proto: true,
       name: 'trimStart',
-      forced: ''.trimStart !== i,
+      forced: ''.trimStart !== DataModule_735,
     },
-    { trimStart: i }
+    { trimStart: DataModule_735 }
   );
 }
 ,
@@ -50023,7 +50206,7 @@ function (exports, module, require) {
       module.createFileAndGetSignedPutUrlsFn =
         undefined),
     require(19) /* polyfill_Array_iterator */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(96) /* polyfill_JSON_stringify */,
     require(30) /* polyfill_Object_assign */,
@@ -50032,10 +50215,10 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(134) /* polyfill_String_startsWith */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(26) /* polyfill_DOMCollection_iterator */,
     require(114)) /* stub_requires_424 */;
   var GDictionary = _interopRequireDefault(require(227) /* GDictionary */);
@@ -50173,24 +50356,24 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(30) /* polyfill_Object_assign */;
-  var o = require(231); /* module_231 */
+  var DataModule_231 = require(231); /* DataModule_231 */
   const { License: i, LicenseType: a, DateAPI: r } = require(10) /* AppSettings */,
     {
       defaultUserSettings: {
         license: { offlineCountdown: s, offlineExpirationTime: l },
       },
     } = require(10) /* AppSettings */.defaultUserSettings,
-    c = require(785) /* module_785 */,
+    DataModule_785 = require(785) /* DataModule_785 */,
     d = require(1099); /* module_1099 */
   exports.exports = class {
     static newLicense(e) {
-      return (c.updateLicense(e), this._newLicense(e));
+      return (DataModule_785.updateLicense(e), this._newLicense(e));
     }
     static newDefaultLicense() {
       return this._newLicense({ license: a.Default });
     }
     static newOfflineLicense() {
-      const exports = c.getLicense();
+      const exports = DataModule_785.getLicense();
       if (exports) {
         const t = r.addTime(
           r.addTime(new Date(exports.lastUpdate), exports.offlineExpirationTime || l),
@@ -50204,8 +50387,8 @@ function (exports, module, require) {
       return this._isDevLicense() ? new d(e) : new i(e);
     }
     static _isDevLicense() {
-      if (o.IS_TRUNK) return true;
-      if (o.IS_RC) {
+      if (DataModule_231.IS_TRUNK) return true;
+      if (DataModule_231.IS_RC) {
         const e = gDesigner.getSyncUser();
         return !!e && !e.isDeactivated() && e.isEmailVerified() && e.isGravitAccount();
       }
@@ -50297,7 +50480,7 @@ function (exports, module, require) {
     require(114)) /* stub_requires_424 */;
   var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    r = require(593) /* module_593 */,
+    DataModule_593 = require(593) /* DataModule_593 */,
     s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
     l = (function (e, t) {
       if ('function' == typeof WeakMap)
@@ -50307,11 +50490,11 @@ function (exports, module, require) {
         if (!t && e && e.__esModule) return e;
         var GCore,
           CollaborationMergeUtils,
-          r = { __proto__: null, default: e };
-        if (null === e || ('object' != typeof e && 'function' != typeof e)) return r;
+          DataModule_593 = { __proto__: null, default: e };
+        if (null === e || ('object' != typeof e && 'function' != typeof e)) return DataModule_593;
         if ((GCore = t ? _interopRequireDefault : require)) {
           if (GCore.has(e)) return GCore.get(e);
-          GCore.set(e, r);
+          GCore.set(e, DataModule_593);
         }
         for (const t in e)
           'default' !== t &&
@@ -50319,9 +50502,9 @@ function (exports, module, require) {
             ((CollaborationMergeUtils =
               (GCore = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) &&
             (CollaborationMergeUtils.get || CollaborationMergeUtils.set)
-              ? GCore(r, t, CollaborationMergeUtils)
-              : (r[t] = e[t]));
-        return r;
+              ? GCore(DataModule_593, t, CollaborationMergeUtils)
+              : (DataModule_593[t] = e[t]));
+        return DataModule_593;
       })(e, t);
     })(require(789) /* Exports_NoAccessId */),
     GError = _interopRequireDefault(require(594) /* GError */);
@@ -50398,7 +50581,7 @@ function (exports, module, require) {
       let require = [];
       const _interopRequireDefault = await this.getAccessToken(),
         CollaborationMergeUtils = { fields: '*', supportsAllDrives: true, pageSize: 50 };
-      return new Promise((GCore, r) => {
+      return new Promise((GCore, DataModule_593) => {
         !(function l(GError) {
           const GoogleDriveResumableUpload = new URL(
               'https://www.googleapis.com/drive/v3/files/'.concat(e, '/permissions')
@@ -50434,7 +50617,7 @@ function (exports, module, require) {
                           })
                     ));
             })
-            .catch((e) => r(e));
+            .catch((e) => DataModule_593(e));
         })();
       });
     }),
@@ -50456,7 +50639,11 @@ function (exports, module, require) {
           e,
           _interopRequireDefault
         ).catch(() => []),
-        r = { type: 'user', emailAddress: _interopRequireDefault, role: l.default[require.id] };
+        DataModule_593 = {
+          type: 'user',
+          emailAddress: _interopRequireDefault,
+          role: l.default[require.id],
+        };
       if (CollaborationMergeUtils && CollaborationMergeUtils.length > 0) {
         const t = await this.removeShare(e, CollaborationMergeUtils[0]);
         if (t.error) {
@@ -50467,9 +50654,9 @@ function (exports, module, require) {
           } = t;
           return Promise.reject(e);
         }
-        if (r.role === l.NoAccessId) return t;
+        if (DataModule_593.role === l.NoAccessId) return t;
       }
-      return this._createShare(e, r).then((e) => {
+      return this._createShare(e, DataModule_593).then((e) => {
         if (e.error) {
           const {
             error: {
@@ -50517,8 +50704,8 @@ function (exports, module, require) {
           supportsAllDrives: true,
           sendNotificationEmail: false,
         };
-      for (var r in CollaborationMergeUtils)
-        require.searchParams.append(r, CollaborationMergeUtils[r]);
+      for (var DataModule_593 in CollaborationMergeUtils)
+        require.searchParams.append(DataModule_593, CollaborationMergeUtils[DataModule_593]);
       return fetch(require.toString(), {
         method: 'POST',
         headers: new Headers({
@@ -50548,8 +50735,9 @@ function (exports, module, require) {
           'https://www.googleapis.com/drive/v3/files/'.concat(e, '/permissions/').concat(require)
         ),
         CollaborationMergeUtils = await this.getAccessToken(),
-        r = { fields: '*', supportsAllDrives: true };
-      for (var s in r) _interopRequireDefault.searchParams.append(s, r[s]);
+        DataModule_593 = { fields: '*', supportsAllDrives: true };
+      for (var s in DataModule_593)
+        _interopRequireDefault.searchParams.append(s, DataModule_593[s]);
       return fetch(_interopRequireDefault.toString(), {
         method: 'DELETE',
         headers: new Headers({ Authorization: 'Bearer '.concat(CollaborationMergeUtils) }),
@@ -50558,9 +50746,12 @@ function (exports, module, require) {
     (g.prototype._simpleUpload = async function (e, t, n) {
       const _interopRequireDefault = await this.getAccessToken();
       return new Promise((GCore, CollaborationMergeUtils) => {
-        var r = new FormData();
-        (r.append('metadata', new Blob([JSON.stringify(n)], { type: 'application/json' })),
-          r.append('file', t));
+        var DataModule_593 = new FormData();
+        (DataModule_593.append(
+          'metadata',
+          new Blob([JSON.stringify(n)], { type: 'application/json' })
+        ),
+          DataModule_593.append('file', t));
         var s = new URL('https://www.googleapis.com/upload/drive/v3/files/'.concat(e || '')),
           l = { uploadType: 'multipart', fields: '*' };
         for (var GError in (n.hasOwnProperty('driveId') && (l.supportsAllDrives = true), l))
@@ -50568,7 +50759,7 @@ function (exports, module, require) {
         fetch(s.toString(), {
           method: e ? 'PATCH' : 'POST',
           headers: new Headers({ Authorization: 'Bearer '.concat(_interopRequireDefault) }),
-          body: r,
+          body: DataModule_593,
         })
           .then((e) => e.json())
           .then((e) => {
@@ -50581,7 +50772,7 @@ function (exports, module, require) {
     }),
     (g.prototype._resumableUpload = async function (e, t, n, _interopRequireDefault) {
       const GCore = await this.getAccessToken();
-      return new Promise((CollaborationMergeUtils, r) => {
+      return new Promise((CollaborationMergeUtils, DataModule_593) => {
         var s = n.mimeType || 'application/octet-stream';
         const l = { fields: '*' };
         (n.hasOwnProperty('driveId') && (l.supportsAllDrives = true),
@@ -50602,7 +50793,7 @@ function (exports, module, require) {
               CollaborationMergeUtils(t);
             },
             onError: function (e) {
-              r(e);
+              DataModule_593(e);
             },
             onProgress: function (e) {
               _interopRequireDefault && _interopRequireDefault(e.loaded / e.total);
@@ -50614,24 +50805,24 @@ function (exports, module, require) {
       _interopRequireDefault =
         'number' == typeof _interopRequireDefault ? _interopRequireDefault : 0;
       const GCore = await this.getAccessToken(),
-        r = { Authorization: 'Bearer '.concat(GCore) },
-        s = t.headers ? Object.assign(r, t.headers) : r;
+        DataModule_593 = { Authorization: 'Bearer '.concat(GCore) },
+        s = t.headers ? Object.assign(DataModule_593, t.headers) : DataModule_593;
       return (
         delete t.headers,
         fetch(e, Object.assign({ headers: new Headers(s), signal: n }, t)).then(async (GCore) => {
           if (!GCore.ok) {
-            var r = await GCore.json();
+            var DataModule_593 = await GCore.json();
             return GCore.status === p.UNAUTHORIZED &&
               (await gContainer.getGoogleAPI().signIn(), 0 === _interopRequireDefault)
               ? this._request(e, t, n, ++_interopRequireDefault)
               : GCore.status === p.FORBIDDEN &&
-                  g.isUsageLimitError(r) &&
+                  g.isUsageLimitError(DataModule_593) &&
                   _interopRequireDefault < g.TRIAL_UNTIL_FAIL
                 ? (await (0, CollaborationMergeUtils.sleep)(
                     1e3 * Math.pow(1 + _interopRequireDefault, 2)
                   ),
                   this._request(e, t, n, ++_interopRequireDefault))
-                : Promise.reject(r);
+                : Promise.reject(DataModule_593);
           }
           return GCore;
         })
@@ -50659,7 +50850,7 @@ function (exports, module, require) {
               this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore))
             : Promise.reject(u);
       }
-      return (0, r.readResponseWithProgress)(
+      return (0, DataModule_593.readResponseWithProgress)(
         GoogleDriveResumableUpload,
         _interopRequireDefault,
         true
@@ -50790,7 +50981,7 @@ function (exports, module, require) {
     l = require(1387) /* module_1387 */,
     requireObjectCoercible = require(62) /* requireObjectCoercible */,
     getSubstitution = require(145) /* getSubstitution */,
-    u = require(279); /* module_279 */
+    DataModule_279 = require(279); /* DataModule_279 */
   fixRegExpWKS('search', function (e, t, n) {
     return [
       function (t) {
@@ -50807,7 +50998,7 @@ function (exports, module, require) {
         if (toLength.done) return toLength.value;
         var classof = isCallable.lastIndex;
         l(classof, 0) || (isCallable.lastIndex = 0);
-        var getSubstitution = u(isCallable, fixRegExpWKS);
+        var getSubstitution = DataModule_279(isCallable, fixRegExpWKS);
         return (
           l(isCallable.lastIndex, classof) || (isCallable.lastIndex = classof),
           null === getSubstitution ? -1 : getSubstitution.index
@@ -51075,7 +51266,7 @@ function (exports, module, require) {
   const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* AppSettings */,
     GContainer = require(85) /* GContainer */,
     GCrossFrameManager = require(1252) /* GCrossFrameManager */,
-    u = require(859) /* module_859 */,
+    DataModule_859 = require(859) /* DataModule_859 */,
     p = function (e) {
       return gContainer.signWithOAuth(e);
     };
@@ -51115,7 +51306,7 @@ function (exports, module, require) {
     (h.prototype.open = function () {
       var e = this;
       let module = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-      const require = u.getRuntimeCode();
+      const require = DataModule_859.getRuntimeCode();
       this._loginConfiguration = Object.assign({ runtime: require }, module);
       const {
         anonymous: i = false,
@@ -51222,7 +51413,7 @@ function (exports, module, require) {
         closeable: s = true,
         flow: l,
         options: GCrossFrameManager = {},
-        runtime: u,
+        runtime: DataModule_859,
       } = exports;
       let p, g, h, f;
       if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
@@ -51246,7 +51437,7 @@ function (exports, module, require) {
         s || y.set('closeable', s),
         l && y.set('flow', l),
         gContainer.shouldBypassEmailVerification() && y.set('bypassEmailVerification', true),
-        u && y.set('runtime', u));
+        DataModule_859 && y.set('runtime', DataModule_859));
       var _ = new URL(window.location.href);
       if (_.searchParams) ((h = _.searchParams.get('token')), (f = _.searchParams.get('d')));
       else {
@@ -51302,7 +51493,7 @@ function (exports, module, require) {
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GExportDialog = require(1513) /* GExportDialog */,
-    c = require(446) /* module_446 */,
+    GLoginPanel = require(446) /* GLoginPanel */,
     GSaveAction = require(447); /* GSaveAction */
   const u = require(86) /* module_86 */,
     GSystemDialog = require(44); /* GSystemDialog */
@@ -51409,7 +51600,7 @@ function (exports, module, require) {
                 new GCore.GLocaleKey('GCommonNames', 'text.error-emtpy-infinite-canvas')
               )
             )
-          : new c(
+          : new GLoginPanel(
               () => {
                 $('.g-export-dialog').length ||
                   (module.isNew()
@@ -51500,7 +51691,7 @@ function (exports, module, require) {
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
     c = _interopRequireDefault(require(86) /* module_86 */),
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
-    u = require(593); /* module_593 */
+    DataModule_593 = require(593); /* DataModule_593 */
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { FILE_FORMATS: g, FOLDER_FORMAT: h, MAX_FOLDER_DEPTH_FOR_CLOUD: f } = require(
       10
@@ -51668,7 +51859,9 @@ function (exports, module, require) {
     (y.prototype.getRawFile = async function (e, t, n) {
       const _interopRequireDefault = await AppSettings.gApi.getFileExtended(e.id),
         GCore = await fetch(_interopRequireDefault.getFileDataURL(), { signal: t });
-      return (0, u.readResponseWithProgress)(GCore, n.progress, true).then((e) => e.blob());
+      return (0, DataModule_593.readResponseWithProgress)(GCore, n.progress, true).then((e) =>
+        e.blob()
+      );
     }),
     (y.prototype.openFile = function (e, t) {
       return new Promise(async (n, _interopRequireDefault) => {
@@ -51692,7 +51885,7 @@ function (exports, module, require) {
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
         CloudException = arguments.length > 4 && undefined !== arguments[4] ? arguments[4] : null;
       require = require || _.ext.toUpperCase();
-      var u = e.getScene();
+      var DataModule_593 = e.getScene();
       if (e.hasPagesWithInfiniteEmptyCanvas())
         return Promise.reject({
           message: GCore.GLocale.get(
@@ -51704,22 +51897,22 @@ function (exports, module, require) {
       const g = GCloudStorageItem.getZoom(),
         h = GCloudStorageItem.getScrollX(),
         f = GCloudStorageItem.getScrollY(),
-        m = u.getActivePage(),
+        m = DataModule_593.getActivePage(),
         y = m.getReferenceId(),
-        v = u.getActivePage().getGeometryBBox();
+        v = DataModule_593.getActivePage().getGeometryBBox();
       return AppSettings.gApi
         .createFile({
           name: t,
           parent: this._extractId(this.CURRENT_FOLDER),
           type: (b(require) || _).type,
           app: 'designer',
-          unit: u.getProperty('ut'),
+          unit: DataModule_593.getProperty('ut'),
           width: v.getWidth(),
           height: v.getHeight(),
           trashed: null,
         })
         .then(async (AppSettings) => {
-          AppSettings.type === _.type && u.setCloudSynchronization(AppSettings.id);
+          AppSettings.type === _.type && DataModule_593.setCloudSynchronization(AppSettings.id);
           const m = AppSettings.type !== _.type;
           (await e.saveAnnotations(m),
             (_interopRequireDefault = e.updateSaveOptionsLastModifiedDate(_interopRequireDefault)));
@@ -51727,13 +51920,13 @@ function (exports, module, require) {
           e.setStorageItem(v);
           var b = new GDocument.default(v);
           return b
-            .deserializeData(GCore.GNode.serialize(u, _interopRequireDefault))
+            .deserializeData(GCore.GNode.serialize(DataModule_593, _interopRequireDefault))
             .then(
               async () => (
                 e.getFileFormatVersion() && b.setFileFormatVersion(e.getFileFormatVersion()),
                 await b.saveAnnotations(m, true),
-                (u = b.getScene()).iteratePages((e) => {
-                  if (e.getReferenceId() === y) return (u.setActivePage(e), false);
+                (DataModule_593 = b.getScene()).iteratePages((e) => {
+                  if (e.getReferenceId() === y) return (DataModule_593.setActivePage(e), false);
                 }),
                 gDesigner.addDocument(b),
                 CloudException
@@ -51743,7 +51936,7 @@ function (exports, module, require) {
                 GCloudStorageItem.transform(h, f, g),
                 (_interopRequireDefault =
                   b.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
-                GCore.GUtil.prepareForSaving(u, require),
+                GCore.GUtil.prepareForSaving(DataModule_593, require),
                 GCloudStorage.default.performSave(
                   b,
                   () => {
@@ -51967,10 +52160,10 @@ function (exports, module, require) {
     GTextProperties = require(1273) /* GTextProperties */,
     GAlignProperties = require(1274) /* GAlignProperties */,
     GVersionHistoryProperties = require(1528) /* GVersionHistoryProperties */,
-    x = require(1159); /* module_1159 */
+    GEvent_fileId = require(1159); /* GEvent_fileId */
   const GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
-    A = require(807); /* module_807 */
+    GEvent_type = require(807); /* GEvent_type */
   function T() {
     (GSidebar.call(this), (this._propertyPanels = []), (this._touchTools = []));
   }
@@ -52079,7 +52272,7 @@ function (exports, module, require) {
       (this._activeTool(gDesigner.getToolManager().getActiveTool()),
         this._updatePropertyPanels(),
         this._initVersionHistoryPanel(),
-        gDesigner.getRightSidebars().addEventListener(A, this._sidebarEvent, this),
+        gDesigner.getRightSidebars().addEventListener(GEvent_type, this._sidebarEvent, this),
         gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this));
     }),
     (T.prototype._getPropertyPanel = function (e) {
@@ -52111,7 +52304,7 @@ function (exports, module, require) {
     }),
     (T.prototype._sidebarEvent = function (e) {
       gDesigner.isTouchEnabled() &&
-        e.type === A.Type.Activated &&
+        e.type === GEvent_type.Type.Activated &&
         e.sidebar &&
         e.sidebar.getId() === GOutlineSidebar.SidebarsIds.GAnnotationsSidebar &&
         this._updatePropertyPanels();
@@ -52141,10 +52334,10 @@ function (exports, module, require) {
       ((this._versionHistoryProperties = new GVersionHistoryProperties()),
         this._versionHistoryProperties.init(e, t),
         this._versionHistoryPanel.append(t).append(e),
-        gDesigner.addEventListener(x, this._updateVersionsPanel, this));
+        gDesigner.addEventListener(GEvent_fileId, this._updateVersionsPanel, this));
     }),
     (T.prototype._updateVersionsPanel = function (e) {
-      if (e.type === x.Type.Enable) {
+      if (e.type === GEvent_fileId.Type.Enable) {
         var module;
         switch (((this._versionHistoryMode = true), this.getOrientation())) {
           case GSidebarContainer.Orientation.Left:
@@ -52159,7 +52352,7 @@ function (exports, module, require) {
           this._versionHistoryPanel.appendTo(this._htmlElement),
           this._versionHistoryPanel.css('display', ''));
       } else
-        e.type === x.Type.Disable &&
+        e.type === GEvent_fileId.Type.Disable &&
           ((this._versionHistoryMode = false),
           this._htmlElement.find('.panels').css('display', ''),
           this._versionHistoryPanel.css('display', 'none'),
@@ -52373,7 +52566,7 @@ function (exports, module, require) {
     (T.prototype.toString = function () {
       return '[Object GInspectorSidebar]';
     }),
-    require(1529)(/* module_1529 */ T),
+    require(1529)(/* DataModule_1529 */ T),
     (exports.exports = T));
 }
 ,
@@ -52383,12 +52576,12 @@ function (exports, module, require) {
     uncurryThis = require(27) /* uncurryThis */,
     lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
     r = require(1524) /* stub_requires_27 */,
-    s = require(1525) /* module_1525 */,
+    DataModule_1525 = require(1525) /* DataModule_1525 */,
     tryCall = require(21) /* tryCall */,
     c = RangeError,
     d = String,
     u = Math.floor,
-    p = uncurryThis(s),
+    p = uncurryThis(DataModule_1525),
     g = uncurryThis(''.slice),
     h = uncurryThis((1).toFixed),
     f = function (e, t, n) {
@@ -52438,15 +52631,18 @@ function (exports, module, require) {
           n,
           core_export,
           uncurryThis,
-          s = r(this),
+          DataModule_1525 = r(this),
           tryCall = lengthOfArrayLike(e),
           u = [0, 0, 0, 0, 0, 0],
           h = '',
           _ = '0';
         if (tryCall < 0 || tryCall > 20) throw new c('Incorrect fraction digits');
-        if (s != s) return 'NaN';
-        if (s <= -1e21 || s >= 1e21) return d(s);
-        if ((s < 0 && ((h = '-'), (s = -s)), s > 1e-21))
+        if (DataModule_1525 != DataModule_1525) return 'NaN';
+        if (DataModule_1525 <= -1e21 || DataModule_1525 >= 1e21) return d(DataModule_1525);
+        if (
+          (DataModule_1525 < 0 && ((h = '-'), (DataModule_1525 = -DataModule_1525)),
+          DataModule_1525 > 1e-21)
+        )
           if (
             ((n =
               (t =
@@ -52454,9 +52650,9 @@ function (exports, module, require) {
                   for (var t = 0, n = e; n >= 4096; ) ((t += 12), (n /= 4096));
                   for (; n >= 2; ) ((t += 1), (n /= 2));
                   return t;
-                })(s * f(2, 69, 1)) - 69) < 0
-                ? s * f(2, -t, 1)
-                : s / f(2, t, 1)),
+                })(DataModule_1525 * f(2, 69, 1)) - 69) < 0
+                ? DataModule_1525 * f(2, -t, 1)
+                : DataModule_1525 / f(2, t, 1)),
             (n *= 4503599627370496),
             (t = 52 - t) > 0)
           ) {
@@ -53988,8 +54184,8 @@ function (exports, module, require) {
     require(322)) /* stub_requires_669 */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15); /* GEditor */
-  const a = require(880); /* module_880 */
-  class r extends a {
+  const DataModule_880 = require(880); /* DataModule_880 */
+  class r extends DataModule_880 {
     constructor() {
       let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       (super(),
@@ -54052,12 +54248,13 @@ function (exports, module, require) {
       e.iterateChangedTouches((e) => {
         this._dispatchEventFromTouch('click', e);
       });
-      const a = e.getOriginalEvent().changedTouches[0];
-      a &&
+      const DataModule_880 = e.getOriginalEvent().changedTouches[0];
+      DataModule_880 &&
         (this._doubleTapTouches ||
-          (this._isDblClick(a, require) && this._dispatchEventFromTouch('dblclick', a)),
+          (this._isDblClick(DataModule_880, require) &&
+            this._dispatchEventFromTouch('dblclick', DataModule_880)),
         (this._lastClickEventTime = require),
-        (this._lastClickPoint = new GCore.GPoint(a.screenX, a.screenY)));
+        (this._lastClickPoint = new GCore.GPoint(DataModule_880.screenX, DataModule_880.screenY)));
     }
     cancel(e) {
       e.iterateChangedTouches((e) => {
@@ -54085,12 +54282,16 @@ function (exports, module, require) {
         for (let require = 0; require < module; require++)
           for (let GEditor = require + 1; GEditor < module; GEditor++) {
             const t = e[require],
-              a = e[GEditor];
+              DataModule_880 = e[GEditor];
             if (
-              GCore.GMath.ptDist(t.screenX, t.screenY, a.screenX, a.screenY) <=
-              this._config.doubleTapThreshold
+              GCore.GMath.ptDist(
+                t.screenX,
+                t.screenY,
+                DataModule_880.screenX,
+                DataModule_880.screenY
+              ) <= this._config.doubleTapThreshold
             )
-              return [t, a];
+              return [t, DataModule_880];
           }
       return null;
     }
@@ -54171,7 +54372,7 @@ function (exports, module, require) {
             !_interopRequireDefault.getRole().is(AppSettings.ShareRoles.NoAccess)
           ) {
             let e = await c(_interopRequireDefault.getUID());
-            module.push(a.default.createUserMention(_interopRequireDefault, e));
+            module.push(DataModule_883.default.createUserMention(_interopRequireDefault, e));
           }
         }
       let _interopRequireDefault,
@@ -54305,7 +54506,7 @@ function (exports, module, require) {
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var AppSettings = require(10) /* AppSettings */,
-    a = _interopRequireDefault(require(883) /* module_883 */),
+    DataModule_883 = _interopRequireDefault(require(883) /* DataModule_883 */),
     GAnnotationPanel = require(1353); /* Exports_GAnnotationPanel */
   const s = (0, GAnnotationPanel.createAdditionalMentions)(),
     l = {};
@@ -54831,25 +55032,26 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(185) /* module_185 */,
+  var DataModule_185 = require(185) /* DataModule_185 */,
     i = TypeError;
   exports.exports = function (e, t) {
-    if (!delete e[t]) throw new i('Cannot delete property ' + o(t) + ' of ' + o(e));
+    if (!delete e[t])
+      throw new i('Cannot delete property ' + DataModule_185(t) + ' of ' + DataModule_185(e));
   };
 }
 ,
 function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
-    i = require(735); /* module_735 */
+    DataModule_735 = require(735); /* DataModule_735 */
   core_export(
     {
       target: 'String',
       proto: true,
       name: 'trimStart',
-      forced: ''.trimLeft !== i,
+      forced: ''.trimLeft !== DataModule_735,
     },
-    { trimLeft: i }
+    { trimLeft: DataModule_735 }
   );
 }
 ,
@@ -54911,8 +55113,8 @@ function (exports, module, require) {
   exports.exports =
     ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(382) /* module_382 */,
-    require(1044) /* module_1044 */,
-    require(1045) /* module_1045 */,
+    require(1044) /* DataModule_1044 */,
+    require(1045) /* DataModule_1045 */,
     require(272) /* module_272 */,
     require(273) /* HmacMD5 */,
     require(537) /* module_537 */,
@@ -56818,7 +57020,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  require(290) /* module_290 */;
+  require(290) /* DataModule_290 */;
   const { GObject: o, GLocale: i } = require(1) /* GCore */,
     a = require(1068); /* module_1068 */
   function r(e) {
@@ -58063,7 +58265,7 @@ function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
   var AppSettings = require(10); /* AppSettings */
-  const i = require(292) /* module_292 */,
+  const GEvent_user = require(292) /* GEvent_user */,
     a = require(846); /* module_846 */
   exports.exports = class {
     constructor() {
@@ -58099,7 +58301,7 @@ function (exports, module, require) {
       gDesigner.setLicense(e);
     }
     async start() {
-      (gDesigner.addEventListener(i, this._userLoggedEvent, this),
+      (gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this),
         $(window).on('online', this.checkLicense.bind(this)),
         $(window).on('offline', this.checkLicense.bind(this)));
       try {
@@ -58275,7 +58477,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(116) /* module_116 */,
+  var DataModule_116 = require(116) /* DataModule_116 */,
     toIndexedObject = require(184) /* toIndexedObject */,
     a = require(243) /* module_243 */.f,
     r = require(157) /* stub_requires_27 */,
@@ -58284,7 +58486,7 @@ function (exports, module, require) {
         ? Object.getOwnPropertyNames(window)
         : [];
   exports.exports.f = function (e) {
-    return s && 'Window' === o(e)
+    return s && 'Window' === DataModule_116(e)
       ? (function (e) {
           try {
             return a(e);
@@ -58300,16 +58502,20 @@ function (exports, module, require) {
   'use strict';
   var tryCall = require(21) /* tryCall */,
     toLength = require(46) /* toLength */,
-    a = require(116) /* module_116 */,
-    r = require(1105) /* module_1105 */,
+    DataModule_116 = require(116) /* DataModule_116 */,
+    DataModule_1105 = require(1105) /* DataModule_1105 */,
     s = Object.isExtensible,
     l = tryCall(function () {
       s(1);
     });
   exports.exports =
-    l || r
+    l || DataModule_1105
       ? function (e) {
-          return !!toLength(e) && (!r || 'ArrayBuffer' !== a(e)) && (!s || s(e));
+          return (
+            !!toLength(e) &&
+            (!DataModule_1105 || 'ArrayBuffer' !== DataModule_116(e)) &&
+            (!s || s(e))
+          );
         }
       : s;
 }
@@ -58330,11 +58536,11 @@ function (exports, module, require) {
   var core_export = require(25) /* core_export */,
     globalThis = require(23) /* globalThis */,
     uncurryThis = require(27) /* uncurryThis */,
-    r = require(277) /* module_277 */,
+    DataModule_277 = require(277) /* DataModule_277 */,
     defineBuiltIn = require(79) /* defineBuiltIn */,
     l = require(558) /* polyfill_Object_getOwnPropertyNames */,
-    c = require(121) /* module_121 */,
-    d = require(146) /* module_146 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     anObject = require(35) /* anObject */,
     p = require(194) /* module_194 */,
     toLength = require(46) /* toLength */,
@@ -58377,7 +58583,7 @@ function (exports, module, require) {
         );
       };
     if (
-      r(
+      DataModule_277(
         e,
         !anObject(w) ||
           !(
@@ -58390,7 +58596,7 @@ function (exports, module, require) {
       )
     )
       ((x = n.getConstructor(t, e, v, b)), l.enable());
-    else if (r(e, true)) {
+    else if (DataModule_277(e, true)) {
       var A = new x(),
         T = A[b](_ ? {} : -0, 1) !== A,
         G = tryCall(function () {
@@ -58407,9 +58613,9 @@ function (exports, module, require) {
           });
       (P ||
         (((x = t(function (e, t) {
-          d(e, C);
+          DataModule_146(e, C);
           var n = y(new w(), e, x);
-          return (p(t) || c(t, n[b], { that: n, AS_ENTRIES: v }), n);
+          return (p(t) || DataModule_121(t, n[b], { that: n, AS_ENTRIES: v }), n);
         })).prototype = C),
         (C.constructor = x)),
         (G || D) && (E('delete'), E('has'), v && E('get')),
@@ -58431,11 +58637,11 @@ function (exports, module, require) {
   var uncurryThis = require(27) /* uncurryThis */,
     i = require(232) /* module_232 */,
     a = require(558) /* polyfill_Object_getOwnPropertyNames */.getWeakData,
-    r = require(146) /* module_146 */,
+    DataModule_146 = require(146) /* DataModule_146 */,
     toString_default = require(37) /* toString_default */,
     l = require(194) /* module_194 */,
     toLength = require(46) /* toLength */,
-    d = require(121) /* module_121 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
     u = require(349) /* module_349 */,
     p = require(61) /* module_61 */,
     internalState = require(80) /* internalState */,
@@ -58478,9 +58684,9 @@ function (exports, module, require) {
     (exports.exports = {
       getConstructor: function (e, t, n, uncurryThis) {
         var u = e(function (e, i) {
-            (r(e, internalState),
+            (DataModule_146(e, internalState),
               h(e, { type: t, id: _++, frozen: null }),
-              l(i) || d(i, e[uncurryThis], { that: e, AS_ENTRIES: n }));
+              l(i) || DataModule_121(i, e[uncurryThis], { that: e, AS_ENTRIES: n }));
           }),
           internalState = u.prototype,
           m = f(t),
@@ -58537,7 +58743,7 @@ function (exports, module, require) {
   (require(96) /* polyfill_JSON_stringify */,
     require(57) /* polyfill_parseInt */,
     require(20) /* polyfill_RegExp_exec */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(38)) /* stub_requires_680 */;
   var i = function () {
     ((this.interval = 1e3), (this.maxInterval = 6e4));
@@ -62315,7 +62521,7 @@ function (exports, module, require) {
     this,
     require(183) /* module_183 */,
     require(109) /* module_109 */,
-    require(1115) /* module_1115 */.setImmediate
+    require(1115) /* DataModule_1115 */.setImmediate
   );
 }
 ,
@@ -62616,7 +62822,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(180) /* module_180 */,
+  (require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(57) /* polyfill_parseInt */,
     require(20) /* polyfill_RegExp_exec */,
@@ -65924,8 +66130,8 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     GError = _interopRequireDefault(require(594) /* GError */);
   const u = require(86) /* module_86 */,
-    p = require(336) /* module_336 */,
-    g = require(436) /* module_436 */,
+    GEvent_storageItem = require(336) /* GEvent_storageItem */,
+    DataModule_436 = require(436) /* DataModule_436 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GCloudStorageItem = require(156) /* GCloudStorageItem */,
     m = 10,
@@ -65940,9 +66146,9 @@ function (exports, module, require) {
         (this._ext = null),
         (this._token = require),
         this._setExtension(),
-        g.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT));
+        DataModule_436.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT));
     }),
-    GCore.GObject.inheritAndMix(b.Item, s.default.Item, [g]),
+    GCore.GObject.inheritAndMix(b.Item, s.default.Item, [DataModule_436]),
     (b.Item.prototype._app = AppSettings.FILE_ID_PREFIX.SHAREPOINT),
     (b.Item.prototype.getId = function () {
       const exports = this._getSharepointId();
@@ -65973,8 +66179,8 @@ function (exports, module, require) {
       if (module && module.status !== e) {
         var require = module.status;
         ((module.status = e),
-          gDesigner.hasEventListeners(p.FileStatusUpdate) &&
-            gDesigner.trigger(new p.FileStatusUpdate(this, require, e)));
+          gDesigner.hasEventListeners(GEvent_storageItem.FileStatusUpdate) &&
+            gDesigner.trigger(new GEvent_storageItem.FileStatusUpdate(this, require, e)));
       }
     }),
     (b.Item.prototype.getOrCreateCollaborativeFile = async function () {
@@ -66244,7 +66450,7 @@ function (exports, module, require) {
         (await this._getClient().checkInFile(n, e, t),
           await this._updateModificationTime(),
           this._setCheckOutStatus(SharepointException.default.FILE_STATUS.AVAILABLE),
-          this._triggerStorageItemEvent(p.Type.FileCheckIn));
+          this._triggerStorageItemEvent(GEvent_storageItem.Type.FileCheckIn));
       } catch (e) {
         throw (
           console.error('Error checking in', e),
@@ -66271,7 +66477,7 @@ function (exports, module, require) {
             e !== SharepointException.default.FILE_STATUS.LOCKED) ||
           (module.checkedOut = true),
         (module.checkOutStatus = e),
-        this._triggerStorageItemEvent(p.Type.FileUpdated));
+        this._triggerStorageItemEvent(GEvent_storageItem.Type.FileUpdated));
     }),
     (b.Item.prototype.refreshCheckOutStatus = async function () {
       return (
@@ -66297,7 +66503,8 @@ function (exports, module, require) {
       return (this._setCheckOutStatus(exports), this.getFile().checkOutStatus);
     }),
     (b.Item.prototype._triggerStorageItemEvent = async function (e) {
-      gDesigner.hasEventListeners(p) && gDesigner.trigger(new p(e, this));
+      gDesigner.hasEventListeners(GEvent_storageItem) &&
+        gDesigner.trigger(new GEvent_storageItem(e, this));
     }),
     (b.Item.prototype._getCheckOutFileStatus = async function () {
       const exports = this.getFile();
@@ -67272,16 +67479,16 @@ function (exports, module, require) {
       }
     }),
     require(19) /* polyfill_Array_iterator */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(20) /* polyfill_RegExp_exec */,
     require(34) /* polyfill_String_replace */,
     require(247) /* module_247 */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192)) /* module_192 */;
+    require(192)) /* DataModule_192 */;
   var GCore = require(1) /* GCore */,
     JDataView = require(1210) /* JDataView */,
     a = /["\*\/:<>\?\\\|]/g,
@@ -68084,9 +68291,9 @@ function (exports, module, require) {
     GCore = require(1) /* GCore */,
     s = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-    c = _interopRequireDefault(require(807) /* module_807 */),
+    GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
     GOutlineSidebar = _interopRequireDefault(require(198) /* Exports_GOutlineSidebar */),
-    u = require(1161) /* module_1161 */,
+    DataModule_1161 = require(1161) /* DataModule_1161 */,
     p = _interopRequireDefault(require(565) /* module_565 */),
     AppSettings = require(10) /* AppSettings */,
     GProperties = require(123) /* GProperties */,
@@ -68140,7 +68347,7 @@ function (exports, module, require) {
                 }.bind(this)
               );
         }.bind(this),
-        u = function (e) {
+        DataModule_1161 = function (e) {
           var t = this;
           if ('_bw' === e || '_bml' === e)
             return $('<input>')
@@ -68254,8 +68461,8 @@ function (exports, module, require) {
           }
           if (0 === e.indexOf('_blj-')) {
             ((n = ''), (GTools = ''));
-            var c = e.substr('_blj-'.length);
-            switch (c) {
+            var GEvent_type = e.substr('_blj-'.length);
+            switch (GEvent_type) {
               case GCore.GPaintCanvas.LineJoin.Bevel:
                 ((n = 'gravit-icon-line-join-bevel'),
                   (GTools = GCore.GLocale.get(
@@ -68280,7 +68487,8 @@ function (exports, module, require) {
               .attr('data-title', GTools)
               .attr('data-property', e)
               .on('click', function () {
-                (gDesigner.stats('border_change_join', c), i(['_vs', '_blj'], [true, c]));
+                (gDesigner.stats('border_change_join', GEvent_type),
+                  i(['_vs', '_blj'], [true, GEvent_type]));
               })
               .append($('<span></span>').addClass(n));
           }
@@ -68501,11 +68709,21 @@ function (exports, module, require) {
                 .append(
                   $('<div />')
                     .addClass('border-property-content')
-                    .append(u('_blc-' + GCore.GPaintCanvas.LineCap.Butt).addClass('g-group-start'))
                     .append(
-                      u('_blc-' + GCore.GPaintCanvas.LineCap.Round).addClass('g-group-element')
+                      DataModule_1161('_blc-' + GCore.GPaintCanvas.LineCap.Butt).addClass(
+                        'g-group-start'
+                      )
                     )
-                    .append(u('_blc-' + GCore.GPaintCanvas.LineCap.Square).addClass('g-group-end'))
+                    .append(
+                      DataModule_1161('_blc-' + GCore.GPaintCanvas.LineCap.Round).addClass(
+                        'g-group-element'
+                      )
+                    )
+                    .append(
+                      DataModule_1161('_blc-' + GCore.GPaintCanvas.LineCap.Square).addClass(
+                        'g-group-end'
+                      )
+                    )
                 ),
             },
             {
@@ -68521,13 +68739,19 @@ function (exports, module, require) {
                   $('<div />')
                     .addClass('border-property-content')
                     .append(
-                      u('_ba-' + GCore.GStylable.BorderAlignment.Inside).addClass('g-group-start')
+                      DataModule_1161('_ba-' + GCore.GStylable.BorderAlignment.Inside).addClass(
+                        'g-group-start'
+                      )
                     )
                     .append(
-                      u('_ba-' + GCore.GStylable.BorderAlignment.Center).addClass('g-group-element')
+                      DataModule_1161('_ba-' + GCore.GStylable.BorderAlignment.Center).addClass(
+                        'g-group-element'
+                      )
                     )
                     .append(
-                      u('_ba-' + GCore.GStylable.BorderAlignment.Outside).addClass('g-group-end')
+                      DataModule_1161('_ba-' + GCore.GStylable.BorderAlignment.Outside).addClass(
+                        'g-group-end'
+                      )
                     )
                 ),
             },
@@ -68555,13 +68779,19 @@ function (exports, module, require) {
                     $('<div />')
                       .addClass('border-property-content')
                       .append(
-                        u('_blj-' + GCore.GPaintCanvas.LineJoin.Bevel).addClass('g-group-start')
+                        DataModule_1161('_blj-' + GCore.GPaintCanvas.LineJoin.Bevel).addClass(
+                          'g-group-start'
+                        )
                       )
                       .append(
-                        u('_blj-' + GCore.GPaintCanvas.LineJoin.Miter).addClass('g-group-element ')
+                        DataModule_1161('_blj-' + GCore.GPaintCanvas.LineJoin.Miter).addClass(
+                          'g-group-element '
+                        )
                       )
                       .append(
-                        u('_blj-' + GCore.GPaintCanvas.LineJoin.Round).addClass('g-group-end')
+                        DataModule_1161('_blj-' + GCore.GPaintCanvas.LineJoin.Round).addClass(
+                          'g-group-end'
+                        )
                       )
                   ),
               },
@@ -68579,7 +68809,9 @@ function (exports, module, require) {
                       )
                   )
                   .append(
-                    $('<div />').addClass('border-property-content top-2px').append(u('_bml'))
+                    $('<div />')
+                      .addClass('border-property-content top-2px')
+                      .append(DataModule_1161('_bml'))
                   )
                   .gRichTooltip(
                     s.GRichTooltipConfig.from({
@@ -68606,28 +68838,28 @@ function (exports, module, require) {
             columns: [
               {
                 width: '25%',
-                content: u('_bds'),
+                content: DataModule_1161('_bds'),
                 label: GCore.GLocale.get(
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.dash')
                 ),
               },
               {
                 width: '25%',
-                content: u('_bds'),
+                content: DataModule_1161('_bds'),
                 label: GCore.GLocale.get(
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.gap')
                 ),
               },
               {
                 width: '25%',
-                content: u('_bds'),
+                content: DataModule_1161('_bds'),
                 label: GCore.GLocale.get(
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.dash')
                 ),
               },
               {
                 width: '25%',
-                content: u('_bds'),
+                content: DataModule_1161('_bds'),
                 label: GCore.GLocale.get(
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.gap')
                 ),
@@ -68665,20 +68897,20 @@ function (exports, module, require) {
         $('<div></div>')
           .gPropertyRow({
             columns: [
-              { width: '37%', content: u('_bhm') },
-              { width: '8%', content: u('arrow-paste-_bhm') },
+              { width: '37%', content: DataModule_1161('_bhm') },
+              { width: '8%', content: DataModule_1161('arrow-paste-_bhm') },
               { width: '10%' },
-              { width: '37%', content: u('_btm') },
-              { width: '8%', content: u('arrow-paste-_btm') },
+              { width: '37%', content: DataModule_1161('_btm') },
+              { width: '8%', content: DataModule_1161('arrow-paste-_btm') },
             ],
           })
           .appendTo(this._advancedStrokePanel),
         $('<div></div>')
           .gPropertyRow({
             columns: [
-              { width: '45%', padding: false, content: u('_bhms') },
+              { width: '45%', padding: false, content: DataModule_1161('_bhms') },
               { width: '10%' },
-              { width: '45%', padding: false, content: u('_btms') },
+              { width: '45%', padding: false, content: DataModule_1161('_btms') },
             ],
           })
           .appendTo(this._advancedStrokePanel),
@@ -68694,7 +68926,7 @@ function (exports, module, require) {
                   width: '50px',
                 },
                 padding: false,
-                content: u('_bhmo'),
+                content: DataModule_1161('_bhmo'),
               },
               { width: '10%' },
               {
@@ -68706,7 +68938,7 @@ function (exports, module, require) {
                   width: '50px',
                 },
                 padding: false,
-                content: u('_btmo'),
+                content: DataModule_1161('_btmo'),
               },
             ],
           })
@@ -68720,7 +68952,7 @@ function (exports, module, require) {
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.marker-position')
                 ),
                 padding: false,
-                content: u('_bhmi'),
+                content: DataModule_1161('_bhmi'),
               },
               { width: '10%' },
               {
@@ -68729,7 +68961,7 @@ function (exports, module, require) {
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.marker-position')
                 ),
                 padding: false,
-                content: u('_btmi'),
+                content: DataModule_1161('_btmi'),
               },
             ],
           })
@@ -68837,7 +69069,7 @@ function (exports, module, require) {
               .getRightSidebars()
               .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
             _interopRequireDefault.trigger(
-              new c.default(c.default.Type.ChildRemoved, _interopRequireDefault)
+              new GEvent_type.default(GEvent_type.default.Type.ChildRemoved, _interopRequireDefault)
             );
           })
           .gRichTooltip(
@@ -68899,7 +69131,7 @@ function (exports, module, require) {
                       const e = gDesigner
                         .getRightSidebars()
                         .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
-                      e.trigger(new c.default(c.default.Type.ChildAdded, e));
+                      e.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, e));
                     }
                   },
                   GCore.GLocale.get(
@@ -69002,9 +69234,9 @@ function (exports, module, require) {
                   0 &&
                 this._elements.push(t);
             }.bind(this),
-            c = GTools.GElementEditor.getEditor(s);
-          c && c.getStylableParts()
-            ? GCore.GUtil.each(c.getStylableParts(), GTouchTool)
+            GEvent_type = GTools.GElementEditor.getEditor(s);
+          GEvent_type && GEvent_type.getStylableParts()
+            ? GCore.GUtil.each(GEvent_type.getStylableParts(), GTouchTool)
             : GTouchTool(null, s);
         }
         if (this._elements.length)
@@ -69071,7 +69303,7 @@ function (exports, module, require) {
       var n = this,
         _interopRequireDefault = false,
         GTouchTool = null,
-        c = null,
+        GEvent_type = null,
         GOutlineSidebar = null,
         GProperties = null,
         m = null,
@@ -69271,7 +69503,7 @@ function (exports, module, require) {
             var t = $(e.target).closest('.border-block'),
               s = t.offset(),
               GOutlineSidebar = e.originalEvent;
-            ((c = window.gDragImage()).addClass('drag-delete gravit-icon-trash'),
+            ((GEvent_type = window.gDragImage()).addClass('drag-delete gravit-icon-trash'),
               (GProperties = n._panel.offset()),
               (m = n._panel.outerHeight()),
               (v = e.clientX - s.left),
@@ -69317,19 +69549,22 @@ function (exports, module, require) {
                       ) {
                         var _interopRequireDefault = GTouchTool.getParent(),
                           s = _interopRequireDefault.getIndexOfChild(GTouchTool),
-                          c = _interopRequireDefault.getIndexOfChild(t);
+                          GEvent_type = _interopRequireDefault.getIndexOfChild(t);
                         (GTools.GEditor.tryRunTransaction(
                           _interopRequireDefault,
                           function () {
                             if (i.GPlatform.modifiers.shiftKey) {
                               var e = GTouchTool.clone();
-                              _interopRequireDefault.insertChild(e, s < c ? t.getNext() : t);
+                              _interopRequireDefault.insertChild(
+                                e,
+                                s < GEvent_type ? t.getNext() : t
+                              );
                             } else
-                              s !== c &&
+                              s !== GEvent_type &&
                                 (_interopRequireDefault.removeChild(GTouchTool),
                                 _interopRequireDefault.insertChild(
                                   GTouchTool,
-                                  s < c ? t.getNext() : t
+                                  s < GEvent_type ? t.getNext() : t
                                 ));
                           },
                           i.GPlatform.modifiers.shiftKey
@@ -69355,7 +69590,14 @@ function (exports, module, require) {
               }));
           })
           .on('drag', function (e) {
-            GOutlineSidebar = (0, u.handleDragForDeleteIcon)(e, c, GProperties, m, v, _);
+            GOutlineSidebar = (0, DataModule_1161.handleDragForDeleteIcon)(
+              e,
+              GEvent_type,
+              GProperties,
+              m,
+              v,
+              _
+            );
           })
           .on('dragend', function (e) {
             var t = e.originalEvent,
@@ -69371,7 +69613,7 @@ function (exports, module, require) {
                 GTouchTool.getParent() === _interopRequireDefault.getParent())
             ) {
               var s = GTouchTool.getParent(),
-                u = s.getIndexOfChild(GTouchTool),
+                DataModule_1161 = s.getIndexOfChild(GTouchTool),
                 p = s.getIndexOfChild(_interopRequireDefault);
               (GTools.GEditor.tryRunTransaction(
                 s,
@@ -69380,14 +69622,16 @@ function (exports, module, require) {
                     var e = GTouchTool.clone();
                     s.insertChild(
                       e,
-                      u < p ? _interopRequireDefault.getNext() : _interopRequireDefault
+                      DataModule_1161 < p
+                        ? _interopRequireDefault.getNext()
+                        : _interopRequireDefault
                     );
                   } else
-                    u !== p &&
+                    DataModule_1161 !== p &&
                       (s.removeChild(GTouchTool),
                       s.insertChild(
                         GTouchTool,
-                        u < p
+                        DataModule_1161 < p
                           ? _interopRequireDefault.getNext()
                           : _interopRequireDefault.getPrevious()
                       ));
@@ -69420,8 +69664,8 @@ function (exports, module, require) {
                   new GCore.GLocaleKey('GBorderPaintLayerProperties', 'action.remove-border')
                 )
               ),
-              c && c.css('display', 'none'),
-              (c = null),
+              GEvent_type && GEvent_type.css('display', 'none'),
+              (GEvent_type = null),
               t.stopPropagation(),
               (GTouchTool = null));
           })
@@ -69583,15 +69827,15 @@ function (exports, module, require) {
           s = $.extend({ borderLayerIndex: GTouchTool }, i);
         }
         this._ownChange = true;
-        var c = this._document.getEditor();
-        c.beginTransaction();
+        var GEvent_type = this._document.getEditor();
+        GEvent_type.beginTransaction();
         try {
           this._iterateEqualPaintLayer(e, function (e, _interopRequireDefault) {
             var i = GTools.GElementEditor.getEditor(_interopRequireDefault);
             (i && i.applyPropertiesToParts(t, n)) || e.setProperties(t, n);
           });
         } finally {
-          (c.commitTransaction(
+          (GEvent_type.commitTransaction(
             GCore.GLocale.get(
               new GCore.GLocaleKey('GBorderPaintLayerProperties', 'action.change-border-properties')
             ),
@@ -69654,18 +69898,18 @@ function (exports, module, require) {
                   for (
                     var s,
                       GTouchTool,
-                      c = false,
+                      GEvent_type = false,
                       GOutlineSidebar = false,
-                      u = 0,
+                      DataModule_1161 = 0,
                       p = e._elements.length;
-                    u < p;
-                    u++
+                    DataModule_1161 < p;
+                    DataModule_1161++
                   ) {
-                    var AppSettings = e._elements[u];
+                    var AppSettings = e._elements[DataModule_1161];
                     (AppSettings instanceof GCore.GPath && !AppSettings.$closed) ||
                     (AppSettings instanceof GCore.GEllipse &&
                       AppSettings.$etp === GCore.GEllipse.Type.Arc)
-                      ? (c = true)
+                      ? (GEvent_type = true)
                       : (GOutlineSidebar = true);
                   }
                   switch (GTools) {
@@ -69679,9 +69923,9 @@ function (exports, module, require) {
                         new GCore.GLocaleKey('GStylable', 'border-alignment.outside')
                       );
                   }
-                  (c ? i.attr('disabled', true) : i.attr('disabled', false),
+                  (GEvent_type ? i.attr('disabled', true) : i.attr('disabled', false),
                     (s =
-                      c && GOutlineSidebar
+                      GEvent_type && GOutlineSidebar
                         ? GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GBorderPaintLayerProperties',
@@ -69854,8 +70098,8 @@ function (exports, module, require) {
   const GDocumentEvent = require(78) /* GDocumentEvent */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
     r = require(433) /* module_433 */,
-    s = require(336) /* module_336 */,
-    l = require(868) /* module_868 */,
+    GEvent_storageItem = require(336) /* GEvent_storageItem */,
+    GEvent_type_868 = require(868) /* GEvent_type_868 */,
     {
       GFileReviewFlow: c,
       gApi: d,
@@ -69867,8 +70111,12 @@ function (exports, module, require) {
   function f() {
     if (!p) return this;
     (gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
-      gDesigner.addEventListener(s.FileStatusUpdate, this._storageItemFileStatusEvent, this),
-      gDesigner.addEventListener(l, this._handleShareEvent, this),
+      gDesigner.addEventListener(
+        GEvent_storageItem.FileStatusUpdate,
+        this._storageItemFileStatusEvent,
+        this
+      ),
+      gDesigner.addEventListener(GEvent_type_868, this._handleShareEvent, this),
       gDesigner.getActiveDocument() &&
         (this._addDocumentEvents(gDesigner.getActiveDocument()),
         this._updateFromDocument(gDesigner.getActiveDocument())));
@@ -69891,7 +70139,7 @@ function (exports, module, require) {
     }),
     (f.prototype._handleShareEvent = async function (e) {
       switch (e.type) {
-        case l.Type.Updated:
+        case GEvent_type_868.Type.Updated:
           (await this._updateCollaboratorRoleListIfInitialized(),
             this.hasEventListeners(f.UpdateEvent) && this.trigger(new f.UpdateEvent()));
       }
@@ -70027,7 +70275,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */,
     require(71)) /* polyfill_String_includes */;
   const GUserModel = require(177) /* GUserModel */,
-    i = require(805) /* module_805 */,
+    GEvent_user_805 = require(805) /* GEvent_user_805 */,
     { gApi: a } = require(10) /* AppSettings */,
     r = {};
   let s = false;
@@ -70037,16 +70285,16 @@ function (exports, module, require) {
   function c(e) {
     (e instanceof GUserModel || (e = new GUserModel(e)),
       (this._user = e),
-      s || (gDesigner.addEventListener(i, l), (s = true)));
+      s || (gDesigner.addEventListener(GEvent_user_805, l), (s = true)));
   }
   ((c.getUserDataFromAnnotAndUser = function (e, t) {
     const require = e.getProperty('uid');
     let GUserModel = e.getProperty('name'),
-      i = '';
+      GEvent_user_805 = '';
     return (
       require === t.getUID() &&
-        ((GUserModel = t.getFirstName() || GUserModel), (i = t.getLastName() || '')),
-      { id: require, name: GUserModel, last_name: i }
+        ((GUserModel = t.getFirstName() || GUserModel), (GEvent_user_805 = t.getLastName() || '')),
+      { id: require, name: GUserModel, last_name: GEvent_user_805 }
     );
   }),
     (c.prototype.build = function (e) {
@@ -71710,17 +71958,17 @@ function (exports, module, require) {
   (require(1196) /* polyfill_Array_flat */,
     require(19) /* polyfill_Array_iterator */,
     require(1197) /* stub_requires_360 */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
     require(107) /* polyfill_RegExp_test */,
     require(134) /* polyfill_String_startsWith */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
@@ -72431,7 +72679,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(290) /* module_290 */,
+  (require(290) /* DataModule_290 */,
     require(1381) /* stub_requires_1382 */,
     require(19) /* polyfill_Array_iterator */,
     require(57) /* polyfill_parseInt */,
@@ -73282,7 +73530,7 @@ function (exports, module, require) {
     CloudException = require(802) /* CloudException */,
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     AppSettings = require(10) /* AppSettings */,
-    c = require(593) /* module_593 */,
+    DataModule_593 = require(593) /* DataModule_593 */,
     GError = _interopRequireDefault(require(594) /* GError */),
     GMicrosoftUser = _interopRequireDefault(require(1477) /* GMicrosoftUser */),
     MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
@@ -73964,7 +74212,7 @@ function (exports, module, require) {
             _interopRequireDefault.progress &&
             'function' == typeof _interopRequireDefault.progress
           )
-            return (0, c.readResponseWithProgress)(
+            return (0, DataModule_593.readResponseWithProgress)(
               GError,
               _interopRequireDefault.progress,
               false
@@ -74037,7 +74285,7 @@ function (exports, module, require) {
         _interopRequireDefault = this._getSharePointSettings(),
         AdalAuthLibrary = 6e4,
         GCloudStorage = 3e3;
-      let c,
+      let DataModule_593,
         GError = false;
       const GMicrosoftUser = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
       if (require._connect) return require._connect;
@@ -74118,7 +74366,7 @@ function (exports, module, require) {
                       (_ = null),
                       gContainer.removeProperty('sp_getToken_data'),
                       v._logoutAndClearAdalCache(_interopRequireDefault),
-                      c && clearTimeout(c),
+                      DataModule_593 && clearTimeout(DataModule_593),
                       AppSettings(new v.SharepointException(null, v.ExceptionCode.LoginAborted)));
                   }, 1e3);
                   async function b(e) {
@@ -74134,7 +74382,7 @@ function (exports, module, require) {
                         v.saveTokenToCache(require.SETTINGS_ID, require.TOKEN),
                         (GError = true),
                         CollaborationMergeUtils(y),
-                        c && clearTimeout(c),
+                        DataModule_593 && clearTimeout(DataModule_593),
                         $(window).off('message', b),
                         (require._connect = null),
                         GCloudStorage());
@@ -74143,10 +74391,10 @@ function (exports, module, require) {
                       if ('User login is required' === e) return;
                       if (
                         (console.error('>>saveTokenError data', GCore),
-                        c && clearTimeout(c),
+                        DataModule_593 && clearTimeout(DataModule_593),
                         GMicrosoftUser)
                       )
-                        return void (c = setTimeout(function () {
+                        return void (DataModule_593 = setTimeout(function () {
                           (GCloudStorageItem(y),
                             v._logoutAndClearAdalCache(_interopRequireDefault),
                             t(false));
@@ -74158,7 +74406,7 @@ function (exports, module, require) {
                     }
                   }
                   GMicrosoftUser &&
-                    (c = setTimeout(function () {
+                    (DataModule_593 = setTimeout(function () {
                       (CollaborationMergeUtils(y),
                         v._logoutAndClearAdalCache(_interopRequireDefault),
                         t(false));
@@ -74324,7 +74572,7 @@ function (exports, module, require) {
     require(30) /* polyfill_Object_assign */,
     require(8)) /* polyfill_bundle_ES6 */;
   var GCore = require(1) /* GCore */,
-    a = require(1479) /* module_1479 */,
+    DataModule_1479 = require(1479) /* DataModule_1479 */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     s = _interopRequireDefault(require(443) /* module_443 */),
     l = require(1243) /* Exports_SHAREPOINT_COMMAND */,
@@ -74394,7 +74642,7 @@ function (exports, module, require) {
         _interopRequireDefault = {};
       let GCore = [];
       if (!require || !Object.values(require).length) return this._processAuthenticationCommands(e);
-      for (let module = 0, a = e.length; module < a; module++)
+      for (let module = 0, DataModule_1479 = e.length; module < DataModule_1479; module++)
         require[e[module]]
           ? (_interopRequireDefault[e[module]] = require[e[module]])
           : GCore.push(e[module]);
@@ -74405,7 +74653,7 @@ function (exports, module, require) {
     (p.prototype._processAuthenticationCommands = function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       const require = this;
-      return new Promise((_interopRequireDefault, a) => {
+      return new Promise((_interopRequireDefault, DataModule_1479) => {
         d()
           .then((GSystemDialog) =>
             GSystemDialog.authenticate({
@@ -74439,7 +74687,7 @@ function (exports, module, require) {
                               _interopRequireDefault(e);
                             })
                             .catch((e) => {
-                              (console.error('>>>reautherror', e), a(e));
+                              (console.error('>>>reautherror', e), DataModule_1479(e));
                             }));
                       }
                     )
@@ -74451,13 +74699,13 @@ function (exports, module, require) {
                         ),
                         () => window.location.reload()
                       ),
-                      a())
-                    : (require._handleError({ message: t }), a());
+                      DataModule_1479())
+                    : (require._handleError({ message: t }), DataModule_1479());
               },
             })
           )
           .catch((e) => {
-            a(e);
+            DataModule_1479(e);
           });
       });
     }),
@@ -74567,9 +74815,9 @@ function (exports, module, require) {
     (p.prototype._authWithCorelCloud = async function (e) {
       if (this._loaded || this._loading) return false;
       this._loading = true;
-      if (await a.gApi.isOffline({ includeCredentials: false }))
+      if (await DataModule_1479.gApi.isOffline({ includeCredentials: false }))
         return ((this._loading = false), this._handleError(p.Error.OFFLINE), null);
-      const module = await a.gApi
+      const module = await DataModule_1479.gApi
         .authenticateMsTeamsUser(e)
         .catch(
           (e) => (
@@ -75017,15 +75265,15 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(19) /* polyfill_Array_iterator */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(8) /* polyfill_bundle_ES6 */,
     require(91) /* polyfill_String_trim */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
@@ -75036,8 +75284,8 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     s = require(237) /* Item */,
     l = require(163) /* GDocument */,
-    c = require(442); /* module_442 */
-  const d = require(389); /* module_389 */
+    DataModule_442 = require(442); /* DataModule_442 */
+  const GDocument_389 = require(389); /* GDocument_389 */
   function u() {}
   ((window.pako = require(165)) /* module_165 */,
     require(1514) /* ZipJSBrowser */,
@@ -75069,9 +75317,9 @@ function (exports, module, require) {
             })
           );
         else if (e.hasMixin(GCore.GNode.Properties)) {
-          var AppSettings = e.getProperty(c.EXPORT_PROPERTY_NAME, true);
+          var AppSettings = e.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
           if (AppSettings && AppSettings instanceof Array && AppSettings.length)
-            for (var d = s(e), u = 0; u < AppSettings.length; ++u) {
+            for (var GDocument_389 = s(e), u = 0; u < AppSettings.length; ++u) {
               var p = AppSettings[u];
               p.fm &&
                 CollaborationMergeUtils.push(
@@ -75082,7 +75330,7 @@ function (exports, module, require) {
                       suffix: p.sf,
                       format: p.fm,
                       element: e,
-                      name: d,
+                      name: GDocument_389,
                     }
                   )
                 );
@@ -75092,8 +75340,8 @@ function (exports, module, require) {
           for (var g = e.getFirstChild(); null !== g; g = g.getNext())
             g instanceof GCore.GElement && l(g);
       }
-      for (var d = 0; d < i.length; ++d) {
-        l(i[d]);
+      for (var GDocument_389 = 0; GDocument_389 < i.length; ++GDocument_389) {
+        l(i[GDocument_389]);
       }
       return CollaborationMergeUtils;
     }),
@@ -75104,11 +75352,11 @@ function (exports, module, require) {
     (u.exportExportable = function (e, t, n, s) {
       if (this._validateCommercialDocument()) {
         var l = e.element,
-          c = e.format;
-        if ('png' === c || 'jpg' === c) {
+          DataModule_442 = e.format;
+        if ('png' === DataModule_442 || 'jpg' === DataModule_442) {
           var u = null,
             p = null;
-          switch (c) {
+          switch (DataModule_442) {
             case 'png':
               u = GCore.GBitmap.ImageType.PNG;
               break;
@@ -75126,7 +75374,7 @@ function (exports, module, require) {
               true
             );
           h && h.toImageBlob(u, t, p);
-        } else if ('svg' === c)
+        } else if ('svg' === DataModule_442)
           i.GSVGExport.export(
             l,
             {
@@ -75150,12 +75398,12 @@ function (exports, module, require) {
             }
           );
         else {
-          if (c !== d.PDF.ext) throw new Error('Unknown format.');
-          gDesigner.getUser().then(function (c) {
+          if (DataModule_442 !== GDocument_389.PDF.ext) throw new Error('Unknown format.');
+          gDesigner.getUser().then(function (DataModule_442) {
             var u;
             u =
-              c && c.getFullUserName()
-                ? c.getFullUserName()
+              DataModule_442 && DataModule_442.getFullUserName()
+                ? DataModule_442.getFullUserName()
                 : GCore.GLocale.get(
                     new GCore.GLocaleKey('GDocument', 'text.default-export-author')
                   );
@@ -75179,7 +75427,7 @@ function (exports, module, require) {
                 l,
                 p,
                 function (e, n) {
-                  (!e && n && t(new Blob([n], { type: d.PDF.mime })),
+                  (!e && n && t(new Blob([n], { type: GDocument_389.PDF.mime })),
                     s && (g.isAbort() ? s.close && s.close() : e && s.error && s.error(e)));
                 },
                 null,
@@ -75205,33 +75453,34 @@ function (exports, module, require) {
     (u.exportToDirectory = async function (e, t, n, i) {
       if (this._validateCommercialDocument())
         for (var CollaborationMergeUtils = {}, AppSettings = 0, s = [], l = 0; l < e.length; ++l) {
-          var c = null,
-            d = t;
-          if ((c = e[l].name)) {
-            if (c.indexOf('/') >= 0) {
-              var p = c.split('/'),
+          var DataModule_442 = null,
+            GDocument_389 = t;
+          if ((DataModule_442 = e[l].name)) {
+            if (DataModule_442.indexOf('/') >= 0) {
+              var p = DataModule_442.split('/'),
                 g = [];
               for (let e = 0; e < p.length; ++e) {
                 var h = GCore.GUtil.sanitizeFilename(p[e].trim());
                 h && g.push(h);
               }
               if (g.length > 1) {
-                c = g.pop();
+                DataModule_442 = g.pop();
                 var f = '';
                 for (let e = 0; e < g.length; ++e) {
                   var m = g[e];
                   f && (f += '/');
                   var y = CollaborationMergeUtils[(f += m.toLowerCase())];
-                  if (y) d = y;
+                  if (y) GDocument_389 = y;
                   else
                     try {
-                      ((d = await d.addDirectory(m)), (CollaborationMergeUtils[f] = d));
+                      ((GDocument_389 = await GDocument_389.addDirectory(m)),
+                        (CollaborationMergeUtils[f] = GDocument_389));
                     } catch (e) {}
                 }
-              } else g.length && (c = g[0]);
-            } else c = GCore.GUtil.sanitizeFilename(c.trim());
-            c &&
-              d &&
+              } else g.length && (DataModule_442 = g[0]);
+            } else DataModule_442 = GCore.GUtil.sanitizeFilename(DataModule_442.trim());
+            DataModule_442 &&
+              GDocument_389 &&
               u.exportExportable(
                 e[l],
                 (function (t, GCore) {
@@ -75258,13 +75507,24 @@ function (exports, module, require) {
                       }
                     else ++AppSettings === e.length && n && n();
                   };
-                })(d, u.generateExportName(e[l], c, s)),
+                })(GDocument_389, u.generateExportName(e[l], DataModule_442, s)),
                 i
               );
           }
         }
     }),
-    (u.export = function (e, t, n, i, CollaborationMergeUtils, AppSettings, c, p, g, h) {
+    (u.export = function (
+      e,
+      t,
+      n,
+      i,
+      CollaborationMergeUtils,
+      AppSettings,
+      DataModule_442,
+      p,
+      g,
+      h
+    ) {
       if (this._validateCommercialDocument()) {
         var f = (e, t, n) => {
             var GCore = new FileReader();
@@ -75301,7 +75561,7 @@ function (exports, module, require) {
           _ = l.FileTypes.find((e) => e.ext === y.format);
         if (
           (v &&
-            (y.format !== d.PDF.ext ||
+            (y.format !== GDocument_389.PDF.ext ||
               AppSettings ||
               ((v = false),
               ((y = GCore.GUtil.extend({}, y)).name = n),
@@ -75311,7 +75571,7 @@ function (exports, module, require) {
           if (t instanceof s && t.canChooseDirectory())
             t.chooseDirectory(
               (t) => {
-                u.exportToDirectory(e, t, i, c);
+                u.exportToDirectory(e, t, i, DataModule_442);
               },
               CollaborationMergeUtils,
               () => {
@@ -75324,7 +75584,7 @@ function (exports, module, require) {
                       m(e, n + '.zip', i, _, true, h);
                     });
                   },
-                  c
+                  DataModule_442
                 );
               }
             );
@@ -75338,17 +75598,17 @@ function (exports, module, require) {
                   m(e, n + '.zip', i, { ext: 'zip', mime: 'application/zip' }, false, h);
                 });
               },
-              c
+              DataModule_442
             );
           }
         else
           u.exportExportable(
             y,
             function (e) {
-              const n = t instanceof s && t.canDownload() && _ && _.ext === d.PDF.ext;
+              const n = t instanceof s && t.canDownload() && _ && _.ext === GDocument_389.PDF.ext;
               m(e, u.generateExportName(y), i, _, n, h);
             },
-            c,
+            DataModule_442,
             p
           );
       }
@@ -75564,8 +75824,8 @@ function (exports, module, require) {
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
-    l = _interopRequireDefault(require(1159) /* module_1159 */),
-    c = _interopRequireDefault(require(219) /* module_219 */),
+    GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
+    c = _interopRequireDefault(require(219) /* GLocale */),
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
     u = require(67); /* GRichTooltipConfig */
   function p() {
@@ -75641,10 +75901,10 @@ function (exports, module, require) {
         );
       const exports = () => {
         gDesigner &&
-          gDesigner.hasEventListeners(l.default) &&
+          gDesigner.hasEventListeners(GEvent_fileId.default) &&
           (gDesigner.trigger(
-            new l.default(
-              l.default.Type.Enable,
+            new GEvent_fileId.default(
+              GEvent_fileId.default.Type.Enable,
               gDesigner.getActiveDocument().getScene().getProperty('cid')
             )
           ),
@@ -76141,7 +76401,7 @@ function (exports, module, require) {
     r = require(15) /* GEditor */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     l = require(67) /* GRichTooltipConfig */,
-    c = _interopRequireDefault(require(442) /* module_442 */),
+    DataModule_442 = _interopRequireDefault(require(442) /* DataModule_442 */),
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     p = require(86) /* module_86 */,
@@ -76400,7 +76660,7 @@ function (exports, module, require) {
         }));
       var r = false,
         GTouchTool = $('<div/>').attr('id', 'page-layer-divider'),
-        c = function (e) {
+        DataModule_442 = function (e) {
           var GTools;
           r &&
             ((GTools = n - t + e.clientY) < this._pageContainerMinHeight &&
@@ -76409,7 +76669,7 @@ function (exports, module, require) {
             _interopRequireDefault.css('height', GTools + 'px'));
         }.bind(this),
         GDocumentStatusEvent = function () {
-          ($(document).off('mousemove', c),
+          ($(document).off('mousemove', DataModule_442),
             $(document).off('mouseup', GDocumentStatusEvent),
             (r = false),
             (t = null),
@@ -76421,7 +76681,7 @@ function (exports, module, require) {
             (r = true),
             (n = parseInt(_interopRequireDefault.css('height'), 10)),
             e.addClass('page-container-resizing'),
-            $(document).on('mousemove', c),
+            $(document).on('mousemove', DataModule_442),
             $(document).on('mouseup', GDocumentStatusEvent));
         }.bind(this);
       ($(GTouchTool).on('mousedown', p),
@@ -76456,7 +76716,7 @@ function (exports, module, require) {
     }),
     (x.prototype._changePageMode = function (e) {
       let module = !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-      (this._document.getScene().setProperty(c.default.MULTIPAGE_VIEW_ENABLED, e),
+      (this._document.getScene().setProperty(DataModule_442.default.MULTIPAGE_VIEW_ENABLED, e),
         gContainer.setProperty(x.MULTIPAGE_MODE_ENABLED_OPTION_NAME, e),
         module &&
           this._pageModeSwitch.find('input[data-property=multipage-switch]').prop('checked', e));
@@ -76711,7 +76971,9 @@ function (exports, module, require) {
         gDesigner.getWindows().removeEventListener(g.WindowEvent, this._windowsEvent, this));
     }),
     (x.prototype._isMultiPageModeEnabled = function () {
-      const exports = this._document.getScene().getProperty(c.default.MULTIPAGE_VIEW_ENABLED);
+      const exports = this._document
+        .getScene()
+        .getProperty(DataModule_442.default.MULTIPAGE_VIEW_ENABLED);
       return 'boolean' == typeof exports
         ? exports
         : gContainer.getProperty(x.MULTIPAGE_MODE_ENABLED_OPTION_NAME);
@@ -76943,8 +77205,11 @@ function (exports, module, require) {
           const r = this.createLayer(),
             GTouchTool = _interopRequireDefault.filter((e) => !this._hasSelectedParentLayer(e)),
             l = GCore.GNode.order(GTouchTool, true),
-            c = l && l[0];
-          (((c && c.getParent()) || GTools).insertChild(r, c),
+            DataModule_442 = l && l[0];
+          (((DataModule_442 && DataModule_442.getParent()) || GTools).insertChild(
+            r,
+            DataModule_442
+          ),
             exports.setActiveLayer(r),
             this._moveLayers(r, null, GTouchTool, false));
         },
@@ -77024,14 +77289,14 @@ function (exports, module, require) {
               for (var l = 0; l < _interopRequireDefault.length; ++l)
                 _interopRequireDefault[l].assignStyleFrom(e);
             else if (e instanceof GCore.GShape) {
-              var c = e.getPaintBBox();
-              if (c) {
-                var GDocumentEvent = c.getX(),
-                  GDocumentStatusEvent = c.getY();
+              var DataModule_442 = e.getPaintBBox();
+              if (DataModule_442) {
+                var GDocumentEvent = DataModule_442.getX(),
+                  GDocumentStatusEvent = DataModule_442.getY();
                 for (r = 0; r < _interopRequireDefault.length; ++r) {
                   var p = _interopRequireDefault[r],
                     g = p instanceof GCore.GElement ? p.getPaintBBox() : null;
-                  if (g && !c.intersectsRect(g, true)) {
+                  if (g && !DataModule_442.intersectsRect(g, true)) {
                     var GFitAllAction = g.getX(),
                       GFitSelectionAction = g.getY();
                     null === GDocumentEvent ||
@@ -77129,28 +77394,28 @@ function (exports, module, require) {
               for (var l = GTools.length - 1; l >= 0 && !GTouchTool; --l)
                 GTools[l] instanceof require && (GTouchTool = GTools[l]);
               if (GTouchTool && GTouchTool !== e) {
-                var c = [];
+                var DataModule_442 = [];
                 if (
                   (this._document.getScene().accept(
                     function (e) {
-                      return (e instanceof require && c.push(e), true);
+                      return (e instanceof require && DataModule_442.push(e), true);
                     },
                     false,
                     true
                   ),
-                  c)
+                  DataModule_442)
                 ) {
-                  c = GCore.GNode.order(c);
+                  DataModule_442 = GCore.GNode.order(DataModule_442);
                   var GDocumentEvent = [],
                     GDocumentStatusEvent = false,
                     p = null,
                     g = null;
-                  for (l = 0; l < c.length && (null === p || null === g); ++l)
-                    c[l] === GTouchTool || c[l] === e
+                  for (l = 0; l < DataModule_442.length && (null === p || null === g); ++l)
+                    DataModule_442[l] === GTouchTool || DataModule_442[l] === e
                       ? ((GDocumentStatusEvent = !GDocumentStatusEvent),
-                        GDocumentEvent.push(c[l]),
-                        c[l] === GTouchTool ? (p = l) : (g = l))
-                      : GDocumentStatusEvent && GDocumentEvent.push(c[l]);
+                        GDocumentEvent.push(DataModule_442[l]),
+                        DataModule_442[l] === GTouchTool ? (p = l) : (g = l))
+                      : GDocumentStatusEvent && GDocumentEvent.push(DataModule_442[l]);
                   var GSidebar = GTouchTool.getParent(),
                     GSidebarContainer = e.getParent();
                   GDocumentEvent = GDocumentEvent.filter(
@@ -77270,9 +77535,9 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     l = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-    d = _interopRequireDefault(require(807) /* module_807 */),
+    GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
     GOutlineSidebar = _interopRequireDefault(require(198) /* Exports_GOutlineSidebar */),
-    p = require(1161) /* module_1161 */,
+    DataModule_1161 = require(1161) /* DataModule_1161 */,
     g = _interopRequireDefault(require(565) /* module_565 */),
     GProperties = require(123) /* GProperties */,
     f = require(450); /* module_450 */
@@ -77445,7 +77710,7 @@ function (exports, module, require) {
               .getRightSidebars()
               .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
             _interopRequireDefault.trigger(
-              new d.default(d.default.Type.ChildRemoved, _interopRequireDefault)
+              new GEvent_type.default(GEvent_type.default.Type.ChildRemoved, _interopRequireDefault)
             );
           })
           .gRichTooltip(
@@ -77497,7 +77762,7 @@ function (exports, module, require) {
               const t = gDesigner
                 .getRightSidebars()
                 .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
-              t.trigger(new d.default(d.default.Type.ChildAdded, t));
+              t.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, t));
             }.bind(this)
           )
           .gRichTooltip(
@@ -77680,7 +77945,7 @@ function (exports, module, require) {
       var n = this,
         _interopRequireDefault = false,
         GTouchTool = null,
-        d = null,
+        GEvent_type = null,
         GOutlineSidebar = null,
         GProperties = null,
         m = null,
@@ -77830,7 +78095,7 @@ function (exports, module, require) {
             var t = $(e.target).closest('.fill-block'),
               AppSettings = t.offset(),
               l = e.originalEvent;
-            ((d = window.gDragImage()).addClass('drag-delete gravit-icon-trash'),
+            ((GEvent_type = window.gDragImage()).addClass('drag-delete gravit-icon-trash'),
               (GProperties = n._panel.offset()),
               (m = n._panel.outerHeight()),
               (v = e.clientX - AppSettings.left),
@@ -77914,7 +78179,14 @@ function (exports, module, require) {
               }));
           })
           .on('drag', function (e) {
-            GOutlineSidebar = (0, p.handleDragForDeleteIcon)(e, d, GProperties, m, v, _);
+            GOutlineSidebar = (0, DataModule_1161.handleDragForDeleteIcon)(
+              e,
+              GEvent_type,
+              GProperties,
+              m,
+              v,
+              _
+            );
           })
           .on('dragend', function (e) {
             var t = e.originalEvent,
@@ -77931,7 +78203,7 @@ function (exports, module, require) {
             ) {
               var AppSettings = GTouchTool.getParent(),
                 l = AppSettings.getIndexOfChild(GTouchTool),
-                p = AppSettings.getIndexOfChild(_interopRequireDefault);
+                DataModule_1161 = AppSettings.getIndexOfChild(_interopRequireDefault);
               (GTools.GEditor.tryRunTransaction(
                 AppSettings,
                 function () {
@@ -77939,14 +78211,16 @@ function (exports, module, require) {
                     var e = GTouchTool.clone();
                     AppSettings.insertChild(
                       e,
-                      l < p ? _interopRequireDefault.getNext() : _interopRequireDefault
+                      l < DataModule_1161
+                        ? _interopRequireDefault.getNext()
+                        : _interopRequireDefault
                     );
                   } else
-                    l !== p &&
+                    l !== DataModule_1161 &&
                       (AppSettings.removeChild(GTouchTool),
                       AppSettings.insertChild(
                         GTouchTool,
-                        l < p
+                        l < DataModule_1161
                           ? _interopRequireDefault.getNext()
                           : _interopRequireDefault.getPrevious()
                       ));
@@ -77979,8 +78253,8 @@ function (exports, module, require) {
                   new GCore.GLocaleKey('GFillPaintLayerProperties', 'action.remove')
                 )
               ),
-              d && d.css('display', 'none'),
-              (d = null),
+              GEvent_type && GEvent_type.css('display', 'none'),
+              (GEvent_type = null),
               t.stopPropagation(),
               (GTouchTool = null));
           })
@@ -78298,11 +78572,11 @@ function (exports, module, require) {
     r = require(15) /* GEditor */,
     s = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-    c = _interopRequireDefault(require(807) /* module_807 */),
-    d = require(1161) /* module_1161 */,
+    GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
+    DataModule_1161 = require(1161) /* DataModule_1161 */,
     u = _interopRequireDefault(require(565) /* module_565 */),
     GProperties = require(123) /* GProperties */,
-    g = require(1263) /* module_1263 */,
+    DataModule_1263 = require(1263) /* DataModule_1263 */,
     GEffectsPanel = require(1526) /* GEffectsPanel */,
     f = require(450); /* module_450 */
   const m = require(607) /* module_607 */,
@@ -78414,7 +78688,9 @@ function (exports, module, require) {
                         this._elements[e].getEffects().appendChild(t),
                         n._addEffectMenu.close());
                       const GTools = gDesigner.getRightSidebars().getSidebar(y.GInspectorSidebar);
-                      GTools.trigger(new c.default(c.default.Type.ChildAdded, GTools));
+                      GTools.trigger(
+                        new GEvent_type.default(GEvent_type.default.Type.ChildAdded, GTools)
+                      );
                     }
                   }.bind(this),
                   GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'action.add'))
@@ -78425,9 +78701,9 @@ function (exports, module, require) {
         r < V.length;
         ++r
       ) {
-        var d = V[r];
-        $.inArray(d.clazz, this._defaultEffects) > -1 &&
-          this._createDefaultEffect(false, d, _interopRequireDefault);
+        var DataModule_1161 = V[r];
+        $.inArray(DataModule_1161.clazz, this._defaultEffects) > -1 &&
+          this._createDefaultEffect(false, DataModule_1161, _interopRequireDefault);
       }
       (this._createDefaultEffect(true),
         gDesigner
@@ -78547,7 +78823,7 @@ function (exports, module, require) {
         s = null,
         GTouchTool = null,
         GProperties = 0,
-        g = 0,
+        DataModule_1263 = 0,
         GEffectsPanel = null,
         v = function () {
           GTools.GEditor.tryRunTransaction(
@@ -78598,7 +78874,7 @@ function (exports, module, require) {
             .getRightSidebars()
             .getSidebar(y.GInspectorSidebar);
           _interopRequireDefault.trigger(
-            new c.default(c.default.Type.ChildRemoved, _interopRequireDefault)
+            new GEvent_type.default(GEvent_type.default.Type.ChildRemoved, _interopRequireDefault)
           );
         }.bind(this),
         w = null,
@@ -78634,16 +78910,16 @@ function (exports, module, require) {
             var t = GEffectsPanel || e.target;
             if (!A || (gDesigner.isTouchEnabled() && !$(t).closest('.effect-header').length))
               return (e.preventDefault(), void e.stopPropagation());
-            var c = $(e.target).closest('.effect-block'),
-              d = c.offset(),
+            var GEvent_type = $(e.target).closest('.effect-block'),
+              DataModule_1161 = GEvent_type.offset(),
               u = e.originalEvent;
             ((_interopRequireDefault = gDragImage()).addClass('drag-delete gravit-icon-trash'),
               (s = n._panel.offset()),
               (GTouchTool = n._effectsPanel.outerHeight()),
-              (GProperties = e.clientX - d.left),
-              (g = e.clientY - d.top),
+              (GProperties = e.clientX - DataModule_1161.left),
+              (DataModule_1263 = e.clientY - DataModule_1161.top),
               u.stopPropagation(),
-              (T = c.data('effect')),
+              (T = GEvent_type.data('effect')),
               (u.dataTransfer.effectAllowed = 'move'),
               u.dataTransfer.setData('text/plain', 'dummy_data'),
               n._effectsPanel.find('.effect-block').each(function (e, t) {
@@ -78721,13 +78997,13 @@ function (exports, module, require) {
               }));
           })
           .on('drag', function (e) {
-            (0, d.handleDragForDeleteIcon)(
+            (0, DataModule_1161.handleDragForDeleteIcon)(
               e,
               _interopRequireDefault,
               s,
               GTouchTool,
               GProperties,
-              g
+              DataModule_1263
             );
           })
           .on('dragend', function (e) {
@@ -78980,42 +79256,49 @@ function (exports, module, require) {
                   .trigger('click', null != t.activeStopIdx ? t.activeStopIdx : null);
           var s = e.getProperty('vs'),
             GTouchTool = e.getProperty('ly'),
-            c = e.getProperty('cl');
+            GEvent_type = e.getProperty('cl');
           (r.toggleClass('g-selected', e.hasFlag(GCore.GNode.Flag.Selected)),
             r.find('.effect-title input[type=checkbox]').prop('checked', s),
-            r.find('.effect-header').gAccordion('toggleOpen', !c));
-          var d = r.find('.effect-settings');
+            r.find('.effect-header').gAccordion('toggleOpen', !GEvent_type));
+          var DataModule_1161 = r.find('.effect-settings');
           if (
-            (d.css('display', c ? 'none' : ''),
+            (DataModule_1161.css('display', GEvent_type ? 'none' : ''),
             e instanceof GCore.GBlurEffect &&
-              d
-                .find('[data-property="r"]:not(.g-input-slider)')
-                .gUnitBox('value', new GCore.GLength(e.getProperty('r'))),
+              DataModule_1161.find('[data-property="r"]:not(.g-input-slider)').gUnitBox(
+                'value',
+                new GCore.GLength(e.getProperty('r'))
+              ),
             e instanceof GCore.GWebGLEffect)
           ) {
             var u = e.getProperty('shp');
             for (var GProperties in u) {
-              var g = u[GProperties];
-              if ('number' == typeof g) {
-                var GEffectsPanel = d.find(
+              var DataModule_1263 = u[GProperties];
+              if ('number' == typeof DataModule_1263) {
+                var GEffectsPanel = DataModule_1161.find(
                   '[data-property=' + GProperties + ']:not(.g-input-slider)'
                 );
                 GEffectsPanel.gUnitBox('options').hasOwnProperty('unit') &&
-                  GEffectsPanel.gUnitBox('value', new GCore.GLength(g, GCore.GLength.Unit.PT));
+                  GEffectsPanel.gUnitBox(
+                    'value',
+                    new GCore.GLength(DataModule_1263, GCore.GLength.Unit.PT)
+                  );
               }
             }
           }
           return (
             e instanceof GCore.GDropShadowEffect &&
-              (d
-                .find('[data-property="r"]')
-                .gUnitBox('value', new GCore.GLength(e.getProperty('r'))),
-              d
-                .find('[data-property="x"]')
-                .gUnitBox('value', new GCore.GLength(e.getProperty('x'))),
-              d
-                .find('[data-property="y"]')
-                .gUnitBox('value', new GCore.GLength(e.getProperty('y')))),
+              (DataModule_1161.find('[data-property="r"]').gUnitBox(
+                'value',
+                new GCore.GLength(e.getProperty('r'))
+              ),
+              DataModule_1161.find('[data-property="x"]').gUnitBox(
+                'value',
+                new GCore.GLength(e.getProperty('x'))
+              ),
+              DataModule_1161.find('[data-property="y"]').gUnitBox(
+                'value',
+                new GCore.GLength(e.getProperty('y'))
+              )),
             r
               .find('.effect-layer')
               .attr(
@@ -79078,26 +79361,30 @@ function (exports, module, require) {
               $(this._toolbar).gAccordion('toggleOpen', true),
               $(this._toolbar).gAccordion('init', $(this._panel)));
             const r = gDesigner.getRightSidebars().getSidebar(y.GInspectorSidebar);
-            r.trigger(new c.default(c.default.Type.ChildAdded, r));
+            r.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, r));
           }).bind(this)();
         }.bind(this),
         r = {};
       r[v] = new Array();
       var s = $('<option></option>').attr({ value: v }).append(v);
       t.append(s);
-      for (var GTouchTool = [], d = 0; d < V.length; ++d) {
-        var u = V[d];
+      for (
+        var GTouchTool = [], DataModule_1161 = 0;
+        DataModule_1161 < V.length;
+        ++DataModule_1161
+      ) {
+        var u = V[DataModule_1161];
         if (!u.hidden) {
           u.cb = _interopRequireDefault;
           var GProperties = u.mostUsed,
-            g = u.category;
-          if (g) {
-            if (!r[g]) {
-              r[g] = new Array();
-              s = $('<option></option>').attr({ value: g }).append(g);
+            DataModule_1263 = u.category;
+          if (DataModule_1263) {
+            if (!r[DataModule_1263]) {
+              r[DataModule_1263] = new Array();
+              s = $('<option></option>').attr({ value: DataModule_1263 }).append(DataModule_1263);
               GTouchTool.push(s);
             }
-            r[g].push(u);
+            r[DataModule_1263].push(u);
           }
           GProperties && r[v].push(u);
         }
@@ -79113,7 +79400,8 @@ function (exports, module, require) {
             ? -1
             : 0;
       });
-      for (d = 0; d < GTouchTool.length; ++d) t.append(GTouchTool[d]);
+      for (DataModule_1161 = 0; DataModule_1161 < GTouchTool.length; ++DataModule_1161)
+        t.append(GTouchTool[DataModule_1161]);
       (t.on('change', function (t) {
         (gDesigner.stats('effects_choose_type', E.EngCat(this.value)), e.addItems(r[this.value]));
       }),
@@ -79180,8 +79468,8 @@ function (exports, module, require) {
       GTouchTool =
         GCore.GNode.getClassFromId(GCore.GObject.getTypeId(_interopRequireDefault)).RANGES ||
         fxRanges,
-      c = this,
-      d = $('<div></div>');
+      GEvent_type = this,
+      DataModule_1161 = $('<div></div>');
     for (var u in s) {
       var GProperties = s[u];
       if (-1 !== ['contrast', 'brightness', 'hue', 'saturation'].indexOf(u)) {
@@ -79190,12 +79478,12 @@ function (exports, module, require) {
         isNaN(f) || (f = GCore.GUtil.formatNumber(f, 0));
         var m = 100 * GEffectsPanel[0],
           y = 100 * GEffectsPanel[1],
-          v = g.DefaultStops.Hue;
+          v = DataModule_1263.DefaultStops.Hue;
         if ('hue' === u)
           (_interopRequireDefault instanceof GCore.GGLRecolourEffect
             ? ((m = 0), (y = 360))
             : ((m = -180), (y = 180)),
-            (v = g.DefaultStops.Hue),
+            (v = DataModule_1263.DefaultStops.Hue),
             (f = GCore.GMath.normalizeValue(
               GProperties,
               GEffectsPanel[0],
@@ -79203,14 +79491,15 @@ function (exports, module, require) {
               m,
               y
             )));
-        else if (-1 !== ['contrast', 'brightness'].indexOf(u)) v = g.DefaultStops.Luminosity;
+        else if (-1 !== ['contrast', 'brightness'].indexOf(u))
+          v = DataModule_1263.DefaultStops.Luminosity;
         else if (
           'saturation' === u &&
-          ((v = g.DefaultStops.Saturation(0)),
+          ((v = DataModule_1263.DefaultStops.Saturation(0)),
           _interopRequireDefault instanceof GCore.GGLRecolourEffect)
         ) {
           var _ = GCore.GMath.normalizeValue(s.hue, GEffectsPanel[0], GEffectsPanel[1], 0, 360);
-          v = g.DefaultStops.Saturation(_);
+          v = DataModule_1263.DefaultStops.Saturation(_);
         }
         var b = function (e, t, n) {
           if ('hue' === t && _interopRequireDefault instanceof GCore.GGLRecolourEffect) {
@@ -79222,7 +79511,7 @@ function (exports, module, require) {
               .gColorSlider({
                 min: 100 * GEffectsPanel[0],
                 max: 100 * GEffectsPanel[1],
-                stops: g.DefaultStops.Saturation(e),
+                stops: DataModule_1263.DefaultStops.Saturation(e),
               })
               .gColorSlider('value', r)
               .trigger('input');
@@ -79252,10 +79541,11 @@ function (exports, module, require) {
                       GEffectsPanel[1]
                     )),
                       b(r, n, e.target));
-                    var c = GTools('shp');
-                    if (c[n] !== _interopRequireDefault) {
-                      var d = JSON.parse(JSON.stringify(c));
-                      ((d[n] = _interopRequireDefault), t(['shp'], [d]));
+                    var GEvent_type = GTools('shp');
+                    if (GEvent_type[n] !== _interopRequireDefault) {
+                      var DataModule_1161 = JSON.parse(JSON.stringify(GEvent_type));
+                      ((DataModule_1161[n] = _interopRequireDefault),
+                        t(['shp'], [DataModule_1161]));
                     }
                     $(e.target)
                       .closest('.effect-settings')
@@ -79283,13 +79573,13 @@ function (exports, module, require) {
                         .find('.g-input-slider[data-property=' + n + ']');
                     (GTouchTool.gColorSlider('value') != r && GTouchTool.gColorSlider('value', r),
                       b(r, n, e.target));
-                    var c = GTouchTool.gColorSlider('minValue'),
-                      d = GTouchTool.gColorSlider('maxValue');
+                    var GEvent_type = GTouchTool.gColorSlider('minValue'),
+                      DataModule_1161 = GTouchTool.gColorSlider('maxValue');
                     if (
                       ((r = GCore.GMath.normalizeValue(
                         r,
-                        c,
-                        d,
+                        GEvent_type,
+                        DataModule_1161,
                         GEffectsPanel[0],
                         GEffectsPanel[1]
                       )),
@@ -79308,7 +79598,7 @@ function (exports, module, require) {
               },
             ],
           })
-          .appendTo(d);
+          .appendTo(DataModule_1161);
       } else if ('number' == typeof GProperties) {
         f = new GCore.GLength(GProperties, GCore.GLength.Unit.PT);
         GEffectsPanel = GTouchTool[u];
@@ -79346,14 +79636,14 @@ function (exports, module, require) {
                       (GTouchTool = Number(
                         _interopRequireDefault.propertyTransform(r, GTouchTool).toFixed(3)
                       )));
-                    var c = GTools('shp');
+                    var GEvent_type = GTools('shp');
                     if (
                       null !== GTouchTool &&
                       'number' == typeof GTouchTool &&
-                      c[r] !== GTouchTool
+                      GEvent_type[r] !== GTouchTool
                     ) {
-                      var d = JSON.parse(JSON.stringify(c));
-                      ((d[r] = GTouchTool), t(['shp'], [d], true));
+                      var DataModule_1161 = JSON.parse(JSON.stringify(GEvent_type));
+                      ((DataModule_1161[r] = GTouchTool), t(['shp'], [DataModule_1161], true));
                     }
                     n.closest('.effect-settings')
                       .find('[data-property=' + r + ']:not(.g-input-slider)')
@@ -79387,15 +79677,16 @@ function (exports, module, require) {
                         _interopRequireDefault.propertyInverseTransform(n, r).toFixed(3)
                       ),
                       GTouchTool = GTools('shp'),
-                      c = $(this)
+                      GEvent_type = $(this)
                         .parents('.effect-settings')
                         .find('[data-property=' + n + '].g-input-slider');
                     if (
-                      (c.gInputSlider('value') != s && c.gInputSlider('value', s),
+                      (GEvent_type.gInputSlider('value') != s &&
+                        GEvent_type.gInputSlider('value', s),
                       null !== r && 'number' == typeof r && GTouchTool[n] !== r)
                     ) {
-                      var d = JSON.parse(JSON.stringify(GTouchTool));
-                      ((d[n] = r), t(['shp'], [d]));
+                      var DataModule_1161 = JSON.parse(JSON.stringify(GTouchTool));
+                      ((DataModule_1161[n] = r), t(['shp'], [DataModule_1161]));
                     }
                   })
                   .gUnitBox({
@@ -79408,7 +79699,7 @@ function (exports, module, require) {
               },
             ],
           })
-          .appendTo(d);
+          .appendTo(DataModule_1161);
       } else if (GProperties instanceof Array && 3 === GProperties.length) {
         var w = undefined,
           C = [GCore.GColor];
@@ -79427,11 +79718,13 @@ function (exports, module, require) {
                     .gPatternChooser('value', new GCore.GRGBColor(GProperties))
                     .gPatternChooser('opacity', w)
                     .on('chooseropen', function () {
-                      (c._document.getEditor().hideSelection(), (c._chooserElem = $(this)));
+                      (GEvent_type._document.getEditor().hideSelection(),
+                        (GEvent_type._chooserElem = $(this)));
                     })
                     .on('chooserclose', function (e, t, n) {
-                      (c._document && c._document.getEditor().resetHideSelection(),
-                        (c._chooserElem = null));
+                      (GEvent_type._document &&
+                        GEvent_type._document.getEditor().resetHideSelection(),
+                        (GEvent_type._chooserElem = null));
                     })
                     .on('patternchange', function (e, n, _interopRequireDefault, GCore, r) {
                       var s = GTools('shp'),
@@ -79442,13 +79735,14 @@ function (exports, module, require) {
                           'object' == typeof s.opacity &&
                           'opacity' === s.opacity.type &&
                           (GTouchTool.opacity.value = _interopRequireDefault));
-                      var c = null;
-                      (r && (c = { chooserOn: true }), t(['shp'], [GTouchTool], GCore, c));
+                      var GEvent_type = null;
+                      (r && (GEvent_type = { chooserOn: true }),
+                        t(['shp'], [GTouchTool], GCore, GEvent_type));
                     }),
                 },
               ],
             })
-            .appendTo(d));
+            .appendTo(DataModule_1161));
       } else if ('object' == typeof GProperties && 'dropdown' === GProperties.type) {
         GEffectsPanel = GTouchTool[u];
         for (
@@ -79481,7 +79775,7 @@ function (exports, module, require) {
               label: GCore.GLocale.get(new GCore.GLocaleKey('GWebGLEffect', u)),
               columns: [{ width: '100%', content: x }],
             })
-            .appendTo(d));
+            .appendTo(DataModule_1161));
       } else
         'boolean' == typeof GProperties &&
           $('<div></div>')
@@ -79511,9 +79805,9 @@ function (exports, module, require) {
                 },
               ],
             })
-            .appendTo(d);
+            .appendTo(DataModule_1161);
     }
-    return d;
+    return DataModule_1161;
   }
   function D(e, t, n) {
     this._document.getScene();
@@ -79522,8 +79816,8 @@ function (exports, module, require) {
       r = _interopRequireDefault('y'),
       s = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
       GTouchTool = _interopRequireDefault('pat'),
-      c = _interopRequireDefault('opc'),
-      d = this,
+      GEvent_type = _interopRequireDefault('opc'),
+      DataModule_1161 = this,
       u = [0, 200],
       GProperties = e.RANGES;
     return (
@@ -79599,7 +79893,7 @@ function (exports, module, require) {
                     incrementValue: gDesigner.getOpacityIncrement(),
                     postfix: '%',
                   })
-                  .gInputBox('value', GCore.GUtil.formatOpacity(100 * c)),
+                  .gInputBox('value', GCore.GUtil.formatOpacity(100 * GEvent_type)),
               },
               {
                 width: '20%',
@@ -79608,21 +79902,23 @@ function (exports, module, require) {
                   .attr('data-property', 'pat')
                   .gPatternChooser({ types: [GCore.GColor, GCore.GGradient] })
                   .gPatternChooser('value', GTouchTool)
-                  .gPatternChooser('opacity', c)
+                  .gPatternChooser('opacity', GEvent_type)
                   .on('chooseropen', function () {
-                    (d._document.getEditor().hideSelection(), (d._chooserElem = $(this)));
+                    (DataModule_1161._document.getEditor().hideSelection(),
+                      (DataModule_1161._chooserElem = $(this)));
                   })
                   .on('chooserclose', function (e, t, n) {
-                    (d._document && d._document.getEditor().resetHideSelection(),
-                      (d._chooserElem = null));
+                    (DataModule_1161._document &&
+                      DataModule_1161._document.getEditor().resetHideSelection(),
+                      (DataModule_1161._chooserElem = null));
                   })
                   .on('patternchange', function (e, n, _interopRequireDefault, GTools, r, s) {
                     var GTouchTool = [],
-                      c = [];
-                    (undefined !== n && (GTouchTool.push('pat'), c.push(n)),
+                      GEvent_type = [];
+                    (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
                       'number' == typeof _interopRequireDefault &&
                         (GTouchTool.push('opc'),
-                        c.push(_interopRequireDefault),
+                        GEvent_type.push(_interopRequireDefault),
                         $(e.target)
                           .parents('.effect-settings')
                           .find('[data-property="opc"]')
@@ -79630,9 +79926,11 @@ function (exports, module, require) {
                             'value',
                             GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
                           )));
-                    var d = null;
-                    (r && ((d = { chooserOn: true }), null != s && (d.activeStopIdx = s)),
-                      t(GTouchTool, c, GTools, d));
+                    var DataModule_1161 = null;
+                    (r &&
+                      ((DataModule_1161 = { chooserOn: true }),
+                      null != s && (DataModule_1161.activeStopIdx = s)),
+                      t(GTouchTool, GEvent_type, GTools, DataModule_1161));
                   }),
               },
             ],
@@ -79647,15 +79945,25 @@ function (exports, module, require) {
       r = _interopRequireDefault('s'),
       s = _interopRequireDefault('l'),
       GTouchTool = _interopRequireDefault('b'),
-      c = _interopRequireDefault('c'),
-      d = _interopRequireDefault('pat'),
+      GEvent_type = _interopRequireDefault('c'),
+      DataModule_1161 = _interopRequireDefault('pat'),
       u = _interopRequireDefault('opc'),
       GProperties = this._document.getEditor(),
-      g = $('<div></div>'),
+      DataModule_1263 = $('<div></div>'),
       GEffectsPanel = this;
-    function f(e, n, _interopRequireDefault, GTools, r, s, GTouchTool, c, d) {
+    function f(
+      e,
+      n,
+      _interopRequireDefault,
+      GTools,
+      r,
+      s,
+      GTouchTool,
+      GEvent_type,
+      DataModule_1161
+    ) {
       var u,
-        g = $('<input>')
+        DataModule_1263 = $('<input>')
           .attr('type', 'text')
           .attr('data-property', n)
           .val(_interopRequireDefault)
@@ -79679,15 +79987,16 @@ function (exports, module, require) {
       return (
         GTools
           ? ((u = new GCore.GLength(_interopRequireDefault, GCore.GLength.Unit.PT)),
-            g.gUnitBox({ minValue: r, maxValue: s, source: 'effects' }).gUnitBox('value', u))
-          : g
-              .gInputBox({
-                minValue: r,
-                maxValue: s,
-                postfix: c || '',
-                incrementValue: (s - r) / 100,
-              })
-              .gInputBox('value', _interopRequireDefault),
+            DataModule_1263.gUnitBox({ minValue: r, maxValue: s, source: 'effects' }).gUnitBox(
+              'value',
+              u
+            ))
+          : DataModule_1263.gInputBox({
+              minValue: r,
+              maxValue: s,
+              postfix: GEvent_type || '',
+              incrementValue: (s - r) / 100,
+            }).gInputBox('value', _interopRequireDefault),
         $('<div></div>').gPropertyRow({
           columns: [
             {
@@ -79696,7 +80005,7 @@ function (exports, module, require) {
               content: $('<div>')
                 .gInputSlider({
                   type: 'range',
-                  maxDecimal: d,
+                  maxDecimal: DataModule_1161,
                   min: r,
                   max: s,
                   step: GTouchTool || (s - r) / 100,
@@ -79727,13 +80036,13 @@ function (exports, module, require) {
                     .trigger('change');
                 }),
             },
-            { width: '25%', content: g },
+            { width: '25%', content: DataModule_1263 },
           ],
         })
       );
     }
     return (
-      g.append(
+      DataModule_1263.append(
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.bend')),
           'b',
@@ -79746,7 +80055,7 @@ function (exports, module, require) {
           1
         )
       ),
-      g.append(
+      DataModule_1263.append(
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.softness')),
           's',
@@ -79759,7 +80068,7 @@ function (exports, module, require) {
           2
         )
       ),
-      g.append(
+      DataModule_1263.append(
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.radius')),
           'l',
@@ -79772,11 +80081,11 @@ function (exports, module, require) {
           1
         )
       ),
-      g.append(
+      DataModule_1263.append(
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.coverage')),
           'c',
-          c,
+          GEvent_type,
           false,
           0,
           1,
@@ -79785,7 +80094,7 @@ function (exports, module, require) {
           2
         )
       ),
-      g.append(
+      DataModule_1263.append(
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.angle')),
           'a',
@@ -79829,7 +80138,7 @@ function (exports, module, require) {
               content: $('<div></div>')
                 .attr('data-property', 'pat')
                 .gPatternChooser({ types: [GCore.GColor, GCore.GGradient] })
-                .gPatternChooser('value', d)
+                .gPatternChooser('value', DataModule_1161)
                 .gPatternChooser('opacity', u)
                 .on('chooseropen', function () {
                   (GEffectsPanel._document.getEditor().hideSelection(),
@@ -79842,11 +80151,11 @@ function (exports, module, require) {
                 })
                 .on('patternchange', function (e, n, _interopRequireDefault, GTools, r, s) {
                   var GTouchTool = [],
-                    c = [];
-                  (undefined !== n && (GTouchTool.push('pat'), c.push(n)),
+                    GEvent_type = [];
+                  (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
                     'number' == typeof _interopRequireDefault &&
                       (GTouchTool.push('opc'),
-                      c.push(_interopRequireDefault),
+                      GEvent_type.push(_interopRequireDefault),
                       $(e.target)
                         .parents('.effect-settings')
                         .find('[data-property="opc"]')
@@ -79854,15 +80163,17 @@ function (exports, module, require) {
                           'value',
                           GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
                         )));
-                  var d = null;
-                  (r && ((d = { chooserOn: true }), null != s && (d.activeStopIdx = s)),
-                    t(GTouchTool, c, GTools, d));
+                  var DataModule_1161 = null;
+                  (r &&
+                    ((DataModule_1161 = { chooserOn: true }),
+                    null != s && (DataModule_1161.activeStopIdx = s)),
+                    t(GTouchTool, GEvent_type, GTools, DataModule_1161));
                 }),
             },
           ],
         })
-        .appendTo(g),
-      g
+        .appendTo(DataModule_1263),
+      DataModule_1263
     );
   }
   function I(e, t, n) {
@@ -79872,12 +80183,12 @@ function (exports, module, require) {
       r = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
       s = new GCore.GLength(_interopRequireDefault('o'), GCore.GLength.Unit.PT),
       GTouchTool = _interopRequireDefault('pat'),
-      c = _interopRequireDefault('opc'),
-      d = this,
+      GEvent_type = _interopRequireDefault('opc'),
+      DataModule_1161 = this,
       u = [5, 200],
       GProperties = e.RANGES;
     GProperties && GProperties.r && (u = GProperties.r);
-    var g = function (e) {
+    var DataModule_1263 = function (e) {
       return 'r' === e
         ? $('<input>')
             .attr('type', 'text')
@@ -79920,19 +80231,21 @@ function (exports, module, require) {
                     incrementValue: gDesigner.getOpacityIncrement(),
                     postfix: '%',
                   })
-                  .gInputBox('value', GCore.GUtil.formatOpacity(100 * c))
+                  .gInputBox('value', GCore.GUtil.formatOpacity(100 * GEvent_type))
               : 'pat' === e
                 ? $('<div></div>')
                     .attr('data-property', 'pat')
                     .gPatternChooser({ types: [GCore.GColor] })
                     .gPatternChooser('value', GTouchTool)
-                    .gPatternChooser('opacity', c)
+                    .gPatternChooser('opacity', GEvent_type)
                     .on('chooseropen', function () {
-                      (d._document.getEditor().hideSelection(), (d._chooserElem = $(this)));
+                      (DataModule_1161._document.getEditor().hideSelection(),
+                        (DataModule_1161._chooserElem = $(this)));
                     })
                     .on('chooserclose', function (e, t, n) {
-                      (d._document && d._document.getEditor().resetHideSelection(),
-                        (d._chooserElem = null));
+                      (DataModule_1161._document &&
+                        DataModule_1161._document.getEditor().resetHideSelection(),
+                        (DataModule_1161._chooserElem = null));
                     })
                     .on('patternchange', function (e, n, _interopRequireDefault, GTools, r) {
                       var s = [],
@@ -79948,8 +80261,9 @@ function (exports, module, require) {
                               'value',
                               GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
                             )));
-                      var c = null;
-                      (r && (c = { chooserOn: true }), t(s, GTouchTool, GTools, c));
+                      var GEvent_type = null;
+                      (r && (GEvent_type = { chooserOn: true }),
+                        t(s, GTouchTool, GTools, GEvent_type));
                     })
                 : undefined;
     };
@@ -79959,27 +80273,27 @@ function (exports, module, require) {
           {
             width: '20%',
             label: GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.offset')),
-            content: g('o'),
+            content: DataModule_1263('o'),
           },
           {
             width: '20%',
             label: GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.angle')),
-            content: g('a'),
+            content: DataModule_1263('a'),
           },
           {
             width: '20%',
             label: GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.blur')),
-            content: g('r'),
+            content: DataModule_1263('r'),
           },
           {
             width: '20%',
             label: GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.opacity')),
-            content: g('opc'),
+            content: DataModule_1263('opc'),
           },
           {
             width: '20%',
             label: GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.color')),
-            content: g('pat'),
+            content: DataModule_1263('pat'),
           },
         ],
       })
@@ -79992,8 +80306,8 @@ function (exports, module, require) {
       r = new GCore.GLength(_interopRequireDefault('l'), GCore.GLength.Unit.PT),
       s = _interopRequireDefault('pat'),
       GTouchTool = _interopRequireDefault('opc'),
-      c = _interopRequireDefault('den'),
-      d = _interopRequireDefault('fdm'),
+      GEvent_type = _interopRequireDefault('den'),
+      DataModule_1161 = _interopRequireDefault('fdm'),
       u = this,
       GProperties = function (e) {
         return 'l' === e
@@ -80049,14 +80363,14 @@ function (exports, module, require) {
                       incrementValue: 1,
                       postfix: '%',
                     })
-                    .gInputBox('value', GCore.GUtil.formatNumber(100 * c))
+                    .gInputBox('value', GCore.GUtil.formatNumber(100 * GEvent_type))
                 : 'fdm' === e
                   ? $('<label></label>')
                       .addClass('g-switch')
                       .append(
                         $('<input>')
                           .attr('type', 'checkbox')
-                          .prop('checked', d)
+                          .prop('checked', DataModule_1161)
                           .on('change', function (e) {
                             t(['fdm'], [$(this).is(':checked')]);
                           })
@@ -80077,11 +80391,11 @@ function (exports, module, require) {
                         })
                         .on('patternchange', function (e, n, _interopRequireDefault, GTools, r, s) {
                           var GTouchTool = [],
-                            c = [];
-                          (undefined !== n && (GTouchTool.push('pat'), c.push(n)),
+                            GEvent_type = [];
+                          (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
                             'number' == typeof _interopRequireDefault &&
                               (GTouchTool.push('opc'),
-                              c.push(_interopRequireDefault),
+                              GEvent_type.push(_interopRequireDefault),
                               $(e.target)
                                 .parents('.effect-settings')
                                 .find('[data-property="opc"]')
@@ -80089,9 +80403,11 @@ function (exports, module, require) {
                                   'value',
                                   GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
                                 )));
-                          var d = null;
-                          (r && ((d = { chooserOn: true }), null != s && (d.activeStopIdx = s)),
-                            t(GTouchTool, c, GTools, d));
+                          var DataModule_1161 = null;
+                          (r &&
+                            ((DataModule_1161 = { chooserOn: true }),
+                            null != s && (DataModule_1161.activeStopIdx = s)),
+                            t(GTouchTool, GEvent_type, GTools, DataModule_1161));
                         })
                     : undefined;
       };
@@ -80242,7 +80558,7 @@ function (exports, module, require) {
       r = GTools('pat'),
       s = GTools('opc'),
       GTouchTool = GTools('alm'),
-      c = this;
+      GEvent_type = this;
     return $('<div></div>').append(
       $('<div></div>')
         .addClass('touch-effects-overlay')
@@ -80259,16 +80575,16 @@ function (exports, module, require) {
                 .on('chooseropen', function () {
                   (_interopRequireDefault.hideSelection(),
                     gDesigner.getWorkspace().getStyleEdManager().updateEditor(e, 'pat', false),
-                    (c._styleEdOn = true),
-                    (c._chooserElem = $(this)));
+                    (GEvent_type._styleEdOn = true),
+                    (GEvent_type._chooserElem = $(this)));
                 })
                 .on('chooserclose', function (e, t, n) {
                   (gDesigner.getWorkspace().getStyleEdManager().getOverlayLock(n)
                     ? t()
-                    : ((c._styleEdOn = false),
+                    : ((GEvent_type._styleEdOn = false),
                       gDesigner.getWorkspace().getStyleEdManager().deactivateEditor(),
                       _interopRequireDefault.resetHideSelection()),
-                    (c._chooserElem = null));
+                    (GEvent_type._chooserElem = null));
                 })
                 .on('patternchange', function (e, n, _interopRequireDefault, GTools, GCore, r) {
                   var s = [],
@@ -80276,9 +80592,11 @@ function (exports, module, require) {
                   (undefined !== n && (s.push('pat'), GTouchTool.push(n)),
                     'number' == typeof _interopRequireDefault &&
                       (s.push('opc'), GTouchTool.push(_interopRequireDefault)));
-                  var c = null;
-                  (GCore && ((c = { chooserOn: true }), null != r && (c.activeStopIdx = r)),
-                    t(s, GTouchTool, GTools, c));
+                  var GEvent_type = null;
+                  (GCore &&
+                    ((GEvent_type = { chooserOn: true }),
+                    null != r && (GEvent_type.activeStopIdx = r)),
+                    t(s, GTouchTool, GTools, GEvent_type));
                 }),
             },
             { width: '20%' },
@@ -80488,13 +80806,17 @@ function (exports, module, require) {
           GTouchTool = GCore.GNode.getClassFromId(
             GCore.GObject.getTypeId(_interopRequireDefault[r])
           ),
-          c = GCore.GNode.getName(GTouchTool),
-          d = 0;
-        d < V.length;
-        d++
+          GEvent_type = GCore.GNode.getName(GTouchTool),
+          DataModule_1161 = 0;
+        DataModule_1161 < V.length;
+        DataModule_1161++
       )
-        if (V[d].clazz === GTouchTool) {
-          GTools.append(V[d].createSettings.call(this, e, B(c, t), s).css('margin-top', '7px'));
+        if (V[DataModule_1161].clazz === GTouchTool) {
+          GTools.append(
+            V[DataModule_1161].createSettings
+              .call(this, e, B(GEvent_type, t), s)
+              .css('margin-top', '7px')
+          );
           break;
         }
     return GTools;
@@ -80505,7 +80827,7 @@ function (exports, module, require) {
       r = GTools('opc'),
       s = new GCore.GLength(GTools('pad')),
       GTouchTool = GTools('rfh'),
-      c = function (e) {
+      GEvent_type = function (e) {
         return 'rfh' === e
           ? $('<input>')
               .attr('data-property', e)
@@ -80590,10 +80912,10 @@ function (exports, module, require) {
           label: GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.opacity')),
           content: $('<div></div>').gPropertyRow({
             columns: [
-              { width: 'auto', content: c('opacity-slider') },
+              { width: 'auto', content: GEvent_type('opacity-slider') },
               {
                 width: $('body').hasClass('g-touch') ? '60px' : '40px',
-                content: c('opacity-input'),
+                content: GEvent_type('opacity-input'),
               },
             ],
           }),
@@ -80601,12 +80923,12 @@ function (exports, module, require) {
         {
           width: $('body').hasClass('g-touch') ? '60px' : '40px',
           label: GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.padding')),
-          content: c('pad'),
+          content: GEvent_type('pad'),
         },
         {
           width: $('body').hasClass('g-touch') ? '60px' : '40px',
           label: GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.height')),
-          content: c('rfh'),
+          content: GEvent_type('rfh'),
         },
       ],
     });
@@ -81414,7 +81736,7 @@ function (exports, module, require) {
       setOriginSize: s,
       cropImage: l,
     } = (require(173) /* stub_requires_1 */,
-    require(219) /* module_219 */,
+    require(219) /* GLocale */,
     require(1268)) /* GImageManipulation */;
   function c() {}
   (GCore.GObject.inherit(c, GProperties),
@@ -82195,7 +82517,7 @@ function (exports, module, require) {
       (require(1267) /* ColorQuantizer */,
       require(123) /* GProperties */,
       require(173) /* stub_requires_1 */,
-      require(219)) /* module_219 */;
+      require(219)) /* GLocale */;
 }
 ,
 function (exports, module, require) {
@@ -87609,10 +87931,10 @@ function (exports, module, require) {
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     v = require(1530) /* module_1530 */,
-    _ = require(1534) /* module_1534 */,
+    DataModule_1534 = require(1534) /* DataModule_1534 */,
     b = require(86) /* module_86 */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
-    { SETUP: C, CODES: x } = require(591) /* module_591 */,
+    { SETUP: C, CODES: x } = require(591) /* DataModule_591 */,
     Action_edit_settings = require(1277); /* Action_edit_settings */
   function E() {
     if (
@@ -87620,7 +87942,7 @@ function (exports, module, require) {
       (this._pendingFormatNotSupportDialog = new Set()),
       (this._pendingEntriesNotCreatedWarning = new Set()),
       (this._documentsMap = new Map()),
-      (this._savingQueue = new _()),
+      (this._savingQueue = new DataModule_1534()),
       this._savingQueue.onNext(this._processDocumentSave.bind(this)),
       E._instance && console.warn('[GAutoSaveManager] Already initiated'),
       (this._autoSaveWorker = new Worker('./autosave.worker.js')),
@@ -90777,7 +91099,7 @@ function (exports, module, require) {
     GEditor = require(15) /* GEditor */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
-    l = _interopRequireDefault(require(442) /* module_442 */);
+    DataModule_442 = _interopRequireDefault(require(442) /* DataModule_442 */);
   function c() {}
   (GCore.GObject.inherit(c, GAction.default),
     (c.ID = 'view.outline-view'),
@@ -90829,8 +91151,9 @@ function (exports, module, require) {
             exports = GCore.GScenePaintConfiguration.PaintMode.Full;
           else
             exports =
-              (require.getProperty(l.default.PAGE_CLIP_PROPERTY_NAME, true) ||
-                l.default.PAGE_CLIP_CONTENT_ENABLED) === l.default.PAGE_CLIP_CONTENT_ENABLED
+              (require.getProperty(DataModule_442.default.PAGE_CLIP_PROPERTY_NAME, true) ||
+                DataModule_442.default.PAGE_CLIP_CONTENT_ENABLED) ===
+              DataModule_442.default.PAGE_CLIP_CONTENT_ENABLED
                 ? GCore.GScenePaintConfiguration.PaintMode.Output
                 : GCore.GScenePaintConfiguration.PaintMode.Full;
         } else exports = GCore.GScenePaintConfiguration.PaintMode.Output;
@@ -90942,12 +91265,12 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GUserModel = _interopRequireDefault(require(177) /* GUserModel */),
     AppSettings = require(10) /* AppSettings */,
-    g = _interopRequireDefault(require(355) /* module_355 */),
+    AppError = _interopRequireDefault(require(355) /* AppError */),
     AppSettings2 = require(519); /* AppSettings */
   const GCloudFolderItem = require(1548) /* GCloudFolderItem */,
     m = require(1166) /* module_1166 */,
     y = require(1549) /* module_1549 */,
-    v = require(1174); /* module_1174 */
+    GEvent_type_1174 = require(1174); /* GEvent_type_1174 */
   let _ = null;
   const b = function (e, t) {
     ((this.panel = e),
@@ -91147,12 +91470,12 @@ function (exports, module, require) {
           for (CloudException = GSystemDialog = GContainer.shift(); CloudException; ) {
             GUserModel = s.find((e) => e.getFolder().id === CloudException.id);
             for (
-              var g = 0;
+              var AppError = 0;
               !(
                 GUserModel ||
                 (await (0, CollaborationMergeUtils.sleep)(100),
                 (GUserModel = s.find((e) => e.getFolder().id === CloudException.id)),
-                ++g > 300)
+                ++AppError > 300)
               );
             );
             GUserModel
@@ -91234,7 +91557,7 @@ function (exports, module, require) {
           .addClass('custom-folders'),
         GUserModel = $('<div/>').addClass('g-files-list'),
         AppSettings = $('<div/>').addClass('g-empty-panel').hide();
-      const g = $('<div/>').addClass('g-example-files-list').hide(),
+      const AppError = $('<div/>').addClass('g-example-files-list').hide(),
         AppSettings2 = $('<div/>').addClass('g-recent-files-list');
       ((_ = function (e) {
         (e.stopPropagation(),
@@ -91268,7 +91591,7 @@ function (exports, module, require) {
           )
           .appendTo(this._rightSide),
         AppSettings.appendTo(this._rightSide),
-        g.appendTo(this._rightSide),
+        AppError.appendTo(this._rightSide),
         AppSettings2.appendTo(this._rightSide));
       const m = $('<div />')
         .addClass('g-files-top-line g-all-files')
@@ -91630,7 +91953,7 @@ function (exports, module, require) {
                           await this.filesPanel.setCloudDrive(e);
                         } catch (e) {
                           var module;
-                          (e && e instanceof g.default && (module = e),
+                          (e && e instanceof AppError.default && (module = e),
                             GSystemDialog.default.alert(
                               module ||
                                 GCore.GLocale.get(
@@ -92659,7 +92982,7 @@ function (exports, module, require) {
               .appendTo(this._fileInfoPanel),
             GCore = y.getRenderForFile(e);
           (await GCore.render(_interopRequireDefault, e),
-            GCore.addEventListener(v, (_interopRequireDefault) =>
+            GCore.addEventListener(GEvent_type_1174, (_interopRequireDefault) =>
               this._detailRenderEventListener(_interopRequireDefault, e, t, n)
             ));
         } finally {
@@ -92671,13 +92994,13 @@ function (exports, module, require) {
     }),
     (b.prototype._detailRenderEventListener = function (e, t, n, _interopRequireDefault) {
       switch (e.type) {
-        case v.Type.DoubleClickFile:
+        case GEvent_type_1174.Type.DoubleClickFile:
           this.filesPanel.handleFileDblClick(e.data);
           break;
-        case v.Type.Reload:
+        case GEvent_type_1174.Type.Reload:
           this._updateFileInfoPanel(t, n, _interopRequireDefault);
           break;
-        case v.Type.UnshareWithMe:
+        case GEvent_type_1174.Type.UnshareWithMe:
           (this._closeFileInfoPanel(), this.filesPanel.updateFilesList());
       }
     }),
@@ -95247,15 +95570,15 @@ function (exports, module, require) {
     require(114)) /* stub_requires_424 */;
   var GCore = require(1) /* GCore */,
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
-    r = _interopRequireDefault(require(355) /* module_355 */),
+    AppError = _interopRequireDefault(require(355) /* AppError */),
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const GSystemDialog = require(44) /* GSystemDialog */,
-    c = require(292) /* module_292 */,
+    GEvent_user = require(292) /* GEvent_user */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     p = require(220) /* Item */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
-    h = require(1323) /* module_1323 */,
+    GEvent_document_1323 = require(1323) /* GEvent_document_1323 */,
     f = require(86) /* module_86 */,
     {
       DESIGNER: m,
@@ -95269,16 +95592,16 @@ function (exports, module, require) {
       ENABLE_REQUEST_ACCESS: S,
     } = require(10) /* AppSettings */,
     E = require(433) /* module_433 */,
-    A = require(1324) /* module_1324 */,
+    GCollaborators = require(1324) /* GCollaborators */,
     GUserModel = require(177) /* GUserModel */,
-    G = require(1565) /* module_1565 */,
-    P = require(868) /* module_868 */,
+    DataModule_1565 = require(1565) /* DataModule_1565 */,
+    GEvent_type_868 = require(868) /* GEvent_type_868 */,
     D = require(536) /* module_536 */,
     L = require(237) /* Item */,
     I = require(x ? 1566 : 1567);
   function k() {
     (y &&
-      (gDesigner.addEventListener(c, this._userEvent, this),
+      (gDesigner.addEventListener(GEvent_user, this._userEvent, this),
       gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this)),
       (this._states = new Map()),
       (this._isDefaulNotificationAlreadyShown = new Map()));
@@ -95483,7 +95806,7 @@ function (exports, module, require) {
                 ? E.makeFromShare(_interopRequireDefault)
                 : E.makeFromShareRole(b.NoAccess);
             })(t);
-            return new A(Object.assign(t, { role: require }));
+            return new GCollaborators(Object.assign(t, { role: require }));
           })
         )
         .catch(() => []);
@@ -95586,10 +95909,11 @@ function (exports, module, require) {
           await this._applyStateFromFile(_interopRequireDefault, n, module));
       } else await this._getFileExtended(e);
       (this._setState(e, module),
-        gDesigner.hasEventListeners(P) && gDesigner.trigger(new P(P.Type.Updated)));
+        gDesigner.hasEventListeners(GEvent_type_868) &&
+          gDesigner.trigger(new GEvent_type_868(GEvent_type_868.Type.Updated)));
     }),
     (k.prototype._createDefaultShareStateForDoc = function (e) {
-      return new G(
+      return new DataModule_1565(
         Object.assign({}, this._getState(e), {
           owner: true,
           share: false,
@@ -95612,18 +95936,18 @@ function (exports, module, require) {
       });
     }),
     (k.prototype._applyStateFromFile = async function (e, t, n) {
-      if (!t) throw new r.default('File object is required');
+      if (!t) throw new AppError.default('File object is required');
       const _interopRequireDefault = (0, CollaborationMergeUtils.getFileStateAndRole)(e, t, n);
       let GCore = _interopRequireDefault.role;
       const { state: GOfflineDialog } = _interopRequireDefault;
       if (!GCore) {
         const e = t.getPublicShare();
         if (e) {
-          const { copy: t, inspect: n, comment: _interopRequireDefault, edit: r } = e;
+          const { copy: t, inspect: n, comment: _interopRequireDefault, edit: AppError } = e;
           ((GCore = E.makeFromShare(e)),
             Object.assign(GOfflineDialog, {
               owner: false,
-              edit: r,
+              edit: AppError,
               copy: t,
               inspect: n,
               comment: !!v && _interopRequireDefault,
@@ -95640,15 +95964,17 @@ function (exports, module, require) {
         const n = await this.getRealtimeCollaborators(module);
         this._setState(
           e,
-          new G(Object.assign({}, this._getState(e), { realtimeCollaborators: n }))
+          new DataModule_1565(Object.assign({}, this._getState(e), { realtimeCollaborators: n }))
         );
       }
     }),
     (k.prototype._setState = function (e, t) {
-      (this._states.set(e, t), gDesigner.hasEventListeners(h) && gDesigner.trigger(new h(e, t)));
+      (this._states.set(e, t),
+        gDesigner.hasEventListeners(GEvent_document_1323) &&
+          gDesigner.trigger(new GEvent_document_1323(e, t)));
     }),
     (k.prototype._getState = function (e) {
-      return this._states.get(e) || new G();
+      return this._states.get(e) || new DataModule_1565();
     }),
     (k.prototype._checkAccessAndUpdateState = async function (e) {
       if (!(await this._requestAccessIfAbsent(e))) return false;
@@ -95767,16 +96093,16 @@ function (exports, module, require) {
         title: require,
         subtitle: _interopRequireDefault,
         closeCallback: GOfflineDialog,
-        requestButton: { label: r, permissions: CollaborationMergeUtils = {} } = {},
-        statType: c,
+        requestButton: { label: AppError, permissions: CollaborationMergeUtils = {} } = {},
+        statType: GEvent_user,
       } = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       var GDocumentEvent = [];
       return (
         this.isPermissionRequestEnabled() &&
           GDocumentEvent.push({
-            label: r,
+            label: AppError,
             onclick: (t) => {
-              gDesigner.stats('permission-dialog_'.concat(c, '_request-access'));
+              gDesigner.stats('permission-dialog_'.concat(GEvent_user, '_request-access'));
               const require = Object.assign(CollaborationMergeUtils, { isToken: !e.getId() });
               _.requestPermission(e.getId() || e.getFailedDocumentIdOrToken(), require)
                 .then(() => {
@@ -95794,7 +96120,7 @@ function (exports, module, require) {
         GDocumentEvent.push({
           label: GCore.GLocale.get(new GCore.GLocaleKey('GLocale', 'ok')),
           onclick: async (t) => {
-            (gDesigner.stats('permission-dialog_'.concat(c, '_click-ok')),
+            (gDesigner.stats('permission-dialog_'.concat(GEvent_user, '_click-ok')),
               t.gDialog('close'),
               (await this._isUserUnableToOperateSystem(e)) && gDesigner.signout(true));
           },
@@ -95828,14 +96154,18 @@ function (exports, module, require) {
       return function () {
         const require = [],
           GOfflineDialog = [],
-          r = [];
+          AppError = [];
         (module.forEach((t) => {
-          let { email: GCore, role: GOfflineDialog, externalRole: r } = t;
+          let { email: GCore, role: GOfflineDialog, externalRole: AppError } = t;
           if (GCore) {
             let t = false;
             (_interopRequireDefault.some((n) => {
               let { email: _interopRequireDefault, role: GOfflineDialog } = n;
-              if (GCore && GCore === _interopRequireDefault && e.rolesMatch(r, GOfflineDialog))
+              if (
+                GCore &&
+                GCore === _interopRequireDefault &&
+                e.rolesMatch(AppError, GOfflineDialog)
+              )
                 return ((t = true), t);
             }),
               t || require.push({ email: GCore, role: GOfflineDialog }));
@@ -95852,7 +96182,7 @@ function (exports, module, require) {
                 GOfflineDialog.push({ email: e.email }));
           }),
           require.length &&
-            r.concat(
+            AppError.concat(
               require.map(async (t) => {
                 let { email: require, role: _interopRequireDefault } = t;
                 if (GCore.getEmail() === require) return null;
@@ -95860,8 +96190,8 @@ function (exports, module, require) {
                     let { id: t } = e;
                     return t === _interopRequireDefault;
                   }),
-                  r = _interopRequireDefault && GOfflineDialog ? GOfflineDialog : b.NoAccess,
-                  CollaborationMergeUtils = new C().assignRole(r);
+                  AppError = _interopRequireDefault && GOfflineDialog ? GOfflineDialog : b.NoAccess,
+                  CollaborationMergeUtils = new C().assignRole(AppError);
                 try {
                   return await _.shareWithUser(e.getId(), require, CollaborationMergeUtils);
                 } catch (e) {
@@ -95870,13 +96200,13 @@ function (exports, module, require) {
               })
             ));
         GOfflineDialog.length &&
-          r.concat(
+          AppError.concat(
             GOfflineDialog.map(async (t) => {
               let { email: require } = t;
               return _.shareWithUser(e.getId(), require, new C().assignRole(b.NoAccess));
             })
           );
-        return Promise.all(r);
+        return Promise.all(AppError);
       }.call(this);
     }),
     (k.prototype.getPermalink = async function (e, t) {
@@ -95974,29 +96304,29 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */,
     require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
-    require(527) /* module_527 */,
+    require(527) /* DataModule_527 */,
     require(107) /* polyfill_RegExp_test */,
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var AppSettings = require(10); /* AppSettings */
-  const i = require(1326) /* module_1326 */,
-    a = require(1578) /* module_1578 */,
+  const DataModule_1326 = require(1326) /* DataModule_1326 */,
+    DataModule_1578 = require(1578) /* DataModule_1578 */,
     GOfflineDialog = require(256) /* GOfflineDialog */,
-    s = require(441) /* module_441 */,
+    GEvent_license = require(441) /* GEvent_license */,
     l = {
       offlineWarning: () => GOfflineDialog.openOfflineWarning(),
-      trialExpired: () => a.openTrialExpired(),
-      proExpireSoon: () => a.openProExpireSoon(),
-      proExpireToday: () => a.openProExpireSoon(),
-      proExpired: () => a.openProExpired(),
-      upgradeScreen: () => a.openUpgradeScreen(),
-      proOfferInTrial: () => a.openTrialMessage(),
-      proOfferInTrialExpired: () => i.openOfferReminder(),
-      proOfferInTrialExpireSoon: () => a.openTrialMessage(),
-      proOfferInTrialLastWarning: () => a.openTrialMessage(),
-      proOfferSpecialPrice: () => i.openOfferReminder(),
-      proOfferInFree: () => i.openOfferReminder(),
+      trialExpired: () => DataModule_1578.openTrialExpired(),
+      proExpireSoon: () => DataModule_1578.openProExpireSoon(),
+      proExpireToday: () => DataModule_1578.openProExpireSoon(),
+      proExpired: () => DataModule_1578.openProExpired(),
+      upgradeScreen: () => DataModule_1578.openUpgradeScreen(),
+      proOfferInTrial: () => DataModule_1578.openTrialMessage(),
+      proOfferInTrialExpired: () => DataModule_1326.openOfferReminder(),
+      proOfferInTrialExpireSoon: () => DataModule_1578.openTrialMessage(),
+      proOfferInTrialLastWarning: () => DataModule_1578.openTrialMessage(),
+      proOfferSpecialPrice: () => DataModule_1326.openOfferReminder(),
+      proOfferInFree: () => DataModule_1326.openOfferReminder(),
     };
   exports.exports = new (class {
     constructor() {
@@ -96020,7 +96350,7 @@ function (exports, module, require) {
           AppSettings.DateAPI.daysToMilliseconds(1)),
         setInterval(this.checkReminders.bind(this), AppSettings.DateAPI.daysToMilliseconds(1)),
         await this.checkReminders(),
-        gDesigner.addEventListener(s, this.checkReminders, this));
+        gDesigner.addEventListener(GEvent_license, this.checkReminders, this));
     }
     async checkReminders() {
       if (!gDesigner.isEnabledSubscriptions()) return;
@@ -96048,8 +96378,8 @@ function (exports, module, require) {
         else if (module.isFree()) {
           const { reminders: { proOfferInFree: exports = 15 } = {} } = this._settings;
           if (module.getCreationDate()) {
-            const i = AppSettings.DateAPI.addTime(module.getCreationDate(), exports);
-            AppSettings.DateAPI.gte(require, i) &&
+            const DataModule_1326 = AppSettings.DateAPI.addTime(module.getCreationDate(), exports);
+            AppSettings.DateAPI.gte(require, DataModule_1326) &&
               this.execute('proOfferInFree') &&
               this.reset('proOfferInTrial', require);
           }
@@ -96075,9 +96405,16 @@ function (exports, module, require) {
     execute(e, t) {
       const require = gDesigner.now();
       t && (t = AppSettings.DateAPI.addTime(t, -this._settings.reminders[e] || 0));
-      const i = gDesigner.getSetting(e);
+      const DataModule_1326 = gDesigner.getSetting(e);
       return (
-        !(i && !AppSettings.DateAPI.isExpired(require, new Date(i), this._settings.reminders[e])) &&
+        !(
+          DataModule_1326 &&
+          !AppSettings.DateAPI.isExpired(
+            require,
+            new Date(DataModule_1326),
+            this._settings.reminders[e]
+          )
+        ) &&
         !(t && !AppSettings.DateAPI.isExpired(require, t)) &&
         this._executeReminder(e)
       );
@@ -96085,12 +96422,12 @@ function (exports, module, require) {
     once(e, t) {
       let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
       if (gDesigner.getSetting(e)) return false;
-      const i = gDesigner.now();
+      const DataModule_1326 = gDesigner.now();
       return (
         t && (t = AppSettings.DateAPI.addTime(t, -this._settings.reminders[e] || 0)),
         !t ||
-        (!require && AppSettings.DateAPI.isExpired(i, t)) ||
-        (require && AppSettings.DateAPI.eq(i, t))
+        (!require && AppSettings.DateAPI.isExpired(DataModule_1326, t)) ||
+        (require && AppSettings.DateAPI.eq(DataModule_1326, t))
           ? this._executeReminder(e)
           : undefined
       );
@@ -96223,7 +96560,7 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   var GCore = require(1); /* GCore */
   const i = require(1327) /* module_1327 */,
-    a = require(1577); /* module_1577 */
+    GObject_1577 = require(1577); /* GObject_1577 */
   class r {
     static openOfferReminder(e) {
       return r._openPaywall('reminder', e);
@@ -96237,7 +96574,7 @@ function (exports, module, require) {
       const require = await this._getProduct(),
         r = this._getLayout(),
         s = gDesigner.getApplicationManager().isInAppPurchaseAvailable();
-      return (await i.newBuilder(a))
+      return (await i.newBuilder(GObject_1577))
         .setId('paywall-cross-frame')
         .setEndpoint('/pro/paywall/'.concat(exports))
         .setTime(gDesigner.now())
@@ -96255,7 +96592,7 @@ function (exports, module, require) {
       return gInAppPurchase.getProduct().catch(() => null);
     }
     static _getLayout() {
-      return a.DEFAULT_LAYOUT;
+      return GObject_1577.DEFAULT_LAYOUT;
     }
   }
   exports.exports = r;
@@ -96264,12 +96601,12 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  const o = require(1574) /* module_1574 */,
+  const DataModule_1574 = require(1574) /* DataModule_1574 */,
     i = require(1576); /* module_1576 */
-  require(1186) /* module_1186 */;
+  require(1186) /* DataModule_1186 */;
   exports.exports = class {
     static async newBuilder(e) {
-      return (await gDesigner.isOfflineAsync()) ? new i(e) : new o();
+      return (await gDesigner.isOfflineAsync()) ? new i(e) : new DataModule_1574();
     }
   };
 }
@@ -96286,9 +96623,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    i = _interopRequireDefault(require(880) /* module_880 */),
+    DataModule_880 = _interopRequireDefault(require(880) /* DataModule_880 */),
     a = _interopRequireDefault(require(1189) /* module_1189 */);
-  class r extends i.default {
+  class r extends DataModule_880.default {
     canActivate() {
       return true;
     }
@@ -96907,13 +97244,13 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     r = _interopRequireDefault(require(443) /* module_443 */),
-    s = _interopRequireDefault(require(1330) /* module_1330 */);
+    GEvent_fullscreen = _interopRequireDefault(require(1330) /* GEvent_fullscreen */);
   const { isExecutingOnMSTeamsSync: l } = r.default;
   var c = require(863) /* module_863 */,
     GFitAllAction = require(449) /* GFitAllAction */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    g = require(1588); /* module_1588 */
+    DataModule_1588 = require(1588); /* DataModule_1588 */
   function h() {
     this._banner.setBannerText(
       GCore.GLocale.get(new GCore.GLocaleKey('GToggleFullscreenAction', 'fullscreen-banner'))
@@ -96923,7 +97260,7 @@ function (exports, module, require) {
     (h.ID = 'view.fullscreen'),
     (h.TITLE = new GCore.GLocaleKey('GToggleFullscreenAction', 'title')),
     (h.prototype._lastStates = {}),
-    (h.prototype._banner = new g()),
+    (h.prototype._banner = new DataModule_1588()),
     (h.prototype.getId = function () {
       return h.ID;
     }),
@@ -96969,7 +97306,8 @@ function (exports, module, require) {
         gDesigner.setPartVisible(c.LeftSidebars, !!e && this._lastStates.leftSidebar),
         gDesigner.relayout(),
         gDesigner.executeAction(GFitAllAction.ID, undefined, undefined, true),
-        gDesigner.hasEventListeners(s.default) && gDesigner.trigger(new s.default(e)));
+        gDesigner.hasEventListeners(GEvent_fullscreen.default) &&
+          gDesigner.trigger(new GEvent_fullscreen.default(e)));
     }),
     (h.prototype._updateLastStates = function () {
       this._lastStates = {
@@ -97149,10 +97487,10 @@ function (exports, module, require) {
     GPresets = require(1153) /* GPresets */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     g = require(603) /* WindowEvent */,
-    h = require(1328) /* module_1328 */,
-    f = require(442); /* module_442 */
+    GEvent_paintMode = require(1328) /* GEvent_paintMode */,
+    DataModule_442 = require(442); /* DataModule_442 */
   const GSystemDialog = require(44) /* GSystemDialog */,
-    y = require(1604) /* module_1604 */,
+    GPageProperties_1604 = require(1604) /* GPageProperties_1604 */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   function _() {}
   (GCore.GObject.inherit(_, GProperties),
@@ -97462,9 +97800,9 @@ function (exports, module, require) {
           (n && e) ||
             (e
               ? ((_interopRequireDefault = GCore.GScenePaintConfiguration.PaintMode.Output),
-                t._updatePageSetting(f.PAGE_CLIP_CONTENT_ENABLED))
+                t._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_ENABLED))
               : ((_interopRequireDefault = GCore.GScenePaintConfiguration.PaintMode.Full),
-                t._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED)),
+                t._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_DISABLED)),
             gDesigner.setPaintMode(_interopRequireDefault));
         };
         return this._clipContentButton;
@@ -97532,15 +97870,15 @@ function (exports, module, require) {
           n = !module.isFixedSized();
         if (n && e === GCore.GScenePaintConfiguration.PaintMode.Output)
           (gDesigner.setPaintMode(GCore.GScenePaintConfiguration.PaintMode.Full),
-            this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED));
+            this._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_DISABLED));
         else if (!n) {
           var _interopRequireDefault =
-            module.getProperty(f.PAGE_CLIP_PROPERTY_NAME, true) ||
+            module.getProperty(DataModule_442.PAGE_CLIP_PROPERTY_NAME, true) ||
             (AppSettings.PAGE_CLIP_DEFAULT
-              ? f.PAGE_CLIP_CONTENT_ENABLED
-              : f.PAGE_CLIP_CONTENT_DISABLED);
+              ? DataModule_442.PAGE_CLIP_CONTENT_ENABLED
+              : DataModule_442.PAGE_CLIP_CONTENT_DISABLED);
           gDesigner.setPaintMode(
-            _interopRequireDefault === f.PAGE_CLIP_CONTENT_ENABLED
+            _interopRequireDefault === DataModule_442.PAGE_CLIP_CONTENT_ENABLED
               ? GCore.GScenePaintConfiguration.PaintMode.Output
               : GCore.GScenePaintConfiguration.PaintMode.Full
           );
@@ -97563,7 +97901,7 @@ function (exports, module, require) {
           CollaborationMergeUtils = !module.isFixedSized();
         CollaborationMergeUtils && GTools === GCore.GScenePaintConfiguration.PaintMode.Output
           ? (gDesigner.setPaintMode(GCore.GScenePaintConfiguration.PaintMode.Full),
-            this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED))
+            this._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_DISABLED))
           : this._manageClipButtonState(false, !CollaborationMergeUtils);
       }
     }),
@@ -97572,7 +97910,7 @@ function (exports, module, require) {
         .getActiveDocument()
         .getScene()
         .getActivePage()
-        .setProperty(f.PAGE_CLIP_PROPERTY_NAME, e, true);
+        .setProperty(DataModule_442.PAGE_CLIP_PROPERTY_NAME, e, true);
     }),
     (_.prototype._reInitLayout = function () {
       ((this._canvasPropertiesRowInNormal = $('<div></div>')
@@ -97648,7 +97986,7 @@ function (exports, module, require) {
       ((this._panel = e),
         (this._toolbar = t),
         gDesigner.getWindows().addEventListener(g.WindowEvent, this._windowEvent, this),
-        gDesigner.addEventListener(h, this._paintModeEvent, this),
+        gDesigner.addEventListener(GEvent_paintMode, this._paintModeEvent, this),
         gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
         this.setTouchTools([
           new GTouchTool.default({
@@ -97962,7 +98300,9 @@ function (exports, module, require) {
     }),
     (_.prototype._updateUI = function () {
       (this._removeOldHtmlElement(),
-        gDesigner.isTouchEnabled() ? y._reInitLayout.call(this) : this._reInitLayout(),
+        gDesigner.isTouchEnabled()
+          ? GPageProperties_1604._reInitLayout.call(this)
+          : this._reInitLayout(),
         this._document
           ? (this._updatePresetSizes(), this._updateProperties())
           : this._oldDocument && this._updatePresetSizes());
@@ -98225,8 +98565,8 @@ function (exports, module, require) {
         var GTouchTool = false,
           GProperties = e.getScene();
         (GProperties &&
-          f.CDR_ORIGIN_PROPERTY_NAME &&
-          (GTouchTool = !!GProperties.getProperty(f.CDR_ORIGIN_PROPERTY_NAME, true)),
+          DataModule_442.CDR_ORIGIN_PROPERTY_NAME &&
+          (GTouchTool = !!GProperties.getProperty(DataModule_442.CDR_ORIGIN_PROPERTY_NAME, true)),
           this._panel
             .find('select[data-property="master-page"]')
             .attr('disabled', GTouchTool)
@@ -99158,7 +99498,7 @@ function (exports, module, require) {
   const o = require(337) /* stub_requires_1098 */,
     i = require(1338) /* module_1338 */,
     { gApi: a, PurchaseStatus: r } = require(10) /* AppSettings */,
-    { IS_TRUNK: s } = require(231); /* module_231 */
+    { IS_TRUNK: s } = require(231); /* DataModule_231 */
   let l;
   class c {
     static getInstance() {
@@ -99363,11 +99703,11 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   const { GLocale: o, GLocaleKey: i } = require(1) /* GCore */,
-    a = require(883); /* module_883 */
+    DataModule_883 = require(883); /* DataModule_883 */
   exports.exports = {
     createAdditionalMentions: function () {
       return {
-        MENTION_ALL_REVIEWERS: new a({
+        MENTION_ALL_REVIEWERS: new DataModule_883({
           name: o.get(
             new i('GAnnotationPanel', 'text.additional-collaborators-all-reviewers-name')
           ),
@@ -99384,7 +99724,7 @@ function (exports, module, require) {
           email: '',
           additional: true,
         }),
-        MENTION_ALL_APPROVERS: new a({
+        MENTION_ALL_APPROVERS: new DataModule_883({
           name: o.get(
             new i('GAnnotationPanel', 'text.additional-collaborators-all-approvers-name')
           ),
@@ -99401,7 +99741,7 @@ function (exports, module, require) {
           email: '',
           additional: true,
         }),
-        MENTION_ALL_CO_AUTHORS: new a({
+        MENTION_ALL_CO_AUTHORS: new DataModule_883({
           name: o.get(
             new i('GAnnotationPanel', 'text.additional-collaborators-all-co-author-name')
           ),
@@ -99418,7 +99758,7 @@ function (exports, module, require) {
           email: '',
           additional: true,
         }),
-        MENTION_ALL: new a({
+        MENTION_ALL: new DataModule_883({
           name: o.get(new i('GAnnotationPanel', 'text.additional-collaborators-all-name')),
           showText: o.get(new i('GAnnotationPanel', 'text.additional-collaborators-all-show-text')),
           id: '@all',
@@ -99429,7 +99769,7 @@ function (exports, module, require) {
           email: '',
           additional: true,
         }),
-        MENTION_OWNER: new a({
+        MENTION_OWNER: new DataModule_883({
           name: o.get(new i('GAnnotationPanel', 'text.additional-collaborators-owner-name')),
           showText: o.get(
             new i('GAnnotationPanel', 'text.additional-collaborators-owner-show-text')
@@ -99654,7 +99994,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
     require(71) /* polyfill_String_includes */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(34) /* polyfill_String_replace */,
     require(91) /* polyfill_String_trim */,
     require(4) /* stub_requires_668 */,
@@ -99670,8 +100010,8 @@ function (exports, module, require) {
     s = require(263) /* Exports_GRegex */,
     l = require(67) /* GRichTooltipConfig */,
     GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
-    d = _interopRequireDefault(require(1324) /* module_1324 */),
-    u = _interopRequireDefault(require(883) /* module_883 */);
+    GCollaborators = _interopRequireDefault(require(1324) /* GCollaborators */),
+    DataModule_883 = _interopRequireDefault(require(883) /* DataModule_883 */);
   const {
       GSystem: p,
       GLocale: g,
@@ -99687,7 +100027,7 @@ function (exports, module, require) {
       ANNOTATION_PERMANENT_LINK: w,
       IS_COREL: C,
     } = ((0, r.createAdditionalMentions)(), require(10)) /* AppSettings */,
-    x = require(1191) /* module_1191 */,
+    DataModule_1191 = require(1191) /* DataModule_1191 */,
     S = require(1166) /* module_1166 */,
     E = require(434) /* stub_requires_30_1072 */,
     { getAnnotationType: A } = require(40); /* CollaborationMergeUtils */
@@ -99702,8 +100042,8 @@ function (exports, module, require) {
       onMouseEnter: s,
       onMouseLeave: l,
       onChange: GAnnotationsUtils,
-      onToggleState: d,
-      onResolve: u,
+      onToggleState: GCollaborators,
+      onResolve: DataModule_883,
       onReopen: p,
       onDelete: g,
       onCancel: h,
@@ -99723,8 +100063,8 @@ function (exports, module, require) {
       (this._onMouseEnter = s),
       (this._onMouseLeave = l),
       (this._onChange = GAnnotationsUtils),
-      (this._onToggleState = d),
-      (this._onResolve = u),
+      (this._onToggleState = GCollaborators),
+      (this._onResolve = DataModule_883),
       (this._onReopen = p),
       (this._onDelete = g),
       (this._onCancel = h),
@@ -99767,7 +100107,7 @@ function (exports, module, require) {
   function L(e) {
     return f.xss(e);
   }
-  (v.inherit(T, x),
+  (v.inherit(T, DataModule_1191),
     (T.prototype._isRead = false),
     (T.prototype._isTypeResolved = false),
     (T.prototype._isTypeReopened = false),
@@ -99782,8 +100122,8 @@ function (exports, module, require) {
         AppSettings = this,
         r = gDesigner.getSyncUser(),
         s = GAnnotationsUtils.default.isOwner(r, n),
-        d = gDesigner.getApplicationManager();
-      const u = this._isCommentingEditingEnable && (this._hasResolveAccess || s),
+        GCollaborators = gDesigner.getApplicationManager();
+      const DataModule_883 = this._isCommentingEditingEnable && (this._hasResolveAccess || s),
         f = this._isCommentingEditingEnable && (this._hasReopenAccess || s);
       var v = $('<span></span>').addClass('annotation-title-group').appendTo(t);
       t.on('mouseenter', this._onMouseEnter).on('mouseleave', this._onMouseLeave);
@@ -99803,13 +100143,13 @@ function (exports, module, require) {
             })
           );
         });
-      var x = n.getProperty('name');
-      x =
-        x ||
+      var DataModule_1191 = n.getProperty('name');
+      DataModule_1191 =
+        DataModule_1191 ||
         n.getProperty('login') ||
         n.getProperty('email').split('@')[0] ||
         g.get(new h('GAnnotationPanel', 'text.empty'));
-      var T = $('<span></span>').html(L(x)).addClass('annotation-title').appendTo(b);
+      var T = $('<span></span>').html(L(DataModule_1191)).addClass('annotation-title').appendTo(b);
       gDesigner
         .getShareManager()
         .getCollaboratorById(n.getProperty('uid'))
@@ -100043,10 +100383,10 @@ function (exports, module, require) {
               .attr('data-title', N)
               .click((e) => {
                 (e.stopPropagation(),
-                  d.hasAccess(E.RESOLVE_COMMENT_ANNOTATION).then((e) => {
+                  GCollaborators.hasAccess(E.RESOLVE_COMMENT_ANNOTATION).then((e) => {
                     e || s
                       ? this._onToggleState(n)
-                      : d.hasAccess(E.REOPEN_COMMENT_ANNOTATION).then((e) => {
+                      : GCollaborators.hasAccess(E.REOPEN_COMMENT_ANNOTATION).then((e) => {
                           (e || s) && this._onToggleState(n);
                         });
                   }));
@@ -100068,7 +100408,7 @@ function (exports, module, require) {
       if (
         (t.data('annotmenu', U),
         n.hasMixin(y) &&
-          (u || f) &&
+          (DataModule_883 || f) &&
           !(n.getProperty('asgn') || []).length &&
           (n.getProperty('rsv')
             ? U.append(
@@ -100275,7 +100615,7 @@ function (exports, module, require) {
         let _interopRequireDefault = GAnnotationsUtils.mentioned.map((e) => e.id),
           AppSettings = GCollaborationMentionsUtils.concat(r)
             .filter((e) => _interopRequireDefault.includes(e.id))
-            .map((e) => u.default.clone(e));
+            .map((e) => DataModule_883.default.clone(e));
         (AppSettings &&
           AppSettings.length &&
           (AppSettings.forEach((e) => {
@@ -100338,7 +100678,7 @@ function (exports, module, require) {
       );
       return (
         (r = r.map((e) => {
-          const module = Object.assign(new d.default(), e),
+          const module = Object.assign(new GCollaborators.default(), e),
             require = '@' + module.getEmail(),
             _interopRequireDefault = '@' + module.getFirstName();
           return (
@@ -100381,7 +100721,7 @@ function (exports, module, require) {
     GCollaborationMentionsUtils = require(882); /* GCollaborationMentionsUtils */
   const GSystemDialog = require(44) /* GSystemDialog */,
     { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = require(1) /* GCore */,
-    u = require(1191) /* module_1191 */,
+    DataModule_1191 = require(1191) /* DataModule_1191 */,
     { getAnnotationType: p } = require(40); /* CollaborationMergeUtils */
   require(85) /* GContainer */;
   function g(e) {
@@ -100420,7 +100760,7 @@ function (exports, module, require) {
       }
     return false;
   }
-  (c.inherit(g, u),
+  (c.inherit(g, DataModule_1191),
     (g.prototype._init = function () {
       var e = this._containter;
       this._containter.addClass('reply-docker');
@@ -100447,10 +100787,10 @@ function (exports, module, require) {
             e.preventDefault();
         })
         .on('keyup', (e) => {
-          const t = u.find('.mentions-autocomplete-list').data('assign');
+          const t = DataModule_1191.find('.mentions-autocomplete-list').data('assign');
           h(e) && !t && (this._addContent(), e.preventDefault());
         });
-      var u = $('<span>').addClass('annotations-comment-area').appendTo(e);
+      var DataModule_1191 = $('<span>').addClass('annotations-comment-area').appendTo(e);
       ((this._onlyOneAssignee = $('<span>')
         .addClass('only-one-assignee')
         .html(1 === this._mentionsCollection.length ? this._mentionsCollection[0].name : '')
@@ -100482,7 +100822,7 @@ function (exports, module, require) {
               .append(this._onlyOneAssignee)
               .append(this._assigneeSelector)
           )
-          .appendTo(u)),
+          .appendTo(DataModule_1191)),
         (t = $('<div>')
           .css('display', 'none')
           .addClass('annotations-buttonrow')
@@ -100510,7 +100850,7 @@ function (exports, module, require) {
                 (gDesigner.stats('replydocker_add-reply', n), this._addContent());
               })
           )
-          .appendTo(u)),
+          .appendTo(DataModule_1191)),
         e.attr('draggable', false));
       const g =
         c && GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari;
@@ -100540,7 +100880,7 @@ function (exports, module, require) {
             GCollaborationMentionsUtils.showAssigneeRow.call(this, this._input),
             gDesigner.isTouchEnabled() && this.requestFocus());
         })
-        .prependTo(u)),
+        .prependTo(DataModule_1191)),
         this._input
           .mentionsInput({
             onDataRequest: (e, t, n) => {
@@ -100558,7 +100898,7 @@ function (exports, module, require) {
           .on('input', () => {
             GCollaborationMentionsUtils.showAssigneeRow.call(this, this._input);
           }),
-        u.find('.mentions-autocomplete-list').delegate('li', 'mousedown', () => {
+        DataModule_1191.find('.mentions-autocomplete-list').delegate('li', 'mousedown', () => {
           GCollaborationMentionsUtils.showAssigneeRow.call(this, this._input);
         }),
         c && (this._input.trigger('click'), this._input.focus()));
@@ -100959,7 +101299,7 @@ function (exports, module, require) {
     GPresets = require(1153) /* GPresets */,
     GSystemDialog = require(44) /* GSystemDialog */,
     AppSettings = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
-  const x = require(1482) /* module_1482 */,
+  const DataModule_1482 = require(1482) /* DataModule_1482 */,
     { base64StringToString: S } = require(40); /* CollaborationMergeUtils */
   function E() {
     ((this._storage = new s()),
@@ -100970,7 +101310,7 @@ function (exports, module, require) {
           });
         }, 15e3));
   }
-  (GObject.inheritAndMix(E, r, [x]),
+  (GObject.inheritAndMix(E, r, [DataModule_1482]),
     (E.prototype.getRuntime = function () {
       return window.matchMedia('(display-mode: standalone)').matches
         ? r.Runtime.PWA
@@ -101319,7 +101659,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(348) /* module_348 */,
+  var DataModule_348 = require(348) /* DataModule_348 */,
     i = require(101) /* stub_requires_117 */,
     a = require(1376) /* module_1376 */,
     r = require(124) /* module_124 */,
@@ -101327,7 +101667,9 @@ function (exports, module, require) {
       for (var g, h, f = c, m = 0, y = !!u && r(u, p); m < l; )
         (m in n &&
           ((g = y ? y(n[m], m, t) : n[m]),
-          d > 0 && o(g) ? ((h = i(g)), (f = s(e, t, g, h, f, d - 1) - 1)) : (a(f + 1), (e[f] = g)),
+          d > 0 && DataModule_348(g)
+            ? ((h = i(g)), (f = s(e, t, g, h, f, d - 1) - 1))
+            : (a(f + 1), (e[f] = g)),
           f++),
           m++);
       return f;
@@ -101586,7 +101928,7 @@ function (exports, module, require) {
   'use strict';
   (require(19) /* polyfill_Array_iterator */,
     require(596) /* polyfill_Array_reverse */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(57) /* polyfill_parseInt */,
     require(20) /* polyfill_RegExp_exec */,
@@ -101594,10 +101936,10 @@ function (exports, module, require) {
     require(134) /* polyfill_String_startsWith */,
     require(218) /* module_218 */,
     require(692) /* module_692 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(32) /* stub_requires_670 */,
@@ -104551,13 +104893,13 @@ function (exports, module) {
 function (exports, module, require) {
   'use strict';
   (require(30) /* polyfill_Object_assign */, require(8)) /* polyfill_bundle_ES6 */;
-  var o = require(1469) /* module_1469 */,
+  var DataModule_1469 = require(1469) /* DataModule_1469 */,
     AppSettings = require(10); /* AppSettings */
   exports.exports = new (class {
     async register(e) {
       const module = gDesigner.getEnv();
       if ('production' === module || 'trunk' === module || 'lts' === module || 'rc' === module) {
-        const t = (0, o.getOS)(),
+        const t = (0, DataModule_1469.getOS)(),
           n = gDesigner.getVersion();
         return AppSettings.gApi.diagnostic(
           Object.assign(
@@ -104684,7 +105026,7 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   require(10) /* AppSettings */;
-  (require(1474) /* module_1474 */,
+  (require(1474) /* GConfirmationDialog */,
     require(220) /* Item */,
     require(44) /* GSystemDialog */,
     require(119)) /* GCloudStorage */;
@@ -106205,7 +106547,7 @@ function (exports, module, require) {
   'use strict';
   require(271) /* polyfill_String_endsWith */;
   const AppSettings = require(10) /* AppSettings */,
-    { IS_LOCALHOST: i, IS_RC: a } = require(231); /* module_231 */
+    { IS_LOCALHOST: i, IS_RC: a } = require(231); /* DataModule_231 */
   AppSettings.IS_TEAMS = 'teams.coreldraw.app' === window.location.hostname;
   const r = window.location.hostname.endsWith('.ngrok.io');
   (AppSettings.IS_TEAMS
@@ -109540,13 +109882,13 @@ function (exports, module, require) {
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
   var AppSettings = require(10) /* AppSettings */,
-    a = require(231) /* module_231 */,
+    DataModule_231 = require(231) /* DataModule_231 */,
     GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     l = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     d = require(67) /* GRichTooltipConfig */,
-    u = _interopRequireDefault(require(1484) /* module_1484 */),
+    GSystemDialog_1484 = _interopRequireDefault(require(1484) /* GSystemDialog_1484 */),
     p = _interopRequireDefault(require(443) /* module_443 */),
     AppSettings2 = _interopRequireDefault(require(1485) /* AppSettings */),
     h = _interopRequireDefault(require(1486) /* module_1486 */),
@@ -109554,12 +109896,12 @@ function (exports, module, require) {
   const { nodeEnv: m, isBeta: y, storeVendor: v, isCorel: _, isTeams: b } = require(
       803
     ) /* module_803 */,
-    w = require(231) /* module_231 */,
+    DataModule_2312 = require(231) /* DataModule_231 */,
     C = !v,
-    x = require(859); /* module_859 */
+    DataModule_859 = require(859); /* DataModule_859 */
   require(1488) /* DragDropTouch */;
   require(1489) /* AbortControllerPolyfill */;
-  const S = require(1490); /* module_1490 */
+  const DataModule_1490 = require(1490); /* DataModule_1490 */
   var GDesignerWorkspace = require(1491) /* GDesignerWorkspace */,
     GDocument = require(163) /* GDocument */,
     GAlignAction = require(866) /* GAlignAction */,
@@ -109612,7 +109954,7 @@ function (exports, module, require) {
     GToggleLayerVisibilityAction = require(1607) /* GToggleLayerVisibilityAction */,
     GRenameLayerAction = require(1340) /* GRenameLayerAction */,
     GOpenAction = require(813) /* GOpenAction */,
-    Se = require(1299) /* module_1299 */,
+    GObject_1299 = require(1299) /* GObject_1299 */,
     GImportFontsAction = require(1608) /* GImportFontsAction */,
     GPrintAction = require(1609) /* GPrintAction */,
     GRedoAction = require(1284) /* GRedoAction */,
@@ -109665,7 +110007,7 @@ function (exports, module, require) {
     GOpenWelcomeScreenAction = require(1624) /* GOpenWelcomeScreenAction */,
     GEnhancedTooltipsAction = require(1342) /* GEnhancedTooltipsAction */,
     Ct = (require(1298) /* GUseCouponAction */, require(1625)) /* GCheckForUpdatesAction */,
-    xt = require(1626) /* module_1626 */,
+    GObject_1626 = require(1626) /* GObject_1626 */,
     GCloudSynchronizationAction = require(1293) /* GCloudSynchronizationAction */,
     GCloudSynchronizationInfoAction = require(1627) /* GCloudSynchronizationInfoAction */,
     GShareAction = require(1628) /* GShareAction */,
@@ -109701,7 +110043,7 @@ function (exports, module, require) {
     GCreateNewLayerAction = require(1653); /* GCreateNewLayerAction */
   (require(78) /* GDocumentEvent */, require(86)) /* module_86 */;
   var GUnloadEvent = require(1346) /* GUnloadEvent */,
-    Zt = (require(1347) /* module_1347 */, require(1160)) /* GAppearanceProperties */,
+    Zt = (require(1347) /* GEvent_type_1347 */, require(1160)) /* GAppearanceProperties */,
     GFillProperties = require(1261) /* GFillProperties */,
     GBorderProperties = require(1162) /* GBorderProperties */,
     GBoolOpProperties = require(1264) /* GBoolOpProperties */,
@@ -109736,7 +110078,7 @@ function (exports, module, require) {
     In = require(1670) /* module_1670 */,
     GContainer = require(85) /* GContainer */,
     On = require(1672) /* module_1672 */,
-    Fn = (require(237) /* Item */, require(1673)) /* module_1673 */,
+    Fn = (require(237) /* Item */, require(1673)) /* jQuery_gTooltip */,
     GCloudStorage = require(119) /* GCloudStorage */,
     Mn = require(1674) /* module_1674 */,
     Nn = require(44) /* GSystemDialog */,
@@ -109744,10 +110086,10 @@ function (exports, module, require) {
     Un = require(1675) /* module_1675 */,
     $n = require(337) /* stub_requires_1098 */,
     GReminderManager = require(1325) /* GReminderManager */,
-    Kn = require(785) /* module_785 */,
+    DataModule_785 = require(785) /* DataModule_785 */,
     GSoftwareUpdateManager = require(1676) /* GSoftwareUpdateManager */,
     GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
-    Wn = require(292); /* module_292 */
+    GEvent_user = require(292); /* GEvent_user */
   const zn = AppSettings.FILE_FORMATS.find((GShowGridAction) => GShowGridAction.default).ext,
     qn = AppSettings.FILE_FORMATS.filter((GShowGridAction) => GShowGridAction.secondary).map(
       (GShowGridAction) => GShowGridAction.ext
@@ -109756,7 +110098,7 @@ function (exports, module, require) {
   const Xn = new (require(1343))(/* GTranslationManager */);
   Xn.init();
   const Qn = require(1684) /* module_1684 */,
-    Jn = require(1686) /* module_1686 */,
+    GBetaFlow = require(1686) /* GBetaFlow */,
     Zn = require(1687) /* module_1687 */,
     GOpenFileRequestHandler = require(1255) /* GOpenFileRequestHandler */,
     {
@@ -109766,17 +110108,17 @@ function (exports, module, require) {
       getTeamsLocale: io,
     } = p.default;
   (require(18) /* MenuItemBuilder */,
-    require(1688) /* module_1688 */,
+    require(1688) /* width */,
     require(1154) /* GFileDownloadUtils */,
-    require(1689) /* module_1689 */,
+    require(1689) /* DataModule_1689 */,
     require(1690) /* stub_requires_1 */,
-    require(1691) /* module_1691 */,
+    require(1691) /* DataModule_1691 */,
     require(1693) /* GLongPressEvent */,
     require(1694)) /* module_1694 */;
   var ao = window;
   const ro = !!/^trunk/.test('production') && !y;
   ((ao.gApi = require(10) /* AppSettings */.gApi), (ao.gApi.webcdr = null));
-  const so = async () => S.checkMaintenance();
+  const so = async () => DataModule_1490.checkMaintenance();
   (so(),
     ro &&
       ((ao.gApi.url = AppSettings.cloudTrunkURL),
@@ -109806,7 +110148,7 @@ function (exports, module, require) {
         ? (ao.gApi.url = AppSettings.cloudTeamsURL)
         : AppSettings.cloudBetaURL && (ao.gApi.url = AppSettings.cloudBetaURL),
       AppSettings.betaWebsocketURL && (ao.gApi.websocketURL = AppSettings.betaWebsocketURL)),
-    w.IS_PRODUCTION &&
+    DataModule_2312.IS_PRODUCTION &&
       (AppSettings.cloudURL && (ao.gApi.url = AppSettings.cloudURL),
       AppSettings.websocketURL && (ao.gApi.websocketURL = AppSettings.websocketURL)),
     (ao.gApi.lang = GCore.GLocale.getLanguage()));
@@ -109819,7 +110161,7 @@ function (exports, module, require) {
   const co = ao.gDesigner.isOfflineAsync();
   ao.gInAppPurchase = Yn.newInAppPurchase(v);
   const { GA: { customDimensions: uo } = {} } = require(10); /* AppSettings */
-  (gDesigner.addEventListener(Wn, (GShowGridAction) => {
+  (gDesigner.addEventListener(GEvent_user, (GShowGridAction) => {
     let { user: module } = GShowGridAction;
     module &&
       !gDesigner.isAnonymous() &&
@@ -109856,8 +110198,8 @@ function (exports, module, require) {
           : ('production' === m || 'trunk' === m || 'lts' === m || 'rc' === m) &&
             GCloudStorage.isOnline();
       }),
-      x.getRuntimeCode() === AppSettings.Runtime.WindowsStore.code && new Qn().init(),
-      y && !_ && new Jn().init(),
+      DataModule_859.getRuntimeCode() === AppSettings.Runtime.WindowsStore.code && new Qn().init(),
+      y && !_ && new GBetaFlow().init(),
       _
         ? (gContainer.setCookie({
             name: '_access_token',
@@ -109906,7 +110248,7 @@ function (exports, module, require) {
         return;
       }
     }
-    const _interopRequireDefault = x.getRuntimeCode();
+    const _interopRequireDefault = DataModule_859.getRuntimeCode();
     _interopRequireDefault &&
       gContainer.setCookie({
         name: '_ginst',
@@ -109965,7 +110307,7 @@ function (exports, module, require) {
       Object.keys(GShowSelectionHandlesAction).length &&
         gDesigner.setSignupOptions(GShowSelectionHandlesAction);
     }
-    var h, b, w, S;
+    var h, b, DataModule_2312, DataModule_1490;
     (gContainer.setCookie({
       name: '_gdesignerv',
       value: '3.15.0',
@@ -109995,21 +110337,21 @@ function (exports, module, require) {
             (h.hj.q = h.hj.q || []).push(arguments);
           }),
         (h._hjSettings = { hjid: 754178, hjsv: 6 }),
-        (w = b.getElementsByTagName('head')[0]),
-        ((S = b.createElement('script')).async = 1),
-        (S.src =
+        (DataModule_2312 = b.getElementsByTagName('head')[0]),
+        ((DataModule_1490 = b.createElement('script')).async = 1),
+        (DataModule_1490.src =
           'https://static.hotjar.com/c/hotjar-' +
           h._hjSettings.hjid +
           '.js?sv=' +
           h._hjSettings.hjsv),
-        w.appendChild(S)),
+        DataModule_2312.appendChild(DataModule_1490)),
       gDesigner.setStoreVendor(v),
       gDesigner.setVersion('3.15.0'),
       gDesigner.setCommitSHA('566771f4dff3952a55c0d9d3c130f7e787dfdfa7'),
       gDesigner.setBuildNum('8795'),
       gDesigner.setVersionFriendlyName('i015.3'));
     let GDesignerWorkspace,
-      Wn = (0, CollaborationMergeUtils._tryAndCatch)(() => gDesigner.preInit(module)),
+      GEvent_user = (0, CollaborationMergeUtils._tryAndCatch)(() => gDesigner.preInit(module)),
       Yn = gContainer.handleDeepLinking();
     Yn &&
       (GDesignerWorkspace = await gDesigner
@@ -110028,7 +110370,7 @@ function (exports, module, require) {
             new GNewFromTemplateAction(),
             new GNewClipboardAction(),
             new GOpenAction(),
-            new Se(),
+            new GObject_1299(),
           ]
             .concat([
               new GGravitCloudAction(GGravitCloudAction.Actions.Open),
@@ -110049,8 +110391,8 @@ function (exports, module, require) {
               new GImportImageFromIOSAction(GImportImageFromIOSAction.Source.PHOTOS),
               new GImportImageFromIOSAction(GImportImageFromIOSAction.Source.FILES),
               new GLinkImageAction(),
-              new xt(new GImportFontsAction()),
-              _ ? new xt(new GExportAction()) : new GExportAction(),
+              new GObject_1626(new GImportFontsAction()),
+              _ ? new GObject_1626(new GExportAction()) : new GExportAction(),
             ])
             .concat(
               GDocument.FileTypes.filter(
@@ -110066,9 +110408,9 @@ function (exports, module, require) {
               new GSaveAsAction('pdf', { dpi: 72 }),
               new GSaveAsAction('pdf', { dpi: 96 }),
               new GSaveAsAction('pdf', { dpi: 150 }),
-              new xt(new GSaveAsAction('pdf', { dpi: 300 })),
+              new GObject_1626(new GSaveAsAction('pdf', { dpi: 300 })),
               _
-                ? new xt(new GExportAction({ format: 'pdf' }))
+                ? new GObject_1626(new GExportAction({ format: 'pdf' }))
                 : new GExportAction({ format: 'pdf' }),
             ])
             .concat(
@@ -110245,7 +110587,7 @@ function (exports, module, require) {
               new GNewWindowAction(),
               new GPlayAction(),
               new GToggleFullscreenAction(),
-              new xt(new Lt()),
+              new GObject_1626(new Lt()),
             ])
             .concat(
               GOpenLinkAction.Links.filter(
@@ -110663,17 +111005,17 @@ function (exports, module, require) {
         }),
         'function' != typeof window.gdb_initsavestepsaction ||
           y ||
-          a.IS_RC ||
+          DataModule_231.IS_RC ||
           window.gdb_initsavestepsaction(window.gravit.actions, GSaveAction),
         'function' == typeof window.gdb_initsetupsystemdateaction &&
           window.gdb_initsetupsystemdateaction(window.gravit.actions),
         'function' != typeof window.gdb_inittranslationtoolaction ||
           y ||
-          a.IS_RC ||
+          DataModule_231.IS_RC ||
           window.gdb_inittranslationtoolaction(window.gravit.actions, GSaveAction),
         'function' != typeof window.gdb_initrecordgravitaction ||
           y ||
-          a.IS_RC ||
+          DataModule_231.IS_RC ||
           window.gdb_initrecordgravitaction(window.gravit.actions, GSaveAction));
       let module = new In(GShowGridAction._storage);
       (module.load(),
@@ -110733,7 +111075,7 @@ function (exports, module, require) {
       if (
         (ro
           ? AppSettings.trunkwebcdr &&
-            (a.IS_LOCALHOST
+            (DataModule_231.IS_LOCALHOST
               ? (ao.gApi.webcdr =
                   _interopRequireDefault && 'BETA' === _interopRequireDefault
                     ? AppSettings.cloudBetaURL + '/api/webcdr'
@@ -110825,8 +111167,8 @@ function (exports, module, require) {
     };
     if (
       ('function' != typeof gdb_initSetupSystemDate || y || (await gdb_initSetupSystemDate()),
-      await Wn,
-      await (0, CollaborationMergeUtils._tryAndCatch)(() => Kn.init()),
+      await GEvent_user,
+      await (0, CollaborationMergeUtils._tryAndCatch)(() => DataModule_785.init()),
       await null,
       _ || gDesigner.isEnabledSubscriptions())
     ) {
@@ -110881,7 +111223,9 @@ function (exports, module, require) {
               }));
       };
       if (AppSettings.msTeamsMode)
-        (await to()) ? new u.default(io).load() : window.location.replace(window.location.origin);
+        (await to())
+          ? new GSystemDialog_1484.default(io).load()
+          : window.location.replace(window.location.origin);
       else if (navigator.onLine || gDesigner.isEnabledProFeatures('offline'))
         await GShowGridAction();
       else {
@@ -110972,7 +111316,7 @@ function (exports, module, require) {
             GCore.push({ [e]: t });
           }
         }));
-      var c = a.default.getRuntimeCode();
+      var c = DataModule_859.default.getRuntimeCode();
       (GCore.push({ installType: c }), GCore.push({ event: 'INIT_GTM_EVENT' }));
     }),
     require(8) /* polyfill_bundle_ES6 */,
@@ -110980,7 +111324,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* GCore */,
-    a = _interopRequireDefault(require(859) /* module_859 */),
+    DataModule_859 = _interopRequireDefault(require(859) /* DataModule_859 */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     s = require(803); /* module_803 */
   const { GA: { customDimensions: l } = {}, GoogleTagManagerSettings: c } = require(
@@ -110991,11 +111335,11 @@ function (exports, module, require) {
   !(function (e, t, n, _interopRequireDefault, GCore) {
     ((e[_interopRequireDefault] = e[_interopRequireDefault] || []),
       e[_interopRequireDefault].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }));
-    var a = t.getElementsByTagName(n)[0],
+    var DataModule_859 = t.getElementsByTagName(n)[0],
       CollaborationMergeUtils = t.createElement(n);
     ((CollaborationMergeUtils.async = true),
       (CollaborationMergeUtils.src = 'https://www.googletagmanager.com/gtm.js?id=' + GCore),
-      a.parentNode.insertBefore(CollaborationMergeUtils, a));
+      DataModule_859.parentNode.insertBefore(CollaborationMergeUtils, DataModule_859));
   })(window, document, 'script', 'dataLayer', d);
   const u = () => {
     switch (GCore.GSystem.hardware) {
@@ -111018,24 +111362,24 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
   var GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
-    a = _interopRequireDefault(require(389) /* module_389 */),
+    GDocument_389 = _interopRequireDefault(require(389) /* GDocument_389 */),
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
     GCustomFontImporter = _interopRequireDefault(require(1245) /* GCustomFontImporter */),
     GCore = require(1); /* GCore */
   exports.exports = {
     debugDownloadPNG: function () {
-      (0, GFileDownloadUtils.downloadActiveFile)(a.default.PNG.ext);
+      (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.PNG.ext);
     },
     debugDownloadPDF: function (e) {
-      (0, GFileDownloadUtils.downloadActiveFile)(a.default.PDF.ext, {
+      (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.PDF.ext, {
         dpi: e || GCore.GLength.DPI,
       });
     },
     debugDownloadSVG: function () {
-      (0, GFileDownloadUtils.downloadActiveFile)(a.default.SVG.ext);
+      (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.SVG.ext);
     },
     debugDownloadJPEG: function () {
-      (0, GFileDownloadUtils.downloadActiveFile)(a.default.JPG.ext);
+      (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.JPG.ext);
     },
     debugOpenFile: function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
@@ -112030,10 +112374,10 @@ function (exports, module, require) {
     GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     l = require(357) /* module_357 */,
-    c = _interopRequireDefault(require(1492) /* module_1492 */),
+    DataModule_1492 = _interopRequireDefault(require(1492) /* DataModule_1492 */),
     d = require(1246) /* Exports_GPersona */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    p = require(1247) /* module_1247 */,
+    DataModule_1247 = require(1247) /* DataModule_1247 */,
     g = (function (GUserModel, t) {
       if ('function' == typeof WeakMap)
         var require = new WeakMap(),
@@ -112064,13 +112408,15 @@ function (exports, module, require) {
       })(GUserModel, t);
     })(require(1739) /* AmplitudeSDK */),
     h =
-      (_interopRequireDefault(require(1249) /* module_1249 */),
+      (_interopRequireDefault(require(1249) /* DataModule_1249 */),
       _interopRequireDefault(require(1155) /* module_1155 */)),
     GGoogleDriveItem = _interopRequireDefault(require(556) /* GGoogleDriveItem */),
-    m = _interopRequireDefault(require(734) /* module_734 */),
+    ExternalFileSettingsError = _interopRequireDefault(
+      require(734) /* ExternalFileSettingsError */
+    ),
     GAnalyticsPageStats = _interopRequireDefault(require(1494) /* GAnalyticsPageStats */),
-    v = _interopRequireDefault(require(1496) /* module_1496 */),
-    _ = _interopRequireDefault(require(1497) /* module_1497 */),
+    DataModule_1496 = _interopRequireDefault(require(1496) /* DataModule_1496 */),
+    GBanner = _interopRequireDefault(require(1497) /* GBanner */),
     b = _interopRequireDefault(require(1498) /* module_1498 */);
   var w = require(163) /* GDocument */,
     GMenu = require(238) /* GMenu */,
@@ -112109,16 +112455,16 @@ function (exports, module, require) {
     ee = require(44) /* GSystemDialog */,
     GAutoSaveManager = require(1276) /* GAutoSaveManager */,
     GAmplitudeEventTracker = require(1564) /* GAmplitudeEventTracker */,
-    oe = require(1250) /* module_1250 */,
+    GEvent_oldPersona = require(1250) /* GEvent_oldPersona */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     URIListHandler = require(1313) /* URIListHandler */,
     GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
-    se = require(441) /* module_441 */,
-    le = require(292) /* module_292 */,
-    ce = require(805) /* module_805 */,
-    de = require(1321) /* module_1321 */,
-    ue = require(392) /* module_392 */,
-    pe = require(868) /* module_868 */,
+    GEvent_license = require(441) /* GEvent_license */,
+    GEvent_user = require(292) /* GEvent_user */,
+    GEvent_user_805 = require(805) /* GEvent_user_805 */,
+    GEvent_notification = require(1321) /* GEvent_notification */,
+    GEvent_document = require(392) /* GEvent_document */,
+    GEvent_type_868 = require(868) /* GEvent_type_868 */,
     GShareManager = require(1322) /* GShareManager */,
     GCloudCommunicationManager = require(1568) /* GCloudCommunicationManager */,
     GAppStateManager = require(1569) /* GAppStateManager */,
@@ -112128,16 +112474,16 @@ function (exports, module, require) {
     _e = require(846) /* module_846 */,
     be = require(337) /* stub_requires_1098 */,
     GReminderManager = require(1325) /* GReminderManager */,
-    Ce = require(785) /* module_785 */,
+    DataModule_785 = require(785) /* DataModule_785 */,
     GOfflineDialog = require(256) /* GOfflineDialog */,
     GProfileDialog = require(604) /* GProfileDialog */,
-    Ee = require(1326) /* module_1326 */,
-    Ae = require(1328) /* module_1328 */,
+    DataModule_1326 = require(1326) /* DataModule_1326 */,
+    GEvent_paintMode = require(1328) /* GEvent_paintMode */,
     GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
-    Ge = require(1188) /* module_1188 */,
+    GEvent_1188 = require(1188) /* GEvent_1188 */,
     GSaveAction = require(447) /* GSaveAction */,
     De = require(86) /* module_86 */,
-    Le = (require(18) /* MenuItemBuilder */, require(442)) /* module_442 */;
+    Le = (require(18) /* MenuItemBuilder */, require(442)) /* DataModule_442 */;
   const {
     defaultLegacyUserSettings: { features: Ie },
   } = AppSettings.defaultUserSettings;
@@ -112145,7 +112491,7 @@ function (exports, module, require) {
   const { gApi: Oe } = AppSettings2;
   var Fe = require(388) /* Item */,
     Re = require(1580); /* module_1580 */
-  const Me = require(1581) /* module_1581 */,
+  const DataModule_1581 = require(1581) /* DataModule_1581 */,
     Ne = require(1584); /* module_1584 */
   var GTouchToolbar = require(1587); /* GTouchToolbar */
   require(607) /* module_607 */;
@@ -112153,7 +112499,9 @@ function (exports, module, require) {
     $GUserModel = require(177) /* GUserModel */,
     je = require(1338) /* module_1338 */,
     Ke = require(1173) /* module_1173 */,
-    Ve = (require(1591) /* module_1591 */, require(1592)) /* module_1592 */,
+    Ve =
+      (require(1591) /* GMSTeamsModeUserNotFoundError */,
+      require(1592)) /* GChangePasswordPanel_1592 */,
     He = require(1593) /* module_1593 */,
     We = require(1594); /* module_1594 */
   var Mousetrap = require(1595); /* Mousetrap */
@@ -112178,11 +112526,11 @@ function (exports, module, require) {
       (this._reloading = false),
       (this._mainMenu = new GMenu()),
       (this._enabledSubscriptions = false),
-      (this._documentTouchHandler = new Me(document)),
+      (this._documentTouchHandler = new DataModule_1581(document)),
       (this._editorTouchHandler = new Ne()),
       GCloudCommunicationManager.clearSingleton(),
       (this._cloudCommunicationManager = new GCloudCommunicationManager(this)),
-      (this._cursorManager = new c.default()),
+      (this._cursorManager = new DataModule_1492.default()),
       document.addEventListener('gesturechange', function (GUserModel) {
         GUserModel.stopPropagation();
       }),
@@ -112276,13 +112624,13 @@ function (exports, module, require) {
       ),
       this.addEventListener(GDocumentEvent, this._documentEvent, this),
       this.addEventListener(GSettingChangedEvent, this._settingChangedEvent, this),
-      this.addEventListener(le, this._userLoggedEvent, this),
-      this.addEventListener(ce, this._userPropertiesChangedEvent, this),
-      this.addEventListener(se, this._licenseChangedEvent, this),
-      this.addEventListener(Ge.BeforeInstallUpdate, this._beforeInstallUpdate, this),
+      this.addEventListener(GEvent_user, this._userLoggedEvent, this),
+      this.addEventListener(GEvent_user_805, this._userPropertiesChangedEvent, this),
+      this.addEventListener(GEvent_license, this._licenseChangedEvent, this),
+      this.addEventListener(GEvent_1188.BeforeInstallUpdate, this._beforeInstallUpdate, this),
       this.addEventListener(GApplicationStatusEvent, this._applicationStatusEvent, this),
-      this.addEventListener(ue, this._applicationStateChangedEvent, this),
-      this.addEventListener(pe, this._shareEvent, this),
+      this.addEventListener(GEvent_document, this._applicationStateChangedEvent, this),
+      this.addEventListener(GEvent_type_868, this._shareEvent, this),
       (this._settings.theme = 'light'),
       (this._settings.snap_disabled = false),
       (this._settings.snap_zones = false),
@@ -112473,7 +112821,8 @@ function (exports, module, require) {
       var t = this._persona;
       t !== GUserModel &&
         ((this._persona = GUserModel),
-        this.hasEventListeners(oe) && this.trigger(new oe(t, this._persona)));
+        this.hasEventListeners(GEvent_oldPersona) &&
+          this.trigger(new GEvent_oldPersona(t, this._persona)));
     }),
     (Je.prototype.getActivePersona = function () {
       return this._persona;
@@ -112589,7 +112938,7 @@ function (exports, module, require) {
       GEditor,
       AppSettings,
       l,
-      c,
+      DataModule_1492,
       d
     ) {
       var CollaborationMergeUtils = new GMenu2(GMenu2.Type.Item);
@@ -112607,7 +112956,7 @@ function (exports, module, require) {
         CollaborationMergeUtils.setIcon(n),
         CollaborationMergeUtils.setPro(AppSettings),
         CollaborationMergeUtils.setNoHover(d),
-        c && CollaborationMergeUtils.addClass(c),
+        DataModule_1492 && CollaborationMergeUtils.addClass(DataModule_1492),
         this.updateMenuItem(CollaborationMergeUtils, t, true, false),
         GUserModel.addItem(CollaborationMergeUtils),
         l && CollaborationMergeUtils.setAction(l),
@@ -112710,12 +113059,12 @@ function (exports, module, require) {
             for (
               var AppSettings = this.getSwatches(GUserModel),
                 l = [],
-                c = GEditor.getSwatches().getFirstChild();
-              null !== c;
-              c = c.getNext()
+                DataModule_1492 = GEditor.getSwatches().getFirstChild();
+              null !== DataModule_1492;
+              DataModule_1492 = DataModule_1492.getNext()
             )
               for (var d = 0; d < AppSettings.length; ++d)
-                GCore.GUtil.equals(c, AppSettings[d]) && l.push(c);
+                GCore.GUtil.equals(DataModule_1492, AppSettings[d]) && l.push(DataModule_1492);
             for (d = 0; d < l.length; ++d) GEditor.getSwatches().removeChild(l[d]);
           }
           for (d = 0; d < t.length; ++d) GEditor.getSwatches().appendChild(t[d]);
@@ -112729,10 +113078,10 @@ function (exports, module, require) {
             )).concat(this._swatches['global-texture-pattern'])).concat(
             this._swatches['global-noise-pattern']
           );
-          var p = [];
+          var DataModule_1247 = [];
           for (d = 0; d < CollaborationMergeUtils.length; ++d)
-            p.push(GCore.GNode.serialize(CollaborationMergeUtils[d]));
-          gContainer.setProperty('swatches', p);
+            DataModule_1247.push(GCore.GNode.serialize(CollaborationMergeUtils[d]));
+          gContainer.setProperty('swatches', DataModule_1247);
         }
         this.trigger(new GSwatchesChangedEvent(GUserModel));
       }
@@ -112880,7 +113229,8 @@ function (exports, module, require) {
     }),
     (Je.prototype.openDocument = function (GUserModel, t) {
       if (!this._canOpenDocument(GUserModel)) return;
-      if (GUserModel && (0, p.shouldShowExternalFileError)(GUserModel)) throw new m.default();
+      if (GUserModel && (0, DataModule_1247.shouldShowExternalFileError)(GUserModel))
+        throw new ExternalFileSettingsError.default();
       const require = GUserModel.getExtension();
       if (this._isNativeDesign(require)) {
         const t = GUserModel.getUniqueId();
@@ -113186,19 +113536,20 @@ function (exports, module, require) {
       var n = (this._frame = $('<div></div>').appendTo(this._mainframe)),
         _interopRequireDefault = $('<div></div>').attr('id', F.Windows.id).appendTo(n);
       this._windows = new O(_interopRequireDefault);
-      var c = $('<div></div>').attr('id', F.Info.id).appendTo(n);
-      this._info = new GInfo(c);
+      var DataModule_1492 = $('<div></div>').attr('id', F.Info.id).appendTo(n);
+      this._info = new GInfo(DataModule_1492);
       var d = $('<div></div>').attr('id', F.Header.id).appendTo(n);
       this._header = new GDocumentTabBar(d);
-      var p = $('<div></div>').attr('id', F.Toolbar.id).appendTo(n);
-      this._toolbar = new GToolbar(p);
+      var DataModule_1247 = $('<div></div>').attr('id', F.Toolbar.id).appendTo(n);
+      this._toolbar = new GToolbar(DataModule_1247);
       var g = $('<div></div>').attr('id', F.Banner.id).appendTo(n);
-      this._banner = new _.default(g);
+      this._banner = new GBanner.default(g);
       var h = $('<div></div>').attr('id', F.Overlay.id).appendTo(n);
       this._overlay = new b.default(h);
       var GGoogleDriveItem = $('<div></div>').attr('id', F.Panels.id).appendTo(n),
-        m = $('<div></div>').attr('id', F.Footer.id).appendTo(n);
-      ((this._footer = new A(m)), (this._panels = new GPanelTabContainer(GGoogleDriveItem)));
+        ExternalFileSettingsError = $('<div></div>').attr('id', F.Footer.id).appendTo(n);
+      ((this._footer = new A(ExternalFileSettingsError)),
+        (this._panels = new GPanelTabContainer(GGoogleDriveItem)));
       var GAnalyticsPageStats = $('<div></div>')
         .attr('id', F.LeftSidebars.id)
         .on('mousedown', () => {
@@ -113210,13 +113561,17 @@ function (exports, module, require) {
         GSidebarContainer.Orientation.Left,
         n
       );
-      var v = $('<div></div>')
+      var DataModule_1496 = $('<div></div>')
         .attr('id', F.RightSidebars.id)
         .on('mousedown', () => {
           this._toggleSideBarAndAssistBarZIndex(false, true, false, false);
         })
         .appendTo(n);
-      ((this._rightSidebars = new GSidebarContainer(v, GSidebarContainer.Orientation.Right, n)),
+      ((this._rightSidebars = new GSidebarContainer(
+        DataModule_1496,
+        GSidebarContainer.Orientation.Right,
+        n
+      )),
         this._updateStyles(t),
         this._initBrowserSupported(GEditor.GPlatform.webBrowser),
         this.isBrowserSupported() ||
@@ -113789,17 +114144,17 @@ function (exports, module, require) {
           AppSettings.push(GUserModel);
         AppSettings.reverse();
         var l = GEditor.getGroup(),
-          c = GEditor.getGroupIcon(),
+          DataModule_1492 = GEditor.getGroupIcon(),
           d = (GEditor.getStyleClass(), l ? [''].concat(l.split('/')) : null);
         if (d && AppSettings && AppSettings.length !== d.length - 1)
           throw new Error('The number of categories is different than the number of groups.');
         var CollaborationMergeUtils = module;
         if (AppSettings)
-          for (var p = 0; p < AppSettings.length; ++p) {
-            let GUserModel = AppSettings[p],
-              t = d ? d[p] : null;
+          for (var DataModule_1247 = 0; DataModule_1247 < AppSettings.length; ++DataModule_1247) {
+            let GUserModel = AppSettings[DataModule_1247],
+              t = d ? d[DataModule_1247] : null;
             for (
-              var g = null, h = GUserModel.label.split('/')[p], GGoogleDriveItem = 0;
+              var g = null, h = GUserModel.label.split('/')[DataModule_1247], GGoogleDriveItem = 0;
               GGoogleDriveItem < CollaborationMergeUtils.items.length;
               ++GGoogleDriveItem
             )
@@ -113812,7 +114167,7 @@ function (exports, module, require) {
                   type: 'menu',
                   caption: h,
                   items: [],
-                  icon: c,
+                  icon: DataModule_1492,
                   category: GUserModel,
                 }),
                 t
@@ -113820,13 +114175,17 @@ function (exports, module, require) {
               CollaborationMergeUtils.items.push(g)),
               (CollaborationMergeUtils = g));
           }
-        var m = { type: 'item', action: GEditor };
-        (_interopRequireDefault(CollaborationMergeUtils, m, d ? d[d.length - 1] : null),
-          CollaborationMergeUtils.items.push(m));
+        var ExternalFileSettingsError = { type: 'item', action: GEditor };
+        (_interopRequireDefault(
+          CollaborationMergeUtils,
+          ExternalFileSettingsError,
+          d ? d[d.length - 1] : null
+        ),
+          CollaborationMergeUtils.items.push(ExternalFileSettingsError));
       }
       var GAnalyticsPageStats = function (GUserModel, t) {
           'menu' === GUserModel.type
-            ? (GUserModel.menu = v(GUserModel, t))
+            ? (GUserModel.menu = DataModule_1496(GUserModel, t))
             : 'divider' === GUserModel.type
               ? (GUserModel.separator = this.addMenuSeparator(t, GUserModel.isVisible))
               : 'item' === GUserModel.type &&
@@ -113849,7 +114208,7 @@ function (exports, module, require) {
                 )),
                 this.registerAdditionalShortcuts(GUserModel.action));
         }.bind(this),
-        v = function (GUserModel, t) {
+        DataModule_1496 = function (GUserModel, t) {
           const require = GUserModel.category
             ? (t) => {
                 (t.setVisible(GUserModel.category.visible), t.setIcon(GUserModel.category.icon));
@@ -113884,14 +114243,14 @@ function (exports, module, require) {
           return _interopRequireDefault;
         }.bind(this);
       for (GTools = 0; GTools < module.items.length; ++GTools)
-        ((g = module.items[GTools]), v(module.items[GTools], null));
+        ((g = module.items[GTools]), DataModule_1496(module.items[GTools], null));
       this._mainMenu.update();
     }),
     (Je.prototype._workspaceResolveUrlEvent = function (GUserModel) {
       GCloudStorage.resolveImage(GUserModel, this.getActiveDocument());
     }),
     (Je.prototype._shareEvent = function (GUserModel) {
-      GUserModel.type === pe.Type.Updated && this._updateSidebars();
+      GUserModel.type === GEvent_type_868.Type.Updated && this._updateSidebars();
     }),
     (Je.prototype._applicationStateChangedEvent = function (GUserModel) {
       this._updateSidebars();
@@ -114310,7 +114669,8 @@ function (exports, module, require) {
       ((t += require), (document.title = (0, CollaborationMergeUtils.decodeHTML)(t)));
     }),
     (Je.prototype.addNotification = function (GUserModel, t) {
-      this.hasEventListeners(de) && this.trigger(new de(GUserModel, t));
+      this.hasEventListeners(GEvent_notification) &&
+        this.trigger(new GEvent_notification(GUserModel, t));
     }),
     (Je.prototype._shortcutToMouseTrapShortcut = function (GUserModel) {
       for (var module = '', require = 0; require < GUserModel.length; ++require) {
@@ -114667,11 +115027,11 @@ function (exports, module, require) {
           );
       }
       return (
-        Ce.clear(),
+        DataModule_785.clear(),
         new Promise(async (GUserModel, n) => {
           (await (0, CollaborationMergeUtils._tryAndCatch)(() => Oe.signout()),
             (this._user = null),
-            this.hasEventListeners(le) && this.trigger(new le(null)),
+            this.hasEventListeners(GEvent_user) && this.trigger(new GEvent_user(null)),
             this.isEnabledSubscriptions() && (t || ((this._reloading = true), location.reload())),
             GUserModel());
         })
@@ -114769,7 +115129,7 @@ function (exports, module, require) {
         this._anonymous = !!require && require.isAnonymous();
         let _interopRequireDefault = await this.isOfflineAsync();
         if (!require && _interopRequireDefault) {
-          const GUserModel = Ce.getUser();
+          const GUserModel = DataModule_785.getUser();
           GUserModel && (require = new $GUserModel(GUserModel));
         }
         if (!require || 'lts' !== gDesigner.getEnv() || this.isEnabledProFeatures()) {
@@ -114790,7 +115150,8 @@ function (exports, module, require) {
                   Object.assign({}, require, GUserModel),
                   true
                 ) ||
-                  (this.hasEventListeners(ce) && this.trigger(new ce(require)));
+                  (this.hasEventListeners(GEvent_user_805) &&
+                    this.trigger(new GEvent_user_805(require)));
               }
             } else
               ('undefined' == typeof dataLayer ||
@@ -114804,14 +115165,14 @@ function (exports, module, require) {
                   this._utm.forEach((GUserModel, t) => dataLayer.push({ [t]: GUserModel })),
                 this._updateDataLayerWithLicenseData(),
                 dataLayer.push({ event: 'USER_LOGGED_EVENT' })),
-                this.hasEventListeners(le) && this.trigger(new le(require)));
+                this.hasEventListeners(GEvent_user) && this.trigger(new GEvent_user(require)));
           var GTools;
           (this._user &&
             require &&
             this._user.getUID() === require.getUID() &&
             (GTools = this._user.stats),
             (this._user = require),
-            this._user && !_interopRequireDefault && Ce.updateUser(this._user),
+            this._user && !_interopRequireDefault && DataModule_785.updateUser(this._user),
             GTools && (this._user.stats = GTools),
             GUserModel(this._user));
         } else GUserModel(null);
@@ -114882,8 +115243,8 @@ function (exports, module, require) {
         isNaN(l.getX()) || isNaN(l.getY()) || (AppSettings = l);
       }
       if (GUserModel.getViewConfiguration().multiPageView) {
-        var c = GUserModel.getScene().getActivePage();
-        c && (AppSettings = AppSettings.add(c.getPosition(true)));
+        var DataModule_1492 = GUserModel.getScene().getActivePage();
+        DataModule_1492 && (AppSettings = AppSettings.add(DataModule_1492.getPosition(true)));
       }
       GUserModel.zoomAtCenter(AppSettings, t);
     }),
@@ -115019,8 +115380,12 @@ function (exports, module, require) {
                 null !== AppSettings;
                 AppSettings = AppSettings.getNext()
               ) {
-                for (var l = true, c = 0; c < _interopRequireDefault.length; ++c)
-                  if (GCore.GUtil.equals(AppSettings, _interopRequireDefault[c])) {
+                for (
+                  var l = true, DataModule_1492 = 0;
+                  DataModule_1492 < _interopRequireDefault.length;
+                  ++DataModule_1492
+                )
+                  if (GCore.GUtil.equals(AppSettings, _interopRequireDefault[DataModule_1492])) {
                     l = false;
                     break;
                   }
@@ -115029,7 +115394,8 @@ function (exports, module, require) {
               if (((_interopRequireDefault = _interopRequireDefault.concat(GEditor)), n))
                 this.setSwatches(GUserModel, _interopRequireDefault, true);
               else {
-                for (c = 0; c < GEditor.length; ++c) this._addGlobalSwatch(GEditor[c]);
+                for (DataModule_1492 = 0; DataModule_1492 < GEditor.length; ++DataModule_1492)
+                  this._addGlobalSwatch(GEditor[DataModule_1492]);
                 this.setSwatches(GUserModel, this._swatches[GUserModel]);
               }
             } catch (GUserModel) {
@@ -115092,7 +115458,7 @@ function (exports, module, require) {
         _interopRequireDefault = AppSettings;
       }
       $('#right-sidebars').find('.fonts-download-progress').remove();
-      var c = $('<div/>')
+      var DataModule_1492 = $('<div/>')
           .addClass('fonts-download-progress')
           .append(
             $('<span/>')
@@ -115104,24 +115470,22 @@ function (exports, module, require) {
           .append($('<span/>').addClass('count').text(' (0%)'))
           .appendTo($('#right-sidebars')),
         d = function (GUserModel) {
-          (c
-            .find('.info')
-            .text(
-              GCore.GLocale.get(
-                new GCore.GLocaleKey(
-                  'GCommonNames',
-                  GUserModel ? 'text.fonts-downloaded' : 'text.error-downloading'
-                )
+          (DataModule_1492.find('.info').text(
+            GCore.GLocale.get(
+              new GCore.GLocaleKey(
+                'GCommonNames',
+                GUserModel ? 'text.fonts-downloaded' : 'text.error-downloading'
               )
-            ),
-            c.find('.count').remove(),
-            c.append(
+            )
+          ),
+            DataModule_1492.find('.count').remove(),
+            DataModule_1492.append(
               $('<span/>')
                 .text('X')
                 .addClass('g-button')
                 .addClass('close')
                 .on('click', function () {
-                  (gDesigner.stats('font_downloaded_closebutton'), c.remove());
+                  (gDesigner.stats('font_downloaded_closebutton'), DataModule_1492.remove());
                 })
             ));
         };
@@ -115141,7 +115505,9 @@ function (exports, module, require) {
                           let n = 0;
                           for (var t = 0; t < GUserModel.length; ++t) n += GTools[GUserModel[t]];
                           let GCore = Math.round((n / _interopRequireDefault) * 100);
-                          c.find('.count').text(' (' + (GCore < 100 ? GCore : 100) + '%)');
+                          DataModule_1492.find('.count').text(
+                            ' (' + (GCore < 100 ? GCore : 100) + '%)'
+                          );
                         }
                       })());
                   }),
@@ -115160,7 +115526,7 @@ function (exports, module, require) {
             CollaborationMergeUtils = function (GUserModel) {
               GEditor.push(GUserModel);
             },
-            p = function () {
+            DataModule_1247 = function () {
               throw new Exception('error downloading fonts');
             };
           (GUserModel.forEach((GUserModel) => {
@@ -115170,7 +115536,7 @@ function (exports, module, require) {
                   CollaborationMergeUtils(GUserModel);
                 })
                 .catch(() => {
-                  p();
+                  DataModule_1247();
                 })
             );
             for (var t = 0; t < GUserModel.fonts.length; ++t)
@@ -115180,7 +115546,7 @@ function (exports, module, require) {
                     CollaborationMergeUtils(GUserModel);
                   })
                   .catch((GUserModel) => {
-                    (console.log(GUserModel), p());
+                    (console.log(GUserModel), DataModule_1247());
                   })
               );
           }),
@@ -115295,7 +115661,7 @@ function (exports, module, require) {
               n
                 ? GUserModel()
                 : new h.default()
-                    .listen(le)
+                    .listen(GEvent_user)
                     .when((GUserModel) => !!GUserModel && !!GUserModel.user)
                     .do(GUserModel);
             } else if ('procoupon' === GUserModel)
@@ -115318,17 +115684,17 @@ function (exports, module, require) {
                 .when(() => this._initialized)
                 .do(() => {
                   const GUserModel = (t) => {
-                    if (t.type === pe.Type.Updated) {
+                    if (t.type === GEvent_type_868.Type.Updated) {
                       const t = this.getActiveDocument();
                       t &&
                         t.getStatus() === De.Loaded &&
                         (t.isShareable() &&
                           !this.getApplicationManager().isSharing() &&
                           this.getShareManager().share(),
-                        this.removeEventListener(pe, GUserModel, this));
+                        this.removeEventListener(GEvent_type_868, GUserModel, this));
                     }
                   };
-                  this.addEventListener(pe, GUserModel, this);
+                  this.addEventListener(GEvent_type_868, GUserModel, this);
                 });
             else if (
               GUserModel === GContainer.DeepLinking.ActivateTrial &&
@@ -115352,7 +115718,7 @@ function (exports, module, require) {
     }),
     (Je.prototype.openProOffer = function () {
       let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-      Ee.openSubscriptionOffer(exports);
+      DataModule_1326.openSubscriptionOffer(exports);
     }),
     (Je.prototype.handlePROFeatureInterruption = function () {
       let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -115475,7 +115841,7 @@ function (exports, module, require) {
       (!GUserModel ||
         (this._license && GUserModel.equals(this._license)) ||
         ((this._license = GUserModel),
-        this.hasEventListeners(se) && this.trigger(new se(this._license))),
+        this.hasEventListeners(GEvent_license) && this.trigger(new GEvent_license(this._license))),
         this.updateLicenseInfo());
     }),
     (Je.prototype.updateLicenseInfo = async function () {
@@ -115547,7 +115913,8 @@ function (exports, module, require) {
         ((require.getViewConfiguration().paintMode = GUserModel),
           GEditor.GPlatform.scheduleFrame(() => {
             (require.invalidateAndResetCache(null),
-              this.hasEventListeners(Ae) && this.trigger(new Ae(GUserModel)));
+              this.hasEventListeners(GEvent_paintMode) &&
+                this.trigger(new GEvent_paintMode(GUserModel)));
           }));
       }
     }),
@@ -115611,7 +115978,7 @@ function (exports, module, require) {
     }),
     (Je.prototype.getAppBaseUrl = function () {
       let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
-      return v.default.getAppBaseUrl(exports);
+      return DataModule_1496.default.getAppBaseUrl(exports);
     }),
     (Je.prototype.setPwaEvent = function (GUserModel) {
       if (!GUserModel || 'beforeinstallprompt' !== GUserModel.type) return;
@@ -118150,7 +118517,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(107) /* polyfill_RegExp_test */,
     require(3) /* polyfill_RegExp_toString */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(34) /* polyfill_String_replace */,
     require(91) /* polyfill_String_trim */,
     require(4) /* stub_requires_668 */,
@@ -118164,7 +118531,7 @@ function (exports, module, require) {
     GMenu = _interopRequireDefault(require(238) /* GMenu */),
     GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
     GMenuBar = _interopRequireDefault(require(1501) /* GMenuBar */),
-    u = _interopRequireDefault(require(1502) /* module_1502 */),
+    DataModule_1502 = _interopRequireDefault(require(1502) /* DataModule_1502 */),
     p = _interopRequireDefault(require(603) /* WindowEvent */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
@@ -118184,11 +118551,11 @@ function (exports, module, require) {
     G = require(263) /* Exports_GRegex */,
     REARRANGE_TAB_ = require(1517); /* Exports_REARRANGE_TAB_ */
   const barrel_panels = require(257); /* barrel_panels */
-  let L = null;
-  AppSettings.LICENSE.UPGRADEABLE && (L = require(441)) /* module_441 */;
+  let GEvent_license = null;
+  AppSettings.LICENSE.UPGRADEABLE && (GEvent_license = require(441)) /* GEvent_license */;
   const GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-    k = require(392) /* module_392 */,
-    O = require(805) /* module_805 */,
+    GEvent_document = require(392) /* GEvent_document */,
+    GEvent_user_805 = require(805) /* GEvent_user_805 */,
     {
       InParenthesis: { NotNegativeNumberInTheEnd: F },
       NotNegativeNumber: R,
@@ -118212,14 +118579,16 @@ function (exports, module, require) {
               (GMenuBar += '.' + GEditor.getExtension().toLowerCase()),
               s.off('focusout'),
               s.off('keypress'));
-            var u = t.find('span.cover');
-            (u.text(GMenuBar), s.css('width', u.outerWidth()), s.val(GMenu2));
+            var DataModule_1502 = t.find('span.cover');
+            (DataModule_1502.text(GMenuBar),
+              s.css('width', DataModule_1502.outerWidth()),
+              s.val(GMenu2));
             var p = s.val(),
               GDocumentStatusEvent = false;
-            (s.show(), u.hide(), s.focus());
+            (s.show(), DataModule_1502.hide(), s.focus());
             var f = async function () {
               try {
-                (s.hide(), u.show());
+                (s.hide(), DataModule_1502.show());
                 let GMenuBar,
                   GDocumentStatusEvent = s.val().trim();
                 if (GDocumentStatusEvent && GDocumentStatusEvent !== GMenu2)
@@ -118320,13 +118689,13 @@ function (exports, module, require) {
                         )
                       ),
                       require._updateSyncStatus(t, ''),
-                      u.text(
+                      DataModule_1502.text(
                         GMenuBar +
                           (AppSettings.USE_EXTENSION_IN_FILENAME
                             ? '.' + GEditor.getExtension().toLowerCase()
                             : '')
                       ),
-                      s.css('width', u.outerWidth()));
+                      s.css('width', DataModule_1502.outerWidth()));
                   } else e.getDocument().setTitle(GDocumentStatusEvent);
                 else s.val(p);
               } catch (e) {
@@ -118527,7 +118896,7 @@ function (exports, module, require) {
     ((this._htmlElement = e),
       (this._menuBar = new GMenuBar.default(gDesigner.getMainMenu())),
       (this._menuBar.__which = 'menubar'),
-      (this._personaBar = new u.default()));
+      (this._personaBar = new DataModule_1502.default()));
   }
   ((B.prototype._personaBar = null),
     (B.prototype._menuBar = null),
@@ -118604,8 +118973,8 @@ function (exports, module, require) {
         gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
         gDesigner.addEventListener(GSettingChangedEvent, this._settingChangedEvent, this),
         gDesigner.getWindows().addEventListener(p.default.WindowEvent, this._windowEvent, this),
-        gDesigner.addEventListener(O, this._userPropertiesChangedEvent, this),
-        gDesigner.addEventListener(k, this._applicationStateChangedEvent, this),
+        gDesigner.addEventListener(GEvent_user_805, this._userPropertiesChangedEvent, this),
+        gDesigner.addEventListener(GEvent_document, this._applicationStateChangedEvent, this),
         $(document).on(
           'networkAvailable',
           function () {
@@ -118613,7 +118982,7 @@ function (exports, module, require) {
           }.bind(this)
         ),
         AppSettings.LICENSE.UPGRADEABLE &&
-          gDesigner.addEventListener(L, this._licenseChangeEvent, this),
+          gDesigner.addEventListener(GEvent_license, this._licenseChangeEvent, this),
         (this._documentStatusEvent = this._documentStatusEvent.bind(this)),
         this._personaBar.init(),
         this._updateViewBasedOnPermissions());
@@ -118920,7 +119289,7 @@ function (exports, module, require) {
             {
               title: GMenu,
               callback: GMenuBar,
-              shortcut: u,
+              shortcut: DataModule_1502,
               requiresPro: p,
               separator: GDocumentEvent,
               icon: GDocumentStatusEvent,
@@ -118946,7 +119315,7 @@ function (exports, module, require) {
               }))
             : ((s = require.createAddItem(b)),
               GCloudStorage && s.setAction(gDesigner.getAction(AppSettings))),
-            u && s.setShortcutHint(u),
+            DataModule_1502 && s.setShortcutHint(DataModule_1502),
             p && s.setPro(p, AppSettings),
             GGravitCloudAction instanceof Function && s.setEnabled(GGravitCloudAction(e)),
             GExportAction instanceof Function
@@ -119036,7 +119405,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var o = require(1246) /* Exports_GPersona */,
-    i = require(1250); /* module_1250 */
+    GEvent_oldPersona = require(1250); /* GEvent_oldPersona */
   exports.exports = class {
     constructor() {
       ((this._htmlElement = $('<div></div>').addClass('g-persona-bar')),
@@ -119047,7 +119416,7 @@ function (exports, module, require) {
     init() {
       var e = Object.keys(o.GPersona);
       e.length > 1 &&
-        (gDesigner.addEventListener(i, this._personaChangeEvent, this),
+        (gDesigner.addEventListener(GEvent_oldPersona, this._personaChangeEvent, this),
         e.forEach((e) => {
           var t = o.GPersona[e];
           $('<div></div>')
@@ -119095,7 +119464,7 @@ function (exports, module, require) {
     GDocumentEvent = require(78) /* GDocumentEvent */,
     u = (require(173) /* stub_requires_1 */, require(445)) /* GSaveAsAction */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
-    g = (require(163) /* GDocument */, require(442)) /* module_442 */;
+    g = (require(163) /* GDocument */, require(442)) /* DataModule_442 */;
   const h = AppSettings.FILE_FORMATS.find((e) => e.default).ext;
   function f(e, t) {
     ((this._container = $('<div></div>').addClass('window')),
@@ -119564,24 +119933,24 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o = require(1251) /* module_1251 */.default,
-    i = require(1506); /* module_1506 */
+  var DataModule_1251 = require(1251) /* DataModule_1251 */.default,
+    DataModule_1506 = require(1506); /* DataModule_1506 */
   ((exports.exports = function (e) {
-    var t = i(e, 'string');
-    return 'symbol' == o(t) ? t : t + '';
+    var t = DataModule_1506(e, 'string');
+    return 'symbol' == DataModule_1251(t) ? t : t + '';
   }),
     (exports.exports.__esModule = true),
     (exports.exports.default = exports.exports));
 }
 ,
 function (exports, module, require) {
-  var o = require(1251) /* module_1251 */.default;
+  var DataModule_1251 = require(1251) /* DataModule_1251 */.default;
   ((exports.exports = function (e, t) {
-    if ('object' != o(e) || !e) return e;
+    if ('object' != DataModule_1251(e) || !e) return e;
     var n = e[Symbol.toPrimitive];
     if (undefined !== n) {
       var i = n.call(e, t || 'default');
-      if ('object' != o(i)) return i;
+      if ('object' != DataModule_1251(i)) return i;
       throw new TypeError('@@toPrimitive must return a primitive value.');
     }
     return ('string' === t ? String : Number)(e);
@@ -119592,7 +119961,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(290) /* module_290 */,
+  (require(290) /* DataModule_290 */,
     require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
     require(34) /* polyfill_String_replace */,
@@ -120643,15 +121012,15 @@ function (exports, module, require) {
   (require(1196) /* polyfill_Array_flat */,
     require(19) /* polyfill_Array_iterator */,
     require(1197) /* stub_requires_360 */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(8) /* polyfill_bundle_ES6 */,
     require(134) /* polyfill_String_startsWith */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
@@ -120953,7 +121322,7 @@ function (exports, module, require) {
     ZipDirectory = require(1253); /* ZipDirectory */
   const GUnsupportedFeaturesDialog = require(1238); /* GUnsupportedFeaturesDialog */
   var GSystemDialog = require(44); /* GSystemDialog */
-  const h = require(389); /* module_389 */
+  const GDocument_389 = require(389); /* GDocument_389 */
   var f = {};
   function m(e, t, n) {
     ((this._document = e),
@@ -121604,7 +121973,7 @@ function (exports, module, require) {
     }),
     (m.prototype._shouldWarningBeShown = function (e) {
       if (!this._hasFormat()) return false;
-      if (!(this._settings.format === h.PDF.ext)) return false;
+      if (!(this._settings.format === GDocument_389.PDF.ext)) return false;
       if (!e || !e.length) return false;
       const module = new GCore.GLength(200, GCore.GLength.Unit.IN).toUnit(GCore.GLength.Unit.PX),
         require = GCore.GLength.DPI;
@@ -121676,9 +122045,9 @@ function (exports, module, require) {
     }),
     (m.prototype._getFormat = function () {
       if (this._hasFormat()) {
-        if ('assets' === this._activeMode) return h.ZIP.ext;
+        if ('assets' === this._activeMode) return GDocument_389.ZIP.ext;
         if (this._previewContainer.find('.item .preview-check input:checked').length > 1) {
-          if (!(this._settings.format === h.PDF.ext)) return h.ZIP.ext;
+          if (!(this._settings.format === GDocument_389.PDF.ext)) return GDocument_389.ZIP.ext;
         }
         return this._settings.format;
       }
@@ -121914,16 +122283,16 @@ function (exports, module, require) {
             }
           t = GMenu;
         }
-        var h = i.GBitmapExport.getMaximumCanvasSize();
+        var GDocument_389 = i.GBitmapExport.getMaximumCanvasSize();
         if (
           t.some((e) => {
             if ('jpg' === e.format || 'png' === e.format) {
               var t = GCore.GLength.DPI,
                 require = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, t);
               if (
-                require.getWidth() > h.width ||
-                require.getHeight() > h.height ||
-                require.getWidth() * require.getHeight() > h.area
+                require.getWidth() > GDocument_389.width ||
+                require.getHeight() > GDocument_389.height ||
+                require.getWidth() * require.getHeight() > GDocument_389.area
               )
                 return true;
             }
@@ -121932,9 +122301,9 @@ function (exports, module, require) {
         )
           return void GSystemDialog.alert(
             GCore.GLocale.get(new GCore.GLocaleKey('GExportDialog', 'text.default-limit'))
-              .replace('%width', h.width)
-              .replace('%height', h.height)
-              .replace('%area', h.area / 1024 / 1024 + 'MP')
+              .replace('%width', GDocument_389.width)
+              .replace('%height', GDocument_389.height)
+              .replace('%area', GDocument_389.area / 1024 / 1024 + 'MP')
           ).css({ width: '500px' });
         if (
           t.some(
@@ -122148,10 +122517,11 @@ function (exports, module, require) {
             GMenu = GEditor[CollaborationMergeUtils];
             var GUnsupportedFeaturesDialog,
               GSystemDialog,
-              h = GCore.GBitmap.ImageType.PNG,
+              GDocument_389 = GCore.GBitmap.ImageType.PNG,
               f = null;
             'jpg' === GMenu.format &&
-              ((h = GCore.GBitmap.ImageType.JPEG), (f = (GMenu.jpegQuality || 100) / 100));
+              ((GDocument_389 = GCore.GBitmap.ImageType.JPEG),
+              (f = (GMenu.jpegQuality || 100) / 100));
             var m = window.devicePixelRatio;
             if (barrel_panels) {
               var y = new GCore.GLength(50, GCore.GLength.Unit.PX);
@@ -122163,7 +122533,7 @@ function (exports, module, require) {
                 GMenu.configuration,
                 null,
                 GMenu.backgroundOpacity
-              )).toImageDataUrl(h, f);
+              )).toImageDataUrl(GDocument_389, f);
             } else {
               var v = null;
               this._hasBackgroundColor() && (v = GMenu.backgroundColor);
@@ -122189,7 +122559,7 @@ function (exports, module, require) {
                   null,
                   GMenu.backgroundOpacity,
                   true
-                )).toImageDataUrl(h, f)));
+                )).toImageDataUrl(GDocument_389, f)));
             }
             var E = GSystemDialog.getWidth() / m,
               A = GSystemDialog.getHeight() / m,
@@ -123736,7 +124106,7 @@ function (exports, module, require) {
     require(1519) /* JQueryUIMouse */,
     require(1520) /* module_1520 */,
     require(1257) /* module_1257 */,
-    require(1259) /* module_1259 */,
+    require(1259) /* DataModule_1259 */,
     require(605) /* module_605 */,
     require(1258) /* JQueryUIWidget */,
   ]),
@@ -125078,8 +125448,8 @@ function (exports, module, require) {
   const GSystemDialog = require(44) /* GSystemDialog */,
     l = require(863) /* module_863 */,
     GContainer = require(85) /* GContainer */,
-    d = require(805) /* module_805 */,
-    u = require(292) /* module_292 */,
+    GEvent_user_805 = require(805) /* GEvent_user_805 */,
+    GEvent_user = require(292) /* GEvent_user */,
     { bypassEmailVerification: p } = AppSettings.defaultUserSettings;
   function g(e) {
     this._htmlElement = e;
@@ -125089,8 +125459,8 @@ function (exports, module, require) {
     (g.prototype._needToShow = false),
     (g.prototype.init = function () {
       (this.update(),
-        gDesigner.addEventListener(d, this._userPropertiesChangedEvent, this),
-        gDesigner.addEventListener(u, this._userLoggedEvent, this),
+        gDesigner.addEventListener(GEvent_user_805, this._userPropertiesChangedEvent, this),
+        gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this),
         gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this));
     }),
     (g.prototype.update = async function () {
@@ -125199,8 +125569,8 @@ function (exports, module, require) {
     s = require(444) /* module_444 */,
     GProperties = require(123) /* GProperties */,
     ZipDirectory = require(1253) /* ZipDirectory */,
-    d = require(446) /* module_446 */,
-    u = require(442); /* module_442 */
+    GLoginPanel = require(446) /* GLoginPanel */,
+    DataModule_442 = require(442); /* DataModule_442 */
   const GSettingChangedEvent = require(135); /* GSettingChangedEvent */
   function g() {}
   (GCore.GObject.inherit(g, GProperties),
@@ -125340,7 +125710,7 @@ function (exports, module, require) {
       return this._elements;
     }),
     (g.prototype._export = function () {
-      new d(
+      new GLoginPanel(
         () => {
           gDesigner.stats('exportproperties_click_export');
           var e = ZipDirectory.generateExportables(this._elements);
@@ -125366,15 +125736,17 @@ function (exports, module, require) {
         for (var module = [], require = 0; require < this._elements.length; ++require) {
           var GTools = this._elements[require];
           if (!(GTools instanceof GCore.GSlice)) {
-            var a = (GTools.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []).slice(),
+            var a = (
+                GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
+              ).slice(),
               GMenu = GTools.getPaintBBox();
-            GTools.setProperty(u.EXPORT_PROPERTY_NAME, undefined, true);
+            GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, undefined, true);
             var s = new GCore.GSlice();
             (s.setProperties(
               ['x', 'y', 'w', 'h'],
               [GMenu.getX(), GMenu.getY(), GMenu.getWidth(), GMenu.getHeight()]
             ),
-              s.setProperty(u.EXPORT_PROPERTY_NAME, a, true),
+              s.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true),
               module.push(s));
           }
         }
@@ -125393,7 +125765,9 @@ function (exports, module, require) {
         for (var module = 0; module < this._elements.length; ++module) {
           for (
             var require = this._elements[module],
-              GTools = (require.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []).slice(),
+              GTools = (
+                require.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
+              ).slice(),
               a = { sz: '', sf: '', fm: 'png' },
               GMenu = [
                 { sz: '1x', sf: '@1x' },
@@ -125406,8 +125780,12 @@ function (exports, module, require) {
             s < GMenu.length;
             ++s
           ) {
-            for (var GProperties = GMenu[s], ZipDirectory = false, d = 0; d < GTools.length; ++d)
-              if (GTools[d].sz === GProperties.sz) {
+            for (
+              var GProperties = GMenu[s], ZipDirectory = false, GLoginPanel = 0;
+              GLoginPanel < GTools.length;
+              ++GLoginPanel
+            )
+              if (GTools[GLoginPanel].sz === GProperties.sz) {
                 ZipDirectory = true;
                 break;
               }
@@ -125416,7 +125794,7 @@ function (exports, module, require) {
               break;
             }
           }
-          (GTools.push(a), require.setProperty(u.EXPORT_PROPERTY_NAME, GTools, true));
+          (GTools.push(a), require.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GTools, true));
         }
       } finally {
         e.commitTransaction(
@@ -125433,12 +125811,12 @@ function (exports, module, require) {
       try {
         for (var a = 0; a < this._elements.length; ++a) {
           var GMenu = this._elements[a],
-            s = GMenu.getProperty(u.EXPORT_PROPERTY_NAME, true);
+            s = GMenu.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
           !s ||
             e >= s.length ||
             (((s = s.slice())[e] = $.extend({}, s[e])),
             (s[e][t] = n),
-            GMenu.setProperty(u.EXPORT_PROPERTY_NAME, s, true));
+            GMenu.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, s, true));
         }
       } finally {
         GTools.commitTransaction(
@@ -125452,10 +125830,11 @@ function (exports, module, require) {
       try {
         for (var require = 0; require < this._elements.length; ++require) {
           var GTools = this._elements[require],
-            a = GTools.getProperty(u.EXPORT_PROPERTY_NAME, true);
+            a = GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
           !a ||
             e >= a.length ||
-            ((a = a.slice()).splice(e, 1), GTools.setProperty(u.EXPORT_PROPERTY_NAME, a, true));
+            ((a = a.slice()).splice(e, 1),
+            GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true));
         }
       } finally {
         t.commitTransaction(
@@ -125467,7 +125846,7 @@ function (exports, module, require) {
       !e.temporary &&
         this._elements.length &&
         this._elements[0] === e.node &&
-        e.properties.indexOf(u.EXPORT_PROPERTY_NAME) >= 0 &&
+        e.properties.indexOf(DataModule_442.EXPORT_PROPERTY_NAME) >= 0 &&
         this._updateProperties();
     }),
     (g.prototype._updateProperties = function () {
@@ -125479,7 +125858,8 @@ function (exports, module, require) {
         GMenu = t ? '12%' : '5%';
       if (this._elements)
         for (let t = 0; t < this._elements.length; ++t) {
-          var GProperties = this._elements[t].getProperty(u.EXPORT_PROPERTY_NAME, true, []) || [];
+          var GProperties =
+            this._elements[t].getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || [];
           if (GProperties)
             for (var ZipDirectory = 0; ZipDirectory < GProperties.length; ++ZipDirectory)
               ZipDirectory < e.length
@@ -125497,7 +125877,7 @@ function (exports, module, require) {
           ),
         this._exportButton.css('display', e.length ? '' : 'none'));
       for (let GProperties = 0; GProperties < e.length; ++GProperties) {
-        var d = GProperties + 1 === e.length,
+        var GLoginPanel = GProperties + 1 === e.length,
           GSettingChangedEvent = e[GProperties];
         $('<div></div>')
           .data('index', GProperties)
@@ -125506,7 +125886,7 @@ function (exports, module, require) {
             columns: [
               {
                 width: n,
-                label: d
+                label: GLoginPanel
                   ? GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.size'))
                   : null,
                 content: $('<div></div>')
@@ -125558,7 +125938,7 @@ function (exports, module, require) {
               },
               {
                 width: GTools,
-                label: d
+                label: GLoginPanel
                   ? GCore.GLocale.get(new GCore.GLocaleKey('GExportProperties', 'text.suffix'))
                   : null,
                 content: $('<input/>')
@@ -125587,7 +125967,7 @@ function (exports, module, require) {
               },
               {
                 width: a,
-                label: d
+                label: GLoginPanel
                   ? GCore.GLocale.get(new GCore.GLocaleKey('GExportProperties', 'text.format'))
                   : null,
                 content: $('<select></select>')
@@ -125791,16 +126171,16 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
-    r = require(1163) /* module_1163 */,
+    DataModule_1163 = require(1163) /* DataModule_1163 */,
     GProperties = _interopRequireDefault(require(123) /* GProperties */),
-    l = _interopRequireDefault(require(1159) /* module_1159 */),
+    GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
     c = _interopRequireDefault(require(220) /* Item */),
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
-    u = _interopRequireDefault(require(219) /* module_219 */),
+    u = _interopRequireDefault(require(219) /* GLocale */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     g = _interopRequireDefault(require(86) /* module_86 */),
     GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
-    f = _interopRequireDefault(require(336) /* module_336 */),
+    GEvent_storageItem = _interopRequireDefault(require(336) /* GEvent_storageItem */),
     GRichTooltipConfig = _interopRequireDefault(require(67) /* GRichTooltipConfig */);
   function y() {}
   (GCore.GObject.inherit(y, GProperties.default),
@@ -125896,12 +126276,12 @@ function (exports, module, require) {
             $('<div/>').addClass('content'),
           ])
           .appendTo(n)),
-        gDesigner.addEventListener(l.default, this._handleEvent, this));
+        gDesigner.addEventListener(GEvent_fileId.default, this._handleEvent, this));
     }),
     (y.prototype._handleEvent = function (e) {
-      e.type === l.default.Type.Enable
+      e.type === GEvent_fileId.default.Type.Enable
         ? this._updateVersionHistory(e.fileId)
-        : e.type === l.default.Type.Close && this.close();
+        : e.type === GEvent_fileId.default.Type.Close && this.close();
     }),
     (y.prototype._updateVersionHistory = function (e) {
       (this._versionsContainer.find('.content').empty(),
@@ -125997,8 +126377,8 @@ function (exports, module, require) {
       const require = gDesigner.isEnabledProFeatures(),
         _interopRequireDefault = this,
         GProperties = gDesigner.getActiveDocument().getStorageItem(),
-        l = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
-        c = !!l;
+        GEvent_fileId = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
+        c = !!GEvent_fileId;
       let GDocument,
         u = this._versionsContainer.find('.content');
       AppSettings.AUTO_SAVE_ENABLED && (GDocument = this._autoSaveContainer.find('.content'));
@@ -126017,7 +126397,7 @@ function (exports, module, require) {
           .addClass(
             (
               c
-                ? l === GProperties.versionId
+                ? GEvent_fileId === GProperties.versionId
                 : ((GRichTooltipConfig && u) || (!GRichTooltipConfig && !u)) && GProperties.latest
             )
               ? 'vhi-initial'
@@ -126027,7 +126407,7 @@ function (exports, module, require) {
           .addClass(
             (
               c
-                ? l === GProperties.versionId
+                ? GEvent_fileId === GProperties.versionId
                 : GProperties.versionId === GDocumentStatusEvent.version.versionId
             )
               ? 'vhi-active'
@@ -126057,7 +126437,7 @@ function (exports, module, require) {
               .append(
                 $('<div />')
                   .addClass('vhi-updated')
-                  .text((0, r.dateToVersionFormat)(GProperties.modified))
+                  .text((0, DataModule_1163.dateToVersionFormat)(GProperties.modified))
               )
           )
           .append(
@@ -126176,7 +126556,7 @@ function (exports, module, require) {
         AppSettings.AUTO_SAVE_ENABLED && v(t),
         this._updatePanelHeight(),
         gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
-        gDesigner.addEventListener(f.default, this._storageEventHandler, this));
+        gDesigner.addEventListener(GEvent_storageItem.default, this._storageEventHandler, this));
     }),
     (y.prototype._updatePanelHeight = function () {
       let exports =
@@ -126201,7 +126581,7 @@ function (exports, module, require) {
     }),
     (y.prototype._storageEventHandler = function (e) {
       let { type: module, storageItem: require } = e;
-      module === f.default.Type.VersionUpdate &&
+      module === GEvent_storageItem.default.Type.VersionUpdate &&
         require instanceof c.default.Item &&
         this._fileId === require.getId() &&
         this._updateVersionHistory(this._fileId);
@@ -126218,7 +126598,7 @@ function (exports, module, require) {
           false
         );
       this._loadingPreview = true;
-      var r = new GDocument.default(
+      var DataModule_1163 = new GDocument.default(
         await c.default.from(
           gDesigner.getDefaultStorage(),
           this._fileId,
@@ -126227,25 +126607,32 @@ function (exports, module, require) {
           !!_interopRequireDefault
         )
       );
-      (r.lockByVersionHistory(),
+      (DataModule_1163.lockByVersionHistory(),
         this._previewDoc
-          ? (gDesigner.replaceDocument(this._previewDoc, r),
+          ? (gDesigner.replaceDocument(this._previewDoc, DataModule_1163),
             this._previewDoc.removeEventListener(
               GDocumentStatusEvent.default,
               this._documentStatusEventHandler,
               this
             ),
-            (this._previewDoc = r))
+            (this._previewDoc = DataModule_1163))
           : ((this._previousDoc = AppSettings),
-            (this._previewDoc = r),
-            gDesigner.replaceDocument(this._previousDoc, r)),
-        r.addEventListener(GDocumentStatusEvent.default, this._documentStatusEventHandler, this),
-        r.load(null, {
+            (this._previewDoc = DataModule_1163),
+            gDesigner.replaceDocument(this._previousDoc, DataModule_1163)),
+        DataModule_1163.addEventListener(
+          GDocumentStatusEvent.default,
+          this._documentStatusEventHandler,
+          this
+        ),
+        DataModule_1163.load(null, {
           progress: (e) => {
             100 == e &&
               ((this._loadingPreview = false),
               gDesigner.trigger(
-                new GDocumentEvent.default(GDocumentEvent.default.Type.StorageItemUpdated, r)
+                new GDocumentEvent.default(
+                  GDocumentEvent.default.Type.StorageItemUpdated,
+                  DataModule_1163
+                )
               ));
           },
         }),
@@ -126389,9 +126776,9 @@ function (exports, module, require) {
     (y.prototype.close = function () {
       (gDesigner.stats('version-history-panel_close_panel', this._fileId),
         this._closePreview(),
-        gDesigner.trigger(new l.default(l.default.Type.Disable)),
+        gDesigner.trigger(new GEvent_fileId.default(GEvent_fileId.default.Type.Disable)),
         gDesigner.removeEventListener(GDocumentEvent.default, this._documentEvent, this),
-        gDesigner.removeEventListener(f.default, this._storageEventHandler, this));
+        gDesigner.removeEventListener(GEvent_storageItem.default, this._storageEventHandler, this));
     }),
     (y.prototype.toString = function () {
       return '[Object GVersionHistoryProperties]';
@@ -126436,8 +126823,8 @@ function (exports, module, require) {
   const o = require(86) /* module_86 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     a = require(1531) /* module_1531 */,
-    r = require(1532) /* module_1532 */,
-    s = require(1533) /* module_1533 */,
+    DataModule_1532 = require(1532) /* DataModule_1532 */,
+    DataModule_1533 = require(1533) /* DataModule_1533 */,
     GCloudStorageItem = require(156) /* GCloudStorageItem */,
     c = require(790) /* module_790 */,
     d = require(554); /* module_554 */
@@ -126513,10 +126900,10 @@ function (exports, module, require) {
         require === GCloudStorageItem.Storage.Gravit
           ? (module = new a(this._worker, o))
           : require === GCloudStorageItem.Storage.GoogleDrive
-            ? (module = new r(this._worker, o))
+            ? (module = new DataModule_1532(this._worker, o))
             : (require !== GCloudStorageItem.Storage.SharePoint &&
                 require !== GCloudStorageItem.Storage.OneDriveBusiness) ||
-              (module = new s(this._worker, o)),
+              (module = new DataModule_1533(this._worker, o)),
         module
       );
     }),
@@ -126532,9 +126919,9 @@ function (exports, module, require) {
   var GCore = require(1); /* GCore */
   const { FILE_FORMATS: i, gApi: a } = require(10) /* AppSettings */,
     r = i.find((e) => e.default),
-    { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,
-    c = require(1164); /* module_1164 */
-  exports.exports = class extends c {
+    { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* DataModule_591 */,
+    DataModule_1164 = require(1164); /* DataModule_1164 */
+  exports.exports = class extends DataModule_1164 {
     constructor(e, t) {
       super(e, t);
     }
@@ -126561,7 +126948,7 @@ function (exports, module, require) {
               });
           }));
         const s = Object.create(t),
-          c = this._request(l.REQUEST, {
+          DataModule_1164 = this._request(l.REQUEST, {
             id: e,
             images: r,
             entries: i,
@@ -126571,7 +126958,7 @@ function (exports, module, require) {
           'message',
           function (e) {
             const { cmd: t, id: i, data: a } = e.data;
-            if (t !== l.SUCCESS || i !== c) return false;
+            if (t !== l.SUCCESS || i !== DataModule_1164) return false;
             let r = s.getDictionary();
             s.setCloudSynchronization(null);
             let d = new GCore.GDictionary();
@@ -126584,7 +126971,7 @@ function (exports, module, require) {
     _saveScene(e, t, n) {
       return new Promise((i, a) => {
         let l = GCore.GNode.serialize(n, { save: true });
-        const c = Object.create(n),
+        const DataModule_1164 = Object.create(n),
           d = this._request(s.REQUEST, {
             id: e,
             file: t,
@@ -126596,7 +126983,9 @@ function (exports, module, require) {
           function (e) {
             const { cmd: t, id: n, data: GCore } = e.data;
             if ((t !== s.SUCCESS && t !== s.FAILED) || n !== d) return false;
-            t === s.SUCCESS ? i({ sceneSnapshot: c, urls: GCore.urls }) : t === s.FAILED && a();
+            t === s.SUCCESS
+              ? i({ sceneSnapshot: DataModule_1164, urls: GCore.urls })
+              : t === s.FAILED && a();
             return true;
           }.bind(this),
           { once: true }
@@ -126624,10 +127013,10 @@ function (exports, module, require) {
   var GCore = require(1); /* GCore */
   const { FILE_FORMATS: i } = require(10) /* AppSettings */,
     a = i.find((e) => e.default),
-    { COMMAND_SAVE: r } = require(591) /* module_591 */,
-    s = require(1164) /* module_1164 */,
+    { COMMAND_SAVE: r } = require(591) /* DataModule_591 */,
+    DataModule_1164 = require(1164) /* DataModule_1164 */,
     GGoogleDriveItem = require(556); /* GGoogleDriveItem */
-  exports.exports = class extends s {
+  exports.exports = class extends DataModule_1164 {
     constructor(e, t) {
       super(e, t);
     }
@@ -126636,7 +127025,7 @@ function (exports, module, require) {
       return GGoogleDriveItem.convertToCloudItem(i);
     }
     _requestWorkerToSave(e, t, n, i) {
-      return new Promise((s, GGoogleDriveItem) => {
+      return new Promise((DataModule_1164, GGoogleDriveItem) => {
         const c = this._request(r.REQUEST, {
           id: e,
           file: t,
@@ -126649,7 +127038,7 @@ function (exports, module, require) {
           function (e) {
             const { cmd: t, id: n, data: GCore } = e.data;
             if ((t !== r.SUCCESS && t !== r.FAILED) || n !== c) return false;
-            t === r.SUCCESS ? s(GCore.file) : t === r.FAILED && GGoogleDriveItem();
+            t === r.SUCCESS ? DataModule_1164(GCore.file) : t === r.FAILED && GGoogleDriveItem();
             return true;
           }.bind(this),
           { once: true }
@@ -126668,9 +127057,9 @@ function (exports, module, require) {
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { FILE_FORMATS: a } = require(10) /* AppSettings */,
     r = a.find((e) => e.default),
-    { COMMAND_SAVE: s } = require(591) /* module_591 */,
-    l = require(1164); /* module_1164 */
-  exports.exports = class extends l {
+    { COMMAND_SAVE: s } = require(591) /* DataModule_591 */,
+    DataModule_1164 = require(1164); /* DataModule_1164 */
+  exports.exports = class extends DataModule_1164 {
     constructor(e, t) {
       super(e, t);
     }
@@ -126679,7 +127068,7 @@ function (exports, module, require) {
       return GCloudStorageItem.from(a);
     }
     _requestWorkerToSave(e, t, n, GCloudStorageItem) {
-      return new Promise((a, l) => {
+      return new Promise((a, DataModule_1164) => {
         const c = this._request(s.REQUEST, {
           id: e,
           file: t,
@@ -126692,7 +127081,7 @@ function (exports, module, require) {
           function (e) {
             const { cmd: t, id: n, data: GCore } = e.data;
             if ((t !== s.SUCCESS && t !== s.FAILED) || n !== c) return false;
-            t === s.SUCCESS ? a(GCore.file) : t === s.FAILED && l();
+            t === s.SUCCESS ? a(GCore.file) : t === s.FAILED && DataModule_1164();
             return true;
           }.bind(this),
           { once: true }
@@ -127104,7 +127493,7 @@ function (exports, module, require) {
     GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     GProperties = require(123); /* GProperties */
   const GCollaborationEvent = require(393) /* GCollaborationEvent */,
-    c = require(392) /* module_392 */,
+    GEvent_document = require(392) /* GEvent_document */,
     GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
     GSettingChangedEvent = require(135); /* GSettingChangedEvent */
   function p(e, t, n, _interopRequireDefault, GTools, GCore, GAnnotationsUtils, GProperties) {
@@ -127201,19 +127590,20 @@ function (exports, module, require) {
                     GCollaborationEvent
                   ) {
                     if (t._getAppManager().isCommentingEditingEnabled()) {
-                      var c = ['_vs'],
+                      var GEvent_document = ['_vs'],
                         GFileReviewFlowManager = [true];
                       (undefined !== _interopRequireDefault &&
-                        (c.push('_pt'), GFileReviewFlowManager.push(_interopRequireDefault)),
+                        (GEvent_document.push('_pt'),
+                        GFileReviewFlowManager.push(_interopRequireDefault)),
                         'number' == typeof GTools &&
-                          (c.push('_op'), GFileReviewFlowManager.push(GTools)));
+                          (GEvent_document.push('_op'), GFileReviewFlowManager.push(GTools)));
                       var GSettingChangedEvent = null;
                       (GProperties &&
                         ((GSettingChangedEvent = { chooserOn: true }),
                         null != GCollaborationEvent &&
                           (GSettingChangedEvent.activeStopIdx = GCollaborationEvent)),
                         t._assignProperties(
-                          c,
+                          GEvent_document,
                           GFileReviewFlowManager,
                           GCore.GLocale.get(
                             new GCore.GLocaleKey(
@@ -127416,7 +127806,7 @@ function (exports, module, require) {
       if (
         (this._document &&
           (this._applyPendingUpdateForSelection(),
-          gDesigner.removeEventListener(c, this._stateChangedEvent, this),
+          gDesigner.removeEventListener(GEvent_document, this._stateChangedEvent, this),
           gDesigner
             .getFileReviewManager()
             .removeEventListener(
@@ -127438,7 +127828,7 @@ function (exports, module, require) {
         e && t && e.getScene())
       ) {
         if (
-          (gDesigner.addEventListener(c, this._stateChangedEvent, this),
+          (gDesigner.addEventListener(GEvent_document, this._stateChangedEvent, this),
           gDesigner
             .getFileReviewManager()
             .addEventListener(GFileReviewFlowManager.UpdateEvent, this._handleReviewUpdate, this),
@@ -127657,12 +128047,19 @@ function (exports, module, require) {
         var GProperties = this._document.getEditor();
         _interopRequireDefault || GProperties.beginTransaction();
         try {
-          for (var GCollaborationEvent = null, c = 0; c < this._elements.length; ++c) {
+          for (
+            var GCollaborationEvent = null, GEvent_document = 0;
+            GEvent_document < this._elements.length;
+            ++GEvent_document
+          ) {
             var GFileReviewFlowManager;
             (GTools === p.PropertyTarget.FillLayer
-              ? ((GFileReviewFlowManager = this._elements[c].getPaintLayers().getFillLayers()[0]) ||
+              ? ((GFileReviewFlowManager =
+                  this._elements[GEvent_document].getPaintLayers().getFillLayers()[0]) ||
                   ((GFileReviewFlowManager = new GCore.GStylable.FillPaintLayer()),
-                  this._elements[c].getPaintLayers().appendChild(GFileReviewFlowManager)),
+                  this._elements[GEvent_document].getPaintLayers().appendChild(
+                    GFileReviewFlowManager
+                  )),
                 (GCollaborationEvent = $.extend(
                   {
                     fillLayerIndex:
@@ -127671,11 +128068,12 @@ function (exports, module, require) {
                   GCollaborationEvent || GAnnotationsUtils
                 )))
               : GTools === p.PropertyTarget.BorderLayer
-                ? ((GFileReviewFlowManager = this._elements[c]
-                    .getPaintLayers()
-                    .getBorderLayers()[0]) ||
+                ? ((GFileReviewFlowManager =
+                    this._elements[GEvent_document].getPaintLayers().getBorderLayers()[0]) ||
                     ((GFileReviewFlowManager = new GCore.GStylable.BorderPaintLayer()),
-                    this._elements[c].getPaintLayers().appendChild(GFileReviewFlowManager)),
+                    this._elements[GEvent_document].getPaintLayers().appendChild(
+                      GFileReviewFlowManager
+                    )),
                   (GCollaborationEvent = $.extend(
                     {
                       borderLayerIndex:
@@ -127683,7 +128081,7 @@ function (exports, module, require) {
                     },
                     GCollaborationEvent || GAnnotationsUtils
                   )))
-                : (GFileReviewFlowManager = this._elements[c]),
+                : (GFileReviewFlowManager = this._elements[GEvent_document]),
               GFileReviewFlowManager &&
                 GFileReviewFlowManager.setProperties(e, t, false, false, _interopRequireDefault));
           }
@@ -127714,7 +128112,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var i = _interopRequireDefault(require(1155) /* module_1155 */);
   const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* GCore */,
-    l = require(392) /* module_392 */,
+    GEvent_document = require(392) /* GEvent_document */,
     GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
     GProperties = require(123) /* GProperties */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
@@ -127749,7 +128147,7 @@ function (exports, module, require) {
                 this._handleReviewUpdate,
                 this
               ),
-            gDesigner.addEventListener(l, this._stateChangedEvent, this),
+            gDesigner.addEventListener(GEvent_document, this._stateChangedEvent, this),
             (this._reviewManager = gDesigner.getFileReviewManager()),
             this._reviewManager.addEventListener(
               GFileReviewFlowManager.UpdateEvent,
@@ -127758,7 +128156,7 @@ function (exports, module, require) {
             ),
             this._requestUIUpdate())
           : e ||
-            (gDesigner.removeEventListener(l, this._stateChangedEvent, this),
+            (gDesigner.removeEventListener(GEvent_document, this._stateChangedEvent, this),
             this._reviewManager &&
               (this._reviewManager.removeEventListener(
                 GFileReviewFlowManager.UpdateEvent,
@@ -128089,9 +128487,10 @@ function (exports, module, require) {
           .append($('<div/>').addClass('loading-indicator'))
           .appendTo(r);
       if (!i) {
-        var l = e.getIcon();
-        l
-          ? (s.addClass(l), e.getIconLabel() && s.attr('data-title', e.getIconLabel()))
+        var GEvent_document = e.getIcon();
+        GEvent_document
+          ? (s.addClass(GEvent_document),
+            e.getIconLabel() && s.attr('data-title', e.getIconLabel()))
           : s.toggleClass('selected', require);
       }
       var GFileReviewFlowManager = $('<div/>').addClass('details-container').appendTo(r);
@@ -128455,7 +128854,7 @@ function (exports, module, require) {
     require(57) /* polyfill_parseInt */,
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
-    require(151) /* module_151 */,
+    require(151) /* DataModule_151 */,
     require(247) /* module_247 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
@@ -128511,11 +128910,11 @@ function (exports, module, require) {
     GCollaborators = require(1292) /* GCollaboratorsWidget */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-    GApplicationStateChangedEvent = require(392) /* module_392 */,
-    GShareEvent = require(868) /* module_868 */,
+    GApplicationStateChangedEvent = require(392) /* GEvent_document */,
+    GShareEvent = require(868) /* GEvent_type_868 */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     GUIIcons = require(257) /* barrel_panels */,
-    GLicenseChangedEvent = require(441); /* module_441 */
+    GLicenseChangedEvent = require(441); /* GEvent_license */
   function GToolbar(e) {
     ((this._htmlElement = e), (this._initShapeMenu = false));
   }
@@ -131574,19 +131973,21 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
-    d = _interopRequireDefault(require(734) /* module_734 */),
+    ExternalFileSettingsError = _interopRequireDefault(
+      require(734) /* ExternalFileSettingsError */
+    ),
     GDocument = require(163) /* GDocument */,
     GOpenAction = require(813) /* GOpenAction */,
-    g = require(1299) /* module_1299 */,
+    GObject_1299 = require(1299) /* GObject_1299 */,
     GCloudStorage = require(119) /* GCloudStorage */,
     GFilesPanel = require(1545) /* GFilesPanel */,
     GCloudTemplatesPanel = require(1558) /* GCloudTemplatesPanel */,
     GPresets = require(1153) /* GPresets */,
     { youtubePlaylist: v } = require(1302) /* module_1302 */,
-    _ = require(446); /* module_446 */
+    GLoginPanel = require(446); /* GLoginPanel */
   require(220) /* Item */;
-  const b = require(859) /* module_859 */,
-    w = require(441); /* module_441 */
+  const DataModule_859 = require(859) /* DataModule_859 */,
+    GEvent_license = require(441); /* GEvent_license */
   function C() {
     let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : null;
     var t = this._createFooter(),
@@ -131619,7 +132020,7 @@ function (exports, module, require) {
         .appendTo(_interopRequireDefault),
       GDocument = $('<div></div>').addClass('frame').appendTo(this._dialog),
       GOpenAction = this._createPresetsFrame().appendTo(GDocument),
-      g = null;
+      GObject_1299 = null;
     this._createSeparator(CollaborationMergeUtils, 'start-option');
     var GCloudTemplatesPanel = function (e) {
         (this._dialog.find('.sidebar-options').find('.option').removeClass('active'),
@@ -131719,11 +132120,11 @@ function (exports, module, require) {
                     let GOfflineDialog = (e) => {
                       if ((GDocument.children().detach(), !e))
                         return (GDocument.removeClass('loading'), void n.close());
-                      (g || (g = $('<div/>').addClass('cloud-workspace')),
-                        GDocument.append(g),
-                        g.empty(),
+                      (GObject_1299 || (GObject_1299 = $('<div/>').addClass('cloud-workspace')),
+                        GDocument.append(GObject_1299),
+                        GObject_1299.empty(),
                         n._loadCloudFiles(
-                          g,
+                          GObject_1299,
                           t,
                           _interopRequireDefault,
                           GCore,
@@ -131737,7 +132138,7 @@ function (exports, module, require) {
                         ? GCloudStorage.performLogin().then(GOfflineDialog)
                         : n._createCloudLoginFrame('cloud', GOfflineDialog, GDocument);
                   }))
-                : new _(() => {
+                : new GLoginPanel(() => {
                     let e = {
                       closable: true,
                       showCloudOptions: true,
@@ -131795,7 +132196,7 @@ function (exports, module, require) {
                   try {
                     gDesigner.openDocument($(e.target).closest('.file').data('file'));
                   } catch (e) {
-                    if (!(e instanceof d.default)) throw (this.close(), e);
+                    if (!(e instanceof ExternalFileSettingsError.default)) throw (this.close(), e);
                     GSystemDialog.default.externalFileError(true);
                   }
                   this.close();
@@ -131849,11 +132250,11 @@ function (exports, module, require) {
           )
           .on('click', () => gDesigner.activateTrialLicense().then(() => this._updateUI()))
           .appendTo(_interopRequireDefault));
-    var b = $('<div></div>').addClass('footer').appendTo(_interopRequireDefault),
-      w = $('<div />').addClass('links-container').appendTo(b),
-      x = $('<div/>').addClass('links-column').appendTo(w),
-      S = $('<div/>').addClass('links-column').appendTo(w),
-      E = $('<div/>').addClass('links-column').appendTo(w),
+    var DataModule_859 = $('<div></div>').addClass('footer').appendTo(_interopRequireDefault),
+      GEvent_license = $('<div />').addClass('links-container').appendTo(DataModule_859),
+      x = $('<div/>').addClass('links-column').appendTo(GEvent_license),
+      S = $('<div/>').addClass('links-column').appendTo(GEvent_license),
+      E = $('<div/>').addClass('links-column').appendTo(GEvent_license),
       A = 0;
     (t.forEach((e) => {
       e.links.forEach((e) => {
@@ -131905,7 +132306,7 @@ function (exports, module, require) {
       'lts' === gDesigner.getEnv()
         ? (exports = ' LTS')
         : 'rc' === gDesigner.getEnv() && (exports = ' Staging');
-      const module = b.getRuntime();
+      const module = DataModule_859.getRuntime();
       return (
         module && (exports += ' '.concat(module.abbr)),
         $('<div/>')
@@ -132391,13 +132792,15 @@ function (exports, module, require) {
         documentToSave: CollaborationMergeUtils,
         cancelSaveCallback: GOfflineDialog,
         defaultFilename: GSystemDialog,
-        closeCallback: d,
+        closeCallback: ExternalFileSettingsError,
         nativeCloud: GDocument,
         showExampleFiles: GOpenAction,
       } = e;
-      ((this._cb = require || null), (this._closeCallback = d), (this._openFromCloud = GCore));
+      ((this._cb = require || null),
+        (this._closeCallback = ExternalFileSettingsError),
+        (this._openFromCloud = GCore));
       GCloudStorage.isOnline();
-      var g = function () {
+      var GObject_1299 = function () {
           (this._dialog.find('.sidebar').css('display', ''),
             this._dialog.find('.sidebar-options').find('.option').css('display', ''),
             this._dialog.find('.sidebar-options').find('.option-separator').css('display', ''),
@@ -132428,13 +132831,13 @@ function (exports, module, require) {
             AppSettings && this._dialog.find('.' + AppSettings).trigger('click'));
         }.bind(this);
       (this._dialog.gDialog('open', module),
-        g(),
+        GObject_1299(),
         GFilesPanel(),
         this._updateUI(),
         this._closeCallbackListeners.push(() => {
-          gDesigner.removeEventListener(w, this._licenseChangedEvent, this);
+          gDesigner.removeEventListener(GEvent_license, this._licenseChangedEvent, this);
         }),
-        gDesigner.addEventListener(w, this._licenseChangedEvent, this));
+        gDesigner.addEventListener(GEvent_license, this._licenseChangedEvent, this));
     }),
     (C.prototype.saveCloudFile = function (e, t, n, _interopRequireDefault, GCore) {
       let AppSettings = {
@@ -132533,7 +132936,7 @@ function (exports, module, require) {
     }),
     (C.prototype._openDocument = function () {
       gDesigner.executeAction(
-        gDesigner.getAction(g.ID).isAvailable() ? g.ID : GOpenAction.ID,
+        gDesigner.getAction(GObject_1299.ID).isAvailable() ? GObject_1299.ID : GOpenAction.ID,
         [null, this.close.bind(this)],
         undefined,
         true
@@ -132599,7 +133002,7 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(168) /* polyfill_Array_reduce */,
     require(328) /* polyfill_Array_sort */,
-    require(180) /* module_180 */,
+    require(180) /* DataModule_180 */,
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(96) /* polyfill_JSON_stringify */,
     require(30) /* polyfill_Object_assign */,
@@ -132609,13 +133012,13 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(271) /* polyfill_String_endsWith */,
     require(34) /* polyfill_String_replace */,
-    require(851) /* module_851 */,
+    require(851) /* DataModule_851 */,
     require(91) /* polyfill_String_trim */,
     require(218) /* module_218 */,
-    require(189) /* module_189 */,
-    require(190) /* module_190 */,
+    require(189) /* DataModule_189 */,
+    require(190) /* DataModule_190 */,
     require(191) /* module_191 */,
-    require(192) /* module_192 */,
+    require(192) /* DataModule_192 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
@@ -132626,23 +133029,23 @@ function (exports, module, require) {
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* GCore */,
-    a = require(1546) /* module_1546 */,
+    DataModule_1546 = require(1546) /* DataModule_1546 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
     l = require(1552) /* Exports_GGoogleDrive */,
     TYPES = require(862) /* Exports_TYPES */,
     d = require(858) /* Exports_GFilesPanel */,
-    u = _interopRequireDefault(require(1556) /* module_1556 */),
+    GObject_1556 = _interopRequireDefault(require(1556) /* GObject_1556 */),
     p = _interopRequireDefault(require(86) /* module_86 */),
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     h = _interopRequireDefault(require(802) /* CloudException */),
     f = _interopRequireDefault(require(1240) /* module_1240 */),
     GSaveAsAction = _interopRequireDefault(require(445) /* GSaveAsAction */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
-    v = _interopRequireDefault(require(355) /* module_355 */),
+    AppError = _interopRequireDefault(require(355) /* AppError */),
     AppSettings = require(10) /* AppSettings */,
     AppSettings2 = require(519) /* AppSettings */,
-    w = _interopRequireDefault(require(1557) /* module_1557 */);
+    GRepeatActionError = _interopRequireDefault(require(1557) /* GRepeatActionError */);
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   var S = AppSettings.CloudIntegration.cloudOptions,
@@ -132672,11 +133075,11 @@ function (exports, module, require) {
         closeCallback: require = CollaborationMergeUtils.fakeFunction,
         documentToSave: _interopRequireDefault,
         cancelSave: GCore = CollaborationMergeUtils.fakeFunction,
-        defaultFilename: a,
+        defaultFilename: DataModule_1546,
         readyStateChange: GFileDownloadUtils,
         showExampleFiles: l,
         GUISettings: TYPES,
-        saveMode: u,
+        saveMode: GObject_1556,
         driveSettings: p = null,
         isDashboard: GCloudStorage,
         isCorporateStoragesEnabled: h = true,
@@ -132689,7 +133092,7 @@ function (exports, module, require) {
         (this.CURRENT_UPDATE_OPERATION_ID = -1),
         (this.MODE = d.GFilesPanelClipboardModes.DEFAULT),
         (this.BUILD_IN_PROGRESS = false),
-        (this.DEFAULT_FILENAME = a),
+        (this.DEFAULT_FILENAME = DataModule_1546),
         (this._newClipBoard = false),
         (this._showExampleFiles = l),
         (this._isDashboard = GCloudStorage),
@@ -132703,7 +133106,7 @@ function (exports, module, require) {
       ((this._onCancelSaveCallback = GCore && GSaveAsAction(GCore)),
         (this._onCloseCallback = require && GSaveAsAction(require)),
         (this._documentToSave = _interopRequireDefault),
-        (this._isSaveMode = u || this._documentToSave));
+        (this._isSaveMode = GObject_1556 || this._documentToSave));
     }),
     (T.prototype._init = async function (e) {
       let {
@@ -132749,7 +133152,7 @@ function (exports, module, require) {
     (T.prototype.initLayout = async function (e) {
       ((this.drive = l.GCloudDrive.getInstance()),
         this.drive.setQueryLimit(20),
-        (this.view = new a.GFilesPanelViewNative(this.panel, this)),
+        (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)),
         (this.accountSettingsKey = ''
           .concat(T.DriveAccountsSettingName, '.')
           .concat(this.USER.id)));
@@ -132779,15 +133182,17 @@ function (exports, module, require) {
         .getProperty(n.accountSettingsKey)
         .then(async function (_interopRequireDefault) {
           let GCore,
-            a = _interopRequireDefault ? n._stringToSettings(_interopRequireDefault) : [];
-          a instanceof Array || (a = []);
-          for (let t = 0, n = a.length; t < n; t++)
-            if (a[t].id === e) {
+            DataModule_1546 = _interopRequireDefault
+              ? n._stringToSettings(_interopRequireDefault)
+              : [];
+          DataModule_1546 instanceof Array || (DataModule_1546 = []);
+          for (let t = 0, n = DataModule_1546.length; t < n; t++)
+            if (DataModule_1546[t].id === e) {
               GCore = t;
               break;
             }
-          (GCore > -1 && (a[GCore].name = t),
-            gContainer.setProperty(n.accountSettingsKey, n._settingsToString(a)),
+          (GCore > -1 && (DataModule_1546[GCore].name = t),
+            gContainer.setProperty(n.accountSettingsKey, n._settingsToString(DataModule_1546)),
             await n.updateCloudSettings(),
             e === n.getCurrentDriveId() && n.view.updateTopBar());
         })
@@ -132832,8 +133237,8 @@ function (exports, module, require) {
               : gContainer.removeProperty(t.accountSettingsKey));
           try {
             if ('googledrive' === e.type) {
-              var a = new l.GGoogleDrive();
-              (await a.install(), await a.uninstall());
+              var DataModule_1546 = new l.GGoogleDrive();
+              (await DataModule_1546.install(), await DataModule_1546.uninstall());
             }
             gDesigner.removeExternalRecentFiles(e.type, e.id);
           } catch (e) {
@@ -132848,7 +133253,7 @@ function (exports, module, require) {
       let require = false;
       (gDesigner.stats('filespanel_create_cloudfolder'), this.view.toggleLoading(true));
       let _interopRequireDefault = 0;
-      const a = (CollaborationMergeUtils) => {
+      const DataModule_1546 = (CollaborationMergeUtils) => {
         if (
           (_interopRequireDefault++,
           _interopRequireDefault > AppSettings2.MAX_FOLDER_DEPTH_FOR_CLOUD)
@@ -132862,7 +133267,7 @@ function (exports, module, require) {
           );
         let GFileDownloadUtils = {};
         (t.drive.hasTitleValidation() && (GFileDownloadUtils = t.drive.getTitleValidator()),
-          new u.default(
+          new GObject_1556.default(
             async function (_interopRequireDefault) {
               if (
                 ((_interopRequireDefault = _interopRequireDefault.trim()),
@@ -132892,7 +133297,7 @@ function (exports, module, require) {
                     );
                   })))
                 )
-                  return a(_interopRequireDefault);
+                  return DataModule_1546(_interopRequireDefault);
                 if (t.drive.requiresOverwriteCollisionHandling()) {
                   for (
                     var CollaborationMergeUtils = 0, GFileDownloadUtils = _interopRequireDefault;
@@ -132916,7 +133321,7 @@ function (exports, module, require) {
                       return (
                         GSystemDialog.default.alert(e.message),
                         setTimeout(() => {
-                          a(_interopRequireDefault);
+                          DataModule_1546(_interopRequireDefault);
                         })
                       );
                     ((require = false),
@@ -132936,7 +133341,7 @@ function (exports, module, require) {
             GFileDownloadUtils
           ).open());
       };
-      return (a(), this);
+      return (DataModule_1546(), this);
     }),
     (T.prototype.handleMaximizePanel = function () {
       return (this._maximizeWindow(), gDesigner.stats('filespanel_maximize_cloudfile'), this);
@@ -133010,10 +133415,10 @@ function (exports, module, require) {
               );
             if (this.drive.requiresOverwriteCollisionHandling()) {
               for (
-                var a = 0, GFileDownloadUtils = e;
+                var DataModule_1546 = 0, GFileDownloadUtils = e;
                 await this.drive.fileExists(GFileDownloadUtils, t, this.drive.getCurrentFolder());
               )
-                GFileDownloadUtils = ''.concat(e, ' (').concat(++a, ')');
+                GFileDownloadUtils = ''.concat(e, ' (').concat(++DataModule_1546, ')');
               e = GFileDownloadUtils;
             }
           }
@@ -133197,42 +133602,53 @@ function (exports, module, require) {
         _interopRequireDefault = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
       if (_interopRequireDefault) {
         if (!(t = this.drive.getFileFormat(e)))
-          return u(
+          return GObject_1556(
             Promise.reject(
               GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.file-not-supported'))
             )
           );
       } else t || (t = this.drive.getFileFormat(e) || TYPES.DEFAULT_TYPE);
-      var { ext: a, type: CollaborationMergeUtils, mime: GFileDownloadUtils, version: l } = t;
+      var {
+        ext: DataModule_1546,
+        type: CollaborationMergeUtils,
+        mime: GFileDownloadUtils,
+        version: l,
+      } = t;
       CollaborationMergeUtils = CollaborationMergeUtils || GFileDownloadUtils;
-      const d = this._triggerFileDownload(e, require, a, CollaborationMergeUtils, l);
-      function u(t) {
+      const d = this._triggerFileDownload(e, require, DataModule_1546, CollaborationMergeUtils, l);
+      function GObject_1556(t) {
         return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
       }
-      return u(d);
+      return GObject_1556(d);
     }),
     (T.prototype._triggerFileDownload = function (e, t, n, _interopRequireDefault, GCore) {
-      const a = new AbortController(),
-        l = a.signal;
+      const DataModule_1546 = new AbortController(),
+        l = DataModule_1546.signal;
       return (
         (t.progress = t.progress || (() => {})),
         this.drive
           .getRawFile(e, l, t)
           .then(async (l) => {
             let d,
-              u = l;
+              GObject_1556 = l;
             if (
-              ((t.cancel = (0, CollaborationMergeUtils.chaining)(t.cancel, () => a.abort())),
+              ((t.cancel = (0, CollaborationMergeUtils.chaining)(t.cancel, () =>
+                DataModule_1546.abort()
+              )),
               e.type !== _interopRequireDefault
-                ? ((u = await this._convertBlob(
-                    u,
+                ? ((GObject_1556 = await this._convertBlob(
+                    GObject_1556,
                     { ext: n, type: _interopRequireDefault, version: GCore },
                     t
                   ).catch((e) => (d = e || true))),
-                  u || (d = new Error('Unsupported mime type: #'.concat(e.type))))
+                  GObject_1556 || (d = new Error('Unsupported mime type: #'.concat(e.type))))
                 : _interopRequireDefault === TYPES.DEFAULT_TYPE.type &&
-                  ((u = await this._repackNativeBlob(u, t).catch((e) => (d = e || true))),
-                  u || d || (d = new Error('Error fetching file contents for download'))),
+                  ((GObject_1556 = await this._repackNativeBlob(GObject_1556, t).catch(
+                    (e) => (d = e || true)
+                  )),
+                  GObject_1556 ||
+                    d ||
+                    (d = new Error('Error fetching file contents for download'))),
               d)
             ) {
               if (d instanceof Error) throw d;
@@ -133243,7 +133659,7 @@ function (exports, module, require) {
               let GCore = e.name || l.name;
               (GCore.endsWith('.'.concat(n)) &&
                 (GCore = GCore.replace(new RegExp('.'.concat(n, '$')), '')),
-                (0, GFileDownloadUtils.downloadDataURI)(u, GCore, n, {
+                (0, GFileDownloadUtils.downloadDataURI)(GObject_1556, GCore, n, {
                   type: _interopRequireDefault,
                 }));
             }
@@ -133259,10 +133675,10 @@ function (exports, module, require) {
     (T.prototype._repackNativeBlob = function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       return new Promise(async (n, _interopRequireDefault) => {
-        const a = new FileReader();
-        ((a.onload = async function () {
+        const DataModule_1546 = new FileReader();
+        ((DataModule_1546.onload = async function () {
           const e = new Uint8Array(this.result),
-            a = GCore.GNode.deserialize(
+            DataModule_1546 = GCore.GNode.deserialize(
               GCloudStorage.default.unzipData(e),
               gDesigner.getWorkspace()
             );
@@ -133272,7 +133688,7 @@ function (exports, module, require) {
             () => (GFileDownloadUtils.cancelled = true)
           )),
             await (0, CollaborationMergeUtils.resolveDocumentImages)(
-              a,
+              DataModule_1546,
               T.IMAGES_WAIT_TIMEOUT,
               GFileDownloadUtils
             ).catch(() => {
@@ -133289,14 +133705,14 @@ function (exports, module, require) {
                     )
                   );
             }));
-          var l = GCore.GNode.serialize(a, { save: true });
+          var l = GCore.GNode.serialize(DataModule_1546, { save: true });
           (null === l || '' === l || l.length < 1 || GFileDownloadUtils.cancelled) &&
             _interopRequireDefault();
           var TYPES = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
           TYPES.byteLength > 20 ? n(TYPES) : _interopRequireDefault();
         }),
-          (a.onerror = _interopRequireDefault),
-          a.readAsArrayBuffer(e));
+          (DataModule_1546.onerror = _interopRequireDefault),
+          DataModule_1546.readAsArrayBuffer(e));
       });
     }),
     (T.prototype.downloadSelectedFiles = async function () {
@@ -133314,15 +133730,21 @@ function (exports, module, require) {
                 .catch((e) => (console.error('drive.canAccessFile error', e), false)))
           )
         ),
-        a = this.SELECTION.filter((e, t) => !!GCore[t]);
-      await this._triggerSelectedFilesDownload(a, exports, module, require, _interopRequireDefault);
+        DataModule_1546 = this.SELECTION.filter((e, t) => !!GCore[t]);
+      await this._triggerSelectedFilesDownload(
+        DataModule_1546,
+        exports,
+        module,
+        require,
+        _interopRequireDefault
+      );
     }),
     (T.prototype._triggerSelectedFilesDownload = async function (
       e,
       t,
       n,
       _interopRequireDefault,
-      a
+      DataModule_1546
     ) {
       const CollaborationMergeUtils = e.map(() => 0),
         GFileDownloadUtils = e.length,
@@ -133336,12 +133758,12 @@ function (exports, module, require) {
           true
         ),
         TYPES.progressInfo('0/'.concat(GFileDownloadUtils)));
-      let u = 0,
+      let GObject_1556 = 0,
         GCloudStorage = false;
-      const h = () => TYPES.progressInfo(''.concat(++u, '/').concat(GFileDownloadUtils)),
-        f = () => TYPES.progressInfo(''.concat(++u, '/').concat(GFileDownloadUtils)),
+      const h = () => TYPES.progressInfo(''.concat(++GObject_1556, '/').concat(GFileDownloadUtils)),
+        f = () => TYPES.progressInfo(''.concat(++GObject_1556, '/').concat(GFileDownloadUtils)),
         GSaveAsAction = () => (GCloudStorage = true),
-        v = e.map((e, GCore) => {
+        AppError = e.map((e, GCore) => {
           var GFileDownloadUtils = _interopRequireDefault;
           !GFileDownloadUtils && this.fileRequiresSourceDownload(e) && (GFileDownloadUtils = true);
           var d = {
@@ -133350,7 +133772,7 @@ function (exports, module, require) {
               (GFileDownloadUtils &&
                 ((e instanceof GCloudStorageItem && e.getMimeType()) || e.type)) ||
               n,
-            version: a,
+            version: DataModule_1546,
           };
           return this.downloadFile(
             e,
@@ -133368,16 +133790,16 @@ function (exports, module, require) {
             _interopRequireDefault
           );
         });
-      (v.length && (this._onCancelSaveCallback(), gDesigner.closeNewDocumentDialog()),
+      (AppError.length && (this._onCancelSaveCallback(), gDesigner.closeNewDocumentDialog()),
         d.initCancelHandler(() => {
           try {
-            v.forEach((e) => e.cancel());
+            AppError.forEach((e) => e.cancel());
           } finally {
             d.updateStatus(p.default.DownloadCancelled);
           }
         }));
       const AppSettings = await Promise.all(
-        v.map((e) => {
+        AppError.map((e) => {
           let { file: t, promise: n } = e;
           return n.catch((e) => Object.create({ file: t, status: 'rejected', error: e }));
         })
@@ -133416,8 +133838,8 @@ function (exports, module, require) {
         module && this.updateFilesList(true, false));
       var GCore = this.SELECTION.indexOf(e);
       GCore > -1 && this.SELECTION.splice(GCore, 1);
-      var a = this.TEMP_SELECTION.indexOf(e);
-      (a > -1 && this.TEMP_SELECTION.splice(a, 1),
+      var DataModule_1546 = this.TEMP_SELECTION.indexOf(e);
+      (DataModule_1546 > -1 && this.TEMP_SELECTION.splice(DataModule_1546, 1),
         this.SELECTION.length < 1 && this.view.resetSelection());
     }),
     (T.prototype._clearFileFiltersInCaseAvailableFiltersDoesNotMatch = function (e, t) {
@@ -133493,9 +133915,9 @@ function (exports, module, require) {
       if (!gDesigner.getApplicationManager().isOpenFromCloudEnabled())
         return (this.view.toggleLoading(false), Promise.reject());
       var n = this;
-      if (this.BUILD_IN_PROGRESS) return Promise.reject(new w.default());
+      if (this.BUILD_IN_PROGRESS) return Promise.reject(new GRepeatActionError.default());
       async function _interopRequireDefault(e) {
-        let a = true;
+        let DataModule_1546 = true;
         try {
           var CollaborationMergeUtils,
             GFileDownloadUtils = [];
@@ -133534,7 +133956,7 @@ function (exports, module, require) {
           } else {
             if (n.hasMoreItemsToLoad() && !n._showExampleFiles) {
               try {
-                ((await n.drive.getPreviousSelectedFolder()) || (a = false),
+                ((await n.drive.getPreviousSelectedFolder()) || (DataModule_1546 = false),
                   (CollaborationMergeUtils = (GFileDownloadUtils = await n.drive.fetchFiles(
                     null,
                     n.CURRENT_FILE_LOAD,
@@ -133560,7 +133982,7 @@ function (exports, module, require) {
                       : GCore.GLocale.get(
                           new GCore.GLocaleKey('GFilesPanel', 'text.error-fetching-files')
                         );
-                  throw new v.default(t);
+                  throw new AppError.default(t);
                 }
                 (await n.setCloudDrive(E),
                   (CollaborationMergeUtils = (GFileDownloadUtils = await n.drive.fetchFiles(
@@ -133628,7 +134050,7 @@ function (exports, module, require) {
           n.view.shouldFilesBeRequested() &&
             n.hasMoreItemsToLoad() &&
             (await _interopRequireDefault(false)),
-          Promise.resolve(a)
+          Promise.resolve(DataModule_1546)
         );
       }
       if ((this.view.toggleLoading(true), this.hasMoreItemsToLoad())) {
@@ -133636,11 +134058,11 @@ function (exports, module, require) {
         try {
           const GCore = await _interopRequireDefault(e);
           if ((n.view.toggleFolders(n._hasFolders && !n._showExampleFiles), module && GCore)) {
-            var a = await n.drive.getPreviousSelectedFolder();
-            a &&
-              !n.drive.isRootFolder(a) &&
+            var DataModule_1546 = await n.drive.getPreviousSelectedFolder();
+            DataModule_1546 &&
+              !n.drive.isRootFolder(DataModule_1546) &&
               (await n.view
-                .navigateToFolder(a)
+                .navigateToFolder(DataModule_1546)
                 .catch(() => n.view.navigateToFolder(n.drive.getRootFolder())));
           }
         } finally {
@@ -133717,12 +134139,15 @@ function (exports, module, require) {
             ((this.drive = new l.GGoogleDrive(undefined, e.id)),
               await this.drive.install(),
               await this.drive.signIn(),
-              (this.view = new a.GFilesPanelViewNative(this.panel, this)),
-              this.view.setPermission(a.GFilesPanelViewBase.Permission.CreateFolder, false));
+              (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)),
+              this.view.setPermission(
+                DataModule_1546.GFilesPanelViewBase.Permission.CreateFolder,
+                false
+              ));
             break;
           default:
             ((this.drive = l.GCloudDrive.getInstance()),
-              (this.view = new a.GFilesPanelViewNative(this.panel, this)));
+              (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)));
         }
         this._currentDriveId = e.id;
         const n = { activeSettingsId: e.id };
@@ -133747,7 +134172,7 @@ function (exports, module, require) {
       } catch (e) {
         var TYPES;
         throw (
-          e && e instanceof v.default && (TYPES = e),
+          e && e instanceof AppError.default && (TYPES = e),
           await this._setCorrectCloud(_interopRequireDefault, CollaborationMergeUtils),
           this.view && this.view.toggleLoading(false),
           TYPES ||
@@ -134227,7 +134652,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(271) /* polyfill_String_endsWith */,
     require(34) /* polyfill_String_replace */,
-    require(851) /* module_851 */,
+    require(851) /* DataModule_851 */,
     require(91) /* polyfill_String_trim */,
     require(4) /* stub_requires_668 */,
     require(322) /* stub_requires_669 */,
@@ -134237,9 +134662,9 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     GCloudFileBrowser = _interopRequireDefault(require(1300) /* GCloudFileBrowser */),
-    s = require(1163) /* module_1163 */,
+    DataModule_1163 = require(1163) /* DataModule_1163 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    c = require(593) /* module_593 */,
+    DataModule_593 = require(593) /* DataModule_593 */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     u = (function (e, t) {
       if ('function' == typeof WeakMap)
@@ -134424,8 +134849,8 @@ function (exports, module, require) {
           )
           .appendTo(GEditor);
         const GCloudFileBrowser = f.webBrowser === f.constructor.WebBrowser.Safari,
-          s = gContainer.getRuntime() === GContainer.Runtime.IPad;
-        ((GCloudFileBrowser || s) &&
+          DataModule_1163 = gContainer.getRuntime() === GContainer.Runtime.IPad;
+        ((GCloudFileBrowser || DataModule_1163) &&
           _interopRequireDefault.on('click', () => {
             _interopRequireDefault.focus();
           }),
@@ -134514,7 +134939,7 @@ function (exports, module, require) {
       const _interopRequireDefault = this._removeCDRExtensionFromFileName(e.name);
       var GEditor = this,
         GCloudFileBrowser = this.filesPanel.isItemSelected(e),
-        c = this.filesPanel.isItemInClipboard(e),
+        DataModule_593 = this.filesPanel.isItemInClipboard(e),
         GSystemDialog = null;
       GSystemDialog = module
         ? this.panel.find('.g-recent-files-list')
@@ -134528,7 +134953,7 @@ function (exports, module, require) {
         .addClass('g-cloud-element')
         .addClass(e.id)
         .addClass(GCloudFileBrowser ? 'selected' : '')
-        .addClass(c && this.filesPanel.isClipboardModeCut() ? 'cut' : '')
+        .addClass(DataModule_593 && this.filesPanel.isClipboardModeCut() ? 'cut' : '')
         .data('node', e)
         .attr('data-title', e._rootPath ? e._rootPath : _interopRequireDefault)
         .on('dragstart', function (t) {
@@ -134579,9 +135004,13 @@ function (exports, module, require) {
         y,
         v = $('<div />').addClass('image-container').appendTo(u);
       this.filesPanel.getSortType() === p.GFilesPanelSortTypes.CREATED
-        ? ((GContainer = (0, s.dateToFilePreviewFormat)(e.created ? e.created : e.updated)),
+        ? ((GContainer = (0, DataModule_1163.dateToFilePreviewFormat)(
+            e.created ? e.created : e.updated
+          )),
           (y = GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.created'))))
-        : ((GContainer = (0, s.dateToFilePreviewFormat)(e.updated ? e.updated : e.created)),
+        : ((GContainer = (0, DataModule_1163.dateToFilePreviewFormat)(
+            e.updated ? e.updated : e.created
+          )),
           (y = GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.updated'))));
       var GMenu = e instanceof GCloudStorageItem && e.getSize(),
         GMenu2 = '';
@@ -134763,19 +135192,19 @@ function (exports, module, require) {
       const _interopRequireDefault = this._removeCDRExtensionFromFileName(e.name),
         GCloudFileBrowser = this;
       GCloudFileBrowser.toggleLoading(false);
-      var s = t.find('input');
-      (s.off('focusout'), s.off('keypress'));
+      var DataModule_1163 = t.find('input');
+      (DataModule_1163.off('focusout'), DataModule_1163.off('keypress'));
       var CollaborationMergeUtils = t.find('div.name');
       (t.addClass('renaming'),
         $(t).attr('data-title', _interopRequireDefault),
         CollaborationMergeUtils.text(_interopRequireDefault),
-        s.css('width', CollaborationMergeUtils.outerWidth()),
-        s.val(_interopRequireDefault),
+        DataModule_1163.css('width', CollaborationMergeUtils.outerWidth()),
+        DataModule_1163.val(_interopRequireDefault),
         $(t).find('.file-name-container').removeClass('ending'),
-        s.css('width', CollaborationMergeUtils.outerWidth()));
-      var c = s.val(),
+        DataModule_1163.css('width', CollaborationMergeUtils.outerWidth()));
+      var DataModule_593 = DataModule_1163.val(),
         u = false;
-      (s.show(), CollaborationMergeUtils.hide(), s.focus());
+      (DataModule_1163.show(), CollaborationMergeUtils.hide(), DataModule_1163.focus());
       const p = (t) => {
         let n;
         return (
@@ -134800,9 +135229,9 @@ function (exports, module, require) {
       };
       var h = async function () {
         try {
-          (s.hide(), CollaborationMergeUtils.show());
+          (DataModule_1163.hide(), CollaborationMergeUtils.show());
           let _interopRequireDefault,
-            GEditor = s.val();
+            GEditor = DataModule_1163.val();
           if (
             e.getType() === GCloudStorageItem.Type.File &&
             !GCloudFileBrowser._isUserInputValidFileName(GEditor)
@@ -134811,19 +135240,19 @@ function (exports, module, require) {
               GSystemDialog.default.alert(
                 GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.new-file-name-invalid'))
               ),
-              void s.val(c)
+              void DataModule_1163.val(DataModule_593)
             );
           if (GEditor.trim() && GEditor.trim() !== e.name) {
             GCloudFileBrowser.toggleLoading(true);
             try {
               let GCore = 0;
-              const s = e.ext || e.extension;
+              const DataModule_1163 = e.ext || e.extension;
               if (GCloudFileBrowser.filesPanel.drive.supportsSaveCollisionFlow())
                 if (e.getType() === GCloudStorageItem.Type.File) {
                   if (
                     (await GCloudFileBrowser.filesPanel.drive.fileExists(
                       GEditor,
-                      s,
+                      DataModule_1163,
                       e.parent || GCloudFileBrowser.filesPanel.drive.getRootFolder()
                     )) &&
                     !(await p(GEditor))
@@ -134834,7 +135263,7 @@ function (exports, module, require) {
                       _interopRequireDefault = GEditor;
                       await GCloudFileBrowser.filesPanel.drive.fileExists(
                         _interopRequireDefault,
-                        s,
+                        DataModule_1163,
                         e.parent || GCloudFileBrowser.filesPanel.drive.getRootFolder()
                       );
                     )
@@ -134865,7 +135294,7 @@ function (exports, module, require) {
                 GCloudFileBrowser.toggleLoading(false),
                 e && e.badName
                   ? void GSystemDialog.default.alert(e.message)
-                  : (s.val(c),
+                  : (DataModule_1163.val(DataModule_593),
                     void GSystemDialog.default.alert(
                       GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.error-renaming'))
                     ))
@@ -134884,7 +135313,7 @@ function (exports, module, require) {
               }
             })(_interopRequireDefault),
               (e.name = _interopRequireDefault),
-              s.css('width', CollaborationMergeUtils.outerWidth()));
+              DataModule_1163.css('width', CollaborationMergeUtils.outerWidth()));
             const u = (t) => {
               (($(t).data('node').name = _interopRequireDefault),
                 $(t).attr('data-title', _interopRequireDefault),
@@ -134901,12 +135330,12 @@ function (exports, module, require) {
               GCloudFileBrowser.filesPanel._triggerFileRenamed(e),
               GCloudFileBrowser.toggleLoading(false),
               n && n());
-          } else s.val(c);
+          } else DataModule_1163.val(DataModule_593);
         } catch (e) {
           throw (console.log('err changing the name', e), e);
         }
       };
-      s.on('focusout', function () {
+      DataModule_1163.on('focusout', function () {
         (u || (h(), (u = true)), t.removeClass('renaming'));
       }).on('keypress', function (e) {
         const n = e.which || e.charCode || e.keyCode;
@@ -134954,7 +135383,7 @@ function (exports, module, require) {
             var t = this.filesPanel.getSelection();
             (e.sender.setEnabled(1 === t.length),
               e.sender.setVisible(
-                !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+                !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                   this._checkItemPermission(t, GCloudStorageItem.Permission.Open)
               ));
           },
@@ -134973,7 +135402,7 @@ function (exports, module, require) {
             var t = this.filesPanel.getSelection();
             (e.sender.setEnabled(1 === t.length),
               e.sender.setVisible(
-                !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+                !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                   this._checkItemPermission(t, GCloudStorageItem.Permission.Rename)
               ));
           },
@@ -134992,7 +135421,7 @@ function (exports, module, require) {
             (e.sender.setEnabled(require),
               e.sender.setVisible(
                 this._checkItemPermission(t, GCloudStorageItem.Permission.CutPaste) ||
-                  (0, c.hasRootFolderInSelections)(this.filesPanel.drive, t)
+                  (0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t)
               ));
           },
         },
@@ -135009,7 +135438,7 @@ function (exports, module, require) {
             ),
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
-                !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+                !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                   this._checkItemPermission(t, GCloudStorageItem.Permission.Copy)
               ));
           },
@@ -135027,7 +135456,7 @@ function (exports, module, require) {
             ),
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
-                !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+                !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                   this._checkItemPermission(t, GCloudStorageItem.Permission.CutPaste)
               ));
           },
@@ -135045,7 +135474,7 @@ function (exports, module, require) {
             ),
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
-                !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+                !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                   this._checkItemPermission(t, GCloudStorageItem.Permission.Delete)
               ));
           },
@@ -135074,7 +135503,7 @@ function (exports, module, require) {
             ),
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
-                !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+                !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                   this._checkItemPermission(t, GCloudStorageItem.Permission.UnshareWithMe)
               ));
           },
@@ -135112,7 +135541,7 @@ function (exports, module, require) {
           ),
             e.sender.setEnabled(t.length > 0),
             e.sender.setVisible(
-              !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
+              !(0, DataModule_593.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
                 this._checkItemPermission(t, GCloudStorageItem.Permission.Download) &&
                 !this._isFolderSelected()
             ));
@@ -135391,16 +135820,16 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* GCore */,
-    a = require(1163) /* module_1163 */,
+    DataModule_1163 = require(1163) /* DataModule_1163 */,
     r = _interopRequireDefault(require(1090) /* module_1090 */),
     GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10); /* AppSettings */
   const GObject = require(0) /* GObject */,
-    u = require(1551) /* module_1551 */,
-    p = require(1174); /* module_1174 */
+    DataModule_1551 = require(1551) /* DataModule_1551 */,
+    GEvent_type_1174 = require(1174); /* GEvent_type_1174 */
   function g() {}
-  (GObject.inherit(g, u),
+  (GObject.inherit(g, DataModule_1551),
     (g.prototype.render = async function (e, t) {
       (this._createUI(e), await this._updateUIForFile(e, t));
     }),
@@ -135464,7 +135893,7 @@ function (exports, module, require) {
       const require = e.find('.share-button'),
         _interopRequireDefault = e.find('.comments-number'),
         GObject = e.find('.comments-label'),
-        u = e.find('.collaborators-number'),
+        DataModule_1551 = e.find('.collaborators-number'),
         g = e.find('.file-created'),
         h = e.find('.collaboration'),
         f = e.find('.status'),
@@ -135472,7 +135901,9 @@ function (exports, module, require) {
       (e.find('.file-preview').attr('src', t.getPreviewURL() || AppSettings.DEFAULT_FILE_THUMBNAIL),
         e.find('.file-preview').unbind('dblclick'),
         e.find('.file-preview').on('dblclick', (e) => {
-          (e.stopPropagation(), e.preventDefault(), this._triggerEvent(p.Type.DoubleClickFile, t));
+          (e.stopPropagation(),
+            e.preventDefault(),
+            this._triggerEvent(GEvent_type_1174.Type.DoubleClickFile, t));
         }),
         e.find('.file-name').text(t.name),
         e.data('fileId', t.id));
@@ -135482,7 +135913,7 @@ function (exports, module, require) {
       g.text(
         GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanelViewBase', 'text.created')).replace(
           '%createdTime',
-          (0, a.dateToFilePreviewFormat)(t.created || v.created)
+          (0, DataModule_1163.dateToFilePreviewFormat)(t.created || v.created)
         )
       );
       const _ = (v && GAnnotationsUtils.default.getCommentsCount(v)) || 0;
@@ -135520,7 +135951,7 @@ function (exports, module, require) {
           storeItem: y,
           isSharing: w,
           closeCallback: () => {
-            this._triggerEvent(p.Type.Reload);
+            this._triggerEvent(GEvent_type_1174.Type.Reload);
           },
           isPrivate: b,
         }),
@@ -135532,7 +135963,7 @@ function (exports, module, require) {
       (e.find('.comments').show(),
         x.length > 1 && v ? (f.show(), this._updateStatus(e, v.status)) : f.hide());
       const S = v.getPrivateShareList().filter((e) => !e.owner).length;
-      S > 0 ? (m.show(), u.text(S)) : m.hide();
+      S > 0 ? (m.show(), DataModule_1551.text(S)) : m.hide();
     }),
     (g.prototype._updateStatus = function (e, t) {
       const require = e.find('.state');
@@ -135570,14 +136001,14 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   const GEventTarget = require(75) /* GEventTarget */,
     GObject = require(0) /* GObject */,
-    a = require(1174); /* module_1174 */
+    GEvent_type_1174 = require(1174); /* GEvent_type_1174 */
   function r() {}
   (GObject.inherit(r, GEventTarget),
     (r.prototype.render = async function (e, t) {
       throw 'Not implemented!';
     }),
     (r.prototype._triggerEvent = async function (e, t) {
-      this.hasEventListeners(a) && this.trigger(new a(e, t));
+      this.hasEventListeners(GEvent_type_1174) && this.trigger(new GEvent_type_1174(e, t));
     }),
     (exports.exports = r));
 }
@@ -135611,12 +136042,12 @@ function (exports, module, require) {
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     s = _interopRequireDefault(require(86) /* module_86 */),
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
-    c = _interopRequireDefault(require(355) /* module_355 */);
+    AppError = _interopRequireDefault(require(355) /* AppError */);
   const d = require(1554) /* RawValue */,
-    u = require(1301) /* module_1301 */,
+    DataModule_1301 = require(1301) /* DataModule_1301 */,
     GGoogleDriveItem = require(556) /* GGoogleDriveItem */,
     GCloudStorageItem = require(156) /* GCloudStorageItem */,
-    h = require(1555) /* module_1555 */,
+    DataModule_1555 = require(1555) /* DataModule_1555 */,
     GoogleDriveException = require(848) /* GoogleDriveException */,
     m = require(595) /* module_595 */,
     barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
@@ -135635,7 +136066,7 @@ function (exports, module, require) {
       appId: a = null,
       accessToken: GDocumentEvent,
       expires: s,
-      corporate: c = false,
+      corporate: AppError = false,
     } = this._settings;
     if (
       ((this._settings = Object.assign(this._settings, {
@@ -135644,7 +136075,7 @@ function (exports, module, require) {
         appId: a,
         accessToken: GDocumentEvent,
         expires: s,
-        corporate: c,
+        corporate: AppError,
       })),
       this._settings.corporate &&
         (this._securityLevel = barrel_purchase_urls.SecurityLevel.Highest),
@@ -135652,7 +136083,7 @@ function (exports, module, require) {
         (this._googleDriveClient = this._buildGoogleClient({
           accessToken: GDocumentEvent,
           expires: s,
-          corporate: c,
+          corporate: AppError,
           accountId: module,
         })),
       (this._clientId = require),
@@ -135820,8 +136251,8 @@ function (exports, module, require) {
         gContainer.getGoogleAPI().openFilePicker((GDocumentEvent) => {
           if ((e.toggleLoading(true), 1 === GDocumentEvent.length)) {
             const s = GDocumentEvent[0],
-              { id: CloudException, type: c } = s;
-            'folder' !== c
+              { id: CloudException, type: AppError } = s;
+            'folder' !== AppError
               ? (require(GDocumentEvent).then((e) => {
                   let { showMessage: t } = e;
                   t &&
@@ -135982,7 +136413,7 @@ function (exports, module, require) {
                 .catch((e) =>
                   e && 'popup_blocked_by_browser' === e.error
                     ? t(
-                        new c.default(
+                        new AppError.default(
                           GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GExternalStorage',
@@ -136004,7 +136435,7 @@ function (exports, module, require) {
       let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : -1;
       var _interopRequireDefault = t ? this._getParentReference(t) : this._getParentContext();
       return this._search(
-        u.from({
+        DataModule_1301.from({
           type: GCloudStorageItem.Type.Folder,
           limit: require > 0 ? require : 1e3,
           orderBy: S.SearchEngine.SortMap[e],
@@ -136063,7 +136494,7 @@ function (exports, module, require) {
     }),
     (S.prototype._search = async function (e, t) {
       var n = (e.hasKey('limit') && e.getAsInt('limit')) || this.getQueryLimit();
-      t = t || new h({ query: e });
+      t = t || new DataModule_1555({ query: e });
       return new Promise(async (_interopRequireDefault, GCore) => {
         try {
           var a = {
@@ -136086,13 +136517,13 @@ function (exports, module, require) {
           var { files: s, nextPageToken: CloudException } = GCore;
           if (!s.length) return _interopRequireDefault(t);
           s = t.getSize() + s.length > n ? s.slice(0, Math.max(n - t.getSize(), 0)) : s;
-          var c = await this._convertToCloudItems(s);
+          var AppError = await this._convertToCloudItems(s);
           return (
             e.hasValue('parent') &&
-              c.forEach((t) => {
+              AppError.forEach((t) => {
                 t.parent = e.parent;
               }),
-            t.update({ nextPageToken: CloudException, items: c }),
+            t.update({ nextPageToken: CloudException, items: AppError }),
             t.getSize() < n && CloudException && (t = await this._search(e, t)),
             _interopRequireDefault(t)
           );
@@ -136130,7 +136561,7 @@ function (exports, module, require) {
     (S.prototype.fileExists = async function (e, t, n) {
       var _interopRequireDefault = n ? this._getParentReference(n) : this._getParentContext();
       return this._search(
-        u.from({
+        DataModule_1301.from({
           type: GCloudStorageItem.Type.File,
           parent: _interopRequireDefault,
           exactname: ''.concat(e, '.').concat(t),
@@ -136141,7 +136572,7 @@ function (exports, module, require) {
     (S.prototype.folderExists = function (e, t) {
       var n = t ? this._getParentReference(t) : this._getParentContext();
       return this._search(
-        u.from({ type: GCloudStorageItem.Type.Folder, parent: n, exactname: e })
+        DataModule_1301.from({ type: GCloudStorageItem.Type.Folder, parent: n, exactname: e })
       ).then((e) => !!e.getItems().length);
     }),
     (S.prototype.getRawFile = function (e, t, n) {
@@ -136186,8 +136617,8 @@ function (exports, module, require) {
         _interopRequireDefault =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
         CloudException = arguments.length > 4 ? arguments[4] : undefined;
-      return new Promise(async (c, d) => {
-        const u = function (e, t, n) {
+      return new Promise(async (AppError, d) => {
+        const DataModule_1301 = function (e, t, n) {
           console.log(e);
           const _interopRequireDefault = gDesigner.getHeader(),
             a = _interopRequireDefault.getWindowTab(gDesigner.getWindows().getWindow(t)),
@@ -136226,8 +136657,8 @@ function (exports, module, require) {
             m = a !== this.getDefaultFileFormat().mime,
             barrel_purchase_urls = this.getCorporateStorage();
           barrel_purchase_urls && (GoogleDriveException.driveId = barrel_purchase_urls.id);
-          var h = await this._createStorageItem(GoogleDriveException);
-          (h.setCloudClient(this._googleDriveClient),
+          var DataModule_1555 = await this._createStorageItem(GoogleDriveException);
+          (DataModule_1555.setCloudClient(this._googleDriveClient),
             gDesigner.addDocument(GGoogleDriveItem),
             GGoogleDriveItem.setSynchronizing(true),
             GGoogleDriveItem.setTitle(t),
@@ -136242,11 +136673,11 @@ function (exports, module, require) {
                 CloudException && CloudException(s.default.Loaded),
                 (_interopRequireDefault =
                   GGoogleDriveItem.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
-                h.write(
+                DataModule_1555.write(
                   GGoogleDriveItem,
                   async () => {
                     (e && e.getEditor() && gDesigner.removeDocument(e, null, true),
-                      GGoogleDriveItem.setStorageItem(h),
+                      GGoogleDriveItem.setStorageItem(DataModule_1555),
                       await GGoogleDriveItem.saveAnnotations(m, true),
                       GGoogleDriveItem.setSynchronizing(false),
                       CloudException && CloudException(s.default.Saved),
@@ -136263,9 +136694,9 @@ function (exports, module, require) {
                             GGoogleDriveItem
                           )
                         )),
-                      gDesigner.addToRecentFiles(h),
+                      gDesigner.addToRecentFiles(DataModule_1555),
                       GGoogleDriveItem.updateStatus(s.default.Saved),
-                      c());
+                      AppError());
                   },
                   () => {
                     (console.error('>>>saveNewFile write error', arguments),
@@ -136277,9 +136708,9 @@ function (exports, module, require) {
                   _interopRequireDefault
                 ));
             })
-            .catch((t) => u(t, GGoogleDriveItem, e));
+            .catch((t) => DataModule_1301(t, GGoogleDriveItem, e));
         } catch (t) {
-          u(t, GGoogleDriveItem, e);
+          DataModule_1301(t, GGoogleDriveItem, e);
         }
       });
     }),
@@ -136314,11 +136745,11 @@ function (exports, module, require) {
         ? this._getParentReference(_interopRequireDefault)
         : this._getParentContext();
       if (t && GCore && !GCore.nextPageToken) {
-        var GDocumentEvent = h.from(GCore);
+        var GDocumentEvent = DataModule_1555.from(GCore);
         return ((GDocumentEvent.items = []), GDocumentEvent);
       }
       return this._search(
-        u.from({
+        DataModule_1301.from({
           type: GCloudStorageItem.Type.File,
           limit: this.getQueryLimit(),
           orderBy: S.SearchEngine.SortMap[n],
@@ -136338,12 +136769,13 @@ function (exports, module, require) {
       return true;
     }),
     (S.prototype.getCorporateStorages = function () {
-      let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : new u(),
+      let exports =
+          arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : new DataModule_1301(),
         module = arguments.length > 1 ? arguments[1] : undefined;
       if (this.shouldOnlyListOwnedFiles()) return Promise.resolve([]);
       var n = (exports.hasKey('limit') && exports.getAsInt('limit')) || this.getQueryLimit();
       return (
-        (module = module || new h({ query: exports })),
+        (module = module || new DataModule_1555({ query: exports })),
         new Promise(async (_interopRequireDefault, GCore) => {
           try {
             const GCore = {
@@ -136495,7 +136927,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(97)) /* stub_requires_684 */;
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
-    i = require(1301); /* module_1301 */
+    DataModule_1301 = require(1301); /* DataModule_1301 */
   function a(e) {
     var t, n, GCloudStorageItem;
     if (
@@ -136531,7 +136963,7 @@ function (exports, module, require) {
     (a.from = function (e) {
       var t = new a();
       return (
-        (t = Object.assign(t, e)).query && (t.query = i.from(t.query)),
+        (t = Object.assign(t, e)).query && (t.query = DataModule_1301.from(t.query)),
         t.items && (t.items = t.items.map((e) => GCloudStorageItem.from(e))),
         t
       );
@@ -137041,7 +137473,7 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     toString_default = require(37) /* toString_default */,
-    a = require(121) /* module_121 */,
+    DataModule_121 = require(121) /* DataModule_121 */,
     r = require(143) /* module_143 */,
     s = [].push;
   core_export(
@@ -137049,7 +137481,7 @@ function (exports, module, require) {
     {
       toArray: function () {
         var e = [];
-        return (a(r(toString_default(this)), s, { that: e, IS_RECORD: true }), e);
+        return (DataModule_121(r(toString_default(this)), s, { that: e, IS_RECORD: true }), e);
       },
     }
   );
@@ -137961,7 +138393,7 @@ function (exports, module, require) {
       return (function (e, t) {
         if (!t && e && e.__esModule) return e;
         var i,
-          a,
+          GDocument_389,
           GCore = { __proto__: null, default: e };
         if (null === e || ('object' != typeof e && 'function' != typeof e)) return GCore;
         if ((i = t ? _interopRequireDefault : require)) {
@@ -137971,17 +138403,18 @@ function (exports, module, require) {
         for (const t in e)
           'default' !== t &&
             {}.hasOwnProperty.call(e, t) &&
-            ((a = (i = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) &&
-            (a.get || a.set)
-              ? i(GCore, t, a)
+            ((GDocument_389 =
+              (i = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) &&
+            (GDocument_389.get || GDocument_389.set)
+              ? i(GCore, t, GDocument_389)
               : (GCore[t] = e[t]));
         return GCore;
       })(e, t);
     })(require(10) /* AppSettings */),
-    a = _interopRequireDefault(require(389) /* module_389 */),
+    GDocument_389 = _interopRequireDefault(require(389) /* GDocument_389 */),
     GCore = require(1); /* GCore */
   const GDocumentEvent = require(78) /* GDocumentEvent */,
-    l = require(441) /* module_441 */,
+    GEvent_license = require(441) /* GEvent_license */,
     {
       PRODUCT_NAME: c,
       PRODUCT_APP_NAME: d,
@@ -137992,7 +138425,7 @@ function (exports, module, require) {
   exports.exports = class {
     constructor(e) {
       (gDesigner.addEventListener(GDocumentEvent, this._handleDocumentEvent, this),
-        gDesigner.addEventListener(l, this._handleLicenseChangedEvent, this),
+        gDesigner.addEventListener(GEvent_license, this._handleLicenseChangedEvent, this),
         (this._amplitudeHelper = e),
         this._updateUserProperties());
     }
@@ -138040,7 +138473,7 @@ function (exports, module, require) {
       });
     }
     _isSimplifiedExporting(e) {
-      return !!e && !e.endsWith(a.default.GVDESIGN.ext);
+      return !!e && !e.endsWith(GDocument_389.default.GVDESIGN.ext);
     }
     _getDocumentOpenedFileFormat(e) {
       return e.document.fileExtension || e.document.getExtension();
@@ -138513,7 +138946,7 @@ function (exports, module, require) {
         } = {},
       } = {},
     } = require(10) /* AppSettings */,
-    { IS_TRUNK: _, IS_BETA: b, IS_RC: w, IS_LTS: C } = require(231) /* module_231 */,
+    { IS_TRUNK: _, IS_BETA: b, IS_RC: w, IS_LTS: C } = require(231) /* DataModule_231 */,
     { sleep: x } = require(40) /* CollaborationMergeUtils */,
     GUserModel = require(177) /* GUserModel */,
     GSystemDialog = require(44) /* GSystemDialog */,
@@ -138521,8 +138954,8 @@ function (exports, module, require) {
     T = require(388) /* Item */,
     G = require(433) /* module_433 */,
     barrel_panels = require(257) /* barrel_panels */,
-    D = require(436) /* module_436 */,
-    L = require(336); /* module_336 */
+    DataModule_436 = require(436) /* DataModule_436 */,
+    GEvent_storageItem = require(336); /* GEvent_storageItem */
   class I {
     constructor(e, t, n) {
       ((this._user = e),
@@ -138565,8 +138998,10 @@ function (exports, module, require) {
           .createShare(this._storageItem.getId(), e)
           .then(
             () => (
-              gDesigner.hasEventListeners(L) &&
-                gDesigner.trigger(new L(L.Type.ShareCreated, this._storageItem)),
+              gDesigner.hasEventListeners(GEvent_storageItem) &&
+                gDesigner.trigger(
+                  new GEvent_storageItem(GEvent_storageItem.Type.ShareCreated, this._storageItem)
+                ),
               this._loadShare()
             )
           );
@@ -138698,7 +139133,7 @@ function (exports, module, require) {
       return G.makeFromShare(e);
     }
     _loadShare() {
-      if (!this._storageItem.hasMixin(D))
+      if (!this._storageItem.hasMixin(DataModule_436))
         throw (console.log('Storage item not supported'), 'Storage not supported');
       return this._storageItem
         .getOrCreateCollaborativeFile()
@@ -139445,7 +139880,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var AppSettings = require(10); /* AppSettings */
-  const i = require(292) /* module_292 */,
+  const GEvent_user = require(292) /* GEvent_user */,
     a = require(220) /* Item */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     s = require(536) /* module_536 */,
@@ -139454,7 +139889,7 @@ function (exports, module, require) {
   var d = null;
   function u(e) {
     if (d) throw new Error('GCloudCommunicationManager is a singleton');
-    (e.addEventListener(i, this._userLoggedEvent, this),
+    (e.addEventListener(GEvent_user, this._userLoggedEvent, this),
       e.addEventListener(GDocumentEvent, this._documentEvent, this),
       (d = this),
       this.initialize());
@@ -139562,10 +139997,11 @@ function (exports, module, require) {
     }));
   var p = {};
   async function g(e, t, n) {
-    let i, a;
+    let GEvent_user, a;
     try {
-      if (((i = AppSettings.gApi[t](n)), !(i instanceof Promise))) return i;
-      a = await i;
+      if (((GEvent_user = AppSettings.gApi[t](n)), !(GEvent_user instanceof Promise)))
+        return GEvent_user;
+      a = await GEvent_user;
     } catch (e) {
       throw e;
     } finally {
@@ -139597,10 +140033,10 @@ function (exports, module, require) {
   var GUtil = _interopRequireDefault(require(11) /* GUtil */);
   require(1322) /* GShareManager */;
   const GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
-    r = require(1570) /* module_1570 */,
-    s = require(392) /* module_392 */,
-    l = require(1323) /* module_1323 */,
-    c = require(441) /* module_441 */,
+    DataModule_1570 = require(1570) /* DataModule_1570 */,
+    GEvent_document = require(392) /* GEvent_document */,
+    GEvent_document_1323 = require(1323) /* GEvent_document_1323 */,
+    GEvent_license = require(441) /* GEvent_license */,
     {
       SHARE_ENGINE: d,
       HAS_ANNOTATIONS: u,
@@ -139610,25 +140046,25 @@ function (exports, module, require) {
       LEGACY_SHARE_DIALOG: f,
     } = require(10); /* AppSettings */
   function m(e) {
-    ((this._state = new r()),
-      d && gDesigner.addEventListener(l, this._shareStateChangedEvent, this),
+    ((this._state = new DataModule_1570()),
+      d && gDesigner.addEventListener(GEvent_document_1323, this._shareStateChangedEvent, this),
       gDesigner.addEventListener(GApplicationStatusEvent, this._applicationStatusEvent, this),
-      gDesigner.addEventListener(c, this._licenseChangedEvent, this),
+      gDesigner.addEventListener(GEvent_license, this._licenseChangedEvent, this),
       this._init(e));
   }
   ((m.prototype._init = async function (e) {
     e && e();
   }),
     (m.prototype._shareStateChangedEvent = function (e) {
-      const module = new r(Object.assign({}, this._state)),
+      const module = new DataModule_1570(Object.assign({}, this._state)),
         {
           owner: require,
           share: _interopRequireDefault,
           sharing: GUtil,
           edit: GApplicationStatusEvent,
-          inspect: s,
-          copy: l,
-          comment: c,
+          inspect: GEvent_document,
+          copy: GEvent_document_1323,
+          comment: GEvent_license,
           isPrivate: d,
           role: p,
           realtimeCollaborators: g = [],
@@ -139644,11 +140080,11 @@ function (exports, module, require) {
           })
         : Object.assign(module, {
             edit: GApplicationStatusEvent,
-            saveAs: l,
-            export: l,
-            copyPaste: l,
-            inspect: s,
-            comment: c,
+            saveAs: GEvent_document_1323,
+            export: GEvent_document_1323,
+            copyPaste: GEvent_document_1323,
+            inspect: GEvent_document,
+            comment: GEvent_license,
           }),
         Object.assign(module, {
           isShareEnabled: _interopRequireDefault,
@@ -139664,7 +140100,7 @@ function (exports, module, require) {
         ((this._state = e), this._triggerAppStateEvent(t, e));
     }),
     (m.prototype._triggerAppStateEvent = function (e, t) {
-      gDesigner.hasEventListeners(s) && gDesigner.trigger(new s(e, t));
+      gDesigner.hasEventListeners(GEvent_document) && gDesigner.trigger(new GEvent_document(e, t));
     }),
     (m.prototype._applicationStatusEvent = function (e) {
       e.status === GApplicationStatusEvent.Status.Ready &&
@@ -139975,9 +140411,9 @@ function (exports, module, require) {
     require(114)) /* stub_requires_424 */;
   var AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
-  const a = require(1186) /* module_1186 */,
-    r = require(1575); /* module_1575 */
-  exports.exports = class extends a {
+  const DataModule_1186 = require(1186) /* DataModule_1186 */,
+    DataModule_1575 = require(1575); /* DataModule_1575 */
+  exports.exports = class extends DataModule_1186 {
     constructor() {
       (super(), (this._url = new URL(AppSettings.gApi.url)));
     }
@@ -140019,7 +140455,7 @@ function (exports, module, require) {
       return ((e = e || 0), this._url.searchParams.set('layout', e), this);
     }
     build() {
-      return new r(this._id, this._url.toString());
+      return new DataModule_1575(this._id, this._url.toString());
     }
   };
 }
@@ -140027,9 +140463,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   const GCrossFrameManager = require(1252) /* GCrossFrameManager */,
-    i = require(1187) /* module_1187 */,
+    DataModule_1187 = require(1187) /* DataModule_1187 */,
     { gApi: a } = require(10); /* AppSettings */
-  exports.exports = class extends i {
+  exports.exports = class extends DataModule_1187 {
     constructor(e, t) {
       (super(), (this._id = e), (this._url = t));
     }
@@ -140055,8 +140491,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(30) /* polyfill_Object_assign */;
-  const o = require(1186); /* module_1186 */
-  exports.exports = class extends o {
+  const DataModule_1186 = require(1186); /* DataModule_1186 */
+  exports.exports = class extends DataModule_1186 {
     constructor(e) {
       (super(), (this._crossViewClass = e), (this._dialogOptions = {}));
     }
@@ -140096,7 +140532,7 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */, require(8)) /* polyfill_bundle_ES6 */;
   var AppSettings = require(10) /* AppSettings */,
     GCore = require(1) /* GCore */,
-    r = _interopRequireDefault(require(1187) /* module_1187 */);
+    DataModule_1187 = _interopRequireDefault(require(1187) /* DataModule_1187 */);
   function s() {}
   (GCore.GObject.inherit(s, AppSettings.GPaywallDialog.Impl),
     (s.prototype.open = function (e) {
@@ -140143,7 +140579,7 @@ function (exports, module, require) {
     (s.prototype.getLanguage = function () {
       return GCore.GLocale.getLanguage();
     }));
-  class l extends r.default {
+  class l extends DataModule_1187.default {
     constructor(e) {
       (super(), (this._dialogOptions = e));
     }
@@ -140193,7 +140629,7 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */, require(8)) /* polyfill_bundle_ES6 */;
   var AppSettings = require(10) /* AppSettings */,
     GCore = require(1) /* GCore */,
-    r = _interopRequireDefault(require(1187) /* module_1187 */);
+    DataModule_1187 = _interopRequireDefault(require(1187) /* DataModule_1187 */);
   class s extends AppSettings.GReminderDialog.Impl {
     open(e) {
       let { dialog: module } = e;
@@ -140234,7 +140670,7 @@ function (exports, module, require) {
       return GCore.GLocale.getLanguage();
     }
   }
-  class l extends r.default {
+  class l extends DataModule_1187.default {
     constructor(e) {
       (super(), (this._dialogOptions = e));
     }
@@ -140275,7 +140711,7 @@ function (exports, module, require) {
   'use strict';
   const GTouchEventHandler = require(878) /* GTouchEventHandler */,
     GTouchClickGesture = require(879) /* GTouchClickGesture */,
-    a = require(1329); /* module_1329 */
+    DataModule_1329 = require(1329); /* DataModule_1329 */
   exports.exports = class extends GTouchEventHandler {
     constructor(e) {
       (super(e),
@@ -140285,7 +140721,7 @@ function (exports, module, require) {
             doubleTapThreshold: 200,
           })
         ),
-        this.addGesture(new a()),
+        this.addGesture(new DataModule_1329()),
         this.setClickSuppressionEnabled(true));
     }
     _touchEnd(e) {
@@ -140462,15 +140898,15 @@ function (exports, module, require) {
   const GTouchEventHandler = require(878) /* GTouchEventHandler */,
     GTouchPinchZoomGesture = require(1585) /* GTouchPinchZoomGesture */,
     GTouchClickGesture = require(879) /* GTouchClickGesture */,
-    s = require(1586) /* module_1586 */,
-    l = require(1329); /* module_1329 */
+    DataModule_1586 = require(1586) /* DataModule_1586 */,
+    DataModule_1329 = require(1329); /* DataModule_1329 */
   exports.exports = class extends GTouchEventHandler {
     constructor(e) {
       (super(e),
         this.addGesture(new GTouchPinchZoomGesture()),
         this.addGesture(new GTouchClickGesture()),
-        this.addGesture(new l()),
-        this.addGesture(new s()));
+        this.addGesture(new DataModule_1329()),
+        this.addGesture(new DataModule_1586()));
     }
     _handleEvent(e) {
       (e.cancelable && e.preventDefault(), super._handleEvent(e));
@@ -140491,7 +140927,7 @@ function (exports, module, require) {
     GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
-    s = _interopRequireDefault(require(880) /* module_880 */),
+    DataModule_880 = _interopRequireDefault(require(880) /* DataModule_880 */),
     l = _interopRequireDefault(require(1189) /* module_1189 */);
   let c = false,
     d = 0,
@@ -140506,7 +140942,7 @@ function (exports, module, require) {
     _ = 0,
     b = GCore.GPaintCanvas.getScreenDPI() * GEditor.GSceneWidget.options.pinchToZoomFactor,
     w = 2 / GCore.GPaintCanvas.getScreenDPI();
-  class C extends s.default {
+  class C extends DataModule_880.default {
     canActivate(e) {
       return e.areThereTwoTouchPointsOnTheTarget();
     }
@@ -140537,10 +140973,10 @@ function (exports, module, require) {
       const require = gDesigner.getActiveView();
       if (!require) return true;
       const _interopRequireDefault = module.targetTouches[0],
-        s = module.targetTouches[1];
-      if (!s) return true;
+        DataModule_880 = module.targetTouches[1];
+      if (!DataModule_880) return true;
       const { clientX: l, clientY: h } = _interopRequireDefault,
-        { clientX: f, clientY: C } = s;
+        { clientX: f, clientY: C } = DataModule_880;
       if (
         d &&
         ((c =
@@ -140561,8 +140997,8 @@ function (exports, module, require) {
           let l = gDesigner.getWindows().getActiveWindow().getView().getZoom() + AppSettings / b;
           const c = new Touch({
             identifier: GCore.GUtil.uuid(),
-            pageX: (_interopRequireDefault.pageX + s.pageX) / 2,
-            pageY: (_interopRequireDefault.pageY + s.pageY) / 2,
+            pageX: (_interopRequireDefault.pageX + DataModule_880.pageX) / 2,
+            pageY: (_interopRequireDefault.pageY + DataModule_880.pageY) / 2,
             target: _interopRequireDefault.target,
           });
           l =
@@ -140598,8 +141034,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
     AppSettings = require(10) /* AppSettings */,
-    a = _interopRequireDefault(require(880) /* module_880 */);
-  class r extends a.default {
+    DataModule_880 = _interopRequireDefault(require(880) /* DataModule_880 */);
+  class r extends DataModule_880.default {
     canActivate(e) {
       return e.isThereOneTouchPointOnTheTarget();
     }
@@ -140627,7 +141063,7 @@ function (exports, module, require) {
       const {
         clientX: require,
         clientY: _interopRequireDefault,
-        target: a,
+        target: DataModule_880,
       } = module.targetTouches[0];
       this._longPressEventTimeout = setTimeout(() => {
         const e = jQuery.Event('contextmenu', {
@@ -140636,7 +141072,7 @@ function (exports, module, require) {
           clientX: require,
           clientY: _interopRequireDefault,
         });
-        $(a).trigger(e);
+        $(DataModule_880).trigger(e);
       }, AppSettings.LONG_PRESS_TIME_OUT);
     }
     _dropLongPressEvent() {
@@ -140666,7 +141102,7 @@ function (exports, module, require) {
     GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
-    l = _interopRequireDefault(require(1330) /* module_1330 */),
+    GEvent_fullscreen = _interopRequireDefault(require(1330) /* GEvent_fullscreen */),
     GMenu = _interopRequireDefault(require(238) /* GMenu */),
     GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
     GCutCopyAction = _interopRequireDefault(require(1331) /* GCutCopyAction */),
@@ -140764,11 +141200,16 @@ function (exports, module, require) {
             k('keydown', L[e]));
         },
         _interopRequireDefault = (e) => {
-          let { key: _interopRequireDefault, icon: GTools, dblclick: GCore, actionClass: l } = e;
+          let {
+            key: _interopRequireDefault,
+            icon: GTools,
+            dblclick: GCore,
+            actionClass: GEvent_fullscreen,
+          } = e;
           const GMenu = GDocumentEvent({
             name: GTools ? null : i.GKey.toLocalizedShort(_interopRequireDefault, true),
             icon: GTools,
-            actionClass: 'g-virtual-key' + (l ? ' ' + l : ''),
+            actionClass: 'g-virtual-key' + (GEvent_fullscreen ? ' ' + GEvent_fullscreen : ''),
             mousedown: (e) => {
               (e.stopImmediatePropagation(),
                 this._isHoldingKey(_interopRequireDefault) || require(_interopRequireDefault));
@@ -140826,7 +141267,7 @@ function (exports, module, require) {
             click: GTools,
             dblclick: GCore,
             mousedown: GDocumentEvent,
-            mouseup: l,
+            mouseup: GEvent_fullscreen,
             touchstart: GMenu,
             touchmove: GMenu2,
             touchend: GCutCopyAction,
@@ -140857,7 +141298,7 @@ function (exports, module, require) {
             GTools && GDeleteAction.on('click', GTools),
             GCore && GDeleteAction.on('dblclick', GCore),
             GDocumentEvent && GPasteAndReplaceAction.on('mousedown', GDocumentEvent),
-            l && GPasteAndReplaceAction.on('mouseup', l),
+            GEvent_fullscreen && GPasteAndReplaceAction.on('mouseup', GEvent_fullscreen),
             GMenu && GPasteAndReplaceAction.on('touchstart', GMenu),
             GMenu2 && GPasteAndReplaceAction.on('touchmove', GMenu2),
             GCutCopyAction && GPasteAndReplaceAction.on('touchend', GCutCopyAction),
@@ -140876,7 +141317,7 @@ function (exports, module, require) {
           }
           return GPasteAndReplaceAction;
         },
-        l = $('<div/>').addClass('left-side').appendTo(exports),
+        GEvent_fullscreen = $('<div/>').addClass('left-side').appendTo(exports),
         T = $('<div/>')
           .addClass('right-side')
           .appendTo(exports)
@@ -140988,7 +141429,7 @@ function (exports, module, require) {
             },
           ],
         })
-        .appendTo(l),
+        .appendTo(GEvent_fullscreen),
         $('<div/>')
           .gPropertyRow({
             height: 'auto',
@@ -141044,7 +141485,7 @@ function (exports, module, require) {
               },
             ],
           })
-          .appendTo(l),
+          .appendTo(GEvent_fullscreen),
         $('<div/>')
           .gPropertyRow({
             height: 'auto',
@@ -141125,7 +141566,7 @@ function (exports, module, require) {
         document.addEventListener('keyup', this._keyUpBound, true),
         document.addEventListener('mouseup', this._mouseUpBound, true),
         gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
-        gDesigner.addEventListener(l.default, this._fullScreenEvent, this),
+        gDesigner.addEventListener(GEvent_fullscreen.default, this._fullScreenEvent, this),
         i.GPlatform.addEventListener(i.GModifiersChangedEvent, this._modifiersChangedEvent, this),
         this._activateDocument(gDesigner.getActiveDocument()),
         this._touchHandler.activate(this._htmlElement[0]),
@@ -141137,7 +141578,7 @@ function (exports, module, require) {
         document.removeEventListener('keyup', this._keyUpBound, true),
         document.removeEventListener('mouseup', this._mouseUpBound, true),
         gDesigner.removeEventListener(GDocumentEvent.default, this._documentEvent, this),
-        gDesigner.removeEventListener(l.default, this._fullScreenEvent, this),
+        gDesigner.removeEventListener(GEvent_fullscreen.default, this._fullScreenEvent, this),
         i.GPlatform.removeEventListener(
           i.GModifiersChangedEvent,
           this._modifiersChangedEvent,
@@ -143066,8 +143507,8 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    c = require(446) /* module_446 */,
-    d = require(219) /* module_219 */,
+    GLoginPanel = require(446) /* GLoginPanel */,
+    d = require(219) /* GLocale */,
     u = require(1610) /* Item */,
     GContainer = require(85); /* GContainer */
   const GSystemDialog = require(44); /* GSystemDialog */
@@ -143139,9 +143580,9 @@ function (exports, module, require) {
             n.push(e);
           });
           let GCore = [],
-            GAction = (t, c) => {
-              if (t || !c) return MenuItemBuilder();
-              if ((GCore.push(c), n.shift(), n.length))
+            GAction = (t, GLoginPanel) => {
+              if (t || !GLoginPanel) return MenuItemBuilder();
+              if ((GCore.push(GLoginPanel), n.shift(), n.length))
                 return void a.GSVGExport.export(n[0], GEditor, GAction);
               let d = '';
               for (var u = 0; u < GCore.length; u++) {
@@ -143201,7 +143642,7 @@ function (exports, module, require) {
         (h.style.zIndex = '-1'),
         document.body.appendChild(h),
         gContainer.getRuntime() === GContainer.Runtime.Electron && (f = true)),
-        new c(
+        new GLoginPanel(
           () => {
             !(function () {
               if (m) v();
@@ -143211,14 +143652,14 @@ function (exports, module, require) {
                   CollaborationMergeUtils = [300, 150, 72, 36, null];
                 gDesigner.isEnabledProFeatures() || CollaborationMergeUtils.shift();
                 for (
-                  var c = false;
+                  var GLoginPanel = false;
                   !a.GPDFExport.isSupported(t, true, CollaborationMergeUtils[GCore++] + 'dpi');
                 )
                   if (null === CollaborationMergeUtils[GCore]) {
-                    c = true;
+                    GLoginPanel = true;
                     break;
                   }
-                c
+                GLoginPanel
                   ? ((h.onload = null), y())
                   : ((GEditor.dpi = CollaborationMergeUtils[GCore - 1]),
                     (h.onload = _),
@@ -144055,7 +144496,7 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    c = require(219) /* module_219 */,
+    c = require(219) /* GLocale */,
     GContainer = require(85) /* GContainer */,
     GCloudStorage = require(119); /* GCloudStorage */
   const GSystemDialog = require(44) /* GSystemDialog */,
@@ -144141,7 +144582,7 @@ function (exports, module, require) {
       (this._title = new GCore.GLocaleKey('GOpenLinkAction', 'title.' + module)),
       (this._icon = r));
   }
-  ((a.Links = require(1622)) /* module_1622 */,
+  ((a.Links = require(1622)) /* DataModule_1622 */,
     GCore.GObject.inherit(a, i),
     (a.ID = 'open-link'),
     (a.prototype._name = null),
@@ -145003,7 +145444,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */,
-    require(527) /* module_527 */,
+    require(527) /* DataModule_527 */,
     require(3)) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
@@ -145123,7 +145564,7 @@ function (exports, module, require) {
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GTranslationToolDialog = require(1640) /* GTranslationToolDialog */,
-    { IS_TRUNK: s, IS_LOCALHOST: l } = require(231); /* module_231 */
+    { IS_TRUNK: s, IS_LOCALHOST: l } = require(231); /* DataModule_231 */
   function c() {}
   (GCore.GObject.inherit(c, GAction),
     (c.ID = 'help.translationtool'),
@@ -145586,9 +146027,9 @@ function (exports, module, require) {
   var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
-  var r = require(219) /* module_219 */,
+  var r = require(219) /* GLocale */,
     GContainer = require(85); /* GContainer */
-  const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231); /* module_231 */
+  const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231); /* DataModule_231 */
   function u(e) {
     let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
     ((this._serverName = e), (this._isDefault = !!module));
@@ -145782,7 +146223,7 @@ function (exports, module, require) {
   const { GObject: o, GLocaleKey: i } = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
-    s = require(1644); /* module_1644 */
+    GShortcutsDialog = require(1644); /* GShortcutsDialog */
   function l() {}
   (o.inherit(l, GAction),
     (l.ID = 'help.shortcuts'),
@@ -145800,7 +146241,7 @@ function (exports, module, require) {
       return 'help/learn';
     }),
     (l.prototype.execute = function () {
-      new s().open();
+      new GShortcutsDialog().open();
     }),
     (l.prototype.toString = function () {
       return '[Object GShowShortcutsAction]';
@@ -147610,7 +148051,7 @@ function (exports, module, require) {
     GCloudStorage = require(119) /* GCloudStorage */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-    h = (require(446) /* module_446 */, require(44)) /* GSystemDialog */,
+    h = (require(446) /* GLoginPanel */, require(44)) /* GSystemDialog */,
     barrel_panels = require(257); /* barrel_panels */
   const { FILE_FORMATS: m, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: y } = {} } = require(
     10
@@ -149508,11 +149949,11 @@ function (exports, module, require) {
     GCore = require(1) /* GCore */,
     r = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
-    l = _interopRequireDefault(require(1664) /* module_1664 */),
-    c = require(219) /* module_219 */,
+    DataModule_1664 = _interopRequireDefault(require(1664) /* DataModule_1664 */),
+    c = require(219) /* GLocale */,
     GClipAction = require(809) /* GClipAction */,
     { debounce: u, stringToBase64String: p } = require(40); /* CollaborationMergeUtils */
-  const g = l.default.getElements();
+  const g = DataModule_1664.default.getElements();
   exports.exports = class {
     constructor(e) {
       ((this._parent = e),
@@ -149540,7 +149981,7 @@ function (exports, module, require) {
     _updateUI(e, t, n, _interopRequireDefault, i) {
       var r = this,
         AppSettings = i ? [] : t.children || [],
-        l = e.find('.images');
+        DataModule_1664 = e.find('.images');
       if (AppSettings.length > 0 && 0 === e.find('select').length) {
         var c = $('<select/>')
           .addClass('selector')
@@ -149599,9 +150040,9 @@ function (exports, module, require) {
           ++_interopRequireDefault
         ) {
           let i = t[_interopRequireDefault],
-            l = i.path && i.path.startsWith('element.image');
+            DataModule_1664 = i.path && i.path.startsWith('element.image');
           var GCore = r._getPreviewURI(i);
-          if (l) n.push(i);
+          if (DataModule_1664) n.push(i);
           else {
             var AppSettings = $('<div/>')
                 .addClass('asset-container')
@@ -149620,7 +150061,7 @@ function (exports, module, require) {
           }
         }
         if (n) {
-          var GClipAction = l.length ? l : e;
+          var GClipAction = DataModule_1664.length ? DataModule_1664 : e;
           r._initMasonryLayoutColumns(GClipAction, n, i);
         }
       })(n);
@@ -149634,17 +150075,17 @@ function (exports, module, require) {
       var i,
         GCore = [],
         r = 2,
-        l = null;
+        DataModule_1664 = null;
       if (
         ((r = Math.max(Math.ceil(this._wrapperWidth / 200), r)),
         (i = this._wrapperWidth / r - 4 * (r - 1)),
-        (l = r > 2 ? (i / this._wrapperWidth) * 100 + '%' : 'calc(50% - 4px)'),
+        (DataModule_1664 = r > 2 ? (i / this._wrapperWidth) * 100 + '%' : 'calc(50% - 4px)'),
         n)
       )
         GCore = e.find('.column').toArray();
       else
         for (var c = 0; c < r; c++) {
-          var GClipAction = $('<div/>').addClass('column').css('width', l);
+          var GClipAction = $('<div/>').addClass('column').css('width', DataModule_1664);
           (c > 0 && GClipAction.css('margin-left', '4px'), GCore.push(GClipAction));
         }
       const u = GCore.map(this._getChildrenHeight.bind(this)),
@@ -149720,9 +150161,9 @@ function (exports, module, require) {
                 if (!e.ok) throw new Error();
                 return e.text();
               }),
-              l = $.parseXML(_interopRequireDefault);
-            l &&
-              'svg' === l.documentElement.nodeName &&
+              DataModule_1664 = $.parseXML(_interopRequireDefault);
+            DataModule_1664 &&
+              'svg' === DataModule_1664.documentElement.nodeName &&
               gDesigner
                 .getActiveDocument()
                 .placeOrImport(
@@ -149751,9 +150192,9 @@ function (exports, module, require) {
                 ).open();
               else {
                 var AppSettings = gDesigner.getActiveDocument(),
-                  l = AppSettings.getScene(),
+                  DataModule_1664 = AppSettings.getScene(),
                   u = AppSettings.getEditor(),
-                  g = l.getActivePage(),
+                  g = DataModule_1664.getActivePage(),
                   h = u.hasSelection() && u.getSelection()[0],
                   f = GCore.GLocale.get(new GCore.GLocaleKey('GImage', 'name.unsplash')),
                   m = GCore.GLocale.get(new GCore.GLocaleKey('GEditor', 'action.insert-image'));
@@ -149786,7 +150227,8 @@ function (exports, module, require) {
                     var _ = u.getSelection()[0].getPaintLayers();
                     if (_) {
                       var b = new GCore.GTexturePattern(_interopRequireDefault);
-                      (b.setSizeMode(GCore.GTexturePattern.SizeMode.Cover), b.setScene(l));
+                      (b.setSizeMode(GCore.GTexturePattern.SizeMode.Cover),
+                        b.setScene(DataModule_1664));
                       var w = new GCore.GStylable.FillPaintLayer(b);
                       _.appendChild(w);
                     }
@@ -149842,11 +150284,11 @@ function (exports, module, require) {
                       if (e.path.startsWith('element.line.tile')) {
                         var r,
                           AppSettings,
-                          l = new GCore.GTexturePattern(
+                          DataModule_1664 = new GCore.GTexturePattern(
                             i,
                             GCore.GTexturePattern.RepeatMode.Horizontal
                           );
-                        (l.setPosition(GCore.GTexturePattern.PositionMode.Center),
+                        (DataModule_1664.setPosition(GCore.GTexturePattern.PositionMode.Center),
                           t
                             ? ((r = t.x - _ / 2), (AppSettings = t.y - b / 2))
                             : ((r = 0.3 * C), (AppSettings = (x - b) / 2)));
@@ -149857,7 +150299,9 @@ function (exports, module, require) {
                         ),
                           c.setProperty('isLine', true, true, false),
                           v.appendChild(c),
-                          c.getPaintLayers().insertChild(new GCore.GStylable.FillPaintLayer(l)),
+                          c
+                            .getPaintLayers()
+                            .insertChild(new GCore.GStylable.FillPaintLayer(DataModule_1664)),
                           gDesigner.getActiveDocument().getEditor().updateSelection(false, [c]));
                       } else (n._transformNode(i, t), m.insertElement(i, !t, true, false));
                     } finally {
@@ -150037,7 +150481,7 @@ function (exports, module, require) {
               _interopRequireDefault = n.closest('.category-row'),
               i = _interopRequireDefault.children().index(this),
               GCore = _interopRequireDefault.next('.assets'),
-              l = n.hasClass('category') && n.hasClass('active');
+              DataModule_1664 = n.hasClass('category') && n.hasClass('active');
             (_interopRequireDefault
               .closest('.g-library-panel')
               .find('.category')
@@ -150074,7 +150518,7 @@ function (exports, module, require) {
               (module._IMAGE_PAGE_COUNT = 1),
               (module._CURRENT_CATEGORY = r),
               (module._CURRENT_ROOT_CATEGORY = r),
-              l || module._loadAssets(GClipAction, r, module._updateUI));
+              DataModule_1664 || module._loadAssets(GClipAction, r, module._updateUI));
           })
           .appendTo(_interopRequireDefault);
         var i = $('<div/>').addClass('content').appendTo(AppSettings);
@@ -150112,7 +150556,7 @@ function (exports, module, require) {
       try {
         if (_interopRequireDefault) {
           let e = [];
-          if (l.default.isUnsplashIntegrationEnabled()) {
+          if (DataModule_1664.default.isUnsplashIntegrationEnabled()) {
             if (!this._IMAGE_ASSET_DRAINED)
               try {
                 e = await AppSettings.gApi.searchUnsplashPhotos({
@@ -150136,7 +150580,7 @@ function (exports, module, require) {
             (r = (GCore || []).length),
             (GCore = GCore.concat(e)));
         } else if (t.path && t.path.startsWith('element.image'))
-          l.default.isUnsplashIntegrationEnabled() &&
+          DataModule_1664.default.isUnsplashIntegrationEnabled() &&
             ((GCore = t.tag
               ? await AppSettings.gApi.searchUnsplashPhotos({
                   query: t.tag,
@@ -150198,12 +150642,12 @@ function (exports, module, require) {
           10;
       else {
         var AppSettings = r.getGeometryBBox(),
-          l = AppSettings && r.isFixedSized() ? AppSettings.getWidth() : 800,
+          DataModule_1664 = AppSettings && r.isFixedSized() ? AppSettings.getWidth() : 800,
           c = AppSettings && r.isFixedSized() ? AppSettings.getHeight() : 800;
         if (!e.path.startsWith('element.ui') && !e.path.startsWith('element.icons')) {
           var GClipAction = i / GCore;
           if (
-            ((i = l / 3) > 300 && (i = 300),
+            ((i = DataModule_1664 / 3) > 300 && (i = 300),
             (GCore = i / GClipAction),
             (i = Math.round(i)),
             (GCore = Math.round(GCore)) > c)
@@ -150358,7 +150802,7 @@ function (exports, module, require) {
   var GCore = require(1); /* GCore */
   const GPanel = require(606) /* GPanel */,
     GView = require(394) /* GView */,
-    r = require(1188) /* module_1188 */,
+    GEvent_1188 = require(1188) /* GEvent_1188 */,
     GContainer = require(85) /* GContainer */,
     GSystemDialog = require(44) /* GSystemDialog */,
     { SOFTWARE_UPDATE: c, DateAPI: d } = require(10); /* AppSettings */
@@ -150399,12 +150843,20 @@ function (exports, module, require) {
       this._removeEventListeners();
     }),
     (u.prototype._addEventListeners = function () {
-      (gDesigner.addEventListener(r.AfterUpdate, this._handleAfterUpdate, this),
-        gDesigner.addEventListener(r.DownloadComplete, this._handleDownloadComplete, this),
-        gDesigner.addEventListener(r.Downloading, this._handleDownloadInProgress, this),
-        gDesigner.addEventListener(r.UpdateAvailable, this._handleUpdateAvailable, this),
-        gDesigner.addEventListener(r.UpdateError, this._handleUpdateError, this),
-        gDesigner.addEventListener(r.UpdateNotAvailable, this._handleUpdateNotAvailable, this));
+      (gDesigner.addEventListener(GEvent_1188.AfterUpdate, this._handleAfterUpdate, this),
+        gDesigner.addEventListener(
+          GEvent_1188.DownloadComplete,
+          this._handleDownloadComplete,
+          this
+        ),
+        gDesigner.addEventListener(GEvent_1188.Downloading, this._handleDownloadInProgress, this),
+        gDesigner.addEventListener(GEvent_1188.UpdateAvailable, this._handleUpdateAvailable, this),
+        gDesigner.addEventListener(GEvent_1188.UpdateError, this._handleUpdateError, this),
+        gDesigner.addEventListener(
+          GEvent_1188.UpdateNotAvailable,
+          this._handleUpdateNotAvailable,
+          this
+        ));
     }),
     (u.prototype._handleAfterUpdate = function (e) {
       if (!this._shouldShowMessages(e)) return;
@@ -150533,12 +150985,12 @@ function (exports, module, require) {
         )
           .replace('%newVersion', require)
           .replace('%currentVersion', module),
-        r = $('<span/>').addClass('gravit-icon-rotate-right-flat').addClass('icon');
+        GEvent_1188 = $('<span/>').addClass('gravit-icon-rotate-right-flat').addClass('icon');
       (this._updateContent(
         $('<div></div>')
           .addClass('message')
           .addClass('featured')
-          .append(r)
+          .append(GEvent_1188)
           .append(GView)
           .append(
             $('<a></a>')
@@ -150546,7 +150998,7 @@ function (exports, module, require) {
                 GCore.GLocale.get(new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.update-now'))
               )
               .click(() => {
-                (r.addClass('spin'), this._installAfterDocumentUnload());
+                (GEvent_1188.addClass('spin'), this._installAfterDocumentUnload());
               })
           )
       ),
@@ -150654,12 +151106,15 @@ function (exports, module, require) {
         this._updatePanelState(true));
     }),
     (u.prototype._removeEventListeners = function () {
-      (gDesigner.removeEventListener(r.AfterUpdate, this._handleAfterUpdate),
-        gDesigner.removeEventListener(r.DownloadComplete, this._handleDownloadComplete),
-        gDesigner.removeEventListener(r.Downloading, this._handleDownloadInProgress),
-        gDesigner.removeEventListener(r.UpdateAvailable, this._handleUpdateAvailable),
-        gDesigner.removeEventListener(r.UpdateError, this._handleUpdateError),
-        gDesigner.removeEventListener(r.UpdateNotAvailable, this._handleUpdateNotAvailable));
+      (gDesigner.removeEventListener(GEvent_1188.AfterUpdate, this._handleAfterUpdate),
+        gDesigner.removeEventListener(GEvent_1188.DownloadComplete, this._handleDownloadComplete),
+        gDesigner.removeEventListener(GEvent_1188.Downloading, this._handleDownloadInProgress),
+        gDesigner.removeEventListener(GEvent_1188.UpdateAvailable, this._handleUpdateAvailable),
+        gDesigner.removeEventListener(GEvent_1188.UpdateError, this._handleUpdateError),
+        gDesigner.removeEventListener(
+          GEvent_1188.UpdateNotAvailable,
+          this._handleUpdateNotAvailable
+        ));
     }),
     (u.prototype.getTitle = function () {
       return GCore.GLocale.get(new GCore.GLocaleKey('GSoftwareUpdatePanel', 'title'));
@@ -150690,7 +151145,7 @@ function (exports, module, require) {
     } = require(10) /* AppSettings */,
     GPanel = require(606) /* GPanel */,
     GView = require(394) /* GView */,
-    s = require(1321) /* module_1321 */,
+    GEvent_notification = require(1321) /* GEvent_notification */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
     d = require(1667); /* Type */
@@ -150716,7 +151171,7 @@ function (exports, module, require) {
             this._close(true);
           })
           .appendTo(this._htmlElement),
-        gDesigner.addEventListener(s, this._notificationEvent, this),
+        gDesigner.addEventListener(GEvent_notification, this._notificationEvent, this),
         gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this));
     }),
     (u.prototype.isEnabled = function () {
@@ -150762,7 +151217,7 @@ function (exports, module, require) {
               new GCore.GLocaleKey('GNotificationPanel', 'text.create-account-template')
             )
           : GCore.GLocale.get(new GCore.GLocaleKey('GNotificationPanel', 'text.create-account'));
-        const s = $('<div/>')
+        const GEvent_notification = $('<div/>')
           .addClass('anonymous')
           .append($('<div/>').addClass('logo'))
           .append(
@@ -150823,19 +151278,19 @@ function (exports, module, require) {
                   )
               )
           );
-        (s.find('#signup-link').on('click', () => {
+        (GEvent_notification.find('#signup-link').on('click', () => {
           (gDesigner.stats('open-shared_click_create-account'),
             new GEmbeddedLogin(GPanel).open({ anonymous: true, signup: true, animate: true }));
         }),
-          s.find('#signin-link').on('click', () => {
+          GEvent_notification.find('#signin-link').on('click', () => {
             (gDesigner.stats('open-shared_click_login'),
               new GEmbeddedLogin(GPanel).open({ anonymous: true, animate: true }));
           }),
-          s.find('#learnmore-link').on('click', (e) => {
+          GEvent_notification.find('#learnmore-link').on('click', (e) => {
             (gDesigner.stats('open-shared_click_learn-more'),
               gContainer.openExternalLink(e, window.location.origin));
           }),
-          this._updateContent(s));
+          this._updateContent(GEvent_notification));
       } else if (e.notification.custom) {
         if (
           ((this._closeCallback = e.notification.closeCallback),
@@ -150922,7 +151377,7 @@ function (exports, module, require) {
   var GCore = require(1); /* GCore */
   const GPanel = require(606) /* GPanel */,
     GView = require(394) /* GView */,
-    r = require(392) /* module_392 */,
+    GEvent_document = require(392) /* GEvent_document */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
@@ -151381,7 +151836,7 @@ function (exports, module, require) {
         this._htmlElement.addClass('g-collaborative-text-panel').css('display', 'none'),
         gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
         gDesigner.addEventListener(GUnloadEvent, this._unloadEvent, this),
-        gDesigner.addEventListener(r, this._applicationStateChangedEvent, this));
+        gDesigner.addEventListener(GEvent_document, this._applicationStateChangedEvent, this));
     }),
     (m.prototype._unloadEvent = function (e) {
       if (this._document)
@@ -151658,20 +152113,20 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  const o = require(1347); /* module_1347 */
+  const GEvent_type_1347 = require(1347); /* GEvent_type_1347 */
   exports.exports = class {
     static setupInAppLinkReloadAppForOnce() {
       const exports = function (t) {
         let { type: require, data: i } = t;
-        if (require === o.Type.OpenInAppLink) {
-          gContainer.removeEventListener(o, exports);
+        if (require === GEvent_type_1347.Type.OpenInAppLink) {
+          gContainer.removeEventListener(GEvent_type_1347, exports);
           const t = i.params,
             n = new URL(window.location.href);
           for (let exports in t) n.searchParams.set(exports, t[exports]);
           window.location.href = n.toString();
         }
       };
-      gContainer.addEventListener(o, exports);
+      gContainer.addEventListener(GEvent_type_1347, exports);
     }
   };
 }
@@ -151816,7 +152271,7 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const GContainer = require(85) /* GContainer */,
-    s = require(1188) /* module_1188 */,
+    GEvent_1188 = require(1188) /* GEvent_1188 */,
     l = require(1349); /* module_1349 */
   var GElectronUpdateServiceClient;
   exports.exports = class {
@@ -151847,13 +152302,13 @@ function (exports, module, require) {
       var AppSettings = +n[0],
         CollaborationMergeUtils = +n[1],
         GContainer = +n[2],
-        s = +GCore[0],
+        GEvent_1188 = +GCore[0],
         l = +GCore[1],
         GElectronUpdateServiceClient = +GCore[2];
       return (
-        AppSettings > s ||
-        (AppSettings === s && CollaborationMergeUtils > l) ||
-        (AppSettings === s &&
+        AppSettings > GEvent_1188 ||
+        (AppSettings === GEvent_1188 && CollaborationMergeUtils > l) ||
+        (AppSettings === GEvent_1188 &&
           CollaborationMergeUtils === l &&
           GContainer > GElectronUpdateServiceClient)
       );
@@ -151890,7 +152345,7 @@ function (exports, module, require) {
           ? this._isElectron()
             ? GElectronUpdateServiceClient.checkForUpdates()
             : this._trigger(
-                new s.UpdateAvailable({
+                new GEvent_1188.UpdateAvailable({
                   currentVersion: this.getCurrentFriendlyVersion(),
                   newVersion: this._releaseStatus.version,
                   forceUpdate: this._releaseStatus.forceUpdate,
@@ -151899,7 +152354,7 @@ function (exports, module, require) {
               )
           : e ||
             this._trigger(
-              new s.UpdateNotAvailable({
+              new GEvent_1188.UpdateNotAvailable({
                 currentVersion: this.getCurrentFriendlyVersion(),
               })
             );
@@ -151921,7 +152376,7 @@ function (exports, module, require) {
     async installUpdate() {
       switch (
         (console.info(this.toString(), ' - Installing update - Start'),
-        this._releaseStatus.silent || this._trigger(new s.BeforeInstallUpdate()),
+        this._releaseStatus.silent || this._trigger(new GEvent_1188.BeforeInstallUpdate()),
         gContainer.getRuntime())
       ) {
         case GContainer.Runtime.Browser:
@@ -151997,7 +152452,7 @@ function (exports, module, require) {
                   e &&
                     !e.silent &&
                     this._trigger(
-                      new s.AfterUpdate({
+                      new GEvent_1188.AfterUpdate({
                         currentVersion: this.getCurrentFriendlyVersion(),
                       })
                     );
@@ -152010,7 +152465,7 @@ function (exports, module, require) {
       (console.info(this.toString() + ' Download complete'),
         (this._downloadCompleted = true),
         this._trigger(
-          new s.DownloadComplete({
+          new GEvent_1188.DownloadComplete({
             newVersion: this._releaseStatus.version,
             forceUpdate: this._releaseStatus.forceUpdate,
             isSilent: this._releaseStatus.silent,
@@ -152020,7 +152475,7 @@ function (exports, module, require) {
     _handleUpdateNotAvailable() {
       (console.info(this.toString() + ' Update not available'),
         this._trigger(
-          new s.UpdateNotAvailable({
+          new GEvent_1188.UpdateNotAvailable({
             currentVersion: this.getCurrentFriendlyVersion(),
             isSilent: this._releaseStatus.silent,
           })
@@ -152028,13 +152483,13 @@ function (exports, module, require) {
     }
     _handleCheckingForUpdate() {
       (console.info(this.toString() + ' Checking for update'),
-        this._trigger(new s.CheckingForUpdate({ isSilent: this._releaseStatus.silent })));
+        this._trigger(new GEvent_1188.CheckingForUpdate({ isSilent: this._releaseStatus.silent })));
     }
     _handleDownloadInProgress(e, t) {
       console.info(this.toString() + ' Download in progress:' + JSON.stringify(t));
       const require = t.percent;
       this._trigger(
-        new s.Downloading({
+        new GEvent_1188.Downloading({
           percent: parseFloat(require).toFixed(2),
           newVersion: this._releaseStatus.version,
           isSilent: this._releaseStatus.silent,
@@ -152044,7 +152499,7 @@ function (exports, module, require) {
     _handleUpdateAvailable(e, t) {
       (console.info(this.toString() + ' Update available:' + JSON.stringify(t)),
         this._trigger(
-          new s.UpdateAvailable({
+          new GEvent_1188.UpdateAvailable({
             currentVersion: this.getCurrentFriendlyVersion(),
             newVersion: this._releaseStatus.version,
             forceUpdate: this._releaseStatus.forceUpdate,
@@ -152058,7 +152513,7 @@ function (exports, module, require) {
     _handleUpdateError(e, t) {
       (console.info(this.toString() + ' Update error:' + JSON.stringify(t)),
         this._trigger(
-          new s.UpdateError({
+          new GEvent_1188.UpdateError({
             error: t,
             isSilent: this._releaseStatus.silent,
           })
@@ -152126,7 +152581,7 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */,
     require(8) /* polyfill_bundle_ES6 */,
     require(196)) /* polyfill_Promise_finally */;
-  var i = _interopRequireDefault(require(1249) /* module_1249 */),
+  var DataModule_1249 = _interopRequireDefault(require(1249) /* DataModule_1249 */),
     a = _interopRequireDefault(require(1155) /* module_1155 */),
     GCore = require(1); /* GCore */
   const {
@@ -152134,13 +152589,13 @@ function (exports, module, require) {
       IN_APP_PURCHASE: { CLEVERBRIDGE: { openCartInAPopup: l = false } = {} } = {},
     } = require(10) /* AppSettings */,
     GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
-    d = require(292) /* module_292 */,
+    GEvent_user = require(292) /* GEvent_user */,
     GProfileDialog = require(604) /* GProfileDialog */,
     GOfflineDialog = require(256) /* GOfflineDialog */,
-    g = require(1680) /* module_1680 */,
+    GPaymentDialog = require(1680) /* GPaymentDialog */,
     h = require(1681) /* module_1681 */,
-    f = require(1190); /* module_1190 */
-  exports.exports = class extends f {
+    DataModule_1190 = require(1190); /* DataModule_1190 */
+  exports.exports = class extends DataModule_1190 {
     getOptions() {
       return this._paymentFlow ? this._paymentFlow.getOptions() : null;
     }
@@ -152160,20 +152615,20 @@ function (exports, module, require) {
         : new Promise(async (n, _interopRequireDefault) => {
             try {
               (this._paymentFlow && this._paymentFlow.abort(),
-                (this._paymentFlow = new i.default(module)));
+                (this._paymentFlow = new DataModule_1249.default(module)));
               const l = async () => {
                 const {
-                    immediatePurchase: i = false,
+                    immediatePurchase: DataModule_1249 = false,
                     paymentCallback: l = () => {},
                     autoClose: GOfflineDialog = false,
                   } = module,
-                  g = await gDesigner.getUser();
+                  GPaymentDialog = await gDesigner.getUser();
                 if (!e) {
-                  if (!g)
+                  if (!GPaymentDialog)
                     return (
                       this._paymentFlow.step(
                         new a.default()
-                          .listen(d)
+                          .listen(GEvent_user)
                           .when((e) => !!e && !!e.user)
                           .do(() => {
                             gDesigner.openPaymentDialog(e, module);
@@ -152211,12 +152666,12 @@ function (exports, module, require) {
                     .when(() => gDesigner.isInitialized())
                     .do(async () => {
                       try {
-                        const t = await this._openCart(e, i, GOfflineDialog);
+                        const t = await this._openCart(e, DataModule_1249, GOfflineDialog);
                         l(t);
                       } catch (e) {
                         l({});
                       }
-                    }, i)
+                    }, DataModule_1249)
                 ),
                   n());
               };
@@ -152242,7 +152697,7 @@ function (exports, module, require) {
       return new h().open(e.url);
     }
     _openCartDialog(e, t) {
-      return new g().open(e.url, t);
+      return new GPaymentDialog().open(e.url, t);
     }
   };
 }
@@ -152375,8 +152830,8 @@ function (exports, module, require) {
     require(196) /* polyfill_Promise_finally */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  const o = require(1190) /* module_1190 */,
-    i = require(292) /* module_292 */,
+  const DataModule_1190 = require(1190) /* DataModule_1190 */,
+    GEvent_user = require(292) /* GEvent_user */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     {
       gApi: r,
@@ -152385,18 +152840,18 @@ function (exports, module, require) {
       DateAPI: c,
       IN_APP_PURCHASE: { WINDOWS: { production: d, trunk: u, rc: p, beta: g, lts: h } = {} } = {},
     } = require(10) /* AppSettings */,
-    { IS_PRODUCTION: f, IS_LTS: m, IS_RC: y, IS_BETA: v } = require(231) /* module_231 */,
+    { IS_PRODUCTION: f, IS_LTS: m, IS_RC: y, IS_BETA: v } = require(231) /* DataModule_231 */,
     {
       ERROR_CODES: { ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_NOT_FOUND: _ },
     } = r;
-  exports.exports = class extends o {
+  exports.exports = class extends DataModule_1190 {
     constructor() {
       if ((super(), !window.napi)) return;
       const { remote: exports } = require(881) /* module_881 */,
         module = exports.getCurrentWindow().getNativeWindowHandle();
       ((this._store = new window.napi.windowsStore.StoreContext()),
         this._store.initialize(module),
-        gDesigner.addEventListener(i, this._userLoggedEvent, this),
+        gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this),
         gDesigner.addEventListener(
           GNetworkAvailabilityChangedEvent,
           this._networkAvailabilityChangedEvent,
@@ -152411,11 +152866,11 @@ function (exports, module, require) {
         gDesigner.toggleLoading(false);
       }
       return new Promise((t, n) => {
-        const o = setTimeout(() => {
+        const DataModule_1190 = setTimeout(() => {
           n();
         }, c.minutesToMilliseconds(3));
-        this._store.requestPurchaseAsync(e.productId, (e, i) => {
-          (clearTimeout(o),
+        this._store.requestPurchaseAsync(e.productId, (e, GEvent_user) => {
+          (clearTimeout(DataModule_1190),
             e
               ? n(e)
               : (gDesigner.toggleLoading(true),
@@ -152430,13 +152885,13 @@ function (exports, module, require) {
     }
     async getProduct() {
       return new Promise((e, t) => {
-        this._store.getAssociatedStoreProductsAsync(['Durable'], (n, o) => {
+        this._store.getAssociatedStoreProductsAsync(['Durable'], (n, DataModule_1190) => {
           if (n) return t(n);
-          if (!o) return t();
-          const i = this._getInAppOfferToken();
-          if (!i) return t();
-          const GNetworkAvailabilityChangedEvent = Object.values(o).find(
-            (e) => e.inAppOfferToken === i
+          if (!DataModule_1190) return t();
+          const GEvent_user = this._getInAppOfferToken();
+          if (!GEvent_user) return t();
+          const GNetworkAvailabilityChangedEvent = Object.values(DataModule_1190).find(
+            (e) => e.inAppOfferToken === GEvent_user
           );
           if (!GNetworkAvailabilityChangedEvent) return t();
           e({
@@ -152458,11 +152913,11 @@ function (exports, module, require) {
             if (t.cloud && t.code === _) {
               const t = await r.microsoftStoreServices.getAccessToken(),
                 n = await this._createB2BKeyForPurchaseAPI(exports, t),
-                o = await this._createB2BKeyForCollectionsAPI(exports, t);
+                DataModule_1190 = await this._createB2BKeyForCollectionsAPI(exports, t);
               return (
                 await r.microsoftStoreServices.updateB2BKeys({
                   accessToken: t,
-                  keys: { [s.Purchase]: n, [s.Collections]: o },
+                  keys: { [s.Purchase]: n, [s.Collections]: DataModule_1190 },
                 }),
                 r.microsoftStoreServices.syncLicense().then(() => gDesigner.requestLicenseUpdate())
               );
@@ -152474,16 +152929,16 @@ function (exports, module, require) {
       return f ? d : v ? g : m ? h : y ? p : u;
     }
     _createB2BKeyForPurchaseAPI(e, t) {
-      return new Promise(async (n, o) => {
+      return new Promise(async (n, DataModule_1190) => {
         this._store.getCustomerPurchaseIdAsync(t, e.getUID(), (e, t) => {
-          e ? o(e) : n(t);
+          e ? DataModule_1190(e) : n(t);
         });
       });
     }
     _createB2BKeyForCollectionsAPI(e, t) {
-      return new Promise(async (n, o) => {
+      return new Promise(async (n, DataModule_1190) => {
         this._store.getCustomerCollectionsIdAsync(t, e.getUID(), (e, t) => {
-          e ? o(e) : n(t);
+          e ? DataModule_1190(e) : n(t);
         });
       });
     }
@@ -152498,8 +152953,8 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const o = require(1190); /* module_1190 */
-  exports.exports = class extends o {
+  const DataModule_1190 = require(1190); /* DataModule_1190 */
+  exports.exports = class extends DataModule_1190 {
     canMakePayments() {
       return false;
     }
@@ -152508,18 +152963,18 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(8) /* polyfill_bundle_ES6 */, require(527)) /* module_527 */;
-  const o = require(292) /* module_292 */,
-    i = require(1685) /* module_1685 */,
+  (require(8) /* polyfill_bundle_ES6 */, require(527)) /* DataModule_527 */;
+  const GEvent_user = require(292) /* GEvent_user */,
+    GLocale_1685 = require(1685) /* GLocale_1685 */,
     { gApi: a, DateAPI: r } = require(10); /* AppSettings */
   exports.exports = class {
     init() {
-      gDesigner.addEventListener(o, this._userLoggedEvent, this);
+      gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this);
     }
     async _userLoggedEvent(e) {
       const module = e.user;
       if (module && module.getUID()) {
-        gDesigner.removeEventListener(o, this._userLoggedEvent, this);
+        gDesigner.removeEventListener(GEvent_user, this._userLoggedEvent, this);
         try {
           (await this._shouldShowWindowsStoreAnnouncement(module)) &&
             this._showWindowsStoreAnnouncement();
@@ -152539,7 +152994,7 @@ function (exports, module, require) {
     }
     _showWindowsStoreAnnouncement() {
       gDesigner.executeWhenReady(() => {
-        new i().open();
+        new GLocale_1685().open();
       });
     }
   };
@@ -152715,7 +153170,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(20) /* polyfill_RegExp_exec */, require(151)) /* module_151 */;
+  (require(20) /* polyfill_RegExp_exec */, require(151)) /* DataModule_151 */;
   var GCore = require(1); /* GCore */
   ((GCore.GUtil.image2Canvas = function (e, t) {
     if ('string' == typeof e) {
@@ -153009,8 +153464,8 @@ function (exports, module, require) {
     require(1700) /* GFontsDialog */,
     require(1701) /* GFontsPanelWidget */,
     require(1702) /* GInputBox */,
-    require(1703) /* module_1703 */,
-    require(1704) /* module_1704 */,
+    require(1703) /* jQuery_gInputSelect */,
+    require(1704) /* DataModule_1704 */,
     require(1705) /* GUnitBoxWidget */,
     require(1706) /* GLayerPanel */,
     require(1711) /* GLayersPanelWidget */,
@@ -153020,29 +153475,29 @@ function (exports, module, require) {
     require(1716) /* GMentionsInput */,
     require(1717) /* GPagePanel */,
     require(1718) /* GSymbolsPanel */,
-    require(1719) /* module_1719 */,
-    require(1720) /* module_1720 */,
+    require(1719) /* GToolbar_1719 */,
+    require(1720) /* GUnshareButton */,
     require(1721) /* GMenuButtonWidget */,
     require(1722) /* GOverlayPlugin */,
     require(1723) /* GPatternTargetWidget */,
-    require(1724) /* module_1724 */,
+    require(1724) /* DataModule_1724 */,
     require(1725) /* GPropertyRowWidget */,
-    require(1263) /* module_1263 */,
-    require(1726) /* module_1726 */,
+    require(1263) /* DataModule_1263 */,
+    require(1726) /* GLength */,
     require(1727) /* GDialogWidget */,
     require(1728) /* GRichTooltip */,
     require(857) /* GInputSliderWidget */,
-    require(1729) /* module_1729 */,
-    require(1730) /* module_1730 */,
+    require(1729) /* jQuery_gAccordion */,
+    require(1730) /* DataModule_1730 */,
     require(1731) /* GStyleEditor */,
     require(1732) /* GUserDetailsOverlay */,
-    require(1733) /* module_1733 */,
+    require(1733) /* DataModule_1733 */,
     require(1337) /* module_1337 */,
     require(1734) /* GRoleSelectorWidget */,
     require(1292) /* GCollaboratorsWidget */,
     require(1735) /* GPageButtonWidget */,
-    require(1736) /* module_1736 */,
-    require(1737)) /* module_1737 */;
+    require(1736) /* DataModule_1736 */,
+    require(1737)) /* DataModule_1737 */;
 }
 ,
 function (exports, module, require) {
@@ -154138,7 +154593,7 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
-    require(851) /* module_851 */,
+    require(851) /* DataModule_851 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
@@ -154516,7 +154971,7 @@ function (exports, module, require) {
     require(34)) /* polyfill_String_replace */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15); /* GEditor */
-  require(1259) /* module_1259 */;
+  require(1259) /* DataModule_1259 */;
   var r = _interopRequireDefault(require(1278) /* module_1278 */),
     s = {
       value: function (e) {
@@ -155999,9 +156454,9 @@ function (exports, module, require) {
     isCallable = require(29) /* isCallable */,
     toString_default = require(37) /* toString_default */,
     r = require(143) /* module_143 */,
-    s = require(1708) /* module_1708 */,
-    l = require(576) /* module_576 */,
-    c = require(102) /* module_102 */,
+    DataModule_1708 = require(1708) /* DataModule_1708 */,
+    DataModule_576 = require(576) /* DataModule_576 */,
+    DataModule_102 = require(102) /* DataModule_102 */,
     d = require(371) /* module_371 */,
     u = require(149) /* module_149 */,
     createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
@@ -156026,9 +156481,9 @@ function (exports, module, require) {
         var t;
         toString_default(this);
         try {
-          t = l(s(+e));
+          t = DataModule_576(DataModule_1708(+e));
         } catch (e) {
-          c(this, 'throw', e);
+          DataModule_102(this, 'throw', e);
         }
         return g ? isCallable(g, this, t) : new h(r(this), { remaining: t });
       },
@@ -157591,7 +158046,7 @@ function (exports, module, require) {
   const { GObject: o } = require(1) /* GCore */,
     { GPlatform: i } = require(15) /* GEditor */,
     GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
-    r = require(1191) /* module_1191 */,
+    DataModule_1191 = require(1191) /* DataModule_1191 */,
     GAnnotationRow = require(1356) /* GAnnotationRow */,
     GAnnotationReplyEditor = require(1357) /* GAnnotationReplyEditor */,
     { handleCollabsData: c } =
@@ -157605,9 +158060,9 @@ function (exports, module, require) {
       require++
     )
       module[require] = arguments[require];
-    (GSimpleTreeNodeNamed.call(this, ...module), r.call(this));
+    (GSimpleTreeNodeNamed.call(this, ...module), DataModule_1191.call(this));
   }
-  (o.inheritAndMix(p, GSimpleTreeNodeNamed, [r]),
+  (o.inheritAndMix(p, GSimpleTreeNodeNamed, [DataModule_1191]),
     (p.prototype._checkTreeSanity = function () {
       return !!$(this._container).data('gannotationpanel');
     }),
@@ -157860,7 +158315,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var i = _interopRequireDefault(require(883) /* module_883 */),
+  var DataModule_883 = _interopRequireDefault(require(883) /* DataModule_883 */),
     a = require(263) /* Exports_GRegex */,
     r = 8,
     s = 9,
@@ -157959,7 +158414,7 @@ function (exports, module, require) {
             ]);
             n = n.replace(new RegExp(v(t.value), 'g'), _interopRequireDefault);
           }));
-        var i = y(n);
+        var DataModule_883 = y(n);
         (_interopRequireDefault.forEach((t) => {
           let n = y(t.value),
             _interopRequireDefault = x(e.templates.mentionItemSyntax, [
@@ -157971,12 +158426,15 @@ function (exports, module, require) {
               { key: '<%=value%>', value: n },
               { key: '<%=id%>', value: t.getUID() },
             ]);
-          i = i.replace(new RegExp(v(_interopRequireDefault), 'g'), a);
+          DataModule_883 = DataModule_883.replace(new RegExp(v(_interopRequireDefault), 'g'), a);
         }),
-          (i = (i = i.replace(/\n/g, '<br />')).replace(/ {2}/g, '&nbsp; ')),
+          (DataModule_883 = (DataModule_883 = DataModule_883.replace(/\n/g, '<br />')).replace(
+            / {2}/g,
+            '&nbsp; '
+          )),
           t.data('messageText', n),
           t.trigger('updated'),
-          m.find('div').html(i));
+          m.find('div').html(DataModule_883));
       }
       function D() {
         T = [];
@@ -157984,14 +158442,14 @@ function (exports, module, require) {
       function L(n) {
         for (
           var _interopRequireDefault = I(),
-            i = t[0].selectionStart,
+            DataModule_883 = t[0].selectionStart,
             a = false,
             r = false,
             s = new RegExp('\\' + e.triggerChar + G, 'gi');
           s.exec(_interopRequireDefault);
         )
-          (false === a || Math.abs(s.lastIndex - i) < a) &&
-            ((a = Math.abs(s.lastIndex - i)), (r = s.lastIndex));
+          (false === a || Math.abs(s.lastIndex - DataModule_883) < a) &&
+            ((a = Math.abs(s.lastIndex - DataModule_883)), (r = s.lastIndex));
         var l = r - G.length - 1,
           c = r,
           d = _interopRequireDefault.substr(0, l),
@@ -158081,17 +158539,17 @@ function (exports, module, require) {
           t.siblings().removeClass(e.classes.autoCompleteItemActive),
           (S = t));
       }
-      function j(n, i) {
+      function j(n, DataModule_883) {
         if ((_interopRequireDefault.show(), !e.allowRepeat)) {
           let e = E.map((e) => e.value);
-          i = i.filter((t) => !e.includes(t.showText));
+          DataModule_883 = DataModule_883.filter((t) => !e.includes(t.showText));
         }
-        if (i.length) {
+        if (DataModule_883.length) {
           _interopRequireDefault.empty();
           var a = $('<ul>').appendTo(_interopRequireDefault).css('visibility', 'hidden');
-          (i.forEach((t, _interopRequireDefault) => {
-            let i = C('mention_');
-            (t.setValue(t.showText), (A[i] = t));
+          (DataModule_883.forEach((t, _interopRequireDefault) => {
+            let DataModule_883 = C('mention_');
+            (t.setValue(t.showText), (A[DataModule_883] = t));
             let r = $(
               x(e.templates.autocompleteListItem, [
                 { key: '<%=id%>', value: y(t.getUID()) },
@@ -158113,7 +158571,7 @@ function (exports, module, require) {
                 },
                 { key: '<%=fontWeight%>', value: y(t.fontWeight) },
               ])
-            ).attr('data-uid', i);
+            ).attr('data-uid', DataModule_883);
             if ((0 === _interopRequireDefault && U(r), e.showAvatars)) {
               var s, l;
               if (((l = t.getUserNameInitials()), t.avatar))
@@ -158154,8 +158612,8 @@ function (exports, module, require) {
                 var n,
                   _interopRequireDefault = e.css('position');
                 if ('absolute' === _interopRequireDefault) {
-                  var i = (function (e) {
-                    var t, n, _interopRequireDefault, i, a, r, s, l, c, d, u;
+                  var DataModule_883 = (function (e) {
+                    var t, n, _interopRequireDefault, DataModule_883, a, r, s, l, c, d, u;
                     if ((c = e[0]) && $(c).is('textarea') && null !== c.selectionEnd) {
                       for (
                         s = {
@@ -158198,12 +158656,12 @@ function (exports, module, require) {
                         $(c).after(_interopRequireDefault),
                         (n = document.createTextNode(c.value.substring(0, c.selectionEnd))),
                         (t = document.createTextNode(c.value.substring(c.selectionEnd))),
-                        ((i = document.createElement('span')).innerHTML = '&nbsp;'),
+                        ((DataModule_883 = document.createElement('span')).innerHTML = '&nbsp;'),
                         _interopRequireDefault.appendChild(n),
-                        _interopRequireDefault.appendChild(i),
+                        _interopRequireDefault.appendChild(DataModule_883),
                         _interopRequireDefault.appendChild(t),
                         (_interopRequireDefault.scrollTop = c.scrollTop),
-                        (r = $(i).position()),
+                        (r = $(DataModule_883).position()),
                         $(_interopRequireDefault).remove(),
                         r
                       );
@@ -158211,14 +158669,14 @@ function (exports, module, require) {
                   })(t);
                   ((n = parseInt(t.css('line-height'), 10) || 18),
                     e.css('width', '15em'),
-                    e.css('left', i.left),
-                    e.css('top', n + i.top));
+                    e.css('left', DataModule_883.left),
+                    e.css('top', n + DataModule_883.top));
                   var a = t.offset().left + t.width(),
                     r = e.offset().left + e.width();
                   a <= r && e.css('left', Math.abs(e.position().left - (r - a)));
                 } else if ('fixed' === _interopRequireDefault) {
                   var s = (function (e) {
-                    var t, n, _interopRequireDefault, i, a, r, s, l, c, d, u;
+                    var t, n, _interopRequireDefault, DataModule_883, a, r, s, l, c, d, u;
                     if ((c = e[0]) && $(c).is('textarea') && null !== c.selectionEnd) {
                       for (
                         s = {
@@ -158261,12 +158719,12 @@ function (exports, module, require) {
                         $(c).after(_interopRequireDefault),
                         (n = document.createTextNode(c.value.substring(0, c.selectionEnd))),
                         (t = document.createTextNode(c.value.substring(c.selectionEnd))),
-                        ((i = document.createElement('span')).innerHTML = '&nbsp;'),
+                        ((DataModule_883 = document.createElement('span')).innerHTML = '&nbsp;'),
                         _interopRequireDefault.appendChild(n),
-                        _interopRequireDefault.appendChild(i),
+                        _interopRequireDefault.appendChild(DataModule_883),
                         _interopRequireDefault.appendChild(t),
                         (_interopRequireDefault.scrollTop = c.scrollTop),
-                        (r = $(i).offset()),
+                        (r = $(DataModule_883).offset()),
                         $(_interopRequireDefault).remove(),
                         r
                       );
@@ -158302,7 +158760,7 @@ function (exports, module, require) {
             _interopRequireDefault[1] + _interopRequireDefault[2]
           )),
             E.push(
-              new i.default({
+              new DataModule_883.default({
                 id: _interopRequireDefault[4],
                 type: _interopRequireDefault[3],
                 value: _interopRequireDefault[2],
@@ -158314,8 +158772,8 @@ function (exports, module, require) {
       return (
         (e = $.extend(true, {}, f, e)),
         {
-          init: function (i) {
-            ('true' !== (t = $(i)).attr('data-mentions-input') &&
+          init: function (DataModule_883) {
+            ('true' !== (t = $(DataModule_883)).attr('data-mentions-input') &&
               ((n = t.parent()),
               (a = $(e.templates.wrapper)),
               t.wrapAll(a),
@@ -160189,7 +160647,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
-  (require(290) /* module_290 */,
+  (require(290) /* DataModule_290 */,
     require(57) /* polyfill_parseInt */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
@@ -161256,7 +161714,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(290) /* module_290 */,
+  (require(290) /* DataModule_290 */,
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,

@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(61) /* module_61 */,
-      i = n(615) /* module_615 */,
+      i = n(615) /* DataModule_615 */,
       a = n(222) /* objectGetOwnPropertyDescriptor */,
       r = n(88) /* createPropertyDescriptor */;
     e.exports = function (e, t, n) {

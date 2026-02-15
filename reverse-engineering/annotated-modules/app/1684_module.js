@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* polyfill_bundle_ES6 */, n(527) /* module_527 */;
-    const o = n(292) /* module_292 */,
-      i = n(1685) /* module_1685 */,
+    n(8) /* polyfill_bundle_ES6 */, n(527) /* DataModule_527 */;
+    const o = n(292) /* GEvent_user */,
+      i = n(1685) /* GLocale_1685 */,
       { gApi: a, DateAPI: r } = n(10) /* AppSettings */;
     e.exports = class {
       init() {

@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(30) /* polyfill_Object_assign */;
-    const o = n(1186) /* module_1186 */;
+    const o = n(1186) /* DataModule_1186 */;
     e.exports = class extends o {
       constructor(e) {
         super(), (this._crossViewClass = e), (this._dialogOptions = {});

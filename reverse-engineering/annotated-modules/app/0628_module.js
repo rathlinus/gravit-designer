@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(25) /* core_export */,
       i = n(74) /* createNonEnumerableProperty */,
-      a = n(201) /* module_201 */.CONSTRUCTOR,
+      a = n(201) /* DataModule_201 */.CONSTRUCTOR,
       r = n(186) /* stub_requires_23 */,
       s = n(110) /* module_110 */,
       l = n(35) /* anObject */,

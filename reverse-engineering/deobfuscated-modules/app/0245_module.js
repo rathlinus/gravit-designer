@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(407) /* module_407 */;
-    exports.exports = "NODE" === o;
+    var DataModule_407 = require(407) /* DataModule_407 */;
+    exports.exports = "NODE" === DataModule_407;
   }

@@ -60,10 +60,10 @@ function (exports, module, require) {
     var p = require(163) /* GDocument */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      f = require(446) /* module_446 */,
+      GLoginPanel = require(446) /* GLoginPanel */,
       m = require(86) /* module_86 */;
     const GSystemDialog = require(44) /* GSystemDialog */,
-      v = require(389) /* module_389 */;
+      GDocument_389 = require(389) /* GDocument_389 */;
     var _ = AppSettings.FILE_FORMATS.map((e) => e.ext);
     const b = AppSettings.FILE_FORMATS.find((e) => e.default).ext;
     function w(e) {
@@ -202,7 +202,7 @@ function (exports, module, require) {
         const GCore = t || gDesigner.getActiveDocument();
         if (GCore && GCore.isCommercialProductFile())
           return GCore.openPaywall(this.getId()), false;
-        new f(
+        new GLoginPanel(
           () => {
             this._performSave(e, GCore, n, _interopRequireDefault, i);
           },
@@ -232,7 +232,7 @@ function (exports, module, require) {
         )
           return;
         _interopRequireDefault.referer = this.getId();
-        const s = !e.canDownload() || this._fileExt !== v.PDF.ext;
+        const s = !e.canDownload() || this._fileExt !== GDocument_389.PDF.ext;
         if (e.canPromptSave() && s) {
           const i = t.getStorageItem();
           !GEditor && i && (GEditor = i.getName()),

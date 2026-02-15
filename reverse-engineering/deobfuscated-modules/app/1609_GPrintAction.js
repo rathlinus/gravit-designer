@@ -13,8 +13,8 @@ function (exports, module, require) {
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      c = require(446) /* module_446 */,
-      d = require(219) /* module_219 */,
+      GLoginPanel = require(446) /* GLoginPanel */,
+      d = require(219) /* GLocale */,
       u = require(1610) /* Item */,
       GContainer = require(85) /* GContainer */;
     const GSystemDialog = require(44) /* GSystemDialog */;
@@ -88,9 +88,9 @@ function (exports, module, require) {
               n.push(e);
             });
             let GCore = [],
-              GAction = (t, c) => {
-                if (t || !c) return MenuItemBuilder();
-                if ((GCore.push(c), n.shift(), n.length))
+              GAction = (t, GLoginPanel) => {
+                if (t || !GLoginPanel) return MenuItemBuilder();
+                if ((GCore.push(GLoginPanel), n.shift(), n.length))
                   return void a.GSVGExport.export(n[0], GEditor, GAction);
                 let d = "";
                 for (var u = 0; u < GCore.length; u++) {
@@ -152,7 +152,7 @@ function (exports, module, require) {
           (h.style.zIndex = "-1"),
           document.body.appendChild(h),
           gContainer.getRuntime() === GContainer.Runtime.Electron && (f = true)),
-          new c(
+          new GLoginPanel(
             () => {
               !(function () {
                 if (m) v();
@@ -162,15 +162,15 @@ function (exports, module, require) {
                     CollaborationMergeUtils = [300, 150, 72, 36, null];
                   gDesigner.isEnabledProFeatures() || CollaborationMergeUtils.shift();
                   for (
-                    var c = false;
+                    var GLoginPanel = false;
                     !a.GPDFExport.isSupported(t, true, CollaborationMergeUtils[GCore++] + "dpi");
 
                   )
                     if (null === CollaborationMergeUtils[GCore]) {
-                      c = true;
+                      GLoginPanel = true;
                       break;
                     }
-                  c
+                  GLoginPanel
                     ? ((h.onload = null), y())
                     : ((GEditor.dpi = CollaborationMergeUtils[GCore - 1]), (h.onload = _), e.store(n, b, MenuItemBuilder, GEditor));
                 }

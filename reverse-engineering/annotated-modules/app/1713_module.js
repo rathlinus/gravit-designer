@@ -9,7 +9,7 @@ function (e, t, n) {
     const { GObject: o } = n(1) /* GCore */,
       { GPlatform: i } = n(15) /* GEditor */,
       a = n(1355) /* GSimpleTreeNodeNamed */,
-      r = n(1191) /* module_1191 */,
+      r = n(1191) /* DataModule_1191 */,
       s = n(1356) /* GAnnotationRow */,
       l = n(1357) /* GAnnotationReplyEditor */,
       { handleCollabsData: c } = (n(536) /* module_536 */, n(882) /* GCollaborationMentionsUtils */),

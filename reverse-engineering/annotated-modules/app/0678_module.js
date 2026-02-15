@@ -9,7 +9,7 @@ function (e, t, n) {
       i = n(21) /* tryCall */,
       a = n(27) /* uncurryThis */,
       r = n(62) /* requireObjectCoercible */,
-      s = n(262) /* module_262 */.trim,
+      s = n(262) /* DataModule_262 */.trim,
       l = n(248) /* module_248 */,
       c = o.parseInt,
       d = o.Symbol,

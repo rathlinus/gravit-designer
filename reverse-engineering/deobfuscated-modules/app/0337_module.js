@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(1098) /* module_1098 */;
-    exports.exports = new o();
+    const DataModule_1098 = require(1098) /* DataModule_1098 */;
+    exports.exports = new DataModule_1098();
   }

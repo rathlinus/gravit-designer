@@ -9,7 +9,7 @@ function (e, t, n) {
       i = n(94) /* Exports_Buf */,
       a = n(312) /* module_312 */,
       r = n(225) /* module_225 */,
-      s = n(313) /* module_313 */,
+      s = n(313) /* DataModule_313 */,
       l = Object.prototype.toString;
     function c(e) {
       if (!(this instanceof c)) return new c(e);

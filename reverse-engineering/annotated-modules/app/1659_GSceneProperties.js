@@ -18,7 +18,7 @@ function (e, t, n) {
       u = n(119) /* GCloudStorage */,
       p = n(78) /* GDocumentEvent */,
       g = n(135) /* GSettingChangedEvent */,
-      h = (n(446) /* module_446 */, n(44) /* GSystemDialog */),
+      h = (n(446) /* GLoginPanel */, n(44) /* GSystemDialog */),
       f = n(257) /* barrel_panels */;
     const { FILE_FORMATS: m, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: y } = {} } =
       n(10) /* AppSettings */;

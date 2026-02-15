@@ -13,7 +13,7 @@ function (exports, module, require) {
       } = require(10) /* AppSettings */,
       GPanel = require(606) /* GPanel */,
       GView = require(394) /* GView */,
-      s = require(1321) /* module_1321 */,
+      GEvent_notification = require(1321) /* GEvent_notification */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
       d = require(1667) /* Type */;
@@ -39,7 +39,7 @@ function (exports, module, require) {
               this._close(true);
             })
             .appendTo(this._htmlElement),
-          gDesigner.addEventListener(s, this._notificationEvent, this),
+          gDesigner.addEventListener(GEvent_notification, this._notificationEvent, this),
           gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this);
       }),
       (u.prototype.isEnabled = function () {
@@ -94,7 +94,7 @@ function (exports, module, require) {
             : GCore.GLocale.get(
                 new GCore.GLocaleKey("GNotificationPanel", "text.create-account")
               );
-          const s = $("<div/>")
+          const GEvent_notification = $("<div/>")
             .addClass("anonymous")
             .append($("<div/>").addClass("logo"))
             .append(
@@ -166,22 +166,22 @@ function (exports, module, require) {
                     )
                 )
             );
-          s.find("#signup-link").on("click", () => {
+          GEvent_notification.find("#signup-link").on("click", () => {
             gDesigner.stats("open-shared_click_create-account"),
               new GEmbeddedLogin(GPanel).open({ anonymous: true, signup: true, animate: true });
           }),
-            s.find("#signin-link").on("click", () => {
+            GEvent_notification.find("#signin-link").on("click", () => {
               gDesigner.stats("open-shared_click_login"),
                 new GEmbeddedLogin(GPanel).open({ anonymous: true, animate: true });
             }),
-            s.find('#learnmore-link').on('click', (e) => {
+            GEvent_notification.find('#learnmore-link').on('click', (e) => {
               gDesigner.stats('open-shared_click_learn-more'),
                 gContainer.openExternalLink(
                   e,
                   window.location.origin
                 );
             }),
-            this._updateContent(s);
+            this._updateContent(GEvent_notification);
         } else if (e.notification.custom) {
           if (
             ((this._closeCallback = e.notification.closeCallback),

@@ -15,7 +15,7 @@ function (e, t, n) {
       l = n(86) /* module_86 */,
       c = n(220) /* Item */,
       d = n(119) /* GCloudStorage */,
-      u = n(446) /* module_446 */;
+      u = n(446) /* GLoginPanel */;
     const p = n(256) /* GOfflineDialog */;
     function g(e) {
       (this._type = e),

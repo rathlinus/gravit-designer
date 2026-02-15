@@ -12,12 +12,12 @@ function (exports, module, require) {
       s = require(61) /* module_61 */,
       createPropertyDescriptor = require(88) /* createPropertyDescriptor */.f,
       c = require(243) /* module_243 */,
-      d = require(1103) /* module_1103 */,
-      u = require(1104) /* module_1104 */,
-      p = require(258) /* module_258 */,
+      DataModule_1103 = require(1103) /* DataModule_1103 */,
+      DataModule_1104 = require(1104) /* DataModule_1104 */,
+      DataModule_258 = require(258) /* DataModule_258 */,
       g = require(786) /* module_786 */,
       h = false,
-      f = p("meta"),
+      f = DataModule_258("meta"),
       m = 0,
       y = function (e) {
         createPropertyDescriptor(e, f, { value: { objectID: "O" + m++, weakData: {} } });
@@ -40,7 +40,7 @@ function (exports, module, require) {
               }),
               core_export(
                 { target: "Object", stat: true, forced: true },
-                { getOwnPropertyNames: d.f }
+                { getOwnPropertyNames: DataModule_1103.f }
               ));
         },
         fastKey: function (e, t) {
@@ -49,7 +49,7 @@ function (exports, module, require) {
               ? e
               : ("string" == typeof e ? "S" : "P") + e;
           if (!s(e, f)) {
-            if (!u(e)) return "F";
+            if (!DataModule_1104(e)) return "F";
             if (!t) return "E";
             y(e);
           }
@@ -57,14 +57,14 @@ function (exports, module, require) {
         },
         getWeakData: function (e, t) {
           if (!s(e, f)) {
-            if (!u(e)) return true;
+            if (!DataModule_1104(e)) return true;
             if (!t) return false;
             y(e);
           }
           return e[f].weakData;
         },
         onFreeze: function (e) {
-          return g && h && u(e) && !s(e, f) && y(e), e;
+          return g && h && DataModule_1104(e) && !s(e, f) && y(e), e;
         },
       });
     a[f] = true;

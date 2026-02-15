@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(223) /* module_223 */,
-      i = require(65) /* module_65 */,
-      a = require(239) /* module_239 */,
-      r = o(o.bind);
+    var DataModule_223 = require(223) /* DataModule_223 */,
+      DataModule_65 = require(65) /* DataModule_65 */,
+      DataModule_239 = require(239) /* DataModule_239 */,
+      r = DataModule_223(DataModule_223.bind);
     exports.exports = function (e, t) {
       return (
-        i(e),
+        DataModule_65(e),
         undefined === t
           ? e
-          : a
+          : DataModule_239
           ? r(e, t)
           : function () {
               return e.apply(t, arguments);

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(290) /* module_290 */, n(38) /* stub_requires_680 */;
+    n(290) /* DataModule_290 */, n(38) /* stub_requires_680 */;
     const {
         ShareRoles: o,
         defaultUserSettings: {

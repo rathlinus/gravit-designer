@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */;
     const GUserModel = require(177) /* GUserModel */,
-      i = require(805) /* module_805 */,
+      GEvent_user_805 = require(805) /* GEvent_user_805 */,
       { gApi: a } = require(10) /* AppSettings */,
       r = {};
     let s = false;
@@ -17,16 +17,16 @@ function (exports, module, require) {
     function c(e) {
       e instanceof GUserModel || (e = new GUserModel(e)),
         (this._user = e),
-        s || (gDesigner.addEventListener(i, l), (s = true));
+        s || (gDesigner.addEventListener(GEvent_user_805, l), (s = true));
     }
     (c.getUserDataFromAnnotAndUser = function (e, t) {
       const require = e.getProperty("uid");
       let GUserModel = e.getProperty("name"),
-        i = "";
+        GEvent_user_805 = "";
       return (
         require === t.getUID() &&
-          ((GUserModel = t.getFirstName() || GUserModel), (i = t.getLastName() || "")),
-        { id: require, name: GUserModel, last_name: i }
+          ((GUserModel = t.getFirstName() || GUserModel), (GEvent_user_805 = t.getLastName() || "")),
+        { id: require, name: GUserModel, last_name: GEvent_user_805 }
       );
     }),
       (c.prototype.build = function (e) {

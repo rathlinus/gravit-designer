@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* GCore */,
       i = n(15) /* GEditor */,
       a = n(40) /* CollaborationMergeUtils */,
-      r = n(1247) /* module_1247 */,
+      r = n(1247) /* DataModule_1247 */,
       s = n(10) /* AppSettings */,
       l = n(67) /* GRichTooltipConfig */,
       c = n(18) /* MenuItemBuilder */,
@@ -19,8 +19,8 @@ function (e, t, n) {
       p = n(448) /* GGravitCloudAction */,
       g = n(86) /* module_86 */,
       h = n(119) /* GCloudStorage */,
-      f = n(1510) /* module_1510 */,
-      m = n(1511) /* module_1511 */;
+      f = n(1510) /* GCommonNames */,
+      m = n(1511) /* GWarnLinkedImageDialog */;
     const y = n(44) /* GSystemDialog */,
       v = n(1512) /* Item */;
     var _ = n(85) /* GContainer */,

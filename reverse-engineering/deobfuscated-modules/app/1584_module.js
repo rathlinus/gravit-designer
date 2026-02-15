@@ -9,15 +9,15 @@ function (exports, module, require) {
     const GTouchEventHandler = require(878) /* GTouchEventHandler */,
       GTouchPinchZoomGesture = require(1585) /* GTouchPinchZoomGesture */,
       GTouchClickGesture = require(879) /* GTouchClickGesture */,
-      s = require(1586) /* module_1586 */,
-      l = require(1329) /* module_1329 */;
+      DataModule_1586 = require(1586) /* DataModule_1586 */,
+      DataModule_1329 = require(1329) /* DataModule_1329 */;
     exports.exports = class extends GTouchEventHandler {
       constructor(e) {
         super(e),
           this.addGesture(new GTouchPinchZoomGesture()),
           this.addGesture(new GTouchClickGesture()),
-          this.addGesture(new l()),
-          this.addGesture(new s());
+          this.addGesture(new DataModule_1329()),
+          this.addGesture(new DataModule_1586());
       }
       _handleEvent(e) {
         e.cancelable && e.preventDefault(), super._handleEvent(e);

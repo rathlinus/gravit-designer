@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(290) /* module_290 */;
+    require(290) /* DataModule_290 */;
     const { GObject: o, GLocale: i } = require(1) /* GCore */,
       a = require(1068) /* module_1068 */;
     function r(e) {

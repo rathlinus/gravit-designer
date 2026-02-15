@@ -13,11 +13,11 @@ function (exports, module, require) {
       r = require(15) /* GEditor */,
       s = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-      c = _interopRequireDefault(require(807) /* module_807 */),
-      d = require(1161) /* module_1161 */,
+      GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
+      DataModule_1161 = require(1161) /* DataModule_1161 */,
       u = _interopRequireDefault(require(565) /* module_565 */),
       GProperties = require(123) /* GProperties */,
-      g = require(1263) /* module_1263 */,
+      DataModule_1263 = require(1263) /* DataModule_1263 */,
       GEffectsPanel = require(1526) /* GEffectsPanel */,
       f = require(450) /* module_450 */;
     const m = require(607) /* module_607 */,
@@ -160,7 +160,7 @@ function (exports, module, require) {
                         const GTools = gDesigner
                           .getRightSidebars()
                           .getSidebar(y.GInspectorSidebar);
-                        GTools.trigger(new c.default(c.default.Type.ChildAdded, GTools));
+                        GTools.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, GTools));
                       }
                     }.bind(this),
                     GCore.GLocale.get(
@@ -173,9 +173,9 @@ function (exports, module, require) {
           r < V.length;
           ++r
         ) {
-          var d = V[r];
-          $.inArray(d.clazz, this._defaultEffects) > -1 &&
-            this._createDefaultEffect(false, d, _interopRequireDefault);
+          var DataModule_1161 = V[r];
+          $.inArray(DataModule_1161.clazz, this._defaultEffects) > -1 &&
+            this._createDefaultEffect(false, DataModule_1161, _interopRequireDefault);
         }
         this._createDefaultEffect(true),
           gDesigner
@@ -307,7 +307,7 @@ function (exports, module, require) {
           s = null,
           GTouchTool = null,
           GProperties = 0,
-          g = 0,
+          DataModule_1263 = 0,
           GEffectsPanel = null,
           v = function () {
             GTools.GEditor.tryRunTransaction(
@@ -369,7 +369,7 @@ function (exports, module, require) {
             const _interopRequireDefault = gDesigner
               .getRightSidebars()
               .getSidebar(y.GInspectorSidebar);
-            _interopRequireDefault.trigger(new c.default(c.default.Type.ChildRemoved, _interopRequireDefault));
+            _interopRequireDefault.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildRemoved, _interopRequireDefault));
           }.bind(this),
           w = null,
           C = e.getPrevious();
@@ -413,16 +413,16 @@ function (exports, module, require) {
                   !$(t).closest(".effect-header").length)
               )
                 return e.preventDefault(), void e.stopPropagation();
-              var c = $(e.target).closest(".effect-block"),
-                d = c.offset(),
+              var GEvent_type = $(e.target).closest(".effect-block"),
+                DataModule_1161 = GEvent_type.offset(),
                 u = e.originalEvent;
               (_interopRequireDefault = gDragImage()).addClass("drag-delete gravit-icon-trash"),
                 (s = n._panel.offset()),
                 (GTouchTool = n._effectsPanel.outerHeight()),
-                (GProperties = e.clientX - d.left),
-                (g = e.clientY - d.top),
+                (GProperties = e.clientX - DataModule_1161.left),
+                (DataModule_1263 = e.clientY - DataModule_1161.top),
                 u.stopPropagation(),
-                (T = c.data("effect")),
+                (T = GEvent_type.data("effect")),
                 (u.dataTransfer.effectAllowed = "move"),
                 u.dataTransfer.setData("text/plain", "dummy_data"),
                 n._effectsPanel.find(".effect-block").each(function (e, t) {
@@ -503,7 +503,7 @@ function (exports, module, require) {
                 });
             })
             .on("drag", function (e) {
-              (0, d.handleDragForDeleteIcon)(e, _interopRequireDefault, s, GTouchTool, GProperties, g);
+              (0, DataModule_1161.handleDragForDeleteIcon)(e, _interopRequireDefault, s, GTouchTool, GProperties, DataModule_1263);
             })
             .on("dragend", function (e) {
               var t = e.originalEvent;
@@ -804,40 +804,40 @@ function (exports, module, require) {
                     );
             var s = e.getProperty("vs"),
               GTouchTool = e.getProperty("ly"),
-              c = e.getProperty("cl");
+              GEvent_type = e.getProperty("cl");
             r.toggleClass("g-selected", e.hasFlag(GCore.GNode.Flag.Selected)),
               r.find(".effect-title input[type=checkbox]").prop("checked", s),
-              r.find(".effect-header").gAccordion("toggleOpen", !c);
-            var d = r.find(".effect-settings");
+              r.find(".effect-header").gAccordion("toggleOpen", !GEvent_type);
+            var DataModule_1161 = r.find(".effect-settings");
             if (
-              (d.css("display", c ? "none" : ""),
+              (DataModule_1161.css("display", GEvent_type ? "none" : ""),
               e instanceof GCore.GBlurEffect &&
-                d
+                DataModule_1161
                   .find('[data-property="r"]:not(.g-input-slider)')
                   .gUnitBox("value", new GCore.GLength(e.getProperty("r"))),
               e instanceof GCore.GWebGLEffect)
             ) {
               var u = e.getProperty("shp");
               for (var GProperties in u) {
-                var g = u[GProperties];
-                if ("number" == typeof g) {
-                  var GEffectsPanel = d.find(
+                var DataModule_1263 = u[GProperties];
+                if ("number" == typeof DataModule_1263) {
+                  var GEffectsPanel = DataModule_1161.find(
                     "[data-property=" + GProperties + "]:not(.g-input-slider)"
                   );
                   GEffectsPanel.gUnitBox("options").hasOwnProperty("unit") &&
-                    GEffectsPanel.gUnitBox("value", new GCore.GLength(g, GCore.GLength.Unit.PT));
+                    GEffectsPanel.gUnitBox("value", new GCore.GLength(DataModule_1263, GCore.GLength.Unit.PT));
                 }
               }
             }
             return (
               e instanceof GCore.GDropShadowEffect &&
-                (d
+                (DataModule_1161
                   .find('[data-property="r"]')
                   .gUnitBox("value", new GCore.GLength(e.getProperty("r"))),
-                d
+                DataModule_1161
                   .find('[data-property="x"]')
                   .gUnitBox("value", new GCore.GLength(e.getProperty("x"))),
-                d
+                DataModule_1161
                   .find('[data-property="y"]')
                   .gUnitBox("value", new GCore.GLength(e.getProperty("y")))),
               r
@@ -925,26 +925,26 @@ function (exports, module, require) {
               const r = gDesigner
                 .getRightSidebars()
                 .getSidebar(y.GInspectorSidebar);
-              r.trigger(new c.default(c.default.Type.ChildAdded, r));
+              r.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, r));
             }).bind(this)();
           }.bind(this),
           r = {};
         r[v] = new Array();
         var s = $("<option></option>").attr({ value: v }).append(v);
         t.append(s);
-        for (var GTouchTool = [], d = 0; d < V.length; ++d) {
-          var u = V[d];
+        for (var GTouchTool = [], DataModule_1161 = 0; DataModule_1161 < V.length; ++DataModule_1161) {
+          var u = V[DataModule_1161];
           if (!u.hidden) {
             u.cb = _interopRequireDefault;
             var GProperties = u.mostUsed,
-              g = u.category;
-            if (g) {
-              if (!r[g]) {
-                r[g] = new Array();
-                s = $("<option></option>").attr({ value: g }).append(g);
+              DataModule_1263 = u.category;
+            if (DataModule_1263) {
+              if (!r[DataModule_1263]) {
+                r[DataModule_1263] = new Array();
+                s = $("<option></option>").attr({ value: DataModule_1263 }).append(DataModule_1263);
                 GTouchTool.push(s);
               }
-              r[g].push(u);
+              r[DataModule_1263].push(u);
             }
             GProperties && r[v].push(u);
           }
@@ -962,7 +962,7 @@ function (exports, module, require) {
             ? -1
             : 0;
         });
-        for (d = 0; d < GTouchTool.length; ++d) t.append(GTouchTool[d]);
+        for (DataModule_1161 = 0; DataModule_1161 < GTouchTool.length; ++DataModule_1161) t.append(GTouchTool[DataModule_1161]);
         t.on("change", function (t) {
           gDesigner.stats("effects_choose_type", E.EngCat(this.value)),
             e.addItems(r[this.value]);
@@ -1030,8 +1030,8 @@ function (exports, module, require) {
         r = (this._document.getScene(), this._document.getEditor()),
         s = GTools("shp"),
         GTouchTool = GCore.GNode.getClassFromId(GCore.GObject.getTypeId(_interopRequireDefault)).RANGES || fxRanges,
-        c = this,
-        d = $("<div></div>");
+        GEvent_type = this,
+        DataModule_1161 = $("<div></div>");
       for (var u in s) {
         var GProperties = s[u];
         if (-1 !== ["contrast", "brightness", "hue", "saturation"].indexOf(u)) {
@@ -1040,22 +1040,22 @@ function (exports, module, require) {
           isNaN(f) || (f = GCore.GUtil.formatNumber(f, 0));
           var m = 100 * GEffectsPanel[0],
             y = 100 * GEffectsPanel[1],
-            v = g.DefaultStops.Hue;
+            v = DataModule_1263.DefaultStops.Hue;
           if ("hue" === u)
             _interopRequireDefault instanceof GCore.GGLRecolourEffect
               ? ((m = 0), (y = 360))
               : ((m = -180), (y = 180)),
-              (v = g.DefaultStops.Hue),
+              (v = DataModule_1263.DefaultStops.Hue),
               (f = GCore.GMath.normalizeValue(GProperties, GEffectsPanel[0], GEffectsPanel[1], m, y));
           else if (-1 !== ["contrast", "brightness"].indexOf(u))
-            v = g.DefaultStops.Luminosity;
+            v = DataModule_1263.DefaultStops.Luminosity;
           else if (
             "saturation" === u &&
-            ((v = g.DefaultStops.Saturation(0)),
+            ((v = DataModule_1263.DefaultStops.Saturation(0)),
             _interopRequireDefault instanceof GCore.GGLRecolourEffect)
           ) {
             var _ = GCore.GMath.normalizeValue(s.hue, GEffectsPanel[0], GEffectsPanel[1], 0, 360);
-            v = g.DefaultStops.Saturation(_);
+            v = DataModule_1263.DefaultStops.Saturation(_);
           }
           var b = function (e, t, n) {
             if ("hue" === t && _interopRequireDefault instanceof GCore.GGLRecolourEffect) {
@@ -1067,7 +1067,7 @@ function (exports, module, require) {
                 .gColorSlider({
                   min: 100 * GEffectsPanel[0],
                   max: 100 * GEffectsPanel[1],
-                  stops: g.DefaultStops.Saturation(e),
+                  stops: DataModule_1263.DefaultStops.Saturation(e),
                 })
                 .gColorSlider("value", r)
                 .trigger("input");
@@ -1091,10 +1091,10 @@ function (exports, module, require) {
                         GTouchTool = $(e.target).gColorSlider("maxValue");
                       (_interopRequireDefault = GCore.GMath.normalizeValue(_interopRequireDefault, s, GTouchTool, GEffectsPanel[0], GEffectsPanel[1])),
                         b(r, n, e.target);
-                      var c = GTools("shp");
-                      if (c[n] !== _interopRequireDefault) {
-                        var d = JSON.parse(JSON.stringify(c));
-                        (d[n] = _interopRequireDefault), t(["shp"], [d]);
+                      var GEvent_type = GTools("shp");
+                      if (GEvent_type[n] !== _interopRequireDefault) {
+                        var DataModule_1161 = JSON.parse(JSON.stringify(GEvent_type));
+                        (DataModule_1161[n] = _interopRequireDefault), t(["shp"], [DataModule_1161]);
                       }
                       $(e.target)
                         .closest(".effect-settings")
@@ -1126,10 +1126,10 @@ function (exports, module, require) {
                       GTouchTool.gColorSlider("value") != r &&
                         GTouchTool.gColorSlider("value", r),
                         b(r, n, e.target);
-                      var c = GTouchTool.gColorSlider("minValue"),
-                        d = GTouchTool.gColorSlider("maxValue");
+                      var GEvent_type = GTouchTool.gColorSlider("minValue"),
+                        DataModule_1161 = GTouchTool.gColorSlider("maxValue");
                       if (
-                        ((r = GCore.GMath.normalizeValue(r, c, d, GEffectsPanel[0], GEffectsPanel[1])),
+                        ((r = GCore.GMath.normalizeValue(r, GEvent_type, DataModule_1161, GEffectsPanel[0], GEffectsPanel[1])),
                         s && s[n] !== r)
                       ) {
                         var u = JSON.parse(JSON.stringify(s));
@@ -1145,7 +1145,7 @@ function (exports, module, require) {
                 },
               ],
             })
-            .appendTo(d);
+            .appendTo(DataModule_1161);
         } else if ("number" == typeof GProperties) {
           f = new GCore.GLength(GProperties, GCore.GLength.Unit.PT);
           GEffectsPanel = GTouchTool[u];
@@ -1181,10 +1181,10 @@ function (exports, module, require) {
                         GTouchTool = 0;
                       s && (GTouchTool = s.toPoint()),
                         (GTouchTool = Number(_interopRequireDefault.propertyTransform(r, GTouchTool).toFixed(3)));
-                      var c = GTools("shp");
-                      if (null !== GTouchTool && "number" == typeof GTouchTool && c[r] !== GTouchTool) {
-                        var d = JSON.parse(JSON.stringify(c));
-                        (d[r] = GTouchTool), t(["shp"], [d], true);
+                      var GEvent_type = GTools("shp");
+                      if (null !== GTouchTool && "number" == typeof GTouchTool && GEvent_type[r] !== GTouchTool) {
+                        var DataModule_1161 = JSON.parse(JSON.stringify(GEvent_type));
+                        (DataModule_1161[r] = GTouchTool), t(["shp"], [DataModule_1161], true);
                       }
                       n.closest(".effect-settings")
                         .find("[data-property=" + r + "]:not(.g-input-slider)")
@@ -1222,16 +1222,16 @@ function (exports, module, require) {
                           _interopRequireDefault.propertyInverseTransform(n, r).toFixed(3)
                         ),
                         GTouchTool = GTools("shp"),
-                        c = $(this)
+                        GEvent_type = $(this)
                           .parents(".effect-settings")
                           .find("[data-property=" + n + "].g-input-slider");
                       if (
-                        (c.gInputSlider("value") != s &&
-                          c.gInputSlider("value", s),
+                        (GEvent_type.gInputSlider("value") != s &&
+                          GEvent_type.gInputSlider("value", s),
                         null !== r && "number" == typeof r && GTouchTool[n] !== r)
                       ) {
-                        var d = JSON.parse(JSON.stringify(GTouchTool));
-                        (d[n] = r), t(["shp"], [d]);
+                        var DataModule_1161 = JSON.parse(JSON.stringify(GTouchTool));
+                        (DataModule_1161[n] = r), t(["shp"], [DataModule_1161]);
                       }
                     })
                     .gUnitBox({
@@ -1244,7 +1244,7 @@ function (exports, module, require) {
                 },
               ],
             })
-            .appendTo(d);
+            .appendTo(DataModule_1161);
         } else if (GProperties instanceof Array && 3 === GProperties.length) {
           var w = undefined,
             C = [GCore.GColor];
@@ -1263,13 +1263,13 @@ function (exports, module, require) {
                       .gPatternChooser("value", new GCore.GRGBColor(GProperties))
                       .gPatternChooser("opacity", w)
                       .on("chooseropen", function () {
-                        c._document.getEditor().hideSelection(),
-                          (c._chooserElem = $(this));
+                        GEvent_type._document.getEditor().hideSelection(),
+                          (GEvent_type._chooserElem = $(this));
                       })
                       .on("chooserclose", function (e, t, n) {
-                        c._document &&
-                          c._document.getEditor().resetHideSelection(),
-                          (c._chooserElem = null);
+                        GEvent_type._document &&
+                          GEvent_type._document.getEditor().resetHideSelection(),
+                          (GEvent_type._chooserElem = null);
                       })
                       .on("patternchange", function (e, n, _interopRequireDefault, GCore, r) {
                         var s = GTools("shp"),
@@ -1280,13 +1280,13 @@ function (exports, module, require) {
                             "object" == typeof s.opacity &&
                             "opacity" === s.opacity.type &&
                             (GTouchTool.opacity.value = _interopRequireDefault);
-                        var c = null;
-                        r && (c = { chooserOn: true }), t(["shp"], [GTouchTool], GCore, c);
+                        var GEvent_type = null;
+                        r && (GEvent_type = { chooserOn: true }), t(["shp"], [GTouchTool], GCore, GEvent_type);
                       }),
                   },
                 ],
               })
-              .appendTo(d);
+              .appendTo(DataModule_1161);
         } else if ("object" == typeof GProperties && "dropdown" === GProperties.type) {
           GEffectsPanel = GTouchTool[u];
           for (
@@ -1315,7 +1315,7 @@ function (exports, module, require) {
                 label: GCore.GLocale.get(new GCore.GLocaleKey("GWebGLEffect", u)),
                 columns: [{ width: "100%", content: x }],
               })
-              .appendTo(d);
+              .appendTo(DataModule_1161);
         } else
           "boolean" == typeof GProperties &&
             $("<div></div>")
@@ -1345,9 +1345,9 @@ function (exports, module, require) {
                   },
                 ],
               })
-              .appendTo(d);
+              .appendTo(DataModule_1161);
       }
-      return d;
+      return DataModule_1161;
     }
     function D(e, t, n) {
       this._document.getScene();
@@ -1356,8 +1356,8 @@ function (exports, module, require) {
         r = _interopRequireDefault("y"),
         s = new GCore.GLength(_interopRequireDefault("r"), GCore.GLength.Unit.PT),
         GTouchTool = _interopRequireDefault("pat"),
-        c = _interopRequireDefault("opc"),
-        d = this,
+        GEvent_type = _interopRequireDefault("opc"),
+        DataModule_1161 = this,
         u = [0, 200],
         GProperties = e.RANGES;
       return (
@@ -1440,7 +1440,7 @@ function (exports, module, require) {
                       incrementValue: gDesigner.getOpacityIncrement(),
                       postfix: "%",
                     })
-                    .gInputBox("value", GCore.GUtil.formatOpacity(100 * c)),
+                    .gInputBox("value", GCore.GUtil.formatOpacity(100 * GEvent_type)),
                 },
                 {
                   width: "20%",
@@ -1451,23 +1451,23 @@ function (exports, module, require) {
                     .attr("data-property", "pat")
                     .gPatternChooser({ types: [GCore.GColor, GCore.GGradient] })
                     .gPatternChooser("value", GTouchTool)
-                    .gPatternChooser("opacity", c)
+                    .gPatternChooser("opacity", GEvent_type)
                     .on("chooseropen", function () {
-                      d._document.getEditor().hideSelection(),
-                        (d._chooserElem = $(this));
+                      DataModule_1161._document.getEditor().hideSelection(),
+                        (DataModule_1161._chooserElem = $(this));
                     })
                     .on("chooserclose", function (e, t, n) {
-                      d._document &&
-                        d._document.getEditor().resetHideSelection(),
-                        (d._chooserElem = null);
+                      DataModule_1161._document &&
+                        DataModule_1161._document.getEditor().resetHideSelection(),
+                        (DataModule_1161._chooserElem = null);
                     })
                     .on("patternchange", function (e, n, _interopRequireDefault, GTools, r, s) {
                       var GTouchTool = [],
-                        c = [];
-                      undefined !== n && (GTouchTool.push("pat"), c.push(n)),
+                        GEvent_type = [];
+                      undefined !== n && (GTouchTool.push("pat"), GEvent_type.push(n)),
                         "number" == typeof _interopRequireDefault &&
                           (GTouchTool.push("opc"),
-                          c.push(_interopRequireDefault),
+                          GEvent_type.push(_interopRequireDefault),
                           $(e.target)
                             .parents(".effect-settings")
                             .find('[data-property="opc"]')
@@ -1475,11 +1475,11 @@ function (exports, module, require) {
                               "value",
                               GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
                             ));
-                      var d = null;
+                      var DataModule_1161 = null;
                       r &&
-                        ((d = { chooserOn: true }),
-                        null != s && (d.activeStopIdx = s)),
-                        t(GTouchTool, c, GTools, d);
+                        ((DataModule_1161 = { chooserOn: true }),
+                        null != s && (DataModule_1161.activeStopIdx = s)),
+                        t(GTouchTool, GEvent_type, GTools, DataModule_1161);
                     }),
                 },
               ],
@@ -1494,15 +1494,15 @@ function (exports, module, require) {
         r = _interopRequireDefault("s"),
         s = _interopRequireDefault("l"),
         GTouchTool = _interopRequireDefault("b"),
-        c = _interopRequireDefault("c"),
-        d = _interopRequireDefault("pat"),
+        GEvent_type = _interopRequireDefault("c"),
+        DataModule_1161 = _interopRequireDefault("pat"),
         u = _interopRequireDefault("opc"),
         GProperties = this._document.getEditor(),
-        g = $("<div></div>"),
+        DataModule_1263 = $("<div></div>"),
         GEffectsPanel = this;
-      function f(e, n, _interopRequireDefault, GTools, r, s, GTouchTool, c, d) {
+      function f(e, n, _interopRequireDefault, GTools, r, s, GTouchTool, GEvent_type, DataModule_1161) {
         var u,
-          g = $("<input>")
+          DataModule_1263 = $("<input>")
             .attr("type", "text")
             .attr("data-property", n)
             .val(_interopRequireDefault)
@@ -1524,14 +1524,14 @@ function (exports, module, require) {
         return (
           GTools
             ? ((u = new GCore.GLength(_interopRequireDefault, GCore.GLength.Unit.PT)),
-              g
+              DataModule_1263
                 .gUnitBox({ minValue: r, maxValue: s, source: "effects" })
                 .gUnitBox("value", u))
-            : g
+            : DataModule_1263
                 .gInputBox({
                   minValue: r,
                   maxValue: s,
-                  postfix: c || "",
+                  postfix: GEvent_type || "",
                   incrementValue: (s - r) / 100,
                 })
                 .gInputBox("value", _interopRequireDefault),
@@ -1543,7 +1543,7 @@ function (exports, module, require) {
                 content: $("<div>")
                   .gInputSlider({
                     type: "range",
-                    maxDecimal: d,
+                    maxDecimal: DataModule_1161,
                     min: r,
                     max: s,
                     step: GTouchTool || (s - r) / 100,
@@ -1576,13 +1576,13 @@ function (exports, module, require) {
                       .trigger("change");
                   }),
               },
-              { width: "25%", content: g },
+              { width: "25%", content: DataModule_1263 },
             ],
           })
         );
       }
       return (
-        g.append(
+        DataModule_1263.append(
           f(
             GCore.GLocale.get(new GCore.GLocaleKey("GEffectProperties", "text.bend")),
             "b",
@@ -1595,7 +1595,7 @@ function (exports, module, require) {
             1
           )
         ),
-        g.append(
+        DataModule_1263.append(
           f(
             GCore.GLocale.get(
               new GCore.GLocaleKey("GEffectProperties", "text.softness")
@@ -1610,7 +1610,7 @@ function (exports, module, require) {
             2
           )
         ),
-        g.append(
+        DataModule_1263.append(
           f(
             GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.radius")),
             "l",
@@ -1623,13 +1623,13 @@ function (exports, module, require) {
             1
           )
         ),
-        g.append(
+        DataModule_1263.append(
           f(
             GCore.GLocale.get(
               new GCore.GLocaleKey("GEffectProperties", "text.coverage")
             ),
             "c",
-            c,
+            GEvent_type,
             false,
             0,
             1,
@@ -1638,7 +1638,7 @@ function (exports, module, require) {
             2
           )
         ),
-        g.append(
+        DataModule_1263.append(
           f(
             GCore.GLocale.get(new GCore.GLocaleKey("GCommonNames", "text.angle")),
             "a",
@@ -1689,7 +1689,7 @@ function (exports, module, require) {
                 content: $("<div></div>")
                   .attr("data-property", "pat")
                   .gPatternChooser({ types: [GCore.GColor, GCore.GGradient] })
-                  .gPatternChooser("value", d)
+                  .gPatternChooser("value", DataModule_1161)
                   .gPatternChooser("opacity", u)
                   .on("chooseropen", function () {
                     GEffectsPanel._document.getEditor().hideSelection(),
@@ -1701,26 +1701,26 @@ function (exports, module, require) {
                   })
                   .on("patternchange", function (e, n, _interopRequireDefault, GTools, r, s) {
                     var GTouchTool = [],
-                      c = [];
-                    undefined !== n && (GTouchTool.push("pat"), c.push(n)),
+                      GEvent_type = [];
+                    undefined !== n && (GTouchTool.push("pat"), GEvent_type.push(n)),
                       "number" == typeof _interopRequireDefault &&
                         (GTouchTool.push("opc"),
-                        c.push(_interopRequireDefault),
+                        GEvent_type.push(_interopRequireDefault),
                         $(e.target)
                           .parents(".effect-settings")
                           .find('[data-property="opc"]')
                           .gInputBox("value", GCore.GUtil.formatOpacity(100 * _interopRequireDefault)));
-                    var d = null;
+                    var DataModule_1161 = null;
                     r &&
-                      ((d = { chooserOn: true }),
-                      null != s && (d.activeStopIdx = s)),
-                      t(GTouchTool, c, GTools, d);
+                      ((DataModule_1161 = { chooserOn: true }),
+                      null != s && (DataModule_1161.activeStopIdx = s)),
+                      t(GTouchTool, GEvent_type, GTools, DataModule_1161);
                   }),
               },
             ],
           })
-          .appendTo(g),
-        g
+          .appendTo(DataModule_1263),
+        DataModule_1263
       );
     }
     function I(e, t, n) {
@@ -1730,12 +1730,12 @@ function (exports, module, require) {
         r = new GCore.GLength(_interopRequireDefault("r"), GCore.GLength.Unit.PT),
         s = new GCore.GLength(_interopRequireDefault("o"), GCore.GLength.Unit.PT),
         GTouchTool = _interopRequireDefault("pat"),
-        c = _interopRequireDefault("opc"),
-        d = this,
+        GEvent_type = _interopRequireDefault("opc"),
+        DataModule_1161 = this,
         u = [5, 200],
         GProperties = e.RANGES;
       GProperties && GProperties.r && (u = GProperties.r);
-      var g = function (e) {
+      var DataModule_1263 = function (e) {
         return "r" === e
           ? $("<input>")
               .attr("type", "text")
@@ -1783,20 +1783,20 @@ function (exports, module, require) {
                 incrementValue: gDesigner.getOpacityIncrement(),
                 postfix: "%",
               })
-              .gInputBox("value", GCore.GUtil.formatOpacity(100 * c))
+              .gInputBox("value", GCore.GUtil.formatOpacity(100 * GEvent_type))
           : "pat" === e
           ? $("<div></div>")
               .attr("data-property", "pat")
               .gPatternChooser({ types: [GCore.GColor] })
               .gPatternChooser("value", GTouchTool)
-              .gPatternChooser("opacity", c)
+              .gPatternChooser("opacity", GEvent_type)
               .on("chooseropen", function () {
-                d._document.getEditor().hideSelection(),
-                  (d._chooserElem = $(this));
+                DataModule_1161._document.getEditor().hideSelection(),
+                  (DataModule_1161._chooserElem = $(this));
               })
               .on("chooserclose", function (e, t, n) {
-                d._document && d._document.getEditor().resetHideSelection(),
-                  (d._chooserElem = null);
+                DataModule_1161._document && DataModule_1161._document.getEditor().resetHideSelection(),
+                  (DataModule_1161._chooserElem = null);
               })
               .on("patternchange", function (e, n, _interopRequireDefault, GTools, r) {
                 var s = [],
@@ -1809,8 +1809,8 @@ function (exports, module, require) {
                       .parents(".effect-settings")
                       .find('[data-property="opc"]')
                       .gInputBox("value", GCore.GUtil.formatOpacity(100 * _interopRequireDefault)));
-                var c = null;
-                r && (c = { chooserOn: true }), t(s, GTouchTool, GTools, c);
+                var GEvent_type = null;
+                r && (GEvent_type = { chooserOn: true }), t(s, GTouchTool, GTools, GEvent_type);
               })
           : undefined;
       };
@@ -1822,35 +1822,35 @@ function (exports, module, require) {
               label: GCore.GLocale.get(
                 new GCore.GLocaleKey("GEffectProperties", "text.offset")
               ),
-              content: g("o"),
+              content: DataModule_1263("o"),
             },
             {
               width: "20%",
               label: GCore.GLocale.get(
                 new GCore.GLocaleKey("GCommonNames", "text.angle")
               ),
-              content: g("a"),
+              content: DataModule_1263("a"),
             },
             {
               width: "20%",
               label: GCore.GLocale.get(
                 new GCore.GLocaleKey("GEffectProperties", "text.blur")
               ),
-              content: g("r"),
+              content: DataModule_1263("r"),
             },
             {
               width: "20%",
               label: GCore.GLocale.get(
                 new GCore.GLocaleKey("GCommonNames", "text.opacity")
               ),
-              content: g("opc"),
+              content: DataModule_1263("opc"),
             },
             {
               width: "20%",
               label: GCore.GLocale.get(
                 new GCore.GLocaleKey("GCommonNames", "text.color")
               ),
-              content: g("pat"),
+              content: DataModule_1263("pat"),
             },
           ],
         })
@@ -1863,8 +1863,8 @@ function (exports, module, require) {
         r = new GCore.GLength(_interopRequireDefault("l"), GCore.GLength.Unit.PT),
         s = _interopRequireDefault("pat"),
         GTouchTool = _interopRequireDefault("opc"),
-        c = _interopRequireDefault("den"),
-        d = _interopRequireDefault("fdm"),
+        GEvent_type = _interopRequireDefault("den"),
+        DataModule_1161 = _interopRequireDefault("fdm"),
         u = this,
         GProperties = function (e) {
           return "l" === e
@@ -1928,14 +1928,14 @@ function (exports, module, require) {
                   incrementValue: 1,
                   postfix: "%",
                 })
-                .gInputBox("value", GCore.GUtil.formatNumber(100 * c))
+                .gInputBox("value", GCore.GUtil.formatNumber(100 * GEvent_type))
             : "fdm" === e
             ? $("<label></label>")
                 .addClass("g-switch")
                 .append(
                   $("<input>")
                     .attr("type", "checkbox")
-                    .prop("checked", d)
+                    .prop("checked", DataModule_1161)
                     .on("change", function (e) {
                       t(["fdm"], [$(this).is(":checked")]);
                     })
@@ -1957,20 +1957,20 @@ function (exports, module, require) {
                 })
                 .on("patternchange", function (e, n, _interopRequireDefault, GTools, r, s) {
                   var GTouchTool = [],
-                    c = [];
-                  undefined !== n && (GTouchTool.push("pat"), c.push(n)),
+                    GEvent_type = [];
+                  undefined !== n && (GTouchTool.push("pat"), GEvent_type.push(n)),
                     "number" == typeof _interopRequireDefault &&
                       (GTouchTool.push("opc"),
-                      c.push(_interopRequireDefault),
+                      GEvent_type.push(_interopRequireDefault),
                       $(e.target)
                         .parents(".effect-settings")
                         .find('[data-property="opc"]')
                         .gInputBox("value", GCore.GUtil.formatOpacity(100 * _interopRequireDefault)));
-                  var d = null;
+                  var DataModule_1161 = null;
                   r &&
-                    ((d = { chooserOn: true }),
-                    null != s && (d.activeStopIdx = s)),
-                    t(GTouchTool, c, GTools, d);
+                    ((DataModule_1161 = { chooserOn: true }),
+                    null != s && (DataModule_1161.activeStopIdx = s)),
+                    t(GTouchTool, GEvent_type, GTools, DataModule_1161);
                 })
             : undefined;
         };
@@ -2135,7 +2135,7 @@ function (exports, module, require) {
         r = GTools("pat"),
         s = GTools("opc"),
         GTouchTool = GTools("alm"),
-        c = this;
+        GEvent_type = this;
       return $("<div></div>").append(
         $("<div></div>")
           .addClass("touch-effects-overlay")
@@ -2157,8 +2157,8 @@ function (exports, module, require) {
                         .getWorkspace()
                         .getStyleEdManager()
                         .updateEditor(e, "pat", false),
-                      (c._styleEdOn = true),
-                      (c._chooserElem = $(this));
+                      (GEvent_type._styleEdOn = true),
+                      (GEvent_type._chooserElem = $(this));
                   })
                   .on("chooserclose", function (e, t, n) {
                     gDesigner
@@ -2166,24 +2166,24 @@ function (exports, module, require) {
                       .getStyleEdManager()
                       .getOverlayLock(n)
                       ? t()
-                      : ((c._styleEdOn = false),
+                      : ((GEvent_type._styleEdOn = false),
                         gDesigner
                           .getWorkspace()
                           .getStyleEdManager()
                           .deactivateEditor(),
                         _interopRequireDefault.resetHideSelection()),
-                      (c._chooserElem = null);
+                      (GEvent_type._chooserElem = null);
                   })
                   .on("patternchange", function (e, n, _interopRequireDefault, GTools, GCore, r) {
                     var s = [],
                       GTouchTool = [];
                     undefined !== n && (s.push("pat"), GTouchTool.push(n)),
                       "number" == typeof _interopRequireDefault && (s.push("opc"), GTouchTool.push(_interopRequireDefault));
-                    var c = null;
+                    var GEvent_type = null;
                     GCore &&
-                      ((c = { chooserOn: true }),
-                      null != r && (c.activeStopIdx = r)),
-                      t(s, GTouchTool, GTools, c);
+                      ((GEvent_type = { chooserOn: true }),
+                      null != r && (GEvent_type.activeStopIdx = r)),
+                      t(s, GTouchTool, GTools, GEvent_type);
                   }),
               },
               { width: "20%" },
@@ -2424,15 +2424,15 @@ function (exports, module, require) {
         for (
           var s = _interopRequireDefault[r],
             GTouchTool = GCore.GNode.getClassFromId(GCore.GObject.getTypeId(_interopRequireDefault[r])),
-            c = GCore.GNode.getName(GTouchTool),
-            d = 0;
-          d < V.length;
-          d++
+            GEvent_type = GCore.GNode.getName(GTouchTool),
+            DataModule_1161 = 0;
+          DataModule_1161 < V.length;
+          DataModule_1161++
         )
-          if (V[d].clazz === GTouchTool) {
+          if (V[DataModule_1161].clazz === GTouchTool) {
             GTools.append(
-              V[d].createSettings
-                .call(this, e, B(c, t), s)
+              V[DataModule_1161].createSettings
+                .call(this, e, B(GEvent_type, t), s)
                 .css("margin-top", "7px")
             );
             break;
@@ -2445,7 +2445,7 @@ function (exports, module, require) {
         r = GTools("opc"),
         s = new GCore.GLength(GTools("pad")),
         GTouchTool = GTools("rfh"),
-        c = function (e) {
+        GEvent_type = function (e) {
           return "rfh" === e
             ? $("<input>")
                 .attr("data-property", e)
@@ -2535,10 +2535,10 @@ function (exports, module, require) {
             ),
             content: $("<div></div>").gPropertyRow({
               columns: [
-                { width: "auto", content: c("opacity-slider") },
+                { width: "auto", content: GEvent_type("opacity-slider") },
                 {
                   width: $("body").hasClass("g-touch") ? "60px" : "40px",
-                  content: c("opacity-input"),
+                  content: GEvent_type("opacity-input"),
                 },
               ],
             }),
@@ -2548,14 +2548,14 @@ function (exports, module, require) {
             label: GCore.GLocale.get(
               new GCore.GLocaleKey("GEffectProperties", "text.padding")
             ),
-            content: c("pad"),
+            content: GEvent_type("pad"),
           },
           {
             width: $("body").hasClass("g-touch") ? "60px" : "40px",
             label: GCore.GLocale.get(
               new GCore.GLocaleKey("GEffectProperties", "text.height")
             ),
-            content: c("rfh"),
+            content: GEvent_type("rfh"),
           },
         ],
       });

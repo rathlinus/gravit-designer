@@ -12,7 +12,7 @@ function (e, t, n) {
       a = n(15) /* GEditor */,
       r = o(n(18) /* MenuItemBuilder */),
       s = o(n(31) /* GAction */),
-      l = o(n(442) /* module_442 */);
+      l = o(n(442) /* DataModule_442 */);
     function c() {}
     i.GObject.inherit(c, s.default),
       (c.ID = "view.outline-view"),

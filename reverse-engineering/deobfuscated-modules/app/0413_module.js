@@ -7,9 +7,9 @@ function (exports, module, require) {
     "use strict";
     var o = require(186) /* stub_requires_23 */,
       i = require(343) /* module_343 */,
-      a = require(201) /* module_201 */.CONSTRUCTOR;
+      DataModule_201 = require(201) /* DataModule_201 */.CONSTRUCTOR;
     exports.exports =
-      a ||
+      DataModule_201 ||
       !i(function (e) {
         o.all(e).then(undefined, function () {});
       });

@@ -7,32 +7,32 @@ function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
       isCallable = require(29) /* isCallable */,
-      a = require(65) /* module_65 */,
-      r = require(202) /* module_202 */,
+      DataModule_65 = require(65) /* DataModule_65 */,
+      DataModule_202 = require(202) /* DataModule_202 */,
       s = require(304) /* module_304 */,
-      l = require(121) /* module_121 */;
+      DataModule_121 = require(121) /* DataModule_121 */;
     core_export(
       { target: "Promise", stat: true, forced: require(413) /* module_413 */ },
       {
         all: function (e) {
           var t = this,
-            n = r.f(t),
+            n = DataModule_202.f(t),
             core_export = n.resolve,
             c = n.reject,
             d = s(function () {
-              var n = a(t.resolve),
-                r = [],
+              var n = DataModule_65(t.resolve),
+                DataModule_202 = [],
                 s = 0,
                 d = 1;
-              l(e, function (e) {
-                var a = s++,
-                  l = false;
+              DataModule_121(e, function (e) {
+                var DataModule_65 = s++,
+                  DataModule_121 = false;
                 d++,
                   isCallable(n, t, e).then(function (e) {
-                    l || ((l = true), (r[a] = e), --d || core_export(r));
+                    DataModule_121 || ((DataModule_121 = true), (DataModule_202[DataModule_65] = e), --d || core_export(DataModule_202));
                   }, c);
               }),
-                --d || core_export(r);
+                --d || core_export(DataModule_202);
             });
           return d.error && c(d.value), n.promise;
         },

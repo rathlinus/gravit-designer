@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(49) /* hasOwnProperty_wrapper */,
-      i = n(400) /* module_400 */,
+      i = n(400) /* DataModule_400 */,
       a = n(88) /* createPropertyDescriptor */,
       r = n(37) /* toString_default */,
       s = n(184) /* toIndexedObject */,

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(239) /* module_239 */,
+    var o = n(239) /* DataModule_239 */,
       i = Function.prototype,
       a = i.call,
       r = o && i.bind.bind(a, a);

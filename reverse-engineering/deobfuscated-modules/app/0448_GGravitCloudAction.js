@@ -15,7 +15,7 @@ function (exports, module, require) {
       l = require(86) /* module_86 */,
       c = require(220) /* Item */,
       GCloudStorage = require(119) /* GCloudStorage */,
-      u = require(446) /* module_446 */;
+      GLoginPanel = require(446) /* GLoginPanel */;
     const GOfflineDialog = require(256) /* GOfflineDialog */;
     function g(e) {
       (this._type = e),
@@ -74,7 +74,7 @@ function (exports, module, require) {
       }),
       (g.prototype.execute = function (e, t, n) {
         const GCore = () =>
-          new u(
+          new GLoginPanel(
             () => {
               this._executeAction(e, t, n);
             },

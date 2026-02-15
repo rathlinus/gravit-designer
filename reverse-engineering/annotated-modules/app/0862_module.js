@@ -38,7 +38,7 @@ function (e, t, n) {
       l = o(n(163) /* GDocument */),
       c = o(n(86) /* module_86 */),
       d = o(n(802) /* CloudException */),
-      u = n(593) /* module_593 */;
+      u = n(593) /* DataModule_593 */;
     const p = n(156) /* GCloudStorageItem */,
       {
         FILE_FORMATS: g,

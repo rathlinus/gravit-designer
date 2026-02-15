@@ -4,8 +4,8 @@
  */
 
 function (e, t, n) {
-    var o = n(1251) /* module_1251 */.default,
-      i = n(1506) /* module_1506 */;
+    var o = n(1251) /* DataModule_1251 */.default,
+      i = n(1506) /* DataModule_1506 */;
     (e.exports = function (e) {
       var t = i(e, "string");
       return "symbol" == o(t) ? t : t + "";

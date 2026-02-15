@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(348) /* module_348 */,
+    var o = n(348) /* DataModule_348 */,
       i = n(101) /* stub_requires_117 */,
       a = n(1376) /* module_1376 */,
       r = n(124) /* module_124 */,

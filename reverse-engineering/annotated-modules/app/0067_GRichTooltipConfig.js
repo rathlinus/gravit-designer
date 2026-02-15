@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.default = t.TOOLTIP_AREA = t.GRichTooltipConfig = void 0),
-      n(290) /* module_290 */,
+      n(290) /* DataModule_290 */,
       n(3) /* polyfill_RegExp_toString */;
     const o = (t.GRichTooltipConfig = function (e) {
       let {

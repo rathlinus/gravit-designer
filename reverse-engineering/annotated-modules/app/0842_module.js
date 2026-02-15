@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(1039) /* polyfill_String_trimLeft */;
     var o = n(25) /* core_export */,
-      i = n(735) /* module_735 */;
+      i = n(735) /* DataModule_735 */;
     o(
       {
         target: "String",

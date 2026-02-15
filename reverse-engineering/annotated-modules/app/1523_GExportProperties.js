@@ -14,8 +14,8 @@ function (e, t, n) {
       s = n(444) /* module_444 */,
       l = n(123) /* GProperties */,
       c = n(1253) /* ZipDirectory */,
-      d = n(446) /* module_446 */,
-      u = n(442) /* module_442 */;
+      d = n(446) /* GLoginPanel */,
+      u = n(442) /* DataModule_442 */;
     const p = n(135) /* GSettingChangedEvent */;
     function g() {}
     o.GObject.inherit(g, l),

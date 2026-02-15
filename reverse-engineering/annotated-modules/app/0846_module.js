@@ -6,14 +6,14 @@
 function (e, t, n) {
     "use strict";
     n(30) /* polyfill_Object_assign */;
-    var o = n(231) /* module_231 */;
+    var o = n(231) /* DataModule_231 */;
     const { License: i, LicenseType: a, DateAPI: r } = n(10) /* AppSettings */,
       {
         defaultUserSettings: {
           license: { offlineCountdown: s, offlineExpirationTime: l },
         },
       } = n(10) /* AppSettings */.defaultUserSettings,
-      c = n(785) /* module_785 */,
+      c = n(785) /* DataModule_785 */,
       d = n(1099) /* module_1099 */;
     e.exports = class {
       static newLicense(e) {

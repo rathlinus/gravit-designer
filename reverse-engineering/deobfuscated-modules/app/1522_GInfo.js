@@ -14,8 +14,8 @@ function (exports, module, require) {
     const GSystemDialog = require(44) /* GSystemDialog */,
       l = require(863) /* module_863 */,
       GContainer = require(85) /* GContainer */,
-      d = require(805) /* module_805 */,
-      u = require(292) /* module_292 */,
+      GEvent_user_805 = require(805) /* GEvent_user_805 */,
+      GEvent_user = require(292) /* GEvent_user */,
       { bypassEmailVerification: p } = AppSettings.defaultUserSettings;
     function g(e) {
       this._htmlElement = e;
@@ -25,8 +25,8 @@ function (exports, module, require) {
       (g.prototype._needToShow = false),
       (g.prototype.init = function () {
         this.update(),
-          gDesigner.addEventListener(d, this._userPropertiesChangedEvent, this),
-          gDesigner.addEventListener(u, this._userLoggedEvent, this),
+          gDesigner.addEventListener(GEvent_user_805, this._userPropertiesChangedEvent, this),
+          gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this),
           gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this);
       }),
       (g.prototype.update = async function () {

@@ -12,7 +12,7 @@ function (exports, module, require) {
       GEditor = require(15) /* GEditor */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GAction = _interopRequireDefault(require(31) /* GAction */),
-      l = _interopRequireDefault(require(442) /* module_442 */);
+      DataModule_442 = _interopRequireDefault(require(442) /* DataModule_442 */);
     function c() {}
     GCore.GObject.inherit(c, GAction.default),
       (c.ID = "view.outline-view"),
@@ -70,9 +70,9 @@ function (exports, module, require) {
               exports = GCore.GScenePaintConfiguration.PaintMode.Full;
             else
               exports =
-                (require.getProperty(l.default.PAGE_CLIP_PROPERTY_NAME, true) ||
-                  l.default.PAGE_CLIP_CONTENT_ENABLED) ===
-                l.default.PAGE_CLIP_CONTENT_ENABLED
+                (require.getProperty(DataModule_442.default.PAGE_CLIP_PROPERTY_NAME, true) ||
+                  DataModule_442.default.PAGE_CLIP_CONTENT_ENABLED) ===
+                DataModule_442.default.PAGE_CLIP_CONTENT_ENABLED
                   ? GCore.GScenePaintConfiguration.PaintMode.Output
                   : GCore.GScenePaintConfiguration.PaintMode.Full;
           } else exports = GCore.GScenePaintConfiguration.PaintMode.Output;

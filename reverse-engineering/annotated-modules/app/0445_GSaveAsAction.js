@@ -60,10 +60,10 @@ function (e, t, n) {
     var p = n(163) /* GDocument */,
       g = n(18) /* MenuItemBuilder */,
       h = n(31) /* GAction */,
-      f = n(446) /* module_446 */,
+      f = n(446) /* GLoginPanel */,
       m = n(86) /* module_86 */;
     const y = n(44) /* GSystemDialog */,
-      v = n(389) /* module_389 */;
+      v = n(389) /* GDocument_389 */;
     var _ = c.FILE_FORMATS.map((e) => e.ext);
     const b = c.FILE_FORMATS.find((e) => e.default).ext;
     function w(e) {

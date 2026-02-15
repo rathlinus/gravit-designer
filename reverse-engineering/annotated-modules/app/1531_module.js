@@ -9,8 +9,8 @@ function (e, t, n) {
     var o = n(1) /* GCore */;
     const { FILE_FORMATS: i, gApi: a } = n(10) /* AppSettings */,
       r = i.find((e) => e.default),
-      { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = n(591) /* module_591 */,
-      c = n(1164) /* module_1164 */;
+      { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = n(591) /* DataModule_591 */,
+      c = n(1164) /* DataModule_1164 */;
     e.exports = class extends c {
       constructor(e, t) {
         super(e, t);

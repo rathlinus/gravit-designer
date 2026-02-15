@@ -11,7 +11,7 @@ function (exports, module, require) {
       tryCall = require(21) /* tryCall */,
       s = require(110) /* module_110 */,
       anObject = require(35) /* anObject */,
-      c = require(342) /* module_342 */,
+      DataModule_342 = require(342) /* DataModule_342 */,
       d = require(453) /* module_453 */,
       defineBuiltIn = require(79) /* defineBuiltIn */,
       p = a && a.prototype;
@@ -29,7 +29,7 @@ function (exports, module, require) {
         },
         {
           finally: function (e) {
-            var t = c(this, s("Promise")),
+            var t = DataModule_342(this, s("Promise")),
               n = anObject(e);
             return this.then(
               n

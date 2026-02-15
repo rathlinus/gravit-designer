@@ -23,7 +23,7 @@ function (e, t, n) {
       n(97) /* stub_requires_684 */,
       n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* GCore */,
-      a = o(n(355) /* module_355 */),
+      a = o(n(355) /* AppError */),
       r = o(n(594) /* GError */),
       s = n(858) /* Exports_GFilesPanel */;
     const l = n(1240) /* module_1240 */,

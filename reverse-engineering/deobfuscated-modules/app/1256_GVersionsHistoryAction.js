@@ -12,8 +12,8 @@ function (exports, module, require) {
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
-      l = _interopRequireDefault(require(1159) /* module_1159 */),
-      c = _interopRequireDefault(require(219) /* module_219 */),
+      GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
+      c = _interopRequireDefault(require(219) /* GLocale */),
       GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
       u = require(67) /* GRichTooltipConfig */;
     function p() {
@@ -95,10 +95,10 @@ function (exports, module, require) {
           );
         const exports = () => {
           gDesigner &&
-            gDesigner.hasEventListeners(l.default) &&
+            gDesigner.hasEventListeners(GEvent_fileId.default) &&
             (gDesigner.trigger(
-              new l.default(
-                l.default.Type.Enable,
+              new GEvent_fileId.default(
+                GEvent_fileId.default.Type.Enable,
                 gDesigner.getActiveDocument().getScene().getProperty("cid")
               )
             ),

@@ -10,9 +10,9 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */;
     const MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
-    var r = require(219) /* module_219 */,
+    var r = require(219) /* GLocale */,
       GContainer = require(85) /* GContainer */;
-    const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231) /* module_231 */;
+    const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231) /* DataModule_231 */;
     function u(e) {
       let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
       (this._serverName = e), (this._isDefault = !!module);

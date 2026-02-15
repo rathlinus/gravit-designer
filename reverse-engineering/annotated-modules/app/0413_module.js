@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(186) /* stub_requires_23 */,
       i = n(343) /* module_343 */,
-      a = n(201) /* module_201 */.CONSTRUCTOR;
+      a = n(201) /* DataModule_201 */.CONSTRUCTOR;
     e.exports =
       a ||
       !i(function (e) {

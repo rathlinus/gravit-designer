@@ -13,7 +13,7 @@ function (exports, module, require) {
       l = require(404) /* module_404 */,
       c = require(396) /* module_396 */,
       d = require(93) /* stub_requires_92 */,
-      u = require(240) /* module_240 */,
+      DataModule_240 = require(240) /* DataModule_240 */,
       p = Object.assign,
       g = Object.defineProperty,
       h = uncurryThis([].concat);
@@ -56,7 +56,7 @@ function (exports, module, require) {
             )
               for (
                 var f,
-                  m = u(arguments[tryCall++]),
+                  m = DataModule_240(arguments[tryCall++]),
                   y = p ? h(s(m), p(m)) : s(m),
                   v = y.length,
                   _ = 0;

@@ -10,7 +10,7 @@ function (exports, module, require) {
     const { GObject: o, GLocaleKey: i } = require(1) /* GCore */,
       GAction = require(31) /* GAction */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
-      s = require(1644) /* module_1644 */;
+      GShortcutsDialog = require(1644) /* GShortcutsDialog */;
     function l() {}
     o.inherit(l, GAction),
       (l.ID = "help.shortcuts"),
@@ -28,7 +28,7 @@ function (exports, module, require) {
         return "help/learn";
       }),
       (l.prototype.execute = function () {
-        new s().open();
+        new GShortcutsDialog().open();
       }),
       (l.prototype.toString = function () {
         return "[Object GShowShortcutsAction]";

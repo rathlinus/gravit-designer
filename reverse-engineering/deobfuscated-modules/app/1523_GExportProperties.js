@@ -14,8 +14,8 @@ function (exports, module, require) {
       s = require(444) /* module_444 */,
       GProperties = require(123) /* GProperties */,
       ZipDirectory = require(1253) /* ZipDirectory */,
-      d = require(446) /* module_446 */,
-      u = require(442) /* module_442 */;
+      GLoginPanel = require(446) /* GLoginPanel */,
+      DataModule_442 = require(442) /* DataModule_442 */;
     const GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function g() {}
     GCore.GObject.inherit(g, GProperties),
@@ -174,7 +174,7 @@ function (exports, module, require) {
         return this._elements;
       }),
       (g.prototype._export = function () {
-        new d(
+        new GLoginPanel(
           () => {
             gDesigner.stats("exportproperties_click_export");
             var e = ZipDirectory.generateExportables(this._elements);
@@ -201,16 +201,16 @@ function (exports, module, require) {
             var GTools = this._elements[require];
             if (!(GTools instanceof GCore.GSlice)) {
               var a = (
-                  GTools.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
+                  GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
                 GMenu = GTools.getPaintBBox();
-              GTools.setProperty(u.EXPORT_PROPERTY_NAME, undefined, true);
+              GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, undefined, true);
               var s = new GCore.GSlice();
               s.setProperties(
                 ["x", "y", "w", "h"],
                 [GMenu.getX(), GMenu.getY(), GMenu.getWidth(), GMenu.getHeight()]
               ),
-                s.setProperty(u.EXPORT_PROPERTY_NAME, a, true),
+                s.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true),
                 module.push(s);
             }
           }
@@ -232,7 +232,7 @@ function (exports, module, require) {
             for (
               var require = this._elements[module],
                 GTools = (
-                  require.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
+                  require.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
                 a = { sz: "", sf: "", fm: "png" },
                 GMenu = [
@@ -246,8 +246,8 @@ function (exports, module, require) {
               s < GMenu.length;
               ++s
             ) {
-              for (var GProperties = GMenu[s], ZipDirectory = false, d = 0; d < GTools.length; ++d)
-                if (GTools[d].sz === GProperties.sz) {
+              for (var GProperties = GMenu[s], ZipDirectory = false, GLoginPanel = 0; GLoginPanel < GTools.length; ++GLoginPanel)
+                if (GTools[GLoginPanel].sz === GProperties.sz) {
                   ZipDirectory = true;
                   break;
                 }
@@ -256,7 +256,7 @@ function (exports, module, require) {
                 break;
               }
             }
-            GTools.push(a), require.setProperty(u.EXPORT_PROPERTY_NAME, GTools, true);
+            GTools.push(a), require.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GTools, true);
           }
         } finally {
           e.commitTransaction(
@@ -273,12 +273,12 @@ function (exports, module, require) {
         try {
           for (var a = 0; a < this._elements.length; ++a) {
             var GMenu = this._elements[a],
-              s = GMenu.getProperty(u.EXPORT_PROPERTY_NAME, true);
+              s = GMenu.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
             !s ||
               e >= s.length ||
               (((s = s.slice())[e] = $.extend({}, s[e])),
               (s[e][t] = n),
-              GMenu.setProperty(u.EXPORT_PROPERTY_NAME, s, true));
+              GMenu.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, s, true));
           }
         } finally {
           GTools.commitTransaction(
@@ -294,11 +294,11 @@ function (exports, module, require) {
         try {
           for (var require = 0; require < this._elements.length; ++require) {
             var GTools = this._elements[require],
-              a = GTools.getProperty(u.EXPORT_PROPERTY_NAME, true);
+              a = GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
             !a ||
               e >= a.length ||
               ((a = a.slice()).splice(e, 1),
-              GTools.setProperty(u.EXPORT_PROPERTY_NAME, a, true));
+              GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true));
           }
         } finally {
           t.commitTransaction(
@@ -312,7 +312,7 @@ function (exports, module, require) {
         !e.temporary &&
           this._elements.length &&
           this._elements[0] === e.node &&
-          e.properties.indexOf(u.EXPORT_PROPERTY_NAME) >= 0 &&
+          e.properties.indexOf(DataModule_442.EXPORT_PROPERTY_NAME) >= 0 &&
           this._updateProperties();
       }),
       (g.prototype._updateProperties = function () {
@@ -325,7 +325,7 @@ function (exports, module, require) {
         if (this._elements)
           for (let t = 0; t < this._elements.length; ++t) {
             var GProperties =
-              this._elements[t].getProperty(u.EXPORT_PROPERTY_NAME, true, []) ||
+              this._elements[t].getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) ||
               [];
             if (GProperties)
               for (var ZipDirectory = 0; ZipDirectory < GProperties.length; ++ZipDirectory)
@@ -347,7 +347,7 @@ function (exports, module, require) {
             ),
           this._exportButton.css("display", e.length ? "" : "none");
         for (let GProperties = 0; GProperties < e.length; ++GProperties) {
-          var d = GProperties + 1 === e.length,
+          var GLoginPanel = GProperties + 1 === e.length,
             GSettingChangedEvent = e[GProperties];
           $("<div></div>")
             .data("index", GProperties)
@@ -356,7 +356,7 @@ function (exports, module, require) {
               columns: [
                 {
                   width: n,
-                  label: d
+                  label: GLoginPanel
                     ? GCore.GLocale.get(
                         new GCore.GLocaleKey("GCommonNames", "text.size")
                       )
@@ -421,7 +421,7 @@ function (exports, module, require) {
                 },
                 {
                   width: GTools,
-                  label: d
+                  label: GLoginPanel
                     ? GCore.GLocale.get(
                         new GCore.GLocaleKey("GExportProperties", "text.suffix")
                       )
@@ -457,7 +457,7 @@ function (exports, module, require) {
                 },
                 {
                   width: a,
-                  label: d
+                  label: GLoginPanel
                     ? GCore.GLocale.get(
                         new GCore.GLocaleKey("GExportProperties", "text.format")
                       )

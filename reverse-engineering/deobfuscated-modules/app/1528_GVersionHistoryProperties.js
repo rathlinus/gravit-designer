@@ -10,16 +10,16 @@ function (exports, module, require) {
     require(19) /* polyfill_Array_iterator */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
-      r = require(1163) /* module_1163 */,
+      DataModule_1163 = require(1163) /* DataModule_1163 */,
       GProperties = _interopRequireDefault(require(123) /* GProperties */),
-      l = _interopRequireDefault(require(1159) /* module_1159 */),
+      GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
       c = _interopRequireDefault(require(220) /* Item */),
       GDocument = _interopRequireDefault(require(163) /* GDocument */),
-      u = _interopRequireDefault(require(219) /* module_219 */),
+      u = _interopRequireDefault(require(219) /* GLocale */),
       GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
       g = _interopRequireDefault(require(86) /* module_86 */),
       GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
-      f = _interopRequireDefault(require(336) /* module_336 */),
+      GEvent_storageItem = _interopRequireDefault(require(336) /* GEvent_storageItem */),
       GRichTooltipConfig = _interopRequireDefault(require(67) /* GRichTooltipConfig */);
     function y() {}
     GCore.GObject.inherit(y, GProperties.default),
@@ -129,12 +129,12 @@ function (exports, module, require) {
               $("<div/>").addClass("content"),
             ])
             .appendTo(n)),
-          gDesigner.addEventListener(l.default, this._handleEvent, this);
+          gDesigner.addEventListener(GEvent_fileId.default, this._handleEvent, this);
       }),
       (y.prototype._handleEvent = function (e) {
-        e.type === l.default.Type.Enable
+        e.type === GEvent_fileId.default.Type.Enable
           ? this._updateVersionHistory(e.fileId)
-          : e.type === l.default.Type.Close && this.close();
+          : e.type === GEvent_fileId.default.Type.Close && this.close();
       }),
       (y.prototype._updateVersionHistory = function (e) {
         this._versionsContainer.find(".content").empty(),
@@ -222,8 +222,8 @@ function (exports, module, require) {
         const require = gDesigner.isEnabledProFeatures(),
           _interopRequireDefault = this,
           GProperties = gDesigner.getActiveDocument().getStorageItem(),
-          l = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
-          c = !!l;
+          GEvent_fileId = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
+          c = !!GEvent_fileId;
         let GDocument,
           u = this._versionsContainer.find(".content");
         AppSettings.AUTO_SAVE_ENABLED && (GDocument = this._autoSaveContainer.find(".content"));
@@ -240,13 +240,13 @@ function (exports, module, require) {
           return $("<div />")
             .addClass("version-history-item")
             .addClass(
-              (c ? l === GProperties.versionId : ((GRichTooltipConfig && u) || (!GRichTooltipConfig && !u)) && GProperties.latest)
+              (c ? GEvent_fileId === GProperties.versionId : ((GRichTooltipConfig && u) || (!GRichTooltipConfig && !u)) && GProperties.latest)
                 ? "vhi-initial"
                 : ""
             )
             .addClass(require || GProperties.latest ? "" : "vhi-disabled")
             .addClass(
-              (c ? l === GProperties.versionId : GProperties.versionId === GDocumentStatusEvent.version.versionId)
+              (c ? GEvent_fileId === GProperties.versionId : GProperties.versionId === GDocumentStatusEvent.version.versionId)
                 ? "vhi-active"
                 : ""
             )
@@ -280,7 +280,7 @@ function (exports, module, require) {
                 .append(
                   $("<div />")
                     .addClass("vhi-updated")
-                    .text((0, r.dateToVersionFormat)(GProperties.modified))
+                    .text((0, DataModule_1163.dateToVersionFormat)(GProperties.modified))
                 )
             )
             .append(
@@ -407,7 +407,7 @@ function (exports, module, require) {
           this._updatePanelHeight(),
           gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
           gDesigner.addEventListener(
-            f.default,
+            GEvent_storageItem.default,
             this._storageEventHandler,
             this
           );
@@ -437,7 +437,7 @@ function (exports, module, require) {
       }),
       (y.prototype._storageEventHandler = function (e) {
         let { type: module, storageItem: require } = e;
-        module === f.default.Type.VersionUpdate &&
+        module === GEvent_storageItem.default.Type.VersionUpdate &&
           require instanceof c.default.Item &&
           this._fileId === require.getId() &&
           this._updateVersionHistory(this._fileId);
@@ -457,7 +457,7 @@ function (exports, module, require) {
             false
           );
         this._loadingPreview = true;
-        var r = new GDocument.default(
+        var DataModule_1163 = new GDocument.default(
           await c.default.from(
             gDesigner.getDefaultStorage(),
             this._fileId,
@@ -466,25 +466,25 @@ function (exports, module, require) {
             !!_interopRequireDefault
           )
         );
-        r.lockByVersionHistory(),
+        DataModule_1163.lockByVersionHistory(),
           this._previewDoc
-            ? (gDesigner.replaceDocument(this._previewDoc, r),
+            ? (gDesigner.replaceDocument(this._previewDoc, DataModule_1163),
               this._previewDoc.removeEventListener(
                 GDocumentStatusEvent.default,
                 this._documentStatusEventHandler,
                 this
               ),
-              (this._previewDoc = r))
+              (this._previewDoc = DataModule_1163))
             : ((this._previousDoc = AppSettings),
-              (this._previewDoc = r),
-              gDesigner.replaceDocument(this._previousDoc, r)),
-          r.addEventListener(GDocumentStatusEvent.default, this._documentStatusEventHandler, this),
-          r.load(null, {
+              (this._previewDoc = DataModule_1163),
+              gDesigner.replaceDocument(this._previousDoc, DataModule_1163)),
+          DataModule_1163.addEventListener(GDocumentStatusEvent.default, this._documentStatusEventHandler, this),
+          DataModule_1163.load(null, {
             progress: (e) => {
               100 == e &&
                 ((this._loadingPreview = false),
                 gDesigner.trigger(
-                  new GDocumentEvent.default(GDocumentEvent.default.Type.StorageItemUpdated, r)
+                  new GDocumentEvent.default(GDocumentEvent.default.Type.StorageItemUpdated, DataModule_1163)
                 ));
             },
           }),
@@ -656,10 +656,10 @@ function (exports, module, require) {
       (y.prototype.close = function () {
         gDesigner.stats("version-history-panel_close_panel", this._fileId),
           this._closePreview(),
-          gDesigner.trigger(new l.default(l.default.Type.Disable)),
+          gDesigner.trigger(new GEvent_fileId.default(GEvent_fileId.default.Type.Disable)),
           gDesigner.removeEventListener(GDocumentEvent.default, this._documentEvent, this),
           gDesigner.removeEventListener(
-            f.default,
+            GEvent_storageItem.default,
             this._storageEventHandler,
             this
           );

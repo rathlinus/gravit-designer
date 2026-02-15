@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */;
     var AppSettings = require(10) /* AppSettings */,
       GCore = require(1) /* GCore */,
-      r = _interopRequireDefault(require(1187) /* module_1187 */);
+      DataModule_1187 = _interopRequireDefault(require(1187) /* DataModule_1187 */);
     class s extends AppSettings.GReminderDialog.Impl {
       open(e) {
         let { dialog: module } = e;
@@ -50,7 +50,7 @@ function (exports, module, require) {
         return GCore.GLocale.getLanguage();
       }
     }
-    class l extends r.default {
+    class l extends DataModule_1187.default {
       constructor(e) {
         super(), (this._dialogOptions = e);
       }

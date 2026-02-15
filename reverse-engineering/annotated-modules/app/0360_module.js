@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(43) /* wellKnownSymbol */,
-      i = n(136) /* module_136 */,
+      i = n(136) /* DataModule_136 */,
       a = n(88) /* createPropertyDescriptor */.f,
       r = o("unscopables"),
       s = Array.prototype;

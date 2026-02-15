@@ -11,7 +11,7 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const GContainer = require(85) /* GContainer */,
-      s = require(1188) /* module_1188 */,
+      GEvent_1188 = require(1188) /* GEvent_1188 */,
       l = require(1349) /* module_1349 */;
     var GElectronUpdateServiceClient;
     exports.exports = class {
@@ -42,10 +42,10 @@ function (exports, module, require) {
         var AppSettings = +n[0],
           CollaborationMergeUtils = +n[1],
           GContainer = +n[2],
-          s = +GCore[0],
+          GEvent_1188 = +GCore[0],
           l = +GCore[1],
           GElectronUpdateServiceClient = +GCore[2];
-        return AppSettings > s || (AppSettings === s && CollaborationMergeUtils > l) || (AppSettings === s && CollaborationMergeUtils === l && GContainer > GElectronUpdateServiceClient);
+        return AppSettings > GEvent_1188 || (AppSettings === GEvent_1188 && CollaborationMergeUtils > l) || (AppSettings === GEvent_1188 && CollaborationMergeUtils === l && GContainer > GElectronUpdateServiceClient);
       }
       _isVersionHigherThan(e, t) {
         return !!e && this._isVersionGeneralFormatHigherThan(e, t);
@@ -82,7 +82,7 @@ function (exports, module, require) {
             ? this._isElectron()
               ? GElectronUpdateServiceClient.checkForUpdates()
               : this._trigger(
-                  new s.UpdateAvailable({
+                  new GEvent_1188.UpdateAvailable({
                     currentVersion: this.getCurrentFriendlyVersion(),
                     newVersion: this._releaseStatus.version,
                     forceUpdate: this._releaseStatus.forceUpdate,
@@ -91,7 +91,7 @@ function (exports, module, require) {
                 )
             : e ||
               this._trigger(
-                new s.UpdateNotAvailable({
+                new GEvent_1188.UpdateNotAvailable({
                   currentVersion: this.getCurrentFriendlyVersion(),
                 })
               );
@@ -114,7 +114,7 @@ function (exports, module, require) {
         switch (
           (console.info(this.toString(), " - Installing update - Start"),
           this._releaseStatus.silent ||
-            this._trigger(new s.BeforeInstallUpdate()),
+            this._trigger(new GEvent_1188.BeforeInstallUpdate()),
           gContainer.getRuntime())
         ) {
           case GContainer.Runtime.Browser:
@@ -193,7 +193,7 @@ function (exports, module, require) {
                     e &&
                       !e.silent &&
                       this._trigger(
-                        new s.AfterUpdate({
+                        new GEvent_1188.AfterUpdate({
                           currentVersion: this.getCurrentFriendlyVersion(),
                         })
                       );
@@ -208,7 +208,7 @@ function (exports, module, require) {
         console.info(this.toString() + " Download complete"),
           (this._downloadCompleted = true),
           this._trigger(
-            new s.DownloadComplete({
+            new GEvent_1188.DownloadComplete({
               newVersion: this._releaseStatus.version,
               forceUpdate: this._releaseStatus.forceUpdate,
               isSilent: this._releaseStatus.silent,
@@ -218,7 +218,7 @@ function (exports, module, require) {
       _handleUpdateNotAvailable() {
         console.info(this.toString() + " Update not available"),
           this._trigger(
-            new s.UpdateNotAvailable({
+            new GEvent_1188.UpdateNotAvailable({
               currentVersion: this.getCurrentFriendlyVersion(),
               isSilent: this._releaseStatus.silent,
             })
@@ -227,7 +227,7 @@ function (exports, module, require) {
       _handleCheckingForUpdate() {
         console.info(this.toString() + " Checking for update"),
           this._trigger(
-            new s.CheckingForUpdate({ isSilent: this._releaseStatus.silent })
+            new GEvent_1188.CheckingForUpdate({ isSilent: this._releaseStatus.silent })
           );
       }
       _handleDownloadInProgress(e, t) {
@@ -236,7 +236,7 @@ function (exports, module, require) {
         );
         const require = t.percent;
         this._trigger(
-          new s.Downloading({
+          new GEvent_1188.Downloading({
             percent: parseFloat(require).toFixed(2),
             newVersion: this._releaseStatus.version,
             isSilent: this._releaseStatus.silent,
@@ -248,7 +248,7 @@ function (exports, module, require) {
           this.toString() + " Update available:" + JSON.stringify(t)
         ),
           this._trigger(
-            new s.UpdateAvailable({
+            new GEvent_1188.UpdateAvailable({
               currentVersion: this.getCurrentFriendlyVersion(),
               newVersion: this._releaseStatus.version,
               forceUpdate: this._releaseStatus.forceUpdate,
@@ -262,7 +262,7 @@ function (exports, module, require) {
       _handleUpdateError(e, t) {
         console.info(this.toString() + " Update error:" + JSON.stringify(t)),
           this._trigger(
-            new s.UpdateError({
+            new GEvent_1188.UpdateError({
               error: t,
               isSilent: this._releaseStatus.silent,
             })

@@ -8,5 +8,5 @@ function (exports, module, require) {
     function o(e, t) {
       (this.description = e), (this.cid = t);
     }
-    require(290) /* module_290 */, (o.description = null), (o.cid = null), (exports.exports = o);
+    require(290) /* DataModule_290 */, (o.description = null), (o.cid = null), (exports.exports = o);
   }

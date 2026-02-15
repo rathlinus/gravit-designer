@@ -13,7 +13,7 @@ function (e, t, n) {
       } = n(10) /* AppSettings */,
       a = n(606) /* GPanel */,
       r = n(394) /* GView */,
-      s = n(1321) /* module_1321 */,
+      s = n(1321) /* GEvent_notification */,
       l = n(78) /* GDocumentEvent */,
       c = n(860) /* GEmbeddedLogin */,
       d = n(1667) /* Type */;

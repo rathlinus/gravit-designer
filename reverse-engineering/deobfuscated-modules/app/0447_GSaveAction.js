@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      r = require(1247) /* module_1247 */,
+      DataModule_1247 = require(1247) /* DataModule_1247 */,
       AppSettings = require(10) /* AppSettings */,
       l = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -19,8 +19,8 @@ function (exports, module, require) {
       GGravitCloudAction = require(448) /* GGravitCloudAction */,
       g = require(86) /* module_86 */,
       GCloudStorage = require(119) /* GCloudStorage */,
-      f = require(1510) /* module_1510 */,
-      m = require(1511) /* module_1511 */;
+      GCommonNames = require(1510) /* GCommonNames */,
+      GWarnLinkedImageDialog = require(1511) /* GWarnLinkedImageDialog */;
     const GSystemDialog = require(44) /* GSystemDialog */,
       v = require(1512) /* Item */;
     var GContainer = require(85) /* GContainer */,
@@ -105,7 +105,7 @@ function (exports, module, require) {
       (w.prototype._save = async function (e, t, n) {
         if (gDesigner.getDefaultStorage().canSave()) {
           if (!e.getScene().hasLinkedFiles()) return this._saveDesktop(e, t, n);
-          new m(() => {
+          new GWarnLinkedImageDialog(() => {
             this._saveDesktop(e, t, n);
           }).open();
         } else {
@@ -145,9 +145,9 @@ function (exports, module, require) {
         let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         if (e.isNew()) {
           if (require) return this._saveToCloud(e, t);
-          new f(
+          new GCommonNames(
             async function (n) {
-              if (n === f.file()) {
+              if (n === GCommonNames.file()) {
                 if (await GGravitCloudAction.prototype._hasUnsupported.call(this, e)) return;
                 return gDesigner.executeAction(
                   GSaveAsAction.ID + b,
@@ -156,7 +156,7 @@ function (exports, module, require) {
                   true
                 );
               }
-              if (n === f.cloud()) return this._saveToCloud(e, t);
+              if (n === GCommonNames.cloud()) return this._saveToCloud(e, t);
             }.bind(this),
             {
               closeCallback: (e) =>
@@ -197,7 +197,7 @@ function (exports, module, require) {
         else {
           const n = e.getStorageItem();
           let GCore = {};
-          n instanceof v.Item && (GCore = (0, r.updateSaveOptions)(GCore, e, n)),
+          n instanceof v.Item && (GCore = (0, DataModule_1247.updateSaveOptions)(GCore, e, n)),
             e.store(n, t, null, GCore);
         }
       }),

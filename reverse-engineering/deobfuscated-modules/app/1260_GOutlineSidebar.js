@@ -13,7 +13,7 @@ function (exports, module, require) {
       r = require(15) /* GEditor */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       l = require(67) /* GRichTooltipConfig */,
-      c = _interopRequireDefault(require(442) /* module_442 */),
+      DataModule_442 = _interopRequireDefault(require(442) /* DataModule_442 */),
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
       p = require(86) /* module_86 */,
@@ -302,7 +302,7 @@ function (exports, module, require) {
           });
         var r = false,
           GTouchTool = $("<div/>").attr("id", "page-layer-divider"),
-          c = function (e) {
+          DataModule_442 = function (e) {
             var GTools;
             r &&
               ((GTools = n - t + e.clientY) < this._pageContainerMinHeight &&
@@ -312,7 +312,7 @@ function (exports, module, require) {
               _interopRequireDefault.css("height", GTools + "px"));
           }.bind(this),
           GDocumentStatusEvent = function () {
-            $(document).off("mousemove", c),
+            $(document).off("mousemove", DataModule_442),
               $(document).off("mouseup", GDocumentStatusEvent),
               (r = false),
               (t = null),
@@ -324,7 +324,7 @@ function (exports, module, require) {
               (r = true),
               (n = parseInt(_interopRequireDefault.css("height"), 10)),
               e.addClass("page-container-resizing"),
-              $(document).on("mousemove", c),
+              $(document).on("mousemove", DataModule_442),
               $(document).on("mouseup", GDocumentStatusEvent);
           }.bind(this);
         $(GTouchTool).on("mousedown", p),
@@ -368,7 +368,7 @@ function (exports, module, require) {
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         this._document
           .getScene()
-          .setProperty(c.default.MULTIPAGE_VIEW_ENABLED, e),
+          .setProperty(DataModule_442.default.MULTIPAGE_VIEW_ENABLED, e),
           gContainer.setProperty(x.MULTIPAGE_MODE_ENABLED_OPTION_NAME, e),
           module &&
             this._pageModeSwitch
@@ -704,7 +704,7 @@ function (exports, module, require) {
       (x.prototype._isMultiPageModeEnabled = function () {
         const exports = this._document
           .getScene()
-          .getProperty(c.default.MULTIPAGE_VIEW_ENABLED);
+          .getProperty(DataModule_442.default.MULTIPAGE_VIEW_ENABLED);
         return "boolean" == typeof exports
           ? exports
           : gContainer.getProperty(x.MULTIPAGE_MODE_ENABLED_OPTION_NAME);
@@ -969,8 +969,8 @@ function (exports, module, require) {
             const r = this.createLayer(),
               GTouchTool = _interopRequireDefault.filter((e) => !this._hasSelectedParentLayer(e)),
               l = GCore.GNode.order(GTouchTool, true),
-              c = l && l[0];
-            ((c && c.getParent()) || GTools).insertChild(r, c),
+              DataModule_442 = l && l[0];
+            ((DataModule_442 && DataModule_442.getParent()) || GTools).insertChild(r, DataModule_442),
               exports.setActiveLayer(r),
               this._moveLayers(r, null, GTouchTool, false);
           },
@@ -1059,14 +1059,14 @@ function (exports, module, require) {
               )
                 for (var l = 0; l < _interopRequireDefault.length; ++l) _interopRequireDefault[l].assignStyleFrom(e);
               else if (e instanceof GCore.GShape) {
-                var c = e.getPaintBBox();
-                if (c) {
-                  var GDocumentEvent = c.getX(),
-                    GDocumentStatusEvent = c.getY();
+                var DataModule_442 = e.getPaintBBox();
+                if (DataModule_442) {
+                  var GDocumentEvent = DataModule_442.getX(),
+                    GDocumentStatusEvent = DataModule_442.getY();
                   for (r = 0; r < _interopRequireDefault.length; ++r) {
                     var p = _interopRequireDefault[r],
                       g = p instanceof GCore.GElement ? p.getPaintBBox() : null;
-                    if (g && !c.intersectsRect(g, true)) {
+                    if (g && !DataModule_442.intersectsRect(g, true)) {
                       var GFitAllAction = g.getX(),
                         GFitSelectionAction = g.getY();
                       null === GDocumentEvent ||
@@ -1164,28 +1164,28 @@ function (exports, module, require) {
                 for (var l = GTools.length - 1; l >= 0 && !GTouchTool; --l)
                   GTools[l] instanceof require && (GTouchTool = GTools[l]);
                 if (GTouchTool && GTouchTool !== e) {
-                  var c = [];
+                  var DataModule_442 = [];
                   if (
                     (this._document.getScene().accept(
                       function (e) {
-                        return e instanceof require && c.push(e), true;
+                        return e instanceof require && DataModule_442.push(e), true;
                       },
                       false,
                       true
                     ),
-                    c)
+                    DataModule_442)
                   ) {
-                    c = GCore.GNode.order(c);
+                    DataModule_442 = GCore.GNode.order(DataModule_442);
                     var GDocumentEvent = [],
                       GDocumentStatusEvent = false,
                       p = null,
                       g = null;
-                    for (l = 0; l < c.length && (null === p || null === g); ++l)
-                      c[l] === GTouchTool || c[l] === e
+                    for (l = 0; l < DataModule_442.length && (null === p || null === g); ++l)
+                      DataModule_442[l] === GTouchTool || DataModule_442[l] === e
                         ? ((GDocumentStatusEvent = !GDocumentStatusEvent),
-                          GDocumentEvent.push(c[l]),
-                          c[l] === GTouchTool ? (p = l) : (g = l))
-                        : GDocumentStatusEvent && GDocumentEvent.push(c[l]);
+                          GDocumentEvent.push(DataModule_442[l]),
+                          DataModule_442[l] === GTouchTool ? (p = l) : (g = l))
+                        : GDocumentStatusEvent && GDocumentEvent.push(DataModule_442[l]);
                     var GSidebar = GTouchTool.getParent(),
                       GSidebarContainer = e.getParent();
                     GDocumentEvent = GDocumentEvent.filter(

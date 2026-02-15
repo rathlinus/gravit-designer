@@ -13,7 +13,7 @@ function (e, t, n) {
       r = o(n(358) /* GAnnotationsUtils */),
       s = n(123) /* GProperties */;
     const l = n(393) /* GCollaborationEvent */,
-      c = n(392) /* module_392 */,
+      c = n(392) /* GEvent_document */,
       d = n(1165) /* GFileReviewFlowManager */,
       u = n(135) /* GSettingChangedEvent */;
     function p(e, t, n, o, i, a, r, s) {

@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(58) /* polyfill_Array_includes */, n(8) /* polyfill_bundle_ES6 */, n(71) /* polyfill_String_includes */;
     const o = n(177) /* GUserModel */,
-      i = n(805) /* module_805 */,
+      i = n(805) /* GEvent_user_805 */,
       { gApi: a } = n(10) /* AppSettings */,
       r = {};
     let s = !1;

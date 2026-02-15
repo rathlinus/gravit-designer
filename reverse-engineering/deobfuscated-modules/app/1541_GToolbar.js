@@ -14,7 +14,7 @@ function (exports, module, require) {
       require(57) /* polyfill_parseInt */,
       require(20) /* polyfill_RegExp_exec */,
       require(3) /* polyfill_RegExp_toString */,
-      require(151) /* module_151 */,
+      require(151) /* DataModule_151 */,
       require(247) /* module_247 */,
       require(4) /* stub_requires_668 */,
       require(41) /* stub_requires_682 */,
@@ -70,11 +70,11 @@ function (exports, module, require) {
       GCollaborators = require(1292) /* GCollaboratorsWidget */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-      GApplicationStateChangedEvent = require(392) /* module_392 */,
-      GShareEvent = require(868) /* module_868 */,
+      GApplicationStateChangedEvent = require(392) /* GEvent_document */,
+      GShareEvent = require(868) /* GEvent_type_868 */,
       GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       GUIIcons = require(257) /* barrel_panels */,
-      GLicenseChangedEvent = require(441) /* module_441 */;
+      GLicenseChangedEvent = require(441) /* GEvent_license */;
     function GToolbar(e) {
       (this._htmlElement = e), (this._initShapeMenu = false);
     }

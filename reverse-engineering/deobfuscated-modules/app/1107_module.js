@@ -8,11 +8,11 @@ function (exports, module, require) {
     var uncurryThis = require(27) /* uncurryThis */,
       i = require(232) /* module_232 */,
       a = require(558) /* polyfill_Object_getOwnPropertyNames */.getWeakData,
-      r = require(146) /* module_146 */,
+      DataModule_146 = require(146) /* DataModule_146 */,
       toString_default = require(37) /* toString_default */,
       l = require(194) /* module_194 */,
       toLength = require(46) /* toLength */,
-      d = require(121) /* module_121 */,
+      DataModule_121 = require(121) /* DataModule_121 */,
       u = require(349) /* module_349 */,
       p = require(61) /* module_61 */,
       internalState = require(80) /* internalState */,
@@ -55,9 +55,9 @@ function (exports, module, require) {
       (exports.exports = {
         getConstructor: function (e, t, n, uncurryThis) {
           var u = e(function (e, i) {
-              r(e, internalState),
+              DataModule_146(e, internalState),
                 h(e, { type: t, id: _++, frozen: null }),
-                l(i) || d(i, e[uncurryThis], { that: e, AS_ENTRIES: n });
+                l(i) || DataModule_121(i, e[uncurryThis], { that: e, AS_ENTRIES: n });
             }),
             internalState = u.prototype,
             m = f(t),

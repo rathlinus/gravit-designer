@@ -13,7 +13,7 @@ function (e, t, n) {
       l = n(46) /* toLength */,
       c = n(100) /* createProperty */,
       d = n(61) /* module_61 */,
-      u = n(297) /* module_297 */,
+      u = n(297) /* DataModule_297 */,
       p = n(300) /* module_300 */,
       g = n(259) /* module_259 */,
       h = s.TypeError,

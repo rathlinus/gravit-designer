@@ -36,7 +36,7 @@ function (exports, module, require) {
       CloudException = require(802) /* CloudException */,
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       AppSettings = require(10) /* AppSettings */,
-      c = require(593) /* module_593 */,
+      DataModule_593 = require(593) /* DataModule_593 */,
       GError = _interopRequireDefault(require(594) /* GError */),
       GMicrosoftUser = _interopRequireDefault(require(1477) /* GMicrosoftUser */),
       MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
@@ -774,7 +774,7 @@ function (exports, module, require) {
             204 === GError.status
           ) {
             if (_interopRequireDefault && _interopRequireDefault.progress && "function" == typeof _interopRequireDefault.progress)
-              return (0, c.readResponseWithProgress)(GError, _interopRequireDefault.progress, false).then(
+              return (0, DataModule_593.readResponseWithProgress)(GError, _interopRequireDefault.progress, false).then(
                 (e) => CloudException(e)
               );
             if (_interopRequireDefault && _interopRequireDefault.rawResponse) return CloudException(GError);
@@ -849,7 +849,7 @@ function (exports, module, require) {
           _interopRequireDefault = this._getSharePointSettings(),
           AdalAuthLibrary = 6e4,
           GCloudStorage = 3e3;
-        let c,
+        let DataModule_593,
           GError = false;
         const GMicrosoftUser = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
         if (require._connect) return require._connect;
@@ -936,7 +936,7 @@ function (exports, module, require) {
                         (_ = null),
                         gContainer.removeProperty("sp_getToken_data"),
                         v._logoutAndClearAdalCache(_interopRequireDefault),
-                        c && clearTimeout(c),
+                        DataModule_593 && clearTimeout(DataModule_593),
                         AppSettings(
                           new v.SharepointException(
                             null,
@@ -957,7 +957,7 @@ function (exports, module, require) {
                           v.saveTokenToCache(require.SETTINGS_ID, require.TOKEN),
                           (GError = true),
                           CollaborationMergeUtils(y),
-                          c && clearTimeout(c),
+                          DataModule_593 && clearTimeout(DataModule_593),
                           $(window).off("message", b),
                           (require._connect = null),
                           GCloudStorage();
@@ -966,10 +966,10 @@ function (exports, module, require) {
                         if ("User login is required" === e) return;
                         if (
                           (console.error(">>saveTokenError data", GCore),
-                          c && clearTimeout(c),
+                          DataModule_593 && clearTimeout(DataModule_593),
                           GMicrosoftUser)
                         )
-                          return void (c = setTimeout(function () {
+                          return void (DataModule_593 = setTimeout(function () {
                             GCloudStorageItem(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
                           }, AdalAuthLibrary));
                         v._logoutAndClearAdalCache(_interopRequireDefault),
@@ -979,7 +979,7 @@ function (exports, module, require) {
                       }
                     }
                     GMicrosoftUser &&
-                      (c = setTimeout(function () {
+                      (DataModule_593 = setTimeout(function () {
                         CollaborationMergeUtils(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
                       }, AdalAuthLibrary));
                   });

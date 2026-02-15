@@ -9,14 +9,14 @@ function (exports, module, require) {
     require(19) /* polyfill_Array_iterator */, require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
     var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
-      r = _interopRequireDefault(require(336) /* module_336 */),
+      GEvent_storageItem = _interopRequireDefault(require(336) /* GEvent_storageItem */),
       GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       c = _interopRequireDefault(require(554) /* module_554 */),
       d = _interopRequireDefault(require(555) /* module_555 */),
       u = require(237) /* Item */,
       p = require(119) /* GCloudStorage */;
-    const g = require(436) /* module_436 */,
+    const DataModule_436 = require(436) /* DataModule_436 */,
       h = require(86) /* module_86 */;
     var f = AppSettings.FILE_FORMATS.find((e) => e.default),
       m = AppSettings.FILE_FORMATS.filter((e) => !e.default);
@@ -48,7 +48,7 @@ function (exports, module, require) {
             : null
         );
       }),
-      (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, r) {
+      (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, GEvent_storageItem) {
         if (
           (u.Item.call(this, e),
           (this._filename = n),
@@ -56,7 +56,7 @@ function (exports, module, require) {
           (this._file = _interopRequireDefault && p.convertToCloudItem(_interopRequireDefault)),
           (this._versionId = GCore),
           (this._token = AppSettings),
-          (this._isAutoSave = "boolean" == typeof r ? r : !(!_interopRequireDefault || !_interopRequireDefault.autosave)),
+          (this._isAutoSave = "boolean" == typeof GEvent_storageItem ? GEvent_storageItem : !(!_interopRequireDefault || !_interopRequireDefault.autosave)),
           (this._fileLastModifiedDate = _interopRequireDefault && new Date(_interopRequireDefault.updated || _interopRequireDefault.created)),
           (this._fileAutoSaveLastModifiedDate =
             _interopRequireDefault && new Date(_interopRequireDefault.autosave_updated)),
@@ -70,7 +70,7 @@ function (exports, module, require) {
             GSystemDialog && ((this._ext = GSystemDialog.ext.toUpperCase()), (this._type = GSystemDialog.type));
         }
       }),
-      GCore.GObject.inheritAndMix(b.Item, u.Item, [g]),
+      GCore.GObject.inheritAndMix(b.Item, u.Item, [DataModule_436]),
       (b.Item.prototype._filename = null),
       (b.Item.prototype._ext = null),
       (b.Item.prototype._type = null),
@@ -117,8 +117,8 @@ function (exports, module, require) {
         if (this._file.status !== e) {
           var module = this._file.status;
           (this._file.status = e),
-            gDesigner.hasEventListeners(r.default.FileStatusUpdate) &&
-              gDesigner.trigger(new r.default.FileStatusUpdate(this, module, e));
+            gDesigner.hasEventListeners(GEvent_storageItem.default.FileStatusUpdate) &&
+              gDesigner.trigger(new GEvent_storageItem.default.FileStatusUpdate(this, module, e));
         }
       }),
       (b.Item.prototype.getCollaborativeFile = async function () {
@@ -151,9 +151,9 @@ function (exports, module, require) {
           (this._isAutoSave = !!require.isAutoSave()),
           this._file.status !== module &&
             null != module &&
-            gDesigner.hasEventListeners(r.default.FileStatusUpdate) &&
+            gDesigner.hasEventListeners(GEvent_storageItem.default.FileStatusUpdate) &&
             gDesigner.trigger(
-              new r.default.FileStatusUpdate(this, module, this._file.status)
+              new GEvent_storageItem.default.FileStatusUpdate(this, module, this._file.status)
             );
       }),
       (b.Item.prototype.getFile = function () {
@@ -241,15 +241,15 @@ function (exports, module, require) {
                     (this._writing = false),
                     n && n("empty blob")
                   );
-                const g = v.ungzip(u, { to: "string" });
-                if ((this._verifyFileNotTooSmall(p, e), !g))
+                const DataModule_436 = v.ungzip(u, { to: "string" });
+                if ((this._verifyFileNotTooSmall(p, e), !DataModule_436))
                   return (
                     _({
                       message: "[cloud] invalid Scene",
                       stack: "id: "
                         .concat(this._id, "\nscene original: ")
                         .concat(c, "\nscene parsed: ")
-                        .concat(g),
+                        .concat(DataModule_436),
                     }),
                     (this._writing = false),
                     n &&
@@ -305,9 +305,9 @@ function (exports, module, require) {
                 ]),
                   await AppSettings.gApi.updateFile(this._id, { trashed: false, sha256: x }),
                   this.setVersionId(null),
-                  gDesigner.hasEventListeners(r.default) &&
+                  gDesigner.hasEventListeners(GEvent_storageItem.default) &&
                     gDesigner.trigger(
-                      new r.default(r.default.Type.VersionUpdate, this)
+                      new GEvent_storageItem.default(GEvent_storageItem.default.Type.VersionUpdate, this)
                     ),
                   e.updateStatus(h.Saved, GCore),
                   t && t(),

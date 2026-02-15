@@ -18,7 +18,7 @@ function (exports, module, require) {
       GCloudStorage = require(119) /* GCloudStorage */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-      h = (require(446) /* module_446 */, require(44) /* GSystemDialog */),
+      h = (require(446) /* GLoginPanel */, require(44) /* GSystemDialog */),
       barrel_panels = require(257) /* barrel_panels */;
     const { FILE_FORMATS: m, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: y } = {} } =
       require(10) /* AppSettings */;

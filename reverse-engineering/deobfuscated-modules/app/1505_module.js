@@ -4,11 +4,11 @@
  */
 
 function (exports, module, require) {
-    var o = require(1251) /* module_1251 */.default,
-      i = require(1506) /* module_1506 */;
+    var DataModule_1251 = require(1251) /* DataModule_1251 */.default,
+      DataModule_1506 = require(1506) /* DataModule_1506 */;
     (exports.exports = function (e) {
-      var t = i(e, "string");
-      return "symbol" == o(t) ? t : t + "";
+      var t = DataModule_1506(e, "string");
+      return "symbol" == DataModule_1251(t) ? t : t + "";
     }),
       (exports.exports.__esModule = true),
       (exports.exports.default = exports.exports);

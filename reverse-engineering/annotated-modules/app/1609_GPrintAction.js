@@ -13,8 +13,8 @@ function (e, t, n) {
       r = n(40) /* CollaborationMergeUtils */,
       s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */,
-      c = n(446) /* module_446 */,
-      d = n(219) /* module_219 */,
+      c = n(446) /* GLoginPanel */,
+      d = n(219) /* GLocale */,
       u = n(1610) /* Item */,
       p = n(85) /* GContainer */;
     const g = n(44) /* GSystemDialog */;

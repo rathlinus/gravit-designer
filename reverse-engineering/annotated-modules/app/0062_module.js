@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(131) /* module_131 */,
+    var o = n(131) /* DataModule_131 */,
       i = String;
     e.exports = function (e) {
       if ("Symbol" === o(e))

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    const o = n(1190) /* module_1190 */;
+    const o = n(1190) /* DataModule_1190 */;
     e.exports = class extends o {
       canMakePayments() {
         return !1;

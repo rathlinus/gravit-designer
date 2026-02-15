@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     const { GLocale: o, GLocaleKey: i } = n(1) /* GCore */,
-      a = n(883) /* module_883 */;
+      a = n(883) /* DataModule_883 */;
     e.exports = {
       createAdditionalMentions: function () {
         return {

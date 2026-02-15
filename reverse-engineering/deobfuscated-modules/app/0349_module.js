@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var o = require(124) /* module_124 */,
       uncurryThis = require(27) /* uncurryThis */,
-      a = require(240) /* module_240 */,
+      DataModule_240 = require(240) /* DataModule_240 */,
       r = require(93) /* stub_requires_92 */,
       s = require(101) /* stub_requires_117 */,
       l = require(573) /* module_573 */,
@@ -25,7 +25,7 @@ function (exports, module, require) {
             var v,
               _,
               b = r(h),
-              w = a(b),
+              w = DataModule_240(b),
               C = s(w),
               x = o(f, m),
               S = 0,

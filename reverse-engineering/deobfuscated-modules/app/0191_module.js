@@ -6,19 +6,19 @@
 function (exports, module, require) {
     "use strict";
     var globalThis = require(23) /* globalThis */,
-      i = require(223) /* module_223 */,
+      DataModule_223 = require(223) /* DataModule_223 */,
       tryCall = require(21) /* tryCall */,
-      r = require(65) /* module_65 */,
+      DataModule_65 = require(65) /* DataModule_65 */,
       s = require(351) /* module_351 */,
       l = require(152) /* polyfill_TypedArrays */,
       c = require(521) /* stub_requires_129 */,
       d = require(522) /* stub_requires_129 */,
-      u = require(213) /* module_213 */,
+      DataModule_213 = require(213) /* DataModule_213 */,
       p = require(523) /* stub_requires_129 */,
       g = l.aTypedArray,
       h = l.exportTypedArrayMethod,
       f = globalThis.Uint16Array,
-      m = f && i(f.prototype.sort),
+      m = f && DataModule_223(f.prototype.sort),
       y = !(
         !m ||
         (tryCall(function () {
@@ -31,7 +31,7 @@ function (exports, module, require) {
       v =
         !!m &&
         !tryCall(function () {
-          if (u) return u < 74;
+          if (DataModule_213) return DataModule_213 < 74;
           if (c) return c < 67;
           if (d) return true;
           if (p) return p < 602;
@@ -55,7 +55,7 @@ function (exports, module, require) {
       "sort",
       function (e) {
         return (
-          undefined !== e && r(e),
+          undefined !== e && DataModule_65(e),
           v
             ? m(this, e)
             : s(

@@ -24,14 +24,14 @@ function (e, t, n) {
     var i = n(1) /* GCore */,
       a = n(1036) /* Exports_GGoogleAPI */,
       r = n(10) /* AppSettings */,
-      s = o(n(734) /* module_734 */),
-      l = (o(n(355) /* module_355 */), o(n(1037) /* module_1037 */)),
+      s = o(n(734) /* ExternalFileSettingsError */),
+      l = (o(n(355) /* AppError */), o(n(1037) /* module_1037 */)),
       c = n(255) /* GFontsProviderManager */,
       d = n(590) /* barrel_editor_actions */,
       u = n(18) /* MenuItemBuilder */,
       p = n(843) /* GOpenRecentAction */,
       g = n(257) /* barrel_panels */,
-      h = n(219) /* module_219 */,
+      h = n(219) /* GLocale */,
       f = n(44) /* GSystemDialog */,
       m = n(78) /* GDocumentEvent */;
     function y() {}

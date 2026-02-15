@@ -38,7 +38,7 @@ function (exports, module, require) {
       GDocument = _interopRequireDefault(require(163) /* GDocument */),
       c = _interopRequireDefault(require(86) /* module_86 */),
       CloudException = _interopRequireDefault(require(802) /* CloudException */),
-      u = require(593) /* module_593 */;
+      DataModule_593 = require(593) /* DataModule_593 */;
     const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       {
         FILE_FORMATS: g,
@@ -223,7 +223,7 @@ function (exports, module, require) {
       (y.prototype.getRawFile = async function (e, t, n) {
         const _interopRequireDefault = await AppSettings.gApi.getFileExtended(e.id),
           GCore = await fetch(_interopRequireDefault.getFileDataURL(), { signal: t });
-        return (0, u.readResponseWithProgress)(GCore, n.progress, true).then((e) =>
+        return (0, DataModule_593.readResponseWithProgress)(GCore, n.progress, true).then((e) =>
           e.blob()
         );
       }),
@@ -253,7 +253,7 @@ function (exports, module, require) {
               ? arguments[4]
               : null;
         require = require || _.ext.toUpperCase();
-        var u = e.getScene();
+        var DataModule_593 = e.getScene();
         if (e.hasPagesWithInfiniteEmptyCanvas())
           return Promise.reject({
             message: GCore.GLocale.get(
@@ -268,22 +268,22 @@ function (exports, module, require) {
         const g = GCloudStorageItem.getZoom(),
           h = GCloudStorageItem.getScrollX(),
           f = GCloudStorageItem.getScrollY(),
-          m = u.getActivePage(),
+          m = DataModule_593.getActivePage(),
           y = m.getReferenceId(),
-          v = u.getActivePage().getGeometryBBox();
+          v = DataModule_593.getActivePage().getGeometryBBox();
         return AppSettings.gApi
           .createFile({
             name: t,
             parent: this._extractId(this.CURRENT_FOLDER),
             type: (b(require) || _).type,
             app: "designer",
-            unit: u.getProperty("ut"),
+            unit: DataModule_593.getProperty("ut"),
             width: v.getWidth(),
             height: v.getHeight(),
             trashed: null,
           })
           .then(async (AppSettings) => {
-            AppSettings.type === _.type && u.setCloudSynchronization(AppSettings.id);
+            AppSettings.type === _.type && DataModule_593.setCloudSynchronization(AppSettings.id);
             const m = AppSettings.type !== _.type;
             await e.saveAnnotations(m),
               (_interopRequireDefault = e.updateSaveOptionsLastModifiedDate(_interopRequireDefault));
@@ -291,14 +291,14 @@ function (exports, module, require) {
             e.setStorageItem(v);
             var b = new GDocument.default(v);
             return b
-              .deserializeData(GCore.GNode.serialize(u, _interopRequireDefault))
+              .deserializeData(GCore.GNode.serialize(DataModule_593, _interopRequireDefault))
               .then(
                 async () => (
                   e.getFileFormatVersion() &&
                     b.setFileFormatVersion(e.getFileFormatVersion()),
                   await b.saveAnnotations(m, true),
-                  (u = b.getScene()).iteratePages((e) => {
-                    if (e.getReferenceId() === y) return u.setActivePage(e), false;
+                  (DataModule_593 = b.getScene()).iteratePages((e) => {
+                    if (e.getReferenceId() === y) return DataModule_593.setActivePage(e), false;
                   }),
                   gDesigner.addDocument(b),
                   CloudException
@@ -307,7 +307,7 @@ function (exports, module, require) {
                   (GCloudStorageItem = gDesigner.getWindows().getActiveWindow().getView()),
                   GCloudStorageItem.transform(h, f, g),
                   (_interopRequireDefault = b.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
-                  GCore.GUtil.prepareForSaving(u, require),
+                  GCore.GUtil.prepareForSaving(DataModule_593, require),
                   GCloudStorage.default.performSave(
                     b,
                     () => {

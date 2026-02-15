@@ -11,7 +11,7 @@ function (e, t, n) {
       r = n(21) /* tryCall */,
       s = n(110) /* module_110 */,
       l = n(35) /* anObject */,
-      c = n(342) /* module_342 */,
+      c = n(342) /* DataModule_342 */,
       d = n(453) /* module_453 */,
       u = n(79) /* defineBuiltIn */,
       p = a && a.prototype;

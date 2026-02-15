@@ -6,10 +6,10 @@
 function (exports, module, require) {
     "use strict";
     var uncurryThis = require(27) /* uncurryThis */,
-      i = require(65) /* module_65 */;
+      DataModule_65 = require(65) /* DataModule_65 */;
     exports.exports = function (e, t, n) {
       try {
-        return uncurryThis(i(Object.getOwnPropertyDescriptor(e, t)[n]));
+        return uncurryThis(DataModule_65(Object.getOwnPropertyDescriptor(e, t)[n]));
       } catch (e) {}
     };
   }

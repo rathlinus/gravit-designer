@@ -19,7 +19,7 @@ function (exports, module, require) {
         (this._title = new GCore.GLocaleKey("GOpenLinkAction", "title." + module)),
         (this._icon = r);
     }
-    (a.Links = require(1622) /* module_1622 */),
+    (a.Links = require(1622) /* DataModule_1622 */),
       GCore.GObject.inherit(a, i),
       (a.ID = "open-link"),
       (a.prototype._name = null),

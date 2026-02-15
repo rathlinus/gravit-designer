@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(35) /* anObject */,
       i = n(46) /* toLength */,
-      a = n(175) /* module_175 */;
+      a = n(175) /* DataModule_175 */;
     e.exports = function (e, t, n) {
       var r, s;
       return (

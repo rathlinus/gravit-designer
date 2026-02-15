@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(290) /* module_290 */;
+    n(290) /* DataModule_290 */;
     const { GObject: o, GLocale: i } = n(1) /* GCore */,
       a = n(1068) /* module_1068 */;
     function r(e) {

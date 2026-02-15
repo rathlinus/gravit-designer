@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     var GCore = require(1) /* GCore */,
-      i = require(1073) /* module_1073 */;
-    (i.DESIGNER.HIGHLIGHTOUTLINE_COLOR = new GCore.GRGBColor([197, 17, 98])),
-      (i.PURCHASEPANEL.HAS_PRODUCT_DESCRIPTION = false),
-      (i.USERLOGIN.loadLogo = () => {}),
-      (exports.exports = i);
+      DataModule_1073 = require(1073) /* DataModule_1073 */;
+    (DataModule_1073.DESIGNER.HIGHLIGHTOUTLINE_COLOR = new GCore.GRGBColor([197, 17, 98])),
+      (DataModule_1073.PURCHASEPANEL.HAS_PRODUCT_DESCRIPTION = false),
+      (DataModule_1073.USERLOGIN.loadLogo = () => {}),
+      (exports.exports = DataModule_1073);
   }

@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     var o = n(25) /* core_export */,
-      i = n(202) /* module_202 */;
+      i = n(202) /* DataModule_202 */;
     o(
-      { target: "Promise", stat: !0, forced: n(201) /* module_201 */.CONSTRUCTOR },
+      { target: "Promise", stat: !0, forced: n(201) /* DataModule_201 */.CONSTRUCTOR },
       {
         reject: function (e) {
           var t = i.f(this);

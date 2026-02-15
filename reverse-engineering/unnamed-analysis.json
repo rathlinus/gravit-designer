@@ -1,0 +1,4429 @@
+{
+  "1037": {
+    "size": 2319,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GLocale",
+      "GTranslation"
+    ],
+    "pascalStrings": [
+      "HEAD"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1038": {
+    "size": 227,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1040": {
+    "size": 328,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1041": {
+    "size": 170,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1042": {
+    "size": 747,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1043": {
+    "size": 588,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1044": {
+    "size": 1179,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1045": {
+    "size": 1630,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1046": {
+    "size": 718,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1047": {
+    "size": 1058,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1050": {
+    "size": 1371,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1051": {
+    "size": 1093,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [
+      "module"
+    ],
+    "defaultExport": null
+  },
+  "1052": {
+    "size": 734,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1053": {
+    "size": 1308,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1054": {
+    "size": 672,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1055": {
+    "size": 487,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1056": {
+    "size": 551,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1057": {
+    "size": 512,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1058": {
+    "size": 395,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1059": {
+    "size": 525,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1060": {
+    "size": 189,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1061": {
+    "size": 431,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1064": {
+    "size": 1901,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1067": {
+    "size": 1909,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1068": {
+    "size": 2402,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1069": {
+    "size": 1293,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1070": {
+    "size": 315,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1071": {
+    "size": 1008,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1072": {
+    "size": 335,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1073": {
+    "size": 830,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1074": {
+    "size": 143,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1090": {
+    "size": 596,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1091": {
+    "size": 508,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1092": {
+    "size": 1285,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1094": {
+    "size": 1543,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1098": {
+    "size": 1869,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "CheckLicense",
+      "LicenseChanged"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1099": {
+    "size": 432,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1101": {
+    "size": 590,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1102": {
+    "size": 2526,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "ActiveXObject",
+      "WeakMap"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1103": {
+    "size": 535,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Window"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1104": {
+    "size": 368,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "ArrayBuffer"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1105": {
+    "size": 279,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1106": {
+    "size": 2693,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Weak"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1107": {
+    "size": 2974,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1115": {
+    "size": 1753,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1155": {
+    "size": 1511,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1159": {
+    "size": 323,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1161": {
+    "size": 657,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1163": {
+    "size": 734,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1164": {
+    "size": 541,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1166": {
+    "size": 2462,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1173": {
+    "size": 803,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GPlatform"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1174": {
+    "size": 335,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1186": {
+    "size": 686,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1187": {
+    "size": 218,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1188": {
+    "size": 2742,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1189": {
+    "size": 641,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1190": {
+    "size": 434,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1191": {
+    "size": 1438,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1240": {
+    "size": 578,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1244": {
+    "size": 185,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1247": {
+    "size": 1110,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1248": {
+    "size": 840,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1249": {
+    "size": 461,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1250": {
+    "size": 288,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1251": {
+    "size": 730,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": "exports"
+  },
+  "1257": {
+    "size": 367,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1259": {
+    "size": 1078,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1263": {
+    "size": 1772,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GColor"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1278": {
+    "size": 255,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1279": {
+    "size": 101,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1299": {
+    "size": 630,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GKey",
+      "GPlatform"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1301": {
+    "size": 778,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1302": {
+    "size": 302,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1321": {
+    "size": 458,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1323": {
+    "size": 393,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1324": {
+    "size": 1570,
+    "suggestedName": "GCollaborators",
+    "reason": "unique GClass string: GCollaborators",
+    "apiCalls": [],
+    "pascalStrings": [
+      "GCollaborators"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1326": {
+    "size": 1424,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GLocale"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1327": {
+    "size": 264,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1328": {
+    "size": 218,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1329": {
+    "size": 941,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1330": {
+    "size": 218,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1337": {
+    "size": 3407,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1338": {
+    "size": 580,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1347": {
+    "size": 304,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1349": {
+    "size": 478,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1350": {
+    "size": 1991,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1373": {
+    "size": 928,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1375": {
+    "size": 523,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1376": {
+    "size": 201,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1377": {
+    "size": 119,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1382": {
+    "size": 254,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1387": {
+    "size": 188,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1388": {
+    "size": 167,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1389": {
+    "size": 56,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1468": {
+    "size": 694,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1469": {
+    "size": 516,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GSystem"
+    ],
+    "pascalStrings": [
+      "Unix",
+      "Windows"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1470": {
+    "size": 706,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1471": {
+    "size": 1164,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1472": {
+    "size": 374,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1473": {
+    "size": 2846,
+    "suggestedName": "GPaywallDialog",
+    "reason": "unique GClass string: GPaywallDialog",
+    "apiCalls": [
+      "GObject",
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GPaywallDialog"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1474": {
+    "size": 2845,
+    "suggestedName": "GConfirmationDialog",
+    "reason": "unique GClass string: GConfirmationDialog",
+    "apiCalls": [
+      "GObject",
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GConfirmationDialog"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1479": {
+    "size": 959,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1481": {
+    "size": 1454,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1482": {
+    "size": 418,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1484": {
+    "size": 1271,
+    "suggestedName": "GSystemDialog",
+    "reason": "unique GClass string: GSystemDialog",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GSystemDialog"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1486": {
+    "size": 1493,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GLength"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1487": {
+    "size": 299,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1490": {
+    "size": 491,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1492": {
+    "size": 542,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GPoint"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1493": {
+    "size": 411,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1496": {
+    "size": 812,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1497": {
+    "size": 994,
+    "suggestedName": "GBanner",
+    "reason": "unique GClass string: GBanner",
+    "apiCalls": [],
+    "pascalStrings": [
+      "GBanner"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1498": {
+    "size": 369,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1502": {
+    "size": 1582,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1504": {
+    "size": 435,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": "exports"
+  },
+  "1505": {
+    "size": 269,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": "exports"
+  },
+  "1506": {
+    "size": 511,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": "exports"
+  },
+  "1510": {
+    "size": 2739,
+    "suggestedName": "GCommonNames",
+    "reason": "unique GClass string: GCommonNames",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GCommonNames"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1511": {
+    "size": 3618,
+    "suggestedName": "GWarnLinkedImageDialog",
+    "reason": "unique GClass string: GWarnLinkedImageDialog",
+    "apiCalls": [
+      "GObject",
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GWarnLinkedImageDialog"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1516": {
+    "size": 1845,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1520": {
+    "size": 648,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1521": {
+    "size": 3294,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1525": {
+    "size": 385,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1529": {
+    "size": 1260,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1530": {
+    "size": 3043,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1531": {
+    "size": 3161,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "thumbnail",
+      "GImage",
+      "GDictionary",
+      "GNode",
+      "urls"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1532": {
+    "size": 1218,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GNode",
+      "file"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1533": {
+    "size": 1204,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GNode",
+      "file"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1534": {
+    "size": 1261,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1546": {
+    "size": 634,
+    "suggestedName": null,
+    "reason": "multiple GClass strings: GFilesPanelViewBase, GFilesPanelViewNative",
+    "apiCalls": [],
+    "pascalStrings": [
+      "GFilesPanelViewBase",
+      "GFilesPanelViewNative"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1549": {
+    "size": 187,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1551": {
+    "size": 416,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1555": {
+    "size": 1571,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1556": {
+    "size": 2672,
+    "suggestedName": null,
+    "reason": "multiple GClass strings: GNewFilePrompt, GLocale",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey",
+      "GObject"
+    ],
+    "pascalStrings": [
+      "GNewFilePrompt",
+      "GLocale"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1557": {
+    "size": 276,
+    "suggestedName": "GRepeatActionError",
+    "reason": "unique GClass string: GRepeatActionError",
+    "apiCalls": [],
+    "pascalStrings": [
+      "REPEAT",
+      "GRepeatActionError"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1561": {
+    "size": 190,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1565": {
+    "size": 1040,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1570": {
+    "size": 1244,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1571": {
+    "size": 2879,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1572": {
+    "size": 645,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1573": {
+    "size": 840,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1574": {
+    "size": 1499,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1575": {
+    "size": 811,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1576": {
+    "size": 1275,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1577": {
+    "size": 2094,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GLocale"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1578": {
+    "size": 794,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1579": {
+    "size": 2237,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GLocale"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1580": {
+    "size": 169,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1581": {
+    "size": 1157,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1583": {
+    "size": 1035,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1584": {
+    "size": 829,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GSelectTool"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1586": {
+    "size": 1335,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1588": {
+    "size": 1038,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1590": {
+    "size": 387,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1591": {
+    "size": 474,
+    "suggestedName": "GMSTeamsModeUserNotFoundError",
+    "reason": "unique GClass string: GMSTeamsModeUserNotFoundError",
+    "apiCalls": [],
+    "pascalStrings": [
+      "GMSTeamsModeUserNotFoundError"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1592": {
+    "size": 1357,
+    "suggestedName": "GChangePasswordPanel",
+    "reason": "unique GClass string: GChangePasswordPanel",
+    "apiCalls": [],
+    "pascalStrings": [
+      "GChangePasswordPanel"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1593": {
+    "size": 930,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1594": {
+    "size": 708,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1596": {
+    "size": 592,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1604": {
+    "size": 2703,
+    "suggestedName": "GPageProperties",
+    "reason": "unique GClass string: GPageProperties",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GPageProperties"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1622": {
+    "size": 913,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1626": {
+    "size": 2551,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1644": {
+    "size": 2068,
+    "suggestedName": "GShortcutsDialog",
+    "reason": "unique GClass string: GShortcutsDialog",
+    "apiCalls": [
+      "GLocale",
+      "GKey"
+    ],
+    "pascalStrings": [
+      "GShortcutsDialog"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1664": {
+    "size": 406,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1670": {
+    "size": 2246,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1672": {
+    "size": 640,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1673": {
+    "size": 3122,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1674": {
+    "size": 349,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1675": {
+    "size": 523,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1678": {
+    "size": 398,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1680": {
+    "size": 3176,
+    "suggestedName": "GPaymentDialog",
+    "reason": "unique GClass string: GPaymentDialog",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GPaymentDialog"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1681": {
+    "size": 379,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1683": {
+    "size": 167,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1684": {
+    "size": 1212,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1685": {
+    "size": 1194,
+    "suggestedName": "GLocale",
+    "reason": "unique GClass string: GLocale",
+    "apiCalls": [
+      "GLocaleLanguage",
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GLocale"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1686": {
+    "size": 1380,
+    "suggestedName": "GBetaFlow",
+    "reason": "unique GClass string: GBetaFlow",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GBetaFlow"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1687": {
+    "size": 3078,
+    "suggestedName": null,
+    "reason": "multiple GClass strings: GMemoryManager, GLocale",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey",
+      "GRendererCtx"
+    ],
+    "pascalStrings": [
+      "GMemoryManager",
+      "GLocale"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1688": {
+    "size": 968,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GUtil",
+      "width",
+      "height",
+      "getContext"
+    ],
+    "pascalStrings": [
+      "Anonymous"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1689": {
+    "size": 1374,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1691": {
+    "size": 760,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "CustomEvent"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1694": {
+    "size": 678,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1699": {
+    "size": 2655,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1703": {
+    "size": 2085,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GUtil"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1704": {
+    "size": 1480,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GUtil"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1708": {
+    "size": 180,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1713": {
+    "size": 3458,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1714": {
+    "size": 2686,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "KeyboardEvent"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1715": {
+    "size": 3430,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1719": {
+    "size": 2570,
+    "suggestedName": "GToolbar",
+    "reason": "unique GClass string: GToolbar",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GToolbar"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1720": {
+    "size": 2741,
+    "suggestedName": "GUnshareButton",
+    "reason": "unique GClass string: GUnshareButton",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey",
+      "addClass",
+      "removeClass",
+      "hide",
+      "show"
+    ],
+    "pascalStrings": [
+      "GUnshareButton"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1724": {
+    "size": 1695,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GRect",
+      "toggleClass",
+      "attr"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1726": {
+    "size": 2908,
+    "suggestedName": "GLength",
+    "reason": "unique GClass string: GLength",
+    "apiCalls": [
+      "GLength",
+      "GLocale",
+      "GLocaleKey",
+      "GLocaleLanguage"
+    ],
+    "pascalStrings": [
+      "GLength"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1729": {
+    "size": 2746,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Collapse",
+      "Expand"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1730": {
+    "size": 907,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1733": {
+    "size": 1438,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1736": {
+    "size": 1848,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1737": {
+    "size": 932,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "DFDFDF"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "1738": {
+    "size": 21,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0312": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0468": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0443": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Desktop",
+      "Android",
+      "Other"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0389": {
+    "size": 0,
+    "suggestedName": "GDocument",
+    "reason": "unique GClass string: GDocument",
+    "apiCalls": [
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GDocument"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0183": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0817": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0446": {
+    "size": 0,
+    "suggestedName": "GLoginPanel",
+    "reason": "unique GClass string: GLoginPanel",
+    "apiCalls": [
+      "GObject",
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GLoginPanel"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0250": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0247": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0676": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0537": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0847": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "multiple GClass strings: GDocument, GCommonNames",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GDocument",
+      "GCommonNames"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0409": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0433": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0381": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0515": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0191": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0691": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0272": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0371": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "WrapForValidIterator",
+      "IteratorHelper"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0595": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0349": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0121": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0593": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0401": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "String"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0136": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0883": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0846": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0623": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0785": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0290": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0667": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0423": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0859": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0538": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0234": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0837": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0302": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Reflect",
+      "AsyncFunction",
+      "GeneratorFunction",
+      "AsyncGeneratorFunction"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0880": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GMouseEvent"
+    ],
+    "pascalStrings": [
+      "MouseEvent"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0201": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Promise",
+      "BROWSER",
+      "DENO"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0190": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0382": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0527": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0675": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0436": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0554": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0151": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0591": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0696": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0536": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0351": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0219": {
+    "size": 0,
+    "suggestedName": "GLocale",
+    "reason": "unique GClass string: GLocale",
+    "apiCalls": [
+      "GLocale",
+      "GLocaleKey"
+    ],
+    "pascalStrings": [
+      "GLocale"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0343": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0309": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0681": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0131": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Arguments",
+      "Undefined",
+      "Null",
+      "Object"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0189": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0851": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0666": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Number",
+      "String"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0314": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0192": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0175": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0733": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0403": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0336": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0407": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "CLOUDFLARE",
+      "DENO",
+      "NODE",
+      "BROWSER",
+      "REST"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0674": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "String"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0149": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0397": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0702": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0344": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0693": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0208": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0807": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0412": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0297": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0311": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0863": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0262": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0614": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0213": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0086": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0202": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0307": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0102": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0277": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0611": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0427": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0279": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "RegExp"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0313": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0672": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0419": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0402": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0617": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0310": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0392": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0688": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0295": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0260": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0734": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "ExternalFileSettingsError"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0231": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0124": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0350": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0288": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0469": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0442": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0791": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0399": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0241": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Symbol"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0355": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "AppError"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0240": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "String"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0246": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0400": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0615": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Reflect"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0225": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0605": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0362": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0426": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0396": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0180": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "ArrayBuffer"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0687": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0357": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GRGBColor"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0342": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0299": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0120": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0453": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0461": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0429": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0589": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0698": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0110": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0204": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0665": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0258": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0323": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0411": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0459": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0109": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0868": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0450": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0305": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0607": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0454": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "RegExp"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0301": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0576": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0620": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0413": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0242": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0619": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0174": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0408": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0361": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0065": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0458": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0061": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0243": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0616": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0239": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0244": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0428": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0694": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0441": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0304": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0803": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0735": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0146": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0185": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Object"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0626": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0292": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0805": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [
+      "GObject",
+      "GEvent"
+    ],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0592": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0420": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0689": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0697": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0294": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0116": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0300": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0303": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0695": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0405": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0348": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Array"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0786": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0232": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0692": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0218": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0223": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [
+      "Function"
+    ],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0516": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0555": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0452": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0573": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0296": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0143": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0690": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0425": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0165": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0444": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0248": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0194": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0790": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0565": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0414": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0404": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0259": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0660": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0881": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0572": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0286": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0571": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0784": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0570": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0178": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  },
+  "0171": {
+    "size": 0,
+    "suggestedName": null,
+    "reason": "",
+    "apiCalls": [],
+    "pascalStrings": [],
+    "extends": [],
+    "constructors": [],
+    "defaultExport": null
+  }
+}

@@ -18,10 +18,10 @@ function (e, t, n) {
       u = n(1153) /* GPresets */,
       p = n(135) /* GSettingChangedEvent */,
       g = n(603) /* WindowEvent */,
-      h = n(1328) /* module_1328 */,
-      f = n(442) /* module_442 */;
+      h = n(1328) /* GEvent_paintMode */,
+      f = n(442) /* DataModule_442 */;
     const m = n(44) /* GSystemDialog */,
-      y = n(1604) /* module_1604 */,
+      y = n(1604) /* GPageProperties_1604 */,
       v = n(78) /* GDocumentEvent */;
     function _() {}
     i.GObject.inherit(_, d),

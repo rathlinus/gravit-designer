@@ -27,7 +27,7 @@ function (exports, module, require) {
         return module;
       }),
       (module.base64URLSafeEncode = function (e) {
-        return (0, r.trim)((0, r.encode)(e));
+        return (0, DataModule_1042.trim)((0, DataModule_1042.encode)(e));
       }),
       (module.blockChanges = function (e, t, n, _interopRequireDefault) {
         n && n.startBlockReferenceChanges();
@@ -179,7 +179,7 @@ function (exports, module, require) {
           const {
             id: GCore,
             copy: GAnnotation,
-            inspect: r,
+            inspect: DataModule_1042,
             comment: s,
             owner: l,
             access: GSystemDialog,
@@ -201,7 +201,7 @@ function (exports, module, require) {
                     share: false,
                     edit: p,
                     copy: GAnnotation,
-                    inspect: r,
+                    inspect: DataModule_1042,
                     comment: !!u && s,
                     sharing: GSystemDialog,
                   }))
@@ -212,13 +212,13 @@ function (exports, module, require) {
           const t = e.getUID() === GAnnotation.id;
           (_interopRequireDefault.owner = t), (_interopRequireDefault.share = t);
         }
-        const r = t.getPublicShare();
-        r && r.access && ((_interopRequireDefault.isPrivate = false), (_interopRequireDefault.sharing = true));
+        const DataModule_1042 = t.getPublicShare();
+        DataModule_1042 && DataModule_1042.access && ((_interopRequireDefault.isPrivate = false), (_interopRequireDefault.sharing = true));
         return (
           Object.assign(_interopRequireDefault, {
             isPrivate: GCore && GCore.filter((e) => !e.owner).length > 0,
           }),
-          { state: _interopRequireDefault, role: require, publicShare: r }
+          { state: _interopRequireDefault, role: require, publicShare: DataModule_1042 }
         );
       }),
       (module.getSizeInfo = function (e) {
@@ -228,8 +228,8 @@ function (exports, module, require) {
         var GCore = { gb: 0, mb: 0, kb: 0 },
           GAnnotation = Math.floor(t / _interopRequireDefault);
         GAnnotation && ((GCore.gb = GAnnotation), (t -= GAnnotation * _interopRequireDefault));
-        var r = Math.floor(t / require);
-        r && ((GCore.mb = r), (t -= r * require));
+        var DataModule_1042 = Math.floor(t / require);
+        DataModule_1042 && ((GCore.mb = DataModule_1042), (t -= DataModule_1042 * require));
         var s = Math.floor(t / 1e3);
         s && ((GCore.kb = s), (t -= 1e3 * s));
         return GCore;
@@ -285,8 +285,8 @@ function (exports, module, require) {
           GCore = 0,
           GAnnotation = e.length;
         for (; _interopRequireDefault < GAnnotation; ) {
-          var r = t + GCore;
-          n(e[r], r),
+          var DataModule_1042 = t + GCore;
+          n(e[DataModule_1042], DataModule_1042),
             _interopRequireDefault++,
             GCore > 0 && t - GCore >= 0
               ? (GCore = -GCore)
@@ -300,8 +300,8 @@ function (exports, module, require) {
       (module.iterateEqualStyleLayers = function (e, t, n, _interopRequireDefault) {
         var GAnnotation = [];
         if (n.length > 1) {
-          for (var r = 0; r < n.length; r++) {
-            var s = n[r],
+          for (var DataModule_1042 = 0; DataModule_1042 < n.length; DataModule_1042++) {
+            var s = n[DataModule_1042],
               l = [];
             if ("fill" === e) l = s.getPaintLayers().getFillLayers();
             else if ("border" === e) l = s.getPaintLayers().getBorderLayers();
@@ -354,13 +354,13 @@ function (exports, module, require) {
         let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         return new Promise(async (_interopRequireDefault, GAnnotation) => {
-          const r = (e) =>
+          const DataModule_1042 = (e) =>
             e === GCore.GImage.ImageStatus.Loaded ||
             e === GCore.GImage.ImageStatus.Error;
           let s = 0;
           if (
             (e.accept((e) => {
-              e instanceof GCore.GImage && !r(e.getStatus()) && s++;
+              e instanceof GCore.GImage && !DataModule_1042(e.getStatus()) && s++;
             }),
             s > 0)
           ) {
@@ -370,7 +370,7 @@ function (exports, module, require) {
             }, t);
             const GSystemDialog = (t) => {
               let { status: d } = t;
-              r(d) &&
+              DataModule_1042(d) &&
                 --s <= 0 &&
                 (l && (clearTimeout(l), (l = null)),
                 e.removeEventListener(GCore.GImage.StatusEvent, GSystemDialog),
@@ -393,8 +393,8 @@ function (exports, module, require) {
           }
         });
         for (var require = new Float64Array(4 * t.length), _interopRequireDefault = 0; _interopRequireDefault < t.length; ++_interopRequireDefault)
-          for (var GAnnotation = GCore.GRect.serialize(t[_interopRequireDefault]), r = 0; r < 4; ++r)
-            require[4 * _interopRequireDefault + r] = GAnnotation[r];
+          for (var GAnnotation = GCore.GRect.serialize(t[_interopRequireDefault]), DataModule_1042 = 0; DataModule_1042 < 4; ++DataModule_1042)
+            require[4 * _interopRequireDefault + DataModule_1042] = GAnnotation[DataModule_1042];
         (s = "Test_invisible-.dat"),
           (l = require),
           navigator.webkitTemporaryStorage.requestQuota(1e3, function (e) {
@@ -468,7 +468,7 @@ function (exports, module, require) {
       (module.watchDog = undefined),
       require(58) /* polyfill_Array_includes */,
       require(19) /* polyfill_Array_iterator */,
-      require(180) /* module_180 */,
+      require(180) /* DataModule_180 */,
       require(181) /* polyfill_ArrayBuffer_slice */,
       require(30) /* polyfill_Object_assign */,
       require(8) /* polyfill_bundle_ES6 */,
@@ -477,14 +477,14 @@ function (exports, module, require) {
       require(3) /* polyfill_RegExp_toString */,
       require(271) /* polyfill_String_endsWith */,
       require(71) /* polyfill_String_includes */,
-      require(151) /* module_151 */,
+      require(151) /* DataModule_151 */,
       require(134) /* polyfill_String_startsWith */,
       require(1041) /* module_1041 */,
       require(218) /* module_218 */,
-      require(189) /* module_189 */,
-      require(190) /* module_190 */,
+      require(189) /* DataModule_189 */,
+      require(190) /* DataModule_190 */,
       require(191) /* module_191 */,
-      require(192) /* module_192 */,
+      require(192) /* DataModule_192 */,
       require(4) /* stub_requires_668 */,
       require(41) /* stub_requires_682 */,
       require(13) /* stub_requires_679 */,
@@ -494,7 +494,7 @@ function (exports, module, require) {
       require(33) /* polyfill_DOMCollection_forEach */;
     var GCore = require(1) /* GCore */,
       GAnnotation = _interopRequireDefault(require(84) /* GAnnotation */),
-      r = require(1042) /* module_1042 */;
+      DataModule_1042 = require(1042) /* DataModule_1042 */;
     const s = require(1043) /* module_1043 */;
     var l = require(250) /* module_250 */,
       GSystemDialog = require(44) /* GSystemDialog */;
@@ -547,8 +547,8 @@ function (exports, module, require) {
             )
             .map((e) => e.slice(1)),
         GAnnotation = _interopRequireDefault(e),
-        r = _interopRequireDefault(t);
-      return !GCore.GUtil.equals(GAnnotation, r) || !e.arePropertiesEqual(t, GAnnotation);
+        DataModule_1042 = _interopRequireDefault(t);
+      return !GCore.GUtil.equals(GAnnotation, DataModule_1042) || !e.arePropertiesEqual(t, GAnnotation);
     }
     function v(e, t, n) {
       if (
@@ -567,9 +567,9 @@ function (exports, module, require) {
         if (Boolean(_interopRequireDefault) !== Boolean(GCore)) return true;
         if (_interopRequireDefault && v(_interopRequireDefault, GCore, n)) return true;
         const GAnnotation = e.getPaintLayers(),
-          r = t.getPaintLayers();
-        if (Boolean(GAnnotation) !== Boolean(r)) return true;
-        if (GAnnotation && v(GAnnotation, r, n)) return true;
+          DataModule_1042 = t.getPaintLayers();
+        if (Boolean(GAnnotation) !== Boolean(DataModule_1042)) return true;
+        if (GAnnotation && v(GAnnotation, DataModule_1042, n)) return true;
       }
       if (e.hasMixin(GCore.GNode.Container) !== t.hasMixin(GCore.GNode.Container))
         return true;
@@ -577,12 +577,12 @@ function (exports, module, require) {
       if (e instanceof GCore.GPathBase) {
         var _interopRequireDefault = e.getAnchorPoints(),
           GAnnotation = _interopRequireDefault.getChildren(),
-          r = t.getAnchorPoints(),
-          s = r.getChildren();
+          DataModule_1042 = t.getAnchorPoints(),
+          s = DataModule_1042.getChildren();
         if (GAnnotation.length !== s.length) return true;
         for (var l = 0; l < GAnnotation.length; l++) {
           var GSystemDialog = _interopRequireDefault.getChildByIndex(l),
-            d = r.getChildByIndex(l);
+            d = DataModule_1042.getChildByIndex(l);
           if (GSystemDialog ^ d) return true;
           if (y(GSystemDialog, d, n)) return true;
         }
@@ -615,14 +615,14 @@ function (exports, module, require) {
       if (e.hasMixin(GCore.GElement.Stylable)) {
         var require = e.getPaintLayers(),
           _interopRequireDefault = t.getPaintLayers(),
-          r = require.getBorderLayers(),
+          DataModule_1042 = require.getBorderLayers(),
           s = _interopRequireDefault.getBorderLayers(),
           l = require.getFillLayers(),
           GSystemDialog = _interopRequireDefault.getFillLayers();
         e.hasMixin(GAnnotation.default)
-          ? (s.length && r.length && r[0].assignFrom(s[0]),
+          ? (s.length && DataModule_1042.length && DataModule_1042[0].assignFrom(s[0]),
             GSystemDialog.length && l.length && l[0].assignFrom(GSystemDialog[0]))
-          : (r.forEach((e) => {
+          : (DataModule_1042.forEach((e) => {
               var t = s.find((t) => t.getId() === e.getId());
               t && e.assignFrom(t);
             }),

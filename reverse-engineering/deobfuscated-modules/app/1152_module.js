@@ -15,8 +15,8 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       GError = _interopRequireDefault(require(594) /* GError */);
     const u = require(86) /* module_86 */,
-      p = require(336) /* module_336 */,
-      g = require(436) /* module_436 */,
+      GEvent_storageItem = require(336) /* GEvent_storageItem */,
+      DataModule_436 = require(436) /* DataModule_436 */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GCloudStorageItem = require(156) /* GCloudStorageItem */,
       m = 10,
@@ -32,9 +32,9 @@ function (exports, module, require) {
           (this._ext = null),
           (this._token = require),
           this._setExtension(),
-          g.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT);
+          DataModule_436.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT);
       }),
-      GCore.GObject.inheritAndMix(b.Item, s.default.Item, [g]),
+      GCore.GObject.inheritAndMix(b.Item, s.default.Item, [DataModule_436]),
       (b.Item.prototype._app = AppSettings.FILE_ID_PREFIX.SHAREPOINT),
       (b.Item.prototype.getId = function () {
         const exports = this._getSharepointId();
@@ -67,8 +67,8 @@ function (exports, module, require) {
         if (module && module.status !== e) {
           var require = module.status;
           (module.status = e),
-            gDesigner.hasEventListeners(p.FileStatusUpdate) &&
-              gDesigner.trigger(new p.FileStatusUpdate(this, require, e));
+            gDesigner.hasEventListeners(GEvent_storageItem.FileStatusUpdate) &&
+              gDesigner.trigger(new GEvent_storageItem.FileStatusUpdate(this, require, e));
         }
       }),
       (b.Item.prototype.getOrCreateCollaborativeFile = async function () {
@@ -348,7 +348,7 @@ function (exports, module, require) {
           await this._getClient().checkInFile(n, e, t),
             await this._updateModificationTime(),
             this._setCheckOutStatus(SharepointException.default.FILE_STATUS.AVAILABLE),
-            this._triggerStorageItemEvent(p.Type.FileCheckIn);
+            this._triggerStorageItemEvent(GEvent_storageItem.Type.FileCheckIn);
         } catch (e) {
           throw (
             (console.error("Error checking in", e),
@@ -375,7 +375,7 @@ function (exports, module, require) {
               e !== SharepointException.default.FILE_STATUS.LOCKED) ||
             (module.checkedOut = true),
           (module.checkOutStatus = e),
-          this._triggerStorageItemEvent(p.Type.FileUpdated);
+          this._triggerStorageItemEvent(GEvent_storageItem.Type.FileUpdated);
       }),
       (b.Item.prototype.refreshCheckOutStatus = async function () {
         return (
@@ -404,7 +404,7 @@ function (exports, module, require) {
         return this._setCheckOutStatus(exports), this.getFile().checkOutStatus;
       }),
       (b.Item.prototype._triggerStorageItemEvent = async function (e) {
-        gDesigner.hasEventListeners(p) && gDesigner.trigger(new p(e, this));
+        gDesigner.hasEventListeners(GEvent_storageItem) && gDesigner.trigger(new GEvent_storageItem(e, this));
       }),
       (b.Item.prototype._getCheckOutFileStatus = async function () {
         const exports = this.getFile();

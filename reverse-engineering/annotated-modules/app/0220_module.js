@@ -9,14 +9,14 @@ function (e, t, n) {
     n(19) /* polyfill_Array_iterator */, n(96) /* polyfill_JSON_stringify */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* GCore */,
       a = n(10) /* AppSettings */,
-      r = o(n(336) /* module_336 */),
+      r = o(n(336) /* GEvent_storageItem */),
       s = o(n(44) /* GSystemDialog */),
       l = n(40) /* CollaborationMergeUtils */,
       c = o(n(554) /* module_554 */),
       d = o(n(555) /* module_555 */),
       u = n(237) /* Item */,
       p = n(119) /* GCloudStorage */;
-    const g = n(436) /* module_436 */,
+    const g = n(436) /* DataModule_436 */,
       h = n(86) /* module_86 */;
     var f = a.FILE_FORMATS.find((e) => e.default),
       m = a.FILE_FORMATS.filter((e) => !e.default);

@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    require(8) /* polyfill_bundle_ES6 */, require(527) /* module_527 */;
-    const o = require(292) /* module_292 */,
-      i = require(1685) /* module_1685 */,
+    require(8) /* polyfill_bundle_ES6 */, require(527) /* DataModule_527 */;
+    const GEvent_user = require(292) /* GEvent_user */,
+      GLocale_1685 = require(1685) /* GLocale_1685 */,
       { gApi: a, DateAPI: r } = require(10) /* AppSettings */;
     exports.exports = class {
       init() {
-        gDesigner.addEventListener(o, this._userLoggedEvent, this);
+        gDesigner.addEventListener(GEvent_user, this._userLoggedEvent, this);
       }
       async _userLoggedEvent(e) {
         const module = e.user;
         if (module && module.getUID()) {
-          gDesigner.removeEventListener(o, this._userLoggedEvent, this);
+          gDesigner.removeEventListener(GEvent_user, this._userLoggedEvent, this);
           try {
             (await this._shouldShowWindowsStoreAnnouncement(module)) &&
               this._showWindowsStoreAnnouncement();
@@ -36,7 +36,7 @@ function (exports, module, require) {
       }
       _showWindowsStoreAnnouncement() {
         gDesigner.executeWhenReady(() => {
-          new i().open();
+          new GLocale_1685().open();
         });
       }
     };

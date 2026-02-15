@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(10) /* AppSettings */,
       s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */,
-      c = n(219) /* module_219 */,
+      c = n(219) /* GLocale */,
       d = n(85) /* GContainer */,
       u = n(119) /* GCloudStorage */;
     const p = n(44) /* GSystemDialog */,

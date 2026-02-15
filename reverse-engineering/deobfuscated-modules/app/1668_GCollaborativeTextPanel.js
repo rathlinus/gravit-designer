@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */;
     const GPanel = require(606) /* GPanel */,
       GView = require(394) /* GView */,
-      r = require(392) /* module_392 */,
+      GEvent_document = require(392) /* GEvent_document */,
       GCollaborationEvent = require(393) /* GCollaborationEvent */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
@@ -582,7 +582,7 @@ function (exports, module, require) {
           gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           gDesigner.addEventListener(GUnloadEvent, this._unloadEvent, this),
           gDesigner.addEventListener(
-            r,
+            GEvent_document,
             this._applicationStateChangedEvent,
             this
           );

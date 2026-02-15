@@ -5,9 +5,9 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(223) /* module_223 */,
-      i = n(65) /* module_65 */,
-      a = n(239) /* module_239 */,
+    var o = n(223) /* DataModule_223 */,
+      i = n(65) /* DataModule_65 */,
+      a = n(239) /* DataModule_239 */,
       r = o(o.bind);
     e.exports = function (e, t) {
       return (

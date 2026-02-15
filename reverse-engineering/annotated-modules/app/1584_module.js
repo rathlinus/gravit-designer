@@ -9,8 +9,8 @@ function (e, t, n) {
     const i = n(878) /* GTouchEventHandler */,
       a = n(1585) /* GTouchPinchZoomGesture */,
       r = n(879) /* GTouchClickGesture */,
-      s = n(1586) /* module_1586 */,
-      l = n(1329) /* module_1329 */;
+      s = n(1586) /* DataModule_1586 */,
+      l = n(1329) /* DataModule_1329 */;
     e.exports = class extends i {
       constructor(e) {
         super(e),

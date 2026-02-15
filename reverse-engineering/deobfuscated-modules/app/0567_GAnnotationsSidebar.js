@@ -27,12 +27,12 @@ function (exports, module, require) {
       GAnnotationProperties = require(1536) /* GAnnotationProperties */,
       GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
       C = require(592) /* module_592 */;
-    const x = require(392) /* module_392 */,
+    const GEvent_document = require(392) /* GEvent_document */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     var GFileReviewProperties = require(1537) /* GFileReviewProperties */;
     const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       GCollaborationEvent = require(393) /* GCollaborationEvent */,
-      G = require(336) /* module_336 */,
+      GEvent_storageItem = require(336) /* GEvent_storageItem */,
       P = require(434) /* stub_requires_30_1072 */,
       { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = require(10) /* AppSettings */,
       I = require(86) /* module_86 */,
@@ -392,7 +392,7 @@ function (exports, module, require) {
               this._toolChangedEvent,
               this
             ),
-          gDesigner.addEventListener(x, this._stateChangedEvent, this),
+          gDesigner.addEventListener(GEvent_document, this._stateChangedEvent, this),
           gDesigner.addEventListener(
             GNetworkAvailabilityChangedEvent,
             this._networkAvailabilityChangedEvent,
@@ -712,7 +712,7 @@ function (exports, module, require) {
                 this
               ),
               gDesigner.addEventListener(
-                G.FileStatusUpdate,
+                GEvent_storageItem.FileStatusUpdate,
                 this._storageItemFileStatusEvent,
                 this
               ),
@@ -733,7 +733,7 @@ function (exports, module, require) {
                   this
                 ),
                 gDesigner.removeEventListener(
-                  G.FileStatusUpdate,
+                  GEvent_storageItem.FileStatusUpdate,
                   this._storageItemFileStatusEvent,
                   this
                 ),

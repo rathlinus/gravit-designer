@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(25) /* core_export */,
       i = n(27) /* uncurryThis */,
-      a = n(361) /* module_361 */,
+      a = n(361) /* DataModule_361 */,
       r = n(92) /* classof */,
       s = n(62) /* requireObjectCoercible */,
       l = n(362) /* module_362 */,

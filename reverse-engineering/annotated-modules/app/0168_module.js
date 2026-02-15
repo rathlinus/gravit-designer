@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     var o = n(25) /* core_export */,
-      i = n(681) /* module_681 */.left,
+      i = n(681) /* DataModule_681 */.left,
       a = n(350) /* module_350 */,
-      r = n(213) /* module_213 */;
+      r = n(213) /* DataModule_213 */;
     o(
       {
         target: "Array",

@@ -11,13 +11,13 @@ function (e, t, n) {
     var i = n(1) /* GCore */,
       a = n(15) /* GEditor */,
       r = o(n(443) /* module_443 */),
-      s = o(n(1330) /* module_1330 */);
+      s = o(n(1330) /* GEvent_fullscreen */);
     const { isExecutingOnMSTeamsSync: l } = r.default;
     var c = n(863) /* module_863 */,
       d = n(449) /* GFitAllAction */,
       u = n(18) /* MenuItemBuilder */,
       p = n(31) /* GAction */,
-      g = n(1588) /* module_1588 */;
+      g = n(1588) /* DataModule_1588 */;
     function h() {
       this._banner.setBannerText(
         i.GLocale.get(

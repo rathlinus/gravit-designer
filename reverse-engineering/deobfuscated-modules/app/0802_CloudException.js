@@ -23,7 +23,7 @@ function (exports, module, require) {
       require(97) /* stub_requires_684 */,
       require(26) /* polyfill_DOMCollection_iterator */;
     var GCore = require(1) /* GCore */,
-      a = _interopRequireDefault(require(355) /* module_355 */),
+      AppError = _interopRequireDefault(require(355) /* AppError */),
       GError = _interopRequireDefault(require(594) /* GError */),
       GFilesPanel = require(858) /* Exports_GFilesPanel */;
     const l = require(1240) /* module_1240 */,
@@ -272,7 +272,7 @@ function (exports, module, require) {
       }),
       (u.prototype.saveLastTeamDriveId = function (e, t) {
         if (!e)
-          throw new a.default(
+          throw new AppError.default(
             "Invalid arguments for saving last team drive id"
           );
         return gContainer.setProperty(e, t), this;

@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */;
     const GPanel = require(606) /* GPanel */,
       GView = require(394) /* GView */,
-      r = require(1188) /* module_1188 */,
+      GEvent_1188 = require(1188) /* GEvent_1188 */,
       GContainer = require(85) /* GContainer */,
       GSystemDialog = require(44) /* GSystemDialog */,
       { SOFTWARE_UPDATE: c, DateAPI: d } = require(10) /* AppSettings */;
@@ -56,32 +56,32 @@ function (exports, module, require) {
       }),
       (u.prototype._addEventListeners = function () {
         gDesigner.addEventListener(
-          r.AfterUpdate,
+          GEvent_1188.AfterUpdate,
           this._handleAfterUpdate,
           this
         ),
           gDesigner.addEventListener(
-            r.DownloadComplete,
+            GEvent_1188.DownloadComplete,
             this._handleDownloadComplete,
             this
           ),
           gDesigner.addEventListener(
-            r.Downloading,
+            GEvent_1188.Downloading,
             this._handleDownloadInProgress,
             this
           ),
           gDesigner.addEventListener(
-            r.UpdateAvailable,
+            GEvent_1188.UpdateAvailable,
             this._handleUpdateAvailable,
             this
           ),
           gDesigner.addEventListener(
-            r.UpdateError,
+            GEvent_1188.UpdateError,
             this._handleUpdateError,
             this
           ),
           gDesigner.addEventListener(
-            r.UpdateNotAvailable,
+            GEvent_1188.UpdateNotAvailable,
             this._handleUpdateNotAvailable,
             this
           );
@@ -224,14 +224,14 @@ function (exports, module, require) {
           )
             .replace("%newVersion", require)
             .replace("%currentVersion", module),
-          r = $("<span/>")
+          GEvent_1188 = $("<span/>")
             .addClass("gravit-icon-rotate-right-flat")
             .addClass("icon");
         this._updateContent(
           $("<div></div>")
             .addClass("message")
             .addClass("featured")
-            .append(r)
+            .append(GEvent_1188)
             .append(GView)
             .append(
               $("<a></a>")
@@ -241,7 +241,7 @@ function (exports, module, require) {
                   )
                 )
                 .click(() => {
-                  r.addClass("spin"), this._installAfterDocumentUnload();
+                  GEvent_1188.addClass("spin"), this._installAfterDocumentUnload();
                 })
             )
         ),
@@ -363,22 +363,22 @@ function (exports, module, require) {
           this._updatePanelState(true);
       }),
       (u.prototype._removeEventListeners = function () {
-        gDesigner.removeEventListener(r.AfterUpdate, this._handleAfterUpdate),
+        gDesigner.removeEventListener(GEvent_1188.AfterUpdate, this._handleAfterUpdate),
           gDesigner.removeEventListener(
-            r.DownloadComplete,
+            GEvent_1188.DownloadComplete,
             this._handleDownloadComplete
           ),
           gDesigner.removeEventListener(
-            r.Downloading,
+            GEvent_1188.Downloading,
             this._handleDownloadInProgress
           ),
           gDesigner.removeEventListener(
-            r.UpdateAvailable,
+            GEvent_1188.UpdateAvailable,
             this._handleUpdateAvailable
           ),
-          gDesigner.removeEventListener(r.UpdateError, this._handleUpdateError),
+          gDesigner.removeEventListener(GEvent_1188.UpdateError, this._handleUpdateError),
           gDesigner.removeEventListener(
-            r.UpdateNotAvailable,
+            GEvent_1188.UpdateNotAvailable,
             this._handleUpdateNotAvailable
           );
       }),

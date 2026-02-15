@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(18) /* MenuItemBuilder */,
       s = n(31) /* GAction */,
       l = n(1513) /* GExportDialog */,
-      c = n(446) /* module_446 */,
+      c = n(446) /* GLoginPanel */,
       d = n(447) /* GSaveAction */;
     const u = n(86) /* module_86 */,
       p = n(44) /* GSystemDialog */;

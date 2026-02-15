@@ -10,7 +10,7 @@ function (e, t, n) {
     const { GObject: o, GLocaleKey: i } = n(1) /* GCore */,
       a = n(31) /* GAction */,
       r = n(18) /* MenuItemBuilder */,
-      s = n(1644) /* module_1644 */;
+      s = n(1644) /* GShortcutsDialog */;
     function l() {}
     o.inherit(l, a),
       (l.ID = "help.shortcuts"),

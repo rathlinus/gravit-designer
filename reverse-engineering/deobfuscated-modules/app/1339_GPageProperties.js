@@ -18,10 +18,10 @@ function (exports, module, require) {
       GPresets = require(1153) /* GPresets */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       g = require(603) /* WindowEvent */,
-      h = require(1328) /* module_1328 */,
-      f = require(442) /* module_442 */;
+      GEvent_paintMode = require(1328) /* GEvent_paintMode */,
+      DataModule_442 = require(442) /* DataModule_442 */;
     const GSystemDialog = require(44) /* GSystemDialog */,
-      y = require(1604) /* module_1604 */,
+      GPageProperties_1604 = require(1604) /* GPageProperties_1604 */,
       GDocumentEvent = require(78) /* GDocumentEvent */;
     function _() {}
     GCore.GObject.inherit(_, GProperties),
@@ -377,9 +377,9 @@ function (exports, module, require) {
             (n && e) ||
               (e
                 ? ((_interopRequireDefault = GCore.GScenePaintConfiguration.PaintMode.Output),
-                  t._updatePageSetting(f.PAGE_CLIP_CONTENT_ENABLED))
+                  t._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_ENABLED))
                 : ((_interopRequireDefault = GCore.GScenePaintConfiguration.PaintMode.Full),
-                  t._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED)),
+                  t._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_DISABLED)),
               gDesigner.setPaintMode(_interopRequireDefault));
           };
           return this._clipContentButton;
@@ -449,15 +449,15 @@ function (exports, module, require) {
             n = !module.isFixedSized();
           if (n && e === GCore.GScenePaintConfiguration.PaintMode.Output)
             gDesigner.setPaintMode(GCore.GScenePaintConfiguration.PaintMode.Full),
-              this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED);
+              this._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_DISABLED);
           else if (!n) {
             var _interopRequireDefault =
-              module.getProperty(f.PAGE_CLIP_PROPERTY_NAME, true) ||
+              module.getProperty(DataModule_442.PAGE_CLIP_PROPERTY_NAME, true) ||
               (AppSettings.PAGE_CLIP_DEFAULT
-                ? f.PAGE_CLIP_CONTENT_ENABLED
-                : f.PAGE_CLIP_CONTENT_DISABLED);
+                ? DataModule_442.PAGE_CLIP_CONTENT_ENABLED
+                : DataModule_442.PAGE_CLIP_CONTENT_DISABLED);
             gDesigner.setPaintMode(
-              _interopRequireDefault === f.PAGE_CLIP_CONTENT_ENABLED
+              _interopRequireDefault === DataModule_442.PAGE_CLIP_CONTENT_ENABLED
                 ? GCore.GScenePaintConfiguration.PaintMode.Output
                 : GCore.GScenePaintConfiguration.PaintMode.Full
             );
@@ -482,7 +482,7 @@ function (exports, module, require) {
             ? (gDesigner.setPaintMode(
                 GCore.GScenePaintConfiguration.PaintMode.Full
               ),
-              this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED))
+              this._updatePageSetting(DataModule_442.PAGE_CLIP_CONTENT_DISABLED))
             : this._manageClipButtonState(false, !CollaborationMergeUtils);
         }
       }),
@@ -491,7 +491,7 @@ function (exports, module, require) {
           .getActiveDocument()
           .getScene()
           .getActivePage()
-          .setProperty(f.PAGE_CLIP_PROPERTY_NAME, e, true);
+          .setProperty(DataModule_442.PAGE_CLIP_PROPERTY_NAME, e, true);
       }),
       (_.prototype._reInitLayout = function () {
         (this._canvasPropertiesRowInNormal = $("<div></div>")
@@ -583,7 +583,7 @@ function (exports, module, require) {
           gDesigner
             .getWindows()
             .addEventListener(g.WindowEvent, this._windowEvent, this),
-          gDesigner.addEventListener(h, this._paintModeEvent, this),
+          gDesigner.addEventListener(GEvent_paintMode, this._paintModeEvent, this),
           gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
           this.setTouchTools([
             new GTouchTool.default({
@@ -964,7 +964,7 @@ function (exports, module, require) {
       (_.prototype._updateUI = function () {
         this._removeOldHtmlElement(),
           gDesigner.isTouchEnabled()
-            ? y._reInitLayout.call(this)
+            ? GPageProperties_1604._reInitLayout.call(this)
             : this._reInitLayout(),
           this._document
             ? (this._updatePresetSizes(), this._updateProperties())
@@ -1298,8 +1298,8 @@ function (exports, module, require) {
           var GTouchTool = false,
             GProperties = e.getScene();
           GProperties &&
-            f.CDR_ORIGIN_PROPERTY_NAME &&
-            (GTouchTool = !!GProperties.getProperty(f.CDR_ORIGIN_PROPERTY_NAME, true)),
+            DataModule_442.CDR_ORIGIN_PROPERTY_NAME &&
+            (GTouchTool = !!GProperties.getProperty(DataModule_442.CDR_ORIGIN_PROPERTY_NAME, true)),
             this._panel
               .find('select[data-property="master-page"]')
               .attr("disabled", GTouchTool)

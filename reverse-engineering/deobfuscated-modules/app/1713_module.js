@@ -9,7 +9,7 @@ function (exports, module, require) {
     const { GObject: o } = require(1) /* GCore */,
       { GPlatform: i } = require(15) /* GEditor */,
       GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
-      r = require(1191) /* module_1191 */,
+      DataModule_1191 = require(1191) /* DataModule_1191 */,
       GAnnotationRow = require(1356) /* GAnnotationRow */,
       GAnnotationReplyEditor = require(1357) /* GAnnotationReplyEditor */,
       { handleCollabsData: c } = (require(536) /* module_536 */, require(882) /* GCollaborationMentionsUtils */),
@@ -18,9 +18,9 @@ function (exports, module, require) {
     function p() {
       for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
         module[require] = arguments[require];
-      GSimpleTreeNodeNamed.call(this, ...module), r.call(this);
+      GSimpleTreeNodeNamed.call(this, ...module), DataModule_1191.call(this);
     }
-    o.inheritAndMix(p, GSimpleTreeNodeNamed, [r]),
+    o.inheritAndMix(p, GSimpleTreeNodeNamed, [DataModule_1191]),
       (p.prototype._checkTreeSanity = function () {
         return !!$(this._container).data("gannotationpanel");
       }),

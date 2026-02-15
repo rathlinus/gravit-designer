@@ -19,8 +19,8 @@ function (exports, module, require) {
       classof = require(92) /* classof */,
       regExpFlags = require(308) /* regExpFlags */,
       getSubstitution = require(145) /* getSubstitution */,
-      y = require(667) /* module_667 */,
-      v = require(279) /* module_279 */,
+      DataModule_667 = require(667) /* DataModule_667 */,
+      DataModule_279 = require(279) /* DataModule_279 */,
       wellKnownSymbol = require(43) /* wellKnownSymbol */("replace"),
       b = Math.max,
       w = Math.min,
@@ -52,7 +52,7 @@ function (exports, module, require) {
             var getSubstitution,
               wellKnownSymbol = fixRegExpWKS.global;
             wellKnownSymbol && ((getSubstitution = fixRegExpWKS.unicode), (fixRegExpWKS.lastIndex = 0));
-            for (var A, T = []; null !== (A = v(fixRegExpWKS, tryCall)) && (x(T, A), wellKnownSymbol); ) {
+            for (var A, T = []; null !== (A = DataModule_279(fixRegExpWKS, tryCall)) && (x(T, A), wellKnownSymbol); ) {
               "" === requireObjectCoercible(A[0]) && (fixRegExpWKS.lastIndex = regExpFlags(tryCall, toStringTagSupport(fixRegExpWKS.lastIndex), getSubstitution));
             }
             for (var G, P = "", D = 0, L = 0; L < T.length; L++) {
@@ -70,7 +70,7 @@ function (exports, module, require) {
               if (classof) {
                 var N = C([k], F, O, tryCall);
                 undefined !== M && x(N, M), (I = requireObjectCoercible(advanceStringIndex(isCallable, undefined, N)));
-              } else I = y(k, tryCall, O, F, M, isCallable);
+              } else I = DataModule_667(k, tryCall, O, F, M, isCallable);
               O >= D && ((P += E(tryCall, D, O) + I), (D = O + k.length));
             }
             return P + E(tryCall, D);

@@ -6,19 +6,19 @@
 function (exports, module, require) {
     "use strict";
     var hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
-      i = require(399) /* module_399 */,
-      a = require(400) /* module_400 */,
+      DataModule_399 = require(399) /* DataModule_399 */,
+      DataModule_400 = require(400) /* DataModule_400 */,
       toString_default = require(37) /* toString_default */,
-      s = require(294) /* module_294 */,
+      DataModule_294 = require(294) /* DataModule_294 */,
       l = TypeError,
       c = Object.defineProperty,
       d = Object.getOwnPropertyDescriptor;
     module.f = hasOwnProperty_wrapper
-      ? a
+      ? DataModule_400
         ? function (e, t, n) {
             if (
               (toString_default(e),
-              (t = s(t)),
+              (t = DataModule_294(t)),
               toString_default(n),
               "function" == typeof e &&
                 "prototype" === t &&
@@ -41,7 +41,7 @@ function (exports, module, require) {
           }
         : c
       : function (e, t, n) {
-          if ((toString_default(e), (t = s(t)), toString_default(n), i))
+          if ((toString_default(e), (t = DataModule_294(t)), toString_default(n), DataModule_399))
             try {
               return c(e, t, n);
             } catch (e) {}

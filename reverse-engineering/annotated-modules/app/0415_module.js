@@ -13,7 +13,7 @@ function (e, t, n) {
       l = n(404) /* module_404 */,
       c = n(396) /* module_396 */,
       d = n(93) /* stub_requires_92 */,
-      u = n(240) /* module_240 */,
+      u = n(240) /* DataModule_240 */,
       p = Object.assign,
       g = Object.defineProperty,
       h = i([].concat);

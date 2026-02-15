@@ -9,7 +9,7 @@ function (e, t, n) {
       i = n(27) /* uncurryThis */,
       a = n(130) /* lengthOfArrayLike */,
       r = n(1524) /* stub_requires_27 */,
-      s = n(1525) /* module_1525 */,
+      s = n(1525) /* DataModule_1525 */,
       l = n(21) /* tryCall */,
       c = RangeError,
       d = String,

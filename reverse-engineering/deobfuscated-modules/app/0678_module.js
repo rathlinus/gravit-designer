@@ -9,7 +9,7 @@ function (exports, module, require) {
       tryCall = require(21) /* tryCall */,
       uncurryThis = require(27) /* uncurryThis */,
       requireObjectCoercible = require(62) /* requireObjectCoercible */,
-      s = require(262) /* module_262 */.trim,
+      DataModule_262 = require(262) /* DataModule_262 */.trim,
       l = require(248) /* module_248 */,
       c = globalThis.parseInt,
       d = globalThis.Symbol,
@@ -25,7 +25,7 @@ function (exports, module, require) {
           }));
     exports.exports = h
       ? function (e, t) {
-          var n = s(requireObjectCoercible(e));
+          var n = DataModule_262(requireObjectCoercible(e));
           return c(n, t >>> 0 || (g(p, n) ? 16 : 10));
         }
       : c;

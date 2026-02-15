@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(239) /* module_239 */,
+    var DataModule_239 = require(239) /* DataModule_239 */,
       i = Function.prototype,
       a = i.apply,
       r = i.call;
     exports.exports =
       ("object" == typeof Reflect && Reflect.apply) ||
-      (o
+      (DataModule_239
         ? r.bind(a)
         : function () {
             return r.apply(a, arguments);

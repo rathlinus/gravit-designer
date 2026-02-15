@@ -12,10 +12,10 @@ function (exports, module, require) {
       uncurryThis = require(27) /* uncurryThis */,
       tryCall = require(21) /* tryCall */,
       anObject = require(35) /* anObject */,
-      d = require(241) /* module_241 */,
+      DataModule_241 = require(241) /* DataModule_241 */,
       u = require(157) /* stub_requires_27 */,
-      p = require(666) /* module_666 */,
-      g = require(295) /* module_295 */,
+      DataModule_666 = require(666) /* DataModule_666 */,
+      DataModule_295 = require(295) /* DataModule_295 */,
       h = String,
       f = i("JSON", "stringify"),
       m = uncurryThis(/./.exec),
@@ -27,7 +27,7 @@ function (exports, module, require) {
       C = /^[\uD800-\uDBFF]$/,
       x = /^[\uDC00-\uDFFF]$/,
       S =
-        !g ||
+        !DataModule_295 ||
         tryCall(function () {
           var e = i("Symbol")("stringify detection");
           return (
@@ -42,11 +42,11 @@ function (exports, module, require) {
       }),
       A = function (e, t) {
         var n = u(arguments),
-          core_export = p(t);
-        if (anObject(core_export) || (undefined !== e && !d(e)))
+          core_export = DataModule_666(t);
+        if (anObject(core_export) || (undefined !== e && !DataModule_241(e)))
           return (
             (n[1] = function (e, t) {
-              if ((anObject(core_export) && (t = isCallable(core_export, this, h(e), t)), !d(t))) return t;
+              if ((anObject(core_export) && (t = isCallable(core_export, this, h(e), t)), !DataModule_241(t))) return t;
             }),
             advanceStringIndex(f, null, n)
           );

@@ -12,7 +12,7 @@ function (exports, module, require) {
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GDocument = require(163) /* GDocument */;
-    const l = require(446) /* module_446 */;
+    const GLoginPanel = require(446) /* GLoginPanel */;
     function c() {}
     GCore.GObject.inherit(c, GAction),
       (c.ID = "file.open"),
@@ -44,7 +44,7 @@ function (exports, module, require) {
         );
       }),
       (c.prototype.execute = function (e, t) {
-        new l(
+        new GLoginPanel(
           () => {
             (e = e || gDesigner.getDefaultStorage()).openPrompt(
               GDocument.FileTypes.filter((e) => e.load),

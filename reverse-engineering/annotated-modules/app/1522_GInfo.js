@@ -14,8 +14,8 @@ function (e, t, n) {
     const s = n(44) /* GSystemDialog */,
       l = n(863) /* module_863 */,
       c = n(85) /* GContainer */,
-      d = n(805) /* module_805 */,
-      u = n(292) /* module_292 */,
+      d = n(805) /* GEvent_user_805 */,
+      u = n(292) /* GEvent_user */,
       { bypassEmailVerification: p } = i.defaultUserSettings;
     function g(e) {
       this._htmlElement = e;

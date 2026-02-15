@@ -11,15 +11,15 @@ function (exports, module, require) {
       toString_default = require(37) /* toString_default */,
       toLength = require(46) /* toLength */,
       classof = require(92) /* classof */,
-      c = require(342) /* module_342 */,
+      DataModule_342 = require(342) /* DataModule_342 */,
       regExpFlags = require(308) /* regExpFlags */,
       toStringTagSupport = require(117) /* toStringTagSupport */,
       requireObjectCoercible = require(62) /* requireObjectCoercible */,
       getSubstitution = require(145) /* getSubstitution */,
-      h = require(279) /* module_279 */,
-      f = require(344) /* module_344 */,
+      DataModule_279 = require(279) /* DataModule_279 */,
+      DataModule_344 = require(344) /* DataModule_344 */,
       tryCall = require(21) /* tryCall */,
-      y = f.UNSUPPORTED_Y,
+      y = DataModule_344.UNSUPPORTED_Y,
       v = Math.min,
       _ = uncurryThis([].push),
       b = uncurryThis("".slice),
@@ -60,8 +60,8 @@ function (exports, module, require) {
               var classof = n(uncurryThis, fixRegExpWKS, toLength, isCallable, uncurryThis !== t);
               if (classof.done) return classof.value;
             }
-            var getSubstitution = c(fixRegExpWKS, RegExp),
-              f = fixRegExpWKS.unicode,
+            var getSubstitution = DataModule_342(fixRegExpWKS, RegExp),
+              DataModule_344 = fixRegExpWKS.unicode,
               tryCall =
                 (fixRegExpWKS.ignoreCase ? "i" : "") +
                 (fixRegExpWKS.multiline ? "m" : "") +
@@ -70,16 +70,16 @@ function (exports, module, require) {
               w = new getSubstitution(y ? "^(?:" + fixRegExpWKS.source + ")" : fixRegExpWKS, tryCall),
               x = undefined === isCallable ? 4294967295 : isCallable >>> 0;
             if (0 === x) return [];
-            if (0 === toLength.length) return null === h(w, toLength) ? [toLength] : [];
+            if (0 === toLength.length) return null === DataModule_279(w, toLength) ? [toLength] : [];
             for (var S = 0, E = 0, A = []; E < toLength.length; ) {
               w.lastIndex = y ? 0 : E;
               var T,
-                G = h(w, y ? b(toLength, E) : toLength);
+                G = DataModule_279(w, y ? b(toLength, E) : toLength);
               if (
                 null === G ||
                 (T = v(toStringTagSupport(w.lastIndex + (y ? E : 0)), toLength.length)) === S
               )
-                E = regExpFlags(toLength, E, f);
+                E = regExpFlags(toLength, E, DataModule_344);
               else {
                 if ((_(A, b(toLength, S, E)), A.length === x)) return A;
                 for (var P = 1; P <= G.length - 1; P++)

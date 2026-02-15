@@ -13,7 +13,7 @@ function (exports, module, require) {
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GExportDialog = require(1513) /* GExportDialog */,
-      c = require(446) /* module_446 */,
+      GLoginPanel = require(446) /* GLoginPanel */,
       GSaveAction = require(447) /* GSaveAction */;
     const u = require(86) /* module_86 */,
       GSystemDialog = require(44) /* GSystemDialog */;
@@ -137,7 +137,7 @@ function (exports, module, require) {
                 )
               )
             )
-          : new c(
+          : new GLoginPanel(
               () => {
                 $(".g-export-dialog").length ||
                   (module.isNew()

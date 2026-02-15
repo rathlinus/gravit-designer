@@ -9,12 +9,12 @@ function (exports, module, require) {
       uncurryThis = require(27) /* uncurryThis */,
       lengthOfArrayLike = require(130) /* lengthOfArrayLike */,
       r = require(1524) /* stub_requires_27 */,
-      s = require(1525) /* module_1525 */,
+      DataModule_1525 = require(1525) /* DataModule_1525 */,
       tryCall = require(21) /* tryCall */,
       c = RangeError,
       d = String,
       u = Math.floor,
-      p = uncurryThis(s),
+      p = uncurryThis(DataModule_1525),
       g = uncurryThis("".slice),
       h = uncurryThis((1).toFixed),
       f = function (e, t, n) {
@@ -63,15 +63,15 @@ function (exports, module, require) {
             n,
             core_export,
             uncurryThis,
-            s = r(this),
+            DataModule_1525 = r(this),
             tryCall = lengthOfArrayLike(e),
             u = [0, 0, 0, 0, 0, 0],
             h = "",
             _ = "0";
           if (tryCall < 0 || tryCall > 20) throw new c("Incorrect fraction digits");
-          if (s != s) return "NaN";
-          if (s <= -1e21 || s >= 1e21) return d(s);
-          if ((s < 0 && ((h = "-"), (s = -s)), s > 1e-21))
+          if (DataModule_1525 != DataModule_1525) return "NaN";
+          if (DataModule_1525 <= -1e21 || DataModule_1525 >= 1e21) return d(DataModule_1525);
+          if ((DataModule_1525 < 0 && ((h = "-"), (DataModule_1525 = -DataModule_1525)), DataModule_1525 > 1e-21))
             if (
               ((n =
                 (t =
@@ -79,9 +79,9 @@ function (exports, module, require) {
                     for (var t = 0, n = e; n >= 4096; ) (t += 12), (n /= 4096);
                     for (; n >= 2; ) (t += 1), (n /= 2);
                     return t;
-                  })(s * f(2, 69, 1)) - 69) < 0
-                  ? s * f(2, -t, 1)
-                  : s / f(2, t, 1)),
+                  })(DataModule_1525 * f(2, 69, 1)) - 69) < 0
+                  ? DataModule_1525 * f(2, -t, 1)
+                  : DataModule_1525 / f(2, t, 1)),
               (n *= 4503599627370496),
               (t = 52 - t) > 0)
             ) {

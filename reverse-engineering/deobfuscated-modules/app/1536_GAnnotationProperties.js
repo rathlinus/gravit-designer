@@ -13,7 +13,7 @@ function (exports, module, require) {
       GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
       GProperties = require(123) /* GProperties */;
     const GCollaborationEvent = require(393) /* GCollaborationEvent */,
-      c = require(392) /* module_392 */,
+      GEvent_document = require(392) /* GEvent_document */,
       GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function p(e, t, n, _interopRequireDefault, GTools, GCore, GAnnotationsUtils, GProperties) {
@@ -112,16 +112,16 @@ function (exports, module, require) {
                   })
                   .on("patternchange", function (n, _interopRequireDefault, GTools, GAnnotationsUtils, GProperties, GCollaborationEvent) {
                     if (t._getAppManager().isCommentingEditingEnabled()) {
-                      var c = ["_vs"],
+                      var GEvent_document = ["_vs"],
                         GFileReviewFlowManager = [true];
-                      undefined !== _interopRequireDefault && (c.push("_pt"), GFileReviewFlowManager.push(_interopRequireDefault)),
-                        "number" == typeof GTools && (c.push("_op"), GFileReviewFlowManager.push(GTools));
+                      undefined !== _interopRequireDefault && (GEvent_document.push("_pt"), GFileReviewFlowManager.push(_interopRequireDefault)),
+                        "number" == typeof GTools && (GEvent_document.push("_op"), GFileReviewFlowManager.push(GTools));
                       var GSettingChangedEvent = null;
                       GProperties &&
                         ((GSettingChangedEvent = { chooserOn: true }),
                         null != GCollaborationEvent && (GSettingChangedEvent.activeStopIdx = GCollaborationEvent)),
                         t._assignProperties(
-                          c,
+                          GEvent_document,
                           GFileReviewFlowManager,
                           GCore.GLocale.get(
                             new GCore.GLocaleKey(
@@ -375,7 +375,7 @@ function (exports, module, require) {
         if (
           (this._document &&
             (this._applyPendingUpdateForSelection(),
-            gDesigner.removeEventListener(c, this._stateChangedEvent, this),
+            gDesigner.removeEventListener(GEvent_document, this._stateChangedEvent, this),
             gDesigner
               .getFileReviewManager()
               .removeEventListener(
@@ -401,7 +401,7 @@ function (exports, module, require) {
           e && t && e.getScene())
         ) {
           if (
-            (gDesigner.addEventListener(c, this._stateChangedEvent, this),
+            (gDesigner.addEventListener(GEvent_document, this._stateChangedEvent, this),
             gDesigner
               .getFileReviewManager()
               .addEventListener(GFileReviewFlowManager.UpdateEvent, this._handleReviewUpdate, this),
@@ -616,29 +616,29 @@ function (exports, module, require) {
           var GProperties = this._document.getEditor();
           _interopRequireDefault || GProperties.beginTransaction();
           try {
-            for (var GCollaborationEvent = null, c = 0; c < this._elements.length; ++c) {
+            for (var GCollaborationEvent = null, GEvent_document = 0; GEvent_document < this._elements.length; ++GEvent_document) {
               var GFileReviewFlowManager;
               GTools === p.PropertyTarget.FillLayer
-                ? ((GFileReviewFlowManager = this._elements[c]
+                ? ((GFileReviewFlowManager = this._elements[GEvent_document]
                     .getPaintLayers()
                     .getFillLayers()[0]) ||
                     ((GFileReviewFlowManager = new GCore.GStylable.FillPaintLayer()),
-                    this._elements[c].getPaintLayers().appendChild(GFileReviewFlowManager)),
+                    this._elements[GEvent_document].getPaintLayers().appendChild(GFileReviewFlowManager)),
                   (GCollaborationEvent = $.extend(
                     { fillLayerIndex: GFileReviewFlowManager.getParent().getIndexOfChild(GFileReviewFlowManager) },
                     GCollaborationEvent || GAnnotationsUtils
                   )))
                 : GTools === p.PropertyTarget.BorderLayer
-                ? ((GFileReviewFlowManager = this._elements[c]
+                ? ((GFileReviewFlowManager = this._elements[GEvent_document]
                     .getPaintLayers()
                     .getBorderLayers()[0]) ||
                     ((GFileReviewFlowManager = new GCore.GStylable.BorderPaintLayer()),
-                    this._elements[c].getPaintLayers().appendChild(GFileReviewFlowManager)),
+                    this._elements[GEvent_document].getPaintLayers().appendChild(GFileReviewFlowManager)),
                   (GCollaborationEvent = $.extend(
                     { borderLayerIndex: GFileReviewFlowManager.getParent().getIndexOfChild(GFileReviewFlowManager) },
                     GCollaborationEvent || GAnnotationsUtils
                   )))
-                : (GFileReviewFlowManager = this._elements[c]),
+                : (GFileReviewFlowManager = this._elements[GEvent_document]),
                 GFileReviewFlowManager && GFileReviewFlowManager.setProperties(e, t, false, false, _interopRequireDefault);
             }
           } finally {

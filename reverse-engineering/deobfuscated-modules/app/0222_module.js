@@ -10,14 +10,14 @@ function (exports, module, require) {
       a = require(396) /* module_396 */,
       r = require(174) /* module_174 */,
       toIndexedObject = require(184) /* toIndexedObject */,
-      l = require(294) /* module_294 */,
+      DataModule_294 = require(294) /* DataModule_294 */,
       c = require(61) /* module_61 */,
-      d = require(399) /* module_399 */,
+      DataModule_399 = require(399) /* DataModule_399 */,
       u = Object.getOwnPropertyDescriptor;
     module.f = hasOwnProperty_wrapper
       ? u
       : function (e, t) {
-          if (((e = toIndexedObject(e)), (t = l(t)), d))
+          if (((e = toIndexedObject(e)), (t = DataModule_294(t)), DataModule_399))
             try {
               return u(e, t);
             } catch (e) {}

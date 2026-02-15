@@ -38,7 +38,7 @@ function (exports, module, require) {
       GPresets = require(1153) /* GPresets */,
       GSystemDialog = require(44) /* GSystemDialog */,
       AppSettings = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
-    const x = require(1482) /* module_1482 */,
+    const DataModule_1482 = require(1482) /* DataModule_1482 */,
       { base64StringToString: S } = require(40) /* CollaborationMergeUtils */;
     function E() {
       (this._storage = new s()),
@@ -49,7 +49,7 @@ function (exports, module, require) {
             });
           }, 15e3);
     }
-    GObject.inheritAndMix(E, r, [x]),
+    GObject.inheritAndMix(E, r, [DataModule_1482]),
       (E.prototype.getRuntime = function () {
         return window.matchMedia("(display-mode: standalone)").matches
           ? r.Runtime.PWA

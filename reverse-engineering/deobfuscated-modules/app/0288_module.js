@@ -7,16 +7,16 @@ function (exports, module, require) {
     "use strict";
     var anObject = require(35) /* anObject */,
       toLength = require(46) /* toLength */,
-      a = require(175) /* module_175 */;
+      DataModule_175 = require(175) /* DataModule_175 */;
     exports.exports = function (e, t, n) {
       var r, s;
       return (
-        a &&
+        DataModule_175 &&
           anObject((r = t.constructor)) &&
           r !== n &&
           toLength((s = r.prototype)) &&
           s !== n.prototype &&
-          a(e, s),
+          DataModule_175(e, s),
         e
       );
     };

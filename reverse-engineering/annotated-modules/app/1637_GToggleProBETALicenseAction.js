@@ -6,7 +6,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(8) /* polyfill_bundle_ES6 */, n(527) /* module_527 */, n(3) /* polyfill_RegExp_toString */;
+    n(8) /* polyfill_bundle_ES6 */, n(527) /* DataModule_527 */, n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* GCore */,
       i = n(31) /* GAction */,
       a = n(18) /* MenuItemBuilder */;

@@ -7,17 +7,17 @@ function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
       uncurryThis = require(27) /* uncurryThis */,
-      a = require(65) /* module_65 */,
+      DataModule_65 = require(65) /* DataModule_65 */,
       r = require(93) /* stub_requires_92 */,
       s = require(101) /* stub_requires_117 */,
-      l = require(1038) /* module_1038 */,
+      DataModule_1038 = require(1038) /* DataModule_1038 */,
       requireObjectCoercible = require(62) /* requireObjectCoercible */,
       tryCall = require(21) /* tryCall */,
       u = require(351) /* module_351 */,
       p = require(350) /* module_350 */,
       g = require(521) /* stub_requires_129 */,
       h = require(522) /* stub_requires_129 */,
-      f = require(213) /* module_213 */,
+      DataModule_213 = require(213) /* DataModule_213 */,
       m = require(523) /* stub_requires_129 */,
       y = [],
       v = uncurryThis(y.sort),
@@ -30,7 +30,7 @@ function (exports, module, require) {
       }),
       C = p("sort"),
       x = !tryCall(function () {
-        if (f) return f < 70;
+        if (DataModule_213) return DataModule_213 < 70;
         if (!(g && g > 3)) {
           if (h) return true;
           if (m) return m < 603;
@@ -72,7 +72,7 @@ function (exports, module, require) {
       { target: "Array", proto: true, forced: b || !w || !C || !x },
       {
         sort: function (e) {
-          undefined !== e && a(e);
+          undefined !== e && DataModule_65(e);
           var t = r(this);
           if (x) return undefined === e ? v(t) : v(t, e);
           var n,
@@ -103,7 +103,7 @@ function (exports, module, require) {
 
           )
             t[core_export] = uncurryThis[core_export++];
-          for (; core_export < tryCall; ) l(t, core_export++);
+          for (; core_export < tryCall; ) DataModule_1038(t, core_export++);
           return t;
         },
       }

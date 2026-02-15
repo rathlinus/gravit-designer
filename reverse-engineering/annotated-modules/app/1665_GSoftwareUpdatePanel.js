@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* GCore */;
     const i = n(606) /* GPanel */,
       a = n(394) /* GView */,
-      r = n(1188) /* module_1188 */,
+      r = n(1188) /* GEvent_1188 */,
       s = n(85) /* GContainer */,
       l = n(44) /* GSystemDialog */,
       { SOFTWARE_UPDATE: c, DateAPI: d } = n(10) /* AppSettings */;

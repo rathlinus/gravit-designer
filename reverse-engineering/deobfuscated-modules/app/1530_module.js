@@ -9,8 +9,8 @@ function (exports, module, require) {
     const o = require(86) /* module_86 */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       a = require(1531) /* module_1531 */,
-      r = require(1532) /* module_1532 */,
-      s = require(1533) /* module_1533 */,
+      DataModule_1532 = require(1532) /* DataModule_1532 */,
+      DataModule_1533 = require(1533) /* DataModule_1533 */,
       GCloudStorageItem = require(156) /* GCloudStorageItem */,
       c = require(790) /* module_790 */,
       d = require(554) /* module_554 */;
@@ -86,10 +86,10 @@ function (exports, module, require) {
           require === GCloudStorageItem.Storage.Gravit
             ? (module = new a(this._worker, o))
             : require === GCloudStorageItem.Storage.GoogleDrive
-            ? (module = new r(this._worker, o))
+            ? (module = new DataModule_1532(this._worker, o))
             : (require !== GCloudStorageItem.Storage.SharePoint &&
                 require !== GCloudStorageItem.Storage.OneDriveBusiness) ||
-              (module = new s(this._worker, o)),
+              (module = new DataModule_1533(this._worker, o)),
           module
         );
       }),

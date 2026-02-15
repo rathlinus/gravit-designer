@@ -9,7 +9,7 @@ function (exports, module, require) {
       Buf = require(94) /* Exports_Buf */,
       a = require(312) /* module_312 */,
       r = require(225) /* module_225 */,
-      s = require(313) /* module_313 */,
+      DataModule_313 = require(313) /* DataModule_313 */,
       l = Object.prototype.toString;
     function c(e) {
       if (!(this instanceof c)) return new c(e);
@@ -36,7 +36,7 @@ function (exports, module, require) {
         (this.msg = ""),
         (this.ended = false),
         (this.chunks = []),
-        (this.strm = new s()),
+        (this.strm = new DataModule_313()),
         (this.strm.avail_out = 0);
       var n = ZlibDeflate.deflateInit2(
         this.strm,
@@ -70,35 +70,35 @@ function (exports, module, require) {
     (c.prototype.push = function (e, t) {
       var n,
         r,
-        s = this.strm,
+        DataModule_313 = this.strm,
         c = this.options.chunkSize;
       if (this.ended) return false;
       (r = t === ~~t ? t : true === t ? 4 : 0),
         "string" == typeof e
-          ? (s.input = a.string2buf(e))
+          ? (DataModule_313.input = a.string2buf(e))
           : "[object ArrayBuffer]" === l.call(e)
-          ? (s.input = new Uint8Array(e))
-          : (s.input = e),
-        (s.next_in = 0),
-        (s.avail_in = s.input.length);
+          ? (DataModule_313.input = new Uint8Array(e))
+          : (DataModule_313.input = e),
+        (DataModule_313.next_in = 0),
+        (DataModule_313.avail_in = DataModule_313.input.length);
       do {
         if (
-          (0 === s.avail_out &&
-            ((s.output = new Buf.Buf8(c)), (s.next_out = 0), (s.avail_out = c)),
-          1 !== (n = ZlibDeflate.deflate(s, r)) && 0 !== n)
+          (0 === DataModule_313.avail_out &&
+            ((DataModule_313.output = new Buf.Buf8(c)), (DataModule_313.next_out = 0), (DataModule_313.avail_out = c)),
+          1 !== (n = ZlibDeflate.deflate(DataModule_313, r)) && 0 !== n)
         )
           return this.onEnd(n), (this.ended = true), false;
-        (0 !== s.avail_out && (0 !== s.avail_in || (4 !== r && 2 !== r))) ||
+        (0 !== DataModule_313.avail_out && (0 !== DataModule_313.avail_in || (4 !== r && 2 !== r))) ||
           ("string" === this.options.to
-            ? this.onData(a.buf2binstring(Buf.shrinkBuf(s.output, s.next_out)))
-            : this.onData(Buf.shrinkBuf(s.output, s.next_out)));
-      } while ((s.avail_in > 0 || 0 === s.avail_out) && 1 !== n);
+            ? this.onData(a.buf2binstring(Buf.shrinkBuf(DataModule_313.output, DataModule_313.next_out)))
+            : this.onData(Buf.shrinkBuf(DataModule_313.output, DataModule_313.next_out)));
+      } while ((DataModule_313.avail_in > 0 || 0 === DataModule_313.avail_out) && 1 !== n);
       return 4 === r
         ? ((n = ZlibDeflate.deflateEnd(this.strm)),
           this.onEnd(n),
           (this.ended = true),
           0 === n)
-        : 2 !== r || (this.onEnd(0), (s.avail_out = 0), true);
+        : 2 !== r || (this.onEnd(0), (DataModule_313.avail_out = 0), true);
     }),
       (c.prototype.onData = function (e) {
         this.chunks.push(e);

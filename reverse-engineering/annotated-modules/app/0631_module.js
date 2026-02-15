@@ -9,7 +9,7 @@ function (e, t, n) {
       i = n(110) /* module_110 */,
       a = n(74) /* createNonEnumerableProperty */,
       r = n(186) /* stub_requires_23 */,
-      s = n(201) /* module_201 */.CONSTRUCTOR,
+      s = n(201) /* DataModule_201 */.CONSTRUCTOR,
       l = n(453) /* module_453 */,
       c = i("Promise"),
       d = a && !s;

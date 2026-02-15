@@ -9,8 +9,8 @@ function (e, t, n) {
     const o = n(86) /* module_86 */,
       i = n(78) /* GDocumentEvent */,
       a = n(1531) /* module_1531 */,
-      r = n(1532) /* module_1532 */,
-      s = n(1533) /* module_1533 */,
+      r = n(1532) /* DataModule_1532 */,
+      s = n(1533) /* DataModule_1533 */,
       l = n(156) /* GCloudStorageItem */,
       c = n(790) /* module_790 */,
       d = n(554) /* module_554 */;

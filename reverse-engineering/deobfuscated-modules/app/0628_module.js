@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
       createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
-      a = require(201) /* module_201 */.CONSTRUCTOR,
+      DataModule_201 = require(201) /* DataModule_201 */.CONSTRUCTOR,
       r = require(186) /* stub_requires_23 */,
       s = require(110) /* module_110 */,
       anObject = require(35) /* anObject */,
@@ -15,7 +15,7 @@ function (exports, module, require) {
       d = r && r.prototype;
     if (
       (core_export(
-        { target: "Promise", proto: true, forced: a, real: true },
+        { target: "Promise", proto: true, forced: DataModule_201, real: true },
         {
           catch: function (e) {
             return this.then(undefined, e);

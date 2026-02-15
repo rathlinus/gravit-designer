@@ -10,16 +10,16 @@ function (e, t, n) {
     n(19) /* polyfill_Array_iterator */, n(57) /* polyfill_parseInt */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* GCore */,
       a = n(10) /* AppSettings */,
-      r = n(1163) /* module_1163 */,
+      r = n(1163) /* DataModule_1163 */,
       s = o(n(123) /* GProperties */),
-      l = o(n(1159) /* module_1159 */),
+      l = o(n(1159) /* GEvent_fileId */),
       c = o(n(220) /* Item */),
       d = o(n(163) /* GDocument */),
-      u = o(n(219) /* module_219 */),
+      u = o(n(219) /* GLocale */),
       p = o(n(78) /* GDocumentEvent */),
       g = o(n(86) /* module_86 */),
       h = o(n(217) /* GDocumentStatusEvent */),
-      f = o(n(336) /* module_336 */),
+      f = o(n(336) /* GEvent_storageItem */),
       m = o(n(67) /* GRichTooltipConfig */);
     function y() {}
     i.GObject.inherit(y, s.default),

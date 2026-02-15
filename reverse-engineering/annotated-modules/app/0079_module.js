@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(35) /* anObject */,
       i = n(88) /* createPropertyDescriptor */,
-      a = n(401) /* module_401 */,
+      a = n(401) /* DataModule_401 */,
       r = n(298) /* defineGlobalProperty */;
     e.exports = function (e, t, n, s) {
       s || (s = {});

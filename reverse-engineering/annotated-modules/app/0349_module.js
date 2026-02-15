@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(124) /* module_124 */,
       i = n(27) /* uncurryThis */,
-      a = n(240) /* module_240 */,
+      a = n(240) /* DataModule_240 */,
       r = n(93) /* stub_requires_92 */,
       s = n(101) /* stub_requires_117 */,
       l = n(573) /* module_573 */,

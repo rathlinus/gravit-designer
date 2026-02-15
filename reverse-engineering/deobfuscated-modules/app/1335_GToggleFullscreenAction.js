@@ -11,13 +11,13 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GEditor = require(15) /* GEditor */,
       r = _interopRequireDefault(require(443) /* module_443 */),
-      s = _interopRequireDefault(require(1330) /* module_1330 */);
+      GEvent_fullscreen = _interopRequireDefault(require(1330) /* GEvent_fullscreen */);
     const { isExecutingOnMSTeamsSync: l } = r.default;
     var c = require(863) /* module_863 */,
       GFitAllAction = require(449) /* GFitAllAction */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      g = require(1588) /* module_1588 */;
+      DataModule_1588 = require(1588) /* DataModule_1588 */;
     function h() {
       this._banner.setBannerText(
         GCore.GLocale.get(
@@ -29,7 +29,7 @@ function (exports, module, require) {
       (h.ID = "view.fullscreen"),
       (h.TITLE = new GCore.GLocaleKey("GToggleFullscreenAction", "title")),
       (h.prototype._lastStates = {}),
-      (h.prototype._banner = new g()),
+      (h.prototype._banner = new DataModule_1588()),
       (h.prototype.getId = function () {
         return h.ID;
       }),
@@ -92,8 +92,8 @@ function (exports, module, require) {
           ),
           gDesigner.relayout(),
           gDesigner.executeAction(GFitAllAction.ID, undefined, undefined, true),
-          gDesigner.hasEventListeners(s.default) &&
-            gDesigner.trigger(new s.default(e));
+          gDesigner.hasEventListeners(GEvent_fullscreen.default) &&
+            gDesigner.trigger(new GEvent_fullscreen.default(e));
       }),
       (h.prototype._updateLastStates = function () {
         this._lastStates = {

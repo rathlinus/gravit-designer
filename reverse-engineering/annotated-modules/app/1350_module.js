@@ -9,7 +9,7 @@ function (e, t, n) {
     const o = n(337) /* stub_requires_1098 */,
       i = n(1338) /* module_1338 */,
       { gApi: a, PurchaseStatus: r } = n(10) /* AppSettings */,
-      { IS_TRUNK: s } = n(231) /* module_231 */;
+      { IS_TRUNK: s } = n(231) /* DataModule_231 */;
     let l;
     class c {
       static getInstance() {

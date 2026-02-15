@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(309) /* module_309 */.charAt;
+    var DataModule_309 = require(309) /* DataModule_309 */.charAt;
     exports.exports = function (e, t, n) {
-      return t + (n ? o(e, t).length : 1);
+      return t + (n ? DataModule_309(e, t).length : 1);
     };
   }

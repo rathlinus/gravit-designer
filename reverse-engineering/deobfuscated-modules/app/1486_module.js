@@ -8,24 +8,24 @@ function (exports, module, require) {
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
-      a = _interopRequireDefault(require(389) /* module_389 */),
+      GDocument_389 = _interopRequireDefault(require(389) /* GDocument_389 */),
       GDocument = _interopRequireDefault(require(163) /* GDocument */),
       GCustomFontImporter = _interopRequireDefault(require(1245) /* GCustomFontImporter */),
       GCore = require(1) /* GCore */;
     exports.exports = {
       debugDownloadPNG: function () {
-        (0, GFileDownloadUtils.downloadActiveFile)(a.default.PNG.ext);
+        (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.PNG.ext);
       },
       debugDownloadPDF: function (e) {
-        (0, GFileDownloadUtils.downloadActiveFile)(a.default.PDF.ext, {
+        (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.PDF.ext, {
           dpi: e || GCore.GLength.DPI,
         });
       },
       debugDownloadSVG: function () {
-        (0, GFileDownloadUtils.downloadActiveFile)(a.default.SVG.ext);
+        (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.SVG.ext);
       },
       debugDownloadJPEG: function () {
-        (0, GFileDownloadUtils.downloadActiveFile)(a.default.JPG.ext);
+        (0, GFileDownloadUtils.downloadActiveFile)(GDocument_389.default.JPG.ext);
       },
       debugOpenFile: function (e) {
         let module =

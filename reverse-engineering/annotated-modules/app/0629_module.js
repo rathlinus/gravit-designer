@@ -7,10 +7,10 @@ function (e, t, n) {
     "use strict";
     var o = n(25) /* core_export */,
       i = n(29) /* isCallable */,
-      a = n(65) /* module_65 */,
-      r = n(202) /* module_202 */,
+      a = n(65) /* DataModule_65 */,
+      r = n(202) /* DataModule_202 */,
       s = n(304) /* module_304 */,
-      l = n(121) /* module_121 */;
+      l = n(121) /* DataModule_121 */;
     o(
       { target: "Promise", stat: !0, forced: n(413) /* module_413 */ },
       {

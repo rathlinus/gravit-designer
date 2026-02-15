@@ -12,7 +12,7 @@ function (e, t, n) {
       a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */,
       s = n(163) /* GDocument */;
-    const l = n(446) /* module_446 */;
+    const l = n(446) /* GLoginPanel */;
     function c() {}
     o.GObject.inherit(c, r),
       (c.ID = "file.open"),

@@ -11,7 +11,7 @@ function (e, t, n) {
       a = n(10) /* AppSettings */,
       r = o(n(1091) /* module_1091 */),
       s = n(165) /* module_165 */,
-      l = n(219) /* module_219 */,
+      l = n(219) /* GLocale */,
       c = n(9) /* GLocale */,
       d = n(47) /* GLocaleKey */;
     function u() {}

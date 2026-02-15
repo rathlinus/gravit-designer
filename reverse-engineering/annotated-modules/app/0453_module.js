@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(37) /* toString_default */,
       i = n(46) /* toLength */,
-      a = n(202) /* module_202 */;
+      a = n(202) /* DataModule_202 */;
     e.exports = function (e, t) {
       if ((o(e), i(t) && t.constructor === e)) return t;
       var n = a.f(e);

@@ -27,10 +27,10 @@ function (exports, module, require) {
       GTextProperties = require(1273) /* GTextProperties */,
       GAlignProperties = require(1274) /* GAlignProperties */,
       GVersionHistoryProperties = require(1528) /* GVersionHistoryProperties */,
-      x = require(1159) /* module_1159 */;
+      GEvent_fileId = require(1159) /* GEvent_fileId */;
     const GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
-      A = require(807) /* module_807 */;
+      GEvent_type = require(807) /* GEvent_type */;
     function T() {
       GSidebar.call(this), (this._propertyPanels = []), (this._touchTools = []);
     }
@@ -150,7 +150,7 @@ function (exports, module, require) {
           this._initVersionHistoryPanel(),
           gDesigner
             .getRightSidebars()
-            .addEventListener(A, this._sidebarEvent, this),
+            .addEventListener(GEvent_type, this._sidebarEvent, this),
           gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this);
       }),
       (T.prototype._getPropertyPanel = function (e) {
@@ -184,7 +184,7 @@ function (exports, module, require) {
       }),
       (T.prototype._sidebarEvent = function (e) {
         gDesigner.isTouchEnabled() &&
-          e.type === A.Type.Activated &&
+          e.type === GEvent_type.Type.Activated &&
           e.sidebar &&
           e.sidebar.getId() === GOutlineSidebar.SidebarsIds.GAnnotationsSidebar &&
           this._updatePropertyPanels();
@@ -224,10 +224,10 @@ function (exports, module, require) {
         (this._versionHistoryProperties = new GVersionHistoryProperties()),
           this._versionHistoryProperties.init(e, t),
           this._versionHistoryPanel.append(t).append(e),
-          gDesigner.addEventListener(x, this._updateVersionsPanel, this);
+          gDesigner.addEventListener(GEvent_fileId, this._updateVersionsPanel, this);
       }),
       (T.prototype._updateVersionsPanel = function (e) {
-        if (e.type === x.Type.Enable) {
+        if (e.type === GEvent_fileId.Type.Enable) {
           var module;
           switch (((this._versionHistoryMode = true), this.getOrientation())) {
             case GSidebarContainer.Orientation.Left:
@@ -242,7 +242,7 @@ function (exports, module, require) {
             this._versionHistoryPanel.appendTo(this._htmlElement),
             this._versionHistoryPanel.css("display", "");
         } else
-          e.type === x.Type.Disable &&
+          e.type === GEvent_fileId.Type.Disable &&
             ((this._versionHistoryMode = false),
             this._htmlElement.find(".panels").css("display", ""),
             this._versionHistoryPanel.css("display", "none"),
@@ -476,6 +476,6 @@ function (exports, module, require) {
       (T.prototype.toString = function () {
         return "[Object GInspectorSidebar]";
       }),
-      require(1529) /* module_1529 */(T),
+      require(1529) /* DataModule_1529 */(T),
       (exports.exports = T);
   }

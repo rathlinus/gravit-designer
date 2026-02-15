@@ -8,8 +8,8 @@ function (exports, module, require) {
     exports.exports =
       ((CryptoJSCore = require(55) /* CryptoJSCore */),
       require(382) /* module_382 */,
-      require(1044) /* module_1044 */,
-      require(1045) /* module_1045 */,
+      require(1044) /* DataModule_1044 */,
+      require(1045) /* DataModule_1045 */,
       require(272) /* module_272 */,
       require(273) /* HmacMD5 */,
       require(537) /* module_537 */,

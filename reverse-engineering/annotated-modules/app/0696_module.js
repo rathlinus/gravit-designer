@@ -7,15 +7,15 @@ function (e, t, n) {
     "use strict";
     var o = n(124) /* module_124 */,
       i = n(29) /* isCallable */,
-      a = n(408) /* module_408 */,
+      a = n(408) /* DataModule_408 */,
       r = n(93) /* stub_requires_92 */,
       s = n(101) /* stub_requires_117 */,
-      l = n(246) /* module_246 */,
-      c = n(204) /* module_204 */,
-      d = n(305) /* module_305 */,
-      u = n(697) /* module_697 */,
+      l = n(246) /* DataModule_246 */,
+      c = n(204) /* DataModule_204 */,
+      d = n(305) /* DataModule_305 */,
+      u = n(697) /* DataModule_697 */,
       p = n(152) /* polyfill_TypedArrays */.aTypedArrayConstructor,
-      g = n(429) /* module_429 */;
+      g = n(429) /* DataModule_429 */;
     e.exports = function (e) {
       var t,
         n,

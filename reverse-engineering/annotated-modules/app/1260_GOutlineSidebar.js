@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(15) /* GEditor */,
       s = o(n(340) /* GTouchTool */),
       l = n(67) /* GRichTooltipConfig */,
-      c = o(n(442) /* module_442 */),
+      c = o(n(442) /* DataModule_442 */),
       d = n(78) /* GDocumentEvent */,
       u = n(217) /* GDocumentStatusEvent */,
       p = n(86) /* module_86 */,

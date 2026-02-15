@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     var o = require(296) /* module_296 */,
-      i = require(258) /* module_258 */,
+      DataModule_258 = require(258) /* DataModule_258 */,
       a = o("keys");
     exports.exports = function (e) {
-      return a[e] || (a[e] = i(e));
+      return a[e] || (a[e] = DataModule_258(e));
     };
   }

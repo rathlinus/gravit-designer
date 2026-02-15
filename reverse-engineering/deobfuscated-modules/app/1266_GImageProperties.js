@@ -15,7 +15,7 @@ function (exports, module, require) {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
-      } = (require(173) /* stub_requires_1 */, require(219) /* module_219 */, require(1268) /* GImageManipulation */);
+      } = (require(173) /* stub_requires_1 */, require(219) /* GLocale */, require(1268) /* GImageManipulation */);
     function c() {}
     GCore.GObject.inherit(c, GProperties),
       (c.prototype._panel = null),

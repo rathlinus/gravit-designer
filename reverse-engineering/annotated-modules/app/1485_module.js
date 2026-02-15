@@ -28,7 +28,7 @@ function (e, t, n) {
       n(32) /* stub_requires_670 */,
       n(33) /* polyfill_DOMCollection_forEach */;
     var i = n(1) /* GCore */,
-      a = o(n(859) /* module_859 */),
+      a = o(n(859) /* DataModule_859 */),
       r = n(40) /* CollaborationMergeUtils */,
       s = n(803) /* module_803 */;
     const { GA: { customDimensions: l } = {}, GoogleTagManagerSettings: c } =

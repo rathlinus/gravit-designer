@@ -27,12 +27,12 @@ function (e, t, n) {
       b = n(1536) /* GAnnotationProperties */,
       w = n(358) /* GAnnotationsUtils */,
       C = n(592) /* module_592 */;
-    const x = n(392) /* module_392 */,
+    const x = n(392) /* GEvent_document */,
       S = n(135) /* GSettingChangedEvent */;
     var E = n(1537) /* GFileReviewProperties */;
     const A = n(291) /* GNetworkAvailabilityChangedEvent */,
       T = n(393) /* GCollaborationEvent */,
-      G = n(336) /* module_336 */,
+      G = n(336) /* GEvent_storageItem */,
       P = n(434) /* stub_requires_30_1072 */,
       { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = n(10) /* AppSettings */,
       I = n(86) /* module_86 */,

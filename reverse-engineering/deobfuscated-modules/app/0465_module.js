@@ -10,8 +10,8 @@ function (exports, module, require) {
       a = require(312) /* module_312 */,
       r = require(314) /* module_314 */,
       s = require(225) /* module_225 */,
-      l = require(313) /* module_313 */,
-      c = require(469) /* module_469 */,
+      DataModule_313 = require(313) /* DataModule_313 */,
+      DataModule_469 = require(469) /* DataModule_469 */,
       d = Object.prototype.toString;
     function u(e) {
       if (!(this instanceof u)) return new u(e);
@@ -36,12 +36,12 @@ function (exports, module, require) {
         (this.msg = ""),
         (this.ended = false),
         (this.chunks = []),
-        (this.strm = new l()),
+        (this.strm = new DataModule_313()),
         (this.strm.avail_out = 0);
       var n = ZlibInflateStream.inflateInit2(this.strm, t.windowBits);
       if (n !== r.Z_OK) throw new Error(s[n]);
       if (
-        ((this.header = new c()),
+        ((this.header = new DataModule_469()),
         ZlibInflateStream.inflateGetHeader(this.strm, this.header),
         t.dictionary &&
           ("string" == typeof t.dictionary
@@ -61,8 +61,8 @@ function (exports, module, require) {
     (u.prototype.push = function (e, t) {
       var n,
         s,
-        l,
-        c,
+        DataModule_313,
+        DataModule_469,
         u,
         p = this.strm,
         g = this.options.chunkSize,
@@ -93,12 +93,12 @@ function (exports, module, require) {
             n !== r.Z_STREAM_END &&
             (0 !== p.avail_in || (s !== r.Z_FINISH && s !== r.Z_SYNC_FLUSH))) ||
             ("string" === this.options.to
-              ? ((l = a.utf8border(p.output, p.next_out)),
-                (c = p.next_out - l),
-                (u = a.buf2string(p.output, l)),
-                (p.next_out = c),
-                (p.avail_out = g - c),
-                c && Buf.arraySet(p.output, p.output, l, c, 0),
+              ? ((DataModule_313 = a.utf8border(p.output, p.next_out)),
+                (DataModule_469 = p.next_out - DataModule_313),
+                (u = a.buf2string(p.output, DataModule_313)),
+                (p.next_out = DataModule_469),
+                (p.avail_out = g - DataModule_469),
+                DataModule_469 && Buf.arraySet(p.output, p.output, DataModule_313, DataModule_469, 0),
                 this.onData(u))
               : this.onData(Buf.shrinkBuf(p.output, p.next_out)))),
           0 === p.avail_in && 0 === p.avail_out && (f = true);

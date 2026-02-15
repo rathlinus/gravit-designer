@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(1190) /* module_1190 */;
-    exports.exports = class extends o {
+    const DataModule_1190 = require(1190) /* DataModule_1190 */;
+    exports.exports = class extends DataModule_1190 {
       canMakePayments() {
         return false;
       }

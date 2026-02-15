@@ -8,11 +8,11 @@ function (exports, module, require) {
     var core_export = require(25) /* core_export */,
       globalThis = require(23) /* globalThis */,
       uncurryThis = require(27) /* uncurryThis */,
-      r = require(277) /* module_277 */,
+      DataModule_277 = require(277) /* DataModule_277 */,
       defineBuiltIn = require(79) /* defineBuiltIn */,
       l = require(558) /* polyfill_Object_getOwnPropertyNames */,
-      c = require(121) /* module_121 */,
-      d = require(146) /* module_146 */,
+      DataModule_121 = require(121) /* DataModule_121 */,
+      DataModule_146 = require(146) /* DataModule_146 */,
       anObject = require(35) /* anObject */,
       p = require(194) /* module_194 */,
       toLength = require(46) /* toLength */,
@@ -55,7 +55,7 @@ function (exports, module, require) {
           );
         };
       if (
-        r(
+        DataModule_277(
           e,
           !anObject(w) ||
             !(
@@ -68,7 +68,7 @@ function (exports, module, require) {
         )
       )
         (x = n.getConstructor(t, e, v, b)), l.enable();
-      else if (r(e, true)) {
+      else if (DataModule_277(e, true)) {
         var A = new x(),
           T = A[b](_ ? {} : -0, 1) !== A,
           G = tryCall(function () {
@@ -85,9 +85,9 @@ function (exports, module, require) {
             });
         P ||
           (((x = t(function (e, t) {
-            d(e, C);
+            DataModule_146(e, C);
             var n = y(new w(), e, x);
-            return p(t) || c(t, n[b], { that: n, AS_ENTRIES: v }), n;
+            return p(t) || DataModule_121(t, n[b], { that: n, AS_ENTRIES: v }), n;
           })).prototype = C),
           (C.constructor = x)),
           (G || D) && (E("delete"), E("has"), v && E("get")),

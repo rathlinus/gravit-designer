@@ -13,7 +13,7 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      c = require(219) /* module_219 */,
+      c = require(219) /* GLocale */,
       GContainer = require(85) /* GContainer */,
       GCloudStorage = require(119) /* GCloudStorage */;
     const GSystemDialog = require(44) /* GSystemDialog */,

@@ -7,11 +7,11 @@ function (e, t, n) {
     "use strict";
     var o = n(25) /* core_export */,
       i = n(29) /* isCallable */,
-      a = n(121) /* module_121 */,
-      r = n(65) /* module_65 */,
+      a = n(121) /* DataModule_121 */,
+      r = n(65) /* DataModule_65 */,
       s = n(37) /* toString_default */,
       l = n(143) /* module_143 */,
-      c = n(102) /* module_102 */,
+      c = n(102) /* DataModule_102 */,
       d = n(149) /* module_149 */("every", TypeError);
     o(
       { target: "Iterator", proto: !0, real: !0, forced: d },

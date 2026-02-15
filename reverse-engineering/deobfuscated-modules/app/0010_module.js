@@ -8,7 +8,7 @@ function (exports, module, require) {
     var GEditor = require(15) /* GEditor */;
     const AppSettings = require(519) /* AppSettings */,
       barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
-      r = require(231) /* module_231 */;
+      DataModule_231 = require(231) /* DataModule_231 */;
     (AppSettings.GoogleTagManagerSettings = require(820) /* module */),
       (AppSettings.AUTO_SAVE_ENABLED =
         GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari),
@@ -70,7 +70,7 @@ function (exports, module, require) {
       (AppSettings.User = require(830) /* GCommonNames */),
       (AppSettings.CloudUtils = require(254) /* GCommonNames */),
       (AppSettings.UTM = require(354) /* module */),
-      r.IS_WEB_WORKER ||
+      DataModule_231.IS_WEB_WORKER ||
         ((AppSettings.GLoginDialog = require(270) /* module */.GLoginDialog),
         (AppSettings.GReminderDialogFactory = require(270) /* module */.GReminderDialogFactory),
         (AppSettings.GReminderDialog = require(270) /* module */.GReminderDialog),

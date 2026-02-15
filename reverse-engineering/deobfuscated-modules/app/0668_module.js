@@ -7,10 +7,10 @@ function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
       globalThis = require(23) /* globalThis */,
-      a = require(146) /* module_146 */,
+      DataModule_146 = require(146) /* DataModule_146 */,
       toString_default = require(37) /* toString_default */,
       anObject = require(35) /* anObject */,
-      l = require(208) /* module_208 */,
+      DataModule_208 = require(208) /* DataModule_208 */,
       c = require(120) /* module_120 */,
       d = require(420) /* module_420 */,
       tryCall = require(21) /* tryCall */,
@@ -30,7 +30,7 @@ function (exports, module, require) {
           _({});
         }),
       w = function () {
-        if ((a(this, GGY), l(this) === GGY))
+        if ((DataModule_146(this, GGY), DataModule_208(this) === GGY))
           throw new v("Abstract class Iterator not directly constructable");
       },
       C = function (e, t) {

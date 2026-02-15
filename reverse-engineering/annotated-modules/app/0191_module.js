@@ -6,14 +6,14 @@
 function (e, t, n) {
     "use strict";
     var o = n(23) /* globalThis */,
-      i = n(223) /* module_223 */,
+      i = n(223) /* DataModule_223 */,
       a = n(21) /* tryCall */,
-      r = n(65) /* module_65 */,
+      r = n(65) /* DataModule_65 */,
       s = n(351) /* module_351 */,
       l = n(152) /* polyfill_TypedArrays */,
       c = n(521) /* stub_requires_129 */,
       d = n(522) /* stub_requires_129 */,
-      u = n(213) /* module_213 */,
+      u = n(213) /* DataModule_213 */,
       p = n(523) /* stub_requires_129 */,
       g = l.aTypedArray,
       h = l.exportTypedArrayMethod,

@@ -8,5 +8,5 @@ function (e, t, n) {
     function o(e, t) {
       (this.description = e), (this.cid = t);
     }
-    n(290) /* module_290 */, (o.description = null), (o.cid = null), (e.exports = o);
+    n(290) /* DataModule_290 */, (o.description = null), (o.cid = null), (e.exports = o);
   }

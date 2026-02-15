@@ -7,11 +7,11 @@
 function (exports, module, require) {
     "use strict";
     const { GLocale: o, GLocaleKey: i } = require(1) /* GCore */,
-      a = require(883) /* module_883 */;
+      DataModule_883 = require(883) /* DataModule_883 */;
     exports.exports = {
       createAdditionalMentions: function () {
         return {
-          MENTION_ALL_REVIEWERS: new a({
+          MENTION_ALL_REVIEWERS: new DataModule_883({
             name: o.get(
               new i(
                 "GAnnotationPanel",
@@ -37,7 +37,7 @@ function (exports, module, require) {
             email: "",
             additional: true,
           }),
-          MENTION_ALL_APPROVERS: new a({
+          MENTION_ALL_APPROVERS: new DataModule_883({
             name: o.get(
               new i(
                 "GAnnotationPanel",
@@ -63,7 +63,7 @@ function (exports, module, require) {
             email: "",
             additional: true,
           }),
-          MENTION_ALL_CO_AUTHORS: new a({
+          MENTION_ALL_CO_AUTHORS: new DataModule_883({
             name: o.get(
               new i(
                 "GAnnotationPanel",
@@ -89,7 +89,7 @@ function (exports, module, require) {
             email: "",
             additional: true,
           }),
-          MENTION_ALL: new a({
+          MENTION_ALL: new DataModule_883({
             name: o.get(
               new i(
                 "GAnnotationPanel",
@@ -115,7 +115,7 @@ function (exports, module, require) {
             email: "",
             additional: true,
           }),
-          MENTION_OWNER: new a({
+          MENTION_OWNER: new DataModule_883({
             name: o.get(
               new i(
                 "GAnnotationPanel",

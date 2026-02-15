@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */;
-    const o = require(1186) /* module_1186 */;
-    exports.exports = class extends o {
+    const DataModule_1186 = require(1186) /* DataModule_1186 */;
+    exports.exports = class extends DataModule_1186 {
       constructor(e) {
         super(), (this._crossViewClass = e), (this._dialogOptions = {});
       }

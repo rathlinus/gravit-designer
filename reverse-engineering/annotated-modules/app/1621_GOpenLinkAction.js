@@ -19,7 +19,7 @@ function (e, t, n) {
         (this._title = new o.GLocaleKey("GOpenLinkAction", "title." + t)),
         (this._icon = r);
     }
-    (a.Links = n(1622) /* module_1622 */),
+    (a.Links = n(1622) /* DataModule_1622 */),
       o.GObject.inherit(a, i),
       (a.ID = "open-link"),
       (a.prototype._name = null),

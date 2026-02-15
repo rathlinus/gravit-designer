@@ -13,25 +13,25 @@ function (exports, module, require) {
       isCallable = require(29) /* isCallable */,
       uncurryThis = require(27) /* uncurryThis */,
       hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
-      d = require(423) /* module_423 */,
+      DataModule_423 = require(423) /* DataModule_423 */,
       defineBuiltIn = require(79) /* defineBuiltIn */,
       p = require(120) /* module_120 */,
       g = require(232) /* module_232 */,
       setToStringTag = require(137) /* setToStringTag */,
-      f = require(419) /* module_419 */,
+      DataModule_419 = require(419) /* DataModule_419 */,
       internalState = require(80) /* internalState */,
-      y = require(146) /* module_146 */,
+      DataModule_146 = require(146) /* DataModule_146 */,
       anObject = require(35) /* anObject */,
       _ = require(61) /* module_61 */,
       b = require(124) /* module_124 */,
-      w = require(131) /* module_131 */,
+      DataModule_131 = require(131) /* DataModule_131 */,
       toString_default = require(37) /* toString_default */,
       toLength = require(46) /* toLength */,
       requireObjectCoercible = require(62) /* requireObjectCoercible */,
-      E = require(136) /* module_136 */,
+      DataModule_136 = require(136) /* DataModule_136 */,
       A = require(174) /* module_174 */,
-      T = require(246) /* module_246 */,
-      G = require(204) /* module_204 */,
+      DataModule_246 = require(246) /* DataModule_246 */,
+      DataModule_204 = require(204) /* DataModule_204 */,
       toStringClassof = require(252) /* toStringClassof */,
       D = require(303) /* module_303 */,
       wellKnownSymbol = require(43) /* wellKnownSymbol */,
@@ -128,8 +128,8 @@ function (exports, module, require) {
                 require += "�";
                 continue;
               }
-              var d = re(isCallable);
-              null === d ? (require += "�") : (globalThis = H(d));
+              var DataModule_423 = re(isCallable);
+              null === DataModule_423 ? (require += "�") : (globalThis = H(DataModule_423));
             }
           }
           (require += globalThis), core_export++;
@@ -151,7 +151,7 @@ function (exports, module, require) {
       ue = function (e) {
         return X(K(e), le, de);
       },
-      pe = f(
+      pe = DataModule_419(
         function (e, t) {
           O(this, {
             type: "URLSearchParamsIterator",
@@ -201,11 +201,11 @@ function (exports, module, require) {
           r,
           uncurryThis,
           hasOwnProperty_wrapper = this.entries,
-          d = G(e);
-        if (d)
-          for (n = (t = T(e, d)).next; !(core_export = isCallable(n, t)).done; ) {
+          DataModule_423 = DataModule_204(e);
+        if (DataModule_423)
+          for (n = (t = DataModule_246(e, DataModule_423)).next; !(core_export = isCallable(n, t)).done; ) {
             if (
-              ((a = (globalThis = T(toString_default(core_export.value))).next),
+              ((a = (globalThis = DataModule_246(toString_default(core_export.value))).next),
               (r = isCallable(a, globalThis)).done || (uncurryThis = isCallable(a, globalThis)).done || !isCallable(a, globalThis).done)
             )
               throw new j("Expected sequence with length 2");
@@ -232,7 +232,7 @@ function (exports, module, require) {
       },
     };
     var he = function () {
-        y(this, fe);
+        DataModule_146(this, fe);
         var e = arguments.length > 0 ? arguments[0] : undefined,
           t = O(this, new ge(e));
         hasOwnProperty_wrapper || (this.size = t.entries.length);
@@ -359,8 +359,8 @@ function (exports, module, require) {
           enumerable: true,
         }),
       setToStringTag(he, "URLSearchParams"),
-      core_export({ global: true, constructor: true, forced: !d }, { URLSearchParams: he }),
-      !d && anObject(B))
+      core_export({ global: true, constructor: true, forced: !DataModule_423 }, { URLSearchParams: he }),
+      !DataModule_423 && anObject(B))
     ) {
       var me = uncurryThis($.has),
         ye = uncurryThis($.set),
@@ -368,7 +368,7 @@ function (exports, module, require) {
           if (toLength(e)) {
             var module,
               require = e.body;
-            if ("URLSearchParams" === w(require))
+            if ("URLSearchParams" === DataModule_131(require))
               return (
                 (module = e.headers ? new B(e.headers) : new B()),
                 me(module, "content-type") ||
@@ -377,7 +377,7 @@ function (exports, module, require) {
                     "content-type",
                     "application/x-www-form-urlencoded;charset=UTF-8"
                   ),
-                E(e, { body: A(0, requireObjectCoercible(require)), headers: A(0, module) })
+                DataModule_136(e, { body: A(0, requireObjectCoercible(require)), headers: A(0, module) })
               );
           }
           return e;
@@ -396,7 +396,7 @@ function (exports, module, require) {
       ) {
         var _e = function (e) {
           return (
-            y(this, U), new N(e, arguments.length > 1 ? ve(arguments[1]) : {})
+            DataModule_146(this, U), new N(e, arguments.length > 1 ? ve(arguments[1]) : {})
           );
         };
         (U.constructor = _e),

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(672) /* module_672 */;
+    var DataModule_672 = require(672) /* DataModule_672 */;
     exports.exports = function (e, t) {
-      return new (o(e))(0 === t ? 0 : t);
+      return new (DataModule_672(e))(0 === t ? 0 : t);
     };
   }

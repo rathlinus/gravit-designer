@@ -8,12 +8,12 @@ function (exports, module, require) {
     var isCallable = require(29) /* isCallable */,
       i = require(61) /* module_61 */,
       a = require(144) /* stub_requires_27 */,
-      r = require(307) /* module_307 */,
+      DataModule_307 = require(307) /* DataModule_307 */,
       s = RegExp.prototype;
     exports.exports = function (e) {
       var t = e.flags;
       return undefined !== t || "flags" in s || i(e, "flags") || !a(s, e)
         ? t
-        : isCallable(r, e);
+        : isCallable(DataModule_307, e);
     };
   }

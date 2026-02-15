@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(240) /* module_240 */,
+    var DataModule_240 = require(240) /* DataModule_240 */,
       classof = require(92) /* classof */;
     exports.exports = function (e) {
-      return o(classof(e));
+      return DataModule_240(classof(e));
     };
   }

@@ -6,19 +6,19 @@
 function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
-      i = require(681) /* module_681 */.left,
+      DataModule_681 = require(681) /* DataModule_681 */.left,
       a = require(350) /* module_350 */,
-      r = require(213) /* module_213 */;
+      DataModule_213 = require(213) /* DataModule_213 */;
     core_export(
       {
         target: "Array",
         proto: true,
-        forced: (!require(245) /* stub_requires_407 */ && r > 79 && r < 83) || !a("reduce"),
+        forced: (!require(245) /* stub_requires_407 */ && DataModule_213 > 79 && DataModule_213 < 83) || !a("reduce"),
       },
       {
         reduce: function (e) {
           var t = arguments.length;
-          return i(this, e, t, t > 1 ? arguments[1] : undefined);
+          return DataModule_681(this, e, t, t > 1 ? arguments[1] : undefined);
         },
       }
     );

@@ -10,9 +10,9 @@ function (exports, module, require) {
       createNonEnumerableProperty = require(74) /* createNonEnumerableProperty */,
       GURABLE = require(199) /* Exports_GURABLE */,
       anObject = require(35) /* anObject */,
-      l = require(419) /* module_419 */,
-      c = require(208) /* module_208 */,
-      d = require(175) /* module_175 */,
+      DataModule_419 = require(419) /* DataModule_419 */,
+      DataModule_208 = require(208) /* DataModule_208 */,
+      DataModule_175 = require(175) /* DataModule_175 */,
       setToStringTag = require(137) /* setToStringTag */,
       createProperty = require(100) /* createProperty */,
       defineBuiltIn = require(79) /* defineBuiltIn */,
@@ -28,7 +28,7 @@ function (exports, module, require) {
         return this;
       };
     exports.exports = function (e, t, n, GURABLE, wellKnownSymbol, GGY, x) {
-      l(n, t, GURABLE);
+      DataModule_419(n, t, GURABLE);
       var S,
         E,
         A,
@@ -55,9 +55,9 @@ function (exports, module, require) {
         k = ("Array" === t && D.entries) || L;
       if (
         (k &&
-          (S = c(k.call(new e()))) !== Object.prototype &&
+          (S = DataModule_208(k.call(new e()))) !== Object.prototype &&
           S.next &&
-          (createNonEnumerableProperty || c(S) === _ || (d ? d(S, _) : anObject(S[w]) || defineBuiltIn(S, w, C)),
+          (createNonEnumerableProperty || DataModule_208(S) === _ || (DataModule_175 ? DataModule_175(S, _) : anObject(S[w]) || defineBuiltIn(S, w, C)),
           setToStringTag(S, G, true, true),
           createNonEnumerableProperty && (iteratorPrototype[G] = C)),
         y &&

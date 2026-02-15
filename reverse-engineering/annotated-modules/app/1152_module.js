@@ -15,8 +15,8 @@ function (e, t, n) {
       c = n(10) /* AppSettings */,
       d = o(n(594) /* GError */);
     const u = n(86) /* module_86 */,
-      p = n(336) /* module_336 */,
-      g = n(436) /* module_436 */,
+      p = n(336) /* GEvent_storageItem */,
+      g = n(436) /* DataModule_436 */,
       h = n(78) /* GDocumentEvent */,
       f = n(156) /* GCloudStorageItem */,
       m = 10,

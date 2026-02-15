@@ -9,7 +9,7 @@ function (e, t, n) {
     n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     var i = n(10) /* AppSettings */,
       a = n(1) /* GCore */,
-      r = o(n(1187) /* module_1187 */);
+      r = o(n(1187) /* DataModule_1187 */);
     class s extends i.GReminderDialog.Impl {
       open(e) {
         let { dialog: t } = e;

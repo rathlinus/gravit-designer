@@ -20,7 +20,7 @@ function (exports, module, require) {
               GCore.push({ [e]: t });
             }
           });
-        var c = a.default.getRuntimeCode();
+        var c = DataModule_859.default.getRuntimeCode();
         GCore.push({ installType: c }), GCore.push({ event: "INIT_GTM_EVENT" });
       }),
       require(8) /* polyfill_bundle_ES6 */,
@@ -28,7 +28,7 @@ function (exports, module, require) {
       require(32) /* stub_requires_670 */,
       require(33) /* polyfill_DOMCollection_forEach */;
     var GCore = require(1) /* GCore */,
-      a = _interopRequireDefault(require(859) /* module_859 */),
+      DataModule_859 = _interopRequireDefault(require(859) /* DataModule_859 */),
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       s = require(803) /* module_803 */;
     const { GA: { customDimensions: l } = {}, GoogleTagManagerSettings: c } =
@@ -38,11 +38,11 @@ function (exports, module, require) {
     !(function (e, t, n, _interopRequireDefault, GCore) {
       (e[_interopRequireDefault] = e[_interopRequireDefault] || []),
         e[_interopRequireDefault].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-      var a = t.getElementsByTagName(n)[0],
+      var DataModule_859 = t.getElementsByTagName(n)[0],
         CollaborationMergeUtils = t.createElement(n);
       (CollaborationMergeUtils.async = true),
         (CollaborationMergeUtils.src = "https://www.googletagmanager.com/gtm.js?id=" + GCore),
-        a.parentNode.insertBefore(CollaborationMergeUtils, a);
+        DataModule_859.parentNode.insertBefore(CollaborationMergeUtils, DataModule_859);
     })(window, document, "script", "dataLayer", d);
     const u = () => {
       switch (GCore.GSystem.hardware) {

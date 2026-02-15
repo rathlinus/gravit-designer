@@ -25,7 +25,7 @@ function (exports, module, require) {
       require(114) /* stub_requires_424 */;
     var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      r = require(593) /* module_593 */,
+      DataModule_593 = require(593) /* DataModule_593 */,
       s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)
@@ -35,12 +35,12 @@ function (exports, module, require) {
           if (!t && e && e.__esModule) return e;
           var GCore,
             CollaborationMergeUtils,
-            r = { __proto__: null, default: e };
+            DataModule_593 = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
-            return r;
+            return DataModule_593;
           if ((GCore = t ? _interopRequireDefault : require)) {
             if (GCore.has(e)) return GCore.get(e);
-            GCore.set(e, r);
+            GCore.set(e, DataModule_593);
           }
           for (const t in e)
             "default" !== t &&
@@ -49,9 +49,9 @@ function (exports, module, require) {
                 (GCore = Object.defineProperty) &&
                 Object.getOwnPropertyDescriptor(e, t)) &&
               (CollaborationMergeUtils.get || CollaborationMergeUtils.set)
-                ? GCore(r, t, CollaborationMergeUtils)
-                : (r[t] = e[t]));
-          return r;
+                ? GCore(DataModule_593, t, CollaborationMergeUtils)
+                : (DataModule_593[t] = e[t]));
+          return DataModule_593;
         })(e, t);
       })(require(789) /* Exports_NoAccessId */),
       GError = _interopRequireDefault(require(594) /* GError */);
@@ -138,7 +138,7 @@ function (exports, module, require) {
         let require = [];
         const _interopRequireDefault = await this.getAccessToken(),
           CollaborationMergeUtils = { fields: "*", supportsAllDrives: true, pageSize: 50 };
-        return new Promise((GCore, r) => {
+        return new Promise((GCore, DataModule_593) => {
           !(function l(GError) {
             const GoogleDriveResumableUpload = new URL(
                 "https://www.googleapis.com/drive/v3/files/".concat(
@@ -174,7 +174,7 @@ function (exports, module, require) {
                             })
                       );
               })
-              .catch((e) => r(e));
+              .catch((e) => DataModule_593(e));
           })();
         });
       }),
@@ -202,7 +202,7 @@ function (exports, module, require) {
             )
           );
         const CollaborationMergeUtils = await this.getShareIdForEmail(e, _interopRequireDefault).catch(() => []),
-          r = { type: "user", emailAddress: _interopRequireDefault, role: l.default[require.id] };
+          DataModule_593 = { type: "user", emailAddress: _interopRequireDefault, role: l.default[require.id] };
         if (CollaborationMergeUtils && CollaborationMergeUtils.length > 0) {
           const t = await this.removeShare(e, CollaborationMergeUtils[0]);
           if (t.error) {
@@ -213,9 +213,9 @@ function (exports, module, require) {
             } = t;
             return Promise.reject(e);
           }
-          if (r.role === l.NoAccessId) return t;
+          if (DataModule_593.role === l.NoAccessId) return t;
         }
-        return this._createShare(e, r).then((e) => {
+        return this._createShare(e, DataModule_593).then((e) => {
           if (e.error) {
             const {
               error: {
@@ -276,7 +276,7 @@ function (exports, module, require) {
           ),
           _interopRequireDefault = await this.getAccessToken(),
           CollaborationMergeUtils = { fields: "*", supportsAllDrives: true, sendNotificationEmail: false };
-        for (var r in CollaborationMergeUtils) require.searchParams.append(r, CollaborationMergeUtils[r]);
+        for (var DataModule_593 in CollaborationMergeUtils) require.searchParams.append(DataModule_593, CollaborationMergeUtils[DataModule_593]);
         return fetch(require.toString(), {
           method: "POST",
           headers: new Headers({
@@ -316,8 +316,8 @@ function (exports, module, require) {
               .concat(require)
           ),
           CollaborationMergeUtils = await this.getAccessToken(),
-          r = { fields: "*", supportsAllDrives: true };
-        for (var s in r) _interopRequireDefault.searchParams.append(s, r[s]);
+          DataModule_593 = { fields: "*", supportsAllDrives: true };
+        for (var s in DataModule_593) _interopRequireDefault.searchParams.append(s, DataModule_593[s]);
         return fetch(_interopRequireDefault.toString(), {
           method: "DELETE",
           headers: new Headers({ Authorization: "Bearer ".concat(CollaborationMergeUtils) }),
@@ -326,12 +326,12 @@ function (exports, module, require) {
       (g.prototype._simpleUpload = async function (e, t, n) {
         const _interopRequireDefault = await this.getAccessToken();
         return new Promise((GCore, CollaborationMergeUtils) => {
-          var r = new FormData();
-          r.append(
+          var DataModule_593 = new FormData();
+          DataModule_593.append(
             "metadata",
             new Blob([JSON.stringify(n)], { type: "application/json" })
           ),
-            r.append("file", t);
+            DataModule_593.append("file", t);
           var s = new URL(
               "https://www.googleapis.com/upload/drive/v3/files/".concat(
                 e || ""
@@ -345,7 +345,7 @@ function (exports, module, require) {
           fetch(s.toString(), {
             method: e ? "PATCH" : "POST",
             headers: new Headers({ Authorization: "Bearer ".concat(_interopRequireDefault) }),
-            body: r,
+            body: DataModule_593,
           })
             .then((e) => e.json())
             .then((e) => {
@@ -358,7 +358,7 @@ function (exports, module, require) {
       }),
       (g.prototype._resumableUpload = async function (e, t, n, _interopRequireDefault) {
         const GCore = await this.getAccessToken();
-        return new Promise((CollaborationMergeUtils, r) => {
+        return new Promise((CollaborationMergeUtils, DataModule_593) => {
           var s = n.mimeType || "application/octet-stream";
           const l = { fields: "*" };
           n.hasOwnProperty("driveId") && (l.supportsAllDrives = true),
@@ -379,7 +379,7 @@ function (exports, module, require) {
                 CollaborationMergeUtils(t);
               },
               onError: function (e) {
-                r(e);
+                DataModule_593(e);
               },
               onProgress: function (e) {
                 _interopRequireDefault && _interopRequireDefault(e.loaded / e.total);
@@ -390,8 +390,8 @@ function (exports, module, require) {
       (g.prototype._request = async function (e, t, n, _interopRequireDefault) {
         _interopRequireDefault = "number" == typeof _interopRequireDefault ? _interopRequireDefault : 0;
         const GCore = await this.getAccessToken(),
-          r = { Authorization: "Bearer ".concat(GCore) },
-          s = t.headers ? Object.assign(r, t.headers) : r;
+          DataModule_593 = { Authorization: "Bearer ".concat(GCore) },
+          s = t.headers ? Object.assign(DataModule_593, t.headers) : DataModule_593;
         return (
           delete t.headers,
           fetch(
@@ -399,16 +399,16 @@ function (exports, module, require) {
             Object.assign({ headers: new Headers(s), signal: n }, t)
           ).then(async (GCore) => {
             if (!GCore.ok) {
-              var r = await GCore.json();
+              var DataModule_593 = await GCore.json();
               return GCore.status === p.UNAUTHORIZED &&
                 (await gContainer.getGoogleAPI().signIn(), 0 === _interopRequireDefault)
                 ? this._request(e, t, n, ++_interopRequireDefault)
                 : GCore.status === p.FORBIDDEN &&
-                  g.isUsageLimitError(r) &&
+                  g.isUsageLimitError(DataModule_593) &&
                   _interopRequireDefault < g.TRIAL_UNTIL_FAIL
                 ? (await (0, CollaborationMergeUtils.sleep)(1e3 * Math.pow(1 + _interopRequireDefault, 2)),
                   this._request(e, t, n, ++_interopRequireDefault))
-                : Promise.reject(r);
+                : Promise.reject(DataModule_593);
             }
             return GCore;
           })
@@ -436,7 +436,7 @@ function (exports, module, require) {
               this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore))
             : Promise.reject(u);
         }
-        return (0, r.readResponseWithProgress)(GoogleDriveResumableUpload, _interopRequireDefault, true);
+        return (0, DataModule_593.readResponseWithProgress)(GoogleDriveResumableUpload, _interopRequireDefault, true);
       }),
       (g.prototype.getFile = function (e, t, n, _interopRequireDefault) {
         var GCore = new URL(

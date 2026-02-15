@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(239) /* module_239 */,
+    var DataModule_239 = require(239) /* DataModule_239 */,
       i = Function.prototype,
       a = i.call,
-      r = o && i.bind.bind(a, a);
-    exports.exports = o
+      r = DataModule_239 && i.bind.bind(a, a);
+    exports.exports = DataModule_239
       ? r
       : function (e) {
           return function () {

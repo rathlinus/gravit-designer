@@ -27,10 +27,10 @@ function (e, t, n) {
       b = n(1273) /* GTextProperties */,
       w = n(1274) /* GAlignProperties */,
       C = n(1528) /* GVersionHistoryProperties */,
-      x = n(1159) /* module_1159 */;
+      x = n(1159) /* GEvent_fileId */;
     const S = n(135) /* GSettingChangedEvent */,
       E = n(198) /* Exports_GOutlineSidebar */,
-      A = n(807) /* module_807 */;
+      A = n(807) /* GEvent_type */;
     function T() {
       s.call(this), (this._propertyPanels = []), (this._touchTools = []);
     }
@@ -476,6 +476,6 @@ function (e, t, n) {
       (T.prototype.toString = function () {
         return "[Object GInspectorSidebar]";
       }),
-      n(1529) /* module_1529 */(T),
+      n(1529) /* DataModule_1529 */(T),
       (e.exports = T);
   }

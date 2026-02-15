@@ -9,7 +9,7 @@ function (exports, module, require) {
     const o = require(337) /* stub_requires_1098 */,
       i = require(1338) /* module_1338 */,
       { gApi: a, PurchaseStatus: r } = require(10) /* AppSettings */,
-      { IS_TRUNK: s } = require(231) /* module_231 */;
+      { IS_TRUNK: s } = require(231) /* DataModule_231 */;
     let l;
     class c {
       static getInstance() {

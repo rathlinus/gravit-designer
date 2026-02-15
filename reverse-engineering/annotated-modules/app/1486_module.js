@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(16) /* _interopRequireDefault */;
     n(30) /* polyfill_Object_assign */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var i = n(1154) /* GFileDownloadUtils */,
-      a = o(n(389) /* module_389 */),
+      a = o(n(389) /* GDocument_389 */),
       r = o(n(163) /* GDocument */),
       s = o(n(1245) /* GCustomFontImporter */),
       l = n(1) /* GCore */;

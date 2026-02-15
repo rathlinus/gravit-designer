@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(15) /* GEditor */;
     const i = n(519) /* AppSettings */,
       a = n(520) /* barrel_purchase_urls */,
-      r = n(231) /* module_231 */;
+      r = n(231) /* DataModule_231 */;
     (i.GoogleTagManagerSettings = n(820) /* module */),
       (i.AUTO_SAVE_ENABLED =
         o.GPlatform.webBrowser !== o.GPlatform.constructor.WebBrowser.Safari),

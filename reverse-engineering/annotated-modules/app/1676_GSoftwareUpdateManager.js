@@ -11,7 +11,7 @@ function (e, t, n) {
       i = n(10) /* AppSettings */,
       a = n(40) /* CollaborationMergeUtils */;
     const r = n(85) /* GContainer */,
-      s = n(1188) /* module_1188 */,
+      s = n(1188) /* GEvent_1188 */,
       l = n(1349) /* module_1349 */;
     var c;
     e.exports = class {

@@ -15,7 +15,7 @@ function (e, t, n) {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
-      } = (n(173) /* stub_requires_1 */, n(219) /* module_219 */, n(1268) /* GImageManipulation */);
+      } = (n(173) /* stub_requires_1 */, n(219) /* GLocale */, n(1268) /* GImageManipulation */);
     function c() {}
     o.GObject.inherit(c, a),
       (c.prototype._panel = null),

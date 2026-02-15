@@ -11,7 +11,7 @@ function (e, t, n) {
       r = n(79) /* defineBuiltIn */,
       s = n(298) /* defineGlobalProperty */,
       l = n(341) /* copyConstructorProperties */,
-      c = n(277) /* module_277 */;
+      c = n(277) /* DataModule_277 */;
     e.exports = function (e, t) {
       var n,
         d,

@@ -11,8 +11,8 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       r = _interopRequireDefault(require(1091) /* module_1091 */),
       s = require(165) /* module_165 */,
-      l = require(219) /* module_219 */,
-      GLocale = require(9) /* GLocale */,
+      GLocale = require(219) /* GLocale */,
+      GLocale2 = require(9) /* GLocale */,
       GLocaleKey = require(47) /* GLocaleKey */;
     function u() {}
     (u.Directory = function (e) {
@@ -157,7 +157,7 @@ function (exports, module, require) {
         try {
           e < AppSettings.UN_BELIVEVABLE_FEW_BYTES_TO_SAVE &&
             !this.isSaveCounterMeasureEnabled() &&
-            new l(GLocale.get(new GLocaleKey("GDocument", "text.saveing-error"))).open(),
+            new GLocale(GLocale2.get(new GLocaleKey("GDocument", "text.saveing-error"))).open(),
             this.getDocumentRealSizeAfterSave(t);
         } catch (e) {
           console.error(e);
@@ -171,13 +171,13 @@ function (exports, module, require) {
               this.getFileSizeAfterSaved())() &&
             this.getFileSizeAfterSaved() &&
             this.getFileSizeAfterSaved() > 0 &&
-            new l(GLocale.get(new GLocaleKey("GDocument", "text.saveing-error"))).open();
+            new GLocale(GLocale2.get(new GLocaleKey("GDocument", "text.saveing-error"))).open();
         } catch (e) {
           console.error(e);
         }
       }),
       (u.Item.prototype.notEnoughDiskSpace = function () {
-        new l(GLocale.get(new GLocaleKey("GDocument", "text.save-no-space"))).open();
+        new GLocale(GLocale2.get(new GLocaleKey("GDocument", "text.save-no-space"))).open();
       }),
       (u.Item.prototype.getDocumentRealSizeAfterSave = function (e) {
         let module = null;

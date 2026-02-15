@@ -10,8 +10,8 @@ function (e, t, n) {
       a = n(312) /* module_312 */,
       r = n(314) /* module_314 */,
       s = n(225) /* module_225 */,
-      l = n(313) /* module_313 */,
-      c = n(469) /* module_469 */,
+      l = n(313) /* DataModule_313 */,
+      c = n(469) /* DataModule_469 */,
       d = Object.prototype.toString;
     function u(e) {
       if (!(this instanceof u)) return new u(e);

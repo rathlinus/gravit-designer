@@ -11,7 +11,7 @@ function (exports, module, require) {
       defineBuiltIn = require(79) /* defineBuiltIn */,
       defineGlobalProperty = require(298) /* defineGlobalProperty */,
       copyConstructorProperties = require(341) /* copyConstructorProperties */,
-      c = require(277) /* module_277 */;
+      DataModule_277 = require(277) /* DataModule_277 */;
     exports.exports = function (e, t) {
       var n,
         d,
@@ -26,7 +26,7 @@ function (exports, module, require) {
           if (
             ((p = t[d]),
             (u = e.dontCallGetSet ? (g = objectGetOwnPropertyDescriptor(n, d)) && g.value : n[d]),
-            !c(f ? d : h + (m ? "." : "#") + d, e.forced) && undefined !== u)
+            !DataModule_277(f ? d : h + (m ? "." : "#") + d, e.forced) && undefined !== u)
           ) {
             if (typeof p == typeof u) continue;
             copyConstructorProperties(p, u);

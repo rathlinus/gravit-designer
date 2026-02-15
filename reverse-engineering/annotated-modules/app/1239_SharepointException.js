@@ -36,7 +36,7 @@ function (e, t, n) {
       r = n(802) /* CloudException */,
       s = o(n(119) /* GCloudStorage */),
       l = n(10) /* AppSettings */,
-      c = n(593) /* module_593 */,
+      c = n(593) /* DataModule_593 */,
       d = o(n(594) /* GError */),
       u = o(n(1477) /* GMicrosoftUser */),
       p = o(n(1242) /* MSTeamsAuthManager */),

@@ -24,14 +24,14 @@ function (exports, module, require) {
     var GCore = require(1) /* GCore */,
       GGoogleAPI = require(1036) /* Exports_GGoogleAPI */,
       AppSettings = require(10) /* AppSettings */,
-      s = _interopRequireDefault(require(734) /* module_734 */),
-      l = (_interopRequireDefault(require(355) /* module_355 */), _interopRequireDefault(require(1037) /* module_1037 */)),
+      ExternalFileSettingsError = _interopRequireDefault(require(734) /* ExternalFileSettingsError */),
+      l = (_interopRequireDefault(require(355) /* AppError */), _interopRequireDefault(require(1037) /* module_1037 */)),
       GFontsProviderManager = require(255) /* GFontsProviderManager */,
       barrel_editor_actions = require(590) /* barrel_editor_actions */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GOpenRecentAction = require(843) /* GOpenRecentAction */,
       barrel_panels = require(257) /* barrel_panels */,
-      h = require(219) /* module_219 */,
+      h = require(219) /* GLocale */,
       GSystemDialog = require(44) /* GSystemDialog */,
       GDocumentEvent = require(78) /* GDocumentEvent */;
     function y() {}
@@ -275,7 +275,7 @@ function (exports, module, require) {
                 try {
                   gDesigner.openDocument(n);
                 } catch (e) {
-                  if (!(e instanceof s.default)) throw e;
+                  if (!(e instanceof ExternalFileSettingsError.default)) throw e;
                   GSystemDialog.externalFileError(true);
                 }
               });

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(401) /* module_401 */,
+    var o = n(401) /* DataModule_401 */,
       i = n(88) /* createPropertyDescriptor */;
     e.exports = function (e, t, n) {
       return (

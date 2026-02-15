@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(29) /* isCallable */,
-      i = n(136) /* module_136 */,
+      i = n(136) /* DataModule_136 */,
       a = n(100) /* createProperty */,
       r = n(232) /* module_232 */,
       s = n(43) /* wellKnownSymbol */,
@@ -14,7 +14,7 @@ function (e, t, n) {
       c = n(145) /* getSubstitution */,
       d = n(251) /* Exports_GGY */.IteratorPrototype,
       u = n(252) /* toStringClassof */,
-      p = n(102) /* module_102 */,
+      p = n(102) /* DataModule_102 */,
       g = s("toStringTag"),
       h = l.set,
       f = function (e) {

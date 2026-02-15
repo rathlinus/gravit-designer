@@ -10,9 +10,9 @@ function (e, t, n) {
     var o = n(1) /* GCore */;
     const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */;
-    var r = n(219) /* module_219 */,
+    var r = n(219) /* GLocale */,
       s = n(85) /* GContainer */;
-    const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = n(231) /* module_231 */;
+    const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = n(231) /* DataModule_231 */;
     function u(e) {
       let t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
       (this._serverName = e), (this._isDefault = !!t);

@@ -13,13 +13,13 @@ function (exports, module, require) {
       toLength = require(46) /* toLength */,
       createProperty = require(100) /* createProperty */,
       d = require(61) /* module_61 */,
-      u = require(297) /* module_297 */,
+      DataModule_297 = require(297) /* DataModule_297 */,
       p = require(300) /* module_300 */,
       g = require(259) /* module_259 */,
       h = globalThis.TypeError,
       f = globalThis.WeakMap;
-    if (r || u.state) {
-      var m = u.state || (u.state = new f());
+    if (r || DataModule_297.state) {
+      var m = DataModule_297.state || (DataModule_297.state = new f());
       (m.get = m.get),
         (m.has = m.has),
         (m.set = m.set),

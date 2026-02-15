@@ -14,7 +14,7 @@ function (module, exports, __webpack_require__) {
       __webpack_require__(57) /* polyfill_parseInt */,
       __webpack_require__(20) /* polyfill_RegExp_exec */,
       __webpack_require__(3) /* polyfill_RegExp_toString */,
-      __webpack_require__(151) /* module_151 */,
+      __webpack_require__(151) /* DataModule_151 */,
       __webpack_require__(247) /* module_247 */,
       __webpack_require__(4) /* stub_requires_668 */,
       __webpack_require__(41) /* stub_requires_682 */,
@@ -70,11 +70,11 @@ function (module, exports, __webpack_require__) {
       GCollaborators = __webpack_require__(1292) /* GCollaboratorsWidget */,
       GDocumentEvent = __webpack_require__(78) /* GDocumentEvent */,
       GSettingChangedEvent = __webpack_require__(135) /* GSettingChangedEvent */,
-      GApplicationStateChangedEvent = __webpack_require__(392) /* module_392 */,
-      GShareEvent = __webpack_require__(868) /* module_868 */,
+      GApplicationStateChangedEvent = __webpack_require__(392) /* GEvent_document */,
+      GShareEvent = __webpack_require__(868) /* GEvent_type_868 */,
       GNetworkAvailabilityChangedEvent = __webpack_require__(291) /* GNetworkAvailabilityChangedEvent */,
       GUIIcons = __webpack_require__(257) /* barrel_panels */,
-      GLicenseChangedEvent = __webpack_require__(441) /* module_441 */;
+      GLicenseChangedEvent = __webpack_require__(441) /* GEvent_license */;
     function GToolbar(e) {
       (this._htmlElement = e), (this._initShapeMenu = !1);
     }

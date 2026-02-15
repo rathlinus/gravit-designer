@@ -6,6 +6,6 @@
 function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
-      i = require(702) /* module_702 */;
-    core_export({ global: true, forced: parseFloat !== i }, { parseFloat: i });
+      DataModule_702 = require(702) /* DataModule_702 */;
+    core_export({ global: true, forced: parseFloat !== DataModule_702 }, { parseFloat: DataModule_702 });
   }

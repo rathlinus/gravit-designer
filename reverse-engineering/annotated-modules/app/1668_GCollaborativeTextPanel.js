@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* GCore */;
     const i = n(606) /* GPanel */,
       a = n(394) /* GView */,
-      r = n(392) /* module_392 */,
+      r = n(392) /* GEvent_document */,
       s = n(393) /* GCollaborationEvent */,
       l = n(78) /* GDocumentEvent */,
       c = n(291) /* GNetworkAvailabilityChangedEvent */,

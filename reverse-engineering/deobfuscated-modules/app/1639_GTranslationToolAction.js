@@ -11,7 +11,7 @@ function (exports, module, require) {
     const MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GTranslationToolDialog = require(1640) /* GTranslationToolDialog */,
-      { IS_TRUNK: s, IS_LOCALHOST: l } = require(231) /* module_231 */;
+      { IS_TRUNK: s, IS_LOCALHOST: l } = require(231) /* DataModule_231 */;
     function c() {}
     GCore.GObject.inherit(c, GAction),
       (c.ID = "help.translationtool"),

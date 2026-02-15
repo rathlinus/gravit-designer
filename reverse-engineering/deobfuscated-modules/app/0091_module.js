@@ -6,12 +6,12 @@
 function (exports, module, require) {
     "use strict";
     var core_export = require(25) /* core_export */,
-      i = require(262) /* module_262 */.trim;
+      DataModule_262 = require(262) /* DataModule_262 */.trim;
     core_export(
-      { target: "String", proto: true, forced: require(461) /* module_461 */("trim") },
+      { target: "String", proto: true, forced: require(461) /* DataModule_461 */("trim") },
       {
         trim: function () {
-          return i(this);
+          return DataModule_262(this);
         },
       }
     );
