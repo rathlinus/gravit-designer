@@ -1,0 +1,47 @@
+/**
+ * Webpack Module #343
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  var wellKnownSymbol = require(43)(/* wellKnownSymbol */ 'iterator'),
+    i = false;
+  try {
+    var a = 0,
+      r = {
+        next: function () {
+          return { done: !!a++ };
+        },
+        return: function () {
+          i = true;
+        },
+      };
+    ((r[wellKnownSymbol] = function () {
+      return this;
+    }),
+      Array.from(r, function () {
+        throw 2;
+      }));
+  } catch (e) {}
+  exports.exports = function (e, t) {
+    try {
+      if (!t && !i) return false;
+    } catch (e) {
+      return false;
+    }
+    var n = false;
+    try {
+      var a = {};
+      ((a[wellKnownSymbol] = function () {
+        return {
+          next: function () {
+            return { done: (n = true) };
+          },
+        };
+      }),
+        e(a));
+    } catch (e) {}
+    return n;
+  };
+}

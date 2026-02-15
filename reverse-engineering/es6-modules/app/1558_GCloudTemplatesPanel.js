@@ -1,0 +1,416 @@
+/**
+ * Webpack Module #1558
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  (require(168) /* polyfill_Array_reduce */,
+    require(57) /* polyfill_parseInt */,
+    require(8) /* polyfill_bundle_ES6 */,
+    require(196) /* polyfill_Promise_finally */,
+    require(4) /* stub_requires_668 */,
+    require(41) /* stub_requires_682 */,
+    require(13) /* stub_requires_679 */,
+    require(32) /* stub_requires_670 */,
+    require(38) /* stub_requires_680 */,
+    require(169) /* stub_requires_683 */,
+    require(1175) /* stub_requires_1559 */,
+    require(33)) /* polyfill_DOMCollection_forEach */;
+  var GCore = require(1) /* GCore */,
+    AppSettings = require(10) /* AppSettings */,
+    GCloudStorage = require(119) /* GCloudStorage */,
+    GDocument = require(163); /* GDocument */
+  const { debounce: s } = require(40) /* CollaborationMergeUtils */,
+    l = AppSettings.FILE_FORMATS.find((e) => e.default);
+  var c = {},
+    d = null;
+  const u = AppSettings.CATEGORIES.filter((e) => e.active);
+  class p {
+    constructor(e) {
+      ((this._templatesPanel = $('<div/>').addClass('g-templates-panel').appendTo($('body'))),
+        this._templatesPanel.gDialog({
+          closeTimeout: 0,
+          releaseOnClose: true,
+          className: 'g-templates-panel-container',
+          alwaysCloseable: true,
+        }),
+        this._templatesPanel.gDialog('open', true),
+        (d = e),
+        (this._breadcrumbs = [
+          {
+            key: p.DefaultBreadcrumbs.Welcome,
+            name: GCore.GLocale.getValue('GCloudTemplates', 'text.welcome'),
+            click: (e) => {
+              (e.stopPropagation(), this._templatesPanel.gDialog('close'));
+            },
+            tooltip: GCore.GLocale.getValue('GFilesPanel', 'action.close-window'),
+          },
+        ]),
+        this._initTopBar(this._templatesPanel),
+        this._loadHeader(),
+        (this._contentPanel = $('<div/>').addClass('templates').appendTo(this._templatesPanel)),
+        this._initCategories(),
+        this._initResizeHandler());
+    }
+    _initResizeHandler() {
+      ((this._debouncedResizeHandler = s(
+        function () {
+          this._initMasonryLayoutColumns(null, null, null, true);
+        }.bind(this),
+        200
+      )),
+        $(window).resize(
+          function () {
+            this._debouncedResizeHandler();
+          }.bind(this)
+        ));
+    }
+    _openPreset(e) {
+      return GCloudStorage.loadDesignData(e.id)
+        .then((t) => {
+          var n = new GDocument();
+          return (
+            gDesigner.addDocument(n),
+            n.loadFromData(t.data),
+            AppSettings.gApi.usage(e.id).catch((e) => {
+              console.error('gApi.usage error', e);
+            })
+          );
+        })
+        .catch((e) => {
+          e && console.log(e);
+        })
+        .finally(() => {
+          this._templatesPanel.gDialog('close');
+        });
+    }
+    _getActivePresetCategory() {
+      if (this._currentSubcategory || this._currentCategory)
+        return this._currentSubcategory ? this._currentSubcategory : this._currentCategory;
+    }
+    _initLoadPage(e, t) {
+      ((c = {}),
+        t === p.AssetType.Category
+          ? ((this._currentCategory = e),
+            this._breadcrumbs.push({
+              key: p.DefaultBreadcrumbs.Templates,
+              name: GCore.GLocale.getValue('GCloudTemplates', 'text.templates'),
+              click: (t) => {
+                (t.stopPropagation(),
+                  gDesigner.stats('cloudtemplates_click_backbutton', e ? e.name : ''),
+                  this._initCategories());
+              },
+            }))
+          : t === p.AssetType.Subcategory &&
+            ((this._currentSubcategory = e),
+            this._breadcrumbs.push({
+              key: this._currentCategory.key,
+              name: GCore.GLocale.getValue('GCommonNames', this._currentCategory.key),
+              click: (t) => {
+                (t.stopPropagation(),
+                  gDesigner.stats('cloudtemplates_click_backbutton', e ? e.name : ''),
+                  (this._breadcrumbs = this._breadcrumbs.filter(
+                    (e) => e.key !== this._currentCategory.key
+                  )),
+                  this._initSubcategories());
+              },
+            })),
+        this._loadBreadcrumbs(),
+        this._loadHeader(),
+        t === p.AssetType.Category && this._currentCategory.subcategories
+          ? this._initSubcategories()
+          : ((this._presetsCount = 0),
+            (this._presetsCurrentSkip = 0),
+            (this._presetsLoadMore = true),
+            this._loadPresets(false)));
+    }
+    _loadPresets(e) {
+      (this._toggleLoadMoreButton(false), this._toggleLoading(true), this._doLoadPresets(e));
+    }
+    async _doLoadPresets(e) {
+      var t = this;
+      this._presetsLoadMore &&
+        (async function (n) {
+          try {
+            var GCore = await AppSettings.gApi.listMarketV2({
+              path: t._getActivePresetCategory().path,
+              type: l.type,
+              sort: '-usages',
+              limit: AppSettings.PRESET_LIMIT,
+              skip: t._presetsCurrentSkip,
+            });
+            (c[t._getActivePresetCategory().key] || (c[t._getActivePresetCategory().key] = []),
+              (c[t._getActivePresetCategory().key] = c[t._getActivePresetCategory().key].concat(
+                GCore.data
+              )),
+              GCore.count && (t._presetsCount = GCore.count),
+              c[t._getActivePresetCategory().key].length == t._presetsCount
+                ? (t._presetsLoadMore = false)
+                : (t._presetsCurrentSkip += AppSettings.PRESET_LIMIT),
+              n(GCore.data, e));
+          } catch (e) {
+            (n(c[t._getActivePresetCategory().key], false), console.error(e));
+          }
+        })(function (e, n) {
+          (n || t._contentPanel.empty(),
+            t._initMasonryLayoutColumns(e, p.AssetType.Preset, n),
+            t._loadMoreButton(),
+            t._toggleLoading(false));
+        });
+    }
+    _loadMoreButton() {
+      (this._contentPanel.find('.button-wrapper').remove(),
+        this._presetsLoadMore && (this._doLoadMoreButton(), this._toggleLoadMoreButton(true)));
+    }
+    _doLoadMoreButton() {
+      this._contentPanel.append(
+        $('<div/>')
+          .addClass('button-wrapper')
+          .addClass('hidden')
+          .append(
+            $('<div/>')
+              .addClass('g-button')
+              .addClass('cloud-button')
+              .addClass('load-more')
+              .on('click', () => {
+                this._loadPresets(true);
+              })
+              .append(
+                $('<span/>')
+                  .addClass('label')
+                  .text(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey('GCommonNames', 'text.library-load-more')
+                    )
+                  )
+              )
+          )
+      );
+    }
+    _initSubcategories() {
+      (this._contentPanel.empty(),
+        (this._currentSubcategory = null),
+        this._loadHeader(),
+        this._loadBreadcrumbs(),
+        this._initMasonryLayoutColumns(
+          this._currentCategory.subcategories,
+          p.AssetType.Subcategory
+        ));
+    }
+    _initCategories() {
+      (this._contentPanel.empty(),
+        (this._currentCategory = null),
+        (this._currentSubcategory = null),
+        this._loadHeader(),
+        this._loadBreadcrumbs(true),
+        this._initMasonryLayoutColumns(u, p.AssetType.Category));
+    }
+    _initMasonryLayoutColumns(e, t, n, GCloudStorage) {
+      var GDocument = this._contentPanel.find('.assets-wrapper');
+      if (
+        (0 === GDocument.length &&
+          (GDocument = $('<div/>').addClass('assets-wrapper')).appendTo(this._contentPanel),
+        GCloudStorage && (e = GDocument.find('.column').children()).unwrap(),
+        0 === e.length)
+      )
+        return;
+      this._wrapperWidth = GDocument.css('width')
+        ? parseInt(GDocument.css('width').split('px')[0])
+        : 235;
+      var s,
+        l = [],
+        c = 1,
+        u = null;
+      if (
+        ((c = Math.max(Math.ceil(this._wrapperWidth / 235), c)),
+        (s = this._wrapperWidth / c - (32 / c) * (c - 1)),
+        (u = 1 == c || c > 2 ? (s / this._wrapperWidth) * 100 + '%' : 'calc(50% - 32px)'),
+        n)
+      )
+        l = GDocument.find('.column').toArray();
+      else
+        for (var g = 0; g < c; g++) {
+          var h = $('<div/>').addClass('column').css('width', u);
+          (g > 0 && h.css({ 'margin-left': '32px' }), l.push(h));
+        }
+      const f = l.map(this._getChildrenHeight.bind(this)),
+        m = [];
+      for (var y = 0; y < e.length; y++) {
+        var v;
+        if (GCloudStorage) v = e[y];
+        else if (t === p.AssetType.Preset) {
+          let t = e[y];
+          var _ = $('<img/>')
+            .addClass('asset')
+            .attr('src', t.url_t)
+            .css('width', t.width || '235px')
+            .on(
+              'click',
+              function () {
+                (d && d(),
+                  gDesigner.stats(
+                    'cloudtemplates_add_' +
+                      (this._getActivePresetCategory()
+                        ? this._getActivePresetCategory().name
+                        : 'default'),
+                    t.name
+                  ),
+                  gDesigner
+                    .getAmplitudeHelper()
+                    .logEvent(AppSettings.AmplitudeData.Events.DOCUMENT_CREATED, {
+                      DOCUMENT_CATEGORY: this._getActivePresetCategory().name,
+                      DOCUMENT_TYPE: t.name,
+                      DOCUMENT_TEMPLATE_ID: t.id,
+                    }),
+                  AppSettings.IS_TRUNK && console.log('Template ID: ', t.id),
+                  this._openPreset(t));
+              }.bind(this)
+            );
+          (v = $('<div/>')
+            .addClass('asset-container preset-container')
+            .css('margin-bottom', '32px')
+            .data('asset', t)).append(_);
+        } else {
+          let n = e[y];
+          _ = $('<div/>')
+            .addClass('asset')
+            .css('width', n.width + 'px')
+            .append(
+              $('<img/>')
+                .attr('src', n.url)
+                .on('click', () => {
+                  (gDesigner.stats('cloudtemplates_load_template', n.name),
+                    this._initLoadPage(n, t));
+                })
+            )
+            .append(
+              $('<div/>')
+                .addClass('template-info')
+                .append(
+                  $('<div/>')
+                    .addClass('template-name')
+                    .html(GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', n.key)))
+                )
+            );
+          (v = $('<div/>')
+            .addClass('asset-container category-container')
+            .css('margin-bottom', '32px')
+            .data('asset', n)).append(_);
+        }
+        const n = this._getSmallestColumnIndex(f),
+          GDocument = $(v).data('asset'),
+          s = this._getThumbnailSize(GDocument).getHeight();
+        f[n] = (f[n] || 0) + s;
+        const l = m[n] || [];
+        (l.push(v), (m[n] = l));
+      }
+      (l.forEach((e, t) => {
+        $(e).append(m[t]);
+      }),
+        n || GDocument.append(l),
+        this._removeEmptyColumns());
+    }
+    _removeEmptyColumns() {
+      const exports = this._contentPanel.find('.assets-wrapper').children('.column');
+      exports.each((t, n) => {
+        n.children.length || exports[t].remove();
+      });
+    }
+    _getThumbnailSize(e) {
+      const module = 235 / e.width,
+        require = parseInt(e.height * module) + 32;
+      return new GCore.GRect(0, 0, 235, require);
+    }
+    _getChildrenHeight(e) {
+      return $(e)
+        .children()
+        .toArray()
+        .reduce((e, t) => e + $(t).height(), 0);
+    }
+    _getSmallestColumnIndex(e) {
+      return e.indexOf(Math.min.apply(null, e)) || 0;
+    }
+    _loadHeader() {
+      const exports = this._templatesPanel.find('.header');
+      (0 === exports.length && $('<div/>').addClass('header').appendTo(this._templatesPanel),
+        exports.empty(),
+        exports.append(
+          $('<span/>')
+            .addClass('title')
+            .html(
+              this._getActivePresetCategory()
+                ? GCore.GLocale.getValue('GCommonNames', this._getActivePresetCategory().key)
+                : GCore.GLocale.getValue('GCloudTemplates', 'text.templates')
+            )
+        ));
+    }
+    _initTopBar(e) {
+      ((this.topBar = $('<div />')
+        .addClass('top-bar')
+        .append($('<div />').addClass('breadcrumbs'))
+        .append(
+          $('<div />')
+            .addClass('top-buttons')
+            .append(
+              $('<div/>')
+                .addClass('g-button')
+                .addClass('cloud-button')
+                .addClass('close-button')
+                .attr(
+                  'data-title',
+                  GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'action.close-window'))
+                )
+                .on('click', (e) => {
+                  (e.stopPropagation(), this._templatesPanel.gDialog('close'));
+                })
+                .append($('<span/>').addClass('icon').addClass('gravit-icon-close'))
+            )
+        )
+        .appendTo(e)),
+        this._loadBreadcrumbs());
+    }
+    _loadBreadcrumbs(e) {
+      e &&
+        (this._breadcrumbs = this._breadcrumbs.filter(
+          (e) => e.key == p.DefaultBreadcrumbs.Welcome
+        ));
+      const module = this.topBar.find('.breadcrumbs');
+      (module.empty(),
+        this._breadcrumbs.forEach((e) => {
+          var n;
+          module.append(
+            $('<span/>')
+              .addClass('g-breadcrumb')
+              .append(
+                $('<span/>')
+                  .addClass('breadcrumb-name')
+                  .html(e.name)
+                  .on('click', e.click)
+                  .attr(
+                    'data-title',
+                    null !== (n = e.tooltip) && undefined !== n
+                      ? n
+                      : GCore.GLocale.getValue('GFilesPanel', 'action.back-tooltip')
+                  )
+              )
+              .append($('<span/>').addClass('breadcrumb-divider').html('›'))
+          );
+        }));
+    }
+    _toggleLoading(e) {
+      this._templatesPanel.toggleClass('loading', e);
+    }
+    _toggleLoadMoreButton(e) {
+      let module = this._contentPanel.find('.button-wrapper');
+      module && module[e ? 'removeClass' : 'addClass']('hidden');
+    }
+  }
+  ((p.AssetType = {
+    Category: 'CATEGORY',
+    Subcategory: 'SUBCATEGORY',
+    Preset: 'PRESET',
+  }),
+    (p.DefaultBreadcrumbs = { Welcome: 'welcome', Templates: 'templates' }),
+    (exports.exports = p));
+}

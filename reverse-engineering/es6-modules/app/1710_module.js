@@ -1,0 +1,68 @@
+/**
+ * Webpack Module #1710
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  (require(8) /* polyfill_bundle_ES6 */,
+    require(3) /* polyfill_RegExp_toString */,
+    require(4) /* stub_requires_668 */,
+    require(1352) /* stub_requires_1707 */,
+    (exports.exports = (e) => {
+      ((e._DragAndDropHelper = function (e) {
+        this._vtree = e;
+      }),
+        (e._DragAndDropHelper.prototype._droppableNodeUpper = null),
+        (e._DragAndDropHelper.prototype._droppableNodeLower = null),
+        (e._DragAndDropHelper.prototype._droppableNodeInside = null),
+        (e._DragAndDropHelper.prototype.setDroppableNodeInside = function (e) {
+          ((e && e === this._droppableNodeInside) ||
+            (this._droppableNodeInside &&
+              this._droppableNodeInside.row.classList.remove(this._vtree._insertIntoStyle)),
+            (this._droppableNodeInside = e),
+            e && this._droppableNodeInside.row.classList.add(this._vtree._insertIntoStyle));
+        }),
+        (e._DragAndDropHelper.prototype.setDroppableNodeLower = function (e) {
+          ((this._droppableNodeLower = e), (this._droppableNodeUpper = null));
+          const module = this._vtree._dragNode;
+          (this._vtree.beginUpdate(),
+            this._vtree.removeNode(module),
+            this._vtree.insertNodeAfter(e, module),
+            this._vtree.endUpdate(true));
+        }),
+        (e._DragAndDropHelper.prototype.setDroppableNodeUpper = function (e) {
+          ((this._droppableNodeUpper = e), (this._droppableNodeLower = null));
+          const module = this._vtree._dragNode;
+          (this._vtree.beginUpdate(),
+            this._vtree.removeNode(module),
+            this._vtree.insertNodeBefore(e, module),
+            this._vtree.endUpdate(true));
+        }),
+        (e._DragAndDropHelper.prototype.drop = function () {
+          const e = this._vtree._dragNode,
+            module = this._vtree._root;
+          if (this._droppableNodeInside) {
+            const t = this._droppableNodeInside;
+            (this._vtree.beginUpdate(),
+              this._vtree.removeNode(e),
+              this._vtree.appendNode(t, e),
+              this._vtree.endUpdate(true),
+              this._vtree._dropCallback && this._vtree._dropCallback(t, null, null, [e]));
+          } else if (this._droppableNodeUpper) {
+            const n = this._droppableNodeUpper;
+            this._vtree._dropCallback &&
+              (n !== module
+                ? this._vtree._dropCallback(n.parent, e.next, e.previous, [e])
+                : this._vtree._dropCallback(module, null, null, [e]));
+          } else if (this._droppableNodeLower) {
+            const t = this._droppableNodeLower;
+            this._vtree._dropCallback &&
+              this._vtree._dropCallback(t.parent, e.next, e.previous, [e]);
+          }
+        }),
+        (e._DragAndDropHelper.prototype.toString = function () {
+          return '[Object GVirtualTree._DragAndDropHelper]';
+        }));
+    }));
+}

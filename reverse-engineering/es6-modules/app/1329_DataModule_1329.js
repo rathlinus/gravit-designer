@@ -1,0 +1,39 @@
+/**
+ * Webpack Module #1329
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  var _interopRequireDefault = require(16) /* _interopRequireDefault */,
+    DataModule_880 = _interopRequireDefault(require(880) /* DataModule_880 */),
+    a = _interopRequireDefault(require(1189) /* module_1189 */);
+  class r extends DataModule_880.default {
+    canActivate() {
+      return true;
+    }
+    activate(e, t) {
+      (super.activate(e, t), (this._panState = new a.default()));
+    }
+    deactivate(e, t) {
+      (super.deactivate(e, t), (this._panState = null));
+    }
+    start(e, t) {
+      this._panState && this._panState.update(e.getOriginalEvent());
+    }
+    move(e, t) {
+      this._panState &&
+        e.isCancelable() &&
+        e.iterateChangedTouches((e) => {
+          this._panState.hasActiveIdentifier(e) && this._dispatchEventFromTouch('mousemove', e);
+        });
+    }
+    end(e, t) {
+      (super.end(e, t), (this._panState = null));
+    }
+    cancel(e, t) {
+      (super.cancel(e, t), (this._panState = null));
+    }
+  }
+  exports.exports = r;
+}

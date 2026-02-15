@@ -1,0 +1,264 @@
+/**
+ * Webpack Module #1348
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  (require(8) /* polyfill_bundle_ES6 */, require(196)) /* polyfill_Promise_finally */;
+  var GTools = require(53) /* GTools */,
+    GCore = require(1);
+  const { gApi: a } = require(10) /* AppSettings */,
+    GCollaborationEvent = require(393) /* GCollaborationEvent */,
+    GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
+    l = require(86);
+  class c {
+    constructor(e) {
+      ((this._document = e),
+      (this._currentLock = null),
+      (this._openingInlineEditor = false),
+      (this._alreadyRequestedAccess = false),
+      this._document.addEventListener(
+      GCollaborationEvent,
+      this._collaborationEvent,
+      this,
+      null,
+      true
+      ));
+      const module = this._document.getEditor();
+      module &&
+      module.addEventListener(
+      GTools.GEditor.InlineEditorEvent,
+      this._inlineEditorEvent,
+      this,
+      null,
+      true
+      );
+    }
+
+    _status = c.Status.Initial;
+    _openingInlineEditor = false;
+    _currentLock = null;
+    _alreadyRequestedAccess = false;
+
+    detach() {
+      this._document.removeEventListener(GCollaborationEvent, this._collaborationEvent, this);
+      const exports = this._document.getEditor();
+      exports &&
+        exports.removeEventListener(
+          GTools.GEditor.InlineEditorEvent,
+          this._inlineEditorEvent,
+          this
+        );
+    }
+
+    getStatus() {
+      return this._status;
+    }
+
+    async getCurrentLock() {
+      return (
+        this._currentLock ||
+          ((this._currentLock = await a.lock.get(this._document.getId()).catch(() => null)),
+          this._currentLock && this._fireLockUpdateEvent()),
+        this._currentLock
+      );
+    }
+
+    async acquireLock() {
+      return (await this.canLock())
+        ? (this._currentLock ||
+            ((this._currentLock = await a.lock.acquire(this._document.getId()).catch(() => null)),
+            this._currentLock && this._fireLockUpdateEvent()),
+          this._currentLock)
+        : null;
+    }
+
+    releaseLock() {
+      return a.lock.release(this._document.getId()).then(() => {
+        this._currentLock = null;
+      });
+    }
+
+    async canLock() {
+      return !(await this.getCurrentLock()) || this.isLockedByMe();
+    }
+
+    isLockedByMe() {
+      if (!this._currentLock) return false;
+      const exports = gDesigner.getSyncUser();
+      return this._currentLock.isLockedBy(exports);
+    }
+
+    async reloadDocument() {
+      this._updateStatus(c.Status.Updating);
+      const exports = (t) => {
+        t.status !== l.Loading &&
+          (this._document.removeEventListener(GDocumentStatusEvent, exports),
+          this._document.unlock(),
+          this.resetTextEditing());
+      };
+      (await this.releaseLock(),
+        this._document.addEventListener(GDocumentStatusEvent, exports),
+        this._document.lock(),
+        this._document.reload());
+    }
+
+    resetTextEditing() {
+      this._updateStatus(c.Status.Initial);
+    }
+
+    async finishTextEditing() {
+      (this._closeInlineEditor(), this._updateStatus(c.Status.Finished));
+    }
+
+    async backToTextEditing() {
+      (this._closeInlineEditor(), this._updateStatus(c.Status.Editing));
+    }
+
+    async sendChanges() {
+      return (
+        this._closeInlineEditor(),
+        this._document.lock(),
+        this._updateStatus(c.Status.Sending),
+        new Promise(async (e, t) => {
+          this._document.storeToCloud(
+            this._document.getScene(),
+            async () => {
+              (await this.releaseLock().catch((e) => console.error(e)), e());
+            },
+            t,
+            true,
+            { collabTextUpdate: true, sendEmail: true }
+          );
+        })
+          .then(async () => {
+            (await gDesigner.updateCollabTextPreviews().catch((e) => console.error(e)),
+              this.resetTextEditing());
+          })
+          .catch((e) => {
+            throw (
+              this.finishTextEditing(),
+              this._document.updateStatus(l.SaveCancelled),
+              this._document.updateStatus(l.Ready),
+              e
+            );
+          })
+          .finally(() => {
+            this._document.unlock();
+          })
+      );
+    }
+
+    async previewChanges() {
+      return (
+        this._closeInlineEditor(),
+        this._updateStatus(c.Status.Previewing),
+        this._document.lock(),
+        gDesigner
+          .updateCollabTextPreviews()
+          .then(() => {
+            this._updateStatus(c.Status.Previewed);
+          })
+          .catch(() => {
+            this.finishTextEditing();
+          })
+          .finally(() => {
+            this._document.unlock();
+          })
+      );
+    }
+
+    async requestAccess() {
+      return a.lock
+        .request(this._document.getId())
+        .then(() => (this._alreadyRequestedAccess = true));
+    }
+
+    hasAlreadyRequestedAccess() {
+      return this._alreadyRequestedAccess;
+    }
+
+    _updateStatus(e) {
+      e !== this._status &&
+        ((this._status = e),
+        this._document.hasEventListeners(c.StatusChangedEvent) &&
+          this._document.trigger(new c.StatusChangedEvent(this._status)));
+    }
+
+    _closeInlineEditor() {
+      const exports = this._document.getEditor();
+      exports && (exports.closeInlineEditor(), exports.clearSelection());
+    }
+
+    _inlineEditorEvent(e) {
+      switch (e.type) {
+        case GTools.GEditor.InlineEditorEvent.Type.TryOpen:
+          this._tryOpenInlineEditor(e);
+      }
+    }
+
+    async _tryOpenInlineEditor(e) {
+      if (!this._openingInlineEditor && this._document.isCollaborativeTextEditing())
+        if (
+          (e.editor.disableInlineEditingSupport(), e.editor instanceof GTools.GCollabTextEditor)
+        ) {
+          this._openingInlineEditor = true;
+          try {
+            gDesigner.toggleLoading(true);
+            if (!(await this.acquireLock())) return void this._closeInlineEditor();
+            e.editor.enableInlineEditingSupport();
+            const t = this._document.getEditor();
+            if (t) {
+              const n = this._document.getActiveWindow(),
+                GTools = n && n.getView();
+              GTools &&
+                t.openInlineEditor(e.editor.getElement(), GTools) &&
+                this._updateStatus(c.Status.Editing);
+            }
+          } finally {
+            ((this._openingInlineEditor = false), gDesigner.toggleLoading(false));
+          }
+        } else this._closeInlineEditor();
+    }
+
+    _fireLockUpdateEvent() {
+      this._document.hasEventListeners(c.LockUpdateEvent) &&
+        this._document.trigger(new c.LockUpdateEvent(this._currentLock));
+    }
+
+    _collaborationEvent(e) {
+      if (e.type === GCollaborationEvent.Type.LockUpdated)
+        ((this._currentLock = e.data), this._fireLockUpdateEvent());
+      else if (e.type === GCollaborationEvent.Type.FileUpdate) {
+        if (e.data && e.data.from === gDesigner.getSyncUser().id) return;
+        this._updateStatus(c.Status.UpdateAvailable);
+      }
+    }
+
+    static StatusChangedEvent(e) {
+    this.status = e;
+  }
+
+    static Status = {
+      Initial: 0,
+      Editing: 1,
+      Finished: 2,
+      Previewing: 3,
+      Previewed: 4,
+      Sending: 5,
+      UpdateAvailable: 6,
+      Updating: 7,
+    };
+
+    static LockUpdateEvent(e) {
+      this.lock = e;
+    }
+
+  }
+  (GCore.GObject.inherit(c.StatusChangedEvent, GCore.GEvent),
+    c.StatusChangedEvent.prototype.status = null,
+    GCore.GObject.inherit(c.LockUpdateEvent, GCore.GEvent),
+    c.LockUpdateEvent.prototype.lock = null,
+    exports.exports = c);
+}

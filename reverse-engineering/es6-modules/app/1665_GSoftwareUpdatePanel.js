@@ -1,0 +1,373 @@
+/**
+ * Webpack Module #1665
+ * Type: class
+ * Name: GSoftwareUpdatePanel
+ */
+
+function (exports, module, require) {
+  'use strict';
+  (require(8) /* polyfill_bundle_ES6 */,
+    require(20) /* polyfill_RegExp_exec */,
+    require(3) /* polyfill_RegExp_toString */,
+    require(34) /* polyfill_String_replace */,
+    require(4) /* stub_requires_668 */,
+    require(13)) /* stub_requires_679 */;
+  var GCore = require(1);
+  const GPanel = require(606) /* GPanel */,
+    GView = require(394) /* GView */,
+    GEvent_1188 = require(1188) /* GEvent_1188 */,
+    GContainer = require(85) /* GContainer */,
+    GSystemDialog = require(44) /* GSystemDialog */,
+    { SOFTWARE_UPDATE: c, DateAPI: d } = require(10);
+  class u extends GPanel {
+    constructor() {
+      super();
+    }
+
+    _mustBeOpened = null;
+
+    init(e) {
+      ((this._htmlElement = e),
+        this._htmlElement.addClass('software-update-panel'),
+        $('<div></div>')
+          .addClass('g-btn-close')
+          .append($('<span></span>').addClass('gravit-icon-close'))
+          .on('click', () => this._hide())
+          .appendTo(this._htmlElement),
+        this._updatePanelState(false));
+    }
+
+    _hide() {
+      this._updatePanelState(false);
+    }
+
+    _changePanelVisibility(e) {
+      e ? this._htmlElement.removeClass('g-hide') : this._htmlElement.addClass('g-hide');
+    }
+
+    _updatePanelState(e) {
+      e !== this._mustBeOpened &&
+        (this._changePanelVisibility(e),
+        (this._mustBeOpened = e),
+        this.trigger(GView.UPDATE_EVENT));
+    }
+
+    _updateContent(e) {
+      (this._htmlElement.find('.content').remove(),
+        this._htmlElement.append($('<div></div>').addClass('content').append(e)));
+    }
+
+    activate() {
+      this._addEventListeners();
+    }
+
+    deactivate() {
+      this._removeEventListeners();
+    }
+
+    _addEventListeners() {
+      (gDesigner.addEventListener(GEvent_1188.AfterUpdate, this._handleAfterUpdate, this),
+        gDesigner.addEventListener(
+          GEvent_1188.DownloadComplete,
+          this._handleDownloadComplete,
+          this
+        ),
+        gDesigner.addEventListener(GEvent_1188.Downloading, this._handleDownloadInProgress, this),
+        gDesigner.addEventListener(GEvent_1188.UpdateAvailable, this._handleUpdateAvailable, this),
+        gDesigner.addEventListener(GEvent_1188.UpdateError, this._handleUpdateError, this),
+        gDesigner.addEventListener(
+          GEvent_1188.UpdateNotAvailable,
+          this._handleUpdateNotAvailable,
+          this
+        ));
+    }
+
+    _handleAfterUpdate(e) {
+      if (!this._shouldShowMessages(e)) return;
+      const module = e.currentVersion,
+        require = GCore.GLocale.get(
+          new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.after-update')
+        ).replace('%currentVersion', module);
+      (this._updateContent(
+        $('<div></div>')
+          .addClass('message')
+          .addClass('featured')
+          .append(require)
+          .append(
+            c.SHOW_CHANGE_LOG
+              ? $('<a></a>')
+                  .text(
+                    GCore.GLocale.get(
+                      new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.see-release-notes')
+                    )
+                  )
+                  .click((e) => {
+                    gContainer.openExternalLink(
+                      e,
+                      gDesigner.getSoftwareUpdateManager().getReleaseNotesLink()
+                    );
+                  })
+              : ''
+          )
+      ),
+        this._updatePanelState(true));
+    }
+
+    _handleUpdateNotAvailable(e) {
+      if (!this._shouldShowMessages(e)) return;
+      const module = e.currentVersion,
+        require = GCore.GLocale.get(
+          new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.update-not-available')
+        ).replace('%currentVersion', module);
+      (this._updateContent($('<div></div>').addClass('message').append(require)),
+        this._updatePanelState(true));
+    }
+
+    _handleDownloadComplete(e) {
+      if (!this._shouldShowMessages(e)) return;
+      const module = e.newVersion,
+        require = e.forceUpdate,
+        GPanel = GCore.GLocale.get(
+          new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.download-ready')
+        ).replace('%newVersion', module);
+      var GView = false;
+      (this._updateContent(
+        $('<div></div>')
+          .addClass('message')
+          .addClass('featured')
+          .html(GPanel)
+          .click(async () => {
+            GView ||
+              ((await gContainer.canUnload(
+                gDesigner.hasModifiedDocuments(),
+                gDesigner.hasSynchronizingDocuments()
+              )) &&
+                ((GView = true),
+                gDesigner.getSoftwareUpdateManager().installUpdate(),
+                this._updateContent(
+                  $('<div></div>')
+                    .addClass('message')
+                    .addClass('featured')
+                    .append(
+                      $('<span/>')
+                        .addClass('gravit-icon-rotate-right-flat')
+                        .addClass('icon')
+                        .addClass('spin')
+                    )
+                    .append(
+                      GCore.GLocale.get(
+                        new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.updating')
+                      )
+                    )
+                )));
+          })
+      ),
+        this._updatePanelState(true),
+        require && this._createForceUpdateMessageDialog());
+    }
+
+    _handleDownloadInProgress(e) {
+      if (!this._shouldShowMessages(e)) return;
+      const module = e.percent,
+        require = e.newVersion;
+      var GPanel = this._htmlElement.find('.progress-content');
+      const GView = GCore.GLocale.get(
+        new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.download-progress')
+      ).replace('%newVersion', require);
+      GPanel.length ||
+        (this._updateContent(
+          $('<div></div>')
+            .addClass('message')
+            .text(GView)
+            .append(
+              $('<div></div>')
+                .addClass('progress-content')
+                .append(
+                  $('<div></div>')
+                    .addClass('progress-element')
+                    .append($('<div></div>').addClass('progress-bar'))
+                )
+                .append($('<div></div>').addClass('percent'))
+            )
+        ),
+        (GPanel = this._htmlElement.find('.progress-content')));
+      (GPanel.find('.progress-bar').css({ width: ''.concat(module, '%') }),
+        GPanel.find('.percent').text(module));
+    }
+
+    _shouldShowMessages(e) {
+      return !e.isSilent;
+    }
+
+    _handleUpdateAvailable(e) {
+      if (!this._shouldShowMessages(e)) return;
+      const module = e.currentVersion,
+        require = e.newVersion,
+        GPanel = e.forceUpdate;
+      if (e.isSilent && !GPanel) return;
+      !GPanel ||
+        (gContainer.getRuntime() !== GContainer.Runtime.Browser &&
+          gContainer.getRuntime() !== GContainer.Runtime.PWA) ||
+        this._createForceUpdateMessageDialog();
+      const GView = GCore.GLocale.get(
+          new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.update-available')
+        )
+          .replace('%newVersion', require)
+          .replace('%currentVersion', module),
+        GEvent_1188 = $('<span/>').addClass('gravit-icon-rotate-right-flat').addClass('icon');
+      (this._updateContent(
+        $('<div></div>')
+          .addClass('message')
+          .addClass('featured')
+          .append(GEvent_1188)
+          .append(GView)
+          .append(
+            $('<a></a>')
+              .append(
+                GCore.GLocale.get(new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.update-now'))
+              )
+              .click(() => {
+                (GEvent_1188.addClass('spin'), this._installAfterDocumentUnload());
+              })
+          )
+      ),
+        this._updatePanelState(true));
+    }
+
+    async _installAfterDocumentUnload() {
+      if (
+        await gContainer.canUnload(
+          gDesigner.hasModifiedDocuments(),
+          gDesigner.hasSynchronizingDocuments()
+        )
+      )
+        switch (gContainer.getRuntime()) {
+          case GContainer.Runtime.Browser:
+          case GContainer.Runtime.PWA:
+            gDesigner.getSoftwareUpdateManager().installUpdate();
+            break;
+          case GContainer.Runtime.Electron:
+            gDesigner.getSoftwareUpdateManager().downloadUpdate();
+        }
+      else
+        GSystemDialog.alert(
+          GCore.GLocale.get(
+            new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.dialog-unsaved-documents')
+          )
+        );
+    }
+
+    _createForceUpdateMessageDialog() {
+      let exports,
+        module = false;
+      const require = d.minutesToMilliseconds(5),
+        GPanel = () => {
+          module ||
+            ((module = true),
+            exports.gDialog('close'),
+            gDesigner.createCountdown(() => {
+              gDesigner.getSoftwareUpdateManager().installUpdate();
+            }, require));
+        };
+      ((exports = $('<div></div>').gDialog({
+        releaseOnClose: true,
+        className: 'g-force-update-app-dialog',
+        closeCallback: GPanel,
+      })),
+        $('<div></div>')
+          .addClass('g-btn-close')
+          .append($('<span></span>').addClass('gravit-icon-close'))
+          .on('click', () => GPanel())
+          .appendTo(exports),
+        $('<div></div>').addClass('logo').appendTo(exports),
+        $('<div></div>')
+          .addClass('content')
+          .append(
+            $('<span></span>')
+              .addClass('title')
+              .html(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.force-new-version-available')
+                ).replace('%newVersion', gDesigner.getSoftwareUpdateManager().getNewVersion())
+              )
+          )
+          .append(
+            $('<span></span>')
+              .addClass('subtitle')
+              .html(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey(
+                    'GSoftwareUpdatePanel',
+                    'text.force-message-avoid-losing-progress'
+                  )
+                )
+              )
+          )
+          .append(
+            $('<span></span>')
+              .addClass('update-information')
+              .html(
+                GCore.GLocale.get(
+                  new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.force-update-information-time')
+                ).replace('%minutes', 5)
+              )
+          )
+          .append(
+            $('<div></div>')
+              .addClass('buttons')
+              .append(
+                $('<button></button>')
+                  .append(
+                    $('<span></span>').text(
+                      GCore.GLocale.get(new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.ok'))
+                    )
+                  )
+                  .on('click', () => GPanel())
+              )
+          )
+          .appendTo(exports),
+        exports.gDialog('open', false));
+    }
+
+    _handleUpdateError(e) {
+      if (!this._shouldShowMessages(e)) return;
+      const module = GCore.GLocale.get(
+        new GCore.GLocaleKey('GSoftwareUpdatePanel', 'text.update-error')
+      );
+      (this._updateContent($('<div></div>').addClass('message').append(module)),
+        this._updatePanelState(true));
+    }
+
+    _removeEventListeners() {
+      (gDesigner.removeEventListener(GEvent_1188.AfterUpdate, this._handleAfterUpdate),
+        gDesigner.removeEventListener(GEvent_1188.DownloadComplete, this._handleDownloadComplete),
+        gDesigner.removeEventListener(GEvent_1188.Downloading, this._handleDownloadInProgress),
+        gDesigner.removeEventListener(GEvent_1188.UpdateAvailable, this._handleUpdateAvailable),
+        gDesigner.removeEventListener(GEvent_1188.UpdateError, this._handleUpdateError),
+        gDesigner.removeEventListener(
+          GEvent_1188.UpdateNotAvailable,
+          this._handleUpdateNotAvailable
+        ));
+    }
+
+    getTitle() {
+      return GCore.GLocale.get(new GCore.GLocaleKey('GSoftwareUpdatePanel', 'title'));
+    }
+
+    isEnabled() {
+      return !!this._mustBeOpened;
+    }
+
+    toString() {
+      return '[Object GSoftwareUpdatePanel]';
+    }
+
+    getId() {
+      return u.ID;
+    }
+
+    static ID = 'software-update-panel';
+
+  }
+  exports.exports = u;
+}

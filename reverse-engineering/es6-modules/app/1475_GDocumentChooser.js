@@ -1,0 +1,170 @@
+/**
+ * Webpack Module #1475
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  require(8) /* polyfill_bundle_ES6 */;
+  var o = require(797) /* module */,
+    GCore = require(1);
+  require(257) /* barrel_panels */;
+  class a extends GCore.GObject {
+    constructor(e, t, n, o, a, r) {
+      super();
+      ((this._currentDocument = e),
+      (this._newDocument = t),
+      (this._localName = n),
+      (this._cloudName = o),
+      (this._callback = a),
+      (this._onCancel = r),
+      (this._dialog = $('<div></div>')),
+      $('<div></div>')
+      .addClass('g-btn-close')
+      .css('display', this._onCancel ? '' : 'none')
+      .append($('<span></span>').addClass('gravit-icon-close'))
+      .on('click', this.close.bind(this))
+      .appendTo(this._dialog));
+      var s = $('<div></div>').addClass('header').appendTo(this._dialog);
+      ($('<div></div>')
+      .addClass('title')
+      .append(
+      $('<span></span>').text(
+      GCore.GLocale.get(new GCore.GLocaleKey('GDocumentChooser', 'text.sync.title'))
+      )
+      )
+      .appendTo(s),
+      $('<div></div>')
+      .addClass('subtitle')
+      .append(
+      $('<span></span>').text(
+      GCore.GLocale.get(new GCore.GLocaleKey('GDocumentChooser', 'text.sync.subtitle'))
+      )
+      )
+      .appendTo(s),
+      (this._container = $('<div></div>').addClass('container').appendTo(this._dialog)),
+      (this._footer = $('<div></div>')
+      .addClass('footer')
+      .css('display', this._onCancel ? '' : 'none')
+      .appendTo(this._dialog)));
+      let l = $('<div></div>').addClass('buttons').appendTo(this._footer);
+      $('<button></button>')
+      .addClass('g-button')
+      .text(GCore.GLocale.get(new GCore.GLocaleKey('GLocale', 'cancel')))
+      .on('click', this.close.bind(this))
+      .appendTo(l);
+      (this._dialog.gDialog({
+      releaseOnClose: true,
+      className: 'g-document-chooser',
+      }),
+      this._updatePreview());
+    }
+
+    open() {
+      this._dialog.gDialog('open', false);
+    }
+
+    close() {
+      (this._dialog.gDialog('close'), this._onCancel && this._onCancel());
+    }
+
+    _updatePreview() {
+      (this._container.empty(),
+        this._createPreview(
+          this._newDocument,
+          'online',
+          this._cloudName,
+          this._newDocument.lastModifiedDate() > this._currentDocument.lastModifiedDate()
+        ),
+        this._createPreview(
+          this._currentDocument,
+          'offline',
+          this._localName,
+          this._currentDocument.lastModifiedDate() > this._newDocument.lastModifiedDate()
+        ));
+    }
+
+    _loadPreview(e, t) {
+      return new Promise(function (n) {
+        if ('offline' !== t) {
+          var o = [],
+            a = function (e) {
+              if (
+                e.image.getStatus() === GCore.GImage.ImageStatus.Loaded ||
+                e.image.getStatus() === GCore.GImage.ImageStatus.Error
+              ) {
+                e.image.removeEventListener(GCore.GImage.StatusEvent, this);
+                var t = o.indexOf(e.image);
+                (-1 !== t && o.splice(t, 1), o.length || n());
+              }
+            };
+          (e.acceptChildren((e) => {
+            e instanceof GCore.GImage &&
+              ((e.getStatus() === GCore.GImage.ImageStatus.Error &&
+                e.getStatus() === GCore.GImage.ImageStatus.Loaded) ||
+                (o.push(e), e.addEventListener(GCore.GImage.StatusEvent, a)));
+          }),
+            o.length || n());
+        } else n();
+      });
+    }
+
+    _createPreview(e, t, n) {
+      let a = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
+      var r = $('<div />').addClass('image'),
+        s = $('<div></div>')
+          .addClass('preview')
+          .on('click', () => {
+            (gDesigner.stats('documentchooser_click_preview', t), this.close(), this._callback(e));
+          })
+          .appendTo(this._container),
+        l = $('<div></div>')
+          .addClass('preview-image loading')
+          .css('background', GCore.GPattern.asCSSBackground(null))
+          .append(r)
+          .appendTo(s);
+      this._loadPreview(e, t).then(() => {
+        var t = o.GBitmapExport.export(e);
+        (l.removeClass('loading'),
+          r.css(
+            'background-image',
+            'url('.concat(t.toImageDataUrl(GCore.GBitmap.ImageType.JPEG, 1), ')')
+          ));
+      });
+      var c = function (e) {
+        return 0 === e.getTime()
+          ? GCore.GLocale.get(new GCore.GLocaleKey('GDocumentChooser', 'text.unavailable'))
+          : GCore.GLocale.toLocaleDate(e, {
+              year: 'numeric',
+              month: 'numeric',
+              day: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+            });
+      };
+      s.append(
+        $('<div></div>')
+          .addClass('title')
+          .append(
+            $('<span></span>').text(
+              n + ' ' + GCore.GLocale.get(new GCore.GLocaleKey('GDocumentChooser', 'text.' + t))
+            )
+          )
+      ).append(
+        $('<div></div>')
+          .addClass('subtitle')
+          .append(
+            $('<span></span>').text(
+              c(e.lastModifiedDate()) +
+                (a
+                  ? ' ' +
+                    GCore.GLocale.get(new GCore.GLocaleKey('GDocumentChooser', 'text.newer-file'))
+                  : '')
+            )
+          )
+      );
+    }
+
+  }
+  exports.exports = a;
+}

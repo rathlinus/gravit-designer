@@ -1,0 +1,135 @@
+/**
+ * Webpack Module #1494
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  (Object.defineProperty(module, '__esModule', { value: true }),
+    (module.default = undefined),
+    require(8) /* polyfill_bundle_ES6 */,
+    require(20) /* polyfill_RegExp_exec */,
+    require(271) /* polyfill_String_endsWith */,
+    require(34) /* polyfill_String_replace */,
+    require(134) /* polyfill_String_startsWith */,
+    require(38)) /* stub_requires_680 */;
+  const { isBeta: o } = require(803); /* module_803 */
+  var AnalyticsEventMap = require(1495); /* AnalyticsEventMap */
+  let a = 0,
+    r = 0;
+  const s = {
+    pageStats: (e, t, n, l, c) => {
+      if (
+        (l ||
+          (function (e, t, n) {
+            const o = (e) => 'string' == typeof e;
+            function a(e) {
+              return (e || '')
+                .split('/')
+                .map(function (e) {
+                  return (function (e) {
+                    if (!e) return '';
+                    let t = String(e)
+                      .replace(
+                        /^(?:[\0-\/:-@\[-`\{-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*|(?:[\0-\/:-@\[-`\{-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*$/g,
+                        '$'
+                      )
+                      .replace(
+                        /(?:[\0-\/:-@\[-`\{-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+/g,
+                        '$'
+                      )
+                      .replace(/([a-z])([A-Z])/g, function (e, t, n) {
+                        return t + '$' + n;
+                      })
+                      .toLowerCase()
+                      .replace(/(\$)([0-9A-Z_a-z]?)/g, function (e, t, n) {
+                        return n.toUpperCase();
+                      });
+                    return (e.startsWith('!') && (t = '!' + t), t);
+                  })(e);
+                })
+                .join('/');
+            }
+            if ('undefined' == typeof _GLOBAL_GA_EVENTS) return;
+            if (!n && Date.now() - r <= 100) return;
+            var l = e.split('_'),
+              c = l[0],
+              d = l[1],
+              u =
+                (l[2] || '') +
+                ('string' == typeof t || 'number' == typeof t || t instanceof String
+                  ? ':' + t
+                  : '');
+            if ('undefined' != typeof dataLayer) {
+              var p = (function (e, t, n) {
+                var r = n ? n.split(':') : '',
+                  s = e,
+                  l = t,
+                  c = r[0] || '',
+                  d = r[1] || '';
+                if (!s) return null;
+                var u = '';
+                if (o(AnalyticsEventMap[s])) u = AnalyticsEventMap[s];
+                else if (l && o(AnalyticsEventMap[s][l])) u = AnalyticsEventMap[s][l];
+                else if (l && c && o(AnalyticsEventMap[s][l][c])) u = AnalyticsEventMap[s][l][c];
+                else {
+                  if (!(l && c && d && o(AnalyticsEventMap[s][l][c][d]))) return null;
+                  u = AnalyticsEventMap[s][l][c][d];
+                }
+                return (
+                  (u = (u = (u = (u = u.replace('$EVENTNAME', a(s))).replace(
+                    '$CATEGORY',
+                    a(l)
+                  )).replace('$ACTION', a(c))).replace('$VALUE', a(d))) &&
+                    !u.startsWith('/') &&
+                    (u = '/' + u),
+                  u
+                );
+              })(c, d, u);
+              (p && s.pageTracking(p), (r = Date.now()));
+            }
+          })(e, t),
+        n &&
+          (('function' == typeof gdb_loaddesign || o) &&
+            console.log('updating stats:' + e + ' value: ' + (t || 'null')),
+          'undefined' != typeof _GLOBAL_GA_EVENTS && 'undefined' != typeof ga))
+      ) {
+        var d = n;
+        if ((!d && n.isAnonymous() && (d = {}), d)) {
+          var u = t ? e + '_' + t : e;
+          if (
+            (d.hasOwnProperty(u) && 'number' == typeof d[u] ? d[u]++ : (d[u] = 1),
+            c || Date.now() - a > 100)
+          ) {
+            var p = e.split('_'),
+              g =
+                (p[2] || 'unknown') +
+                ('string' == typeof t || 'number' == typeof t || t instanceof String
+                  ? ':' + t
+                  : '');
+            (ga(_GLOBAL_GA_EVENTS, 'event', p[0], p[1] || 'unknown', g), (a = Date.now()));
+          }
+        }
+      }
+    },
+    pageTracking: async function (e, t) {
+      'undefined' != typeof _GLOBAL_GA_EVENTS &&
+        (Date.now() - r <= 100 ||
+          (e.startsWith('/') || (e = '/' + e),
+          e.endsWith('/') && (e = e.slice(0, e.length - 1)),
+          t && (t.startsWith('/') ? (e += t) : (e = e + '/' + t)),
+          (e = s.modifyPageStatsForUserLicense(e)),
+          (e = await s.modifyPageStatsForAppMode(e)),
+          ('function' == typeof gdb_loaddesign || o) && console.log('pagestats: ' + e),
+          window.ga(_GLOBAL_GA_EVENTS, 'pageview', e),
+          (r = Date.now())));
+    },
+    modifyPageStatsForUserLicense: function (e) {
+      return e;
+    },
+    modifyPageStatsForAppMode: function (e) {
+      return e;
+    },
+  };
+  module.default = s;
+}

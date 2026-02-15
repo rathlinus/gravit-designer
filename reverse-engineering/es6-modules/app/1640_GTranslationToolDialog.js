@@ -1,0 +1,448 @@
+/**
+ * Webpack Module #1640
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  var _interopRequireDefault = require(16);
+  (require(58) /* polyfill_Array_includes */,
+    require(19) /* polyfill_Array_iterator */,
+    require(57) /* polyfill_parseInt */,
+    require(8) /* polyfill_bundle_ES6 */,
+    require(71) /* polyfill_String_includes */,
+    require(91) /* polyfill_String_trim */,
+    require(4) /* stub_requires_668 */,
+    require(41) /* stub_requires_682 */,
+    require(13) /* stub_requires_679 */,
+    require(38) /* stub_requires_680 */,
+    require(26) /* polyfill_DOMCollection_iterator */,
+    require(125) /* stub_requires_673 */,
+    require(126) /* polyfill_URL_toJSON */,
+    require(114)) /* stub_requires_424 */;
+  var GCore = require(1) /* GCore */,
+    GTranslationManager = _interopRequireDefault(require(1343) /* GTranslationManager */),
+    GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
+    CollaborationMergeUtils = require(40);
+  class l extends GCore.GObject {
+    constructor() {
+      super();
+    }
+
+    _translationManager = null;
+    _hasUnappliedChanges = null;
+    _shouldDownloadMetaData = false;
+    _currentLanguage = null;
+    _dialog = null;
+
+    init() {
+      ((this._translationManager = gDesigner.getTranslationManager()),
+        (this._dialog = $('<div></div>').gDialog({
+          releaseOnClose: true,
+          className: 'g-translation-tool-dialog',
+        })),
+        $('<div></div>')
+          .addClass('g-btn-close')
+          .append($('<span></span>').addClass('gravit-icon-close'))
+          .on('click', this.close.bind(this))
+          .appendTo(this._dialog),
+        (this._container = $('<div></div>').addClass('container').appendTo(this._dialog)),
+        (this._panel = $('<div></div>').addClass('panel').appendTo(this._container)),
+        (this._header = $('<div></div>')
+          .addClass('header')
+          .append(
+            $('<span/>')
+              .addClass('spin')
+              .addClass('loading-element')
+              .load('assets/icon/gravit-icon-rotate-right-flat.svg')
+          )
+          .append($('<span></span>').text('Choose project'))
+          .append(
+            $('<select></select>')
+              .addClass('project-chooser')
+              .append(
+                this._translationManager
+                  .getProjectsDescription()
+                  .map((e) => $('<option></option>').text(e).attr('value', e))
+              )
+              .on('change', (e) => {
+                this._translationManager.getProjectsDescription().includes(e.target.value) &&
+                  this._handleProjectChange(e.target.value);
+              })
+          )
+          .append($('<span></span>').text('Choose language'))
+          .append(
+            $('<select></select>')
+              .addClass('language-chooser')
+              .on('change', (e) => {
+                this._handleLanguageChange(e.target.value, e);
+              })
+          )
+          .append($('<span></span>').text('Available'))
+          .append(
+            $('<input></input>')
+              .attr('type', 'checkbox')
+              .addClass('check-available')
+              .on('change', (e) => this._toggleCurrentLanguageAvailability(e.target.checked))
+          )
+          .append($('<span></span>').text('Filter by temporary translations'))
+          .append(
+            $('<input></input>')
+              .attr('type', 'checkbox')
+              .addClass('check-temporary')
+              .on('change', (e) => {
+                const module = $(e.target).closest('input').is(':checked');
+                this._body
+                  .find('.translations-container')
+                  .toggleClass('filter-by-temporary', !!module);
+              })
+          )
+          .append(
+            $('<span></span>')
+              .addClass('only-export-empty-strings')
+              .text('Only export empty strings?')
+          )
+          .append(
+            $('<input></input>')
+              .attr('type', 'checkbox')
+              .on('change', (e) => (this._onlyExportEmptyStrings = e.target.checked))
+          )
+          .append(
+            $('<button></button>')
+              .addClass('button')
+              .text('Export CSV')
+              .click(this._exportAsCSV.bind(this))
+          )
+          .append(
+            $('<button></button>')
+              .addClass('button')
+              .text('Import CSV')
+              .click(this._handleCSVImport.bind(this))
+          )
+          .append(
+            $('<button></button>')
+              .addClass('button')
+              .text('New language')
+              .click(this._handleNewLanguage.bind(this))
+          )
+          .appendTo(this._panel)),
+        $('<hr></hr>').appendTo(this._panel),
+        (this._body = $('<div></div>').addClass('body').appendTo(this._panel)),
+        (this._footer = $('<div></div>')
+          .addClass('footer')
+          .append(
+            $('<button></button>')
+              .addClass('button')
+              .text('Apply')
+              .on('click', this._applyChanges.bind(this))
+          )
+          .append(
+            $('<button></button>')
+              .addClass('button')
+              .text('Download')
+              .on('click', this._downloadMetaData.bind(this))
+          )
+          .appendTo(this._panel)),
+        this._handleProjectChange(GCore.GTranslation.Projects.Designer),
+        this.open());
+    }
+
+    open() {
+      this._dialog.gDialog('open', false);
+    }
+
+    _handleProjectChange(e) {
+      (this._translationManager.loadProjectTranslations(e),
+        this._updateUIComponents(),
+        this._handleLanguageChange(GCore.GLocaleLanguage.Default, true));
+    }
+
+    _applyChanges() {
+      this._translationManager.applyTranslationPatch([this._translation]).then(() => {
+        ((this._hasUnappliedChanges = false), (this._shouldDownloadMetaData = true));
+      });
+    }
+
+    _toggleCurrentLanguageAvailability(e) {
+      ((this._translation.isAvailable = e), (this._hasUnappliedChanges = true));
+    }
+
+    _handleLanguageChange(e) {
+      let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+      if (!module && parseInt(this._currentLanguage) === parseInt(e)) return;
+      const require = () => {
+        (this._setLoadingStatus(true),
+          (this._currentLanguage = parseInt(e)),
+          (this._hasUnappliedChanges = false));
+        let module = this._translationManager.isConsideringExtension();
+        (this._header.find('.language-chooser').val(this._currentLanguage),
+          this._body.find('.translations-container').remove());
+        var n = $('<div></div>')
+          .addClass('translations-container')
+          .toggleClass('filter-by-temporary', this._header.find('.check-temporary').is(':checked'));
+        ((this._translation = this._translationManager.getTranslationCopy(this._currentLanguage)),
+          this._header.find('.check-available').prop('checked', this._translation.isAvailable),
+          n.append(
+            Object.keys(this._translation.translations).map((e) => {
+              let n = $('<div></div>').addClass('path');
+              return (
+                n.append($('<span></span>').addClass('description').text(e)),
+                n.append(
+                  Object.keys(this._translation.translations[e]).map((_interopRequireDefault) => {
+                    let GCore = $('<div></div>').addClass('row'),
+                      GTranslationManager =
+                        this._translation.translations[e][_interopRequireDefault];
+                    const GSystemDialog =
+                      this._translation.translationsTemporary &&
+                      this._translation.translationsTemporary[e] &&
+                      this._translation.translationsTemporary[e][_interopRequireDefault];
+                    let CollaborationMergeUtils = !(
+                      !GSystemDialog ||
+                      (GTranslationManager && GTranslationManager.trim())
+                    );
+                    if (
+                      ((GTranslationManager = CollaborationMergeUtils
+                        ? GSystemDialog
+                        : GTranslationManager),
+                      $('<input></input>')
+                        .addClass('key')
+                        .attr('disabled', true)
+                        .attr('placeholder', 'Key')
+                        .val(_interopRequireDefault)
+                        .attr('data-title', GTranslationManager)
+                        .appendTo(GCore),
+                      CollaborationMergeUtils &&
+                        GCore.append(
+                          $('<span/>')
+                            .addClass('gravit-icon-google-translate')
+                            .attr(
+                              'data-title',
+                              'This is a temporary translation provided by Google Translator'
+                            )
+                        ),
+                      $('<input></input>')
+                        .addClass('value')
+                        .data({
+                          language: this._currentLanguage,
+                          path: e,
+                          key: _interopRequireDefault,
+                          originalValue: this._translation.translations[e][_interopRequireDefault],
+                        })
+                        .on('change', (t) => {
+                          ((this._translation.translations[e][_interopRequireDefault] =
+                            t.target.value),
+                            (this._hasUnappliedChanges = true));
+                        })
+                        .attr('placeholder', 'Translation')
+                        .val(GTranslationManager)
+                        .appendTo(GCore),
+                      module)
+                    ) {
+                      var l =
+                        this._translation.translationsExtended &&
+                        this._translation.translationsExtended[e] &&
+                        this._translation.translationsExtended[e][_interopRequireDefault];
+                      const t =
+                        this._translation.translationsExtendedTemporary &&
+                        this._translation.translationsExtendedTemporary[e] &&
+                        this._translation.translationsExtendedTemporary[e][_interopRequireDefault];
+                      ((l = t || l),
+                        (CollaborationMergeUtils = CollaborationMergeUtils || !!t),
+                        t &&
+                          GCore.append(
+                            $('<span/>')
+                              .addClass('gravit-icon-google-translate')
+                              .attr(
+                                'data-title',
+                                'This is a temporary translation provided by Google Translator'
+                              )
+                          ),
+                        $('<input></input>')
+                          .addClass('value')
+                          .data({
+                            language: this._currentLanguage,
+                            path: e,
+                            key: _interopRequireDefault,
+                            extension: true,
+                            originalValue: l,
+                          })
+                          .on('change', (t) => {
+                            (t.target.value.trim()
+                              ? (this._translation.translationsExtended ||
+                                  (this._translation.translationsExtended = {}),
+                                this._translation.translationsExtended[e] ||
+                                  (this._translation.translationsExtended[e] = {}),
+                                (this._translation.translationsExtended[e][_interopRequireDefault] =
+                                  t.target.value))
+                              : delete this._translation.translationsExtended[e][
+                                  _interopRequireDefault
+                                ],
+                              (this._hasUnappliedChanges = true));
+                          })
+                          .attr('placeholder', 'Extension')
+                          .val(l || '')
+                          .appendTo(GCore));
+                    }
+                    return (
+                      CollaborationMergeUtils &&
+                        (GCore.addClass('temporary'), n.addClass('temporary')),
+                      GCore
+                    );
+                  })
+                ),
+                n
+              );
+            })
+          ),
+          n.appendTo(this._body),
+          this._setLoadingStatus(false));
+      };
+      this._hasUnappliedChanges
+        ? GSystemDialog.default.confirm(
+            "You have modified strings, you'll lose them if you don't apply them first, are you sure?",
+            (e) => {
+              e ? require() : this._header.find('.language-chooser').val(this._currentLanguage);
+            }
+          )
+        : require();
+    }
+
+    close() {
+      this._hasUnappliedChanges || this._shouldDownloadMetaData
+        ? this._shouldDownloadMetaData
+          ? GSystemDialog.default.confirm(
+              "You haven't downloaded the translations after applying changes, are you sure about closing?",
+              (e) => {
+                e && this._close();
+              }
+            )
+          : GSystemDialog.default.confirm(
+              'You have modified strings, are you sure about closing?',
+              (e) => {
+                e && this._close();
+              }
+            )
+        : this._close();
+    }
+
+    _close() {
+      ((this._hasUnappliedChanges = false),
+        (this._currentLanguage = null),
+        (this._shouldDownloadMetaData = false),
+        this._dialog.gDialog('close', false, 0));
+    }
+
+    async _downloadMetaData() {
+      var e = async () => {
+        (this._manageDownload(
+          'translations_'
+            .concat(this._translationManager.getActiveProject(), '.json')
+            .toLowerCase(),
+          await this._translationManager.getMetaData()
+        ),
+          (this._shouldDownloadMetaData = false));
+      };
+      this._hasUnappliedChanges
+        ? GSystemDialog.default.confirm(
+            'You have modified strings, do you want to download before applying your changes?',
+            (t) => {
+              t && e();
+            }
+          )
+        : e();
+    }
+
+    async _exportAsCSV() {
+      var e = Object.keys(GCore.GLocaleLanguage)[
+        Object.values(GCore.GLocaleLanguage).indexOf(this._currentLanguage)
+      ];
+      this._manageDownload(
+        'translations_'
+          .concat(this._translationManager.getActiveProject(), '_')
+          .concat(e, '.csv')
+          .toLocaleLowerCase(),
+        await this._translationManager.export(
+          GTranslationManager.default.FormatTypes.CSV,
+          this._currentLanguage,
+          this._onlyExportEmptyStrings
+        )
+      );
+    }
+
+    async _handleCSVImport() {
+      try {
+        (this._setLoadingStatus(true),
+          gDesigner.getDefaultStorage().openPrompt(
+            [{ ext: 'csv', mime: 'text/csv' }],
+            (e) => {
+              e &&
+                e.read((e) => {
+                  var t = (0, CollaborationMergeUtils.decodeFromUTF8)(e);
+                  this._translationManager
+                    .import(t)
+                    .then(() => this._handleLanguageChange(this._currentLanguage, true))
+                    .catch((e) => this._handleError(e));
+                });
+            },
+            false
+          ));
+      } catch (e) {
+        this._handleError(e);
+      } finally {
+        this._setLoadingStatus(false);
+      }
+    }
+
+    _manageDownload(e, t) {
+      var n = document.createElement('a');
+      (n.setAttribute('href', URL.createObjectURL(new Blob([t], { type: 'text/plain' }))),
+        n.setAttribute('download', e),
+        (n.style.display = 'none'),
+        document.body.appendChild(n),
+        n.click(),
+        document.body.removeChild(n));
+    }
+
+    _handleError(e) {
+      'string' != typeof e || GSystemDialog.default.alert(e);
+    }
+
+    _setLoadingStatus(e) {
+      var t = this._header.find('.loading-element');
+      e ? t.addClass('visible') : t.removeClass('visible');
+    }
+
+    _handleNewLanguage() {
+      GSystemDialog.default.prompt('Please name the new language (English)!', (e) => {
+        e
+          ? GSystemDialog.default.prompt('Please inform the real name of the language!', (t) => {
+              GSystemDialog.default.prompt('Please inform the ISO Language Code!', (n) => {
+                this._translationManager
+                  .createNewLanguage(e, t, n)
+                  .then((e) => {
+                    ((this._shouldDownloadMetaData = true),
+                      this._updateUIComponents(),
+                      this._handleLanguageChange(e.keyValue));
+                  })
+                  .catch((e) => this._handleError(e));
+              });
+            })
+          : GSystemDialog.default.alert("Invalid value ('".concat(e, "') for language!"));
+      });
+    }
+
+    _updateUIComponents() {
+      this._header.find('.project-chooser').val(this._translationManager.getActiveProject());
+      var e = this._header.find('.language-chooser');
+      (e.find('option').remove(),
+        e.append(
+          Object.keys(GCore.GLocaleLanguage)
+            .filter((e) => 'Default' !== e)
+            .filter((e) => !!this._translationManager.getTranslationByKey(GCore.GLocaleLanguage[e]))
+            .map((e) => $('<option></option>').text(e).attr('value', GCore.GLocaleLanguage[e]))
+        ));
+    }
+
+  }
+  exports.exports = l;
+}

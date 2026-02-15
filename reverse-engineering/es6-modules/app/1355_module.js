@@ -1,0 +1,208 @@
+/**
+ * Webpack Module #1355
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  (require(8) /* polyfill_bundle_ES6 */,
+    require(4) /* stub_requires_668 */,
+    require(13)) /* stub_requires_679 */;
+  var GCore = require(1);
+  class i {
+    constructor(e, t, n, GCore, i, a, r, s, l, c) {
+      ((this._container = e),
+      (this._renderer = t),
+      (this._nodeStyle = n),
+      (this._expandStyle = GCore),
+      (this._nodeClick = i),
+      (this._nodeExpand = a),
+      (this._upSpan1Style = r),
+      (this._upSpan2Style = s),
+      (this._downSpan1Style = l),
+      (this._downSpan2Style = c));
+    }
+
+    _container = null;
+    _renderer = null;
+    _nodeStyle = null;
+    _expandStyle = null;
+    _nodeClick = null;
+    _nodeExpand = null;
+    _upSpan1Style = null;
+    _upSpan2Style = null;
+    _downSpan1Style = null;
+    _downSpan2Style = null;
+    _updateCount = 0;
+    _nodes = [];
+    _invalidation = null;
+
+    refresh() {
+      this.requestInvalidation();
+    }
+
+    _checkTreeSanity() {
+      return true;
+    }
+
+    _isInvalidationBlocked() {
+      return true;
+    }
+
+    async _beforeInvalidationStart(e) {}
+
+    _afterInvalidationEnd(e) {}
+
+    requestInvalidation(e, t) {
+      if (null === this._invalidation) {
+        var require = $(this._container);
+        if (!this._checkTreeSanity()) return;
+        this._invalidation = setTimeout(() => {
+          if (this._isInvalidationBlocked())
+            return ((this._invalidation = null), void this.requestInvalidation(500));
+          this._beforeInvalidationStart(t).then(() => {
+            require.empty();
+            let e = document.createDocumentFragment();
+            for (let t = 0; t < this._nodes.length; t++) {
+              let n = this._newNode(this._nodes[t]),
+                GCore = this._renderer(this._nodes[t], n[0]);
+              ($(e).append(n),
+                n.hasClass('last-row') && $(e).append($('<div/>').addClass('last-row-division')),
+                GCore && GCore.length && n.before(GCore));
+            }
+            (require.append(e), this._afterInvalidationEnd(), (this._invalidation = null));
+          });
+        }, e || 1);
+      }
+    }
+
+    expandAndFocus() {}
+
+    beginUpdate() {
+      this._updateCount++;
+    }
+
+    endUpdate(e) {
+      ((this._updateCount = Math.max(0, this._updateCount - 1)),
+        0 === this._updateCount && this.requestInvalidation(0, e));
+    }
+
+    _newNode(e) {
+      return $('<div>')
+        .addClass(this._nodeStyle)
+        .attr('id', e.id)
+        .css('padding-left', 25 * e._depth)
+        .on('click', (t) => {
+          (t.stopPropagation(), this._nodeClick(e));
+        });
+    }
+
+    appendNode(e, t, n) {
+      var GCore = e ? this._nodes.indexOf(e) : 0;
+      if (GCore < 0) console.error('no parent found');
+      else if (this._nodes.indexOf(t) >= 0) console.error('node already added');
+      else {
+        var i,
+          a = e ? e._depth : -1;
+        if (((t._depth = a + 1), n))
+          for (var r = (i = e ? GCore + 1 : 0); r < this._nodes.length; r++) {
+            if (this._nodes[r]._depth <= a || this._nodes[r].virtualNode) {
+              i = Math.max(0, r - 1);
+              break;
+            }
+            i = r;
+          }
+        else i = e ? GCore : 0;
+        var s = null;
+        ((s =
+          i >= this._nodes.length
+            ? this._nodes.length
+              ? this._nodes[this._nodes.length - 1]
+              : null
+            : this._nodes[i]),
+          this.insertNodeAfter(s, t));
+      }
+    }
+
+    prependNode(e, t) {
+      if ((e ? this._nodes.indexOf(e) : 0) < 0) console.error('no parent found');
+      else if (this._nodes.indexOf(t) >= 0) console.error('node already added');
+      else {
+        var require = e ? e._depth : -1;
+        ((t._depth = require + 1), this.insertNodeAfter(e, t));
+      }
+    }
+
+    removeNode(e) {
+      var t = this._nodes.indexOf(e);
+      if (!(t < 0)) {
+        var require = $(this._container);
+        (require.find('#' + this._nodes[t].id).remove(), this._nodes.splice(t, 1));
+        for (var GCore = this._nodes[t]; GCore && e._depth < GCore._depth; )
+          (require.find('#' + GCore.id).remove(),
+            this._nodes.splice(t, 1),
+            (GCore = this._nodes[t]));
+      }
+    }
+
+    insertNodeAfter(e, t) {
+      var n = e ? this._nodes.indexOf(e) : this._nodes.length;
+      if (n < 0) console.error('no ref node found');
+      else if (this._nodes.indexOf(t) >= 0) console.error('node already added');
+      else {
+        var GCore = e ? e._depth : 0;
+        if (undefined === t._depth) t._depth = GCore;
+        else if (t._depth > GCore) return void this._nodes.splice(n + 1, 0, t);
+        for (
+          n += 1;
+          this._nodes[n] &&
+          (this._nodes[n]._depth > GCore ||
+            (this._nodes[n].virtualNode && (0 === GCore || this._nodes[n]._depth < GCore)));
+        )
+          n++;
+        n >= this._nodes.length ? this._nodes.push(t) : this._nodes.splice(n, 0, t);
+      }
+    }
+
+    insertNodeBefore(e, t) {
+      var n = e ? this._nodes.indexOf(e) : -1;
+      if (n < 0) console.error('no ref node found');
+      else if (this._nodes.indexOf(t) >= 0) console.error('node already added');
+      else {
+        var GCore = e ? e._depth : 0;
+        for (
+          undefined === t._depth && (t._depth = GCore);
+          n >= 0 && (this._nodes[n]._depth > GCore || this._nodes[n].virtualNode);
+        )
+          n--;
+        n < 0 ? this._nodes.unshift(t) : this._nodes.splice(n, 0, t);
+      }
+    }
+
+    clean() {
+      ((this._nodes = []), this.requestInvalidation());
+    }
+
+    isPendingInvalidation() {
+      return null !== this._invalidation;
+    }
+
+    refresh() {}
+
+    static GSimpleTreeNodeNamed(e) {
+    this.id = e;
+  }
+
+    static EXPAND_ID = GCore.GUtil.uuid();
+
+    static COLLAPSE_ID = GCore.GUtil.uuid();
+
+  }
+  (i.GSimpleTreeNodeNamed.prototype.id = -1,
+    i.GSimpleTreeNodeNamed.prototype.virtualNode = false,
+    i.GSimpleTreeNodeNamed.prototype._depth = undefined,
+    i.GSimpleTreeNodeNamed.prototype.isVisible = function () {
+      return true;
+    },
+    exports.exports = i);
+}
