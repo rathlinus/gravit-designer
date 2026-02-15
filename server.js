@@ -10,14 +10,12 @@ const port = 3100;
 const publicDir = path.join(__dirname, "public");
 const docsDir = path.join(__dirname, "docs");
 
-// Serve static files from public with custom cache headers for large JS files
+// Serve static files from public - no caching for dev builds
 app.use(express.static(publicDir, {
-  setHeaders: (res, filePath) => {
-    const fileName = path.basename(filePath);
-    if (["chunk.vendor.js", "designer.browser.js"].includes(fileName)) {
-      // Cache for 30 days
-      res.setHeader("Cache-Control", "public, max-age=2592000, immutable");
-    }
+  etag: false,
+  lastModified: false,
+  setHeaders: (res) => {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
   }
 }));
 

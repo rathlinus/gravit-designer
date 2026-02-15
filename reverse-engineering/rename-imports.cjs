@@ -131,8 +131,12 @@ function renameVariable(code, oldName, newName) {
   
   // Simple but effective approach: replace standalone identifiers
   // Use negative lookbehind for . (property access) and negative lookahead for :
+  // The lookbehind excludes dots that are property access, BUT we need to allow
+  // the spread operator (...x) — where the last '.' of '...' precedes the identifier.
+  // We use a lookbehind that rejects a single dot preceded by an identifier char,
+  // but allows '...' (three dots).
   const pattern = new RegExp(
-    '(?<![.\'"])\\b' + escapeRegex(oldName) + '\\b(?![\'":])' ,
+    '(?<![\'"])\\b' + escapeRegex(oldName) + '\\b(?![\'":])' ,
     'g'
   );
   
@@ -141,9 +145,9 @@ function renameVariable(code, oldName, newName) {
     // Check if we're inside a string or comment
     if (isInsideStringOrComment(code, offset)) return match;
     
-    // Check if this is a property access (preceded by .)
-    const before = code.substring(Math.max(0, offset - 1), offset);
-    if (before === '.') return match;
+    // Check if this is a property access (preceded by .) but NOT spread (...)
+    const before = code.substring(Math.max(0, offset - 3), offset);
+    if (before.endsWith('.') && !before.endsWith('...')) return match;
     
     count++;
     return newName;
@@ -292,10 +296,12 @@ function processModule(inputPath, outputPath) {
       stats.conflictsResolved++;
     }
     
-    // Also check if the desired name already exists as a different variable in the code
+    // Also check if the desired name already exists as a standalone variable in the code
+    // (not as a property access like obj.Name — those are fine)
     // Strip comments before checking to avoid false positives (the name appears in its own comment)
     const codeNoComments = code.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*/g, '');
-    const namePattern = new RegExp('\\b' + escapeRegex(name) + '\\b');
+    // Use negative lookbehind for '.' to exclude property access (e.g., GTools.GEditor is OK)
+    const namePattern = new RegExp('(?<!\\.)\\b' + escapeRegex(name) + '\\b');
     if (namePattern.test(codeNoComments) && name !== mapping.localName) {
       // Name collision — skip this rename
       continue;
