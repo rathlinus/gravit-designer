@@ -8,8 +8,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */, require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
     class l extends GAction.default {

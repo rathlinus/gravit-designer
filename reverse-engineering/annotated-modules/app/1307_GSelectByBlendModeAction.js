@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(3) /* polyfill_RegExp_toString */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(609) /* GSelectByAction */);
     function r() {
       a.default.call(this, r.ID, r.TITLE);

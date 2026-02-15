@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var GEditor = require(15) /* module */;
+    var GEditor = require(15) /* GEditor */;
     exports.exports = class {
       canActivate() {
         return false;

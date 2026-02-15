@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       NotoFontsData = require(1075) /* NotoFontsData */,
       a = require(381) /* module_381 */;
     function r(e) {

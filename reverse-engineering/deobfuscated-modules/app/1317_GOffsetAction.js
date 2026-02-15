@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GOutlineAction = require(1185) /* GOutlineAction */;
     function a() {}
     GCore.GObject.inherit(a, GOutlineAction),

@@ -21,7 +21,7 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GGoogleAPI = require(1036) /* Exports_GGoogleAPI */,
       AppSettings = require(10) /* AppSettings */,
       s = _interopRequireDefault(require(734) /* module_734 */),

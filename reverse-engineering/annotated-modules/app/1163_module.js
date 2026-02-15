@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }),
       (t.default = t.dateToVersionFormat = t.dateToFilePreviewFormat = void 0);
-    const { GLocale: o } = n(1) /* module */,
+    const { GLocale: o } = n(1) /* GCore */,
       i = (e) =>
         o.toLocaleDate(e, {
           month: "short",

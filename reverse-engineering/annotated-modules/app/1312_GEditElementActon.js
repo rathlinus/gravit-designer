@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
-    var o = n(53) /* module */,
-      i = n(1) /* module */,
-      a = (n(15) /* module */, n(18) /* MenuItemBuilder */),
+    var o = n(53) /* GTools */,
+      i = n(1) /* GCore */,
+      a = (n(15) /* GEditor */, n(18) /* MenuItemBuilder */),
       r = n(106) /* GElementAction */;
     function s() {
       this._title = new i.GLocaleKey("GEditElementActon", "title");

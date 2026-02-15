@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     Object.defineProperty(module, "__esModule", { value: true }), (module.getOS = undefined);
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     module.getOS = () => {
       let exports = null;
       switch (GCore.GSystem.operatingSystem) {

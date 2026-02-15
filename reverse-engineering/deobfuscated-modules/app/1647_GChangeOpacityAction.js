@@ -8,9 +8,9 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
-      GTools = require(53) /* module */,
-      r = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GTools = require(53) /* GTools */,
+      r = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
     class c extends GAction.default {

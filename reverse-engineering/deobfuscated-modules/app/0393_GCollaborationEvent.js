@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    const { GEvent: o, GObject: i } = require(1) /* module */;
+    const { GEvent: o, GObject: i } = require(1) /* GCore */;
     function a(e, t) {
       (this.type = e), (this.data = t);
     }

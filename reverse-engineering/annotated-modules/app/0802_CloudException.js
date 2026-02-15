@@ -22,7 +22,7 @@ function (e, t, n) {
       n(38) /* stub_requires_680 */,
       n(97) /* stub_requires_684 */,
       n(26) /* polyfill_DOMCollection_iterator */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(355) /* module_355 */),
       r = o(n(594) /* GError */),
       s = n(858) /* Exports_GFilesPanel */;

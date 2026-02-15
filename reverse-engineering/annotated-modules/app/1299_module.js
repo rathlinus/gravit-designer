@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */,
-      i = n(1) /* module */,
-      a = n(15) /* module */,
+      i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = o(n(813) /* GOpenAction */);
     function s() {}
     i.GObject.inherit(s, r.default),

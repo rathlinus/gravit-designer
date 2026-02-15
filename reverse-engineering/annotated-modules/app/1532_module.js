@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const { FILE_FORMATS: i } = n(10) /* AppSettings */,
       a = i.find((e) => e.default),
       { COMMAND_SAVE: r } = n(591) /* module_591 */,

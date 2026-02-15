@@ -8,8 +8,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */;
-    var GEditor = require(15) /* module */,
-      GCore = require(1) /* module */,
+    var GEditor = require(15) /* GEditor */,
+      GCore = require(1) /* GCore */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;
     const GAction = require(31) /* GAction */;

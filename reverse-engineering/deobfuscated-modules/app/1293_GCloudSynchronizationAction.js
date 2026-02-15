@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     const { FILE_FORMATS: i, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: a } = {} } =
         require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,

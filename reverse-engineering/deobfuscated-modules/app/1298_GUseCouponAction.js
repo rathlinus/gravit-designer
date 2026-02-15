@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GAction = require(31) /* GAction */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */;
     const GSystemDialog = require(44) /* GSystemDialog */,

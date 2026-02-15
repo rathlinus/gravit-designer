@@ -8,7 +8,7 @@ function (exports, module, require) {
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */;
     var GSystem = _interopRequireDefault(require(176) /* GSystem */),
-      GCore = require(1) /* module */,
+      GCore = require(1) /* GCore */,
       MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
       s = _interopRequireDefault(require(44) /* GSystemDialog */),
       l = _interopRequireDefault(require(443) /* module_443 */),

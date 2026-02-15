@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
-      i = (require(15) /* module */, require(18) /* MenuItemBuilder */, require(31) /* GAction */);
+    var GCore = require(1) /* GCore */,
+      i = (require(15) /* GEditor */, require(18) /* MenuItemBuilder */, require(31) /* GAction */);
     require(1313) /* URIListHandler */;
     function a() {
       this._targetPosition = null;

@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(44) /* GSystemDialog */);
     const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = n(10) /* AppSettings */,
       l = n(78) /* GDocumentEvent */,

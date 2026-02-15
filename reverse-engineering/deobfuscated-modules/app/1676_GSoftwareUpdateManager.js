@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(96) /* polyfill_JSON_stringify */, require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(97) /* stub_requires_684 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const GContainer = require(85) /* GContainer */,

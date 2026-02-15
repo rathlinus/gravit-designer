@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(40) /* CollaborationMergeUtils */,
       a = n(257) /* barrel_panels */;
     class r {

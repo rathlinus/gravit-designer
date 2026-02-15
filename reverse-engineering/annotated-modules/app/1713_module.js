@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(32) /* stub_requires_670 */, n(97) /* stub_requires_684 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
-    const { GObject: o } = n(1) /* module */,
-      { GPlatform: i } = n(15) /* module */,
+    const { GObject: o } = n(1) /* GCore */,
+      { GPlatform: i } = n(15) /* GEditor */,
       a = n(1355) /* GSimpleTreeNodeNamed */,
       r = n(1191) /* module_1191 */,
       s = n(1356) /* GAnnotationRow */,

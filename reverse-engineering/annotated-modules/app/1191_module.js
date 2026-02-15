@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
-    const { GObject: o } = n(1) /* module */,
-      { GPlatform: i } = n(15) /* module */;
+    const { GObject: o } = n(1) /* GCore */,
+      { GPlatform: i } = n(15) /* GEditor */;
     function a() {
       this._children = [];
     }

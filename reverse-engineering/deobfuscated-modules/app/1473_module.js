@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     require(10) /* AppSettings */;
     require(1474) /* module_1474 */, require(220) /* Item */, require(44) /* GSystemDialog */, require(119) /* GCloudStorage */;

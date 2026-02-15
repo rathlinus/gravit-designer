@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(1185) /* GOutlineAction */;
     function a() {}
     o.GObject.inherit(a, i),

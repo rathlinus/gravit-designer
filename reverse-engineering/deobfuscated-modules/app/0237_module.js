@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
       r = _interopRequireDefault(require(1091) /* module_1091 */),
       s = require(165) /* module_165 */,

@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(96) /* polyfill_JSON_stringify */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
       r = _interopRequireDefault(require(336) /* module_336 */),
       GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),

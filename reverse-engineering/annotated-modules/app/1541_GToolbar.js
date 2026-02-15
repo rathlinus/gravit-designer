@@ -22,9 +22,9 @@ function (module, exports, __webpack_require__) {
       __webpack_require__(32) /* stub_requires_670 */,
       __webpack_require__(33) /* polyfill_DOMCollection_forEach */,
       __webpack_require__(26) /* polyfill_DOMCollection_iterator */;
-    var _editor = __webpack_require__(53) /* module */,
-      _core = __webpack_require__(1) /* module */,
-      _client = __webpack_require__(15) /* module */,
+    var _editor = __webpack_require__(53) /* GTools */,
+      _core = __webpack_require__(1) /* GCore */,
+      _client = __webpack_require__(15) /* GEditor */,
       _config = __webpack_require__(10) /* AppSettings */,
       _richtooltipconfig = __webpack_require__(67) /* GRichTooltipConfig */;
     const GCategory = __webpack_require__(18) /* MenuItemBuilder */,
@@ -1058,9 +1058,9 @@ function (module, exports, __webpack_require__) {
                     .closest(".toolbar-button")
                     .data("code");
                   function evaled() {
-                    var core = __webpack_require__(1) /* module */,
-                      editor = __webpack_require__(53) /* module */,
-                      client = __webpack_require__(15) /* module */;
+                    var core = __webpack_require__(1) /* GCore */,
+                      editor = __webpack_require__(53) /* GTools */,
+                      client = __webpack_require__(15) /* GEditor */;
                     eval("(" + code + ")")(
                       gDesigner.getActiveDocument().getEditor().getSelection(),
                       gDesigner.getActiveDocument().getScene(),

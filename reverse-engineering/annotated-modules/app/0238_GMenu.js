@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(40) /* CollaborationMergeUtils */,
       a = n(1156) /* GMenuCloseEvent */,
       r = n(444) /* module_444 */,

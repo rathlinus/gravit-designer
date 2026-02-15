@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */,
-      i = n(1) /* module */,
+      i = n(1) /* GCore */,
       a = o(n(119) /* GCloudStorage */),
       r = o(n(860) /* GEmbeddedLogin */);
     function s(e) {

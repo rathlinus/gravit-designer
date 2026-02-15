@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(91) /* polyfill_String_trim */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(10) /* AppSettings */,
-      i = n(1) /* module */;
+      i = n(1) /* GCore */;
     function a(e, t, n) {
       let a =
         arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {};

@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    n(53) /* module */;
-    var o = n(1) /* module */,
-      i = (n(15) /* module */, n(1267) /* ColorQuantizer */),
+    n(53) /* GTools */;
+    var o = n(1) /* GCore */,
+      i = (n(15) /* GEditor */, n(1267) /* ColorQuantizer */),
       a = n(123) /* GProperties */,
       {
         replaceImage: r,

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var GTools = require(53) /* module */;
+    var GTools = require(53) /* GTools */;
     const GTouchEventHandler = require(878) /* GTouchEventHandler */,
       GTouchPinchZoomGesture = require(1585) /* GTouchPinchZoomGesture */,
       GTouchClickGesture = require(879) /* GTouchClickGesture */,

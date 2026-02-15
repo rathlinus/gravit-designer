@@ -8,8 +8,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var GCore = require(1) /* module */,
-      GTools = require(53) /* module */,
+    var GCore = require(1) /* GCore */,
+      GTools = require(53) /* GTools */,
       r = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GDocumentEvent = require(78) /* GDocumentEvent */,

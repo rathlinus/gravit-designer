@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function a(e, t, n, a, r, s, l) {
       var c = e && t && n && a && l;

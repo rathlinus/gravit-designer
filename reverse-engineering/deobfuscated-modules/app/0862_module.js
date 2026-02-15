@@ -31,7 +31,7 @@ function (exports, module, require) {
       require(169) /* stub_requires_683 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       Item = _interopRequireDefault(require(220) /* Item */),

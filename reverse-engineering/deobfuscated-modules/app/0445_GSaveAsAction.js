@@ -21,8 +21,8 @@ function (exports, module, require) {
       require(41) /* stub_requires_682 */,
       require(13) /* stub_requires_679 */,
       require(38) /* stub_requires_680 */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       s = require(67) /* GRichTooltipConfig */,
       l = _interopRequireDefault(require(1248) /* module_1248 */),
       AppSettings = require(10) /* AppSettings */;

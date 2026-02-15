@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(15) /* module */;
+    var o = n(15) /* GEditor */;
     const i = n(519) /* AppSettings */,
       a = n(520) /* barrel_purchase_urls */,
       r = n(231) /* module_231 */;

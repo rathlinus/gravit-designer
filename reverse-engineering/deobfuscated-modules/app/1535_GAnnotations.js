@@ -7,9 +7,9 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(3) /* polyfill_RegExp_toString */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(97) /* stub_requires_684 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GTools = require(53) /* module */,
-      GCore = require(1) /* module */,
-      a = require(15) /* module */,
+    var GTools = require(53) /* GTools */,
+      GCore = require(1) /* GCore */,
+      a = require(15) /* GEditor */,
       GFitAllAction = require(449) /* GFitAllAction */,
       GFitSelectionAction = require(566) /* GFitSelectionAction */,
       GProperties = require(123) /* GProperties */;

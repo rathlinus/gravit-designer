@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     function i(e, t, n) {
       (this.type = e), (this.document = t), n && (this.data = n);
     }

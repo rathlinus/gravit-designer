@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(119) /* GCloudStorage */;
     e.exports = function (e) {
       (e.CommercialProduct = function (t, n, o, i) {

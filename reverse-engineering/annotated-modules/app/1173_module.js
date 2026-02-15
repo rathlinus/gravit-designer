@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */,
-      i = n(15) /* module */,
+      i = n(15) /* GEditor */,
       a = o(n(85) /* GContainer */);
     class r {
       static isSupported() {

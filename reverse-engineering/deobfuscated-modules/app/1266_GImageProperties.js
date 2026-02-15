@@ -7,9 +7,9 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    require(53) /* module */;
-    var GCore = require(1) /* module */,
-      i = (require(15) /* module */, require(1267) /* ColorQuantizer */),
+    require(53) /* GTools */;
+    var GCore = require(1) /* GCore */,
+      i = (require(15) /* GEditor */, require(1267) /* ColorQuantizer */),
       GProperties = require(123) /* GProperties */,
       {
         replaceImage: r,

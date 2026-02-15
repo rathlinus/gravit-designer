@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */,
-      i = (n(15) /* module */, n(67) /* GRichTooltipConfig */),
+    var o = n(1) /* GCore */,
+      i = (n(15) /* GEditor */, n(67) /* GRichTooltipConfig */),
       a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */,
       s = n(1245) /* GCustomFontImporter */;

@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
     var o = n(10) /* AppSettings */;
-    const { GLocale: i, GLocaleKey: a } = n(1) /* module */;
+    const { GLocale: i, GLocaleKey: a } = n(1) /* GCore */;
     function r(e) {
       this._htmlElement = e;
     }

@@ -11,7 +11,7 @@ function (e, t, n) {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,
       } = n(10) /* AppSettings */,
-      { GLocale: s, GLocaleKey: l } = n(1) /* module */;
+      { GLocale: s, GLocaleKey: l } = n(1) /* GCore */;
     e.exports = class extends o {
       constructor() {
         let {

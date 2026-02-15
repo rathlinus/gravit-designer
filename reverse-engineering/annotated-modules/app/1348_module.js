@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */;
-    var o = n(53) /* module */,
-      i = n(1) /* module */;
+    var o = n(53) /* GTools */,
+      i = n(1) /* GCore */;
     const { gApi: a } = n(10) /* AppSettings */,
       r = n(393) /* GCollaborationEvent */,
       s = n(217) /* GDocumentStatusEvent */,

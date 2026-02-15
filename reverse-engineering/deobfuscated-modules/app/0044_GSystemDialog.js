@@ -18,8 +18,8 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */;
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */;
     class a {
       static error(e) {
         let { showTitle: module = true, closeCallback: require } =

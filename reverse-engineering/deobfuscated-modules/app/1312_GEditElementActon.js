@@ -7,9 +7,9 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var GTools = require(53) /* module */,
-      GCore = require(1) /* module */,
-      a = (require(15) /* module */, require(18) /* MenuItemBuilder */),
+    var GTools = require(53) /* GTools */,
+      GCore = require(1) /* GCore */,
+      a = (require(15) /* GEditor */, require(18) /* MenuItemBuilder */),
       GElementAction = require(106) /* GElementAction */;
     function s() {
       this._title = new GCore.GLocaleKey("GEditElementActon", "title");

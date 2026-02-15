@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(15) /* module */;
+    var o = n(15) /* GEditor */;
     e.exports = class {
       canActivate() {
         return !1;

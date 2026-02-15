@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    const { GObject: o } = require(1) /* module */,
-      { GPlatform: i } = require(15) /* module */;
+    const { GObject: o } = require(1) /* GCore */,
+      { GPlatform: i } = require(15) /* GEditor */;
     function a() {
       this._children = [];
     }

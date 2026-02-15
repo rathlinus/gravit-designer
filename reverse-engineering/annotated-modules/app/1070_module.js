@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(30) /* polyfill_Object_assign */;
-    const { GObject: o } = n(1) /* module */;
+    const { GObject: o } = n(1) /* GCore */;
     class i {
       constructor(e) {
         Object.assign(this, e);

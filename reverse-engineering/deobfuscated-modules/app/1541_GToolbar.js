@@ -22,9 +22,9 @@ function (exports, module, require) {
       require(32) /* stub_requires_670 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var _editor = require(53) /* module */,
-      _core = require(1) /* module */,
-      _client = require(15) /* module */,
+    var _editor = require(53) /* GTools */,
+      _core = require(1) /* GCore */,
+      _client = require(15) /* GEditor */,
       _config = require(10) /* AppSettings */,
       _richtooltipconfig = require(67) /* GRichTooltipConfig */;
     const GCategory = require(18) /* MenuItemBuilder */,
@@ -1058,9 +1058,9 @@ function (exports, module, require) {
                     .closest(".toolbar-button")
                     .data("code");
                   function evaled() {
-                    var core = require(1) /* module */,
-                      editor = require(53) /* module */,
-                      client = require(15) /* module */;
+                    var core = require(1) /* GCore */,
+                      editor = require(53) /* GTools */,
+                      client = require(15) /* GEditor */;
                     eval("(" + code + ")")(
                       gDesigner.getActiveDocument().getEditor().getSelection(),
                       gDesigner.getActiveDocument().getScene(),

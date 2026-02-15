@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(71) /* polyfill_String_includes */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var GEditor = require(15) /* module */,
+    var GEditor = require(15) /* GEditor */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       GSubAction = _interopRequireDefault(require(1168) /* GSubAction */);
     class s extends GAction.default {

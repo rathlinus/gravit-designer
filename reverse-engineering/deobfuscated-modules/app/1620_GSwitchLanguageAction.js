@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       a = _interopRequireDefault(require(443) /* module_443 */),
       AppSettings = require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,

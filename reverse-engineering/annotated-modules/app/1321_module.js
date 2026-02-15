@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(30) /* polyfill_Object_assign */, n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     function i(e, t) {
       (this.notification = Object.assign(
         { popup: !1, annonymous: !1 },

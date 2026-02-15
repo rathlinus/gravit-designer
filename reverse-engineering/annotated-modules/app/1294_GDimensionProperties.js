@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(57) /* polyfill_parseInt */, n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var i = n(53) /* module */,
-      a = n(1) /* module */,
+    var i = n(53) /* GTools */,
+      a = n(1) /* GCore */,
       r = n(67) /* GRichTooltipConfig */,
       s = o(n(340) /* GTouchTool */),
       l = n(866) /* GAlignAction */,

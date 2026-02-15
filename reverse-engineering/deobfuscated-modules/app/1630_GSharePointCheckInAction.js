@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       a = _interopRequireDefault(require(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
     var MenuItemBuilder = require(18) /* MenuItemBuilder */,

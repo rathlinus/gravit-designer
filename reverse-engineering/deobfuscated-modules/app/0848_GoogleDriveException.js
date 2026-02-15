@@ -23,7 +23,7 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       r = require(593) /* module_593 */,
       s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),

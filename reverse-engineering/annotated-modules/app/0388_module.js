@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const i = n(237) /* Item */,
       a = n(156) /* GCloudStorageItem */;
     function r() {}

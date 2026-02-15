@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     const i = require(1327) /* module_1327 */,
       a = require(1577) /* module_1577 */;
     class r {

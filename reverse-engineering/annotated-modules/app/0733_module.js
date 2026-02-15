@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    const { GObject: o, GEventTarget: i, GEvent: a } = n(1) /* module */;
+    const { GObject: o, GEventTarget: i, GEvent: a } = n(1) /* GCore */;
     function r() {}
     o.inheritAndMix(r, o, [i]),
       (r.prototype._role = null),

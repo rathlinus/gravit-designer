@@ -31,7 +31,7 @@ function (exports, module, require) {
       require(125) /* stub_requires_673 */,
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       AdalAuthLibrary = _interopRequireDefault(require(1476) /* AdalAuthLibrary */),
       CloudException = require(802) /* CloudException */,
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),

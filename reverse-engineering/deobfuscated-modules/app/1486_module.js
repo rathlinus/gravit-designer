@@ -11,7 +11,7 @@ function (exports, module, require) {
       a = _interopRequireDefault(require(389) /* module_389 */),
       GDocument = _interopRequireDefault(require(163) /* GDocument */),
       GCustomFontImporter = _interopRequireDefault(require(1245) /* GCustomFontImporter */),
-      GCore = require(1) /* module */;
+      GCore = require(1) /* GCore */;
     exports.exports = {
       debugDownloadPNG: function () {
         (0, GFileDownloadUtils.downloadActiveFile)(a.default.PNG.ext);

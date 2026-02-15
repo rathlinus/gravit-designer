@@ -31,7 +31,7 @@ function (e, t, n) {
       n(169) /* stub_requires_683 */,
       n(33) /* polyfill_DOMCollection_forEach */,
       n(26) /* polyfill_DOMCollection_iterator */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(10) /* AppSettings */,
       r = o(n(119) /* GCloudStorage */),
       s = o(n(220) /* Item */),

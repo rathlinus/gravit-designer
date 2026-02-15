@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(19) /* polyfill_Array_iterator */, require(168) /* polyfill_Array_reduce */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(169) /* stub_requires_683 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var GTools = require(53) /* module */,
-      GCore = require(1) /* module */,
+    var GTools = require(53) /* GTools */,
+      GCore = require(1) /* GCore */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GPanel = require(606) /* GPanel */,
       GSidebar = require(806) /* GSidebar */,

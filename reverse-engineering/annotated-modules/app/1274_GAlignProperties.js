@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(193) /* polyfill_Object_keys */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(53) /* module */,
-      i = n(1) /* module */,
+    var o = n(53) /* GTools */,
+      i = n(1) /* GCore */,
       a = n(866) /* GAlignAction */,
       r = n(867) /* GDistributeAction */,
       s = n(123) /* GProperties */,

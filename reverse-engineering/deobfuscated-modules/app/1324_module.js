@@ -11,7 +11,7 @@ function (exports, module, require) {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,
       } = require(10) /* AppSettings */,
-      { GLocale: s, GLocaleKey: l } = require(1) /* module */;
+      { GLocale: s, GLocaleKey: l } = require(1) /* GCore */;
     exports.exports = class extends GUserModel {
       constructor() {
         let {

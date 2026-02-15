@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-      GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+      GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
       GMainAction = _interopRequireDefault(require(1281) /* GMainAction */),
       GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */;

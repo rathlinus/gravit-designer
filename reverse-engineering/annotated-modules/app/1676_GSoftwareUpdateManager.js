@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(58) /* polyfill_Array_includes */, n(96) /* polyfill_JSON_stringify */, n(865) /* polyfill_Number_toFixed */, n(193) /* polyfill_Object_keys */, n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(97) /* stub_requires_684 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(10) /* AppSettings */,
       a = n(40) /* CollaborationMergeUtils */;
     const r = n(85) /* GContainer */,

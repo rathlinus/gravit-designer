@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(123) /* GProperties */,
       a = n(1160) /* GAppearanceProperties */;
     function r() {}

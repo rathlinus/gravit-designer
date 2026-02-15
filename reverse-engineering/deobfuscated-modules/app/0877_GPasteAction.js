@@ -7,9 +7,9 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    require(53) /* module */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+    require(53) /* GTools */;
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
     require(44) /* GSystemDialog */;

@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(58) /* polyfill_Array_includes */, require(30) /* polyfill_Object_assign */, require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */, require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       a = require(847) /* module_847 */,
       SharepointException = _interopRequireDefault(require(1239) /* SharepointException */),
       s = _interopRequireDefault(require(388) /* Item */),

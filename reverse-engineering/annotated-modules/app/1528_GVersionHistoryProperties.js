@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(19) /* polyfill_Array_iterator */, n(57) /* polyfill_parseInt */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(26) /* polyfill_DOMCollection_iterator */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(10) /* AppSettings */,
       r = n(1163) /* module_1163 */,
       s = o(n(123) /* GProperties */),

@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
     function r() {
       GSelectByAction.default.call(this, r.ID, r.TITLE);

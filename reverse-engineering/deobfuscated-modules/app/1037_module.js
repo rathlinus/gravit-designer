@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(19) /* polyfill_Array_iterator */, require(8) /* polyfill_bundle_ES6 */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       AppSettings = require(10) /* AppSettings */,
       r = _interopRequireDefault(require(536) /* module_536 */);
     class s {

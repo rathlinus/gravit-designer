@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
-    n(53) /* module */;
-    var o = n(1) /* module */,
-      i = n(15) /* module */,
+    n(53) /* GTools */;
+    var o = n(1) /* GCore */,
+      i = n(15) /* GEditor */,
       a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */;
     n(44) /* GSystemDialog */;

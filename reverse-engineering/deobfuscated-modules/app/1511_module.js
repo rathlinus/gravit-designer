@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     function i(e, t) {
       (this._neverRemind = false),
         (this._agreeCb = e),

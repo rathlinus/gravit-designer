@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(19) /* polyfill_Array_iterator */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
-    var i = n(1) /* module */,
-      a = n(15) /* module */,
+    var i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = o(n(18) /* MenuItemBuilder */),
       s = o(n(1168) /* GSubAction */),
       l = n(40) /* CollaborationMergeUtils */,

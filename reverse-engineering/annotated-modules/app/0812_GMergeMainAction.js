@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */,
-      i = n(1) /* module */,
-      a = n(15) /* module */,
+      i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = o(n(18) /* MenuItemBuilder */),
       s = o(n(31) /* GAction */),
       l = o(n(1281) /* GMainAction */);

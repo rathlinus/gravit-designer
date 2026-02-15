@@ -8,8 +8,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       r = _interopRequireDefault(require(443) /* module_443 */),
       s = _interopRequireDefault(require(1330) /* module_1330 */);
     const { isExecutingOnMSTeamsSync: l } = r.default;

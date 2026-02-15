@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     const GSystemDialog = require(44) /* GSystemDialog */,
       { DESIGNER: { TITLE: a } = {} } = require(10) /* AppSettings */;
     exports.exports = class {

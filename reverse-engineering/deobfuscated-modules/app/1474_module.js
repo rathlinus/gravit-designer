@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(71) /* polyfill_String_includes */, require(34) /* polyfill_String_replace */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function a(e, t) {
       let require =

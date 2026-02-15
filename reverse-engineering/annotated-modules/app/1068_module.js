@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(322) /* stub_requires_669 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(97) /* stub_requires_684 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
-    const { GObject: o } = n(1) /* module */,
+    const { GObject: o } = n(1) /* GCore */,
       i = n(1069) /* module_1069 */;
     function a() {
       (this._resourceMap = new i()),

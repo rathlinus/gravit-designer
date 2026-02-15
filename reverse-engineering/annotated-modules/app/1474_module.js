@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(58) /* polyfill_Array_includes */, n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(71) /* polyfill_String_includes */, n(34) /* polyfill_String_replace */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(40) /* CollaborationMergeUtils */;
     function a(e, t) {
       let n =

@@ -7,9 +7,9 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var GCore = require(1) /* module */,
-      GTools = require(53) /* module */,
-      GEditor = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GTools = require(53) /* GTools */,
+      GEditor = require(15) /* GEditor */,
       AppSettings = require(10) /* AppSettings */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     const MenuItemBuilder = require(18) /* MenuItemBuilder */,

@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-      GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+      GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       GOpenAction = _interopRequireDefault(require(813) /* GOpenAction */);
     function s() {}
     GCore.GObject.inherit(s, GOpenAction.default),

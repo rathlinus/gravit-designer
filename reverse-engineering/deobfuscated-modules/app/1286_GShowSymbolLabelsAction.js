@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
-      i = (require(15) /* module */, require(18) /* MenuItemBuilder */),
+    var GCore = require(1) /* GCore */,
+      i = (require(15) /* GEditor */, require(18) /* MenuItemBuilder */),
       GAction = require(31) /* GAction */;
     function r() {}
     GCore.GObject.inherit(r, GAction),

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    const { GFontManager: o } = require(1) /* module */;
+    const { GFontManager: o } = require(1) /* GCore */;
     exports.exports = class {
       constructor(e) {
         (this._fontManager = e),

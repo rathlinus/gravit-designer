@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var AppSettings = require(10) /* AppSettings */,
-      GCore = require(1) /* module */;
+      GCore = require(1) /* GCore */;
     function a(e, t, n) {
       let a =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};

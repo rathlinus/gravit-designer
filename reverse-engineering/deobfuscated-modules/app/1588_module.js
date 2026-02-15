@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    require(1) /* module */;
+    require(1) /* GCore */;
     var o = function () {
       this._timer = 0;
     };

@@ -9,7 +9,7 @@ function (e, t, n) {
     var o = n(16) /* _interopRequireDefault */;
     n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */;
     var i = n(10) /* AppSettings */,
-      a = n(1) /* module */,
+      a = n(1) /* GCore */,
       r = o(n(78) /* GDocumentEvent */);
     const s = n(44) /* GSystemDialog */,
       l = n(863) /* module_863 */,

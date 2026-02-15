@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
     var s = n(18) /* MenuItemBuilder */,

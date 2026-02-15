@@ -23,7 +23,7 @@ function (e, t, n) {
       n(125) /* stub_requires_673 */,
       n(126) /* polyfill_URL_toJSON */,
       n(114) /* stub_requires_424 */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(40) /* CollaborationMergeUtils */,
       r = n(593) /* module_593 */,
       s = o(n(787) /* Exports_GoogleToCloudRoleMap */),

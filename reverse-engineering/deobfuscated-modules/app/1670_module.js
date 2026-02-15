@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    require(1) /* module */;
+    require(1) /* GCore */;
     require(85) /* GContainer */, require(1671) /* GModule */;
     function o(e) {
       this._storage = e;

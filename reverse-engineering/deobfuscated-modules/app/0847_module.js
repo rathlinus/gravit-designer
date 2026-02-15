@@ -16,7 +16,7 @@ function (exports, module, require) {
       }),
       require(193) /* polyfill_Object_keys */,
       require(8) /* polyfill_bundle_ES6 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
       r = _interopRequireDefault(require(86) /* module_86 */);
     const s = require(1101) /* module_1101 */,

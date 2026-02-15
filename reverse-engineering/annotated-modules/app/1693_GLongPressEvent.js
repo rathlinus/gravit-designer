@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */,
-      i = n(15) /* module */,
+    var o = n(1) /* GCore */,
+      i = n(15) /* GEditor */,
       a = n(10) /* AppSettings */,
       r = n(40) /* CollaborationMergeUtils */;
     function s() {}

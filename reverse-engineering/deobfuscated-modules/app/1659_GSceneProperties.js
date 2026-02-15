@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       i = require(357) /* module_357 */,
       a = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,

@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(19) /* polyfill_Array_iterator */, n(30) /* polyfill_Object_assign */, n(3) /* polyfill_RegExp_toString */, n(26) /* polyfill_DOMCollection_iterator */, n(125) /* stub_requires_673 */, n(126) /* polyfill_URL_toJSON */, n(114) /* stub_requires_424 */;
-    var o = n(1) /* module */,
-      i = n(15) /* module */,
+    var o = n(1) /* GCore */,
+      i = n(15) /* GEditor */,
       a = n(797) /* module */,
       r = n(40) /* CollaborationMergeUtils */,
       s = n(18) /* MenuItemBuilder */,

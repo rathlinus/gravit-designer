@@ -10,7 +10,7 @@ function (e, t, n) {
       a = n(44) /* GSystemDialog */,
       r = n(604) /* GProfileDialog */,
       s = n(337) /* stub_requires_1098 */,
-      { GLocale: l, GLocaleKey: c } = n(1) /* module */;
+      { GLocale: l, GLocaleKey: c } = n(1) /* GCore */;
     e.exports = class {
       async execute() {
         let { [o.SetPassword]: e } =

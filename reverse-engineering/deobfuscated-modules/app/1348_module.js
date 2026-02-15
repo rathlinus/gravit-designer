@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(196) /* polyfill_Promise_finally */;
-    var GTools = require(53) /* module */,
-      GCore = require(1) /* module */;
+    var GTools = require(53) /* GTools */,
+      GCore = require(1) /* GCore */;
     const { gApi: a } = require(10) /* AppSettings */,
       GCollaborationEvent = require(393) /* GCollaborationEvent */,
       GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,

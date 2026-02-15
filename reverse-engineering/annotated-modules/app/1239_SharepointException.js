@@ -31,7 +31,7 @@ function (e, t, n) {
       n(125) /* stub_requires_673 */,
       n(126) /* polyfill_URL_toJSON */,
       n(114) /* stub_requires_424 */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(1476) /* AdalAuthLibrary */),
       r = n(802) /* CloudException */,
       s = o(n(119) /* GCloudStorage */),

@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const i = n(44) /* GSystemDialog */,
       { DESIGNER: { TITLE: a } = {} } = n(10) /* AppSettings */;
     e.exports = class {

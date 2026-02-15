@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(8) /* polyfill_bundle_ES6 */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(10) /* AppSettings */,
       r = o(n(1091) /* module_1091 */),
       s = n(165) /* module_165 */,

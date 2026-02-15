@@ -19,7 +19,7 @@ function (e, t, n) {
       n(41) /* stub_requires_682 */,
       n(13) /* stub_requires_679 */,
       n(38) /* stub_requires_680 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(797) /* module */,
       a = n(40) /* CollaborationMergeUtils */,
       r = n(10) /* AppSettings */,

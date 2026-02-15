@@ -12,7 +12,7 @@ function (e, t, n) {
       n(8) /* polyfill_bundle_ES6 */,
       n(26) /* polyfill_DOMCollection_iterator */;
     var o = n(10) /* AppSettings */,
-      i = n(1) /* module */;
+      i = n(1) /* GCore */;
     class a {
       isLoaded() {
         return !0;

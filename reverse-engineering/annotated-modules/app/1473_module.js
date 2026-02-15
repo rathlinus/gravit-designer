@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(40) /* CollaborationMergeUtils */;
     n(10) /* AppSettings */;
     n(1474) /* module_1474 */, n(220) /* Item */, n(44) /* GSystemDialog */, n(119) /* GCloudStorage */;

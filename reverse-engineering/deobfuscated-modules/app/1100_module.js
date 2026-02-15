@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GCloudStorage = require(119) /* GCloudStorage */;
     exports.exports = function (e) {
       (e.CommercialProduct = function (t, n, GCore, GCloudStorage) {

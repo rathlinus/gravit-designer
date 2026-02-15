@@ -492,7 +492,7 @@ function (e, t, n) {
       n(38) /* stub_requires_680 */,
       n(97) /* stub_requires_684 */,
       n(33) /* polyfill_DOMCollection_forEach */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(84) /* GAnnotation */),
       r = n(1042) /* module_1042 */;
     const s = n(1043) /* module_1043 */;

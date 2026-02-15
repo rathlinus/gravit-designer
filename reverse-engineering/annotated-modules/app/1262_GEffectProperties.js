@@ -8,9 +8,9 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(328) /* polyfill_Array_sort */, n(96) /* polyfill_JSON_stringify */, n(865) /* polyfill_Number_toFixed */, n(193) /* polyfill_Object_keys */, n(57) /* polyfill_parseInt */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var i = n(53) /* module */,
-      a = n(1) /* module */,
-      r = n(15) /* module */,
+    var i = n(53) /* GTools */,
+      a = n(1) /* GCore */,
+      r = n(15) /* GEditor */,
       s = n(67) /* GRichTooltipConfig */,
       l = o(n(340) /* GTouchTool */),
       c = o(n(807) /* module_807 */),

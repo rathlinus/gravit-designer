@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
       r = n(1589) /* GTouchOnboarding */;

@@ -8,8 +8,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
-      a = (require(15) /* module */, _interopRequireDefault(require(31) /* GAction */)),
+    var GCore = require(1) /* GCore */,
+      a = (require(15) /* GEditor */, _interopRequireDefault(require(31) /* GAction */)),
       r = (_interopRequireDefault(require(85) /* GContainer */), _interopRequireDefault(require(18) /* MenuItemBuilder */)),
       s = _interopRequireDefault(require(1173) /* module_1173 */);
     function l() {}

@@ -8,9 +8,9 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
-    var i = n(1) /* module */,
-      a = n(53) /* module */,
-      r = n(15) /* module */,
+    var i = n(1) /* GCore */,
+      a = n(53) /* GTools */,
+      r = n(15) /* GEditor */,
       s = o(n(31) /* GAction */),
       l = o(n(18) /* MenuItemBuilder */);
     class c extends s.default {

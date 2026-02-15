@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(38) /* stub_requires_680 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     const GMenu = require(238) /* GMenu */,
       a = require(444) /* module_444 */;
     var r = {

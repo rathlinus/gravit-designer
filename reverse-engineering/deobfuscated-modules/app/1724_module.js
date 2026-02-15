@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       i = {
         init: function (e) {
           return this.each(function () {

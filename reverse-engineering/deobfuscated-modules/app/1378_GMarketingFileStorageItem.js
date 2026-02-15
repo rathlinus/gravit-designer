@@ -12,7 +12,7 @@ function (exports, module, require) {
     function a(e, t, n, _interopRequireDefault) {
       i.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault);
     }
-    require(1) /* module */.GObject.inheritAndMix(a, i.default.Item),
+    require(1) /* GCore */.GObject.inheritAndMix(a, i.default.Item),
       (a.prototype.isRegistrable = function () {
         return !!this.getId();
       }),

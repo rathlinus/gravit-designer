@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */);
     const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = require(10) /* AppSettings */,
       GDocumentEvent = require(78) /* GDocumentEvent */,

@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(40) /* CollaborationMergeUtils */;
     function a(e, t, n, a, r, s, l) {
       var c = e && t && n && a && l;

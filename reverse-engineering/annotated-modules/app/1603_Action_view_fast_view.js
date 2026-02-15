@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(3) /* polyfill_RegExp_toString */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(1339) /* GPageProperties */),
       r = o(n(31) /* GAction */),
       s = o(n(18) /* MenuItemBuilder */);

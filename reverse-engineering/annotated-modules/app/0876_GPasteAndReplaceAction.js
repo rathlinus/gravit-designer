@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(33) /* polyfill_DOMCollection_forEach */;
-    var o = n(1) /* module */,
-      i = n(15) /* module */;
+    var o = n(1) /* GCore */,
+      i = n(15) /* GEditor */;
     const a = n(18) /* MenuItemBuilder */,
       r = n(106) /* GElementAction */;
     function s() {}

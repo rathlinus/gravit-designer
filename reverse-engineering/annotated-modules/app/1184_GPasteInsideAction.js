@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(19) /* polyfill_Array_iterator */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
-    var o = n(1) /* module */,
-      i = n(15) /* module */,
-      a = (n(53) /* module */, n(18) /* MenuItemBuilder */),
+    var o = n(1) /* GCore */,
+      i = n(15) /* GEditor */,
+      a = (n(53) /* GTools */, n(18) /* MenuItemBuilder */),
       r = n(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),

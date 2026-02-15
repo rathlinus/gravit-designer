@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(58) /* polyfill_Array_includes */, n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */, n(196) /* polyfill_Promise_finally */, n(3) /* polyfill_RegExp_toString */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(847) /* module_847 */,
       r = o(n(1239) /* SharepointException */),
       s = o(n(388) /* Item */),

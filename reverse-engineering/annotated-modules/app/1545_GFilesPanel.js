@@ -36,7 +36,7 @@ function (e, t, n) {
       n(97) /* stub_requires_684 */,
       n(33) /* polyfill_DOMCollection_forEach */,
       n(26) /* polyfill_DOMCollection_iterator */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(1546) /* module_1546 */,
       r = n(40) /* CollaborationMergeUtils */,
       s = n(1154) /* GFileDownloadUtils */,

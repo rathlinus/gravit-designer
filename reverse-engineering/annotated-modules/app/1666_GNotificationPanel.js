@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const {
         DESIGNER: { TITLE: i },
       } = n(10) /* AppSettings */,

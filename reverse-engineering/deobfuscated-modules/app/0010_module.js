@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var GEditor = require(15) /* module */;
+    var GEditor = require(15) /* GEditor */;
     const AppSettings = require(519) /* AppSettings */,
       barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
       r = require(231) /* module_231 */;

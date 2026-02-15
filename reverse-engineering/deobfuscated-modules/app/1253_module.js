@@ -19,7 +19,7 @@ function (exports, module, require) {
       require(41) /* stub_requires_682 */,
       require(13) /* stub_requires_679 */,
       require(38) /* stub_requires_680 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       i = require(797) /* module */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       AppSettings = require(10) /* AppSettings */,

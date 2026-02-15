@@ -22,7 +22,7 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(97) /* stub_requires_684 */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       a = _interopRequireDefault(require(355) /* module_355 */),
       GError = _interopRequireDefault(require(594) /* GError */),
       GFilesPanel = require(858) /* Exports_GFilesPanel */;

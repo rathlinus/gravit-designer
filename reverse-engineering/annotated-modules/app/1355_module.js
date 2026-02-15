@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     function i(e, t, n, o, i, a, r, s, l, c) {
       (this._container = e),
         (this._renderer = t),

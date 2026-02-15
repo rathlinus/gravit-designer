@@ -36,7 +36,7 @@ function (exports, module, require) {
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */,
       require(26) /* polyfill_DOMCollection_iterator */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       a = require(1546) /* module_1546 */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,

@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(193) /* polyfill_Object_keys */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GTools = require(53) /* module */,
-      GCore = require(1) /* module */,
+    var GTools = require(53) /* GTools */,
+      GCore = require(1) /* GCore */,
       GAlignAction = require(866) /* GAlignAction */,
       GDistributeAction = require(867) /* GDistributeAction */,
       GProperties = require(123) /* GProperties */,

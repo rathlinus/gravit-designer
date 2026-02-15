@@ -9,7 +9,7 @@ function (e, t, n) {
       (t.GMicrosoftUser = r),
       (t.default = void 0),
       n(3) /* polyfill_RegExp_toString */;
-    var o = n(1) /* module */,
+    var o = n(1) /* GCore */,
       i = n(1478) /* GCloudUser */,
       a = n(1241) /* GCloudRole */;
     function r(e) {

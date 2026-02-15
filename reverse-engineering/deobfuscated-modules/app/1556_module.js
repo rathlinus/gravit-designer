@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(91) /* polyfill_String_trim */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */);
     function r(e, t, n, _interopRequireDefault) {
       let r =

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-      GEditor = require(15) /* module */,
+      GEditor = require(15) /* GEditor */,
       GContainer = _interopRequireDefault(require(85) /* GContainer */);
     class r {
       static isSupported() {

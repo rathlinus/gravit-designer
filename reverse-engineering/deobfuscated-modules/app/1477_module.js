@@ -9,7 +9,7 @@ function (exports, module, require) {
       (module.GMicrosoftUser = r),
       (module.default = undefined),
       require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       i = require(1478) /* GCloudUser */,
       a = require(1241) /* GCloudRole */;
     function r(e) {

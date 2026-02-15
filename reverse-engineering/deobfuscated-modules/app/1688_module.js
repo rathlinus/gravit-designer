@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(151) /* module_151 */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     (GCore.GUtil.image2Canvas = function (e, t) {
       if ("string" == typeof e) {
         var require = new Image();

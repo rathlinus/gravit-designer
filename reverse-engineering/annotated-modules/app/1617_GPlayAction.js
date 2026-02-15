@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(34) /* polyfill_String_replace */;
-    var i = n(1) /* module */,
-      a = n(15) /* module */,
+    var i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = o(n(1618) /* ScreenfulJS */),
       s = o(n(85) /* GContainer */),
       l = o(n(31) /* GAction */),

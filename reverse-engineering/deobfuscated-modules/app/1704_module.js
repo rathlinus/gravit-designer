@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       i = {
         value: function (e) {
           const module = $(this);

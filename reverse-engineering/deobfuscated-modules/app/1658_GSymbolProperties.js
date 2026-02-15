@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GProperties = require(123) /* GProperties */,
       a = (require(173) /* stub_requires_1 */, require(874) /* GDetachSymbolAction */),
       GFitSelectionAction = require(566) /* GFitSelectionAction */;

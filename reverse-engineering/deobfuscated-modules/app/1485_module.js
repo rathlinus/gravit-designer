@@ -27,7 +27,7 @@ function (exports, module, require) {
       require(4) /* stub_requires_668 */,
       require(32) /* stub_requires_670 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       a = _interopRequireDefault(require(859) /* module_859 */),
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       s = require(803) /* module_803 */;

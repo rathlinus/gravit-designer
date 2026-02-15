@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */, require(38) /* stub_requires_680 */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     const { FILE_FORMATS: i, gApi: a } = require(10) /* AppSettings */,
       r = i.find((e) => e.default),
       { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,

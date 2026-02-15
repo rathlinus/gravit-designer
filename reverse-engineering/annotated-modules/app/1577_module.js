@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(16) /* _interopRequireDefault */;
     n(30) /* polyfill_Object_assign */, n(8) /* polyfill_bundle_ES6 */;
     var i = n(10) /* AppSettings */,
-      a = n(1) /* module */,
+      a = n(1) /* GCore */,
       r = o(n(1187) /* module_1187 */);
     function s() {}
     a.GObject.inherit(s, i.GPaywallDialog.Impl),

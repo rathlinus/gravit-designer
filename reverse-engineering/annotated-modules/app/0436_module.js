@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */;
-    const { GObject: o } = n(1) /* module */;
+    const { GObject: o } = n(1) /* GCore */;
     function i(e) {
       (this._app = e), (this._collaborativeFile = null);
     }

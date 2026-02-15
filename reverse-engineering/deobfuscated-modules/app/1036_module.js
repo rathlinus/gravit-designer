@@ -12,7 +12,7 @@ function (exports, module, require) {
       require(8) /* polyfill_bundle_ES6 */,
       require(26) /* polyfill_DOMCollection_iterator */;
     var AppSettings = require(10) /* AppSettings */,
-      GCore = require(1) /* module */;
+      GCore = require(1) /* GCore */;
     class a {
       isLoaded() {
         return true;

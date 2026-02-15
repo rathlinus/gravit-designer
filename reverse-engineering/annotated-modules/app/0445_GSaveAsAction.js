@@ -21,8 +21,8 @@ function (e, t, n) {
       n(41) /* stub_requires_682 */,
       n(13) /* stub_requires_679 */,
       n(38) /* stub_requires_680 */;
-    var a = n(1) /* module */,
-      r = n(15) /* module */,
+    var a = n(1) /* GCore */,
+      r = n(15) /* GEditor */,
       s = n(67) /* GRichTooltipConfig */,
       l = o(n(1248) /* module_1248 */),
       c = n(10) /* AppSettings */;

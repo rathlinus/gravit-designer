@@ -8,7 +8,7 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GAction = _interopRequireDefault(require(31) /* GAction */);
     class r extends GAction.default {
       static getSubActionId(e, t) {

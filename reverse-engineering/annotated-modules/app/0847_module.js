@@ -16,7 +16,7 @@ function (e, t, n) {
       }),
       n(193) /* polyfill_Object_keys */,
       n(8) /* polyfill_bundle_ES6 */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(217) /* GDocumentStatusEvent */),
       r = o(n(86) /* module_86 */);
     const s = n(1101) /* module_1101 */,

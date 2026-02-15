@@ -21,7 +21,7 @@ function (e, t, n) {
       n(125) /* stub_requires_673 */,
       n(126) /* polyfill_URL_toJSON */,
       n(114) /* stub_requires_424 */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = n(1036) /* Exports_GGoogleAPI */,
       r = n(10) /* AppSettings */,
       s = o(n(734) /* module_734 */),

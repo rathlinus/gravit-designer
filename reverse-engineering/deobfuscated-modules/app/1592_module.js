@@ -10,7 +10,7 @@ function (exports, module, require) {
       GSystemDialog = require(44) /* GSystemDialog */,
       GProfileDialog = require(604) /* GProfileDialog */,
       s = require(337) /* stub_requires_1098 */,
-      { GLocale: l, GLocaleKey: c } = require(1) /* module */;
+      { GLocale: l, GLocaleKey: c } = require(1) /* GCore */;
     exports.exports = class {
       async execute() {
         let { [o.SetPassword]: exports } =

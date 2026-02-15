@@ -190,7 +190,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GEditor = require(15); /* module */
+  var GEditor = require(15); /* GEditor */
   const AppSettings = require(519) /* AppSettings */,
     barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
     r = require(231); /* module_231 */
@@ -343,7 +343,7 @@ function (exports, module) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     let module = !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1],
       require = arguments.length > 2 ? arguments[2] : undefined;
@@ -684,8 +684,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GActionIconMap = _interopRequireDefault(require(844) /* GActionIconMap */);
   function s() {}
   (GCore.GObject.inherit(s, GCore.GObject),
@@ -1429,7 +1429,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(97) /* stub_requires_684 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAnnotation = _interopRequireDefault(require(84) /* GAnnotation */),
     r = require(1042); /* module_1042 */
   const s = require(1043); /* module_1043 */
@@ -1634,8 +1634,8 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   class a {
     static error(e) {
       let { showTitle: module = true, closeCallback: require } =
@@ -2828,7 +2828,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t, n) {
     ((this.type = e), (this.document = t), n && (this.data = n));
   }
@@ -2972,7 +2972,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GGoogleAPI = require(1036) /* Exports_GGoogleAPI */,
     AppSettings = require(10) /* AppSettings */,
     s = _interopRequireDefault(require(734) /* module_734 */),
@@ -3872,7 +3872,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     GAnnotationsSidebar = _interopRequireDefault(require(567) /* GAnnotationsSidebar */),
     AppSettings = _interopRequireDefault(require(10) /* AppSettings */);
@@ -4002,8 +4002,8 @@ function (exports, module, require) {
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GCloudImageSync = require(845); /* GCloudImageSync */
   const l = require(1092); /* module_1092 */
@@ -5095,7 +5095,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t, n, GCore) {
     ((this.key = e), (this.previousValue = t), (this.newValue = n), (this.restoring = GCore));
   }
@@ -5705,9 +5705,9 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    r = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    r = require(15) /* GEditor */,
     s = require(1201) /* module */,
     l = require(797) /* module */,
     AppSettings = require(10) /* AppSettings */,
@@ -8227,7 +8227,7 @@ function (exports, module) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   (GCore.GObject.inheritAndMix(i, GCore.GObject), (exports.exports = i));
 }
@@ -8278,7 +8278,7 @@ function (exports, module, require) {
     require(91)) /* polyfill_String_trim */;
   var o = require(263) /* Exports_GRegex */,
     AppSettings = require(10); /* AppSettings */
-  const { GObject: a } = require(1) /* module */,
+  const { GObject: a } = require(1) /* GCore */,
     r = require(733) /* module_733 */,
     s = require(589) /* module_589 */,
     l = {},
@@ -9024,7 +9024,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.status = e), (this.data = t));
   }
@@ -9048,7 +9048,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   exports.exports = class {
     constructor(e, t) {
       ((this._cb = t || null),
@@ -9087,7 +9087,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     r = _interopRequireDefault(require(336) /* module_336 */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
@@ -10704,7 +10704,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     r = _interopRequireDefault(require(1091) /* module_1091 */),
     s = require(165) /* module_165 */,
@@ -10955,7 +10955,7 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
     r = require(444) /* module_444 */,
@@ -11595,7 +11595,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(34) /* polyfill_String_replace */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GMissingFontsDialog = require(841) /* GMissingFontsDialog */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     r = require(86); /* module_86 */
@@ -12161,8 +12161,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(34) /* polyfill_String_replace */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     s = require(357); /* module_357 */
@@ -12844,7 +12844,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.connected = e;
   }
@@ -12858,7 +12858,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.user = e;
   }
@@ -13741,7 +13741,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.type = e), (this.storageItem = t));
   }
@@ -13774,8 +13774,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     GMenuActivateEvent = require(1499) /* GMenuActivateEvent */,
     GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
@@ -14907,7 +14907,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(1073); /* module_1073 */
   ((i.DESIGNER.HIGHLIGHTOUTLINE_COLOR = new GCore.GRGBColor([197, 17, 98])),
     (i.PURCHASEPANEL.HAS_PRODUCT_DESCRIPTION = false),
@@ -14929,8 +14929,8 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     s = require(592) /* module_592 */,
@@ -15446,7 +15446,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const i = require(237) /* Item */,
     GCloudStorageItem = require(156); /* GCloudStorageItem */
   function r() {}
@@ -15553,7 +15553,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   ((i.GVDESIGN = {
     ext: 'gvdesign',
@@ -15675,7 +15675,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.document = e), (this.state = t));
   }
@@ -15691,7 +15691,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  const { GEvent: o, GObject: i } = require(1); /* module */
+  const { GEvent: o, GObject: i } = require(1); /* GCore */
   function a(e, t) {
     ((this.type = e), (this.data = t));
   }
@@ -15717,7 +15717,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   (GCore.GObject.inherit(i, GCore.GEventTarget),
     (i.UpdateEvent = function () {}),
@@ -15755,8 +15755,8 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GView = require(394) /* GView */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     s = require(863) /* module_863 */,
@@ -18147,7 +18147,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  const { GObject: o } = require(1); /* module */
+  const { GObject: o } = require(1); /* GCore */
   function i(e) {
     ((this._app = e), (this._collaborativeFile = null));
   }
@@ -18182,7 +18182,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.license = e;
   }
@@ -18314,8 +18314,8 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     s = require(67) /* GRichTooltipConfig */,
     l = _interopRequireDefault(require(1248) /* module_1248 */),
     AppSettings = require(10); /* AppSettings */
@@ -18589,7 +18589,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     GEmbeddedLogin = _interopRequireDefault(require(860) /* GEmbeddedLogin */);
   function s(e) {
@@ -18667,8 +18667,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     r = require(1247) /* module_1247 */,
     AppSettings = require(10) /* AppSettings */,
@@ -18860,8 +18860,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GActionIconMap = require(844) /* GActionIconMap */,
@@ -19002,8 +19002,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -19087,7 +19087,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(1352) /* stub_requires_1707 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GVirtualList = require(1709); /* GVirtualList */
   function a() {}
   function r(e, t) {
@@ -23100,7 +23100,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(97)) /* stub_requires_684 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     r = _interopRequireDefault(require(847) /* module_847 */),
     GoogleDriveException = _interopRequireDefault(require(848) /* GoogleDriveException */),
@@ -23731,7 +23731,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -23780,9 +23780,9 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(97) /* stub_requires_684 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    r = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    r = require(15) /* GEditor */,
     GMenu = _interopRequireDefault(require(238) /* GMenu */),
     GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
     GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
@@ -25044,7 +25044,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     NotoFontsData = require(1075) /* NotoFontsData */,
     a = require(381); /* module_381 */
   function r(e) {
@@ -25435,7 +25435,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GDocumentWindow = require(1503) /* GDocumentWindow */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GSaveAction = require(447) /* GSaveAction */,
@@ -25593,7 +25593,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GPurchasePanel = require(1507) /* GPurchasePanel */,
     a = require(1508) /* GAccountPanel */,
     GChangePasswordPanel = require(1509) /* GChangePasswordPanel */,
@@ -25824,7 +25824,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GView = require(394); /* GView */
   function a() {
     GView.call(this);
@@ -25858,8 +25858,8 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106) /* GElementAction */,
@@ -26008,8 +26008,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GTools = require(53); /* module */
+  var GCore = require(1) /* GCore */,
+    GTools = require(53); /* GTools */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s(e, t) {
@@ -29218,7 +29218,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const { GObject: o, GEventTarget: i, GEvent: a } = require(1); /* module */
+  const { GObject: o, GEventTarget: i, GEvent: a } = require(1); /* GCore */
   function r() {}
   (o.inheritAndMix(r, o, [i]),
     (r.prototype._role = null),
@@ -29902,7 +29902,7 @@ function (exports, module, require) {
       })([
         function (e, t, n) {
           'use strict';
-          var o = n(1) /* module */,
+          var o = n(1) /* GCore */,
             i = n(146) /* module_146 */,
             a = n(162) /* GPathsGraph */,
             r = n(163) /* GDocument */,
@@ -30983,7 +30983,7 @@ function (exports, module, require) {
           'use strict';
           var o = n(11) /* GUtil */,
             i = n(19); /* polyfill_Array_iterator */
-          e.exports = n(15) /* module */
+          e.exports = n(15) /* GEditor */
             ? function (e, t, n) {
                 return o.f(e, t, i(1, n));
               }
@@ -30997,7 +30997,7 @@ function (exports, module, require) {
             i = n(14) /* GPaintCanvas */,
             a = n(18) /* MenuItemBuilder */,
             r = Object.defineProperty;
-          t.f = n(15) /* module */
+          t.f = n(15) /* GEditor */
             ? Object.defineProperty
             : function (e, t, n) {
                 if ((o(e), (t = a(t, true)), o(n), i))
@@ -31040,7 +31040,7 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           e.exports =
-            !n(15) /* module */ &&
+            !n(15) /* GEditor */ &&
             !n(16)(
               /* _interopRequireDefault */ function () {
                 return (
@@ -31526,7 +31526,7 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           var o = n(12) /* GMath */,
-            i = n(53) /* module */,
+            i = n(53) /* GTools */,
             a = n(57) /* polyfill_parseInt */,
             r = n(56)(/* GShape */ 'IE_PROTO'),
             s = function () {},
@@ -31565,7 +31565,7 @@ function (exports, module, require) {
           var o = n(11) /* GUtil */,
             i = n(12) /* GMath */,
             a = n(54); /* GVertexContainer */
-          e.exports = n(15) /* module */
+          e.exports = n(15) /* GEditor */
             ? Object.defineProperties
             : function (e, t) {
                 i(e);
@@ -32524,7 +32524,7 @@ function (exports, module, require) {
           'use strict';
           var o = n(8) /* polyfill_bundle_ES6 */,
             i = n(11) /* GUtil */,
-            a = n(15) /* module */,
+            a = n(15) /* GEditor */,
             r = n(30)(/* polyfill_Object_assign */ 'species');
           e.exports = function (e) {
             var t = o[e];
@@ -33008,7 +33008,7 @@ function (exports, module, require) {
             s = n(21) /* tryCall */,
             l = n(14) /* GPaintCanvas */,
             c = Object.getOwnPropertyDescriptor;
-          t.f = n(15) /* module */
+          t.f = n(15) /* GEditor */
             ? c
             : function (e, t) {
                 if (((e = a(e)), (t = r(t, true)), l))
@@ -33169,7 +33169,7 @@ function (exports, module, require) {
           }
           var i = n(8) /* polyfill_bundle_ES6 */,
             a = n(21) /* tryCall */,
-            r = n(15) /* module */,
+            r = n(15) /* GEditor */,
             s = n(7) /* GTransform */,
             l = n(20) /* polyfill_RegExp_exec */,
             c = n(107) /* polyfill_RegExp_test */.KEY,
@@ -33629,7 +33629,7 @@ function (exports, module, require) {
                             ? 'symbol'
                             : o(e);
                         },
-                  a = n(1) /* module */.assert;
+                  a = n(1) /* GCore */.assert;
                 function r(e) {
                   return (
                     'string' == typeof e || 'symbol' === (undefined === e ? 'undefined' : i(e))
@@ -33774,7 +33774,7 @@ function (exports, module, require) {
                   s = a.PromiseInvokeOrNoop,
                   l = a.ValidateAndNormalizeQueuingStrategy,
                   c = a.typeIsObject,
-                  d = n(1) /* module */,
+                  d = n(1) /* GCore */,
                   u = d.assert,
                   p = d.rethrowAssertionErrorRejection,
                   g = n(3) /* polyfill_RegExp_toString */,
@@ -34520,7 +34520,7 @@ function (exports, module, require) {
               },
               function (e, t, n) {
                 var o = n(0) /* GObject */.IsFiniteNonNegativeNumber,
-                  i = n(1) /* module */.assert;
+                  i = n(1) /* GCore */.assert;
                 ((t.DequeueValue = function (e) {
                   (i(
                     '_queue' in e && '_queueTotalSize' in e,
@@ -34602,7 +34602,7 @@ function (exports, module, require) {
                   f = h.createArrayFromList,
                   m = h.createDataProperty,
                   y = h.typeIsObject,
-                  v = n(1) /* module */,
+                  v = n(1) /* GCore */,
                   _ = v.assert,
                   b = v.rethrowAssertionErrorRejection,
                   w = n(3) /* polyfill_RegExp_toString */,
@@ -36028,7 +36028,7 @@ function (exports, module, require) {
                 function i(e, t) {
                   if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function');
                 }
-                var a = n(1) /* module */.assert,
+                var a = n(1) /* GCore */.assert,
                   r = n(0) /* GObject */,
                   s = r.InvokeOrNoop,
                   l = r.PromiseInvokeOrPerformFallback,
@@ -39498,7 +39498,7 @@ function (exports, module, require) {
               t.RenderingCancelledException =
               t.PageViewport =
                 undefined));
-          var o = n(1); /* module */
+          var o = n(1); /* GCore */
           function i(e, t) {
             if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function');
           }
@@ -39854,7 +39854,7 @@ function (exports, module, require) {
             (t.FontLoader = t.FontFaceObject = undefined));
           var o,
             i = (o = n(147)) /* GLinearGradient */ && o.__esModule ? o : { default: o },
-            a = n(1); /* module */
+            a = n(1); /* GCore */
           function r(e) {
             return (r =
               'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
@@ -40351,7 +40351,7 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           (Object.defineProperty(t, '__esModule', { value: true }), (t.CanvasGraphics = undefined));
-          var o = n(1) /* module */,
+          var o = n(1) /* GCore */,
             i = n(155) /* GPathBaseEditor */,
             a = {
               get value() {
@@ -41863,7 +41863,7 @@ function (exports, module, require) {
               return t.fromIR(e);
             }),
             (t.TilingPattern = undefined));
-          var o = n(1) /* module */,
+          var o = n(1) /* GCore */,
             i = {
               RadialAxial: {
                 fromIR: function (e) {
@@ -42212,7 +42212,7 @@ function (exports, module, require) {
           (Object.defineProperty(t, '__esModule', { value: true }), (t.MessageHandler = h));
           var o,
             i = (o = n(147)) /* GLinearGradient */ && o.__esModule ? o : { default: o },
-            a = n(1); /* module */
+            a = n(1); /* GCore */
           function r(e) {
             return (r =
               'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
@@ -42655,7 +42655,7 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           (Object.defineProperty(t, '__esModule', { value: true }), (t.Metadata = undefined));
-          var o = n(1) /* module */,
+          var o = n(1) /* GCore */,
             i = n(159); /* GLayer */
           function a(e, t) {
             for (var n = 0; n < t.length; n++) {
@@ -43200,7 +43200,7 @@ function (exports, module, require) {
             (t.PDFDataTransportStream = undefined));
           var o,
             i = (o = n(147)) /* GLinearGradient */ && o.__esModule ? o : { default: o },
-            a = n(1); /* module */
+            a = n(1); /* GCore */
           function r(e, t, n, o, i, a, r) {
             try {
               var s = e[a](r),
@@ -43472,7 +43472,7 @@ function (exports, module, require) {
         function (e, t, n) {
           'use strict';
           (Object.defineProperty(t, '__esModule', { value: true }), (t.WebGLContext = undefined));
-          var o = n(1); /* module */
+          var o = n(1); /* GCore */
           function i(e, t) {
             for (var n = 0; n < t.length; n++) {
               var o = t[n];
@@ -43816,7 +43816,7 @@ function (exports, module, require) {
           (Object.defineProperty(t, '__esModule', { value: true }),
             (t.renderTextLayer = undefined));
           var o,
-            i = n(1) /* module */,
+            i = n(1) /* GCore */,
             a = (o = n(3)) /* polyfill_RegExp_toString */ && o.__esModule ? o : { default: o },
             r = (function () {
               var e = /\S/,
@@ -44256,7 +44256,7 @@ function (exports, module, require) {
           (Object.defineProperty(t, '__esModule', { value: true }),
             (t.AnnotationLayer = undefined));
           var o = n(151) /* module_151 */,
-            i = n(1); /* module */
+            i = n(1); /* GCore */
           function a(e, t, n) {
             return (a =
               'undefined' != typeof Reflect && Reflect.get
@@ -46939,7 +46939,7 @@ function (exports, module, require) {
             (t.validateResponseStatus = function (e) {
               return 200 === e || 206 === e;
             }));
-          var o = n(1) /* module */,
+          var o = n(1) /* GCore */,
             i = n(167); /* module */
         },
         function (e, t, n) {
@@ -47092,7 +47092,7 @@ function (exports, module, require) {
           (Object.defineProperty(t, '__esModule', { value: true }), (t.PDFFetchStream = undefined));
           var o,
             i = (o = n(147)) /* GLinearGradient */ && o.__esModule ? o : { default: o },
-            a = n(1) /* module */,
+            a = n(1) /* GCore */,
             r = n(166); /* GRendererConfig */
           function s(e, t, n, o, i, a, r) {
             try {
@@ -47436,7 +47436,7 @@ function (exports, module, require) {
             (t.PDFNetworkStream = f),
             (t.NetworkManager = d));
           var o = s(n(147) /* GLinearGradient */),
-            i = n(1) /* module */,
+            i = n(1) /* GCore */,
             a = n(166) /* GRendererConfig */,
             r = s(n(3) /* polyfill_RegExp_toString */);
           function s(e) {
@@ -47939,7 +47939,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(97) /* stub_requires_684 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(355) /* module_355 */),
     GError = _interopRequireDefault(require(594) /* GError */),
     GFilesPanel = require(858); /* Exports_GFilesPanel */
@@ -48347,7 +48347,7 @@ function (exports, module) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   (GCore.GObject.inherit(i, GCore.GEvent),
     (i.prototype.toString = function () {
@@ -48359,7 +48359,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.user = e;
   }
@@ -48369,7 +48369,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GView = require(394); /* GView */
   function a() {
     GView.call(this);
@@ -48417,7 +48417,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.type = e), (this.sidebar = t));
   }
@@ -48439,7 +48439,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.status = e;
   }
@@ -48457,8 +48457,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     r = require(67) /* GRichTooltipConfig */,
     AppSettings = require(10) /* AppSettings */,
@@ -48551,8 +48551,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -48627,8 +48627,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     r = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -48734,8 +48734,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
     GMainAction = _interopRequireDefault(require(1281) /* GMainAction */);
@@ -48818,8 +48818,8 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GDocument = require(163); /* GDocument */
@@ -49753,7 +49753,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t, n, i) {
     ((this._dialog = $('<div></div>')),
       (this._replacedFonts = {}),
@@ -49951,7 +49951,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -49982,7 +49982,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GTools = require(53) /* module */,
+  var GTools = require(53) /* GTools */,
     i = {
       'gravit-cloud': 'gravit-icon-cloud',
       'modify.merge': 'gravit-icon-merge-union',
@@ -50227,7 +50227,7 @@ function (exports, module, require) {
     }),
     require(193) /* polyfill_Object_keys */,
     require(8)) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
     r = _interopRequireDefault(require(86) /* module_86 */);
   const s = require(1101) /* module_1101 */,
@@ -50295,7 +50295,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     r = require(593) /* module_593 */,
     s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
@@ -50828,7 +50828,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   i.prototype.OPACITY_DEFAULT = {
     min: 0,
@@ -51069,7 +51069,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(263) /* Exports_GRegex */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* AppSettings */,
@@ -51296,8 +51296,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(30) /* polyfill_Object_assign */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
@@ -51493,7 +51493,7 @@ function (exports, module, require) {
     require(169) /* stub_requires_683 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     Item = _interopRequireDefault(require(220) /* Item */),
@@ -51947,8 +51947,8 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(169) /* stub_requires_683 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GPanel = require(606) /* GPanel */,
     GSidebar = require(806) /* GSidebar */,
@@ -52481,9 +52481,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     r = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -52644,8 +52644,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(328) /* polyfill_Array_sort */, require(3)) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -52836,7 +52836,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.type = e;
   }
@@ -52849,9 +52849,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     s = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -52946,8 +52946,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     r = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -53077,8 +53077,8 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -53283,7 +53283,7 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -53451,8 +53451,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -53524,8 +53524,8 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -53596,8 +53596,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -53679,8 +53679,8 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -53809,9 +53809,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  require(53) /* module */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  require(53) /* GTools */;
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   require(44) /* GSystemDialog */;
@@ -53986,8 +53986,8 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */,
     require(4) /* stub_requires_668 */,
     require(322)) /* stub_requires_669 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   const a = require(880); /* module_880 */
   class r extends a {
     constructor() {
@@ -54100,7 +54100,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GEditor = require(15); /* module */
+  var GEditor = require(15); /* GEditor */
   exports.exports = class {
     canActivate() {
       return false;
@@ -54541,7 +54541,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   class a {
     isLoaded() {
       return true;
@@ -54765,7 +54765,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     r = _interopRequireDefault(require(536) /* module_536 */);
   class s {
@@ -56819,7 +56819,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(290) /* module_290 */;
-  const { GObject: o, GLocale: i } = require(1) /* module */,
+  const { GObject: o, GLocale: i } = require(1) /* GCore */,
     a = require(1068); /* module_1068 */
   function r(e) {
     let {
@@ -56899,7 +56899,7 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  const { GObject: o } = require(1) /* module */,
+  const { GObject: o } = require(1) /* GCore */,
     i = require(1069); /* module_1069 */
   function a() {
     ((this._resourceMap = new i()), (this._controlSubjectState = { locked: false }));
@@ -57015,7 +57015,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(30) /* polyfill_Object_assign */;
-  const { GObject: o } = require(1); /* module */
+  const { GObject: o } = require(1); /* GCore */
   class i {
     constructor(e) {
       Object.assign(this, e);
@@ -57227,7 +57227,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     AppSettings2 = require(10); /* AppSettings */
   const GContainer = require(85) /* GContainer */,
     GSystemDialog = require(44) /* GSystemDialog */,
@@ -58140,7 +58140,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GCloudStorage = require(119); /* GCloudStorage */
   exports.exports = function (e) {
     ((e.CommercialProduct = function (t, n, GCore, GCloudStorage) {
@@ -62627,7 +62627,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(381) /* module_381 */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     GFontDBClient = require(1198) /* GFontDBClient */,
@@ -63042,9 +63042,9 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     s = require(67) /* GRichTooltipConfig */,
     GSwatchesChangedEvent = require(1151) /* GSwatchesChangedEvent */,
@@ -65896,7 +65896,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.scope = e;
   }
@@ -65916,7 +65916,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */,
     require(196) /* polyfill_Promise_finally */,
     require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = require(847) /* module_847 */,
     SharepointException = _interopRequireDefault(require(1239) /* SharepointException */),
     s = _interopRequireDefault(require(388) /* Item */),
@@ -66377,7 +66377,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   require(173) /* stub_requires_1 */;
   function i() {}
   GCore.GObject.inheritAndMix(i, GCore.GObject);
@@ -67282,7 +67282,7 @@ function (exports, module, require) {
     require(190) /* module_190 */,
     require(191) /* module_191 */,
     require(192)) /* module_192 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     JDataView = require(1210) /* JDataView */,
     a = /["\*\/:<>\?\\\|]/g,
     r = /[\0-\x1F\x80-\x9F]/g,
@@ -67388,7 +67388,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   (GCore.GObject.inherit(i, GCore.GEvent),
     (i.prototype.toString = function () {
@@ -67400,8 +67400,8 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+  var GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     a = function (e) {
       e.changed.escapeKey && (e.isImmediatePropagationStopped = true);
     },
@@ -67501,7 +67501,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18); /* MenuItemBuilder */
   function r() {}
@@ -67546,7 +67546,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.type = e), (this.fileId = t));
   }
@@ -67568,8 +67568,8 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     r = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GProperties = require(123) /* GProperties */,
@@ -68079,9 +68079,9 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var i = require(15) /* module */,
-    GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var i = require(15) /* GEditor */,
+    GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     s = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     c = _interopRequireDefault(require(807) /* module_807 */),
@@ -69794,7 +69794,7 @@ function (exports, module, require) {
   'use strict';
   (Object.defineProperty(module, '__esModule', { value: true }),
     (module.default = module.dateToVersionFormat = module.dateToFilePreviewFormat = undefined));
-  const { GLocale: o } = require(1) /* module */,
+  const { GLocale: o } = require(1) /* GCore */,
     i = (e) =>
       o.toLocaleDate(e, {
         month: 'short',
@@ -69850,7 +69850,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(38) /* stub_requires_680 */,
     require(97)) /* stub_requires_684 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GDocumentEvent = require(78) /* GDocumentEvent */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
     r = require(433) /* module_433 */,
@@ -70098,8 +70098,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s(e) {
@@ -70174,7 +70174,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(20) /* polyfill_RegExp_exec */, require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = _interopRequireDefault(require(31) /* GAction */);
   class r extends GAction.default {
     static getSubActionId(e, t) {
@@ -70225,8 +70225,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -70279,8 +70279,8 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(198) /* Exports_GOutlineSidebar */,
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -70356,8 +70356,8 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -70438,8 +70438,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    a = (require(15) /* module */, _interopRequireDefault(require(31) /* GAction */)),
+  var GCore = require(1) /* GCore */,
+    a = (require(15) /* GEditor */, _interopRequireDefault(require(31) /* GAction */)),
     r =
       (_interopRequireDefault(require(85) /* GContainer */),
       _interopRequireDefault(require(18) /* MenuItemBuilder */)),
@@ -70496,7 +70496,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GEditor = require(15) /* module */,
+    GEditor = require(15) /* GEditor */,
     GContainer = _interopRequireDefault(require(85) /* GContainer */);
   class r {
     static isSupported() {
@@ -70520,7 +70520,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.type = e), (this.data = t));
   }
@@ -70539,8 +70539,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GSplitPathAction = require(873) /* GSplitPathAction */,
     GElementAction = require(106); /* GElementAction */
@@ -70630,8 +70630,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(18)) /* MenuItemBuilder */,
+  var GCore = require(1) /* GCore */,
+    i = (require(15) /* GEditor */, require(18)) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function r() {}
   (GCore.GObject.inherit(r, GElementAction),
@@ -70706,7 +70706,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function r() {}
@@ -70769,8 +70769,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -70840,8 +70840,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -70917,8 +70917,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106) /* GElementAction */,
     GClipAction = require(809); /* GClipAction */
@@ -71023,8 +71023,8 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(18) /* MenuItemBuilder */, require(31)) /* GAction */;
+  var GCore = require(1) /* GCore */,
+    i = (require(15) /* GEditor */, require(18) /* MenuItemBuilder */, require(31)) /* GAction */;
   require(1313) /* URIListHandler */;
   function a() {
     this._targetPosition = null;
@@ -71141,8 +71141,8 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GElementAction = require(106); /* GElementAction */
@@ -71246,9 +71246,9 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
-    a = (require(53) /* module */, require(18)) /* MenuItemBuilder */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
+    a = (require(53) /* GTools */, require(18)) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
   (GCore.GObject.inherit(s, GElementAction),
@@ -71368,8 +71368,8 @@ function (exports, module, require) {
     require(193) /* polyfill_Object_keys */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106) /* GElementAction */,
@@ -71552,7 +71552,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   ((i.CheckingForUpdate = function () {
     let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -71663,8 +71663,8 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  const { GObject: o } = require(1) /* module */,
-    { GPlatform: i } = require(15); /* module */
+  const { GObject: o } = require(1) /* GCore */,
+    { GPlatform: i } = require(15); /* GEditor */
   function a() {
     this._children = [];
   }
@@ -72289,7 +72289,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(381); /* module_381 */
   const { parseNativeFonts: a, getLocalFontsData: r, getFontFamily: s } = require(
     1200
@@ -72439,7 +72439,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(34) /* polyfill_String_replace */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     function module(e) {
       if (Object(e) !== e) return Promise.reject(new TypeError(e + ' is not an object.'));
@@ -73151,7 +73151,7 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(38) /* stub_requires_680 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   require(1150) /* GPatternChooser */;
   function i(e) {
     let module = [
@@ -73277,7 +73277,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AdalAuthLibrary = _interopRequireDefault(require(1476) /* AdalAuthLibrary */),
     CloudException = require(802) /* CloudException */,
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
@@ -74323,7 +74323,7 @@ function (exports, module, require) {
   (require(96) /* polyfill_JSON_stringify */,
     require(30) /* polyfill_Object_assign */,
     require(8)) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = require(1479) /* module_1479 */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     s = _interopRequireDefault(require(443) /* module_443 */),
@@ -74619,7 +74619,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(57) /* polyfill_parseInt */, require(8)) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GFontDBClient = require(1198) /* GFontDBClient */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     GCustomFontsProvider = require(1118); /* GCustomFontsProvider */
@@ -74863,7 +74863,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.oldPersona = e), (this.newPersona = t));
   }
@@ -75030,7 +75030,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(797) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
@@ -75385,7 +75385,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GSystemDialog = require(44) /* GSystemDialog */,
@@ -75460,7 +75460,7 @@ function (exports, module, require) {
     GFitAllAction = _interopRequireDefault(require(449) /* GFitAllAction */),
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     l = _interopRequireDefault(require(237) /* Item */),
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   exports.exports = class {
     static handleOpenFileRequest(e, t) {
       gContainer.openStorageFile(e, t, function (n) {
@@ -75560,7 +75560,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
@@ -76136,9 +76136,9 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    r = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    r = require(15) /* GEditor */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     l = require(67) /* GRichTooltipConfig */,
     c = _interopRequireDefault(require(442) /* module_442 */),
@@ -77264,9 +77264,9 @@ function (exports, module, require) {
   (require(57) /* polyfill_parseInt */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var i = require(15) /* module */,
-    GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var i = require(15) /* GEditor */,
+    GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     l = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
@@ -78293,9 +78293,9 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    r = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    r = require(15) /* GEditor */,
     s = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     c = _interopRequireDefault(require(807) /* module_807 */),
@@ -80970,7 +80970,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   ((i.DefaultStops = {
     Hue: function (e) {
@@ -81030,7 +81030,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GProperties = require(123) /* GProperties */,
     GAppearanceProperties = require(1160); /* GAppearanceProperties */
   function r() {}
@@ -81196,7 +81196,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GProperties = require(123); /* GProperties */
   require(173) /* stub_requires_1 */;
   function a() {
@@ -81405,9 +81405,9 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  require(53) /* module */;
-  var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(1267)) /* ColorQuantizer */,
+  require(53) /* GTools */;
+  var GCore = require(1) /* GCore */,
+    i = (require(15) /* GEditor */, require(1267)) /* ColorQuantizer */,
     GProperties = require(123) /* GProperties */,
     {
       replaceImage: r,
@@ -82188,9 +82188,9 @@ function (exports, module, require) {
         GCore.GLocale.get(new GCore.GLocaleKey('GImageProperties', 'action.reset-size'))
       );
     }));
-  var GCore = require(1) /* module */,
-    i = require(15) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    i = require(15) /* GEditor */,
+    GTools = require(53) /* GTools */,
     r =
       (require(1267) /* ColorQuantizer */,
       require(123) /* GProperties */,
@@ -82205,8 +82205,8 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     a = require(357) /* module_357 */,
     r = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
@@ -82911,7 +82911,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     r = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
@@ -83616,8 +83616,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     a = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     s = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
@@ -84093,8 +84093,8 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GProperties = require(123) /* GProperties */,
     l = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
@@ -84413,9 +84413,9 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     s = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
@@ -86803,8 +86803,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     GAlignAction = require(866) /* GAlignAction */,
     GDistributeAction = require(867) /* GDistributeAction */,
     GProperties = require(123) /* GProperties */,
@@ -86955,8 +86955,8 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     AppSettings = require(10) /* AppSettings */,
     GAutoSaveManager = require(1276) /* GAutoSaveManager */,
     l = _interopRequireDefault(require(1278) /* module_1278 */),
@@ -87591,7 +87591,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const {
       gApi: i,
       AUTO_SAVE_ENABLED: a,
@@ -88284,7 +88284,7 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GDocument = require(163) /* GDocument */,
@@ -88372,7 +88372,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  var GEditor = require(15) /* module */,
+  var GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     GSubAction = _interopRequireDefault(require(1168) /* GSubAction */);
   class s extends GAction.default {
@@ -88435,8 +88435,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -88497,8 +88497,8 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     r = require(67) /* GRichTooltipConfig */,
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     AppSettings = require(10) /* AppSettings */,
@@ -88579,8 +88579,8 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -88659,8 +88659,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -88707,8 +88707,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(18)) /* MenuItemBuilder */,
+  var GCore = require(1) /* GCore */,
+    i = (require(15) /* GEditor */, require(18)) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
   (GCore.GObject.inherit(r, GAction),
@@ -88761,7 +88761,7 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   require(173) /* stub_requires_1 */;
@@ -88810,8 +88810,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -88878,7 +88878,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -88931,9 +88931,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     r = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -89014,9 +89014,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     r = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -89095,7 +89095,7 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  const { GLocale: o, GLocaleKey: i } = require(1); /* module */
+  const { GLocale: o, GLocaleKey: i } = require(1); /* GCore */
   function a() {
     throw 'No instantiate';
   }
@@ -89213,7 +89213,7 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const { FILE_FORMATS: i, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: a } = {} } = require(
       10
     ) /* AppSettings */,
@@ -89407,8 +89407,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     r = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GAlignAction = require(866) /* GAlignAction */,
@@ -90652,9 +90652,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    i = require(15) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    i = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l(e) {
@@ -90734,8 +90734,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -90773,8 +90773,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
     l = _interopRequireDefault(require(442) /* module_442 */);
@@ -90847,7 +90847,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18); /* MenuItemBuilder */
   const GSystemDialog = require(44) /* GSystemDialog */,
@@ -90896,8 +90896,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GOpenAction = _interopRequireDefault(require(813) /* GOpenAction */);
   function s() {}
   (GCore.GObject.inherit(s, GOpenAction.default),
@@ -90933,8 +90933,8 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     s = require(858) /* Exports_GFilesPanel */,
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
@@ -92806,9 +92806,9 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     GAlignAction = require(866) /* GAlignAction */,
     GArrangeAction = require(869) /* GArrangeAction */,
     GAttachToPathAction = require(1176) /* GAttachToPathAction */,
@@ -93599,7 +93599,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(3) /* polyfill_RegExp_toString */, require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
   function r(e) {
     ((this._type = e), GSelectByAction.default.call(this, r.getId(e), r.getTitle(e)));
@@ -93665,7 +93665,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(3) /* polyfill_RegExp_toString */, require(38)) /* stub_requires_680 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
   function r() {
     GSelectByAction.default.call(this, r.ID, r.TITLE);
@@ -93694,7 +93694,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
   function r() {
     GSelectByAction.default.call(this, r.ID, r.TITLE);
@@ -93720,7 +93720,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
   function r() {
     GSelectByAction.default.call(this, r.ID, r.TITLE);
@@ -93746,7 +93746,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
   function r() {
     GSelectByAction.default.call(this, r.ID, r.TITLE);
@@ -93770,7 +93770,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSelectByAction = _interopRequireDefault(require(609) /* GSelectByAction */);
   function r() {
     GSelectByAction.default.call(this, r.ID, r.TITLE);
@@ -93795,8 +93795,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -93851,8 +93851,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     r = (require(31) /* GAction */, require(106)) /* GElementAction */;
   function s() {}
@@ -93924,9 +93924,9 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = (require(15) /* module */, require(18)) /* MenuItemBuilder */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = (require(15) /* GEditor */, require(18)) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {
     this._title = new GCore.GLocaleKey('GEditElementActon', 'title');
@@ -94017,9 +94017,9 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
     GAnnotationsSidebar = require(567); /* GAnnotationsSidebar */
@@ -94463,8 +94463,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -94615,8 +94615,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function s() {}
@@ -94669,8 +94669,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -94748,7 +94748,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GOutlineAction = require(1185); /* GOutlineAction */
   function a() {}
   (GCore.GObject.inherit(a, GOutlineAction),
@@ -94806,8 +94806,8 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106) /* GElementAction */,
@@ -94955,8 +94955,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -95106,8 +95106,8 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -95213,7 +95213,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(30) /* polyfill_Object_assign */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.notification = Object.assign({ popup: false, annonymous: false }, e || {})),
       (this.builder = t));
@@ -95245,7 +95245,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
     r = _interopRequireDefault(require(355) /* module_355 */),
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
@@ -95900,7 +95900,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.document = e), (this.state = t));
   }
@@ -95921,7 +95921,7 @@ function (exports, module, require) {
       SharePermissions: { COMMENT: i, EDIT: a },
       ShareRoles: r,
     } = require(10) /* AppSettings */,
-    { GLocale: s, GLocaleKey: l } = require(1); /* module */
+    { GLocale: s, GLocaleKey: l } = require(1); /* GCore */
   exports.exports = class extends GUserModel {
     constructor() {
       let {
@@ -96221,7 +96221,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const i = require(1327) /* module_1327 */,
     a = require(1577); /* module_1577 */
   class r {
@@ -96276,7 +96276,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.paintMode = e;
   }
@@ -96320,7 +96320,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.fullscreen = e;
   }
@@ -96334,9 +96334,9 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -96647,9 +96647,9 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
-    r = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
+    r = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
@@ -96774,8 +96774,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -96855,8 +96855,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -96904,8 +96904,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     r = _interopRequireDefault(require(443) /* module_443 */),
     s = _interopRequireDefault(require(1330) /* module_1330 */);
   const { isExecutingOnMSTeamsSync: l } = r.default;
@@ -96989,7 +96989,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GTouchOnboarding = require(1589); /* GTouchOnboarding */
@@ -97139,8 +97139,8 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     l = require(67) /* GRichTooltipConfig */,
@@ -98323,8 +98323,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+    GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     s = require(198); /* Exports_GOutlineSidebar */
   const GAction = require(31); /* GAction */
@@ -98366,8 +98366,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     l = require(198); /* Exports_GOutlineSidebar */
@@ -98456,7 +98456,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
   const s = 'designer.settings.enhanced-tooltips.enabled';
@@ -98520,7 +98520,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const { TRANSLATION_MANAGER: i } = require(10); /* AppSettings */
   function a() {}
   (GCore.GObject.inherit(a, GCore.GObject),
@@ -98746,8 +98746,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+    GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
     l = require(198); /* Exports_GOutlineSidebar */
@@ -98843,8 +98843,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GMainAction = _interopRequireDefault(require(1281) /* GMainAction */),
     GOutlineSidebar = require(198); /* Exports_GOutlineSidebar */
@@ -98882,7 +98882,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i() {}
   (GCore.GObject.inherit(i, GCore.GEvent),
     (i.prototype.message = null),
@@ -98894,7 +98894,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this.type = e), (this.data = t));
   }
@@ -98908,8 +98908,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(196)) /* polyfill_Promise_finally */;
-  var GTools = require(53) /* module */,
-    GCore = require(1); /* module */
+  var GTools = require(53) /* GTools */,
+    GCore = require(1); /* GCore */
   const { gApi: a } = require(10) /* AppSettings */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
@@ -99299,7 +99299,7 @@ function (exports, module, require) {
         hasSelection: c,
       };
     }));
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     var n = null,
       i = null;
@@ -99362,7 +99362,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
+  const { GLocale: o, GLocaleKey: i } = require(1) /* GCore */,
     a = require(883); /* module_883 */
   exports.exports = {
     createAdditionalMentions: function () {
@@ -99471,7 +99471,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t, n, GCore, i, a, r, s, l, c) {
     ((this._container = e),
       (this._renderer = t),
@@ -99681,7 +99681,7 @@ function (exports, module, require) {
       GAnnotation: y,
       GObject: v,
       GNode: _,
-    } = require(1) /* module */,
+    } = require(1) /* GCore */,
     {
       NEW_COMMENT_READ_TIMEOUT: b,
       ANNOTATION_PERMANENT_LINK: w,
@@ -100377,10 +100377,10 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GEditor = require(15) /* module */,
+  var GEditor = require(15) /* GEditor */,
     GCollaborationMentionsUtils = require(882); /* GCollaborationMentionsUtils */
   const GSystemDialog = require(44) /* GSystemDialog */,
-    { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = require(1) /* module */,
+    { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = require(1) /* GCore */,
     u = require(1191) /* module_1191 */,
     { getAnnotationType: p } = require(40); /* CollaborationMergeUtils */
   require(85) /* GContainer */;
@@ -101358,7 +101358,7 @@ function (exports, module, require) {
   function a(e, t, n, _interopRequireDefault) {
     (i.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault));
   }
-  (require(1) /* module */
+  (require(1) /* GCore */
     .GObject.inheritAndMix(a, i.default.Item),
     (a.prototype.isRegistrable = function () {
       return !!this.getId();
@@ -101379,7 +101379,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(381); /* module_381 */
   function a(e) {
     i.call(this, e);
@@ -101602,7 +101602,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     a = require(381); /* module_381 */
   function r(e) {
@@ -102072,7 +102072,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     a = require(237) /* Item */,
     r = require(220) /* Item */,
@@ -102134,7 +102134,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     a = require(237) /* Item */,
     r = (require(220) /* Item */, require(40) /* CollaborationMergeUtils */.decrypt);
@@ -104578,7 +104578,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (Object.defineProperty(module, '__esModule', { value: true }), (module.getOS = undefined));
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   module.getOS = () => {
     let exports = null;
     switch (GCore.GSystem.operatingSystem) {
@@ -104630,7 +104630,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  const { GFontManager: o } = require(1); /* module */
+  const { GFontManager: o } = require(1); /* GCore */
   exports.exports = class {
     constructor(e) {
       ((this._fontManager = e),
@@ -104681,7 +104681,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   require(10) /* AppSettings */;
   (require(1474) /* module_1474 */,
@@ -104760,7 +104760,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(71) /* polyfill_String_includes */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   function a(e, t) {
     let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : 'file.save';
@@ -104833,7 +104833,7 @@ function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
   var o = require(797) /* module */,
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   require(257) /* barrel_panels */;
   function a(e, t, n, o, a, r) {
     ((this._currentDocument = e),
@@ -106115,7 +106115,7 @@ function (exports, module, require) {
     (module.GMicrosoftUser = r),
     (module.default = undefined),
     require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(1478) /* GCloudUser */,
     a = require(1241); /* GCloudRole */
   function r(e) {
@@ -107119,7 +107119,7 @@ function (exports, module, require) {
               return u.ParentAppWindow;
             },
           }));
-        var p = n(15); /* module */
+        var p = n(15); /* GEditor */
         Object.defineProperty(t, 'menus', {
           enumerable: true,
           get: function () {
@@ -107237,7 +107237,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.authentication = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(7) /* GTransform */,
           a = n(2) /* GNode */,
           r = n(0) /* GObject */,
@@ -107423,7 +107423,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.settings = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(2) /* GNode */,
           a = n(5) /* GPoint */,
           r = n(0) /* GObject */,
@@ -107523,7 +107523,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.logs = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(0) /* GObject */,
           a = n(3); /* polyfill_RegExp_toString */
         (t.logs || (t.logs = {})).registerGetLogHandler = function (e) {
@@ -107553,7 +107553,7 @@ function (exports, module, require) {
             t.getUserJoinedTeams =
             t.initializePrivateApis =
               undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(2) /* GNode */,
           a = n(5) /* GPoint */,
           r = n(0) /* GObject */,
@@ -107647,7 +107647,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.menus = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(0) /* GObject */,
           a = n(3); /* polyfill_RegExp_toString */
         !(function (e) {
@@ -107702,7 +107702,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }),
           (t.ParentAppWindow = t.ChildAppWindow = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(2) /* GNode */,
           a = n(5) /* GPoint */,
           r = n(0) /* GObject */,
@@ -107782,7 +107782,7 @@ function (exports, module, require) {
         (Object.defineProperty(t, '__esModule', { value: true }), (t.media = undefined));
         var a = n(7) /* GTransform */,
           r = n(6) /* GRect */,
-          s = n(1) /* module */,
+          s = n(1) /* GCore */,
           l = n(2) /* GNode */,
           c = n(5) /* GPoint */,
           d = n(18) /* MenuItemBuilder */,
@@ -108038,7 +108038,7 @@ function (exports, module, require) {
               undefined));
         var o = n(17) /* GRGBColor */,
           i = n(4) /* stub_requires_668 */,
-          a = n(1); /* module */
+          a = n(1); /* GCore */
         function r(e) {
           var t;
           return !(
@@ -108341,7 +108341,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.bot = undefined));
         var o = n(0) /* GObject */,
-          i = n(1); /* module */
+          i = n(1); /* GCore */
         !(function (e) {
           ((e.sendQuery = function (e, t, n) {
             ((0, i.ensureInitialized)(),
@@ -108428,7 +108428,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }),
           (t.appInitialization = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(4) /* stub_requires_668 */,
           a = n(0); /* GObject */
         !(function (e) {
@@ -108492,7 +108492,7 @@ function (exports, module, require) {
             t._initialize =
             t.initialize =
               undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(7) /* GTransform */,
           a = n(4) /* stub_requires_668 */,
           r = n(12) /* GMath */,
@@ -108502,7 +108502,7 @@ function (exports, module, require) {
           d = n(0) /* GObject */,
           u = n(11) /* GUtil */,
           p = n(14) /* GPaintCanvas */,
-          g = n(15) /* module */,
+          g = n(15) /* GEditor */,
           h = n(3); /* polyfill_RegExp_toString */
         function f(e, t) {
           (i.GlobalVars.initializeCalled ||
@@ -108659,7 +108659,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }),
           (t.navigateBack = t.navigateCrossDomain = t.navigateToTab = t.returnFocus = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(5) /* GPoint */,
           a = n(2) /* GNode */,
           r = n(0); /* GObject */
@@ -108727,7 +108727,7 @@ function (exports, module, require) {
         var i = n(2) /* GNode */,
           a = n(16) /* _interopRequireDefault */,
           r = n(0) /* GObject */,
-          s = n(1); /* module */
+          s = n(1); /* GCore */
         !(function (e) {
           ((e.startTask = function (e, t) {
             return (
@@ -108771,7 +108771,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.location = undefined));
         var o = n(6) /* GRect */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(2) /* GNode */,
           r = n(0) /* GObject */,
           s = n(4); /* stub_requires_668 */
@@ -108801,7 +108801,7 @@ function (exports, module, require) {
         (Object.defineProperty(t, '__esModule', { value: true }), (t.meeting = undefined));
         var o = n(0) /* GObject */,
           i = n(3) /* polyfill_RegExp_toString */,
-          a = n(1) /* module */,
+          a = n(1) /* GCore */,
           r = n(2); /* GNode */
         !(function (e) {
           (!(function (e) {
@@ -108901,7 +108901,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.monetization = undefined));
         var o = n(0) /* GObject */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(2); /* GNode */
         (t.monetization || (t.monetization = {})).openPurchaseExperience = function (e, t) {
           if (!e) throw new Error('[open purchase experience] Callback cannot be null');
@@ -108912,7 +108912,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.people = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(2) /* GNode */,
           a = n(6) /* GRect */,
           r = n(18) /* MenuItemBuilder */,
@@ -108936,7 +108936,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.video = undefined));
         var o = n(0) /* GObject */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(2) /* GNode */,
           r = n(3); /* polyfill_RegExp_toString */
         !(function (e) {
@@ -108973,7 +108973,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.sharing = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(0) /* GObject */,
           a = n(6) /* GRect */,
           r = n(2); /* GNode */
@@ -109050,7 +109050,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.stageView = undefined));
         var o = n(0) /* GObject */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(2); /* GNode */
         (t.stageView || (t.stageView = {})).open = function (e, t) {
           if (((0, i.ensureInitialized)(a.FrameContexts.content), !e))
@@ -109076,7 +109076,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.conversations = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(2) /* GNode */,
           a = n(0) /* GObject */,
           r = n(3); /* polyfill_RegExp_toString */
@@ -109128,7 +109128,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.meetingRoom = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(0) /* GObject */,
           a = n(3); /* polyfill_RegExp_toString */
         !(function (e) {
@@ -109185,7 +109185,7 @@ function (exports, module, require) {
       function (e, t, n) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.remoteCamera = undefined));
-        var o = n(1) /* module */,
+        var o = n(1) /* GCore */,
           i = n(2) /* GNode */,
           a = n(0) /* GObject */,
           r = n(3); /* polyfill_RegExp_toString */
@@ -109283,7 +109283,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.files = undefined));
         var o = n(0) /* GObject */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(8); /* polyfill_bundle_ES6 */
         !(function (e) {
           (!(function (e) {
@@ -109411,7 +109411,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.appEntity = undefined));
         var o = n(0) /* GObject */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(8); /* polyfill_bundle_ES6 */
         (t.appEntity || (t.appEntity = {})).selectAppEntity = function (e, t, n, r) {
           if (((0, i.ensureInitialized)(a.FrameContexts.content), !e || 0 == e.length))
@@ -109424,7 +109424,7 @@ function (exports, module, require) {
         'use strict';
         (Object.defineProperty(t, '__esModule', { value: true }), (t.teams = undefined));
         var o = n(0) /* GObject */,
-          i = n(1) /* module */,
+          i = n(1) /* GCore */,
           a = n(8); /* polyfill_bundle_ES6 */
         !(function (e) {
           (!(function (e) {
@@ -109541,9 +109541,9 @@ function (exports, module, require) {
     require(114)) /* stub_requires_424 */;
   var AppSettings = require(10) /* AppSettings */,
     a = require(231) /* module_231 */,
-    GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    l = require(15) /* module */,
+    GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    l = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     d = require(67) /* GRichTooltipConfig */,
     u = _interopRequireDefault(require(1484) /* module_1484 */),
@@ -110920,7 +110920,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(8) /* polyfill_bundle_ES6 */;
   var GSystem = _interopRequireDefault(require(176) /* GSystem */),
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
     s = _interopRequireDefault(require(44) /* GSystemDialog */),
     l = _interopRequireDefault(require(443) /* module_443 */),
@@ -110979,7 +110979,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(859) /* module_859 */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     s = require(803); /* module_803 */
@@ -111021,7 +111021,7 @@ function (exports, module, require) {
     a = _interopRequireDefault(require(389) /* module_389 */),
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
     GCustomFontImporter = _interopRequireDefault(require(1245) /* GCustomFontImporter */),
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   exports.exports = {
     debugDownloadPNG: function () {
       (0, GFileDownloadUtils.downloadActiveFile)(a.default.PNG.ext);
@@ -112025,9 +112025,9 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     l = require(357) /* module_357 */,
     c = _interopRequireDefault(require(1492) /* module_1492 */),
@@ -115753,7 +115753,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   exports.exports = class {
     constructor() {
       this._lastMousePoint = null;
@@ -118080,7 +118080,7 @@ function (exports, module, require) {
   'use strict';
   (require(20) /* polyfill_RegExp_exec */, require(34)) /* polyfill_String_replace */;
   var AppSettings = require(10); /* AppSettings */
-  const { GLocale: i, GLocaleKey: a } = require(1); /* module */
+  const { GLocale: i, GLocaleKey: a } = require(1); /* GCore */
   function r(e) {
     this._htmlElement = e;
   }
@@ -118127,7 +118127,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e) {
     this.item = e;
   }
@@ -118157,8 +118157,8 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     s = require(357) /* module_357 */,
     GMenu = _interopRequireDefault(require(238) /* GMenu */),
@@ -119085,9 +119085,9 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     l = require(86) /* module_86 */,
@@ -119602,7 +119602,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var o = require(357) /* module_357 */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const { gApi: r, LINKS: s, DESIGNER: { TITLE: l } = {}, SubscriptionStatus: c } = require(
       10
@@ -120015,7 +120015,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   const { bypassEmailVerification: a } = AppSettings.defaultUserSettings,
     GSystemDialog = require(44) /* GSystemDialog */,
     s = function (e) {
@@ -120336,7 +120336,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   function a(e, t, n) {
     let a = arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
     ((this._user = e), (this._messageHandler = t), (this._parent = n), (this._options = a));
@@ -120465,7 +120465,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     barrel_panels = require(257); /* barrel_panels */
   class r {
@@ -120543,7 +120543,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this._neverRemind = false),
       (this._agreeCb = e),
@@ -120942,9 +120942,9 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(97) /* stub_requires_684 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(797) /* module */,
-    GEditor = require(15) /* module */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     GMenu = require(238) /* GMenu */,
@@ -125073,7 +125073,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */);
   const GSystemDialog = require(44) /* GSystemDialog */,
     l = require(863) /* module_863 */,
@@ -125192,8 +125192,8 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     a = require(67) /* GRichTooltipConfig */,
     GMenu = require(238) /* GMenu */,
     s = require(444) /* module_444 */,
@@ -125658,7 +125658,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GEffectsButton = require(1527); /* GEffectsButton */
   function a(e) {
     ((this._htmlElement = $('<div></div>')
@@ -125722,7 +125722,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   function a(e, t, n, a, r, s, l) {
     var c = e && t && n && a && l;
@@ -125789,7 +125789,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     r = require(1163) /* module_1163 */,
     GProperties = _interopRequireDefault(require(123) /* GProperties */),
@@ -126529,7 +126529,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const { FILE_FORMATS: i, gApi: a } = require(10) /* AppSettings */,
     r = i.find((e) => e.default),
     { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,
@@ -126621,7 +126621,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const { FILE_FORMATS: i } = require(10) /* AppSettings */,
     a = i.find((e) => e.default),
     { COMMAND_SAVE: r } = require(591) /* module_591 */,
@@ -126664,7 +126664,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { FILE_FORMATS: a } = require(10) /* AppSettings */,
     r = a.find((e) => e.default),
@@ -126757,9 +126757,9 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(97) /* stub_requires_684 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    a = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    a = require(15) /* GEditor */,
     GFitAllAction = require(449) /* GFitAllAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GProperties = require(123); /* GProperties */
@@ -127099,8 +127099,8 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     GProperties = require(123); /* GProperties */
   const GCollaborationEvent = require(393) /* GCollaborationEvent */,
@@ -127713,7 +127713,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
   var i = _interopRequireDefault(require(1155) /* module_1155 */);
-  const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* module */,
+  const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* GCore */,
     l = require(392) /* module_392 */,
     GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
     GProperties = require(123) /* GProperties */,
@@ -128118,7 +128118,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
+  const { GLocale: o, GLocaleKey: i } = require(1) /* GCore */,
     a = require(1166) /* module_1166 */,
     GUserModel = require(177) /* GUserModel */,
     {
@@ -128220,7 +128220,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GView = require(394); /* GView */
   function a(e) {
     ((this._htmlElement = e),
@@ -128463,9 +128463,9 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var _editor = require(53) /* module */,
-    _core = require(1) /* module */,
-    _client = require(15) /* module */,
+  var _editor = require(53) /* GTools */,
+    _core = require(1) /* GCore */,
+    _client = require(15) /* GEditor */,
     _config = require(10) /* AppSettings */,
     _richtooltipconfig = require(67); /* GRichTooltipConfig */
   const GCategory = require(18) /* MenuItemBuilder */,
@@ -129326,9 +129326,9 @@ function (exports, module, require) {
               click: function (evt) {
                 var code = $(evt.target).closest('.toolbar-button').data('code');
                 function evaled() {
-                  var core = require(1) /* module */,
-                    editor = require(53) /* module */,
-                    client = require(15); /* module */
+                  var core = require(1) /* GCore */,
+                    editor = require(53) /* GTools */,
+                    client = require(15); /* GEditor */
                   eval('(' + code + ')')(
                     gDesigner.getActiveDocument().getEditor().getSelection(),
                     gDesigner.getActiveDocument().getScene(),
@@ -131291,7 +131291,7 @@ function (exports, module, require) {
     GMenu2 = require(339) /* GMenu */,
     barrel_panels = require(257) /* barrel_panels */,
     GContainer = require(85) /* GContainer */,
-    { GSystem: m, GMath: y } = require(1) /* module */,
+    { GSystem: m, GMath: y } = require(1) /* GCore */,
     { FILE_FORMATS: v } = require(10); /* AppSettings */
   exports.exports = function (e) {
     ((e.prototype._windowButton = null),
@@ -131568,7 +131568,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     r = require(357) /* module_357 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
@@ -132625,7 +132625,7 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = require(1546) /* module_1546 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
@@ -134234,8 +134234,8 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GCloudFileBrowser = _interopRequireDefault(require(1300) /* GCloudFileBrowser */),
     s = require(1163) /* module_1163 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
@@ -134269,7 +134269,7 @@ function (exports, module, require) {
     p = require(858); /* Exports_GFilesPanel */
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { CLOUD_DIALOG: h } = require(10) /* AppSettings */,
-    { GPlatform: f } = require(15) /* module */,
+    { GPlatform: f } = require(15) /* GEditor */,
     GContainer = require(85) /* GContainer */,
     { GRegex: y } = require(263) /* Exports_GRegex */,
     v = function () {
@@ -135390,7 +135390,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = require(1163) /* module_1163 */,
     r = _interopRequireDefault(require(1090) /* module_1090 */),
     GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
@@ -135606,7 +135606,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(163) /* GDocument */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     s = _interopRequireDefault(require(86) /* module_86 */),
@@ -136547,7 +136547,7 @@ function (exports, module, require) {
     require(91) /* polyfill_String_trim */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */);
   function r(e, t, n, _interopRequireDefault) {
     let r = arguments.length > 4 && undefined !== arguments[4] ? arguments[4] : {};
@@ -136639,7 +136639,7 @@ function (exports, module, require) {
     require(169) /* stub_requires_683 */,
     require(1175) /* stub_requires_1559 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     GCloudStorage = require(119) /* GCloudStorage */,
     GDocument = require(163); /* GDocument */
@@ -137061,8 +137061,8 @@ function (exports, module, require) {
   (require(96) /* polyfill_JSON_stringify */,
     require(30) /* polyfill_Object_assign */,
     require(8)) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     r = _interopRequireDefault(require(1561) /* module_1561 */),
     GUserModel = _interopRequireDefault(require(177) /* GUserModel */);
   const { gApi: l } = require(10); /* AppSettings */
@@ -137199,8 +137199,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GInstallToDesktopAction = _interopRequireDefault(require(1172) /* GInstallToDesktopAction */),
     s = _interopRequireDefault(require(1173) /* module_1173 */);
   function l(e) {
@@ -137375,8 +137375,8 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(97) /* stub_requires_684 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     a = require(1303) /* GContextMenu */,
     GAttachToPathAction = require(1176) /* GAttachToPathAction */,
     GConvertToPathAction = require(810) /* GConvertToPathAction */,
@@ -137979,7 +137979,7 @@ function (exports, module, require) {
       })(e, t);
     })(require(10) /* AppSettings */),
     a = _interopRequireDefault(require(389) /* module_389 */),
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   const GDocumentEvent = require(78) /* GDocumentEvent */,
     l = require(441) /* module_441 */,
     {
@@ -138112,7 +138112,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const {
       gApi: i,
       IS_TRUNK: a,
@@ -138491,8 +138491,8 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   const {
       FileExtended: a,
       gApi: r,
@@ -140095,7 +140095,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(30) /* polyfill_Object_assign */, require(8)) /* polyfill_bundle_ES6 */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     r = _interopRequireDefault(require(1187) /* module_1187 */);
   function s() {}
   (GCore.GObject.inherit(s, AppSettings.GPaywallDialog.Impl),
@@ -140159,7 +140159,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  require(1) /* module */;
+  require(1) /* GCore */;
   (require(1327) /* module_1327 */, require(1579)) /* module_1579 */;
   class o {
     static openTrialExpired() {
@@ -140192,7 +140192,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(30) /* polyfill_Object_assign */, require(8)) /* polyfill_bundle_ES6 */;
   var AppSettings = require(10) /* AppSettings */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     r = _interopRequireDefault(require(1187) /* module_1187 */);
   class s extends AppSettings.GReminderDialog.Impl {
     open(e) {
@@ -140458,7 +140458,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GTools = require(53); /* module */
+  var GTools = require(53); /* GTools */
   const GTouchEventHandler = require(878) /* GTouchEventHandler */,
     GTouchPinchZoomGesture = require(1585) /* GTouchPinchZoomGesture */,
     GTouchClickGesture = require(879) /* GTouchClickGesture */,
@@ -140488,8 +140488,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     s = _interopRequireDefault(require(880) /* module_880 */),
     l = _interopRequireDefault(require(1189) /* module_1189 */);
@@ -140662,9 +140662,9 @@ function (exports, module, require) {
     require(169) /* stub_requires_683 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var i = require(15) /* module */,
-    GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var i = require(15) /* GEditor */,
+    GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     l = _interopRequireDefault(require(1330) /* module_1330 */),
     GMenu = _interopRequireDefault(require(238) /* GMenu */),
@@ -141275,7 +141275,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  require(1) /* module */;
+  require(1) /* GCore */;
   var o = function () {
     this._timer = 0;
   };
@@ -141315,7 +141315,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const i = [
     {
       selector: '#toolbar > .section > .menubar-toolbar-button',
@@ -141695,7 +141695,7 @@ function (exports, module, require) {
     GSystemDialog = require(44) /* GSystemDialog */,
     GProfileDialog = require(604) /* GProfileDialog */,
     s = require(337) /* stub_requires_1098 */,
-    { GLocale: l, GLocaleKey: c } = require(1); /* module */
+    { GLocale: l, GLocaleKey: c } = require(1); /* GCore */
   exports.exports = class {
     async execute() {
       let { [o.SetPassword]: exports } =
@@ -142121,7 +142121,7 @@ function (exports, module) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -142211,7 +142211,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -142249,8 +142249,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -142324,8 +142324,8 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GSubAction = _interopRequireDefault(require(1168) /* GSubAction */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
@@ -142563,8 +142563,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -142612,9 +142612,9 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  require(53) /* module */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  require(53) /* GTools */;
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GDocument = require(163) /* GDocument */,
     s = (require(449) /* GFitAllAction */, require(31)) /* GAction */;
@@ -142700,7 +142700,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GPageProperties = _interopRequireDefault(require(1339) /* GPageProperties */),
     r = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
@@ -142763,7 +142763,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   exports.exports = {
     _reInitLayout: function () {
       ((this._canvasPropertiesRowInTouch = $('<div></div>')
@@ -142831,8 +142831,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+    GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     r = require(198) /* Exports_GOutlineSidebar */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
@@ -142899,8 +142899,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+    GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     r = require(198) /* Exports_GOutlineSidebar */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
@@ -142943,8 +142943,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+    GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     r = require(198) /* Exports_GOutlineSidebar */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
@@ -142987,8 +142987,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(67)) /* GRichTooltipConfig */,
+  var GCore = require(1) /* GCore */,
+    i = (require(15) /* GEditor */, require(67)) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GCustomFontImporter = require(1245); /* GCustomFontImporter */
@@ -143060,8 +143060,8 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     a = require(797) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -143239,7 +143239,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(237); /* Item */
   function a() {}
   (GCore.GObject.inherit(a, i),
@@ -143263,7 +143263,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function r() {}
@@ -143322,7 +143322,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -143360,7 +143360,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GSettingsDialog = require(1275) /* GSettingsDialog */,
@@ -143396,8 +143396,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GShowGuideLinesAction = require(1169); /* GShowGuideLinesAction */
@@ -143456,7 +143456,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -143506,7 +143506,7 @@ function (exports, module, require) {
     require(328) /* polyfill_Array_sort */,
     require(3) /* polyfill_RegExp_toString */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
@@ -143653,8 +143653,8 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(107) /* polyfill_RegExp_test */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     ScreenfulJS = _interopRequireDefault(require(1618) /* ScreenfulJS */),
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
@@ -144000,8 +144000,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {}
@@ -144050,7 +144050,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(443) /* module_443 */),
     AppSettings = require(10) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -144129,7 +144129,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = (require(18) /* MenuItemBuilder */, require(31)) /* GAction */;
   function a(e) {
     let { name: module, category: require, group: i, link: a, icon: r, builder: s } = e;
@@ -144218,7 +144218,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GCloudStorage = require(119); /* GCloudStorage */
@@ -144263,7 +144263,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18); /* MenuItemBuilder */
   function r() {}
@@ -144301,7 +144301,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18); /* MenuItemBuilder */
   function r() {}
@@ -144335,7 +144335,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GAction = require(31); /* GAction */
   function a(e) {
     this._action = e;
@@ -144415,7 +144415,7 @@ function (exports, module, require) {
   (require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GContainer = require(85) /* GContainer */,
@@ -144477,7 +144477,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -144515,7 +144515,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(443) /* module_443 */);
   const { isExecutingOnMSTeamsSync: r } = a.default;
   var MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -144580,7 +144580,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(443) /* module_443 */);
   const { isExecutingOnMSTeamsSync: r } = a.default;
   var MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -144657,7 +144657,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     SharepointException = _interopRequireDefault(require(1239) /* SharepointException */);
   const r = [
     {
@@ -144770,8 +144770,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GContainer = require(85); /* GContainer */
@@ -144818,7 +144818,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GOfflineDialog = require(256); /* GOfflineDialog */
@@ -144858,7 +144858,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -144934,7 +144934,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -144969,7 +144969,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function r() {}
@@ -145005,7 +145005,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(527) /* module_527 */,
     require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18); /* MenuItemBuilder */
   const { gApi: r } = require(10); /* AppSettings */
@@ -145054,7 +145054,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
@@ -145119,7 +145119,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GTranslationToolDialog = require(1640) /* GTranslationToolDialog */,
@@ -145174,7 +145174,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GTranslationManager = _interopRequireDefault(require(1343) /* GTranslationManager */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
@@ -145583,7 +145583,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   var r = require(219) /* module_219 */,
@@ -145644,9 +145644,9 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
-    r = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
+    r = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class c extends GAction.default {
@@ -145779,7 +145779,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
-  const { GObject: o, GLocaleKey: i } = require(1) /* module */,
+  const { GObject: o, GLocaleKey: i } = require(1) /* GCore */,
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     s = require(1644); /* module_1644 */
@@ -145813,8 +145813,8 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   exports.exports = class {
     constructor() {
       ((this._dialog = this._createDialog()),
@@ -145879,8 +145879,8 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(41) /* stub_requires_682 */,
     require(13)) /* stub_requires_679 */;
-  var GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+  var GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GOutlineSidebar = require(198); /* Exports_GOutlineSidebar */
   const GAction = require(31); /* GAction */
@@ -145968,9 +145968,9 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
+    GTools = require(53) /* GTools */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
   class c extends GAction.default {
@@ -146035,9 +146035,9 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
-    r = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
+    r = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class c extends GAction.default {
@@ -146148,8 +146148,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GSubAction = _interopRequireDefault(require(1168) /* GSubAction */),
     GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
@@ -146226,8 +146226,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class l extends GAction.default {
@@ -146269,8 +146269,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     l = require(198); /* Exports_GOutlineSidebar */
@@ -146307,8 +146307,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class l extends GAction.default {
@@ -146391,8 +146391,8 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class l extends GAction.default {
@@ -146486,8 +146486,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     l = require(198) /* Exports_GOutlineSidebar */,
@@ -146536,7 +146536,7 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GProperties = require(123); /* GProperties */
   const GSettingChangedEvent = require(135); /* GSettingChangedEvent */
   function r() {
@@ -146677,7 +146677,7 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GProperties = require(123); /* GProperties */
   function a() {
     this._items = [];
@@ -146813,7 +146813,7 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GProperties = require(123); /* GProperties */
   const GSettingChangedEvent = require(135); /* GSettingChangedEvent */
   function r() {
@@ -147013,9 +147013,9 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  require(53) /* module */;
-  var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(40)) /* CollaborationMergeUtils */,
+  require(53) /* GTools */;
+  var GCore = require(1) /* GCore */,
+    i = (require(15) /* GEditor */, require(40)) /* CollaborationMergeUtils */,
     a = (require(67) /* GRichTooltipConfig */, require(238)) /* GMenu */,
     r =
       (require(1151) /* GSwatchesChangedEvent */,
@@ -147411,7 +147411,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GProperties = require(123) /* GProperties */,
     a = (require(173) /* stub_requires_1 */, require(874)) /* GDetachSymbolAction */,
     GFitSelectionAction = require(566); /* GFitSelectionAction */
@@ -147599,7 +147599,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(357) /* module_357 */,
     a = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
@@ -148400,8 +148400,8 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     a = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     s = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
@@ -149092,8 +149092,8 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var GCore = require(1) /* module */,
-    GTools = require(53) /* module */,
+  var GCore = require(1) /* GCore */,
+    GTools = require(53) /* GTools */,
     r = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GDocumentEvent = require(78) /* GDocumentEvent */,
@@ -149352,7 +149352,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GSidebar = require(806) /* GSidebar */,
     GSidebarContainer = require(395) /* GSidebarContainer */,
@@ -149505,8 +149505,8 @@ function (exports, module, require) {
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
   var i = require(1201) /* module */,
-    GCore = require(1) /* module */,
-    r = require(15) /* module */,
+    GCore = require(1) /* GCore */,
+    r = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     l = _interopRequireDefault(require(1664) /* module_1664 */),
     c = require(219) /* module_219 */,
@@ -150355,7 +150355,7 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GPanel = require(606) /* GPanel */,
     GView = require(394) /* GView */,
     r = require(1188) /* module_1188 */,
@@ -150684,7 +150684,7 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const {
       DESIGNER: { TITLE: i },
     } = require(10) /* AppSettings */,
@@ -150892,7 +150892,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   function i(e, t) {
     ((this._builder = e), (this._onClose = t));
   }
@@ -150919,7 +150919,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GPanel = require(606) /* GPanel */,
     GView = require(394) /* GView */,
     r = require(392) /* module_392 */,
@@ -151404,7 +151404,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GPanel = require(606) /* GPanel */,
     GView = require(394) /* GView */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
@@ -151544,7 +151544,7 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  require(1) /* module */;
+  require(1) /* GCore */;
   (require(85) /* GContainer */, require(1671)) /* GModule */;
   function o(e) {
     this._storage = e;
@@ -151812,7 +151812,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(97)) /* stub_requires_684 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const GContainer = require(85) /* GContainer */,
@@ -152128,7 +152128,7 @@ function (exports, module, require) {
     require(196)) /* polyfill_Promise_finally */;
   var i = _interopRequireDefault(require(1249) /* module_1249 */),
     a = _interopRequireDefault(require(1155) /* module_1155 */),
-    GCore = require(1); /* module */
+    GCore = require(1); /* GCore */
   const {
       gApi: s,
       IN_APP_PURCHASE: { CLEVERBRIDGE: { openCartInAPopup: l = false } = {} } = {},
@@ -152258,7 +152258,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10); /* AppSettings */
   const GOfflineDialog = require(256) /* GOfflineDialog */,
     GSystemDialog = require(44) /* GSystemDialog */,
@@ -152547,7 +152547,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const i = {
     [GCore.GLocaleLanguage.Portuguese]: 'pt-br',
     [GCore.GLocaleLanguage.Spanish]: 'es',
@@ -152589,7 +152589,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(20) /* polyfill_RegExp_exec */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GSystemDialog = require(44) /* GSystemDialog */,
     { DESIGNER: { TITLE: a } = {} } = require(10); /* AppSettings */
   exports.exports = class {
@@ -152631,7 +152631,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(20) /* polyfill_RegExp_exec */, require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */);
   const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = require(10) /* AppSettings */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
@@ -152716,7 +152716,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(20) /* polyfill_RegExp_exec */, require(151)) /* module_151 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   ((GCore.GUtil.image2Canvas = function (e, t) {
     if ('string' == typeof e) {
       var require = new Image();
@@ -152802,7 +152802,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  require(1) /* module */.GUtil.prepareForSaving = function (e, t) {};
+  require(1) /* GCore */.GUtil.prepareForSaving = function (e, t) {};
 }
 ,
 function (exports, module, require) {
@@ -152848,8 +152848,8 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(57) /* polyfill_parseInt */, require(3)) /* polyfill_RegExp_toString */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15) /* module */,
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   function s() {}
@@ -153049,7 +153049,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GEditor = require(15) /* module */,
+  var GEditor = require(15) /* GEditor */,
     GRenameLayerAction = _interopRequireDefault(require(1340) /* GRenameLayerAction */),
     GCycleThroughLayersAction = _interopRequireDefault(
       require(1344) /* GCycleThroughLayersAction */
@@ -153169,7 +153169,7 @@ function (exports, module, require) {
   (require(4) /* stub_requires_668 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   var i = {
     init: function (e) {
       e = $.extend({}, e);
@@ -153378,7 +153378,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = null;
   function a(e) {
     for (var module = 0; module < i.length; ++module)
@@ -153517,9 +153517,9 @@ function (exports, module, require) {
   (require(3) /* polyfill_RegExp_toString */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   const r = require(1699); /* module_1699 */
   function s() {}
   GCore.GObject.inheritAndMix(s, GCore.GObject);
@@ -153831,14 +153831,14 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     GCustomFontsProvider = require(1118) /* GCustomFontsProvider */,
     s = require(1199) /* GLocalFontsProvider */,
     GContainer = require(85) /* GContainer */,
     GSystemDialog = require(44); /* GSystemDialog */
-  const { GPlatform: d } = require(15); /* module */
+  const { GPlatform: d } = require(15); /* GEditor */
   function u() {}
   (GCore.GObject.inheritAndMix(u, GCore.GObject),
     (u.DISABLE_LOCAL_FONTS_ACCESS_WARING = 'disable-local-fonts-access-warning'),
@@ -154143,7 +154143,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GFontListFormatter = require(1200) /* GFontListFormatter */,
     GFontsProviderManager = require(255); /* GFontsProviderManager */
@@ -154514,8 +154514,8 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34)) /* polyfill_String_replace */;
-  var GCore = require(1) /* module */,
-    GEditor = require(15); /* module */
+  var GCore = require(1) /* GCore */,
+    GEditor = require(15); /* GEditor */
   require(1259) /* module_1259 */;
   var r = _interopRequireDefault(require(1278) /* module_1278 */),
     s = {
@@ -154850,7 +154850,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GMenu = require(238) /* GMenu */,
     a = require(444); /* module_444 */
   var r = {
@@ -154908,7 +154908,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = {
       value: function (e) {
         const module = $(this);
@@ -154953,7 +154953,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = {
       value: function (e) {
         var t = i.options.call(this).unit;
@@ -155060,9 +155060,9 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(97) /* stub_requires_684 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    r = require(15) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    r = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     l = require(67) /* GRichTooltipConfig */,
     GLayerItemUtils = require(1351) /* GLayerItemUtils */,
@@ -156243,10 +156243,10 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(19) /* polyfill_Array_iterator */, require(26)) /* polyfill_DOMCollection_iterator */;
-  require(53) /* module */;
-  var GCore = require(1) /* module */,
+  require(53) /* GTools */;
+  var GCore = require(1) /* GCore */,
     i =
-      (require(15) /* module */,
+      (require(15) /* GEditor */,
       require(40) /* CollaborationMergeUtils */,
       require(67) /* GRichTooltipConfig */,
       require(1351)) /* GLayerItemUtils */,
@@ -156457,8 +156457,8 @@ function (exports, module, require) {
     require(1175) /* stub_requires_1559 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
     GCollaborationMentionsUtils = require(882) /* GCollaborationMentionsUtils */,
     AppSettings = require(10) /* AppSettings */,
     GInvalidationOptions = _interopRequireDefault(require(1354) /* GInvalidationOptions */);
@@ -157588,8 +157588,8 @@ function (exports, module, require) {
     require(97) /* stub_requires_684 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  const { GObject: o } = require(1) /* module */,
-    { GPlatform: i } = require(15) /* module */,
+  const { GObject: o } = require(1) /* GCore */,
+    { GPlatform: i } = require(15) /* GEditor */,
     GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
     r = require(1191) /* module_1191 */,
     GAnnotationRow = require(1356) /* GAnnotationRow */,
@@ -158377,9 +158377,9 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var GTools = require(53) /* module */,
-    GCore = require(1) /* module */,
-    r = (require(15) /* module */, _interopRequireDefault(require(565) /* module_565 */)),
+  var GTools = require(53) /* GTools */,
+    GCore = require(1) /* GCore */,
+    r = (require(15) /* GEditor */, _interopRequireDefault(require(565) /* module_565 */)),
     s = require(67) /* GRichTooltipConfig */,
     GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
     c = require(451) /* GVirtualTree */.GVirtualTree,
@@ -158915,7 +158915,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = require(67) /* GRichTooltipConfig */,
     a = require(608); /* GCreateSymbolAction */
   function r(e) {
@@ -159236,7 +159236,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const i = {
     init: function (e) {
       e = $.extend(
@@ -159305,7 +159305,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10); /* AppSettings */
   const a = {
     init: function (e) {
@@ -159496,7 +159496,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(57) /* polyfill_parseInt */;
-  var GEditor = require(15) /* module */,
+  var GEditor = require(15) /* GEditor */,
     i = [],
     a = function (e) {
       var t = false;
@@ -159719,7 +159719,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-    GCore = require(1) /* module */,
+    GCore = require(1) /* GCore */,
     a = _interopRequireDefault(require(565) /* module_565 */),
     r = {
       init: function (e) {
@@ -159823,7 +159823,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = {
       init: function (e) {
         return this.each(function () {
@@ -159981,7 +159981,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     i = {
       init: function (e) {
         var t = [
@@ -160196,8 +160196,8 @@ function (exports, module, require) {
   var i,
     a,
     r,
-    GEditor = require(15) /* module */,
-    GCore = require(1) /* module */,
+    GEditor = require(15) /* GEditor */,
+    GCore = require(1) /* GCore */,
     GUtil = _interopRequireDefault(require(11) /* GUtil */),
     AppSettings = require(10) /* AppSettings */,
     u = require(67) /* GRichTooltipConfig */,
@@ -160526,7 +160526,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     a = (require(173) /* stub_requires_1 */, false),
     r = null,
@@ -161059,7 +161059,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  var GCore = require(1) /* module */,
+  var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
     a = require(357) /* module_357 */,
     GProfileDialog = require(604) /* GProfileDialog */,
@@ -161388,7 +161388,7 @@ function (exports, module, require) {
     require(41) /* stub_requires_682 */,
     require(13) /* stub_requires_679 */,
     require(169)) /* stub_requires_683 */;
-  var GCore = require(1); /* module */
+  var GCore = require(1); /* GCore */
   const GMenu = require(238) /* GMenu */,
     a = (e) => {
       e.empty().append(

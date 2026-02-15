@@ -18,8 +18,8 @@ function (e, t, n) {
       n(38) /* stub_requires_680 */,
       n(33) /* polyfill_DOMCollection_forEach */,
       n(26) /* polyfill_DOMCollection_iterator */;
-    var o = n(1) /* module */,
-      i = n(15) /* module */;
+    var o = n(1) /* GCore */,
+      i = n(15) /* GEditor */;
     class a {
       static error(e) {
         let { showTitle: t = !0, closeCallback: n } =

@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     n(58) /* polyfill_Array_includes */, n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(71) /* polyfill_String_includes */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
-    var o = n(53) /* module */,
-      i = n(1) /* module */,
-      a = n(15) /* module */,
+    var o = n(53) /* GTools */,
+      i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = n(255) /* GFontsProviderManager */,
       s = n(590) /* barrel_editor_actions */,
       l = n(567) /* GAnnotationsSidebar */;

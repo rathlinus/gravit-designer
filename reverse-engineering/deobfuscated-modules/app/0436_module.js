@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */;
-    const { GObject: o } = require(1) /* module */;
+    const { GObject: o } = require(1) /* GCore */;
     function i(e) {
       (this._app = e), (this._collaborativeFile = null);
     }

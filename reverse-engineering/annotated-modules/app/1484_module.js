@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(16) /* _interopRequireDefault */;
     n(8) /* polyfill_bundle_ES6 */;
     var i = o(n(176) /* GSystem */),
-      a = n(1) /* module */,
+      a = n(1) /* GCore */,
       r = o(n(1242) /* MSTeamsAuthManager */),
       s = o(n(44) /* GSystemDialog */),
       l = o(n(443) /* module_443 */),

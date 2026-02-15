@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(91) /* polyfill_String_trim */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(44) /* GSystemDialog */);
     function r(e, t, n, o) {
       let r =

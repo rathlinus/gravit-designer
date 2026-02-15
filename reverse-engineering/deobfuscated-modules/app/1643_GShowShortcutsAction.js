@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
-    const { GObject: o, GLocaleKey: i } = require(1) /* module */,
+    const { GObject: o, GLocaleKey: i } = require(1) /* GCore */,
       GAction = require(31) /* GAction */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       s = require(1644) /* module_1644 */;

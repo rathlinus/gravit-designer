@@ -27,7 +27,7 @@ function (e, t, n) {
       n(4) /* stub_requires_668 */,
       n(32) /* stub_requires_670 */,
       n(33) /* polyfill_DOMCollection_forEach */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(859) /* module_859 */),
       r = n(40) /* CollaborationMergeUtils */,
       s = n(803) /* module_803 */;

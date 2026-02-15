@@ -29,9 +29,9 @@ function (e, t, n) {
       n(97) /* stub_requires_684 */,
       n(33) /* polyfill_DOMCollection_forEach */,
       n(26) /* polyfill_DOMCollection_iterator */;
-    var o = n(53) /* module */,
-      i = n(1) /* module */,
-      a = n(15) /* module */,
+    var o = n(53) /* GTools */,
+      i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = n(40) /* CollaborationMergeUtils */,
       s = n(67) /* GRichTooltipConfig */,
       l = n(123) /* GProperties */,

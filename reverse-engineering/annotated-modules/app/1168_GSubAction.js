@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
-    var i = n(1) /* module */,
+    var i = n(1) /* GCore */,
       a = o(n(31) /* GAction */);
     class r extends a.default {
       static getSubActionId(e, t) {

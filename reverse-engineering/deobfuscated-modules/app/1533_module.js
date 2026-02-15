@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GCore = require(1) /* module */;
+    var GCore = require(1) /* GCore */;
     const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       { FILE_FORMATS: a } = require(10) /* AppSettings */,
       r = a.find((e) => e.default),

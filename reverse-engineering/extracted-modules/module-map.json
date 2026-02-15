@@ -1,5 +1,6 @@
 {
   "0": "GObject",
+  "1": "GCore",
   "2": "GNode",
   "5": "GPoint",
   "6": "GRect",
@@ -8,6 +9,7 @@
   "11": "GUtil",
   "12": "GMath",
   "14": "GPaintCanvas",
+  "15": "GEditor",
   "17": "GRGBColor",
   "22": "GElement",
   "24": "GEditorOptions",
@@ -19,6 +21,7 @@
   "48": "GVertex",
   "50": "GPattern",
   "51": "GWebGLEffect",
+  "53": "GTools",
   "54": "GVertexContainer",
   "56": "GShape",
   "59": "GVertexInfo",

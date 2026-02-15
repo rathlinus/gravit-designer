@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(3) /* polyfill_RegExp_toString */;
-    var i = n(1) /* module */,
-      a = n(15) /* module */,
+    var i = n(1) /* GCore */,
+      a = n(15) /* GEditor */,
       r = o(n(1172) /* GInstallToDesktopAction */),
       s = o(n(1173) /* module_1173 */);
     function l(e) {

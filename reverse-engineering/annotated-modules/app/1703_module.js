@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(38) /* stub_requires_680 */, n(33) /* polyfill_DOMCollection_forEach */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const i = n(238) /* GMenu */,
       a = n(444) /* module_444 */;
     var r = {

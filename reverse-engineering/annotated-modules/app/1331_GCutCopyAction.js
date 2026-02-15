@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(20) /* polyfill_RegExp_exec */, n(3) /* polyfill_RegExp_toString */, n(34) /* polyfill_String_replace */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
-    var o = n(1) /* module */,
-      i = n(53) /* module */,
-      a = n(15) /* module */,
+    var o = n(1) /* GCore */,
+      i = n(53) /* GTools */,
+      a = n(15) /* GEditor */,
       r = n(10) /* AppSettings */,
       s = n(40) /* CollaborationMergeUtils */;
     const l = n(18) /* MenuItemBuilder */,

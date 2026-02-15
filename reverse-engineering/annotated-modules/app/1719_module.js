@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     const i = {
       init: function (e) {
         e = $.extend(

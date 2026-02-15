@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(53) /* module */;
+    var o = n(53) /* GTools */;
     const i = n(878) /* GTouchEventHandler */,
       a = n(1585) /* GTouchPinchZoomGesture */,
       r = n(879) /* GTouchClickGesture */,

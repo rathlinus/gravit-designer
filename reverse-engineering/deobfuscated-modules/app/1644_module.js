@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */;
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */;
     exports.exports = class {
       constructor() {
         (this._dialog = this._createDialog()),

@@ -8,8 +8,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(34) /* polyfill_String_replace */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       ScreenfulJS = _interopRequireDefault(require(1618) /* ScreenfulJS */),
       GContainer = _interopRequireDefault(require(85) /* GContainer */),
       GAction = _interopRequireDefault(require(31) /* GAction */),

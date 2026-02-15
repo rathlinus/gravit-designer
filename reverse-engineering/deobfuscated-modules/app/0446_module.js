@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
-      GCore = require(1) /* module */,
+      GCore = require(1) /* GCore */,
       GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       GEmbeddedLogin = _interopRequireDefault(require(860) /* GEmbeddedLogin */);
     function s(e) {

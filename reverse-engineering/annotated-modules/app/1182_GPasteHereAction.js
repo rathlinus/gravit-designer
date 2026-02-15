@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
-    var o = n(1) /* module */,
-      i = (n(15) /* module */, n(18) /* MenuItemBuilder */, n(31) /* GAction */);
+    var o = n(1) /* GCore */,
+      i = (n(15) /* GEditor */, n(18) /* MenuItemBuilder */, n(31) /* GAction */);
     n(1313) /* URIListHandler */;
     function a() {
       this._targetPosition = null;

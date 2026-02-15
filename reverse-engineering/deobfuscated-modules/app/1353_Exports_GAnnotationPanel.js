@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
+    const { GLocale: o, GLocaleKey: i } = require(1) /* GCore */,
       a = require(883) /* module_883 */;
     exports.exports = {
       createAdditionalMentions: function () {

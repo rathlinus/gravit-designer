@@ -492,7 +492,7 @@ function (exports, module, require) {
       require(38) /* stub_requires_680 */,
       require(97) /* stub_requires_684 */,
       require(33) /* polyfill_DOMCollection_forEach */;
-    var GCore = require(1) /* module */,
+    var GCore = require(1) /* GCore */,
       GAnnotation = _interopRequireDefault(require(84) /* GAnnotation */),
       r = require(1042) /* module_1042 */;
     const s = require(1043) /* module_1043 */;

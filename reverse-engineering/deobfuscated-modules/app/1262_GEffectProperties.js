@@ -8,9 +8,9 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(328) /* polyfill_Array_sort */, require(96) /* polyfill_JSON_stringify */, require(865) /* polyfill_Number_toFixed */, require(193) /* polyfill_Object_keys */, require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    var GTools = require(53) /* module */,
-      GCore = require(1) /* module */,
-      r = require(15) /* module */,
+    var GTools = require(53) /* GTools */,
+      GCore = require(1) /* GCore */,
+      r = require(15) /* GEditor */,
       s = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       c = _interopRequireDefault(require(807) /* module_807 */),

@@ -11,7 +11,7 @@ function (e, t, n) {
       a = o(n(389) /* module_389 */),
       r = o(n(163) /* GDocument */),
       s = o(n(1245) /* GCustomFontImporter */),
-      l = n(1) /* module */;
+      l = n(1) /* GCore */;
     e.exports = {
       debugDownloadPNG: function () {
         (0, i.downloadActiveFile)(a.default.PNG.ext);

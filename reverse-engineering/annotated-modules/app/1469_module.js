@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 }), (t.getOS = void 0);
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     t.getOS = () => {
       let e = null;
       switch (o.GSystem.operatingSystem) {

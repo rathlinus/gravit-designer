@@ -9,7 +9,7 @@ function (exports, module, require) {
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(8) /* polyfill_bundle_ES6 */, require(20) /* polyfill_RegExp_exec */, require(3) /* polyfill_RegExp_toString */, require(34) /* polyfill_String_replace */;
     var AppSettings = require(10) /* AppSettings */,
-      GCore = require(1) /* module */,
+      GCore = require(1) /* GCore */,
       GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */);
     const GSystemDialog = require(44) /* GSystemDialog */,
       l = require(863) /* module_863 */,

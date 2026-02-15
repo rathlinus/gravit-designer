@@ -7,8 +7,8 @@
 function (exports, module, require) {
     "use strict";
     require(57) /* polyfill_parseInt */, require(3) /* polyfill_RegExp_toString */;
-    var GCore = require(1) /* module */,
-      GEditor = require(15) /* module */,
+    var GCore = require(1) /* GCore */,
+      GEditor = require(15) /* GEditor */,
       AppSettings = require(10) /* AppSettings */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     function s() {}

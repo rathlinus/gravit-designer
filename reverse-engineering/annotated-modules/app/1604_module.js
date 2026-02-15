@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module */;
+    var o = n(1) /* GCore */;
     e.exports = {
       _reInitLayout: function () {
         (this._canvasPropertiesRowInTouch = $("<div></div>")

@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */;
     n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */;
-    var i = n(15) /* module */,
-      a = n(1) /* module */,
+    var i = n(15) /* GEditor */,
+      a = n(1) /* GCore */,
       r = o(n(18) /* MenuItemBuilder */),
       s = n(198) /* Exports_GOutlineSidebar */;
     const l = n(31) /* GAction */;

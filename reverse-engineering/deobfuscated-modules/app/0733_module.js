@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    const { GObject: o, GEventTarget: i, GEvent: a } = require(1) /* module */;
+    const { GObject: o, GEventTarget: i, GEvent: a } = require(1) /* GCore */;
     function r() {}
     o.inheritAndMix(r, o, [i]),
       (r.prototype._role = null),
