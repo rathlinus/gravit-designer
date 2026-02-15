@@ -40,7 +40,7 @@ function (e, t, n) {
                 e._onTimeout && e._onTimeout();
               }, t));
           }),
-        n(1116) /* module_1116 */,
+        n(1116) /* SetImmediatePolyfill */,
         (t.setImmediate =
           ("undefined" != typeof self && self.setImmediate) ||
           (void 0 !== e && e.setImmediate) ||

@@ -9,7 +9,7 @@ function (e, t, n) {
     var o = n(53) /* module */,
       i = n(1) /* module */,
       a = n(15) /* module */,
-      r = n(255) /* barrel_sidebars */,
+      r = n(255) /* GFontsProviderManager */,
       s = n(590) /* barrel_editor_actions */,
       l = n(567) /* GAnnotationsSidebar */;
     const c = ["text/xml", "text/plain"],

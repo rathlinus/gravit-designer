@@ -179,7 +179,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  (require(618) /* module_618 */,
+  (require(618) /* polyfill_Promise */,
     require(627) /* polyfill_Promise_all */,
     require(628) /* polyfill_Promise_catch */,
     require(629) /* polyfill_Promise_race */,
@@ -686,7 +686,7 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* module */,
     GEditor = require(15) /* module */,
-    r = _interopRequireDefault(require(844) /* module_844 */);
+    GActionIconMap = _interopRequireDefault(require(844) /* GActionIconMap */);
   function s() {}
   (GCore.GObject.inherit(s, GCore.GObject),
     (s.SHORTCUT_DELAY = 500),
@@ -706,7 +706,7 @@ function (exports, module, require) {
       return null;
     }),
     (s.prototype.getIcon = function () {
-      return r.default[this.getId()] || null;
+      return GActionIconMap.default[this.getId()] || null;
     }),
     (s.prototype.getCategory = function () {
       return null;
@@ -1409,7 +1409,7 @@ function (exports, module, require) {
     require(181) /* polyfill_ArrayBuffer_slice */,
     require(30) /* polyfill_Object_assign */,
     require(8) /* polyfill_bundle_ES6 */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(271) /* polyfill_String_endsWith */,
@@ -2979,7 +2979,7 @@ function (exports, module, require) {
     l =
       (_interopRequireDefault(require(355) /* module_355 */),
       _interopRequireDefault(require(1037) /* module_1037 */)),
-    barrel_sidebars = require(255) /* barrel_sidebars */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GOpenRecentAction = require(843) /* GOpenRecentAction */,
@@ -3049,7 +3049,7 @@ function (exports, module, require) {
       return '';
     }),
     (y.prototype.registerFontProviders = function () {
-      barrel_sidebars.registerProvider(barrel_editor_actions);
+      GFontsProviderManager.registerProvider(barrel_editor_actions);
     }),
     (y.prototype.getSystemFontsProvider = function () {
       return null;
@@ -3571,13 +3571,13 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l, c, d, u, p, g, h, f, m, y, v, _, b, w;
+  var CryptoJSCore, i, a, r, s, l, c, d, u, p, g, h, f, m, y, v, _, b, w;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(234) /* module_234 */,
     void (
-      o.lib.Cipher ||
-      ((i = o),
+      CryptoJSCore.lib.Cipher ||
+      ((i = CryptoJSCore),
       (a = i.lib),
       (r = a.Base),
       (s = a.WordArray),
@@ -3617,11 +3617,11 @@ function (exports, module, require) {
             }
             return function (t) {
               return {
-                encrypt: function (n, o, i) {
-                  return exports(o).encrypt(t, n, o, i);
+                encrypt: function (n, CryptoJSCore, i) {
+                  return exports(CryptoJSCore).encrypt(t, n, CryptoJSCore, i);
                 },
-                decrypt: function (n, o, i) {
-                  return exports(o).decrypt(t, n, o, i);
+                decrypt: function (n, CryptoJSCore, i) {
+                  return exports(CryptoJSCore).decrypt(t, n, CryptoJSCore, i);
                 },
               };
             };
@@ -3650,9 +3650,9 @@ function (exports, module, require) {
         (function () {
           var e = h.extend();
           function module(e, t, n) {
-            var o = this._iv;
-            if (o) {
-              var i = o;
+            var CryptoJSCore = this._iv;
+            if (CryptoJSCore) {
+              var i = CryptoJSCore;
               this._iv = undefined;
             } else i = this._prevBlock;
             for (var a = 0; a < n; a++) e[t + a] ^= i[a];
@@ -3660,19 +3660,21 @@ function (exports, module, require) {
           return (
             (e.Encryptor = e.extend({
               processBlock: function (e, n) {
-                var o = this._cipher,
-                  i = o.blockSize;
+                var CryptoJSCore = this._cipher,
+                  i = CryptoJSCore.blockSize;
                 (module.call(this, e, n, i),
-                  o.encryptBlock(e, n),
+                  CryptoJSCore.encryptBlock(e, n),
                   (this._prevBlock = e.slice(n, n + i)));
               },
             })),
             (e.Decryptor = e.extend({
               processBlock: function (e, n) {
-                var o = this._cipher,
-                  i = o.blockSize,
+                var CryptoJSCore = this._cipher,
+                  i = CryptoJSCore.blockSize,
                   a = e.slice(n, n + i);
-                (o.decryptBlock(e, n), module.call(this, e, n, i), (this._prevBlock = a));
+                (CryptoJSCore.decryptBlock(e, n),
+                  module.call(this, e, n, i),
+                  (this._prevBlock = a));
               },
             })),
             e
@@ -3683,15 +3685,16 @@ function (exports, module, require) {
           pad: function (e, t) {
             for (
               var require = 4 * t,
-                o = require - (e.sigBytes % require),
-                i = (o << 24) | (o << 16) | (o << 8) | o,
+                CryptoJSCore = require - (e.sigBytes % require),
+                i =
+                  (CryptoJSCore << 24) | (CryptoJSCore << 16) | (CryptoJSCore << 8) | CryptoJSCore,
                 a = [],
                 r = 0;
-              r < o;
+              r < CryptoJSCore;
               r += 4
             )
               a.push(i);
-            var l = s.create(a, o);
+            var l = s.create(a, CryptoJSCore);
             e.concat(l);
           },
           unpad: function (e) {
@@ -3706,11 +3709,12 @@ function (exports, module, require) {
           var e = this.cfg,
             t = e.iv,
             n = e.mode;
-          if (this._xformMode == this._ENC_XFORM_MODE) var o = n.createEncryptor;
-          else ((o = n.createDecryptor), (this._minBufferSize = 1));
-          this._mode && this._mode.__creator == o
+          if (this._xformMode == this._ENC_XFORM_MODE) var CryptoJSCore = n.createEncryptor;
+          else ((CryptoJSCore = n.createDecryptor), (this._minBufferSize = 1));
+          this._mode && this._mode.__creator == CryptoJSCore
             ? this._mode.init(this, t && t.words)
-            : ((this._mode = o.call(n, this, t && t.words)), (this._mode.__creator = o));
+            : ((this._mode = CryptoJSCore.call(n, this, t && t.words)),
+              (this._mode.__creator = CryptoJSCore));
         },
         _doProcessBlock: function (e, t) {
           this._mode.processBlock(e, t);
@@ -3739,26 +3743,26 @@ function (exports, module, require) {
           stringify: function (e) {
             var t = e.ciphertext,
               n = e.salt;
-            if (n) var o = s.create([1398893684, 1701076831]).concat(n).concat(t);
-            else o = t;
-            return o.toString(d);
+            if (n) var CryptoJSCore = s.create([1398893684, 1701076831]).concat(n).concat(t);
+            else CryptoJSCore = t;
+            return CryptoJSCore.toString(d);
           },
           parse: function (e) {
             var t = d.parse(e),
               n = t.words;
             if (1398893684 == n[0] && 1701076831 == n[1]) {
-              var o = s.create(n.slice(2, 4));
+              var CryptoJSCore = s.create(n.slice(2, 4));
               (n.splice(0, 4), (t.sigBytes -= 16));
             }
-            return y.create({ ciphertext: t, salt: o });
+            return y.create({ ciphertext: t, salt: CryptoJSCore });
           },
         }),
       (_ = a.SerializableCipher =
         r.extend({
           cfg: r.extend({ format: v }),
-          encrypt: function (e, t, n, o) {
-            o = this.cfg.extend(o);
-            var i = e.createEncryptor(n, o),
+          encrypt: function (e, t, n, CryptoJSCore) {
+            CryptoJSCore = this.cfg.extend(CryptoJSCore);
+            var i = e.createEncryptor(n, CryptoJSCore),
               a = i.finalize(t),
               r = i.cfg;
             return y.create({
@@ -3769,14 +3773,14 @@ function (exports, module, require) {
               mode: r.mode,
               padding: r.padding,
               blockSize: e.blockSize,
-              formatter: o.format,
+              formatter: CryptoJSCore.format,
             });
           },
-          decrypt: function (e, t, n, o) {
+          decrypt: function (e, t, n, CryptoJSCore) {
             return (
-              (o = this.cfg.extend(o)),
-              (t = this._parse(t, o.format)),
-              e.createDecryptor(n, o).finalize(t.ciphertext)
+              (CryptoJSCore = this.cfg.extend(CryptoJSCore)),
+              (t = this._parse(t, CryptoJSCore.format)),
+              e.createDecryptor(n, CryptoJSCore).finalize(t.ciphertext)
             );
           },
           _parse: function (e, t) {
@@ -3785,26 +3789,31 @@ function (exports, module, require) {
         })),
       (b = (i.kdf = {}).OpenSSL =
         {
-          execute: function (e, t, n, o) {
-            o || (o = s.random(8));
-            var i = u.create({ keySize: t + n }).compute(e, o),
+          execute: function (e, t, n, CryptoJSCore) {
+            CryptoJSCore || (CryptoJSCore = s.random(8));
+            var i = u.create({ keySize: t + n }).compute(e, CryptoJSCore),
               a = s.create(i.words.slice(t), 4 * n);
-            return ((i.sigBytes = 4 * t), y.create({ key: i, iv: a, salt: o }));
+            return ((i.sigBytes = 4 * t), y.create({ key: i, iv: a, salt: CryptoJSCore }));
           },
         }),
       (w = a.PasswordBasedCipher =
         _.extend({
           cfg: _.cfg.extend({ kdf: b }),
-          encrypt: function (e, t, n, o) {
-            var i = (o = this.cfg.extend(o)).kdf.execute(n, e.keySize, e.ivSize);
-            o.iv = i.iv;
-            var a = _.encrypt.call(this, e, t, i.key, o);
+          encrypt: function (e, t, n, CryptoJSCore) {
+            var i = (CryptoJSCore = this.cfg.extend(CryptoJSCore)).kdf.execute(
+              n,
+              e.keySize,
+              e.ivSize
+            );
+            CryptoJSCore.iv = i.iv;
+            var a = _.encrypt.call(this, e, t, i.key, CryptoJSCore);
             return (a.mixIn(i), a);
           },
-          decrypt: function (e, t, n, o) {
-            ((o = this.cfg.extend(o)), (t = this._parse(t, o.format)));
-            var i = o.kdf.execute(n, e.keySize, e.ivSize, t.salt);
-            return ((o.iv = i.iv), _.decrypt.call(this, e, t, i.key, o));
+          decrypt: function (e, t, n, CryptoJSCore) {
+            ((CryptoJSCore = this.cfg.extend(CryptoJSCore)),
+              (t = this._parse(t, CryptoJSCore.format)));
+            var i = CryptoJSCore.kdf.execute(n, e.keySize, e.ivSize, t.salt);
+            return ((CryptoJSCore.iv = i.iv), _.decrypt.call(this, e, t, i.key, CryptoJSCore));
           },
         })))
     ));
@@ -3996,16 +4005,16 @@ function (exports, module, require) {
     GCore = require(1) /* module */,
     GEditor = require(15) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    s = require(845); /* module_845 */
+    GCloudImageSync = require(845); /* GCloudImageSync */
   const l = require(1092); /* module_1092 */
   var GDocumentEvent = require(78) /* GDocumentEvent */,
     GSystemDialog = require(44); /* GSystemDialog */
-  const u = require(1093); /* module_1093 */
+  const GLoginDialog = require(1093); /* GLoginDialog */
   var GContainer = require(85) /* GContainer */,
     g = require(219) /* module_219 */,
-    h = require(358); /* module_358 */
+    GAnnotationsUtils = require(358); /* GAnnotationsUtils */
   const f = require(86) /* module_86 */,
-    m = (require(156) /* module_156 */, require(256)) /* GOfflineDialog */,
+    m = (require(156) /* GCloudStorageItem */, require(256)) /* GOfflineDialog */,
     y = require(337) /* stub_requires_1098 */,
     Md5 = require(435) /* Md5 */,
     _ = require(165); /* module_165 */
@@ -4029,7 +4038,7 @@ function (exports, module, require) {
       return new Promise((l, GDocumentEvent) => {
         try {
           var GSystemDialog = e.getScene(),
-            u = GSystemDialog.getDictionary().getEntries(),
+            GLoginDialog = GSystemDialog.getDictionary().getEntries(),
             GContainer = [];
           GSystemDialog.acceptChildren((e) => {
             e instanceof GCore.GImage &&
@@ -4038,21 +4047,22 @@ function (exports, module, require) {
                 url: e.getProperty('url'),
               });
           });
-          const h = G._getAuthorizationToken();
+          const GAnnotationsUtils = G._getAuthorizationToken();
           var g = AppSettings.gApi.url;
-          (0, s.syncImagesToCloud)(
-            (e) => (0, s.listFilesFn)(e, h, g),
+          (0, GCloudImageSync.syncImagesToCloud)(
+            (e) => (0, GCloudImageSync.listFilesFn)(e, GAnnotationsUtils, g),
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.untitled-image')),
             GContainer,
-            u,
-            async (e, t) => (0, s.createFileAndGetSignedPutUrlsFn)(e, t, g, h),
+            GLoginDialog,
+            async (e, t) =>
+              (0, GCloudImageSync.createFileAndGetSignedPutUrlsFn)(e, t, g, GAnnotationsUtils),
             async (e, t, n) =>
-              (0, s.updateFileFn)(
+              (0, GCloudImageSync.updateFileFn)(
                 e,
                 t,
                 n,
                 g,
-                h,
+                GAnnotationsUtils,
                 AppSettings.COMPUTE_SHA256_FOR_FILES,
                 CollaborationMergeUtils.getFileSHA256Digest
               ),
@@ -4102,7 +4112,7 @@ function (exports, module, require) {
       }
       !(async function () {
         let CollaborationMergeUtils = e.url,
-          s =
+          GCloudImageSync =
             e.scene &&
             e.scene.getDictionary() &&
             e.scene.getDictionary().getEntry(CollaborationMergeUtils);
@@ -4196,7 +4206,7 @@ function (exports, module, require) {
                   : null),
               'string' == typeof CollaborationMergeUtils &&
                 CollaborationMergeUtils.startsWith(GCore.GDictionary.CLOUD_PROTOCOL) &&
-                (s =
+                (GCloudImageSync =
                   e.scene && e.scene.getDictionary() && e.scene.getDictionary().getEntry(e.url))),
             'string' == typeof CollaborationMergeUtils)
           ) {
@@ -4215,40 +4225,51 @@ function (exports, module, require) {
               GDocumentEvent = new URLSearchParams(l);
             let GContainer,
               g,
-              h = l;
+              GAnnotationsUtils = l;
             if (GDocumentEvent.has('id'))
-              ((h = GDocumentEvent.get('id')),
+              ((GAnnotationsUtils = GDocumentEvent.get('id')),
                 (GContainer = GDocumentEvent.get('width')),
                 (g = GDocumentEvent.get('height')));
             else if (GDocumentEvent.has('url')) {
               const e = new URL(GDocumentEvent.get('url')).pathname.slice(1).split('/');
-              h = 'public' == e[0] ? e[2] : e[1];
-            } else h = CollaborationMergeUtils.slice(CollaborationMergeUtils.indexOf('://') + 3);
+              GAnnotationsUtils = 'public' == e[0] ? e[2] : e[1];
+            } else
+              GAnnotationsUtils = CollaborationMergeUtils.slice(
+                CollaborationMergeUtils.indexOf('://') + 3
+              );
             return gDesigner.isAnonymous() && GCore
-              ? AppSettings.gApi.getFile(h).then((n) => {
-                  u(
+              ? AppSettings.gApi.getFile(GAnnotationsUtils).then((n) => {
+                  GLoginDialog(
                     n.url,
                     GContainer,
                     g,
                     (n) => {
-                      (s && t && ((s.cloud = s.value), (s.value = n)), e.resolved(n));
+                      (GCloudImageSync &&
+                        t &&
+                        ((GCloudImageSync.cloud = GCloudImageSync.value),
+                        (GCloudImageSync.value = n)),
+                        e.resolved(n));
                     },
                     true
                   );
                 })
-              : AppSettings.gApi.resolveUrls(GSystemDialog, h).then((n) => {
-                  u(
+              : AppSettings.gApi.resolveUrls(GSystemDialog, GAnnotationsUtils).then((n) => {
+                  GLoginDialog(
                     n[0][1],
                     GContainer,
                     g,
                     (n) => {
-                      (s && t && ((s.cloud = s.value), (s.value = n)), e.resolved(n));
+                      (GCloudImageSync &&
+                        t &&
+                        ((GCloudImageSync.cloud = GCloudImageSync.value),
+                        (GCloudImageSync.value = n)),
+                        e.resolved(n));
                     },
                     GCore
                   );
                 });
           }
-        function u(t, AppSettings, CollaborationMergeUtils, s, l) {
+        function GLoginDialog(t, AppSettings, CollaborationMergeUtils, GCloudImageSync, l) {
           if (!require(e)) return;
           const GDocumentEvent = new Image();
           GDocumentEvent.crossOrigin = 'Anonymous';
@@ -4268,7 +4289,7 @@ function (exports, module, require) {
                       ? [t, (t * e.height) / e.width]
                       : [(n * e.width) / e.height, n];
                 })(GDocumentEvent, AppSettings || 1080, CollaborationMergeUtils || 1080));
-              let u = false;
+              let GLoginDialog = false;
               ((GDocumentEvent.width > GEditor.GPlatform.maxImgLinearDimension ||
                 GDocumentEvent.height > GEditor.GPlatform.maxImgLinearDimension ||
                 GDocumentEvent.width * GDocumentEvent.height > GEditor.GPlatform.maxImgAreaDots) &&
@@ -4277,7 +4298,7 @@ function (exports, module, require) {
                     new GCore.GLocaleKey('GDocument', 'text.image-in-design-too-big')
                   )
                 ).open(),
-                (u = true)),
+                (GLoginDialog = true)),
                 (t.width = GDocumentEvent.width),
                 (t.height = GDocumentEvent.height),
                 GSystemDialog.drawImage(
@@ -4289,15 +4310,15 @@ function (exports, module, require) {
                 ));
               var GContainer = t.toDataURL();
               (GContainer.length > GEditor.GPlatform.maxImgDataUrlLength &&
-                !u &&
+                !GLoginDialog &&
                 (new g(
                   GCore.GLocale.get(
                     new GCore.GLocaleKey('GDocument', 'text.image-in-design-too-big')
                   )
                 ).open(),
-                (u = true)),
+                (GLoginDialog = true)),
                 (GDocumentEvent.onload = null),
-                s(GContainer));
+                GCloudImageSync(GContainer));
             }),
             (GDocumentEvent.src = t));
         }
@@ -4340,8 +4361,8 @@ function (exports, module, require) {
           try {
             for (var GEditor = 0; GEditor < e.length; ++GEditor) {
               var CollaborationMergeUtils = e[GEditor],
-                s = CollaborationMergeUtils.parent;
-              t !== s &&
+                GCloudImageSync = CollaborationMergeUtils.parent;
+              t !== GCloudImageSync &&
                 CollaborationMergeUtils.id !== t &&
                 (await AppSettings.gApi.updateFile(CollaborationMergeUtils.id, { parent: t }));
             }
@@ -4353,13 +4374,13 @@ function (exports, module, require) {
       });
     }
     static performSignup() {
-      return this.performLogin(u.Forms.SignUp);
+      return this.performLogin(GLoginDialog.Forms.SignUp);
     }
     static performLogin(e) {
       return new Promise((t, n) => {
         try {
           const n = () => {
-            new u((e) => {
+            new GLoginDialog((e) => {
               (gDesigner.getUser(), t(e));
             }, e).open();
           };
@@ -4383,7 +4404,7 @@ function (exports, module, require) {
           GEditor = 0,
           CollaborationMergeUtils = 0;
         GCore && ((GEditor = GCore.getWidth()), (CollaborationMergeUtils = GCore.getHeight()));
-        const s = {
+        const GCloudImageSync = {
           name: e.getTitle(),
           parent: null,
           type: b.type,
@@ -4394,13 +4415,14 @@ function (exports, module, require) {
           trashed: null,
         };
         (e.getReservedId()
-          ? (await AppSettings.gApi.updateFile(e.getReservedId(), s), (n = e.getReservedId()))
-          : (n = await AppSettings.gApi.createFile(s)),
+          ? (await AppSettings.gApi.updateFile(e.getReservedId(), GCloudImageSync),
+            (n = e.getReservedId()))
+          : (n = await AppSettings.gApi.createFile(GCloudImageSync)),
           t(n));
       })();
     }
     static loadDesignData(e, t, n, GCore, GEditor, CollaborationMergeUtils) {
-      return new Promise(async (s, l) => {
+      return new Promise(async (GCloudImageSync, l) => {
         try {
           let GContainer;
           if (e && CollaborationMergeUtils) {
@@ -4433,12 +4455,14 @@ function (exports, module, require) {
               if (!GContainer) throw e;
               return g(GContainer);
             }),
-            u = new FileReader();
-          ((u.onload = function () {
-            s({ data: new Uint8Array(this.result), file: GEditor });
+            GLoginDialog = new FileReader();
+          ((GLoginDialog.onload = function () {
+            GCloudImageSync({ data: new Uint8Array(this.result), file: GEditor });
           }),
-            (u.onerror = l),
-            u.readAsArrayBuffer(new Blob([GSystemDialog], { type: 'application/octet-stream' })));
+            (GLoginDialog.onerror = l),
+            GLoginDialog.readAsArrayBuffer(
+              new Blob([GSystemDialog], { type: 'application/octet-stream' })
+            ));
         } catch (e) {
           l(e);
         }
@@ -4470,7 +4494,7 @@ function (exports, module, require) {
       return true;
     }
     static performSave(e, t, n, GEditor, CollaborationMergeUtils) {
-      let s = arguments.length > 5 && undefined !== arguments[5] && arguments[5];
+      let GCloudImageSync = arguments.length > 5 && undefined !== arguments[5] && arguments[5];
       if (e.hasPagesWithInfiniteEmptyCanvas())
         return void (n
           ? n({
@@ -4486,16 +4510,19 @@ function (exports, module, require) {
               )
             ));
       var l = GEditor;
-      function u() {
+      function GLoginDialog() {
         let GEditor = false;
         if (e.isCommercialProductFile()) return void e.openPaywall();
-        var u = CollaborationMergeUtils || e.getStorageItem();
-        const GContainer = u && w.length && w.find((e) => e.ext.toUpperCase() === u.getExtension());
+        var GLoginDialog = CollaborationMergeUtils || e.getStorageItem();
+        const GContainer =
+          GLoginDialog &&
+          w.length &&
+          w.find((e) => e.ext.toUpperCase() === GLoginDialog.getExtension());
         if (GContainer && !G._checkSecondaryFormatSanity(e)) return void (n && n());
         const g = e.getEditor().markSavePoint();
         var m = function (AppSettings) {
           (g.rollback(),
-            s ||
+            GCloudImageSync ||
               (AppSettings && 507 === AppSettings.code
                 ? GSystemDialog.alert(AppSettings.message)
                 : GSystemDialog.confirm(
@@ -4544,13 +4571,14 @@ function (exports, module, require) {
               if (AppSettings.HAS_ANNOTATIONS)
                 if (GContainer) {
                   let t = true;
-                  await h.saveDocumentAnnotations(e, t);
+                  await GAnnotationsUtils.saveDocumentAnnotations(e, t);
                   l = e.updateSaveOptionsLastModifiedDate(l);
                 } else
                   try {
-                    let n = (await h.getCloudAnnotationsForDocument(e)).annotationsCollection;
+                    let n = (await GAnnotationsUtils.getCloudAnnotationsForDocument(e))
+                      .annotationsCollection;
                     (e.getScene().iteratePages((e) => {
-                      !!h.findAnnotationsListForPage(e, n) ||
+                      !!GAnnotationsUtils.findAnnotationsListForPage(e, n) ||
                         n.push(GCore.GNode.store(e.getAnnotations()));
                     }, true),
                       (t.annotations = n));
@@ -4559,7 +4587,7 @@ function (exports, module, require) {
                   }
               let n = e.getScene().getActivePage().getGeometryBBox();
               (n && ((t.width = n.getWidth()), (t.height = n.getHeight())),
-                await AppSettings.gApi.updateFile(u._id, t));
+                await AppSettings.gApi.updateFile(GLoginDialog._id, t));
             } catch (e) {
               n = e;
             }
@@ -4568,7 +4596,7 @@ function (exports, module, require) {
             (CollaborationMergeUtils(S),
               n
                 ? m(n)
-                : u.write(
+                : GLoginDialog.write(
                     e,
                     function () {
                       (CollaborationMergeUtils(A),
@@ -4594,7 +4622,7 @@ function (exports, module, require) {
                         }
                       };
                       AppSettings.gApi
-                        .getFile(u._id + '?edit')
+                        .getFile(GLoginDialog._id + '?edit')
                         .then((e) => n(true, e))
                         .catch(n);
                     },
@@ -4613,7 +4641,7 @@ function (exports, module, require) {
       }
       const GContainer = () => {
         gDesigner.getUser().then((e) => {
-          !e || gDesigner.isAnonymous() ? G.performLogin().then(u) : u();
+          !e || gDesigner.isAnonymous() ? G.performLogin().then(GLoginDialog) : GLoginDialog();
         });
       };
       gDesigner.isOffline() ? m.openUnavailableFeature(GContainer) : GContainer();
@@ -4622,11 +4650,12 @@ function (exports, module, require) {
       var GEditor = await AppSettings.gApi.signedPutUrls(e, { type_t: n, commit: GCore }),
         CollaborationMergeUtils = new XMLHttpRequest();
       CollaborationMergeUtils.open('PUT', GEditor.url_t);
-      var s = {
+      var GCloudImageSync = {
         'Content-Type': n,
         'Cache-Control': 'public,max-age=31600000',
       };
-      for (var l in s) CollaborationMergeUtils.setRequestHeader(l, s[l]);
+      for (var l in GCloudImageSync)
+        CollaborationMergeUtils.setRequestHeader(l, GCloudImageSync[l]);
       CollaborationMergeUtils.send(t);
     }
     static async saveDocumentAnnotations(e, t, n) {
@@ -4639,7 +4668,7 @@ function (exports, module, require) {
               .then(
                 (AppSettings) =>
                   !(!AppSettings || gDesigner.isAnonymous()) &&
-                  h.saveDocumentAnnotations(e, t, undefined, n)
+                  GAnnotationsUtils.saveDocumentAnnotations(e, t, undefined, n)
               ))
       );
     }
@@ -4951,7 +4980,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  require(673) /* polyfill_String_startsWith */;
+  require(673) /* URLPolyfill */;
 }
 ,
 function (exports, module, require) {
@@ -5686,7 +5715,7 @@ function (exports, module, require) {
     u = _interopRequireDefault(require(1468) /* module_1468 */),
     p = _interopRequireDefault(require(1470) /* module_1470 */),
     g = _interopRequireDefault(require(1471) /* module_1471 */),
-    h = _interopRequireDefault(require(177) /* module_177 */),
+    GUserModel = _interopRequireDefault(require(177) /* GUserModel */),
     f = require(165); /* module_165 */
   const m = require(1472); /* module_1472 */
   var y = require(388) /* Item */,
@@ -5695,13 +5724,13 @@ function (exports, module, require) {
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     w = require(336) /* module_336 */,
     C = require(237) /* Item */,
-    x = require(841) /* module_841 */,
+    GMissingFontsDialog = require(841) /* GMissingFontsDialog */,
     S = require(1473) /* module_1473 */,
     E = require(219) /* module_219 */,
-    A = require(1238) /* module_1238 */,
-    T = require(1475) /* module_1475 */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
-    P = require(119) /* module_119 */,
+    GUnsupportedFeaturesDialog = require(1238) /* GUnsupportedFeaturesDialog */,
+    GDocumentChooser = require(1475) /* GDocumentChooser */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     D = require(220) /* Item */,
     GContainer = require(85); /* GContainer */
   const I = require(441) /* module_441 */,
@@ -6102,7 +6131,7 @@ function (exports, module, require) {
     }),
     (K.prototype._userLoggedEvent = function (e) {
       const { user: module } = e;
-      module && this._editor && this._editor.setUID(new h.default(module).getUID());
+      module && this._editor && this._editor.setUID(new GUserModel.default(module).getUID());
     }),
     (K.prototype._handleDocumentEvent = function () {}),
     (K.prototype._handleStorageItemEvent = function () {}),
@@ -6246,7 +6275,7 @@ function (exports, module, require) {
             (CollaborationMergeUtils - l) / 2 - r.getY()
           )),
           e.transform(u, true));
-        var h = u.getScaleFactor(),
+        var GUserModel = u.getScaleFactor(),
           f = function (e) {
             if (
               e instanceof GCore.GItem &&
@@ -6256,7 +6285,7 @@ function (exports, module, require) {
               var t = e.getPaintLayers();
               t &&
                 GCore.GUtil.each(t.getBorderLayers(), function (e, t) {
-                  t && t.setProperty('_bw', t.$_bw * h);
+                  t && t.setProperty('_bw', t.$_bw * GUserModel);
                 });
             }
           };
@@ -6273,7 +6302,7 @@ function (exports, module, require) {
     }),
     (K.prototype._loadDataIntoDocument = async function (e, t) {
       (t.progress && t.progress(5), await (0, CollaborationMergeUtils.sleep)(10));
-      const require = P.unzipData(e);
+      const require = GCloudStorage.unzipData(e);
       return (
         t.progress && t.progress(10),
         await (0, CollaborationMergeUtils.sleep)(10),
@@ -6371,7 +6400,7 @@ function (exports, module, require) {
         };
       this.isExternalFile()
         ? this.performCloudSave(l, s, r, _interopRequireDefault)
-        : P.performSave(
+        : GCloudStorage.performSave(
             this,
             l,
             s,
@@ -6381,10 +6410,10 @@ function (exports, module, require) {
           );
     }),
     (K.prototype.saveAnnotations = function (e, t) {
-      return P.saveDocumentAnnotations(this, e, t);
+      return GCloudStorage.saveDocumentAnnotations(this, e, t);
     }),
     (K.prototype.loadCloudAnnotations = function () {
-      return P.getCloudAnnotations(this);
+      return GCloudStorage.getCloudAnnotations(this);
     }),
     (K.prototype.performCloudSave = async function (e, t, n) {
       let _interopRequireDefault =
@@ -6462,8 +6491,8 @@ function (exports, module, require) {
                   (e) => t(e)
                 );
               }),
-              g = GCore.GNode.deserialize(P.unzipData(p), gDesigner.getWorkspace());
-            return new T(
+              g = GCore.GNode.deserialize(GCloudStorage.unzipData(p), gDesigner.getWorkspace());
+            return new GDocumentChooser(
               CollaborationMergeUtils,
               g,
               this.getTitle(),
@@ -6500,7 +6529,14 @@ function (exports, module, require) {
       } catch (e) {
         return void r(e);
       }
-      P.loadDesignData(e.getProperty('cid'), undefined, undefined, undefined, undefined, s.autosave)
+      GCloudStorage.loadDesignData(
+        e.getProperty('cid'),
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        s.autosave
+      )
         .then(async (n) => {
           var s = n.data,
             l = n.file;
@@ -6516,10 +6552,13 @@ function (exports, module, require) {
                   (0, CollaborationMergeUtils.isDifferent)(e, t)
                 );
               }));
-          var AppSettings = GCore.GNode.deserialize(P.unzipData(s), gDesigner.getWorkspace());
+          var AppSettings = GCore.GNode.deserialize(
+            GCloudStorage.unzipData(s),
+            gDesigner.getWorkspace()
+          );
           AppSettings
             ? _interopRequireDefault(e, AppSettings)
-              ? new T(
+              ? new GDocumentChooser(
                   e,
                   AppSettings,
                   this.getTitle(),
@@ -6705,7 +6744,7 @@ function (exports, module, require) {
             this._updateStatus(_.Loading, module));
           var r = (e) => {
               let module = false;
-              barrel_sidebars.getInstance().query(
+              GFontsProviderManager.getInstance().query(
                 (n) => {
                   var _interopRequireDefault = [];
                   (n.faces.slice().map((e) => {
@@ -6753,7 +6792,7 @@ function (exports, module, require) {
               if ('GVDESIGN' === GTools || GTools === B.ext.toUpperCase()) {
                 (gDesigner.stats('document_open_'.concat(GTools.toLowerCase())),
                   (module.checkAnnotations = true));
-                const _interopRequireDefault = barrel_sidebars.getInstance();
+                const _interopRequireDefault = GFontsProviderManager.getInstance();
                 _interopRequireDefault.setShowMissingFontsDialog(false);
                 const GCore = new p.default();
                 (GCore.start(),
@@ -6762,7 +6801,7 @@ function (exports, module, require) {
                       const e = gDesigner.getWorkspace().getFontManager();
                       await new g.default(e).waitForAllPendingFonts();
                       const t = GCore.getMissingFonts();
-                      t && t.length && new x(this, t).open();
+                      t && t.length && new GMissingFontsDialog(this, t).open();
                     } finally {
                       (GCore.stop(), _interopRequireDefault.setShowMissingFontsDialog(true));
                     }
@@ -6950,7 +6989,7 @@ function (exports, module, require) {
                   ? gDesigner.stats('document_open_pdf')
                   : gDesigner.stats('document_open_ai'),
                   this._preProcessFonts());
-                var h = 0,
+                var GUserModel = 0,
                   f = function (e) {
                     new E(
                       GCore.GLocale.get(
@@ -7003,7 +7042,7 @@ function (exports, module, require) {
                           this.setScene(GTools),
                           _interopRequireDefault instanceof Array &&
                             _interopRequireDefault.length &&
-                            new x(this, _interopRequireDefault, null, (e) => {
+                            new GMissingFontsDialog(this, _interopRequireDefault, null, (e) => {
                               e ||
                                 GTools.acceptChildren((e) => {
                                   e instanceof GCore.GText && e.toFakeText();
@@ -7017,7 +7056,8 @@ function (exports, module, require) {
                       }
                     },
                     function (e, n) {
-                      ((h = Math.max(h, (e / n) * 100)), module.progress(h));
+                      ((GUserModel = Math.max(GUserModel, (e / n) * 100)),
+                        module.progress(GUserModel));
                     },
                     f
                   )
@@ -7037,7 +7077,7 @@ function (exports, module, require) {
                       var t = (e = e || {}).pages,
                         _interopRequireDefault = e.v50error;
                       if (t && Array.isArray(t)) {
-                        e.replacedFonts && new x(this, e.replacedFonts).open();
+                        e.replacedFonts && new GMissingFontsDialog(this, e.replacedFonts).open();
                         var GTools = gDesigner.createScene(true);
                         (GTools._beginBlockChanges([
                           GCore.GNode._Change.BeforeChildRemove,
@@ -7147,7 +7187,11 @@ function (exports, module, require) {
         g = (e) => {
           s.write(e, p, r, u.progress, this);
         };
-      const h = [N.JPEG.ext.toUpperCase(), N.JPG.ext.toUpperCase(), N.PNG.ext.toUpperCase()],
+      const GUserModel = [
+          N.JPEG.ext.toUpperCase(),
+          N.JPG.ext.toUpperCase(),
+          N.PNG.ext.toUpperCase(),
+        ],
         m = [N.JPEG.ext.toUpperCase(), N.JPG.ext.toUpperCase()];
       if (CollaborationMergeUtils === B.ext.toUpperCase()) {
         var y = this._scene,
@@ -7189,7 +7233,7 @@ function (exports, module, require) {
             !gDesigner.getSetting('disable_warning_unsupported_features', false)
           ) {
             let e = l.GSVGExport.getUnsupportedFeatures(this._scene.getActivePage());
-            e && e.length && new A(e).open();
+            e && e.length && new GUnsupportedFeaturesDialog(e).open();
           }
           if ('SVGZ' === CollaborationMergeUtils) g(new Uint8Array(f.gzip(t, { level: 9 }).buffer));
           else if ('function' == typeof TextEncoder) g(new TextEncoder('utf-8').encode(t));
@@ -7204,7 +7248,7 @@ function (exports, module, require) {
               g(GTools));
           }
         });
-      } else if (h.includes(CollaborationMergeUtils)) {
+      } else if (GUserModel.includes(CollaborationMergeUtils)) {
         var w = GCore.GLength.DPI,
           C = this._scene.getActivePage();
         l.GBitmapExport.export(
@@ -7217,7 +7261,7 @@ function (exports, module, require) {
           true
         ).toImageBuffer(CollaborationMergeUtils, (e) => g(new Uint8Array(e)));
       } else if ('PDF' === CollaborationMergeUtils) {
-        var x = this;
+        var GMissingFontsDialog = this;
         gDesigner.getUser().then(function (e) {
           var t;
           ((t =
@@ -7225,14 +7269,14 @@ function (exports, module, require) {
               ? e.getFullUserName()
               : GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.default-export-author'))),
             l.GPDFExport.export(
-              x._scene,
+              GMissingFontsDialog._scene,
               {
                 dpi: _interopRequireDefault.dpi || 72,
                 progress: u.progress,
                 user: t,
                 jpegQuality:
                   _interopRequireDefault.jpegQuality || AppSettings.JPEG_EXPORT_QUALITY_DEFAULT,
-                title: x.getTitle(),
+                title: GMissingFontsDialog.getTitle(),
               },
               (e, t) => {
                 if (e || !t)
@@ -7502,10 +7546,10 @@ function (exports, module, require) {
         });
       else {
         var g = null,
-          h = null;
+          GUserModel = null;
         if (!_interopRequireDefault && e.name) {
           var f = e.name.lastIndexOf('.');
-          f >= 0 && ((g = e.name.substr(f + 1)), (h = e.name.substr(0, f)));
+          f >= 0 && ((g = e.name.substr(f + 1)), (GUserModel = e.name.substr(0, f)));
         }
         if (!g && e.type)
           for (var y = 0; y < K.FileTypes.length; ++y)
@@ -7517,23 +7561,23 @@ function (exports, module, require) {
           let e = K.FileTypes.find((e) => e.ext.toUpperCase() === g.toUpperCase());
           if (e && e.pro) return void gDesigner.handlePROFeatureInterruption();
         }
-        p(e, g, h);
+        p(e, g, GUserModel);
       }
     }),
     (K.prototype._preProcessFonts = function (e) {
       if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
         let e = gContainer.getSystemFontsProvider();
-        e && barrel_sidebars.enableProviders([e], true);
+        e && GFontsProviderManager.enableProviders([e], true);
       }
-      let module = barrel_sidebars.getInstance();
+      let module = GFontsProviderManager.getInstance();
       module && (e && (module.keepFontsMessage = e), module.setShowMissingFontsDialog(false));
     }),
     (K.prototype._postProcessFonts = function () {
       if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
         let e = gContainer.getSystemFontsProvider();
-        e && barrel_sidebars.disableProviders([e], true);
+        e && GFontsProviderManager.disableProviders([e], true);
       }
-      let exports = barrel_sidebars.getInstance();
+      let exports = GFontsProviderManager.getInstance();
       exports && exports.setShowMissingFontsDialog(true);
     }),
     (K.prototype._activateProgress = function (e) {
@@ -7782,7 +7826,7 @@ function (exports, module, require) {
         ((this._status = e),
         this.hasEventListeners(GDocumentStatusEvent) &&
           this.trigger(new GDocumentStatusEvent(e, t)),
-        barrel_sidebars.getInstance().trigger(new GDocumentStatusEvent(e, t)),
+        GFontsProviderManager.getInstance().trigger(new GDocumentStatusEvent(e, t)),
         this._status === _.Loaded && this.isCommercialProductFile() && this.openPaywall());
     }),
     (K.prototype.updateStatus = function (e, t) {
@@ -8026,18 +8070,22 @@ function (exports, module, require) {
           u,
           p,
           g = e.length,
-          h = t.length;
-        if (0 === g) return h;
-        if (0 === h) return g;
+          GUserModel = t.length;
+        if (0 === g) return GUserModel;
+        if (0 === GUserModel) return g;
         for (
-          g > h && ((require = e), (e = t), (t = require)),
+          g > GUserModel && ((require = e), (e = t), (t = require)),
             s = new Int8Array(g + 1),
             _interopRequireDefault = 0;
           _interopRequireDefault <= g;
           _interopRequireDefault++
         )
           s[_interopRequireDefault] = _interopRequireDefault;
-        for (_interopRequireDefault = 1; _interopRequireDefault <= h; _interopRequireDefault++) {
+        for (
+          _interopRequireDefault = 1;
+          _interopRequireDefault <= GUserModel;
+          _interopRequireDefault++
+        ) {
           for (
             GCore = _interopRequireDefault, p = t[_interopRequireDefault - 1], GTools = 1;
             GTools <= g;
@@ -8120,11 +8168,11 @@ function (exports, module, require) {
           : _interopRequireDefault < GTools.length - 1
             ? (_interopRequireDefault++,
               setTimeout(() =>
-                barrel_sidebars.getInstance().query(GCore, GTools[_interopRequireDefault])
+                GFontsProviderManager.getInstance().query(GCore, GTools[_interopRequireDefault])
               ))
             : t(null);
       };
-      barrel_sidebars.getInstance().query(GCore, GTools[_interopRequireDefault]);
+      GFontsProviderManager.getInstance().query(GCore, GTools[_interopRequireDefault]);
     },
   };
   exports.exports = K;
@@ -8349,7 +8397,7 @@ function (exports, module, require) {
   'use strict';
   var core_export = require(25) /* core_export */,
     globalThis = require(23) /* globalThis */,
-    a = require(324) /* module_324 */,
+    a = require(324) /* polyfill_ArrayBuffer_DataView */,
     r = require(260) /* module_260 */,
     s = a.ArrayBuffer;
   (core_export(
@@ -8364,7 +8412,7 @@ function (exports, module, require) {
   var core_export = require(25) /* core_export */,
     i = require(223) /* module_223 */,
     tryCall = require(21) /* tryCall */,
-    r = require(324) /* module_324 */,
+    r = require(324) /* polyfill_ArrayBuffer_DataView */,
     toString_default = require(37) /* toString_default */,
     l = require(244) /* module_244 */,
     toStringTagSupport = require(117) /* toStringTagSupport */,
@@ -8546,7 +8594,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(152) /* module_152 */,
+  var o = require(152) /* polyfill_TypedArrays */,
     i = require(427) /* module_427 */,
     a = require(429) /* module_429 */,
     r = require(131) /* module_131 */,
@@ -8588,7 +8636,7 @@ function (exports, module, require) {
   'use strict';
   var globalThis = require(23) /* globalThis */,
     isCallable = require(29) /* isCallable */,
-    a = require(152) /* module_152 */,
+    a = require(152) /* polyfill_TypedArrays */,
     r = require(101) /* stub_requires_117 */,
     s = require(428) /* module_428 */,
     l = require(93) /* stub_requires_92 */,
@@ -8634,7 +8682,7 @@ function (exports, module, require) {
     tryCall = require(21) /* tryCall */,
     r = require(65) /* module_65 */,
     s = require(351) /* module_351 */,
-    l = require(152) /* module_152 */,
+    l = require(152) /* polyfill_TypedArrays */,
     c = require(521) /* stub_requires_129 */,
     d = require(522) /* stub_requires_129 */,
     u = require(213) /* module_213 */,
@@ -8709,7 +8757,7 @@ function (exports, module, require) {
   'use strict';
   var globalThis = require(23) /* globalThis */,
     advanceStringIndex = require(200) /* advanceStringIndex */,
-    a = require(152) /* module_152 */,
+    a = require(152) /* polyfill_TypedArrays */,
     tryCall = require(21) /* tryCall */,
     s = require(157) /* stub_requires_27 */,
     l = globalThis.Int8Array,
@@ -9047,7 +9095,7 @@ function (exports, module, require) {
     c = _interopRequireDefault(require(554) /* module_554 */),
     d = _interopRequireDefault(require(555) /* module_555 */),
     u = require(237) /* Item */,
-    p = require(119); /* module_119 */
+    p = require(119); /* GCloudStorage */
   const g = require(436) /* module_436 */,
     h = require(86); /* module_86 */
   var f = AppSettings.FILE_FORMATS.find((e) => e.default),
@@ -10608,12 +10656,12 @@ function (exports, module, require) {
 ,
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l, c, d;
+  var o, i, a, r, s, l, c, CryptoJSCore;
   exports.exports =
-    ((d = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(537) /* module_537 */,
     require(538) /* module_538 */,
-    (i = (o = d).lib),
+    (i = (o = CryptoJSCore).lib),
     (a = i.Base),
     (r = i.WordArray),
     (s = o.algo),
@@ -10637,7 +10685,8 @@ function (exports, module, require) {
             c && o.update(c);
             var c = o.update(e).finalize(t);
             o.reset();
-            for (var d = 1; d < l; d++) ((c = o.finalize(c)), o.reset());
+            for (var CryptoJSCore = 1; CryptoJSCore < l; CryptoJSCore++)
+              ((c = o.finalize(c)), o.reset());
             i.concat(c);
           }
           return ((i.sigBytes = 4 * s), i);
@@ -10646,7 +10695,7 @@ function (exports, module, require) {
     (o.EvpKDF = function (e, t, n) {
       return c.create(n).compute(e, t);
     }),
-    d.EvpKDF);
+    CryptoJSCore.EvpKDF);
 }
 ,
 ,
@@ -10911,7 +10960,7 @@ function (exports, module, require) {
     GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
     r = require(444) /* module_444 */,
     s = require(339) /* GMenu */,
-    l = require(1157) /* module_1157 */,
+    GMenuManager = require(1157) /* GMenuManager */,
     GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
     GAction = require(31); /* GAction */
   function u(e, t) {
@@ -11080,7 +11129,7 @@ function (exports, module, require) {
         this.isOpen() ||
           (this.update(),
           this._htmlElement.appendTo($('body')),
-          this.isSubMenu() || l.setActiveMenu(this, false, GCore),
+          this.isSubMenu() || GMenuManager.setActiveMenu(this, false, GCore),
           this.trigger(GMenuOpenEvent.EVENT)),
         this._htmlElement.parent().is('body'))
       ) {
@@ -11119,8 +11168,8 @@ function (exports, module, require) {
         }
         const GCore = this._rangeLeftX ? this._rangeLeftX : 0;
         y < GCore && (y = GCore);
-        const l = this._rangeRightX ? this._rangeRightX : p;
-        y + GAction >= l && (y = l - GAction);
+        const GMenuManager = this._rangeRightX ? this._rangeRightX : p;
+        y + GAction >= GMenuManager && (y = GMenuManager - GAction);
         const GMenuOpenEvent = this._rangeLeftY ? this._rangeLeftY : 0;
         v < GMenuOpenEvent && (v = GMenuOpenEvent);
         const _ = this._rangeRightY ? this._rangeRightY : g;
@@ -11156,7 +11205,7 @@ function (exports, module, require) {
         (this.closeMenus(true),
         this._htmlElement.removeClass('g-menu-left g-menu-right g-menu-top g-menu-bottom'),
         this._htmlElement.detach(),
-        this === l._activeMenu && l.setActiveMenu(null, true),
+        this === GMenuManager._activeMenu && GMenuManager.setActiveMenu(null, true),
         this.trigger(GMenuCloseEvent.EVENT));
     }),
     (u.prototype.setTouchMode = function (e) {
@@ -11547,7 +11596,7 @@ function (exports, module, require) {
     require(34) /* polyfill_String_replace */,
     require(38)) /* stub_requires_680 */;
   var GCore = require(1) /* module */,
-    i = require(841) /* module_841 */,
+    GMissingFontsDialog = require(841) /* GMissingFontsDialog */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     r = require(86); /* module_86 */
   const s = require(381) /* module_381 */,
@@ -11589,10 +11638,14 @@ function (exports, module, require) {
             var n = p.getInstance();
             n._missingFontsActions || (n._missingFontsActions = {});
             n._missingFontsActions[t.sessionId] || (n._missingFontsActions[t.sessionId] = {});
-            for (var GCore = n._missingFontsActions[t.sessionId], i = e.length - 1; i >= 0; i--) {
-              var GDocumentStatusEvent = e[i];
+            for (
+              var GCore = n._missingFontsActions[t.sessionId], GMissingFontsDialog = e.length - 1;
+              GMissingFontsDialog >= 0;
+              GMissingFontsDialog--
+            ) {
+              var GDocumentStatusEvent = e[GMissingFontsDialog];
               GCore.hasOwnProperty(GDocumentStatusEvent)
-                ? e.splice(i, 1)
+                ? e.splice(GMissingFontsDialog, 1)
                 : (GCore[GDocumentStatusEvent] = null);
             }
           })(GOfflineDialog, t),
@@ -11601,7 +11654,7 @@ function (exports, module, require) {
                 ? (s._missingFontsDialog.setProviderEnablers(GNetworkAvailabilityChangedEvent),
                   s._missingFontsDialog.setMissingFonts(GOfflineDialog))
                 : GOfflineDialog.length &&
-                  (s._missingFontsDialog = new i(
+                  (s._missingFontsDialog = new GMissingFontsDialog(
                     t,
                     GOfflineDialog,
                     GNetworkAvailabilityChangedEvent,
@@ -11683,8 +11736,14 @@ function (exports, module, require) {
     (p.enableProviders = function (e, t) {
       if (p._instance) {
         for (var require = 0; require < e.length; require++)
-          for (var GCore = e[require], i = 0; i < d.length; i++)
-            d[i] instanceof GCore ? d[i].setEnabled(true) : t || d[i].setEnabled(false);
+          for (
+            var GCore = e[require], GMissingFontsDialog = 0;
+            GMissingFontsDialog < d.length;
+            GMissingFontsDialog++
+          )
+            d[GMissingFontsDialog] instanceof GCore
+              ? d[GMissingFontsDialog].setEnabled(true)
+              : t || d[GMissingFontsDialog].setEnabled(false);
         t || p._instance.reset(null, false, true);
       }
     }),
@@ -11725,12 +11784,19 @@ function (exports, module, require) {
           ((n = d[t])
             ? n.resolveFont(e.family, e.style, e.weight, {
                 done: function (n) {
-                  var i;
+                  var GMissingFontsDialog;
                   (e.sender instanceof GCore.GFontManager &&
-                    (i = e.sender._getFont(e.family, e.style, e.weight)),
-                    (i && i.isResolved()) ||
-                      (i = GCore.GOpenTypeFont.create(e.family, e.style, e.weight, n)),
-                    i ? e.resolved(i) : p.resolveFont(e, t + 1));
+                    (GMissingFontsDialog = e.sender._getFont(e.family, e.style, e.weight)),
+                    (GMissingFontsDialog && GMissingFontsDialog.isResolved()) ||
+                      (GMissingFontsDialog = GCore.GOpenTypeFont.create(
+                        e.family,
+                        e.style,
+                        e.weight,
+                        n
+                      )),
+                    GMissingFontsDialog
+                      ? e.resolved(GMissingFontsDialog)
+                      : p.resolveFont(e, t + 1));
                 },
                 fail: function () {
                   p.resolveFont(e, t + 1);
@@ -11779,7 +11845,7 @@ function (exports, module, require) {
       t,
       n,
       GCore,
-      i,
+      GMissingFontsDialog,
       GDocumentStatusEvent,
       r,
       GOfflineDialog,
@@ -11804,14 +11870,14 @@ function (exports, module, require) {
             ? (this._loadedPreviews = this._lastLoadedPreviews)
             : ((this._loaded = this._lastLoaded),
               r &&
-                i.length &&
+                GMissingFontsDialog.length &&
                 ((!GNetworkAvailabilityChangedEvent && this.hasDisabled()) ||
-                  ((m[n] = { faces: i.slice(), total: GDocumentStatusEvent }),
+                  ((m[n] = { faces: GMissingFontsDialog.slice(), total: GDocumentStatusEvent }),
                   y.unshift(n) > 30 && delete m[y.pop()]),
                 GNetworkAvailabilityChangedEvent ||
-                  ((h[n] = { faces: i, total: GDocumentStatusEvent }),
+                  ((h[n] = { faces: GMissingFontsDialog, total: GDocumentStatusEvent }),
                   f.unshift(n) > 30 && delete h[f.pop()])),
-              t({ faces: i, total: GDocumentStatusEvent }),
+              t({ faces: GMissingFontsDialog, total: GDocumentStatusEvent }),
               GNetworkAvailabilityChangedEvent ||
                 this._providerProbe(
                   0,
@@ -11846,7 +11912,7 @@ function (exports, module, require) {
             t,
             n,
             GCore,
-            i,
+            GMissingFontsDialog,
             GDocumentStatusEvent,
             r,
             GOfflineDialog,
@@ -11868,7 +11934,7 @@ function (exports, module, require) {
                       t,
                       n,
                       GCore,
-                      i,
+                      GMissingFontsDialog,
                       GDocumentStatusEvent,
                       r,
                       GOfflineDialog,
@@ -11878,15 +11944,19 @@ function (exports, module, require) {
                     v.hasOwnProperty(s[g].family) || (v[s[g].family] = _);
                   if (!GOfflineDialog) {
                     var f = h[this.normalizeQuery(n)] || { faces: [] };
-                    if (i !== f.faces || GNetworkAvailabilityChangedEvent) {
-                      for (g = 0; g < i.length; g++) {
-                        if ((y = d.indexOf(v[i[g].family])) > e && d[y].isEnabled()) {
-                          Array.prototype.splice.apply(i, [g, 0].concat(s));
+                    if (GMissingFontsDialog !== f.faces || GNetworkAvailabilityChangedEvent) {
+                      for (g = 0; g < GMissingFontsDialog.length; g++) {
+                        if (
+                          (y = d.indexOf(v[GMissingFontsDialog[g].family])) > e &&
+                          d[y].isEnabled()
+                        ) {
+                          Array.prototype.splice.apply(GMissingFontsDialog, [g, 0].concat(s));
                           break;
                         }
                       }
                       if (
-                        (g == i.length && Array.prototype.push.apply(i, s),
+                        (g == GMissingFontsDialog.length &&
+                          Array.prototype.push.apply(GMissingFontsDialog, s),
                         !GNetworkAvailabilityChangedEvent)
                       ) {
                         var m = f.faces;
@@ -11899,14 +11969,18 @@ function (exports, module, require) {
                         g == m.length && Array.prototype.push.apply(m, s);
                       }
                     } else {
-                      for (var g = 0; g < i.length; g++) {
+                      for (var g = 0; g < GMissingFontsDialog.length; g++) {
                         var y;
-                        if ((y = d.indexOf(v[i[g].family])) > e && d[y].isEnabled()) {
+                        if (
+                          (y = d.indexOf(v[GMissingFontsDialog[g].family])) > e &&
+                          d[y].isEnabled()
+                        ) {
                           Array.prototype.splice.apply(f.faces, [g, 0].concat(s));
                           break;
                         }
                       }
-                      g == i.length && Array.prototype.push.apply(i, s);
+                      g == GMissingFontsDialog.length &&
+                        Array.prototype.push.apply(GMissingFontsDialog, s);
                     }
                   }
                   (_.addPreviews(s, GOfflineDialog),
@@ -11917,13 +11991,13 @@ function (exports, module, require) {
                     GOfflineDialog
                       ? (this._lastLoadedPreviews += s.length)
                       : (this._lastLoaded += s.length),
-                    i.sort((e, t) => e.family.localeCompare(t.family)),
+                    GMissingFontsDialog.sort((e, t) => e.family.localeCompare(t.family)),
                     this._providerProbe(
                       e + 1,
                       t,
                       n,
                       GCore,
-                      i,
+                      GMissingFontsDialog,
                       GDocumentStatusEvent,
                       r,
                       GOfflineDialog,
@@ -11942,7 +12016,7 @@ function (exports, module, require) {
                     t,
                     n,
                     GCore,
-                    i,
+                    GMissingFontsDialog,
                     GDocumentStatusEvent,
                     r,
                     GOfflineDialog,
@@ -12018,10 +12092,16 @@ function (exports, module, require) {
           e(GCore));
       } else {
         if (t.length > 2) {
-          var i = t.substr(0, t.length - 2);
-          for (i = this.normalizeQuery(i); i.length > 1; ) {
-            if (h.hasOwnProperty(i))
-              if ((GCore = h[i]).faces.length < 9999 || GCore.faces.length == GCore.total) {
+          var GMissingFontsDialog = t.substr(0, t.length - 2);
+          for (
+            GMissingFontsDialog = this.normalizeQuery(GMissingFontsDialog);
+            GMissingFontsDialog.length > 1;
+          ) {
+            if (h.hasOwnProperty(GMissingFontsDialog))
+              if (
+                (GCore = h[GMissingFontsDialog]).faces.length < 9999 ||
+                GCore.faces.length == GCore.total
+              ) {
                 for (var GDocumentStatusEvent = [], r = 0; r < GCore.faces.length; r++)
                   GCore.faces[r].family.substr(0, t.length - 1).toLowerCase() ==
                     t.substr(0, t.length - 1).toLowerCase() &&
@@ -12032,7 +12112,8 @@ function (exports, module, require) {
                   void e({ faces: GDocumentStatusEvent })
                 );
               }
-            ((i = i.substr(0, i.length - 2)), (i = this.normalizeQuery(i)));
+            ((GMissingFontsDialog = GMissingFontsDialog.substr(0, GMissingFontsDialog.length - 2)),
+              (GMissingFontsDialog = this.normalizeQuery(GMissingFontsDialog)));
           }
         }
         var s = new Date().getTime();
@@ -12059,9 +12140,10 @@ function (exports, module, require) {
           var require = m[t];
           if (require.faces)
             for (var GCore = 0; GCore < require.faces.length; GCore++) {
-              var i = require.faces[GCore];
-              if (i.family === e) return i;
-              if (i.families && i.families.indexOf(e) >= 0) return i;
+              var GMissingFontsDialog = require.faces[GCore];
+              if (GMissingFontsDialog.family === e) return GMissingFontsDialog;
+              if (GMissingFontsDialog.families && GMissingFontsDialog.families.indexOf(e) >= 0)
+                return GMissingFontsDialog;
             }
         }
         if (1 === t.length) break;
@@ -12368,24 +12450,25 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o, i, a;
+  var o, i, CryptoJSCore;
   exports.exports =
-    ((a = require(55)) /* module_55 */,
-    (i = (o = a).lib.WordArray),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    (i = (o = CryptoJSCore).lib.WordArray),
     (o.enc.Base64 = {
       stringify: function (e) {
         var t = e.words,
           n = e.sigBytes,
           o = this._map;
         e.clamp();
-        for (var i = [], a = 0; a < n; a += 3)
+        for (var i = [], CryptoJSCore = 0; CryptoJSCore < n; CryptoJSCore += 3)
           for (
             var r =
-                (((t[a >>> 2] >>> (24 - (a % 4) * 8)) & 255) << 16) |
-                (((t[(a + 1) >>> 2] >>> (24 - ((a + 1) % 4) * 8)) & 255) << 8) |
-                ((t[(a + 2) >>> 2] >>> (24 - ((a + 2) % 4) * 8)) & 255),
+                (((t[CryptoJSCore >>> 2] >>> (24 - (CryptoJSCore % 4) * 8)) & 255) << 16) |
+                (((t[(CryptoJSCore + 1) >>> 2] >>> (24 - ((CryptoJSCore + 1) % 4) * 8)) & 255) <<
+                  8) |
+                ((t[(CryptoJSCore + 2) >>> 2] >>> (24 - ((CryptoJSCore + 2) % 4) * 8)) & 255),
               s = 0;
-            s < 4 && a + 0.75 * s < n;
+            s < 4 && CryptoJSCore + 0.75 * s < n;
             s++
           )
             i.push(o.charAt((r >>> (6 * (3 - s))) & 63));
@@ -12399,7 +12482,8 @@ function (exports, module, require) {
           o = this._reverseMap;
         if (!o) {
           o = this._reverseMap = [];
-          for (var a = 0; a < n.length; a++) o[n.charCodeAt(a)] = a;
+          for (var CryptoJSCore = 0; CryptoJSCore < n.length; CryptoJSCore++)
+            o[n.charCodeAt(CryptoJSCore)] = CryptoJSCore;
         }
         var r = n.charAt(64);
         if (r) {
@@ -12407,26 +12491,26 @@ function (exports, module, require) {
           -1 !== s && (t = s);
         }
         return (function (e, t, n) {
-          for (var o = [], a = 0, r = 0; r < t; r++)
+          for (var o = [], CryptoJSCore = 0, r = 0; r < t; r++)
             if (r % 4) {
               var s = n[e.charCodeAt(r - 1)] << ((r % 4) * 2),
                 l = n[e.charCodeAt(r)] >>> (6 - (r % 4) * 2);
-              ((o[a >>> 2] |= (s | l) << (24 - (a % 4) * 8)), a++);
+              ((o[CryptoJSCore >>> 2] |= (s | l) << (24 - (CryptoJSCore % 4) * 8)), CryptoJSCore++);
             }
-          return i.create(o, a);
+          return i.create(o, CryptoJSCore);
         })(e, t, o);
       },
       _map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     }),
-    a.enc.Base64);
+    CryptoJSCore.enc.Base64);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     (function (e) {
-      var t = o,
+      var t = CryptoJSCore,
         n = t.lib,
         i = n.WordArray,
         a = n.Hasher,
@@ -12441,9 +12525,10 @@ function (exports, module, require) {
         },
         _doProcessBlock: function (e, t) {
           for (var n = 0; n < 16; n++) {
-            var o = t + n,
-              i = e[o];
-            e[o] = (16711935 & ((i << 8) | (i >>> 24))) | (4278255360 & ((i << 24) | (i >>> 8)));
+            var CryptoJSCore = t + n,
+              i = e[CryptoJSCore];
+            e[CryptoJSCore] =
+              (16711935 & ((i << 8) | (i >>> 24))) | (4278255360 & ((i << 24) | (i >>> 8)));
           }
           var a = this._hash.words,
             r = e[t + 0],
@@ -12535,11 +12620,11 @@ function (exports, module, require) {
         _doFinalize: function () {
           var t = this._data,
             n = t.words,
-            o = 8 * this._nDataBytes,
+            CryptoJSCore = 8 * this._nDataBytes,
             i = 8 * t.sigBytes;
           n[i >>> 5] |= 128 << (24 - (i % 32));
-          var a = e.floor(o / 4294967296),
-            r = o;
+          var a = e.floor(CryptoJSCore / 4294967296),
+            r = CryptoJSCore;
           ((n[15 + (((i + 64) >>> 9) << 4)] =
             (16711935 & ((a << 8) | (a >>> 24))) | (4278255360 & ((a << 24) | (a >>> 8)))),
             (n[14 + (((i + 64) >>> 9) << 4)] =
@@ -12557,25 +12642,25 @@ function (exports, module, require) {
           return ((e._hash = this._hash.clone()), e);
         },
       }));
-      function c(e, t, n, o, i, a, r) {
-        var s = e + ((t & n) | (~t & o)) + i + r;
+      function c(e, t, n, CryptoJSCore, i, a, r) {
+        var s = e + ((t & n) | (~t & CryptoJSCore)) + i + r;
         return ((s << a) | (s >>> (32 - a))) + t;
       }
-      function d(e, t, n, o, i, a, r) {
-        var s = e + ((t & o) | (n & ~o)) + i + r;
+      function d(e, t, n, CryptoJSCore, i, a, r) {
+        var s = e + ((t & CryptoJSCore) | (n & ~CryptoJSCore)) + i + r;
         return ((s << a) | (s >>> (32 - a))) + t;
       }
-      function u(e, t, n, o, i, a, r) {
-        var s = e + (t ^ n ^ o) + i + r;
+      function u(e, t, n, CryptoJSCore, i, a, r) {
+        var s = e + (t ^ n ^ CryptoJSCore) + i + r;
         return ((s << a) | (s >>> (32 - a))) + t;
       }
-      function p(e, t, n, o, i, a, r) {
-        var s = e + (n ^ (t | ~o)) + i + r;
+      function p(e, t, n, CryptoJSCore, i, a, r) {
+        var s = e + (n ^ (t | ~CryptoJSCore)) + i + r;
         return ((s << a) | (s >>> (32 - a))) + t;
       }
       ((t.MD5 = a._createHelper(l)), (t.HmacMD5 = a._createHmacHelper(l)));
     })(Math),
-    o.MD5);
+    CryptoJSCore.MD5);
 }
 ,
 ,
@@ -13695,7 +13780,7 @@ function (exports, module, require) {
     GMenuActivateEvent = require(1499) /* GMenuActivateEvent */,
     GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
     l = require(444) /* module_444 */,
-    c = require(1157) /* module_1157 */,
+    GMenuManager = require(1157) /* GMenuManager */,
     GMenuOpenEvent = require(804); /* GMenuOpenEvent */
   function u(e, t, n, GCore) {
     ((this._htmlElement = $('<li></li>').addClass('g-menu-item')),
@@ -14150,9 +14235,9 @@ function (exports, module, require) {
       ) {
         if ((this.isRootMenuBarItem() || this._mouseOut(e), this._category == u.Type.Item)) {
           let e = this.activate();
-          this.isEnabled() && false !== e && c.triggerGlobalActivation(this);
+          this.isEnabled() && false !== e && GMenuManager.triggerGlobalActivation(this);
         }
-        this.isRootMenuBarItem() || c.setActiveMenu(null);
+        this.isRootMenuBarItem() || GMenuManager.setActiveMenu(null);
       }
     }),
     (u.prototype._openMenu = function () {
@@ -14438,8 +14523,8 @@ function (exports, module, require) {
     isCallable = require(29) /* isCallable */,
     hasOwnProperty_wrapper = require(49) /* hasOwnProperty_wrapper */,
     s = require(693) /* module_693 */,
-    l = require(152) /* module_152 */,
-    c = require(324) /* module_324 */,
+    l = require(152) /* polyfill_TypedArrays */,
+    c = require(324) /* polyfill_ArrayBuffer_DataView */,
     d = require(146) /* module_146 */,
     u = require(174) /* module_174 */,
     createProperty = require(100) /* createProperty */,
@@ -15311,10 +15396,10 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l;
+  var o, i, a, r, s, CryptoJSCore;
   exports.exports =
-    ((l = require(55)) /* module_55 */,
-    (i = (o = l).lib),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    (i = (o = CryptoJSCore).lib),
     (a = i.Base),
     (r = i.WordArray),
     ((s = o.x64 = {}).Word = a.extend({
@@ -15350,7 +15435,7 @@ function (exports, module, require) {
         return exports;
       },
     })),
-    l);
+    CryptoJSCore);
 }
 ,
 ,
@@ -15363,7 +15448,7 @@ function (exports, module, require) {
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
   var GCore = require(1); /* module */
   const i = require(237) /* Item */,
-    a = require(156); /* module_156 */
+    GCloudStorageItem = require(156); /* GCloudStorageItem */
   function r() {}
   (GCore.GObject.inherit(r, i),
     (r.Item = function (e, t) {
@@ -15403,7 +15488,7 @@ function (exports, module, require) {
             new GCore.GLocaleKey('GExternalStorage', 'text.error-file-cant-be-null')
           )
         );
-      ((e = a.createOrReturnSelfInstance(e)),
+      ((e = GCloudStorageItem.createOrReturnSelfInstance(e)),
         (this._file = e),
         (this._id = e.id),
         (this._filename = e.name));
@@ -18147,7 +18232,7 @@ function (exports, module, require) {
             : (r[t] = e[t]));
       return r;
     })(e, t);
-  })(require(1480) /* Action_id */);
+  })(require(1480) /* MSTeamsSDK */);
   const AppSettings = require(10); /* AppSettings */
   let a = false,
     r = false,
@@ -18261,7 +18346,7 @@ function (exports, module, require) {
     }
     return e;
   }
-  var p = require(163) /* module_163 */,
+  var p = require(163) /* GDocument */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     f = require(446) /* module_446 */,
@@ -18505,8 +18590,8 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
     GCore = require(1) /* module */,
-    a = _interopRequireDefault(require(119) /* module_119 */),
-    r = _interopRequireDefault(require(860) /* module_860 */);
+    GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
+    GEmbeddedLogin = _interopRequireDefault(require(860) /* GEmbeddedLogin */);
   function s(e) {
     let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : () => {};
     ((this._cb = e), (this._showFormCb = module), this._run());
@@ -18518,7 +18603,7 @@ function (exports, module, require) {
     (s.prototype._run = function () {
       if (gDesigner.isAnonymous())
         return (
-          new r.default((e) => {
+          new GEmbeddedLogin.default((e) => {
             e && !e.anonymous && this._logged(e);
           }).open({ anonymous: true, signup: true, animate: true }),
           void this._showFormCb()
@@ -18556,12 +18641,12 @@ function (exports, module, require) {
                   .appendTo(require));
             };
             (_interopRequireDefault('login', () => {
-              a.default.performLogin().then((e) => {
+              GCloudStorage.default.performLogin().then((e) => {
                 this._logged(e);
               });
             }),
               _interopRequireDefault('signup', () => {
-                a.default.performSignup().then((e) => {
+                GCloudStorage.default.performSignup().then((e) => {
                   this._logged(e);
                 });
               }));
@@ -18593,7 +18678,7 @@ function (exports, module, require) {
     GSaveAsAction = require(445) /* GSaveAsAction */,
     GGravitCloudAction = require(448) /* GGravitCloudAction */,
     g = require(86) /* module_86 */,
-    h = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     f = require(1510) /* module_1510 */,
     m = require(1511); /* module_1511 */
   const GSystemDialog = require(44) /* GSystemDialog */,
@@ -18659,10 +18744,10 @@ function (exports, module, require) {
               e.reload();
             },
             function () {
-              h.performSave(e, t);
+              GCloudStorage.performSave(e, t);
             }
           )
-        : h.performSave(e, t);
+        : GCloudStorage.performSave(e, t);
     }),
     (w.prototype._save = async function (e, t, n) {
       if (gDesigner.getDefaultStorage().canSave()) {
@@ -18779,10 +18864,10 @@ function (exports, module, require) {
     GEditor = require(15) /* module */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    s = require(844) /* module_844 */,
+    GActionIconMap = require(844) /* GActionIconMap */,
     l = require(86) /* module_86 */,
     c = require(220) /* Item */,
-    d = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     u = require(446); /* module_446 */
   const GOfflineDialog = require(256); /* GOfflineDialog */
   function g(e) {
@@ -18809,7 +18894,7 @@ function (exports, module, require) {
       return this._type === g.Actions.Open ? 'file-open' : 'file';
     }),
     (g.prototype.getGroupIcon = function () {
-      return s['gravit-cloud'];
+      return GActionIconMap['gravit-cloud'];
     }),
     (g.prototype.getShortcut = function () {
       return this._type == g.Actions.Open
@@ -18828,7 +18913,10 @@ function (exports, module, require) {
         return false;
       if (!gDesigner.getApplicationManager().isSavingAsEnabled() && this._type === g.Actions.SaveAs)
         return false;
-      return !(!gDesigner.getActiveDocument() && this._type !== g.Actions.Open) && !!d.isOnline();
+      return (
+        !(!gDesigner.getActiveDocument() && this._type !== g.Actions.Open) &&
+        !!GCloudStorage.isOnline()
+      );
     }),
     (g.prototype.execute = function (e, t, n) {
       const GCore = () =>
@@ -18852,7 +18940,7 @@ function (exports, module, require) {
         if (GEditor.isCommercialProductFile()) return void GEditor.openPaywall(this.getId());
         var MenuItemBuilder = GEditor.getStorageItem();
         MenuItemBuilder && MenuItemBuilder instanceof c.Item
-          ? d.performSave(
+          ? GCloudStorage.performSave(
               GEditor,
               () => {
                 t && t(l.Saved);
@@ -19000,7 +19088,7 @@ function (exports, module, require) {
     require(1352) /* stub_requires_1707 */,
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* module */,
-    i = require(1709); /* module_1709 */
+    GVirtualList = require(1709); /* GVirtualList */
   function a() {}
   function r(e, t) {
     ((this.id = e), (this.expanded = t));
@@ -19012,7 +19100,7 @@ function (exports, module, require) {
       (this._rootIndentation = x || 15),
       (this._indentation = S || 15),
       (this._bottomPadding = E || 0),
-      i.call(this, e, t, 0, 0),
+      GVirtualList.call(this, e, t, 0, 0),
       this._container.classList.add('g-virtual-tree'),
       (this._rowStyle = n || s.DEFAULT_ROW_STYLE),
       (this._freeHeight = isNaN(d) ? s.DEFAULT_FREEZONE_HEIGHT : d),
@@ -19035,12 +19123,12 @@ function (exports, module, require) {
       (this._aScroll = new l(this._container, 200, 10, null, 7)),
       (this._drag = this._drag.bind(this)));
   }
-  function l(e, t, n, GCore, i) {
+  function l(e, t, n, GCore, GVirtualList) {
     ((this._elem = e),
       (this._scrollDelay = t || 30),
       (this._step = n || 1),
       (this._axisFlag = GCore || l.SCROLL_AXIS_FLAG.Y | l.SCROLL_AXIS_FLAG.X),
-      (this._scAreaWidth = i || 5),
+      (this._scAreaWidth = GVirtualList || 5),
       this._fixupHandler('onmouseout', this.offScrolls.bind(this)),
       this._fixupHandler('ondragleave', this.offScrolls.bind(this)));
   }
@@ -19054,18 +19142,18 @@ function (exports, module, require) {
     (a.prototype.dragging = false),
     (a.prototype.row = null),
     (a.prototype.acceptChildren = function (e, t, n, GCore) {
-      var i,
+      var GVirtualList,
         a = !GCore;
       if (!t || this.expanded)
         if (n)
           for (var r = this.lastChild; null != r; r = r.previous) {
-            if (false === (i = r.accept(e, t, n, GCore)) && !GCore) return false;
-            true === i && GCore && (a = true);
+            if (false === (GVirtualList = r.accept(e, t, n, GCore)) && !GCore) return false;
+            true === GVirtualList && GCore && (a = true);
           }
         else
           for (r = this.firstChild; null != r; r = r.next) {
-            if (false === (i = r.accept(e, t, n, GCore)) && !GCore) return false;
-            true === i && GCore && (a = true);
+            if (false === (GVirtualList = r.accept(e, t, n, GCore)) && !GCore) return false;
+            true === GVirtualList && GCore && (a = true);
           }
       return a;
     }),
@@ -19154,7 +19242,7 @@ function (exports, module, require) {
     (s.ROW_ID = 'rowId'),
     (s.LOWER_SEP_ID = 'lsepId'),
     (s.UPPER_SEP_ID = 'usepId'),
-    (s.prototype = Object.create(i.prototype)),
+    (s.prototype = Object.create(GVirtualList.prototype)),
     (s.IdxIterator = function (e, t, n, GCore) {
       ((this._vtree = e),
         (this._firstIdx = t || 1),
@@ -19242,14 +19330,14 @@ function (exports, module, require) {
         return t !== e && (require++, true);
       }, true),
         t || this.invalidate());
-      var i = require * this._rowHeight,
+      var GVirtualList = require * this._rowHeight,
         a = this._container.scrollTop;
       return (
         0 === this._visibleRows && this._updateVisibleRows(),
-        (a > i || i - a >= this._rowHeight * this._visibleRows) &&
+        (a > GVirtualList || GVirtualList - a >= this._rowHeight * this._visibleRows) &&
           (this._focusTimerId = setTimeout(
             function () {
-              ((this._container.scrollTop = i), (this._focusTimerId = null));
+              ((this._container.scrollTop = GVirtualList), (this._focusTimerId = null));
             }.bind(this, 50)
           )),
         true
@@ -19289,8 +19377,12 @@ function (exports, module, require) {
         !GCore && n.next && (GCore = n.next),
         !GCore)
       )
-        for (var i = n.parent; !GCore && i instanceof a && i !== this._root; i = i.parent)
-          i.next && (GCore = i.next);
+        for (
+          var GVirtualList = n.parent;
+          !GCore && GVirtualList instanceof a && GVirtualList !== this._root;
+          GVirtualList = GVirtualList.parent
+        )
+          GVirtualList.next && (GCore = GVirtualList.next);
       return GCore;
     }),
     (s.prototype.appendNode = function (e, t) {
@@ -19362,9 +19454,9 @@ function (exports, module, require) {
       }
       if (this._rowCount && this._renderer && this._rowHeight) {
         for (
-          var i = Math.min(this._rowCount, e + this._cachedRows),
+          var GVirtualList = Math.min(this._rowCount, e + this._cachedRows),
             a = document.createDocumentFragment(),
-            r = new s.IdxIterator(this, e + 1, i, true),
+            r = new s.IdxIterator(this, e + 1, GVirtualList, true),
             l = e,
             c = r.getFirstNode();
           null != c;
@@ -19412,11 +19504,11 @@ function (exports, module, require) {
                   (d.removeAttribute('data-clean'), (d.style.display = '')),
                 d.parentNode || a.appendChild(d)));
         }
-        if (i == this._rowCount && !this.isAnimatedDragEnabled()) {
+        if (GVirtualList == this._rowCount && !this.isAnimatedDragEnabled()) {
           var g = document.createElement('div');
           ((g.style.position = 'absolute'),
             (g.style.height = this._freeHeight.toString() + 'px'),
-            (g.style.top = (i * this._rowHeight).toString() + 'px'),
+            (g.style.top = (GVirtualList * this._rowHeight).toString() + 'px'),
             g.addEventListener('dragenter', this._nodeDragEnter.bind(this, this._root)),
             g.addEventListener('dragover', this._nodeDragOver.bind(this, this._root)),
             g.addEventListener('dragleave', this._nodeDragLeave.bind(this, this._root)),
@@ -19480,19 +19572,19 @@ function (exports, module, require) {
         (e.style.position = 'absolute'),
         (e.style.pointerEvents = 'none'));
       var GCore = document.createElement('span'),
-        i = null;
+        GVirtualList = null;
       (e.id == s.UPPER_SEP_ID
         ? (GCore.classList.add(this._upSeparatorSpan1Style),
-          (i = this._upSeparatorSpan2Style ? this._upSeparatorSpan2Style : null),
+          (GVirtualList = this._upSeparatorSpan2Style ? this._upSeparatorSpan2Style : null),
           (e.style.top = '0px'))
         : (GCore.classList.add(this._downSeparatorSpan1Style),
-          (i = this._downSeparatorSpan2Style ? this._downSeparatorSpan2Style : null),
+          (GVirtualList = this._downSeparatorSpan2Style ? this._downSeparatorSpan2Style : null),
           (e.style.top = (this._rowHeight - this._freeHeight).toString() + 'px')),
         e.appendChild(GCore));
       getComputedStyle(GCore);
-      if (i) {
+      if (GVirtualList) {
         var a = document.createElement('span');
-        (a.classList.add(i), e.appendChild(a));
+        (a.classList.add(GVirtualList), e.appendChild(a));
       }
     }),
     (s.prototype._updateRowCount = function () {
@@ -19540,7 +19632,7 @@ function (exports, module, require) {
     (s.prototype._onScroll = function (e) {
       this.isAnimatedDragEnabled() && this._isDragging()
         ? e.preventDefault()
-        : i.prototype._onScroll.call(this, e);
+        : GVirtualList.prototype._onScroll.call(this, e);
     }),
     (s.prototype._nodeDragInit = function (e, t) {
       this.isAnimatedDragEnabled() &&
@@ -19596,8 +19688,8 @@ function (exports, module, require) {
       if (!this._dragAndDropHelper) return;
       const module = new GCore.GPoint(e.clientX, e.clientY),
         require = module.subtract(this._dragLastPt || this._dragStartPt),
-        i = parseInt(require.getY());
-      if (0 === i) return;
+        GVirtualList = parseInt(require.getY());
+      if (0 === GVirtualList) return;
       this._dragLastPt = new GCore.GPoint(e.clientX, e.clientY);
       const a = module.subtract(this._dragOffset),
         r = new GCore.GRect(
@@ -19613,7 +19705,7 @@ function (exports, module, require) {
           else if (s.length > 0) return false;
       }, true),
         this._dragAndDropHelper.setDroppableNodeInside(null));
-      const l = i > 0;
+      const l = GVirtualList > 0;
       if (1 === s.length) {
         const e = s[0],
           t = this._getOffset(e, r);
@@ -19703,57 +19795,60 @@ function (exports, module, require) {
           this._rowRemoveSep(n, s.LOWER_SEP_ID),
           this._rowRemoveSep(n, s.UPPER_SEP_ID),
           (n._hasStyle = false));
-        var i = [],
+        var GVirtualList = [],
           a = n === this._freeZone;
-        if (this._dropUpperAllowed(e, GCore, i, a))
+        if (this._dropUpperAllowed(e, GCore, GVirtualList, a))
           if (
-            (i.length || (i = this._dragNodes),
+            (GVirtualList.length || (GVirtualList = this._dragNodes),
             this._isDuplicateEffectCallback && this._isDuplicateEffectCallback(t))
           )
             e !== this._root
-              ? this._duplicateCallback(e.parent, e, e.previous ? e.previous : null, i)
-              : this._duplicateCallback(this._root, null, a ? e.lastChild : null, i);
+              ? this._duplicateCallback(e.parent, e, e.previous ? e.previous : null, GVirtualList)
+              : this._duplicateCallback(this._root, null, a ? e.lastChild : null, GVirtualList);
           else {
             this.beginUpdate();
-            for (var r = 0; r < i.length; ++r) this.removeNode(i[r]);
+            for (var r = 0; r < GVirtualList.length; ++r) this.removeNode(GVirtualList[r]);
             if (e !== this._root) {
               this._dropCallback &&
-                this._dropCallback(e.parent, e, e.previous ? e.previous : null, i);
-              for (r = 0; r < i.length; ++r) this.insertNodeBefore(e, i[r]);
+                this._dropCallback(e.parent, e, e.previous ? e.previous : null, GVirtualList);
+              for (r = 0; r < GVirtualList.length; ++r) this.insertNodeBefore(e, GVirtualList[r]);
             } else {
-              this._dropCallback && this._dropCallback(this._root, null, a ? e.lastChild : null, i);
-              for (r = 0; r < i.length; ++r) this.appendNode(e, i[r]);
+              this._dropCallback &&
+                this._dropCallback(this._root, null, a ? e.lastChild : null, GVirtualList);
+              for (r = 0; r < GVirtualList.length; ++r) this.appendNode(e, GVirtualList[r]);
             }
             ((this._dragNodes = null), this.endUpdate());
           }
-        else if (this._dropLowerAllowed(e, GCore, i))
+        else if (this._dropLowerAllowed(e, GCore, GVirtualList))
           if (
-            (i.length || (i = this._dragNodes),
+            (GVirtualList.length || (GVirtualList = this._dragNodes),
             this._isDuplicateEffectCallback && this._isDuplicateEffectCallback(t))
           )
-            this._duplicateCallback(e.parent, e.next ? e.next : null, e, i);
+            this._duplicateCallback(e.parent, e.next ? e.next : null, e, GVirtualList);
           else {
             this.beginUpdate();
-            for (r = 0; r < i.length; ++r) this.removeNode(i[r]);
-            this._dropCallback && this._dropCallback(e.parent, e.next ? e.next : null, e, i);
-            for (r = i.length; r > 0; --r) this.insertNodeAfter(e, i[r - 1]);
+            for (r = 0; r < GVirtualList.length; ++r) this.removeNode(GVirtualList[r]);
+            this._dropCallback &&
+              this._dropCallback(e.parent, e.next ? e.next : null, e, GVirtualList);
+            for (r = GVirtualList.length; r > 0; --r) this.insertNodeAfter(e, GVirtualList[r - 1]);
             ((this._dragNodes = null), this.endUpdate());
           }
-        else if (this._dropInsideAllowed(e, i, a))
+        else if (this._dropInsideAllowed(e, GVirtualList, a))
           if (
-            (i.length || (i = this._dragNodes),
+            (GVirtualList.length || (GVirtualList = this._dragNodes),
             this._isDuplicateEffectCallback && this._isDuplicateEffectCallback(t))
           )
-            this._duplicateCallback(e, null, null, i);
+            this._duplicateCallback(e, null, null, GVirtualList);
           else {
             this.beginUpdate();
-            for (r = 0; r < i.length; ++r) this.removeNode(i[r]);
+            for (r = 0; r < GVirtualList.length; ++r) this.removeNode(GVirtualList[r]);
             if (
-              (this._dropCallback && this._dropCallback(e, null, a ? e.lastChild : null, i),
+              (this._dropCallback &&
+                this._dropCallback(e, null, a ? e.lastChild : null, GVirtualList),
               this._putLastChildWhenInside || a)
             )
-              for (r = 0; r < i.length; ++r) this.appendNode(e, i[r]);
-            else for (r = i.length; r > 0; --r) this.prependNode(e, i[r - 1]);
+              for (r = 0; r < GVirtualList.length; ++r) this.appendNode(e, GVirtualList[r]);
+            else for (r = GVirtualList.length; r > 0; --r) this.prependNode(e, GVirtualList[r - 1]);
             ((this._dragNodes = null), this.endUpdate());
           }
       }
@@ -19771,12 +19866,12 @@ function (exports, module, require) {
       return module;
     }),
     (s.prototype._dropUpperAllowed = function (e, t, n, GCore) {
-      var i =
+      var GVirtualList =
         t <= this._freeHeight && (this._dragNodes.length > 1 || e !== this._dragNodes[0].next);
       return (
-        i &&
+        GVirtualList &&
           this._dropAllowedCallback &&
-          (i =
+          (GVirtualList =
             (e !== this._root &&
               this._dropAllowedCallback(
                 e.parent,
@@ -19786,7 +19881,7 @@ function (exports, module, require) {
                 n
               )) ||
             (e === this._root && this._dropInsideAllowed(e, n, GCore))),
-        i
+        GVirtualList
       );
     }),
     (s.prototype._dropLowerAllowed = function (e, t, n) {
@@ -19810,7 +19905,7 @@ function (exports, module, require) {
     }),
     (s.prototype._dropInsideAllowed = function (e, t, n) {
       var GCore = n || this._putLastChildWhenInside,
-        i =
+        GVirtualList =
           this._dragNodes.length > 1 ||
           !(
             this._dragNodes[0].parent === e &&
@@ -19818,16 +19913,16 @@ function (exports, module, require) {
               (!GCore && e.firstChild === this._dragNodes[0]))
           );
       return (
-        i &&
+        GVirtualList &&
           this._dropAllowedCallback &&
-          (i = this._dropAllowedCallback(
+          (GVirtualList = this._dropAllowedCallback(
             e,
             GCore ? null : e.firstChild,
             GCore ? e.lastChild : null,
             this._dragNodes,
             t
           )),
-        i
+        GVirtualList
       );
     }),
     (s.prototype._drawUpperSeparator = function (e, t) {
@@ -19839,18 +19934,18 @@ function (exports, module, require) {
       this._rowAddSep(t, s.LOWER_SEP_ID, n);
     }),
     (s.prototype._updateMarks = function (e, t, n, GCore) {
-      let i = true;
+      let GVirtualList = true;
       if (this._dropHereAllowed(e)) {
         var a = t === this._freeZone;
         this._dropUpperAllowed(e, n, null, a)
-          ? ((i = false),
+          ? ((GVirtualList = false),
             this._rowHasSep(t, s.UPPER_SEP_ID) ||
               (this._rowRemoveSep(t, s.LOWER_SEP_ID),
               (t._specCounter = 0),
               t.classList.remove(this._insertIntoStyle),
               this._drawUpperSeparator(e, t)))
           : this._dropLowerAllowed(e, n)
-            ? ((i = false),
+            ? ((GVirtualList = false),
               this._rowHasSep(t, s.LOWER_SEP_ID) ||
                 (this._rowRemoveSep(t, s.UPPER_SEP_ID),
                 (t._specCounter = 0),
@@ -19858,14 +19953,14 @@ function (exports, module, require) {
                 this._drawLowerSeparator(e, t)))
             : e !== this._root &&
               this._dropInsideAllowed(e) &&
-              ((i = false),
+              ((GVirtualList = false),
               this._rowRemoveSep(t, s.LOWER_SEP_ID),
               this._rowRemoveSep(t, s.UPPER_SEP_ID),
               t.classList.add(this._insertIntoStyle),
               (t._hasStyle = true),
               GCore && (t._specCounter ? ++t._specCounter : (t._specCounter = 1)));
       }
-      $(this._container).find('.g-drag').toggleClass('g-no-drop', i);
+      $(this._container).find('.g-drag').toggleClass('g-no-drop', GVirtualList);
     }),
     (s.prototype._rowHasSep = function (e, t) {
       for (var require = 1, GCore = e.childNodes.length; require < GCore; require++)
@@ -20060,7 +20155,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(463) /* module_463 */,
+  var ZlibDeflate = require(463) /* ZlibDeflate */,
     Buf = require(94) /* Exports_Buf */,
     a = require(312) /* module_312 */,
     r = require(225) /* module_225 */,
@@ -20090,9 +20185,16 @@ function (exports, module, require) {
       (this.chunks = []),
       (this.strm = new s()),
       (this.strm.avail_out = 0));
-    var n = o.deflateInit2(this.strm, t.level, t.method, t.windowBits, t.memLevel, t.strategy);
+    var n = ZlibDeflate.deflateInit2(
+      this.strm,
+      t.level,
+      t.method,
+      t.windowBits,
+      t.memLevel,
+      t.strategy
+    );
     if (0 !== n) throw new Error(r[n]);
-    if ((t.header && o.deflateSetHeader(this.strm, t.header), t.dictionary)) {
+    if ((t.header && ZlibDeflate.deflateSetHeader(this.strm, t.header), t.dictionary)) {
       var d;
       if (
         ((d =
@@ -20101,7 +20203,7 @@ function (exports, module, require) {
             : '[object ArrayBuffer]' === l.call(t.dictionary)
               ? new Uint8Array(t.dictionary)
               : t.dictionary),
-        0 !== (n = o.deflateSetDictionary(this.strm, d)))
+        0 !== (n = ZlibDeflate.deflateSetDictionary(this.strm, d)))
       )
         throw new Error(r[n]);
       this._dict_set = true;
@@ -20129,7 +20231,7 @@ function (exports, module, require) {
     do {
       if (
         (0 === s.avail_out && ((s.output = new Buf.Buf8(c)), (s.next_out = 0), (s.avail_out = c)),
-        1 !== (n = o.deflate(s, r)) && 0 !== n)
+        1 !== (n = ZlibDeflate.deflate(s, r)) && 0 !== n)
       )
         return (this.onEnd(n), (this.ended = true), false);
       (0 !== s.avail_out && (0 !== s.avail_in || (4 !== r && 2 !== r))) ||
@@ -20138,7 +20240,7 @@ function (exports, module, require) {
           : this.onData(Buf.shrinkBuf(s.output, s.next_out)));
     } while ((s.avail_in > 0 || 0 === s.avail_out) && 1 !== n);
     return 4 === r
-      ? ((n = o.deflateEnd(this.strm)), this.onEnd(n), (this.ended = true), 0 === n)
+      ? ((n = ZlibDeflate.deflateEnd(this.strm)), this.onEnd(n), (this.ended = true), 0 === n)
       : 2 !== r || (this.onEnd(0), (s.avail_out = 0), true);
   }),
     (c.prototype.onData = function (e) {
@@ -20167,7 +20269,7 @@ function (exports, module, require) {
   'use strict';
   var o,
     Buf = require(94) /* Exports_Buf */,
-    a = require(464) /* module_464 */,
+    ZlibTrees = require(464) /* ZlibTrees */,
     r = require(310) /* module_310 */,
     s = require(311) /* module_311 */,
     l = require(225); /* module_225 */
@@ -20194,7 +20296,12 @@ function (exports, module, require) {
         0 === t.pending && (t.pending_out = 0)));
   }
   function g(e, t) {
-    (a._tr_flush_block(e, e.block_start >= 0 ? e.block_start : -1, e.strstart - e.block_start, t),
+    (ZlibTrees._tr_flush_block(
+      e,
+      e.block_start >= 0 ? e.block_start : -1,
+      e.strstart - e.block_start,
+      t
+    ),
       (e.block_start = e.strstart),
       p(e.strm));
   }
@@ -20208,7 +20315,7 @@ function (exports, module, require) {
     var n,
       o,
       Buf = e.max_chain_length,
-      a = e.strstart,
+      ZlibTrees = e.strstart,
       r = e.prev_length,
       s = e.nice_match,
       l = e.strstart > e.w_size - 262 ? e.strstart - (e.w_size - 262) : 0,
@@ -20216,26 +20323,31 @@ function (exports, module, require) {
       d = e.w_mask,
       u = e.prev,
       p = e.strstart + 258,
-      g = c[a + r - 1],
-      h = c[a + r];
+      g = c[ZlibTrees + r - 1],
+      h = c[ZlibTrees + r];
     (e.prev_length >= e.good_match && (Buf >>= 2), s > e.lookahead && (s = e.lookahead));
     do {
-      if (c[(n = t) + r] === h && c[n + r - 1] === g && c[n] === c[a] && c[++n] === c[a + 1]) {
-        ((a += 2), n++);
+      if (
+        c[(n = t) + r] === h &&
+        c[n + r - 1] === g &&
+        c[n] === c[ZlibTrees] &&
+        c[++n] === c[ZlibTrees + 1]
+      ) {
+        ((ZlibTrees += 2), n++);
         do {} while (
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          c[++a] === c[++n] &&
-          a < p
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          c[++ZlibTrees] === c[++n] &&
+          ZlibTrees < p
         );
-        if (((o = 258 - (p - a)), (a = p - 258), o > r)) {
+        if (((o = 258 - (p - ZlibTrees)), (ZlibTrees = p - 258), o > r)) {
           if (((e.match_start = t), (r = o), o >= s)) break;
-          ((g = c[a + r - 1]), (h = c[a + r]));
+          ((g = c[ZlibTrees + r - 1]), (h = c[ZlibTrees + r]));
         }
       }
     } while ((t = u[t & d]) > l && 0 != --Buf);
@@ -20245,7 +20357,7 @@ function (exports, module, require) {
     var t,
       n,
       o,
-      a,
+      ZlibTrees,
       l,
       c,
       d,
@@ -20254,7 +20366,7 @@ function (exports, module, require) {
       g,
       h = e.w_size;
     do {
-      if (((a = e.window_size - e.lookahead - e.strstart), e.strstart >= h + (h - 262))) {
+      if (((ZlibTrees = e.window_size - e.lookahead - e.strstart), e.strstart >= h + (h - 262))) {
         (Buf.arraySet(e.window, e.window, h, h, 0),
           (e.match_start -= h),
           (e.strstart -= h),
@@ -20267,14 +20379,14 @@ function (exports, module, require) {
         do {
           ((o = e.prev[--t]), (e.prev[t] = o >= h ? o - h : 0));
         } while (--n);
-        a += h;
+        ZlibTrees += h;
       }
       if (0 === e.strm.avail_in) break;
       if (
         ((c = e.strm),
         (d = e.window),
         (u = e.strstart + e.lookahead),
-        (p = a),
+        (p = ZlibTrees),
         (g = undefined),
         (g = c.avail_in) > p && (g = p),
         (n =
@@ -20321,7 +20433,7 @@ function (exports, module, require) {
         e.match_length >= 3)
       )
         if (
-          ((o = a._tr_tally(e, e.strstart - e.match_start, e.match_length - 3)),
+          ((o = ZlibTrees._tr_tally(e, e.strstart - e.match_start, e.match_length - 3)),
           (e.lookahead -= e.match_length),
           e.match_length <= e.max_lazy_match && e.lookahead >= 3)
         ) {
@@ -20338,7 +20450,7 @@ function (exports, module, require) {
             (e.match_length = 0),
             (e.ins_h = e.window[e.strstart]),
             (e.ins_h = ((e.ins_h << e.hash_shift) ^ e.window[e.strstart + 1]) & e.hash_mask));
-      else ((o = a._tr_tally(e, 0, e.window[e.strstart])), e.lookahead--, e.strstart++);
+      else ((o = ZlibTrees._tr_tally(e, 0, e.window[e.strstart])), e.lookahead--, e.strstart++);
       if (o && (g(e, false), 0 === e.strm.avail_out)) return 1;
     }
     return (
@@ -20375,7 +20487,7 @@ function (exports, module, require) {
         e.prev_length >= 3 && e.match_length <= e.prev_length)
       ) {
         ((Buf = e.strstart + e.lookahead - 3),
-          (o = a._tr_tally(e, e.strstart - 1 - e.prev_match, e.prev_length - 3)),
+          (o = ZlibTrees._tr_tally(e, e.strstart - 1 - e.prev_match, e.prev_length - 3)),
           (e.lookahead -= e.prev_length - 1),
           (e.prev_length -= 2));
         do {
@@ -20393,7 +20505,7 @@ function (exports, module, require) {
           return 1;
       } else if (e.match_available) {
         if (
-          ((o = a._tr_tally(e, 0, e.window[e.strstart - 1])) && g(e, false),
+          ((o = ZlibTrees._tr_tally(e, 0, e.window[e.strstart - 1])) && g(e, false),
           e.strstart++,
           e.lookahead--,
           0 === e.strm.avail_out)
@@ -20403,7 +20515,7 @@ function (exports, module, require) {
     }
     return (
       e.match_available &&
-        ((o = a._tr_tally(e, 0, e.window[e.strstart - 1])), (e.match_available = 0)),
+        ((o = ZlibTrees._tr_tally(e, 0, e.window[e.strstart - 1])), (e.match_available = 0)),
       (e.insert = e.strstart < 2 ? e.strstart : 2),
       4 === t
         ? (g(e, true), 0 === e.strm.avail_out ? 3 : 4)
@@ -20495,7 +20607,7 @@ function (exports, module, require) {
         (t.status = t.wrap ? 42 : 113),
         (e.adler = 2 === t.wrap ? 0 : 1),
         (t.last_flush = 0),
-        a._tr_init(t),
+        ZlibTrees._tr_init(t),
         0)
       : c(e, -2);
   }
@@ -20520,13 +20632,21 @@ function (exports, module, require) {
       n
     );
   }
-  function S(e, t, n, o, a, r) {
+  function S(e, t, n, o, ZlibTrees, r) {
     if (!e) return -2;
     var s = 1;
     if (
       (-1 === t && (t = 6),
       o < 0 ? ((s = 0), (o = -o)) : o > 15 && ((s = 2), (o -= 16)),
-      a < 1 || a > 9 || 8 !== n || o < 8 || o > 15 || t < 0 || t > 9 || r < 0 || r > 4)
+      ZlibTrees < 1 ||
+        ZlibTrees > 9 ||
+        8 !== n ||
+        o < 8 ||
+        o > 15 ||
+        t < 0 ||
+        t > 9 ||
+        r < 0 ||
+        r > 4)
     )
       return c(e, -2);
     8 === o && (o = 9);
@@ -20539,14 +20659,14 @@ function (exports, module, require) {
       (l.w_bits = o),
       (l.w_size = 1 << l.w_bits),
       (l.w_mask = l.w_size - 1),
-      (l.hash_bits = a + 7),
+      (l.hash_bits = ZlibTrees + 7),
       (l.hash_size = 1 << l.hash_bits),
       (l.hash_mask = l.hash_size - 1),
       (l.hash_shift = ~~((l.hash_bits + 3 - 1) / 3)),
       (l.window = new Buf.Buf8(2 * l.w_size)),
       (l.head = new Buf.Buf16(l.hash_size)),
       (l.prev = new Buf.Buf16(l.w_size)),
-      (l.lit_bufsize = 1 << (a + 6)),
+      (l.lit_bufsize = 1 << (ZlibTrees + 6)),
       (l.pending_buf_size = 4 * l.lit_bufsize),
       (l.pending_buf = new Buf.Buf8(l.pending_buf_size)),
       (l.d_buf = 1 * l.lit_bufsize),
@@ -20761,7 +20881,7 @@ function (exports, module, require) {
                   }
                   if (
                     ((e.match_length = 0),
-                    (n = a._tr_tally(e, 0, e.window[e.strstart])),
+                    (n = ZlibTrees._tr_tally(e, 0, e.window[e.strstart])),
                     e.lookahead--,
                     e.strstart++,
                     n && (g(e, false), 0 === e.strm.avail_out))
@@ -20809,11 +20929,11 @@ function (exports, module, require) {
                     }
                     if (
                       (e.match_length >= 3
-                        ? ((n = a._tr_tally(e, 1, e.match_length - 3)),
+                        ? ((n = ZlibTrees._tr_tally(e, 1, e.match_length - 3)),
                           (e.lookahead -= e.match_length),
                           (e.strstart += e.match_length),
                           (e.match_length = 0))
-                        : ((n = a._tr_tally(e, 0, e.window[e.strstart])),
+                        : ((n = ZlibTrees._tr_tally(e, 0, e.window[e.strstart])),
                           e.lookahead--,
                           e.strstart++),
                       n && (g(e, false), 0 === e.strm.avail_out))
@@ -20835,9 +20955,9 @@ function (exports, module, require) {
         if (
           2 === v &&
           (1 === t
-            ? a._tr_align(Buf)
+            ? ZlibTrees._tr_align(Buf)
             : 5 !== t &&
-              (a._tr_stored_block(Buf, 0, 0, false),
+              (ZlibTrees._tr_stored_block(Buf, 0, 0, false),
               3 === t &&
                 (u(Buf.head),
                 0 === Buf.lookahead &&
@@ -20882,7 +21002,7 @@ function (exports, module, require) {
     (module.deflateSetDictionary = function (e, t) {
       var n,
         o,
-        a,
+        ZlibTrees,
         s,
         l,
         c,
@@ -20909,13 +21029,13 @@ function (exports, module, require) {
           y(n);
         n.lookahead >= 3;
       ) {
-        ((o = n.strstart), (a = n.lookahead - 2));
+        ((o = n.strstart), (ZlibTrees = n.lookahead - 2));
         do {
           ((n.ins_h = ((n.ins_h << n.hash_shift) ^ n.window[o + 3 - 1]) & n.hash_mask),
             (n.prev[o & n.w_mask] = n.head[n.ins_h]),
             (n.head[n.ins_h] = o),
             o++);
-        } while (--a);
+        } while (--ZlibTrees);
         ((n.strstart = o), (n.lookahead = 2), y(n));
       }
       return (
@@ -21293,7 +21413,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  var o = require(466) /* module_466 */,
+  var ZlibInflateStream = require(466) /* ZlibInflateStream */,
     Buf = require(94) /* Exports_Buf */,
     a = require(312) /* module_312 */,
     r = require(314) /* module_314 */,
@@ -21317,17 +21437,17 @@ function (exports, module, require) {
       (this.chunks = []),
       (this.strm = new l()),
       (this.strm.avail_out = 0));
-    var n = o.inflateInit2(this.strm, t.windowBits);
+    var n = ZlibInflateStream.inflateInit2(this.strm, t.windowBits);
     if (n !== r.Z_OK) throw new Error(s[n]);
     if (
       ((this.header = new c()),
-      o.inflateGetHeader(this.strm, this.header),
+      ZlibInflateStream.inflateGetHeader(this.strm, this.header),
       t.dictionary &&
         ('string' == typeof t.dictionary
           ? (t.dictionary = a.string2buf(t.dictionary))
           : '[object ArrayBuffer]' === d.call(t.dictionary) &&
             (t.dictionary = new Uint8Array(t.dictionary)),
-        t.raw && (n = o.inflateSetDictionary(this.strm, t.dictionary)) !== r.Z_OK))
+        t.raw && (n = ZlibInflateStream.inflateSetDictionary(this.strm, t.dictionary)) !== r.Z_OK))
     )
       throw new Error(s[n]);
   }
@@ -21358,9 +21478,9 @@ function (exports, module, require) {
     do {
       if (
         (0 === p.avail_out && ((p.output = new Buf.Buf8(g)), (p.next_out = 0), (p.avail_out = g)),
-        (n = o.inflate(p, r.Z_NO_FLUSH)) === r.Z_NEED_DICT &&
+        (n = ZlibInflateStream.inflate(p, r.Z_NO_FLUSH)) === r.Z_NEED_DICT &&
           h &&
-          (n = o.inflateSetDictionary(this.strm, h)),
+          (n = ZlibInflateStream.inflateSetDictionary(this.strm, h)),
         n === r.Z_BUF_ERROR && true === f && ((n = r.Z_OK), (f = false)),
         n !== r.Z_STREAM_END && n !== r.Z_OK)
       )
@@ -21383,7 +21503,10 @@ function (exports, module, require) {
     return (
       n === r.Z_STREAM_END && (s = r.Z_FINISH),
       s === r.Z_FINISH
-        ? ((n = o.inflateEnd(this.strm)), this.onEnd(n), (this.ended = true), n === r.Z_OK)
+        ? ((n = ZlibInflateStream.inflateEnd(this.strm)),
+          this.onEnd(n),
+          (this.ended = true),
+          n === r.Z_OK)
         : s !== r.Z_SYNC_FLUSH || (this.onEnd(r.Z_OK), (p.avail_out = 0), true)
     );
   }),
@@ -21412,7 +21535,7 @@ function (exports, module, require) {
   var Buf = require(94) /* Exports_Buf */,
     i = require(310) /* module_310 */,
     a = require(311) /* module_311 */,
-    r = require(467) /* module_467 */,
+    ZlibInflateFast = require(467) /* ZlibInflateFast */,
     s = require(468); /* module_468 */
   function l(e) {
     return ((e >>> 24) & 255) + ((e >>> 8) & 65280) + ((65280 & e) << 8) + ((255 & e) << 24);
@@ -21521,22 +21644,32 @@ function (exports, module, require) {
   }
   function v(e, t, n, i) {
     var a,
-      r = e.state;
+      ZlibInflateFast = e.state;
     return (
-      null === r.window &&
-        ((r.wsize = 1 << r.wbits),
-        (r.wnext = 0),
-        (r.whave = 0),
-        (r.window = new Buf.Buf8(r.wsize))),
-      i >= r.wsize
-        ? (Buf.arraySet(r.window, t, n - r.wsize, r.wsize, 0), (r.wnext = 0), (r.whave = r.wsize))
-        : ((a = r.wsize - r.wnext) > i && (a = i),
-          Buf.arraySet(r.window, t, n - i, a, r.wnext),
+      null === ZlibInflateFast.window &&
+        ((ZlibInflateFast.wsize = 1 << ZlibInflateFast.wbits),
+        (ZlibInflateFast.wnext = 0),
+        (ZlibInflateFast.whave = 0),
+        (ZlibInflateFast.window = new Buf.Buf8(ZlibInflateFast.wsize))),
+      i >= ZlibInflateFast.wsize
+        ? (Buf.arraySet(
+            ZlibInflateFast.window,
+            t,
+            n - ZlibInflateFast.wsize,
+            ZlibInflateFast.wsize,
+            0
+          ),
+          (ZlibInflateFast.wnext = 0),
+          (ZlibInflateFast.whave = ZlibInflateFast.wsize))
+        : ((a = ZlibInflateFast.wsize - ZlibInflateFast.wnext) > i && (a = i),
+          Buf.arraySet(ZlibInflateFast.window, t, n - i, a, ZlibInflateFast.wnext),
           (i -= a)
-            ? (Buf.arraySet(r.window, t, n - i, i, 0), (r.wnext = i), (r.whave = r.wsize))
-            : ((r.wnext += a),
-              r.wnext === r.wsize && (r.wnext = 0),
-              r.whave < r.wsize && (r.whave += a))),
+            ? (Buf.arraySet(ZlibInflateFast.window, t, n - i, i, 0),
+              (ZlibInflateFast.wnext = i),
+              (ZlibInflateFast.whave = ZlibInflateFast.wsize))
+            : ((ZlibInflateFast.wnext += a),
+              ZlibInflateFast.wnext === ZlibInflateFast.wsize && (ZlibInflateFast.wnext = 0),
+              ZlibInflateFast.whave < ZlibInflateFast.wsize && (ZlibInflateFast.whave += a))),
       0
     );
   }
@@ -21942,7 +22075,7 @@ function (exports, module, require) {
                 (e.avail_in = g),
                 (n.hold = f),
                 (n.bits = m),
-                r(e, b),
+                ZlibInflateFast(e, b),
                 (p = e.next_out),
                 (d = e.output),
                 (h = e.avail_out),
@@ -22776,10 +22909,10 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l, c, d;
+  var o, i, a, r, s, l, c, CryptoJSCore;
   exports.exports =
-    ((d = require(55)) /* module_55 */,
-    (i = (o = d).lib),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    (i = (o = CryptoJSCore).lib),
     (a = i.WordArray),
     (r = i.Hasher),
     (s = o.algo),
@@ -22803,8 +22936,8 @@ function (exports, module, require) {
           ) {
             if (c < 16) l[c] = 0 | e[t + c];
             else {
-              var d = l[c - 3] ^ l[c - 8] ^ l[c - 14] ^ l[c - 16];
-              l[c] = (d << 1) | (d >>> 31);
+              var CryptoJSCore = l[c - 3] ^ l[c - 8] ^ l[c - 14] ^ l[c - 16];
+              l[c] = (CryptoJSCore << 1) | (CryptoJSCore >>> 31);
             }
             var u = ((o << 5) | (o >>> 27)) + s + l[c];
             ((u +=
@@ -22848,21 +22981,21 @@ function (exports, module, require) {
       })),
     (o.SHA1 = r._createHelper(c)),
     (o.HmacSHA1 = r._createHmacHelper(c)),
-    d.SHA1);
+    CryptoJSCore.SHA1);
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r;
+  var CryptoJSCore, i, a, r;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    (a = (i = o).lib.Base),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    (a = (i = CryptoJSCore).lib.Base),
     (r = i.enc.Utf8),
     void (i.algo.HMAC = a.extend({
       init: function (e, t) {
         ((e = this._hasher = new e.init()), 'string' == typeof t && (t = r.parse(t)));
         var n = e.blockSize,
-          o = 4 * n;
-        (t.sigBytes > o && (t = e.finalize(t)), t.clamp());
+          CryptoJSCore = 4 * n;
+        (t.sigBytes > CryptoJSCore && (t = e.finalize(t)), t.clamp());
         for (
           var i = (this._oKey = t.clone()),
             a = (this._iKey = t.clone()),
@@ -22873,7 +23006,7 @@ function (exports, module, require) {
           c++
         )
           ((s[c] ^= 1549556828), (l[c] ^= 909522486));
-        ((i.sigBytes = a.sigBytes = o), this.reset());
+        ((i.sigBytes = a.sigBytes = CryptoJSCore), this.reset());
       },
       reset: function () {
         var e = this._hasher;
@@ -22959,7 +23092,7 @@ function (exports, module, require) {
     require(57) /* polyfill_parseInt */,
     require(8) /* polyfill_bundle_ES6 */,
     require(196) /* polyfill_Promise_finally */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(34) /* polyfill_String_replace */,
@@ -22977,12 +23110,12 @@ function (exports, module, require) {
     NoAccessId = _interopRequireDefault(require(789) /* Exports_NoAccessId */),
     p = _interopRequireDefault(require(555) /* module_555 */);
   const g = require(388) /* Item */,
-    h = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     f = require(595) /* module_595 */,
     m = require(336) /* module_336 */,
     y = require(436) /* module_436 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
-    _ = require(156) /* module_156 */,
+    GCloudStorageItem = require(156) /* GCloudStorageItem */,
     b = require(389) /* module_389 */,
     w = require(86) /* module_86 */,
     C = require(790) /* module_790 */,
@@ -22999,20 +23132,20 @@ function (exports, module, require) {
       return b.getFileTypesArray().filter((e) => e.load);
     }),
     (D.convertToCloudItem = function (e) {
-      var t = _.from(e);
+      var t = GCloudStorageItem.from(e);
       if (
         ((t.updated = e.modifiedTime),
         (t.created = e.createdTime),
-        (t.storage = _.Storage.GoogleDrive),
+        (t.storage = GCloudStorageItem.Storage.GoogleDrive),
         !t.kind ||
         (t.kind !== GoogleDriveException.default.Kind.TeamDrive &&
           t.kind !== GoogleDriveException.default.Kind.Drive)
           ? t.mimeType === GoogleDriveException.default.MimeType.Folder
-            ? t.setItemType(_.Type.Folder)
-            : (t.setItemType(_.Type.File),
+            ? t.setItemType(GCloudStorageItem.Type.Folder)
+            : (t.setItemType(GCloudStorageItem.Type.File),
               t.setVersion(e.version),
               t.setModificationTime(e.modifiedTime))
-          : t.setItemType(_.Type.CorporateStorage),
+          : t.setItemType(GCloudStorageItem.Type.CorporateStorage),
         t.mimeType && (t.type = t.mimeType),
         t.fileExtension)
       ) {
@@ -23026,8 +23159,9 @@ function (exports, module, require) {
       return (
         t.capabilities &&
           (t.capabilities.canDownload &&
-            (t.setPermission(_.Permission.Download), t.setPermission(_.Permission.Open)),
-          t.capabilities.canEdit && t.setPermission(_.Permission.Editing)),
+            (t.setPermission(GCloudStorageItem.Permission.Download),
+            t.setPermission(GCloudStorageItem.Permission.Open)),
+          t.capabilities.canEdit && t.setPermission(GCloudStorageItem.Permission.Editing)),
         t.parent || (t.parent = null),
         t.hasThumbnail && t.setPreviewURL(t.thumbnailLink),
         t.size && t.setSize(t.size),
@@ -23047,7 +23181,7 @@ function (exports, module, require) {
     (D.Item.prototype._writing = false),
     (D.Item.prototype.setFile = function (e) {
       if (!e) throw 'File is incorrect';
-      e instanceof _ || (e = D.convertToCloudItem(e));
+      e instanceof GCloudStorageItem || (e = D.convertToCloudItem(e));
       const module = this._getOrCreateClient(),
         require = module && module.getTokenIssuerSettings();
       (!e.settings && require && (e = Object.assign(e, { settings: require })),
@@ -23104,7 +23238,9 @@ function (exports, module, require) {
     (D.Item.prototype._app = AppSettings.FILE_ID_PREFIX.GOOGLEDRIVE),
     (D.Item.prototype.getId = function () {
       const exports = this._getGoogleId();
-      return exports ? _.getCollaborativeFileId(exports, _.Storage.GoogleDrive) : null;
+      return exports
+        ? GCloudStorageItem.getCollaborativeFileId(exports, GCloudStorageItem.Storage.GoogleDrive)
+        : null;
     }),
     (D.Item.prototype._getGoogleId = function () {
       return this._id || null;
@@ -23150,21 +23286,25 @@ function (exports, module, require) {
                 )
               ));
         this._writing = true;
-        const h = e.getEditor().markSavePoint(),
+        const GCloudStorage = e.getEditor().markSavePoint(),
           f = (e) => {
-            (h.rollback(), n && n(e));
+            (GCloudStorage.rollback(), n && n(e));
           };
         try {
           const n = {};
           e.updateStatus(w.Saving, n);
           const GSystemDialog = _interopRequireDefault || n.progress,
-            h = (e) => {
+            GCloudStorage = (e) => {
               GSystemDialog && GSystemDialog(e);
             };
           let m;
           var r = this.getExtension();
           const y = e.isNew();
-          if ((h(A), GCore.GUtil.prepareForSaving(e.getScene(), r), 'CDR' === r || 'DES' === r)) {
+          if (
+            (GCloudStorage(A),
+            GCore.GUtil.prepareForSaving(e.getScene(), r),
+            'CDR' === r || 'DES' === r)
+          ) {
             var AppSettings = { progress: _interopRequireDefault, ext: r.toLowerCase() };
             m = await this._exportDocumentToCDR(e, AppSettings, CollaborationMergeUtils);
           } else {
@@ -23175,14 +23315,16 @@ function (exports, module, require) {
               );
             m = new Blob([NoAccessId]);
           }
-          (h(T), this._verifyFileNotTooSmall(m.size, e), this._setFileSizeBeforeSaved(m.size));
-          const _ = await this._buildGoogleMetadataForDoc(e),
+          (GCloudStorage(T),
+            this._verifyFileNotTooSmall(m.size, e),
+            this._setFileSizeBeforeSaved(m.size));
+          const GCloudStorageItem = await this._buildGoogleMetadataForDoc(e),
             b = (e) => {
-              h(p.default.calculateProgress(T, G, e));
+              GCloudStorage(p.default.calculateProgress(T, G, e));
             };
           var g = this._id ? this._id : null;
           await this._getOrCreateClient()
-            .upload(g, m, _, GoogleDriveException.default.DefaultUploadType, b)
+            .upload(g, m, GCloudStorageItem, GoogleDriveException.default.DefaultUploadType, b)
             .then(async (n) => {
               this._updateInternalFileWithGoogleResponse(n);
               try {
@@ -23200,7 +23342,7 @@ function (exports, module, require) {
                 });
               (gDesigner.hasEventListeners(GDocumentEvent) &&
                 gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.StorageItemUpdated, e)),
-                h(P),
+                GCloudStorage(P),
                 t && t());
             })
             .catch((t) => {
@@ -23287,7 +23429,7 @@ function (exports, module, require) {
           );
           (this.setFile(require),
             this.supportsShadowFile() && (await this.syncShadowFile()),
-            e(await h.createUint8ArrayFromBlob(t)));
+            e(await GCloudStorage.createUint8ArrayFromBlob(t)));
         })
         .catch((e) => t(e));
     }),
@@ -23482,7 +23624,7 @@ function (exports, module, require) {
       const exports = this._getOrCreateClient(),
         module = await this.getLatestFileInfo(),
         require = await exports.getFile(this.getUniqueId(), this._getQuery()),
-        _interopRequireDefault = await h.createUint8ArrayFromBlob(require),
+        _interopRequireDefault = await GCloudStorage.createUint8ArrayFromBlob(require),
         GCore = new D.Item(this._storage, module, _interopRequireDefault);
       return (GCore.setCloudClient(exports), GCore);
     }),
@@ -23645,21 +23787,21 @@ function (exports, module, require) {
     GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
     GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-    u = require(1275) /* module_1275 */,
+    GSettingsDialog = require(1275) /* GSettingsDialog */,
     p = require(444) /* module_444 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     h = (require(606) /* GPanel */, require(806)) /* GSidebar */,
-    f = require(395) /* module_395 */,
+    GSidebarContainer = require(395) /* GSidebarContainer */,
     GInspectorSidebar = require(864) /* GInspectorSidebar */,
     GProperties = require(123) /* GProperties */,
     GAnnotations = require(1535) /* GAnnotations */,
     _ = require(603) /* WindowEvent */,
     GAnnotationProperties = require(1536) /* GAnnotationProperties */,
-    w = require(358) /* module_358 */,
+    GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
     C = require(592); /* module_592 */
   const x = require(392) /* module_392 */,
     GSettingChangedEvent = require(135); /* GSettingChangedEvent */
-  var E = require(1537); /* module_1537 */
+  var GFileReviewProperties = require(1537); /* GFileReviewProperties */
   const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
     G = require(336) /* module_336 */,
@@ -23720,7 +23862,7 @@ function (exports, module, require) {
       );
     }),
     (N.prototype.getOrientation = function () {
-      return f.Orientation.Right;
+      return GSidebarContainer.Orientation.Right;
     }),
     (N.prototype.getMinimumWidth = function () {
       return this._getSidebarWidth();
@@ -23758,11 +23900,11 @@ function (exports, module, require) {
           ? Promise.resolve()
           : new Promise((t) => {
               (e
-                ? w.updateAndReturnCloudAnnotationsForDocument(
+                ? GAnnotationsUtils.updateAndReturnCloudAnnotationsForDocument(
                     this._document,
                     this._currentAnnotations
                   )
-                : w.getCloudAnnotationsForDocument(this._document)
+                : GAnnotationsUtils.getCloudAnnotationsForDocument(this._document)
               ).then((n) => {
                 let _interopRequireDefault = n.annotationsCollection,
                   GTools = false;
@@ -23798,7 +23940,7 @@ function (exports, module, require) {
         : Promise.resolve();
     }),
     (N.prototype._getAnnotationsToSet = function (e, t) {
-      let require = w.findAnnotationsListForPage(t, e);
+      let require = GAnnotationsUtils.findAnnotationsListForPage(t, e);
       return (require || (require = { '@': 'annlst' }), require);
     }),
     (N.prototype.init = function (e) {
@@ -23882,7 +24024,7 @@ function (exports, module, require) {
             clickable: true,
             rawClick: () => {
               gDesigner.getApplicationManager().isCommentingEditingEnabled() &&
-                (w.resolveAllComments(this._document), this.relayout(true));
+                (GAnnotationsUtils.resolveAllComments(this._document), this.relayout(true));
             },
             columns: [
               {
@@ -24095,7 +24237,7 @@ function (exports, module, require) {
           'Note',
           'tool-comment'
         ),
-        new E(),
+        new GFileReviewProperties(),
       ];
     }),
     (N.prototype.activate = function () {
@@ -24523,7 +24665,7 @@ function (exports, module, require) {
           let GTools = false;
           if (
             (_interopRequireDefault.restored
-              ? (n = w.findAnnotationsListForPage(e, this._currentAnnotations))
+              ? (n = GAnnotationsUtils.findAnnotationsListForPage(e, this._currentAnnotations))
               : ((n = this._currentAnnotations.find((e) => e['@id'] === t['@id'])),
                 (GTools = true)),
             n && !GCore.GUtil.equals(t, n, true))
@@ -24538,7 +24680,12 @@ function (exports, module, require) {
                   n.appendChild(_interopRequireDefault[e]);
                 r = true;
               } else {
-                let e = w.mergeAnnotations(n, n.getChildren(), t, _interopRequireDefault);
+                let e = GAnnotationsUtils.mergeAnnotations(
+                  n,
+                  n.getChildren(),
+                  t,
+                  _interopRequireDefault
+                );
                 r = r || e;
               }
             }
@@ -24582,7 +24729,7 @@ function (exports, module, require) {
             if (GTouchTool)
               if (
                 GRichTooltipConfig instanceof GAnnotationProperties ||
-                GRichTooltipConfig instanceof E
+                GRichTooltipConfig instanceof GFileReviewProperties
               )
                 (GMenu2.panel.show(),
                   (GTouchTool = GMenu2.properties.update(
@@ -24591,13 +24738,13 @@ function (exports, module, require) {
                     gDesigner.getToolManager().getActiveTool()
                   )) || GMenu2.panel.hide());
               else {
-                var u = GRichTooltipConfig.getPage().getAnnotations().getChildren();
-                ((GTouchTool = GMenu2.properties.update(this._document, u, t)),
+                var GSettingsDialog = GRichTooltipConfig.getPage().getAnnotations().getChildren();
+                ((GTouchTool = GMenu2.properties.update(this._document, GSettingsDialog, t)),
                   require && GMenu2.properties.relayout());
               }
             if (GMenu2.toolbar && GMenu2.toolbar !== this._annotationToolbar)
               (GMenu2.toolbar.css('display', GTouchTool ? '' : 'none'),
-                GRichTooltipConfig instanceof E ||
+                GRichTooltipConfig instanceof GFileReviewProperties ||
                   (GTouchTool
                     ? (GMenu2.toolbar.gAccordion(
                         'toggleOpen',
@@ -24611,7 +24758,7 @@ function (exports, module, require) {
             else if (
               (GMenu2.panel.css('display', GTouchTool ? '' : 'none'),
               GMenu2.topArrow.css('display', GTouchTool ? '' : 'none'),
-              GTouchTool && !(GRichTooltipConfig instanceof E))
+              GTouchTool && !(GRichTooltipConfig instanceof GFileReviewProperties))
             ) {
               let e = this._annotationToolbar.find('.' + GRichTooltipConfig._toolbarIcon);
               (r.css('left', e.position().left + e.width() / 2 - 6),
@@ -24626,8 +24773,7 @@ function (exports, module, require) {
         return _interopRequireDefault;
       };
       !this._currentAnnotations && this._document && this._document.getAnnotationsId()
-        ? w
-            .getCloudAnnotationsForDocument(this._document)
+        ? GAnnotationsUtils.getCloudAnnotationsForDocument(this._document)
             .then((e) => {
               let t = false;
               if (this._document && this._document.getAnnotationsId() !== e.cid)
@@ -24663,12 +24809,12 @@ function (exports, module, require) {
         var GTools = gDesigner.getSyncUser();
         if (_interopRequireDefault) {
           if (this._currentAnnotations) {
-            n.map((e) => w.findAnnotationsListForPage(e, this._currentAnnotations))
+            n.map((e) => GAnnotationsUtils.findAnnotationsListForPage(e, this._currentAnnotations))
               .filter((e) => !!e)
               .forEach(function (e) {
                 e.$ &&
                   e.$.forEach(function (e) {
-                    var n = w.isOwner(GTools, e);
+                    var n = GAnnotationsUtils.isOwner(GTools, e);
                     e.rsv ||
                       (e.$ && 0 != e.$.length
                         ? (e.$.forEach(function (e) {
@@ -24687,7 +24833,7 @@ function (exports, module, require) {
               });
           }
         } else if (this._localAnnotations) {
-          n.map((e) => w.findAnnotationsListForPage(e, this._localAnnotations))
+          n.map((e) => GAnnotationsUtils.findAnnotationsListForPage(e, this._localAnnotations))
             .filter((e) => !!e)
             .forEach(function (e) {
               for (
@@ -24695,7 +24841,7 @@ function (exports, module, require) {
                 null !== n && n.hasMixin(GCore.GAnnotation);
                 n = n.getNext()
               ) {
-                var _interopRequireDefault = w.isOwner(GTools, n);
+                var _interopRequireDefault = GAnnotationsUtils.isOwner(GTools, n);
                 if (!n.getProperty('rsv'))
                   if (n.getChildren().length > 0) {
                     for (
@@ -24757,7 +24903,7 @@ function (exports, module, require) {
           .find('span')
           .addClass('highlight')
           .click(() => {
-            new u().then((e) => e.open());
+            new GSettingsDialog().then((e) => e.open());
           }),
         exports
       );
@@ -24804,19 +24950,20 @@ function (exports, module, require) {
         var GTouchTool = 0;
         (GTouchTool = GMenu.x + GMenu.width) + _interopRequireDefault > GCore &&
           (GTouchTool = GMenu.x - _interopRequireDefault);
-        var u = 0;
-        (u = GMenu.y + GMenu.height) + GTools > r && (u = GMenu.y - GTools);
+        var GSettingsDialog = 0;
+        (GSettingsDialog = GMenu.y + GMenu.height) + GTools > r &&
+          (GSettingsDialog = GMenu.y - GTools);
         const n = this._rangeLeftX ? this._rangeLeftX : 0;
         GTouchTool < n && (GTouchTool = n);
         const p = this._rangeRightX ? this._rangeRightX : GCore;
         GTouchTool + _interopRequireDefault >= p && (GTouchTool = p - _interopRequireDefault);
         const GDocumentEvent = this._rangeLeftY ? this._rangeLeftY : 0;
-        u < GDocumentEvent && (u = GDocumentEvent);
+        GSettingsDialog < GDocumentEvent && (GSettingsDialog = GDocumentEvent);
         const h = this._rangeRightY ? this._rangeRightY : r;
-        u + GTools >= h && (u = h - GTools);
-        const f = u - GTools - 10;
+        GSettingsDialog + GTools >= h && (GSettingsDialog = h - GTools);
+        const GSidebarContainer = GSettingsDialog - GTools - 10;
         (module.css('left', GTouchTool),
-          module.css('top', f),
+          module.css('top', GSidebarContainer),
           module.addClass('g-menu-right g-menu-bottom'));
       }
     }),
@@ -24898,7 +25045,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* module */,
-    i = require(1075) /* module_1075 */,
+    NotoFontsData = require(1075) /* NotoFontsData */,
     a = require(381); /* module_381 */
   function r(e) {
     a.call(this, e);
@@ -25000,7 +25147,7 @@ function (exports, module, require) {
       preview: 'assets/font/chinese-traditional/NotoSans.svg',
       scripts: ['HAN'],
     }),
-    (d = d.concat(i)),
+    (d = d.concat(NotoFontsData)),
     GCore.GObject.inherit(r, a),
     (r.prototype.getDefaultFamilyForString = function (e) {
       var t = GCore.GOpenTypeFont.getScriptForString(e);
@@ -25059,7 +25206,7 @@ function (exports, module, require) {
           }
       return t;
     }),
-    (r.prototype.resolveFont = function (e, t, n, i) {
+    (r.prototype.resolveFont = function (e, t, n, NotoFontsData) {
       this.init();
       for (var r = 0; r < c.length; r++) {
         var s = c[r];
@@ -25067,13 +25214,13 @@ function (exports, module, require) {
           for (var d = s.fonts, u = 0; u < d.length; u++) {
             var p = d[u];
             if (p.weight === (n || 400) && p.style === (t || GCore.GFont.Style.Normal)) {
-              if (l[p.url]) l[p.url].push(i);
+              if (l[p.url]) l[p.url].push(NotoFontsData);
               else {
                 var g = new XMLHttpRequest();
                 ((g.responseType = 'arraybuffer'),
                   g.open('GET', p.url),
                   (l[p.url] = []),
-                  l[p.url].push(i),
+                  l[p.url].push(NotoFontsData),
                   (g.onload = function () {
                     if (this.status >= 200 && this.status < 300) {
                       var e = l[p.url];
@@ -25084,7 +25231,7 @@ function (exports, module, require) {
                     }
                   }),
                   (g.onerror = () => {
-                    (delete l[p.url], i.fail(a.Errors.ConnectionError));
+                    (delete l[p.url], NotoFontsData.fail(a.Errors.ConnectionError));
                   }),
                   g.send());
               }
@@ -25092,7 +25239,7 @@ function (exports, module, require) {
             }
           }
       }
-      i.fail();
+      NotoFontsData.fail();
     }),
     (r.prototype.getProviderId = function () {
       return s;
@@ -25289,7 +25436,7 @@ function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* module */,
-    i = require(1503) /* module_1503 */,
+    GDocumentWindow = require(1503) /* GDocumentWindow */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GSaveAction = require(447) /* GSaveAction */,
     s = require(86); /* module_86 */
@@ -25347,9 +25494,9 @@ function (exports, module, require) {
       }
     }),
     (l.prototype.addWindow = function (e, t, n) {
-      var GCore = e instanceof i ? e.getDocument() : e,
+      var GCore = e instanceof GDocumentWindow ? e.getDocument() : e,
         GSystemDialog = this._addWindow(GCore, t, n);
-      if (e instanceof i) {
+      if (e instanceof GDocumentWindow) {
         var GSaveAction = e.getView();
         GSystemDialog.getView() &&
           GSystemDialog.getView().transform(
@@ -25360,16 +25507,16 @@ function (exports, module, require) {
       }
       return GSystemDialog;
     }),
-    (l.prototype.removeWindow = function (e, t, n, i) {
+    (l.prototype.removeWindow = function (e, t, n, GDocumentWindow) {
       var c = e.getDocument(),
         d = function (n) {
           if (!n || n.documentStatus !== s.SaveCancelled) {
             if (e === this._activeWindow) {
               var GCore = this._windows.indexOf(e);
               GCore > 0
-                ? this.activateWindow(this._windows[GCore - 1], i)
+                ? this.activateWindow(this._windows[GCore - 1], GDocumentWindow)
                 : GCore + 1 < this._windows.length
-                  ? this.activateWindow(this._windows[GCore + 1], i)
+                  ? this.activateWindow(this._windows[GCore + 1], GDocumentWindow)
                   : this.activateWindow(null);
             }
             (c._activeWindow === e && (c._activeWindow = null),
@@ -25414,7 +25561,7 @@ function (exports, module, require) {
       e.relayout(this._htmlElement.width(), this._htmlElement.height(), this._viewOffset, t);
     }),
     (l.prototype._addWindow = function (e, t, n) {
-      var GCore = new i(e, t);
+      var GCore = new GDocumentWindow(e, t);
       return (
         e._windows.push(GCore),
         'number' == typeof n ? this._windows.splice(n, 0, GCore) : this._windows.push(GCore),
@@ -25447,11 +25594,11 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
   var GCore = require(1); /* module */
-  const i = require(1507) /* module_1507 */,
-    a = require(1508) /* module_1508 */,
+  const GPurchasePanel = require(1507) /* GPurchasePanel */,
+    a = require(1508) /* GAccountPanel */,
     GChangePasswordPanel = require(1509) /* GChangePasswordPanel */,
     s = (require(1158) /* Action_help_purchase */, require(805)) /* module_805 */,
-    { gApi: l } = (require(177) /* module_177 */, require(10)) /* AppSettings */;
+    { gApi: l } = (require(177) /* GUserModel */, require(10)) /* AppSettings */;
   function c(e, t) {
     let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
     ((this._user = e), (this._options = require), this._init(t, require));
@@ -25514,23 +25661,23 @@ function (exports, module, require) {
       }),
         (this._tabs = $('<ul></ul>').addClass('tabs').appendTo(u)),
         (this._panels = $('<div></div>').addClass('tab-panels').appendTo(p)));
-      const h = (e, n, GCore, i) => {
+      const h = (e, n, GCore, GPurchasePanel) => {
           let a = $('<div></div>').addClass('tab-panel').append(GCore).appendTo(this._panels);
           $('<li></li>')
-            .attr('id', i)
+            .attr('id', GPurchasePanel)
             .addClass('tab')
             .append($('<span></span>').addClass(n))
             .append($('<span></span>').text(e))
             .on('click', function (n) {
               let GCore = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
-                i = $(n.target).closest('.tab');
+                GPurchasePanel = $(n.target).closest('.tab');
               (GCore || t._messageHandler(undefined),
                 t._tabs.find('.tab.g-selected').removeClass('g-selected'),
                 t._panels.find('.tab-panel.g-selected').removeClass('g-selected'),
                 a.addClass('g-selected'),
-                i.addClass('g-selected'),
+                GPurchasePanel.addClass('g-selected'),
                 g.find('span').text(e),
-                gDesigner.stats('profile-dialog_tab_'.concat(i.attr('id'))));
+                gDesigner.stats('profile-dialog_tab_'.concat(GPurchasePanel.attr('id'))));
             })
             .appendTo(this._tabs);
         },
@@ -25564,7 +25711,11 @@ function (exports, module, require) {
           h(
             GCore.GLocale.get(new GCore.GLocaleKey('GProfileDialog', 'text.purchases')),
             'gravit-icon-purchase',
-            new i(this._user, this._messageHandler.bind(this), require).getHTMLElement(),
+            new GPurchasePanel(
+              this._user,
+              this._messageHandler.bind(this),
+              require
+            ).getHTMLElement(),
             c.Tabs.Purchase
           );
       }
@@ -25593,8 +25744,8 @@ function (exports, module, require) {
         ],
         (n) => {
           (exports.addClass('g-loading'),
-            n.read((i) => {
-              if (i.byteLength > 102400)
+            n.read((GPurchasePanel) => {
+              if (GPurchasePanel.byteLength > 102400)
                 return void module.call(this, {
                   message: GCore.GLocale.get(
                     new GCore.GLocaleKey('GProfileDialog', 'text.avatar-size-too-big')
@@ -25603,7 +25754,7 @@ function (exports, module, require) {
               let a = n.getExtension().toLowerCase();
               'jpg' === a && (a = 'jpeg');
               let GChangePasswordPanel = new File(
-                [new Blob([i], { type: 'image/' + a })],
+                [new Blob([GPurchasePanel], { type: 'image/' + a })],
                 n.getFullName()
               );
               (this._messageHandler(undefined),
@@ -28908,7 +29059,7 @@ function (exports, module, require) {
   var globalThis = require(23) /* globalThis */,
     tryCall = require(21) /* tryCall */,
     a = require(343) /* module_343 */,
-    r = require(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
+    r = require(152) /* polyfill_TypedArrays */.NATIVE_ARRAY_BUFFER_VIEWS,
     s = globalThis.ArrayBuffer,
     l = globalThis.Int8Array;
   exports.exports =
@@ -28958,7 +29109,7 @@ function (exports, module, require) {
     c = require(204) /* module_204 */,
     d = require(305) /* module_305 */,
     u = require(697) /* module_697 */,
-    p = require(152) /* module_152 */.aTypedArrayConstructor,
+    p = require(152) /* polyfill_TypedArrays */.aTypedArrayConstructor,
     g = require(429); /* module_429 */
   exports.exports = function (e) {
     var t,
@@ -29116,11 +29267,11 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     (function (e) {
-      var t = o,
+      var t = CryptoJSCore,
         n = t.lib,
         i = n.WordArray,
         a = n.Hasher,
@@ -29129,14 +29280,19 @@ function (exports, module, require) {
         l = [];
       !(function () {
         function t(t) {
-          for (var n = e.sqrt(t), o = 2; o <= n; o++) if (!(t % o)) return false;
+          for (var n = e.sqrt(t), CryptoJSCore = 2; CryptoJSCore <= n; CryptoJSCore++)
+            if (!(t % CryptoJSCore)) return false;
           return true;
         }
         function n(e) {
           return (4294967296 * (e - (0 | e))) | 0;
         }
-        for (var o = 2, i = 0; i < 64; )
-          (t(o) && (i < 8 && (s[i] = n(e.pow(o, 0.5))), (l[i] = n(e.pow(o, 1 / 3))), i++), o++);
+        for (var CryptoJSCore = 2, i = 0; i < 64; )
+          (t(CryptoJSCore) &&
+            (i < 8 && (s[i] = n(e.pow(CryptoJSCore, 0.5))),
+            (l[i] = n(e.pow(CryptoJSCore, 1 / 3))),
+            i++),
+            CryptoJSCore++);
       })();
       var c = [],
         d = (r.SHA256 = a.extend({
@@ -29146,7 +29302,7 @@ function (exports, module, require) {
           _doProcessBlock: function (e, t) {
             for (
               var n = this._hash.words,
-                o = n[0],
+                CryptoJSCore = n[0],
                 i = n[1],
                 a = n[2],
                 r = n[3],
@@ -29166,8 +29322,11 @@ function (exports, module, require) {
                   y = ((m << 15) | (m >>> 17)) ^ ((m << 13) | (m >>> 19)) ^ (m >>> 10);
                 c[g] = f + c[g - 7] + y + c[g - 16];
               }
-              var v = (o & i) ^ (o & a) ^ (i & a),
-                _ = ((o << 30) | (o >>> 2)) ^ ((o << 19) | (o >>> 13)) ^ ((o << 10) | (o >>> 22)),
+              var v = (CryptoJSCore & i) ^ (CryptoJSCore & a) ^ (i & a),
+                _ =
+                  ((CryptoJSCore << 30) | (CryptoJSCore >>> 2)) ^
+                  ((CryptoJSCore << 19) | (CryptoJSCore >>> 13)) ^
+                  ((CryptoJSCore << 10) | (CryptoJSCore >>> 22)),
                 b =
                   p +
                   (((s << 26) | (s >>> 6)) ^ ((s << 21) | (s >>> 11)) ^ ((s << 7) | (s >>> 25))) +
@@ -29180,10 +29339,10 @@ function (exports, module, require) {
                 (s = (r + b) | 0),
                 (r = a),
                 (a = i),
-                (i = o),
-                (o = (b + (_ + v)) | 0));
+                (i = CryptoJSCore),
+                (CryptoJSCore = (b + (_ + v)) | 0));
             }
-            ((n[0] = (n[0] + o) | 0),
+            ((n[0] = (n[0] + CryptoJSCore) | 0),
               (n[1] = (n[1] + i) | 0),
               (n[2] = (n[2] + a) | 0),
               (n[3] = (n[3] + r) | 0),
@@ -29195,12 +29354,12 @@ function (exports, module, require) {
           _doFinalize: function () {
             var t = this._data,
               n = t.words,
-              o = 8 * this._nDataBytes,
+              CryptoJSCore = 8 * this._nDataBytes,
               i = 8 * t.sigBytes;
             return (
               (n[i >>> 5] |= 128 << (24 - (i % 32))),
-              (n[14 + (((i + 64) >>> 9) << 4)] = e.floor(o / 4294967296)),
-              (n[15 + (((i + 64) >>> 9) << 4)] = o),
+              (n[14 + (((i + 64) >>> 9) << 4)] = e.floor(CryptoJSCore / 4294967296)),
+              (n[15 + (((i + 64) >>> 9) << 4)] = CryptoJSCore),
               (t.sigBytes = 4 * n.length),
               this._process(),
               this._hash
@@ -29213,16 +29372,16 @@ function (exports, module, require) {
         }));
       ((t.SHA256 = a._createHelper(d)), (t.HmacSHA256 = a._createHmacHelper(d)));
     })(Math),
-    o.SHA256);
+    CryptoJSCore.SHA256);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(382) /* module_382 */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib.Hasher,
         n = e.x64,
         i = n.Word,
@@ -29333,7 +29492,7 @@ function (exports, module, require) {
         _doProcessBlock: function (e, t) {
           for (
             var n = this._hash.words,
-              o = n[0],
+              CryptoJSCore = n[0],
               i = n[1],
               a = n[2],
               r = n[3],
@@ -29341,8 +29500,8 @@ function (exports, module, require) {
               d = n[5],
               u = n[6],
               p = n[7],
-              g = o.high,
-              h = o.low,
+              g = CryptoJSCore.high,
+              h = CryptoJSCore.low,
               f = i.high,
               m = i.low,
               y = a.high,
@@ -29454,8 +29613,8 @@ function (exports, module, require) {
                   ((D = (ue + Se) | 0) >>> 0 < ue >>> 0 ? 1 : 0)) |
                 0));
           }
-          ((h = o.low = h + D),
-            (o.high = g + P + (h >>> 0 < D >>> 0 ? 1 : 0)),
+          ((h = CryptoJSCore.low = h + D),
+            (CryptoJSCore.high = g + P + (h >>> 0 < D >>> 0 ? 1 : 0)),
             (m = i.low = m + I),
             (i.high = f + L + (m >>> 0 < I >>> 0 ? 1 : 0)),
             (v = a.low = v + O),
@@ -29475,11 +29634,11 @@ function (exports, module, require) {
           var e = this._data,
             t = e.words,
             n = 8 * this._nDataBytes,
-            o = 8 * e.sigBytes;
+            CryptoJSCore = 8 * e.sigBytes;
           return (
-            (t[o >>> 5] |= 128 << (24 - (o % 32))),
-            (t[30 + (((o + 128) >>> 10) << 5)] = Math.floor(n / 4294967296)),
-            (t[31 + (((o + 128) >>> 10) << 5)] = n),
+            (t[CryptoJSCore >>> 5] |= 128 << (24 - (CryptoJSCore % 32))),
+            (t[30 + (((CryptoJSCore + 128) >>> 10) << 5)] = Math.floor(n / 4294967296)),
+            (t[31 + (((CryptoJSCore + 128) >>> 10) << 5)] = n),
             (e.sigBytes = 4 * t.length),
             this._process(),
             this._hash.toX32()
@@ -29493,7 +29652,7 @@ function (exports, module, require) {
       }));
       ((e.SHA512 = t._createHelper(d)), (e.HmacSHA512 = t._createHmacHelper(d)));
     })(),
-    o.SHA512);
+    CryptoJSCore.SHA512);
 }
 ,
 ,
@@ -29663,16 +29822,16 @@ function (exports, module) {
 ,
 function (exports, module, require) {
   (function (t) {
-    var o;
+    var BluebirdPromise;
     ('function' != typeof t.Promise
-      ? ((o = require(1114)) /* module_1114 */,
-        Object.defineProperty(o, 'polyfilled', {
+      ? ((BluebirdPromise = require(1114)) /* BluebirdPromise */,
+        Object.defineProperty(BluebirdPromise, 'polyfilled', {
           value: true,
           writable: false,
           enumerable: false,
         }))
-      : (o = t.Promise),
-      (exports.exports = o));
+      : (BluebirdPromise = t.Promise),
+      (exports.exports = BluebirdPromise));
   }).call(this, require(109) /* module_109 */);
 }
 ,
@@ -29746,12 +29905,12 @@ function (exports, module, require) {
           var o = n(1) /* module */,
             i = n(146) /* module_146 */,
             a = n(162) /* GPathsGraph */,
-            r = n(163) /* module_163 */,
+            r = n(163) /* GDocument */,
             s = n(151) /* module_151 */,
             l = n(164) /* GKey */,
             c = n(154) /* LabelHolder */,
             d = n(155) /* GPathBaseEditor */,
-            u = n(156) /* module_156 */,
+            u = n(156) /* GCloudStorageItem */,
             p = n(153); /* GBBoxGuide */
           if (n(4) /* stub_requires_668 */()) {
             var g = n(165) /* module_165 */.PDFNodeStream;
@@ -31416,7 +31575,7 @@ function (exports, module, require) {
         },
         function (e, t, n) {
           'use strict';
-          var o = n(55) /* module_55 */,
+          var o = n(55) /* CryptoJSCore */,
             i = n(57); /* polyfill_parseInt */
           e.exports =
             Object.keys ||
@@ -32057,7 +32216,7 @@ function (exports, module, require) {
               })),
             u(u.G + u.W + u.F * !L, { Promise: T }),
             n(59)(/* GVertexInfo */ T, 'Promise'),
-            n(98)(/* module_98 */ 'Promise'),
+            n(98)(/* CryptoJSCipherBase */ 'Promise'),
             (r = n(9) /* GLocale */.Promise),
             u(u.S + u.F * !L, 'Promise', {
               reject: function (e) {
@@ -32916,7 +33075,7 @@ function (exports, module, require) {
           'use strict';
           (n(82) /* SavePoint */,
             n(83) /* GPage */,
-            n(119) /* module_119 */,
+            n(119) /* GCloudStorage */,
             n(120) /* module_120 */,
             n(121) /* module_121 */,
             (e.exports = n(9) /* GLocale */.WeakSet));
@@ -33286,7 +33445,7 @@ function (exports, module, require) {
         },
         function (e, t, n) {
           'use strict';
-          var o = n(55) /* module_55 */,
+          var o = n(55) /* CryptoJSCore */,
             i = n(57) /* polyfill_parseInt */
               .concat('length', 'prototype');
           t.f =
@@ -48663,7 +48822,7 @@ function (exports, module, require) {
     GEditor = require(15) /* module */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    s = require(163); /* module_163 */
+    GDocument = require(163); /* GDocument */
   const l = require(446); /* module_446 */
   function c() {}
   (GCore.GObject.inherit(c, GAction),
@@ -48697,7 +48856,7 @@ function (exports, module, require) {
       new l(
         () => {
           (e = e || gDesigner.getDefaultStorage()).openPrompt(
-            s.FileTypes.filter((e) => e.load),
+            GDocument.FileTypes.filter((e) => e.load),
             (e) => {
               (gDesigner.openDocument(e), t && t());
             },
@@ -50166,7 +50325,7 @@ function (exports, module, require) {
       })(e, t);
     })(require(789) /* Exports_NoAccessId */),
     GError = _interopRequireDefault(require(594) /* GError */);
-  const d = require(1108) /* module_1108 */,
+  const GoogleDriveResumableUpload = require(1108) /* GoogleDriveResumableUpload */,
     u = require(595) /* module_595 */,
     { HTTP_STATUS_CODES: p } = require(10); /* AppSettings */
   function g(e) {
@@ -50241,11 +50400,13 @@ function (exports, module, require) {
         CollaborationMergeUtils = { fields: '*', supportsAllDrives: true, pageSize: 50 };
       return new Promise((GCore, r) => {
         !(function l(GError) {
-          const d = new URL('https://www.googleapis.com/drive/v3/files/'.concat(e, '/permissions')),
+          const GoogleDriveResumableUpload = new URL(
+              'https://www.googleapis.com/drive/v3/files/'.concat(e, '/permissions')
+            ),
             u = Object.assign({}, CollaborationMergeUtils);
           GError && (u.pageToken = GError);
-          for (var p in u) d.searchParams.append(p, u[p]);
-          return fetch(d.toString(), {
+          for (var p in u) GoogleDriveResumableUpload.searchParams.append(p, u[p]);
+          return fetch(GoogleDriveResumableUpload.toString(), {
             method: 'GET',
             headers: new Headers({ Authorization: 'Bearer '.concat(_interopRequireDefault) }),
           })
@@ -50424,7 +50585,7 @@ function (exports, module, require) {
         var s = n.mimeType || 'application/octet-stream';
         const l = { fields: '*' };
         (n.hasOwnProperty('driveId') && (l.supportsAllDrives = true),
-          new d({
+          new GoogleDriveResumableUpload({
             file: t,
             fileId: e,
             token: GCore,
@@ -50482,18 +50643,27 @@ function (exports, module, require) {
         l = { Authorization: 'Bearer '.concat(s) },
         GError = t.headers ? Object.assign(l, t.headers) : l;
       delete t.headers;
-      const d = await fetch(e, Object.assign({ headers: new Headers(GError), signal: n }, t));
-      if (!d.ok) {
-        var u = await d.json();
-        return d.status === p.UNAUTHORIZED &&
+      const GoogleDriveResumableUpload = await fetch(
+        e,
+        Object.assign({ headers: new Headers(GError), signal: n }, t)
+      );
+      if (!GoogleDriveResumableUpload.ok) {
+        var u = await GoogleDriveResumableUpload.json();
+        return GoogleDriveResumableUpload.status === p.UNAUTHORIZED &&
           (await gContainer.getGoogleAPI().signIn(), 0 === GCore)
           ? this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore)
-          : d.status === p.FORBIDDEN && g.isUsageLimitError(u) && GCore < g.TRIAL_UNTIL_FAIL
+          : GoogleDriveResumableUpload.status === p.FORBIDDEN &&
+              g.isUsageLimitError(u) &&
+              GCore < g.TRIAL_UNTIL_FAIL
             ? (await (0, CollaborationMergeUtils.sleep)(1e3 * Math.pow(1 + GCore, 2)),
               this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore))
             : Promise.reject(u);
       }
-      return (0, r.readResponseWithProgress)(d, _interopRequireDefault, true);
+      return (0, r.readResponseWithProgress)(
+        GoogleDriveResumableUpload,
+        _interopRequireDefault,
+        true
+      );
     }),
     (g.prototype.getFile = function (e, t, n, _interopRequireDefault) {
       var GCore = new URL('https://www.googleapis.com/drive/v3/files/'.concat(e, '?alt=media'));
@@ -50904,7 +51074,7 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* AppSettings */,
     GContainer = require(85) /* GContainer */,
-    d = require(1252) /* module_1252 */,
+    GCrossFrameManager = require(1252) /* GCrossFrameManager */,
     u = require(859) /* module_859 */,
     p = function (e) {
       return gContainer.signWithOAuth(e);
@@ -50976,7 +51146,7 @@ function (exports, module, require) {
         }).open(this._frame);
       } else {
         const t = this._buildURL(this._loginConfiguration);
-        ((this._crossFrame = new d({
+        ((this._crossFrame = new GCrossFrameManager({
           className: i ? 'g-anonymous' : '',
           oauth: (e) =>
             p(e.provider)
@@ -51051,7 +51221,7 @@ function (exports, module, require) {
         signup: require = false,
         closeable: s = true,
         flow: l,
-        options: d = {},
+        options: GCrossFrameManager = {},
         runtime: u,
       } = exports;
       let p, g, h, f;
@@ -51087,8 +51257,8 @@ function (exports, module, require) {
       return (
         h && y.set('token', h),
         f && y.set('d', f),
-        Object.keys(d).forEach((e) => {
-          y.set(e, d[e]);
+        Object.keys(GCrossFrameManager).forEach((e) => {
+          y.set(e, GCrossFrameManager[e]);
         }),
         y.set('lang', GCore.GLocale.getLanguage()),
         m.toString()
@@ -51131,7 +51301,7 @@ function (exports, module, require) {
     a = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    l = require(1513) /* module_1513 */,
+    GExportDialog = require(1513) /* GExportDialog */,
     c = require(446) /* module_446 */,
     GSaveAction = require(447); /* GSaveAction */
   const u = require(86) /* module_86 */,
@@ -51229,7 +51399,7 @@ function (exports, module, require) {
         module = gDesigner.getActiveDocument(),
         require = this;
       function GEditor(t) {
-        new l(t, require._options || exports, require.getId()).open();
+        new GExportDialog(t, require._options || exports, require.getId()).open();
       }
       module && module.isCommercialProductFile()
         ? module.openPaywall(this.getId())
@@ -51325,13 +51495,13 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* module */,
     AppSettings = require(10) /* AppSettings */,
-    r = _interopRequireDefault(require(119) /* module_119 */),
+    GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     Item = _interopRequireDefault(require(220) /* Item */),
-    l = _interopRequireDefault(require(163) /* module_163 */),
+    GDocument = _interopRequireDefault(require(163) /* GDocument */),
     c = _interopRequireDefault(require(86) /* module_86 */),
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
     u = require(593); /* module_593 */
-  const p = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { FILE_FORMATS: g, FOLDER_FORMAT: h, MAX_FOLDER_DEPTH_FOR_CLOUD: f } = require(
       10
     ); /* AppSettings */
@@ -51377,7 +51547,7 @@ function (exports, module, require) {
       );
     }),
     (y.prototype.getRootFolder = function () {
-      return p.from({
+      return GCloudStorageItem.from({
         id: null,
         name: GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'action.my-cloud')),
       });
@@ -51394,7 +51564,7 @@ function (exports, module, require) {
         _interopRequireDefault = {};
       if (!e.length) return t;
       for (let t = 0; t < e.length; t++) {
-        let n = r.default.definePath(e[t]);
+        let n = GCloudStorage.default.definePath(e[t]);
         _interopRequireDefault[n] = e[t];
       }
       function GCore(e) {
@@ -51442,16 +51612,16 @@ function (exports, module, require) {
     }),
     (y.prototype._convertToFolderElement = function (e) {
       const module = (e) => {
-        var t = p.from(e);
+        var t = GCloudStorageItem.from(e);
         return (
-          t.setItemType(p.Type.Folder),
+          t.setItemType(GCloudStorageItem.Type.Folder),
           t.setPermissions([
-            p.Permission.Open,
-            p.Permission.Copy,
-            p.Permission.Editing,
-            p.Permission.Rename,
-            p.Permission.CutPaste,
-            p.Permission.Delete,
+            GCloudStorageItem.Permission.Open,
+            GCloudStorageItem.Permission.Copy,
+            GCloudStorageItem.Permission.Editing,
+            GCloudStorageItem.Permission.Rename,
+            GCloudStorageItem.Permission.CutPaste,
+            GCloudStorageItem.Permission.Delete,
           ]),
           t
         );
@@ -51481,7 +51651,7 @@ function (exports, module, require) {
       return this.FOLDERS;
     }),
     (y.prototype.createFolder = function (e) {
-      return r.default.createFolder(e, this.CURRENT_FOLDER);
+      return GCloudStorage.default.createFolder(e, this.CURRENT_FOLDER);
     }),
     (y.prototype.navigateToParentFolder = function () {
       var e =
@@ -51491,7 +51661,9 @@ function (exports, module, require) {
       return (this.setCurrentFolder(e), this);
     }),
     (y.prototype.getFile = function (e) {
-      return AppSettings.gApi.getFile(e, true).then((e) => r.default.convertToCloudItem(e));
+      return AppSettings.gApi
+        .getFile(e, true)
+        .then((e) => GCloudStorage.default.convertToCloudItem(e));
     }),
     (y.prototype.getRawFile = async function (e, t, n) {
       const _interopRequireDefault = await AppSettings.gApi.getFileExtended(e.id),
@@ -51528,10 +51700,10 @@ function (exports, module, require) {
           ),
           dontExtend: true,
         });
-      let p = gDesigner.getWindows().getActiveWindow().getView();
-      const g = p.getZoom(),
-        h = p.getScrollX(),
-        f = p.getScrollY(),
+      let GCloudStorageItem = gDesigner.getWindows().getActiveWindow().getView();
+      const g = GCloudStorageItem.getZoom(),
+        h = GCloudStorageItem.getScrollX(),
+        f = GCloudStorageItem.getScrollY(),
         m = u.getActivePage(),
         y = m.getReferenceId(),
         v = u.getActivePage().getGeometryBBox();
@@ -51553,7 +51725,7 @@ function (exports, module, require) {
             (_interopRequireDefault = e.updateSaveOptionsLastModifiedDate(_interopRequireDefault)));
           var v = await Item.default.from(gDesigner.getDefaultStorage(), AppSettings.id);
           e.setStorageItem(v);
-          var b = new l.default(v);
+          var b = new GDocument.default(v);
           return b
             .deserializeData(GCore.GNode.serialize(u, _interopRequireDefault))
             .then(
@@ -51567,12 +51739,12 @@ function (exports, module, require) {
                 CloudException
                   ? CloudException(c.default.Loaded)
                   : gDesigner.removeDocument(e, null, true),
-                (p = gDesigner.getWindows().getActiveWindow().getView()),
-                p.transform(h, f, g),
+                (GCloudStorageItem = gDesigner.getWindows().getActiveWindow().getView()),
+                GCloudStorageItem.transform(h, f, g),
                 (_interopRequireDefault =
                   b.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
                 GCore.GUtil.prepareForSaving(u, require),
-                r.default.performSave(
+                GCloudStorage.default.performSave(
                   b,
                   () => {
                     (b.getFileFormatVersion() &&
@@ -51612,7 +51784,7 @@ function (exports, module, require) {
     }),
     (y.prototype.fetchRecentFiles = function () {
       const exports = this._getFileTypesForFilter().map((e) => ({ type: e }));
-      return r.default
+      return GCloudStorage.default
         .getRecentStorageItems(exports)
         .then((e) => this._convertAndUpdateCloudItems(e));
     }),
@@ -51632,7 +51804,7 @@ function (exports, module, require) {
       );
     }),
     (y.prototype._convertAndUpdateCloudItems = function (e) {
-      return r.default.convertToCloudItem(e);
+      return GCloudStorage.default.convertToCloudItem(e);
     }),
     (y.prototype._getFileTypesForFilter = function () {
       const exports = this.getSelectedFilterForFileTypes();
@@ -51644,7 +51816,9 @@ function (exports, module, require) {
     (y.prototype.isItemAllowedToBeRendered = function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
         require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
-      return !(!module && !require) || r.default.definePath(this.CURRENT_FOLDER) === e.parent;
+      return (
+        !(!module && !require) || GCloudStorage.default.definePath(this.CURRENT_FOLDER) === e.parent
+      );
     }),
     (y.prototype.deleteItem = function (e) {
       return AppSettings.gApi
@@ -51652,14 +51826,14 @@ function (exports, module, require) {
         .then(() => AppSettings.gApi.deleteFile(e.id));
     }),
     (y.prototype.cutPaste = function (e) {
-      var t = r.default.definePath(this.CURRENT_FOLDER);
-      return r.default.changePathTree(e, t);
+      var t = GCloudStorage.default.definePath(this.CURRENT_FOLDER);
+      return GCloudStorage.default.changePathTree(e, t);
     }),
     (y.prototype.fileMove = function (e, t) {
-      return r.default.changePathTree([e], t.id);
+      return GCloudStorage.default.changePathTree([e], t.id);
     }),
     (y.prototype.copyPaste = function (e) {
-      const module = r.default.definePath(this.CURRENT_FOLDER);
+      const module = GCloudStorage.default.definePath(this.CURRENT_FOLDER);
       return Promise.all(
         e.map(async (e) => {
           const { id: require } = await AppSettings.gApi.copyFile(e.id, { parent: module });
@@ -51714,8 +51888,8 @@ function (exports, module, require) {
         0 !== exports.length &&
           (module = module.filter((e) => this._getFileTypesForFilter().includes(e.type))),
         module.map((e) => {
-          let module = p.from(e);
-          return (module.setPermissions([p.Permission.Open]), module);
+          let module = GCloudStorageItem.from(e);
+          return (module.setPermissions([GCloudStorageItem.Permission.Open]), module);
         })
       );
     }));
@@ -51778,10 +51952,10 @@ function (exports, module, require) {
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GPanel = require(606) /* GPanel */,
     GSidebar = require(806) /* GSidebar */,
-    l = require(395) /* module_395 */,
+    GSidebarContainer = require(395) /* GSidebarContainer */,
     c = require(1160) /* GAppearanceProperties */,
-    d = require(1261) /* module_1261 */,
-    u = require(1162) /* module_1162 */,
+    GFillProperties = require(1261) /* GFillProperties */,
+    GBorderProperties = require(1162) /* GBorderProperties */,
     GEffectProperties = require(1262) /* GEffectProperties */,
     GBoolOpProperties = require(1264) /* GBoolOpProperties */,
     GEllipseProperties = require(1265) /* GEllipseProperties */,
@@ -51803,8 +51977,8 @@ function (exports, module, require) {
   (GCore.GObject.inherit(T, GSidebar),
     (T.ACCORDIONS = [
       c.prototype.toString(),
-      d.prototype.toString(),
-      u.prototype.toString(),
+      GFillProperties.prototype.toString(),
+      GBorderProperties.prototype.toString(),
       GEffectProperties.prototype.toString(),
     ]),
     (T.APPEARANCE_PROPERTIES = [
@@ -51846,7 +52020,7 @@ function (exports, module, require) {
       );
     }),
     (T.prototype.getOrientation = function () {
-      return l.Orientation.Right;
+      return GSidebarContainer.Orientation.Right;
     }),
     (T.prototype.getMinimumWidth = function () {
       return 300;
@@ -51877,14 +52051,14 @@ function (exports, module, require) {
               GPanel = $('<hr/>'),
               GSidebar = $('<div></div>').addClass('toolbar');
             if ($.inArray(e.toString(), T.APPEARANCE_PROPERTIES) > -1) {
-              var l = $('<div></div>').addClass('appearance-property-panel');
-              (e.init(l, GTools),
-                GPanel.appendTo(l),
-                this._appearancePanel.append(l),
+              var GSidebarContainer = $('<div></div>').addClass('appearance-property-panel');
+              (e.init(GSidebarContainer, GTools),
+                GPanel.appendTo(GSidebarContainer),
+                this._appearancePanel.append(GSidebarContainer),
                 GTools.appendTo(GCore),
                 this._appearancePanel.appendTo(GCore),
                 (GSidebar = GTools),
-                (GDocumentEvent = l));
+                (GDocumentEvent = GSidebarContainer));
             } else
               (GPanel.appendTo(GCore),
                 e.init(GDocumentEvent, GSidebar),
@@ -51912,19 +52086,19 @@ function (exports, module, require) {
       return this._propertyPanels.find((t) => t.properties instanceof e) || null;
     }),
     (T.prototype.openFillPatternChooser = function () {
-      const exports = this._getPropertyPanel(d);
+      const exports = this._getPropertyPanel(GFillProperties);
       exports && exports.properties.openPatternChooser();
     }),
     (T.prototype.openBorderPatternChooser = function () {
-      const exports = this._getPropertyPanel(u);
+      const exports = this._getPropertyPanel(GBorderProperties);
       exports && exports.properties.openPatternChooser();
     }),
     (T.prototype.openFillEyeDropper = function (e, t) {
-      const require = this._getPropertyPanel(d);
+      const require = this._getPropertyPanel(GFillProperties);
       require && require.properties.openEyeDropper(e, t);
     }),
     (T.prototype.openBorderEyeDropper = function (e, t) {
-      const require = this._getPropertyPanel(u);
+      const require = this._getPropertyPanel(GBorderProperties);
       require && require.properties.openEyeDropper(e, t);
     }),
     (T.prototype.openTextColorEyeDropper = function (e, t) {
@@ -51973,10 +52147,10 @@ function (exports, module, require) {
       if (e.type === x.Type.Enable) {
         var module;
         switch (((this._versionHistoryMode = true), this.getOrientation())) {
-          case l.Orientation.Left:
+          case GSidebarContainer.Orientation.Left:
             module = gDesigner.getLeftSidebars();
             break;
-          case l.Orientation.Right:
+          case GSidebarContainer.Orientation.Right:
             module = gDesigner.getRightSidebars();
         }
         (module.setActiveSidebar(this.getId()),
@@ -52097,42 +52271,43 @@ function (exports, module, require) {
       for (var GDocumentEvent = 0; GDocumentEvent < this._propertyPanels.length; ++GDocumentEvent) {
         var GPanel = this._propertyPanels[GDocumentEvent],
           GSidebar = GPanel.properties,
-          l = GSidebar.isAvailable(this._transformMode);
+          GSidebarContainer = GSidebar.isAvailable(this._transformMode);
         if (
-          (l &&
-            (l = GPanel.properties.update(
+          (GSidebarContainer &&
+            (GSidebarContainer = GPanel.properties.update(
               e ? null : this._document,
               this._elements ? this._elements : null,
               t || null
             )),
-          l)
+          GSidebarContainer)
         ) {
           const e = GPanel.properties.getTouchTools();
           e && (this._touchTools = this._touchTools.concat(e));
         }
-        (GPanel.panel.css('display', l ? '' : 'none'),
+        (GPanel.panel.css('display', GSidebarContainer ? '' : 'none'),
           GPanel.toolbar &&
-            (GPanel.toolbar.css('display', l ? '' : 'none'),
-            GSidebar instanceof GSliceProperties && l && (GCore = GPanel.toolbar),
+            (GPanel.toolbar.css('display', GSidebarContainer ? '' : 'none'),
+            GSidebar instanceof GSliceProperties && GSidebarContainer && (GCore = GPanel.toolbar),
             $.inArray(GPanel.properties.toString(), T.ACCORDIONS) > -1 &&
-              l &&
+              GSidebarContainer &&
               (GPanel.toolbar
                 .addClass('appearance-panel-toggle-btn')
                 .gAccordion('init', '.properties-panel', 'label'),
               this._htmlElement
                 .find('.appearance-panel-toggle-btn button.g-accordion')
                 [gDesigner.isTouchEnabled() ? 'hide' : 'show']())));
-        var c = l && n && GSidebar.isGroup(GTools);
+        var c = GSidebarContainer && n && GSidebar.isGroup(GTools);
         (GPanel.divider.css('display', c ? '' : 'none'),
-          (n = n || l),
-          l && ((GTools = GSidebar), this._appearancePanel.css('display', '')));
-        const d = this._isPropertiesEnabled(GPanel.properties);
-        (GPanel.toolbar && GPanel.toolbar.toggleClass('g-disabled', !d),
-          GPanel.panel && GPanel.panel.toggleClass('g-disabled', !d));
+          (n = n || GSidebarContainer),
+          GSidebarContainer && ((GTools = GSidebar), this._appearancePanel.css('display', '')));
+        const GFillProperties = this._isPropertiesEnabled(GPanel.properties);
+        (GPanel.toolbar && GPanel.toolbar.toggleClass('g-disabled', !GFillProperties),
+          GPanel.panel && GPanel.panel.toggleClass('g-disabled', !GFillProperties));
       }
       GCore && gDesigner.isTouchEnabled() && GCore.css('display', '');
-      var d = $('<hr/>').addClass('appearance-divider');
-      (0 === $('.appearance-divider').length && $('.appearance-toolbar:first').before(d),
+      var GFillProperties = $('<hr/>').addClass('appearance-divider');
+      (0 === $('.appearance-divider').length &&
+        $('.appearance-toolbar:first').before(GFillProperties),
         $('.appearance-divider').css(
           'display',
           'none' === $('.appearance-toolbar:first').css('display') ? 'none' : ''
@@ -53702,7 +53877,7 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
     AppSettings = require(10) /* AppSettings */,
-    a = _interopRequireDefault(require(1582) /* module_1582 */);
+    GGestureHelper = _interopRequireDefault(require(1582) /* GGestureHelper */);
   exports.exports = class {
     constructor(e) {
       ((this._target = e),
@@ -53712,7 +53887,7 @@ function (exports, module, require) {
         (this._touchStartY = 0),
         (this._handleEventBound = this._tryHandleEvent.bind(this)),
         (this._handleScrollEventBound = this._handleScrollEvent.bind(this)),
-        (this._gestureHelper = new a.default()),
+        (this._gestureHelper = new GGestureHelper.default()),
         this.activate(e));
     }
     addGesture(e) {
@@ -54148,14 +54323,14 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(30) /* polyfill_Object_assign */;
-  const o = require(177); /* module_177 */
-  class i extends o {
+  const GUserModel = require(177); /* GUserModel */
+  class i extends GUserModel {
     constructor() {
       let {
         id: exports,
         name: module,
         last_name: require,
-        email: o,
+        email: GUserModel,
         showText: i,
         avatar: a,
         role: r,
@@ -54168,7 +54343,7 @@ function (exports, module, require) {
         id: exports,
         name: module,
         last_name: require,
-        email: o,
+        email: GUserModel,
         showText: i,
         avatar: a,
         fontWeight: s,
@@ -54732,9 +54907,9 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(382) /* module_382 */,
     require(1044) /* module_1044 */,
     require(1045) /* module_1045 */,
@@ -54743,14 +54918,14 @@ function (exports, module, require) {
     require(537) /* module_537 */,
     require(736) /* Exports_SHA256 */,
     require(1046) /* module_1046 */,
-    require(737) /* module_737 */,
+    require(737) /* CryptoJSSHA512 */,
     require(1047) /* module_1047 */,
     require(1048) /* Exports_SHA3 */,
     require(1049) /* Exports_RIPEMD160 */,
     require(538) /* module_538 */,
     require(1050) /* module_1050 */,
     require(234) /* module_234 */,
-    require(98) /* module_98 */,
+    require(98) /* CryptoJSCipherBase */,
     require(1051) /* module_1051 */,
     require(1052) /* module_1052 */,
     require(1053) /* module_1053 */,
@@ -54762,21 +54937,21 @@ function (exports, module, require) {
     require(1059) /* module_1059 */,
     require(1060) /* module_1060 */,
     require(1061) /* module_1061 */,
-    require(1062) /* module_1062 */,
-    require(1063) /* module_1063 */,
+    require(1062) /* CryptoJSAES */,
+    require(1063) /* CryptoJSDES */,
     require(1064) /* module_1064 */,
-    require(1065) /* module_1065 */,
-    require(1066) /* module_1066 */,
-    o);
+    require(1065) /* CryptoJSRabbit */,
+    require(1066) /* CryptoJSRabbitLegacy */,
+    CryptoJSCore);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     (function () {
       if ('function' == typeof ArrayBuffer) {
-        var exports = o.lib.WordArray,
+        var exports = CryptoJSCore.lib.WordArray,
           module = exports.init;
         (exports.init = function (e) {
           if (
@@ -54792,22 +54967,22 @@ function (exports, module, require) {
               (e = new Uint8Array(e.buffer, e.byteOffset, e.byteLength)),
             e instanceof Uint8Array)
           ) {
-            for (var require = e.byteLength, o = [], i = 0; i < require; i++)
-              o[i >>> 2] |= e[i] << (24 - (i % 4) * 8);
-            module.call(this, o, require);
+            for (var require = e.byteLength, CryptoJSCore = [], i = 0; i < require; i++)
+              CryptoJSCore[i >>> 2] |= e[i] << (24 - (i % 4) * 8);
+            module.call(this, CryptoJSCore, require);
           } else module.apply(this, arguments);
         }).prototype = exports;
       }
     })(),
-    o.lib.WordArray);
+    CryptoJSCore.lib.WordArray);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib.WordArray,
         n = e.enc;
       function i(e) {
@@ -54816,42 +54991,42 @@ function (exports, module, require) {
       ((n.Utf16 = n.Utf16BE =
         {
           stringify: function (e) {
-            for (var t = e.words, n = e.sigBytes, o = [], i = 0; i < n; i += 2) {
+            for (var t = e.words, n = e.sigBytes, CryptoJSCore = [], i = 0; i < n; i += 2) {
               var a = (t[i >>> 2] >>> (16 - (i % 4) * 8)) & 65535;
-              o.push(String.fromCharCode(a));
+              CryptoJSCore.push(String.fromCharCode(a));
             }
-            return o.join('');
+            return CryptoJSCore.join('');
           },
           parse: function (e) {
-            for (var n = e.length, o = [], i = 0; i < n; i++)
-              o[i >>> 1] |= e.charCodeAt(i) << (16 - (i % 2) * 16);
-            return t.create(o, 2 * n);
+            for (var n = e.length, CryptoJSCore = [], i = 0; i < n; i++)
+              CryptoJSCore[i >>> 1] |= e.charCodeAt(i) << (16 - (i % 2) * 16);
+            return t.create(CryptoJSCore, 2 * n);
           },
         }),
         (n.Utf16LE = {
           stringify: function (e) {
-            for (var t = e.words, n = e.sigBytes, o = [], a = 0; a < n; a += 2) {
+            for (var t = e.words, n = e.sigBytes, CryptoJSCore = [], a = 0; a < n; a += 2) {
               var r = i((t[a >>> 2] >>> (16 - (a % 4) * 8)) & 65535);
-              o.push(String.fromCharCode(r));
+              CryptoJSCore.push(String.fromCharCode(r));
             }
-            return o.join('');
+            return CryptoJSCore.join('');
           },
           parse: function (e) {
-            for (var n = e.length, o = [], a = 0; a < n; a++)
-              o[a >>> 1] |= i(e.charCodeAt(a) << (16 - (a % 2) * 16));
-            return t.create(o, 2 * n);
+            for (var n = e.length, CryptoJSCore = [], a = 0; a < n; a++)
+              CryptoJSCore[a >>> 1] |= i(e.charCodeAt(a) << (16 - (a % 2) * 16));
+            return t.create(CryptoJSCore, 2 * n);
           },
         }));
     })(),
-    o.enc.Utf16);
+    CryptoJSCore.enc.Utf16);
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l;
+  var o, i, a, r, s, CryptoJSCore;
   exports.exports =
-    ((l = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(736) /* Exports_SHA256 */,
-    (i = (o = l).lib.WordArray),
+    (i = (o = CryptoJSCore).lib.WordArray),
     (a = o.algo),
     (r = a.SHA256),
     (s = a.SHA224 =
@@ -54869,16 +55044,16 @@ function (exports, module, require) {
       })),
     (o.SHA224 = r._createHelper(s)),
     (o.HmacSHA224 = r._createHmacHelper(s)),
-    l.SHA224);
+    CryptoJSCore.SHA224);
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l, c, d;
+  var o, i, a, r, s, l, c, CryptoJSCore;
   exports.exports =
-    ((d = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(382) /* module_382 */,
-    require(737) /* module_737 */,
-    (i = (o = d).x64),
+    require(737) /* CryptoJSSHA512 */,
+    (i = (o = CryptoJSCore).x64),
     (a = i.Word),
     (r = i.WordArray),
     (s = o.algo),
@@ -54904,16 +55079,16 @@ function (exports, module, require) {
       })),
     (o.SHA384 = l._createHelper(c)),
     (o.HmacSHA384 = l._createHmacHelper(c)),
-    d.SHA384);
+    CryptoJSCore.SHA384);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(382) /* module_382 */,
     (function (e) {
-      var t = o,
+      var t = CryptoJSCore,
         n = t.lib,
         i = n.WordArray,
         a = n.Hasher,
@@ -54925,8 +55100,8 @@ function (exports, module, require) {
       !(function () {
         for (var e = 1, t = 0, n = 0; n < 24; n++) {
           l[e + 5 * t] = (((n + 1) * (n + 2)) / 2) % 64;
-          var o = (2 * e + 3 * t) % 5;
-          ((e = t % 5), (t = o));
+          var CryptoJSCore = (2 * e + 3 * t) % 5;
+          ((e = t % 5), (t = CryptoJSCore));
         }
         for (e = 0; e < 5; e++)
           for (t = 0; t < 5; t++) c[e + 5 * t] = t + ((2 * e + 3 * t) % 5) * 5;
@@ -54952,7 +55127,11 @@ function (exports, module, require) {
           this.blockSize = (1600 - 2 * this.cfg.outputLength) / 32;
         },
         _doProcessBlock: function (e, t) {
-          for (var n = this._state, o = this.blockSize / 2, i = 0; i < o; i++) {
+          for (
+            var n = this._state, CryptoJSCore = this.blockSize / 2, i = 0;
+            i < CryptoJSCore;
+            i++
+          ) {
             var a = e[t + 2 * i],
               r = e[t + 2 * i + 1];
             ((a = (16711935 & ((a << 8) | (a >>> 24))) | (4278255360 & ((a << 24) | (a >>> 8)))),
@@ -55008,10 +55187,10 @@ function (exports, module, require) {
         _doFinalize: function () {
           var t = this._data,
             n = t.words,
-            o = (this._nDataBytes, 8 * t.sigBytes),
+            CryptoJSCore = (this._nDataBytes, 8 * t.sigBytes),
             a = 32 * this.blockSize;
-          ((n[o >>> 5] |= 1 << (24 - (o % 32))),
-            (n[((e.ceil((o + 1) / a) * a) >>> 5) - 1] |= 128),
+          ((n[CryptoJSCore >>> 5] |= 1 << (24 - (CryptoJSCore % 32))),
+            (n[((e.ceil((CryptoJSCore + 1) / a) * a) >>> 5) - 1] |= 128),
             (t.sigBytes = 4 * n.length),
             this._process());
           for (
@@ -55041,15 +55220,15 @@ function (exports, module, require) {
       }));
       ((t.SHA3 = a._createHelper(p)), (t.HmacSHA3 = a._createHmacHelper(p)));
     })(Math),
-    o.SHA3);
+    CryptoJSCore.SHA3);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     (function (e) {
-      var t = o,
+      var t = CryptoJSCore,
         n = t.lib,
         i = n.WordArray,
         a = n.Hasher,
@@ -55085,9 +55264,10 @@ function (exports, module, require) {
           },
           _doProcessBlock: function (e, t) {
             for (var n = 0; n < 16; n++) {
-              var o = t + n,
-                i = e[o];
-              e[o] = (16711935 & ((i << 8) | (i >>> 24))) | (4278255360 & ((i << 24) | (i >>> 8)));
+              var CryptoJSCore = t + n,
+                i = e[CryptoJSCore];
+              e[CryptoJSCore] =
+                (16711935 & ((i << 8) | (i >>> 24))) | (4278255360 & ((i << 24) | (i >>> 8)));
             }
             var a,
               r,
@@ -55157,9 +55337,9 @@ function (exports, module, require) {
             var e = this._data,
               t = e.words,
               n = 8 * this._nDataBytes,
-              o = 8 * e.sigBytes;
-            ((t[o >>> 5] |= 128 << (24 - (o % 32))),
-              (t[14 + (((o + 64) >>> 9) << 4)] =
+              CryptoJSCore = 8 * e.sigBytes;
+            ((t[CryptoJSCore >>> 5] |= 128 << (24 - (CryptoJSCore % 32))),
+              (t[14 + (((CryptoJSCore + 64) >>> 9) << 4)] =
                 (16711935 & ((n << 8) | (n >>> 24))) | (4278255360 & ((n << 24) | (n >>> 8)))),
               (e.sigBytes = 4 * (t.length + 1)),
               this._process());
@@ -55194,16 +55374,16 @@ function (exports, module, require) {
       }
       ((t.RIPEMD160 = a._createHelper(g)), (t.HmacRIPEMD160 = a._createHmacHelper(g)));
     })(Math),
-    o.RIPEMD160);
+    CryptoJSCore.RIPEMD160);
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r, s, l, c, d, u;
+  var o, i, a, r, s, l, c, d, CryptoJSCore;
   exports.exports =
-    ((u = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(537) /* module_537 */,
     require(538) /* module_538 */,
-    (i = (o = u).lib),
+    (i = (o = CryptoJSCore).lib),
     (a = i.Base),
     (r = i.WordArray),
     (s = o.algo),
@@ -55224,12 +55404,12 @@ function (exports, module, require) {
               s = i.words,
               l = a.words,
               d = require.keySize,
-              u = require.iterations;
+              CryptoJSCore = require.iterations;
             s.length < d;
           ) {
             var p = o.update(t).finalize(a);
             o.reset();
-            for (var g = p.words, h = g.length, f = p, m = 1; m < u; m++) {
+            for (var g = p.words, h = g.length, f = p, m = 1; m < CryptoJSCore; m++) {
               ((f = o.finalize(f)), o.reset());
               for (var y = f.words, v = 0; v < h; v++) g[v] ^= y[v];
             }
@@ -55241,98 +55421,101 @@ function (exports, module, require) {
     (o.PBKDF2 = function (e, t, n) {
       return d.create(n).compute(e, t);
     }),
-    u.PBKDF2);
+    CryptoJSCore.PBKDF2);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.mode.CFB = (function () {
-      var e = o.lib.BlockCipherMode.extend();
-      function module(e, t, n, o) {
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.mode.CFB = (function () {
+      var e = CryptoJSCore.lib.BlockCipherMode.extend();
+      function module(e, t, n, CryptoJSCore) {
         var i = this._iv;
         if (i) {
           var a = i.slice(0);
           this._iv = undefined;
         } else a = this._prevBlock;
-        o.encryptBlock(a, 0);
+        CryptoJSCore.encryptBlock(a, 0);
         for (var r = 0; r < n; r++) e[t + r] ^= a[r];
       }
       return (
         (e.Encryptor = e.extend({
           processBlock: function (e, n) {
-            var o = this._cipher,
-              i = o.blockSize;
-            (module.call(this, e, n, i, o), (this._prevBlock = e.slice(n, n + i)));
+            var CryptoJSCore = this._cipher,
+              i = CryptoJSCore.blockSize;
+            (module.call(this, e, n, i, CryptoJSCore), (this._prevBlock = e.slice(n, n + i)));
           },
         })),
         (e.Decryptor = e.extend({
           processBlock: function (e, n) {
-            var o = this._cipher,
-              i = o.blockSize,
+            var CryptoJSCore = this._cipher,
+              i = CryptoJSCore.blockSize,
               a = e.slice(n, n + i);
-            (module.call(this, e, n, i, o), (this._prevBlock = a));
+            (module.call(this, e, n, i, CryptoJSCore), (this._prevBlock = a));
           },
         })),
         e
       );
     })()),
-    o.mode.CFB);
+    CryptoJSCore.mode.CFB);
 }
 ,
 function (exports, module, require) {
-  var o, i, a;
+  var o, i, CryptoJSCore;
   exports.exports =
-    ((a = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (a.mode.CTR =
-      ((o = a.lib.BlockCipherMode.extend()),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.mode.CTR =
+      ((o = CryptoJSCore.lib.BlockCipherMode.extend()),
       (i = o.Encryptor =
         o.extend({
           processBlock: function (e, t) {
             var n = this._cipher,
               o = n.blockSize,
               i = this._iv,
-              a = this._counter;
-            i && ((a = this._counter = i.slice(0)), (this._iv = undefined));
-            var r = a.slice(0);
-            (n.encryptBlock(r, 0), (a[o - 1] = (a[o - 1] + 1) | 0));
+              CryptoJSCore = this._counter;
+            i && ((CryptoJSCore = this._counter = i.slice(0)), (this._iv = undefined));
+            var r = CryptoJSCore.slice(0);
+            (n.encryptBlock(r, 0), (CryptoJSCore[o - 1] = (CryptoJSCore[o - 1] + 1) | 0));
             for (var s = 0; s < o; s++) e[t + s] ^= r[s];
           },
         })),
       (o.Decryptor = i),
       o)),
-    a.mode.CTR);
+    CryptoJSCore.mode.CTR);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.mode.CTRGladman = (function () {
-      var e = o.lib.BlockCipherMode.extend();
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.mode.CTRGladman = (function () {
+      var e = CryptoJSCore.lib.BlockCipherMode.extend();
       function module(e) {
         if (255 == ((e >> 24) & 255)) {
           var module = (e >> 16) & 255,
             n = (e >> 8) & 255,
-            o = 255 & e;
+            CryptoJSCore = 255 & e;
           (255 === module
-            ? ((module = 0), 255 === n ? ((n = 0), 255 === o ? (o = 0) : ++o) : ++n)
+            ? ((module = 0),
+              255 === n
+                ? ((n = 0), 255 === CryptoJSCore ? (CryptoJSCore = 0) : ++CryptoJSCore)
+                : ++n)
             : ++module,
             (e = 0),
             (e += module << 16),
             (e += n << 8),
-            (e += o));
+            (e += CryptoJSCore));
         } else e += 1 << 24;
         return e;
       }
       var n = (e.Encryptor = e.extend({
         processBlock: function (e, n) {
-          var o = this._cipher,
-            i = o.blockSize,
+          var CryptoJSCore = this._cipher,
+            i = CryptoJSCore.blockSize,
             a = this._iv,
             r = this._counter;
           (a && ((r = this._counter = a.slice(0)), (this._iv = undefined)),
@@ -55340,46 +55523,46 @@ function (exports, module, require) {
               0 === (e[0] = module(e[0])) && (e[1] = module(e[1]));
             })(r));
           var s = r.slice(0);
-          o.encryptBlock(s, 0);
+          CryptoJSCore.encryptBlock(s, 0);
           for (var l = 0; l < i; l++) e[n + l] ^= s[l];
         },
       }));
       return ((e.Decryptor = n), e);
     })()),
-    o.mode.CTRGladman);
+    CryptoJSCore.mode.CTRGladman);
 }
 ,
 function (exports, module, require) {
-  var o, i, a;
+  var o, i, CryptoJSCore;
   exports.exports =
-    ((a = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (a.mode.OFB =
-      ((o = a.lib.BlockCipherMode.extend()),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.mode.OFB =
+      ((o = CryptoJSCore.lib.BlockCipherMode.extend()),
       (i = o.Encryptor =
         o.extend({
           processBlock: function (e, t) {
             var n = this._cipher,
               o = n.blockSize,
               i = this._iv,
-              a = this._keystream;
-            (i && ((a = this._keystream = i.slice(0)), (this._iv = undefined)),
-              n.encryptBlock(a, 0));
-            for (var r = 0; r < o; r++) e[t + r] ^= a[r];
+              CryptoJSCore = this._keystream;
+            (i && ((CryptoJSCore = this._keystream = i.slice(0)), (this._iv = undefined)),
+              n.encryptBlock(CryptoJSCore, 0));
+            for (var r = 0; r < o; r++) e[t + r] ^= CryptoJSCore[r];
           },
         })),
       (o.Decryptor = i),
       o)),
-    a.mode.OFB);
+    CryptoJSCore.mode.OFB);
 }
 ,
 function (exports, module, require) {
-  var o, i;
+  var o, CryptoJSCore;
   exports.exports =
-    ((i = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (i.mode.ECB =
-      (((o = i.lib.BlockCipherMode.extend()).Encryptor = o.extend({
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.mode.ECB =
+      (((o = CryptoJSCore.lib.BlockCipherMode.extend()).Encryptor = o.extend({
         processBlock: function (e, t) {
           this._cipher.encryptBlock(e, t);
         },
@@ -55390,19 +55573,19 @@ function (exports, module, require) {
         },
       })),
       o)),
-    i.mode.ECB);
+    CryptoJSCore.mode.ECB);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.pad.AnsiX923 = {
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.pad.AnsiX923 = {
       pad: function (e, t) {
         var n = e.sigBytes,
-          o = 4 * t,
-          i = o - (n % o),
+          CryptoJSCore = 4 * t,
+          i = CryptoJSCore - (n % CryptoJSCore),
           a = n + i - 1;
         (e.clamp(), (e.words[a >>> 2] |= i << (24 - (a % 4) * 8)), (e.sigBytes += i));
       },
@@ -55411,50 +55594,53 @@ function (exports, module, require) {
         e.sigBytes -= t;
       },
     }),
-    o.pad.Ansix923);
+    CryptoJSCore.pad.Ansix923);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.pad.Iso10126 = {
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.pad.Iso10126 = {
       pad: function (e, t) {
         var n = 4 * t,
           i = n - (e.sigBytes % n);
-        e.concat(o.lib.WordArray.random(i - 1)).concat(o.lib.WordArray.create([i << 24], 1));
+        e.concat(CryptoJSCore.lib.WordArray.random(i - 1)).concat(
+          CryptoJSCore.lib.WordArray.create([i << 24], 1)
+        );
       },
       unpad: function (e) {
         var t = 255 & e.words[(e.sigBytes - 1) >>> 2];
         e.sigBytes -= t;
       },
     }),
-    o.pad.Iso10126);
+    CryptoJSCore.pad.Iso10126);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.pad.Iso97971 = {
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.pad.Iso97971 = {
       pad: function (e, t) {
-        (e.concat(o.lib.WordArray.create([2147483648], 1)), o.pad.ZeroPadding.pad(e, t));
+        (e.concat(CryptoJSCore.lib.WordArray.create([2147483648], 1)),
+          CryptoJSCore.pad.ZeroPadding.pad(e, t));
       },
       unpad: function (e) {
-        (o.pad.ZeroPadding.unpad(e), e.sigBytes--);
+        (CryptoJSCore.pad.ZeroPadding.unpad(e), e.sigBytes--);
       },
     }),
-    o.pad.Iso97971);
+    CryptoJSCore.pad.Iso97971);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.pad.ZeroPadding = {
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.pad.ZeroPadding = {
       pad: function (e, t) {
         var n = 4 * t;
         (e.clamp(), (e.sigBytes += n - (e.sigBytes % n || n)));
@@ -55468,24 +55654,24 @@ function (exports, module, require) {
         e.sigBytes = require + 1;
       },
     }),
-    o.pad.ZeroPadding);
+    CryptoJSCore.pad.ZeroPadding);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (o.pad.NoPadding = { pad: function () {}, unpad: function () {} }),
-    o.pad.NoPadding);
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (CryptoJSCore.pad.NoPadding = { pad: function () {}, unpad: function () {} }),
+    CryptoJSCore.pad.NoPadding);
 }
 ,
 function (exports, module, require) {
-  var o, i, a, r;
+  var o, i, a, CryptoJSCore;
   exports.exports =
-    ((r = require(55)) /* module_55 */,
-    require(98) /* module_98 */,
-    (i = (o = r).lib.CipherParams),
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
+    require(98) /* CryptoJSCipherBase */,
+    (i = (o = CryptoJSCore).lib.CipherParams),
     (a = o.enc.Hex),
     (o.format.Hex = {
       stringify: function (e) {
@@ -55496,19 +55682,19 @@ function (exports, module, require) {
         return i.create({ ciphertext: t });
       },
     }),
-    r.format.Hex);
+    CryptoJSCore.format.Hex);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(272) /* module_272 */,
     require(273) /* HmacMD5 */,
     require(234) /* module_234 */,
-    require(98) /* module_98 */,
+    require(98) /* CryptoJSCipherBase */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib.BlockCipher,
         n = e.algo,
         i = [],
@@ -55524,9 +55710,14 @@ function (exports, module, require) {
       !(function () {
         for (var e = [], t = 0; t < 256; t++) e[t] = t < 128 ? t << 1 : (t << 1) ^ 283;
         var n = 0,
-          o = 0;
+          CryptoJSCore = 0;
         for (t = 0; t < 256; t++) {
-          var h = o ^ (o << 1) ^ (o << 2) ^ (o << 3) ^ (o << 4);
+          var h =
+            CryptoJSCore ^
+            (CryptoJSCore << 1) ^
+            (CryptoJSCore << 2) ^
+            (CryptoJSCore << 3) ^
+            (CryptoJSCore << 4);
           ((h = (h >>> 8) ^ (255 & h) ^ 99), (i[n] = h), (a[h] = n));
           var f = e[n],
             m = e[f],
@@ -55541,7 +55732,9 @@ function (exports, module, require) {
             (u[h] = (v << 16) | (v >>> 16)),
             (p[h] = (v << 8) | (v >>> 24)),
             (g[h] = v),
-            n ? ((n = f ^ e[e[e[y ^ f]]]), (o ^= e[e[o]])) : (n = o = 1));
+            n
+              ? ((n = f ^ e[e[e[y ^ f]]]), (CryptoJSCore ^= e[e[CryptoJSCore]]))
+              : (n = CryptoJSCore = 1));
         }
       })();
       var h = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54],
@@ -55552,10 +55745,10 @@ function (exports, module, require) {
                 var e = (this._keyPriorReset = this._key),
                   t = e.words,
                   n = e.sigBytes / 4,
-                  o = 4 * ((this._nRounds = n + 6) + 1),
+                  CryptoJSCore = 4 * ((this._nRounds = n + 6) + 1),
                   a = (this._keySchedule = []),
                   r = 0;
-                r < o;
+                r < CryptoJSCore;
                 r++
               )
                 if (r < n) a[r] = t[r];
@@ -55577,8 +55770,8 @@ function (exports, module, require) {
                       (s ^= h[(r / n) | 0] << 24)),
                     (a[r] = a[r - n] ^ s));
                 }
-              for (var l = (this._invKeySchedule = []), c = 0; c < o; c++)
-                ((r = o - c),
+              for (var l = (this._invKeySchedule = []), c = 0; c < CryptoJSCore; c++)
+                ((r = CryptoJSCore - c),
                   (s = c % 4 ? a[r] : a[r - 4]),
                   (l[c] =
                     c < 4 || r <= 4
@@ -55601,7 +55794,7 @@ function (exports, module, require) {
               (e[t + 1] = e[t + 3]),
               (e[t + 3] = n));
           },
-          _doCryptBlock: function (e, t, n, o, i, a, r, s) {
+          _doCryptBlock: function (e, t, n, CryptoJSCore, i, a, r, s) {
             for (
               var l = this._nRounds,
                 c = e[t] ^ n[0],
@@ -55613,10 +55806,30 @@ function (exports, module, require) {
               h < l;
               h++
             ) {
-              var f = o[c >>> 24] ^ i[(d >>> 16) & 255] ^ a[(u >>> 8) & 255] ^ r[255 & p] ^ n[g++],
-                m = o[d >>> 24] ^ i[(u >>> 16) & 255] ^ a[(p >>> 8) & 255] ^ r[255 & c] ^ n[g++],
-                y = o[u >>> 24] ^ i[(p >>> 16) & 255] ^ a[(c >>> 8) & 255] ^ r[255 & d] ^ n[g++],
-                v = o[p >>> 24] ^ i[(c >>> 16) & 255] ^ a[(d >>> 8) & 255] ^ r[255 & u] ^ n[g++];
+              var f =
+                  CryptoJSCore[c >>> 24] ^
+                  i[(d >>> 16) & 255] ^
+                  a[(u >>> 8) & 255] ^
+                  r[255 & p] ^
+                  n[g++],
+                m =
+                  CryptoJSCore[d >>> 24] ^
+                  i[(u >>> 16) & 255] ^
+                  a[(p >>> 8) & 255] ^
+                  r[255 & c] ^
+                  n[g++],
+                y =
+                  CryptoJSCore[u >>> 24] ^
+                  i[(p >>> 16) & 255] ^
+                  a[(c >>> 8) & 255] ^
+                  r[255 & d] ^
+                  n[g++],
+                v =
+                  CryptoJSCore[p >>> 24] ^
+                  i[(c >>> 16) & 255] ^
+                  a[(d >>> 8) & 255] ^
+                  r[255 & u] ^
+                  n[g++];
               ((c = f), (d = m), (u = y), (p = v));
             }
             ((f =
@@ -55652,19 +55865,19 @@ function (exports, module, require) {
         }));
       e.AES = t._createHelper(f);
     })(),
-    o.AES);
+    CryptoJSCore.AES);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(272) /* module_272 */,
     require(273) /* HmacMD5 */,
     require(234) /* module_234 */,
-    require(98) /* module_98 */,
+    require(98) /* CryptoJSCipherBase */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib,
         n = t.WordArray,
         i = t.BlockCipher,
@@ -56214,8 +56427,8 @@ function (exports, module, require) {
         u = (a.DES = i.extend({
           _doReset: function () {
             for (var e = this._key.words, t = [], n = 0; n < 56; n++) {
-              var o = r[n] - 1;
-              t[n] = (e[o >>> 5] >>> (31 - (o % 32))) & 1;
+              var CryptoJSCore = r[n] - 1;
+              t[n] = (e[CryptoJSCore >>> 5] >>> (31 - (CryptoJSCore % 32))) & 1;
             }
             for (var i = (this._subKeys = []), a = 0; a < 16; a++) {
               var c = (i[a] = []),
@@ -56244,8 +56457,12 @@ function (exports, module, require) {
               g.call(this, 2, 858993459),
               g.call(this, 8, 16711935),
               p.call(this, 1, 1431655765));
-            for (var o = 0; o < 16; o++) {
-              for (var i = n[o], a = this._lBlock, r = this._rBlock, s = 0, l = 0; l < 8; l++)
+            for (var CryptoJSCore = 0; CryptoJSCore < 16; CryptoJSCore++) {
+              for (
+                var i = n[CryptoJSCore], a = this._lBlock, r = this._rBlock, s = 0, l = 0;
+                l < 8;
+                l++
+              )
                 s |= c[l][((r ^ i[l]) & d[l]) >>> 0];
               ((this._lBlock = r), (this._rBlock = a ^ s));
             }
@@ -56296,36 +56513,36 @@ function (exports, module, require) {
       }));
       e.TripleDES = i._createHelper(h);
     })(),
-    o.TripleDES);
+    CryptoJSCore.TripleDES);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(272) /* module_272 */,
     require(273) /* HmacMD5 */,
     require(234) /* module_234 */,
-    require(98) /* module_98 */,
+    require(98) /* CryptoJSCipherBase */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib.StreamCipher,
         n = e.algo,
         i = (n.RC4 = t.extend({
           _doReset: function () {
             for (
-              var e = this._key, t = e.words, n = e.sigBytes, o = (this._S = []), i = 0;
+              var e = this._key, t = e.words, n = e.sigBytes, CryptoJSCore = (this._S = []), i = 0;
               i < 256;
               i++
             )
-              o[i] = i;
+              CryptoJSCore[i] = i;
             i = 0;
             for (var a = 0; i < 256; i++) {
               var r = i % n,
                 s = (t[r >>> 2] >>> (24 - (r % 4) * 8)) & 255;
-              a = (a + o[i] + s) % 256;
-              var l = o[i];
-              ((o[i] = o[a]), (o[a] = l));
+              a = (a + CryptoJSCore[i] + s) % 256;
+              var l = CryptoJSCore[i];
+              ((CryptoJSCore[i] = CryptoJSCore[a]), (CryptoJSCore[a] = l));
             }
             this._i = this._j = 0;
           },
@@ -56336,12 +56553,12 @@ function (exports, module, require) {
           ivSize: 0,
         }));
       function a() {
-        for (var e = this._S, t = this._i, n = this._j, o = 0, i = 0; i < 4; i++) {
+        for (var e = this._S, t = this._i, n = this._j, CryptoJSCore = 0, i = 0; i < 4; i++) {
           n = (n + e[(t = (t + 1) % 256)]) % 256;
           var a = e[t];
-          ((e[t] = e[n]), (e[n] = a), (o |= e[(e[t] + e[n]) % 256] << (24 - 8 * i)));
+          ((e[t] = e[n]), (e[n] = a), (CryptoJSCore |= e[(e[t] + e[n]) % 256] << (24 - 8 * i)));
         }
-        return ((this._i = t), (this._j = n), o);
+        return ((this._i = t), (this._j = n), CryptoJSCore);
       }
       e.RC4 = t._createHelper(i);
       var r = (n.RC4Drop = i.extend({
@@ -56353,19 +56570,19 @@ function (exports, module, require) {
       }));
       e.RC4Drop = t._createHelper(r);
     })(),
-    o.RC4);
+    CryptoJSCore.RC4);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(272) /* module_272 */,
     require(273) /* HmacMD5 */,
     require(234) /* module_234 */,
-    require(98) /* module_98 */,
+    require(98) /* CryptoJSCipherBase */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib.StreamCipher,
         n = e.algo,
         i = [],
@@ -56377,7 +56594,7 @@ function (exports, module, require) {
               e[n] =
                 (16711935 & ((e[n] << 8) | (e[n] >>> 24))) |
                 (4278255360 & ((e[n] << 24) | (e[n] >>> 8)));
-            var o = (this._X = [
+            var CryptoJSCore = (this._X = [
                 e[0],
                 (e[3] << 16) | (e[2] >>> 16),
                 e[1],
@@ -56398,7 +56615,7 @@ function (exports, module, require) {
                 (4294901760 & e[3]) | (65535 & e[0]),
               ]);
             for (this._b = 0, n = 0; n < 4; n++) l.call(this);
-            for (n = 0; n < 8; n++) i[n] ^= o[(n + 4) & 7];
+            for (n = 0; n < 8; n++) i[n] ^= CryptoJSCore[(n + 4) & 7];
             if (t) {
               var a = t.words,
                 r = a[0],
@@ -56430,11 +56647,11 @@ function (exports, module, require) {
               (i[1] = n[2] ^ (n[7] >>> 16) ^ (n[5] << 16)),
               (i[2] = n[4] ^ (n[1] >>> 16) ^ (n[7] << 16)),
               (i[3] = n[6] ^ (n[3] >>> 16) ^ (n[1] << 16)));
-            for (var o = 0; o < 4; o++)
-              ((i[o] =
-                (16711935 & ((i[o] << 8) | (i[o] >>> 24))) |
-                (4278255360 & ((i[o] << 24) | (i[o] >>> 8)))),
-                (e[t + o] ^= i[o]));
+            for (var CryptoJSCore = 0; CryptoJSCore < 4; CryptoJSCore++)
+              ((i[CryptoJSCore] =
+                (16711935 & ((i[CryptoJSCore] << 8) | (i[CryptoJSCore] >>> 24))) |
+                (4278255360 & ((i[CryptoJSCore] << 24) | (i[CryptoJSCore] >>> 8)))),
+                (e[t + CryptoJSCore] ^= i[CryptoJSCore]));
           },
           blockSize: 4,
           ivSize: 2,
@@ -56455,11 +56672,13 @@ function (exports, module, require) {
           n < 8;
           n++
         ) {
-          var o = e[n] + t[n],
-            i = 65535 & o,
-            s = o >>> 16,
+          var CryptoJSCore = e[n] + t[n],
+            i = 65535 & CryptoJSCore,
+            s = CryptoJSCore >>> 16,
             l = ((((i * i) >>> 17) + i * s) >>> 15) + s * s,
-            c = (((4294901760 & o) * o) | 0) + (((65535 & o) * o) | 0);
+            c =
+              (((4294901760 & CryptoJSCore) * CryptoJSCore) | 0) +
+              (((65535 & CryptoJSCore) * CryptoJSCore) | 0);
           r[n] = l ^ c;
         }
         ((e[0] = (r[0] + ((r[7] << 16) | (r[7] >>> 16)) + ((r[6] << 16) | (r[6] >>> 16))) | 0),
@@ -56473,19 +56692,19 @@ function (exports, module, require) {
       }
       e.Rabbit = t._createHelper(s);
     })(),
-    o.Rabbit);
+    CryptoJSCore.Rabbit);
 }
 ,
 function (exports, module, require) {
-  var o;
+  var CryptoJSCore;
   exports.exports =
-    ((o = require(55)) /* module_55 */,
+    ((CryptoJSCore = require(55)) /* CryptoJSCore */,
     require(272) /* module_272 */,
     require(273) /* HmacMD5 */,
     require(234) /* module_234 */,
-    require(98) /* module_98 */,
+    require(98) /* CryptoJSCipherBase */,
     (function () {
-      var e = o,
+      var e = CryptoJSCore,
         t = e.lib.StreamCipher,
         n = e.algo,
         i = [],
@@ -56505,7 +56724,7 @@ function (exports, module, require) {
                 e[3],
                 (e[2] << 16) | (e[1] >>> 16),
               ]),
-              o = (this._C = [
+              CryptoJSCore = (this._C = [
                 (e[2] << 16) | (e[2] >>> 16),
                 (4294901760 & e[0]) | (65535 & e[1]),
                 (e[3] << 16) | (e[3] >>> 16),
@@ -56517,7 +56736,7 @@ function (exports, module, require) {
               ]);
             this._b = 0;
             for (var i = 0; i < 4; i++) l.call(this);
-            for (i = 0; i < 8; i++) o[i] ^= n[(i + 4) & 7];
+            for (i = 0; i < 8; i++) CryptoJSCore[i] ^= n[(i + 4) & 7];
             if (t) {
               var a = t.words,
                 r = a[0],
@@ -56527,14 +56746,14 @@ function (exports, module, require) {
                 u = (c >>> 16) | (4294901760 & d),
                 p = (d << 16) | (65535 & c);
               for (
-                o[0] ^= c,
-                  o[1] ^= u,
-                  o[2] ^= d,
-                  o[3] ^= p,
-                  o[4] ^= c,
-                  o[5] ^= u,
-                  o[6] ^= d,
-                  o[7] ^= p,
+                CryptoJSCore[0] ^= c,
+                  CryptoJSCore[1] ^= u,
+                  CryptoJSCore[2] ^= d,
+                  CryptoJSCore[3] ^= p,
+                  CryptoJSCore[4] ^= c,
+                  CryptoJSCore[5] ^= u,
+                  CryptoJSCore[6] ^= d,
+                  CryptoJSCore[7] ^= p,
                   i = 0;
                 i < 4;
                 i++
@@ -56549,11 +56768,11 @@ function (exports, module, require) {
               (i[1] = n[2] ^ (n[7] >>> 16) ^ (n[5] << 16)),
               (i[2] = n[4] ^ (n[1] >>> 16) ^ (n[7] << 16)),
               (i[3] = n[6] ^ (n[3] >>> 16) ^ (n[1] << 16)));
-            for (var o = 0; o < 4; o++)
-              ((i[o] =
-                (16711935 & ((i[o] << 8) | (i[o] >>> 24))) |
-                (4278255360 & ((i[o] << 24) | (i[o] >>> 8)))),
-                (e[t + o] ^= i[o]));
+            for (var CryptoJSCore = 0; CryptoJSCore < 4; CryptoJSCore++)
+              ((i[CryptoJSCore] =
+                (16711935 & ((i[CryptoJSCore] << 8) | (i[CryptoJSCore] >>> 24))) |
+                (4278255360 & ((i[CryptoJSCore] << 24) | (i[CryptoJSCore] >>> 8)))),
+                (e[t + CryptoJSCore] ^= i[CryptoJSCore]));
           },
           blockSize: 4,
           ivSize: 2,
@@ -56574,11 +56793,13 @@ function (exports, module, require) {
           n < 8;
           n++
         ) {
-          var o = e[n] + t[n],
-            i = 65535 & o,
-            s = o >>> 16,
+          var CryptoJSCore = e[n] + t[n],
+            i = 65535 & CryptoJSCore,
+            s = CryptoJSCore >>> 16,
             l = ((((i * i) >>> 17) + i * s) >>> 15) + s * s,
-            c = (((4294901760 & o) * o) | 0) + (((65535 & o) * o) | 0);
+            c =
+              (((4294901760 & CryptoJSCore) * CryptoJSCore) | 0) +
+              (((65535 & CryptoJSCore) * CryptoJSCore) | 0);
           r[n] = l ^ c;
         }
         ((e[0] = (r[0] + ((r[7] << 16) | (r[7] >>> 16)) + ((r[6] << 16) | (r[6] >>> 16))) | 0),
@@ -56592,7 +56813,7 @@ function (exports, module, require) {
       }
       e.RabbitLegacy = t._createHelper(s);
     })(),
-    o.RabbitLegacy);
+    CryptoJSCore.RabbitLegacy);
 }
 ,
 function (exports, module, require) {
@@ -56914,18 +57135,18 @@ function (exports, module, require) {
   (Object.defineProperty(module, '__esModule', { value: true }),
     (module.default = undefined),
     require(8)) /* polyfill_bundle_ES6 */;
-  const o = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     i = require(220) /* Item */,
-    a = require(556); /* Item */
+    GGoogleDriveItem = require(556); /* GGoogleDriveItem */
   function r() {}
   r.createStorageItem = async function (e) {
     let module = null;
     switch (e.storage) {
-      case o.Storage.Gravit:
+      case GCloudStorageItem.Storage.Gravit:
         module = await i.from(gDesigner.getDefaultStorage(), e);
         break;
-      case o.Storage.GoogleDrive:
-        module = await new a.Item(gDesigner.getDefaultStorage(), e);
+      case GCloudStorageItem.Storage.GoogleDrive:
+        module = await new GGoogleDriveItem.Item(gDesigner.getDefaultStorage(), e);
     }
     return module;
   };
@@ -56955,23 +57176,23 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(4) /* stub_requires_668 */, require(13)) /* stub_requires_679 */;
-  const o = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     AppSettings = require(10); /* AppSettings */
   exports.exports = class {
     static createFrom(e) {
       let module = false;
-      e instanceof o && (module = true);
-      var n = o.from(e);
-      (n.setItemType(o.Type.File),
+      e instanceof GCloudStorageItem && (module = true);
+      var n = GCloudStorageItem.from(e);
+      (n.setItemType(GCloudStorageItem.Type.File),
         module ||
           n.setPermissions([
-            o.Permission.Open,
-            o.Permission.Copy,
-            o.Permission.Editing,
-            o.Permission.Rename,
-            o.Permission.CutPaste,
-            o.Permission.Delete,
-            o.Permission.Download,
+            GCloudStorageItem.Permission.Open,
+            GCloudStorageItem.Permission.Copy,
+            GCloudStorageItem.Permission.Editing,
+            GCloudStorageItem.Permission.Rename,
+            GCloudStorageItem.Permission.CutPaste,
+            GCloudStorageItem.Permission.Delete,
+            GCloudStorageItem.Permission.Download,
           ]),
         n.autosave
           ? (n.setPreviewURL(n.autosave_url_t), n.setModificationTime(e.autosave_updated))
@@ -56987,7 +57208,7 @@ function (exports, module, require) {
         n.setMimeType(a.type),
         (n.ext = a.ext),
         (n.extension = a.ext),
-        (n.storage = o.Storage.Gravit),
+        (n.storage = GCloudStorageItem.Storage.Gravit),
         n
       );
     }
@@ -57010,7 +57231,7 @@ function (exports, module, require) {
     AppSettings2 = require(10); /* AppSettings */
   const GContainer = require(85) /* GContainer */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    l = require(177); /* module_177 */
+    GUserModel = require(177); /* GUserModel */
   function c(e) {
     let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : c.Forms.SignIn;
     ((this._callback = e), this._init(module));
@@ -57090,7 +57311,7 @@ function (exports, module, require) {
               AppSettings.gApi
                 .getUser()
                 .then((e) => {
-                  (this.close(), this._callback(new l(e)));
+                  (this.close(), this._callback(new GUserModel(e)));
                 })
                 .catch((e) => this._handlerError(e, u));
             })
@@ -57360,7 +57581,7 @@ function (exports, module, require) {
               AppSettings.gApi
                 .getUser()
                 .then((e) => {
-                  ((e = new l(e)),
+                  ((e = new GUserModel(e)),
                     this._buildThanksSignup(e),
                     this._activatePanel(c.Forms.Thanks),
                     this._callback(e));
@@ -57614,13 +57835,13 @@ function (exports, module, require) {
         .append($('<span></span>'))
         .appendTo(require);
       const GSystemDialog = this._createMessageHandler(AppSettings2);
-      let l = $('<form></form>').attr('id', 'reset-password-form').appendTo(require);
+      let GUserModel = $('<form></form>').attr('id', 'reset-password-form').appendTo(require);
       return (
-        l.on('submit', (e) => {
+        GUserModel.on('submit', (e) => {
           (gDesigner.stats('login-signup_forgot-password_send-request'),
             GSystemDialog(''),
             e.preventDefault());
-          const module = l.find('input[data-property="email"]').val(),
+          const module = GUserModel.find('input[data-property="email"]').val(),
             require = location.href;
           let GCore, AppSettings2;
           if (gContainer.getRuntime() === GContainer.Runtime.Electron) {
@@ -57646,7 +57867,7 @@ function (exports, module, require) {
         $('<label>')
           .addClass('label')
           .text(GCore.GLocale.get(new GCore.GLocaleKey('GLoginDialog', 'text.sign-in-login')))
-          .appendTo(l),
+          .appendTo(GUserModel),
         $('<input>')
           .attr('type', 'email')
           .attr('data-property', 'email')
@@ -57658,7 +57879,7 @@ function (exports, module, require) {
               new GCore.GLocaleKey('GLoginDialog', 'text.placeholder-reset-password-email')
             )
           )
-          .appendTo(l),
+          .appendTo(GUserModel),
         $('<div>')
           .addClass('login-button-row')
           .append(
@@ -57683,7 +57904,7 @@ function (exports, module, require) {
                 )
               )
           )
-          .appendTo(l),
+          .appendTo(GUserModel),
         exports
       );
     }),
@@ -57920,14 +58141,14 @@ function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
   var GCore = require(1) /* module */,
-    i = require(119); /* module_119 */
+    GCloudStorage = require(119); /* GCloudStorage */
   exports.exports = function (e) {
-    ((e.CommercialProduct = function (t, n, GCore, i) {
-      e.Item.call(this, t, n, GCore, i);
+    ((e.CommercialProduct = function (t, n, GCore, GCloudStorage) {
+      e.Item.call(this, t, n, GCore, GCloudStorage);
     }),
       GCore.GObject.inherit(e.CommercialProduct, e.Item),
       (e.CommercialProduct.prototype.read = function (e, t, n) {
-        i.loadDesignData(this._id, false)
+        GCloudStorage.loadDesignData(this._id, false)
           .then((t) => {
             e(t.data);
           })
@@ -62134,7 +62355,7 @@ function (exports, module, require) {
               e._onTimeout && e._onTimeout();
             }, t));
         }),
-      require(1116) /* module_1116 */,
+      require(1116) /* SetImmediatePolyfill */,
       (module.setImmediate =
         ('undefined' != typeof self && self.setImmediate) ||
         (undefined !== e && e.setImmediate) ||
@@ -62408,8 +62629,8 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* module */,
     i = require(381) /* module_381 */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
-    r = require(1198) /* module_1198 */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
+    GFontDBClient = require(1198) /* GFontDBClient */,
     GSystemDialog = require(44); /* GSystemDialog */
   function l(e) {
     i.call(this, e);
@@ -62449,7 +62670,7 @@ function (exports, module, require) {
               }),
                 d.addEventListener('mouseup', (e) => {
                   (e.stopPropagation(), e.preventDefault());
-                  var t = barrel_sidebars.getInstance(),
+                  var t = GFontsProviderManager.getInstance(),
                     n = (e, GSystemDialog) => {
                       var l = this.fonts;
                       if (GSystemDialog >= l.length) {
@@ -62471,7 +62692,7 @@ function (exports, module, require) {
                           i._totalFonts--,
                           e
                             .updateItem(
-                              r.FONT_LIST,
+                              GFontDBClient.FONT_LIST,
                               i._fontList.map(function (e) {
                                 return {
                                   family: e.family,
@@ -62498,7 +62719,7 @@ function (exports, module, require) {
                                     .getWorkspace()
                                     .getFontManager()
                                     .removeFont(this.families[i]);
-                              (barrel_sidebars.getInstance().reset(),
+                              (GFontsProviderManager.getInstance().reset(),
                                 t && t.setShowMissingFontsDialog(true),
                                 console.log('successfully updated font list'),
                                 this._queue &&
@@ -62521,7 +62742,7 @@ function (exports, module, require) {
                       e &&
                         (this._queue || (this._queue = []),
                         this._queue.push(() => {
-                          r.getInstance((e) => {
+                          GFontDBClient.getInstance((e) => {
                             e && (t && t.setShowMissingFontsDialog(false), n(e, 0));
                           });
                         }),
@@ -62536,7 +62757,7 @@ function (exports, module, require) {
                   break;
                 }
               (u
-                ? r.getInstance((e) => {
+                ? GFontDBClient.getInstance((e) => {
                     if (e) {
                       var t = this.fonts[0];
                       if (t) {
@@ -62622,9 +62843,9 @@ function (exports, module, require) {
               true,
               null
             )
-          : r.getInstance((i) => {
+          : GFontDBClient.getInstance((i) => {
               if (!i) return GCore.fail();
-              i.getItem(r.FONT_LIST).done((i) => {
+              i.getItem(GFontDBClient.FONT_LIST).done((i) => {
                 ((this._fontList = i || []),
                   this._generateFormattedList(),
                   (this._totalFonts = this._formattedFontList ? this._formattedFontList.length : 0),
@@ -62665,38 +62886,39 @@ function (exports, module, require) {
                 displayname: require.displayname || null,
               },
             ],
-            barrel_sidebars = [require.family];
+            GFontsProviderManager = [require.family];
           this._formattedFontList.push({
             family: null,
             displayname: GCore,
             fonts: i,
-            families: barrel_sidebars,
+            families: GFontsProviderManager,
           });
-          for (var r = exports.length - 1; r > module; r--)
-            GCore === (exports[r].displayname || exports[r].family) &&
-              (barrel_sidebars.indexOf(exports[r].family) < 0 &&
-                barrel_sidebars.push(exports[r].family),
+          for (var GFontDBClient = exports.length - 1; GFontDBClient > module; GFontDBClient--)
+            GCore === (exports[GFontDBClient].displayname || exports[GFontDBClient].family) &&
+              (GFontsProviderManager.indexOf(exports[GFontDBClient].family) < 0 &&
+                GFontsProviderManager.push(exports[GFontDBClient].family),
               i.push({
-                weight: parseInt(exports[r].weight),
-                style: exports[r].style,
-                family: exports[r].family,
-                subfamily: exports[r].subfamily || null,
-                displayname: exports[r].displayname || null,
+                weight: parseInt(exports[GFontDBClient].weight),
+                style: exports[GFontDBClient].style,
+                family: exports[GFontDBClient].family,
+                subfamily: exports[GFontDBClient].subfamily || null,
+                displayname: exports[GFontDBClient].displayname || null,
               }),
-              exports.splice(r, 1));
+              exports.splice(GFontDBClient, 1));
           var GSystemDialog = 0,
-            l = barrel_sidebars[0].length;
+            l = GFontsProviderManager[0].length;
           if (l > 0)
-            for (r = 1; r < barrel_sidebars.length; r++) {
-              if (barrel_sidebars[r].toLowerCase().indexOf('regular') >= 0) {
-                ((l = 0), (GSystemDialog = r));
+            for (GFontDBClient = 1; GFontDBClient < GFontsProviderManager.length; GFontDBClient++) {
+              if (GFontsProviderManager[GFontDBClient].toLowerCase().indexOf('regular') >= 0) {
+                ((l = 0), (GSystemDialog = GFontDBClient));
                 break;
               }
-              l > barrel_sidebars[r].length &&
-                ((l = barrel_sidebars[r].length), (GSystemDialog = r));
+              l > GFontsProviderManager[GFontDBClient].length &&
+                ((l = GFontsProviderManager[GFontDBClient].length),
+                (GSystemDialog = GFontDBClient));
             }
           this._formattedFontList[this._formattedFontList.length - 1].family =
-            barrel_sidebars[GSystemDialog];
+            GFontsProviderManager[GSystemDialog];
         }
       } else this._formattedFontList = null;
     }),
@@ -62736,11 +62958,16 @@ function (exports, module, require) {
         );
       else {
         ((n = String(n) || '400'), (t = t || GCore.GFont.Style.Normal));
-        var barrel_sidebars = e + '_' + n + '_' + t;
-        r.getInstance((GCore) => {
+        var GFontsProviderManager = e + '_' + n + '_' + t;
+        GFontDBClient.getInstance((GCore) => {
           if (!GCore) return i.fail();
-          GCore.getItem(barrel_sidebars).done((r) => {
-            if (r) i.done(r instanceof DataView || r instanceof ArrayBuffer ? r : r.buffer);
+          GCore.getItem(GFontsProviderManager).done((GFontDBClient) => {
+            if (GFontDBClient)
+              i.done(
+                GFontDBClient instanceof DataView || GFontDBClient instanceof ArrayBuffer
+                  ? GFontDBClient
+                  : GFontDBClient.buffer
+              );
             else {
               if (!this._fontList) return (console.warn('NO FONTLIST'), void i.fail());
               var GSystemDialog = this._fontList.findIndex(function (n) {
@@ -62753,8 +62980,8 @@ function (exports, module, require) {
               });
               GSystemDialog >= 0
                 ? ((n = this._fontList[GSystemDialog].weight || '400'),
-                  (barrel_sidebars = e + '_' + n + '_' + t),
-                  GCore.getItem(barrel_sidebars).done((e) => {
+                  (GFontsProviderManager = e + '_' + n + '_' + t),
+                  GCore.getItem(GFontsProviderManager).done((e) => {
                     e
                       ? i.done(e instanceof DataView || e instanceof ArrayBuffer ? e : e.buffer)
                       : i.fail();
@@ -62821,7 +63048,7 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     s = require(67) /* GRichTooltipConfig */,
     GSwatchesChangedEvent = require(1151) /* GSwatchesChangedEvent */,
-    c = require(857) /* module_857 */,
+    GInputSliderWidget = require(857) /* GInputSliderWidget */,
     GSystemDialog = require(44); /* GSystemDialog */
   function u() {
     (this.initLayout(), this._container.gOverlay({ releaseOnClose: false, padding: false }));
@@ -63083,7 +63310,7 @@ function (exports, module, require) {
         )
         .appendTo(s)),
         (this._opacitySlider = $('<div/>')
-          .gInputSlider(c.prototype.OPACITY_DEFAULT)
+          .gInputSlider(GInputSliderWidget.prototype.OPACITY_DEFAULT)
           .css('box-sizing', 'border-box')
           .on(
             'input',
@@ -64032,7 +64259,7 @@ function (exports, module, require) {
         (GSwatchesChangedEvent = GTools
           ? $('<div/>').addClass('swatches').appendTo(t)
           : this._findOrCreateLastSwitchContiner(t));
-      var c = function (e) {
+      var GInputSliderWidget = function (e) {
           if (!u.canDragSwatch) return (e.preventDefault(), void e.stopPropagation());
           var t = $(e.target).closest('.swatch'),
             n = t.offset(),
@@ -64053,11 +64280,14 @@ function (exports, module, require) {
             a = GTools.offset().top,
             CollaborationMergeUtils = GTools.offset().left,
             s = CollaborationMergeUtils + GTools.width(),
-            c = a + GTools.height(),
+            GInputSliderWidget = a + GTools.height(),
             GSystemDialog = t.pageX,
             p = t.pageY;
           if (
-            ((GSystemDialog > s || GSystemDialog < CollaborationMergeUtils || p > c || p < a) &&
+            ((GSystemDialog > s ||
+              GSystemDialog < CollaborationMergeUtils ||
+              p > GInputSliderWidget ||
+              p < a) &&
               (n = true),
             u.dragSwatch && n)
           ) {
@@ -64124,18 +64354,18 @@ function (exports, module, require) {
                     var GSwatchesChangedEvent = $(
                         '.fill-properties-panel .g-pattern-chooser .preview'
                       ),
-                      c = 0;
-                    c < GSwatchesChangedEvent.length;
-                    ++c
+                      GInputSliderWidget = 0;
+                    GInputSliderWidget < GSwatchesChangedEvent.length;
+                    ++GInputSliderWidget
                   )
                     if (
-                      $(GSwatchesChangedEvent[c]).data('gpatterntarget') &&
+                      $(GSwatchesChangedEvent[GInputSliderWidget]).data('gpatterntarget') &&
                       GCore.GUtil.equals(
-                        $(GSwatchesChangedEvent[c]).data('gpatterntarget').pattern,
+                        $(GSwatchesChangedEvent[GInputSliderWidget]).data('gpatterntarget').pattern,
                         n
                       )
                     ) {
-                      $(GSwatchesChangedEvent[c]).trigger('click');
+                      $(GSwatchesChangedEvent[GInputSliderWidget]).trigger('click');
                       break;
                     }
                 }
@@ -64162,7 +64392,7 @@ function (exports, module, require) {
             .on('dragleave', function () {
               $(this).removeClass('g-drop');
             })
-            .on('dragstart', c)
+            .on('dragstart', GInputSliderWidget)
             .on('dragend', GSystemDialog)
             .on('dragover', function (e) {
               e.preventDefault();
@@ -64185,10 +64415,14 @@ function (exports, module, require) {
                     CollaborationMergeUtils = -1,
                     s = -1;
                   if (t && a && n) {
-                    for (var c = 0; c < a.length; ++c)
-                      GCore.GUtil.equals(t, a[c])
-                        ? (CollaborationMergeUtils = c)
-                        : GCore.GUtil.equals(n, a[c]) && (s = c);
+                    for (
+                      var GInputSliderWidget = 0;
+                      GInputSliderWidget < a.length;
+                      ++GInputSliderWidget
+                    )
+                      GCore.GUtil.equals(t, a[GInputSliderWidget])
+                        ? (CollaborationMergeUtils = GInputSliderWidget)
+                        : GCore.GUtil.equals(n, a[GInputSliderWidget]) && (s = GInputSliderWidget);
                     (CollaborationMergeUtils > -1 &&
                       s > -1 &&
                       ((a = a.slice()).splice(CollaborationMergeUtils, 1), a.splice(s, 0, t)),
@@ -64255,8 +64489,8 @@ function (exports, module, require) {
         ],
         GSwatchesChangedEvent = [];
       for (let n = -1; n < GSwatchesChangedEvent.length; ++n) {
-        var c = e;
-        t.isTouchEnabled || (c = $('<div/>').addClass('swatches').appendTo(e));
+        var GInputSliderWidget = e;
+        t.isTouchEnabled || (GInputSliderWidget = $('<div/>').addClass('swatches').appendTo(e));
         var GSystemDialog = null,
           u = 0;
         n >= 0 &&
@@ -64264,7 +64498,7 @@ function (exports, module, require) {
         for (let e = 0; e < s.length; ++e) {
           var p = s[e],
             g = GSystemDialog ? GCore.GRGBColor.blend(p, GSystemDialog, u) : p;
-          this._createPaletteSwatch(new GCore.GRGBColor(g), c, false, false);
+          this._createPaletteSwatch(new GCore.GRGBColor(g), GInputSliderWidget, false, false);
         }
       }
     }),
@@ -64335,7 +64569,9 @@ function (exports, module, require) {
           GSwatchesChangedEvent = this._palettes.find(
             '.mixer-palette [data-container="shades"] .swatch'
           ),
-          c = this._palettes.find('.mixer-palette [data-container="tones"] .swatch'),
+          GInputSliderWidget = this._palettes.find(
+            '.mixer-palette [data-container="tones"] .swatch'
+          ),
           GSystemDialog = this._palettes.find('.mixer-palette [data-container="mixes"] .swatch'),
           u = 0;
         u < e.maxCount;
@@ -64352,7 +64588,11 @@ function (exports, module, require) {
             GSwatchesChangedEvent,
             u
           ),
-          module(new GCore.GRGBColor(GCore.GRGBColor.blend(CollaborationMergeUtils, a, p)), c, u),
+          module(
+            new GCore.GRGBColor(GCore.GRGBColor.blend(CollaborationMergeUtils, a, p)),
+            GInputSliderWidget,
+            u
+          ),
           module(
             new GCore.GRGBColor(
               GCore.GRGBColor.blend(CollaborationMergeUtils, this._oldColor.toScreen(), p)
@@ -64473,7 +64713,7 @@ function (exports, module, require) {
         a[e].isCMYK() ? s.push(a[e]) : CollaborationMergeUtils.push(a[e]);
       CollaborationMergeUtils = CollaborationMergeUtils.concat(s);
       let GSwatchesChangedEvent = null;
-      var c = 1;
+      var GInputSliderWidget = 1;
       if (!t.isTouchEnabled && CollaborationMergeUtils.length)
         for (let e = 0; e < CollaborationMergeUtils.length; ++e)
           (GSwatchesChangedEvent ||
@@ -64484,7 +64724,8 @@ function (exports, module, require) {
               true,
               false
             ),
-            14 == ++c && ((c = 1), (GSwatchesChangedEvent = null)));
+            14 == ++GInputSliderWidget &&
+              ((GInputSliderWidget = 1), (GSwatchesChangedEvent = null)));
       if (
         (GSwatchesChangedEvent ||
           (GSwatchesChangedEvent = $('<div/>').addClass('swatches').appendTo(GTools)),
@@ -64820,7 +65061,7 @@ function (exports, module, require) {
             this._pattern instanceof GCore.GTexturePattern &&
             !(e instanceof GCore.GNoisePattern),
           GSwatchesChangedEvent = this._pattern && this._pattern instanceof GCore.GNoisePattern,
-          c = this._pattern && this._pattern instanceof GCore.GBackground;
+          GInputSliderWidget = this._pattern && this._pattern instanceof GCore.GBackground;
         (this._gradientEditor.css('display', a ? '' : 'none'),
           this._gradientActions.css('display', a ? '' : ' none'),
           this._colorEditor.css('display', CollaborationMergeUtils || a ? '' : 'none'),
@@ -64959,7 +65200,7 @@ function (exports, module, require) {
             this._updatePattern(t, 'texture_pattern');
           }
         }
-        (this._relayout(!c),
+        (this._relayout(!GInputSliderWidget),
           'set_pattern' !== t &&
             this._settings &&
             this._settings.onPattern &&
@@ -65159,11 +65400,15 @@ function (exports, module, require) {
       if (CollaborationMergeUtils) {
         for (var s = 0; s < t; ++s)
           for (var GSwatchesChangedEvent = 0; GSwatchesChangedEvent < n; ++GSwatchesChangedEvent) {
-            var c = GCore.GColor.hsvToRGB([parseInt(a), s / t, 1 - GSwatchesChangedEvent / n]),
+            var GInputSliderWidget = GCore.GColor.hsvToRGB([
+                parseInt(a),
+                s / t,
+                1 - GSwatchesChangedEvent / n,
+              ]),
               GSystemDialog = 4 * (GSwatchesChangedEvent * t + s);
-            ((CollaborationMergeUtils.data[GSystemDialog] = c[0]),
-              (CollaborationMergeUtils.data[GSystemDialog + 1] = c[1]),
-              (CollaborationMergeUtils.data[GSystemDialog + 2] = c[2]),
+            ((CollaborationMergeUtils.data[GSystemDialog] = GInputSliderWidget[0]),
+              (CollaborationMergeUtils.data[GSystemDialog + 1] = GInputSliderWidget[1]),
+              (CollaborationMergeUtils.data[GSystemDialog + 2] = GInputSliderWidget[2]),
               (CollaborationMergeUtils.data[GSystemDialog + 3] = 255));
           }
         GTools.putImageData(CollaborationMergeUtils, 0, 0);
@@ -65184,7 +65429,7 @@ function (exports, module, require) {
               CollaborationMergeUtils = a.width,
               s = a.height,
               GSwatchesChangedEvent = this._colorMap.offset(),
-              c = Math.max(
+              GInputSliderWidget = Math.max(
                 0,
                 Math.min(CollaborationMergeUtils, Math.round(require - GSwatchesChangedEvent.left))
               ),
@@ -65194,7 +65439,7 @@ function (exports, module, require) {
               );
             const p = [
               parseInt(this._colorSlider.gColorSlider('value')),
-              c / CollaborationMergeUtils,
+              GInputSliderWidget / CollaborationMergeUtils,
               1 - GSystemDialog / s,
             ];
             var g;
@@ -65202,7 +65447,7 @@ function (exports, module, require) {
               this._colorMode === u.ColorMode.HSV
                 ? new GCore.GHSVColor(p)
                 : new GCore.GRGBColor(GCore.GColor.hsvToRGB(p))),
-              this._setMarkerPosition(c, GSystemDialog),
+              this._setMarkerPosition(GInputSliderWidget, GSystemDialog),
               (this._extendedGamutInitiated = u.ExtendedGamut.MAP),
               this._updateColor(g, 'map', !t, t),
               (this._extendedGamutInitiated = null));
@@ -65233,20 +65478,21 @@ function (exports, module, require) {
         CollaborationMergeUtils = [],
         s = null,
         GSwatchesChangedEvent = null,
-        c = null,
+        GInputSliderWidget = null,
         GSystemDialog = null;
       for (let GTools = 0; GTools < t.length; ++GTools)
         n(t[GTools]) < e ? CollaborationMergeUtils.push(t[GTools]) : a.push(t[GTools]);
       for (let e = 0; e < CollaborationMergeUtils.length; ++e)
         s
-          ? n(CollaborationMergeUtils[e]) > c &&
-            ((s = CollaborationMergeUtils[e]), (c = n(CollaborationMergeUtils[e])))
-          : ((s = CollaborationMergeUtils[e]), (c = n(CollaborationMergeUtils[e])));
+          ? n(CollaborationMergeUtils[e]) > GInputSliderWidget &&
+            ((s = CollaborationMergeUtils[e]), (GInputSliderWidget = n(CollaborationMergeUtils[e])))
+          : ((s = CollaborationMergeUtils[e]),
+            (GInputSliderWidget = n(CollaborationMergeUtils[e])));
       for (let e = 0; e < a.length; ++e)
         GSwatchesChangedEvent
           ? n(a[e]) < GSystemDialog && ((GSwatchesChangedEvent = a[e]), (GSystemDialog = n(a[e])))
           : ((GSwatchesChangedEvent = a[e]), (GSystemDialog = n(a[e])));
-      var p = (100 * (e -= c)) / (GSystemDialog -= c) / 100;
+      var p = (100 * (e -= GInputSliderWidget)) / (GSystemDialog -= GInputSliderWidget) / 100;
       const g = (function (e, t, n) {
         var GTools = ((2 * n - 1) / 1 + 1) / 2,
           GCore = 1 - GTools;
@@ -65453,7 +65699,7 @@ function (exports, module, require) {
                   .css('margin-left', '5px')
                   .text(n.label));
               var GSwatchesChangedEvent = n.simplified,
-                c = e('<span />')
+                GInputSliderWidget = e('<span />')
                   .addClass('preview')
                   .data('gpatternchooser', { options: n, opacity: 1 })
                   .on(
@@ -65473,7 +65719,7 @@ function (exports, module, require) {
                         var s = a.data('gpatternchooser');
                         s.options.asButton && a.addClass('g-active');
                         var GSwatchesChangedEvent = e.extend({}, s.options),
-                          c = e.extend(GSwatchesChangedEvent, {
+                          GInputSliderWidget = e.extend(GSwatchesChangedEvent, {
                             onPattern: function (e, n, GCore) {
                               (t.value.call(GTools, e),
                                 a.trigger('patternchange', [
@@ -65501,7 +65747,7 @@ function (exports, module, require) {
                               );
                             },
                           });
-                        (window.gPatternChooser.open(a, c),
+                        (window.gPatternChooser.open(a, GInputSliderWidget),
                           window.gPatternChooser.setOpacity(t.opacity.call(GTools)),
                           window.gPatternChooser.setPattern(t.value.call(GTools)),
                           a.trigger('chooseropen'),
@@ -65528,7 +65774,7 @@ function (exports, module, require) {
                     })
                   );
               if (
-                (n.asButton && c.addClass('g-button'),
+                (n.asButton && GInputSliderWidget.addClass('g-button'),
                 a
                   .addClass(
                     GSwatchesChangedEvent ? 'g-pattern-chooser-simplified' : 'g-pattern-chooser'
@@ -65557,10 +65803,10 @@ function (exports, module, require) {
                       ),
                     })
                   );
-                c.append(GSystemDialog);
+                GInputSliderWidget.append(GSystemDialog);
               }
               (n.noEyedropper && a.addClass('only-picker'),
-                a.append(c).append(CollaborationMergeUtils));
+                a.append(GInputSliderWidget).append(CollaborationMergeUtils));
             })
           );
         },
@@ -65681,7 +65927,7 @@ function (exports, module, require) {
     p = require(336) /* module_336 */,
     g = require(436) /* module_436 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
-    f = require(156) /* module_156 */,
+    GCloudStorageItem = require(156) /* GCloudStorageItem */,
     m = 10,
     y = 50,
     v = 80,
@@ -65704,9 +65950,9 @@ function (exports, module, require) {
     }),
     (b.Item.prototype.setFile = function (e) {
       (e &&
-        ((e.storage = f.Storage.SharePoint),
+        ((e.storage = GCloudStorageItem.Storage.SharePoint),
         !e.relativeUrl &&
-          e instanceof f &&
+          e instanceof GCloudStorageItem &&
           (e.relativeUrl = e.parent && e.parent.relativeUrl + '/' + e.getNameWithExtension())),
         s.default.Item.prototype.setFile.call(this, e));
     }),
@@ -65830,7 +66076,7 @@ function (exports, module, require) {
         module = { relativeUrl: exports.relativeUrl };
       if (!module.relativeUrl) {
         const n = exports.getParent();
-        n instanceof f &&
+        n instanceof GCloudStorageItem &&
           (module.relativeUrl = ''
             .concat(n.relativeUrl, '/')
             .concat(exports.getNameWithExtension()));
@@ -65914,7 +66160,7 @@ function (exports, module, require) {
     }),
     (b.Item.prototype._updateFileWithCreatedResponse = function (e) {
       const module = SharepointException.default.convertFileToCloudItem(e);
-      ((module.settings = f.GCloudSettings.from(this._getClient().getSettings())),
+      ((module.settings = GCloudStorageItem.GCloudSettings.from(this._getClient().getSettings())),
         this.setFile(Object.assign(this.getFile(), module)));
     }),
     (b.Item.prototype._updateModificationTime = async function () {
@@ -65954,7 +66200,7 @@ function (exports, module, require) {
           const e = this.getFile(),
             module = this._getClient();
           let require = Object.assign(e, {
-            settings: f.GCloudSettings.from(module.getSettings()),
+            settings: GCloudStorageItem.GCloudSettings.from(module.getSettings()),
           });
           e.relativeUrl ||
             (e.relativeUrl = e.parent && e.parent.relativeUrl + '/' + e.getNameWithExtension());
@@ -67005,24 +67251,24 @@ function (exports, module, require) {
       const GCore = window.gContainer.getStorage();
       if (!GCore) return false;
       exports = exports || require.getExtension();
-      const i = ''.concat(require.getTitle() || 'Design', '.').concat(exports);
+      const JDataView = ''.concat(require.getTitle() || 'Design', '.').concat(exports);
       return (
-        GCore.download(i, (e) => {
+        GCore.download(JDataView, (e) => {
           require.store(e, console.log, console.error, module);
         }),
         true
       );
     }),
-    (module.downloadDataURI = function e(t, n, GCore, i) {
+    (module.downloadDataURI = function e(t, n, GCore, JDataView) {
       if (t instanceof Blob) {
         var a = new FileReader();
         ((a.onloadend = () => {
           r(a.result);
         }),
           a.readAsArrayBuffer(t));
-      } else 'string' == typeof t ? e(new Blob([t], i), n, GCore, i) : r(t);
+      } else 'string' == typeof t ? e(new Blob([t], JDataView), n, GCore, JDataView) : r(t);
       function r(e) {
-        gContainer.download({ buffer: e, name: n, extension: GCore, mime: i });
+        gContainer.download({ buffer: e, name: n, extension: GCore, mime: JDataView });
       }
     }),
     require(19) /* polyfill_Array_iterator */,
@@ -67037,7 +67283,7 @@ function (exports, module, require) {
     require(191) /* module_191 */,
     require(192)) /* module_192 */;
   var GCore = require(1) /* module */,
-    i = require(1210) /* module_1210 */,
+    JDataView = require(1210) /* JDataView */,
     a = /["\*\/:<>\?\\\|]/g,
     r = /[\0-\x1F\x80-\x9F]/g,
     s = /^\.+$/,
@@ -67069,11 +67315,12 @@ function (exports, module, require) {
       } catch (e) {
         t = '';
       }
-      for (var i = t.length, a = new Uint8Array(i), r = 0; r < i; ++r) a[r] = t.charCodeAt(r);
+      for (var JDataView = t.length, a = new Uint8Array(JDataView), r = 0; r < JDataView; ++r)
+        a[r] = t.charCodeAt(r);
       return new Blob([a], { type: GCore });
     }),
     (GCore.GUtil.readACVFile = function (e) {
-      var t = new i(e),
+      var t = new JDataView(e),
         n = { rgb: [], r: [], g: [], b: [] };
       t.seek(4);
       var GCore = t.getUint16(),
@@ -67326,7 +67573,7 @@ function (exports, module, require) {
     r = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GProperties = require(123) /* GProperties */,
-    c = require(857); /* module_857 */
+    GInputSliderWidget = require(857); /* GInputSliderWidget */
   require(173) /* stub_requires_1 */;
   const GSettingChangedEvent = require(135); /* GSettingChangedEvent */
   function u() {
@@ -67419,7 +67666,7 @@ function (exports, module, require) {
             .attr('data-property', '_stop')
             .addClass('gravit-icon-touch-transparency')
             .gInputSlider(
-              Object.assign({}, c.prototype.OPACITY_DEFAULT, {
+              Object.assign({}, GInputSliderWidget.prototype.OPACITY_DEFAULT, {
                 richTooltipConfig: r.GRichTooltipConfig.from({
                   title: GCore.GLocale.get(
                     new GCore.GLocaleKey(
@@ -67736,14 +67983,14 @@ function (exports, module, require) {
             this._panel.find('.g-styles-field').removeClass('g-disabled'));
         else {
           for (
-            var c = false, GSettingChangedEvent = 0;
+            var GInputSliderWidget = false, GSettingChangedEvent = 0;
             GSettingChangedEvent < this._elements.length;
             ++GSettingChangedEvent
           )
             this._elements[0].hasProperty('sref') &&
               this._elements[GSettingChangedEvent].getReferencedStyle() &&
-              (c = true);
-          c && this._elements.length > 1
+              (GInputSliderWidget = true);
+          GInputSliderWidget && this._elements.length > 1
             ? (this._panel.find('.g-styles-preview').empty(),
               this._panel.find('.g-styles-preview').css('display', 'none'),
               this._panel
@@ -69779,7 +70026,7 @@ function (exports, module, require) {
   (require(58) /* polyfill_Array_includes */,
     require(8) /* polyfill_bundle_ES6 */,
     require(71)) /* polyfill_String_includes */;
-  const o = require(177) /* module_177 */,
+  const GUserModel = require(177) /* GUserModel */,
     i = require(805) /* module_805 */,
     { gApi: a } = require(10) /* AppSettings */,
     r = {};
@@ -69788,17 +70035,18 @@ function (exports, module, require) {
     delete r[e.user.getUID()];
   };
   function c(e) {
-    (e instanceof o || (e = new o(e)),
+    (e instanceof GUserModel || (e = new GUserModel(e)),
       (this._user = e),
       s || (gDesigner.addEventListener(i, l), (s = true)));
   }
   ((c.getUserDataFromAnnotAndUser = function (e, t) {
     const require = e.getProperty('uid');
-    let o = e.getProperty('name'),
+    let GUserModel = e.getProperty('name'),
       i = '';
     return (
-      require === t.getUID() && ((o = t.getFirstName() || o), (i = t.getLastName() || '')),
-      { id: require, name: o, last_name: i }
+      require === t.getUID() &&
+        ((GUserModel = t.getFirstName() || GUserModel), (i = t.getLastName() || '')),
+      { id: require, name: GUserModel, last_name: i }
     );
   }),
     (c.prototype.build = function (e) {
@@ -69815,12 +70063,12 @@ function (exports, module, require) {
         (async (e) => {
           if (!r.hasOwnProperty(e)) {
             const t = await a.getUser(e, true).catch(() => Promise.resolve(null));
-            r[e] = new o(t);
+            r[e] = new GUserModel(t);
           }
           return r[e];
-        })(this._user.getUID()).then((o) => {
-          (o &&
-            (t = this._user.avatar || o.avatar) &&
+        })(this._user.getUID()).then((GUserModel) => {
+          (GUserModel &&
+            (t = this._user.avatar || GUserModel.avatar) &&
             (t.includes('graph.microsoft.com') ||
             ('http' !== t.substr(0, 4) && 'assets' !== t.substr(0, 6))
               ? '<svg' === t.substr(0, 4) &&
@@ -69830,7 +70078,7 @@ function (exports, module, require) {
                     $(t).addClass('g-user-preview').toggleClass('grayed', false).addClass('svg')
                   )
               : (this._user.hasOwnPictureAvatar() ||
-                  (!this._user.avatar && o.hasOwnPictureAvatar())) &&
+                  (!this._user.avatar && GUserModel.hasOwnPictureAvatar())) &&
                 require
                   .empty()
                   .append(
@@ -70037,7 +70285,7 @@ function (exports, module, require) {
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    c = require(395); /* module_395 */
+    GSidebarContainer = require(395); /* GSidebarContainer */
   function d(e) {
     this._sidebar = e;
   }
@@ -70079,15 +70327,18 @@ function (exports, module, require) {
           gDesigner.setPartVisible(this._getSidebars().getSidebarsPart(), false))
         : (this._getSidebars().setActiveSidebar(this._sidebar.getId()),
           gDesigner.setPartVisible(this._getSidebars().getSidebarsPart(), true)),
-        c.setOrientationStateInSetting(this._sidebar.getOrientation(), this.isChecked()),
+        GSidebarContainer.setOrientationStateInSetting(
+          this._sidebar.getOrientation(),
+          this.isChecked()
+        ),
         this._sidebar.getId() === GAnnotationsSidebar.ID &&
           gDesigner.getToolbar().updateCommentToggleStatus());
     }),
     (d.prototype._getSidebars = function () {
       switch (this._sidebar.getOrientation()) {
-        case c.Orientation.Left:
+        case GSidebarContainer.Orientation.Left:
           return gDesigner.getLeftSidebars();
-        case c.Orientation.Right:
+        case GSidebarContainer.Orientation.Right:
           return gDesigner.getRightSidebars();
       }
     }),
@@ -71478,7 +71729,7 @@ function (exports, module, require) {
     GObject = require(0) /* GObject */,
     a = require(237); /* Item */
   const { GRegex: r } = require(263); /* Exports_GRegex */
-  var s = require(1117) /* module_1117 */.saveAs,
+  var FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
     l = false,
     c = null,
     d = null;
@@ -71563,9 +71814,9 @@ function (exports, module, require) {
           .catch((GSystem) => {
             if (GSystem instanceof DOMException && GSystem.code === DOMException.QUOTA_EXCEEDED_ERR)
               return (this.notEnoughDiskSpace(), void (n ? n() : t && t()));
-            (s(new Blob([e]), this._filename), t && t());
+            (FileSaverJS(new Blob([e]), this._filename), t && t());
           });
-      } else (s(new Blob([e]), this._filename), t && t());
+      } else (FileSaverJS(new Blob([e]), this._filename), t && t());
     }),
     (u.prototype._hasFileAPI = function () {
       return 'function' == typeof window.showSaveFilePicker && !this._isChromeOS();
@@ -71639,7 +71890,7 @@ function (exports, module, require) {
           void (this._fileInputCallback = t)
         );
       }
-      const s = e.map((e) => e.ext).flat();
+      const FileSaverJS = e.map((e) => e.ext).flat();
       e.map((e) => e.mime);
       if (!this._fileInput) {
         ((this._fileInput = document.createElement('input')),
@@ -71677,8 +71928,8 @@ function (exports, module, require) {
       }
       (GSystem.operatingSystem === GSystem.OperatingSystem.OSX_IOS
         ? this._fileInput.removeAttribute('accept')
-        : s && s.length
-          ? this._fileInput.setAttribute('accept', s.map((e) => '.' + e).join(','))
+        : FileSaverJS && FileSaverJS.length
+          ? this._fileInput.setAttribute('accept', FileSaverJS.map((e) => '.' + e).join(','))
           : this._fileInput.removeAttribute('accept'),
         (this._fileInputCallback = t),
         this._fileInput.focus(),
@@ -72042,7 +72293,7 @@ function (exports, module, require) {
     i = require(381); /* module_381 */
   const { parseNativeFonts: a, getLocalFontsData: r, getFontFamily: s } = require(
     1200
-  ); /* module_1200 */
+  ); /* GFontListFormatter */
   function l(e) {
     i.call(this, e);
   }
@@ -72901,7 +73152,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1); /* module */
-  require(1150) /* module_1150 */;
+  require(1150) /* GPatternChooser */;
   function i(e) {
     let module = [
       ...new Set(
@@ -73011,7 +73262,7 @@ function (exports, module, require) {
     require(30) /* polyfill_Object_assign */,
     require(57) /* polyfill_parseInt */,
     require(8) /* polyfill_bundle_ES6 */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(107) /* polyfill_RegExp_test */,
     require(3) /* polyfill_RegExp_toString */,
@@ -73027,33 +73278,33 @@ function (exports, module, require) {
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
   var GCore = require(1) /* module */,
-    a = _interopRequireDefault(require(1476) /* module_1476 */),
+    AdalAuthLibrary = _interopRequireDefault(require(1476) /* AdalAuthLibrary */),
     CloudException = require(802) /* CloudException */,
-    s = _interopRequireDefault(require(119) /* module_119 */),
+    GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     AppSettings = require(10) /* AppSettings */,
     c = require(593) /* module_593 */,
     GError = _interopRequireDefault(require(594) /* GError */),
     GMicrosoftUser = _interopRequireDefault(require(1477) /* GMicrosoftUser */),
-    p = _interopRequireDefault(require(1242) /* module_1242 */),
+    MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
-  const h = require(156); /* module_156 */
+  const GCloudStorageItem = require(156); /* GCloudStorageItem */
   let f = null,
     m = {};
-  const y = (module.TEAMS_COMMANDS = p.default.COMMANDS),
+  const y = (module.TEAMS_COMMANDS = MSTeamsAuthManager.default.COMMANDS),
     v = (module.GSharePointClient = function (e) {
       let {
         tenant: module,
         domain: require,
         clientID: _interopRequireDefault,
         id: GCore,
-        authTenant: a,
+        authTenant: AdalAuthLibrary,
         corporate: CloudException,
-        token: s,
+        token: GCloudStorage,
         relativePath: AppSettings,
       } = e;
-      ((this.TOKEN = f || s),
+      ((this.TOKEN = f || GCloudStorage),
         (this.BASE_URL = module),
-        (this.AUTH_TENANT = a || module),
+        (this.AUTH_TENANT = AdalAuthLibrary || module),
         (this.DOMAIN = require),
         (this.CLIENT_ID = _interopRequireDefault),
         (this.SETTINGS_ID = GCore),
@@ -73152,7 +73403,7 @@ function (exports, module, require) {
     (v.InvalidOnlyCharacters = ['.']),
     (v.convertFileToCloudItem = function (e) {
       const module = (e) => {
-        var t = h.from({
+        var t = GCloudStorageItem.from({
           id: e.UniqueId,
           version: e.UIVersionLabel,
           updated: e.TimeLastModified,
@@ -73160,8 +73411,8 @@ function (exports, module, require) {
           checkedOut: e.CheckOutType === v.CheckOutStatuses.CheckedOut,
           relativeUrl: e.ServerRelativeUrl,
         });
-        ((t.storage = h.Storage.SharePoint),
-          t.setItemType(h.Type.File),
+        ((t.storage = GCloudStorageItem.Storage.SharePoint),
+          t.setItemType(GCloudStorageItem.Type.File),
           (t.type = v.getFileType({ name: e.Name })),
           (t.mimeType = e._mimetype || e.mimeType || t.type));
         const require = AppSettings.FILE_FORMATS.find((e) => {
@@ -73182,14 +73433,14 @@ function (exports, module, require) {
       return e instanceof Array ? e.map(module) : module(e);
     }),
     (v.updateFilePermissions = function (e) {
-      return e instanceof h && e.getType() === h.Type.File
+      return e instanceof GCloudStorageItem && e.getType() === GCloudStorageItem.Type.File
         ? ([v.FILE_STATUS.AVAILABLE, v.FILE_STATUS.LOCKED_BY_ME].includes(e.checkOutStatus)
             ? e.setPermissions([
-                h.Permission.Open,
-                h.Permission.Delete,
-                h.Permission.Download,
-                h.Permission.Copy,
-                h.Permission.CutPaste,
+                GCloudStorageItem.Permission.Open,
+                GCloudStorageItem.Permission.Delete,
+                GCloudStorageItem.Permission.Download,
+                GCloudStorageItem.Permission.Copy,
+                GCloudStorageItem.Permission.CutPaste,
               ])
             : e.revokePermissions(),
           e)
@@ -73222,17 +73473,17 @@ function (exports, module, require) {
     }),
     (v.convertFolderToCloudItem = function (e) {
       const module = (e) => {
-        var t = h.from({
+        var t = GCloudStorageItem.from({
           id: e.UniqueId ? e.UniqueId : e.id,
           name: e.Name ? e.Name : e.name,
           relativeUrl: e.ServerRelativeUrl ? e.ServerRelativeUrl : e.relativeUrl,
           type: 'folder',
         });
         return (
-          t.setItemType(h.Type.Folder),
-          t.setPermission(h.Permission.Open),
-          t.setPermission(h.Permission.Delete),
-          t.setPermission(h.Permission.CutPaste),
+          t.setItemType(GCloudStorageItem.Type.Folder),
+          t.setPermission(GCloudStorageItem.Permission.Open),
+          t.setPermission(GCloudStorageItem.Permission.Delete),
+          t.setPermission(GCloudStorageItem.Permission.CutPaste),
           t
         );
       };
@@ -73321,7 +73572,7 @@ function (exports, module, require) {
   }
   ((v.SharepointException = _),
     (v._logoutAndClearAdalCache = function (e) {
-      var t = new a.default(e);
+      var t = new AdalAuthLibrary.default(e);
       (t.clearCache(), t.getCachedUser() && t.logOut(), (t._user = null));
       var n = [];
       for (let e = 0; e < localStorage.length; e++)
@@ -73346,7 +73597,7 @@ function (exports, module, require) {
     }),
     (v.prototype.getFile = function (e) {
       return this.getRawFile(e).then(function (e) {
-        return s.default.createUint8ArrayFromBlob(e);
+        return GCloudStorage.default.createUint8ArrayFromBlob(e);
       });
     }),
     (v.prototype.queryFiles = function (e) {
@@ -73366,8 +73617,8 @@ function (exports, module, require) {
           for (let t = 0, GCore = n.length; t < GCore; t++) {
             let GCore = n[t];
             if (!GCore.Exists) continue;
-            const a = v.convertFolderToCloudItem(GCore);
-            ((a.parent = e), _interopRequireDefault.push(a));
+            const AdalAuthLibrary = v.convertFolderToCloudItem(GCore);
+            ((AdalAuthLibrary.parent = e), _interopRequireDefault.push(AdalAuthLibrary));
           }
           return _interopRequireDefault;
         })
@@ -73391,9 +73642,9 @@ function (exports, module, require) {
           limit: _interopRequireDefault,
           skip: GCore,
         } = e,
-        a = this.getSanitizedFolderRelativePath(module),
+        AdalAuthLibrary = this.getSanitizedFolderRelativePath(module),
         CloudException = this.getAPIEndpointURL(
-          "/_api/web/GetFolderByServerRelativeUrl('".concat(a, "')/Files")
+          "/_api/web/GetFolderByServerRelativeUrl('".concat(AdalAuthLibrary, "')/Files")
         );
       return (
         CloudException.searchParams.append('$orderby', require),
@@ -73671,16 +73922,16 @@ function (exports, module, require) {
       const GCore = this;
       return new Promise((e, t) =>
         GCore.TOKEN && v.isTokenValid(GCore.TOKEN, v.getUserId())
-          ? a(e, t)
+          ? AdalAuthLibrary(e, t)
           : GCore.connect()
               .then(() => {
-                a(e, t);
+                AdalAuthLibrary(e, t);
               })
               .catch((e) => {
                 t(e);
               })
       );
-      async function a(CloudException, s) {
+      async function AdalAuthLibrary(CloudException, GCloudStorage) {
         const AppSettings = {
           method: e,
           cache: 'no-cache',
@@ -73691,16 +73942,16 @@ function (exports, module, require) {
         try {
           GError = await fetch(t, AppSettings);
         } catch (e) {
-          return void s(e);
+          return void GCloudStorage(e);
         }
         if (401 === GError.status)
           (GCore.clearUserData(),
             GCore.connect(true)
               .then(() => {
-                a(CloudException, s);
+                AdalAuthLibrary(CloudException, GCloudStorage);
               })
               .catch((e) => {
-                s(e);
+                GCloudStorage(e);
               }));
         else if (
           200 === GError.status ||
@@ -73725,10 +73976,10 @@ function (exports, module, require) {
             try {
               e = await GError.json();
             } catch (e) {
-              (console.error('Incorrect response format: ', e.message), s(e));
+              (console.error('Incorrect response format: ', e.message), GCloudStorage(e));
             }
           CloudException(e);
-        } else s({ status: GError.status, statusText: GError.statusText });
+        } else GCloudStorage({ status: GError.status, statusText: GError.statusText });
       }
     }),
     (v.prototype._prepareRequestHeaders = function (e, t, n) {
@@ -73784,19 +74035,21 @@ function (exports, module, require) {
       let module = !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
       const require = this,
         _interopRequireDefault = this._getSharePointSettings(),
-        a = 6e4,
-        s = 3e3;
+        AdalAuthLibrary = 6e4,
+        GCloudStorage = 3e3;
       let c,
         GError = false;
       const GMicrosoftUser = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
       if (require._connect) return require._connect;
-      const p = gContainer.getSharepointAuthenticator();
-      return p
+      const MSTeamsAuthManager = gContainer.getSharepointAuthenticator();
+      return MSTeamsAuthManager
         ? !e && GMicrosoftUser
           ? void (require.TOKEN = GMicrosoftUser)
           : (AppSettings.msTeamsMode
-              ? (require._connect = p.authenticate(require._getTeamsCommand()))
-              : (require._connect = p.authenticate(_interopRequireDefault, { clearCache: e })),
+              ? (require._connect = MSTeamsAuthManager.authenticate(require._getTeamsCommand()))
+              : (require._connect = MSTeamsAuthManager.authenticate(_interopRequireDefault, {
+                  clearCache: e,
+                })),
             require._connect.then(
               (e) => (
                 (require.TOKEN = f = { id: v.getUserId() }),
@@ -73812,13 +74065,17 @@ function (exports, module, require) {
               )
             ),
             require._connect)
-        : ((require._connect = new Promise((s, AppSettings) => {
+        : ((require._connect = new Promise((GCloudStorage, AppSettings) => {
             !(function t(GMicrosoftUser) {
               gContainer
                 .getProperty(''.concat(v.ACCESS_TOKEN_PROP_NAME, '.').concat(require.SETTINGS_ID))
-                .then((p) => {
-                  if (p && !e && v.isTokenValid(p, v.getUserId()))
-                    return ((require.TOKEN = p), s(), void (require._connect = null));
+                .then((MSTeamsAuthManager) => {
+                  if (MSTeamsAuthManager && !e && v.isTokenValid(MSTeamsAuthManager, v.getUserId()))
+                    return (
+                      (require.TOKEN = MSTeamsAuthManager),
+                      GCloudStorage(),
+                      void (require._connect = null)
+                    );
                   $(window).on('message', b);
                   var m = new URL(''.concat(window.location.origin, '/sp.html'));
                   const y = require._popupToCenter(m.href, 'SharePointToken', 680, 460);
@@ -73880,7 +74137,7 @@ function (exports, module, require) {
                         c && clearTimeout(c),
                         $(window).off('message', b),
                         (require._connect = null),
-                        s());
+                        GCloudStorage());
                     else if (CloudException && 'saveTokenError' === CloudException) {
                       const { error: e } = GCore;
                       if ('User login is required' === e) return;
@@ -73890,10 +74147,12 @@ function (exports, module, require) {
                         GMicrosoftUser)
                       )
                         return void (c = setTimeout(function () {
-                          (h(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false));
-                        }, a));
+                          (GCloudStorageItem(y),
+                            v._logoutAndClearAdalCache(_interopRequireDefault),
+                            t(false));
+                        }, AdalAuthLibrary));
                       (v._logoutAndClearAdalCache(_interopRequireDefault),
-                        h(y),
+                        GCloudStorageItem(y),
                         (require._connect = null),
                         AppSettings(e));
                     }
@@ -73903,7 +74162,7 @@ function (exports, module, require) {
                       (CollaborationMergeUtils(y),
                         v._logoutAndClearAdalCache(_interopRequireDefault),
                         t(false));
-                    }, a));
+                    }, AdalAuthLibrary));
                 });
             })(module);
           })),
@@ -73914,8 +74173,8 @@ function (exports, module, require) {
           e.close();
         }, module);
       }
-      function h(e) {
-        CollaborationMergeUtils(e, s);
+      function GCloudStorageItem(e) {
+        CollaborationMergeUtils(e, GCloudStorage);
       }
     }),
     (v.prototype.updateFileContent = function (e, t) {
@@ -73943,14 +74202,14 @@ function (exports, module, require) {
     }),
     (v.prototype._popupToCenter = function (e, t, n, _interopRequireDefault) {
       const GCore = this._getPopupWindowReference(),
-        a = GCore.outerHeight / 2 + GCore.screenY - n / 2,
+        AdalAuthLibrary = GCore.outerHeight / 2 + GCore.screenY - n / 2,
         CloudException = GCore.outerWidth / 2 + GCore.screenX - _interopRequireDefault / 2;
       return window.open(
         e,
         t,
         'left='
           .concat(CloudException, ',top=')
-          .concat(a, ',width=')
+          .concat(AdalAuthLibrary, ',width=')
           .concat(_interopRequireDefault, ',height=')
           .concat(n, ',menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no')
       );
@@ -74361,12 +74620,12 @@ function (exports, module, require) {
   'use strict';
   (require(57) /* polyfill_parseInt */, require(8)) /* polyfill_bundle_ES6 */;
   var GCore = require(1) /* module */,
-    i = require(1198) /* module_1198 */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
-    r = require(1118); /* module_1118 */
+    GFontDBClient = require(1198) /* GFontDBClient */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
+    GCustomFontsProvider = require(1118); /* GCustomFontsProvider */
   function s() {
     try {
-      this._fontDB = i.getInstance();
+      this._fontDB = GFontDBClient.getInstance();
     } catch (e) {
       this._fontDB = null;
     }
@@ -74392,14 +74651,14 @@ function (exports, module, require) {
     }),
     (s.prototype._prompt = function (e, t) {
       var n = this,
-        barrel_sidebars = gDesigner.getDefaultStorage();
+        GFontsProviderManager = gDesigner.getDefaultStorage();
       this._numLoaded = 0;
-      var r = new Promise((e) => {
-        this._fontDB.getItem(i.FONT_LIST).done((t) => {
+      var GCustomFontsProvider = new Promise((e) => {
+        this._fontDB.getItem(GFontDBClient.FONT_LIST).done((t) => {
           ((this._tmpFontList = t || []), e(this._tmpFontList));
         });
       });
-      barrel_sidebars.openPrompt(
+      GFontsProviderManager.openPrompt(
         [
           { ext: 'ttf', mime: 'font/ttf' },
           { ext: 'otf', mime: 'font/otf' },
@@ -74407,21 +74666,21 @@ function (exports, module, require) {
           { ext: 'dfont', mime: 'font/collection' },
         ],
         function (t) {
-          let i = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 1;
-          ((n._numFiles = i),
-            r.then(() => {
+          let GFontDBClient = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 1;
+          ((n._numFiles = GFontDBClient),
+            GCustomFontsProvider.then(() => {
               t.read((t) => {
-                var i = GCore.GOpenTypeUtil.getFont(null, null, null, t, true);
-                n._numFiles += i.length - 1;
-                var barrel_sidebars = function (t, n) {
+                var GFontDBClient = GCore.GOpenTypeUtil.getFont(null, null, null, t, true);
+                n._numFiles += GFontDBClient.length - 1;
+                var GFontsProviderManager = function (t, n) {
                     return n < t.length
                       ? function () {
-                          this.checkAndAdd(t[n], barrel_sidebars(t, n + 1));
+                          this.checkAndAdd(t[n], GFontsProviderManager(t, n + 1));
                         }.bind(this)
                       : e;
                   }.bind(n),
-                  r = barrel_sidebars(i, 0);
-                r && r.call(n);
+                  GCustomFontsProvider = GFontsProviderManager(GFontDBClient, 0);
+                GCustomFontsProvider && GCustomFontsProvider.call(n);
               });
             }));
         },
@@ -74439,7 +74698,7 @@ function (exports, module, require) {
       return this._tmpFontList
         ? Promise.resolve(undefined)
         : new Promise((e) => {
-            this._fontDB.getItem(i.FONT_LIST).done((t) => {
+            this._fontDB.getItem(GFontDBClient.FONT_LIST).done((t) => {
               ((this._tmpFontList = t || []), e());
             });
           });
@@ -74447,10 +74706,10 @@ function (exports, module, require) {
     (s.prototype.checkAndAdd = function (e, t) {
       var n = e.family,
         GCore = e.weight,
-        i = e.style,
-        barrel_sidebars = e.buffer,
-        r = {
-          style: i,
+        GFontDBClient = e.style,
+        GFontsProviderManager = e.buffer,
+        GCustomFontsProvider = {
+          style: GFontDBClient,
           weight: String(GCore),
           family: n,
           subfamily: e.subfamily,
@@ -74459,10 +74718,15 @@ function (exports, module, require) {
       if (this._tmpFontList)
         for (var s = 0; s < this._tmpFontList.length; s++) {
           var l = this._tmpFontList[s];
-          if (l.family === r.family && l.weight === r.weight && l.style === r.style) {
+          if (
+            l.family === GCustomFontsProvider.family &&
+            l.weight === GCustomFontsProvider.weight &&
+            l.style === GCustomFontsProvider.style
+          ) {
             if (e.subfamily && !l.subfamily) l.subfamily = e.subfamily;
-            else if (l.subfamily && l.subfamily !== r.subfamily) {
-              r.family = r.family + (r.subfamily || '');
+            else if (l.subfamily && l.subfamily !== GCustomFontsProvider.subfamily) {
+              GCustomFontsProvider.family =
+                GCustomFontsProvider.family + (GCustomFontsProvider.subfamily || '');
               continue;
             }
             return (
@@ -74472,29 +74736,35 @@ function (exports, module, require) {
           }
         }
       else this._tmpFontList = [];
-      (this._tmpFontList.push(r),
-        this._fontDB.updateItem(n + '_' + GCore + '_' + i, barrel_sidebars).done(() => {
-          this._postAddAction(t, true);
-        }));
+      (this._tmpFontList.push(GCustomFontsProvider),
+        this._fontDB
+          .updateItem(n + '_' + GCore + '_' + GFontDBClient, GFontsProviderManager)
+          .done(() => {
+            this._postAddAction(t, true);
+          }));
     }),
     (s.prototype._postAddAction = function (e, t) {
       (this._numLoaded++,
         this._numLoaded === this._numFiles
           ? ((this._numLoaded = 0),
             (this._numFiles = 0),
-            this._fontDB.updateItem(i.FONT_LIST, this._tmpFontList).done((n) => {
+            this._fontDB.updateItem(GFontDBClient.FONT_LIST, this._tmpFontList).done((n) => {
               if (
                 (t
-                  ? barrel_sidebars.getInstance().reset(r, true)
-                  : barrel_sidebars.getInstance().reset(),
+                  ? GFontsProviderManager.getInstance().reset(GCustomFontsProvider, true)
+                  : GFontsProviderManager.getInstance().reset(),
                 gDesigner.getWorkspace())
               )
                 for (var GCore = 0; GCore < this._tmpFontList.length; GCore++) {
-                  var i = this._tmpFontList[GCore];
+                  var GFontDBClient = this._tmpFontList[GCore];
                   gDesigner
                     .getWorkspace()
                     .getFontManager()
-                    .getFont(i.family, i.style, parseInt(i.weight));
+                    .getFont(
+                      GFontDBClient.family,
+                      GFontDBClient.style,
+                      parseInt(GFontDBClient.weight)
+                    );
                 }
               e && e();
             }))
@@ -74642,7 +74912,7 @@ function (exports, module, require) {
     require(125) /* stub_requires_673 */,
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
-  const o = require(604); /* module_604 */
+  const GProfileDialog = require(604); /* GProfileDialog */
   exports.exports = class {
     constructor() {
       let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -74655,8 +74925,8 @@ function (exports, module, require) {
       const module = gDesigner.getUTM();
       if (module && module.size) {
         const n = new URL(e),
-          o = n.searchParams;
-        (module.forEach((e, t) => o.set(t, e)), (e = n.toString()));
+          GProfileDialog = n.searchParams;
+        (module.forEach((e, t) => GProfileDialog.set(t, e)), (e = n.toString()));
       }
       if (
         ((this._iframe = $('<iframe></iframe>')
@@ -74685,7 +74955,7 @@ function (exports, module, require) {
                 break;
               case 'settings':
                 let e = await gDesigner.getUser();
-                new o(e, 'purchase').open();
+                new GProfileDialog(e, 'purchase').open();
                 break;
               case 'purchase_flow':
                 const { options: i = {} } = module,
@@ -74765,13 +75035,13 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     s = require(237) /* Item */,
-    l = require(163) /* module_163 */,
+    l = require(163) /* GDocument */,
     c = require(442); /* module_442 */
   const d = require(389); /* module_389 */
   function u() {}
   ((window.pako = require(165)) /* module_165 */,
-    require(1514) /* module_1514 */,
-    require(1515) /* module_1515 */,
+    require(1514) /* ZipJSBrowser */,
+    require(1515) /* ZipJSFileSystem */,
     require(1516) /* module_1516 */,
     (zip.useWebWorkers = false),
     (u.generateExportables = function (e, t, n) {
@@ -75119,9 +75389,9 @@ function (exports, module, require) {
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    s = require(163) /* module_163 */,
+    GDocument = require(163) /* GDocument */,
     GContainer = require(85) /* GContainer */,
-    c = require(1255); /* module_1255 */
+    GOpenFileRequestHandler = require(1255); /* GOpenFileRequestHandler */
   function d() {}
   (GCore.GObject.inherit(d, GAction),
     (d.ID = 'file.share.opensharedfile'),
@@ -75154,10 +75424,10 @@ function (exports, module, require) {
                   module
                 );
                 gApi.setToken({ token: module });
-                let n = new s();
+                let n = new GDocument();
                 (n.setTitle(e.getContent()),
                   gDesigner.addDocument(n),
-                  c.handleOpenFileRequest(n, e));
+                  GOpenFileRequestHandler.handleOpenFileRequest(n, e));
               } else
                 GSystemDialog.alert(
                   GCore.GLocale.get(new GCore.GLocaleKey('GOpenSharedFileAction', 'invalid-link'))
@@ -75293,7 +75563,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-    s = _interopRequireDefault(require(119) /* module_119 */),
+    GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     l = _interopRequireDefault(require(1159) /* module_1159 */),
     c = _interopRequireDefault(require(219) /* module_219 */),
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
@@ -75357,7 +75627,7 @@ function (exports, module, require) {
         t =
           !!gDesigner.getActiveDocument() &&
           gDesigner.getActiveDocument().getScene().isCloudSynchronization();
-      return s.default.isOnline() && e && t;
+      return GCloudStorage.default.isOnline() && e && t;
     }),
     (p.prototype.execute = function () {
       if (gDesigner.getWindows().getActiveWindow().getDocument().isModified())
@@ -75879,7 +76149,7 @@ function (exports, module, require) {
     GFitAllAction = require(449) /* GFitAllAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GSidebar = require(806) /* GSidebar */,
-    y = require(395) /* module_395 */,
+    GSidebarContainer = require(395) /* GSidebarContainer */,
     GExportProperties = require(1523) /* GExportProperties */,
     GSystemDialog = require(44) /* GSystemDialog */,
     b = require(450); /* module_450 */
@@ -75920,7 +76190,7 @@ function (exports, module, require) {
       return !!gDesigner.getApplicationManager().isInspectEnabled();
     }),
     (x.prototype.getOrientation = function () {
-      return y.Orientation.Left;
+      return GSidebarContainer.Orientation.Left;
     }),
     (x.prototype.getMinimumWidth = function () {
       return 250;
@@ -76882,7 +77152,7 @@ function (exports, module, require) {
                         c[l] === GTouchTool ? (p = l) : (g = l))
                       : GDocumentStatusEvent && GDocumentEvent.push(c[l]);
                   var GSidebar = GTouchTool.getParent(),
-                    y = e.getParent();
+                    GSidebarContainer = e.getParent();
                   GDocumentEvent = GDocumentEvent.filter(
                     function (t) {
                       var n = this._layerPanel.gLayerPanel('getTreeNode', t);
@@ -76893,7 +77163,7 @@ function (exports, module, require) {
                       );
                       return _interopRequireDefault
                         ? GSidebar === _interopRequireDefault
-                        : t !== GSidebar && t !== y;
+                        : t !== GSidebar && t !== GSidebarContainer;
                     }.bind(this)
                   );
                   var GExportProperties = gDesigner.getSetting('auto_expand_layers');
@@ -81137,7 +81407,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   require(53) /* module */;
   var GCore = require(1) /* module */,
-    i = (require(15) /* module */, require(1267)) /* module_1267 */,
+    i = (require(15) /* module */, require(1267)) /* ColorQuantizer */,
     GProperties = require(123) /* GProperties */,
     {
       replaceImage: r,
@@ -81145,7 +81415,7 @@ function (exports, module, require) {
       cropImage: l,
     } = (require(173) /* stub_requires_1 */,
     require(219) /* module_219 */,
-    require(1268)) /* module_1268 */;
+    require(1268)) /* GImageManipulation */;
   function c() {}
   (GCore.GObject.inherit(c, GProperties),
     (c.prototype._panel = null),
@@ -81922,7 +82192,7 @@ function (exports, module, require) {
     i = require(15) /* module */,
     GTools = require(53) /* module */,
     r =
-      (require(1267) /* module_1267 */,
+      (require(1267) /* ColorQuantizer */,
       require(123) /* GProperties */,
       require(173) /* stub_requires_1 */,
       require(219)) /* module_219 */;
@@ -84149,7 +84419,7 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     s = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     GSystemDialog = require(44); /* GSystemDialog */
@@ -84500,8 +84770,10 @@ function (exports, module, require) {
               'patternchange',
               function (e, n, GCore, a, CollaborationMergeUtils) {
                 for (var s = [], GProperties = 0; GProperties < this._text.length; GProperties++) {
-                  var barrel_sidebars = GTools.GElementEditor.getEditor(this._text[GProperties]);
-                  s.push(barrel_sidebars || this._text[GProperties]);
+                  var GFontsProviderManager = GTools.GElementEditor.getEditor(
+                    this._text[GProperties]
+                  );
+                  s.push(GFontsProviderManager || this._text[GProperties]);
                 }
                 var barrel_editor_actions = null;
                 CollaborationMergeUtils &&
@@ -84629,13 +84901,13 @@ function (exports, module, require) {
                         try {
                           s.beginTransaction();
                           for (
-                            var barrel_sidebars = 0;
-                            barrel_sidebars < t._text.length;
-                            barrel_sidebars++
+                            var GFontsProviderManager = 0;
+                            GFontsProviderManager < t._text.length;
+                            GFontsProviderManager++
                           ) {
                             var barrel_editor_actions =
-                                GTools.GElementEditor.getEditor(t._text[barrel_sidebars]) ||
-                                t._text[barrel_sidebars],
+                                GTools.GElementEditor.getEditor(t._text[GFontsProviderManager]) ||
+                                t._text[GFontsProviderManager],
                               GSettingChangedEvent = (
                                 ((CollaborationMergeUtils / 100) *
                                   (GSystemDialog =
@@ -84662,13 +84934,13 @@ function (exports, module, require) {
                       try {
                         s.beginTransaction();
                         for (
-                          barrel_sidebars = 0;
-                          barrel_sidebars < t._text.length;
-                          barrel_sidebars++
+                          GFontsProviderManager = 0;
+                          GFontsProviderManager < t._text.length;
+                          GFontsProviderManager++
                         ) {
                           barrel_editor_actions =
-                            GTools.GElementEditor.getEditor(t._text[barrel_sidebars]) ||
-                            t._text[barrel_sidebars];
+                            GTools.GElementEditor.getEditor(t._text[GFontsProviderManager]) ||
+                            t._text[GFontsProviderManager];
                           var GSystemDialog = t._getProperty('_tfi', [barrel_editor_actions]) || 20;
                           GSettingChangedEvent =
                             Math.round(
@@ -84695,7 +84967,9 @@ function (exports, module, require) {
                 var t = $(this).prop('checked');
                 gDesigner.setSetting('font-set', t);
                 var n = gContainer.getSystemFontsProvider();
-                t ? barrel_sidebars.enableProviders([n]) : barrel_sidebars.disableProviders([n]);
+                t
+                  ? GFontsProviderManager.enableProviders([n])
+                  : GFontsProviderManager.disableProviders([n]);
               });
           if ('sc' === e)
             return $('<label></label>')
@@ -85543,9 +85817,10 @@ function (exports, module, require) {
               (e === GTools.GEditor.InlineEditorEvent.Type.TextEdited && !t))
           ) {
             var CollaborationMergeUtils = a.getDocumentRange().plainText(),
-              s = barrel_sidebars
-                .getProviderInstance(barrel_editor_actions)
-                .getDefaultFamilyForString(CollaborationMergeUtils),
+              s =
+                GFontsProviderManager.getProviderInstance(
+                  barrel_editor_actions
+                ).getDefaultFamilyForString(CollaborationMergeUtils),
               GProperties =
                 gDesigner.getWorkspace() &&
                 gDesigner.getWorkspace().getFontManager() &&
@@ -85653,9 +85928,9 @@ function (exports, module, require) {
         var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
         t.push(GProperties || this._text[s]);
       }
-      var barrel_sidebars = this._panel.find('input[data-property="fontSet"]');
-      barrel_sidebars.length &&
-        barrel_sidebars.prop('checked', gDesigner.getSetting('font-set'), false);
+      var GFontsProviderManager = this._panel.find('input[data-property="fontSet"]');
+      GFontsProviderManager.length &&
+        GFontsProviderManager.prop('checked', gDesigner.getSetting('font-set'), false);
       var barrel_editor_actions = this._getFormatting('underline', t) || null,
         GSettingChangedEvent = this._getFormatting('strikeout', t) || null,
         GSystemDialog = this._getFormatting('fractions', t) || false,
@@ -85977,14 +86252,14 @@ function (exports, module, require) {
                 if (GTools) {
                   const s = GCore.GText.PropertyMapping._tff,
                     GProperties = GCore.GText.PropertyMapping._tfs,
-                    barrel_sidebars = GCore.GText.PropertyMapping._tfw;
+                    GFontsProviderManager = GCore.GText.PropertyMapping._tfw;
                   t = GTools.map(
                     (t) => (
                       (n = e.getElement()._getGravitValue(s, t[s])),
                       (a = e.getElement()._getGravitValue(GProperties, t[GProperties])),
                       (CollaborationMergeUtils = e
                         .getElement()
-                        ._getGravitValue(barrel_sidebars, t[barrel_sidebars])),
+                        ._getGravitValue(GFontsProviderManager, t[GFontsProviderManager])),
                       n && a && CollaborationMergeUtils
                         ? ye.getFont(n, a, CollaborationMergeUtils, false)
                         : null
@@ -86233,7 +86508,7 @@ function (exports, module, require) {
         CollaborationMergeUtils = gDesigner.getWorkspace().getFontManager(),
         s = CollaborationMergeUtils.getDefaultFont(),
         GProperties = this._panel.find('input[data-property="_tff"]').gFontsButton('getFontList'),
-        barrel_sidebars = false;
+        GFontsProviderManager = false;
       if (
         (e === s.getFamily()
           ? (a =
@@ -86275,7 +86550,7 @@ function (exports, module, require) {
           Math.abs(n[0] - GTools[GSettingChangedEvent]) <
             Math.abs(n[0] - GTools[barrel_editor_actions]) &&
             (barrel_editor_actions = GSettingChangedEvent);
-        ((n[0] = GTools[barrel_editor_actions]), (barrel_sidebars = true));
+        ((n[0] = GTools[barrel_editor_actions]), (GFontsProviderManager = true));
       }
       var GSystemDialog =
         (a || []).filter(function (e) {
@@ -86287,8 +86562,8 @@ function (exports, module, require) {
           (t[0] === GCore.GFont.Style.Normal && GSystemDialog[0].styles.length
             ? (t[0] = GCore.GFont.Style.Italic)
             : (t[0] = GCore.GFont.Style.Normal),
-          (barrel_sidebars = true)),
-        barrel_sidebars
+          (GFontsProviderManager = true)),
+        GFontsProviderManager
       );
     }),
     (v.prototype._toggleFormatting = function (e) {
@@ -86304,7 +86579,7 @@ function (exports, module, require) {
             fractions: this._getFormatting('fractions', n),
           },
           GProperties = this._getProperty('_tfw', n) || '',
-          barrel_sidebars = this._getProperty('_tfs', n) || '';
+          GFontsProviderManager = this._getProperty('_tfs', n) || '';
         if ('bold' === e) {
           let e;
           (parseInt(GProperties) === GCore.GFont.Weight.Bold
@@ -86319,7 +86594,7 @@ function (exports, module, require) {
           this._assignProperties(
             ['_tfs'],
             [
-              barrel_sidebars === GCore.GFont.Style.Italic
+              GFontsProviderManager === GCore.GFont.Style.Italic
                 ? GCore.GFont.Style.Normal
                 : GCore.GFont.Style.Italic,
             ]
@@ -86404,10 +86679,10 @@ function (exports, module, require) {
             for (var s = 0; s < this._text.length; ++s) {
               var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
               if (this._text[s] instanceof GCore.GText && this._text[s].isFakeText()) {
-                var barrel_sidebars = this._text[s].getContent(),
+                var GFontsProviderManager = this._text[s].getContent(),
                   barrel_editor_actions = {};
-                barrel_sidebars &&
-                  barrel_sidebars.forEach((t) => {
+                GFontsProviderManager &&
+                  GFontsProviderManager.forEach((t) => {
                     barrel_editor_actions[t.fontFamily] = e;
                   });
                 var GSettingChangedEvent = this._text[s].getProperty('_tff');
@@ -86683,7 +86958,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     GTools = require(53) /* module */,
     AppSettings = require(10) /* AppSettings */,
-    s = require(1276) /* module_1276 */,
+    GAutoSaveManager = require(1276) /* GAutoSaveManager */,
     l = _interopRequireDefault(require(1278) /* module_1278 */),
     GContainer = require(85) /* GContainer */,
     d = null;
@@ -86788,12 +87063,15 @@ function (exports, module, require) {
                 .append(
                   $('<input>')
                     .attr('type', 'checkbox')
-                    .attr('data-setting', s.DISABLE_WARNING_SETTING_NAME)
+                    .attr('data-setting', GAutoSaveManager.DISABLE_WARNING_SETTING_NAME)
                     .on('change', function () {
                       const exports = !!this.checked;
                       gDesigner.stats('settings_toggle_auto-save-warning-enabled', exports);
                     })
-                    .prop('checked', !gDesigner.getSetting(s.DISABLE_WARNING_SETTING_NAME, false))
+                    .prop(
+                      'checked',
+                      !gDesigner.getSetting(GAutoSaveManager.DISABLE_WARNING_SETTING_NAME, false)
+                    )
                 )
                 .append($('<div/>'))
             )
@@ -87069,7 +87347,9 @@ function (exports, module, require) {
       var e =
           AppSettings.AUTOSAVE_INTERVALS[
             parseInt(
-              this._dialog.find('[data-setting="'.concat(s.AUTO_SAVE_INTERVAL_SETTING, '"]')).val()
+              this._dialog
+                .find('[data-setting="'.concat(GAutoSaveManager.AUTO_SAVE_INTERVAL_SETTING, '"]'))
+                .val()
             )
           ],
         t = null;
@@ -87084,8 +87364,8 @@ function (exports, module, require) {
         [
           'highlight_on_hover',
           'auto_expand_layers',
-          s.AUTO_SAVE_SETTING,
-          s.DISABLE_WARNING_SETTING_NAME,
+          GAutoSaveManager.AUTO_SAVE_SETTING,
+          GAutoSaveManager.DISABLE_WARNING_SETTING_NAME,
           'system_fonts_enabled',
           'theme',
           'dont_store_textpath',
@@ -87095,16 +87375,18 @@ function (exports, module, require) {
           'eps_outline_fonts',
           'ui_toolbar_alignment',
           'decimals_num',
-          s.AUTO_SAVE_INTERVAL_SETTING,
+          GAutoSaveManager.AUTO_SAVE_INTERVAL_SETTING,
           'create_backup_copy',
           l.default.getSetting(),
         ],
         [
           this._dialog.find('[data-setting="highlight_on_hover"]').prop('checked'),
           this._dialog.find('[data-setting="auto_expand_layers"]').prop('checked'),
-          this._dialog.find('[data-setting="'.concat(s.AUTO_SAVE_SETTING, '"]')).prop('checked'),
+          this._dialog
+            .find('[data-setting="'.concat(GAutoSaveManager.AUTO_SAVE_SETTING, '"]'))
+            .prop('checked'),
           !this._dialog
-            .find('[data-setting="'.concat(s.DISABLE_WARNING_SETTING_NAME, '"]'))
+            .find('[data-setting="'.concat(GAutoSaveManager.DISABLE_WARNING_SETTING_NAME, '"]'))
             .prop('checked'),
           this._dialog.find('[data-setting="system_fonts_enabled"]').prop('checked'),
           this._dialog.find('[data-setting="theme"]').data('theme'),
@@ -87273,7 +87555,7 @@ function (exports, module, require) {
           )
           .append($('<div/>')),
         t = $('<select/>')
-          .attr('data-setting', s.AUTO_SAVE_INTERVAL_SETTING)
+          .attr('data-setting', GAutoSaveManager.AUTO_SAVE_INTERVAL_SETTING)
           .on('change', function () {
             const e = AppSettings.AUTOSAVE_INTERVALS[$(this).val()];
             gDesigner.stats('settings_change_auto-save-interval', e);
@@ -87286,7 +87568,7 @@ function (exports, module, require) {
         t.val(
           AppSettings.AUTOSAVE_INTERVALS.indexOf(
             gDesigner.getSetting(
-              s.AUTO_SAVE_INTERVAL_SETTING,
+              GAutoSaveManager.AUTO_SAVE_INTERVAL_SETTING,
               AppSettings.AUTOSAVE_INTERVAL_DEFAULT
             )
           )
@@ -87321,7 +87603,7 @@ function (exports, module, require) {
     { buildDialogDocumentHasUpdates: d } = require(40) /* CollaborationMergeUtils */,
     GContainer = require(85) /* GContainer */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    g = require(556) /* Item */,
+    GGoogleDriveItem = require(556) /* GGoogleDriveItem */,
     GGravitCloudAction = require(448) /* GGravitCloudAction */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
@@ -87923,7 +88205,7 @@ function (exports, module, require) {
     (E.prototype._getExternalStorageName = function (e) {
       if (!e) return '';
       const module = e.getStorageItem();
-      return module && module instanceof g.Item
+      return module && module instanceof GGoogleDriveItem.Item
         ? s.cloudOptions.find((e) => e.type === c.GOOGLEDRIVE).name
         : '';
     }),
@@ -88005,7 +88287,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     i = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
-    r = require(163) /* module_163 */,
+    GDocument = require(163) /* GDocument */,
     GAction = require(31) /* GAction */,
     GContainer = require(85); /* GContainer */
   function c() {
@@ -88048,12 +88330,12 @@ function (exports, module, require) {
       var n = gDesigner.getActiveDocument();
       if (!n) return false;
       (e = e || n.getStorage() || gDesigner.getDefaultStorage()).openPrompt(
-        r.FileTypes.filter((e) => 0 === e.mime.indexOf('image')),
+        GDocument.FileTypes.filter((e) => 0 === e.mime.indexOf('image')),
         (e) => {
           var i = 'file://' + e.getUniqueId(),
             MenuItemBuilder = i,
-            r = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
-          r && (MenuItemBuilder = r.getUrl());
+            GDocument = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
+          GDocument && (MenuItemBuilder = GDocument.getUrl());
           var GAction = new Image();
           ((GAction.onload = () => {
             var e = new GCore.GImage();
@@ -88221,7 +88503,7 @@ function (exports, module, require) {
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     AppSettings = require(10) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
-    d = require(163) /* module_163 */,
+    GDocument = require(163) /* GDocument */,
     GAction = require(31); /* GAction */
   function p() {
     p.TOOLTIP_CONFIG = {
@@ -88274,7 +88556,7 @@ function (exports, module, require) {
       var n = gDesigner.getActiveDocument();
       if (!n) return false;
       (e = e || n.getStorage() || gDesigner.getDefaultStorage()).openPrompt(
-        d.FileTypes.filter((e) => e.import_image),
+        GDocument.FileTypes.filter((e) => e.import_image),
         (e) => {
           (gDesigner.stats('import-placeimport_open_localfile', e.getExtension()),
             n.placeOrImport(e),
@@ -88937,10 +89219,10 @@ function (exports, module, require) {
     ) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    l = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     GGravitCloudAction = require(448) /* GGravitCloudAction */,
     d = require(86) /* module_86 */,
-    u = require(163) /* module_163 */,
+    u = require(163) /* GDocument */,
     GSaveAsAction = require(445) /* GSaveAsAction */,
     GSystemDialog = require(44) /* GSystemDialog */,
     h = i.find((e) => e.default).ext;
@@ -89026,7 +89308,7 @@ function (exports, module, require) {
     (f.prototype._performCloudSync = function (e) {
       gDesigner.getDefaultStorage().canSave()
         ? e.isNew()
-          ? l.createFile(e, (t) => {
+          ? GCloudStorage.createFile(e, (t) => {
               (e.getScene().setCloudSynchronization(t.id),
                 gDesigner.executeAction(
                   GSaveAsAction.ID + '.' + h,
@@ -89034,7 +89316,7 @@ function (exports, module, require) {
                     null,
                     e,
                     () => {
-                      l.renameFile(t, e.getTitle(), () => {
+                      GCloudStorage.renameFile(t, e.getTitle(), () => {
                         e.storeToCloud(e.getScene());
                       });
                     },
@@ -89045,7 +89327,7 @@ function (exports, module, require) {
             })
           : e.isCloudFile()
             ? gDesigner.executeAction(GSaveAsAction.ID + '.' + h, undefined, undefined, true)
-            : l.createFile(e, (t) => {
+            : GCloudStorage.createFile(e, (t) => {
                 (e.getScene().setCloudSynchronization(t.id),
                   e.storeToCloud(e.getScene(), () => {
                     e.store(null, null, null, {
@@ -90569,7 +90851,7 @@ function (exports, module, require) {
     GAction = require(31) /* GAction */,
     MenuItemBuilder = require(18); /* MenuItemBuilder */
   const GSystemDialog = require(44) /* GSystemDialog */,
-    s = require(119); /* module_119 */
+    GCloudStorage = require(119); /* GCloudStorage */
   function l() {}
   (GCore.GObject.inherit(l, GAction),
     (l.ID = 'use-coupon-action'),
@@ -90598,7 +90880,7 @@ function (exports, module, require) {
       GSystemDialog.prompt(
         GCore.GLocale.get(new GCore.GLocaleKey('GUseCouponAction', 'text.hava-coupon')),
         async (e) => {
-          if (e) return s.activateCoupon(e);
+          if (e) return GCloudStorage.activateCoupon(e);
           GSystemDialog.alert(
             GCore.GLocale.get(new GCore.GLocaleKey('GUseCouponAction', 'text.invalid-coupon'))
           );
@@ -90658,11 +90940,11 @@ function (exports, module, require) {
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    u = _interopRequireDefault(require(177) /* module_177 */),
+    GUserModel = _interopRequireDefault(require(177) /* GUserModel */),
     AppSettings = require(10) /* AppSettings */,
     g = _interopRequireDefault(require(355) /* module_355 */),
     AppSettings2 = require(519); /* AppSettings */
-  const f = require(1548) /* module_1548 */,
+  const GCloudFolderItem = require(1548) /* GCloudFolderItem */,
     m = require(1166) /* module_1166 */,
     y = require(1549) /* module_1549 */,
     v = require(1174); /* module_1174 */
@@ -90718,7 +91000,7 @@ function (exports, module, require) {
       var _interopRequireDefault = this.filesPanel.isItemSelected(e),
         GCore = this.filesPanel.isItemInClipboard(e),
         GContainer = false,
-        s = new f(e, t, this.filesPanel.drive.isRootFolder(e))
+        s = new GCloudFolderItem(e, t, this.filesPanel.drive.isRootFolder(e))
           .onClick((e, t) => {
             (GEditor.GPlatform.modifiers.metaKey
               ? this.filesPanel.manageSelection(e, t)
@@ -90732,7 +91014,7 @@ function (exports, module, require) {
           .onDoubleClick(() => {
             s.getChildren() && s.getChildren().length
               ? s.toggleState()
-              : u().then(() => s.toggleState());
+              : GUserModel().then(() => s.toggleState());
           })
           .onContext(function (e, t, _interopRequireDefault) {
             (gDesigner.stats('filespanel-view_context_cloudfolder'),
@@ -90743,9 +91025,9 @@ function (exports, module, require) {
           .onFileDrop((e, t) => {
             this.filesPanel.performFileMove(e, t);
           })
-          .setRefreshHandler(u)
+          .setRefreshHandler(GUserModel)
           .onFolderStateClick(() => {
-            u().then(() => {
+            GUserModel().then(() => {
               if ((s.toggleState(), !s.isRootFolder() && !GContainer && s.isStateOpen())) {
                 var e = s.getChildren();
                 e && e.length && ((GContainer = true), e.forEach((e) => e.refresh()));
@@ -90756,7 +91038,7 @@ function (exports, module, require) {
       const CloudException = this.filesPanel.drive.isRootFolder(e),
         GSystemDialog = t && this.filesPanel.drive.isRootFolder(t.getFolder());
       var CollaborationMergeUtils;
-      function u() {
+      function GUserModel() {
         return s.isLoading() || (s.getChildren() && s.getChildren().length)
           ? CollaborationMergeUtils || Promise.resolve()
           : (s.setLoading(true),
@@ -90793,7 +91075,7 @@ function (exports, module, require) {
         (CloudException || GSystemDialog || this.filesPanel.drive.containsInPreviousPath(e)) &&
           (CloudException && this.filesPanel.drive.resetPreviousSelectedFolderPath(),
           this.filesPanel.drive.removeLoadedFolderFromPreviousPath(e),
-          u()),
+          GUserModel()),
         CloudException && s.toggleState(),
         s
           .getHTMLElement()
@@ -90804,8 +91086,9 @@ function (exports, module, require) {
     }),
     (b.prototype.navigateToFolder = async function (e) {
       try {
-        const f = this.filesPanel.drive;
-        (this.toggleLoading(true), (e = 'string' == typeof e ? await f.getFolder(e) : e));
+        const GCloudFolderItem = this.filesPanel.drive;
+        (this.toggleLoading(true),
+          (e = 'string' == typeof e ? await GCloudFolderItem.getFolder(e) : e));
         var module = async (e, t) => {
           this.filesPanel.navigateToFolder(e);
           for (
@@ -90830,30 +91113,28 @@ function (exports, module, require) {
         };
         if (
           (e.family === AppSettings.EXTERNAL_APP.ONEDRIVEBUSINESS &&
-            (f.isRootFolder(e) || f.isRootFolder(e.parent))) ||
-          f.isRootFolder(e.relativeUrl ? e.relativeUrl : e.parent)
+            (GCloudFolderItem.isRootFolder(e) || GCloudFolderItem.isRootFolder(e.parent))) ||
+          GCloudFolderItem.isRootFolder(e.relativeUrl ? e.relativeUrl : e.parent)
         )
           module(e);
         else {
           for (var require, _interopRequireDefault = [e], GCore = e, GEditor = false; !require; )
             if (
-              (GCore = await f
-                .getFolder(GCore.parent)
-                .catch(
-                  (t) => (
-                    t.status === AppSettings.gApi.HTTP_STATUS_CODES.NOT_FOUND &&
-                      GCore.id === e.id &&
-                      (GEditor = true),
-                    null
-                  )
-                ))
+              (GCore = await GCloudFolderItem.getFolder(GCore.parent).catch(
+                (t) => (
+                  t.status === AppSettings.gApi.HTTP_STATUS_CODES.NOT_FOUND &&
+                    GCore.id === e.id &&
+                    (GEditor = true),
+                  null
+                )
+              ))
             ) {
               if (
                 (_interopRequireDefault.push(GCore),
                 _interopRequireDefault.length > AppSettings2.MAX_FOLDER_DEPTH_FOR_CLOUD)
               )
                 return Promise.reject(AppSettings.gApi.HTTP_STATUS_CODES.NOT_FOUND);
-              f.isRootFolder(GCore.parent) && (require = true);
+              GCloudFolderItem.isRootFolder(GCore.parent) && (require = true);
             } else {
               if (GEditor) return Promise.reject(AppSettings.gApi.HTTP_STATUS_CODES.NOT_FOUND);
               require = true;
@@ -90862,25 +91143,25 @@ function (exports, module, require) {
             s = this._cloudFolders,
             CloudException = null,
             GSystemDialog = null,
-            u = null;
+            GUserModel = null;
           for (CloudException = GSystemDialog = GContainer.shift(); CloudException; ) {
-            u = s.find((e) => e.getFolder().id === CloudException.id);
+            GUserModel = s.find((e) => e.getFolder().id === CloudException.id);
             for (
               var g = 0;
               !(
-                u ||
+                GUserModel ||
                 (await (0, CollaborationMergeUtils.sleep)(100),
-                (u = s.find((e) => e.getFolder().id === CloudException.id)),
+                (GUserModel = s.find((e) => e.getFolder().id === CloudException.id)),
                 ++g > 300)
               );
             );
-            u
-              ? (await u.refresh(),
-                (s = u.getChildren()),
-                u.toggleState(),
+            GUserModel
+              ? (await GUserModel.refresh(),
+                (s = GUserModel.getChildren()),
+                GUserModel.toggleState(),
                 (CloudException = GContainer.shift())
                   ? (GSystemDialog = CloudException)
-                  : module(GSystemDialog, u))
+                  : module(GSystemDialog, GUserModel))
               : (CloudException = null);
           }
         }
@@ -90951,7 +91232,7 @@ function (exports, module, require) {
           .addClass('g-folders-list')
           .addClass('fixed-bottom')
           .addClass('custom-folders'),
-        u = $('<div/>').addClass('g-files-list'),
+        GUserModel = $('<div/>').addClass('g-files-list'),
         AppSettings = $('<div/>').addClass('g-empty-panel').hide();
       const g = $('<div/>').addClass('g-example-files-list').hide(),
         AppSettings2 = $('<div/>').addClass('g-recent-files-list');
@@ -90963,7 +91244,7 @@ function (exports, module, require) {
             gDesigner.stats('filespanel-view_clear_selection')));
       }),
         this.panel.on('click', _));
-      const f = (0, CollaborationMergeUtils.debounce)(
+      const GCloudFolderItem = (0, CollaborationMergeUtils.debounce)(
         () => this.filesPanel.buildDepth(false, false),
         100
       );
@@ -90971,8 +91252,8 @@ function (exports, module, require) {
         function (e) {
           var t = $(e.currentTarget);
           Math.floor(t[0].scrollHeight - t.scrollTop()) === Math.floor(t.outerHeight()) &&
-            $(u).children().length > 0 &&
-            f();
+            $(GUserModel).children().length > 0 &&
+            GCloudFolderItem();
         }.bind(this)
       ),
         this.createHeader(this.panel),
@@ -91010,7 +91291,7 @@ function (exports, module, require) {
               (e.stopPropagation(), e.preventDefault());
             })
         ),
-        u.appendTo(this._rightSide),
+        GUserModel.appendTo(this._rightSide),
         this.createFooter(this.filesPanel.getDefaultFilename()),
         this._permissionChanged());
     }),
@@ -91098,7 +91379,7 @@ function (exports, module, require) {
     (b.prototype.createTopBar = function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
         require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
-      e = new u.default(e);
+      e = new GUserModel.default(e);
       var _interopRequireDefault = this.filesPanel.getCloudSettings(),
         GEditor = this.filesPanel.getCloudSettingsById(this.filesPanel.getCurrentDriveId()),
         GContainer = this,
@@ -91310,11 +91591,11 @@ function (exports, module, require) {
           )
             try {
               var CollaborationMergeUtils,
-                u = module[s],
+                GUserModel = module[s],
                 AppSettings = false,
                 AppSettings2 = [];
               if (
-                u.id === _interopRequireDefault.id &&
+                GUserModel.id === _interopRequireDefault.id &&
                 (CollaborationMergeUtils = this.filesPanel.drive.supportsCorporateStorage())
               ) {
                 try {
@@ -91419,7 +91700,7 @@ function (exports, module, require) {
                   module.hover(() => {
                     this._closeCorporateSubMenu();
                   });
-              })(u);
+              })(GUserModel);
             } catch (e) {
               console.error(e);
             }
@@ -91712,7 +91993,7 @@ function (exports, module, require) {
     }),
     (b.prototype.updateUserDetails = function (e) {
       let module;
-      (e instanceof u.default || (e = new u.default(e)),
+      (e instanceof GUserModel.default || (e = new GUserModel.default(e)),
         (module = e.getUserReference()),
         module && this.panel.find('.g-files-top-account-name').html(module));
     }),
@@ -93739,7 +94020,7 @@ function (exports, module, require) {
   var GTools = require(53) /* module */,
     GCore = require(1) /* module */,
     a = require(15) /* module */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
     GAnnotationsSidebar = require(567); /* GAnnotationsSidebar */
   const c = ['text/xml', 'text/plain'],
@@ -93837,17 +94118,17 @@ function (exports, module, require) {
         var module = e.clipboardData;
         if (e.clipboardData && e.clipboardData.items && e.clipboardData.items.length) {
           for (
-            var require = module.items, GTools = {}, barrel_sidebars = 0;
-            barrel_sidebars < require.length;
-            barrel_sidebars++
+            var require = module.items, GTools = {}, GFontsProviderManager = 0;
+            GFontsProviderManager < require.length;
+            GFontsProviderManager++
           ) {
             var barrel_editor_actions = null;
-            switch ((d = require[barrel_sidebars].type)) {
+            switch ((d = require[GFontsProviderManager].type)) {
               case 'image/png':
               case 'image/jpeg':
               case 'image/gif':
               case 'application/pdf':
-                barrel_editor_actions = require[barrel_sidebars].getAsFile();
+                barrel_editor_actions = require[GFontsProviderManager].getAsFile();
                 break;
               default:
                 barrel_editor_actions = module.getData(d) || null;
@@ -93862,10 +94143,14 @@ function (exports, module, require) {
           var GAnnotationsSidebar = 0;
           if (module.types && module.types.length) {
             var c = module.types;
-            for (barrel_sidebars = 0; barrel_sidebars < c.length; barrel_sidebars++) {
+            for (
+              GFontsProviderManager = 0;
+              GFontsProviderManager < c.length;
+              GFontsProviderManager++
+            ) {
               var d;
               if (
-                'public.file-url' === (d = c[barrel_sidebars]) &&
+                'public.file-url' === (d = c[GFontsProviderManager]) &&
                 module.files &&
                 GAnnotationsSidebar < module.files.length
               ) {
@@ -94054,7 +94339,7 @@ function (exports, module, require) {
         }
         if (u) {
           var A,
-            T = barrel_sidebars.getProviderInstance(barrel_editor_actions),
+            T = GFontsProviderManager.getProviderInstance(barrel_editor_actions),
             G =
               gDesigner.getWorkspace() &&
               gDesigner.getWorkspace().getFontManager() &&
@@ -94118,16 +94403,16 @@ function (exports, module, require) {
         GTools++
       ) {
         for (
-          var a = e[GTools], barrel_sidebars = true, barrel_editor_actions = 0;
+          var a = e[GTools], GFontsProviderManager = true, barrel_editor_actions = 0;
           barrel_editor_actions < module.length;
           barrel_editor_actions++
         ) {
           if (a instanceof module[barrel_editor_actions]) {
-            barrel_sidebars = false;
+            GFontsProviderManager = false;
             break;
           }
         }
-        barrel_sidebars && require.push(a);
+        GFontsProviderManager && require.push(a);
       }
       return require;
     }),
@@ -94135,13 +94420,13 @@ function (exports, module, require) {
       var t,
         n,
         a = gDesigner.getActiveDocument().getEditor(),
-        barrel_sidebars = gDesigner.getActiveDocument().getScene(),
+        GFontsProviderManager = gDesigner.getActiveDocument().getScene(),
         barrel_editor_actions = gDesigner.getWindows().getActiveWindow(),
-        GAnnotationsSidebar = barrel_sidebars.getActivePage();
+        GAnnotationsSidebar = GFontsProviderManager.getActivePage();
       if (
-        ((n = barrel_sidebars.isFixedSized()
+        ((n = GFontsProviderManager.isFixedSized()
           ? GAnnotationsSidebar.getGeometryBBox()
-          : barrel_sidebars.getPaintBBox()),
+          : GFontsProviderManager.getPaintBBox()),
         barrel_editor_actions)
       ) {
         var c = barrel_editor_actions.getView(),
@@ -94149,7 +94434,7 @@ function (exports, module, require) {
           u = GCore.GPaintCanvas.getScreenDPI(),
           p = c.getViewBox().scaled(u, u);
         ((t = d.mapRect(p)),
-          barrel_sidebars.isFixedSized() && (t = t.intersected(n)),
+          GFontsProviderManager.isFixedSized() && (t = t.intersected(n)),
           t.isEmpty() && (t = n));
       } else t = n;
       (a.arrangeAlign(GTools.GEditor.ArrangeAlignType.AlignCenter, null, true, t, true, e),
@@ -94985,7 +95270,7 @@ function (exports, module, require) {
     } = require(10) /* AppSettings */,
     E = require(433) /* module_433 */,
     A = require(1324) /* module_1324 */,
-    T = require(177) /* module_177 */,
+    GUserModel = require(177) /* GUserModel */,
     G = require(1565) /* module_1565 */,
     P = require(868) /* module_868 */,
     D = require(536) /* module_536 */,
@@ -95219,7 +95504,7 @@ function (exports, module, require) {
     (k.prototype._getInvitedCollaboratorsAsUsers = function (e) {
       return e.getInvitedShareList().map((e) => {
         const module = E.makeFromShare(e),
-          require = new T({ id: e.email });
+          require = new GUserModel({ id: e.email });
         return (require.setRole(module), require);
       });
     }),
@@ -95229,7 +95514,7 @@ function (exports, module, require) {
         .getCollaborators(e.id)
         .then((t) =>
           t.map((t) => {
-            const require = new T(t),
+            const require = new GUserModel(t),
               _interopRequireDefault = ((t) => {
                 const require = e.getPrivateShare(t.getUID());
                 if (require) return E.makeFromShare(require);
@@ -95631,19 +95916,19 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(20) /* polyfill_RegExp_exec */, require(34)) /* polyfill_String_replace */;
-  const o = require(177) /* module_177 */,
+  const GUserModel = require(177) /* GUserModel */,
     {
       SharePermissions: { COMMENT: i, EDIT: a },
       ShareRoles: r,
     } = require(10) /* AppSettings */,
     { GLocale: s, GLocaleKey: l } = require(1); /* module */
-  exports.exports = class extends o {
+  exports.exports = class extends GUserModel {
     constructor() {
       let {
         access_id: exports,
         file_id: module,
         accessed: require,
-        name: o,
+        name: GUserModel,
         last_name: i,
         avatar: a,
         anonymous: r = false,
@@ -95652,7 +95937,7 @@ function (exports, module, require) {
       (super({
         file_id: module,
         accessed: require,
-        name: o,
+        name: GUserModel,
         last_name: i,
         avatar: a,
         anonymous: r,
@@ -96371,7 +96656,7 @@ function (exports, module, require) {
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
-  const g = require(358) /* module_358 */,
+  const GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
     h = require(607); /* module_607 */
   function f() {}
   (GCore.GObject.inherit(f, GAction),
@@ -96423,7 +96708,7 @@ function (exports, module, require) {
         AppSettings.HAS_ANNOTATIONS &&
         gDesigner.getRightSidebars().getActiveSidebar() === GAnnotationsSidebar.ID
       ) {
-        var r = t.getSelection().filter((e) => g.canDeleteAnnotation(e));
+        var r = t.getSelection().filter((e) => GAnnotationsUtils.canDeleteAnnotation(e));
         r.length &&
           (this._setIsConfirmWindowDisplaying(true),
           GSystemDialog.default.confirm(
@@ -96432,7 +96717,11 @@ function (exports, module, require) {
               (e &&
                 gDesigner.getActiveDocument() &&
                 gDesigner.getActiveDocument().getEditor() === t &&
-                g.removeAnnotations(r, r[0].getParent(), GCore.GLocale.get(this.getTitle())),
+                GAnnotationsUtils.removeAnnotations(
+                  r,
+                  r[0].getParent(),
+                  GCore.GLocale.get(this.getTitle())
+                ),
                 this._setIsConfirmWindowDisplaying(false));
             },
             null,
@@ -96703,7 +96992,7 @@ function (exports, module, require) {
   var GCore = require(1); /* module */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    r = require(1589); /* module_1589 */
+    GTouchOnboarding = require(1589); /* GTouchOnboarding */
   function s() {}
   (GCore.GObject.inherit(s, GAction),
     (s.ID = 'help.open-quick-help'),
@@ -96727,7 +97016,7 @@ function (exports, module, require) {
       return gDesigner.isTouchEnabled();
     }),
     (s.prototype.execute = function () {
-      r.open();
+      GTouchOnboarding.open();
     }),
     (s.prototype.toString = function () {
       return '[Object GOpenQuickHelpScreenAction]';
@@ -96857,7 +97146,7 @@ function (exports, module, require) {
     l = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GProperties = require(123) /* GProperties */,
-    u = require(1153) /* module_1153 */,
+    GPresets = require(1153) /* GPresets */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     g = require(603) /* WindowEvent */,
     h = require(1328) /* module_1328 */,
@@ -96884,7 +97173,7 @@ function (exports, module, require) {
     (_.prototype._ownChange = false),
     (_.prototype._chooserElem = null),
     (_.prototype._clipContentButton = null),
-    (_.prototype._excludedPresets = [u.TYPE.MERCH]),
+    (_.prototype._excludedPresets = [GPresets.TYPE.MERCH]),
     (_.prototype._createInput = function (e) {
       var t = this,
         n = this;
@@ -97727,7 +98016,7 @@ function (exports, module, require) {
         .text(GCore.GLocale.get(new GCore.GLocaleKey('GPageProperties', 'text.size-infinite')))
         .appendTo(n),
         t.append(n),
-        u.getPresets().forEach((n) => {
+        GPresets.getPresets().forEach((n) => {
           var _interopRequireDefault = $('<optgroup></optgroup>').attr('label', n.name),
             GTools = false;
           (n.layouts.forEach((t) => {
@@ -97851,7 +98140,7 @@ function (exports, module, require) {
         this._panel
           .find('input[data-property="mr"]')
           .gInputBox('value', t.pointToString(n.getProperty('mr'), t.getOptimalDecimalsCount())));
-      var u = this._panel
+      var GPresets = this._panel
           .find('select[data-property="master-page"]')
           .empty()
           .append($('<option></option>')),
@@ -97868,7 +98157,7 @@ function (exports, module, require) {
               .data('page', e)
               .attr('value', GSettingChangedEvent)
               .text(e.getProperty('name'))
-              .appendTo(u);
+              .appendTo(GPresets);
             g === e && t.prop('selected', true);
           }
         }, true),
@@ -97943,7 +98232,7 @@ function (exports, module, require) {
             .attr('disabled', GTouchTool)
             .attr('i18n', 'text.plkt-no-size-changes'));
       }
-      var u =
+      var GPresets =
         t && t & GCore.GBlock.ProgramLck.NoSizeChanges
           ? 'text.plkt-no-size-changes'
           : 'text.infinite-canvas-no-size-changes';
@@ -97957,10 +98246,9 @@ function (exports, module, require) {
             (e.attr('default-data-title', e.attr('default-data-title') || ''),
             e.attr(
               'data-title',
-              GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', e.attr('i18n') || u)).replace(
-                '%name',
-                e.attr('default-data-title') || ''
-              )
+              GCore.GLocale.get(
+                new GCore.GLocaleKey('GCommonNames', e.attr('i18n') || GPresets)
+              ).replace('%name', e.attr('default-data-title') || '')
             ));
         }),
         this._panel
@@ -97976,7 +98264,9 @@ function (exports, module, require) {
           .addClass('tooltip-wrapper')
           .attr(
             'data-title',
-            GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', (e && e.attr('i18n')) || u))
+            GCore.GLocale.get(
+              new GCore.GLocaleKey('GCommonNames', (e && e.attr('i18n')) || GPresets)
+            )
           );
       (this._panel.find('.tooltip-wrapper').remove(),
         this._panel.find('select:disabled').each(function () {
@@ -99375,11 +99665,11 @@ function (exports, module, require) {
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var AppSettings = require(10) /* AppSettings */,
-    a = require(882) /* module_882 */,
+    GCollaborationMentionsUtils = require(882) /* GCollaborationMentionsUtils */,
     r = require(1353) /* Exports_GAnnotationPanel */,
     s = require(263) /* Exports_GRegex */,
     l = require(67) /* GRichTooltipConfig */,
-    c = _interopRequireDefault(require(358) /* module_358 */),
+    GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     d = _interopRequireDefault(require(1324) /* module_1324 */),
     u = _interopRequireDefault(require(883) /* module_883 */);
   const {
@@ -99407,11 +99697,11 @@ function (exports, module, require) {
       annotation: require,
       relatedNodesCount: _interopRequireDefault,
       sidebarActive: AppSettings,
-      isLastRow: a,
+      isLastRow: GCollaborationMentionsUtils,
       mentionData: r,
       onMouseEnter: s,
       onMouseLeave: l,
-      onChange: c,
+      onChange: GAnnotationsUtils,
       onToggleState: d,
       onResolve: u,
       onReopen: p,
@@ -99429,10 +99719,10 @@ function (exports, module, require) {
       (this._annotation = require),
       (this._relatedNodesCount = _interopRequireDefault),
       (this._sidebarActive = AppSettings),
-      (this._isLastRow = a),
+      (this._isLastRow = GCollaborationMentionsUtils),
       (this._onMouseEnter = s),
       (this._onMouseLeave = l),
-      (this._onChange = c),
+      (this._onChange = GAnnotationsUtils),
       (this._onToggleState = d),
       (this._onResolve = u),
       (this._onReopen = p),
@@ -99491,7 +99781,7 @@ function (exports, module, require) {
         ),
         AppSettings = this,
         r = gDesigner.getSyncUser(),
-        s = c.default.isOwner(r, n),
+        s = GAnnotationsUtils.default.isOwner(r, n),
         d = gDesigner.getApplicationManager();
       const u = this._isCommentingEditingEnable && (this._hasResolveAccess || s),
         f = this._isCommentingEditingEnable && (this._hasReopenAccess || s);
@@ -99572,7 +99862,12 @@ function (exports, module, require) {
           I.html(e.html),
           this._updateReadUnreadStatus(v));
       var k = (e) => {
-          ((e = ((e = a.replaceAdditionalCollabShowTextBeforeSend.call(this, e)) || '').trim()) ||
+          ((e = (
+            (e = GCollaborationMentionsUtils.replaceAdditionalCollabShowTextBeforeSend.call(
+              this,
+              e
+            )) || ''
+          ).trim()) ||
             n.isEmptyTextAllowed()) &&
             (this._onChange(e),
             this._shouldAssign &&
@@ -99625,14 +99920,14 @@ function (exports, module, require) {
             gDesigner.stats('commentdocker_mention_select-user', _interopRequireDefault);
           },
         }).on('input', function () {
-          (a.showAssigneeRow.call(AppSettings, O),
+          (GCollaborationMentionsUtils.showAssigneeRow.call(AppSettings, O),
             (this.style.height = 0),
             (this.style.height = this.scrollHeight + 'px'));
         }),
         this._annotationCommentContainer
           .find('.mentions-autocomplete-list')
           .delegate('li', 'mousedown', () => {
-            a.showAssigneeRow.call(this, O);
+            GCollaborationMentionsUtils.showAssigneeRow.call(this, O);
           }),
         this.setMentionOverlayBorderVisiblity(false),
         (this._onlyOneAssignee = $('<span>')
@@ -99644,7 +99939,7 @@ function (exports, module, require) {
           .css('display', 'none')
           .append(
             $('<select>').on('change', (e) => {
-              a.updateAssignee.call(this, $(e.target).val());
+              GCollaborationMentionsUtils.updateAssignee.call(this, $(e.target).val());
             })
           )),
         (this._assigneeCheckBox = $('<input>')
@@ -99818,8 +100113,10 @@ function (exports, module, require) {
                 'click',
                 function (t) {
                   t.stopPropagation();
-                  let a = e ? 'commentdocker_option_edit' : 'commentdocker_option_add';
-                  (gDesigner.stats(''.concat(a), _interopRequireDefault),
+                  let GCollaborationMentionsUtils = e
+                    ? 'commentdocker_option_edit'
+                    : 'commentdocker_option_add';
+                  (gDesigner.stats(''.concat(GCollaborationMentionsUtils), _interopRequireDefault),
                     AppSettings._startEditMode(
                       AppSettings._annotationCommentContainer,
                       n.getProperty('text').trim().length > 0,
@@ -99932,7 +100229,7 @@ function (exports, module, require) {
     (T.prototype._updateReadUnreadStatus = function (e) {
       var t = this._annotation,
         n = gDesigner.getSyncUser(),
-        _interopRequireDefault = c.default.isOwner(n, t);
+        _interopRequireDefault = GAnnotationsUtils.default.isOwner(n, t);
       if (
         this._isParentAnnotResolved ||
         _interopRequireDefault ||
@@ -99940,9 +100237,9 @@ function (exports, module, require) {
       )
         this._isRead = true;
       else {
-        var a = null;
+        var GCollaborationMentionsUtils = null;
         (AppSettings.SHOW_SIDEBAR_BADGE &&
-          ((a = $('<div/>')
+          ((GCollaborationMentionsUtils = $('<div/>')
             .addClass('new-comment')
             .append([
               $('<span/>').addClass('dot').text('·'),
@@ -99957,7 +100254,7 @@ function (exports, module, require) {
               let e = t.getProperty('read') || [];
               e.includes(n.getUID()) ||
                 (t.setProperty('read', e.concat(n.getUID())),
-                a && a.remove(),
+                GCollaborationMentionsUtils && GCollaborationMentionsUtils.remove(),
                 (this._isRead = true),
                 this._container.addClass('new-element'));
             }, b));
@@ -99967,22 +100264,22 @@ function (exports, module, require) {
       this._scrollToElement(this._container);
     }),
     (T.prototype._startEditMode = function (e, t, n, _interopRequireDefault, AppSettings) {
-      let a = arguments.length > 5 && undefined !== arguments[5] ? arguments[5] : [],
+      let GCollaborationMentionsUtils =
+          arguments.length > 5 && undefined !== arguments[5] ? arguments[5] : [],
         r = arguments.length > 6 && undefined !== arguments[6] ? arguments[6] : [];
       if (!e.hasClass('g-edit-mode')) {
         var s = e.find('.annotation-comment-editor'),
           l = e.find('.contenteditor-buttonrow');
         s.val(L(n));
-        var c = this._generateCommentContentHTML(n);
-        let _interopRequireDefault = c.mentioned.map((e) => e.id),
-          AppSettings = a
-            .concat(r)
+        var GAnnotationsUtils = this._generateCommentContentHTML(n);
+        let _interopRequireDefault = GAnnotationsUtils.mentioned.map((e) => e.id),
+          AppSettings = GCollaborationMentionsUtils.concat(r)
             .filter((e) => _interopRequireDefault.includes(e.id))
             .map((e) => u.default.clone(e));
         (AppSettings &&
           AppSettings.length &&
           (AppSettings.forEach((e) => {
-            const t = c.mentioned.find((t) => t.id === e.id);
+            const t = GAnnotationsUtils.mentioned.find((t) => t.id === e.id);
             ((e.value = t.showText), (e.showText = t.showText));
           }),
           e.find('.annotation-comment-editor').mentionsInput('setMentions', AppSettings)),
@@ -100012,15 +100309,15 @@ function (exports, module, require) {
             !module.is(AppSettings.ShareRoles.Viewer) && !module.is(AppSettings.ShareRoles.NoAccess)
           );
         }),
-        a = [];
+        GCollaborationMentionsUtils = [];
       if (
         (require.forEach((e) => {
           const module = e.substring(1);
           if (!module) return;
-          if (D(e)) return void a.push(e);
+          if (D(e)) return void GCollaborationMentionsUtils.push(e);
           const require = _interopRequireDefault.find(P(module));
           require &&
-            !a.find(
+            !GCollaborationMentionsUtils.find(
               (function (e) {
                 return (t) =>
                   e.getFirstName() === t.substring(1) ||
@@ -100028,16 +100325,16 @@ function (exports, module, require) {
                   e.getEmail() === t.substring(1);
               })(require)
             ) &&
-            a.push(e);
+            GCollaborationMentionsUtils.push(e);
         }),
-        !(a || []).length)
+        !(GCollaborationMentionsUtils || []).length)
       )
         return { html: module, mentioned: [] };
       let r = _interopRequireDefault.filter(
         (e) =>
-          a.includes('@' + e.getFirstName()) ||
-          a.includes('@' + e.getFullUserName()) ||
-          (e.getEmail() && a.includes('@' + e.getEmail()))
+          GCollaborationMentionsUtils.includes('@' + e.getFirstName()) ||
+          GCollaborationMentionsUtils.includes('@' + e.getFullUserName()) ||
+          (e.getEmail() && GCollaborationMentionsUtils.includes('@' + e.getEmail()))
       );
       return (
         (r = r.map((e) => {
@@ -100045,13 +100342,13 @@ function (exports, module, require) {
             require = '@' + module.getEmail(),
             _interopRequireDefault = '@' + module.getFirstName();
           return (
-            a.includes(_interopRequireDefault)
+            GCollaborationMentionsUtils.includes(_interopRequireDefault)
               ? (module.showText = '@' + module.getFullUserName())
-              : a.includes(require) && (module.showText = require),
+              : GCollaborationMentionsUtils.includes(require) && (module.showText = require),
             module
           );
         })),
-        a.forEach((e) => {
+        GCollaborationMentionsUtils.forEach((e) => {
           let require = e;
           const _interopRequireDefault = D(e);
           if (_interopRequireDefault)
@@ -100081,7 +100378,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GEditor = require(15) /* module */,
-    i = require(882); /* module_882 */
+    GCollaborationMentionsUtils = require(882); /* GCollaborationMentionsUtils */
   const GSystemDialog = require(44) /* GSystemDialog */,
     { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = require(1) /* module */,
     u = require(1191) /* module_1191 */,
@@ -100092,14 +100389,14 @@ function (exports, module, require) {
       container: module,
       annotation: require,
       onSubmit: GEditor,
-      onCancel: i,
+      onCancel: GCollaborationMentionsUtils,
       onAssignTo: GSystemDialog,
       mentionData: r,
     } = e;
     ((this._containter = module),
       (this._annotation = require),
       (this._onSubmit = GEditor),
-      (this._onCancel = i),
+      (this._onCancel = GCollaborationMentionsUtils),
       (this._onAssignTo = GSystemDialog),
       (this._shouldAssign = false),
       (this._assignees = []),
@@ -100163,7 +100460,7 @@ function (exports, module, require) {
           .css('display', 'none')
           .append(
             $('<select>').on('change', (e) => {
-              i.updateAssignee.call(this, $(e.target).val());
+              GCollaborationMentionsUtils.updateAssignee.call(this, $(e.target).val());
             })
           )),
         (this._assigneeCheckBox = $('<input>')
@@ -100240,7 +100537,7 @@ function (exports, module, require) {
         .on('click', (e) => {
           ($(e.target).attr('rows') <= 5 && $(e.target).attr('rows', 5),
             t.show(),
-            i.showAssigneeRow.call(this, this._input),
+            GCollaborationMentionsUtils.showAssigneeRow.call(this, this._input),
             gDesigner.isTouchEnabled() && this.requestFocus());
         })
         .prependTo(u)),
@@ -100259,15 +100556,18 @@ function (exports, module, require) {
             },
           })
           .on('input', () => {
-            i.showAssigneeRow.call(this, this._input);
+            GCollaborationMentionsUtils.showAssigneeRow.call(this, this._input);
           }),
         u.find('.mentions-autocomplete-list').delegate('li', 'mousedown', () => {
-          i.showAssigneeRow.call(this, this._input);
+          GCollaborationMentionsUtils.showAssigneeRow.call(this, this._input);
         }),
         c && (this._input.trigger('click'), this._input.focus()));
     }),
     (g.prototype._addContent = function () {
-      var e = i.replaceAdditionalCollabShowTextBeforeSend.call(this, $(this._input).val());
+      var e = GCollaborationMentionsUtils.replaceAdditionalCollabShowTextBeforeSend.call(
+        this,
+        $(this._input).val()
+      );
       ((e = e.trim()),
         this._onSubmit(e),
         this._shouldAssign &&
@@ -100597,11 +100897,11 @@ function (exports, module, require) {
   var o,
     i,
     GBrowserContainer = require(1374) /* GBrowserContainer */,
-    AppSettings = require(1483); /* AppSettings */
+    GDesignerApp = require(1483); /* GDesignerApp */
   function s() {
     var e = new GBrowserContainer();
     e.initLanguage(function () {
-      ((o = e.init(AppSettings)),
+      ((o = e.init(GDesignerApp)),
         i &&
           o.then(() => {
             l(i);
@@ -100645,18 +100945,18 @@ function (exports, module, require) {
     r = require(85) /* GContainer */,
     s = require(1195); /* Item */
   const GMarketingFileStorageItem = require(1378); /* GMarketingFileStorageItem */
-  var barrel_sidebars = require(255) /* barrel_sidebars */,
-    d = require(1379) /* module_1379 */,
-    u = require(1380) /* module_1380 */,
-    p = require(1118) /* module_1118 */,
-    g = require(1199) /* module_1199 */,
+  var GFontsProviderManager = require(255) /* GFontsProviderManager */,
+    GGoogleFontsProvider = require(1379) /* GGoogleFontsProvider */,
+    GFontLauncherProvider = require(1380) /* GFontLauncherProvider */,
+    GCustomFontsProvider = require(1118) /* GCustomFontsProvider */,
+    GLocalFontsProvider = require(1199) /* GLocalFontsProvider */,
     h = require(220) /* Item */,
     f = require(1385) /* Item */,
     m = require(1386) /* Item */,
-    y = require(119) /* module_119 */,
-    v = require(163) /* module_163 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
+    GDocument = require(163) /* GDocument */,
     _ = require(86) /* module_86 */,
-    b = require(1153) /* module_1153 */,
+    GPresets = require(1153) /* GPresets */,
     GSystemDialog = require(44) /* GSystemDialog */,
     AppSettings = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
   const x = require(1482) /* module_1482 */,
@@ -100680,7 +100980,7 @@ function (exports, module, require) {
       return this._storage;
     }),
     (E.prototype.getSystemFontsProvider = function () {
-      return u;
+      return GFontLauncherProvider;
     }),
     (E.prototype.supportsLocalFonts = function () {
       return AppSettings;
@@ -100688,16 +100988,16 @@ function (exports, module, require) {
     (E.prototype.registerFontProviders = function () {
       if (
         (r.prototype.registerFontProviders.call(this),
-        barrel_sidebars.registerProvider(p),
-        barrel_sidebars.registerProvider(d),
+        GFontsProviderManager.registerProvider(GCustomFontsProvider),
+        GFontsProviderManager.registerProvider(GGoogleFontsProvider),
         this.supportsLocalFonts())
       )
         try {
-          barrel_sidebars.registerProvider(g);
+          GFontsProviderManager.registerProvider(GLocalFontsProvider);
         } catch (e) {
           console.error('Local Fonts Access API is not available');
         }
-      window.GSystemFontsProvider = u;
+      window.GSystemFontsProvider = GFontLauncherProvider;
     }),
     (E.prototype.openExternalLink = function (e, t) {
       (e && e.preventDefault(), window.open(t, '_blank'));
@@ -100823,21 +101123,40 @@ function (exports, module, require) {
       (e.updateStatus(_.Loading, s),
         (async function () {
           try {
-            let d,
-              u = t.getType(),
-              p = t.getContent();
-            if (u === r.OpenFileRequest.Type.StoreContent)
-              ((d = await gApi.getProviderContentDetails(p)),
-                d && n(new f.Item(GObject, d.id, d.name, d), { loadingData: s }));
-            else if (u === r.OpenFileRequest.Type.ExternalAsset)
-              ((d = await gApi.getProviderContentDetails(p)),
-                d && n(new m.Item(GObject, d.id, d.name, d, p), { loadingData: s }));
-            else if (u === r.OpenFileRequest.Type.Preset) {
-              let e = JSON.parse(S(decodeURIComponent(p))),
+            let GGoogleFontsProvider,
+              GFontLauncherProvider = t.getType(),
+              GCustomFontsProvider = t.getContent();
+            if (GFontLauncherProvider === r.OpenFileRequest.Type.StoreContent)
+              ((GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
+                GGoogleFontsProvider &&
+                  n(
+                    new f.Item(
+                      GObject,
+                      GGoogleFontsProvider.id,
+                      GGoogleFontsProvider.name,
+                      GGoogleFontsProvider
+                    ),
+                    { loadingData: s }
+                  ));
+            else if (GFontLauncherProvider === r.OpenFileRequest.Type.ExternalAsset)
+              ((GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
+                GGoogleFontsProvider &&
+                  n(
+                    new m.Item(
+                      GObject,
+                      GGoogleFontsProvider.id,
+                      GGoogleFontsProvider.name,
+                      GGoogleFontsProvider,
+                      GCustomFontsProvider
+                    ),
+                    { loadingData: s }
+                  ));
+            else if (GFontLauncherProvider === r.OpenFileRequest.Type.Preset) {
+              let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
                 t =
                   e &&
                   (function (e) {
-                    let t = b.getPresets(),
+                    let t = GPresets.getPresets(),
                       n = null,
                       GObject = null;
                     for (let i of t) {
@@ -100852,28 +101171,28 @@ function (exports, module, require) {
               t &&
                 t.presetLayout &&
                 (t.presetLayout.template
-                  ? ((d = await gApi
+                  ? ((GGoogleFontsProvider = await gApi
                       .getPresetTemplate({ type: t.presetLayout.template })
                       .catch(() => null)),
-                    d &&
+                    GGoogleFontsProvider &&
                       n(
                         new GMarketingFileStorageItem(
                           GObject,
-                          d.data,
+                          GGoogleFontsProvider.data,
                           ''.concat(e.id, '.gvdesign'),
-                          d.id
+                          GGoogleFontsProvider.id
                         ),
-                        { content: e, file: d, preset: t, loadingData: s }
+                        { content: e, file: GGoogleFontsProvider, preset: t, loadingData: s }
                       ))
                   : n(t, {
                       content: e,
                       category: t.presetCategory,
                       loadingData: s,
                     }));
-            } else if (u === r.OpenFileRequest.Type.Template) {
-              let e = JSON.parse(S(decodeURIComponent(p))),
-                { file: t, data: i } = await y.loadDesignData(e.id),
-                GLocaleKey = v.FileTypes.find((e) => e.mime === t.type).ext;
+            } else if (GFontLauncherProvider === r.OpenFileRequest.Type.Template) {
+              let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
+                { file: t, data: i } = await GCloudStorage.loadDesignData(e.id),
+                GLocaleKey = GDocument.FileTypes.find((e) => e.mime === t.type).ext;
               t &&
                 i &&
                 n(
@@ -100892,34 +101211,50 @@ function (exports, module, require) {
                 );
             } else {
               let t;
-              if (u === r.OpenFileRequest.Type.DocumentOrToken) {
-                let e = JSON.parse(p);
-                ((d = await gApi.getShare(e.token, true).catch(() => null)),
-                  d ? (t = e.token) : (d = await gApi.getFile(e.doc).catch(() => null)));
+              if (GFontLauncherProvider === r.OpenFileRequest.Type.DocumentOrToken) {
+                let e = JSON.parse(GCustomFontsProvider);
+                ((GGoogleFontsProvider = await gApi.getShare(e.token, true).catch(() => null)),
+                  GGoogleFontsProvider
+                    ? (t = e.token)
+                    : (GGoogleFontsProvider = await gApi.getFile(e.doc).catch(() => null)));
               } else
-                u === r.OpenFileRequest.Type.Document
-                  ? (d = await gApi.getFile(p).catch(() => null))
-                  : u === r.OpenFileRequest.Type.Token &&
-                    ((t = p), (d = await gApi.getShare(t, true).catch(() => null)));
-              if (d)
-                n(new h.Item(GObject, d.id, d.name, d, null, t, d.autosave), {
-                  loadingData: s,
-                });
+                GFontLauncherProvider === r.OpenFileRequest.Type.Document
+                  ? (GGoogleFontsProvider = await gApi
+                      .getFile(GCustomFontsProvider)
+                      .catch(() => null))
+                  : GFontLauncherProvider === r.OpenFileRequest.Type.Token &&
+                    ((t = GCustomFontsProvider),
+                    (GGoogleFontsProvider = await gApi.getShare(t, true).catch(() => null)));
+              if (GGoogleFontsProvider)
+                n(
+                  new h.Item(
+                    GObject,
+                    GGoogleFontsProvider.id,
+                    GGoogleFontsProvider.name,
+                    GGoogleFontsProvider,
+                    null,
+                    t,
+                    GGoogleFontsProvider.autosave
+                  ),
+                  {
+                    loadingData: s,
+                  }
+                );
               else {
                 ((s.text = i.get(new GLocaleKey('GContainer', 'text.load-failed'))),
                   e.updateStatus(_.LoadFailed, s),
-                  e.setFailedDocumentIdOrToken(p),
+                  e.setFailedDocumentIdOrToken(GCustomFontsProvider),
                   n(null));
-                var barrel_sidebars = [];
+                var GFontsProviderManager = [];
                 (gDesigner.getShareManager().isPermissionRequestEnabled() &&
-                  barrel_sidebars.push({
+                  GFontsProviderManager.push({
                     label: i.get(new GLocaleKey('GShareManager', 'text.file-request-access')),
                     onclick: (e) => {
                       (gDesigner.stats('permission-dialog_no-access_request-access'),
                         gApi
-                          .requestPermission(p, {
+                          .requestPermission(GCustomFontsProvider, {
                             access: true,
-                            isToken: u === r.OpenFileRequest.Type.Token,
+                            isToken: GFontLauncherProvider === r.OpenFileRequest.Type.Token,
                           })
                           .then(() => {
                             (e.gDialog('close'),
@@ -100934,7 +101269,7 @@ function (exports, module, require) {
                           }));
                     },
                   }),
-                  barrel_sidebars.push({
+                  GFontsProviderManager.push({
                     label: i.get(new GLocaleKey('GLocale', 'ok')),
                     onclick: (e) => {
                       (gDesigner.stats('permission-dialog_no-access_click-ok'), e.gDialog('close'));
@@ -100952,7 +101287,7 @@ function (exports, module, require) {
                     subtitle: i.get(
                       new GLocaleKey('GShareManager', 'text.file-can-not-be-accessed-info')
                     ),
-                    buttons: barrel_sidebars,
+                    buttons: GFontsProviderManager,
                   }));
               }
             }
@@ -104263,20 +104598,24 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   (require(19) /* polyfill_Array_iterator */, require(26)) /* polyfill_DOMCollection_iterator */;
-  const barrel_sidebars = require(255); /* barrel_sidebars */
+  const GFontsProviderManager = require(255); /* GFontsProviderManager */
   exports.exports = class {
     constructor() {
       this._missingFonts = [];
     }
     start() {
-      barrel_sidebars
-        .getInstance()
-        .addEventListener(barrel_sidebars.MissingFontEvent, this._missingFontEvent, this);
+      GFontsProviderManager.getInstance().addEventListener(
+        GFontsProviderManager.MissingFontEvent,
+        this._missingFontEvent,
+        this
+      );
     }
     stop() {
-      barrel_sidebars
-        .getInstance()
-        .removeEventListener(barrel_sidebars.MissingFontEvent, this._missingFontEvent, this);
+      GFontsProviderManager.getInstance().removeEventListener(
+        GFontsProviderManager.MissingFontEvent,
+        this._missingFontEvent,
+        this
+      );
     }
     getMissingFonts() {
       return [...new Set(this._missingFonts)];
@@ -104348,7 +104687,7 @@ function (exports, module, require) {
   (require(1474) /* module_1474 */,
     require(220) /* Item */,
     require(44) /* GSystemDialog */,
-    require(119)) /* module_119 */;
+    require(119)) /* GCloudStorage */;
   function a(e, t, n) {
     ((this._document = e),
       (this._storageItem = t),
@@ -105821,9 +106160,9 @@ function (exports, module, require) {
     require(71)) /* polyfill_String_includes */;
   var o = require(1241); /* GCloudRole */
   const GObject = require(0) /* GObject */,
-    a = require(177); /* module_177 */
+    GUserModel = require(177); /* GUserModel */
   function r() {}
-  (GObject.inherit(r, a),
+  (GObject.inherit(r, GUserModel),
     (r.ValidRoles = [
       o.GCloudRole.Type.Viewer,
       o.GCloudRole.Type.Coauthor,
@@ -109163,7 +109502,7 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   require(8) /* polyfill_bundle_ES6 */;
-  const o = require(1117) /* module_1117 */.saveAs;
+  const FileSaverJS = require(1117) /* FileSaverJS */.saveAs;
   function i() {}
   ((i.prototype.download = async function () {
     let {
@@ -109172,7 +109511,7 @@ function (exports, module, require) {
       extension: require,
       mime: i,
     } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-    o(new Blob([exports], i), ''.concat(module, '.').concat(require));
+    FileSaverJS(new Blob([exports], i), ''.concat(module, '.').concat(require));
   }),
     (exports.exports = i));
 }
@@ -109218,11 +109557,11 @@ function (exports, module, require) {
     w = require(231) /* module_231 */,
     C = !v,
     x = require(859); /* module_859 */
-  require(1488) /* module_1488 */;
-  require(1489) /* module_1489 */;
+  require(1488) /* DragDropTouch */;
+  require(1489) /* AbortControllerPolyfill */;
   const S = require(1490); /* module_1490 */
-  var E = require(1491) /* Je */,
-    A = require(163) /* module_163 */,
+  var GDesignerWorkspace = require(1491) /* GDesignerWorkspace */,
+    GDocument = require(163) /* GDocument */,
     GAlignAction = require(866) /* GAlignAction */,
     GArrangeAction = require(869) /* GArrangeAction */,
     GAttachToPathAction = require(1176) /* GAttachToPathAction */,
@@ -109363,8 +109702,8 @@ function (exports, module, require) {
   (require(78) /* GDocumentEvent */, require(86)) /* module_86 */;
   var GUnloadEvent = require(1346) /* GUnloadEvent */,
     Zt = (require(1347) /* module_1347 */, require(1160)) /* GAppearanceProperties */,
-    en = require(1261) /* module_1261 */,
-    tn = require(1162) /* module_1162 */,
+    GFillProperties = require(1261) /* GFillProperties */,
+    GBorderProperties = require(1162) /* GBorderProperties */,
     GBoolOpProperties = require(1264) /* GBoolOpProperties */,
     GEffectProperties = require(1262) /* GEffectProperties */,
     GEllipseProperties = require(1265) /* GEllipseProperties */,
@@ -109376,8 +109715,8 @@ function (exports, module, require) {
     GOutlineSidebar = require(1260) /* GOutlineSidebar */,
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
     GPathProperties = require(1269) /* GPathProperties */,
-    hn = require(1150) /* module_1150 */,
-    fn = require(1657) /* module_1657 */,
+    GPatternChooser = require(1150) /* GPatternChooser */,
+    GPatternChooserOverlay = require(1657) /* GPatternChooserOverlay */,
     GPolygonProperties = require(1270) /* GPolygonProperties */,
     GRectangleProperties = require(1271) /* GRectangleProperties */,
     GPageProperties = require(1339) /* GPageProperties */,
@@ -109398,13 +109737,13 @@ function (exports, module, require) {
     GContainer = require(85) /* GContainer */,
     On = require(1672) /* module_1672 */,
     Fn = (require(237) /* Item */, require(1673)) /* module_1673 */,
-    Rn = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     Mn = require(1674) /* module_1674 */,
     Nn = require(44) /* GSystemDialog */,
-    Bn = require(860) /* module_860 */,
+    GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
     Un = require(1675) /* module_1675 */,
     $n = require(337) /* stub_requires_1098 */,
-    jn = require(1325) /* module_1325 */,
+    GReminderManager = require(1325) /* GReminderManager */,
     Kn = require(785) /* module_785 */,
     GSoftwareUpdateManager = require(1676) /* GSoftwareUpdateManager */,
     GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
@@ -109414,12 +109753,12 @@ function (exports, module, require) {
       (GShowGridAction) => GShowGridAction.ext
     );
   var Yn = require(1678); /* module_1678 */
-  const Xn = new (require(1343))(/* module_1343 */);
+  const Xn = new (require(1343))(/* GTranslationManager */);
   Xn.init();
   const Qn = require(1684) /* module_1684 */,
     Jn = require(1686) /* module_1686 */,
     Zn = require(1687) /* module_1687 */,
-    eo = require(1255) /* module_1255 */,
+    GOpenFileRequestHandler = require(1255) /* GOpenFileRequestHandler */,
     {
       isExecutingOnMSTeams: to,
       isExecutingOnMSTeamsSync: no,
@@ -109428,7 +109767,7 @@ function (exports, module, require) {
     } = p.default;
   (require(18) /* MenuItemBuilder */,
     require(1688) /* module_1688 */,
-    require(1154) /* module_1154 */,
+    require(1154) /* GFileDownloadUtils */,
     require(1689) /* module_1689 */,
     require(1690) /* stub_requires_1 */,
     require(1691) /* module_1691 */,
@@ -109474,7 +109813,7 @@ function (exports, module, require) {
   let lo = null;
   ((ao.gravit = null),
     require(1738) /* module_1738 */,
-    (ao.gDesigner = new E()),
+    (ao.gDesigner = new GDesignerWorkspace()),
     ao.gDesigner.getUser(),
     (ao.gQA = h.default));
   const co = ao.gDesigner.isOfflineAsync();
@@ -109514,7 +109853,8 @@ function (exports, module, require) {
       ) {
         Mn.isPluginError(AppSettings)
           ? Nn.alert(AppSettings.message)
-          : ('production' === m || 'trunk' === m || 'lts' === m || 'rc' === m) && Rn.isOnline();
+          : ('production' === m || 'trunk' === m || 'lts' === m || 'rc' === m) &&
+            GCloudStorage.isOnline();
       }),
       x.getRuntimeCode() === AppSettings.Runtime.WindowsStore.code && new Qn().init(),
       y && !_ && new Jn().init(),
@@ -109668,11 +110008,11 @@ function (exports, module, require) {
       gDesigner.setCommitSHA('566771f4dff3952a55c0d9d3c130f7e787dfdfa7'),
       gDesigner.setBuildNum('8795'),
       gDesigner.setVersionFriendlyName('i015.3'));
-    let E,
+    let GDesignerWorkspace,
       Wn = (0, CollaborationMergeUtils._tryAndCatch)(() => gDesigner.preInit(module)),
       Yn = gContainer.handleDeepLinking();
     Yn &&
-      (E = await gDesigner
+      (GDesignerWorkspace = await gDesigner
         .runDeepLink(Yn.link, Yn.options)
         .then(() => null)
         .catch((GShowGridAction) => GShowGridAction));
@@ -109713,7 +110053,7 @@ function (exports, module, require) {
               _ ? new xt(new GExportAction()) : new GExportAction(),
             ])
             .concat(
-              A.FileTypes.filter(
+              GDocument.FileTypes.filter(
                 (GShowGridAction) =>
                   GShowGridAction.store &&
                   'cdrapp' !== GShowGridAction.ext &&
@@ -110316,8 +110656,8 @@ function (exports, module, require) {
             new GBoolOpProperties(),
             new GSymbolProperties(),
             new Zt(),
-            new en(),
-            new tn(),
+            new GFillProperties(),
+            new GBorderProperties(),
             new GEffectProperties(),
           ],
         }),
@@ -110338,8 +110678,8 @@ function (exports, module, require) {
       let module = new In(GShowGridAction._storage);
       (module.load(),
         module.init(gravit),
-        (ao.gPatternChooserNormal = new hn()),
-        (ao.gPatternChooserTouch = new fn()),
+        (ao.gPatternChooserNormal = new GPatternChooser()),
+        (ao.gPatternChooserTouch = new GPatternChooserOverlay()),
         gDesigner.isTouchEnabled()
           ? (ao.gPatternChooser = ao.gPatternChooserTouch)
           : (ao.gPatternChooser = ao.gPatternChooserNormal),
@@ -110384,7 +110724,7 @@ function (exports, module, require) {
         gDesigner.getUser().then((GShowGridAction) => {
           GShowGridAction ||
             co.then((GShowGridAction) => {
-              GShowGridAction || Rn.performLogin();
+              GShowGridAction || GCloudStorage.performLogin();
             });
         }),
         gDesigner.updateRecentDocumentsAction(),
@@ -110423,7 +110763,7 @@ function (exports, module, require) {
         }),
         n)
       ) {
-        let GShowGridAction = new A();
+        let GShowGridAction = new GDocument();
         if (
           gContainer.getRuntime() === GContainer.Runtime.Browser ||
           gContainer.getRuntime() === GContainer.Runtime.PWA ||
@@ -110443,7 +110783,7 @@ function (exports, module, require) {
           ? gContainer.openStorageFile(GShowGridAction, n, (GShowGridAction) => {
               GShowGridAction && gDesigner.openDocument(GShowGridAction);
             })
-          : eo.handleOpenFileRequest(GShowGridAction, n),
+          : GOpenFileRequestHandler.handleOpenFileRequest(GShowGridAction, n),
           gDesigner.createNewDocumentDialog());
       } else
         f.default.isEnabled()
@@ -110474,7 +110814,7 @@ function (exports, module, require) {
                 'designer.settings.dont_show_unsupported_screen_size_dialog'
               )),
         module.start(),
-        await jn.start(),
+        await GReminderManager.start(),
         C &&
           (await (0, CollaborationMergeUtils._tryAndCatch)(() => {
             ((gDesigner._softwareUpdateManager = new GSoftwareUpdateManager()),
@@ -110524,14 +110864,14 @@ function (exports, module, require) {
           (await gContainer.preLogin().catch((GShowGridAction) => {
             console.warn('gContainer preLogin error', GShowGridAction);
           }),
-            new Bn(io).open({ flow: n, signup: module, version: 'i015.3' }),
+            new GEmbeddedLogin(io).open({ flow: n, signup: module, version: 'i015.3' }),
             On.setupInAppLinkReloadAppForOnce(),
             p &&
               p.has(GContainer.DeepLinking.PWADialog) &&
               gDesigner.executeWhenReady(() => {
                 gDesigner.showInstallPwaDialog(true);
               }),
-            E && Nn.error(E));
+            GDesignerWorkspace && Nn.error(GDesignerWorkspace));
         } else
           (await io(),
             p &&
@@ -110581,7 +110921,7 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   var GSystem = _interopRequireDefault(require(176) /* GSystem */),
     GCore = require(1) /* module */,
-    r = _interopRequireDefault(require(1242) /* module_1242 */),
+    MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
     s = _interopRequireDefault(require(44) /* GSystemDialog */),
     l = _interopRequireDefault(require(443) /* module_443 */),
     c = require(1243); /* Exports_SHAREPOINT_COMMAND */
@@ -110605,7 +110945,7 @@ function (exports, module, require) {
       ((await d())
         ? exports.push(c.ONE_DRIVE_BUSINESS_COMMAND)
         : (await u()) && exports.push(c.SHAREPOINT_COMMAND),
-        r.default
+        MSTeamsAuthManager.default
           .getInstance()
           .authenticate(exports)
           .then(() => {
@@ -110677,25 +111017,25 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */,
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
-  var i = require(1154) /* module_1154 */,
+  var GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
     a = _interopRequireDefault(require(389) /* module_389 */),
-    r = _interopRequireDefault(require(163) /* module_163 */),
-    s = _interopRequireDefault(require(1245) /* module_1245 */),
+    GDocument = _interopRequireDefault(require(163) /* GDocument */),
+    GCustomFontImporter = _interopRequireDefault(require(1245) /* GCustomFontImporter */),
     GCore = require(1); /* module */
   exports.exports = {
     debugDownloadPNG: function () {
-      (0, i.downloadActiveFile)(a.default.PNG.ext);
+      (0, GFileDownloadUtils.downloadActiveFile)(a.default.PNG.ext);
     },
     debugDownloadPDF: function (e) {
-      (0, i.downloadActiveFile)(a.default.PDF.ext, {
+      (0, GFileDownloadUtils.downloadActiveFile)(a.default.PDF.ext, {
         dpi: e || GCore.GLength.DPI,
       });
     },
     debugDownloadSVG: function () {
-      (0, i.downloadActiveFile)(a.default.SVG.ext);
+      (0, GFileDownloadUtils.downloadActiveFile)(a.default.SVG.ext);
     },
     debugDownloadJPEG: function () {
-      (0, i.downloadActiveFile)(a.default.JPG.ext);
+      (0, GFileDownloadUtils.downloadActiveFile)(a.default.JPG.ext);
     },
     debugOpenFile: function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
@@ -110705,7 +111045,7 @@ function (exports, module, require) {
           module
         );
       require.openPrompt(
-        r.default.FileTypes.filter((e) => e.load),
+        GDocument.default.FileTypes.filter((e) => e.load),
         (t) => {
           (gDesigner.openDocument(t), e && e());
         },
@@ -110716,7 +111056,7 @@ function (exports, module, require) {
     debugImportFont: function (e) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       const require = Object.assign({ disableFileSystemAccessAPI: true, silent: true }, module),
-        _interopRequireDefault = new s.default();
+        _interopRequireDefault = new GCustomFontImporter.default();
       _interopRequireDefault.import(e, require);
     },
   };
@@ -111694,52 +112034,57 @@ function (exports, module, require) {
     d = require(1246) /* Exports_GPersona */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     p = require(1247) /* module_1247 */,
-    g = (function (e, t) {
+    g = (function (GUserModel, t) {
       if ('function' == typeof WeakMap)
         var require = new WeakMap(),
           _interopRequireDefault = new WeakMap();
-      return (function (e, t) {
-        if (!t && e && e.__esModule) return e;
+      return (function (GUserModel, t) {
+        if (!t && GUserModel && GUserModel.__esModule) return GUserModel;
         var GTools,
           GCore,
-          GEditor = { __proto__: null, default: e };
-        if (null === e || ('object' != typeof e && 'function' != typeof e)) return GEditor;
+          GEditor = { __proto__: null, default: GUserModel };
+        if (
+          null === GUserModel ||
+          ('object' != typeof GUserModel && 'function' != typeof GUserModel)
+        )
+          return GEditor;
         if ((GTools = t ? _interopRequireDefault : require)) {
-          if (GTools.has(e)) return GTools.get(e);
-          GTools.set(e, GEditor);
+          if (GTools.has(GUserModel)) return GTools.get(GUserModel);
+          GTools.set(GUserModel, GEditor);
         }
-        for (const t in e)
+        for (const t in GUserModel)
           'default' !== t &&
-            {}.hasOwnProperty.call(e, t) &&
-            ((GCore = (GTools = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) &&
+            {}.hasOwnProperty.call(GUserModel, t) &&
+            ((GCore =
+              (GTools = Object.defineProperty) && Object.getOwnPropertyDescriptor(GUserModel, t)) &&
             (GCore.get || GCore.set)
               ? GTools(GEditor, t, GCore)
-              : (GEditor[t] = e[t]));
+              : (GEditor[t] = GUserModel[t]));
         return GEditor;
-      })(e, t);
-    })(require(1739) /* module_1739 */),
+      })(GUserModel, t);
+    })(require(1739) /* AmplitudeSDK */),
     h =
       (_interopRequireDefault(require(1249) /* module_1249 */),
       _interopRequireDefault(require(1155) /* module_1155 */)),
-    f = _interopRequireDefault(require(556) /* Item */),
+    GGoogleDriveItem = _interopRequireDefault(require(556) /* GGoogleDriveItem */),
     m = _interopRequireDefault(require(734) /* module_734 */),
-    y = _interopRequireDefault(require(1494) /* module_1494 */),
+    GAnalyticsPageStats = _interopRequireDefault(require(1494) /* GAnalyticsPageStats */),
     v = _interopRequireDefault(require(1496) /* module_1496 */),
     _ = _interopRequireDefault(require(1497) /* module_1497 */),
     b = _interopRequireDefault(require(1498) /* module_1498 */);
-  var w = require(163) /* module_163 */,
+  var w = require(163) /* GDocument */,
     GMenu = require(238) /* GMenu */,
     GMenu2 = require(339) /* GMenu */,
     GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
-    E = require(1500) /* module_1500 */,
+    GDocumentTabBar = require(1500) /* GDocumentTabBar */,
     A = require(1521) /* module_1521 */,
     GInfo = require(1522) /* GInfo */,
     GOutlineSidebar = require(1260) /* GOutlineSidebar */,
     GInspectorSidebar = require(864) /* GInspectorSidebar */,
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
-    L = require(1539) /* module_1539 */,
-    I = require(395); /* module_395 */
-  require(1540) /* module_1540 */;
+    GPanelTabContainer = require(1539) /* GPanelTabContainer */,
+    GSidebarContainer = require(395); /* GSidebarContainer */
+  require(1540) /* GSidebarTouchToolbar */;
   var GToolbar = require(1541) /* GToolbar */,
     O = require(603) /* WindowEvent */,
     F = require(863) /* module_863 */,
@@ -111751,41 +112096,41 @@ function (exports, module, require) {
     GInstallToDesktopAction = require(1172) /* GInstallToDesktopAction */,
     GToggleSidebarAction = require(1170) /* GToggleSidebarAction */,
     GOutlineViewAction = require(1297) /* GOutlineViewAction */,
-    H = (require(1298) /* GUseCouponAction */, require(255)) /* barrel_sidebars */,
+    H = (require(1298) /* GUseCouponAction */, require(255)) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
-    z = require(1544) /* module_1544 */,
-    q = require(1560) /* module_1560 */,
+    GNewDocumentDialog = require(1544) /* GNewDocumentDialog */,
+    GUserNameConfigDialog = require(1560) /* GUserNameConfigDialog */,
     GInstallPwaDialog = require(1562) /* GInstallPwaDialog */,
     GContextMenu = require(1303); /* GContextMenu */
-  require(1563) /* module_1563 */;
-  var Q = require(119) /* module_119 */,
+  require(1563) /* GContextMenuTouch */;
+  var GCloudStorage = require(119) /* GCloudStorage */,
     J = require(220) /* Item */,
     GContainer = require(85) /* GContainer */,
     ee = require(44) /* GSystemDialog */,
-    te = require(1276) /* module_1276 */,
-    ne = require(1564) /* module_1564 */,
+    GAutoSaveManager = require(1276) /* GAutoSaveManager */,
+    GAmplitudeEventTracker = require(1564) /* GAmplitudeEventTracker */,
     oe = require(1250) /* module_1250 */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     URIListHandler = require(1313) /* URIListHandler */,
-    re = require(860) /* module_860 */,
+    GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
     se = require(441) /* module_441 */,
     le = require(292) /* module_292 */,
     ce = require(805) /* module_805 */,
     de = require(1321) /* module_1321 */,
     ue = require(392) /* module_392 */,
     pe = require(868) /* module_868 */,
-    ge = require(1322) /* module_1322 */,
-    he = require(1568) /* module_1568 */,
-    fe = require(1569) /* module_1569 */,
+    GShareManager = require(1322) /* GShareManager */,
+    GCloudCommunicationManager = require(1568) /* GCloudCommunicationManager */,
+    GAppStateManager = require(1569) /* GAppStateManager */,
     me = require(1571) /* module_1571 */,
-    ye = require(1165) /* module_1165 */,
+    GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
     ve = require(1572) /* module_1572 */,
     _e = require(846) /* module_846 */,
     be = require(337) /* stub_requires_1098 */,
-    we = require(1325) /* module_1325 */,
+    GReminderManager = require(1325) /* GReminderManager */,
     Ce = require(785) /* module_785 */,
     GOfflineDialog = require(256) /* GOfflineDialog */,
-    Se = require(604) /* module_604 */,
+    GProfileDialog = require(604) /* GProfileDialog */,
     Ee = require(1326) /* module_1326 */,
     Ae = require(1328) /* module_1328 */,
     GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
@@ -111802,20 +112147,20 @@ function (exports, module, require) {
     Re = require(1580); /* module_1580 */
   const Me = require(1581) /* module_1581 */,
     Ne = require(1584); /* module_1584 */
-  var Be = require(1587); /* module_1587 */
+  var GTouchToolbar = require(1587); /* GTouchToolbar */
   require(607) /* module_607 */;
   const CollaborationMergeUtils2 = require(40) /* CollaborationMergeUtils */,
-    $e = require(177) /* module_177 */,
+    $GUserModel = require(177) /* GUserModel */,
     je = require(1338) /* module_1338 */,
     Ke = require(1173) /* module_1173 */,
     Ve = (require(1591) /* module_1591 */, require(1592)) /* module_1592 */,
     He = require(1593) /* module_1593 */,
     We = require(1594); /* module_1594 */
-  var ze = require(1595); /* module_1595 */
+  var Mousetrap = require(1595); /* Mousetrap */
   (require(1596) /* module_1596 */,
-    ze.addKeycodes({ 173: '-' }),
-    ze.addKeycodes({ 187: '=' }),
-    ze.addKeycodes({ 61: '=' }));
+    Mousetrap.addKeycodes({ 173: '-' }),
+    Mousetrap.addKeycodes({ 187: '=' }),
+    Mousetrap.addKeycodes({ 61: '=' }));
   var qe,
     Ye,
     Xe = 0,
@@ -111835,51 +112180,51 @@ function (exports, module, require) {
       (this._enabledSubscriptions = false),
       (this._documentTouchHandler = new Me(document)),
       (this._editorTouchHandler = new Ne()),
-      he.clearSingleton(),
-      (this._cloudCommunicationManager = new he(this)),
+      GCloudCommunicationManager.clearSingleton(),
+      (this._cloudCommunicationManager = new GCloudCommunicationManager(this)),
       (this._cursorManager = new c.default()),
-      document.addEventListener('gesturechange', function (e) {
-        e.stopPropagation();
+      document.addEventListener('gesturechange', function (GUserModel) {
+        GUserModel.stopPropagation();
       }),
       window.addEventListener(
         'dragover',
-        (e) => {
-          e.preventDefault();
+        (GUserModel) => {
+          GUserModel.preventDefault();
         },
         false
       ),
       window.addEventListener(
         'drop',
-        (e) => {
-          e.preventDefault();
+        (GUserModel) => {
+          GUserModel.preventDefault();
           var t = this.getWindows().getActiveWindow(),
             n = t && t.getView();
-          n && n.handleDropEvent(e);
+          n && n.handleDropEvent(GUserModel);
         },
         false
       ),
       window.addEventListener(
         'wheel',
-        (e) => {
+        (GUserModel) => {
           (GEditor.GPlatform.modifiers.ctrlKey || GEditor.GPlatform.modifiers.metaKey) &&
-            e.preventDefault();
+            GUserModel.preventDefault();
         },
         { passive: false }
       ),
-      window.addEventListener('gesturestart', (e) => {
-        e.preventDefault();
+      window.addEventListener('gesturestart', (GUserModel) => {
+        GUserModel.preventDefault();
       }),
-      window.addEventListener('gestureend', (e) => {
-        e.preventDefault();
+      window.addEventListener('gestureend', (GUserModel) => {
+        GUserModel.preventDefault();
       }),
-      window.addEventListener('gesturechange', (e) => {
-        e.preventDefault();
-        var t = e.scale;
+      window.addEventListener('gesturechange', (GUserModel) => {
+        GUserModel.preventDefault();
+        var t = GUserModel.scale;
         t > 1 ? (t *= -1) : (t = 2 - t);
         var n = new WheelEvent('wheel', {
             deltaY: t,
-            clientX: e.clientX,
-            clientY: e.clientY,
+            clientX: GUserModel.clientX,
+            clientY: GUserModel.clientY,
             ctrlKey: true,
           }),
           _interopRequireDefault = this.getWindows() && this.getWindows().getActiveWindow(),
@@ -111891,12 +112236,12 @@ function (exports, module, require) {
       }),
       document.addEventListener(
         'keydown',
-        function (e) {
+        function (GUserModel) {
           if (
             (document.activeElement &&
               $(document.activeElement).is(':button') &&
-              (13 == e.keyCode || 32 == e.keyCode) &&
-              (e.preventDefault(), document.activeElement.blur()),
+              (13 == GUserModel.keyCode || 32 == GUserModel.keyCode) &&
+              (GUserModel.preventDefault(), document.activeElement.blur()),
             this._windows)
           ) {
             var module = document.activeElement,
@@ -111916,10 +112261,11 @@ function (exports, module, require) {
       ),
       document.addEventListener(
         'contextmenu',
-        function (e) {
-          return !$(e.target).is(':editable') || this.propertyPanelHasContextMenu(e)
-            ? (e.preventDefault(), false)
-            : (e.stopPropagation(), true);
+        function (GUserModel) {
+          return !$(GUserModel.target).is(':editable') ||
+            this.propertyPanelHasContextMenu(GUserModel)
+            ? (GUserModel.preventDefault(), false)
+            : (GUserModel.stopPropagation(), true);
         }.bind(this),
         true
       ),
@@ -111963,19 +112309,24 @@ function (exports, module, require) {
       (this._settings.enable_cache = 'function' == typeof gdb_loaddesign),
       (this._settings.ui_toolbar_alignment = true),
       (this._settings.eps_outline_fonts = true),
-      (this._settings[te.AUTO_SAVE_SETTING] = false),
-      (this._settings[te.AUTO_SAVE_INTERVAL_SETTING] = AppSettings.AUTOSAVE_INTERVAL_DEFAULT),
+      (this._settings[GAutoSaveManager.AUTO_SAVE_SETTING] = false),
+      (this._settings[GAutoSaveManager.AUTO_SAVE_INTERVAL_SETTING] =
+        AppSettings.AUTOSAVE_INTERVAL_DEFAULT),
       (this._settings.notifications_disabled = false),
       (this._settings.touch = false),
-      (this._settings[I.getSettingNameForSidebar(I.Orientation.Left)] = true),
-      (this._settings[I.getSettingNameForSidebar(I.Orientation.Right)] = true),
+      (this._settings[
+        GSidebarContainer.getSettingNameForSidebar(GSidebarContainer.Orientation.Left)
+      ] = true),
+      (this._settings[
+        GSidebarContainer.getSettingNameForSidebar(GSidebarContainer.Orientation.Right)
+      ] = true),
       $(document).on('networkAvailable', () => {
         this._initialized && gDesigner.updateRecentDocumentsAction();
       }),
       (this._paste = new URIListHandler()));
-    const exports = (e) => {
+    const exports = (GUserModel) => {
       this.hasEventListeners(GNetworkAvailabilityChangedEvent) &&
-        this.trigger(new GNetworkAvailabilityChangedEvent(e));
+        this.trigger(new GNetworkAvailabilityChangedEvent(GUserModel));
     };
     ($(window).on('online', () => exports(true)),
       $(window).on('offline', () => {
@@ -112063,13 +112414,13 @@ function (exports, module, require) {
     (Je.prototype.getMainMenu = function () {
       return this._mainMenu;
     }),
-    (Je.prototype.propertyPanelHasContextMenu = function (e) {
+    (Je.prototype.propertyPanelHasContextMenu = function (GUserModel) {
       var t = false;
       return (
-        e.composedPath &&
-          e.composedPath() &&
-          e.path.forEach((e) => {
-            $(e).hasClass('properties-panel') && (t = !!$(e).data('contextmenu'));
+        GUserModel.composedPath &&
+          GUserModel.composedPath() &&
+          GUserModel.path.forEach((GUserModel) => {
+            $(GUserModel).hasClass('properties-panel') && (t = !!$(GUserModel).data('contextmenu'));
           }),
         t
       );
@@ -112077,28 +112428,28 @@ function (exports, module, require) {
     (Je.prototype.getMouseOverContext = function () {
       return this._mouseOverContext;
     }),
-    (Je.prototype.setMouseOverContext = function (e, t, n) {
-      this._mouseOverContext = { context: e, prevEvt: t, contextCallback: n };
+    (Je.prototype.setMouseOverContext = function (GUserModel, t, n) {
+      this._mouseOverContext = { context: GUserModel, prevEvt: t, contextCallback: n };
     }),
     (Je.prototype._pwaEvent = window.__pwaEvent__ || null),
     (Je.prototype.isAnonymous = function () {
       return this._anonymous;
     }),
-    (Je.prototype.toggleLoading = function (e) {
-      e ? $('body').addClass('g-loading') : $('body').removeClass('g-loading');
+    (Je.prototype.toggleLoading = function (GUserModel) {
+      GUserModel ? $('body').addClass('g-loading') : $('body').removeClass('g-loading');
     }),
-    (Je.prototype.setSupportedBrowsers = function (e) {
-      this._supportedBrowsers = e;
+    (Je.prototype.setSupportedBrowsers = function (GUserModel) {
+      this._supportedBrowsers = GUserModel;
     }),
-    (Je.prototype.setSupportedTabletBrowsers = function (e) {
-      this._supportedTabletBrowsers = e;
+    (Je.prototype.setSupportedTabletBrowsers = function (GUserModel) {
+      this._supportedTabletBrowsers = GUserModel;
     }),
-    (Je.prototype._initBrowserSupported = function (e) {
+    (Je.prototype._initBrowserSupported = function (GUserModel) {
       var t = (t) =>
         t.some((t) =>
           t instanceof Object
-            ? GCore.GSystem.operatingSystem == t.operatingSystem && e == t.platform
-            : e === t
+            ? GCore.GSystem.operatingSystem == t.operatingSystem && GUserModel == t.platform
+            : GUserModel === t
         );
       GCore.GSystem.hardware === GCore.GSystem.Hardware.Tablet
         ? (this._isBrowserSupported = t(this._supportedTabletBrowsers))
@@ -112109,8 +112460,8 @@ function (exports, module, require) {
     (Je.prototype.isBrowserSupported = function () {
       return gContainer.getRuntime() === GContainer.Runtime.IPad || this._isBrowserSupported;
     }),
-    (Je.prototype.setUTM = function (e) {
-      this._utm = e;
+    (Je.prototype.setUTM = function (GUserModel) {
+      this._utm = GUserModel;
     }),
     (Je.prototype.getUTM = function () {
       return this._utm;
@@ -112118,10 +112469,11 @@ function (exports, module, require) {
     (Je.prototype.getTranslationManager = function () {
       return this._translationManager;
     }),
-    (Je.prototype.activatePersona = function (e) {
+    (Je.prototype.activatePersona = function (GUserModel) {
       var t = this._persona;
-      t !== e &&
-        ((this._persona = e), this.hasEventListeners(oe) && this.trigger(new oe(t, this._persona)));
+      t !== GUserModel &&
+        ((this._persona = GUserModel),
+        this.hasEventListeners(oe) && this.trigger(new oe(t, this._persona)));
     }),
     (Je.prototype.getActivePersona = function () {
       return this._persona;
@@ -112194,41 +112546,41 @@ function (exports, module, require) {
     (Je.prototype.getWindows = function () {
       return this._windows;
     }),
-    (Je.prototype.isPartVisible = function (e) {
-      return 'none' !== this.getPart(e).css('display');
+    (Je.prototype.isPartVisible = function (GUserModel) {
+      return 'none' !== this.getPart(GUserModel).css('display');
     }),
-    (Je.prototype.setPartVisible = function (e, t, n) {
-      t != this.isPartVisible(e) &&
-        (this.getPart(e).css('display', t ? (n || '' === n ? n : 'block') : 'none'),
+    (Je.prototype.setPartVisible = function (GUserModel, t, n) {
+      t != this.isPartVisible(GUserModel) &&
+        (this.getPart(GUserModel).css('display', t ? (n || '' === n ? n : 'block') : 'none'),
         this.relayout());
     }),
-    (Je.prototype.getPart = function (e) {
-      return this._mainframe.find('#' + e.id);
+    (Je.prototype.getPart = function (GUserModel) {
+      return this._mainframe.find('#' + GUserModel.id);
     }),
     (Je.prototype.getActions = function () {
       return this._actions;
     }),
-    (Je.prototype.getAction = function (e) {
-      return this._actionsMap[e] || null;
+    (Je.prototype.getAction = function (GUserModel) {
+      return this._actionsMap[GUserModel] || null;
     }),
-    (Je.prototype.addMenu = function (e, t, n, _interopRequireDefault, GTools) {
-      e = e || this._mainMenu;
+    (Je.prototype.addMenu = function (GUserModel, t, n, _interopRequireDefault, GTools) {
+      GUserModel = GUserModel || this._mainMenu;
       var GCore = new GMenu2(GMenu2.Type.Menu, GMenu);
       return (
         GCore.setCaption(t),
         GCore.setIcon(_interopRequireDefault),
-        e.addItem(GCore),
+        GUserModel.addItem(GCore),
         n && GCore.getMenu().addEventListener(GMenuOpenEvent, n),
         GTools && GCore.addEventListener(GMenu2.UpdateEvent, () => GTools(GCore)),
         GCore.getMenu()
       );
     }),
-    (Je.prototype.addMenuSeparator = function (e, t) {
+    (Je.prototype.addMenuSeparator = function (GUserModel, t) {
       var n = new GMenu2(GMenu2.Type.Divider, null, null, t);
-      return (e.addItem(n), n);
+      return (GUserModel.addItem(n), n);
     }),
     (Je.prototype.addMenuItem = function (
-      e,
+      GUserModel,
       t,
       n,
       _interopRequireDefault,
@@ -112246,8 +112598,8 @@ function (exports, module, require) {
         GTools &&
           (gDesigner.registerShortcut(
             GTools,
-            function (e) {
-              return GCore('shortcut', e);
+            function (GUserModel) {
+              return GCore('shortcut', GUserModel);
             }.bind(this),
             GEditor
           ),
@@ -112257,64 +112609,71 @@ function (exports, module, require) {
         CollaborationMergeUtils.setNoHover(d),
         c && CollaborationMergeUtils.addClass(c),
         this.updateMenuItem(CollaborationMergeUtils, t, true, false),
-        e.addItem(CollaborationMergeUtils),
+        GUserModel.addItem(CollaborationMergeUtils),
         l && CollaborationMergeUtils.setAction(l),
         CollaborationMergeUtils
       );
     }),
-    (Je.prototype.updateMenuItem = function (e, t, n, _interopRequireDefault, GTools, GCore) {
-      (e.setCaption(t),
-        e.setEnabled(n),
-        e.setChecked(_interopRequireDefault),
-        e.setPro(!!GTools, GCore));
+    (Je.prototype.updateMenuItem = function (
+      GUserModel,
+      t,
+      n,
+      _interopRequireDefault,
+      GTools,
+      GCore
+    ) {
+      (GUserModel.setCaption(t),
+        GUserModel.setEnabled(n),
+        GUserModel.setChecked(_interopRequireDefault),
+        GUserModel.setPro(!!GTools, GCore));
     }),
-    (Je.prototype.removeMenuItem = function (e, t) {
-      e.removeItem(e.indexOf(t));
+    (Je.prototype.removeMenuItem = function (GUserModel, t) {
+      GUserModel.removeItem(GUserModel.indexOf(t));
     }),
     (Je.prototype.getClipboardMimeTypes = function () {
       return this._clipboardMimeTypes ? Object.keys(this._clipboardMimeTypes) : null;
     }),
-    (Je.prototype.getClipboardContent = function (e) {
-      return this._clipboardMimeTypes && this._clipboardMimeTypes.hasOwnProperty(e)
-        ? this._clipboardMimeTypes[e]
+    (Je.prototype.getClipboardContent = function (GUserModel) {
+      return this._clipboardMimeTypes && this._clipboardMimeTypes.hasOwnProperty(GUserModel)
+        ? this._clipboardMimeTypes[GUserModel]
         : null;
     }),
-    (Je.prototype.setClipboardContent = function (e, t) {
-      this._clipboardMimeTypes[e] = t;
+    (Je.prototype.setClipboardContent = function (GUserModel, t) {
+      this._clipboardMimeTypes[GUserModel] = t;
     }),
-    (Je.prototype.getSetting = function (e, t) {
-      return this._settings.hasOwnProperty(e) ? this._settings[e] : t;
+    (Je.prototype.getSetting = function (GUserModel, t) {
+      return this._settings.hasOwnProperty(GUserModel) ? this._settings[GUserModel] : t;
     }),
-    (Je.prototype.setSetting = function (e, t) {
+    (Je.prototype.setSetting = function (GUserModel, t) {
       if (this._settingsLoaded) {
         for (
-          var require = e instanceof Array ? e : [e],
-            _interopRequireDefault = e instanceof Array ? t : [t],
+          var require = GUserModel instanceof Array ? GUserModel : [GUserModel],
+            _interopRequireDefault = GUserModel instanceof Array ? t : [t],
             GTools = false,
             GEditor = 0;
           GEditor < require.length;
           ++GEditor
         ) {
-          ((e = require[GEditor]), (t = _interopRequireDefault[GEditor]));
+          ((GUserModel = require[GEditor]), (t = _interopRequireDefault[GEditor]));
           if (
-            !this._settings.hasOwnProperty(e) ||
-            !GCore.GUtil.equals(this._settings[e], t, true)
+            !this._settings.hasOwnProperty(GUserModel) ||
+            !GCore.GUtil.equals(this._settings[GUserModel], t, true)
           ) {
-            var AppSettings = this._settings[e];
-            ((this._settings[e] = t),
-              this.trigger(new GSettingChangedEvent(e, AppSettings || undefined, t)),
+            var AppSettings = this._settings[GUserModel];
+            ((this._settings[GUserModel] = t),
+              this.trigger(new GSettingChangedEvent(GUserModel, AppSettings || undefined, t)),
               (GTools = true));
           }
         }
         if (GTools)
           try {
             gContainer.setProperty('designer.settings', this._settings);
-          } catch (e) {}
+          } catch (GUserModel) {}
         return GTools;
       }
     }),
-    (Je.prototype.getSwatches = function (e) {
-      if (e.startsWith('document') && this.getActiveDocument()) {
+    (Je.prototype.getSwatches = function (GUserModel) {
+      if (GUserModel.startsWith('document') && this.getActiveDocument()) {
         var module = this.getActiveDocument().getScene().getSwatches(),
           require = [];
         if (module)
@@ -112324,32 +112683,32 @@ function (exports, module, require) {
             _interopRequireDefault = _interopRequireDefault.getNext()
           ) {
             var GTools = GCore.GPattern.serialize(_interopRequireDefault.getProperty('_pt'));
-            (((GTools.startsWith('C#') || GTools.startsWith('Y#')) && 'document' === e) ||
-              (GTools.startsWith('L#') && 'document-linear-gradient' === e) ||
-              (GTools.startsWith('R#') && 'document-radial-gradient' === e) ||
-              (GTools.startsWith('A#') && 'document-angular-gradient' === e) ||
-              (GTools.startsWith('T#') && 'document-texture-pattern' === e) ||
-              (GTools.startsWith('N#') && 'document-noise-pattern' === e)) &&
+            (((GTools.startsWith('C#') || GTools.startsWith('Y#')) && 'document' === GUserModel) ||
+              (GTools.startsWith('L#') && 'document-linear-gradient' === GUserModel) ||
+              (GTools.startsWith('R#') && 'document-radial-gradient' === GUserModel) ||
+              (GTools.startsWith('A#') && 'document-angular-gradient' === GUserModel) ||
+              (GTools.startsWith('T#') && 'document-texture-pattern' === GUserModel) ||
+              (GTools.startsWith('N#') && 'document-noise-pattern' === GUserModel)) &&
               require.push(_interopRequireDefault);
           }
         return require;
       }
-      return this._swatches[e];
+      return this._swatches[GUserModel];
     }),
-    (Je.prototype.setSwatches = function (e, t, n) {
+    (Je.prototype.setSwatches = function (GUserModel, t, n) {
       if (
-        (!e.startsWith('document') || this.getActiveDocument()) &&
-        (e.startsWith('document') || this._swatches.hasOwnProperty(e))
+        (!GUserModel.startsWith('document') || this.getActiveDocument()) &&
+        (GUserModel.startsWith('document') || this._swatches.hasOwnProperty(GUserModel))
       ) {
-        e.startsWith('document') || (this._swatches[e] = t);
-        var _interopRequireDefault = e.startsWith('document'),
-          GTools = e.startsWith('global'),
+        GUserModel.startsWith('document') || (this._swatches[GUserModel] = t);
+        var _interopRequireDefault = GUserModel.startsWith('document'),
+          GTools = GUserModel.startsWith('global'),
           GEditor = this.getActiveDocument().getScene();
         if (_interopRequireDefault) {
           if (n) GEditor.getSwatches().clearChildren();
           else {
             for (
-              var AppSettings = this.getSwatches(e),
+              var AppSettings = this.getSwatches(GUserModel),
                 l = [],
                 c = GEditor.getSwatches().getFirstChild();
               null !== c;
@@ -112375,12 +112734,12 @@ function (exports, module, require) {
             p.push(GCore.GNode.serialize(CollaborationMergeUtils[d]));
           gContainer.setProperty('swatches', p);
         }
-        this.trigger(new GSwatchesChangedEvent(e));
+        this.trigger(new GSwatchesChangedEvent(GUserModel));
       }
     }),
-    (Je.prototype.getAllSwatches = function (e) {
+    (Je.prototype.getAllSwatches = function (GUserModel) {
       var t = [];
-      if (e.startsWith('document'))
+      if (GUserModel.startsWith('document'))
         for (
           var require = this.getActiveDocument().getScene().getSwatches().getFirstChild();
           null !== require;
@@ -112398,13 +112757,13 @@ function (exports, module, require) {
       return t;
     }),
     (Je.prototype.newInfiniteDocument = function () {
-      var e = this.createScene();
-      e.getActivePage().setProperties(['bck', 'w', 'h'], [GCore.GRGBColor.WHITE, 0, 0]);
-      var t = new w(e);
+      var GUserModel = this.createScene();
+      GUserModel.getActivePage().setProperties(['bck', 'w', 'h'], [GCore.GRGBColor.WHITE, 0, 0]);
+      var t = new w(GUserModel);
       return (this.addDocument(t), t);
     }),
-    (Je.prototype.createScene = function (e) {
-      var t = new GCore.GScene(this.getWorkspace(), e);
+    (Je.prototype.createScene = function (GUserModel) {
+      var t = new GCore.GScene(this.getWorkspace(), GUserModel);
       return (
         undefined !== GTools.GEditorOptions.scaleBorderWidth &&
           t.setBorderScale(GTools.GEditorOptions.scaleBorderWidth),
@@ -112414,22 +112773,28 @@ function (exports, module, require) {
       );
     }),
     (Je.prototype.createNewDocumentDialog = function () {
-      this._newDocumentDialog = new z();
+      this._newDocumentDialog = new GNewDocumentDialog();
     }),
-    (Je.prototype.openNewDocumentDialog = function (e) {
+    (Je.prototype.openNewDocumentDialog = function (GUserModel) {
       const module = this.getApplicationManager();
       (module.isCreatingNewDocumentEnabled() || module.isOpenFromCloudEnabled()) &&
-        (this._newDocumentDialog || (this._newDocumentDialog = new z()),
+        (this._newDocumentDialog || (this._newDocumentDialog = new GNewDocumentDialog()),
         0 === $('.g-new-document-dialog').length
-          ? this._newDocumentDialog.open(e)
-          : e &&
-            e.openFromCloud &&
+          ? this._newDocumentDialog.open(GUserModel)
+          : GUserModel &&
+            GUserModel.openFromCloud &&
             this._newDocumentDialog.getDialogElement().find('.option.cloud-option').click());
     }),
-    (Je.prototype.openCloudSaveDialog = function (e, t, n, _interopRequireDefault, GTools) {
+    (Je.prototype.openCloudSaveDialog = function (
+      GUserModel,
+      t,
+      n,
+      _interopRequireDefault,
+      GTools
+    ) {
       0 === $('.g-new-document-dialog').length &&
-        (this._newDocumentDialog || (this._newDocumentDialog = new z()),
-        this._newDocumentDialog.saveCloudFile(e, t, n, _interopRequireDefault, GTools));
+        (this._newDocumentDialog || (this._newDocumentDialog = new GNewDocumentDialog()),
+        this._newDocumentDialog.saveCloudFile(GUserModel, t, n, _interopRequireDefault, GTools));
     }),
     (Je.prototype._shouldOpenUserNameConfigDialog = function () {
       return (
@@ -112442,35 +112807,44 @@ function (exports, module, require) {
       if (!AppSettings.ENABLE_COLLABORATION) return;
       let exports = this._shouldOpenUserNameConfigDialog();
       if (!this._userNameConfigDialog && exports) {
-        const e = this._user || { name: '', last_name: '', anonymous: '' };
-        this._userNameConfigDialog = new q(e.name, e.last_name, e.anonymous);
+        const GUserModel = this._user || { name: '', last_name: '', anonymous: '' };
+        this._userNameConfigDialog = new GUserNameConfigDialog(
+          GUserModel.name,
+          GUserModel.last_name,
+          GUserModel.anonymous
+        );
       }
       exports && 0 === $('.g-username-config-dialog').length && this._userNameConfigDialog.open();
     }),
     (Je.prototype.closeNewDocumentDialog = function () {
       this._newDocumentDialog && this._newDocumentDialog.close();
     }),
-    (Je.prototype.addDocument = function (e, t) {
-      (undefined !== t ? this._documents.splice(t, 0, e) : this._documents.push(e),
+    (Je.prototype.addDocument = function (GUserModel, t) {
+      (undefined !== t
+        ? this._documents.splice(t, 0, GUserModel)
+        : this._documents.push(GUserModel),
         this.hasEventListeners(GDocumentEvent) &&
-          this.trigger(new GDocumentEvent(GDocumentEvent.Type.Added, e)),
-        this._windows.addWindow(e, false, t));
+          this.trigger(new GDocumentEvent(GDocumentEvent.Type.Added, GUserModel)),
+        this._windows.addWindow(GUserModel, false, t));
     }),
-    (Je.prototype.notifyDocumentModified = function (e) {
+    (Je.prototype.notifyDocumentModified = function (GUserModel) {
       this.hasEventListeners(GDocumentEvent) &&
-        this.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, e, null));
+        this.trigger(new GDocumentEvent(GDocumentEvent.Type.Modified, GUserModel, null));
     }),
-    (Je.prototype._isNativeDesign = function (e) {
-      return e === AppSettings.FILE_FORMATS.find((e) => e.default).ext.toUpperCase();
+    (Je.prototype._isNativeDesign = function (GUserModel) {
+      return (
+        GUserModel ===
+        AppSettings.FILE_FORMATS.find((GUserModel) => GUserModel.default).ext.toUpperCase()
+      );
     }),
     (Je.prototype.isInitialized = function () {
       return this._initialized;
     }),
-    (Je.prototype._canOpenDocument = function (e) {
+    (Je.prototype._canOpenDocument = function (GUserModel) {
       if (!this._initialized) return false;
       if (!this.isEnabledProFeatures()) {
         let t = w.FileTypes.find(
-          (t) => t.ext.toUpperCase() === (e.getExtension() || '').toUpperCase()
+          (t) => t.ext.toUpperCase() === (GUserModel.getExtension() || '').toUpperCase()
         );
         if (t && t.pro)
           return (
@@ -112481,34 +112855,35 @@ function (exports, module, require) {
       }
       return true;
     }),
-    (Je.prototype._processOpenDocument = function (e, t) {
-      const require = e.getExtension(),
+    (Je.prototype._processOpenDocument = function (GUserModel, t) {
+      const require = GUserModel.getExtension(),
         _interopRequireDefault = this._isNativeDesign(require),
-        GTools = new w(_interopRequireDefault ? e : null);
+        GTools = new w(_interopRequireDefault ? GUserModel : null);
       if (GTools.isExtensionAvailableForLoading(require))
         return (
           this.addDocument(GTools, t),
           (GTools.fileExtension = require),
-          GTools.load(e),
+          GTools.load(GUserModel),
           this.trigger(new GDocumentEvent(GDocumentEvent.Type.Opened, GTools)),
           GTools
         );
       var GEditor = !!w.FileTypes.find(
-        (e) => e.ext.toUpperCase() === require.toUpperCase() && 'image' === e.category
+        (GUserModel) =>
+          GUserModel.ext.toUpperCase() === require.toUpperCase() && 'image' === GUserModel.category
       )
         ? 'text.suggestion-open-image'
         : 'text.unsupported-file-extension';
       return (ee.alert(GCore.GLocale.get(new GCore.GLocaleKey('GDocument', GEditor))), null);
     }),
-    (Je.prototype.openDocumentWithReload = function (e, t) {
-      if (this._canOpenDocument(e)) return this._processOpenDocument(e, t);
+    (Je.prototype.openDocumentWithReload = function (GUserModel, t) {
+      if (this._canOpenDocument(GUserModel)) return this._processOpenDocument(GUserModel, t);
     }),
-    (Je.prototype.openDocument = function (e, t) {
-      if (!this._canOpenDocument(e)) return;
-      if (e && (0, p.shouldShowExternalFileError)(e)) throw new m.default();
-      const require = e.getExtension();
+    (Je.prototype.openDocument = function (GUserModel, t) {
+      if (!this._canOpenDocument(GUserModel)) return;
+      if (GUserModel && (0, p.shouldShowExternalFileError)(GUserModel)) throw new m.default();
+      const require = GUserModel.getExtension();
       if (this._isNativeDesign(require)) {
-        const t = e.getUniqueId();
+        const t = GUserModel.getUniqueId();
         if (null != t)
           for (
             var _interopRequireDefault = 0;
@@ -112520,15 +112895,15 @@ function (exports, module, require) {
               n.getStorageItem() &&
               n.getStorageItem().getUniqueId() === t &&
               (!n.getStorageItem().getVersionId ||
-                !e.getVersionId ||
-                n.getStorageItem().getVersionId() === e.getVersionId())
+                !GUserModel.getVersionId ||
+                n.getStorageItem().getVersionId() === GUserModel.getVersionId())
             )
               return (this.activateDocument(n), n);
           }
       }
-      return this._processOpenDocument(e, t);
+      return this._processOpenDocument(GUserModel, t);
     }),
-    (Je.prototype.addToRecentFiles = function (e) {
+    (Je.prototype.addToRecentFiles = function (GUserModel) {
       function module(t, n) {
         let _interopRequireDefault =
           arguments.length > 2 && undefined !== arguments[2] && arguments[2];
@@ -112539,10 +112914,11 @@ function (exports, module, require) {
             GTools || (GTools = []));
           for (var GCore = 0; GCore < GTools.length; ++GCore) {
             let t = false;
-            if (gContainer.getRuntime() === GContainer.Runtime.Electron) t = GTools[GCore] === n(e);
+            if (gContainer.getRuntime() === GContainer.Runtime.Electron)
+              t = GTools[GCore] === n(GUserModel);
             else {
               let n = JSON.parse(GTools[GCore]),
-                _interopRequireDefault = e.getFile();
+                _interopRequireDefault = GUserModel.getFile();
               t = n.file.id === _interopRequireDefault.id;
             }
             if (t) {
@@ -112550,7 +112926,7 @@ function (exports, module, require) {
               break;
             }
           }
-          (GTools.unshift(n(e)),
+          (GTools.unshift(n(GUserModel)),
             GTools.splice(10, GTools.length),
             _interopRequireDefault &&
               (GTools = CollaborationMergeUtils2.stringToBase64String(JSON.stringify(GTools))),
@@ -112558,25 +112934,26 @@ function (exports, module, require) {
             gDesigner.updateRecentDocumentsAction());
         });
       }
-      e &&
-        (e instanceof J.Item
+      GUserModel &&
+        (GUserModel instanceof J.Item
           ? gDesigner.updateRecentDocumentsAction()
           : gContainer.getRuntime() === GContainer.Runtime.Electron
-            ? module('recent_documents', (e) => e.getUniqueId())
-            : e instanceof Fe.Item &&
-              gDesigner.getUser().then((e) => {
+            ? module('recent_documents', (GUserModel) => GUserModel.getUniqueId())
+            : GUserModel instanceof Fe.Item &&
+              gDesigner.getUser().then((GUserModel) => {
                 module(
-                  'recent_external_'.concat(e.getUID()),
-                  (e) => {
-                    const module = e instanceof f.default.Item ? 'googledrive' : null;
-                    return JSON.stringify({ type: module, file: e.getFile() });
+                  'recent_external_'.concat(GUserModel.getUID()),
+                  (GUserModel) => {
+                    const module =
+                      GUserModel instanceof GGoogleDriveItem.default.Item ? 'googledrive' : null;
+                    return JSON.stringify({ type: module, file: GUserModel.getFile() });
                   },
                   true
                 );
               }));
     }),
-    (Je.prototype.activateDocument = function (e, t) {
-      if (e != this._activeDocument) {
+    (Je.prototype.activateDocument = function (GUserModel, t) {
+      if (GUserModel != this._activeDocument) {
         if (this._activeDocument) {
           var require = this._activeDocument;
           ((this._activeDocument = null),
@@ -112586,37 +112963,37 @@ function (exports, module, require) {
             require.getActiveWindow() === this._windows.getActiveWindow() &&
               this._windows.activateWindow(null));
         }
-        e &&
-          ((this._activeDocument = e),
-          t || this._windows.activateWindow(e.getActiveWindow()),
-          e.activate(),
+        GUserModel &&
+          ((this._activeDocument = GUserModel),
+          t || this._windows.activateWindow(GUserModel.getActiveWindow()),
+          GUserModel.activate(),
           this.hasEventListeners(GDocumentEvent) &&
-            this.trigger(new GDocumentEvent(GDocumentEvent.Type.Activated, e)));
+            this.trigger(new GDocumentEvent(GDocumentEvent.Type.Activated, GUserModel)));
       }
     }),
-    (Je.prototype.replaceDocument = function (e, t, n) {
-      var _interopRequireDefault = this._documents.indexOf(e);
+    (Je.prototype.replaceDocument = function (GUserModel, t, n) {
+      var _interopRequireDefault = this._documents.indexOf(GUserModel);
       _interopRequireDefault < 0 ||
-        (this.addDocument(t, _interopRequireDefault), this.removeDocument(e, null, n));
+        (this.addDocument(t, _interopRequireDefault), this.removeDocument(GUserModel, null, n));
     }),
-    (Je.prototype.removeDocument = function (e, t, n) {
-      var _interopRequireDefault = this._documents.indexOf(e);
+    (Je.prototype.removeDocument = function (GUserModel, t, n) {
+      var _interopRequireDefault = this._documents.indexOf(GUserModel);
       if (!(_interopRequireDefault < 0)) {
-        var GTools = e.getWindows();
+        var GTools = GUserModel.getWindows();
         if (GTools.length) {
           var GCore = function () {
             GTools.length > 0
               ? this._windows.removeWindow(GTools[0], GCore, n)
-              : this.removeDocument(e, t);
+              : this.removeDocument(GUserModel, t);
           }.bind(this);
           GCore();
         } else
-          (e === this.getActiveDocument() && this.activateDocument(null),
-            e.release(),
+          (GUserModel === this.getActiveDocument() && this.activateDocument(null),
+            GUserModel.release(),
             this._documents.splice(_interopRequireDefault, 1),
             t && t(),
             this.hasEventListeners(GDocumentEvent) &&
-              this.trigger(new GDocumentEvent(GDocumentEvent.Type.Removed, e)),
+              this.trigger(new GDocumentEvent(GDocumentEvent.Type.Removed, GUserModel)),
             0 === this._documents.length && this.handleWelcomeScreenOpenWithUserPermissions());
       }
     }),
@@ -112624,21 +113001,21 @@ function (exports, module, require) {
       let exports = {
         closable: this.getApplicationManager().isCreatingNewDocumentEnabled(),
         showCloudOptions: true,
-        closeCallback: (e) => {
-          e && gDesigner.newInfiniteDocument();
+        closeCallback: (GUserModel) => {
+          GUserModel && gDesigner.newInfiniteDocument();
         },
       };
       var t;
       this.getLicense().canAccessFreemium()
         ? this.openNewDocumentDialog(exports)
-        : (this._newDocumentDialog || (this._newDocumentDialog = new z()),
+        : (this._newDocumentDialog || (this._newDocumentDialog = new GNewDocumentDialog()),
           null === (t = this._newDocumentDialog) || undefined === t || t._newDocumentCustomSize());
     }),
-    (Je.prototype.canExecuteAction = function (e, t) {
-      var n = this.getAction(e);
+    (Je.prototype.canExecuteAction = function (GUserModel, t) {
+      var n = this.getAction(GUserModel);
       return !!n && n.isAvailable() && n.isEnabled.apply(n, t);
     }),
-    (Je.prototype.canActivateTool = function (e) {
+    (Je.prototype.canActivateTool = function (GUserModel) {
       let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
       if (
         !module ||
@@ -112651,19 +113028,21 @@ function (exports, module, require) {
       return !gravit.tools.some((t) => {
         let { tool: GTools, group: GCore, category: GEditor } = t;
         return (
-          GTools === e && (require.includes(GCore) || _interopRequireDefault.includes(GEditor))
+          GTools === GUserModel &&
+          (require.includes(GCore) || _interopRequireDefault.includes(GEditor))
         );
       });
     }),
-    (Je.prototype.executeAction = function (e, t, n, _interopRequireDefault) {
-      var GTools = this.getAction(e);
-      if (!GTools) throw new Error("Unable to execute action '" + e + "' - not registered.");
+    (Je.prototype.executeAction = function (GUserModel, t, n, _interopRequireDefault) {
+      var GTools = this.getAction(GUserModel);
+      if (!GTools)
+        throw new Error("Unable to execute action '" + GUserModel + "' - not registered.");
       var GCore = this._windows.getActiveWindow();
       if (!GCore || !GCore.isPreview()) {
         if (GTools.isAvailable() && GTools.isEnabled.apply(GTools, t)) {
-          if (e === GSaveAction.ID)
+          if (GUserModel === GSaveAction.ID)
             this.getPart(F.Toolbar)
-              .find(".toolbar-button[data-action='" + e + "']")
+              .find(".toolbar-button[data-action='" + GUserModel + "']")
               .find('button')
               .toggleClass('g-disabled', true);
           var GEditor = GTools.execute;
@@ -112671,11 +113050,14 @@ function (exports, module, require) {
             ('shortcut' === n && (GEditor = GTools.executeFromShortcut), !_interopRequireDefault)
           ) {
             var AppSettings = GTools.isPro()
-              ? gDesigner.isEnabledProFeatures(e)
+              ? gDesigner.isEnabledProFeatures(GUserModel)
                 ? 'execute'
                 : 'nonprotriespro'
               : 'execute';
-            this.stats('action_' + AppSettings + '_' + (n || 'button'), GTools.statsValue() || e);
+            this.stats(
+              'action_' + AppSettings + '_' + (n || 'button'),
+              GTools.statsValue() || GUserModel
+            );
           }
           var l = GEditor.apply(GTools, t);
           if (undefined !== l) return l;
@@ -112684,12 +113066,12 @@ function (exports, module, require) {
       }
     }),
     (Je.prototype.setOpenSansDefaultFont = function () {
-      var e = this._workspace.getFontManager();
-      (e.setDefaultFont(
-        e.getFont('Open Sans', GCore.GFont.Style.Normal, GCore.GFont.Weight.Regular)
+      var GUserModel = this._workspace.getFontManager();
+      (GUserModel.setDefaultFont(
+        GUserModel.getFont('Open Sans', GCore.GFont.Style.Normal, GCore.GFont.Weight.Regular)
       ),
-        e.setDefaultFontStyles([GCore.GFont.Style.Normal, GCore.GFont.Style.Italic]),
-        e.setDefaultFontWeights([300, 400, 600, 700, 800]));
+        GUserModel.setDefaultFontStyles([GCore.GFont.Style.Normal, GCore.GFont.Style.Italic]),
+        GUserModel.setDefaultFontWeights([300, 400, 600, 700, 800]));
     }),
     (Je.prototype.isTouchDevice = function () {
       return (
@@ -112705,24 +113087,24 @@ function (exports, module, require) {
           !!this.getSetting('touch', false))
       );
     }),
-    (Je.prototype.setTouchEnabled = function (e) {
-      this.setSetting('touch', !!e);
+    (Je.prototype.setTouchEnabled = function (GUserModel) {
+      this.setSetting('touch', !!GUserModel);
     }),
     (Je.prototype.init = function () {
-      ((this._shareManager = new ge()),
+      ((this._shareManager = new GShareManager()),
         (this._realtimeManager = new me()),
-        (this._fileReviewManager = new ye()),
+        (this._fileReviewManager = new GFileReviewFlowManager()),
         (this._annotationsManager = new ve()),
         gContainer.registerFontProviders(),
         H.getInstance().init());
-      var e = this._workspace.getFontManager();
+      var GUserModel = this._workspace.getFontManager();
       if (
-        (e.addEventListener(
+        (GUserModel.addEventListener(
           GCore.GFontManager.ResolveFontEvent,
           this._fontManagerResolveFontEvent,
           this
         ),
-        e.addEventListener(
+        GUserModel.addEventListener(
           GCore.GFontManager.QueryFontFamilyEvent,
           this._fontManagerQueryFontFamilyEvent,
           this
@@ -112732,18 +113114,22 @@ function (exports, module, require) {
           GCore.GLocale.getLanguage() === GCore.GLocaleLanguage.ChineseTaiwan)
       )
         H.getProviderInstance(barrel_editor_actions).hasFont('Noto Sans CS') &&
-          (e.setDefaultFont(
-            e.getFont('Noto Sans CS', GCore.GFont.Style.Normal, GCore.GFont.Weight.Regular)
+          (GUserModel.setDefaultFont(
+            GUserModel.getFont('Noto Sans CS', GCore.GFont.Style.Normal, GCore.GFont.Weight.Regular)
           ),
-          e.setDefaultFontStyles([GCore.GFont.Style.Normal]),
-          e.setDefaultFontWeights([100, 200, 300, 400, 500, 600, 800]));
+          GUserModel.setDefaultFontStyles([GCore.GFont.Style.Normal]),
+          GUserModel.setDefaultFontWeights([100, 200, 300, 400, 500, 600, 800]));
       else if (GCore.GLocale.getLanguage() === GCore.GLocaleLanguage.Japanese) {
         H.getProviderInstance(barrel_editor_actions).hasFont('Noto Sans CJK JP') &&
-          (e.setDefaultFont(
-            e.getFont('Noto Sans CJK JP', GCore.GFont.Style.Normal, GCore.GFont.Weight.Regular)
+          (GUserModel.setDefaultFont(
+            GUserModel.getFont(
+              'Noto Sans CJK JP',
+              GCore.GFont.Style.Normal,
+              GCore.GFont.Weight.Regular
+            )
           ),
-          e.setDefaultFontStyles([GCore.GFont.Style.Normal]),
-          e.setDefaultFontWeights([400, 700]));
+          GUserModel.setDefaultFontStyles([GCore.GFont.Style.Normal]),
+          GUserModel.setDefaultFontWeights([400, 700]));
       }
       ((this._CDRIntegrationEngine = Re.createCDRIntegrationEngine()),
         (GTools.GEditorOptions.selectDoubleClickBehavior = 'subselect'),
@@ -112764,10 +113150,10 @@ function (exports, module, require) {
         GTools.GRotateAnnotation.setIcon('assets/annotation/touch/rotate-handle.png'),
         l.DESIGNER.HIGHLIGHT_COLOR &&
           (GCore.GPaintContext.prototype.highlightOutlineColor = l.DESIGNER.HIGHLIGHT_COLOR),
-        gContainer.getProperty(GDimensionProperties._keepRatioName).then((e) => {
-          ((e = e || false),
-            (GTools.GEditorOptions.preserveAspectRatio = e),
-            (GTools.GEditorOptions.allowTextRatioPreservation = e));
+        gContainer.getProperty(GDimensionProperties._keepRatioName).then((GUserModel) => {
+          ((GUserModel = GUserModel || false),
+            (GTools.GEditorOptions.preserveAspectRatio = GUserModel),
+            (GTools.GEditorOptions.allowTextRatioPreservation = GUserModel));
         }),
         (GCore.GSceneOptions.scaleLabel = false),
         (GCore.GSceneOptions.defaultBorderPositionForLines = true),
@@ -112775,8 +113161,8 @@ function (exports, module, require) {
         (GTools.GEditorPaintConfiguration.prototype.pageDecoration.shadowOffsetY = 2),
         (GTools.GEditorPaintConfiguration.prototype.pageDecoration.shadowBackground =
           'rgba(0,0,0,0.25)'),
-        gContainer.getProperty(GOutlineViewAction.StoragePropertyName).then((e) => {
-          e &&
+        gContainer.getProperty(GOutlineViewAction.StoragePropertyName).then((GUserModel) => {
+          GUserModel &&
             this.updateGEditorSceneConfigurationPaintMode(
               GCore.GScenePaintConfiguration.PaintMode.Outline
             );
@@ -112784,14 +113170,14 @@ function (exports, module, require) {
         (GTools.GGridGuide.MIN_CELL_SPACE = 5));
       var t = $('body');
       (t.attr('data-long-press-delay', AppSettings.LONG_PRESS_TIME_OUT),
-        t.on('long-press', (e) => {
+        t.on('long-press', (GUserModel) => {
           const t = jQuery.Event('contextmenu', {
-            pageX: e.detail.clientX,
-            pageY: e.detail.clientY,
-            clientX: e.detail.clientX,
-            clientY: e.detail.clientY,
+            pageX: GUserModel.detail.clientX,
+            pageY: GUserModel.detail.clientY,
+            clientX: GUserModel.detail.clientX,
+            clientY: GUserModel.detail.clientY,
           });
-          $(e.target).trigger(t);
+          $(GUserModel.target).trigger(t);
         }),
         (this._mainframe = $('<div></div>')
           .attr('id', 'mainframe')
@@ -112803,30 +113189,34 @@ function (exports, module, require) {
       var c = $('<div></div>').attr('id', F.Info.id).appendTo(n);
       this._info = new GInfo(c);
       var d = $('<div></div>').attr('id', F.Header.id).appendTo(n);
-      this._header = new E(d);
+      this._header = new GDocumentTabBar(d);
       var p = $('<div></div>').attr('id', F.Toolbar.id).appendTo(n);
       this._toolbar = new GToolbar(p);
       var g = $('<div></div>').attr('id', F.Banner.id).appendTo(n);
       this._banner = new _.default(g);
       var h = $('<div></div>').attr('id', F.Overlay.id).appendTo(n);
       this._overlay = new b.default(h);
-      var f = $('<div></div>').attr('id', F.Panels.id).appendTo(n),
+      var GGoogleDriveItem = $('<div></div>').attr('id', F.Panels.id).appendTo(n),
         m = $('<div></div>').attr('id', F.Footer.id).appendTo(n);
-      ((this._footer = new A(m)), (this._panels = new L(f)));
-      var y = $('<div></div>')
+      ((this._footer = new A(m)), (this._panels = new GPanelTabContainer(GGoogleDriveItem)));
+      var GAnalyticsPageStats = $('<div></div>')
         .attr('id', F.LeftSidebars.id)
         .on('mousedown', () => {
           this._toggleSideBarAndAssistBarZIndex(true, false, false, false);
         })
         .appendTo(n);
-      this._leftSidebars = new I(y, I.Orientation.Left, n);
+      this._leftSidebars = new GSidebarContainer(
+        GAnalyticsPageStats,
+        GSidebarContainer.Orientation.Left,
+        n
+      );
       var v = $('<div></div>')
         .attr('id', F.RightSidebars.id)
         .on('mousedown', () => {
           this._toggleSideBarAndAssistBarZIndex(false, true, false, false);
         })
         .appendTo(n);
-      ((this._rightSidebars = new I(v, I.Orientation.Right, n)),
+      ((this._rightSidebars = new GSidebarContainer(v, GSidebarContainer.Orientation.Right, n)),
         this._updateStyles(t),
         this._initBrowserSupported(GEditor.GPlatform.webBrowser),
         this.isBrowserSupported() ||
@@ -112858,17 +113248,17 @@ function (exports, module, require) {
       );
       var GMenu = -1;
       this._actions = gravit.actions.map(
-        (e, t) => (e.getId() === GNewWindowAction.ID && (GMenu = t), e)
+        (GUserModel, t) => (GUserModel.getId() === GNewWindowAction.ID && (GMenu = t), GUserModel)
       );
-      var GMenu2 = gravit.sidebars.map((e) => new GToggleSidebarAction(e));
+      var GMenu2 = gravit.sidebars.map((GUserModel) => new GToggleSidebarAction(GUserModel));
       if (
         (Array.prototype.splice.apply(this._actions, [GMenu, 0].concat(GMenu2)),
         this._createMainMenu(),
         gravit.tools)
       ) {
         for (
-          var GMenuOpenEvent = (e) => {
-              let { tool: t, pro: n = false, feature: _interopRequireDefault } = e;
+          var GMenuOpenEvent = (GUserModel) => {
+              let { tool: t, pro: n = false, feature: _interopRequireDefault } = GUserModel;
               return () =>
                 !(!this.isEnabledProFeatures(_interopRequireDefault) && n) &&
                 !!this.canActivateTool(t, true) &&
@@ -112878,8 +113268,8 @@ function (exports, module, require) {
                 ),
                 this.getToolManager().tempToolKeyActivate(t));
             },
-            GSettingChangedEvent = (e) => {
-              let { tool: t, pro: n = false, feature: _interopRequireDefault } = e;
+            GSettingChangedEvent = (GUserModel) => {
+              let { tool: t, pro: n = false, feature: _interopRequireDefault } = GUserModel;
               return () =>
                 !this.isEnabledProFeatures(_interopRequireDefault) && n
                   ? (this.handlePROFeatureInterruption(), false)
@@ -112892,29 +113282,41 @@ function (exports, module, require) {
           var GDocumentEvent = gravit.tools[GSwatchesChangedEvent];
           if (GDocumentEvent.key || GDocumentEvent.shortcuts) {
             var GInstallToDesktopAction = GMenuOpenEvent(GDocumentEvent),
-              z = GSettingChangedEvent(GDocumentEvent);
+              GNewDocumentDialog = GSettingChangedEvent(GDocumentEvent);
             (GDocumentEvent.key &&
-              this.registerShortcut([GDocumentEvent.key], GInstallToDesktopAction, false, z),
+              this.registerShortcut(
+                [GDocumentEvent.key],
+                GInstallToDesktopAction,
+                false,
+                GNewDocumentDialog
+              ),
               Array.isArray(GDocumentEvent.shortcuts) &&
-                GDocumentEvent.shortcuts.forEach((e) => {
-                  this.registerShortcut(e, GInstallToDesktopAction, false, z);
+                GDocumentEvent.shortcuts.forEach((GUserModel) => {
+                  this.registerShortcut(
+                    GUserModel,
+                    GInstallToDesktopAction,
+                    false,
+                    GNewDocumentDialog
+                  );
                 }));
           }
         }
         this.getToolManager().activateTool(gravit.tools[0].tool);
-        var q = function () {
-          var e = this.getToolManager();
+        var GUserNameConfigDialog = function () {
+          var GUserModel = this.getToolManager();
           return (
             this.getRightSidebars().getActiveSidebar() == GAnnotationsSidebar.ID ||
-              ((e.getActiveTool() && e.getActiveTool() instanceof GTools.GSelectTool) ||
-                e.activateTool(GTools.GPointerTool),
-              e.getActiveTool() instanceof GTools.GSelectTool &&
-                e.getActiveTool().getEditMode() !== GTools.GSelectTool.EditMode.Transform &&
-                e.getActiveTool().setEditMode(GTools.GSelectTool.EditMode.Transform)),
+              ((GUserModel.getActiveTool() &&
+                GUserModel.getActiveTool() instanceof GTools.GSelectTool) ||
+                GUserModel.activateTool(GTools.GPointerTool),
+              GUserModel.getActiveTool() instanceof GTools.GSelectTool &&
+                GUserModel.getActiveTool().getEditMode() !==
+                  GTools.GSelectTool.EditMode.Transform &&
+                GUserModel.getActiveTool().setEditMode(GTools.GSelectTool.EditMode.Transform)),
             true
           );
         }.bind(this);
-        this.registerShortcut(['Q'], q);
+        this.registerShortcut(['Q'], GUserNameConfigDialog);
       }
       (this._info.init(),
         this._header.init(),
@@ -112934,58 +113336,66 @@ function (exports, module, require) {
         GCore.GColor.setCMYKProfile('USWebCoatedSWOPv2', 'assets/data/icc/'),
         (this._initialized = true),
         this._windows.addEventListener(O.WindowEvent, this._windowEvent, this),
-        this._leftSidebars.addEventListener(I.SidebarEvent, this._sidebarEvent, this),
-        this._rightSidebars.addEventListener(I.SidebarEvent, this._sidebarEvent, this),
+        this._leftSidebars.addEventListener(
+          GSidebarContainer.SidebarEvent,
+          this._sidebarEvent,
+          this
+        ),
+        this._rightSidebars.addEventListener(
+          GSidebarContainer.SidebarEvent,
+          this._sidebarEvent,
+          this
+        ),
         (this._contextMenu = new GContextMenu(_interopRequireDefault)),
         this.updateLicenseInfo(),
         this._updateTitle({ saveToSessionHistory: false }),
-        AppSettings.AUTO_SAVE_ENABLED && (this._autoSaveManager = te.getInstance()),
+        AppSettings.AUTO_SAVE_ENABLED && (this._autoSaveManager = GAutoSaveManager.getInstance()),
         this.getCursorManager().init(),
         this._updateLayout(),
         this._initAmplitudeProperties(),
         this._updateState());
     }),
-    (Je.prototype._updateStyles = function (e) {
+    (Je.prototype._updateStyles = function (GUserModel) {
       switch (GEditor.GPlatform.webBrowser) {
         case GEditor.GPlatform.constructor.WebBrowser.Edge:
-          e.addClass('g-edge');
+          GUserModel.addClass('g-edge');
           break;
         case GEditor.GPlatform.constructor.WebBrowser.Opera:
-          e.addClass('g-opera');
+          GUserModel.addClass('g-opera');
           break;
         case GEditor.GPlatform.constructor.WebBrowser.Chrome:
-          e.addClass('g-chrome');
+          GUserModel.addClass('g-chrome');
           break;
         case GEditor.GPlatform.constructor.WebBrowser.Firefox:
-          e.addClass('g-firefox');
+          GUserModel.addClass('g-firefox');
           break;
         case GEditor.GPlatform.constructor.WebBrowser.Safari:
-          e.addClass('g-safari');
+          GUserModel.addClass('g-safari');
           break;
         case GEditor.GPlatform.constructor.WebBrowser.MSIE:
-          e.addClass('g-msie');
+          GUserModel.addClass('g-msie');
       }
       switch (GCore.GSystem.hardware) {
         case GCore.GSystem.Hardware.Desktop:
-          e.addClass('g-desktop');
+          GUserModel.addClass('g-desktop');
           break;
         case GCore.GSystem.Hardware.Tablet:
-          e.addClass('g-tablet');
+          GUserModel.addClass('g-tablet');
           break;
         case GCore.GSystem.Hardware.Phone:
-          e.addClass('g-phone');
+          GUserModel.addClass('g-phone');
       }
       switch (GCore.GSystem.operatingSystem) {
         case GCore.GSystem.OperatingSystem.Unix:
-          e.addClass('g-os-unix');
+          GUserModel.addClass('g-os-unix');
           break;
         case GCore.GSystem.OperatingSystem.Windows:
-          e.addClass('g-os-windows');
+          GUserModel.addClass('g-os-windows');
           break;
         case GCore.GSystem.OperatingSystem.OSX_IOS:
-          e.addClass('g-os-osx_ios');
+          GUserModel.addClass('g-os-osx_ios');
       }
-      gContainer.getRuntime() === GContainer.Runtime.IPad && e.addClass('g-ipad');
+      gContainer.getRuntime() === GContainer.Runtime.IPad && GUserModel.addClass('g-ipad');
     }),
     (Je.prototype.getContextMenu = function () {
       return this._contextMenu;
@@ -112993,31 +113403,36 @@ function (exports, module, require) {
     (Je.prototype.getAutoSaveManager = function () {
       if (this._autoSaveManager) return this._autoSaveManager;
     }),
-    (Je.prototype.isActiveDocument = function (e) {
+    (Je.prototype.isActiveDocument = function (GUserModel) {
       const module = this.getActiveDocument();
       return (
         !!module &&
-        !!(e && e instanceof w) &&
-        (module === e || !(!module.getId() || module.getId() !== e.getId()))
+        !!(GUserModel && GUserModel instanceof w) &&
+        (module === GUserModel || !(!module.getId() || module.getId() !== GUserModel.getId()))
       );
     }),
-    (Je.prototype._setActiveAssistantBar = function (e) {
-      if (e) {
+    (Je.prototype._setActiveAssistantBar = function (GUserModel) {
+      if (GUserModel) {
         if (!this._assistantBar) {
-          const e = $('<div/>')
+          const GUserModel = $('<div/>')
             .attr('id', F.AssistantBar.id)
             .on('mousedown', () => {
               this._toggleSideBarAndAssistBarZIndex(false, false, true, false);
             })
             .appendTo(this._frame);
-          this._assistantBar = new Be(e);
+          this._assistantBar = new GTouchToolbar(GUserModel);
         }
         this._assistantBar.activate();
       } else this._assistantBar && this._assistantBar.deactivate();
     }),
-    (Je.prototype._toggleSideBarAndAssistBarZIndex = function (e, t, n, _interopRequireDefault) {
+    (Je.prototype._toggleSideBarAndAssistBarZIndex = function (
+      GUserModel,
+      t,
+      n,
+      _interopRequireDefault
+    ) {
       gDesigner.isTouchEnabled() &&
-        (this._leftSidebars.getHtmlElement().toggleClass('bring-to-front', e),
+        (this._leftSidebars.getHtmlElement().toggleClass('bring-to-front', GUserModel),
         this._rightSidebars.getHtmlElement().toggleClass('bring-to-front', t),
         this._assistantBar.getHtmlElement().toggleClass('bring-to-front', n),
         undefined !== _interopRequireDefault &&
@@ -113030,20 +113445,20 @@ function (exports, module, require) {
       return Promise.all([
         gContainer
           .getProperty('designer.settings')
-          .then((e) => {
-            for (var module in ((e = e || {}), this._settings))
-              e.hasOwnProperty(module) || (e[module] = this._settings[module]);
-            for (var require in ((this._settings = e),
+          .then((GUserModel) => {
+            for (var module in ((GUserModel = GUserModel || {}), this._settings))
+              GUserModel.hasOwnProperty(module) || (GUserModel[module] = this._settings[module]);
+            for (var require in ((this._settings = GUserModel),
             (this._settingsLoaded = true),
             this._settings))
               this.trigger(
                 new GSettingChangedEvent(require, undefined, this._settings[require], true)
               );
           })
-          .catch((e) => Promise.reject(e)),
+          .catch((GUserModel) => Promise.reject(GUserModel)),
         gContainer
           .getProperty('swatches')
-          .then((e) => {
+          .then((GUserModel) => {
             if (
               ((this._swatches.global = []),
               (this._swatches['global-linear-gradient'] = []),
@@ -113051,41 +113466,42 @@ function (exports, module, require) {
               (this._swatches['global-angular-gradient'] = []),
               (this._swatches['global-texture-pattern'] = []),
               (this._swatches['global-noise-pattern'] = []),
-              e)
+              GUserModel)
             )
-              for (var module = 0; module < e.length; ++module) {
+              for (var module = 0; module < GUserModel.length; ++module) {
                 var require =
-                    GCore.GNode.deserialize(e[module]) || GCore.GPattern.deserialize(e[module]),
+                    GCore.GNode.deserialize(GUserModel[module]) ||
+                    GCore.GPattern.deserialize(GUserModel[module]),
                   _interopRequireDefault =
                     require instanceof GCore.GSwatch ? require : new GCore.GSwatch(require);
                 this._addGlobalSwatch(_interopRequireDefault);
               }
             this.trigger(new GSwatchesChangedEvent('global'));
           })
-          .catch((e) => Promise.reject(e)),
+          .catch((GUserModel) => Promise.reject(GUserModel)),
       ]);
     }),
-    (Je.prototype._addGlobalSwatch = function (e) {
-      var t = GCore.GPattern.serialize(e.getProperty('_pt'));
+    (Je.prototype._addGlobalSwatch = function (GUserModel) {
+      var t = GCore.GPattern.serialize(GUserModel.getProperty('_pt'));
       t.startsWith('C#') || t.startsWith('Y#')
-        ? this._swatches.global.push(e)
+        ? this._swatches.global.push(GUserModel)
         : t.startsWith('L#')
-          ? this._swatches['global-linear-gradient'].push(e)
+          ? this._swatches['global-linear-gradient'].push(GUserModel)
           : t.startsWith('R#')
-            ? this._swatches['global-radial-gradient'].push(e)
+            ? this._swatches['global-radial-gradient'].push(GUserModel)
             : t.startsWith('A#')
-              ? this._swatches['global-angular-gradient'].push(e)
+              ? this._swatches['global-angular-gradient'].push(GUserModel)
               : t.startsWith('T#')
-                ? this._swatches['global-texture-pattern'].push(e)
-                : t.startsWith('N#') && this._swatches['global-noise-pattern'].push(e);
+                ? this._swatches['global-texture-pattern'].push(GUserModel)
+                : t.startsWith('N#') && this._swatches['global-noise-pattern'].push(GUserModel);
     }),
     (Je.prototype.updateRecentDocumentsAction = function () {
       let exports = [];
       const module = gContainer.getProperty('recent_documents'),
         require = gDesigner.getUser();
       Promise.all([module, require])
-        .then((e) => {
-          let [module, require] = e;
+        .then((GUserModel) => {
+          let [module, require] = GUserModel;
           return require
             ? Promise.all([
                 module,
@@ -113117,13 +113533,13 @@ function (exports, module, require) {
               ('googledrive' === _interopRequireDefault.type &&
                 (_interopRequireDefault.file.hasOwnProperty('version') &&
                   delete _interopRequireDefault.file.version,
-                (t = new f.default.Item(n, _interopRequireDefault.file))),
+                (t = new GGoogleDriveItem.default.Item(n, _interopRequireDefault.file))),
                 t && exports.push(t));
             }
           var AppSettings = function () {
             gContainer.updateRecentDocumentsAction(exports);
           };
-          Q.getRecentStorageItems()
+          GCloudStorage.getRecentStorageItems()
             .then(async function (t) {
               if (t.length > 0)
                 for (var require = 0; require < t.length; ++require)
@@ -113133,12 +113549,15 @@ function (exports, module, require) {
             .catch(AppSettings);
         });
     }),
-    (Je.prototype.removeExternalRecentFiles = function (e, t) {
+    (Je.prototype.removeExternalRecentFiles = function (GUserModel, t) {
       gDesigner
         .getUser()
-        .then((e) =>
-          e
-            ? Promise.all([e, gContainer.getProperty('recent_external_'.concat(e.getUID()))])
+        .then((GUserModel) =>
+          GUserModel
+            ? Promise.all([
+                GUserModel,
+                gContainer.getProperty('recent_external_'.concat(GUserModel.getUID())),
+              ])
             : Promise.reject()
         )
         .then((n) => {
@@ -113149,7 +113568,7 @@ function (exports, module, require) {
           for (let n = 0, _interopRequireDefault = GCore.length; n < _interopRequireDefault; n++) {
             let _interopRequireDefault = JSON.parse(GCore[n]);
             _interopRequireDefault &&
-              (_interopRequireDefault.type !== e ||
+              (_interopRequireDefault.type !== GUserModel ||
                 (_interopRequireDefault.file &&
                   _interopRequireDefault.file.settings &&
                   !_interopRequireDefault.file.settings.accountId) ||
@@ -113169,13 +113588,13 @@ function (exports, module, require) {
     }),
     (Je.prototype.relayout = function () {
       if (!this._initialized) return;
-      var e,
+      var GUserModel,
         t,
         n = 0,
         _interopRequireDefault = 0;
-      ((e = this._getTopOffset(n, _interopRequireDefault)),
-        (n = this._getLeftOffset(e)),
-        (_interopRequireDefault = this._getRightOffset(e)),
+      ((GUserModel = this._getTopOffset(n, _interopRequireDefault)),
+        (n = this._getLeftOffset(GUserModel)),
+        (_interopRequireDefault = this._getRightOffset(GUserModel)),
         (t = this._getBottomOffset(n, _interopRequireDefault)));
       const GTools = this.isTouchEnabled();
       (this._header.relayout(),
@@ -113184,16 +113603,21 @@ function (exports, module, require) {
         this._footer.relayout(),
         this._leftSidebars.relayout(),
         this._rightSidebars.relayout(),
-        this._windows.relayout([GTools ? 0 : n, e, GTools ? 0 : _interopRequireDefault, t]));
+        this._windows.relayout([
+          GTools ? 0 : n,
+          GUserModel,
+          GTools ? 0 : _interopRequireDefault,
+          t,
+        ]));
     }),
     (Je.prototype.updateCollabTextPreviews = async function () {
-      var e,
+      var GUserModel,
         t = this.getActiveDocument();
       t &&
-        ((e = t.getEditor()) && e.closeInlineEditor(),
+        ((GUserModel = t.getEditor()) && GUserModel.closeInlineEditor(),
         await this._CDRIntegrationEngine.processCollabText(t));
     }),
-    (Je.prototype._getTopOffset = function (e, t) {
+    (Je.prototype._getTopOffset = function (GUserModel, t) {
       var n = 0,
         _interopRequireDefault = this.getPart(F.Info);
       n += this.isPartVisible(F.Info) ? _interopRequireDefault.outerHeight() : 0;
@@ -113202,7 +113626,7 @@ function (exports, module, require) {
         (n += this.isPartVisible(F.Header) ? GTools.outerHeight() : 0));
       this.getPart(F.Overlay).css('top', n.toString() + 'px');
       var GCore = this.getPart(F.Toolbar);
-      (GCore.css('left', e.toString() + 'px'),
+      (GCore.css('left', GUserModel.toString() + 'px'),
         GCore.css('top', n.toString() + 'px'),
         GCore.css('right', t.toString() + 'px'),
         (n += this.isPartVisible(F.Toolbar) ? GCore.outerHeight() : 0));
@@ -113212,7 +113636,7 @@ function (exports, module, require) {
         (n += this.isPartVisible(F.Banner) ? GEditor.outerHeight() : 0)
       );
     }),
-    (Je.prototype._getLeftOffset = function (e) {
+    (Je.prototype._getLeftOffset = function (GUserModel) {
       var t = 0,
         n = this._leftSidebars.getSidebar(this._leftSidebars.getActiveSidebar()),
         _interopRequireDefault = n ? n.getMinimumWidth() : 0,
@@ -113222,12 +113646,12 @@ function (exports, module, require) {
         GTools.outerWidth() < _interopRequireDefault &&
           GCore &&
           GTools.outerWidth(_interopRequireDefault),
-        GTools.css('top', e.toString() + 'px'),
-        GTools.height(this._mainframe.height() - e),
+        GTools.css('top', GUserModel.toString() + 'px'),
+        GTools.height(this._mainframe.height() - GUserModel),
         (t += GCore ? GTools.outerWidth() : 0)
       );
     }),
-    (Je.prototype._getRightOffset = function (e) {
+    (Je.prototype._getRightOffset = function (GUserModel) {
       var t = 0,
         n = this._rightSidebars.getSidebar(this._rightSidebars.getActiveSidebar()),
         _interopRequireDefault = n ? n.getMinimumWidth() : 0,
@@ -113237,25 +113661,28 @@ function (exports, module, require) {
         GTools.outerWidth() < _interopRequireDefault &&
           GCore &&
           GTools.outerWidth(_interopRequireDefault),
-        GTools.css('top', e.toString() + 'px'),
-        GTools.height(this._mainframe.height() - e),
+        GTools.css('top', GUserModel.toString() + 'px'),
+        GTools.height(this._mainframe.height() - GUserModel),
         (t += GCore ? GTools.outerWidth() : 0)
       );
     }),
-    (Je.prototype._getBottomOffset = function (e, t) {
+    (Je.prototype._getBottomOffset = function (GUserModel, t) {
       var n = 0,
         _interopRequireDefault = this.getPart(F.Panels);
-      (_interopRequireDefault.css('left', e.toString() + 'px'),
-        _interopRequireDefault.css('width', (this._mainframe.width() - e - t).toString() + 'px'));
+      (_interopRequireDefault.css('left', GUserModel.toString() + 'px'),
+        _interopRequireDefault.css(
+          'width',
+          (this._mainframe.width() - GUserModel - t).toString() + 'px'
+        ));
       var GTools = this.getPart(F.Footer);
       return (
-        GTools.css('left', e.toString() + 'px'),
-        GTools.css('width', (this._mainframe.width() - e - t).toString() + 'px'),
+        GTools.css('left', GUserModel.toString() + 'px'),
+        GTools.css('width', (this._mainframe.width() - GUserModel - t).toString() + 'px'),
         (n += this.isPartVisible(F.Panels) ? _interopRequireDefault.outerHeight() : 0),
         (n += this.isPartVisible(F.Footer) ? GTools.outerHeight() : 0)
       );
     }),
-    (Je.prototype.positionIsOnCanvas = function (e, t) {
+    (Je.prototype.positionIsOnCanvas = function (GUserModel, t) {
       var n,
         _interopRequireDefault,
         GTools = 0,
@@ -113265,21 +113692,22 @@ function (exports, module, require) {
         (GTools = this._getLeftOffset(n)),
         (GCore = this._getRightOffset(n)),
         (_interopRequireDefault = this._getBottomOffset(GTools, GCore)),
-        e > GTools &&
-          e < window.innerWidth - GCore &&
+        GUserModel > GTools &&
+          GUserModel < window.innerWidth - GCore &&
           t > n &&
           t < window.innerHeight - _interopRequireDefault
       );
     }),
-    (Je.prototype.updateGEditorSceneConfigurationPaintMode = function (e) {
+    (Je.prototype.updateGEditorSceneConfigurationPaintMode = function (GUserModel) {
       [
         GCore.GScenePaintConfiguration.PaintMode.Full,
         GCore.GScenePaintConfiguration.PaintMode.Outline,
         GCore.GScenePaintConfiguration.PaintMode.Fast,
-      ].indexOf(e) < 0 || (GTools.GEditorPaintConfiguration.prototype.paintMode = e);
+      ].indexOf(GUserModel) < 0 ||
+        (GTools.GEditorPaintConfiguration.prototype.paintMode = GUserModel);
     }),
-    (Je.prototype.registerShortcut = function (e, t, n, _interopRequireDefault) {
-      var AppSettings = function (e, t) {
+    (Je.prototype.registerShortcut = function (GUserModel, t, n, _interopRequireDefault) {
+      var AppSettings = function (GUserModel, t) {
           return (n) => {
             var _interopRequireDefault,
               GEditor,
@@ -113294,19 +113722,26 @@ function (exports, module, require) {
                 l instanceof GCore.GText &&
                 (GEditor = GTools.GElementEditor.getEditor(l));
             }
-            if (!((t && GEditor && GEditor.handleKeyDown(n) && (t || GEditor)) || true !== e(n)))
+            if (
+              !(
+                (t && GEditor && GEditor.handleKeyDown(n) && (t || GEditor)) ||
+                true !== GUserModel(n)
+              )
+            )
               return (n.preventDefault(), n.stopPropagation(), false);
           };
         }.bind(this),
-        l = n ? ze.bindGlobal : ze.bind;
-      2 === e.length && e[0] === GEditor.GKey.Constant.META && '+' === e[1]
-        ? (l(this._shortcutToMouseTrapShortcut(e), AppSettings(t, true)),
+        l = n ? Mousetrap.bindGlobal : Mousetrap.bind;
+      2 === GUserModel.length &&
+      GUserModel[0] === GEditor.GKey.Constant.META &&
+      '+' === GUserModel[1]
+        ? (l(this._shortcutToMouseTrapShortcut(GUserModel), AppSettings(t, true)),
           l('mod+=', AppSettings(t, true), 'keydown'),
           _interopRequireDefault && l('mod+=', AppSettings(_interopRequireDefault, false), 'keyup'))
-        : (l(this._shortcutToMouseTrapShortcut(e), AppSettings(t, true), 'keydown'),
+        : (l(this._shortcutToMouseTrapShortcut(GUserModel), AppSettings(t, true), 'keydown'),
           _interopRequireDefault &&
             l(
-              this._shortcutToMouseTrapShortcut(e),
+              this._shortcutToMouseTrapShortcut(GUserModel),
               AppSettings(_interopRequireDefault, false),
               'keyup'
             ));
@@ -113335,7 +113770,7 @@ function (exports, module, require) {
                     return GTools;
                   })(GCore);
                   GEditor.isVisible = function () {
-                    return AppSettings.some((e) => e.action.isVisible());
+                    return AppSettings.some((GUserModel) => GUserModel.action.isVisible());
                   };
                 }
                 t.items.push(GEditor);
@@ -113349,8 +113784,9 @@ function (exports, module, require) {
       ) {
         var GEditor = this._actions[GTools];
         if (((this._actionsMap[GEditor.getId()] = GEditor), !GEditor.isAvailable())) continue;
-        let e = GEditor.getCategory();
-        for (var AppSettings = [e]; (e = e.parent); ) AppSettings.push(e);
+        let GUserModel = GEditor.getCategory();
+        for (var AppSettings = [GUserModel]; (GUserModel = GUserModel.parent); )
+          AppSettings.push(GUserModel);
         AppSettings.reverse();
         var l = GEditor.getGroup(),
           c = GEditor.getGroupIcon(),
@@ -113360,15 +113796,15 @@ function (exports, module, require) {
         var CollaborationMergeUtils = module;
         if (AppSettings)
           for (var p = 0; p < AppSettings.length; ++p) {
-            let e = AppSettings[p],
+            let GUserModel = AppSettings[p],
               t = d ? d[p] : null;
             for (
-              var g = null, h = e.label.split('/')[p], f = 0;
-              f < CollaborationMergeUtils.items.length;
-              ++f
+              var g = null, h = GUserModel.label.split('/')[p], GGoogleDriveItem = 0;
+              GGoogleDriveItem < CollaborationMergeUtils.items.length;
+              ++GGoogleDriveItem
             )
-              h == CollaborationMergeUtils.items[f].caption &&
-                (g = CollaborationMergeUtils.items[f]);
+              h == CollaborationMergeUtils.items[GGoogleDriveItem].caption &&
+                (g = CollaborationMergeUtils.items[GGoogleDriveItem]);
             (g ||
               (_interopRequireDefault(
                 CollaborationMergeUtils,
@@ -113377,7 +113813,7 @@ function (exports, module, require) {
                   caption: h,
                   items: [],
                   icon: c,
-                  category: e,
+                  category: GUserModel,
                 }),
                 t
               ),
@@ -113388,44 +113824,44 @@ function (exports, module, require) {
         (_interopRequireDefault(CollaborationMergeUtils, m, d ? d[d.length - 1] : null),
           CollaborationMergeUtils.items.push(m));
       }
-      var y = function (e, t) {
-          'menu' === e.type
-            ? (e.menu = v(e, t))
-            : 'divider' === e.type
-              ? (e.separator = this.addMenuSeparator(t, e.isVisible))
-              : 'item' === e.type &&
-                ((e.item = this.addMenuItem(
+      var GAnalyticsPageStats = function (GUserModel, t) {
+          'menu' === GUserModel.type
+            ? (GUserModel.menu = v(GUserModel, t))
+            : 'divider' === GUserModel.type
+              ? (GUserModel.separator = this.addMenuSeparator(t, GUserModel.isVisible))
+              : 'item' === GUserModel.type &&
+                ((GUserModel.item = this.addMenuItem(
                   t,
-                  GCore.GLocale.get(e.action.getTitle()),
-                  e.action.getIcon(),
-                  e.action.isCheckable(),
-                  e.action.getShortcut(),
+                  GCore.GLocale.get(GUserModel.action.getTitle()),
+                  GUserModel.action.getIcon(),
+                  GUserModel.action.isCheckable(),
+                  GUserModel.action.getShortcut(),
                   function (t, n) {
-                    if ('shortcut' === t) return this._executeShortcutAction(e.action, n);
+                    if ('shortcut' === t) return this._executeShortcutAction(GUserModel.action, n);
                   }.bind(this),
-                  e.action.isShortcutGlobal(),
-                  e.action.isPro(),
-                  e.action,
-                  e.action._sidebar
-                    ? e.action.getStyleClass() + ' hidepanel'
-                    : e.action.getStyleClass(),
-                  e.action.noHover()
+                  GUserModel.action.isShortcutGlobal(),
+                  GUserModel.action.isPro(),
+                  GUserModel.action,
+                  GUserModel.action._sidebar
+                    ? GUserModel.action.getStyleClass() + ' hidepanel'
+                    : GUserModel.action.getStyleClass(),
+                  GUserModel.action.noHover()
                 )),
-                this.registerAdditionalShortcuts(e.action));
+                this.registerAdditionalShortcuts(GUserModel.action));
         }.bind(this),
-        v = function (e, t) {
-          const require = e.category
+        v = function (GUserModel, t) {
+          const require = GUserModel.category
             ? (t) => {
-                (t.setVisible(e.category.visible), t.setIcon(e.category.icon));
+                (t.setVisible(GUserModel.category.visible), t.setIcon(GUserModel.category.icon));
               }
             : null;
           for (
             var _interopRequireDefault = this.addMenu(
                 t,
-                e.caption,
+                GUserModel.caption,
                 function () {
-                  for (var t = 0; t < e.items.length; ++t) {
-                    var require = e.items[t];
+                  for (var t = 0; t < GUserModel.items.length; ++t) {
+                    var require = GUserModel.items[t];
                     'item' === require.type &&
                       this.updateMenuItem(
                         require.item,
@@ -113437,27 +113873,27 @@ function (exports, module, require) {
                       );
                   }
                 }.bind(this),
-                e.icon,
+                GUserModel.icon,
                 require
               ),
               GTools = 0;
-            GTools < e.items.length;
+            GTools < GUserModel.items.length;
             ++GTools
           )
-            y(e.items[GTools], _interopRequireDefault);
+            GAnalyticsPageStats(GUserModel.items[GTools], _interopRequireDefault);
           return _interopRequireDefault;
         }.bind(this);
       for (GTools = 0; GTools < module.items.length; ++GTools)
         ((g = module.items[GTools]), v(module.items[GTools], null));
       this._mainMenu.update();
     }),
-    (Je.prototype._workspaceResolveUrlEvent = function (e) {
-      Q.resolveImage(e, this.getActiveDocument());
+    (Je.prototype._workspaceResolveUrlEvent = function (GUserModel) {
+      GCloudStorage.resolveImage(GUserModel, this.getActiveDocument());
     }),
-    (Je.prototype._shareEvent = function (e) {
-      e.type === pe.Type.Updated && this._updateSidebars();
+    (Je.prototype._shareEvent = function (GUserModel) {
+      GUserModel.type === pe.Type.Updated && this._updateSidebars();
     }),
-    (Je.prototype._applicationStateChangedEvent = function (e) {
+    (Je.prototype._applicationStateChangedEvent = function (GUserModel) {
       this._updateSidebars();
       const module = this.getActiveDocument();
       if (module && module.getStatus() === De.Ready) {
@@ -113469,9 +113905,9 @@ function (exports, module, require) {
         module = exports.isInspectEnabled(),
         require = exports.isCommentingEnabled(),
         _interopRequireDefault = exports.isEditingEnabled();
-      if (I.isOrientationActiveInSetting(I.Orientation.Right)) {
-        const e = this._rightSidebars.getSidebar(this._rightSidebars.getActiveSidebar());
-        ((e && e.isVisible()) ||
+      if (GSidebarContainer.isOrientationActiveInSetting(GSidebarContainer.Orientation.Right)) {
+        const GUserModel = this._rightSidebars.getSidebar(this._rightSidebars.getActiveSidebar());
+        ((GUserModel && GUserModel.isVisible()) ||
           (_interopRequireDefault || module
             ? this._rightSidebars.setActiveSidebar(GInspectorSidebar.ID)
             : require
@@ -113480,9 +113916,9 @@ function (exports, module, require) {
           this.setPartVisible(F.RightSidebars, require || _interopRequireDefault || module),
           this._rightSidebars.relayout());
       }
-      if (I.isOrientationActiveInSetting(I.Orientation.Left)) {
-        const e = this._leftSidebars.getSidebar(this._leftSidebars.getActiveSidebar());
-        ((e && e.isVisible()) ||
+      if (GSidebarContainer.isOrientationActiveInSetting(GSidebarContainer.Orientation.Left)) {
+        const GUserModel = this._leftSidebars.getSidebar(this._leftSidebars.getActiveSidebar());
+        ((GUserModel && GUserModel.isVisible()) ||
           (module
             ? this._leftSidebars.setActiveSidebar(GOutlineSidebar.ID)
             : this._leftSidebars.setActiveSidebar(null)),
@@ -113490,28 +113926,30 @@ function (exports, module, require) {
           this._leftSidebars.relayout());
       }
     }),
-    (Je.prototype._fontManagerResolveFontEvent = function (e) {
-      const module = Object.assign({}, e);
+    (Je.prototype._fontManagerResolveFontEvent = function (GUserModel) {
+      const module = Object.assign({}, GUserModel);
       try {
         H.resolveFont(module);
       } catch (t) {
-        throw (e.failed(), t);
+        throw (GUserModel.failed(), t);
       }
     }),
-    (Je.prototype._fontManagerQueryFontFamilyEvent = function (e) {
+    (Je.prototype._fontManagerQueryFontFamilyEvent = function (GUserModel) {
       try {
-        H.resolveQueryFontFamily(e);
+        H.resolveQueryFontFamily(GUserModel);
       } catch (t) {
-        throw (e.failed(), t);
+        throw (GUserModel.failed(), t);
       }
     }),
-    (Je.prototype._documentEvent = function (e) {
-      switch (e.type) {
+    (Je.prototype._documentEvent = function (GUserModel) {
+      switch (GUserModel.type) {
         case GDocumentEvent.Type.OwnerUpdated:
-          if (e.document) {
-            const t = e.document.getOwner();
+          if (GUserModel.document) {
+            const t = GUserModel.document.getOwner();
             if (t) {
-              const n = e.document.isCloudFile() ? e.document.getStorageItem().getFile() : null,
+              const n = GUserModel.document.isCloudFile()
+                  ? GUserModel.document.getStorageItem().getFile()
+                  : null,
                 _interopRequireDefault = n ? n.url_t || n.url : null,
                 GTools = GCore.GLocale.get(new GCore.GLocaleKey('GDesigner', 'text.preview-by'))
                   .replace('%name', t.name)
@@ -113534,38 +113972,38 @@ function (exports, module, require) {
           this._updateTitle({ saveToSessionHistory: false });
           break;
         case GDocumentEvent.Type.StorageItemUpdated:
-          (this._updateTitle(), this._registerUsage(e.document));
+          (this._updateTitle(), this._registerUsage(GUserModel.document));
           break;
         case GDocumentEvent.Type.Added:
           this._newDocumentDialog && this._newDocumentDialog.close();
       }
     }),
-    (Je.prototype._registerUsage = function (e) {
-      const module = e.getStorageItem();
+    (Je.prototype._registerUsage = function (GUserModel) {
+      const module = GUserModel.getStorageItem();
       module &&
         module.isRegistrable() &&
-        Oe.usage(module.getId()).catch((e) => {
-          console.error('gApi.usage error', e);
+        Oe.usage(module.getId()).catch((GUserModel) => {
+          console.error('gApi.usage error', GUserModel);
         });
     }),
-    (Je.prototype._windowEvent = function (e) {
+    (Je.prototype._windowEvent = function (GUserModel) {
       let module;
-      switch (e.type) {
+      switch (GUserModel.type) {
         case O.WindowEvent.Type.Added:
         case O.WindowEvent.Type.Removed:
           this._updateTitle();
           break;
         case O.WindowEvent.Type.Activated:
           (1 === this._windows.getWindows().length && this._updateTheme(),
-            this.getToolManager().setView(e.window.getView()),
-            this._leftSidebars.setView(e.window.getView()),
-            this._rightSidebars.setView(e.window.getView()),
+            this.getToolManager().setView(GUserModel.window.getView()),
+            this._leftSidebars.setView(GUserModel.window.getView()),
+            this._rightSidebars.setView(GUserModel.window.getView()),
             this._updateTitle(),
-            (module = e.window.getView().getHtmlElement()),
+            (module = GUserModel.window.getView().getHtmlElement()),
             this._editorTouchHandler.activate(module));
           break;
         case O.WindowEvent.Type.Deactivated:
-          ((module = e.window.getView().getHtmlElement()),
+          ((module = GUserModel.window.getView().getHtmlElement()),
             this._editorTouchHandler.deactivate(module),
             this.getToolManager().setView(null),
             this._leftSidebars.setView(null),
@@ -113573,52 +114011,52 @@ function (exports, module, require) {
             this._updateTitle());
       }
     }),
-    (Je.prototype._sidebarEvent = function (e) {
-      e.type === I.SidebarEvent.Type.Activated && this.relayout();
+    (Je.prototype._sidebarEvent = function (GUserModel) {
+      GUserModel.type === GSidebarContainer.SidebarEvent.Type.Activated && this.relayout();
     }),
-    (Je.prototype._settingChangedEvent = function (e) {
-      switch (e.key) {
+    (Je.prototype._settingChangedEvent = function (GUserModel) {
+      switch (GUserModel.key) {
         case 'touch':
-          (e.restoring && e.newValue && !this.isTouchEnabled()
+          (GUserModel.restoring && GUserModel.newValue && !this.isTouchEnabled()
             ? this.setTouchEnabled(false)
             : this._updateLayout(),
             this._updateEditorOptions(),
             this._updateGTM());
           break;
         case 'theme':
-          this._setTheme(e.newValue);
+          this._setTheme(GUserModel.newValue);
           break;
         case 'snap_disabled':
-          GTools.GGuides.options.disabled = e.newValue;
+          GTools.GGuides.options.disabled = GUserModel.newValue;
           break;
         case 'snap_zones':
-          GTools.GGuides.options.zones = e.newValue;
+          GTools.GGuides.options.zones = GUserModel.newValue;
           break;
         case 'snap_guides':
-          GTools.GGuides.options.guides = e.newValue;
+          GTools.GGuides.options.guides = GUserModel.newValue;
           break;
         case 'highlight_on_hover':
-          GTools.GEditorOptions.highlightOnHover = e.newValue;
+          GTools.GEditorOptions.highlightOnHover = GUserModel.newValue;
           break;
         case 'dont_store_textpath':
-          GCore.GText.dontStorePaths = e.newValue;
+          GCore.GText.dontStorePaths = GUserModel.newValue;
           break;
         case 'decimals_num':
-          GCore.GScene.decimalsNum = e.newValue;
+          GCore.GScene.decimalsNum = GUserModel.newValue;
           break;
         case 'enable_steps_debug':
-          GTools.GEditorOptions.debugTransactions = e.newValue;
+          GTools.GEditorOptions.debugTransactions = GUserModel.newValue;
           break;
         case 'enable_cache':
           'function' == typeof gdb_loaddesign &&
-            ((GCore.GRendererConfig.ENABLE_CACHE = e.newValue),
+            ((GCore.GRendererConfig.ENABLE_CACHE = GUserModel.newValue),
             gDesigner.getActiveDocument() &&
               gDesigner.getActiveDocument().getActiveWindow() &&
               (gDesigner.getActiveDocument().getActiveWindow().getView().cleanCache(),
               gDesigner.getActiveDocument().getActiveWindow().getView().configureCache()));
           break;
         case 'ui_toolbar_alignment':
-          e.newValue
+          GUserModel.newValue
             ? this._frame.removeClass('ui-toolbar-center')
             : this._frame.addClass('ui-toolbar-center');
       }
@@ -113764,11 +114202,11 @@ function (exports, module, require) {
           this._setActiveAssistantBar(this.isTouchEnabled())),
         this.relayout());
     }),
-    (Je.prototype._setTheme = function (e) {
-      (e && 'default' !== e) || (e = 'light');
+    (Je.prototype._setTheme = function (GUserModel) {
+      (GUserModel && 'default' !== GUserModel) || (GUserModel = 'light');
       var t = $('head > link[href$=".css"]'),
         n = t.attr('href').split('.');
-      ((n[2] = e),
+      ((n[2] = GUserModel),
         t.attr('href', n.join('.')),
         $(t).load(
           n.join('.'),
@@ -113777,12 +114215,13 @@ function (exports, module, require) {
             (l.DESIGNER.GUIDELINE_COLOR
               ? (GTools.GEditorOptions.guideLineColor = l.DESIGNER.GUIDELINE_COLOR)
               : (GTools.GEditorOptions.guideLineColor =
-                  'light' === e
+                  'light' === GUserModel
                     ? new GCore.GRGBColor([107, 156, 228])
                     : new GCore.GRGBColor([227, 0, 97])),
               l.DESIGNER.GUIDELINEHINT_COLOR
                 ? (GTools.GEditorOptions.guideLineHintColor = l.DESIGNER.GUIDELINEHINT_COLOR)
-                : (GTools.GEditorOptions.guideLineHintColor = 'light' === e ? 'blue' : '#F790B6'),
+                : (GTools.GEditorOptions.guideLineHintColor =
+                    'light' === GUserModel ? 'blue' : '#F790B6'),
               l.DESIGNER.DISTANCEHELPER_COLOR &&
                 (GTools.GEditorOptions.distanceHelperColor = l.DESIGNER.DISTANCEHELPER_COLOR),
               l.DESIGNER.HIGHLIGHTOUTLINE_COLOR &&
@@ -113800,9 +114239,9 @@ function (exports, module, require) {
         ));
     }),
     (Je.prototype._updateTheme = function () {
-      var e = this._windows.getActiveWindow();
-      (e &&
-        e.getView() &&
+      var GUserModel = this._windows.getActiveWindow();
+      (GUserModel &&
+        GUserModel.getView() &&
         GEditor.GPlatform.scheduleFrame(
           function () {
             var t = GCore.GRGBColor.BLACK,
@@ -113818,7 +114257,7 @@ function (exports, module, require) {
                   : GCore.GRGBColor.WHITE;
             }
             ((GCore.GPaintContext.prototype.labelColor = t),
-              e && e.getView() && e.getView().invalidate());
+              GUserModel && GUserModel.getView() && GUserModel.getView().invalidate());
           }.bind(this)
         ),
         this.relayout());
@@ -113835,48 +114274,48 @@ function (exports, module, require) {
       var GTools = this.getWindows().getActiveWindow();
       if (GTools) {
         t = GTools.getTitle() + ' - ';
-        let e = GTools.getDocument();
+        let GUserModel = GTools.getDocument();
         if (
-          (e &&
-            e.getOwner() &&
-            !e.isDocumentFromTemplate() &&
+          (GUserModel &&
+            GUserModel.getOwner() &&
+            !GUserModel.isDocumentFromTemplate() &&
             ((require = ''),
             (t = GCore.GLocale.get(new GCore.GLocaleKey('GDesigner', 'text.design-by'))
-              .replace('%name', e.getOwner().name)
+              .replace('%name', GUserModel.getOwner().name)
               .replace('%appname', AppSettings2.DESIGNER.TITLE))),
           _interopRequireDefault)
         ) {
-          let t = e.getStorageItem();
-          e &&
+          let t = GUserModel.getStorageItem();
+          GUserModel &&
             t &&
             (t instanceof J.Item || (t.supportsShadowFile() && (await t.getCollaborativeFile()))) &&
-            (e.getStorageItem().getToken()
-              ? e.getFocusAnnotationId()
+            (GUserModel.getStorageItem().getToken()
+              ? GUserModel.getFocusAnnotationId()
                 ? window.history.pushState(
                     null,
                     'Title',
-                    '/?token=' + t.getToken() + '&annot=' + e.getFocusAnnotationId()
+                    '/?token=' + t.getToken() + '&annot=' + GUserModel.getFocusAnnotationId()
                   )
                 : window.history.pushState(null, 'Title', '/?token=' + t.getToken())
               : t.getId() &&
-                (e.getFocusAnnotationId()
+                (GUserModel.getFocusAnnotationId()
                   ? window.history.pushState(
                       null,
                       'Title',
-                      '/?d=' + t.getId() + '&annot=' + e.getFocusAnnotationId()
+                      '/?d=' + t.getId() + '&annot=' + GUserModel.getFocusAnnotationId()
                     )
                   : window.history.pushState(null, 'Title', '/?d=' + t.getId())));
         }
       }
       ((t += require), (document.title = (0, CollaborationMergeUtils.decodeHTML)(t)));
     }),
-    (Je.prototype.addNotification = function (e, t) {
-      this.hasEventListeners(de) && this.trigger(new de(e, t));
+    (Je.prototype.addNotification = function (GUserModel, t) {
+      this.hasEventListeners(de) && this.trigger(new de(GUserModel, t));
     }),
-    (Je.prototype._shortcutToMouseTrapShortcut = function (e) {
-      for (var module = '', require = 0; require < e.length; ++require) {
+    (Je.prototype._shortcutToMouseTrapShortcut = function (GUserModel) {
+      for (var module = '', require = 0; require < GUserModel.length; ++require) {
         require > 0 && (module += '+');
-        var _interopRequireDefault = e[require];
+        var _interopRequireDefault = GUserModel[require];
         if ('number' == typeof _interopRequireDefault)
           switch ((_interopRequireDefault = GEditor.GKey.transformKey(_interopRequireDefault))) {
             case GEditor.GKey.Constant.SPACE:
@@ -113977,8 +114416,8 @@ function (exports, module, require) {
       }
       return module;
     }),
-    (Je.prototype.isGravitIME = function (e) {
-      return e && e.className === GEditor.GSceneWidget.GRAVIT_IME;
+    (Je.prototype.isGravitIME = function (GUserModel) {
+      return GUserModel && GUserModel.className === GEditor.GSceneWidget.GRAVIT_IME;
     }),
     (Je.prototype.hasModifiedDocuments = function () {
       for (
@@ -114007,35 +114446,37 @@ function (exports, module, require) {
       );
     }),
     (Je.prototype.getCanvasCenter = function () {
-      var e = GCore.GPaintCanvas.getScreenDPI(),
+      var GUserModel = GCore.GPaintCanvas.getScreenDPI(),
         t = this.getCanvasWidth() / 2,
         n = this.getCanvasHeight() / 2;
       return (
         (t += 'none' !== $('#left-sidebars').css('display') ? $('#left-sidebars').width() : 0),
         (n += this.getHeader().getHeight() + this.getToolbar().getHeight()),
-        new GCore.GPoint(t * e, n * e)
+        new GCore.GPoint(t * GUserModel, n * GUserModel)
       );
     }),
-    (Je.prototype.getStylePreview = function (e, t) {
-      return this._stylesPreview[e.getReferenceId()]
+    (Je.prototype.getStylePreview = function (GUserModel, t) {
+      return this._stylesPreview[GUserModel.getReferenceId()]
         ? t
-          ? this._stylesPreview[e.getReferenceId()].textBitmap
-          : this._stylesPreview[e.getReferenceId()].bitmap
-        : this.createNewStylePreview(e, true, t);
+          ? this._stylesPreview[GUserModel.getReferenceId()].textBitmap
+          : this._stylesPreview[GUserModel.getReferenceId()].bitmap
+        : this.createNewStylePreview(GUserModel, true, t);
     }),
-    (Je.prototype.createStyleElement = function (e, t) {
+    (Je.prototype.createStyleElement = function (GUserModel, t) {
       var n = new GCore.GRectangle(0, 0, 50, 50);
-      if (t && $.inArray(GCore.GStylable.PropertySet.Text, e.getProperty('ps')) >= 0) {
+      if (t && $.inArray(GCore.GStylable.PropertySet.Text, GUserModel.getProperty('ps')) >= 0) {
         var _interopRequireDefault = new GCore.GText();
         (_interopRequireDefault.setText('Ab'),
-          _interopRequireDefault.assignStyleFrom(e),
+          _interopRequireDefault.assignStyleFrom(GUserModel),
           _interopRequireDefault.setProperty('_tfi', '20'),
           _interopRequireDefault.setBounds(7, 10, 50, 50),
           n.appendChild(_interopRequireDefault));
       } else
-        (n.assignStyleFrom(e),
-          $.inArray(GCore.GStylable.PropertySet.FillPaintLayers, e.getProperty('ps')) < 0 &&
-            $.inArray(GCore.GStylable.PropertySet.BorderPaintLayers, e.getProperty('ps')) < 0 &&
+        (n.assignStyleFrom(GUserModel),
+          $.inArray(GCore.GStylable.PropertySet.FillPaintLayers, GUserModel.getProperty('ps')) <
+            0 &&
+            $.inArray(GCore.GStylable.PropertySet.BorderPaintLayers, GUserModel.getProperty('ps')) <
+              0 &&
             n
               .getPaintLayers()
               .appendChild(
@@ -114043,9 +114484,9 @@ function (exports, module, require) {
               ));
       return n;
     }),
-    (Je.prototype.createNewStylePreview = function (e, t, n) {
-      var _interopRequireDefault = this.createStyleElement(e, false),
-        GTools = this.createStyleElement(e, true);
+    (Je.prototype.createNewStylePreview = function (GUserModel, t, n) {
+      var _interopRequireDefault = this.createStyleElement(GUserModel, false),
+        GTools = this.createStyleElement(GUserModel, true);
       if (!gDesigner.getActiveDocument()) return null;
       var GEditor = gDesigner.getActiveDocument().getEditor().getSelection() || [];
       GEditor.length > 0 && GEditor[0].appendChild(GTools);
@@ -114056,7 +114497,7 @@ function (exports, module, require) {
       return (
         GEditor.length > 0 && GEditor[0].removeChild(GTools),
         t &&
-          (this._stylesPreview[e.getReferenceId()] = {
+          (this._stylesPreview[GUserModel.getReferenceId()] = {
             preview: _interopRequireDefault,
             bitmap: AppSettings,
             textBitmap: l,
@@ -114064,44 +114505,44 @@ function (exports, module, require) {
         n ? l : AppSettings
       );
     }),
-    (Je.prototype.setVersion = function (e) {
-      this._version = e;
+    (Je.prototype.setVersion = function (GUserModel) {
+      this._version = GUserModel;
     }),
     (Je.prototype.getVersion = function () {
       return this._version;
     }),
-    (Je.prototype.setVersionFriendlyName = function (e) {
-      this._versionFriendlyName = e;
+    (Je.prototype.setVersionFriendlyName = function (GUserModel) {
+      this._versionFriendlyName = GUserModel;
     }),
     (Je.prototype.getVersionFriendlyName = function () {
       return this._versionFriendlyName;
     }),
-    (Je.prototype.setCommitSHA = function (e) {
-      this._commitSHA = e;
+    (Je.prototype.setCommitSHA = function (GUserModel) {
+      this._commitSHA = GUserModel;
     }),
     (Je.prototype.getCommitSHA = function () {
       return this._commitSHA;
     }),
-    (Je.prototype.setBuildNum = function (e) {
-      this._buildNum = e;
+    (Je.prototype.setBuildNum = function (GUserModel) {
+      this._buildNum = GUserModel;
     }),
     (Je.prototype.getBuildNum = function () {
       return this._buildNum;
     }),
-    (Je.prototype.setIsBeta = function (e) {
-      this._isBeta = e;
+    (Je.prototype.setIsBeta = function (GUserModel) {
+      this._isBeta = GUserModel;
     }),
     (Je.prototype.isBeta = function () {
       return this._isBeta;
     }),
-    (Je.prototype.setStoreVendor = function (e) {
-      this._storeVendor = e;
+    (Je.prototype.setStoreVendor = function (GUserModel) {
+      this._storeVendor = GUserModel;
     }),
     (Je.prototype.getStoreVendor = function () {
       return this._storeVendor;
     }),
-    (Je.prototype._userLoggedEvent = function (e) {
-      let module = e.user,
+    (Je.prototype._userLoggedEvent = function (GUserModel) {
+      let module = GUserModel.user,
         require = this.getHeader();
       if ((require && require.updateLoginInfo(module), module && module.getUID()))
         (this.executeWhenReady(() => {
@@ -114112,13 +114553,15 @@ function (exports, module, require) {
             uid: module.getUID(),
           }));
       else {
-        const e = GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.anonymous-user')),
-          n = (module && module.getFullUserName()) || e;
+        const GUserModel = GCore.GLocale.get(
+            new GCore.GLocaleKey('GCommonNames', 'text.anonymous-user')
+          ),
+          n = (module && module.getFullUserName()) || GUserModel;
         GTools.GEditorOptions.userConfig = { userName: n, uid: -1 };
       }
     }),
-    (Je.prototype._userPropertiesChangedEvent = function (e) {
-      const { user: module } = e;
+    (Je.prototype._userPropertiesChangedEvent = function (GUserModel) {
+      const { user: module } = GUserModel;
       module &&
         module.getUID() &&
         (GTools.GEditorOptions.userConfig = {
@@ -114126,7 +114569,7 @@ function (exports, module, require) {
           uid: module.getUID(),
         });
     }),
-    (Je.prototype._beforeInstallUpdate = function (e) {
+    (Je.prototype._beforeInstallUpdate = function (GUserModel) {
       this._reloading = true;
     }),
     (Je.prototype._updateDataLayerWithLicenseData = function () {
@@ -114146,15 +114589,15 @@ function (exports, module, require) {
           dataLayer.push({ creationDate: _interopRequireDefault }));
       }
     }),
-    (Je.prototype._licenseChangedEvent = async function (e) {
-      (e.license.isDefault() ||
+    (Je.prototype._licenseChangedEvent = async function (GUserModel) {
+      (GUserModel.license.isDefault() ||
         ((this._enabledSubscriptions = true),
         gContainer.setProperty('enabled_subscriptions', true)),
         'undefined' != typeof dataLayer &&
-          (this._utm && this._utm.forEach((e, t) => dataLayer.push({ [t]: e })),
+          (this._utm && this._utm.forEach((GUserModel, t) => dataLayer.push({ [t]: GUserModel })),
           this._updateDataLayerWithLicenseData(),
           dataLayer.push({ event: 'LICENSE_CHANGED_EVENT' })),
-        e.license.isOffline() &&
+        GUserModel.license.isOffline() &&
           !this.isEnabledProFeatures('offline') &&
           this.reload({
             icon: 'clock',
@@ -114182,13 +114625,13 @@ function (exports, module, require) {
             buttons: [
               {
                 label: GCore.GLocale.get(new GCore.GLocaleKey('GLocale', 'ok')),
-                onclick: (e) => e.gDialog('close'),
+                onclick: (GUserModel) => GUserModel.gDialog('close'),
               },
             ],
-            attachTimer: (e) => {
+            attachTimer: (GUserModel) => {
               const module = () => {
                 ((this._reloading = false),
-                  this.clearCountdown(e),
+                  this.clearCountdown(GUserModel),
                   $(window).off('online', module));
               };
               (navigator.onLine && module(), $(window).on('online', module));
@@ -114197,17 +114640,23 @@ function (exports, module, require) {
         $('body')
           .toggleClass('pro-expired', this.isEnabledSubscriptions() && !this.isEnabledProFeatures())
           .toggleClass('pro-license', this.isEnabledSubscriptions() && this.isEnabledProFeatures())
-          .toggleClass('pro-legacy', e.license.isLegacy())
-          .toggleClass('pro-subscription', e.license.isPro() && !e.license.isExpired())
-          .toggleClass('trial-expired', e.license.isTrial() && e.license.isExpired()),
-        this._toggleAdditionalSubscriptionClasses(e.license),
+          .toggleClass('pro-legacy', GUserModel.license.isLegacy())
+          .toggleClass(
+            'pro-subscription',
+            GUserModel.license.isPro() && !GUserModel.license.isExpired()
+          )
+          .toggleClass(
+            'trial-expired',
+            GUserModel.license.isTrial() && GUserModel.license.isExpired()
+          ),
+        this._toggleAdditionalSubscriptionClasses(GUserModel.license),
         this.isEnabledProFeatures() || this.setTouchEnabled(false),
         this._updateState());
     }),
     (Je.prototype._toggleAdditionalSubscriptionClasses = function () {}),
-    (Je.prototype.signout = function (e, t) {
-      if (this.isEnabledSubscriptions() && !e) {
-        if (this.getDocuments().some((e) => e.isModified()))
+    (Je.prototype.signout = function (GUserModel, t) {
+      if (this.isEnabledSubscriptions() && !GUserModel) {
+        if (this.getDocuments().some((GUserModel) => GUserModel.isModified()))
           return (
             ee.alert(
               GCore.GLocale.get(
@@ -114219,19 +114668,19 @@ function (exports, module, require) {
       }
       return (
         Ce.clear(),
-        new Promise(async (e, n) => {
+        new Promise(async (GUserModel, n) => {
           (await (0, CollaborationMergeUtils._tryAndCatch)(() => Oe.signout()),
             (this._user = null),
             this.hasEventListeners(le) && this.trigger(new le(null)),
             this.isEnabledSubscriptions() && (t || ((this._reloading = true), location.reload())),
-            e());
+            GUserModel());
         })
       );
     }),
     (Je.prototype.isReloading = function () {
       return this._reloading;
     }),
-    (Je.prototype.reload = function (e) {
+    (Je.prototype.reload = function (GUserModel) {
       let {
         title: module,
         subtitle: require,
@@ -114239,7 +114688,7 @@ function (exports, module, require) {
         footer: GTools,
         buttons: GCore,
         attachTimer: GEditor,
-      } = e;
+      } = GUserModel;
       this._initialized &&
         (this._reloading ||
           ((this._reloading = true),
@@ -114251,26 +114700,26 @@ function (exports, module, require) {
               footer: GTools,
               buttons: GCore,
               closeCallback: () => {
-                const e = this.createCountdown(() => this.signout(true), 3e5);
-                GEditor && GEditor(e);
+                const GUserModel = this.createCountdown(() => this.signout(true), 3e5);
+                GEditor && GEditor(GUserModel);
               },
             })
             .css({ zIndex: 9999 })));
     }),
-    (Je.prototype.clearCountdown = function (e) {
-      let { timeoutID: module, intervalID: require = 0 } = e;
+    (Je.prototype.clearCountdown = function (GUserModel) {
+      let { timeoutID: module, intervalID: require = 0 } = GUserModel;
       (require && clearInterval(require),
         module && clearInterval(module),
         $('.g-timer[data-interval='.concat(require, ']')).remove());
     }),
-    (Je.prototype.createCountdown = function (e, t) {
+    (Je.prototype.createCountdown = function (GUserModel, t) {
       let require = null;
       const _interopRequireDefault = AppSettings.DateAPI.addTime(new Date(), t),
         GTools = setInterval(() => {
-          const e = _interopRequireDefault - Date.now();
-          if (e < 0) return (clearInterval(GTools), void (require && require.remove()));
-          const t = Math.floor((e % 36e5) / 6e4),
-            GEditor = Math.floor((e % 6e4) / 1e3);
+          const GUserModel = _interopRequireDefault - Date.now();
+          if (GUserModel < 0) return (clearInterval(GTools), void (require && require.remove()));
+          const t = Math.floor((GUserModel % 36e5) / 6e4),
+            GEditor = Math.floor((GUserModel % 6e4) / 1e3);
           (require ||
             (require = $('<time></time>')
               .attr('data-interval', GTools)
@@ -114283,21 +114732,27 @@ function (exports, module, require) {
             ));
         }, 1e3);
       let GEditor = null;
-      return (e && (GEditor = setTimeout(e, t)), { intervalID: GTools, timeoutID: GEditor });
+      return (
+        GUserModel && (GEditor = setTimeout(GUserModel, t)),
+        { intervalID: GTools, timeoutID: GEditor }
+      );
     }),
-    (Je.prototype.openDeactivatedUserDialog = async function (e) {
+    (Je.prototype.openDeactivatedUserDialog = async function (GUserModel) {
       const module = $(
         '<div>'.concat(
           GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.account-deactivated'))
             .replace('%app', AppSettings2.DESIGNER.TITLE)
-            .replace('%name', e.getFullUserName() || e.getEmail()),
+            .replace('%name', GUserModel.getFullUserName() || GUserModel.getEmail()),
           '</div>'
         )
       );
       (module.find('a').on('click', (t) => {
         t.preventDefault();
         let require = $(t.target).closest('.g-dialog-content');
-        return (Q.resendEmailConfirmation(e).then(() => require.gDialog('close')), false);
+        return (
+          GCloudStorage.resendEmailConfirmation(GUserModel).then(() => require.gDialog('close')),
+          false
+        );
       }),
         ee.custom({
           className: 'g-deactivated-user-dialog',
@@ -114309,13 +114764,13 @@ function (exports, module, require) {
       return this._user;
     }),
     (Je.prototype.getUser = function () {
-      return new Promise(async (e, t) => {
+      return new Promise(async (GUserModel, t) => {
         let require = await this.getCloudCommunicationManager().getUser();
         this._anonymous = !!require && require.isAnonymous();
         let _interopRequireDefault = await this.isOfflineAsync();
         if (!require && _interopRequireDefault) {
-          const e = Ce.getUser();
-          e && (require = new $e(e));
+          const GUserModel = Ce.getUser();
+          GUserModel && (require = new $GUserModel(GUserModel));
         }
         if (!require || 'lts' !== gDesigner.getEnv() || this.isEnabledProFeatures()) {
           if (require && require.reload)
@@ -114324,15 +114779,15 @@ function (exports, module, require) {
                 title:
                   'We are currently doing some important maintenance work. Please save your design in the next five minutes to avoid loss of progress!',
               }),
-              void e(null)
+              void GUserModel(null)
             );
           if (require)
-            if (!require || (this._user && $e.equals(this._user, require))) {
+            if (!require || (this._user && $GUserModel.equals(this._user, require))) {
               if (this._user && require && !require.isDeactivated()) {
-                const e = { stats: undefined };
+                const GUserModel = { stats: undefined };
                 GCore.GUtil.equals(
-                  Object.assign({}, this._user, e),
-                  Object.assign({}, require, e),
+                  Object.assign({}, this._user, GUserModel),
+                  Object.assign({}, require, GUserModel),
                   true
                 ) ||
                   (this.hasEventListeners(ce) && this.trigger(new ce(require)));
@@ -114345,7 +114800,8 @@ function (exports, module, require) {
                 dataLayer.push({ userEmail: require.getEmail() }),
                 dataLayer.push({ userName: require.name || '' }),
                 dataLayer.push({ userLogin: require.login }),
-                this._utm && this._utm.forEach((e, t) => dataLayer.push({ [t]: e })),
+                this._utm &&
+                  this._utm.forEach((GUserModel, t) => dataLayer.push({ [t]: GUserModel })),
                 this._updateDataLayerWithLicenseData(),
                 dataLayer.push({ event: 'USER_LOGGED_EVENT' })),
                 this.hasEventListeners(le) && this.trigger(new le(require)));
@@ -114357,26 +114813,32 @@ function (exports, module, require) {
             (this._user = require),
             this._user && !_interopRequireDefault && Ce.updateUser(this._user),
             GTools && (this._user.stats = GTools),
-            e(this._user));
-        } else e(null);
+            GUserModel(this._user));
+        } else GUserModel(null);
       });
     }),
-    (Je.prototype.stats = function (e, t, n, _interopRequireDefault) {
-      return y.default.pageStats(e, t, this._user, n, _interopRequireDefault);
+    (Je.prototype.stats = function (GUserModel, t, n, _interopRequireDefault) {
+      return GAnalyticsPageStats.default.pageStats(
+        GUserModel,
+        t,
+        this._user,
+        n,
+        _interopRequireDefault
+      );
     }),
-    (Je.prototype.pageTracking = function (e, t) {
-      return y.default.pageTracking(e, t);
+    (Je.prototype.pageTracking = function (GUserModel, t) {
+      return GAnalyticsPageStats.default.pageTracking(GUserModel, t);
     }),
-    (Je.prototype.gtmEvent = function (e, t) {
+    (Je.prototype.gtmEvent = function (GUserModel, t) {
       'undefined' != typeof dataLayer &&
         (t &&
-          t.forEach((e) => {
-            'object' == typeof e && dataLayer.push(e);
+          t.forEach((GUserModel) => {
+            'object' == typeof GUserModel && dataLayer.push(GUserModel);
           }),
-        dataLayer.push({ event: e }));
+        dataLayer.push({ event: GUserModel }));
     }),
-    (Je.prototype.intercomStats = function (e) {
-      'function' == typeof Intercom && Intercom('trackEvent', e);
+    (Je.prototype.intercomStats = function (GUserModel) {
+      'function' == typeof Intercom && Intercom('trackEvent', GUserModel);
     }),
     (Je.prototype.saveStats = function () {
       if (this._user && this._user.stats) {
@@ -114384,8 +114846,8 @@ function (exports, module, require) {
         Ye !== exports && (Oe.updateUser({ stats: this._user.stats }), (Ye = exports));
       }
     }),
-    (Je.prototype.setEnv = function (e) {
-      this._env = e;
+    (Je.prototype.setEnv = function (GUserModel) {
+      this._env = GUserModel;
     }),
     (Je.prototype.getEnv = function () {
       return this._env;
@@ -114402,42 +114864,42 @@ function (exports, module, require) {
         }
       return exports;
     }),
-    (Je.prototype.zoomAtViewCenter = function (e, t) {
+    (Je.prototype.zoomAtViewCenter = function (GUserModel, t) {
       var n,
         _interopRequireDefault,
         GTools = this.getActiveDocument();
       if (!GTools || !(_interopRequireDefault = GTools.getEditor().getSelectionBBox())) {
         n = true;
-        var GEditor = e.getScene();
+        var GEditor = GUserModel.getScene();
         GEditor && (_interopRequireDefault = GEditor.getPaintBBox());
       }
       var AppSettings =
         _interopRequireDefault && !_interopRequireDefault.isEmpty()
           ? _interopRequireDefault.getSide(GCore.GRect.Side.CENTER)
           : new GCore.GPoint(0, 0);
-      if (n && !e.getViewConfiguration().multiPageView) {
-        var l = e.getViewTransform().mapPoint(this.getCanvasCenter());
+      if (n && !GUserModel.getViewConfiguration().multiPageView) {
+        var l = GUserModel.getViewTransform().mapPoint(this.getCanvasCenter());
         isNaN(l.getX()) || isNaN(l.getY()) || (AppSettings = l);
       }
-      if (e.getViewConfiguration().multiPageView) {
-        var c = e.getScene().getActivePage();
+      if (GUserModel.getViewConfiguration().multiPageView) {
+        var c = GUserModel.getScene().getActivePage();
         c && (AppSettings = AppSettings.add(c.getPosition(true)));
       }
-      e.zoomAtCenter(AppSettings, t);
+      GUserModel.zoomAtCenter(AppSettings, t);
     }),
     (Je.prototype.handleUnsavedDocuments = function () {
       return gDesigner.hasModifiedDocuments()
         ? this.getDocuments()
-            .filter((e) => e.isModified())
+            .filter((GUserModel) => GUserModel.isModified())
             .reduce(
-              (e, t) =>
-                e.then(
+              (GUserModel, t) =>
+                GUserModel.then(
                   () =>
-                    new Promise(async (e, n) => {
+                    new Promise(async (GUserModel, n) => {
                       this.canUnloadDocument(t)
                         .then((_interopRequireDefault) => {
                           _interopRequireDefault
-                            ? e()
+                            ? GUserModel()
                             : this.executeAction(
                                 GSaveAction.ID,
                                 [
@@ -114451,14 +114913,14 @@ function (exports, module, require) {
                                     _interopRequireDefault &&
                                     _interopRequireDefault === De.SaveCancelled
                                       ? n(t)
-                                      : e();
+                                      : GUserModel();
                                   },
                                 ],
                                 'unsavedhandler'
                               );
                         })
-                        .catch((e) => {
-                          n(e);
+                        .catch((GUserModel) => {
+                          n(GUserModel);
                         });
                     })
                 ),
@@ -114466,18 +114928,19 @@ function (exports, module, require) {
             )
         : Promise.resolve();
     }),
-    (Je.prototype.canUnloadDocument = function (e) {
+    (Je.prototype.canUnloadDocument = function (GUserModel) {
       let { changeActiveDocument: module = true } =
         arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       return new Promise((n, _interopRequireDefault) => {
-        if (!e.isModified() && !e.isSynchronizing()) return n(true);
-        (module && this.getActiveDocument() !== e && this.activateDocument(e),
-          gDesigner.canExecuteAction(GSaveAction.ID, [e]) || n(true),
+        if (!GUserModel.isModified() && !GUserModel.isSynchronizing()) return n(true);
+        (module && this.getActiveDocument() !== GUserModel && this.activateDocument(GUserModel),
+          gDesigner.canExecuteAction(GSaveAction.ID, [GUserModel]) || n(true),
           ee.advanced({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GCommonNames', 'text.document-modified')
-            ).replace('%title', e.getTitle()),
-            closeCallback: (e) => e && _interopRequireDefault({ documentStatus: De.SaveCancelled }),
+            ).replace('%title', GUserModel.getTitle()),
+            closeCallback: (GUserModel) =>
+              GUserModel && _interopRequireDefault({ documentStatus: De.SaveCancelled }),
             buttons: [
               {
                 label: GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.dont-save')),
@@ -114507,9 +114970,9 @@ function (exports, module, require) {
           }));
       });
     }),
-    (Je.prototype.exportSwatches = function (e) {
+    (Je.prototype.exportSwatches = function (GUserModel) {
       for (
-        var module = this.getAllSwatches(e),
+        var module = this.getAllSwatches(GUserModel),
           require = new GCore.GSwatches(),
           _interopRequireDefault = 0;
         _interopRequireDefault < module.length;
@@ -114524,32 +114987,32 @@ function (exports, module, require) {
         AppSettings.savePrompt(
           null,
           [{ ext: 'gvswatch', mime: 'application/gzip' }],
-          (e) => {
-            (e.setSaveCounterMeasureEnabled(true),
-              e.write(GEditor),
-              e.setSaveCounterMeasureEnabled(false));
+          (GUserModel) => {
+            (GUserModel.setSaveCounterMeasureEnabled(true),
+              GUserModel.write(GEditor),
+              GUserModel.setSaveCounterMeasureEnabled(false));
           },
           null
         );
       else if (AppSettings.canDownload()) {
-        AppSettings.download('Swatches.gvswatch', (e) => {
-          e &&
-            (e.setSaveCounterMeasureEnabled(true),
-            e.write(GEditor),
-            e.setSaveCounterMeasureEnabled(false));
+        AppSettings.download('Swatches.gvswatch', (GUserModel) => {
+          GUserModel &&
+            (GUserModel.setSaveCounterMeasureEnabled(true),
+            GUserModel.write(GEditor),
+            GUserModel.setSaveCounterMeasureEnabled(false));
         });
       }
     }),
-    (Je.prototype.importSwatches = function (e) {
+    (Je.prototype.importSwatches = function (GUserModel) {
       var t = this.getDefaultStorage(),
-        n = e.startsWith('document');
+        n = GUserModel.startsWith('document');
       t.openPrompt(
         [{ ext: 'gvswatch', mime: 'text/plain' }],
         (t) => {
           t.read((t) => {
             try {
               for (
-                var _interopRequireDefault = this.getAllSwatches(e),
+                var _interopRequireDefault = this.getAllSwatches(GUserModel),
                   GTools = GCore.GNode.deserialize(pako.ungzip(t, { to: 'string' })),
                   GEditor = [],
                   AppSettings = GTools.getFirstChild();
@@ -114564,13 +115027,13 @@ function (exports, module, require) {
                 l && GEditor.push(AppSettings.clone());
               }
               if (((_interopRequireDefault = _interopRequireDefault.concat(GEditor)), n))
-                this.setSwatches(e, _interopRequireDefault, true);
+                this.setSwatches(GUserModel, _interopRequireDefault, true);
               else {
                 for (c = 0; c < GEditor.length; ++c) this._addGlobalSwatch(GEditor[c]);
-                this.setSwatches(e, this._swatches[e]);
+                this.setSwatches(GUserModel, this._swatches[GUserModel]);
               }
-            } catch (e) {
-              (console.warn('error importing swatches: ' + e),
+            } catch (GUserModel) {
+              (console.warn('error importing swatches: ' + GUserModel),
                 ee.alert(
                   GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.fail-import-swatch'))
                 ));
@@ -114583,17 +115046,18 @@ function (exports, module, require) {
     (Je.prototype.getFontsPath = function () {
       return this._fontsPath;
     }),
-    (Je.prototype.calculateFontsSize = function (e) {
+    (Je.prototype.calculateFontsSize = function (GUserModel) {
       var t = this;
       return new Promise(function (n, _interopRequireDefault) {
         var GTools = {},
-          GCore = function (e) {
+          GCore = function (GUserModel) {
             return new Promise(function (n, _interopRequireDefault) {
               var GCore = new XMLHttpRequest();
-              (GCore.open('HEAD', t.getAssetsURL() + '' + e, true),
+              (GCore.open('HEAD', t.getAssetsURL() + '' + GUserModel, true),
                 (GCore.onload = function () {
                   this.status >= 200 && this.status < 400
-                    ? ((GTools[e] = parseInt(GCore.getResponseHeader('Content-Length'))), n())
+                    ? ((GTools[GUserModel] = parseInt(GCore.getResponseHeader('Content-Length'))),
+                      n())
                     : _interopRequireDefault({ status: this.status, statusText: GCore.statusText });
                 }),
                 (GCore.onerror = function () {
@@ -114603,21 +115067,22 @@ function (exports, module, require) {
             });
           },
           GEditor = [];
-        (e.forEach((e) => {
-          GEditor.push(GCore(e.preview));
-          for (var t = 0; t < e.fonts.length; ++t) GEditor.push(GCore(e.fonts[t].url));
+        (GUserModel.forEach((GUserModel) => {
+          GEditor.push(GCore(GUserModel.preview));
+          for (var t = 0; t < GUserModel.fonts.length; ++t)
+            GEditor.push(GCore(GUserModel.fonts[t].url));
         }),
           Promise.all(GEditor).then(
             () => {
               n(GTools);
             },
-            (e) => {
-              _interopRequireDefault(e);
+            (GUserModel) => {
+              _interopRequireDefault(GUserModel);
             }
           ));
       });
     }),
-    (Je.prototype.downloadFonts = function (e, t) {
+    (Je.prototype.downloadFonts = function (GUserModel, t) {
       var n = this,
         _interopRequireDefault = 0,
         GTools = {},
@@ -114638,14 +115103,14 @@ function (exports, module, require) {
           )
           .append($('<span/>').addClass('count').text(' (0%)'))
           .appendTo($('#right-sidebars')),
-        d = function (e) {
+        d = function (GUserModel) {
           (c
             .find('.info')
             .text(
               GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   'GCommonNames',
-                  e ? 'text.fonts-downloaded' : 'text.error-downloading'
+                  GUserModel ? 'text.fonts-downloaded' : 'text.error-downloading'
                 )
               )
             ),
@@ -114663,18 +115128,18 @@ function (exports, module, require) {
       return new Promise(function (t, GCore) {
         var GEditor = [];
         try {
-          var AppSettings = function (e) {
+          var AppSettings = function (GUserModel) {
               return new Promise(function (t, GCore) {
                 var GEditor = new XMLHttpRequest();
-                (GEditor.open('GET', n.getAssetsURL() + '' + e, true),
+                (GEditor.open('GET', n.getAssetsURL() + '' + GUserModel, true),
                   (GEditor.responseType = 'blob'),
                   (GEditor.onprogress = function (t) {
-                    ((GTools[e] = t.loaded),
+                    ((GTools[GUserModel] = t.loaded),
                       (function () {
-                        let e = Object.keys(GTools);
-                        if (e.length) {
+                        let GUserModel = Object.keys(GTools);
+                        if (GUserModel.length) {
                           let n = 0;
-                          for (var t = 0; t < e.length; ++t) n += GTools[e[t]];
+                          for (var t = 0; t < GUserModel.length; ++t) n += GTools[GUserModel[t]];
                           let GCore = Math.round((n / _interopRequireDefault) * 100);
                           c.find('.count').text(' (' + (GCore < 100 ? GCore : 100) + '%)');
                         }
@@ -114682,7 +115147,7 @@ function (exports, module, require) {
                   }),
                   (GEditor.onload = function () {
                     this.status >= 200 && this.status < 400
-                      ? t({ blob: GEditor.response, url: e })
+                      ? t({ blob: GEditor.response, url: GUserModel })
                       : GCore({ status: this.status, statusText: GEditor.statusText });
                   }),
                   (GEditor.onerror = function () {
@@ -114692,30 +115157,30 @@ function (exports, module, require) {
               });
             },
             l = [],
-            CollaborationMergeUtils = function (e) {
-              GEditor.push(e);
+            CollaborationMergeUtils = function (GUserModel) {
+              GEditor.push(GUserModel);
             },
             p = function () {
               throw new Exception('error downloading fonts');
             };
-          (e.forEach((e) => {
+          (GUserModel.forEach((GUserModel) => {
             l.push(
-              AppSettings(e.preview)
-                .then(function (e) {
-                  CollaborationMergeUtils(e);
+              AppSettings(GUserModel.preview)
+                .then(function (GUserModel) {
+                  CollaborationMergeUtils(GUserModel);
                 })
                 .catch(() => {
                   p();
                 })
             );
-            for (var t = 0; t < e.fonts.length; ++t)
+            for (var t = 0; t < GUserModel.fonts.length; ++t)
               l.push(
-                AppSettings(e.fonts[t].url)
-                  .then(function (e) {
-                    CollaborationMergeUtils(e);
+                AppSettings(GUserModel.fonts[t].url)
+                  .then(function (GUserModel) {
+                    CollaborationMergeUtils(GUserModel);
                   })
-                  .catch((e) => {
-                    (console.log(e), p());
+                  .catch((GUserModel) => {
+                    (console.log(GUserModel), p());
                   })
               );
           }),
@@ -114723,42 +115188,42 @@ function (exports, module, require) {
               () => {
                 (d(true), t(GEditor));
               },
-              (e) => {
-                (console.log(e), d(false), GCore());
+              (GUserModel) => {
+                (console.log(GUserModel), d(false), GCore());
               }
             ));
-        } catch (e) {
-          (console.log(e), d(false), GCore());
+        } catch (GUserModel) {
+          (console.log(GUserModel), d(false), GCore());
         }
       });
     }),
     (Je.prototype.showCreateAccount = function () {
       return this._showCreateAccount;
     }),
-    (Je.prototype.setShowCreateAccount = function (e) {
-      this._showCreateAccount = e;
+    (Je.prototype.setShowCreateAccount = function (GUserModel) {
+      this._showCreateAccount = GUserModel;
     }),
     (Je.prototype.getSignupOptions = function () {
       return this._signupOptions;
     }),
-    (Je.prototype.setSignupOptions = function (e) {
-      this._signupOptions = e;
+    (Je.prototype.setSignupOptions = function (GUserModel) {
+      this._signupOptions = GUserModel;
     }),
     (Je.prototype.enterpriseLoginForm = function () {
       return false;
     }),
-    (Je.prototype.setEnterpriseLoginForm = function (e) {}),
-    (Je.prototype.runDeepLink = async function (e) {
+    (Je.prototype.setEnterpriseLoginForm = function (GUserModel) {}),
+    (Je.prototype.runDeepLink = async function (GUserModel) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-      if ((console.log('Called: ' + e), e))
+      if ((console.log('Called: ' + GUserModel), GUserModel))
         try {
           const n = await this.getUser();
-          if (0 === e.indexOf('purchase')) {
+          if (0 === GUserModel.indexOf('purchase')) {
             let _interopRequireDefault;
             return (
               module.hasOwnProperty('newuser') && (this._showCreateAccount = true),
               AppSettings2.PURCHASE.URL_TO_PRODUCT &&
-                (_interopRequireDefault = AppSettings2.PURCHASE.URL_TO_PRODUCT[e]),
+                (_interopRequireDefault = AppSettings2.PURCHASE.URL_TO_PRODUCT[GUserModel]),
               _interopRequireDefault &&
                 (Object.assign(module, { productId: _interopRequireDefault }),
                 n
@@ -114770,27 +115235,27 @@ function (exports, module, require) {
                       value: _interopRequireDefault || '',
                       url: Oe.url,
                     })),
-              this.openPaymentDialog(null, Object.assign(module, { flow: e }))
+              this.openPaymentDialog(null, Object.assign(module, { flow: GUserModel }))
             );
           }
-          if ('login_dialog' === e) this._user || Q.performLogin();
+          if ('login_dialog' === GUserModel) this._user || GCloudStorage.performLogin();
           else {
-            if ('confirm_email' === e) {
-              const { confirm_email: e, flow: _interopRequireDefault } = module;
+            if ('confirm_email' === GUserModel) {
+              const { confirm_email: GUserModel, flow: _interopRequireDefault } = module;
               return this.getCloudCommunicationManager()
-                .confirmEmail(e)
+                .confirmEmail(GUserModel)
                 .then(async () => {
-                  let e = await this.getUser();
-                  e &&
-                    e.isEmailVerified() &&
+                  let GUserModel = await this.getUser();
+                  GUserModel &&
+                    GUserModel.isEmailVerified() &&
                     this.executeWhenReady(() => {
-                      const e = this.getLicense();
+                      const GUserModel = this.getLicense();
                       (ee.custom({
                         title: GCore.GLocale.get(
                           new GCore.GLocaleKey('GCommonNames', 'text.activating-your-account')
                         ),
                         subtitle:
-                          (e.isPro() || e.isTrial()) &&
+                          (GUserModel.isPro() || GUserModel.isTrial()) &&
                           GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GCommonNames',
@@ -114804,55 +115269,55 @@ function (exports, module, require) {
                           this.runDeepLink(_interopRequireDefault, module));
                     });
                 })
-                .catch((e) => {
-                  if (!n) return Promise.reject(e);
-                  this.executeWhenReady(() => ee.error(e));
+                .catch((GUserModel) => {
+                  if (!n) return Promise.reject(GUserModel);
+                  this.executeWhenReady(() => ee.error(GUserModel));
                 });
             }
-            if ('account' === e)
+            if ('account' === GUserModel)
               n &&
                 !this.isAnonymous() &&
                 this.executeWhenReady(() => {
-                  new Se(n).open();
+                  new GProfileDialog(n).open();
                 });
-            else if ('purchases' === e) {
+            else if ('purchases' === GUserModel) {
               n &&
                 (await Oe.hasPurchases()) &&
                 this.executeWhenReady(() => {
-                  new Se(n, 'purchase').open();
+                  new GProfileDialog(n, 'purchase').open();
                 });
-            } else if ('newuser' === e) this._showCreateAccount = true;
-            else if ('enterprise' === e) n || (this._enterpriseLoginForm = true);
-            else if ('reset_trial' === e) {
-              const e = () => {
+            } else if ('newuser' === GUserModel) this._showCreateAccount = true;
+            else if ('enterprise' === GUserModel) n || (this._enterpriseLoginForm = true);
+            else if ('reset_trial' === GUserModel) {
+              const GUserModel = () => {
                 Oe.license.resetTrial().then(() => gDesigner.requestLicenseUpdate());
               };
               n
-                ? e()
+                ? GUserModel()
                 : new h.default()
                     .listen(le)
-                    .when((e) => !!e && !!e.user)
-                    .do(e);
-            } else if ('procoupon' === e)
+                    .when((GUserModel) => !!GUserModel && !!GUserModel.user)
+                    .do(GUserModel);
+            } else if ('procoupon' === GUserModel)
               this.executeWhenReady(() => {
-                Q.activateCoupon(module.procoupon);
+                GCloudStorage.activateCoupon(module.procoupon);
               });
-            else if ('annot' === e)
+            else if ('annot' === GUserModel)
               AppSettings.HAS_ANNOTATIONS &&
                 this.executeWhenReady(() => {
-                  const { annot: e } = module;
+                  const { annot: GUserModel } = module;
                   (this.setPartVisible(F.RightSidebars, true),
                     this._rightSidebars.setActiveSidebar(GAnnotationsSidebar.ID));
                 });
             else if (
-              e === GContainer.DeepLinking.CreateShare &&
+              GUserModel === GContainer.DeepLinking.CreateShare &&
               'true' === module[GContainer.DeepLinking.CreateShare]
             )
               new h.default()
                 .listen(GApplicationStatusEvent)
                 .when(() => this._initialized)
                 .do(() => {
-                  const e = (t) => {
+                  const GUserModel = (t) => {
                     if (t.type === pe.Type.Updated) {
                       const t = this.getActiveDocument();
                       t &&
@@ -114860,26 +115325,29 @@ function (exports, module, require) {
                         (t.isShareable() &&
                           !this.getApplicationManager().isSharing() &&
                           this.getShareManager().share(),
-                        this.removeEventListener(pe, e, this));
+                        this.removeEventListener(pe, GUserModel, this));
                     }
                   };
-                  this.addEventListener(pe, e, this);
+                  this.addEventListener(pe, GUserModel, this);
                 });
             else if (
-              e === GContainer.DeepLinking.ActivateTrial &&
+              GUserModel === GContainer.DeepLinking.ActivateTrial &&
               module[GContainer.DeepLinking.ActivateTrial]
             ) {
-              const e = module[GContainer.DeepLinking.ActivateTrial];
-              Oe.license.activateTrial(e).then(() => be.checkLicense());
+              const GUserModel = module[GContainer.DeepLinking.ActivateTrial];
+              Oe.license.activateTrial(GUserModel).then(() => be.checkLicense());
             } else {
-              if (e === GContainer.DeepLinking.SetPassword) return new Ve().execute(module);
-              if (e === GContainer.DeepLinking.ResetPassword) return new He().execute(module);
-              if (e === GContainer.DeepLinking.PasswordlessToken) return new We().execute(module);
+              if (GUserModel === GContainer.DeepLinking.SetPassword)
+                return new Ve().execute(module);
+              if (GUserModel === GContainer.DeepLinking.ResetPassword)
+                return new He().execute(module);
+              if (GUserModel === GContainer.DeepLinking.PasswordlessToken)
+                return new We().execute(module);
             }
           }
           return Promise.resolve();
-        } catch (e) {
-          return Promise.reject(e);
+        } catch (GUserModel) {
+          return Promise.reject(GUserModel);
         }
     }),
     (Je.prototype.openProOffer = function () {
@@ -114890,7 +115358,7 @@ function (exports, module, require) {
       let exports = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       ((exports = $.extend({ campaign: 'profeature' }, exports)),
         this.isAnonymous()
-          ? new re(() => {}).open({
+          ? new GEmbeddedLogin(() => {}).open({
               anonymous: true,
               signup: true,
               animate: true,
@@ -114901,14 +115369,14 @@ function (exports, module, require) {
     (Je.prototype.handleShareFilePROFeatureInterruption = function () {
       this.handlePROFeatureInterruption({ shareFile: true });
     }),
-    (Je.prototype._applicationStatusEvent = function (e) {
-      e.status === GApplicationStatusEvent.Status.Ready && (this._ready = true);
+    (Je.prototype._applicationStatusEvent = function (GUserModel) {
+      GUserModel.status === GApplicationStatusEvent.Status.Ready && (this._ready = true);
     }),
-    (Je.prototype.executeWhenReady = function (e) {
+    (Je.prototype.executeWhenReady = function (GUserModel) {
       return new h.default()
         .listen(GApplicationStatusEvent)
         .when(() => this._ready)
-        .do(e);
+        .do(GUserModel);
     }),
     (Je.prototype.isReady = function () {
       return this._ready;
@@ -114916,11 +115384,11 @@ function (exports, module, require) {
     (Je.prototype.isInAppPurchaseAllowed = function () {
       return gInAppPurchase.canMakePayments();
     }),
-    (Je.prototype.openPaymentDialog = async function (e) {
+    (Je.prototype.openPaymentDialog = async function (GUserModel) {
       let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       return (
         this.getAmplitudeHelper().logEvent(AppSettings.AmplitudeData.Events.ACCOUNT_CART_SCREEN),
-        gInAppPurchase.purchase(e, module)
+        gInAppPurchase.purchase(GUserModel, module)
       );
     }),
     (Je.prototype.getWebURL = function () {
@@ -114940,23 +115408,23 @@ function (exports, module, require) {
               ? AppSettings.rcURL
               : 'https://app-' + this.getEnv().split('.')[0] + '.' + AppSettings.domain + '/';
     }),
-    (Je.prototype.getTabByDocument = function (e) {
-      return this.getHeader().getWindowTab(this.getWindows().getWindow(e));
+    (Je.prototype.getTabByDocument = function (GUserModel) {
+      return this.getHeader().getWindowTab(this.getWindows().getWindow(GUserModel));
     }),
     (Je.prototype.getOpacityIncrement = function () {
       return 1;
     }),
-    (Je.prototype.registerAdditionalShortcuts = function (e) {
-      var t = e.getAdditionalShortcuts();
+    (Je.prototype.registerAdditionalShortcuts = function (GUserModel) {
+      var t = GUserModel.getAdditionalShortcuts();
       t &&
         t.length &&
         t.forEach((t) => {
-          this.registerShortcut(t, (t) => this._executeShortcutAction(e, t), false);
+          this.registerShortcut(t, (t) => this._executeShortcutAction(GUserModel, t), false);
         });
     }),
-    (Je.prototype._executeShortcutAction = function (e, t) {
-      const require = e.isKeyBoardEventRequiredToExecute() ? [t] : [undefined];
-      return this.executeAction(e.getId(), require, 'shortcut');
+    (Je.prototype._executeShortcutAction = function (GUserModel, t) {
+      const require = GUserModel.isKeyBoardEventRequiredToExecute() ? [t] : [undefined];
+      return this.executeAction(GUserModel.getId(), require, 'shortcut');
     }),
     (Je.prototype.getPaste = function () {
       return this._paste;
@@ -114964,30 +115432,30 @@ function (exports, module, require) {
     (Je.prototype.getSubscriberUserType = function () {
       return this.getLicense().getSubscriberUserType();
     }),
-    (Je.prototype.isLegacyFeature = function (e) {
-      return !!e && Ie.includes(e);
+    (Je.prototype.isLegacyFeature = function (GUserModel) {
+      return !!GUserModel && Ie.includes(GUserModel);
     }),
-    (Je.prototype.isEnabledProFeatures = function (e) {
+    (Je.prototype.isEnabledProFeatures = function (GUserModel) {
       if (!this.isEnabledSubscriptions()) return true;
       const module = this.getLicense();
       return (
         !(module.isFree() || this.isAnonymous() || module.isGuest()) &&
-        (!(!module.isLegacy() || !this.isLegacyFeature(e)) ||
+        (!(!module.isLegacy() || !this.isLegacyFeature(GUserModel)) ||
           (!module.isExpired() && (!module.isOffline() || !module.isOfflinePeriodExpired())))
       );
     }),
-    (Je.prototype.isProTooltipNeeded = function (e) {
+    (Je.prototype.isProTooltipNeeded = function (GUserModel) {
       const module = this.getLicense();
       return (
-        !(e && this.isLegacyFeature(e) && module.isLegacy()) &&
+        !(GUserModel && this.isLegacyFeature(GUserModel) && module.isLegacy()) &&
         !(module.isPro() && !module.isExpired())
       );
     }),
-    (Je.prototype.preInit = async function (e) {
+    (Je.prototype.preInit = async function (GUserModel) {
       const module = this;
       (await (async function () {
-        e || (e = Oe.isEnabledSubscriptions());
-        if (await e.catch(() => false))
+        GUserModel || (GUserModel = Oe.isEnabledSubscriptions());
+        if (await GUserModel.catch(() => false))
           return (
             (module._enabledSubscriptions = true),
             void gContainer.setProperty('enabled_subscriptions', module._enabledSubscriptions)
@@ -114996,17 +115464,18 @@ function (exports, module, require) {
           .getProperty('enabled_subscriptions')
           .catch(() => false);
       })(),
-        await new Promise((e) => {
-          module._applicationManager = new fe(e);
+        await new Promise((GUserModel) => {
+          module._applicationManager = new GAppStateManager(GUserModel);
         }));
     }),
     (Je.prototype.isEnabledSubscriptions = function () {
       return !!this.isInAppPurchaseAllowed() || !!this._enabledSubscriptions;
     }),
-    (Je.prototype.setLicense = function (e) {
-      (!e ||
-        (this._license && e.equals(this._license)) ||
-        ((this._license = e), this.hasEventListeners(se) && this.trigger(new se(this._license))),
+    (Je.prototype.setLicense = function (GUserModel) {
+      (!GUserModel ||
+        (this._license && GUserModel.equals(this._license)) ||
+        ((this._license = GUserModel),
+        this.hasEventListeners(se) && this.trigger(new se(this._license))),
         this.updateLicenseInfo());
     }),
     (Je.prototype.updateLicenseInfo = async function () {
@@ -115030,7 +115499,7 @@ function (exports, module, require) {
           await Oe.license
             .activateTrial()
             .then(() => gDesigner.requestLicenseUpdate())
-            .catch((e) => ee.alert(Oe.formatError(e)));
+            .catch((GUserModel) => ee.alert(Oe.formatError(GUserModel)));
         } finally {
           this.toggleLoading(false);
         }
@@ -115041,16 +115510,16 @@ function (exports, module, require) {
       let { showProOfferInTrial: exports = AppSettings.LICENSE.UPGRADEABLE } =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       return (
-        we.reset('proOfferInTrial', exports ? undefined : gDesigner.now()),
+        GReminderManager.reset('proOfferInTrial', exports ? undefined : gDesigner.now()),
         be.checkLicense()
       );
     }),
     (Je.prototype.now = function () {
       return new Date();
     }),
-    (Je.prototype.isOffline = function (e) {
+    (Je.prototype.isOffline = function (GUserModel) {
       if (!navigator.onLine) return ((qe = true), (Xe = Date.now()), true);
-      const module = e || AppSettings.OFFLINE_CHECK_MIN_WAIT;
+      const module = GUserModel || AppSettings.OFFLINE_CHECK_MIN_WAIT;
       var n = !!qe;
       if (Date.now() - Xe > module) {
         n = false;
@@ -115064,27 +115533,27 @@ function (exports, module, require) {
             _interopRequireDefault.setRequestHeader('Accept', 'text/plain'),
             _interopRequireDefault.setRequestHeader('Content-Type', 'text/plain'),
             _interopRequireDefault.send());
-        } catch (e) {
+        } catch (GUserModel) {
           n = true;
         }
         qe = n;
       }
       return ((Xe = Date.now()), !navigator.onLine || n);
     }),
-    (Je.prototype.setPaintMode = function (e) {
+    (Je.prototype.setPaintMode = function (GUserModel) {
       var t = this.getWindows().getActiveWindow();
       if (t) {
         var require = t.getView();
-        ((require.getViewConfiguration().paintMode = e),
+        ((require.getViewConfiguration().paintMode = GUserModel),
           GEditor.GPlatform.scheduleFrame(() => {
             (require.invalidateAndResetCache(null),
-              this.hasEventListeners(Ae) && this.trigger(new Ae(e)));
+              this.hasEventListeners(Ae) && this.trigger(new Ae(GUserModel)));
           }));
       }
     }),
     (Je.prototype.isOfflineAsync = async function () {
       if (!navigator.onLine) return ((qe = true), (Xe = Date.now()), true);
-      var e = !!qe,
+      var GUserModel = !!qe,
         t = false;
       if (null === Qe && Date.now() - Xe > 3100) {
         var require = this.getHeader();
@@ -115099,13 +115568,13 @@ function (exports, module, require) {
               GTools = this._initialized ? 3e3 : 2e4;
               var GCore = new XMLHttpRequest();
               ((GCore.onerror = (_interopRequireDefault) => {
-                ((e = true), (t = true), n());
+                ((GUserModel = true), (t = true), n());
               }),
                 (GCore.onload = (_interopRequireDefault) => {
-                  ((e = false), (t = true), n());
+                  ((GUserModel = false), (t = true), n());
                 }));
               var GEditor = (Qe = setTimeout(() => {
-                (GEditor === Qe && (Qe = null), t || ((e = true), n()));
+                (GEditor === Qe && (Qe = null), t || ((GUserModel = true), n()));
               }, GTools));
               try {
                 (GCore.open('HEAD', Oe.url + '/connection/test', true),
@@ -115115,23 +115584,23 @@ function (exports, module, require) {
                   GCore.setRequestHeader('Content-Type', 'text/plain'),
                   GCore.send());
               } catch (_interopRequireDefault) {
-                ((e = true), (t = true), n());
+                ((GUserModel = true), (t = true), n());
               }
             }))();
         } finally {
-          (require && require.hideBusyIcon(), (qe = e));
+          (require && require.hideBusyIcon(), (qe = GUserModel));
         }
       }
-      return ((Xe = Date.now()), !navigator.onLine || e);
+      return ((Xe = Date.now()), !navigator.onLine || GUserModel);
     }),
-    (Je.prototype.getLinkerParam = function (e) {
+    (Je.prototype.getLinkerParam = function (GUserModel) {
       const module = window[window.GoogleAnalyticsObject];
       if (module) {
         const n = module.getAll && module.getAll();
         if (n)
           for (let module = 0; module < n.length; module++) {
             let _interopRequireDefault = n[module];
-            if (!e || _interopRequireDefault.get('trackingId') === e)
+            if (!GUserModel || _interopRequireDefault.get('trackingId') === GUserModel)
               return _interopRequireDefault.get('linkerParam');
           }
       }
@@ -115144,10 +115613,10 @@ function (exports, module, require) {
       let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
       return v.default.getAppBaseUrl(exports);
     }),
-    (Je.prototype.setPwaEvent = function (e) {
-      if (!e || 'beforeinstallprompt' !== e.type) return;
+    (Je.prototype.setPwaEvent = function (GUserModel) {
+      if (!GUserModel || 'beforeinstallprompt' !== GUserModel.type) return;
       if (
-        ((this._pwaEvent = e),
+        ((this._pwaEvent = GUserModel),
         this._waitingPwaDialog &&
           !this._installPwaDialog &&
           (this.showInstallPwaDialog(this._waitingPwaDialogDarkBackground),
@@ -115159,24 +115628,28 @@ function (exports, module, require) {
       const module = gDesigner.now().getTime();
       gContainer
         .getProperty(GInstallToDesktopAction.closedInstallPWADialogDatePropName)
-        .then((e) => {
-          e && module - e < AppSettings.DateAPI.daysToMilliseconds(30)
+        .then((GUserModel) => {
+          GUserModel && module - GUserModel < AppSettings.DateAPI.daysToMilliseconds(30)
             ? gContainer.setProperty(
                 GInstallToDesktopAction.installPWA3timesAWeekPropName,
                 JSON.stringify([])
               )
             : gContainer
                 .getProperty(GInstallToDesktopAction.installPWA3timesAWeekPropName)
-                .then((e) => {
+                .then((GUserModel) => {
                   let require,
                     _interopRequireDefault = [];
-                  if (e && e.length)
+                  if (GUserModel && GUserModel.length)
                     try {
-                      require = JSON.parse(e);
-                    } catch (e) {}
+                      require = JSON.parse(GUserModel);
+                    } catch (GUserModel) {}
                   require || (require = []);
-                  for (let e = 0, GTools = require.length; e < GTools; e++) {
-                    const GTools = require[e];
+                  for (
+                    let GUserModel = 0, GTools = require.length;
+                    GUserModel < GTools;
+                    GUserModel++
+                  ) {
+                    const GTools = require[GUserModel];
                     module - GTools < AppSettings.DateAPI.daysToMilliseconds(7) &&
                       _interopRequireDefault.push(GTools);
                   }
@@ -115220,8 +115693,8 @@ function (exports, module, require) {
     (Je.prototype.draggableItemIsDragging = function () {
       return this._draggableItemIsDragging;
     }),
-    (Je.prototype.setItemDraggingState = function (e) {
-      this._draggableItemIsDragging = e;
+    (Je.prototype.setItemDraggingState = function (GUserModel) {
+      this._draggableItemIsDragging = GUserModel;
     }),
     (Je.prototype.hasDocuments = function () {
       return !!this.getDocuments().length;
@@ -115235,14 +115708,14 @@ function (exports, module, require) {
         userId: null == exports ? undefined : exports.id,
         apiKey: window.AMPLITUDE_API_KEY,
       })),
-        new ne(this._amplitudeHelper));
+        new GAmplitudeEventTracker(this._amplitudeHelper));
     }),
     (Je.prototype._updateState = function () {
-      var e, t, n, _interopRequireDefault, GTools, GCore, GEditor;
+      var GUserModel, t, n, _interopRequireDefault, GTools, GCore, GEditor;
       const AppSettings = gDesigner.getLicense();
-      (null === (e = this._toolbar) ||
-        undefined === e ||
-        e.setEnabled(AppSettings.canAccessFreemium()),
+      (null === (GUserModel = this._toolbar) ||
+        undefined === GUserModel ||
+        GUserModel.setEnabled(AppSettings.canAccessFreemium()),
         null === (t = this._leftSidebars) ||
           undefined === t ||
           t.setEnabled(this._leftSidebars, AppSettings.canAccessFreemium()),
@@ -115264,14 +115737,14 @@ function (exports, module, require) {
         this.relayout());
     }),
     (Je.prototype.isUserActivelyUsingApp = function () {
-      var e;
+      var GUserModel;
       const module =
-          null === (e = this.getActiveDocument()) ||
-          undefined === e ||
-          null === (e = e.getEditor()) ||
-          undefined === e
+          null === (GUserModel = this.getActiveDocument()) ||
+          undefined === GUserModel ||
+          null === (GUserModel = GUserModel.getEditor()) ||
+          undefined === GUserModel
             ? undefined
-            : e.getUndoStates(),
+            : GUserModel.getUndoStates(),
         require = (null == module ? undefined : module.length) && module[module.length - 1];
       return !!require && Date.now() - require.createdAt < AppSettings2.ACTIVE_USAGE_IDLE_TIME;
     }),
@@ -115329,7 +115802,7 @@ function (exports, module, require) {
     require(134) /* polyfill_String_startsWith */,
     require(38)) /* stub_requires_680 */;
   const { isBeta: o } = require(803); /* module_803 */
-  var i = require(1495); /* module_1495 */
+  var AnalyticsEventMap = require(1495); /* AnalyticsEventMap */
   let a = 0,
     r = 0;
   const s = {
@@ -115384,12 +115857,12 @@ function (exports, module, require) {
                   d = r[1] || '';
                 if (!s) return null;
                 var u = '';
-                if (o(i[s])) u = i[s];
-                else if (l && o(i[s][l])) u = i[s][l];
-                else if (l && c && o(i[s][l][c])) u = i[s][l][c];
+                if (o(AnalyticsEventMap[s])) u = AnalyticsEventMap[s];
+                else if (l && o(AnalyticsEventMap[s][l])) u = AnalyticsEventMap[s][l];
+                else if (l && c && o(AnalyticsEventMap[s][l][c])) u = AnalyticsEventMap[s][l][c];
                 else {
-                  if (!(l && c && d && o(i[s][l][c][d]))) return null;
-                  u = i[s][l][c][d];
+                  if (!(l && c && d && o(AnalyticsEventMap[s][l][c][d]))) return null;
+                  u = AnalyticsEventMap[s][l][c][d];
                 }
                 return (
                   (u = (u = (u = (u = u.replace('$EVENTNAME', a(s))).replace(
@@ -117673,7 +118146,7 @@ function (exports, module, require) {
   (require(19) /* polyfill_Array_iterator */,
     require(57) /* polyfill_parseInt */,
     require(8) /* polyfill_bundle_ES6 */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(107) /* polyfill_RegExp_test */,
     require(3) /* polyfill_RegExp_toString */,
@@ -117696,7 +118169,7 @@ function (exports, module, require) {
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
     f = _interopRequireDefault(require(86) /* module_86 */),
-    m = _interopRequireDefault(require(119) /* module_119 */),
+    GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     GSaveAction = _interopRequireDefault(require(447) /* GSaveAction */),
     GGravitCloudAction = _interopRequireDefault(require(448) /* GGravitCloudAction */),
     GExportAction = _interopRequireDefault(require(861) /* GExportAction */),
@@ -117706,8 +118179,8 @@ function (exports, module, require) {
     x = _interopRequireDefault(require(220) /* Item */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     TYPES = _interopRequireDefault(require(862) /* Exports_TYPES */),
-    A = _interopRequireDefault(require(156) /* module_156 */),
-    T = _interopRequireDefault(require(163) /* module_163 */),
+    GCloudStorageItem = _interopRequireDefault(require(156) /* GCloudStorageItem */),
+    GDocument = _interopRequireDefault(require(163) /* GDocument */),
     G = require(263) /* Exports_GRegex */,
     REARRANGE_TAB_ = require(1517); /* Exports_REARRANGE_TAB_ */
   const barrel_panels = require(257); /* barrel_panels */
@@ -117951,7 +118424,7 @@ function (exports, module, require) {
             require = module.getStorageItem(),
             _interopRequireDefault = () => {
               const e = module.getScene(),
-                require = new T.default(e.clone(null, gDesigner.getWorkspace()));
+                require = new GDocument.default(e.clone(null, gDesigner.getWorkspace()));
               module.getFileFormatVersion() &&
                 require.setFileFormatVersion(module.getFileFormatVersion());
               const _interopRequireDefault = module.getTitle();
@@ -117969,7 +118442,7 @@ function (exports, module, require) {
                 const e = require.getFile().parent,
                   _interopRequireDefault = gDesigner.getDocuments().indexOf(module),
                   GCore = new TYPES.default();
-                (GCore.setCurrentFolder(A.default.from({ id: e })),
+                (GCore.setCurrentFolder(GCloudStorageItem.default.from({ id: e })),
                   GCore.copyPaste([require.getFile()]).then(function (e) {
                     let [{ id: module }] = e;
                     return GCore.openFile(module, _interopRequireDefault + 1);
@@ -118301,7 +118774,9 @@ function (exports, module, require) {
             'yes' !== $(this).attr('has-been-clicked') &&
               ($(this).attr('has-been-clicked', 'yes'),
               gDesigner.getUser().then((t) => {
-                (t && !gDesigner.isAnonymous() ? e.gUserLogin() : m.default.performLogin(),
+                (t && !gDesigner.isAnonymous()
+                  ? e.gUserLogin()
+                  : GCloudStorage.default.performLogin(),
                   $(this).attr('has-been-clicked', 'no'));
               })));
         });
@@ -118450,7 +118925,7 @@ function (exports, module, require) {
               separator: GDocumentEvent,
               icon: GDocumentStatusEvent,
               id: f,
-              needsAction: m,
+              needsAction: GCloudStorage,
               stats: GSaveAction,
               isEnabled: GGravitCloudAction,
               isVisible: GExportAction,
@@ -118469,7 +118944,8 @@ function (exports, module, require) {
             ? (s = require.createAddItem(b, () => {
                 GMenuBar.call(_interopRequireDefault, e, t);
               }))
-            : ((s = require.createAddItem(b)), m && s.setAction(gDesigner.getAction(AppSettings))),
+            : ((s = require.createAddItem(b)),
+              GCloudStorage && s.setAction(gDesigner.getAction(AppSettings))),
             u && s.setShortcutHint(u),
             p && s.setPro(p, AppSettings),
             GGravitCloudAction instanceof Function && s.setEnabled(GGravitCloudAction(e)),
@@ -118523,7 +118999,7 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GMenu = require(238) /* GMenu */,
     GMenu2 = require(339) /* GMenu */,
-    a = require(1157); /* module_1157 */
+    GMenuManager = require(1157); /* GMenuManager */
   function r(e) {
     ((this._htmlElement = $('<nav></nav>').addClass('g-menu-bar')),
       this.setMenu(e || new GMenu(this)));
@@ -118533,7 +119009,7 @@ function (exports, module, require) {
       return this._menu;
     }),
     (r.prototype.isActive = function () {
-      var e = a.getActiveMenu();
+      var e = GMenuManager.getActiveMenu();
       return !!(e && e._parent && e._parent instanceof GMenu2) && e._parent.getMenuBar() === this;
     }),
     (r.prototype.getParent = function () {
@@ -118618,8 +119094,8 @@ function (exports, module, require) {
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     u = (require(173) /* stub_requires_1 */, require(445)) /* GSaveAsAction */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
-    g = (require(163) /* module_163 */, require(442)) /* module_442 */;
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
+    g = (require(163) /* GDocument */, require(442)) /* module_442 */;
   const h = AppSettings.FILE_FORMATS.find((e) => e.default).ext;
   function f(e, t) {
     ((this._container = $('<div></div>').addClass('window')),
@@ -118731,7 +119207,7 @@ function (exports, module, require) {
         this._releaseView(),
         this._document.removeEventListener(GDocumentStatusEvent, this._documentStatusChanged, this),
         gDesigner.removeEventListener(GDocumentEvent, this._documentEvent, this),
-        barrel_sidebars.getInstance().releaseDocumentListener(this._document.sessionId));
+        GFontsProviderManager.getInstance().releaseDocumentListener(this._document.sessionId));
     }),
     (f.prototype.centerAndZoom = function () {
       var e = this._document.getScene(),
@@ -120184,7 +120660,7 @@ function (exports, module, require) {
     GObject = require(0); /* GObject */
   require(10) /* AppSettings */;
   var a = require(237) /* Item */,
-    r = require(1117) /* module_1117 */.saveAs,
+    FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
     s = null,
     l = null;
   function c() {
@@ -120268,9 +120744,9 @@ function (exports, module, require) {
           .catch((GSystem) => {
             if (GSystem instanceof DOMException && GSystem.code === DOMException.QUOTA_EXCEEDED_ERR)
               return (this.notEnoughDiskSpace(), void (n ? n() : t && t()));
-            (r(new Blob([e]), this._filename), t && t());
+            (FileSaverJS(new Blob([e]), this._filename), t && t());
           });
-      } else (r(new Blob([e]), this._filename), t && t());
+      } else (FileSaverJS(new Blob([e]), this._filename), t && t());
     }),
     (c.prototype._isFileAPIAvailable = function () {
       return false;
@@ -120316,10 +120792,10 @@ function (exports, module, require) {
       let { disableFileSystemAccessAPI: GObject = false, silent: a = false } =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
       if (!GObject && this._isFileAPIAvailable()) {
-        var r = { multiple: !!n };
+        var FileSaverJS = { multiple: !!n };
         if (e.length > 0) {
           const t = {};
-          r.excludeAcceptAllOptions = true;
+          FileSaverJS.excludeAcceptAllOptions = true;
           for (let n = 0, GSystem = e.length; n < GSystem; n++) {
             const { mime: GSystem, ext: GObject } = e[n];
             GSystem && GObject
@@ -120333,11 +120809,11 @@ function (exports, module, require) {
                     .concat(GObject, '"')
                 );
           }
-          r.types = [{ accept: t }];
+          FileSaverJS.types = [{ accept: t }];
         }
         return (
           window
-            .showOpenFilePicker(r)
+            .showOpenFilePicker(FileSaverJS)
             .then((e) => {
               (Array.isArray(e) || (e = [e]),
                 e.forEach((n) => {
@@ -120475,7 +120951,7 @@ function (exports, module, require) {
     c = require(444) /* module_444 */,
     barrel_panels = require(257) /* barrel_panels */,
     ZipDirectory = require(1253); /* ZipDirectory */
-  const p = require(1238); /* module_1238 */
+  const GUnsupportedFeaturesDialog = require(1238); /* GUnsupportedFeaturesDialog */
   var GSystemDialog = require(44); /* GSystemDialog */
   const h = require(389); /* module_389 */
   var f = {};
@@ -120693,10 +121169,12 @@ function (exports, module, require) {
             function (e) {
               gDesigner.stats('export_change_jpeg-quality');
               var t = parseInt($(e.target).gInputSlider('value'), 10);
-              ((this._settings.jpegQuality = t), this._updatePreview(), p.gInputBox('value', t));
+              ((this._settings.jpegQuality = t),
+                this._updatePreview(),
+                GUnsupportedFeaturesDialog.gInputBox('value', t));
             }.bind(this)
           ),
-        p = $('<input />')
+        GUnsupportedFeaturesDialog = $('<input />')
           .attr('type', 'text')
           .gInputBox({
             minValue: 25,
@@ -120708,7 +121186,7 @@ function (exports, module, require) {
           .on(
             'change',
             function (e) {
-              var t = parseInt(p.gInputBox('value'), 10);
+              var t = parseInt(GUnsupportedFeaturesDialog.gInputBox('value'), 10);
               (t > 100 ? (t = 100) : t < 25 && (t = 25),
                 ZipDirectory.gInputSlider('value', t),
                 (this._settings.jpegQuality = t),
@@ -120718,7 +121196,10 @@ function (exports, module, require) {
       i(
         'jpeg-quality',
         GCore.GLocale.get(new GCore.GLocaleKey('GExportDialog', 'text.jpeg-quality')),
-        $('<div/>').addClass('jpeg-quality').append(ZipDirectory).append($('<label />').append(p)),
+        $('<div/>')
+          .addClass('jpeg-quality')
+          .append(ZipDirectory)
+          .append($('<label />').append(GUnsupportedFeaturesDialog)),
         { prostats: 'export_nonprotriespro_jpeg-quality' }
       );
       var GSystemDialog = $('<div/>')
@@ -121520,7 +122001,7 @@ function (exports, module, require) {
                   for (let n of t)
                     'svg' === n.format &&
                       (e = e.concat(i.GSVGExport.getUnsupportedFeatures(n.element)));
-                  e.length && new p(e).open();
+                  e.length && new GUnsupportedFeaturesDialog(e).open();
                 }
               },
               () => this.close(),
@@ -121665,7 +122146,7 @@ function (exports, module, require) {
             ++CollaborationMergeUtils
           ) {
             GMenu = GEditor[CollaborationMergeUtils];
-            var p,
+            var GUnsupportedFeaturesDialog,
               GSystemDialog,
               h = GCore.GBitmap.ImageType.PNG,
               f = null;
@@ -121674,7 +122155,7 @@ function (exports, module, require) {
             var m = window.devicePixelRatio;
             if (barrel_panels) {
               var y = new GCore.GLength(50, GCore.GLength.Unit.PX);
-              p = (GSystemDialog = GMenu.element.toBitmap(
+              GUnsupportedFeaturesDialog = (GSystemDialog = GMenu.element.toBitmap(
                 y,
                 y,
                 2,
@@ -121700,7 +122181,7 @@ function (exports, module, require) {
                 S = GMenu.size;
               ((C > 1920 || x > 1080) &&
                 (S = Math.min(1920 / _.getWidth(), 1080 / _.getHeight()) + 'x'),
-                (p = (GSystemDialog = i.GBitmapExport.export(
+                (GUnsupportedFeaturesDialog = (GSystemDialog = i.GBitmapExport.export(
                   GMenu.element,
                   S,
                   v,
@@ -121712,7 +122193,7 @@ function (exports, module, require) {
             }
             var E = GSystemDialog.getWidth() / m,
               A = GSystemDialog.getHeight() / m,
-              T = $('<img />').attr('src', p),
+              T = $('<img />').attr('src', GUnsupportedFeaturesDialog),
               G = $('<div></div>')
                 .addClass('preview-image')
                 .css('background', GCore.GPattern.asCSSBackground(null, 0))
@@ -123207,7 +123688,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(38) /* stub_requires_680 */,
-    require(1518)) /* module_1518 */;
+    require(1518)) /* JQueryUISortable */;
   const o = (module.REARRANGE_TAB_CLASS = 'more-button'),
     i = (module.REARRANGE_TAB_SELECTOR = '.'.concat(o));
   function a() {
@@ -123252,12 +123733,12 @@ function (exports, module, require) {
   var o, i, a;
   ((i = [
     require(171) /* module_171 */,
-    require(1519) /* module_1519 */,
+    require(1519) /* JQueryUIMouse */,
     require(1520) /* module_1520 */,
     require(1257) /* module_1257 */,
     require(1259) /* module_1259 */,
     require(605) /* module_605 */,
-    require(1258) /* module_1258 */,
+    require(1258) /* JQueryUIWidget */,
   ]),
     undefined ===
       (a =
@@ -124321,7 +124802,7 @@ function (exports, module, require) {
     require(171) /* module_171 */,
     require(1257) /* module_1257 */,
     require(605) /* module_605 */,
-    require(1258) /* module_1258 */,
+    require(1258) /* JQueryUIWidget */,
   ]),
     undefined ===
       (a =
@@ -125314,7 +125795,7 @@ function (exports, module, require) {
     GProperties = _interopRequireDefault(require(123) /* GProperties */),
     l = _interopRequireDefault(require(1159) /* module_1159 */),
     c = _interopRequireDefault(require(220) /* Item */),
-    d = _interopRequireDefault(require(163) /* module_163 */),
+    GDocument = _interopRequireDefault(require(163) /* GDocument */),
     u = _interopRequireDefault(require(219) /* module_219 */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     g = _interopRequireDefault(require(86) /* module_86 */),
@@ -125518,9 +125999,9 @@ function (exports, module, require) {
         GProperties = gDesigner.getActiveDocument().getStorageItem(),
         l = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
         c = !!l;
-      let d,
+      let GDocument,
         u = this._versionsContainer.find('.content');
-      AppSettings.AUTO_SAVE_ENABLED && (d = this._autoSaveContainer.find('.content'));
+      AppSettings.AUTO_SAVE_ENABLED && (GDocument = this._autoSaveContainer.find('.content'));
       const g = e.find((e) => e.version.latest);
       let GDocumentStatusEvent = g,
         GRichTooltipConfig = false;
@@ -125530,7 +126011,7 @@ function (exports, module, require) {
           ((GDocumentStatusEvent = e), (GRichTooltipConfig = true));
       }
       const y = (e, t, AppSettings) => {
-        let { version: GProperties, thumbnail: d, autosave: u } = e;
+        let { version: GProperties, thumbnail: GDocument, autosave: u } = e;
         return $('<div />')
           .addClass('version-history-item')
           .addClass(
@@ -125555,7 +126036,7 @@ function (exports, module, require) {
           .append(
             $('<div />')
               .addClass('vhi-thumbnail')
-              .css('background-image', 'url(' + d.url_t + ')')
+              .css('background-image', 'url(' + GDocument.url_t + ')')
           )
           .append(
             $('<div />')
@@ -125609,7 +126090,7 @@ function (exports, module, require) {
                           gDesigner.intercomStats('Preview version from history'),
                           _interopRequireDefault._showPreview(
                             GProperties.versionId,
-                            d.name,
+                            GDocument.name,
                             $(this).closest('.version-history-item'),
                             u
                           ),
@@ -125630,7 +126111,11 @@ function (exports, module, require) {
                             'version-history-panel_restore-version_from-settings-menu'
                           ),
                           gDesigner.intercomStats('Open version from history'),
-                          _interopRequireDefault._applyVersion(GProperties.versionId, d.name, u),
+                          _interopRequireDefault._applyVersion(
+                            GProperties.versionId,
+                            GDocument.name,
+                            u
+                          ),
                           $(this).parent('.vhi-settings-list').hide());
                       })
                   )
@@ -125649,7 +126134,12 @@ function (exports, module, require) {
               e
                 ? $(t).data('dblclicked', e - 1)
                 : (gDesigner.stats('version-history-panel_show-preview_from-main-panel'),
-                  _interopRequireDefault._showPreview(GProperties.versionId, d.name, $(t), u),
+                  _interopRequireDefault._showPreview(
+                    GProperties.versionId,
+                    GDocument.name,
+                    $(t),
+                    u
+                  ),
                   gDesigner.intercomStats('Preview version from history'));
             }, 500);
           })
@@ -125662,7 +126152,7 @@ function (exports, module, require) {
               );
             ($(this).data('dblclicked', 2),
               gDesigner.stats('version-history-panel_apply-version'),
-              _interopRequireDefault._applyVersion(GProperties.versionId, d.name, u),
+              _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, u),
               gDesigner.intercomStats('Open version from history'));
           })
           .on('mouseenter', function () {
@@ -125676,12 +126166,12 @@ function (exports, module, require) {
         for (let t = 0, require = e.length; t < require; t++) {
           let _interopRequireDefault = e[t],
             GCore = null;
-          ((GCore = _interopRequireDefault.autosave ? d : u),
+          ((GCore = _interopRequireDefault.autosave ? GDocument : u),
             GCore.append(y(_interopRequireDefault, t, require)));
         }
       }
       (u.empty(),
-        d && d.empty(),
+        GDocument && GDocument.empty(),
         v(e),
         AppSettings.AUTO_SAVE_ENABLED && v(t),
         this._updatePanelHeight(),
@@ -125728,7 +126218,7 @@ function (exports, module, require) {
           false
         );
       this._loadingPreview = true;
-      var r = new d.default(
+      var r = new GDocument.default(
         await c.default.from(
           gDesigner.getDefaultStorage(),
           this._fileId,
@@ -125911,7 +126401,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const o = require(395); /* module_395 */
+  const GSidebarContainer = require(395); /* GSidebarContainer */
   exports.exports = function (e) {
     ((e.prototype._versionHistoryPanelOverlay = null),
       (e.prototype._updateVersionsPanelTouch = function () {
@@ -125924,7 +126414,7 @@ function (exports, module, require) {
                 closeCallback: () => this._versionHistoryProperties.close(),
               }));
           const e = (
-              this.getOrientation() === o.Orientation.Left
+              this.getOrientation() === GSidebarContainer.Orientation.Left
                 ? gDesigner.getLeftSidebars()
                 : gDesigner.getRightSidebars()
             ).getHtmlElement(),
@@ -125948,7 +126438,7 @@ function (exports, module, require) {
     a = require(1531) /* module_1531 */,
     r = require(1532) /* module_1532 */,
     s = require(1533) /* module_1533 */,
-    l = require(156) /* module_156 */,
+    GCloudStorageItem = require(156) /* GCloudStorageItem */,
     c = require(790) /* module_790 */,
     d = require(554); /* module_554 */
   function u(e) {
@@ -126020,11 +126510,12 @@ function (exports, module, require) {
       const require = e.getStorage(),
         o = gDesigner.getSyncUser();
       return (
-        require === l.Storage.Gravit
+        require === GCloudStorageItem.Storage.Gravit
           ? (module = new a(this._worker, o))
-          : require === l.Storage.GoogleDrive
+          : require === GCloudStorageItem.Storage.GoogleDrive
             ? (module = new r(this._worker, o))
-            : (require !== l.Storage.SharePoint && require !== l.Storage.OneDriveBusiness) ||
+            : (require !== GCloudStorageItem.Storage.SharePoint &&
+                require !== GCloudStorageItem.Storage.OneDriveBusiness) ||
               (module = new s(this._worker, o)),
         module
       );
@@ -126135,17 +126626,17 @@ function (exports, module, require) {
     a = i.find((e) => e.default),
     { COMMAND_SAVE: r } = require(591) /* module_591 */,
     s = require(1164) /* module_1164 */,
-    Item = require(556); /* Item */
+    GGoogleDriveItem = require(556); /* GGoogleDriveItem */
   exports.exports = class extends s {
     constructor(e, t) {
       super(e, t);
     }
     async updateFileSceneAndMetadata(e, t, n, GCore) {
       const i = await this._requestWorkerToSave(e, t, n, GCore);
-      return Item.convertToCloudItem(i);
+      return GGoogleDriveItem.convertToCloudItem(i);
     }
     _requestWorkerToSave(e, t, n, i) {
-      return new Promise((s, Item) => {
+      return new Promise((s, GGoogleDriveItem) => {
         const c = this._request(r.REQUEST, {
           id: e,
           file: t,
@@ -126158,7 +126649,7 @@ function (exports, module, require) {
           function (e) {
             const { cmd: t, id: n, data: GCore } = e.data;
             if ((t !== r.SUCCESS && t !== r.FAILED) || n !== c) return false;
-            t === r.SUCCESS ? s(GCore.file) : t === r.FAILED && Item();
+            t === r.SUCCESS ? s(GCore.file) : t === r.FAILED && GGoogleDriveItem();
             return true;
           }.bind(this),
           { once: true }
@@ -126174,7 +126665,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
   var GCore = require(1); /* module */
-  const i = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { FILE_FORMATS: a } = require(10) /* AppSettings */,
     r = a.find((e) => e.default),
     { COMMAND_SAVE: s } = require(591) /* module_591 */,
@@ -126185,14 +126676,14 @@ function (exports, module, require) {
     }
     async updateFileSceneAndMetadata(e, t, n, GCore) {
       const a = await this._requestWorkerToSave(e, t, n, GCore);
-      return i.from(a);
+      return GCloudStorageItem.from(a);
     }
-    _requestWorkerToSave(e, t, n, i) {
+    _requestWorkerToSave(e, t, n, GCloudStorageItem) {
       return new Promise((a, l) => {
         const c = this._request(s.REQUEST, {
           id: e,
           file: t,
-          metadata: i,
+          metadata: GCloudStorageItem,
           scene: GCore.GNode.serialize(n, { save: true }),
           type: r.type,
         });
@@ -126272,7 +126763,7 @@ function (exports, module, require) {
     GFitAllAction = require(449) /* GFitAllAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GProperties = require(123); /* GProperties */
-  const c = require(358) /* module_358 */,
+  const GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
     d = require(86) /* module_86 */,
     { SHOW_SIDEBAR_BADGE: u } = require(10); /* AppSettings */
   function p() {
@@ -126471,17 +126962,18 @@ function (exports, module, require) {
           d = GCore && a;
         let u;
         if (GFitSelectionAction && GProperties)
-          ((u = c.filterAnnotationElements(e.data.nodes)),
+          ((u = GAnnotationsUtils.filterAnnotationElements(e.data.nodes)),
             u.length &&
               u.forEach((t) => {
-                (c.removeSidFromAnnotations(t), t.getParent() || e.data.parent.insertChild(t));
+                (GAnnotationsUtils.removeSidFromAnnotations(t),
+                  t.getParent() || e.data.parent.insertChild(t));
               }));
         else if (GFitSelectionAction && d) {
           var module = e.data.parent.getChildren();
-          ((u = c
-            .filterAnnotationElements(e.data.nodes)
-            .filter((e) => module.some((t) => t.getId() === e.getId()))),
-            u.length && c.removeAnnotations(u, e.data.parent, undefined, false));
+          ((u = GAnnotationsUtils.filterAnnotationElements(e.data.nodes).filter((e) =>
+            module.some((t) => t.getId() === e.getId())
+          )),
+            u.length && GAnnotationsUtils.removeAnnotations(u, e.data.parent, undefined, false));
         }
       }
     }),
@@ -126609,13 +127101,13 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* module */,
     GCore = require(1) /* module */,
-    r = _interopRequireDefault(require(358) /* module_358 */),
+    GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     GProperties = require(123); /* GProperties */
   const GCollaborationEvent = require(393) /* GCollaborationEvent */,
     c = require(392) /* module_392 */,
-    d = require(1165) /* module_1165 */,
+    GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
     GSettingChangedEvent = require(135); /* GSettingChangedEvent */
-  function p(e, t, n, _interopRequireDefault, GTools, GCore, r, GProperties) {
+  function p(e, t, n, _interopRequireDefault, GTools, GCore, GAnnotationsUtils, GProperties) {
     ((this._elements = []),
       (this._availableProperties = e || []),
       (this._propertyClass = t),
@@ -126624,7 +127116,7 @@ function (exports, module, require) {
       (this._toolbarTooltip = GTools),
       (this._tooltips = GCore),
       (this._pendingUpdates = new Map()),
-      (this._statType = r),
+      (this._statType = GAnnotationsUtils),
       (this._panelClass = GProperties));
   }
   (GCore.GObject.inherit(p, GProperties),
@@ -126704,16 +127196,17 @@ function (exports, module, require) {
                     n,
                     _interopRequireDefault,
                     GTools,
-                    r,
+                    GAnnotationsUtils,
                     GProperties,
                     GCollaborationEvent
                   ) {
                     if (t._getAppManager().isCommentingEditingEnabled()) {
                       var c = ['_vs'],
-                        d = [true];
+                        GFileReviewFlowManager = [true];
                       (undefined !== _interopRequireDefault &&
-                        (c.push('_pt'), d.push(_interopRequireDefault)),
-                        'number' == typeof GTools && (c.push('_op'), d.push(GTools)));
+                        (c.push('_pt'), GFileReviewFlowManager.push(_interopRequireDefault)),
+                        'number' == typeof GTools &&
+                          (c.push('_op'), GFileReviewFlowManager.push(GTools)));
                       var GSettingChangedEvent = null;
                       (GProperties &&
                         ((GSettingChangedEvent = { chooserOn: true }),
@@ -126721,14 +127214,14 @@ function (exports, module, require) {
                           (GSettingChangedEvent.activeStopIdx = GCollaborationEvent)),
                         t._assignProperties(
                           c,
-                          d,
+                          GFileReviewFlowManager,
                           GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GAnnotationProperties',
                               'text.change-annotation-style'
                             )
                           ),
-                          r,
+                          GAnnotationsUtils,
                           e,
                           GSettingChangedEvent
                         ));
@@ -126772,10 +127265,10 @@ function (exports, module, require) {
               if (this._getAppManager().isCommentingEditingEnabled()) {
                 gDesigner.stats('annotations_line-width', this._statType);
                 var GTools = $(n).gUnitBox('value'),
-                  r = GTools ? GTools.toUnit(GCore.GLength.Unit.PX) : null;
-                if (null !== r && r >= 0) {
+                  GAnnotationsUtils = GTools ? GTools.toUnit(GCore.GLength.Unit.PX) : null;
+                if (null !== GAnnotationsUtils && GAnnotationsUtils >= 0) {
                   const n = ['_vs', e],
-                    GTools = [true, r],
+                    GTools = [true, GAnnotationsUtils],
                     GCore = undefined,
                     GProperties = p.PropertyTarget.BorderLayer;
                   (_interopRequireDefault
@@ -126856,8 +127349,12 @@ function (exports, module, require) {
           1
         ),
         this._availableProperties.push('arrows'));
-      for (var r = 0; r < this._availableProperties.length; r++) {
-        let e = this._availableProperties[r];
+      for (
+        var GAnnotationsUtils = 0;
+        GAnnotationsUtils < this._availableProperties.length;
+        GAnnotationsUtils++
+      ) {
+        let e = this._availableProperties[GAnnotationsUtils];
         _interopRequireDefault.push({
           clazz:
             this._availableProperties.includes(p.PropertySet.BorderLayer) &&
@@ -126922,7 +127419,11 @@ function (exports, module, require) {
           gDesigner.removeEventListener(c, this._stateChangedEvent, this),
           gDesigner
             .getFileReviewManager()
-            .removeEventListener(d.UpdateEvent, this._handleReviewUpdate, this),
+            .removeEventListener(
+              GFileReviewFlowManager.UpdateEvent,
+              this._handleReviewUpdate,
+              this
+            ),
           gDesigner.removeEventListener(GSettingChangedEvent, this._settingChanged, this),
           this._document.getScene() &&
             this._document
@@ -126940,7 +127441,7 @@ function (exports, module, require) {
           (gDesigner.addEventListener(c, this._stateChangedEvent, this),
           gDesigner
             .getFileReviewManager()
-            .addEventListener(d.UpdateEvent, this._handleReviewUpdate, this),
+            .addEventListener(GFileReviewFlowManager.UpdateEvent, this._handleReviewUpdate, this),
           gDesigner.addEventListener(GSettingChangedEvent, this._settingChanged, this),
           t)
         )
@@ -127040,7 +127541,8 @@ function (exports, module, require) {
       var e = this._elements[0];
       GTools.GElementEditor.getEditor(e);
       const module =
-          !e.hasMixin(GCore.GAnnotation) || r.default.isOwner(gDesigner.getSyncUser(), e),
+          !e.hasMixin(GCore.GAnnotation) ||
+          GAnnotationsUtils.default.isOwner(gDesigner.getSyncUser(), e),
         require = this._getAppManager().isCommentingEditingEnabled();
       if (this._availableProperties.indexOf(p.PropertySet.FillLayer) >= 0) {
         var _interopRequireDefault = e.getPaintLayers().getFillLayers()[0];
@@ -127143,31 +127645,47 @@ function (exports, module, require) {
     (p.prototype._assignProperty = function (e, t, n, _interopRequireDefault, GTools, GCore) {
       this._assignProperties([e], [t], n, _interopRequireDefault, GTools, GCore);
     }),
-    (p.prototype._assignProperties = function (e, t, n, _interopRequireDefault, GTools, r) {
+    (p.prototype._assignProperties = function (
+      e,
+      t,
+      n,
+      _interopRequireDefault,
+      GTools,
+      GAnnotationsUtils
+    ) {
       if (this._document) {
         var GProperties = this._document.getEditor();
         _interopRequireDefault || GProperties.beginTransaction();
         try {
           for (var GCollaborationEvent = null, c = 0; c < this._elements.length; ++c) {
-            var d;
+            var GFileReviewFlowManager;
             (GTools === p.PropertyTarget.FillLayer
-              ? ((d = this._elements[c].getPaintLayers().getFillLayers()[0]) ||
-                  ((d = new GCore.GStylable.FillPaintLayer()),
-                  this._elements[c].getPaintLayers().appendChild(d)),
+              ? ((GFileReviewFlowManager = this._elements[c].getPaintLayers().getFillLayers()[0]) ||
+                  ((GFileReviewFlowManager = new GCore.GStylable.FillPaintLayer()),
+                  this._elements[c].getPaintLayers().appendChild(GFileReviewFlowManager)),
                 (GCollaborationEvent = $.extend(
-                  { fillLayerIndex: d.getParent().getIndexOfChild(d) },
-                  GCollaborationEvent || r
+                  {
+                    fillLayerIndex:
+                      GFileReviewFlowManager.getParent().getIndexOfChild(GFileReviewFlowManager),
+                  },
+                  GCollaborationEvent || GAnnotationsUtils
                 )))
               : GTools === p.PropertyTarget.BorderLayer
-                ? ((d = this._elements[c].getPaintLayers().getBorderLayers()[0]) ||
-                    ((d = new GCore.GStylable.BorderPaintLayer()),
-                    this._elements[c].getPaintLayers().appendChild(d)),
+                ? ((GFileReviewFlowManager = this._elements[c]
+                    .getPaintLayers()
+                    .getBorderLayers()[0]) ||
+                    ((GFileReviewFlowManager = new GCore.GStylable.BorderPaintLayer()),
+                    this._elements[c].getPaintLayers().appendChild(GFileReviewFlowManager)),
                   (GCollaborationEvent = $.extend(
-                    { borderLayerIndex: d.getParent().getIndexOfChild(d) },
-                    GCollaborationEvent || r
+                    {
+                      borderLayerIndex:
+                        GFileReviewFlowManager.getParent().getIndexOfChild(GFileReviewFlowManager),
+                    },
+                    GCollaborationEvent || GAnnotationsUtils
                   )))
-                : (d = this._elements[c]),
-              d && d.setProperties(e, t, false, false, _interopRequireDefault));
+                : (GFileReviewFlowManager = this._elements[c]),
+              GFileReviewFlowManager &&
+                GFileReviewFlowManager.setProperties(e, t, false, false, _interopRequireDefault));
           }
         } finally {
           _interopRequireDefault || GProperties.commitTransaction(n, GCollaborationEvent);
@@ -127197,7 +127715,7 @@ function (exports, module, require) {
   var i = _interopRequireDefault(require(1155) /* module_1155 */);
   const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* module */,
     l = require(392) /* module_392 */,
-    c = require(1165) /* module_1165 */,
+    GFileReviewFlowManager = require(1165) /* GFileReviewFlowManager */,
     GProperties = require(123) /* GProperties */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GSaveAction = require(447) /* GSaveAction */,
@@ -127213,11 +127731,13 @@ function (exports, module, require) {
       ShareRoles: C,
       FILE_REVIEW_ENABLED: x,
     } = require(10) /* AppSettings */,
-    S = require(1538); /* module_1538 */
+    GFileStatusHistoryDialog = require(1538); /* GFileStatusHistoryDialog */
   function E() {}
   (s.inherit(E, GProperties),
     (E.prototype.init = function (e, t) {
-      ((this._container = e), (this._fileStatusHistoryDialog = new S()), this._init());
+      ((this._container = e),
+        (this._fileStatusHistoryDialog = new GFileStatusHistoryDialog()),
+        this._init());
     }),
     (E.prototype.update = function (e, t, n) {
       return (
@@ -127225,19 +127745,23 @@ function (exports, module, require) {
           ? ((this._document = e),
             this._reviewManager &&
               this._reviewManager.removeEventListener(
-                c.UpdateEvent,
+                GFileReviewFlowManager.UpdateEvent,
                 this._handleReviewUpdate,
                 this
               ),
             gDesigner.addEventListener(l, this._stateChangedEvent, this),
             (this._reviewManager = gDesigner.getFileReviewManager()),
-            this._reviewManager.addEventListener(c.UpdateEvent, this._handleReviewUpdate, this),
+            this._reviewManager.addEventListener(
+              GFileReviewFlowManager.UpdateEvent,
+              this._handleReviewUpdate,
+              this
+            ),
             this._requestUIUpdate())
           : e ||
             (gDesigner.removeEventListener(l, this._stateChangedEvent, this),
             this._reviewManager &&
               (this._reviewManager.removeEventListener(
-                c.UpdateEvent,
+                GFileReviewFlowManager.UpdateEvent,
                 this._handleReviewUpdate,
                 this
               ),
@@ -127570,10 +128094,13 @@ function (exports, module, require) {
           ? (s.addClass(l), e.getIconLabel() && s.attr('data-title', e.getIconLabel()))
           : s.toggleClass('selected', require);
       }
-      var c = $('<div/>').addClass('details-container').appendTo(r);
+      var GFileReviewFlowManager = $('<div/>').addClass('details-container').appendTo(r);
       return (
-        $('<div/>').addClass('title').text(e.getLabel()).appendTo(c),
-        $('<div/>').addClass('description').text(e.getDescription()).appendTo(c),
+        $('<div/>').addClass('title').text(e.getLabel()).appendTo(GFileReviewFlowManager),
+        $('<div/>')
+          .addClass('description')
+          .text(e.getDescription())
+          .appendTo(GFileReviewFlowManager),
         r
       );
     }),
@@ -127593,7 +128120,7 @@ function (exports, module, require) {
     require(38)) /* stub_requires_680 */;
   const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
     a = require(1166) /* module_1166 */,
-    r = require(177) /* module_177 */,
+    GUserModel = require(177) /* GUserModel */,
     {
       gApi: s,
       Notification: l,
@@ -127633,11 +128160,11 @@ function (exports, module, require) {
             n = o.get(new i('GFileStatusHistoryDialog', 'text.action-in-review'));
         }
         if (n) {
-          var r = $('<span></span>').addClass('annotation-title-group'),
+          var GUserModel = $('<span></span>').addClass('annotation-title-group'),
             s = $('<span></span>')
               .html(n.replace('%name', this._getUserNameFromNotification(t)))
               .addClass('annotation-title')
-              .appendTo(r),
+              .appendTo(GUserModel),
             g = o.toLocaleDate(t.created, {
               year: 'numeric',
               month: 'numeric',
@@ -127646,13 +128173,13 @@ function (exports, module, require) {
               minute: 'numeric',
             });
           return (
-            $('<span>').text('·').addClass('dot').appendTo(r),
-            $('<span></span>').text(g).addClass('annotation-date').appendTo(r),
+            $('<span>').text('·').addClass('dot').appendTo(GUserModel),
+            $('<span></span>').text(g).addClass('annotation-date').appendTo(GUserModel),
             new a({ id: t.uid, name: t.uname, last_name: t.last_name })
               .build()
               .addClass('g-user-preview-history')
               .insertBefore(s),
-            r
+            GUserModel
           );
         }
       })
@@ -127682,7 +128209,7 @@ function (exports, module, require) {
       (this._container.gDialog('open', false), this._updateHistoryList());
     }),
     (g.prototype._getUserNameFromNotification = function (e) {
-      return new r({
+      return new GUserModel({
         name: e.uname,
         last_name: e.last_name,
       }).getFullUserName();
@@ -127820,9 +128347,9 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var o = require(395); /* module_395 */
-  ((o.prototype._rightSidebarDefaultWidthForTouch = 300),
-    (o.prototype._updateTouchToolbar = function (e) {
+  var GSidebarContainer = require(395); /* GSidebarContainer */
+  ((GSidebarContainer.prototype._rightSidebarDefaultWidthForTouch = 300),
+    (GSidebarContainer.prototype._updateTouchToolbar = function (e) {
       const module = ['fill', 'border', 'effect'];
       if (!gDesigner.isTouchEnabled()) return;
       this._touchToolbar ||
@@ -127830,26 +128357,28 @@ function (exports, module, require) {
       let require = null;
       (this._touchToolbar.empty(),
         this.removeClassName('align-active'),
-        this._sidebars.forEach((o) => {
-          let { sidebar: i, container: a } = o;
+        this._sidebars.forEach((GSidebarContainer) => {
+          let { sidebar: i, container: a } = GSidebarContainer;
           const r = i.getTouchTools(e);
           i &&
             i.isVisible() &&
             r &&
             r.forEach((e) => {
               e.sidebar = i.getId();
-              const o = !!this._activeTouchTool && e.id == this._activeTouchTool.id;
-              o && (require = e);
+              const GSidebarContainer = !!this._activeTouchTool && e.id == this._activeTouchTool.id;
+              GSidebarContainer && (require = e);
               let r = e.panel;
               if (
                 (Array.isArray(e.panel) || (r = [e.panel]),
-                'dimension.align' === e.id && o && this.addClassName('align-active'),
+                'dimension.align' === e.id &&
+                  GSidebarContainer &&
+                  this.addClassName('align-active'),
                 r.forEach((t) => {
                   let require;
                   ((require = 'string' == typeof t ? a.find(t) : $(t)),
                     require
                       .attr('g-touch-tool', e.id)
-                      .toggleClass('g-active', o)
+                      .toggleClass('g-active', GSidebarContainer)
                       .addClass('g-touch-toolbar-panel'));
                 }),
                 e.toolbar)
@@ -127861,7 +128390,7 @@ function (exports, module, require) {
                     ((require = 'string' == typeof t ? a.find(t) : $(t)),
                       require
                         .attr('g-touch-tool', e.id)
-                        .toggleClass('g-active', o)
+                        .toggleClass('g-active', GSidebarContainer)
                         .addClass('g-touch-toolbar-label'));
                   }));
               }
@@ -127869,7 +128398,7 @@ function (exports, module, require) {
                 .addClass('g-touch-toolbar-button')
                 .attr('g-touch-tool', e.id)
                 .attr('id', e.id)
-                .toggleClass('g-active', o)
+                .toggleClass('g-active', GSidebarContainer)
                 .append($('<span/>').addClass(e.icon || ''))
                 .on('click', () => {
                   (this.removeClassName('align-active'),
@@ -127908,10 +128437,10 @@ function (exports, module, require) {
         this.setActiveTouchTool(require),
         require || this._setDefaultRightSidebarWidthForTouch());
     }),
-    (o.prototype.updateTouchToolbar = function () {
+    (GSidebarContainer.prototype.updateTouchToolbar = function () {
       this._updateTouchToolbar();
     }),
-    (o.prototype._setDefaultRightSidebarWidthForTouch = function () {
+    (GSidebarContainer.prototype._setDefaultRightSidebarWidthForTouch = function () {
       this._htmlElement.css('width', this._rightSidebarDefaultWidthForTouch + 'px');
     }));
 }
@@ -127940,9 +128469,9 @@ function (exports, module, require) {
     _config = require(10) /* AppSettings */,
     _richtooltipconfig = require(67); /* GRichTooltipConfig */
   const GCategory = require(18) /* MenuItemBuilder */,
-    GDocument = require(163) /* module_163 */,
+    GDocument = require(163) /* GDocument */,
     GDocumentStatus = require(86) /* module_86 */,
-    simpleShapes = require(1542) /* module_1542 */,
+    simpleShapes = require(1542) /* GShapePresets */,
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
     GInspectorSidebar = require(864) /* GInspectorSidebar */,
     GWindows = require(603) /* WindowEvent */,
@@ -127979,7 +128508,7 @@ function (exports, module, require) {
     GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
     GMenu = require(238) /* GMenu */,
     GMenuItem = require(339) /* GMenu */,
-    GCollaborators = require(1292) /* module_1292 */,
+    GCollaborators = require(1292) /* GCollaboratorsWidget */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     GApplicationStateChangedEvent = require(392) /* module_392 */,
@@ -129400,7 +129929,7 @@ function (exports, module, require) {
         [e ? 'removeClass' : 'addClass']('g-disabled')
         .prop('disabled', !e);
     }),
-    require(1543)(/* module_1543 */ GToolbar),
+    require(1543)(/* GTouchToolbarMixin */ GToolbar),
     (exports.exports = GToolbar));
 }
 ,
@@ -131046,13 +131575,13 @@ function (exports, module, require) {
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     d = _interopRequireDefault(require(734) /* module_734 */),
-    u = require(163) /* module_163 */,
+    GDocument = require(163) /* GDocument */,
     GOpenAction = require(813) /* GOpenAction */,
     g = require(1299) /* module_1299 */,
-    h = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     GFilesPanel = require(1545) /* GFilesPanel */,
-    m = require(1558) /* module_1558 */,
-    y = require(1153) /* module_1153 */,
+    GCloudTemplatesPanel = require(1558) /* GCloudTemplatesPanel */,
+    GPresets = require(1153) /* GPresets */,
     { youtubePlaylist: v } = require(1302) /* module_1302 */,
     _ = require(446); /* module_446 */
   require(220) /* Item */;
@@ -131088,20 +131617,20 @@ function (exports, module, require) {
     var CollaborationMergeUtils = $('<div/>')
         .addClass('sidebar-options')
         .appendTo(_interopRequireDefault),
-      u = $('<div></div>').addClass('frame').appendTo(this._dialog),
-      GOpenAction = this._createPresetsFrame().appendTo(u),
+      GDocument = $('<div></div>').addClass('frame').appendTo(this._dialog),
+      GOpenAction = this._createPresetsFrame().appendTo(GDocument),
       g = null;
     this._createSeparator(CollaborationMergeUtils, 'start-option');
-    var m = function (e) {
+    var GCloudTemplatesPanel = function (e) {
         (this._dialog.find('.sidebar-options').find('.option').removeClass('active'),
           this._dialog.find('.sidebar-options').find(e).addClass('active'));
       }.bind(this),
-      y = function () {
+      GPresets = function () {
         (this._dialog.find('.option.start-option').trigger('click'),
           this._dialog.find('.frame').removeClass('cloud-frame'),
           this._dialog.find('.g-dialog-content').removeClass('cloud-dialog'),
           this._dialog.parent().removeClass('cloud-files-dialog'),
-          m('.start-option'));
+          GCloudTemplatesPanel('.start-option'));
       }.bind(this);
     (this._createOption(
       CollaborationMergeUtils,
@@ -131111,7 +131640,7 @@ function (exports, module, require) {
       ),
       'start-option',
       function (e) {
-        (u.children().detach(), u.append(GOpenAction));
+        (GDocument.children().detach(), GDocument.append(GOpenAction));
         var t = gDesigner.getSetting('show_welcome_screen'),
           _interopRequireDefault = 'boolean' != typeof t || t;
         (e || n._isSpectatorMode() || gDesigner.stats('newdocumentdialog_click_newdesign'),
@@ -131137,8 +131666,8 @@ function (exports, module, require) {
                     })
                 )
             )
-            .appendTo(u),
-          n._isSpectatorMode() || m('.start-option'));
+            .appendTo(GDocument),
+          n._isSpectatorMode() || GCloudTemplatesPanel('.start-option'));
       }
     ),
       this._createSeparator(CollaborationMergeUtils, 'templates-option'),
@@ -131155,14 +131684,14 @@ function (exports, module, require) {
             (e || gDesigner.stats('newdocumentdialog_click_templates'),
               gDesigner.getUser().then((e) => {
                 let t = (e) => {
-                  if (!e) return (u.removeClass('loading'), void y());
+                  if (!e) return (GDocument.removeClass('loading'), void GPresets());
                   n._loadTemplates();
                 };
                 e
                   ? t(e)
                   : AppSettings.LOGIN_DIALOGS.POPUP
-                    ? h.performLogin().then(t)
-                    : n._createCloudLoginFrame('template', t, u);
+                    ? GCloudStorage.performLogin().then(t)
+                    : n._createCloudLoginFrame('template', t, GDocument);
               }));
           };
           gDesigner.isOffline() ? GOfflineDialog.default.openUnavailableFeature(t) : t();
@@ -131180,18 +131709,18 @@ function (exports, module, require) {
           const GSystemDialog = function () {
             (e || gDesigner.stats('newdocumentdialog_open_cloudfiles'),
               n._openFromCloud
-                ? (u.children().detach(),
-                  u.addClass('loading'),
-                  m('.cloud-option'),
+                ? (GDocument.children().detach(),
+                  GDocument.addClass('loading'),
+                  GCloudTemplatesPanel('.cloud-option'),
                   GFilesPanel.isMaximized().then((e) => {
-                    e && u.closest('.g-dialog-container').addClass('fullscreen');
+                    e && GDocument.closest('.g-dialog-container').addClass('fullscreen');
                   }),
                   gDesigner.getUser().then((e) => {
                     let GOfflineDialog = (e) => {
-                      if ((u.children().detach(), !e))
-                        return (u.removeClass('loading'), void n.close());
+                      if ((GDocument.children().detach(), !e))
+                        return (GDocument.removeClass('loading'), void n.close());
                       (g || (g = $('<div/>').addClass('cloud-workspace')),
-                        u.append(g),
+                        GDocument.append(g),
                         g.empty(),
                         n._loadCloudFiles(
                           g,
@@ -131205,8 +131734,8 @@ function (exports, module, require) {
                     e
                       ? GOfflineDialog(e)
                       : AppSettings.LOGIN_DIALOGS.POPUP
-                        ? h.performLogin().then(GOfflineDialog)
-                        : n._createCloudLoginFrame('cloud', GOfflineDialog, u);
+                        ? GCloudStorage.performLogin().then(GOfflineDialog)
+                        : n._createCloudLoginFrame('cloud', GOfflineDialog, GDocument);
                   }))
                 : new _(() => {
                     let e = {
@@ -131603,7 +132132,7 @@ function (exports, module, require) {
         n = $('<div></div>')
           .addClass('presets')
           .appendTo($('<div/>').addClass('presets-frame').appendTo(e));
-      (y.getPresets(true).forEach((e, t) => {
+      (GPresets.getPresets(true).forEach((e, t) => {
         $('<div/>')
           .addClass('preset')
           .data('preset', e)
@@ -131796,7 +132325,7 @@ function (exports, module, require) {
                   GCore.GLocale.get(new GCore.GLocaleKey('GNewDocumentDialog', 'text.cloud-login'))
                 )
                 .on('click', function () {
-                  h.performLogin().then(function (e) {
+                  GCloudStorage.performLogin().then(function (e) {
                     t && t(e);
                   });
                 })
@@ -131808,7 +132337,7 @@ function (exports, module, require) {
                   GCore.GLocale.get(new GCore.GLocaleKey('GNewDocumentDialog', 'text.cloud-signup'))
                 )
                 .on('click', function () {
-                  h.performSignup().then(function (e) {
+                  GCloudStorage.performSignup().then(function (e) {
                     t && t(e);
                   });
                 })
@@ -131845,7 +132374,7 @@ function (exports, module, require) {
       this._closeCallbackListeners.push(CollaborationMergeUtils);
     }),
     (C.prototype._loadTemplates = function () {
-      new m(
+      new GCloudTemplatesPanel(
         function () {
           this.close();
         }.bind(this)
@@ -131863,11 +132392,11 @@ function (exports, module, require) {
         cancelSaveCallback: GOfflineDialog,
         defaultFilename: GSystemDialog,
         closeCallback: d,
-        nativeCloud: u,
+        nativeCloud: GDocument,
         showExampleFiles: GOpenAction,
       } = e;
       ((this._cb = require || null), (this._closeCallback = d), (this._openFromCloud = GCore));
-      h.isOnline();
+      GCloudStorage.isOnline();
       var g = function () {
           (this._dialog.find('.sidebar').css('display', ''),
             this._dialog.find('.sidebar-options').find('.option').css('display', ''),
@@ -131893,7 +132422,7 @@ function (exports, module, require) {
                   CollaborationMergeUtils,
                   GOfflineDialog,
                   GSystemDialog,
-                  u,
+                  GDocument,
                   GOpenAction,
                 ])),
             AppSettings && this._dialog.find('.' + AppSettings).trigger('click'));
@@ -131951,7 +132480,7 @@ function (exports, module, require) {
       )
         try {
           _interopRequireDefault.addClass('loading');
-          var CollaborationMergeUtils = new u(),
+          var CollaborationMergeUtils = new GDocument(),
             GOfflineDialog = await AppSettings.gApi.getPresetTemplate({ type: r.template });
           (_interopRequireDefault.removeClass('loading'),
             gDesigner.addDocument(CollaborationMergeUtils),
@@ -131998,7 +132527,7 @@ function (exports, module, require) {
             new GCore.GLength(t, n).toPoint(),
           ]
         ),
-        gDesigner.addDocument(new u(AppSettings)),
+        gDesigner.addDocument(new GDocument(AppSettings)),
         this.close(),
         this._cb && this._cb());
     }),
@@ -132075,7 +132604,7 @@ function (exports, module, require) {
     require(96) /* polyfill_JSON_stringify */,
     require(30) /* polyfill_Object_assign */,
     require(8) /* polyfill_bundle_ES6 */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(271) /* polyfill_String_endsWith */,
@@ -132099,13 +132628,13 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     a = require(1546) /* module_1546 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    s = require(1154) /* module_1154 */,
+    GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
     l = require(1552) /* Exports_GGoogleDrive */,
     TYPES = require(862) /* Exports_TYPES */,
     d = require(858) /* Exports_GFilesPanel */,
     u = _interopRequireDefault(require(1556) /* module_1556 */),
     p = _interopRequireDefault(require(86) /* module_86 */),
-    g = _interopRequireDefault(require(119) /* module_119 */),
+    GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     h = _interopRequireDefault(require(802) /* CloudException */),
     f = _interopRequireDefault(require(1240) /* module_1240 */),
     GSaveAsAction = _interopRequireDefault(require(445) /* GSaveAsAction */),
@@ -132114,7 +132643,7 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     AppSettings2 = require(519) /* AppSettings */,
     w = _interopRequireDefault(require(1557) /* module_1557 */);
-  const C = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   var S = AppSettings.CloudIntegration.cloudOptions,
     E = AppSettings.CloudIntegration.nativeOption,
@@ -132144,12 +132673,12 @@ function (exports, module, require) {
         documentToSave: _interopRequireDefault,
         cancelSave: GCore = CollaborationMergeUtils.fakeFunction,
         defaultFilename: a,
-        readyStateChange: s,
+        readyStateChange: GFileDownloadUtils,
         showExampleFiles: l,
         GUISettings: TYPES,
         saveMode: u,
         driveSettings: p = null,
-        isDashboard: g,
+        isDashboard: GCloudStorage,
         isCorporateStoragesEnabled: h = true,
       } = e;
       ((this._GUISettings = TYPES || new T.GUISettings()),
@@ -132163,9 +132692,9 @@ function (exports, module, require) {
         (this.DEFAULT_FILENAME = a),
         (this._newClipBoard = false),
         (this._showExampleFiles = l),
-        (this._isDashboard = g),
+        (this._isDashboard = GCloudStorage),
         (this._isCorporateStoragesEnabled = h),
-        (this.readyStateChange = s),
+        (this.readyStateChange = GFileDownloadUtils),
         (this.search = (0, CollaborationMergeUtils.debounce)(this.search, 200)));
       var GSaveAsAction = (e) =>
         function () {
@@ -132331,8 +132860,8 @@ function (exports, module, require) {
               GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.error-creating-folder'))
             )
           );
-        let s = {};
-        (t.drive.hasTitleValidation() && (s = t.drive.getTitleValidator()),
+        let GFileDownloadUtils = {};
+        (t.drive.hasTitleValidation() && (GFileDownloadUtils = t.drive.getTitleValidator()),
           new u.default(
             async function (_interopRequireDefault) {
               if (
@@ -132366,13 +132895,13 @@ function (exports, module, require) {
                   return a(_interopRequireDefault);
                 if (t.drive.requiresOverwriteCollisionHandling()) {
                   for (
-                    var CollaborationMergeUtils = 0, s = _interopRequireDefault;
-                    await t.drive.folderExists(s, t.drive.getCurrentFolder());
+                    var CollaborationMergeUtils = 0, GFileDownloadUtils = _interopRequireDefault;
+                    await t.drive.folderExists(GFileDownloadUtils, t.drive.getCurrentFolder());
                   )
-                    s = ''
+                    GFileDownloadUtils = ''
                       .concat(_interopRequireDefault, ' (')
                       .concat(++CollaborationMergeUtils, ')');
-                  _interopRequireDefault = s;
+                  _interopRequireDefault = GFileDownloadUtils;
                 }
               }
               var l;
@@ -132404,7 +132933,7 @@ function (exports, module, require) {
             },
             'primary',
             CollaborationMergeUtils,
-            s
+            GFileDownloadUtils
           ).open());
       };
       return (a(), this);
@@ -132481,11 +133010,11 @@ function (exports, module, require) {
               );
             if (this.drive.requiresOverwriteCollisionHandling()) {
               for (
-                var a = 0, s = e;
-                await this.drive.fileExists(s, t, this.drive.getCurrentFolder());
+                var a = 0, GFileDownloadUtils = e;
+                await this.drive.fileExists(GFileDownloadUtils, t, this.drive.getCurrentFolder());
               )
-                s = ''.concat(e, ' (').concat(++a, ')');
-              e = s;
+                GFileDownloadUtils = ''.concat(e, ' (').concat(++a, ')');
+              e = GFileDownloadUtils;
             }
           }
           await this._triggerNewFileSave(e, t, require);
@@ -132588,9 +133117,9 @@ function (exports, module, require) {
     }),
     (T.prototype.handleFileDblClick = function (e) {
       return (
-        e.hasPermission(C.Permission.Open) && !this.isSaveMode()
+        e.hasPermission(GCloudStorageItem.Permission.Open) && !this.isSaveMode()
           ? (gDesigner.stats('filespanel_open_cloudfile'), this.openFile(e))
-          : e.hasPermission(C.Permission.Rename) &&
+          : e.hasPermission(GCloudStorageItem.Permission.Rename) &&
             (gDesigner.stats('filespanel_focus_filename-input'), this.view.focusFileNameInput(e)),
         this
       );
@@ -132674,8 +133203,8 @@ function (exports, module, require) {
             )
           );
       } else t || (t = this.drive.getFileFormat(e) || TYPES.DEFAULT_TYPE);
-      var { ext: a, type: CollaborationMergeUtils, mime: s, version: l } = t;
-      CollaborationMergeUtils = CollaborationMergeUtils || s;
+      var { ext: a, type: CollaborationMergeUtils, mime: GFileDownloadUtils, version: l } = t;
+      CollaborationMergeUtils = CollaborationMergeUtils || GFileDownloadUtils;
       const d = this._triggerFileDownload(e, require, a, CollaborationMergeUtils, l);
       function u(t) {
         return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
@@ -132714,7 +133243,9 @@ function (exports, module, require) {
               let GCore = e.name || l.name;
               (GCore.endsWith('.'.concat(n)) &&
                 (GCore = GCore.replace(new RegExp('.'.concat(n, '$')), '')),
-                (0, s.downloadDataURI)(u, GCore, n, { type: _interopRequireDefault }));
+                (0, GFileDownloadUtils.downloadDataURI)(u, GCore, n, {
+                  type: _interopRequireDefault,
+                }));
             }
           })
           .catch((e) => {
@@ -132731,18 +133262,21 @@ function (exports, module, require) {
         const a = new FileReader();
         ((a.onload = async function () {
           const e = new Uint8Array(this.result),
-            a = GCore.GNode.deserialize(g.default.unzipData(e), gDesigner.getWorkspace());
-          var s = { cancelled: false };
+            a = GCore.GNode.deserialize(
+              GCloudStorage.default.unzipData(e),
+              gDesigner.getWorkspace()
+            );
+          var GFileDownloadUtils = { cancelled: false };
           ((module.cancel = (0, CollaborationMergeUtils.chaining)(
             module.cancel,
-            () => (s.cancelled = true)
+            () => (GFileDownloadUtils.cancelled = true)
           )),
             await (0, CollaborationMergeUtils.resolveDocumentImages)(
               a,
               T.IMAGES_WAIT_TIMEOUT,
-              s
+              GFileDownloadUtils
             ).catch(() => {
-              s.cancelled
+              GFileDownloadUtils.cancelled
                 ? _interopRequireDefault()
                 : _interopRequireDefault(
                     new Error(
@@ -132756,7 +133290,8 @@ function (exports, module, require) {
                   );
             }));
           var l = GCore.GNode.serialize(a, { save: true });
-          (null === l || '' === l || l.length < 1 || s.cancelled) && _interopRequireDefault();
+          (null === l || '' === l || l.length < 1 || GFileDownloadUtils.cancelled) &&
+            _interopRequireDefault();
           var TYPES = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
           TYPES.byteLength > 20 ? n(TYPES) : _interopRequireDefault();
         }),
@@ -132790,8 +133325,8 @@ function (exports, module, require) {
       a
     ) {
       const CollaborationMergeUtils = e.map(() => 0),
-        s = e.length,
-        l = 100 / s,
+        GFileDownloadUtils = e.length,
+        l = 100 / GFileDownloadUtils,
         TYPES = {};
       let d = gDesigner.getActiveDocument();
       (d || (d = gDesigner.newInfiniteDocument()),
@@ -132800,18 +133335,21 @@ function (exports, module, require) {
           GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.downloading-files')),
           true
         ),
-        TYPES.progressInfo('0/'.concat(s)));
+        TYPES.progressInfo('0/'.concat(GFileDownloadUtils)));
       let u = 0,
-        g = false;
-      const h = () => TYPES.progressInfo(''.concat(++u, '/').concat(s)),
-        f = () => TYPES.progressInfo(''.concat(++u, '/').concat(s)),
-        GSaveAsAction = () => (g = true),
+        GCloudStorage = false;
+      const h = () => TYPES.progressInfo(''.concat(++u, '/').concat(GFileDownloadUtils)),
+        f = () => TYPES.progressInfo(''.concat(++u, '/').concat(GFileDownloadUtils)),
+        GSaveAsAction = () => (GCloudStorage = true),
         v = e.map((e, GCore) => {
-          var s = _interopRequireDefault;
-          !s && this.fileRequiresSourceDownload(e) && (s = true);
+          var GFileDownloadUtils = _interopRequireDefault;
+          !GFileDownloadUtils && this.fileRequiresSourceDownload(e) && (GFileDownloadUtils = true);
           var d = {
-            ext: ((s && (e.extension || e.ext)) || t).toLowerCase(),
-            type: (s && ((e instanceof C && e.getMimeType()) || e.type)) || n,
+            ext: ((GFileDownloadUtils && (e.extension || e.ext)) || t).toLowerCase(),
+            type:
+              (GFileDownloadUtils &&
+                ((e instanceof GCloudStorageItem && e.getMimeType()) || e.type)) ||
+              n,
             version: a,
           };
           return this.downloadFile(
@@ -132844,7 +133382,7 @@ function (exports, module, require) {
           return n.catch((e) => Object.create({ file: t, status: 'rejected', error: e }));
         })
       );
-      if (g) return void d.updateStatus(p.default.DownloadCancelled);
+      if (GCloudStorage) return void d.updateStatus(p.default.DownloadCancelled);
       const AppSettings2 = AppSettings.filter((e) => e && 'rejected' === e.status);
       AppSettings2.length
         ? (d.updateStatus(p.default.DownloadFailed),
@@ -132960,13 +133498,17 @@ function (exports, module, require) {
         let a = true;
         try {
           var CollaborationMergeUtils,
-            s = [];
+            GFileDownloadUtils = [];
           let _interopRequireDefault = n.getSort();
           var l = n.view.getSearchValue();
           if (l) {
             if (n.hasMoreItemsToLoad()) {
               try {
-                s = await n.drive.fetchFiles(l, n.CURRENT_FILE_LOAD, _interopRequireDefault);
+                GFileDownloadUtils = await n.drive.fetchFiles(
+                  l,
+                  n.CURRENT_FILE_LOAD,
+                  _interopRequireDefault
+                );
               } catch (e) {
                 throw new Error(
                   GCore.GLocale.get(
@@ -132974,10 +133516,11 @@ function (exports, module, require) {
                   )
                 );
               }
-              ((CollaborationMergeUtils = (s = n._sortFilesByMimeType(s)).length),
+              ((CollaborationMergeUtils = (GFileDownloadUtils =
+                n._sortFilesByMimeType(GFileDownloadUtils)).length),
                 n._updateCurrentFileLoad(CollaborationMergeUtils));
             }
-            (s.forEach((e) => {
+            (GFileDownloadUtils.forEach((e) => {
               ((e._rootPath = '/ '.concat(n._getFullPathNames(e).join(' / '))),
                 n.addFile(e),
                 n.drive.itemRequiresLazyUpdate(e).then((t) => {
@@ -132992,15 +133535,17 @@ function (exports, module, require) {
             if (n.hasMoreItemsToLoad() && !n._showExampleFiles) {
               try {
                 ((await n.drive.getPreviousSelectedFolder()) || (a = false),
-                  (CollaborationMergeUtils = (s = await n.drive.fetchFiles(
+                  (CollaborationMergeUtils = (GFileDownloadUtils = await n.drive.fetchFiles(
                     null,
                     n.CURRENT_FILE_LOAD,
                     _interopRequireDefault
                   )).length),
                   n.isSaveMode() ||
                     n._isDashboard ||
-                    (s = s.concat(await n.drive.loadExampleFiles())),
-                  (s = n._sortFilesByMimeType(s)));
+                    (GFileDownloadUtils = GFileDownloadUtils.concat(
+                      await n.drive.loadExampleFiles()
+                    )),
+                  (GFileDownloadUtils = n._sortFilesByMimeType(GFileDownloadUtils)));
               } catch (e) {
                 if (
                   (console.error(e),
@@ -133018,15 +133563,17 @@ function (exports, module, require) {
                   throw new v.default(t);
                 }
                 (await n.setCloudDrive(E),
-                  (CollaborationMergeUtils = (s = await n.drive.fetchFiles(
+                  (CollaborationMergeUtils = (GFileDownloadUtils = await n.drive.fetchFiles(
                     null,
                     n.CURRENT_FILE_LOAD,
                     _interopRequireDefault
                   )).length),
                   n.isSaveMode() ||
                     n._isDashboard ||
-                    (s = s.concat(await n.drive.loadExampleFiles())),
-                  (s = n._sortFilesByMimeType(s)));
+                    (GFileDownloadUtils = GFileDownloadUtils.concat(
+                      await n.drive.loadExampleFiles()
+                    )),
+                  (GFileDownloadUtils = n._sortFilesByMimeType(GFileDownloadUtils)));
               }
               n._updateCurrentFileLoad(CollaborationMergeUtils);
             }
@@ -133040,11 +133587,11 @@ function (exports, module, require) {
                   !n._showRecentFiles &&
                   0 === CollaborationMergeUtils &&
                   !((await n.drive.hasFolders()) && !n.isRootFolder())),
-                n._showExampleFiles && (s = await n.drive.loadExampleFiles()),
-                0 === s.length && (n._showEmptyPanel = false),
+                n._showExampleFiles && (GFileDownloadUtils = await n.drive.loadExampleFiles()),
+                0 === GFileDownloadUtils.length && (n._showEmptyPanel = false),
                 n._buildFolder(module)),
               n.view.removeExampleFiles(),
-              s.forEach((e) => {
+              GFileDownloadUtils.forEach((e) => {
                 ((n.drive.isItemAllowedToBeRendered(e) || n._showExampleFiles) &&
                   n.addFile(e, false, n._showExampleFiles || n._showEmptyPanel),
                   n.drive.itemRequiresLazyUpdate(e).then((t) => {
@@ -133130,9 +133677,9 @@ function (exports, module, require) {
     (T.prototype.updateCloudItemForUserPermission = function (e) {
       return gDesigner.getApplicationManager().isOnlyFileOpenFromCloudEnabled() &&
         e &&
-        e instanceof C
-        ? (e.setPermissions(Object.values(C.Permission), false),
-          e.setPermission(C.Permission.Open),
+        e instanceof GCloudStorageItem
+        ? (e.setPermissions(Object.values(GCloudStorageItem.Permission), false),
+          e.setPermission(GCloudStorageItem.Permission.Open),
           e)
         : e;
     }),
@@ -133187,8 +133734,8 @@ function (exports, module, require) {
           this.updateFilesList(),
           this.drive.hasUserProfile())
         ) {
-          var s = await this.drive.getUser();
-          s && this.view.updateUserDetails(s);
+          var GFileDownloadUtils = await this.drive.getUser();
+          GFileDownloadUtils && this.view.updateUserDetails(GFileDownloadUtils);
         }
         (_interopRequireDefault &&
           _interopRequireDefault.removeEventListener(
@@ -133426,7 +133973,10 @@ function (exports, module, require) {
               void console.error(t)
             );
           }
-          if (e.SELECTION[0].getType && e.SELECTION[0].getType() === C.Type.Folder) {
+          if (
+            e.SELECTION[0].getType &&
+            e.SELECTION[0].getType() === GCloudStorageItem.Type.Folder
+          ) {
             let t = null;
             if (
               (e.SELECTION[0].getParentId() &&
@@ -133588,7 +134138,7 @@ function (exports, module, require) {
     }),
     (T.prototype.fileRequiresSourceDownload = function (e) {
       return !this.drive.getSupportedFileFormats().some((t) => {
-        var n = e instanceof C ? e.getMimeType() : e.type;
+        var n = e instanceof GCloudStorageItem ? e.getMimeType() : e.type;
         const _interopRequireDefault = e.extension || e.ext || null;
         return (
           t.type === n ||
@@ -133645,21 +134195,21 @@ function (exports, module, require) {
     Object.defineProperty(module, 'GFilesPanelViewBase', {
       enumerable: true,
       get: function () {
-        return a.default;
+        return GCloudFileBrowser.default;
       },
     }),
     Object.defineProperty(module, 'GFilesPanelViewNative', {
       enumerable: true,
       get: function () {
-        return i.default;
+        return GCloudFileBrowserDialog.default;
       },
     }),
     (module.default = undefined));
-  var i = _interopRequireDefault(require(1547) /* module_1547 */),
-    a = _interopRequireDefault(require(1300) /* module_1300 */);
+  var GCloudFileBrowserDialog = _interopRequireDefault(require(1547) /* GCloudFileBrowserDialog */),
+    GCloudFileBrowser = _interopRequireDefault(require(1300) /* GCloudFileBrowser */);
   module.default = {
-    GFilesPanelViewNative: i.default,
-    GFilesPanelViewBase: a.default,
+    GFilesPanelViewNative: GCloudFileBrowserDialog.default,
+    GFilesPanelViewBase: GCloudFileBrowser.default,
   };
 }
 ,
@@ -133671,7 +134221,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(96) /* polyfill_JSON_stringify */,
     require(8) /* polyfill_bundle_ES6 */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(107) /* polyfill_RegExp_test */,
     require(3) /* polyfill_RegExp_toString */,
@@ -133686,7 +134236,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* module */,
     GEditor = require(15) /* module */,
-    r = _interopRequireDefault(require(1300) /* module_1300 */),
+    GCloudFileBrowser = _interopRequireDefault(require(1300) /* GCloudFileBrowser */),
     s = require(1163) /* module_1163 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     c = require(593) /* module_593 */,
@@ -133699,34 +134249,35 @@ function (exports, module, require) {
         if (!t && e && e.__esModule) return e;
         var GCore,
           GEditor,
-          r = { __proto__: null, default: e };
-        if (null === e || ('object' != typeof e && 'function' != typeof e)) return r;
+          GCloudFileBrowser = { __proto__: null, default: e };
+        if (null === e || ('object' != typeof e && 'function' != typeof e))
+          return GCloudFileBrowser;
         if ((GCore = t ? _interopRequireDefault : require)) {
           if (GCore.has(e)) return GCore.get(e);
-          GCore.set(e, r);
+          GCore.set(e, GCloudFileBrowser);
         }
         for (const t in e)
           'default' !== t &&
             {}.hasOwnProperty.call(e, t) &&
             ((GEditor = (GCore = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) &&
             (GEditor.get || GEditor.set)
-              ? GCore(r, t, GEditor)
-              : (r[t] = e[t]));
-        return r;
+              ? GCore(GCloudFileBrowser, t, GEditor)
+              : (GCloudFileBrowser[t] = e[t]));
+        return GCloudFileBrowser;
       })(e, t);
     })(require(862) /* Exports_TYPES */),
     p = require(858); /* Exports_GFilesPanel */
-  const g = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     { CLOUD_DIALOG: h } = require(10) /* AppSettings */,
     { GPlatform: f } = require(15) /* module */,
     GContainer = require(85) /* GContainer */,
     { GRegex: y } = require(263) /* Exports_GRegex */,
     v = function () {
-      (r.default.apply(this, arguments),
+      (GCloudFileBrowser.default.apply(this, arguments),
         (this._lockEnter = false),
         this.panel.addClass('full-width'));
     };
-  GCore.GObject.inherit(v, r.default);
+  GCore.GObject.inherit(v, GCloudFileBrowser.default);
   var GMenu = require(238) /* GMenu */,
     GMenu2 = require(339); /* GMenu */
   ((v.prototype._lockEnter = false),
@@ -133836,7 +134387,7 @@ function (exports, module, require) {
         this._buildAdditionalContextMenu());
     }),
     (v.prototype._permissionChanged = function () {
-      r.default.prototype._permissionChanged.call(this);
+      GCloudFileBrowser.default.prototype._permissionChanged.call(this);
       const exports = this.panel.find('.header').find('.new-folder');
       if (this._isCreateFolderEnabled())
         (exports.attr(
@@ -133872,9 +134423,9 @@ function (exports, module, require) {
               : GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.untitled'))
           )
           .appendTo(GEditor);
-        const r = f.webBrowser === f.constructor.WebBrowser.Safari,
+        const GCloudFileBrowser = f.webBrowser === f.constructor.WebBrowser.Safari,
           s = gContainer.getRuntime() === GContainer.Runtime.IPad;
-        ((r || s) &&
+        ((GCloudFileBrowser || s) &&
           _interopRequireDefault.on('click', () => {
             _interopRequireDefault.focus();
           }),
@@ -133962,7 +134513,7 @@ function (exports, module, require) {
         require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
       const _interopRequireDefault = this._removeCDRExtensionFromFileName(e.name);
       var GEditor = this,
-        r = this.filesPanel.isItemSelected(e),
+        GCloudFileBrowser = this.filesPanel.isItemSelected(e),
         c = this.filesPanel.isItemInClipboard(e),
         GSystemDialog = null;
       GSystemDialog = module
@@ -133971,12 +134522,12 @@ function (exports, module, require) {
           ? this.panel.find('.g-example-files-list')
           : this.panel.find('.g-files-list');
       var u = $('<div/>')
-        .attr('draggable', e.hasPermission(g.Permission.CutPaste))
+        .attr('draggable', e.hasPermission(GCloudStorageItem.Permission.CutPaste))
         .attr('id', e.id)
         .addClass('g-gravit-file')
         .addClass('g-cloud-element')
         .addClass(e.id)
-        .addClass(r ? 'selected' : '')
+        .addClass(GCloudFileBrowser ? 'selected' : '')
         .addClass(c && this.filesPanel.isClipboardModeCut() ? 'cut' : '')
         .data('node', e)
         .attr('data-title', e._rootPath ? e._rootPath : _interopRequireDefault)
@@ -134032,7 +134583,7 @@ function (exports, module, require) {
           (y = GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.created'))))
         : ((GContainer = (0, s.dateToFilePreviewFormat)(e.updated ? e.updated : e.created)),
           (y = GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.updated'))));
-      var GMenu = e instanceof g && e.getSize(),
+      var GMenu = e instanceof GCloudStorageItem && e.getSize(),
         GMenu2 = '';
       if (GMenu && h.SHOW_FILE_SIZE_INFO) {
         var w = (0, CollaborationMergeUtils.getSizeInfo)(GMenu);
@@ -134045,7 +134596,7 @@ function (exports, module, require) {
               : (GMenu2 += (GMenu2 ? '' : ' ') + '< 1 KB');
       }
       var C = null;
-      (e instanceof g && (C = e.getPreviewURL()),
+      (e instanceof GCloudStorageItem && (C = e.getPreviewURL()),
         C || (C = e.url_t || e.url_s),
         C ? v.css('background-image', 'url("'.concat(C, '")')) : v.addClass('default-preview'));
       var x = $('<div/>').addClass('name-container').appendTo(u);
@@ -134104,7 +134655,7 @@ function (exports, module, require) {
               e.stopPropagation();
             })
             .appendTo(S),
-        e.hasPermission(g.Permission.Open) &&
+        e.hasPermission(GCloudStorageItem.Permission.Open) &&
           !this.filesPanel.isSaveMode() &&
           $('<button />')
             .addClass('open-design-button g-button cloud-button')
@@ -134198,7 +134749,7 @@ function (exports, module, require) {
     }),
     (v.prototype._checkItemPermission = function (e, t) {
       return (e instanceof Array ? e : [e]).every((e) =>
-        e instanceof g
+        e instanceof GCloudStorageItem
           ? e.hasPermission(t)
           : (console.error('Wrong check for file permission', e), true)
       );
@@ -134210,8 +134761,8 @@ function (exports, module, require) {
     }),
     (v.prototype._renameFile = function (e, t, n) {
       const _interopRequireDefault = this._removeCDRExtensionFromFileName(e.name),
-        r = this;
-      r.toggleLoading(false);
+        GCloudFileBrowser = this;
+      GCloudFileBrowser.toggleLoading(false);
       var s = t.find('input');
       (s.off('focusout'), s.off('keypress'));
       var CollaborationMergeUtils = t.find('div.name');
@@ -134229,7 +134780,7 @@ function (exports, module, require) {
         let n;
         return (
           (n =
-            e.getType() === g.Type.File
+            e.getType() === GCloudStorageItem.Type.File
               ? GCore.GLocale.get(
                   new GCore.GLocaleKey(
                     'GFilesPanel',
@@ -134252,7 +134803,10 @@ function (exports, module, require) {
           (s.hide(), CollaborationMergeUtils.show());
           let _interopRequireDefault,
             GEditor = s.val();
-          if (e.getType() === g.Type.File && !r._isUserInputValidFileName(GEditor))
+          if (
+            e.getType() === GCloudStorageItem.Type.File &&
+            !GCloudFileBrowser._isUserInputValidFileName(GEditor)
+          )
             return (
               GSystemDialog.default.alert(
                 GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'text.new-file-name-invalid'))
@@ -134260,55 +134814,55 @@ function (exports, module, require) {
               void s.val(c)
             );
           if (GEditor.trim() && GEditor.trim() !== e.name) {
-            r.toggleLoading(true);
+            GCloudFileBrowser.toggleLoading(true);
             try {
               let GCore = 0;
               const s = e.ext || e.extension;
-              if (r.filesPanel.drive.supportsSaveCollisionFlow())
-                if (e.getType() === g.Type.File) {
+              if (GCloudFileBrowser.filesPanel.drive.supportsSaveCollisionFlow())
+                if (e.getType() === GCloudStorageItem.Type.File) {
                   if (
-                    (await r.filesPanel.drive.fileExists(
+                    (await GCloudFileBrowser.filesPanel.drive.fileExists(
                       GEditor,
                       s,
-                      e.parent || r.filesPanel.drive.getRootFolder()
+                      e.parent || GCloudFileBrowser.filesPanel.drive.getRootFolder()
                     )) &&
                     !(await p(GEditor))
                   )
-                    return r._renameFile(e, t, n);
-                  if (r.filesPanel.drive.requiresOverwriteCollisionHandling())
+                    return GCloudFileBrowser._renameFile(e, t, n);
+                  if (GCloudFileBrowser.filesPanel.drive.requiresOverwriteCollisionHandling())
                     for (
                       _interopRequireDefault = GEditor;
-                      await r.filesPanel.drive.fileExists(
+                      await GCloudFileBrowser.filesPanel.drive.fileExists(
                         _interopRequireDefault,
                         s,
-                        e.parent || r.filesPanel.drive.getRootFolder()
+                        e.parent || GCloudFileBrowser.filesPanel.drive.getRootFolder()
                       );
                     )
                       _interopRequireDefault = ''.concat(GEditor, ' (').concat(++GCore, ')');
                 } else {
                   if (
-                    (await r.filesPanel.drive.folderExists(
+                    (await GCloudFileBrowser.filesPanel.drive.folderExists(
                       GEditor,
-                      e.parent || r.filesPanel.drive.getRootFolder()
+                      e.parent || GCloudFileBrowser.filesPanel.drive.getRootFolder()
                     )) &&
                     !(await p(GEditor))
                   )
-                    return r._renameFile(e, t, n);
-                  if (r.filesPanel.drive.requiresOverwriteCollisionHandling())
+                    return GCloudFileBrowser._renameFile(e, t, n);
+                  if (GCloudFileBrowser.filesPanel.drive.requiresOverwriteCollisionHandling())
                     for (
                       _interopRequireDefault = GEditor;
-                      await r.filesPanel.drive.folderExists(
+                      await GCloudFileBrowser.filesPanel.drive.folderExists(
                         _interopRequireDefault,
-                        e.parent || r.filesPanel.drive.getRootFolder()
+                        e.parent || GCloudFileBrowser.filesPanel.drive.getRootFolder()
                       );
                     )
                       _interopRequireDefault = ''.concat(GEditor, ' (').concat(++GCore, ')');
                 }
               (_interopRequireDefault || (_interopRequireDefault = GEditor),
-                await r.filesPanel.renameItem(e, _interopRequireDefault));
+                await GCloudFileBrowser.filesPanel.renameItem(e, _interopRequireDefault));
             } catch (e) {
               return (
-                r.toggleLoading(false),
+                GCloudFileBrowser.toggleLoading(false),
                 e && e.badName
                   ? void GSystemDialog.default.alert(e.message)
                   : (s.val(c),
@@ -134335,16 +134889,17 @@ function (exports, module, require) {
               (($(t).data('node').name = _interopRequireDefault),
                 $(t).attr('data-title', _interopRequireDefault),
                 $(t).find('div.name').text(_interopRequireDefault),
-                r._updateFileNamePreview(t, e));
+                GCloudFileBrowser._updateFileNamePreview(t, e));
             };
-            (e.getType() === g.Type.Folder
+            (e.getType() === GCloudStorageItem.Type.Folder
               ? u(t)
-              : $.each(r._rightSide.find('.'.concat(e.id)), (e, t) => {
+              : $.each(GCloudFileBrowser._rightSide.find('.'.concat(e.id)), (e, t) => {
                   u(t);
                 }),
-              r._fileInfoPanelIsOpen && r._updateFileInfoPanel(e, t, false),
-              r.filesPanel._triggerFileRenamed(e),
-              r.toggleLoading(false),
+              GCloudFileBrowser._fileInfoPanelIsOpen &&
+                GCloudFileBrowser._updateFileInfoPanel(e, t, false),
+              GCloudFileBrowser.filesPanel._triggerFileRenamed(e),
+              GCloudFileBrowser.toggleLoading(false),
               n && n());
           } else s.val(c);
         } catch (e) {
@@ -134375,7 +134930,7 @@ function (exports, module, require) {
     }),
     (v.prototype._isFolderSelected = function () {
       var e = this.filesPanel.getSelection();
-      return 1 === e.length && e[0].getType() === g.Type.Folder;
+      return 1 === e.length && e[0].getType() === GCloudStorageItem.Type.Folder;
     }),
     (v.prototype._getNativeMenuItems = function () {
       return [
@@ -134400,7 +134955,7 @@ function (exports, module, require) {
             (e.sender.setEnabled(1 === t.length),
               e.sender.setVisible(
                 !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                  this._checkItemPermission(t, g.Permission.Open)
+                  this._checkItemPermission(t, GCloudStorageItem.Permission.Open)
               ));
           },
         },
@@ -134419,7 +134974,7 @@ function (exports, module, require) {
             (e.sender.setEnabled(1 === t.length),
               e.sender.setVisible(
                 !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                  this._checkItemPermission(t, g.Permission.Rename)
+                  this._checkItemPermission(t, GCloudStorageItem.Permission.Rename)
               ));
           },
         },
@@ -134436,7 +134991,7 @@ function (exports, module, require) {
               this.filesPanel.isClipboardModeCut() || this.filesPanel.isClipboardModeCopy();
             (e.sender.setEnabled(require),
               e.sender.setVisible(
-                this._checkItemPermission(t, g.Permission.CutPaste) ||
+                this._checkItemPermission(t, GCloudStorageItem.Permission.CutPaste) ||
                   (0, c.hasRootFolderInSelections)(this.filesPanel.drive, t)
               ));
           },
@@ -134455,7 +135010,7 @@ function (exports, module, require) {
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
                 !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                  this._checkItemPermission(t, g.Permission.Copy)
+                  this._checkItemPermission(t, GCloudStorageItem.Permission.Copy)
               ));
           },
         },
@@ -134473,7 +135028,7 @@ function (exports, module, require) {
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
                 !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                  this._checkItemPermission(t, g.Permission.CutPaste)
+                  this._checkItemPermission(t, GCloudStorageItem.Permission.CutPaste)
               ));
           },
         },
@@ -134491,7 +135046,7 @@ function (exports, module, require) {
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
                 !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                  this._checkItemPermission(t, g.Permission.Delete)
+                  this._checkItemPermission(t, GCloudStorageItem.Permission.Delete)
               ));
           },
         },
@@ -134520,7 +135075,7 @@ function (exports, module, require) {
               e.sender.setEnabled(t.length > 0),
               e.sender.setVisible(
                 !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                  this._checkItemPermission(t, g.Permission.UnshareWithMe)
+                  this._checkItemPermission(t, GCloudStorageItem.Permission.UnshareWithMe)
               ));
           },
         },
@@ -134558,7 +135113,7 @@ function (exports, module, require) {
             e.sender.setEnabled(t.length > 0),
             e.sender.setVisible(
               !(0, c.hasRootFolderInSelections)(this.filesPanel.drive, t) &&
-                this._checkItemPermission(t, g.Permission.Download) &&
+                this._checkItemPermission(t, GCloudStorageItem.Permission.Download) &&
                 !this._isFolderSelected()
             ));
         });
@@ -134606,13 +135161,13 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(38)) /* stub_requires_680 */;
-  const o = require(156); /* module_156 */
+  const GCloudStorageItem = require(156); /* GCloudStorageItem */
   function i(e, t, n) {
-    var o;
+    var GCloudStorageItem;
     ((this._folder = e),
       (this._isRootFolder = n),
       (this._container = $('<div/>').addClass('g-container').data('node', e)),
-      (this._element = o =
+      (this._element = GCloudStorageItem =
         $('<div/>')
           .addClass('g-gravit-folder')
           .addClass('g-cloud-element')
@@ -134620,7 +135175,9 @@ function (exports, module, require) {
           .data('node', e)
           .appendTo(this._container)),
       (this._childrenContainer = $('<div/>').addClass('g-children').appendTo(this._container)),
-      (this._folderContainer = $('<div/>').addClass('folder-container').appendTo(o)),
+      (this._folderContainer = $('<div/>')
+        .addClass('folder-container')
+        .appendTo(GCloudStorageItem)),
       (this._folderState = $('<div />')
         .addClass('folder-state-icon')
         .appendTo(this._folderContainer)),
@@ -134647,7 +135204,7 @@ function (exports, module, require) {
         .on('mouseover', function (e) {
           e.stopPropagation();
         })
-        .appendTo(o)),
+        .appendTo(GCloudStorageItem)),
       this._update());
   }
   ((i.prototype._isRootFolder = false),
@@ -134778,7 +135335,7 @@ function (exports, module, require) {
             $(this).removeClass('drag-over');
             const i = t.originalEvent.dataTransfer,
               a = JSON.parse(i.getData('text'));
-            var r = o.from(a);
+            var r = GCloudStorageItem.from(a);
             e(r, require._folder);
           })
           .on('dragover', function (e) {
@@ -134816,10 +135373,10 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const o = require(1550); /* module_1550 */
+  const GFileInfoPanel = require(1550); /* GFileInfoPanel */
   function i() {}
   ((i.getRenderForFile = function (e) {
-    return new o();
+    return new GFileInfoPanel();
   }),
     (exports.exports = i));
 }
@@ -134836,7 +135393,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     a = require(1163) /* module_1163 */,
     r = _interopRequireDefault(require(1090) /* module_1090 */),
-    s = _interopRequireDefault(require(358) /* module_358 */),
+    GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10); /* AppSettings */
   const GObject = require(0) /* GObject */,
@@ -134928,7 +135485,7 @@ function (exports, module, require) {
           (0, a.dateToFilePreviewFormat)(t.created || v.created)
         )
       );
-      const _ = (v && s.default.getCommentsCount(v)) || 0;
+      const _ = (v && GAnnotationsUtils.default.getCommentsCount(v)) || 0;
       (_interopRequireDefault.text(_),
         GObject.text(
           GCore.GLocale.get(
@@ -135032,7 +135589,7 @@ function (exports, module, require) {
     (module.default = module.GGoogleDrive = module.GCloudDrive = undefined));
   var TYPES = _interopRequireDefault(require(862) /* Exports_TYPES */);
   const a = (module.GCloudDrive = TYPES.default);
-  var r = require(1553); /* module_1553 */
+  var r = require(1553); /* GGoogleDrive */
   module.GGoogleDrive = r;
   module.default = { GCloudDrive: a, GGoogleDrive: r };
 }
@@ -135050,20 +135607,20 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* module */,
-    a = _interopRequireDefault(require(163) /* module_163 */),
+    a = _interopRequireDefault(require(163) /* GDocument */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     s = _interopRequireDefault(require(86) /* module_86 */),
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
     c = _interopRequireDefault(require(355) /* module_355 */);
   const d = require(1554) /* RawValue */,
     u = require(1301) /* module_1301 */,
-    p = require(556) /* Item */,
-    g = require(156) /* module_156 */,
+    GGoogleDriveItem = require(556) /* GGoogleDriveItem */,
+    GCloudStorageItem = require(156) /* GCloudStorageItem */,
     h = require(1555) /* module_1555 */,
     GoogleDriveException = require(848) /* GoogleDriveException */,
     m = require(595) /* module_595 */,
     barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
-    v = require(119) /* module_119 */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     { gApi: _, CloudIntegration: b } = require(10) /* AppSettings */,
     { decrypt: w } = require(40) /* CollaborationMergeUtils */,
     GSystemDialog = require(44); /* GSystemDialog */
@@ -135210,7 +135767,7 @@ function (exports, module, require) {
     (S.prototype.getPreviousSelectedFolder = function () {
       return CloudException.default.prototype.getPreviousSelectedFolder
         .apply(this, arguments)
-        .then((e) => (e ? g.from(e) : e));
+        .then((e) => (e ? GCloudStorageItem.from(e) : e));
     }),
     (S.prototype._openFilePicker = function (e) {
       const module = this;
@@ -135315,7 +135872,7 @@ function (exports, module, require) {
     (S.prototype.getRootFolder = function () {
       return this.getCorporateStorage()
         ? this.getCorporateStorage()
-        : g.from({
+        : GCloudStorageItem.from({
             id: 'root',
             name: GCore.GLocale.get(new GCore.GLocaleKey('GFilesPanel', 'action.my-cloud')),
           });
@@ -135448,7 +136005,7 @@ function (exports, module, require) {
       var _interopRequireDefault = t ? this._getParentReference(t) : this._getParentContext();
       return this._search(
         u.from({
-          type: g.Type.Folder,
+          type: GCloudStorageItem.Type.Folder,
           limit: require > 0 ? require : 1e3,
           orderBy: S.SearchEngine.SortMap[e],
           parent: _interopRequireDefault,
@@ -135471,8 +136028,8 @@ function (exports, module, require) {
     (S.prototype._buildSearchQuery = function (e) {
       const module = new d();
       var n = e.hasValue('type') && e.type;
-      const _interopRequireDefault = n === g.Type.Folder,
-        GCore = n === g.Type.File;
+      const _interopRequireDefault = n === GCloudStorageItem.Type.Folder,
+        GCore = n === GCloudStorageItem.Type.File;
       return (
         _interopRequireDefault
           ? module.add('mimeType', '=', GoogleDriveException.MimeType.Folder)
@@ -135545,7 +136102,7 @@ function (exports, module, require) {
       });
     }),
     (S.prototype._convertToCloudItems = async function (e) {
-      return (e = e instanceof Array ? e : [e]).map((e) => p.convertToCloudItem(e));
+      return (e = e instanceof Array ? e : [e]).map((e) => GGoogleDriveItem.convertToCloudItem(e));
     }),
     (S.prototype.navigateToParentFolder = function () {
       var e = this._currentFolder.parent ? this._currentFolder.parent : null;
@@ -135574,7 +136131,7 @@ function (exports, module, require) {
       var _interopRequireDefault = n ? this._getParentReference(n) : this._getParentContext();
       return this._search(
         u.from({
-          type: g.Type.File,
+          type: GCloudStorageItem.Type.File,
           parent: _interopRequireDefault,
           exactname: ''.concat(e, '.').concat(t),
           fileExtension: t,
@@ -135583,9 +136140,9 @@ function (exports, module, require) {
     }),
     (S.prototype.folderExists = function (e, t) {
       var n = t ? this._getParentReference(t) : this._getParentContext();
-      return this._search(u.from({ type: g.Type.Folder, parent: n, exactname: e })).then(
-        (e) => !!e.getItems().length
-      );
+      return this._search(
+        u.from({ type: GCloudStorageItem.Type.Folder, parent: n, exactname: e })
+      ).then((e) => !!e.getItems().length);
     }),
     (S.prototype.getRawFile = function (e, t, n) {
       return this._googleDriveClient.getFile(
@@ -135596,8 +136153,8 @@ function (exports, module, require) {
       );
     }),
     (S.prototype._createStorageItem = async function (e, t, n) {
-      const _interopRequireDefault = t && (await v.createUint8ArrayFromBlob(t));
-      return new p.Item(gDesigner.getDefaultStorage(), e, _interopRequireDefault, n);
+      const _interopRequireDefault = t && (await GCloudStorage.createUint8ArrayFromBlob(t));
+      return new GGoogleDriveItem.Item(gDesigner.getDefaultStorage(), e, _interopRequireDefault, n);
     }),
     (S.prototype.openFile = async function (e, t) {
       return new Promise(
@@ -135647,11 +136204,11 @@ function (exports, module, require) {
               : n.updateStatus(s.default.SaveFailed),
             d(GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.error-saving-file'))));
         };
-        var p = new a.default();
+        var GGoogleDriveItem = new a.default();
         try {
           require = require || this.getDefaultFileFormat().ext.toUpperCase();
-          var g = e.getScene();
-          (g.getActivePage().getGeometryBBox() ||
+          var GCloudStorageItem = e.getScene();
+          (GCloudStorageItem.getActivePage().getGeometryBBox() ||
             d(
               GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.error-emtpy-infinite-canvas')
@@ -135671,42 +136228,48 @@ function (exports, module, require) {
           barrel_purchase_urls && (GoogleDriveException.driveId = barrel_purchase_urls.id);
           var h = await this._createStorageItem(GoogleDriveException);
           (h.setCloudClient(this._googleDriveClient),
-            gDesigner.addDocument(p),
-            p.setSynchronizing(true),
-            p.setTitle(t),
-            p.updateStatus(s.default.Saving));
-          const v = GCore.GNode.store(g, _interopRequireDefault);
-          v.cfs = false;
-          const _ = JSON.stringify(v);
-          return p
-            .deserializeData(_)
+            gDesigner.addDocument(GGoogleDriveItem),
+            GGoogleDriveItem.setSynchronizing(true),
+            GGoogleDriveItem.setTitle(t),
+            GGoogleDriveItem.updateStatus(s.default.Saving));
+          const GCloudStorage = GCore.GNode.store(GCloudStorageItem, _interopRequireDefault);
+          GCloudStorage.cfs = false;
+          const _ = JSON.stringify(GCloudStorage);
+          return GGoogleDriveItem.deserializeData(_)
             .then(async () => {
-              (e.getFileFormatVersion() && p.setFileFormatVersion(e.getFileFormatVersion()),
+              (e.getFileFormatVersion() &&
+                GGoogleDriveItem.setFileFormatVersion(e.getFileFormatVersion()),
                 CloudException && CloudException(s.default.Loaded),
                 (_interopRequireDefault =
-                  p.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
+                  GGoogleDriveItem.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
                 h.write(
-                  p,
+                  GGoogleDriveItem,
                   async () => {
                     (e && e.getEditor() && gDesigner.removeDocument(e, null, true),
-                      p.setStorageItem(h),
-                      await p.saveAnnotations(m, true),
-                      p.setSynchronizing(false),
+                      GGoogleDriveItem.setStorageItem(h),
+                      await GGoogleDriveItem.saveAnnotations(m, true),
+                      GGoogleDriveItem.setSynchronizing(false),
                       CloudException && CloudException(s.default.Saved),
                       gDesigner.hasEventListeners(GDocumentEvent.default) &&
                         (gDesigner.trigger(
-                          new GDocumentEvent.default(GDocumentEvent.default.Type.Modified, p)
+                          new GDocumentEvent.default(
+                            GDocumentEvent.default.Type.Modified,
+                            GGoogleDriveItem
+                          )
                         ),
                         gDesigner.trigger(
-                          new GDocumentEvent.default(GDocumentEvent.default.Type.Activated, p)
+                          new GDocumentEvent.default(
+                            GDocumentEvent.default.Type.Activated,
+                            GGoogleDriveItem
+                          )
                         )),
                       gDesigner.addToRecentFiles(h),
-                      p.updateStatus(s.default.Saved),
+                      GGoogleDriveItem.updateStatus(s.default.Saved),
                       c());
                   },
                   () => {
                     (console.error('>>>saveNewFile write error', arguments),
-                      p.setSynchronizing(false),
+                      GGoogleDriveItem.setSynchronizing(false),
                       CloudException && CloudException(s.default.SaveFailed),
                       d());
                   },
@@ -135714,9 +136277,9 @@ function (exports, module, require) {
                   _interopRequireDefault
                 ));
             })
-            .catch((t) => u(t, p, e));
+            .catch((t) => u(t, GGoogleDriveItem, e));
         } catch (t) {
-          u(t, p, e);
+          u(t, GGoogleDriveItem, e);
         }
       });
     }),
@@ -135756,7 +136319,7 @@ function (exports, module, require) {
       }
       return this._search(
         u.from({
-          type: g.Type.File,
+          type: GCloudStorageItem.Type.File,
           limit: this.getQueryLimit(),
           orderBy: S.SearchEngine.SortMap[n],
           nextPageToken: t ? GCore && GCore.nextPageToken : '',
@@ -135766,10 +136329,10 @@ function (exports, module, require) {
       );
     }),
     (S.prototype.isItemAllowedToBeRendered = function (e) {
-      return e.hasPermission(g.Permission.Download);
+      return e.hasPermission(GCloudStorageItem.Permission.Download);
     }),
     (S.prototype.isFileAllowedToBeOpened = function (e) {
-      return e.hasPermission(g.Permission.Download);
+      return e.hasPermission(GCloudStorageItem.Permission.Download);
     }),
     (S.prototype.supportsCorporateStorage = function () {
       return true;
@@ -135817,7 +136380,7 @@ function (exports, module, require) {
       return new GoogleDriveException(new m(e));
     }),
     (S.prototype.getSupportedFileFormats = function () {
-      return p.getSupportedFileFormats();
+      return GGoogleDriveItem.getSupportedFileFormats();
     }),
     (S.prototype.generatePreviousSelectedFolderPath = async function () {
       const exports = this.getCurrentFolder();
@@ -135931,16 +136494,19 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(38) /* stub_requires_680 */,
     require(97)) /* stub_requires_684 */;
-  const o = require(156) /* module_156 */,
+  const GCloudStorageItem = require(156) /* GCloudStorageItem */,
     i = require(1301); /* module_1301 */
   function a(e) {
-    var t, n, o;
-    if ((e && ((t = e.nextPageToken), (n = e.items), (o = e.query)), n && !this._isItemValid(n)))
+    var t, n, GCloudStorageItem;
+    if (
+      (e && ((t = e.nextPageToken), (n = e.items), (GCloudStorageItem = e.query)),
+      n && !this._isItemValid(n))
+    )
       throw Error('Must be a cloud item');
-    ((this.nextPageToken = t), (this.items = n || []), (this.query = o));
+    ((this.nextPageToken = t), (this.items = n || []), (this.query = GCloudStorageItem));
   }
   ((a.prototype._isItemValid = function (e) {
-    return !(e = e instanceof Array ? e : [e]).some((e) => (!e) instanceof o);
+    return !(e = e instanceof Array ? e : [e]).some((e) => (!e) instanceof GCloudStorageItem);
   }),
     (a.prototype.nextPageToken = null),
     (a.prototype.items = null),
@@ -135956,15 +136522,17 @@ function (exports, module, require) {
     (a.prototype.update = function (e) {
       var t = e.nextPageToken,
         n = e.items,
-        o = e.query;
+        GCloudStorageItem = e.query;
       if (!this._isItemValid(n)) throw Error('Must be a cloud item');
-      ((this.nextPageToken = t), (this.items = this.items.concat(n)), o && (this.query = o));
+      ((this.nextPageToken = t),
+        (this.items = this.items.concat(n)),
+        GCloudStorageItem && (this.query = GCloudStorageItem));
     }),
     (a.from = function (e) {
       var t = new a();
       return (
         (t = Object.assign(t, e)).query && (t.query = i.from(t.query)),
-        t.items && (t.items = t.items.map((e) => o.from(e))),
+        t.items && (t.items = t.items.map((e) => GCloudStorageItem.from(e))),
         t
       );
     }),
@@ -136073,8 +136641,8 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* module */,
     AppSettings = require(10) /* AppSettings */,
-    a = require(119) /* module_119 */,
-    r = require(163); /* module_163 */
+    GCloudStorage = require(119) /* GCloudStorage */,
+    GDocument = require(163); /* GDocument */
   const { debounce: s } = require(40) /* CollaborationMergeUtils */,
     l = AppSettings.FILE_FORMATS.find((e) => e.default);
   var c = {},
@@ -136121,10 +136689,9 @@ function (exports, module, require) {
         ));
     }
     _openPreset(e) {
-      return a
-        .loadDesignData(e.id)
+      return GCloudStorage.loadDesignData(e.id)
         .then((t) => {
-          var n = new r();
+          var n = new GDocument();
           return (
             gDesigner.addDocument(n),
             n.loadFromData(t.data),
@@ -136261,16 +136828,18 @@ function (exports, module, require) {
         this._loadBreadcrumbs(true),
         this._initMasonryLayoutColumns(u, p.AssetType.Category));
     }
-    _initMasonryLayoutColumns(e, t, n, a) {
-      var r = this._contentPanel.find('.assets-wrapper');
+    _initMasonryLayoutColumns(e, t, n, GCloudStorage) {
+      var GDocument = this._contentPanel.find('.assets-wrapper');
       if (
-        (0 === r.length &&
-          (r = $('<div/>').addClass('assets-wrapper')).appendTo(this._contentPanel),
-        a && (e = r.find('.column').children()).unwrap(),
+        (0 === GDocument.length &&
+          (GDocument = $('<div/>').addClass('assets-wrapper')).appendTo(this._contentPanel),
+        GCloudStorage && (e = GDocument.find('.column').children()).unwrap(),
         0 === e.length)
       )
         return;
-      this._wrapperWidth = r.css('width') ? parseInt(r.css('width').split('px')[0]) : 235;
+      this._wrapperWidth = GDocument.css('width')
+        ? parseInt(GDocument.css('width').split('px')[0])
+        : 235;
       var s,
         l = [],
         c = 1,
@@ -136281,7 +136850,7 @@ function (exports, module, require) {
         (u = 1 == c || c > 2 ? (s / this._wrapperWidth) * 100 + '%' : 'calc(50% - 32px)'),
         n)
       )
-        l = r.find('.column').toArray();
+        l = GDocument.find('.column').toArray();
       else
         for (var g = 0; g < c; g++) {
           var h = $('<div/>').addClass('column').css('width', u);
@@ -136291,7 +136860,7 @@ function (exports, module, require) {
         m = [];
       for (var y = 0; y < e.length; y++) {
         var v;
-        if (a) v = e[y];
+        if (GCloudStorage) v = e[y];
         else if (t === p.AssetType.Preset) {
           let t = e[y];
           var _ = $('<img/>')
@@ -136352,8 +136921,8 @@ function (exports, module, require) {
             .data('asset', n)).append(_);
         }
         const n = this._getSmallestColumnIndex(f),
-          r = $(v).data('asset'),
-          s = this._getThumbnailSize(r).getHeight();
+          GDocument = $(v).data('asset'),
+          s = this._getThumbnailSize(GDocument).getHeight();
         f[n] = (f[n] || 0) + s;
         const l = m[n] || [];
         (l.push(v), (m[n] = l));
@@ -136361,7 +136930,7 @@ function (exports, module, require) {
       (l.forEach((e, t) => {
         $(e).append(m[t]);
       }),
-        n || r.append(l),
+        n || GDocument.append(l),
         this._removeEmptyColumns());
     }
     _removeEmptyColumns() {
@@ -136495,7 +137064,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     GTools = require(53) /* module */,
     r = _interopRequireDefault(require(1561) /* module_1561 */),
-    s = _interopRequireDefault(require(177) /* module_177 */);
+    GUserModel = _interopRequireDefault(require(177) /* GUserModel */);
   const { gApi: l } = require(10); /* AppSettings */
   exports.exports = class {
     constructor(e, t) {
@@ -136584,7 +137153,7 @@ function (exports, module, require) {
     }
     async _updateUserName() {
       const exports = { name: this._firstName, last_name: this._lastName },
-        module = new s.default(exports);
+        module = new GUserModel.default(exports);
       (this._anonymous
         ? gContainer.setCookie({
             name: r.default.ANONYMOUS_USERNAME,
@@ -136841,7 +137410,7 @@ function (exports, module, require) {
     GConvertToRawPathAction = require(1320) /* GConvertToRawPathAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GAction = require(31) /* GAction */,
-    { replaceImage: N, setOriginSize: B, cropImage: U } = require(1268) /* module_1268 */,
+    { replaceImage: N, setOriginSize: B, cropImage: U } = require(1268) /* GImageManipulation */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   const GPasteAndReplaceAction = require(876); /* GPasteAndReplaceAction */
   ((a.prototype._contextMenuContainerTouch = null),
@@ -137946,7 +138515,7 @@ function (exports, module, require) {
     } = require(10) /* AppSettings */,
     { IS_TRUNK: _, IS_BETA: b, IS_RC: w, IS_LTS: C } = require(231) /* module_231 */,
     { sleep: x } = require(40) /* CollaborationMergeUtils */,
-    S = require(177) /* module_177 */,
+    GUserModel = require(177) /* GUserModel */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GContainer = require(85) /* GContainer */,
     T = require(388) /* Item */,
@@ -138173,7 +138742,7 @@ function (exports, module, require) {
           { created: GCore } = t;
         return p.gt(require, GCore, false) ? 1 : p.lt(require, GCore, false) ? -1 : 0;
       }).map((e) => {
-        const module = new S(e),
+        const module = new GUserModel(e),
           require = module.getUID(),
           GEditor = module.getEmail(),
           { guest: a = false } = e,
@@ -138482,7 +139051,7 @@ function (exports, module, require) {
       try {
         let t = await r
           .listUsers({ q: e, all: true })
-          .then((e) => e.filter((e) => e.id !== this._user.getUID()).map((e) => new S(e)));
+          .then((e) => e.filter((e) => e.id !== this._user.getUID()).map((e) => new GUserModel(e)));
         const a = t && t.length > 0;
         let s = true;
         if (a) {
@@ -138880,7 +139449,7 @@ function (exports, module, require) {
     a = require(220) /* Item */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     s = require(536) /* module_536 */,
-    l = require(177) /* module_177 */,
+    GUserModel = require(177) /* GUserModel */,
     GCollaborationEvent = require(393); /* GCollaborationEvent */
   var d = null;
   function u(e) {
@@ -138904,7 +139473,9 @@ function (exports, module, require) {
       return AppSettings.gApi.confirmEmail(e).then((e) => (this._removeUserCache(), e));
     }),
     (u.prototype.updateUser = function (e) {
-      return AppSettings.gApi.updateUser(e).then((e) => (this._removeUserCache(), new l(e)));
+      return AppSettings.gApi
+        .updateUser(e)
+        .then((e) => (this._removeUserCache(), new GUserModel(e)));
     }),
     (u.prototype.updateAvatar = function (e) {
       return AppSettings.gApi.updateAvatar(e).then((e) => (this._removeUserCache(), e));
@@ -138939,7 +139510,7 @@ function (exports, module, require) {
           () =>
             AppSettings.gApi
               .getUser()
-              .then((e) => new l(e))
+              .then((e) => new GUserModel(e))
               .catch(() => null),
           AppSettings.USER_CHECK_MIN_WAIT
         ));
@@ -139024,7 +139595,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(30) /* polyfill_Object_assign */, require(8)) /* polyfill_bundle_ES6 */;
   var GUtil = _interopRequireDefault(require(11) /* GUtil */);
-  require(1322) /* module_1322 */;
+  require(1322) /* GShareManager */;
   const GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
     r = require(1570) /* module_1570 */,
     s = require(392) /* module_392 */,
@@ -139455,7 +140026,7 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const o = require(1252) /* module_1252 */,
+  const GCrossFrameManager = require(1252) /* GCrossFrameManager */,
     i = require(1187) /* module_1187 */,
     { gApi: a } = require(10); /* AppSettings */
   exports.exports = class extends i {
@@ -139464,7 +140035,7 @@ function (exports, module, require) {
     }
     open() {
       if (this._isOpen()) return;
-      const exports = new o({ id: this._id, className: 'overlay' });
+      const exports = new GCrossFrameManager({ id: this._id, className: 'overlay' });
       (exports.open(this._url),
         exports.on('error', () => {
           exports.close();
@@ -139702,15 +140273,15 @@ function (exports, module, require) {
 ,
 function (exports, module, require) {
   'use strict';
-  const o = require(878) /* module_878 */,
-    i = require(879) /* module_879 */,
+  const GTouchEventHandler = require(878) /* GTouchEventHandler */,
+    GTouchClickGesture = require(879) /* GTouchClickGesture */,
     a = require(1329); /* module_1329 */
-  exports.exports = class extends o {
+  exports.exports = class extends GTouchEventHandler {
     constructor(e) {
       (super(e),
         this.addGesture(
-          new i({
-            doubleTapDetection: i.DetectionMode.Nearby,
+          new GTouchClickGesture({
+            doubleTapDetection: GTouchClickGesture.DetectionMode.Nearby,
             doubleTapThreshold: 200,
           })
         ),
@@ -139888,16 +140459,16 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var GTools = require(53); /* module */
-  const i = require(878) /* module_878 */,
-    a = require(1585) /* module_1585 */,
-    r = require(879) /* module_879 */,
+  const GTouchEventHandler = require(878) /* GTouchEventHandler */,
+    GTouchPinchZoomGesture = require(1585) /* GTouchPinchZoomGesture */,
+    GTouchClickGesture = require(879) /* GTouchClickGesture */,
     s = require(1586) /* module_1586 */,
     l = require(1329); /* module_1329 */
-  exports.exports = class extends i {
+  exports.exports = class extends GTouchEventHandler {
     constructor(e) {
       (super(e),
-        this.addGesture(new a()),
-        this.addGesture(new r()),
+        this.addGesture(new GTouchPinchZoomGesture()),
+        this.addGesture(new GTouchClickGesture()),
         this.addGesture(new l()),
         this.addGesture(new s()));
     }
@@ -140117,11 +140688,13 @@ function (exports, module, require) {
     ),
     A = _interopRequireDefault(require(1337) /* module_1337 */),
     T = _interopRequireDefault(require(1590) /* module_1590 */),
-    G = _interopRequireDefault(require(878) /* module_878 */),
-    P = _interopRequireDefault(require(879) /* module_879 */);
-  class D extends G.default {
+    GTouchEventHandler = _interopRequireDefault(require(878) /* GTouchEventHandler */),
+    GTouchClickGesture = _interopRequireDefault(require(879) /* GTouchClickGesture */);
+  class D extends GTouchEventHandler.default {
     constructor(e) {
-      (super(e), this.addGesture(new P.default()), this.setDelayedTouchEventsEnabled(false));
+      (super(e),
+        this.addGesture(new GTouchClickGesture.default()),
+        this.setDelayedTouchEventsEnabled(false));
     }
     _handleEvent(e) {
       (e.cancelable && (e.preventDefault(), e.stopPropagation()), super._handleEvent(e));
@@ -141080,10 +141653,10 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16)(
-    /* _interopRequireDefault */ require(879) /* module_879 */
+    /* _interopRequireDefault */ require(879) /* GTouchClickGesture */
   );
-  const i = require(878); /* module_878 */
-  exports.exports = class extends i {
+  const GTouchEventHandler = require(878); /* GTouchEventHandler */
+  exports.exports = class extends GTouchEventHandler {
     constructor(e) {
       (super(e),
         this.addGesture(new _interopRequireDefault.default()),
@@ -141120,7 +141693,7 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* AppSettings */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    r = require(604) /* module_604 */,
+    GProfileDialog = require(604) /* GProfileDialog */,
     s = require(337) /* stub_requires_1098 */,
     { GLocale: l, GLocaleKey: c } = require(1); /* module */
   exports.exports = class {
@@ -141133,9 +141706,9 @@ function (exports, module, require) {
         const t = await gDesigner.getUser();
         t &&
           gDesigner.executeWhenReady(() => {
-            new r(t, r.Tabs.ChangePassword, {
+            new GProfileDialog(t, GProfileDialog.Tabs.ChangePassword, {
               token: exports,
-              tabs: [r.Tabs.ChangePassword],
+              tabs: [GProfileDialog.Tabs.ChangePassword],
               closeable: false,
               changePasswordOptions: {
                 autoClose: true,
@@ -141158,7 +141731,7 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* AppSettings */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    r = require(604) /* module_604 */,
+    GProfileDialog = require(604) /* GProfileDialog */,
     s = require(337); /* stub_requires_1098 */
   exports.exports = class {
     async execute() {
@@ -141170,9 +141743,9 @@ function (exports, module, require) {
         const t = await gDesigner.getUser();
         t &&
           gDesigner.executeWhenReady(() => {
-            new r(t, r.Tabs.ChangePassword, {
+            new GProfileDialog(t, GProfileDialog.Tabs.ChangePassword, {
               token: exports,
-              tabs: [r.Tabs.ChangePassword],
+              tabs: [GProfileDialog.Tabs.ChangePassword],
             }).open();
           });
       } catch (e) {
@@ -142043,7 +142616,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     GEditor = require(15) /* module */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
-    r = require(163) /* module_163 */,
+    GDocument = require(163) /* GDocument */,
     s = (require(449) /* GFitAllAction */, require(31)) /* GAction */;
   function l() {}
   (GCore.GObject.inherit(l, s),
@@ -142085,7 +142658,7 @@ function (exports, module, require) {
         if (module.length > 0) {
           var require = gDesigner.createScene();
           (require.getActivePage().setProperties(['bck', 'w', 'h'], [GCore.GRGBColor.WHITE, 0, 0]),
-            gDesigner.addDocument(new r(require)));
+            gDesigner.addDocument(new GDocument(require)));
           var GEditor = gDesigner.getActiveDocument().getEditor();
           GEditor.beginTransaction();
           try {
@@ -142418,7 +142991,7 @@ function (exports, module, require) {
     i = (require(15) /* module */, require(67)) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    s = require(1245); /* module_1245 */
+    GCustomFontImporter = require(1245); /* GCustomFontImporter */
   function l() {
     l.TOOLTIP_CONFIG = {
       [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
@@ -142464,7 +143037,7 @@ function (exports, module, require) {
       );
     }),
     (l.prototype.execute = function (e, t) {
-      (e = e || new s()).import(t);
+      (e = e || new GCustomFontImporter()).import(t);
     }),
     (l.prototype.getTooltipArea = function () {
       return i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
@@ -142790,7 +143363,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    r = require(1275) /* module_1275 */,
+    GSettingsDialog = require(1275) /* GSettingsDialog */,
     Action_edit_settings = require(1277); /* Action_edit_settings */
   function l() {}
   (GCore.GObject.inherit(l, GAction),
@@ -142812,7 +143385,7 @@ function (exports, module, require) {
       return gDesigner.isTouchEnabled() ? 'gravit-icon-setting-touch' : '';
     }),
     (l.prototype.execute = async function () {
-      new r().then((e) => e.open());
+      new GSettingsDialog().then((e) => e.open());
     }),
     (l.prototype.toString = function () {
       return '[Object GSettingsAction]';
@@ -143082,7 +143655,7 @@ function (exports, module, require) {
     require(34)) /* polyfill_String_replace */;
   var GCore = require(1) /* module */,
     GEditor = require(15) /* module */,
-    r = _interopRequireDefault(require(1618) /* module_1618 */),
+    ScreenfulJS = _interopRequireDefault(require(1618) /* ScreenfulJS */),
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
@@ -143124,7 +143697,7 @@ function (exports, module, require) {
     isEnabled() {
       return (
         !!gDesigner.getActiveDocument() &&
-        r.default.enabled &&
+        ScreenfulJS.default.enabled &&
         !this._isErrorMessageDisplaying &&
         !this._isLoading
       );
@@ -143167,10 +143740,10 @@ function (exports, module, require) {
         } else
           (this._setShouldExitFullScreen(true),
             document.addEventListener(
-              r.default.raw.fullscreenchange,
+              ScreenfulJS.default.raw.fullscreenchange,
               this._browserFullScreenModeChangeHandlerBind
             ),
-            r.default.request(this._overlay[0]));
+            ScreenfulJS.default.request(this._overlay[0]));
     }
     changeActivePage(e, t) {
       const require = gDesigner
@@ -143178,7 +143751,7 @@ function (exports, module, require) {
         .getNextPage(e);
       require
         ? e.setActivePage(require)
-        : t === GChangeActivePageAction.default.Type.Next && r.default.exit();
+        : t === GChangeActivePageAction.default.Type.Next && ScreenfulJS.default.exit();
     }
     _getScene() {
       gDesigner.toggleLoading(true);
@@ -143265,7 +143838,7 @@ function (exports, module, require) {
         this._widget.release(),
         document.removeEventListener('keydown', this._keyDownHandlerBind, true),
         document.removeEventListener(
-          r.default.raw.fullscreenchange,
+          ScreenfulJS.default.raw.fullscreenchange,
           this._browserFullScreenModeChangeHandlerBind
         ),
         window.removeEventListener('unhandledrejection', this._fullScreenRequestDeniedHandlerBind),
@@ -143273,14 +143846,14 @@ function (exports, module, require) {
         this._setIsLoading(false));
     }
     _browserFullScreenModeChangeHandler() {
-      r.default.isFullscreen ? this._enterPlayMode() : this._exitPlayMode();
+      ScreenfulJS.default.isFullscreen ? this._enterPlayMode() : this._exitPlayMode();
     }
     _exitFullScreen() {
       if (gContainer.getRuntime() === GContainer.default.Runtime.Electron) {
         require(881) /* module_881 */
           .remote.getCurrentWindow()
           .setFullScreen(false);
-      } else r.default.exit();
+      } else ScreenfulJS.default.exit();
     }
     _setIsInPlayMode(e) {
       this._isInPlayMode = e;
@@ -143484,7 +144057,7 @@ function (exports, module, require) {
     GAction = require(31) /* GAction */,
     c = require(219) /* module_219 */,
     GContainer = require(85) /* GContainer */,
-    u = require(119); /* module_119 */
+    GCloudStorage = require(119); /* GCloudStorage */
   const GSystemDialog = require(44) /* GSystemDialog */,
     { isExecutingOnMSTeamsSync: g } = a.default;
   function h(e, t) {
@@ -143533,7 +144106,7 @@ function (exports, module, require) {
             ? gDesigner.isAnonymous()
               ? (e(), this._reloadApp())
               : t()
-            : u.performLogin().then((e) => {
+            : GCloudStorage.performLogin().then((e) => {
                 e && t();
               });
         });
@@ -143648,7 +144221,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    r = require(119); /* module_119 */
+    GCloudStorage = require(119); /* GCloudStorage */
   function s() {}
   (GCore.GObject.inherit(s, GAction),
     (s.ID = 'file.open-from-template'),
@@ -143667,7 +144240,7 @@ function (exports, module, require) {
     }),
     (s.prototype.isEnabled = function () {
       return (
-        r.isOnline() &&
+        GCloudStorage.isOnline() &&
         !gDesigner.isOffline(6e5) &&
         gDesigner.getApplicationManager().isCreatingNewDocumentEnabled()
       );
@@ -144014,7 +144587,7 @@ function (exports, module, require) {
     GAction = require(31); /* GAction */
   const c = require(1152) /* Item */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    u = require(1631) /* module_1631 */,
+    GSharepointCheckInDialog = require(1631) /* GSharepointCheckInDialog */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   function g() {}
   (GCore.GObject.inherit(g, GAction),
@@ -144062,7 +144635,7 @@ function (exports, module, require) {
         const t = e.getStorageItem(),
           n = t.getCloudClient(),
           _interopRequireDefault = await n.getLibrarySettings();
-        await u.openCheckInDialog(_interopRequireDefault).then(async (n) => {
+        await GSharepointCheckInDialog.openCheckInDialog(_interopRequireDefault).then(async (n) => {
           let { ok: _interopRequireDefault, comment: GCore, type: a } = n;
           _interopRequireDefault &&
             (await t.checkIn(GCore, a),
@@ -144483,7 +145056,7 @@ function (exports, module, require) {
     require(41)) /* stub_requires_682 */;
   var GCore = require(1) /* module */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-    r = _interopRequireDefault(require(163) /* module_163 */),
+    GDocument = _interopRequireDefault(require(163) /* GDocument */),
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     GElementAction = _interopRequireDefault(require(106) /* GElementAction */);
   function c(e) {
@@ -144524,7 +145097,7 @@ function (exports, module, require) {
       const require = gDesigner.getActiveDocument();
       if (!require) return false;
       e = e || require.getStorage() || gDesigner.getDefaultStorage();
-      const _interopRequireDefault = r.default.FileTypes.filter((e) => e.import_image);
+      const _interopRequireDefault = GDocument.default.FileTypes.filter((e) => e.import_image);
       try {
         let GCore;
         ((GCore =
@@ -144549,7 +145122,7 @@ function (exports, module, require) {
   var GCore = require(1); /* module */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    r = require(1640) /* module_1640 */,
+    GTranslationToolDialog = require(1640) /* GTranslationToolDialog */,
     { IS_TRUNK: s, IS_LOCALHOST: l } = require(231); /* module_231 */
   function c() {}
   (GCore.GObject.inherit(c, GAction),
@@ -144575,7 +145148,8 @@ function (exports, module, require) {
       return !(!s && !l);
     }),
     (c.prototype.execute = function () {
-      (this._translationTool || (this._translationTool = new r()), this._translationTool.init());
+      (this._translationTool || (this._translationTool = new GTranslationToolDialog()),
+        this._translationTool.init());
     }),
     (c.prototype.toString = function () {
       return '[Object GTranslationToolAction]';
@@ -144601,7 +145175,7 @@ function (exports, module, require) {
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
   var GCore = require(1) /* module */,
-    a = _interopRequireDefault(require(1343) /* module_1343 */),
+    GTranslationManager = _interopRequireDefault(require(1343) /* GTranslationManager */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   function l() {}
@@ -144761,20 +145335,26 @@ function (exports, module, require) {
                 n.append(
                   Object.keys(this._translation.translations[e]).map((_interopRequireDefault) => {
                     let GCore = $('<div></div>').addClass('row'),
-                      a = this._translation.translations[e][_interopRequireDefault];
+                      GTranslationManager =
+                        this._translation.translations[e][_interopRequireDefault];
                     const GSystemDialog =
                       this._translation.translationsTemporary &&
                       this._translation.translationsTemporary[e] &&
                       this._translation.translationsTemporary[e][_interopRequireDefault];
-                    let CollaborationMergeUtils = !(!GSystemDialog || (a && a.trim()));
+                    let CollaborationMergeUtils = !(
+                      !GSystemDialog ||
+                      (GTranslationManager && GTranslationManager.trim())
+                    );
                     if (
-                      ((a = CollaborationMergeUtils ? GSystemDialog : a),
+                      ((GTranslationManager = CollaborationMergeUtils
+                        ? GSystemDialog
+                        : GTranslationManager),
                       $('<input></input>')
                         .addClass('key')
                         .attr('disabled', true)
                         .attr('placeholder', 'Key')
                         .val(_interopRequireDefault)
-                        .attr('data-title', a)
+                        .attr('data-title', GTranslationManager)
                         .appendTo(GCore),
                       CollaborationMergeUtils &&
                         GCore.append(
@@ -144799,7 +145379,7 @@ function (exports, module, require) {
                             (this._hasUnappliedChanges = true));
                         })
                         .attr('placeholder', 'Translation')
-                        .val(a)
+                        .val(GTranslationManager)
                         .appendTo(GCore),
                       module)
                     ) {
@@ -144923,7 +145503,7 @@ function (exports, module, require) {
           .concat(e, '.csv')
           .toLocaleLowerCase(),
         await this._translationManager.export(
-          a.default.FormatTypes.CSV,
+          GTranslationManager.default.FormatTypes.CSV,
           this._currentLanguage,
           this._onlyExportEmptyStrings
         )
@@ -146439,11 +147019,11 @@ function (exports, module, require) {
     a = (require(67) /* GRichTooltipConfig */, require(238)) /* GMenu */,
     r =
       (require(1151) /* GSwatchesChangedEvent */,
-      require(857) /* module_857 */,
+      require(857) /* GInputSliderWidget */,
       require(173) /* stub_requires_1 */,
       require(877) /* GPasteAction */,
       require(44)) /* GSystemDialog */,
-    s = require(1150); /* module_1150 */
+    s = require(1150); /* GPatternChooser */
   function l() {
     (this.initLayout(),
       this._container.gOverlay({
@@ -147026,8 +147606,8 @@ function (exports, module, require) {
     GGravitCloudAction = require(448) /* GGravitCloudAction */,
     GSaveAsAction = require(445) /* GSaveAsAction */,
     c = require(86) /* module_86 */,
-    d = require(163) /* module_163 */,
-    u = require(119) /* module_119 */,
+    GDocument = require(163) /* GDocument */,
+    GCloudStorage = require(119) /* GCloudStorage */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
     h = (require(446) /* module_446 */, require(44)) /* GSystemDialog */,
@@ -147485,7 +148065,7 @@ function (exports, module, require) {
                                 t,
                                 (e, n) => {
                                   if (e !== t || n) {
-                                    var GCore = new d(this._document.getStorageItem());
+                                    var GCore = new GDocument(this._document.getStorageItem());
                                     (GCore.setScene(e),
                                       gDesigner.replaceDocument(this._document, GCore));
                                   } else
@@ -147743,7 +148323,7 @@ function (exports, module, require) {
         var e = this._document;
         gDesigner.getDefaultStorage().canSave()
           ? this._document.isNew()
-            ? u.createFile(e, (t) => {
+            ? GCloudStorage.createFile(e, (t) => {
                 (e.getScene().setCloudSynchronization(t.id),
                   gDesigner.executeAction(
                     GSaveAsAction.ID + v,
@@ -147751,7 +148331,7 @@ function (exports, module, require) {
                       null,
                       e,
                       () => {
-                        u.renameFile(t, e.getTitle(), () => {
+                        GCloudStorage.renameFile(t, e.getTitle(), () => {
                           e.storeToCloud(e.getScene(), this._updateProperties.bind(this));
                         });
                       },
@@ -147764,7 +148344,7 @@ function (exports, module, require) {
               ? gDesigner.executeAction(GSaveAsAction.ID + v, undefined, undefined.true)
               : this._document.hasCloudReference()
                 ? console.warn('Enable Sync for referenced file')
-                : u.createFile(e, (t) => {
+                : GCloudStorage.createFile(e, (t) => {
                     (e.getScene().setCloudSynchronization(t.id),
                       e.storeToCloud(e.getScene(), () => {
                         e.store();
@@ -147801,7 +148381,7 @@ function (exports, module, require) {
       gDesigner.getUser().then((t) => {
         t
           ? e()
-          : u.performLogin().then((t) => {
+          : GCloudStorage.performLogin().then((t) => {
               t && e();
             });
       });
@@ -147825,7 +148405,7 @@ function (exports, module, require) {
     a = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     s = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
-  require(1162) /* module_1162 */;
+  require(1162) /* GBorderProperties */;
   function l() {
     this._elements = [];
   }
@@ -148520,7 +149100,7 @@ function (exports, module, require) {
     GCreateSymbolAction = require(608) /* GCreateSymbolAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GSidebar = require(806) /* GSidebar */,
-    p = require(395); /* module_395 */
+    GSidebarContainer = require(395); /* GSidebarContainer */
   function g() {
     GSidebar.call(this);
   }
@@ -148544,7 +149124,7 @@ function (exports, module, require) {
       return !!gDesigner.getApplicationManager().isEditingEnabled();
     }),
     (g.prototype.getOrientation = function () {
-      return p.Orientation.Left;
+      return GSidebarContainer.Orientation.Left;
     }),
     (g.prototype.getMinimumWidth = function () {
       return 250;
@@ -148775,9 +149355,9 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GSidebar = require(806) /* GSidebar */,
-    s = require(395) /* module_395 */,
-    l = require(1663) /* module_1663 */,
-    c = require(119); /* module_119 */
+    GSidebarContainer = require(395) /* GSidebarContainer */,
+    GLibraryAssetsPanel = require(1663) /* GLibraryAssetsPanel */,
+    GCloudStorage = require(119); /* GCloudStorage */
   const GNetworkAvailabilityChangedEvent = require(291); /* GNetworkAvailabilityChangedEvent */
   function u() {
     GSidebar.call(this);
@@ -148796,13 +149376,13 @@ function (exports, module, require) {
       return u.TITLE;
     }),
     (u.prototype.isEnabled = function () {
-      return c.isOnline();
+      return GCloudStorage.isOnline();
     }),
     (u.prototype.isVisible = function () {
       return !!gDesigner.getApplicationManager().isEditingEnabled();
     }),
     (u.prototype.getOrientation = function () {
-      return s.Orientation.Left;
+      return GSidebarContainer.Orientation.Left;
     }),
     (u.prototype.getMinimumWidth = function () {
       return 250;
@@ -148872,11 +149452,11 @@ function (exports, module, require) {
           .css('overflow', 'auto')
           .appendTo(e))),
         this._libraryPanel.toggleClass('offline', gDesigner.isOffline()),
-        c.isOnline()
+        GCloudStorage.isOnline()
           ? (this._libraryPanel.hasClass('unavailable') &&
               (this._libraryPanel.removeClass('unavailable'), this._libraryPanel.empty()),
             gDesigner.isOffline() ||
-              ((this._libraryPanelInstance = new l(this._libraryPanel)),
+              ((this._libraryPanelInstance = new GLibraryAssetsPanel(this._libraryPanel)),
               (this._initialized = true)))
           : (this._libraryPanel.addClass('unavailable'),
             $('<span/>')
@@ -150112,7 +150692,7 @@ function (exports, module, require) {
     GView = require(394) /* GView */,
     s = require(1321) /* module_1321 */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
-    c = require(860) /* module_860 */,
+    GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
     d = require(1667); /* Type */
   function u() {}
   (GCore.GObject.inherit(u, GPanel),
@@ -150245,11 +150825,11 @@ function (exports, module, require) {
           );
         (s.find('#signup-link').on('click', () => {
           (gDesigner.stats('open-shared_click_create-account'),
-            new c(GPanel).open({ anonymous: true, signup: true, animate: true }));
+            new GEmbeddedLogin(GPanel).open({ anonymous: true, signup: true, animate: true }));
         }),
           s.find('#signin-link').on('click', () => {
             (gDesigner.stats('open-shared_click_login'),
-              new c(GPanel).open({ anonymous: true, animate: true }));
+              new GEmbeddedLogin(GPanel).open({ anonymous: true, animate: true }));
           }),
           s.find('#learnmore-link').on('click', (e) => {
             (gDesigner.stats('open-shared_click_learn-more'),
@@ -150349,7 +150929,7 @@ function (exports, module, require) {
     GUnloadEvent = require(1346) /* GUnloadEvent */,
     u = require(1348) /* StatusChangedEvent */,
     GSystemDialog = require(44) /* GSystemDialog */,
-    g = require(177) /* module_177 */,
+    GUserModel = require(177) /* GUserModel */,
     { DateAPI: h, ShareRoles: f } = require(10); /* AppSettings */
   function m() {}
   (GCore.GObject.inherit(m, GPanel),
@@ -150671,7 +151251,7 @@ function (exports, module, require) {
     (m.prototype._showRequestPanel = async function () {
       const exports = await this._document.getCollaborativeTextController().getCurrentLock();
       if (!exports) return this._document.getCollaborativeTextController().resetTextEditing();
-      const module = new g(exports.user);
+      const module = new GUserModel(exports.user);
       this._htmlElement.empty().append(
         $('<div/>')
           .addClass('container')
@@ -151523,18 +152103,18 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   const o = require(1244) /* module_1244 */,
-    i = require(1679) /* module_1679 */,
-    a = require(1682) /* module_1682 */,
+    GCleverbridgePurchaseManager = require(1679) /* GCleverbridgePurchaseManager */,
+    GWindowsStorePurchaseManager = require(1682) /* GWindowsStorePurchaseManager */,
     r = require(1683); /* module_1683 */
   exports.exports = class {
     static newInAppPurchase(e) {
       switch (e) {
         case o.Windows:
-          return new a();
+          return new GWindowsStorePurchaseManager();
         case o.Apple:
           return new r();
         default:
-          return new i();
+          return new GCleverbridgePurchaseManager();
       }
     }
   };
@@ -151555,7 +152135,7 @@ function (exports, module, require) {
     } = require(10) /* AppSettings */,
     GApplicationStatusEvent = require(808) /* GApplicationStatusEvent */,
     d = require(292) /* module_292 */,
-    u = require(604) /* module_604 */,
+    GProfileDialog = require(604) /* GProfileDialog */,
     GOfflineDialog = require(256) /* GOfflineDialog */,
     g = require(1680) /* module_1680 */,
     h = require(1681) /* module_1681 */,
@@ -151620,7 +152200,7 @@ function (exports, module, require) {
                   return (
                     this._paymentFlow.step(
                       gDesigner.executeWhenReady(() => {
-                        new u(this._user, 'purchase').open();
+                        new GProfileDialog(this._user, 'purchase').open();
                       })
                     ),
                     void n({ reinstate: true })
@@ -152422,45 +153002,45 @@ function (exports, module, require) {
 }
 ,
 function (exports, module, require) {
-  (require(1695) /* module_1695 */,
-    require(1696) /* module_1696 */,
-    require(1697) /* module_1697 */,
-    require(1698) /* module_1698 */,
-    require(1700) /* module_1700 */,
-    require(1701) /* module_1701 */,
-    require(1702) /* module_1702 */,
+  (require(1695) /* GAutoEditWidget */,
+    require(1696) /* GBlendModeChooser */,
+    require(1697) /* GCornerTypeChooser */,
+    require(1698) /* GEyeDropper */,
+    require(1700) /* GFontsDialog */,
+    require(1701) /* GFontsPanelWidget */,
+    require(1702) /* GInputBox */,
     require(1703) /* module_1703 */,
     require(1704) /* module_1704 */,
-    require(1705) /* module_1705 */,
-    require(1706) /* module_1706 */,
-    require(1711) /* module_1711 */,
-    require(1712) /* module_1712 */,
+    require(1705) /* GUnitBoxWidget */,
+    require(1706) /* GLayerPanel */,
+    require(1711) /* GLayersPanelWidget */,
+    require(1712) /* GAnnotationPanel */,
     require(1714) /* module_1714 */,
     require(1715) /* module_1715 */,
-    require(1716) /* module_1716 */,
-    require(1717) /* module_1717 */,
-    require(1718) /* module_1718 */,
+    require(1716) /* GMentionsInput */,
+    require(1717) /* GPagePanel */,
+    require(1718) /* GSymbolsPanel */,
     require(1719) /* module_1719 */,
     require(1720) /* module_1720 */,
-    require(1721) /* module_1721 */,
-    require(1722) /* module_1722 */,
-    require(1723) /* module_1723 */,
+    require(1721) /* GMenuButtonWidget */,
+    require(1722) /* GOverlayPlugin */,
+    require(1723) /* GPatternTargetWidget */,
     require(1724) /* module_1724 */,
-    require(1725) /* module_1725 */,
+    require(1725) /* GPropertyRowWidget */,
     require(1263) /* module_1263 */,
     require(1726) /* module_1726 */,
-    require(1727) /* module_1727 */,
-    require(1728) /* module_1728 */,
-    require(857) /* module_857 */,
+    require(1727) /* GDialogWidget */,
+    require(1728) /* GRichTooltip */,
+    require(857) /* GInputSliderWidget */,
     require(1729) /* module_1729 */,
     require(1730) /* module_1730 */,
-    require(1731) /* module_1731 */,
-    require(1732) /* module_1732 */,
+    require(1731) /* GStyleEditor */,
+    require(1732) /* GUserDetailsOverlay */,
     require(1733) /* module_1733 */,
     require(1337) /* module_1337 */,
-    require(1734) /* module_1734 */,
-    require(1292) /* module_1292 */,
-    require(1735) /* module_1735 */,
+    require(1734) /* GRoleSelectorWidget */,
+    require(1292) /* GCollaboratorsWidget */,
+    require(1735) /* GPageButtonWidget */,
     require(1736) /* module_1736 */,
     require(1737)) /* module_1737 */;
 }
@@ -153253,9 +153833,9 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    barrel_sidebars = require(255) /* barrel_sidebars */,
-    r = require(1118) /* module_1118 */,
-    s = require(1199) /* module_1199 */,
+    GFontsProviderManager = require(255) /* GFontsProviderManager */,
+    GCustomFontsProvider = require(1118) /* GCustomFontsProvider */,
+    s = require(1199) /* GLocalFontsProvider */,
     GContainer = require(85) /* GContainer */,
     GSystemDialog = require(44); /* GSystemDialog */
   const { GPlatform: d } = require(15); /* module */
@@ -153314,7 +153894,7 @@ function (exports, module, require) {
     },
     g = function (e, t) {
       let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
-      var r = $('<a></a>')
+      var GCustomFontsProvider = $('<a></a>')
           .data('provider', t)
           .addClass('tablinks')
           .append(GCore.GLocale.get(e))
@@ -153332,17 +153912,17 @@ function (exports, module, require) {
                       GCore.GLocale.get(e, undefined, GCore.GLocaleLanguage.English)
                     );
                 var CollaborationMergeUtils = $(t.target),
-                  r = CollaborationMergeUtils.closest('.tab');
-                (r.find('.tablinks').removeClass('active'),
+                  GCustomFontsProvider = CollaborationMergeUtils.closest('.tab');
+                (GCustomFontsProvider.find('.tablinks').removeClass('active'),
                   CollaborationMergeUtils.addClass('active'));
                 var GContainer = CollaborationMergeUtils.data('provider');
                 if (GContainer)
                   (GContainer == s && u._showLocalFontsAccessDialog(),
-                    barrel_sidebars.enableProviders([GContainer]));
+                    GFontsProviderManager.enableProviders([GContainer]));
                 else {
                   var GSystemDialog = [];
                   if (
-                    (r.find('.tablinks:not(.active)').each(function () {
+                    (GCustomFontsProvider.find('.tablinks:not(.active)').each(function () {
                       var e = $(this).data('provider');
                       e && GSystemDialog.push(e);
                     }),
@@ -153351,7 +153931,7 @@ function (exports, module, require) {
                     var d = gContainer.getSystemFontsProvider();
                     d || GSystemDialog.push(d);
                   }
-                  GSystemDialog.length && barrel_sidebars.disableProviders(GSystemDialog);
+                  GSystemDialog.length && GFontsProviderManager.disableProviders(GSystemDialog);
                 }
               },
               () => !require,
@@ -153364,7 +153944,7 @@ function (exports, module, require) {
         GContainer = $('<li></li>')
           .addClass('tablink')
           .gPro({ pro: !!require, feature: require })
-          .append(r);
+          .append(GCustomFontsProvider);
       return GContainer;
     },
     h = function (e, t) {
@@ -153419,7 +153999,11 @@ function (exports, module, require) {
                 .append(g(new GCore.GLocaleKey('GFontsButton', 'text.web-fonts')));
               if (
                 (t.append(
-                  g(new GCore.GLocaleKey('GFontsButton', 'text.imported-fonts'), r, 'font.import')
+                  g(
+                    new GCore.GLocaleKey('GFontsButton', 'text.imported-fonts'),
+                    GCustomFontsProvider,
+                    'font.import'
+                  )
                 ),
                 gContainer.supportsLocalFonts() &&
                   t.append(g(new GCore.GLocaleKey('GFontsButton', 'text.system-fonts'), s)),
@@ -153445,7 +154029,9 @@ function (exports, module, require) {
           .on(
             'close',
             function (e, t, n) {
-              barrel_sidebars.getInstance() && barrel_sidebars.getInstance().getLock() && t();
+              GFontsProviderManager.getInstance() &&
+                GFontsProviderManager.getInstance().getLock() &&
+                t();
             }.bind(e)
           );
       }
@@ -153491,15 +154077,15 @@ function (exports, module, require) {
                   var GCore = n.data('gfontsbutton');
                   if (GCore && GCore.fontList) {
                     var CollaborationMergeUtils = GCore.fontList,
-                      barrel_sidebars = GCore.fontListContainer,
-                      r = e.which || e.keyCode;
-                    40 === r
+                      GFontsProviderManager = GCore.fontListContainer,
+                      GCustomFontsProvider = e.which || e.keyCode;
+                    40 === GCustomFontsProvider
                       ? CollaborationMergeUtils.gFontsPanel('selectLower')
-                      : 38 === r
+                      : 38 === GCustomFontsProvider
                         ? CollaborationMergeUtils.gFontsPanel('selectUpper')
-                        : 13 === r &&
-                          barrel_sidebars &&
-                          (barrel_sidebars.gOverlay('close', t),
+                        : 13 === GCustomFontsProvider &&
+                          GFontsProviderManager &&
+                          (GFontsProviderManager.gOverlay('close', t),
                           n.data('gfontsbutton').options.closeCallback.call(t));
                   }
                 })
@@ -153521,16 +154107,16 @@ function (exports, module, require) {
                         t
                       ),
                       GCore.gFontsPanel('refresh'));
-                  var barrel_sidebars = function () {
+                  var GFontsProviderManager = function () {
                     (GCore.gFontsPanel('selection', n.val()),
                       GCore.gFontsPanel('focusCurrent'),
                       n.select());
                   };
                   0 === GCore.gFontsPanel('fontsLength')
                     ? setTimeout(function () {
-                        barrel_sidebars();
+                        GFontsProviderManager();
                       }, 100)
-                    : barrel_sidebars();
+                    : GFontsProviderManager();
                 }));
           }),
           this
@@ -153559,8 +154145,8 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    a = require(1200) /* module_1200 */,
-    barrel_sidebars = require(255); /* barrel_sidebars */
+    GFontListFormatter = require(1200) /* GFontListFormatter */,
+    GFontsProviderManager = require(255); /* GFontsProviderManager */
   function s(e, t) {
     var n = $(this);
     (n.empty(), (n.data('g-fonts-panel').lastPreviewPosition = 0), l.call(this, e, t));
@@ -153568,9 +154154,9 @@ function (exports, module, require) {
   function l(e, t) {
     var n = $(this),
       GCore = this,
-      a = n.data('g-fonts-panel'),
-      barrel_sidebars = e.faces;
-    if (barrel_sidebars) {
+      GFontListFormatter = n.data('g-fonts-panel'),
+      GFontsProviderManager = e.faces;
+    if (GFontsProviderManager) {
       var s = function (e, t, n) {
           if (t && '_SPECIAL_' === t.getAttribute('name')) e.stopPropagation();
           else {
@@ -153581,7 +154167,8 @@ function (exports, module, require) {
               );
             (gDesigner.stats('fontspanel_click_setfont', n.family),
               p.selection.call(GCore, n.family),
-              a.options.changeCallback && a.options.changeCallback(n),
+              GFontListFormatter.options.changeCallback &&
+                GFontListFormatter.options.changeCallback(n),
               e.preventDefault());
           }
         },
@@ -153589,8 +154176,8 @@ function (exports, module, require) {
       t && t.length && (l = t);
       var u = [],
         g = [];
-      for (let e = 0; e < barrel_sidebars.length; ++e) {
-        const t = barrel_sidebars[e];
+      for (let e = 0; e < GFontsProviderManager.length; ++e) {
+        const t = GFontsProviderManager[e];
         var h = $('<div></div>')
           .addClass('fonts-row')
           .data('font', t)
@@ -153608,7 +154195,7 @@ function (exports, module, require) {
         (u.push(h),
           t.cachedPreview
             ? ($('<div></div>').addClass('preview').append(t.cachedPreview).appendTo(h),
-              (a.lastPreviewPosition += 22))
+              (GFontListFormatter.lastPreviewPosition += 22))
             : t.addPreviewCallback && ((t.row = h), g.push(t)));
       }
       var f = 0;
@@ -153627,7 +154214,7 @@ function (exports, module, require) {
             this.cachedPreview ||
               ((e instanceof Element || e instanceof jQuery) &&
                 ((this.cachedPreview = e),
-                (a.lastPreviewPosition += 22),
+                (GFontListFormatter.lastPreviewPosition += 22),
                 (function (e, t) {
                   null === c &&
                     (c = setTimeout(function () {
@@ -153667,7 +154254,7 @@ function (exports, module, require) {
         this.each(function () {
           var t = this,
             n = gDesigner.getWorkspace().getFontManager().getDefaultFont().getFamily(),
-            GCore = barrel_sidebars.getInstance(),
+            GCore = GFontsProviderManager.getInstance(),
             CollaborationMergeUtils = $(this)
               .empty()
               .addClass('g-fonts-panel')
@@ -153678,7 +154265,7 @@ function (exports, module, require) {
                 changeCallback: e.changeCallback || null,
                 manager: GCore,
               });
-          (GCore.addEventListener(barrel_sidebars.ResetEvent, () => {
+          (GCore.addEventListener(GFontsProviderManager.ResetEvent, () => {
             (CollaborationMergeUtils.addClass('g-loading'),
               GCore.query((e) => {
                 (s.call(t, e, n),
@@ -153690,11 +154277,11 @@ function (exports, module, require) {
               var e = CollaborationMergeUtils.scrollTop(),
                 n = CollaborationMergeUtils.data('g-fonts-panel'),
                 GCore = n.lastPreviewPosition,
-                a = CollaborationMergeUtils.height(),
-                barrel_sidebars = n.manager;
-              barrel_sidebars.isLoading() ||
-                (e / Math.max(1, GCore - a) > 0.7 &&
-                  barrel_sidebars.loadMore((e) => {
+                GFontListFormatter = CollaborationMergeUtils.height(),
+                GFontsProviderManager = n.manager;
+              GFontsProviderManager.isLoading() ||
+                (e / Math.max(1, GCore - GFontListFormatter) > 0.7 &&
+                  GFontsProviderManager.loadMore((e) => {
                     l.call(t, e, 'Open Sans');
                   }, n.search));
             }).on('focusin', function (e) {
@@ -153712,13 +154299,13 @@ function (exports, module, require) {
         return CollaborationMergeUtils.length ? CollaborationMergeUtils.data('font').family : null;
       }
       return (
-        n.find('.fonts-row').each(function (CollaborationMergeUtils, a) {
-          var barrel_sidebars = $(a),
-            s = barrel_sidebars.data('font').family === e;
-          if ((barrel_sidebars.toggleClass('g-selected', s), s)) {
+        n.find('.fonts-row').each(function (CollaborationMergeUtils, GFontListFormatter) {
+          var GFontsProviderManager = $(GFontListFormatter),
+            s = GFontsProviderManager.data('font').family === e;
+          if ((GFontsProviderManager.toggleClass('g-selected', s), s)) {
             var c = GCore.manager;
             if (
-              !barrel_sidebars.data('font').cachedPreview ||
+              !GFontsProviderManager.data('font').cachedPreview ||
               (CollaborationMergeUtils > 0 &&
                 !$(n.find('.fonts-row')[CollaborationMergeUtils - 1]).data('font').cachedPreview)
             )
@@ -153798,19 +154385,24 @@ function (exports, module, require) {
     refresh: function (e, t) {
       var n = $(this),
         CollaborationMergeUtils = n.data('g-fonts-panel'),
-        a = CollaborationMergeUtils.search ? CollaborationMergeUtils.search + '%' : '%';
-      a !== CollaborationMergeUtils.previousQuery &&
+        GFontListFormatter = CollaborationMergeUtils.search
+          ? CollaborationMergeUtils.search + '%'
+          : '%';
+      GFontListFormatter !== CollaborationMergeUtils.previousQuery &&
         (n.empty(),
         (CollaborationMergeUtils.lastPreviewPosition = 0),
         n.text(GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.loading')) + '...'),
         e && (CollaborationMergeUtils.search = null),
-        u.call(this, a, t));
+        u.call(this, GFontListFormatter, t));
     },
     stylesForFont: function (e, t) {
       var n = null,
         GCore = $(this).data('g-fonts-panel').manager;
       if (GCore.isCacheEmpty()) return void (t && GCore.query(t, '%', true));
-      let CollaborationMergeUtils = (0, a.getFontFamily)(e, GCore.searchFamilyInCache.bind(GCore));
+      let CollaborationMergeUtils = (0, GFontListFormatter.getFontFamily)(
+        e,
+        GCore.searchFamilyInCache.bind(GCore)
+      );
       if (
         CollaborationMergeUtils &&
         CollaborationMergeUtils.fonts &&
@@ -153818,19 +154410,23 @@ function (exports, module, require) {
       ) {
         n = [];
         for (
-          var barrel_sidebars = 0;
-          barrel_sidebars < CollaborationMergeUtils.fonts.length;
-          barrel_sidebars++
+          var GFontsProviderManager = 0;
+          GFontsProviderManager < CollaborationMergeUtils.fonts.length;
+          GFontsProviderManager++
         )
-          n.push(CollaborationMergeUtils.fonts[barrel_sidebars].style);
+          n.push(CollaborationMergeUtils.fonts[GFontsProviderManager].style);
       }
       return n;
     },
     stylesForWeight: function (e, t, n, GCore) {
       var CollaborationMergeUtils = null,
-        barrel_sidebars = $(this).data('g-fonts-panel').manager;
-      if (barrel_sidebars.isCacheEmpty()) return void (n && barrel_sidebars.query(n, '%', true));
-      let s = (0, a.getFontFamily)(t, barrel_sidebars.searchFamilyInCache.bind(barrel_sidebars));
+        GFontsProviderManager = $(this).data('g-fonts-panel').manager;
+      if (GFontsProviderManager.isCacheEmpty())
+        return void (n && GFontsProviderManager.query(n, '%', true));
+      let s = (0, GFontListFormatter.getFontFamily)(
+        t,
+        GFontsProviderManager.searchFamilyInCache.bind(GFontsProviderManager)
+      );
       if (s && s.fonts && s.fonts.length) {
         CollaborationMergeUtils = [];
         for (var l = 0; l < s.fonts.length; l++)
@@ -153846,17 +154442,21 @@ function (exports, module, require) {
         CollaborationMergeUtils = $(this).data('g-fonts-panel').manager;
       if (CollaborationMergeUtils.isCacheEmpty())
         return void (n && CollaborationMergeUtils.query(n, '%', true));
-      let barrel_sidebars = (0, a.getFontFamily)(
+      let GFontsProviderManager = (0, GFontListFormatter.getFontFamily)(
         t,
         CollaborationMergeUtils.searchFamilyInCache.bind(CollaborationMergeUtils)
       );
-      if (barrel_sidebars && barrel_sidebars.fonts && barrel_sidebars.fonts.length) {
+      if (
+        GFontsProviderManager &&
+        GFontsProviderManager.fonts &&
+        GFontsProviderManager.fonts.length
+      ) {
         GCore = [];
-        for (var s = 0; s < barrel_sidebars.fonts.length; s++)
-          barrel_sidebars.fonts[s].weight === e &&
+        for (var s = 0; s < GFontsProviderManager.fonts.length; s++)
+          GFontsProviderManager.fonts[s].weight === e &&
             GCore.push({
-              realName: barrel_sidebars.fonts[s].family || barrel_sidebars.family,
-              subFamily: barrel_sidebars.fonts[s].subfamily,
+              realName: GFontsProviderManager.fonts[s].family || GFontsProviderManager.family,
+              subFamily: GFontsProviderManager.fonts[s].subfamily,
             });
       }
       return GCore;
@@ -153866,30 +154466,32 @@ function (exports, module, require) {
         CollaborationMergeUtils = $(this).data('g-fonts-panel').manager;
       if (CollaborationMergeUtils.isCacheEmpty())
         return void (t && CollaborationMergeUtils.query(t, '%', true));
-      let barrel_sidebars = (0, a.getFontFamily)(
+      let GFontsProviderManager = (0, GFontListFormatter.getFontFamily)(
         e,
         CollaborationMergeUtils.searchFamilyInCache.bind(CollaborationMergeUtils)
       );
       if (
-        (barrel_sidebars.isLocalFont &&
-          ((barrel_sidebars.fonts = await (0, a.parseNativeFonts)(barrel_sidebars.fonts)),
-          delete barrel_sidebars.isLocalFont),
-        barrel_sidebars && barrel_sidebars.fonts && barrel_sidebars.fonts.length)
+        (GFontsProviderManager.isLocalFont &&
+          ((GFontsProviderManager.fonts = await (0, GFontListFormatter.parseNativeFonts)(
+            GFontsProviderManager.fonts
+          )),
+          delete GFontsProviderManager.isLocalFont),
+        GFontsProviderManager && GFontsProviderManager.fonts && GFontsProviderManager.fonts.length)
       ) {
         GCore = [];
-        for (var s = 0; s < barrel_sidebars.fonts.length; s++)
+        for (var s = 0; s < GFontsProviderManager.fonts.length; s++)
           (n &&
-            barrel_sidebars.fonts[s].hasOwnProperty('family') &&
-            barrel_sidebars.fonts[s].family === e &&
-            GCore.push(barrel_sidebars.fonts[s].weight),
-            GCore.push(barrel_sidebars.fonts[s].weight));
+            GFontsProviderManager.fonts[s].hasOwnProperty('family') &&
+            GFontsProviderManager.fonts[s].family === e &&
+            GCore.push(GFontsProviderManager.fonts[s].weight),
+            GCore.push(GFontsProviderManager.fonts[s].weight));
       }
       return GCore;
     },
     fontDisplayName: function (e, t) {
       var n = $(this).data('g-fonts-panel').manager;
       if (n.isCacheEmpty()) return void (t && n.query(t, '%', true));
-      let GCore = (0, a.getFontFamily)(e, n.searchFamilyInCache.bind(n));
+      let GCore = (0, GFontListFormatter.getFontFamily)(e, n.searchFamilyInCache.bind(n));
       return (GCore && (GCore.displayname || GCore.family)) || e;
     },
     fontsLength: function () {
@@ -154463,11 +155065,11 @@ function (exports, module, require) {
     r = require(15) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     l = require(67) /* GRichTooltipConfig */,
-    c = require(1351) /* module_1351 */,
+    GLayerItemUtils = require(1351) /* GLayerItemUtils */,
     d = _interopRequireDefault(require(565) /* module_565 */),
     GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
-    IdxIterator = require(451) /* IdxIterator */.GVirtualTree,
-    IdxIterator2 = require(451) /* IdxIterator */.GVirtualTreeNodeNamed,
+    p = require(451) /* GVirtualTree */.GVirtualTree,
+    g = require(451) /* GVirtualTree */.GVirtualTreeNodeNamed,
     { VTREE_FREE_HEIGHT: h, VTREE_FREE_HEIGHT_TOUCH: f } = require(10) /* AppSettings */,
     m = require(450) /* module_450 */,
     y = ['name'];
@@ -154483,17 +155085,24 @@ function (exports, module, require) {
               ? r.scene.getActivePage()
               : null,
           l = n ? T.call(this, n.id) : null,
-          c = [],
+          GLayerItemUtils = [],
           d = 0;
         d < _interopRequireDefault.length;
         ++d
       )
-        c.push(T.call(this, _interopRequireDefault[d].id));
+        GLayerItemUtils.push(T.call(this, _interopRequireDefault[d].id));
       var GSettingChangedEvent = [];
-      if ((GCore = r.options.canDropCallback(CollaborationMergeUtils, l, c, GSettingChangedEvent)))
+      if (
+        (GCore = r.options.canDropCallback(
+          CollaborationMergeUtils,
+          l,
+          GLayerItemUtils,
+          GSettingChangedEvent
+        ))
+      )
         for (d = 0; d < GSettingChangedEvent.length; ++d) {
-          var IdxIterator = GSettingChangedEvent[d];
-          GTools.push(_interopRequireDefault[IdxIterator]);
+          var p = GSettingChangedEvent[d];
+          GTools.push(_interopRequireDefault[p]);
         }
     }
     return GCore;
@@ -154560,9 +155169,9 @@ function (exports, module, require) {
   }
   function A(e) {
     var t = $(this);
-    e.id === IdxIterator.COLLAPSE_ID
+    e.id === p.COLLAPSE_ID
       ? $(e).addClass(t.data('glayerpanel').options.collapseStyle)
-      : e.id === IdxIterator.EXPAND_ID && $(e).addClass(t.data('glayerpanel').options.expandStyle);
+      : e.id === p.EXPAND_ID && $(e).addClass(t.data('glayerpanel').options.expandStyle);
   }
   function T(e) {
     var t = $(this).data('glayerpanel').layersTreeNodeMap[e];
@@ -154598,16 +155207,16 @@ function (exports, module, require) {
     if (CollaborationMergeUtils) {
       var {
           parentHidden: GSettingChangedEvent,
-          isHidden: IdxIterator,
-          lockType: IdxIterator2,
+          isHidden: p,
+          lockType: g,
           isOutlined: h,
           hasSelection: f,
-        } = (0, c.getLayerOrItemStatus)(CollaborationMergeUtils),
+        } = (0, GLayerItemUtils.getLayerOrItemStatus)(CollaborationMergeUtils),
         {
           container: y,
           title: v,
           titleGroup: _,
-        } = (0, c.buildLayerItemContainer)(n, CollaborationMergeUtils, f, t);
+        } = (0, GLayerItemUtils.buildLayerItemContainer)(n, CollaborationMergeUtils, f, t);
       r.element = _;
       var b = this;
       if (
@@ -154630,8 +155239,8 @@ function (exports, module, require) {
                   var r = _interopRequireDefault.vtree,
                     l = [];
                   for (GCore = 0; GCore < t.length; ++GCore) {
-                    var c = D.call(b, t[GCore]);
-                    c && l.push(c);
+                    var GLayerItemUtils = D.call(b, t[GCore]);
+                    GLayerItemUtils && l.push(GLayerItemUtils);
                   }
                   (r.setDragNodes(l),
                     setTimeout(
@@ -154658,7 +155267,7 @@ function (exports, module, require) {
           )),
           y.toggleClass('g-highlighted-row', w));
       }
-      !IdxIterator2 &&
+      !g &&
         gDesigner.getActiveDocument() &&
         gDesigner.getApplicationManager().isEditingEnabled() &&
         $(_).gAutoEdit({
@@ -154699,11 +155308,11 @@ function (exports, module, require) {
               ));
           })
           .appendTo(y);
-      var x = IdxIterator2 ? 'gravit-icon-lock' : 'gravit-icon-unlock';
+      var x = g ? 'gravit-icon-lock' : 'gravit-icon-unlock';
       ((x = gDesigner.isTouchEnabled() ? x + '-small' : x),
         $('<span></span>')
           .addClass('layer-action layer-lock ' + x)
-          .toggleClass('g-active', !!IdxIterator2)
+          .toggleClass('g-active', !!g)
           .attr(
             'data-title',
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.toggle-lock'))
@@ -154723,13 +155332,13 @@ function (exports, module, require) {
               learnMore: '',
             })
           ),
-        y.toggleClass('layer-hidden', IdxIterator));
-      var S = IdxIterator ? 'gravit-icon-hide' : 'gravit-icon-display';
+        y.toggleClass('layer-hidden', p));
+      var S = p ? 'gravit-icon-hide' : 'gravit-icon-display';
       if (
         ((S = gDesigner.isTouchEnabled() ? S + '-small' : S),
         $('<span></span>')
           .addClass('layer-action layer-visibility ' + S)
-          .toggleClass('g-active', IdxIterator)
+          .toggleClass('g-active', p)
           .attr(
             'data-title',
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.toggle-visibility'))
@@ -154845,7 +155454,7 @@ function (exports, module, require) {
     }
   }
   function k(e, t, n) {
-    var _interopRequireDefault = new IdxIterator2(e);
+    var _interopRequireDefault = new g(e);
     return (
       n && (_interopRequireDefault.expanded = true),
       $(this).data('glayerpanel').vtree.insertNodeBefore(t, _interopRequireDefault),
@@ -154853,7 +155462,7 @@ function (exports, module, require) {
     );
   }
   function O(e, t, n) {
-    var _interopRequireDefault = new IdxIterator2(e);
+    var _interopRequireDefault = new g(e);
     return (
       n && (_interopRequireDefault.expanded = true),
       $(this).data('glayerpanel').vtree.appendNode(t, _interopRequireDefault),
@@ -154893,8 +155502,13 @@ function (exports, module, require) {
       l = r ? D.call(this, r) : null;
     if (l) CollaborationMergeUtils = k.call(this, n, l, e.hasFlag(GCore.GNode.Flag.Expanded));
     else {
-      var c = e.getParent(),
-        d = !c || c instanceof GCore.GScene || c instanceof GCore.GPage ? null : D.call(this, c);
+      var GLayerItemUtils = e.getParent(),
+        d =
+          !GLayerItemUtils ||
+          GLayerItemUtils instanceof GCore.GScene ||
+          GLayerItemUtils instanceof GCore.GPage
+            ? null
+            : D.call(this, GLayerItemUtils);
       CollaborationMergeUtils = O.call(this, n, d, e.hasFlag(GCore.GNode.Flag.Expanded));
     }
     if (
@@ -155010,12 +155624,12 @@ function (exports, module, require) {
             _interopRequireDefault ||
               (_interopRequireDefault = e.flag === GCore.GNode.Flag.Active));
         } else if (!t.blockHighlight && e.flag === GCore.GNode.Flag.Highlighted) {
-          var c = e.node,
+          var GLayerItemUtils = e.node,
             d = function (e) {
               var t = D.call(this, e);
               return t && t.isVisible();
             }.bind(this);
-          (d(c) || c.findParent(d)) && (GTools = true);
+          (d(GLayerItemUtils) || GLayerItemUtils.findParent(d)) && (GTools = true);
         }
       if (
         gDesigner.getSetting('auto_expand_layers') &&
@@ -155118,7 +155732,7 @@ function (exports, module, require) {
           $(this)
             .addClass('g-layer-panel')
             .data('glayerpanel', {
-              vtree: new IdxIterator(
+              vtree: new p(
                 this,
                 E.bind(this),
                 e.nodeStyle,
@@ -155282,7 +155896,7 @@ function (exports, module, require) {
     },
     toggleLockStatusOfLayerOrItem: function (e) {
       gDesigner.stats('layers_change_locktype');
-      const { parentLockType: module } = (0, c.getLayerOrItemStatus)(e);
+      const { parentLockType: module } = (0, GLayerItemUtils.getLayerOrItemStatus)(e);
       if (!module || module === GCore.GBlock.LockType.Partial) {
         let n = e.getProperty('lkt');
         const _interopRequireDefault = e.getProperty('plkt');
@@ -155327,7 +155941,7 @@ function (exports, module, require) {
     },
     toggleHideStatusOfLayerOrItem: function (e) {
       gDesigner.stats('layers_toggle_visibility');
-      const { parentHidden: module } = (0, c.getLayerOrItemStatus)(e);
+      const { parentHidden: module } = (0, GLayerItemUtils.getLayerOrItemStatus)(e);
       if (!module) {
         const t = !e.getProperty('vis'),
           n = [];
@@ -155635,11 +156249,11 @@ function (exports, module, require) {
       (require(15) /* module */,
       require(40) /* CollaborationMergeUtils */,
       require(67) /* GRichTooltipConfig */,
-      require(1351)) /* module_1351 */,
-    IdxIterator = require(451) /* IdxIterator */.GVirtualTree,
+      require(1351)) /* GLayerItemUtils */,
+    a = require(451) /* GVirtualTree */.GVirtualTree,
     r =
-      (require(451) /* IdxIterator */.GVirtualTreeNode,
-      require(451) /* IdxIterator */.GVirtualTreeNodeNamed),
+      (require(451) /* GVirtualTree */.GVirtualTreeNode,
+      require(451) /* GVirtualTree */.GVirtualTreeNodeNamed),
     { VTREE_FREE_HEIGHT: s } = require(10); /* AppSettings */
   (require(173) /* stub_requires_1 */, require(450)) /* module_450 */;
   function l() {}
@@ -155663,10 +156277,9 @@ function (exports, module, require) {
   }
   function p(e) {
     var t = $(this);
-    e.id === IdxIterator.COLLAPSE_ID
+    e.id === a.COLLAPSE_ID
       ? $(e).addClass(t.data('gselectedpanel').options.collapseStyle)
-      : e.id === IdxIterator.EXPAND_ID &&
-        $(e).addClass(t.data('gselectedpanel').options.expandStyle);
+      : e.id === a.EXPAND_ID && $(e).addClass(t.data('gselectedpanel').options.expandStyle);
   }
   function g(e) {
     var t = h.call(this, e);
@@ -155678,10 +156291,10 @@ function (exports, module, require) {
   function f(e, t, n) {
     $(this).data('glayerpanel');
     var GCore = h.call(this, e),
-      IdxIterator = GCore ? GCore.node : null;
-    if (IdxIterator) {
-      var { hasSelection: r } = (0, i.getLayerOrItemStatus)(IdxIterator),
-        { titleGroup: s } = (0, i.buildLayerItemContainer)(n, IdxIterator, r, t);
+      a = GCore ? GCore.node : null;
+    if (a) {
+      var { hasSelection: r } = (0, i.getLayerOrItemStatus)(a),
+        { titleGroup: s } = (0, i.buildLayerItemContainer)(n, a, r, t);
       GCore.element = s;
     }
   }
@@ -155700,7 +156313,7 @@ function (exports, module, require) {
       t = e.vtree;
     t.beginUpdate();
     for (
-      var { elementHits: require, filteredElementHits: i, submenus: IdxIterator } = e.selections,
+      var { elementHits: require, filteredElementHits: i, submenus: a } = e.selections,
         r = (t, n, GCore) => {
           ((e.layersTreeNodeMap[GCore] = { element: null, node: n, treeNode: t }),
             e.layersTreeNodeMapByNodes.set(n, {
@@ -155718,11 +156331,11 @@ function (exports, module, require) {
         d =
           (c instanceof GCore.GBlock ? c.getLabel() : c.getNodeNameTranslated(),
           'temp-' + require.indexOf(i[s]));
-      if (IdxIterator[d]) {
+      if (a[d]) {
         r((p = m.call(this, l, null, true)), c, l);
-        for (let e = 0; e < IdxIterator[d].length; e++) {
+        for (let e = 0; e < a[d].length; e++) {
           var u = GCore.GUtil.uuid();
-          r(m.call(this, u, p, false), IdxIterator[d][e], u);
+          r(m.call(this, u, p, false), a[d][e], u);
         }
       } else {
         var p;
@@ -155768,7 +156381,7 @@ function (exports, module, require) {
           $(this)
             .addClass('g-selected-panel')
             .data('gselectedpanel', {
-              vtree: new IdxIterator(
+              vtree: new a(
                 this,
                 u.bind(this),
                 e.nodeStyle,
@@ -155846,17 +156459,17 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* module */,
     GCore = require(1) /* module */,
-    r = require(882) /* module_882 */,
+    GCollaborationMentionsUtils = require(882) /* GCollaborationMentionsUtils */,
     AppSettings = require(10) /* AppSettings */,
     GInvalidationOptions = _interopRequireDefault(require(1354) /* GInvalidationOptions */);
   const GSystemDialog = require(44) /* GSystemDialog */,
-    d = require(358) /* module_358 */,
+    GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
     u = require(1355) /* GSimpleTreeNodeNamed */,
     p = require(1713) /* module_1713 */,
-    g = require(1357) /* module_1357 */,
-    h = require(1356) /* module_1356 */,
+    GAnnotationReplyEditor = require(1357) /* GAnnotationReplyEditor */,
+    GAnnotationRow = require(1356) /* GAnnotationRow */,
     f = require(1279) /* module_1279 */,
-    m = require(177) /* module_177 */,
+    GUserModel = require(177) /* GUserModel */,
     y = ['text'];
   function v() {}
   function _(e) {
@@ -155941,7 +156554,7 @@ function (exports, module, require) {
   }
   function L(e, t, n) {
     const _interopRequireDefault = gDesigner.getApplicationManager().isCommentingEditingEnabled();
-    var r = $(this).data('gannotationpanel'),
+    var GCollaborationMentionsUtils = $(this).data('gannotationpanel'),
       AppSettings = S.call(this, e),
       GInvalidationOptions = AppSettings ? AppSettings.annot : null,
       u = null;
@@ -155953,7 +156566,7 @@ function (exports, module, require) {
         GInvalidationOptions.hasMixin(GCore.GAnnotation)
           ? f.addClass('parent')
           : f.addClass('child'),
-        !r.showResolved &&
+        !GCollaborationMentionsUtils.showResolved &&
           ((GInvalidationOptions.hasMixin(GCore.GAnnotation) &&
             GInvalidationOptions.getProperty('rsv')) ||
             (GInvalidationOptions instanceof GCore.GComment &&
@@ -155979,19 +156592,19 @@ function (exports, module, require) {
           ((GInvalidationOptions.hasMixin(GCore.GAnnotation) && !B(GInvalidationOptions).length) ||
             U(GInvalidationOptions)) &&
           (p = true),
-        !r.blockHighlight)
+        !GCollaborationMentionsUtils.blockHighlight)
       ) {
-        var m = GInvalidationOptions.hasFlag(GCore.GNode.Flag.Highlighted);
-        (!m &&
+        var GUserModel = GInvalidationOptions.hasFlag(GCore.GNode.Flag.Highlighted);
+        (!GUserModel &&
           GInvalidationOptions.hasMixin(GCore.GNode.Container) &&
-          (m = GInvalidationOptions.acceptChildren(
+          (GUserModel = GInvalidationOptions.acceptChildren(
             function (e) {
               return e.hasFlag(GCore.GNode.Flag.Highlighted);
             },
             false,
             true
           )),
-          $(f).toggleClass('g-highlighted-row', m));
+          $(f).toggleClass('g-highlighted-row', GUserModel));
       }
       var y = k.call(this, GInvalidationOptions),
         v = S.call(this, y);
@@ -156007,17 +156620,17 @@ function (exports, module, require) {
         v.annot.setFlag(GCore.GNode.Flag.Selected));
       var b = O.call(this, GInvalidationOptions);
       GInvalidationOptions.hasMixin(GCore.GAnnotation) &&
-        (u = I.call(this, GInvalidationOptions, r.showResolved));
-      var w = new h({
+        (u = I.call(this, GInvalidationOptions, GCollaborationMentionsUtils.showResolved));
+      var w = new GAnnotationRow({
         isCommentingEditingEnable: _interopRequireDefault,
         container: f,
         annotation: GInvalidationOptions,
         relatedNodesCount: b,
-        sidebarActive: r.sidebarActive,
+        sidebarActive: GCollaborationMentionsUtils.sidebarActive,
         isLastRow: p,
-        hasResolveAccess: r.vtree.hasResolveAccess(),
-        hasReopenAccess: r.vtree.hasReopenAccess(),
-        mentionData: r.vtree.getMentionData(),
+        hasResolveAccess: GCollaborationMentionsUtils.vtree.hasResolveAccess(),
+        hasReopenAccess: GCollaborationMentionsUtils.vtree.hasReopenAccess(),
+        mentionData: GCollaborationMentionsUtils.vtree.getMentionData(),
         onMouseEnter: () => {
           GInvalidationOptions.hasMixin(GCore.GAnnotation) &&
             !GInvalidationOptions.hasFlag(GCore.GAnnotation.Flag.Hidden) &&
@@ -156045,7 +156658,7 @@ function (exports, module, require) {
             (GTools.GEditor.tryRunTransaction(
               GInvalidationOptions,
               function () {
-                (r.showResolved ||
+                (GCollaborationMentionsUtils.showResolved ||
                   GInvalidationOptions.getProperty('rsv') ||
                   !GInvalidationOptions.hasFlag(GCore.GNode.Flag.Selected) ||
                   GInvalidationOptions.removeFlag(GCore.GNode.Flag.Selected),
@@ -156066,7 +156679,7 @@ function (exports, module, require) {
             (GTools.GEditor.tryRunTransaction(
               GInvalidationOptions,
               function () {
-                (!r.showResolved &&
+                (!GCollaborationMentionsUtils.showResolved &&
                   GInvalidationOptions.hasFlag(GCore.GNode.Flag.Selected) &&
                   GInvalidationOptions.removeFlag(GCore.GNode.Flag.Selected),
                   GInvalidationOptions.setProperty('rsv', true));
@@ -156094,7 +156707,7 @@ function (exports, module, require) {
               GCore.GLocale.get(new GCore.GLocaleKey('GAnnotationPanel', 'text.confirm-remove')),
               (e) => {
                 e &&
-                  d.removeAnnotations(
+                  GAnnotationsUtils.removeAnnotations(
                     [GInvalidationOptions],
                     GInvalidationOptions.getParent(),
                     GCore.GLocale.get(
@@ -156156,7 +156769,9 @@ function (exports, module, require) {
         },
         mainAnnotObject: v,
       });
-      ((AppSettings.element = f), (AppSettings.component = w), r.vtree.addChild(w));
+      ((AppSettings.element = f),
+        (AppSettings.component = w),
+        GCollaborationMentionsUtils.vtree.addChild(w));
     } else if (AppSettings && AppSettings.replyAnnot) {
       let e = $(n);
       if (
@@ -156164,17 +156779,17 @@ function (exports, module, require) {
         !_interopRequireDefault ||
           !AppSettings.replyAnnot.hasFlag(GCore.GNode.Flag.Selected) ||
           AppSettings.replyAnnot.getProperty('rsv') ||
-          (!r.showResolved && AppSettings.replyAnnot.getProperty('rsv')))
+          (!GCollaborationMentionsUtils.showResolved && AppSettings.replyAnnot.getProperty('rsv')))
       )
         return void e.hide();
       const t = !AppSettings.replyAnnot.isFillingCompleted(),
         GInvalidationOptions = (e) => {
           if (P() && (e.length || (t && AppSettings.replyAnnot.isEmptyTextAllowed()))) {
             let GSystemDialog = gDesigner.getSyncUser();
-            if (d.canUpdate(GSystemDialog)) {
-              const d = AppSettings.replyAnnot.getScene(),
-                u = d && GTools.GEditor.getEditor(d);
-              let p, g;
+            if (GAnnotationsUtils.canUpdate(GSystemDialog)) {
+              const GAnnotationsUtils = AppSettings.replyAnnot.getScene(),
+                u = GAnnotationsUtils && GTools.GEditor.getEditor(GAnnotationsUtils);
+              let p, GAnnotationReplyEditor;
               ((p = t
                 ? GCore.GLocale.get(
                     new GCore.GLocaleKey('GAnnotationPanel', 'text.set-annotation-text')
@@ -156195,8 +156810,11 @@ function (exports, module, require) {
                       replyAnnot: AppSettings.replyAnnot,
                       treeId: n,
                     };
-                  ((r.annotTreeNodeMap[n] = GInvalidationOptions),
-                    r.replyNodes.set(AppSettings.replyAnnot, GInvalidationOptions));
+                  ((GCollaborationMentionsUtils.annotTreeNodeMap[n] = GInvalidationOptions),
+                    GCollaborationMentionsUtils.replyNodes.set(
+                      AppSettings.replyAnnot,
+                      GInvalidationOptions
+                    ));
                 } else {
                   V.call(this, AppSettings.replyAnnot);
                   const t = AppSettings.replyAnnot.addComment(
@@ -156206,16 +156824,17 @@ function (exports, module, require) {
                     GSystemDialog.avatar,
                     GSystemDialog.getAccountName()
                   );
-                  g = GTools.GAnnotationEditor.createAddAnnotationTransactionData(
-                    [t],
-                    AppSettings.replyAnnot
-                  );
+                  GAnnotationReplyEditor =
+                    GTools.GAnnotationEditor.createAddAnnotationTransactionData(
+                      [t],
+                      AppSettings.replyAnnot
+                    );
                 }
                 (ne.call(this), te.call(this));
               } catch (e) {
                 console.log(e);
               } finally {
-                u && u.commitTransaction(p, g);
+                u && u.commitTransaction(p, GAnnotationReplyEditor);
               }
             }
             H(this, AppSettings.replyAnnot);
@@ -156227,16 +156846,16 @@ function (exports, module, require) {
         u = (e) => {
           AppSettings.replyAnnot.setProperty('asgn', e);
         };
-      var C = new g({
+      var C = new GAnnotationReplyEditor({
           container: e,
           annotation: AppSettings.replyAnnot,
           onSubmit: GInvalidationOptions,
           onCancel: GSystemDialog,
           onAssignTo: u,
-          mentionData: r.vtree.getMentionData(),
+          mentionData: GCollaborationMentionsUtils.vtree.getMentionData(),
         }),
-        x = r.annotTreeNodeMapByNodes.get(AppSettings.replyAnnot);
-      ((AppSettings.reply = C), r.vtree.addChild(C), x && (x.reply = C));
+        x = GCollaborationMentionsUtils.annotTreeNodeMapByNodes.get(AppSettings.replyAnnot);
+      ((AppSettings.reply = C), GCollaborationMentionsUtils.vtree.addChild(C), x && (x.reply = C));
     }
     return u;
   }
@@ -156247,19 +156866,21 @@ function (exports, module, require) {
     let AppSettings = $('<div/>').addClass('already-assigned-user-row').appendTo($(this)),
       GInvalidationOptions = $('<span/>').addClass('assigned-content-group').appendTo(AppSettings);
     return (
-      (0, r.getCollabInfo)(require[0]).then(async (n) => {
-        let r = new m(n).getFullUserName();
+      (0, GCollaborationMentionsUtils.getCollabInfo)(require[0]).then(async (n) => {
+        let GCollaborationMentionsUtils = new GUserModel(n).getFullUserName();
         $('<span/>')
           .addClass('assign-to-text')
           .html(
             GCore.GLocale.get(new GCore.GLocaleKey('GAnnotationPanel', 'text.assigned-to')) +
               (n && n.name
-                ? r
+                ? GCollaborationMentionsUtils
                 : GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.unknown-user')))
           )
           .appendTo(GInvalidationOptions);
         const AppSettings = !_interopRequireDefault;
-        ((await AppSettings) ? d.canResolveAnnotation(e) : d.canReopenAnnotation(e)) &&
+        ((await AppSettings)
+          ? GAnnotationsUtils.canResolveAnnotation(e)
+          : GAnnotationsUtils.canReopenAnnotation(e)) &&
           $('<span/>')
             .addClass('assigned-action-group')
             .append(
@@ -156355,7 +156976,7 @@ function (exports, module, require) {
   }
   function j(e) {
     var t = gDesigner.getSyncUser();
-    t && e.getProperty('uid') && d.isOwner(t, e)
+    t && e.getProperty('uid') && GAnnotationsUtils.isOwner(t, e)
       ? (e.$plkt = null)
       : (e.$plkt =
           GCore.GBlock.ProgramLck.NoSizeChanges |
@@ -156365,7 +156986,7 @@ function (exports, module, require) {
   function K(e, t, n) {
     var _interopRequireDefault = GCore.GUtil.uuid(),
       GTools = $(this).data('gannotationpanel'),
-      r = GTools.vtree;
+      GCollaborationMentionsUtils = GTools.vtree;
     if (
       t ||
       !e.getParent() ||
@@ -156373,7 +156994,7 @@ function (exports, module, require) {
       E.call(this, e.getParent())
     ) {
       var AppSettings;
-      if ((r.beginUpdate(), e.hasMixin(GCore.GAnnotation))) {
+      if ((GCollaborationMentionsUtils.beginUpdate(), e.hasMixin(GCore.GAnnotation))) {
         V.call(this, e);
         var GInvalidationOptions = (function (e) {
             for (var t = null, n = e; !t && n.getPrevious(); )
@@ -156385,9 +157006,9 @@ function (exports, module, require) {
           ? R.call(this, _interopRequireDefault, GSystemDialog, false)
           : M.call(this, _interopRequireDefault, null, false);
       } else {
-        var d = e.getParent();
-        V.call(this, d);
-        var u = A.call(this, d);
+        var GAnnotationsUtils = e.getParent();
+        V.call(this, GAnnotationsUtils);
+        var u = A.call(this, GAnnotationsUtils);
         AppSettings = M.call(this, _interopRequireDefault, u, false, true);
       }
       var p = { element: null, annot: e, treeNode: AppSettings, treeId: _interopRequireDefault };
@@ -156396,38 +157017,44 @@ function (exports, module, require) {
         GTools.annotTreeNodeMapByNodes.set(e, p),
         e.hasMixin(GCore.GAnnotation))
       ) {
-        for (var g = e.getFirstChild(); null !== g; g = g.getNext())
-          g instanceof GCore.GComment && !g.getProperty('rmd') && K.call(this, g, t);
+        for (
+          var GAnnotationReplyEditor = e.getFirstChild();
+          null !== GAnnotationReplyEditor;
+          GAnnotationReplyEditor = GAnnotationReplyEditor.getNext()
+        )
+          GAnnotationReplyEditor instanceof GCore.GComment &&
+            !GAnnotationReplyEditor.getProperty('rmd') &&
+            K.call(this, GAnnotationReplyEditor, t);
         if (!B(e).length) {
-          var h = GCore.GUtil.uuid(),
+          var GAnnotationRow = GCore.GUtil.uuid(),
             f = {
               element: null,
               annot: null,
               treeNode: e.isFillingCompleted()
-                ? M.call(this, h, AppSettings, true, true)
-                : F.call(this, h, AppSettings, true),
+                ? M.call(this, GAnnotationRow, AppSettings, true, true)
+                : F.call(this, GAnnotationRow, AppSettings, true),
               replyAnnot: e,
-              treeId: h,
+              treeId: GAnnotationRow,
             };
-          ((GTools.annotTreeNodeMap[h] = f), GTools.replyNodes.set(e, f));
+          ((GTools.annotTreeNodeMap[GAnnotationRow] = f), GTools.replyNodes.set(e, f));
         }
         j(e);
       } else if (e instanceof GCore.GComment && U(e)) {
         let t,
           n = GCore.GUtil.uuid();
         t = F.call(this, n, AppSettings, true);
-        var m = e.getParent();
+        var GUserModel = e.getParent();
         let _interopRequireDefault = {
           element: null,
           annot: null,
           treeNode: t,
-          replyAnnot: m,
+          replyAnnot: GUserModel,
           treeId: n,
         };
         ((GTools.annotTreeNodeMap[n] = _interopRequireDefault),
-          GTools.replyNodes.set(m, _interopRequireDefault));
+          GTools.replyNodes.set(GUserModel, _interopRequireDefault));
       }
-      r.endUpdate(n);
+      GCollaborationMentionsUtils.endUpdate(n);
     }
   }
   function V(e) {
@@ -156446,7 +157073,7 @@ function (exports, module, require) {
       !t.getParent() ||
         t.getProperty('rmd') ||
         t.isFillingCompleted() ||
-        d.removeAnnotations(
+        GAnnotationsUtils.removeAnnotations(
           [t],
           t.getParent(),
           GCore.GLocale.get(
@@ -156498,8 +157125,12 @@ function (exports, module, require) {
       ((_interopRequireDefault = true),
       e.properties && e.values && e.properties.length === e.values.length)
     )
-      for (var r = 0, AppSettings = e.values.length; r < AppSettings; r++)
-        GTools[e.properties[r]] = e.values[r];
+      for (
+        var GCollaborationMentionsUtils = 0, AppSettings = e.values.length;
+        GCollaborationMentionsUtils < AppSettings;
+        GCollaborationMentionsUtils++
+      )
+        GTools[e.properties[GCollaborationMentionsUtils]] = e.values[GCollaborationMentionsUtils];
     if (e && e.node) {
       if (e.custom) return;
       if (e.node.hasMixin(GCore.GAnnotation) && e.node.isPropertiesIgnorable(e.properties)) return;
@@ -156514,7 +157145,7 @@ function (exports, module, require) {
           return ((e.scheduledUpdate = null), void X.call(this));
         (console.log('updating annotations'), (e.updateInProgress = true));
         let require = e.page.getAnnotations();
-        d.updateAndReturnCloudAnnotationsForDocument(
+        GAnnotationsUtils.updateAndReturnCloudAnnotationsForDocument(
           GInvalidationOptions,
           GCore.GNode.store(require, {
             recordedTransaction: _interopRequireDefault,
@@ -156523,28 +157154,28 @@ function (exports, module, require) {
         )
           .then((e) => {
             let require = e.annotationsCollection,
-              r = false,
+              GCollaborationMentionsUtils = false,
               AppSettings = $(this).data('gannotationpanel');
-            if (!AppSettings) return r;
-            if (!AppSettings.updateInProgress) return r;
+            if (!AppSettings) return GCollaborationMentionsUtils;
+            if (!AppSettings.updateInProgress) return GCollaborationMentionsUtils;
             if (
               (Y.call(this) && (AppSettings.scheduleNextUpdate = true),
               (AppSettings.updateInProgress = false),
               !AppSettings.scheduleNextUpdate)
             ) {
-              let e = d.findAnnotationsListForPage(AppSettings.page, require);
+              let e = GAnnotationsUtils.findAnnotationsListForPage(AppSettings.page, require);
               if (e) {
                 let n = GCore.GNode.restore(e),
                   GInvalidationOptions = n.getChildren();
                 (n.clearChildren(), AppSettings.vtree.beginUpdate());
-                let GSystemDialog = d.mergeAnnotations(
+                let GSystemDialog = GAnnotationsUtils.mergeAnnotations(
                   AppSettings.page.getAnnotations(),
                   AppSettings.page.getAnnotations().getChildren(),
                   n,
                   GInvalidationOptions,
                   _interopRequireDefault ? GTools : undefined
                 );
-                ((r = r || GSystemDialog),
+                ((GCollaborationMentionsUtils = GCollaborationMentionsUtils || GSystemDialog),
                   AppSettings.vtree.endUpdate(t),
                   ne.call(this),
                   te.call(this));
@@ -156560,7 +157191,7 @@ function (exports, module, require) {
               ((AppSettings.scheduledUpdate = null),
               AppSettings.scheduleNextUpdate &&
                 ((AppSettings.scheduleNextUpdate = false), X.call(this)),
-              r)
+              GCollaborationMentionsUtils)
             ) {
               let t = AppSettings.page.getScene();
               (t &&
@@ -156568,7 +157199,7 @@ function (exports, module, require) {
                 t.setLastTimeAnnotationsFromCloudModified(e.lastUpdateTime),
                 gDesigner.notifyDocumentModified(GInvalidationOptions));
             }
-            return r;
+            return GCollaborationMentionsUtils;
           })
           .catch((t) => {
             (console.warn('error during annotations list update: ' + t),
@@ -156592,7 +157223,7 @@ function (exports, module, require) {
           return t;
         };
       let GTools = false;
-      const r = () => {
+      const GCollaborationMentionsUtils = () => {
           if (!e.node.getProperty('rmd')) {
             const t = n
               ? GInvalidationOptions.default.NO_CACHE_INVALIDATION
@@ -156606,11 +157237,11 @@ function (exports, module, require) {
       ((e.node.hasMixin(GCore.GAnnotation) ||
         e.node instanceof GCore.GComment ||
         e.node instanceof GCore.GAnnotationsList) &&
-        (e.node.getProperty('rmd') ? (GTools = true) : r()),
+        (e.node.getProperty('rmd') ? (GTools = true) : GCollaborationMentionsUtils()),
         GTools
           ? 'number' != typeof t.delayedUpdate &&
             (t.delayedUpdate = setTimeout(() => {
-              (r(), GSystemDialog(), (t.delayedUpdate = null));
+              (GCollaborationMentionsUtils(), GSystemDialog(), (t.delayedUpdate = null));
             }))
           : GSystemDialog());
     }
@@ -156624,7 +157255,7 @@ function (exports, module, require) {
     if (!e.temporary && !$(this).data('gannotationpanel').blockHandlers) {
       e.properties.some((e) => y.indexOf(e) >= 0) && oe.requestInvalidation.call(this);
       let t = gDesigner.getSyncUser();
-      (d.canUpdate(t) &&
+      (GAnnotationsUtils.canUpdate(t) &&
         e.node.hasMixin(GCore.GAnnotation) &&
         e.properties.includes('rsv') &&
         setTimeout(() => {
@@ -156663,11 +157294,14 @@ function (exports, module, require) {
           e.flag === GCore.GNode.Flag.Selected ||
           e.flag === GCore.GNode.Flag.Active
         ) {
-          var r = e.node.getPage(),
+          var GCollaborationMentionsUtils = e.node.getPage(),
             AppSettings = e.node.getScene(),
-            d = AppSettings && AppSettings.getActivePage();
+            GAnnotationsUtils = AppSettings && AppSettings.getActivePage();
           if (
-            ((d && r && d !== r) || (_interopRequireDefault = true),
+            ((GAnnotationsUtils &&
+              GCollaborationMentionsUtils &&
+              GAnnotationsUtils !== GCollaborationMentionsUtils) ||
+              (_interopRequireDefault = true),
             e.node.hasMixin(GCore.GAnnotation) &&
               e.flag === GCore.GNode.Flag.Selected &&
               false === e.set &&
@@ -156707,8 +157341,10 @@ function (exports, module, require) {
               return t && t.isVisible();
             }.bind(this);
           if (p(u) || u.findParent(p)) {
-            var g = n.annotTreeNodeMapByNodes.get(u).component;
-            g ? g.toggleHighlight(e.set) : console.warn('element parent was null');
+            var GAnnotationReplyEditor = n.annotTreeNodeMapByNodes.get(u).component;
+            GAnnotationReplyEditor
+              ? GAnnotationReplyEditor.toggleHighlight(e.set)
+              : console.warn('element parent was null');
           }
         }
       _interopRequireDefault &&
@@ -156895,7 +157531,7 @@ function (exports, module, require) {
         _interopRequireDefault.clearChildren(),
         (require.blockAnnotationsUpdate = true),
         require.vtree.beginUpdate(),
-        (module = d.mergeAnnotations(
+        (module = GAnnotationsUtils.mergeAnnotations(
           require.page.getAnnotations(),
           require.page.getAnnotations().getChildren(),
           _interopRequireDefault,
@@ -156956,9 +157592,10 @@ function (exports, module, require) {
     { GPlatform: i } = require(15) /* module */,
     GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
     r = require(1191) /* module_1191 */,
-    s = require(1356) /* module_1356 */,
-    l = require(1357) /* module_1357 */,
-    { handleCollabsData: c } = (require(536) /* module_536 */, require(882)) /* module_882 */,
+    GAnnotationRow = require(1356) /* GAnnotationRow */,
+    GAnnotationReplyEditor = require(1357) /* GAnnotationReplyEditor */,
+    { handleCollabsData: c } =
+      (require(536) /* module_536 */, require(882)) /* GCollaborationMentionsUtils */,
     GInvalidationOptions = require(1354) /* GInvalidationOptions */,
     u = require(434); /* stub_requires_30_1072 */
   function p() {
@@ -156983,10 +157620,10 @@ function (exports, module, require) {
     (p.prototype.isEditingOrAddingContent = function () {
       return (
         !!this.getChildren()
-          .filter((e) => e instanceof l)
+          .filter((e) => e instanceof GAnnotationReplyEditor)
           .some((e) => e.isVisible()) ||
         !!this.getChildren()
-          .filter((e) => e instanceof s)
+          .filter((e) => e instanceof GAnnotationRow)
           .some((e) => e.isEditMode())
       );
     }),
@@ -157034,7 +157671,9 @@ function (exports, module, require) {
         i = o && o.options;
       (require &&
         require.forEach((n) => {
-          n instanceof s && !n.isParentAnnotationResolved() && (n.isRead() || module++, exports++);
+          n instanceof GAnnotationRow &&
+            !n.isParentAnnotationResolved() &&
+            (n.isRead() || module++, exports++);
         }),
         i && i.updateCommentCount && i.updateCommentCount(exports, module));
     }),
@@ -157209,7 +157848,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (require(58) /* polyfill_Array_includes */,
     require(57) /* polyfill_parseInt */,
-    require(356) /* module_356 */,
+    require(356) /* polyfill_RegExp_constructor */,
     require(20) /* polyfill_RegExp_exec */,
     require(3) /* polyfill_RegExp_toString */,
     require(71) /* polyfill_String_includes */,
@@ -157743,10 +158382,10 @@ function (exports, module, require) {
     r = (require(15) /* module */, _interopRequireDefault(require(565) /* module_565 */)),
     s = require(67) /* GRichTooltipConfig */,
     GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
-    IdxIterator = require(451) /* IdxIterator */.GVirtualTree,
+    c = require(451) /* GVirtualTree */.GVirtualTree,
     d =
-      (require(451) /* IdxIterator */.GVirtualTreeNode,
-      require(451) /* IdxIterator */.GVirtualTreeNodeNamed),
+      (require(451) /* GVirtualTree */.GVirtualTreeNode,
+      require(451) /* GVirtualTree */.GVirtualTreeNodeNamed),
     { VTREE_FREE_HEIGHT: u, VTREE_FREE_HEIGHT_TOUCH: p } = require(10) /* AppSettings */,
     g = (require(173) /* stub_requires_1 */, require(450)) /* module_450 */;
   function h() {}
@@ -157757,14 +158396,14 @@ function (exports, module, require) {
       for (
         var s = e.id ? b.call(this, e.id) : $(this).data('gpagepanel').scene,
           GSettingChangedEvent = t ? b.call(this, t.id) : null,
-          IdxIterator = [],
+          c = [],
           d = 0;
         d < _interopRequireDefault.length;
         ++d
       )
-        IdxIterator.push(b.call(this, _interopRequireDefault[d].id));
+        c.push(b.call(this, _interopRequireDefault[d].id));
       var u = [];
-      if ((GCore = r.options.canDropCallback(s, GSettingChangedEvent, IdxIterator, u)))
+      if ((GCore = r.options.canDropCallback(s, GSettingChangedEvent, c, u)))
         for (d = 0; d < u.length; ++d) {
           var p = u[d];
           GTools.push(_interopRequireDefault[p]);
@@ -157837,7 +158476,7 @@ function (exports, module, require) {
       GSettingChangedEvent = _interopRequireDefault.node;
     if (GSettingChangedEvent) {
       if (!(GSettingChangedEvent instanceof GCore.GPage)) throw new Error('item not page');
-      var IdxIterator = GSettingChangedEvent.getProperty('lkt'),
+      var c = GSettingChangedEvent.getProperty('lkt'),
         d = !!GSettingChangedEvent.getSlavePages().length,
         u =
           0 === GSettingChangedEvent.getProperty('w') &&
@@ -157883,8 +158522,8 @@ function (exports, module, require) {
                 var r = n.vtree,
                   s = [];
                 for (GCore = 0; GCore < t.length; ++GCore) {
-                  var IdxIterator = C.call(y, t[GCore]);
-                  IdxIterator && s.push(IdxIterator);
+                  var c = C.call(y, t[GCore]);
+                  c && s.push(c);
                 }
                 (r.setDragNodes(s),
                   setTimeout(
@@ -157902,7 +158541,7 @@ function (exports, module, require) {
             'g-highlighted-row',
             GSettingChangedEvent.hasFlag(GCore.GNode.Flag.Highlighted)
           ),
-        !IdxIterator &&
+        !c &&
           gDesigner.getApplicationManager().isEditingEnabled() &&
           $(h).gAutoEdit({
             textSelector: '> .page-title',
@@ -157929,11 +158568,11 @@ function (exports, module, require) {
           : d &&
             (v.toggleClass('gravit-icon-page-master', true),
             v.toggleClass('gravit-icon-page', false)));
-      var _ = IdxIterator ? 'gravit-icon-lock' : 'gravit-icon-unlock';
+      var _ = c ? 'gravit-icon-lock' : 'gravit-icon-unlock';
       ((_ = gDesigner.isTouchEnabled() ? _ + '-small' : _),
         $('<span></span>')
           .addClass('page-action page-lock ' + _)
-          .toggleClass('g-active', !!IdxIterator)
+          .toggleClass('g-active', !!c)
           .attr(
             'data-title',
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.toggle-lock'))
@@ -158136,7 +158775,7 @@ function (exports, module, require) {
           $(this)
             .addClass('g-page-panel')
             .data('gpagepanel', {
-              vtree: new IdxIterator(
+              vtree: new c(
                 this,
                 _.bind(this),
                 e.nodeStyle,
@@ -160423,7 +161062,7 @@ function (exports, module, require) {
   var GCore = require(1) /* module */,
     AppSettings = require(10) /* AppSettings */,
     a = require(357) /* module_357 */,
-    r = require(604) /* module_604 */,
+    GProfileDialog = require(604) /* GProfileDialog */,
     s = (require(1158) /* Action_help_purchase */, null),
     l = null;
   var c = {
@@ -160482,7 +161121,7 @@ function (exports, module, require) {
                               .on('click', async (GCore) => {
                                 (gDesigner.stats('profile_click_open-button'),
                                   AppSettings.ALWAYS_SHOW_ACCOUNT_SETTING_DIALOG || t
-                                    ? new r(e).open()
+                                    ? new GProfileDialog(e).open()
                                     : AppSettings.PROFILE_DIALOG_URL
                                       ? gContainer.openExternalLink(
                                           GCore,
@@ -162239,9 +162878,9 @@ function (exports, module, require) {
         return { promise: e.apply(undefined, p([], u(module), false)) };
       };
     },
-    N = require(1358) /* module_1358 */,
+    AmplitudeAnalytics = require(1358) /* AmplitudeAnalytics */,
     B = function () {
-      return N.a.getInstance('$default_instance');
+      return AmplitudeAnalytics.a.getInstance('$default_instance');
     };
   !(function (e) {
     ((e.BEFORE = 'before'), (e.ENRICHMENT = 'enrichment'), (e.DESTINATION = 'destination'));

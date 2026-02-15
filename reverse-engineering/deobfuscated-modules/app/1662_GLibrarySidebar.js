@@ -11,9 +11,9 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GSidebar = require(806) /* GSidebar */,
-      s = require(395) /* module_395 */,
-      l = require(1663) /* module_1663 */,
-      c = require(119) /* module_119 */;
+      GSidebarContainer = require(395) /* GSidebarContainer */,
+      GLibraryAssetsPanel = require(1663) /* GLibraryAssetsPanel */,
+      GCloudStorage = require(119) /* GCloudStorage */;
     const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */;
     function u() {
       GSidebar.call(this);
@@ -32,13 +32,13 @@ function (exports, module, require) {
         return u.TITLE;
       }),
       (u.prototype.isEnabled = function () {
-        return c.isOnline();
+        return GCloudStorage.isOnline();
       }),
       (u.prototype.isVisible = function () {
         return !!gDesigner.getApplicationManager().isEditingEnabled();
       }),
       (u.prototype.getOrientation = function () {
-        return s.Orientation.Left;
+        return GSidebarContainer.Orientation.Left;
       }),
       (u.prototype.getMinimumWidth = function () {
         return 250;
@@ -113,12 +113,12 @@ function (exports, module, require) {
             .css("overflow", "auto")
             .appendTo(e))),
           this._libraryPanel.toggleClass("offline", gDesigner.isOffline()),
-          c.isOnline()
+          GCloudStorage.isOnline()
             ? (this._libraryPanel.hasClass("unavailable") &&
                 (this._libraryPanel.removeClass("unavailable"),
                 this._libraryPanel.empty()),
               gDesigner.isOffline() ||
-                ((this._libraryPanelInstance = new l(this._libraryPanel)),
+                ((this._libraryPanelInstance = new GLibraryAssetsPanel(this._libraryPanel)),
                 (this._initialized = true)))
             : (this._libraryPanel.addClass("unavailable"),
               $("<span/>")

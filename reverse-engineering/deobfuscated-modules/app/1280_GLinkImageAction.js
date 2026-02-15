@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       i = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
-      r = require(163) /* module_163 */,
+      GDocument = require(163) /* GDocument */,
       GAction = require(31) /* GAction */,
       GContainer = require(85) /* GContainer */;
     function c() {
@@ -60,12 +60,12 @@ function (exports, module, require) {
         var n = gDesigner.getActiveDocument();
         if (!n) return false;
         (e = e || n.getStorage() || gDesigner.getDefaultStorage()).openPrompt(
-          r.FileTypes.filter((e) => 0 === e.mime.indexOf("image")),
+          GDocument.FileTypes.filter((e) => 0 === e.mime.indexOf("image")),
           (e) => {
             var i = "file://" + e.getUniqueId(),
               MenuItemBuilder = i,
-              r = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
-            r && (MenuItemBuilder = r.getUrl());
+              GDocument = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
+            GDocument && (MenuItemBuilder = GDocument.getUrl());
             var GAction = new Image();
             (GAction.onload = () => {
               var e = new GCore.GImage();

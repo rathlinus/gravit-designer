@@ -4,16 +4,16 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
-      require(98) /* module_98 */,
-      (o.pad.Iso10126 = {
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      require(98) /* CryptoJSCipherBase */,
+      (CryptoJSCore.pad.Iso10126 = {
         pad: function (e, t) {
           var n = 4 * t,
             i = n - (e.sigBytes % n);
-          e.concat(o.lib.WordArray.random(i - 1)).concat(
-            o.lib.WordArray.create([i << 24], 1)
+          e.concat(CryptoJSCore.lib.WordArray.random(i - 1)).concat(
+            CryptoJSCore.lib.WordArray.create([i << 24], 1)
           );
         },
         unpad: function (e) {
@@ -21,5 +21,5 @@ function (exports, module, require) {
           e.sigBytes -= t;
         },
       }),
-      o.pad.Iso10126);
+      CryptoJSCore.pad.Iso10126);
   }

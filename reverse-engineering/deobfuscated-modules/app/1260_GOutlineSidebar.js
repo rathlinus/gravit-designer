@@ -21,7 +21,7 @@ function (exports, module, require) {
       GFitAllAction = require(449) /* GFitAllAction */,
       GFitSelectionAction = require(566) /* GFitSelectionAction */,
       GSidebar = require(806) /* GSidebar */,
-      y = require(395) /* module_395 */,
+      GSidebarContainer = require(395) /* GSidebarContainer */,
       GExportProperties = require(1523) /* GExportProperties */,
       GSystemDialog = require(44) /* GSystemDialog */,
       b = require(450) /* module_450 */;
@@ -62,7 +62,7 @@ function (exports, module, require) {
         return !!gDesigner.getApplicationManager().isInspectEnabled();
       }),
       (x.prototype.getOrientation = function () {
-        return y.Orientation.Left;
+        return GSidebarContainer.Orientation.Left;
       }),
       (x.prototype.getMinimumWidth = function () {
         return 250;
@@ -1187,7 +1187,7 @@ function (exports, module, require) {
                           c[l] === GTouchTool ? (p = l) : (g = l))
                         : GDocumentStatusEvent && GDocumentEvent.push(c[l]);
                     var GSidebar = GTouchTool.getParent(),
-                      y = e.getParent();
+                      GSidebarContainer = e.getParent();
                     GDocumentEvent = GDocumentEvent.filter(
                       function (t) {
                         var n = this._layerPanel.gLayerPanel("getTreeNode", t);
@@ -1196,7 +1196,7 @@ function (exports, module, require) {
                           "getItem",
                           n.parent
                         );
-                        return _interopRequireDefault ? GSidebar === _interopRequireDefault : t !== GSidebar && t !== y;
+                        return _interopRequireDefault ? GSidebar === _interopRequireDefault : t !== GSidebar && t !== GSidebarContainer;
                       }.bind(this)
                     );
                     var GExportProperties = gDesigner.getSetting("auto_expand_layers");

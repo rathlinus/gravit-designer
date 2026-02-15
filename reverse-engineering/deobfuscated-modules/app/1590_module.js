@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var _interopRequireDefault = require(16) /* _interopRequireDefault */(require(879) /* module_879 */);
-    const i = require(878) /* module_878 */;
-    exports.exports = class extends i {
+    var _interopRequireDefault = require(16) /* _interopRequireDefault */(require(879) /* GTouchClickGesture */);
+    const GTouchEventHandler = require(878) /* GTouchEventHandler */;
+    exports.exports = class extends GTouchEventHandler {
       constructor(e) {
         super(e),
           this.addGesture(new _interopRequireDefault.default()),

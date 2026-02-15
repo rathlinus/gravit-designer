@@ -26,7 +26,7 @@ function (e, t, n) {
       r = n(10) /* AppSettings */,
       s = o(n(734) /* module_734 */),
       l = (o(n(355) /* module_355 */), o(n(1037) /* module_1037 */)),
-      c = n(255) /* barrel_sidebars */,
+      c = n(255) /* GFontsProviderManager */,
       d = n(590) /* barrel_editor_actions */,
       u = n(18) /* MenuItemBuilder */,
       p = n(843) /* GOpenRecentAction */,

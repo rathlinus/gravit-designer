@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* module */,
       i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
-      r = n(119) /* module_119 */;
+      r = n(119) /* GCloudStorage */;
     function s() {}
     o.GObject.inherit(s, a),
       (s.ID = "file.open-from-template"),

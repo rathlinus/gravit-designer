@@ -10,9 +10,9 @@ function (exports, module, require) {
       { GPlatform: i } = require(15) /* module */,
       GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
       r = require(1191) /* module_1191 */,
-      s = require(1356) /* module_1356 */,
-      l = require(1357) /* module_1357 */,
-      { handleCollabsData: c } = (require(536) /* module_536 */, require(882) /* module_882 */),
+      GAnnotationRow = require(1356) /* GAnnotationRow */,
+      GAnnotationReplyEditor = require(1357) /* GAnnotationReplyEditor */,
+      { handleCollabsData: c } = (require(536) /* module_536 */, require(882) /* GCollaborationMentionsUtils */),
       GInvalidationOptions = require(1354) /* GInvalidationOptions */,
       u = require(434) /* stub_requires_30_1072 */;
     function p() {
@@ -33,10 +33,10 @@ function (exports, module, require) {
       (p.prototype.isEditingOrAddingContent = function () {
         return (
           !!this.getChildren()
-            .filter((e) => e instanceof l)
+            .filter((e) => e instanceof GAnnotationReplyEditor)
             .some((e) => e.isVisible()) ||
           !!this.getChildren()
-            .filter((e) => e instanceof s)
+            .filter((e) => e instanceof GAnnotationRow)
             .some((e) => e.isEditMode())
         );
       }),
@@ -88,7 +88,7 @@ function (exports, module, require) {
           i = o && o.options;
         require &&
           require.forEach((n) => {
-            n instanceof s &&
+            n instanceof GAnnotationRow &&
               !n.isParentAnnotationResolved() &&
               (n.isRead() || module++, exports++);
           }),

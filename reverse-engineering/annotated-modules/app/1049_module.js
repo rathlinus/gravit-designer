@@ -6,7 +6,7 @@
 function (e, t, n) {
     var o;
     e.exports =
-      ((o = n(55) /* module_55 */),
+      ((o = n(55) /* CryptoJSCore */),
       (function (e) {
         var t = o,
           n = t.lib,

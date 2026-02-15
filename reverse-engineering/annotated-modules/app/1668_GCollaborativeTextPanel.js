@@ -17,7 +17,7 @@ function (e, t, n) {
       d = n(1346) /* GUnloadEvent */,
       u = n(1348) /* StatusChangedEvent */,
       p = n(44) /* GSystemDialog */,
-      g = n(177) /* module_177 */,
+      g = n(177) /* GUserModel */,
       { DateAPI: h, ShareRoles: f } = n(10) /* AppSettings */;
     function m() {}
     o.GObject.inherit(m, i),

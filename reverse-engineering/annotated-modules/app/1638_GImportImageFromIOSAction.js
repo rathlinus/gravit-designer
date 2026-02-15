@@ -10,7 +10,7 @@ function (e, t, n) {
     n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */;
     var i = n(1) /* module */,
       a = o(n(18) /* MenuItemBuilder */),
-      r = o(n(163) /* module_163 */),
+      r = o(n(163) /* GDocument */),
       s = o(n(85) /* GContainer */),
       l = o(n(106) /* GElementAction */);
     function c(e) {

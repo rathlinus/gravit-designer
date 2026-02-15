@@ -9,7 +9,7 @@ function (e, t, n) {
     var o = n(1) /* module */,
       i = n(40) /* CollaborationMergeUtils */;
     n(10) /* AppSettings */;
-    n(1474) /* module_1474 */, n(220) /* Item */, n(44) /* GSystemDialog */, n(119) /* module_119 */;
+    n(1474) /* module_1474 */, n(220) /* Item */, n(44) /* GSystemDialog */, n(119) /* GCloudStorage */;
     function a(e, t, n) {
       (this._document = e),
         (this._storageItem = t),

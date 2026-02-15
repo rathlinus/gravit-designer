@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    const o = n(395) /* module_395 */;
+    const o = n(395) /* GSidebarContainer */;
     e.exports = function (e) {
       (e.prototype._versionHistoryPanelOverlay = null),
         (e.prototype._updateVersionsPanelTouch = function () {

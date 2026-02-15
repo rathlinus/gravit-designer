@@ -58,7 +58,7 @@ function (e, t, n) {
       n(4) /* stub_requires_668 */,
       n(13) /* stub_requires_679 */,
       n(38) /* stub_requires_680 */,
-      n(1518) /* module_1518 */;
+      n(1518) /* JQueryUISortable */;
     const o = (t.REARRANGE_TAB_CLASS = "more-button"),
       i = (t.REARRANGE_TAB_SELECTOR = ".".concat(o));
     function a() {

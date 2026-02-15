@@ -33,13 +33,13 @@ function (exports, module, require) {
       require(26) /* polyfill_DOMCollection_iterator */;
     var GCore = require(1) /* module */,
       AppSettings = require(10) /* AppSettings */,
-      r = _interopRequireDefault(require(119) /* module_119 */),
+      GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       Item = _interopRequireDefault(require(220) /* Item */),
-      l = _interopRequireDefault(require(163) /* module_163 */),
+      GDocument = _interopRequireDefault(require(163) /* GDocument */),
       c = _interopRequireDefault(require(86) /* module_86 */),
       CloudException = _interopRequireDefault(require(802) /* CloudException */),
       u = require(593) /* module_593 */;
-    const p = require(156) /* module_156 */,
+    const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       {
         FILE_FORMATS: g,
         FOLDER_FORMAT: h,
@@ -92,7 +92,7 @@ function (exports, module, require) {
         );
       }),
       (y.prototype.getRootFolder = function () {
-        return p.from({
+        return GCloudStorageItem.from({
           id: null,
           name: GCore.GLocale.get(
             new GCore.GLocaleKey("GFilesPanel", "action.my-cloud")
@@ -113,7 +113,7 @@ function (exports, module, require) {
           _interopRequireDefault = {};
         if (!e.length) return t;
         for (let t = 0; t < e.length; t++) {
-          let n = r.default.definePath(e[t]);
+          let n = GCloudStorage.default.definePath(e[t]);
           _interopRequireDefault[n] = e[t];
         }
         function GCore(e) {
@@ -164,16 +164,16 @@ function (exports, module, require) {
       }),
       (y.prototype._convertToFolderElement = function (e) {
         const module = (e) => {
-          var t = p.from(e);
+          var t = GCloudStorageItem.from(e);
           return (
-            t.setItemType(p.Type.Folder),
+            t.setItemType(GCloudStorageItem.Type.Folder),
             t.setPermissions([
-              p.Permission.Open,
-              p.Permission.Copy,
-              p.Permission.Editing,
-              p.Permission.Rename,
-              p.Permission.CutPaste,
-              p.Permission.Delete,
+              GCloudStorageItem.Permission.Open,
+              GCloudStorageItem.Permission.Copy,
+              GCloudStorageItem.Permission.Editing,
+              GCloudStorageItem.Permission.Rename,
+              GCloudStorageItem.Permission.CutPaste,
+              GCloudStorageItem.Permission.Delete,
             ]),
             t
           );
@@ -206,7 +206,7 @@ function (exports, module, require) {
         return this.FOLDERS;
       }),
       (y.prototype.createFolder = function (e) {
-        return r.default.createFolder(e, this.CURRENT_FOLDER);
+        return GCloudStorage.default.createFolder(e, this.CURRENT_FOLDER);
       }),
       (y.prototype.navigateToParentFolder = function () {
         var e =
@@ -218,7 +218,7 @@ function (exports, module, require) {
       (y.prototype.getFile = function (e) {
         return AppSettings.gApi
           .getFile(e, true)
-          .then((e) => r.default.convertToCloudItem(e));
+          .then((e) => GCloudStorage.default.convertToCloudItem(e));
       }),
       (y.prototype.getRawFile = async function (e, t, n) {
         const _interopRequireDefault = await AppSettings.gApi.getFileExtended(e.id),
@@ -264,10 +264,10 @@ function (exports, module, require) {
             ),
             dontExtend: true,
           });
-        let p = gDesigner.getWindows().getActiveWindow().getView();
-        const g = p.getZoom(),
-          h = p.getScrollX(),
-          f = p.getScrollY(),
+        let GCloudStorageItem = gDesigner.getWindows().getActiveWindow().getView();
+        const g = GCloudStorageItem.getZoom(),
+          h = GCloudStorageItem.getScrollX(),
+          f = GCloudStorageItem.getScrollY(),
           m = u.getActivePage(),
           y = m.getReferenceId(),
           v = u.getActivePage().getGeometryBBox();
@@ -289,7 +289,7 @@ function (exports, module, require) {
               (_interopRequireDefault = e.updateSaveOptionsLastModifiedDate(_interopRequireDefault));
             var v = await Item.default.from(gDesigner.getDefaultStorage(), AppSettings.id);
             e.setStorageItem(v);
-            var b = new l.default(v);
+            var b = new GDocument.default(v);
             return b
               .deserializeData(GCore.GNode.serialize(u, _interopRequireDefault))
               .then(
@@ -304,11 +304,11 @@ function (exports, module, require) {
                   CloudException
                     ? CloudException(c.default.Loaded)
                     : gDesigner.removeDocument(e, null, true),
-                  (p = gDesigner.getWindows().getActiveWindow().getView()),
-                  p.transform(h, f, g),
+                  (GCloudStorageItem = gDesigner.getWindows().getActiveWindow().getView()),
+                  GCloudStorageItem.transform(h, f, g),
                   (_interopRequireDefault = b.updateSaveOptionsLastModifiedDate(_interopRequireDefault)),
                   GCore.GUtil.prepareForSaving(u, require),
-                  r.default.performSave(
+                  GCloudStorage.default.performSave(
                     b,
                     () => {
                       b.getFileFormatVersion() &&
@@ -357,7 +357,7 @@ function (exports, module, require) {
       }),
       (y.prototype.fetchRecentFiles = function () {
         const exports = this._getFileTypesForFilter().map((e) => ({ type: e }));
-        return r.default
+        return GCloudStorage.default
           .getRecentStorageItems(exports)
           .then((e) => this._convertAndUpdateCloudItems(e));
       }),
@@ -375,7 +375,7 @@ function (exports, module, require) {
         );
       }),
       (y.prototype._convertAndUpdateCloudItems = function (e) {
-        return r.default.convertToCloudItem(e);
+        return GCloudStorage.default.convertToCloudItem(e);
       }),
       (y.prototype._getFileTypesForFilter = function () {
         const exports = this.getSelectedFilterForFileTypes();
@@ -388,7 +388,7 @@ function (exports, module, require) {
         let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
           require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         return (
-          !(!module && !require) || r.default.definePath(this.CURRENT_FOLDER) === e.parent
+          !(!module && !require) || GCloudStorage.default.definePath(this.CURRENT_FOLDER) === e.parent
         );
       }),
       (y.prototype.deleteItem = function (e) {
@@ -397,14 +397,14 @@ function (exports, module, require) {
           .then(() => AppSettings.gApi.deleteFile(e.id));
       }),
       (y.prototype.cutPaste = function (e) {
-        var t = r.default.definePath(this.CURRENT_FOLDER);
-        return r.default.changePathTree(e, t);
+        var t = GCloudStorage.default.definePath(this.CURRENT_FOLDER);
+        return GCloudStorage.default.changePathTree(e, t);
       }),
       (y.prototype.fileMove = function (e, t) {
-        return r.default.changePathTree([e], t.id);
+        return GCloudStorage.default.changePathTree([e], t.id);
       }),
       (y.prototype.copyPaste = function (e) {
-        const module = r.default.definePath(this.CURRENT_FOLDER);
+        const module = GCloudStorage.default.definePath(this.CURRENT_FOLDER);
         return Promise.all(
           e.map(async (e) => {
             const { id: require } = await AppSettings.gApi.copyFile(e.id, { parent: module });
@@ -464,8 +464,8 @@ function (exports, module, require) {
               this._getFileTypesForFilter().includes(e.type)
             )),
           module.map((e) => {
-            let module = p.from(e);
-            return module.setPermissions([p.Permission.Open]), module;
+            let module = GCloudStorageItem.from(e);
+            return module.setPermissions([GCloudStorageItem.Permission.Open]), module;
           })
         );
       });

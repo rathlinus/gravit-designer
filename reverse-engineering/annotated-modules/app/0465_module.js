@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(466) /* module_466 */,
+    var o = n(466) /* ZlibInflateStream */,
       i = n(94) /* Exports_Buf */,
       a = n(312) /* module_312 */,
       r = n(314) /* module_314 */,

@@ -14,7 +14,7 @@ function (exports, module, require) {
       c = require(204) /* module_204 */,
       d = require(305) /* module_305 */,
       u = require(697) /* module_697 */,
-      p = require(152) /* module_152 */.aTypedArrayConstructor,
+      p = require(152) /* polyfill_TypedArrays */.aTypedArrayConstructor,
       g = require(429) /* module_429 */;
     exports.exports = function (e) {
       var t,

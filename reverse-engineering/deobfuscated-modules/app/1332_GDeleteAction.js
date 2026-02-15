@@ -17,7 +17,7 @@ function (exports, module, require) {
       GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */;
-    const g = require(358) /* module_358 */,
+    const GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
       h = require(607) /* module_607 */;
     function f() {}
     GCore.GObject.inherit(f, GAction),
@@ -69,7 +69,7 @@ function (exports, module, require) {
           AppSettings.HAS_ANNOTATIONS &&
           gDesigner.getRightSidebars().getActiveSidebar() === GAnnotationsSidebar.ID
         ) {
-          var r = t.getSelection().filter((e) => g.canDeleteAnnotation(e));
+          var r = t.getSelection().filter((e) => GAnnotationsUtils.canDeleteAnnotation(e));
           r.length &&
             (this._setIsConfirmWindowDisplaying(true),
             GSystemDialog.default.confirm(
@@ -80,7 +80,7 @@ function (exports, module, require) {
                 e &&
                   gDesigner.getActiveDocument() &&
                   gDesigner.getActiveDocument().getEditor() === t &&
-                  g.removeAnnotations(
+                  GAnnotationsUtils.removeAnnotations(
                     r,
                     r[0].getParent(),
                     GCore.GLocale.get(this.getTitle())

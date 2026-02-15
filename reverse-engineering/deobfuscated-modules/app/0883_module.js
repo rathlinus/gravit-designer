@@ -6,14 +6,14 @@
 function (exports, module, require) {
     "use strict";
     require(30) /* polyfill_Object_assign */;
-    const o = require(177) /* module_177 */;
-    class i extends o {
+    const GUserModel = require(177) /* GUserModel */;
+    class i extends GUserModel {
       constructor() {
         let {
           id: exports,
           name: module,
           last_name: require,
-          email: o,
+          email: GUserModel,
           showText: i,
           avatar: a,
           role: r,
@@ -26,7 +26,7 @@ function (exports, module, require) {
           id: exports,
           name: module,
           last_name: require,
-          email: o,
+          email: GUserModel,
           showText: i,
           avatar: a,
           fontWeight: s,

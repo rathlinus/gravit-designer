@@ -15,21 +15,21 @@ function (exports, module, require) {
       GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
       GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-      u = require(1275) /* module_1275 */,
+      GSettingsDialog = require(1275) /* GSettingsDialog */,
       p = require(444) /* module_444 */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       h = (require(606) /* GPanel */, require(806) /* GSidebar */),
-      f = require(395) /* module_395 */,
+      GSidebarContainer = require(395) /* GSidebarContainer */,
       GInspectorSidebar = require(864) /* GInspectorSidebar */,
       GProperties = require(123) /* GProperties */,
       GAnnotations = require(1535) /* GAnnotations */,
       _ = require(603) /* WindowEvent */,
       GAnnotationProperties = require(1536) /* GAnnotationProperties */,
-      w = require(358) /* module_358 */,
+      GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
       C = require(592) /* module_592 */;
     const x = require(392) /* module_392 */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
-    var E = require(1537) /* module_1537 */;
+    var GFileReviewProperties = require(1537) /* GFileReviewProperties */;
     const GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
       GCollaborationEvent = require(393) /* GCollaborationEvent */,
       G = require(336) /* module_336 */,
@@ -92,7 +92,7 @@ function (exports, module, require) {
         );
       }),
       (N.prototype.getOrientation = function () {
-        return f.Orientation.Right;
+        return GSidebarContainer.Orientation.Right;
       }),
       (N.prototype.getMinimumWidth = function () {
         return this._getSidebarWidth();
@@ -136,11 +136,11 @@ function (exports, module, require) {
             ? Promise.resolve()
             : new Promise((t) => {
                 (e
-                  ? w.updateAndReturnCloudAnnotationsForDocument(
+                  ? GAnnotationsUtils.updateAndReturnCloudAnnotationsForDocument(
                       this._document,
                       this._currentAnnotations
                     )
-                  : w.getCloudAnnotationsForDocument(this._document)
+                  : GAnnotationsUtils.getCloudAnnotationsForDocument(this._document)
                 ).then((n) => {
                   let _interopRequireDefault = n.annotationsCollection,
                     GTools = false;
@@ -189,7 +189,7 @@ function (exports, module, require) {
           : Promise.resolve();
       }),
       (N.prototype._getAnnotationsToSet = function (e, t) {
-        let require = w.findAnnotationsListForPage(t, e);
+        let require = GAnnotationsUtils.findAnnotationsListForPage(t, e);
         return require || (require = { "@": "annlst" }), require;
       }),
       (N.prototype.init = function (e) {
@@ -294,7 +294,7 @@ function (exports, module, require) {
                 gDesigner
                   .getApplicationManager()
                   .isCommentingEditingEnabled() &&
-                  (w.resolveAllComments(this._document), this.relayout(true));
+                  (GAnnotationsUtils.resolveAllComments(this._document), this.relayout(true));
               },
               columns: [
                 {
@@ -523,7 +523,7 @@ function (exports, module, require) {
             "Note",
             "tool-comment"
           ),
-          new E(),
+          new GFileReviewProperties(),
         ];
       }),
       (N.prototype.activate = function () {
@@ -1035,7 +1035,7 @@ function (exports, module, require) {
             let GTools = false;
             if (
               (_interopRequireDefault.restored
-                ? (n = w.findAnnotationsListForPage(
+                ? (n = GAnnotationsUtils.findAnnotationsListForPage(
                     e,
                     this._currentAnnotations
                   ))
@@ -1057,7 +1057,7 @@ function (exports, module, require) {
                   for (let e = 0; e < _interopRequireDefault.length; e++) n.appendChild(_interopRequireDefault[e]);
                   r = true;
                 } else {
-                  let e = w.mergeAnnotations(n, n.getChildren(), t, _interopRequireDefault);
+                  let e = GAnnotationsUtils.mergeAnnotations(n, n.getChildren(), t, _interopRequireDefault);
                   r = r || e;
                 }
               }
@@ -1100,7 +1100,7 @@ function (exports, module, require) {
                 GRichTooltipConfig = GMenu2.properties,
                 GTouchTool = GRichTooltipConfig.isAvailable(this._transformMode);
               if (GTouchTool)
-                if (GRichTooltipConfig instanceof GAnnotationProperties || GRichTooltipConfig instanceof E)
+                if (GRichTooltipConfig instanceof GAnnotationProperties || GRichTooltipConfig instanceof GFileReviewProperties)
                   GMenu2.panel.show(),
                     (GTouchTool = GMenu2.properties.update(
                       this._document,
@@ -1108,13 +1108,13 @@ function (exports, module, require) {
                       gDesigner.getToolManager().getActiveTool()
                     )) || GMenu2.panel.hide();
                 else {
-                  var u = GRichTooltipConfig.getPage().getAnnotations().getChildren();
-                  (GTouchTool = GMenu2.properties.update(this._document, u, t)),
+                  var GSettingsDialog = GRichTooltipConfig.getPage().getAnnotations().getChildren();
+                  (GTouchTool = GMenu2.properties.update(this._document, GSettingsDialog, t)),
                     require && GMenu2.properties.relayout();
                 }
               if (GMenu2.toolbar && GMenu2.toolbar !== this._annotationToolbar)
                 GMenu2.toolbar.css("display", GTouchTool ? "" : "none"),
-                  GRichTooltipConfig instanceof E ||
+                  GRichTooltipConfig instanceof GFileReviewProperties ||
                     (GTouchTool
                       ? (GMenu2.toolbar.gAccordion(
                           "toggleOpen",
@@ -1134,7 +1134,7 @@ function (exports, module, require) {
               else if (
                 (GMenu2.panel.css("display", GTouchTool ? "" : "none"),
                 GMenu2.topArrow.css("display", GTouchTool ? "" : "none"),
-                GTouchTool && !(GRichTooltipConfig instanceof E))
+                GTouchTool && !(GRichTooltipConfig instanceof GFileReviewProperties))
               ) {
                 let e = this._annotationToolbar.find("." + GRichTooltipConfig._toolbarIcon);
                 r.css("left", e.position().left + e.width() / 2 - 6),
@@ -1151,7 +1151,7 @@ function (exports, module, require) {
         !this._currentAnnotations &&
         this._document &&
         this._document.getAnnotationsId()
-          ? w
+          ? GAnnotationsUtils
               .getCloudAnnotationsForDocument(this._document)
               .then((e) => {
                 let t = false;
@@ -1196,13 +1196,13 @@ function (exports, module, require) {
           if (_interopRequireDefault) {
             if (this._currentAnnotations) {
               n.map((e) =>
-                w.findAnnotationsListForPage(e, this._currentAnnotations)
+                GAnnotationsUtils.findAnnotationsListForPage(e, this._currentAnnotations)
               )
                 .filter((e) => !!e)
                 .forEach(function (e) {
                   e.$ &&
                     e.$.forEach(function (e) {
-                      var n = w.isOwner(GTools, e);
+                      var n = GAnnotationsUtils.isOwner(GTools, e);
                       e.rsv ||
                         (e.$ && 0 != e.$.length
                           ? (e.$.forEach(function (e) {
@@ -1227,7 +1227,7 @@ function (exports, module, require) {
             }
           } else if (this._localAnnotations) {
             n.map((e) =>
-              w.findAnnotationsListForPage(e, this._localAnnotations)
+              GAnnotationsUtils.findAnnotationsListForPage(e, this._localAnnotations)
             )
               .filter((e) => !!e)
               .forEach(function (e) {
@@ -1236,7 +1236,7 @@ function (exports, module, require) {
                   null !== n && n.hasMixin(GCore.GAnnotation);
                   n = n.getNext()
                 ) {
-                  var _interopRequireDefault = w.isOwner(GTools, n);
+                  var _interopRequireDefault = GAnnotationsUtils.isOwner(GTools, n);
                   if (!n.getProperty("rsv"))
                     if (n.getChildren().length > 0) {
                       for (
@@ -1306,7 +1306,7 @@ function (exports, module, require) {
             .find("span")
             .addClass("highlight")
             .click(() => {
-              new u().then((e) => e.open());
+              new GSettingsDialog().then((e) => e.open());
             }),
           exports
         );
@@ -1352,19 +1352,19 @@ function (exports, module, require) {
             (GMenu.height = GMenu2.outerHeight());
           var GTouchTool = 0;
           (GTouchTool = GMenu.x + GMenu.width) + _interopRequireDefault > GCore && (GTouchTool = GMenu.x - _interopRequireDefault);
-          var u = 0;
-          (u = GMenu.y + GMenu.height) + GTools > r && (u = GMenu.y - GTools);
+          var GSettingsDialog = 0;
+          (GSettingsDialog = GMenu.y + GMenu.height) + GTools > r && (GSettingsDialog = GMenu.y - GTools);
           const n = this._rangeLeftX ? this._rangeLeftX : 0;
           GTouchTool < n && (GTouchTool = n);
           const p = this._rangeRightX ? this._rangeRightX : GCore;
           GTouchTool + _interopRequireDefault >= p && (GTouchTool = p - _interopRequireDefault);
           const GDocumentEvent = this._rangeLeftY ? this._rangeLeftY : 0;
-          u < GDocumentEvent && (u = GDocumentEvent);
+          GSettingsDialog < GDocumentEvent && (GSettingsDialog = GDocumentEvent);
           const h = this._rangeRightY ? this._rangeRightY : r;
-          u + GTools >= h && (u = h - GTools);
-          const f = u - GTools - 10;
+          GSettingsDialog + GTools >= h && (GSettingsDialog = h - GTools);
+          const GSidebarContainer = GSettingsDialog - GTools - 10;
           module.css("left", GTouchTool),
-            module.css("top", f),
+            module.css("top", GSidebarContainer),
             module.addClass("g-menu-right g-menu-bottom");
         }
       }),

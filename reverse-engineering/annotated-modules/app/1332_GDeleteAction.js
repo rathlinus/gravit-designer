@@ -17,7 +17,7 @@ function (e, t, n) {
       d = n(567) /* GAnnotationsSidebar */,
       u = n(18) /* MenuItemBuilder */,
       p = n(31) /* GAction */;
-    const g = n(358) /* module_358 */,
+    const g = n(358) /* GAnnotationsUtils */,
       h = n(607) /* module_607 */;
     function f() {}
     i.GObject.inherit(f, p),

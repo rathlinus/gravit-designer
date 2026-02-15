@@ -15,7 +15,7 @@ function (exports, module, require) {
       GAction = require(31) /* GAction */,
       c = require(219) /* module_219 */,
       GContainer = require(85) /* GContainer */,
-      u = require(119) /* module_119 */;
+      GCloudStorage = require(119) /* GCloudStorage */;
     const GSystemDialog = require(44) /* GSystemDialog */,
       { isExecutingOnMSTeamsSync: g } = a.default;
     function h(e, t) {
@@ -71,7 +71,7 @@ function (exports, module, require) {
               ? gDesigner.isAnonymous()
                 ? (e(), this._reloadApp())
                 : t()
-              : u.performLogin().then((e) => {
+              : GCloudStorage.performLogin().then((e) => {
                   e && t();
                 });
           });

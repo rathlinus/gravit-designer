@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(23) /* globalThis */,
       i = n(21) /* tryCall */,
       a = n(343) /* module_343 */,
-      r = n(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
+      r = n(152) /* polyfill_TypedArrays */.NATIVE_ARRAY_BUFFER_VIEWS,
       s = o.ArrayBuffer,
       l = o.Int8Array;
     e.exports =

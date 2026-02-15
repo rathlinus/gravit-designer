@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* module */;
     const i = require(237) /* Item */,
-      a = require(156) /* module_156 */;
+      GCloudStorageItem = require(156) /* GCloudStorageItem */;
     function r() {}
     GCore.GObject.inherit(r, i),
       (r.Item = function (e, t) {
@@ -51,7 +51,7 @@ function (exports, module, require) {
               )
             )
           );
-        (e = a.createOrReturnSelfInstance(e)),
+        (e = GCloudStorageItem.createOrReturnSelfInstance(e)),
           (this._file = e),
           (this._id = e.id),
           (this._filename = e.name);

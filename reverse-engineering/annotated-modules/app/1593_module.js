@@ -8,7 +8,7 @@ function (e, t, n) {
     n(8) /* polyfill_bundle_ES6 */;
     const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* AppSettings */,
       a = n(44) /* GSystemDialog */,
-      r = n(604) /* module_604 */,
+      r = n(604) /* GProfileDialog */,
       s = n(337) /* stub_requires_1098 */;
     e.exports = class {
       async execute() {

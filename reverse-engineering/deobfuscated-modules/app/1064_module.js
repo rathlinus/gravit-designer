@@ -4,15 +4,15 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       require(272) /* module_272 */,
       require(273) /* HmacMD5 */,
       require(234) /* module_234 */,
-      require(98) /* module_98 */,
+      require(98) /* CryptoJSCipherBase */,
       (function () {
-        var e = o,
+        var e = CryptoJSCore,
           t = e.lib.StreamCipher,
           n = e.algo,
           i = (n.RC4 = t.extend({
@@ -21,19 +21,19 @@ function (exports, module, require) {
                 var e = this._key,
                   t = e.words,
                   n = e.sigBytes,
-                  o = (this._S = []),
+                  CryptoJSCore = (this._S = []),
                   i = 0;
                 i < 256;
                 i++
               )
-                o[i] = i;
+                CryptoJSCore[i] = i;
               i = 0;
               for (var a = 0; i < 256; i++) {
                 var r = i % n,
                   s = (t[r >>> 2] >>> (24 - (r % 4) * 8)) & 255;
-                a = (a + o[i] + s) % 256;
-                var l = o[i];
-                (o[i] = o[a]), (o[a] = l);
+                a = (a + CryptoJSCore[i] + s) % 256;
+                var l = CryptoJSCore[i];
+                (CryptoJSCore[i] = CryptoJSCore[a]), (CryptoJSCore[a] = l);
               }
               this._i = this._j = 0;
             },
@@ -45,7 +45,7 @@ function (exports, module, require) {
           }));
         function a() {
           for (
-            var e = this._S, t = this._i, n = this._j, o = 0, i = 0;
+            var e = this._S, t = this._i, n = this._j, CryptoJSCore = 0, i = 0;
             i < 4;
             i++
           ) {
@@ -53,9 +53,9 @@ function (exports, module, require) {
             var a = e[t];
             (e[t] = e[n]),
               (e[n] = a),
-              (o |= e[(e[t] + e[n]) % 256] << (24 - 8 * i));
+              (CryptoJSCore |= e[(e[t] + e[n]) % 256] << (24 - 8 * i));
           }
-          return (this._i = t), (this._j = n), o;
+          return (this._i = t), (this._j = n), CryptoJSCore;
         }
         e.RC4 = t._createHelper(i);
         var r = (n.RC4Drop = i.extend({
@@ -67,5 +67,5 @@ function (exports, module, require) {
         }));
         e.RC4Drop = t._createHelper(r);
       })(),
-      o.RC4);
+      CryptoJSCore.RC4);
   }

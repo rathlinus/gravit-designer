@@ -8,7 +8,7 @@ function (exports, module, require) {
     var core_export = require(25) /* core_export */,
       i = require(223) /* module_223 */,
       tryCall = require(21) /* tryCall */,
-      r = require(324) /* module_324 */,
+      r = require(324) /* polyfill_ArrayBuffer_DataView */,
       toString_default = require(37) /* toString_default */,
       l = require(244) /* module_244 */,
       toStringTagSupport = require(117) /* toStringTagSupport */,

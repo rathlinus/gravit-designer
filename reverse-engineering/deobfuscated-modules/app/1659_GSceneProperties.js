@@ -14,8 +14,8 @@ function (exports, module, require) {
       GGravitCloudAction = require(448) /* GGravitCloudAction */,
       GSaveAsAction = require(445) /* GSaveAsAction */,
       c = require(86) /* module_86 */,
-      d = require(163) /* module_163 */,
-      u = require(119) /* module_119 */,
+      GDocument = require(163) /* GDocument */,
+      GCloudStorage = require(119) /* GCloudStorage */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       h = (require(446) /* module_446 */, require(44) /* GSystemDialog */),
@@ -601,7 +601,7 @@ function (exports, module, require) {
                                   t,
                                   (e, n) => {
                                     if (e !== t || n) {
-                                      var GCore = new d(
+                                      var GCore = new GDocument(
                                         this._document.getStorageItem()
                                       );
                                       GCore.setScene(e),
@@ -938,7 +938,7 @@ function (exports, module, require) {
           var e = this._document;
           gDesigner.getDefaultStorage().canSave()
             ? this._document.isNew()
-              ? u.createFile(e, (t) => {
+              ? GCloudStorage.createFile(e, (t) => {
                   e.getScene().setCloudSynchronization(t.id),
                     gDesigner.executeAction(
                       GSaveAsAction.ID + v,
@@ -946,7 +946,7 @@ function (exports, module, require) {
                         null,
                         e,
                         () => {
-                          u.renameFile(t, e.getTitle(), () => {
+                          GCloudStorage.renameFile(t, e.getTitle(), () => {
                             e.storeToCloud(
                               e.getScene(),
                               this._updateProperties.bind(this)
@@ -962,7 +962,7 @@ function (exports, module, require) {
               ? gDesigner.executeAction(GSaveAsAction.ID + v, undefined, (undefined).true)
               : this._document.hasCloudReference()
               ? console.warn("Enable Sync for referenced file")
-              : u.createFile(e, (t) => {
+              : GCloudStorage.createFile(e, (t) => {
                   e.getScene().setCloudSynchronization(t.id),
                     e.storeToCloud(e.getScene(), () => {
                       e.store();
@@ -999,7 +999,7 @@ function (exports, module, require) {
         gDesigner.getUser().then((t) => {
           t
             ? e()
-            : u.performLogin().then((t) => {
+            : GCloudStorage.performLogin().then((t) => {
                 t && e();
               });
         });

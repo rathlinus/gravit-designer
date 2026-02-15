@@ -11,7 +11,7 @@ function (exports, module, require) {
       GAction = require(31) /* GAction */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */;
     const GSystemDialog = require(44) /* GSystemDialog */,
-      s = require(119) /* module_119 */;
+      GCloudStorage = require(119) /* GCloudStorage */;
     function l() {}
     GCore.GObject.inherit(l, GAction),
       (l.ID = "use-coupon-action"),
@@ -42,7 +42,7 @@ function (exports, module, require) {
             new GCore.GLocaleKey("GUseCouponAction", "text.hava-coupon")
           ),
           async (e) => {
-            if (e) return s.activateCoupon(e);
+            if (e) return GCloudStorage.activateCoupon(e);
             GSystemDialog.alert(
               GCore.GLocale.get(
                 new GCore.GLocaleKey("GUseCouponAction", "text.invalid-coupon")

@@ -7,25 +7,25 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */;
     require(30) /* polyfill_Object_assign */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
-    var i = require(1154) /* module_1154 */,
+    var GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
       a = _interopRequireDefault(require(389) /* module_389 */),
-      r = _interopRequireDefault(require(163) /* module_163 */),
-      s = _interopRequireDefault(require(1245) /* module_1245 */),
+      GDocument = _interopRequireDefault(require(163) /* GDocument */),
+      GCustomFontImporter = _interopRequireDefault(require(1245) /* GCustomFontImporter */),
       GCore = require(1) /* module */;
     exports.exports = {
       debugDownloadPNG: function () {
-        (0, i.downloadActiveFile)(a.default.PNG.ext);
+        (0, GFileDownloadUtils.downloadActiveFile)(a.default.PNG.ext);
       },
       debugDownloadPDF: function (e) {
-        (0, i.downloadActiveFile)(a.default.PDF.ext, {
+        (0, GFileDownloadUtils.downloadActiveFile)(a.default.PDF.ext, {
           dpi: e || GCore.GLength.DPI,
         });
       },
       debugDownloadSVG: function () {
-        (0, i.downloadActiveFile)(a.default.SVG.ext);
+        (0, GFileDownloadUtils.downloadActiveFile)(a.default.SVG.ext);
       },
       debugDownloadJPEG: function () {
-        (0, i.downloadActiveFile)(a.default.JPG.ext);
+        (0, GFileDownloadUtils.downloadActiveFile)(a.default.JPG.ext);
       },
       debugOpenFile: function (e) {
         let module =
@@ -33,7 +33,7 @@ function (exports, module, require) {
         const require = gDesigner.getDefaultStorage(),
           _interopRequireDefault = Object.assign({ disableFileSystemAccessAPI: true, silent: true }, module);
         require.openPrompt(
-          r.default.FileTypes.filter((e) => e.load),
+          GDocument.default.FileTypes.filter((e) => e.load),
           (t) => {
             gDesigner.openDocument(t), e && e();
           },
@@ -48,7 +48,7 @@ function (exports, module, require) {
             { disableFileSystemAccessAPI: true, silent: true },
             module
           ),
-          _interopRequireDefault = new s.default();
+          _interopRequireDefault = new GCustomFontImporter.default();
         _interopRequireDefault.import(e, require);
       },
     };

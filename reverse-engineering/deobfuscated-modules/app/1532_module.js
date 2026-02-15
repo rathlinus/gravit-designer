@@ -11,17 +11,17 @@ function (exports, module, require) {
       a = i.find((e) => e.default),
       { COMMAND_SAVE: r } = require(591) /* module_591 */,
       s = require(1164) /* module_1164 */,
-      Item = require(556) /* Item */;
+      GGoogleDriveItem = require(556) /* GGoogleDriveItem */;
     exports.exports = class extends s {
       constructor(e, t) {
         super(e, t);
       }
       async updateFileSceneAndMetadata(e, t, n, GCore) {
         const i = await this._requestWorkerToSave(e, t, n, GCore);
-        return Item.convertToCloudItem(i);
+        return GGoogleDriveItem.convertToCloudItem(i);
       }
       _requestWorkerToSave(e, t, n, i) {
-        return new Promise((s, Item) => {
+        return new Promise((s, GGoogleDriveItem) => {
           const c = this._request(r.REQUEST, {
             id: e,
             file: t,
@@ -34,7 +34,7 @@ function (exports, module, require) {
             function (e) {
               const { cmd: t, id: n, data: GCore } = e.data;
               if ((t !== r.SUCCESS && t !== r.FAILED) || n !== c) return false;
-              t === r.SUCCESS ? s(GCore.file) : t === r.FAILED && Item();
+              t === r.SUCCESS ? s(GCore.file) : t === r.FAILED && GGoogleDriveItem();
               return true;
             }.bind(this),
             { once: true }

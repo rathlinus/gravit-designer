@@ -4,15 +4,15 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
-      require(98) /* module_98 */,
-      (o.pad.AnsiX923 = {
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      require(98) /* CryptoJSCipherBase */,
+      (CryptoJSCore.pad.AnsiX923 = {
         pad: function (e, t) {
           var n = e.sigBytes,
-            o = 4 * t,
-            i = o - (n % o),
+            CryptoJSCore = 4 * t,
+            i = CryptoJSCore - (n % CryptoJSCore),
             a = n + i - 1;
           e.clamp(),
             (e.words[a >>> 2] |= i << (24 - (a % 4) * 8)),
@@ -23,5 +23,5 @@ function (exports, module, require) {
           e.sigBytes -= t;
         },
       }),
-      o.pad.Ansix923);
+      CryptoJSCore.pad.Ansix923);
   }

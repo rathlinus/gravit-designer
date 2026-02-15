@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */, require(134) /* polyfill_String_startsWith */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */, require(13) /* stub_requires_679 */, require(32) /* stub_requires_670 */, require(33) /* polyfill_DOMCollection_forEach */;
     var GCore = require(1) /* module */,
-      i = require(1075) /* module_1075 */,
+      NotoFontsData = require(1075) /* NotoFontsData */,
       a = require(381) /* module_381 */;
     function r(e) {
       a.call(this, e);
@@ -109,7 +109,7 @@ function (exports, module, require) {
         preview: "assets/font/chinese-traditional/NotoSans.svg",
         scripts: ["HAN"],
       }),
-      (d = d.concat(i)),
+      (d = d.concat(NotoFontsData)),
       GCore.GObject.inherit(r, a),
       (r.prototype.getDefaultFamilyForString = function (e) {
         var t = GCore.GOpenTypeFont.getScriptForString(e);
@@ -173,7 +173,7 @@ function (exports, module, require) {
             }
         return t;
       }),
-      (r.prototype.resolveFont = function (e, t, n, i) {
+      (r.prototype.resolveFont = function (e, t, n, NotoFontsData) {
         this.init();
         for (var r = 0; r < c.length; r++) {
           var s = c[r];
@@ -184,13 +184,13 @@ function (exports, module, require) {
                 p.weight === (n || 400) &&
                 p.style === (t || GCore.GFont.Style.Normal)
               ) {
-                if (l[p.url]) l[p.url].push(i);
+                if (l[p.url]) l[p.url].push(NotoFontsData);
                 else {
                   var g = new XMLHttpRequest();
                   (g.responseType = "arraybuffer"),
                     g.open("GET", p.url),
                     (l[p.url] = []),
-                    l[p.url].push(i),
+                    l[p.url].push(NotoFontsData),
                     (g.onload = function () {
                       if (this.status >= 200 && this.status < 300) {
                         var e = l[p.url];
@@ -201,7 +201,7 @@ function (exports, module, require) {
                       }
                     }),
                     (g.onerror = () => {
-                      delete l[p.url], i.fail(a.Errors.ConnectionError);
+                      delete l[p.url], NotoFontsData.fail(a.Errors.ConnectionError);
                     }),
                     g.send();
                 }
@@ -209,7 +209,7 @@ function (exports, module, require) {
               }
             }
         }
-        i.fail();
+        NotoFontsData.fail();
       }),
       (r.prototype.getProviderId = function () {
         return s;

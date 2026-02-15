@@ -18,7 +18,7 @@ function (e, t, n) {
       u = n(445) /* GSaveAsAction */,
       p = n(448) /* GGravitCloudAction */,
       g = n(86) /* module_86 */,
-      h = n(119) /* module_119 */,
+      h = n(119) /* GCloudStorage */,
       f = n(1510) /* module_1510 */,
       m = n(1511) /* module_1511 */;
     const y = n(44) /* GSystemDialog */,

@@ -15,7 +15,7 @@ function (exports, module, require) {
       l = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GProperties = require(123) /* GProperties */,
-      u = require(1153) /* module_1153 */,
+      GPresets = require(1153) /* GPresets */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       g = require(603) /* WindowEvent */,
       h = require(1328) /* module_1328 */,
@@ -42,7 +42,7 @@ function (exports, module, require) {
       (_.prototype._ownChange = false),
       (_.prototype._chooserElem = null),
       (_.prototype._clipContentButton = null),
-      (_.prototype._excludedPresets = [u.TYPE.MERCH]),
+      (_.prototype._excludedPresets = [GPresets.TYPE.MERCH]),
       (_.prototype._createInput = function (e) {
         var t = this,
           n = this;
@@ -1029,7 +1029,7 @@ function (exports, module, require) {
           )
           .appendTo(n),
           t.append(n),
-          u.getPresets().forEach((n) => {
+          GPresets.getPresets().forEach((n) => {
             var _interopRequireDefault = $("<optgroup></optgroup>").attr("label", n.name),
               GTools = false;
             n.layouts.forEach((t) => {
@@ -1194,7 +1194,7 @@ function (exports, module, require) {
               "value",
               t.pointToString(n.getProperty("mr"), t.getOptimalDecimalsCount())
             );
-        var u = this._panel
+        var GPresets = this._panel
             .find('select[data-property="master-page"]')
             .empty()
             .append($("<option></option>")),
@@ -1211,7 +1211,7 @@ function (exports, module, require) {
                 .data("page", e)
                 .attr("value", GSettingChangedEvent)
                 .text(e.getProperty("name"))
-                .appendTo(u);
+                .appendTo(GPresets);
               g === e && t.prop("selected", true);
             }
           }, true),
@@ -1305,7 +1305,7 @@ function (exports, module, require) {
               .attr("disabled", GTouchTool)
               .attr("i18n", "text.plkt-no-size-changes");
         }
-        var u =
+        var GPresets =
           t && t & GCore.GBlock.ProgramLck.NoSizeChanges
             ? "text.plkt-no-size-changes"
             : "text.infinite-canvas-no-size-changes";
@@ -1322,7 +1322,7 @@ function (exports, module, require) {
               e.attr(
                 "data-title",
                 GCore.GLocale.get(
-                  new GCore.GLocaleKey("GCommonNames", e.attr("i18n") || u)
+                  new GCore.GLocaleKey("GCommonNames", e.attr("i18n") || GPresets)
                 ).replace("%name", e.attr("default-data-title") || "")
               ));
           }),
@@ -1340,7 +1340,7 @@ function (exports, module, require) {
             .attr(
               "data-title",
               GCore.GLocale.get(
-                new GCore.GLocaleKey("GCommonNames", (e && e.attr("i18n")) || u)
+                new GCore.GLocaleKey("GCommonNames", (e && e.attr("i18n")) || GPresets)
               )
             );
         this._panel.find(".tooltip-wrapper").remove(),

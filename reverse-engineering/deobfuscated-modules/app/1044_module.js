@@ -4,12 +4,12 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       (function () {
         if ("function" == typeof ArrayBuffer) {
-          var exports = o.lib.WordArray,
+          var exports = CryptoJSCore.lib.WordArray,
             module = exports.init;
           (exports.init = function (e) {
             if (
@@ -26,12 +26,12 @@ function (exports, module, require) {
                 (e = new Uint8Array(e.buffer, e.byteOffset, e.byteLength)),
               e instanceof Uint8Array)
             ) {
-              for (var require = e.byteLength, o = [], i = 0; i < require; i++)
-                o[i >>> 2] |= e[i] << (24 - (i % 4) * 8);
-              module.call(this, o, require);
+              for (var require = e.byteLength, CryptoJSCore = [], i = 0; i < require; i++)
+                CryptoJSCore[i >>> 2] |= e[i] << (24 - (i % 4) * 8);
+              module.call(this, CryptoJSCore, require);
             } else module.apply(this, arguments);
           }).prototype = exports;
         }
       })(),
-      o.lib.WordArray);
+      CryptoJSCore.lib.WordArray);
   }

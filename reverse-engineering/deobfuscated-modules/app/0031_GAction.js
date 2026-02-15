@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* module */,
       GEditor = require(15) /* module */,
-      r = _interopRequireDefault(require(844) /* module_844 */);
+      GActionIconMap = _interopRequireDefault(require(844) /* GActionIconMap */);
     function s() {}
     GCore.GObject.inherit(s, GCore.GObject),
       (s.SHORTCUT_DELAY = 500),
@@ -30,7 +30,7 @@ function (exports, module, require) {
         return null;
       }),
       (s.prototype.getIcon = function () {
-        return r.default[this.getId()] || null;
+        return GActionIconMap.default[this.getId()] || null;
       }),
       (s.prototype.getCategory = function () {
         return null;

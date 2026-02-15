@@ -11,10 +11,10 @@ function (exports, module, require) {
       GEditor = require(15) /* module */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      s = require(844) /* module_844 */,
+      GActionIconMap = require(844) /* GActionIconMap */,
       l = require(86) /* module_86 */,
       c = require(220) /* Item */,
-      d = require(119) /* module_119 */,
+      GCloudStorage = require(119) /* GCloudStorage */,
       u = require(446) /* module_446 */;
     const GOfflineDialog = require(256) /* GOfflineDialog */;
     function g(e) {
@@ -42,7 +42,7 @@ function (exports, module, require) {
         return this._type === g.Actions.Open ? "file-open" : "file";
       }),
       (g.prototype.getGroupIcon = function () {
-        return s["gravit-cloud"];
+        return GActionIconMap["gravit-cloud"];
       }),
       (g.prototype.getShortcut = function () {
         return this._type == g.Actions.Open
@@ -69,7 +69,7 @@ function (exports, module, require) {
           return false;
         return (
           !(!gDesigner.getActiveDocument() && this._type !== g.Actions.Open) &&
-          !!d.isOnline()
+          !!GCloudStorage.isOnline()
         );
       }),
       (g.prototype.execute = function (e, t, n) {
@@ -95,7 +95,7 @@ function (exports, module, require) {
             return void GEditor.openPaywall(this.getId());
           var MenuItemBuilder = GEditor.getStorageItem();
           MenuItemBuilder && MenuItemBuilder instanceof c.Item
-            ? d.performSave(
+            ? GCloudStorage.performSave(
                 GEditor,
                 () => {
                   t && t(l.Saved);

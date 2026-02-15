@@ -40,7 +40,7 @@ function (exports, module, require) {
                 e._onTimeout && e._onTimeout();
               }, t));
           }),
-        require(1116) /* module_1116 */,
+        require(1116) /* SetImmediatePolyfill */,
         (module.setImmediate =
           ("undefined" != typeof self && self.setImmediate) ||
           (undefined !== e && e.setImmediate) ||

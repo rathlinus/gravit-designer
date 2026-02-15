@@ -18,7 +18,7 @@ function (exports, module, require) {
       GSaveAsAction = require(445) /* GSaveAsAction */,
       GGravitCloudAction = require(448) /* GGravitCloudAction */,
       g = require(86) /* module_86 */,
-      h = require(119) /* module_119 */,
+      GCloudStorage = require(119) /* GCloudStorage */,
       f = require(1510) /* module_1510 */,
       m = require(1511) /* module_1511 */;
     const GSystemDialog = require(44) /* GSystemDialog */,
@@ -97,10 +97,10 @@ function (exports, module, require) {
                 e.reload();
               },
               function () {
-                h.performSave(e, t);
+                GCloudStorage.performSave(e, t);
               }
             )
-          : h.performSave(e, t);
+          : GCloudStorage.performSave(e, t);
       }),
       (w.prototype._save = async function (e, t, n) {
         if (gDesigner.getDefaultStorage().canSave()) {

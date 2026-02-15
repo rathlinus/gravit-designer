@@ -13,7 +13,7 @@ function (exports, module, require) {
       GMenuActivateEvent = require(1499) /* GMenuActivateEvent */,
       GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
       l = require(444) /* module_444 */,
-      c = require(1157) /* module_1157 */,
+      GMenuManager = require(1157) /* GMenuManager */,
       GMenuOpenEvent = require(804) /* GMenuOpenEvent */;
     function u(e, t, n, GCore) {
       (this._htmlElement = $("<li></li>").addClass("g-menu-item")),
@@ -534,9 +534,9 @@ function (exports, module, require) {
             this._category == u.Type.Item)
           ) {
             let e = this.activate();
-            this.isEnabled() && false !== e && c.triggerGlobalActivation(this);
+            this.isEnabled() && false !== e && GMenuManager.triggerGlobalActivation(this);
           }
-          this.isRootMenuBarItem() || c.setActiveMenu(null);
+          this.isRootMenuBarItem() || GMenuManager.setActiveMenu(null);
         }
       }),
       (u.prototype._openMenu = function () {

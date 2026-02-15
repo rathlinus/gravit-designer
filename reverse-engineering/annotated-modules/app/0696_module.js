@@ -14,7 +14,7 @@ function (e, t, n) {
       c = n(204) /* module_204 */,
       d = n(305) /* module_305 */,
       u = n(697) /* module_697 */,
-      p = n(152) /* module_152 */.aTypedArrayConstructor,
+      p = n(152) /* polyfill_TypedArrays */.aTypedArrayConstructor,
       g = n(429) /* module_429 */;
     e.exports = function (e) {
       var t,

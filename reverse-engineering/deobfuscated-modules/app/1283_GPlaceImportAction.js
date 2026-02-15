@@ -14,7 +14,7 @@ function (exports, module, require) {
       GContainer = _interopRequireDefault(require(85) /* GContainer */),
       AppSettings = require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
-      d = require(163) /* module_163 */,
+      GDocument = require(163) /* GDocument */,
       GAction = require(31) /* GAction */;
     function p() {
       p.TOOLTIP_CONFIG = {
@@ -70,7 +70,7 @@ function (exports, module, require) {
         var n = gDesigner.getActiveDocument();
         if (!n) return false;
         (e = e || n.getStorage() || gDesigner.getDefaultStorage()).openPrompt(
-          d.FileTypes.filter((e) => e.import_image),
+          GDocument.FileTypes.filter((e) => e.import_image),
           (e) => {
             gDesigner.stats(
               "import-placeimport_open_localfile",

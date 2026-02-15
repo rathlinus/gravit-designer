@@ -9,7 +9,7 @@ function (exports, module, require) {
     var GTools = require(53) /* module */,
       GCore = require(1) /* module */,
       a = require(15) /* module */,
-      barrel_sidebars = require(255) /* barrel_sidebars */,
+      GFontsProviderManager = require(255) /* GFontsProviderManager */,
       barrel_editor_actions = require(590) /* barrel_editor_actions */,
       GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */;
     const c = ["text/xml", "text/plain"],
@@ -125,14 +125,14 @@ function (exports, module, require) {
             e.clipboardData.items &&
             e.clipboardData.items.length
           ) {
-            for (var require = module.items, GTools = {}, barrel_sidebars = 0; barrel_sidebars < require.length; barrel_sidebars++) {
+            for (var require = module.items, GTools = {}, GFontsProviderManager = 0; GFontsProviderManager < require.length; GFontsProviderManager++) {
               var barrel_editor_actions = null;
-              switch ((d = require[barrel_sidebars].type)) {
+              switch ((d = require[GFontsProviderManager].type)) {
                 case "image/png":
                 case "image/jpeg":
                 case "image/gif":
                 case "application/pdf":
-                  barrel_editor_actions = require[barrel_sidebars].getAsFile();
+                  barrel_editor_actions = require[GFontsProviderManager].getAsFile();
                   break;
                 default:
                   barrel_editor_actions = module.getData(d) || null;
@@ -148,10 +148,10 @@ function (exports, module, require) {
             var GAnnotationsSidebar = 0;
             if (module.types && module.types.length) {
               var c = module.types;
-              for (barrel_sidebars = 0; barrel_sidebars < c.length; barrel_sidebars++) {
+              for (GFontsProviderManager = 0; GFontsProviderManager < c.length; GFontsProviderManager++) {
                 var d;
                 if (
-                  "public.file-url" === (d = c[barrel_sidebars]) &&
+                  "public.file-url" === (d = c[GFontsProviderManager]) &&
                   module.files &&
                   GAnnotationsSidebar < module.files.length
                 ) {
@@ -352,7 +352,7 @@ function (exports, module, require) {
           }
           if (u) {
             var A,
-              T = barrel_sidebars.getProviderInstance(barrel_editor_actions),
+              T = GFontsProviderManager.getProviderInstance(barrel_editor_actions),
               G =
                 gDesigner.getWorkspace() &&
                 gDesigner.getWorkspace().getFontManager() &&
@@ -435,13 +435,13 @@ function (exports, module, require) {
           GTools < e.length;
           GTools++
         ) {
-          for (var a = e[GTools], barrel_sidebars = true, barrel_editor_actions = 0; barrel_editor_actions < module.length; barrel_editor_actions++) {
+          for (var a = e[GTools], GFontsProviderManager = true, barrel_editor_actions = 0; barrel_editor_actions < module.length; barrel_editor_actions++) {
             if (a instanceof module[barrel_editor_actions]) {
-              barrel_sidebars = false;
+              GFontsProviderManager = false;
               break;
             }
           }
-          barrel_sidebars && require.push(a);
+          GFontsProviderManager && require.push(a);
         }
         return require;
       }),
@@ -449,18 +449,18 @@ function (exports, module, require) {
         var t,
           n,
           a = gDesigner.getActiveDocument().getEditor(),
-          barrel_sidebars = gDesigner.getActiveDocument().getScene(),
+          GFontsProviderManager = gDesigner.getActiveDocument().getScene(),
           barrel_editor_actions = gDesigner.getWindows().getActiveWindow(),
-          GAnnotationsSidebar = barrel_sidebars.getActivePage();
+          GAnnotationsSidebar = GFontsProviderManager.getActivePage();
         if (
-          ((n = barrel_sidebars.isFixedSized() ? GAnnotationsSidebar.getGeometryBBox() : barrel_sidebars.getPaintBBox()), barrel_editor_actions)
+          ((n = GFontsProviderManager.isFixedSized() ? GAnnotationsSidebar.getGeometryBBox() : GFontsProviderManager.getPaintBBox()), barrel_editor_actions)
         ) {
           var c = barrel_editor_actions.getView(),
             d = c.getViewTransform(GAnnotationsSidebar),
             u = GCore.GPaintCanvas.getScreenDPI(),
             p = c.getViewBox().scaled(u, u);
           (t = d.mapRect(p)),
-            barrel_sidebars.isFixedSized() && (t = t.intersected(n)),
+            GFontsProviderManager.isFixedSized() && (t = t.intersected(n)),
             t.isEmpty() && (t = n);
         } else t = n;
         a.arrangeAlign(

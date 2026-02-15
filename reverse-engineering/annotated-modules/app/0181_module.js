@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(25) /* core_export */,
       i = n(223) /* module_223 */,
       a = n(21) /* tryCall */,
-      r = n(324) /* module_324 */,
+      r = n(324) /* polyfill_ArrayBuffer_DataView */,
       s = n(37) /* toString_default */,
       l = n(244) /* module_244 */,
       c = n(117) /* toStringTagSupport */,

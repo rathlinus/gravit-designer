@@ -14,7 +14,7 @@ function (e, t, n) {
       s = o(n(85) /* GContainer */),
       l = n(10) /* AppSettings */,
       c = n(18) /* MenuItemBuilder */,
-      d = n(163) /* module_163 */,
+      d = n(163) /* GDocument */,
       u = n(31) /* GAction */;
     function p() {
       p.TOOLTIP_CONFIG = {

@@ -16,7 +16,7 @@ function (e, t, n) {
       c = n(608) /* GCreateSymbolAction */,
       d = n(566) /* GFitSelectionAction */,
       u = n(806) /* GSidebar */,
-      p = n(395) /* module_395 */;
+      p = n(395) /* GSidebarContainer */;
     function g() {
       u.call(this);
     }

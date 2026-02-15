@@ -24,13 +24,13 @@ function (exports, module, require) {
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       AppSettings = require(10) /* AppSettings */,
       s = require(237) /* Item */,
-      l = require(163) /* module_163 */,
+      l = require(163) /* GDocument */,
       c = require(442) /* module_442 */;
     const d = require(389) /* module_389 */;
     function u() {}
     (window.pako = require(165) /* module_165 */),
-      require(1514) /* module_1514 */,
-      require(1515) /* module_1515 */,
+      require(1514) /* ZipJSBrowser */,
+      require(1515) /* ZipJSFileSystem */,
       require(1516) /* module_1516 */,
       (zip.useWebWorkers = false),
       (u.generateExportables = function (e, t, n) {

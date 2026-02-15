@@ -4,18 +4,18 @@
  */
 
 function (exports, module, require) {
-    var o, i, a, r;
+    var CryptoJSCore, i, a, r;
     exports.exports =
-      ((o = require(55) /* module_55 */),
-      (a = (i = o).lib.Base),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      (a = (i = CryptoJSCore).lib.Base),
       (r = i.enc.Utf8),
       void (i.algo.HMAC = a.extend({
         init: function (e, t) {
           (e = this._hasher = new e.init()),
             "string" == typeof t && (t = r.parse(t));
           var n = e.blockSize,
-            o = 4 * n;
-          t.sigBytes > o && (t = e.finalize(t)), t.clamp();
+            CryptoJSCore = 4 * n;
+          t.sigBytes > CryptoJSCore && (t = e.finalize(t)), t.clamp();
           for (
             var i = (this._oKey = t.clone()),
               a = (this._iKey = t.clone()),
@@ -26,7 +26,7 @@ function (exports, module, require) {
             c++
           )
             (s[c] ^= 1549556828), (l[c] ^= 909522486);
-          (i.sigBytes = a.sigBytes = o), this.reset();
+          (i.sigBytes = a.sigBytes = CryptoJSCore), this.reset();
         },
         reset: function () {
           var e = this._hasher;

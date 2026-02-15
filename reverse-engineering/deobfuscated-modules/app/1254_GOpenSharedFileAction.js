@@ -11,9 +11,9 @@ function (exports, module, require) {
     const MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       GSystemDialog = require(44) /* GSystemDialog */,
-      s = require(163) /* module_163 */,
+      GDocument = require(163) /* GDocument */,
       GContainer = require(85) /* GContainer */,
-      c = require(1255) /* module_1255 */;
+      GOpenFileRequestHandler = require(1255) /* GOpenFileRequestHandler */;
     function d() {}
     GCore.GObject.inherit(d, GAction),
       (d.ID = "file.share.opensharedfile"),
@@ -50,10 +50,10 @@ function (exports, module, require) {
                     module
                   );
                   gApi.setToken({ token: module });
-                  let n = new s();
+                  let n = new GDocument();
                   n.setTitle(e.getContent()),
                     gDesigner.addDocument(n),
-                    c.handleOpenFileRequest(n, e);
+                    GOpenFileRequestHandler.handleOpenFileRequest(n, e);
                 } else
                   GSystemDialog.alert(
                     GCore.GLocale.get(

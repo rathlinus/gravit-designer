@@ -8,18 +8,18 @@ function (exports, module, require) {
     Object.defineProperty(module, "__esModule", { value: true }),
       (module.default = undefined),
       require(8) /* polyfill_bundle_ES6 */;
-    const o = require(156) /* module_156 */,
+    const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       i = require(220) /* Item */,
-      a = require(556) /* Item */;
+      GGoogleDriveItem = require(556) /* GGoogleDriveItem */;
     function r() {}
     r.createStorageItem = async function (e) {
       let module = null;
       switch (e.storage) {
-        case o.Storage.Gravit:
+        case GCloudStorageItem.Storage.Gravit:
           module = await i.from(gDesigner.getDefaultStorage(), e);
           break;
-        case o.Storage.GoogleDrive:
-          module = await new a.Item(gDesigner.getDefaultStorage(), e);
+        case GCloudStorageItem.Storage.GoogleDrive:
+          module = await new GGoogleDriveItem.Item(gDesigner.getDefaultStorage(), e);
       }
       return module;
     };

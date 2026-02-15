@@ -55,7 +55,7 @@ function (exports, module, require) {
         })(e, t);
       })(require(789) /* Exports_NoAccessId */),
       GError = _interopRequireDefault(require(594) /* GError */);
-    const d = require(1108) /* module_1108 */,
+    const GoogleDriveResumableUpload = require(1108) /* GoogleDriveResumableUpload */,
       u = require(595) /* module_595 */,
       { HTTP_STATUS_CODES: p } = require(10) /* AppSettings */;
     function g(e) {
@@ -140,7 +140,7 @@ function (exports, module, require) {
           CollaborationMergeUtils = { fields: "*", supportsAllDrives: true, pageSize: 50 };
         return new Promise((GCore, r) => {
           !(function l(GError) {
-            const d = new URL(
+            const GoogleDriveResumableUpload = new URL(
                 "https://www.googleapis.com/drive/v3/files/".concat(
                   e,
                   "/permissions"
@@ -148,8 +148,8 @@ function (exports, module, require) {
               ),
               u = Object.assign({}, CollaborationMergeUtils);
             GError && (u.pageToken = GError);
-            for (var p in u) d.searchParams.append(p, u[p]);
-            return fetch(d.toString(), {
+            for (var p in u) GoogleDriveResumableUpload.searchParams.append(p, u[p]);
+            return fetch(GoogleDriveResumableUpload.toString(), {
               method: "GET",
               headers: new Headers({ Authorization: "Bearer ".concat(_interopRequireDefault) }),
             })
@@ -362,7 +362,7 @@ function (exports, module, require) {
           var s = n.mimeType || "application/octet-stream";
           const l = { fields: "*" };
           n.hasOwnProperty("driveId") && (l.supportsAllDrives = true),
-            new d({
+            new GoogleDriveResumableUpload({
               file: t,
               fileId: e,
               token: GCore,
@@ -420,23 +420,23 @@ function (exports, module, require) {
           l = { Authorization: "Bearer ".concat(s) },
           GError = t.headers ? Object.assign(l, t.headers) : l;
         delete t.headers;
-        const d = await fetch(
+        const GoogleDriveResumableUpload = await fetch(
           e,
           Object.assign({ headers: new Headers(GError), signal: n }, t)
         );
-        if (!d.ok) {
-          var u = await d.json();
-          return d.status === p.UNAUTHORIZED &&
+        if (!GoogleDriveResumableUpload.ok) {
+          var u = await GoogleDriveResumableUpload.json();
+          return GoogleDriveResumableUpload.status === p.UNAUTHORIZED &&
             (await gContainer.getGoogleAPI().signIn(), 0 === GCore)
             ? this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore)
-            : d.status === p.FORBIDDEN &&
+            : GoogleDriveResumableUpload.status === p.FORBIDDEN &&
               g.isUsageLimitError(u) &&
               GCore < g.TRIAL_UNTIL_FAIL
             ? (await (0, CollaborationMergeUtils.sleep)(1e3 * Math.pow(1 + GCore, 2)),
               this._requestWithProgress(e, t, n, _interopRequireDefault, ++GCore))
             : Promise.reject(u);
         }
-        return (0, r.readResponseWithProgress)(d, _interopRequireDefault, true);
+        return (0, r.readResponseWithProgress)(GoogleDriveResumableUpload, _interopRequireDefault, true);
       }),
       (g.prototype.getFile = function (e, t, n, _interopRequireDefault) {
         var GCore = new URL(

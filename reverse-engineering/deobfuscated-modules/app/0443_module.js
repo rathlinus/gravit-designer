@@ -37,7 +37,7 @@ function (exports, module, require) {
               : (r[t] = e[t]));
         return r;
       })(e, t);
-    })(require(1480) /* Action_id */);
+    })(require(1480) /* MSTeamsSDK */);
     const AppSettings = require(10) /* AppSettings */;
     let a = false,
       r = false,

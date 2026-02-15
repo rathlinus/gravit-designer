@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(878) /* module_878 */,
-      i = require(879) /* module_879 */,
+    const GTouchEventHandler = require(878) /* GTouchEventHandler */,
+      GTouchClickGesture = require(879) /* GTouchClickGesture */,
       a = require(1329) /* module_1329 */;
-    exports.exports = class extends o {
+    exports.exports = class extends GTouchEventHandler {
       constructor(e) {
         super(e),
           this.addGesture(
-            new i({
-              doubleTapDetection: i.DetectionMode.Nearby,
+            new GTouchClickGesture({
+              doubleTapDetection: GTouchClickGesture.DetectionMode.Nearby,
               doubleTapThreshold: 200,
             })
           ),

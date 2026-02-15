@@ -4,12 +4,12 @@
  */
 
 function (exports, module, require) {
-    var o, i, a, r, s, l, c, d, u;
+    var o, i, a, r, s, l, c, d, CryptoJSCore;
     exports.exports =
-      ((u = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       require(537) /* module_537 */,
       require(538) /* module_538 */,
-      (i = (o = u).lib),
+      (i = (o = CryptoJSCore).lib),
       (a = i.Base),
       (r = i.WordArray),
       (s = o.algo),
@@ -30,13 +30,13 @@ function (exports, module, require) {
                 s = i.words,
                 l = a.words,
                 d = require.keySize,
-                u = require.iterations;
+                CryptoJSCore = require.iterations;
               s.length < d;
 
             ) {
               var p = o.update(t).finalize(a);
               o.reset();
-              for (var g = p.words, h = g.length, f = p, m = 1; m < u; m++) {
+              for (var g = p.words, h = g.length, f = p, m = 1; m < CryptoJSCore; m++) {
                 (f = o.finalize(f)), o.reset();
                 for (var y = f.words, v = 0; v < h; v++) g[v] ^= y[v];
               }
@@ -48,5 +48,5 @@ function (exports, module, require) {
       (o.PBKDF2 = function (e, t, n) {
         return d.create(n).compute(e, t);
       }),
-      u.PBKDF2);
+      CryptoJSCore.PBKDF2);
   }

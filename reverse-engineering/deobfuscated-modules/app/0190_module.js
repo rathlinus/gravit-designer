@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var globalThis = require(23) /* globalThis */,
       isCallable = require(29) /* isCallable */,
-      a = require(152) /* module_152 */,
+      a = require(152) /* polyfill_TypedArrays */,
       r = require(101) /* stub_requires_117 */,
       s = require(428) /* module_428 */,
       l = require(93) /* stub_requires_92 */,

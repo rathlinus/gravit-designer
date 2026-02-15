@@ -20,8 +20,8 @@ function (e, t, n) {
         },
       }),
       (t.default = void 0);
-    var i = o(n(1547) /* module_1547 */),
-      a = o(n(1300) /* module_1300 */);
+    var i = o(n(1547) /* GCloudFileBrowserDialog */),
+      a = o(n(1300) /* GCloudFileBrowser */);
     t.default = {
       GFilesPanelViewNative: i.default,
       GFilesPanelViewBase: a.default,

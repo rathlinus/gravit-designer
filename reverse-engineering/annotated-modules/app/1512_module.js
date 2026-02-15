@@ -25,7 +25,7 @@ function (e, t, n) {
       i = n(0) /* GObject */;
     n(10) /* AppSettings */;
     var a = n(237) /* Item */,
-      r = n(1117) /* module_1117 */.saveAs,
+      r = n(1117) /* FileSaverJS */.saveAs,
       s = null,
       l = null;
     function c() {

@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    const o = n(1252) /* module_1252 */,
+    const o = n(1252) /* GCrossFrameManager */,
       i = n(1187) /* module_1187 */,
       { gApi: a } = n(10) /* AppSettings */;
     e.exports = class extends i {

@@ -12,10 +12,10 @@ function (exports, module, require) {
         require(10) /* AppSettings */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      l = require(119) /* module_119 */,
+      GCloudStorage = require(119) /* GCloudStorage */,
       GGravitCloudAction = require(448) /* GGravitCloudAction */,
       d = require(86) /* module_86 */,
-      u = require(163) /* module_163 */,
+      u = require(163) /* GDocument */,
       GSaveAsAction = require(445) /* GSaveAsAction */,
       GSystemDialog = require(44) /* GSystemDialog */,
       h = i.find((e) => e.default).ext;
@@ -117,7 +117,7 @@ function (exports, module, require) {
       (f.prototype._performCloudSync = function (e) {
         gDesigner.getDefaultStorage().canSave()
           ? e.isNew()
-            ? l.createFile(e, (t) => {
+            ? GCloudStorage.createFile(e, (t) => {
                 e.getScene().setCloudSynchronization(t.id),
                   gDesigner.executeAction(
                     GSaveAsAction.ID + "." + h,
@@ -125,7 +125,7 @@ function (exports, module, require) {
                       null,
                       e,
                       () => {
-                        l.renameFile(t, e.getTitle(), () => {
+                        GCloudStorage.renameFile(t, e.getTitle(), () => {
                           e.storeToCloud(e.getScene());
                         });
                       },
@@ -136,7 +136,7 @@ function (exports, module, require) {
               })
             : e.isCloudFile()
             ? gDesigner.executeAction(GSaveAsAction.ID + "." + h, undefined, undefined, true)
-            : l.createFile(e, (t) => {
+            : GCloudStorage.createFile(e, (t) => {
                 e.getScene().setCloudSynchronization(t.id),
                   e.storeToCloud(e.getScene(), () => {
                     e.store(null, null, null, {

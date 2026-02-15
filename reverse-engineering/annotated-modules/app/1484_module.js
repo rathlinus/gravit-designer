@@ -9,7 +9,7 @@ function (e, t, n) {
     n(8) /* polyfill_bundle_ES6 */;
     var i = o(n(176) /* GSystem */),
       a = n(1) /* module */,
-      r = o(n(1242) /* module_1242 */),
+      r = o(n(1242) /* MSTeamsAuthManager */),
       s = o(n(44) /* GSystemDialog */),
       l = o(n(443) /* module_443 */),
       c = n(1243) /* Exports_SHAREPOINT_COMMAND */;

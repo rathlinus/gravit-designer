@@ -8,7 +8,7 @@ function (e, t, n) {
     var o,
       i,
       a = n(1374) /* GBrowserContainer */,
-      r = n(1483) /* AppSettings */;
+      r = n(1483) /* GDesignerApp */;
     function s() {
       var e = new a();
       e.initLanguage(function () {

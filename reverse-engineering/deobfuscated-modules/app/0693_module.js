@@ -8,7 +8,7 @@ function (exports, module, require) {
     var globalThis = require(23) /* globalThis */,
       tryCall = require(21) /* tryCall */,
       a = require(343) /* module_343 */,
-      r = require(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
+      r = require(152) /* polyfill_TypedArrays */.NATIVE_ARRAY_BUFFER_VIEWS,
       s = globalThis.ArrayBuffer,
       l = globalThis.Int8Array;
     exports.exports =

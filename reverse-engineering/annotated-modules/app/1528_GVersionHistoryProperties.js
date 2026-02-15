@@ -14,7 +14,7 @@ function (e, t, n) {
       s = o(n(123) /* GProperties */),
       l = o(n(1159) /* module_1159 */),
       c = o(n(220) /* Item */),
-      d = o(n(163) /* module_163 */),
+      d = o(n(163) /* GDocument */),
       u = o(n(219) /* module_219 */),
       p = o(n(78) /* GDocumentEvent */),
       g = o(n(86) /* module_86 */),

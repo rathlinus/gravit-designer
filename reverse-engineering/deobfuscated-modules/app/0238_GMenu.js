@@ -12,7 +12,7 @@ function (exports, module, require) {
       GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
       r = require(444) /* module_444 */,
       s = require(339) /* GMenu */,
-      l = require(1157) /* module_1157 */,
+      GMenuManager = require(1157) /* GMenuManager */,
       GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
       GAction = require(31) /* GAction */;
     function u(e, t) {
@@ -177,7 +177,7 @@ function (exports, module, require) {
           this.isOpen() ||
             (this.update(),
             this._htmlElement.appendTo($("body")),
-            this.isSubMenu() || l.setActiveMenu(this, false, GCore),
+            this.isSubMenu() || GMenuManager.setActiveMenu(this, false, GCore),
             this.trigger(GMenuOpenEvent.EVENT)),
           this._htmlElement.parent().is("body"))
         ) {
@@ -219,8 +219,8 @@ function (exports, module, require) {
           }
           const GCore = this._rangeLeftX ? this._rangeLeftX : 0;
           y < GCore && (y = GCore);
-          const l = this._rangeRightX ? this._rangeRightX : p;
-          y + GAction >= l && (y = l - GAction);
+          const GMenuManager = this._rangeRightX ? this._rangeRightX : p;
+          y + GAction >= GMenuManager && (y = GMenuManager - GAction);
           const GMenuOpenEvent = this._rangeLeftY ? this._rangeLeftY : 0;
           v < GMenuOpenEvent && (v = GMenuOpenEvent);
           const _ = this._rangeRightY ? this._rangeRightY : g;
@@ -264,7 +264,7 @@ function (exports, module, require) {
             "g-menu-left g-menu-right g-menu-top g-menu-bottom"
           ),
           this._htmlElement.detach(),
-          this === l._activeMenu && l.setActiveMenu(null, true),
+          this === GMenuManager._activeMenu && GMenuManager.setActiveMenu(null, true),
           this.trigger(GMenuCloseEvent.EVENT));
       }),
       (u.prototype.setTouchMode = function (e) {

@@ -9,7 +9,7 @@ function (e, t, n) {
     n(3) /* polyfill_RegExp_toString */;
     var o = n(238) /* GMenu */,
       i = n(339) /* GMenu */,
-      a = n(1157) /* module_1157 */;
+      a = n(1157) /* GMenuManager */;
     function r(e) {
       (this._htmlElement = $("<nav></nav>").addClass("g-menu-bar")),
         this.setMenu(e || new o(this));

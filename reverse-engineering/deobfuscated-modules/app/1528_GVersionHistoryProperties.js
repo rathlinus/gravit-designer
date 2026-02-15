@@ -14,7 +14,7 @@ function (exports, module, require) {
       GProperties = _interopRequireDefault(require(123) /* GProperties */),
       l = _interopRequireDefault(require(1159) /* module_1159 */),
       c = _interopRequireDefault(require(220) /* Item */),
-      d = _interopRequireDefault(require(163) /* module_163 */),
+      GDocument = _interopRequireDefault(require(163) /* GDocument */),
       u = _interopRequireDefault(require(219) /* module_219 */),
       GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
       g = _interopRequireDefault(require(86) /* module_86 */),
@@ -224,9 +224,9 @@ function (exports, module, require) {
           GProperties = gDesigner.getActiveDocument().getStorageItem(),
           l = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
           c = !!l;
-        let d,
+        let GDocument,
           u = this._versionsContainer.find(".content");
-        AppSettings.AUTO_SAVE_ENABLED && (d = this._autoSaveContainer.find(".content"));
+        AppSettings.AUTO_SAVE_ENABLED && (GDocument = this._autoSaveContainer.find(".content"));
         const g = e.find((e) => e.version.latest);
         let GDocumentStatusEvent = g,
           GRichTooltipConfig = false;
@@ -236,7 +236,7 @@ function (exports, module, require) {
             ((GDocumentStatusEvent = e), (GRichTooltipConfig = true));
         }
         const y = (e, t, AppSettings) => {
-          let { version: GProperties, thumbnail: d, autosave: u } = e;
+          let { version: GProperties, thumbnail: GDocument, autosave: u } = e;
           return $("<div />")
             .addClass("version-history-item")
             .addClass(
@@ -253,7 +253,7 @@ function (exports, module, require) {
             .append(
               $("<div />")
                 .addClass("vhi-thumbnail")
-                .css("background-image", "url(" + d.url_t + ")")
+                .css("background-image", "url(" + GDocument.url_t + ")")
             )
             .append(
               $("<div />")
@@ -322,7 +322,7 @@ function (exports, module, require) {
                             ),
                             _interopRequireDefault._showPreview(
                               GProperties.versionId,
-                              d.name,
+                              GDocument.name,
                               $(this).closest(".version-history-item"),
                               u
                             ),
@@ -348,7 +348,7 @@ function (exports, module, require) {
                             gDesigner.intercomStats(
                               "Open version from history"
                             ),
-                            _interopRequireDefault._applyVersion(GProperties.versionId, d.name, u),
+                            _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, u),
                             $(this).parent(".vhi-settings-list").hide();
                         })
                     )
@@ -369,7 +369,7 @@ function (exports, module, require) {
                   : (gDesigner.stats(
                       "version-history-panel_show-preview_from-main-panel"
                     ),
-                    _interopRequireDefault._showPreview(GProperties.versionId, d.name, $(t), u),
+                    _interopRequireDefault._showPreview(GProperties.versionId, GDocument.name, $(t), u),
                     gDesigner.intercomStats("Preview version from history"));
               }, 500);
             })
@@ -382,7 +382,7 @@ function (exports, module, require) {
                 );
               $(this).data("dblclicked", 2),
                 gDesigner.stats("version-history-panel_apply-version"),
-                _interopRequireDefault._applyVersion(GProperties.versionId, d.name, u),
+                _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, u),
                 gDesigner.intercomStats("Open version from history");
             })
             .on("mouseenter", function () {
@@ -397,11 +397,11 @@ function (exports, module, require) {
           for (let t = 0, require = e.length; t < require; t++) {
             let _interopRequireDefault = e[t],
               GCore = null;
-            (GCore = _interopRequireDefault.autosave ? d : u), GCore.append(y(_interopRequireDefault, t, require));
+            (GCore = _interopRequireDefault.autosave ? GDocument : u), GCore.append(y(_interopRequireDefault, t, require));
           }
         }
         u.empty(),
-          d && d.empty(),
+          GDocument && GDocument.empty(),
           v(e),
           AppSettings.AUTO_SAVE_ENABLED && v(t),
           this._updatePanelHeight(),
@@ -457,7 +457,7 @@ function (exports, module, require) {
             false
           );
         this._loadingPreview = true;
-        var r = new d.default(
+        var r = new GDocument.default(
           await c.default.from(
             gDesigner.getDefaultStorage(),
             this._fileId,

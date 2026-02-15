@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(152) /* module_152 */,
+    var o = require(152) /* polyfill_TypedArrays */,
       i = require(427) /* module_427 */,
       a = require(429) /* module_429 */,
       r = require(131) /* module_131 */,

@@ -15,7 +15,7 @@ function (e, t, n) {
       l = n(31) /* GAction */;
     const c = n(1152) /* Item */,
       d = n(44) /* GSystemDialog */,
-      u = n(1631) /* module_1631 */,
+      u = n(1631) /* GSharepointCheckInDialog */,
       p = n(78) /* GDocumentEvent */;
     function g() {}
     i.GObject.inherit(g, l),

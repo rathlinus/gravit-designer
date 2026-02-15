@@ -14,7 +14,7 @@ function (e, t, n) {
       n(71) /* polyfill_String_includes */;
     var o = n(1241) /* GCloudRole */;
     const i = n(0) /* GObject */,
-      a = n(177) /* module_177 */;
+      a = n(177) /* GUserModel */;
     function r() {}
     i.inherit(r, a),
       (r.ValidRoles = [

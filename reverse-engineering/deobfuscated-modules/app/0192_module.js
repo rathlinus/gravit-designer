@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var globalThis = require(23) /* globalThis */,
       advanceStringIndex = require(200) /* advanceStringIndex */,
-      a = require(152) /* module_152 */,
+      a = require(152) /* polyfill_TypedArrays */,
       tryCall = require(21) /* tryCall */,
       s = require(157) /* stub_requires_27 */,
       l = globalThis.Int8Array,

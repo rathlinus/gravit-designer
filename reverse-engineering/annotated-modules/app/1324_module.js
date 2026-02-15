@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */;
-    const o = n(177) /* module_177 */,
+    const o = n(177) /* GUserModel */,
       {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,

@@ -10,11 +10,11 @@ function (e, t, n) {
     n(58) /* polyfill_Array_includes */, n(19) /* polyfill_Array_iterator */, n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */, n(71) /* polyfill_String_includes */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(97) /* stub_requires_684 */, n(33) /* polyfill_DOMCollection_forEach */, n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(53) /* module */,
       a = n(1) /* module */,
-      r = o(n(358) /* module_358 */),
+      r = o(n(358) /* GAnnotationsUtils */),
       s = n(123) /* GProperties */;
     const l = n(393) /* GCollaborationEvent */,
       c = n(392) /* module_392 */,
-      d = n(1165) /* module_1165 */,
+      d = n(1165) /* GFileReviewFlowManager */,
       u = n(135) /* GSettingChangedEvent */;
     function p(e, t, n, o, i, a, r, s) {
       (this._elements = []),

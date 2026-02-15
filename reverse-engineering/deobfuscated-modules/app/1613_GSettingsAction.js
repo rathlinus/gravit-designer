@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      r = require(1275) /* module_1275 */,
+      GSettingsDialog = require(1275) /* GSettingsDialog */,
       Action_edit_settings = require(1277) /* Action_edit_settings */;
     function l() {}
     GCore.GObject.inherit(l, GAction),
@@ -32,7 +32,7 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-setting-touch" : "";
       }),
       (l.prototype.execute = async function () {
-        new r().then((e) => e.open());
+        new GSettingsDialog().then((e) => e.open());
       }),
       (l.prototype.toString = function () {
         return "[Object GSettingsAction]";

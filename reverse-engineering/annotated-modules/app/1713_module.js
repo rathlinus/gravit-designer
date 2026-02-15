@@ -10,9 +10,9 @@ function (e, t, n) {
       { GPlatform: i } = n(15) /* module */,
       a = n(1355) /* GSimpleTreeNodeNamed */,
       r = n(1191) /* module_1191 */,
-      s = n(1356) /* module_1356 */,
-      l = n(1357) /* module_1357 */,
-      { handleCollabsData: c } = (n(536) /* module_536 */, n(882) /* module_882 */),
+      s = n(1356) /* GAnnotationRow */,
+      l = n(1357) /* GAnnotationReplyEditor */,
+      { handleCollabsData: c } = (n(536) /* module_536 */, n(882) /* GCollaborationMentionsUtils */),
       d = n(1354) /* GInvalidationOptions */,
       u = n(434) /* stub_requires_30_1072 */;
     function p() {

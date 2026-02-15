@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(23) /* globalThis */,
       i = n(200) /* advanceStringIndex */,
-      a = n(152) /* module_152 */,
+      a = n(152) /* polyfill_TypedArrays */,
       r = n(21) /* tryCall */,
       s = n(157) /* stub_requires_27 */,
       l = o.Int8Array,

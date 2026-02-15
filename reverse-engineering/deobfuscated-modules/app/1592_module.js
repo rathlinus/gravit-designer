@@ -8,7 +8,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */;
     const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* AppSettings */,
       GSystemDialog = require(44) /* GSystemDialog */,
-      r = require(604) /* module_604 */,
+      GProfileDialog = require(604) /* GProfileDialog */,
       s = require(337) /* stub_requires_1098 */,
       { GLocale: l, GLocaleKey: c } = require(1) /* module */;
     exports.exports = class {
@@ -23,9 +23,9 @@ function (exports, module, require) {
           const t = await gDesigner.getUser();
           t &&
             gDesigner.executeWhenReady(() => {
-              new r(t, r.Tabs.ChangePassword, {
+              new GProfileDialog(t, GProfileDialog.Tabs.ChangePassword, {
                 token: exports,
-                tabs: [r.Tabs.ChangePassword],
+                tabs: [GProfileDialog.Tabs.ChangePassword],
                 closeable: false,
                 changePasswordOptions: {
                   autoClose: true,

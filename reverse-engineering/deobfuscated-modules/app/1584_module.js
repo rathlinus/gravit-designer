@@ -6,16 +6,16 @@
 function (exports, module, require) {
     "use strict";
     var GTools = require(53) /* module */;
-    const i = require(878) /* module_878 */,
-      a = require(1585) /* module_1585 */,
-      r = require(879) /* module_879 */,
+    const GTouchEventHandler = require(878) /* GTouchEventHandler */,
+      GTouchPinchZoomGesture = require(1585) /* GTouchPinchZoomGesture */,
+      GTouchClickGesture = require(879) /* GTouchClickGesture */,
       s = require(1586) /* module_1586 */,
       l = require(1329) /* module_1329 */;
-    exports.exports = class extends i {
+    exports.exports = class extends GTouchEventHandler {
       constructor(e) {
         super(e),
-          this.addGesture(new a()),
-          this.addGesture(new r()),
+          this.addGesture(new GTouchPinchZoomGesture()),
+          this.addGesture(new GTouchClickGesture()),
           this.addGesture(new l()),
           this.addGesture(new s());
       }

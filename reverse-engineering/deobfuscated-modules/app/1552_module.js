@@ -10,7 +10,7 @@ function (exports, module, require) {
       (module.default = module.GGoogleDrive = module.GCloudDrive = undefined);
     var TYPES = _interopRequireDefault(require(862) /* Exports_TYPES */);
     const a = (module.GCloudDrive = TYPES.default);
-    var r = require(1553) /* module_1553 */;
+    var r = require(1553) /* GGoogleDrive */;
     module.GGoogleDrive = r;
     module.default = { GCloudDrive: a, GGoogleDrive: r };
   }

@@ -13,7 +13,7 @@ function (exports, module, require) {
       r = require(67) /* GRichTooltipConfig */,
       GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
       GProperties = require(123) /* GProperties */,
-      c = require(857) /* module_857 */;
+      GInputSliderWidget = require(857) /* GInputSliderWidget */;
     require(173) /* stub_requires_1 */;
     const GSettingChangedEvent = require(135) /* GSettingChangedEvent */;
     function u() {
@@ -139,7 +139,7 @@ function (exports, module, require) {
               .attr("data-property", "_stop")
               .addClass("gravit-icon-touch-transparency")
               .gInputSlider(
-                Object.assign({}, c.prototype.OPACITY_DEFAULT, {
+                Object.assign({}, GInputSliderWidget.prototype.OPACITY_DEFAULT, {
                   richTooltipConfig: r.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey(
@@ -484,11 +484,11 @@ function (exports, module, require) {
               this._panel.find(".g-styles-field").text(GTouchTool),
               this._panel.find(".g-styles-field").removeClass("g-disabled");
           else {
-            for (var c = false, GSettingChangedEvent = 0; GSettingChangedEvent < this._elements.length; ++GSettingChangedEvent)
+            for (var GInputSliderWidget = false, GSettingChangedEvent = 0; GSettingChangedEvent < this._elements.length; ++GSettingChangedEvent)
               this._elements[0].hasProperty("sref") &&
                 this._elements[GSettingChangedEvent].getReferencedStyle() &&
-                (c = true);
-            c && this._elements.length > 1
+                (GInputSliderWidget = true);
+            GInputSliderWidget && this._elements.length > 1
               ? (this._panel.find(".g-styles-preview").empty(),
                 this._panel.find(".g-styles-preview").css("display", "none"),
                 this._panel

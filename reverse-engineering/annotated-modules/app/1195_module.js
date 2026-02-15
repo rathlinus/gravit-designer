@@ -27,7 +27,7 @@ function (e, t, n) {
       i = n(0) /* GObject */,
       a = n(237) /* Item */;
     const { GRegex: r } = n(263) /* Exports_GRegex */;
-    var s = n(1117) /* module_1117 */.saveAs,
+    var s = n(1117) /* FileSaverJS */.saveAs,
       l = !1,
       c = null,
       d = null;

@@ -6,7 +6,7 @@
 function (e, t, n) {
     var o;
     e.exports =
-      ((o = n(55) /* module_55 */),
+      ((o = n(55) /* CryptoJSCore */),
       n(382) /* module_382 */,
       n(1044) /* module_1044 */,
       n(1045) /* module_1045 */,
@@ -15,14 +15,14 @@ function (e, t, n) {
       n(537) /* module_537 */,
       n(736) /* Exports_SHA256 */,
       n(1046) /* module_1046 */,
-      n(737) /* module_737 */,
+      n(737) /* CryptoJSSHA512 */,
       n(1047) /* module_1047 */,
       n(1048) /* Exports_SHA3 */,
       n(1049) /* Exports_RIPEMD160 */,
       n(538) /* module_538 */,
       n(1050) /* module_1050 */,
       n(234) /* module_234 */,
-      n(98) /* module_98 */,
+      n(98) /* CryptoJSCipherBase */,
       n(1051) /* module_1051 */,
       n(1052) /* module_1052 */,
       n(1053) /* module_1053 */,
@@ -34,10 +34,10 @@ function (e, t, n) {
       n(1059) /* module_1059 */,
       n(1060) /* module_1060 */,
       n(1061) /* module_1061 */,
-      n(1062) /* module_1062 */,
-      n(1063) /* module_1063 */,
+      n(1062) /* CryptoJSAES */,
+      n(1063) /* CryptoJSDES */,
       n(1064) /* module_1064 */,
-      n(1065) /* module_1065 */,
-      n(1066) /* module_1066 */,
+      n(1065) /* CryptoJSRabbit */,
+      n(1066) /* CryptoJSRabbitLegacy */,
       o);
   }

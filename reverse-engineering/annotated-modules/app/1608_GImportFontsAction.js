@@ -11,7 +11,7 @@ function (e, t, n) {
       i = (n(15) /* module */, n(67) /* GRichTooltipConfig */),
       a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */,
-      s = n(1245) /* module_1245 */;
+      s = n(1245) /* GCustomFontImporter */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({

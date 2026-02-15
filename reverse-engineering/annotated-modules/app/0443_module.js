@@ -37,7 +37,7 @@ function (e, t, n) {
               : (r[t] = e[t]));
         return r;
       })(e, t);
-    })(n(1480) /* Action_id */);
+    })(n(1480) /* MSTeamsSDK */);
     const i = n(10) /* AppSettings */;
     let a = !1,
       r = !1,

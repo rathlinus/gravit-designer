@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */;
     var GSystem = _interopRequireDefault(require(176) /* GSystem */),
       GCore = require(1) /* module */,
-      r = _interopRequireDefault(require(1242) /* module_1242 */),
+      MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
       s = _interopRequireDefault(require(44) /* GSystemDialog */),
       l = _interopRequireDefault(require(443) /* module_443 */),
       c = require(1243) /* Exports_SHAREPOINT_COMMAND */;
@@ -36,7 +36,7 @@ function (exports, module, require) {
         (await d())
           ? exports.push(c.ONE_DRIVE_BUSINESS_COMMAND)
           : (await u()) && exports.push(c.SHAREPOINT_COMMAND),
-          r.default
+          MSTeamsAuthManager.default
             .getInstance()
             .authenticate(exports)
             .then(() => {

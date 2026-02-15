@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* module */;
     const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
-      r = n(1640) /* module_1640 */,
+      r = n(1640) /* GTranslationToolDialog */,
       { IS_TRUNK: s, IS_LOCALHOST: l } = n(231) /* module_231 */;
     function c() {}
     o.GObject.inherit(c, a),

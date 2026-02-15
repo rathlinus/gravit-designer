@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* module */;
     const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
-      r = n(1589) /* module_1589 */;
+      r = n(1589) /* GTouchOnboarding */;
     function s() {}
     o.GObject.inherit(s, a),
       (s.ID = "help.open-quick-help"),

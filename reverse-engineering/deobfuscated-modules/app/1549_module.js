@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(1550) /* module_1550 */;
+    const GFileInfoPanel = require(1550) /* GFileInfoPanel */;
     function i() {}
     (i.getRenderForFile = function (e) {
-      return new o();
+      return new GFileInfoPanel();
     }),
       (exports.exports = i);
   }

@@ -15,7 +15,7 @@ function (exports, module, require) {
       GAction = require(31) /* GAction */;
     const c = require(1152) /* Item */,
       GSystemDialog = require(44) /* GSystemDialog */,
-      u = require(1631) /* module_1631 */,
+      GSharepointCheckInDialog = require(1631) /* GSharepointCheckInDialog */,
       GDocumentEvent = require(78) /* GDocumentEvent */;
     function g() {}
     GCore.GObject.inherit(g, GAction),
@@ -64,7 +64,7 @@ function (exports, module, require) {
           const t = e.getStorageItem(),
             n = t.getCloudClient(),
             _interopRequireDefault = await n.getLibrarySettings();
-          await u.openCheckInDialog(_interopRequireDefault).then(async (n) => {
+          await GSharepointCheckInDialog.openCheckInDialog(_interopRequireDefault).then(async (n) => {
             let { ok: _interopRequireDefault, comment: GCore, type: a } = n;
             _interopRequireDefault &&
               (await t.checkIn(GCore, a),

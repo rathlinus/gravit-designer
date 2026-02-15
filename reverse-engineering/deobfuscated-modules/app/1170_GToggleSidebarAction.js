@@ -13,7 +13,7 @@ function (exports, module, require) {
       GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      c = require(395) /* module_395 */;
+      GSidebarContainer = require(395) /* GSidebarContainer */;
     function d(e) {
       this._sidebar = e;
     }
@@ -61,7 +61,7 @@ function (exports, module, require) {
               this._getSidebars().getSidebarsPart(),
               true
             )),
-          c.setOrientationStateInSetting(
+          GSidebarContainer.setOrientationStateInSetting(
             this._sidebar.getOrientation(),
             this.isChecked()
           ),
@@ -70,9 +70,9 @@ function (exports, module, require) {
       }),
       (d.prototype._getSidebars = function () {
         switch (this._sidebar.getOrientation()) {
-          case c.Orientation.Left:
+          case GSidebarContainer.Orientation.Left:
             return gDesigner.getLeftSidebars();
-          case c.Orientation.Right:
+          case GSidebarContainer.Orientation.Right:
             return gDesigner.getRightSidebars();
         }
       }),

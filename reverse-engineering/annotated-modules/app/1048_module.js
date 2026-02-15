@@ -6,7 +6,7 @@
 function (e, t, n) {
     var o;
     e.exports =
-      ((o = n(55) /* module_55 */),
+      ((o = n(55) /* CryptoJSCore */),
       n(382) /* module_382 */,
       (function (e) {
         var t = o,

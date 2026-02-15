@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    const o = n(1550) /* module_1550 */;
+    const o = n(1550) /* GFileInfoPanel */;
     function i() {}
     (i.getRenderForFile = function (e) {
       return new o();

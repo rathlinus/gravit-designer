@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(8) /* polyfill_bundle_ES6 */, require(3) /* polyfill_RegExp_toString */, require(4) /* stub_requires_668 */, require(41) /* stub_requires_682 */;
     var GCore = require(1) /* module */,
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-      r = _interopRequireDefault(require(163) /* module_163 */),
+      GDocument = _interopRequireDefault(require(163) /* GDocument */),
       GContainer = _interopRequireDefault(require(85) /* GContainer */),
       GElementAction = _interopRequireDefault(require(106) /* GElementAction */);
     function c(e) {
@@ -54,7 +54,7 @@ function (exports, module, require) {
         const require = gDesigner.getActiveDocument();
         if (!require) return false;
         e = e || require.getStorage() || gDesigner.getDefaultStorage();
-        const _interopRequireDefault = r.default.FileTypes.filter((e) => e.import_image);
+        const _interopRequireDefault = GDocument.default.FileTypes.filter((e) => e.import_image);
         try {
           let GCore;
           (GCore =

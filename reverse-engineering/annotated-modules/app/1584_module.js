@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     var o = n(53) /* module */;
-    const i = n(878) /* module_878 */,
-      a = n(1585) /* module_1585 */,
-      r = n(879) /* module_879 */,
+    const i = n(878) /* GTouchEventHandler */,
+      a = n(1585) /* GTouchPinchZoomGesture */,
+      r = n(879) /* GTouchClickGesture */,
       s = n(1586) /* module_1586 */,
       l = n(1329) /* module_1329 */;
     e.exports = class extends i {

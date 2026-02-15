@@ -6,7 +6,7 @@
 function (e, t, n) {
     var o, i, a, r, s, l;
     e.exports =
-      ((l = n(55) /* module_55 */),
+      ((l = n(55) /* CryptoJSCore */),
       (i = (o = l).lib),
       (a = i.Base),
       (r = i.WordArray),

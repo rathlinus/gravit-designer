@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     var o = n(1) /* module */;
-    const i = n(156) /* module_156 */,
+    const i = n(156) /* GCloudStorageItem */,
       { FILE_FORMATS: a } = n(10) /* AppSettings */,
       r = a.find((e) => e.default),
       { COMMAND_SAVE: s } = n(591) /* module_591 */,

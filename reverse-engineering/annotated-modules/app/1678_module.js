@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     const o = n(1244) /* module_1244 */,
-      i = n(1679) /* module_1679 */,
-      a = n(1682) /* module_1682 */,
+      i = n(1679) /* GCleverbridgePurchaseManager */,
+      a = n(1682) /* GWindowsStorePurchaseManager */,
       r = n(1683) /* module_1683 */;
     e.exports = class {
       static newInAppPurchase(e) {

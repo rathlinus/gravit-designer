@@ -15,7 +15,7 @@ function (e, t, n) {
       r = n(394) /* GView */,
       s = n(1321) /* module_1321 */,
       l = n(78) /* GDocumentEvent */,
-      c = n(860) /* module_860 */,
+      c = n(860) /* GEmbeddedLogin */,
       d = n(1667) /* Type */;
     function u() {}
     o.GObject.inherit(u, a),

@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(567) /* GAnnotationsSidebar */,
       s = n(18) /* MenuItemBuilder */,
       l = n(31) /* GAction */,
-      c = n(395) /* module_395 */;
+      c = n(395) /* GSidebarContainer */;
     function d(e) {
       this._sidebar = e;
     }

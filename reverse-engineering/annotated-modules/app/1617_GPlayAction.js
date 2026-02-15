@@ -10,7 +10,7 @@ function (e, t, n) {
     n(20) /* polyfill_RegExp_exec */, n(107) /* polyfill_RegExp_test */, n(34) /* polyfill_String_replace */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
-      r = o(n(1618) /* module_1618 */),
+      r = o(n(1618) /* ScreenfulJS */),
       s = o(n(85) /* GContainer */),
       l = o(n(31) /* GAction */),
       c = o(n(18) /* MenuItemBuilder */),

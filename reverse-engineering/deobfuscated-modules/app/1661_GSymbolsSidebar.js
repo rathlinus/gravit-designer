@@ -16,7 +16,7 @@ function (exports, module, require) {
       GCreateSymbolAction = require(608) /* GCreateSymbolAction */,
       GFitSelectionAction = require(566) /* GFitSelectionAction */,
       GSidebar = require(806) /* GSidebar */,
-      p = require(395) /* module_395 */;
+      GSidebarContainer = require(395) /* GSidebarContainer */;
     function g() {
       GSidebar.call(this);
     }
@@ -40,7 +40,7 @@ function (exports, module, require) {
         return !!gDesigner.getApplicationManager().isEditingEnabled();
       }),
       (g.prototype.getOrientation = function () {
-        return p.Orientation.Left;
+        return GSidebarContainer.Orientation.Left;
       }),
       (g.prototype.getMinimumWidth = function () {
         return 250;

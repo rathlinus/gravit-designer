@@ -11,7 +11,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-      s = _interopRequireDefault(require(119) /* module_119 */),
+      GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       l = _interopRequireDefault(require(1159) /* module_1159 */),
       c = _interopRequireDefault(require(219) /* module_219 */),
       GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
@@ -78,7 +78,7 @@ function (exports, module, require) {
           t =
             !!gDesigner.getActiveDocument() &&
             gDesigner.getActiveDocument().getScene().isCloudSynchronization();
-        return s.default.isOnline() && e && t;
+        return GCloudStorage.default.isOnline() && e && t;
       }),
       (p.prototype.execute = function () {
         if (gDesigner.getWindows().getActiveWindow().getDocument().isModified())

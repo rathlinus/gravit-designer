@@ -12,10 +12,10 @@ function (exports, module, require) {
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GPanel = require(606) /* GPanel */,
       GSidebar = require(806) /* GSidebar */,
-      l = require(395) /* module_395 */,
+      GSidebarContainer = require(395) /* GSidebarContainer */,
       c = require(1160) /* GAppearanceProperties */,
-      d = require(1261) /* module_1261 */,
-      u = require(1162) /* module_1162 */,
+      GFillProperties = require(1261) /* GFillProperties */,
+      GBorderProperties = require(1162) /* GBorderProperties */,
       GEffectProperties = require(1262) /* GEffectProperties */,
       GBoolOpProperties = require(1264) /* GBoolOpProperties */,
       GEllipseProperties = require(1265) /* GEllipseProperties */,
@@ -37,8 +37,8 @@ function (exports, module, require) {
     GCore.GObject.inherit(T, GSidebar),
       (T.ACCORDIONS = [
         c.prototype.toString(),
-        d.prototype.toString(),
-        u.prototype.toString(),
+        GFillProperties.prototype.toString(),
+        GBorderProperties.prototype.toString(),
         GEffectProperties.prototype.toString(),
       ]),
       (T.APPEARANCE_PROPERTIES = [
@@ -81,7 +81,7 @@ function (exports, module, require) {
         );
       }),
       (T.prototype.getOrientation = function () {
-        return l.Orientation.Right;
+        return GSidebarContainer.Orientation.Right;
       }),
       (T.prototype.getMinimumWidth = function () {
         return 300;
@@ -120,14 +120,14 @@ function (exports, module, require) {
                 GPanel = $("<hr/>"),
                 GSidebar = $("<div></div>").addClass("toolbar");
               if ($.inArray(e.toString(), T.APPEARANCE_PROPERTIES) > -1) {
-                var l = $("<div></div>").addClass("appearance-property-panel");
-                e.init(l, GTools),
-                  GPanel.appendTo(l),
-                  this._appearancePanel.append(l),
+                var GSidebarContainer = $("<div></div>").addClass("appearance-property-panel");
+                e.init(GSidebarContainer, GTools),
+                  GPanel.appendTo(GSidebarContainer),
+                  this._appearancePanel.append(GSidebarContainer),
                   GTools.appendTo(GCore),
                   this._appearancePanel.appendTo(GCore),
                   (GSidebar = GTools),
-                  (GDocumentEvent = l);
+                  (GDocumentEvent = GSidebarContainer);
               } else
                 GPanel.appendTo(GCore),
                   e.init(GDocumentEvent, GSidebar),
@@ -159,19 +159,19 @@ function (exports, module, require) {
         );
       }),
       (T.prototype.openFillPatternChooser = function () {
-        const exports = this._getPropertyPanel(d);
+        const exports = this._getPropertyPanel(GFillProperties);
         exports && exports.properties.openPatternChooser();
       }),
       (T.prototype.openBorderPatternChooser = function () {
-        const exports = this._getPropertyPanel(u);
+        const exports = this._getPropertyPanel(GBorderProperties);
         exports && exports.properties.openPatternChooser();
       }),
       (T.prototype.openFillEyeDropper = function (e, t) {
-        const require = this._getPropertyPanel(d);
+        const require = this._getPropertyPanel(GFillProperties);
         require && require.properties.openEyeDropper(e, t);
       }),
       (T.prototype.openBorderEyeDropper = function (e, t) {
-        const require = this._getPropertyPanel(u);
+        const require = this._getPropertyPanel(GBorderProperties);
         require && require.properties.openEyeDropper(e, t);
       }),
       (T.prototype.openTextColorEyeDropper = function (e, t) {
@@ -230,10 +230,10 @@ function (exports, module, require) {
         if (e.type === x.Type.Enable) {
           var module;
           switch (((this._versionHistoryMode = true), this.getOrientation())) {
-            case l.Orientation.Left:
+            case GSidebarContainer.Orientation.Left:
               module = gDesigner.getLeftSidebars();
               break;
-            case l.Orientation.Right:
+            case GSidebarContainer.Orientation.Right:
               module = gDesigner.getRightSidebars();
           }
           module.setActiveSidebar(this.getId()),
@@ -369,43 +369,43 @@ function (exports, module, require) {
         for (var GDocumentEvent = 0; GDocumentEvent < this._propertyPanels.length; ++GDocumentEvent) {
           var GPanel = this._propertyPanels[GDocumentEvent],
             GSidebar = GPanel.properties,
-            l = GSidebar.isAvailable(this._transformMode);
+            GSidebarContainer = GSidebar.isAvailable(this._transformMode);
           if (
-            (l &&
-              (l = GPanel.properties.update(
+            (GSidebarContainer &&
+              (GSidebarContainer = GPanel.properties.update(
                 e ? null : this._document,
                 this._elements ? this._elements : null,
                 t || null
               )),
-            l)
+            GSidebarContainer)
           ) {
             const e = GPanel.properties.getTouchTools();
             e && (this._touchTools = this._touchTools.concat(e));
           }
-          GPanel.panel.css("display", l ? "" : "none"),
+          GPanel.panel.css("display", GSidebarContainer ? "" : "none"),
             GPanel.toolbar &&
-              (GPanel.toolbar.css("display", l ? "" : "none"),
-              GSidebar instanceof GSliceProperties && l && (GCore = GPanel.toolbar),
+              (GPanel.toolbar.css("display", GSidebarContainer ? "" : "none"),
+              GSidebar instanceof GSliceProperties && GSidebarContainer && (GCore = GPanel.toolbar),
               $.inArray(GPanel.properties.toString(), T.ACCORDIONS) > -1 &&
-                l &&
+                GSidebarContainer &&
                 (GPanel.toolbar
                   .addClass("appearance-panel-toggle-btn")
                   .gAccordion("init", ".properties-panel", "label"),
                 this._htmlElement
                   .find(".appearance-panel-toggle-btn button.g-accordion")
                   [gDesigner.isTouchEnabled() ? "hide" : "show"]()));
-          var c = l && n && GSidebar.isGroup(GTools);
+          var c = GSidebarContainer && n && GSidebar.isGroup(GTools);
           GPanel.divider.css("display", c ? "" : "none"),
-            (n = n || l),
-            l && ((GTools = GSidebar), this._appearancePanel.css("display", ""));
-          const d = this._isPropertiesEnabled(GPanel.properties);
-          GPanel.toolbar && GPanel.toolbar.toggleClass("g-disabled", !d),
-            GPanel.panel && GPanel.panel.toggleClass("g-disabled", !d);
+            (n = n || GSidebarContainer),
+            GSidebarContainer && ((GTools = GSidebar), this._appearancePanel.css("display", ""));
+          const GFillProperties = this._isPropertiesEnabled(GPanel.properties);
+          GPanel.toolbar && GPanel.toolbar.toggleClass("g-disabled", !GFillProperties),
+            GPanel.panel && GPanel.panel.toggleClass("g-disabled", !GFillProperties);
         }
         GCore && gDesigner.isTouchEnabled() && GCore.css("display", "");
-        var d = $("<hr/>").addClass("appearance-divider");
+        var GFillProperties = $("<hr/>").addClass("appearance-divider");
         0 === $(".appearance-divider").length &&
-          $(".appearance-toolbar:first").before(d),
+          $(".appearance-toolbar:first").before(GFillProperties),
           $(".appearance-divider").css(
             "display",
             "none" === $(".appearance-toolbar:first").css("display")

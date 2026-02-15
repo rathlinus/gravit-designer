@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(1499) /* GMenuActivateEvent */,
       s = n(1156) /* GMenuCloseEvent */,
       l = n(444) /* module_444 */,
-      c = n(1157) /* module_1157 */,
+      c = n(1157) /* GMenuManager */,
       d = n(804) /* GMenuOpenEvent */;
     function u(e, t, n, o) {
       (this._htmlElement = $("<li></li>").addClass("g-menu-item")),

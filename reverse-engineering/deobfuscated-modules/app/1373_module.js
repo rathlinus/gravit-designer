@@ -8,11 +8,11 @@ function (exports, module, require) {
     var o,
       i,
       GBrowserContainer = require(1374) /* GBrowserContainer */,
-      AppSettings = require(1483) /* AppSettings */;
+      GDesignerApp = require(1483) /* GDesignerApp */;
     function s() {
       var e = new GBrowserContainer();
       e.initLanguage(function () {
-        (o = e.init(AppSettings)),
+        (o = e.init(GDesignerApp)),
           i &&
             o.then(() => {
               l(i);

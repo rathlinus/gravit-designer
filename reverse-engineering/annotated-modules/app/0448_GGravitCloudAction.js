@@ -11,10 +11,10 @@ function (e, t, n) {
       i = n(15) /* module */,
       a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */,
-      s = n(844) /* module_844 */,
+      s = n(844) /* GActionIconMap */,
       l = n(86) /* module_86 */,
       c = n(220) /* Item */,
-      d = n(119) /* module_119 */,
+      d = n(119) /* GCloudStorage */,
       u = n(446) /* module_446 */;
     const p = n(256) /* GOfflineDialog */;
     function g(e) {

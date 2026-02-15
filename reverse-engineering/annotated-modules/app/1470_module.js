@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(19) /* polyfill_Array_iterator */, n(26) /* polyfill_DOMCollection_iterator */;
-    const o = n(255) /* barrel_sidebars */;
+    const o = n(255) /* GFontsProviderManager */;
     e.exports = class {
       constructor() {
         this._missingFonts = [];

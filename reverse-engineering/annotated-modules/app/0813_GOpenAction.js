@@ -11,7 +11,7 @@ function (e, t, n) {
       i = n(15) /* module */,
       a = n(18) /* MenuItemBuilder */,
       r = n(31) /* GAction */,
-      s = n(163) /* module_163 */;
+      s = n(163) /* GDocument */;
     const l = n(446) /* module_446 */;
     function c() {}
     o.GObject.inherit(c, r),

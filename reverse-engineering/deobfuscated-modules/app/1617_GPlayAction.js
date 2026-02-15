@@ -10,7 +10,7 @@ function (exports, module, require) {
     require(20) /* polyfill_RegExp_exec */, require(107) /* polyfill_RegExp_test */, require(34) /* polyfill_String_replace */;
     var GCore = require(1) /* module */,
       GEditor = require(15) /* module */,
-      r = _interopRequireDefault(require(1618) /* module_1618 */),
+      ScreenfulJS = _interopRequireDefault(require(1618) /* ScreenfulJS */),
       GContainer = _interopRequireDefault(require(85) /* GContainer */),
       GAction = _interopRequireDefault(require(31) /* GAction */),
       MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
@@ -52,7 +52,7 @@ function (exports, module, require) {
       isEnabled() {
         return (
           !!gDesigner.getActiveDocument() &&
-          r.default.enabled &&
+          ScreenfulJS.default.enabled &&
           !this._isErrorMessageDisplaying &&
           !this._isLoading
         );
@@ -100,16 +100,16 @@ function (exports, module, require) {
           } else
             this._setShouldExitFullScreen(true),
               document.addEventListener(
-                r.default.raw.fullscreenchange,
+                ScreenfulJS.default.raw.fullscreenchange,
                 this._browserFullScreenModeChangeHandlerBind
               ),
-              r.default.request(this._overlay[0]);
+              ScreenfulJS.default.request(this._overlay[0]);
       }
       changeActivePage(e, t) {
         const require = gDesigner
           .getAction("".concat(GChangeActivePageAction.default.ID, ".").concat(t))
           .getNextPage(e);
-        require ? e.setActivePage(require) : t === GChangeActivePageAction.default.Type.Next && r.default.exit();
+        require ? e.setActivePage(require) : t === GChangeActivePageAction.default.Type.Next && ScreenfulJS.default.exit();
       }
       _getScene() {
         gDesigner.toggleLoading(true);
@@ -206,7 +206,7 @@ function (exports, module, require) {
           this._widget.release(),
           document.removeEventListener("keydown", this._keyDownHandlerBind, true),
           document.removeEventListener(
-            r.default.raw.fullscreenchange,
+            ScreenfulJS.default.raw.fullscreenchange,
             this._browserFullScreenModeChangeHandlerBind
           ),
           window.removeEventListener(
@@ -217,12 +217,12 @@ function (exports, module, require) {
           this._setIsLoading(false);
       }
       _browserFullScreenModeChangeHandler() {
-        r.default.isFullscreen ? this._enterPlayMode() : this._exitPlayMode();
+        ScreenfulJS.default.isFullscreen ? this._enterPlayMode() : this._exitPlayMode();
       }
       _exitFullScreen() {
         if (gContainer.getRuntime() === GContainer.default.Runtime.Electron) {
           require(881) /* module_881 */.remote.getCurrentWindow().setFullScreen(false);
-        } else r.default.exit();
+        } else ScreenfulJS.default.exit();
       }
       _setIsInPlayMode(e) {
         this._isInPlayMode = e;

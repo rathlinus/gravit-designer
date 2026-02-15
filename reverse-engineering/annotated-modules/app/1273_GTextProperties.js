@@ -35,7 +35,7 @@ function (e, t, n) {
       r = n(40) /* CollaborationMergeUtils */,
       s = n(67) /* GRichTooltipConfig */,
       l = n(123) /* GProperties */,
-      c = n(255) /* barrel_sidebars */,
+      c = n(255) /* GFontsProviderManager */,
       d = n(590) /* barrel_editor_actions */,
       u = n(135) /* GSettingChangedEvent */,
       p = n(44) /* GSystemDialog */;

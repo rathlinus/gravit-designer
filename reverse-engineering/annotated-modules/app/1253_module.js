@@ -24,13 +24,13 @@ function (e, t, n) {
       a = n(40) /* CollaborationMergeUtils */,
       r = n(10) /* AppSettings */,
       s = n(237) /* Item */,
-      l = n(163) /* module_163 */,
+      l = n(163) /* GDocument */,
       c = n(442) /* module_442 */;
     const d = n(389) /* module_389 */;
     function u() {}
     (window.pako = n(165) /* module_165 */),
-      n(1514) /* module_1514 */,
-      n(1515) /* module_1515 */,
+      n(1514) /* ZipJSBrowser */,
+      n(1515) /* ZipJSFileSystem */,
       n(1516) /* module_1516 */,
       (zip.useWebWorkers = !1),
       (u.generateExportables = function (e, t, n) {

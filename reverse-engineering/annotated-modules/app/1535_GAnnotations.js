@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(449) /* GFitAllAction */,
       s = n(566) /* GFitSelectionAction */,
       l = n(123) /* GProperties */;
-    const c = n(358) /* module_358 */,
+    const c = n(358) /* GAnnotationsUtils */,
       d = n(86) /* module_86 */,
       { SHOW_SIDEBAR_BADGE: u } = n(10) /* AppSettings */;
     function p() {

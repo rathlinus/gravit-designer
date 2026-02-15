@@ -10,7 +10,7 @@ function (e, t, n) {
       a = n(21) /* tryCall */,
       r = n(65) /* module_65 */,
       s = n(351) /* module_351 */,
-      l = n(152) /* module_152 */,
+      l = n(152) /* polyfill_TypedArrays */,
       c = n(521) /* stub_requires_129 */,
       d = n(522) /* stub_requires_129 */,
       u = n(213) /* module_213 */,

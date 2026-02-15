@@ -11,7 +11,7 @@ function (exports, module, require) {
       GEditor = require(15) /* module */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      s = require(163) /* module_163 */;
+      GDocument = require(163) /* GDocument */;
     const l = require(446) /* module_446 */;
     function c() {}
     GCore.GObject.inherit(c, GAction),
@@ -47,7 +47,7 @@ function (exports, module, require) {
         new l(
           () => {
             (e = e || gDesigner.getDefaultStorage()).openPrompt(
-              s.FileTypes.filter((e) => e.load),
+              GDocument.FileTypes.filter((e) => e.load),
               (e) => {
                 gDesigner.openDocument(e), t && t();
               },

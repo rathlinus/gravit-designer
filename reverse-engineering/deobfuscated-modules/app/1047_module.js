@@ -4,12 +4,12 @@
  */
 
 function (exports, module, require) {
-    var o, i, a, r, s, l, c, d;
+    var o, i, a, r, s, l, c, CryptoJSCore;
     exports.exports =
-      ((d = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       require(382) /* module_382 */,
-      require(737) /* module_737 */,
-      (i = (o = d).x64),
+      require(737) /* CryptoJSSHA512 */,
+      (i = (o = CryptoJSCore).x64),
       (a = i.Word),
       (r = i.WordArray),
       (s = o.algo),
@@ -35,5 +35,5 @@ function (exports, module, require) {
         })),
       (o.SHA384 = l._createHelper(c)),
       (o.HmacSHA384 = l._createHmacHelper(c)),
-      d.SHA384);
+      CryptoJSCore.SHA384);
   }

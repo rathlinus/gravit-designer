@@ -33,13 +33,13 @@ function (e, t, n) {
       n(26) /* polyfill_DOMCollection_iterator */;
     var i = n(1) /* module */,
       a = n(10) /* AppSettings */,
-      r = o(n(119) /* module_119 */),
+      r = o(n(119) /* GCloudStorage */),
       s = o(n(220) /* Item */),
-      l = o(n(163) /* module_163 */),
+      l = o(n(163) /* GDocument */),
       c = o(n(86) /* module_86 */),
       d = o(n(802) /* CloudException */),
       u = n(593) /* module_593 */;
-    const p = n(156) /* module_156 */,
+    const p = n(156) /* GCloudStorageItem */,
       {
         FILE_FORMATS: g,
         FOLDER_FORMAT: h,

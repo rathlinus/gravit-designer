@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */;
-    const o = n(1117) /* module_1117 */.saveAs;
+    const o = n(1117) /* FileSaverJS */.saveAs;
     function i() {}
     (i.prototype.download = async function () {
       let {

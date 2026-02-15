@@ -10,20 +10,20 @@ function (exports, module, require) {
       Object.defineProperty(module, "GFilesPanelViewBase", {
         enumerable: true,
         get: function () {
-          return a.default;
+          return GCloudFileBrowser.default;
         },
       }),
       Object.defineProperty(module, "GFilesPanelViewNative", {
         enumerable: true,
         get: function () {
-          return i.default;
+          return GCloudFileBrowserDialog.default;
         },
       }),
       (module.default = undefined);
-    var i = _interopRequireDefault(require(1547) /* module_1547 */),
-      a = _interopRequireDefault(require(1300) /* module_1300 */);
+    var GCloudFileBrowserDialog = _interopRequireDefault(require(1547) /* GCloudFileBrowserDialog */),
+      GCloudFileBrowser = _interopRequireDefault(require(1300) /* GCloudFileBrowser */);
     module.default = {
-      GFilesPanelViewNative: i.default,
-      GFilesPanelViewBase: a.default,
+      GFilesPanelViewNative: GCloudFileBrowserDialog.default,
+      GFilesPanelViewBase: GCloudFileBrowser.default,
     };
   }

@@ -15,7 +15,7 @@ function (exports, module, require) {
       GView = require(394) /* GView */,
       s = require(1321) /* module_1321 */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
-      c = require(860) /* module_860 */,
+      GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
       d = require(1667) /* Type */;
     function u() {}
     GCore.GObject.inherit(u, GPanel),
@@ -168,11 +168,11 @@ function (exports, module, require) {
             );
           s.find("#signup-link").on("click", () => {
             gDesigner.stats("open-shared_click_create-account"),
-              new c(GPanel).open({ anonymous: true, signup: true, animate: true });
+              new GEmbeddedLogin(GPanel).open({ anonymous: true, signup: true, animate: true });
           }),
             s.find("#signin-link").on("click", () => {
               gDesigner.stats("open-shared_click_login"),
-                new c(GPanel).open({ anonymous: true, animate: true });
+                new GEmbeddedLogin(GPanel).open({ anonymous: true, animate: true });
             }),
             s.find('#learnmore-link').on('click', (e) => {
               gDesigner.stats('open-shared_click_learn-more'),

@@ -14,9 +14,9 @@ function (exports, module, require) {
       require(71) /* polyfill_String_includes */;
     var o = require(1241) /* GCloudRole */;
     const GObject = require(0) /* GObject */,
-      a = require(177) /* module_177 */;
+      GUserModel = require(177) /* GUserModel */;
     function r() {}
-    GObject.inherit(r, a),
+    GObject.inherit(r, GUserModel),
       (r.ValidRoles = [
         o.GCloudRole.Type.Viewer,
         o.GCloudRole.Type.Coauthor,

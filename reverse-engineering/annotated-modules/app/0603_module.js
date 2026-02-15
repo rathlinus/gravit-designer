@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */,
-      i = n(1503) /* module_1503 */,
+      i = n(1503) /* GDocumentWindow */,
       a = n(44) /* GSystemDialog */,
       r = n(447) /* GSaveAction */,
       s = n(86) /* module_86 */;

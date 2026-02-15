@@ -472,7 +472,7 @@ function (e, t, n) {
       n(181) /* polyfill_ArrayBuffer_slice */,
       n(30) /* polyfill_Object_assign */,
       n(8) /* polyfill_bundle_ES6 */,
-      n(356) /* module_356 */,
+      n(356) /* polyfill_RegExp_constructor */,
       n(20) /* polyfill_RegExp_exec */,
       n(3) /* polyfill_RegExp_toString */,
       n(271) /* polyfill_String_endsWith */,

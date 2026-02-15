@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     (function (t) {
-      var o;
+      var BluebirdPromise;
       "function" != typeof t.Promise
-        ? ((o = require(1114) /* module_1114 */),
-          Object.defineProperty(o, "polyfilled", {
+        ? ((BluebirdPromise = require(1114) /* BluebirdPromise */),
+          Object.defineProperty(BluebirdPromise, "polyfilled", {
             value: true,
             writable: false,
             enumerable: false,
           }))
-        : (o = t.Promise),
-        (exports.exports = o);
+        : (BluebirdPromise = t.Promise),
+        (exports.exports = BluebirdPromise);
     }).call(this, require(109) /* module_109 */);
   }

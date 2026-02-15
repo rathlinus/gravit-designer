@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(30) /* polyfill_Object_assign */;
-    const o = n(177) /* module_177 */;
+    const o = n(177) /* GUserModel */;
     class i extends o {
       constructor() {
         let {

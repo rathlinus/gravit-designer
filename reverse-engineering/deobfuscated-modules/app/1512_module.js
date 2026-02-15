@@ -25,7 +25,7 @@ function (exports, module, require) {
       GObject = require(0) /* GObject */;
     require(10) /* AppSettings */;
     var a = require(237) /* Item */,
-      r = require(1117) /* module_1117 */.saveAs,
+      FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
       s = null,
       l = null;
     function c() {
@@ -117,9 +117,9 @@ function (exports, module, require) {
                 GSystem.code === DOMException.QUOTA_EXCEEDED_ERR
               )
                 return this.notEnoughDiskSpace(), void (n ? n() : t && t());
-              r(new Blob([e]), this._filename), t && t();
+              FileSaverJS(new Blob([e]), this._filename), t && t();
             });
-        } else r(new Blob([e]), this._filename), t && t();
+        } else FileSaverJS(new Blob([e]), this._filename), t && t();
       }),
       (c.prototype._isFileAPIAvailable = function () {
         return false;
@@ -165,10 +165,10 @@ function (exports, module, require) {
         let { disableFileSystemAccessAPI: GObject = false, silent: a = false } =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
         if (!GObject && this._isFileAPIAvailable()) {
-          var r = { multiple: !!n };
+          var FileSaverJS = { multiple: !!n };
           if (e.length > 0) {
             const t = {};
-            r.excludeAcceptAllOptions = true;
+            FileSaverJS.excludeAcceptAllOptions = true;
             for (let n = 0, GSystem = e.length; n < GSystem; n++) {
               const { mime: GSystem, ext: GObject } = e[n];
               GSystem && GObject
@@ -182,11 +182,11 @@ function (exports, module, require) {
                       .concat(GObject, '"')
                   );
             }
-            r.types = [{ accept: t }];
+            FileSaverJS.types = [{ accept: t }];
           }
           return (
             window
-              .showOpenFilePicker(r)
+              .showOpenFilePicker(FileSaverJS)
               .then((e) => {
                 Array.isArray(e) || (e = [e]),
                   e.forEach((n) => {

@@ -27,7 +27,7 @@ function (exports, module, require) {
       GObject = require(0) /* GObject */,
       a = require(237) /* Item */;
     const { GRegex: r } = require(263) /* Exports_GRegex */;
-    var s = require(1117) /* module_1117 */.saveAs,
+    var FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
       l = false,
       c = null,
       d = null;
@@ -120,9 +120,9 @@ function (exports, module, require) {
                 GSystem.code === DOMException.QUOTA_EXCEEDED_ERR
               )
                 return this.notEnoughDiskSpace(), void (n ? n() : t && t());
-              s(new Blob([e]), this._filename), t && t();
+              FileSaverJS(new Blob([e]), this._filename), t && t();
             });
-        } else s(new Blob([e]), this._filename), t && t();
+        } else FileSaverJS(new Blob([e]), this._filename), t && t();
       }),
       (u.prototype._hasFileAPI = function () {
         return (
@@ -205,7 +205,7 @@ function (exports, module, require) {
             void (this._fileInputCallback = t)
           );
         }
-        const s = e.map((e) => e.ext).flat();
+        const FileSaverJS = e.map((e) => e.ext).flat();
         e.map((e) => e.mime);
         if (!this._fileInput) {
           (this._fileInput = document.createElement("input")),
@@ -243,10 +243,10 @@ function (exports, module, require) {
         }
         GSystem.operatingSystem === GSystem.OperatingSystem.OSX_IOS
           ? this._fileInput.removeAttribute("accept")
-          : s && s.length
+          : FileSaverJS && FileSaverJS.length
           ? this._fileInput.setAttribute(
               "accept",
-              s.map((e) => "." + e).join(",")
+              FileSaverJS.map((e) => "." + e).join(",")
             )
           : this._fileInput.removeAttribute("accept"),
           (this._fileInputCallback = t),

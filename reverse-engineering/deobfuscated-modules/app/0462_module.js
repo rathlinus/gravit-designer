@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(463) /* module_463 */,
+    var ZlibDeflate = require(463) /* ZlibDeflate */,
       Buf = require(94) /* Exports_Buf */,
       a = require(312) /* module_312 */,
       r = require(225) /* module_225 */,
@@ -38,7 +38,7 @@ function (exports, module, require) {
         (this.chunks = []),
         (this.strm = new s()),
         (this.strm.avail_out = 0);
-      var n = o.deflateInit2(
+      var n = ZlibDeflate.deflateInit2(
         this.strm,
         t.level,
         t.method,
@@ -47,7 +47,7 @@ function (exports, module, require) {
         t.strategy
       );
       if (0 !== n) throw new Error(r[n]);
-      if ((t.header && o.deflateSetHeader(this.strm, t.header), t.dictionary)) {
+      if ((t.header && ZlibDeflate.deflateSetHeader(this.strm, t.header), t.dictionary)) {
         var d;
         if (
           ((d =
@@ -56,7 +56,7 @@ function (exports, module, require) {
               : "[object ArrayBuffer]" === l.call(t.dictionary)
               ? new Uint8Array(t.dictionary)
               : t.dictionary),
-          0 !== (n = o.deflateSetDictionary(this.strm, d)))
+          0 !== (n = ZlibDeflate.deflateSetDictionary(this.strm, d)))
         )
           throw new Error(r[n]);
         this._dict_set = true;
@@ -85,7 +85,7 @@ function (exports, module, require) {
         if (
           (0 === s.avail_out &&
             ((s.output = new Buf.Buf8(c)), (s.next_out = 0), (s.avail_out = c)),
-          1 !== (n = o.deflate(s, r)) && 0 !== n)
+          1 !== (n = ZlibDeflate.deflate(s, r)) && 0 !== n)
         )
           return this.onEnd(n), (this.ended = true), false;
         (0 !== s.avail_out && (0 !== s.avail_in || (4 !== r && 2 !== r))) ||
@@ -94,7 +94,7 @@ function (exports, module, require) {
             : this.onData(Buf.shrinkBuf(s.output, s.next_out)));
       } while ((s.avail_in > 0 || 0 === s.avail_out) && 1 !== n);
       return 4 === r
-        ? ((n = o.deflateEnd(this.strm)),
+        ? ((n = ZlibDeflate.deflateEnd(this.strm)),
           this.onEnd(n),
           (this.ended = true),
           0 === n)

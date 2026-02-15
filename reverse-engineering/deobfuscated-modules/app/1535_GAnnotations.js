@@ -13,7 +13,7 @@ function (exports, module, require) {
       GFitAllAction = require(449) /* GFitAllAction */,
       GFitSelectionAction = require(566) /* GFitSelectionAction */,
       GProperties = require(123) /* GProperties */;
-    const c = require(358) /* module_358 */,
+    const GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
       d = require(86) /* module_86 */,
       { SHOW_SIDEBAR_BADGE: u } = require(10) /* AppSettings */;
     function p() {
@@ -232,18 +232,18 @@ function (exports, module, require) {
             d = GCore && a;
           let u;
           if (GFitSelectionAction && GProperties)
-            (u = c.filterAnnotationElements(e.data.nodes)),
+            (u = GAnnotationsUtils.filterAnnotationElements(e.data.nodes)),
               u.length &&
                 u.forEach((t) => {
-                  c.removeSidFromAnnotations(t),
+                  GAnnotationsUtils.removeSidFromAnnotations(t),
                     t.getParent() || e.data.parent.insertChild(t);
                 });
           else if (GFitSelectionAction && d) {
             var module = e.data.parent.getChildren();
-            (u = c
+            (u = GAnnotationsUtils
               .filterAnnotationElements(e.data.nodes)
               .filter((e) => module.some((t) => t.getId() === e.getId()))),
-              u.length && c.removeAnnotations(u, e.data.parent, undefined, false);
+              u.length && GAnnotationsUtils.removeAnnotations(u, e.data.parent, undefined, false);
           }
         }
       }),

@@ -21,7 +21,7 @@ function (e, t, n) {
       h = n(449) /* GFitAllAction */,
       f = n(566) /* GFitSelectionAction */,
       m = n(806) /* GSidebar */,
-      y = n(395) /* module_395 */,
+      y = n(395) /* GSidebarContainer */,
       v = n(1523) /* GExportProperties */,
       _ = n(44) /* GSystemDialog */,
       b = n(450) /* module_450 */;

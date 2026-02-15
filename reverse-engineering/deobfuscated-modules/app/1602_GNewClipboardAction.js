@@ -11,7 +11,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       GEditor = require(15) /* module */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
-      r = require(163) /* module_163 */,
+      GDocument = require(163) /* GDocument */,
       s = (require(449) /* GFitAllAction */, require(31) /* GAction */);
     function l() {}
     GCore.GObject.inherit(l, s),
@@ -57,7 +57,7 @@ function (exports, module, require) {
             require
               .getActivePage()
               .setProperties(["bck", "w", "h"], [GCore.GRGBColor.WHITE, 0, 0]),
-              gDesigner.addDocument(new r(require));
+              gDesigner.addDocument(new GDocument(require));
             var GEditor = gDesigner.getActiveDocument().getEditor();
             GEditor.beginTransaction();
             try {

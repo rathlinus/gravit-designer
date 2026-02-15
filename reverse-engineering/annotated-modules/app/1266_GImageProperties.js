@@ -9,13 +9,13 @@ function (e, t, n) {
     n(3) /* polyfill_RegExp_toString */, n(4) /* stub_requires_668 */, n(13) /* stub_requires_679 */;
     n(53) /* module */;
     var o = n(1) /* module */,
-      i = (n(15) /* module */, n(1267) /* module_1267 */),
+      i = (n(15) /* module */, n(1267) /* ColorQuantizer */),
       a = n(123) /* GProperties */,
       {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
-      } = (n(173) /* stub_requires_1 */, n(219) /* module_219 */, n(1268) /* module_1268 */);
+      } = (n(173) /* stub_requires_1 */, n(219) /* module_219 */, n(1268) /* GImageManipulation */);
     function c() {}
     o.GObject.inherit(c, a),
       (c.prototype._panel = null),

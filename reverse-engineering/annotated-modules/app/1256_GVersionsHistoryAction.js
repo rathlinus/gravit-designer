@@ -11,7 +11,7 @@ function (e, t, n) {
     var i = n(1) /* module */,
       a = o(n(31) /* GAction */),
       r = o(n(18) /* MenuItemBuilder */),
-      s = o(n(119) /* module_119 */),
+      s = o(n(119) /* GCloudStorage */),
       l = o(n(1159) /* module_1159 */),
       c = o(n(219) /* module_219 */),
       d = o(n(256) /* GOfflineDialog */),

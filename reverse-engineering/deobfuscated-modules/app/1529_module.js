@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(395) /* module_395 */;
+    const GSidebarContainer = require(395) /* GSidebarContainer */;
     exports.exports = function (e) {
       (e.prototype._versionHistoryPanelOverlay = null),
         (e.prototype._updateVersionsPanelTouch = function () {
@@ -18,7 +18,7 @@ function (exports, module, require) {
                   closeCallback: () => this._versionHistoryProperties.close(),
                 }));
             const e = (
-                this.getOrientation() === o.Orientation.Left
+                this.getOrientation() === GSidebarContainer.Orientation.Left
                   ? gDesigner.getLeftSidebars()
                   : gDesigner.getRightSidebars()
               ).getHtmlElement(),

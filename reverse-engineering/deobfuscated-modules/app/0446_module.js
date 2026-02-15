@@ -7,8 +7,8 @@ function (exports, module, require) {
     "use strict";
     var _interopRequireDefault = require(16) /* _interopRequireDefault */,
       GCore = require(1) /* module */,
-      a = _interopRequireDefault(require(119) /* module_119 */),
-      r = _interopRequireDefault(require(860) /* module_860 */);
+      GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
+      GEmbeddedLogin = _interopRequireDefault(require(860) /* GEmbeddedLogin */);
     function s(e) {
       let module =
         arguments.length > 1 && undefined !== arguments[1]
@@ -23,7 +23,7 @@ function (exports, module, require) {
       (s.prototype._run = function () {
         if (gDesigner.isAnonymous())
           return (
-            new r.default((e) => {
+            new GEmbeddedLogin.default((e) => {
               e && !e.anonymous && this._logged(e);
             }).open({ anonymous: true, signup: true, animate: true }),
             void this._showFormCb()
@@ -71,12 +71,12 @@ function (exports, module, require) {
                     .appendTo(require);
               };
               _interopRequireDefault("login", () => {
-                a.default.performLogin().then((e) => {
+                GCloudStorage.default.performLogin().then((e) => {
                   this._logged(e);
                 });
               }),
                 _interopRequireDefault("signup", () => {
-                  a.default.performSignup().then((e) => {
+                  GCloudStorage.default.performSignup().then((e) => {
                     this._logged(e);
                   });
                 });

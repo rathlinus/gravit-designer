@@ -18,7 +18,7 @@ function (exports, module, require) {
       p = require(336) /* module_336 */,
       g = require(436) /* module_436 */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
-      f = require(156) /* module_156 */,
+      GCloudStorageItem = require(156) /* GCloudStorageItem */,
       m = 10,
       y = 50,
       v = 80,
@@ -42,9 +42,9 @@ function (exports, module, require) {
       }),
       (b.Item.prototype.setFile = function (e) {
         e &&
-          ((e.storage = f.Storage.SharePoint),
+          ((e.storage = GCloudStorageItem.Storage.SharePoint),
           !e.relativeUrl &&
-            e instanceof f &&
+            e instanceof GCloudStorageItem &&
             (e.relativeUrl =
               e.parent &&
               e.parent.relativeUrl + "/" + e.getNameWithExtension())),
@@ -172,7 +172,7 @@ function (exports, module, require) {
           module = { relativeUrl: exports.relativeUrl };
         if (!module.relativeUrl) {
           const n = exports.getParent();
-          n instanceof f &&
+          n instanceof GCloudStorageItem &&
             (module.relativeUrl = ""
               .concat(n.relativeUrl, "/")
               .concat(exports.getNameWithExtension()));
@@ -259,7 +259,7 @@ function (exports, module, require) {
       }),
       (b.Item.prototype._updateFileWithCreatedResponse = function (e) {
         const module = SharepointException.default.convertFileToCloudItem(e);
-        (module.settings = f.GCloudSettings.from(this._getClient().getSettings())),
+        (module.settings = GCloudStorageItem.GCloudSettings.from(this._getClient().getSettings())),
           this.setFile(Object.assign(this.getFile(), module));
       }),
       (b.Item.prototype._updateModificationTime = async function () {
@@ -296,7 +296,7 @@ function (exports, module, require) {
             const e = this.getFile(),
               module = this._getClient();
             let require = Object.assign(e, {
-              settings: f.GCloudSettings.from(module.getSettings()),
+              settings: GCloudStorageItem.GCloudSettings.from(module.getSettings()),
             });
             e.relativeUrl ||
               (e.relativeUrl =

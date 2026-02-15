@@ -7,7 +7,7 @@ function (e, t, n) {
     (function (t) {
       var o;
       "function" != typeof t.Promise
-        ? ((o = n(1114) /* module_1114 */),
+        ? ((o = n(1114) /* BluebirdPromise */),
           Object.defineProperty(o, "polyfilled", {
             value: !0,
             writable: !1,

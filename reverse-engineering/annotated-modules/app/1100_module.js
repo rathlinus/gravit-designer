@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(8) /* polyfill_bundle_ES6 */;
     var o = n(1) /* module */,
-      i = n(119) /* module_119 */;
+      i = n(119) /* GCloudStorage */;
     e.exports = function (e) {
       (e.CommercialProduct = function (t, n, o, i) {
         e.Item.call(this, t, n, o, i);

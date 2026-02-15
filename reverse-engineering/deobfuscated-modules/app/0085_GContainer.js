@@ -26,7 +26,7 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       s = _interopRequireDefault(require(734) /* module_734 */),
       l = (_interopRequireDefault(require(355) /* module_355 */), _interopRequireDefault(require(1037) /* module_1037 */)),
-      barrel_sidebars = require(255) /* barrel_sidebars */,
+      GFontsProviderManager = require(255) /* GFontsProviderManager */,
       barrel_editor_actions = require(590) /* barrel_editor_actions */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GOpenRecentAction = require(843) /* GOpenRecentAction */,
@@ -97,7 +97,7 @@ function (exports, module, require) {
         return "";
       }),
       (y.prototype.registerFontProviders = function () {
-        barrel_sidebars.registerProvider(barrel_editor_actions);
+        GFontsProviderManager.registerProvider(barrel_editor_actions);
       }),
       (y.prototype.getSystemFontsProvider = function () {
         return null;

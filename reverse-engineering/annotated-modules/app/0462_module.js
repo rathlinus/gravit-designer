@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(463) /* module_463 */,
+    var o = n(463) /* ZlibDeflate */,
       i = n(94) /* Exports_Buf */,
       a = n(312) /* module_312 */,
       r = n(225) /* module_225 */,

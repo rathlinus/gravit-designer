@@ -6,8 +6,8 @@
 function (e, t, n) {
     var o;
     e.exports =
-      ((o = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+      ((o = n(55) /* CryptoJSCore */),
+      n(98) /* CryptoJSCipherBase */,
       (o.pad.AnsiX923 = {
         pad: function (e, t) {
           var n = e.sigBytes,

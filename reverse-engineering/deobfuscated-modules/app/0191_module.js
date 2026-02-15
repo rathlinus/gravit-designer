@@ -10,7 +10,7 @@ function (exports, module, require) {
       tryCall = require(21) /* tryCall */,
       r = require(65) /* module_65 */,
       s = require(351) /* module_351 */,
-      l = require(152) /* module_152 */,
+      l = require(152) /* polyfill_TypedArrays */,
       c = require(521) /* stub_requires_129 */,
       d = require(522) /* stub_requires_129 */,
       u = require(213) /* module_213 */,

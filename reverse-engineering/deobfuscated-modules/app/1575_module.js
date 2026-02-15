@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = require(1252) /* module_1252 */,
+    const GCrossFrameManager = require(1252) /* GCrossFrameManager */,
       i = require(1187) /* module_1187 */,
       { gApi: a } = require(10) /* AppSettings */;
     exports.exports = class extends i {
@@ -14,7 +14,7 @@ function (exports, module, require) {
       }
       open() {
         if (this._isOpen()) return;
-        const exports = new o({ id: this._id, className: "overlay" });
+        const exports = new GCrossFrameManager({ id: this._id, className: "overlay" });
         exports.open(this._url),
           exports.on("error", () => {
             exports.close();

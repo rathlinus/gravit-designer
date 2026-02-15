@@ -28,9 +28,9 @@ function (exports, module, require) {
       _config = require(10) /* AppSettings */,
       _richtooltipconfig = require(67) /* GRichTooltipConfig */;
     const GCategory = require(18) /* MenuItemBuilder */,
-      GDocument = require(163) /* module_163 */,
+      GDocument = require(163) /* GDocument */,
       GDocumentStatus = require(86) /* module_86 */,
-      simpleShapes = require(1542) /* module_1542 */,
+      simpleShapes = require(1542) /* GShapePresets */,
       GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
       GInspectorSidebar = require(864) /* GInspectorSidebar */,
       GWindows = require(603) /* WindowEvent */,
@@ -67,7 +67,7 @@ function (exports, module, require) {
       GMenuOpenEvent = require(804) /* GMenuOpenEvent */,
       GMenu = require(238) /* GMenu */,
       GMenuItem = require(339) /* GMenu */,
-      GCollaborators = require(1292) /* module_1292 */,
+      GCollaborators = require(1292) /* GCollaboratorsWidget */,
       GDocumentEvent = require(78) /* GDocumentEvent */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       GApplicationStateChangedEvent = require(392) /* module_392 */,
@@ -1768,6 +1768,6 @@ function (exports, module, require) {
           [e ? "removeClass" : "addClass"]("g-disabled")
           .prop("disabled", !e);
       }),
-      require(1543) /* module_1543 */(GToolbar),
+      require(1543) /* GTouchToolbarMixin */(GToolbar),
       (exports.exports = GToolbar);
   }

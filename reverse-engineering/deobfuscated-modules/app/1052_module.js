@@ -4,26 +4,26 @@
  */
 
 function (exports, module, require) {
-    var o, i, a;
+    var o, i, CryptoJSCore;
     exports.exports =
-      ((a = require(55) /* module_55 */),
-      require(98) /* module_98 */,
-      (a.mode.CTR =
-        ((o = a.lib.BlockCipherMode.extend()),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      require(98) /* CryptoJSCipherBase */,
+      (CryptoJSCore.mode.CTR =
+        ((o = CryptoJSCore.lib.BlockCipherMode.extend()),
         (i = o.Encryptor =
           o.extend({
             processBlock: function (e, t) {
               var n = this._cipher,
                 o = n.blockSize,
                 i = this._iv,
-                a = this._counter;
-              i && ((a = this._counter = i.slice(0)), (this._iv = undefined));
-              var r = a.slice(0);
-              n.encryptBlock(r, 0), (a[o - 1] = (a[o - 1] + 1) | 0);
+                CryptoJSCore = this._counter;
+              i && ((CryptoJSCore = this._counter = i.slice(0)), (this._iv = undefined));
+              var r = CryptoJSCore.slice(0);
+              n.encryptBlock(r, 0), (CryptoJSCore[o - 1] = (CryptoJSCore[o - 1] + 1) | 0);
               for (var s = 0; s < o; s++) e[t + s] ^= r[s];
             },
           })),
         (o.Decryptor = i),
         o)),
-      a.mode.CTR);
+      CryptoJSCore.mode.CTR);
   }

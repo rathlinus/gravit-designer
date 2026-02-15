@@ -28,9 +28,9 @@ function (module, exports, __webpack_require__) {
       _config = __webpack_require__(10) /* AppSettings */,
       _richtooltipconfig = __webpack_require__(67) /* GRichTooltipConfig */;
     const GCategory = __webpack_require__(18) /* MenuItemBuilder */,
-      GDocument = __webpack_require__(163) /* module_163 */,
+      GDocument = __webpack_require__(163) /* GDocument */,
       GDocumentStatus = __webpack_require__(86) /* module_86 */,
-      simpleShapes = __webpack_require__(1542) /* module_1542 */,
+      simpleShapes = __webpack_require__(1542) /* GShapePresets */,
       GAnnotationsSidebar = __webpack_require__(567) /* GAnnotationsSidebar */,
       GInspectorSidebar = __webpack_require__(864) /* GInspectorSidebar */,
       GWindows = __webpack_require__(603) /* WindowEvent */,
@@ -67,7 +67,7 @@ function (module, exports, __webpack_require__) {
       GMenuOpenEvent = __webpack_require__(804) /* GMenuOpenEvent */,
       GMenu = __webpack_require__(238) /* GMenu */,
       GMenuItem = __webpack_require__(339) /* GMenu */,
-      GCollaborators = __webpack_require__(1292) /* module_1292 */,
+      GCollaborators = __webpack_require__(1292) /* GCollaboratorsWidget */,
       GDocumentEvent = __webpack_require__(78) /* GDocumentEvent */,
       GSettingChangedEvent = __webpack_require__(135) /* GSettingChangedEvent */,
       GApplicationStateChangedEvent = __webpack_require__(392) /* module_392 */,
@@ -1768,6 +1768,6 @@ function (module, exports, __webpack_require__) {
           [e ? "removeClass" : "addClass"]("g-disabled")
           .prop("disabled", !e);
       }),
-      __webpack_require__(1543) /* module_1543 */(GToolbar),
+      __webpack_require__(1543) /* GTouchToolbarMixin */(GToolbar),
       (module.exports = GToolbar);
   }

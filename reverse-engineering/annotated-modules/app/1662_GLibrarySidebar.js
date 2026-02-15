@@ -11,9 +11,9 @@ function (e, t, n) {
     var i = n(1) /* module */,
       a = o(n(340) /* GTouchTool */),
       r = n(806) /* GSidebar */,
-      s = n(395) /* module_395 */,
-      l = n(1663) /* module_1663 */,
-      c = n(119) /* module_119 */;
+      s = n(395) /* GSidebarContainer */,
+      l = n(1663) /* GLibraryAssetsPanel */,
+      c = n(119) /* GCloudStorage */;
     const d = n(291) /* GNetworkAvailabilityChangedEvent */;
     function u() {
       r.call(this);

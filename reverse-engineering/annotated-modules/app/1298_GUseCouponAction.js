@@ -11,7 +11,7 @@ function (e, t, n) {
       i = n(31) /* GAction */,
       a = n(18) /* MenuItemBuilder */;
     const r = n(44) /* GSystemDialog */,
-      s = n(119) /* module_119 */;
+      s = n(119) /* GCloudStorage */;
     function l() {}
     o.GObject.inherit(l, i),
       (l.ID = "use-coupon-action"),

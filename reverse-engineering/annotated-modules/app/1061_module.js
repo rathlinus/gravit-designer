@@ -6,8 +6,8 @@
 function (e, t, n) {
     var o, i, a, r;
     e.exports =
-      ((r = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+      ((r = n(55) /* CryptoJSCore */),
+      n(98) /* CryptoJSCipherBase */,
       (i = (o = r).lib.CipherParams),
       (a = o.enc.Hex),
       (o.format.Hex = {

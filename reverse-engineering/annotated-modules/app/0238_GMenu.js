@@ -12,7 +12,7 @@ function (e, t, n) {
       a = n(1156) /* GMenuCloseEvent */,
       r = n(444) /* module_444 */,
       s = n(339) /* GMenu */,
-      l = n(1157) /* module_1157 */,
+      l = n(1157) /* GMenuManager */,
       c = n(804) /* GMenuOpenEvent */,
       d = n(31) /* GAction */;
     function u(e, t) {

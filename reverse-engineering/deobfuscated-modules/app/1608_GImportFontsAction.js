@@ -11,7 +11,7 @@ function (exports, module, require) {
       i = (require(15) /* module */, require(67) /* GRichTooltipConfig */),
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      s = require(1245) /* module_1245 */;
+      GCustomFontImporter = require(1245) /* GCustomFontImporter */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
@@ -61,7 +61,7 @@ function (exports, module, require) {
         );
       }),
       (l.prototype.execute = function (e, t) {
-        (e = e || new s()).import(t);
+        (e = e || new GCustomFontImporter()).import(t);
       }),
       (l.prototype.getTooltipArea = function () {
         return i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;

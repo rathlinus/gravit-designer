@@ -4,11 +4,11 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       (function () {
-        var e = o,
+        var e = CryptoJSCore,
           t = e.lib.WordArray,
           n = e.enc;
         function i(e) {
@@ -18,39 +18,39 @@ function (exports, module, require) {
           {
             stringify: function (e) {
               for (
-                var t = e.words, n = e.sigBytes, o = [], i = 0;
+                var t = e.words, n = e.sigBytes, CryptoJSCore = [], i = 0;
                 i < n;
                 i += 2
               ) {
                 var a = (t[i >>> 2] >>> (16 - (i % 4) * 8)) & 65535;
-                o.push(String.fromCharCode(a));
+                CryptoJSCore.push(String.fromCharCode(a));
               }
-              return o.join("");
+              return CryptoJSCore.join("");
             },
             parse: function (e) {
-              for (var n = e.length, o = [], i = 0; i < n; i++)
-                o[i >>> 1] |= e.charCodeAt(i) << (16 - (i % 2) * 16);
-              return t.create(o, 2 * n);
+              for (var n = e.length, CryptoJSCore = [], i = 0; i < n; i++)
+                CryptoJSCore[i >>> 1] |= e.charCodeAt(i) << (16 - (i % 2) * 16);
+              return t.create(CryptoJSCore, 2 * n);
             },
           }),
           (n.Utf16LE = {
             stringify: function (e) {
               for (
-                var t = e.words, n = e.sigBytes, o = [], a = 0;
+                var t = e.words, n = e.sigBytes, CryptoJSCore = [], a = 0;
                 a < n;
                 a += 2
               ) {
                 var r = i((t[a >>> 2] >>> (16 - (a % 4) * 8)) & 65535);
-                o.push(String.fromCharCode(r));
+                CryptoJSCore.push(String.fromCharCode(r));
               }
-              return o.join("");
+              return CryptoJSCore.join("");
             },
             parse: function (e) {
-              for (var n = e.length, o = [], a = 0; a < n; a++)
-                o[a >>> 1] |= i(e.charCodeAt(a) << (16 - (a % 2) * 16));
-              return t.create(o, 2 * n);
+              for (var n = e.length, CryptoJSCore = [], a = 0; a < n; a++)
+                CryptoJSCore[a >>> 1] |= i(e.charCodeAt(a) << (16 - (a % 2) * 16));
+              return t.create(CryptoJSCore, 2 * n);
             },
           });
       })(),
-      o.enc.Utf16);
+      CryptoJSCore.enc.Utf16);
   }

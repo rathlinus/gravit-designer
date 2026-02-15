@@ -174,9 +174,9 @@
     "size": 270
   },
   "55": {
-    "filename": "0055_module.js",
+    "filename": "0055_CryptoJSCore.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSCore",
     "size": 8225
   },
   "57": {
@@ -300,9 +300,9 @@
     "size": 57
   },
   "98": {
-    "filename": "0098_module.js",
+    "filename": "0098_CryptoJSCipherBase.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSCipherBase",
     "size": 8559
   },
   "100": {
@@ -366,9 +366,9 @@
     "size": 197
   },
   "119": {
-    "filename": "0119_module.js",
+    "filename": "0119_GCloudStorage.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudStorage",
     "size": 31877
   },
   "120": {
@@ -486,15 +486,15 @@
     "size": 983
   },
   "152": {
-    "filename": "0152_module.js",
+    "filename": "0152_polyfill_TypedArrays.js",
     "type": "unknown",
-    "name": null,
+    "name": "polyfill_TypedArrays",
     "size": 3926
   },
   "156": {
-    "filename": "0156_module.js",
+    "filename": "0156_GCloudStorageItem.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudStorageItem",
     "size": 7222
   },
   "157": {
@@ -504,9 +504,9 @@
     "size": 94
   },
   "163": {
-    "filename": "0163_module.js",
+    "filename": "0163_GDocument.js",
     "type": "unknown",
-    "name": null,
+    "name": "GDocument",
     "size": 101354
   },
   "165": {
@@ -552,9 +552,9 @@
     "size": 655
   },
   "177": {
-    "filename": "0177_module.js",
+    "filename": "0177_GUserModel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GUserModel",
     "size": 3648
   },
   "178": {
@@ -852,9 +852,9 @@
     "size": 124
   },
   "255": {
-    "filename": "0255_module.js",
+    "filename": "0255_GFontsProviderManager.js",
     "type": "unknown",
-    "name": "barrel_sidebars",
+    "name": "GFontsProviderManager",
     "size": 19574
   },
   "256": {
@@ -1104,9 +1104,9 @@
     "size": 247
   },
   "324": {
-    "filename": "0324_module.js",
+    "filename": "0324_polyfill_ArrayBuffer_DataView.js",
     "type": "unknown",
-    "name": null,
+    "name": "polyfill_ArrayBuffer_DataView",
     "size": 6341
   },
   "328": {
@@ -1200,9 +1200,9 @@
     "size": 345
   },
   "356": {
-    "filename": "0356_module.js",
+    "filename": "0356_polyfill_RegExp_constructor.js",
     "type": "unknown",
-    "name": null,
+    "name": "polyfill_RegExp_constructor",
     "size": 4967
   },
   "357": {
@@ -1212,9 +1212,9 @@
     "size": 279
   },
   "358": {
-    "filename": "0358_module.js",
+    "filename": "0358_GAnnotationsUtils.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAnnotationsUtils",
     "size": 10377
   },
   "360": {
@@ -1284,9 +1284,9 @@
     "size": 957
   },
   "395": {
-    "filename": "0395_module.js",
+    "filename": "0395_GSidebarContainer.js",
     "type": "unknown",
-    "name": null,
+    "name": "GSidebarContainer",
     "size": 19860
   },
   "396": {
@@ -1566,9 +1566,9 @@
     "size": 239
   },
   "451": {
-    "filename": "0451_module.js",
+    "filename": "0451_GVirtualTree.js",
     "type": "unknown",
-    "name": "IdxIterator",
+    "name": "GVirtualTree",
     "size": 44279
   },
   "452": {
@@ -1620,15 +1620,15 @@
     "size": 3680
   },
   "463": {
-    "filename": "0463_module.js",
+    "filename": "0463_ZlibDeflate.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZlibDeflate",
     "size": 28775
   },
   "464": {
-    "filename": "0464_module.js",
+    "filename": "0464_ZlibTrees.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZlibTrees",
     "size": 13145
   },
   "465": {
@@ -1638,15 +1638,15 @@
     "size": 4493
   },
   "466": {
-    "filename": "0466_module.js",
+    "filename": "0466_ZlibInflateStream.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZlibInflateStream",
     "size": 28204
   },
   "467": {
-    "filename": "0467_module.js",
+    "filename": "0467_ZlibInflateFast.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZlibInflateFast",
     "size": 5028
   },
   "468": {
@@ -1740,9 +1740,9 @@
     "size": 162
   },
   "556": {
-    "filename": "0556_module.js",
+    "filename": "0556_GGoogleDriveItem.js",
     "type": "unknown",
-    "name": "Item",
+    "name": "GGoogleDriveItem",
     "size": 20638
   },
   "557": {
@@ -1860,9 +1860,9 @@
     "size": 6000
   },
   "604": {
-    "filename": "0604_module.js",
+    "filename": "0604_GProfileDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GProfileDialog",
     "size": 9658
   },
   "605": {
@@ -1932,9 +1932,9 @@
     "size": 421
   },
   "618": {
-    "filename": "0618_module.js",
+    "filename": "0618_polyfill_Promise.js",
     "type": "unknown",
-    "name": null,
+    "name": "polyfill_Promise",
     "size": 5835
   },
   "619": {
@@ -2070,9 +2070,9 @@
     "size": 437
   },
   "673": {
-    "filename": "0673_module.js",
+    "filename": "0673_URLPolyfill.js",
     "type": "unknown",
-    "name": "polyfill_String_startsWith",
+    "name": "URLPolyfill",
     "size": 28129
   },
   "674": {
@@ -2244,9 +2244,9 @@
     "size": 3841
   },
   "737": {
-    "filename": "0737_module.js",
+    "filename": "0737_CryptoJSSHA512.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSSHA512",
     "size": 10697
   },
   "784": {
@@ -2298,9 +2298,9 @@
     "size": 354
   },
   "792": {
-    "filename": "0792_Ce.js",
+    "filename": "0792_PDFJSBundle.js",
     "type": "class",
-    "name": "Ce",
+    "name": "PDFJSBundle",
     "size": 853311
   },
   "802": {
@@ -2376,21 +2376,21 @@
     "size": 1892
   },
   "814": {
-    "filename": "0814_module.js",
+    "filename": "0814_LocaleAppTranslations.js",
     "type": "unknown",
-    "name": null,
+    "name": "LocaleAppTranslations",
     "size": 169650
   },
   "815": {
-    "filename": "0815_module.js",
+    "filename": "0815_LocaleServerTranslations.js",
     "type": "unknown",
-    "name": "AppSettings",
+    "name": "LocaleServerTranslations",
     "size": 47813
   },
   "816": {
-    "filename": "0816_module.js",
+    "filename": "0816_LocaleExtendedEmpty.js",
     "type": "unknown",
-    "name": null,
+    "name": "LocaleExtendedEmpty",
     "size": 54
   },
   "817": {
@@ -2406,27 +2406,27 @@
     "size": 12573
   },
   "821": {
-    "filename": "0821_module.js",
+    "filename": "0821_LocaleAppTranslationsCopy.js",
     "type": "unknown",
-    "name": null,
+    "name": "LocaleAppTranslationsCopy",
     "size": 169650
   },
   "822": {
-    "filename": "0822_module.js",
+    "filename": "0822_LocaleServerTranslationsCopy.js",
     "type": "unknown",
-    "name": "AppSettings",
+    "name": "LocaleServerTranslationsCopy",
     "size": 47813
   },
   "823": {
-    "filename": "0823_module.js",
+    "filename": "0823_LocaleExtendedEmptyCopy.js",
     "type": "unknown",
-    "name": null,
+    "name": "LocaleExtendedEmptyCopy",
     "size": 54
   },
   "824": {
-    "filename": "0824_module.js",
+    "filename": "0824_URLSearchParamsPolyfill.js",
     "type": "unknown",
-    "name": null,
+    "name": "URLSearchParamsPolyfill",
     "size": 15152
   },
   "837": {
@@ -2436,9 +2436,9 @@
     "size": 1149
   },
   "841": {
-    "filename": "0841_module.js",
+    "filename": "0841_GMissingFontsDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GMissingFontsDialog",
     "size": 7632
   },
   "842": {
@@ -2454,15 +2454,15 @@
     "size": 872
   },
   "844": {
-    "filename": "0844_module.js",
+    "filename": "0844_GActionIconMap.js",
     "type": "unknown",
-    "name": null,
+    "name": "GActionIconMap",
     "size": 3917
   },
   "845": {
-    "filename": "0845_module.js",
+    "filename": "0845_GCloudImageSync.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudImageSync",
     "size": 4868
   },
   "846": {
@@ -2490,9 +2490,9 @@
     "size": 820
   },
   "857": {
-    "filename": "0857_module.js",
+    "filename": "0857_GInputSliderWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GInputSliderWidget",
     "size": 5964
   },
   "858": {
@@ -2508,9 +2508,9 @@
     "size": 1261
   },
   "860": {
-    "filename": "0860_module.js",
+    "filename": "0860_GEmbeddedLogin.js",
     "type": "unknown",
-    "name": null,
+    "name": "GEmbeddedLogin",
     "size": 9206
   },
   "861": {
@@ -2616,15 +2616,15 @@
     "size": 2096
   },
   "878": {
-    "filename": "0878_module.js",
+    "filename": "0878_GTouchEventHandler.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTouchEventHandler",
     "size": 4227
   },
   "879": {
-    "filename": "0879_module.js",
+    "filename": "0879_GTouchClickGesture.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTouchClickGesture",
     "size": 3851
   },
   "880": {
@@ -2640,9 +2640,9 @@
     "size": 60
   },
   "882": {
-    "filename": "0882_module.js",
+    "filename": "0882_GCollaborationMentionsUtils.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCollaborationMentionsUtils",
     "size": 6350
   },
   "883": {
@@ -2808,15 +2808,15 @@
     "size": 431
   },
   "1062": {
-    "filename": "1062_module.js",
+    "filename": "1062_CryptoJSAES.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSAES",
     "size": 6218
   },
   "1063": {
-    "filename": "1063_module.js",
+    "filename": "1063_CryptoJSDES.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSDES",
     "size": 21416
   },
   "1064": {
@@ -2826,15 +2826,15 @@
     "size": 1901
   },
   "1065": {
-    "filename": "1065_module.js",
+    "filename": "1065_CryptoJSRabbit.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSRabbit",
     "size": 5449
   },
   "1066": {
-    "filename": "1066_module.js",
+    "filename": "1066_CryptoJSRabbitLegacy.js",
     "type": "unknown",
-    "name": null,
+    "name": "CryptoJSRabbitLegacy",
     "size": 5324
   },
   "1067": {
@@ -2886,9 +2886,9 @@
     "size": 143
   },
   "1075": {
-    "filename": "1075_module.js",
+    "filename": "1075_NotoFontsData.js",
     "type": "unknown",
-    "name": null,
+    "name": "NotoFontsData",
     "size": 10654
   },
   "1090": {
@@ -2910,9 +2910,9 @@
     "size": 1285
   },
   "1093": {
-    "filename": "1093_module.js",
+    "filename": "1093_GLoginDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GLoginDialog",
     "size": 32735
   },
   "1094": {
@@ -2982,15 +2982,15 @@
     "size": 2974
   },
   "1108": {
-    "filename": "1108_module.js",
+    "filename": "1108_GoogleDriveResumableUpload.js",
     "type": "unknown",
-    "name": null,
+    "name": "GoogleDriveResumableUpload",
     "size": 5115
   },
   "1114": {
-    "filename": "1114_module.js",
+    "filename": "1114_BluebirdPromise.js",
     "type": "unknown",
-    "name": null,
+    "name": "BluebirdPromise",
     "size": 175013
   },
   "1115": {
@@ -3000,27 +3000,27 @@
     "size": 1753
   },
   "1116": {
-    "filename": "1116_module.js",
+    "filename": "1116_SetImmediatePolyfill.js",
     "type": "unknown",
-    "name": null,
+    "name": "SetImmediatePolyfill",
     "size": 4156
   },
   "1117": {
-    "filename": "1117_module.js",
+    "filename": "1117_FileSaverJS.js",
     "type": "unknown",
-    "name": null,
+    "name": "FileSaverJS",
     "size": 5117
   },
   "1118": {
-    "filename": "1118_module.js",
+    "filename": "1118_GCustomFontsProvider.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCustomFontsProvider",
     "size": 16270
   },
   "1150": {
-    "filename": "1150_module.js",
+    "filename": "1150_GPatternChooser.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPatternChooser",
     "size": 132012
   },
   "1151": {
@@ -3036,15 +3036,15 @@
     "size": 17621
   },
   "1153": {
-    "filename": "1153_module.js",
+    "filename": "1153_GPresets.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPresets",
     "size": 41458
   },
   "1154": {
-    "filename": "1154_module.js",
+    "filename": "1154_GFileDownloadUtils.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFileDownloadUtils",
     "size": 3678
   },
   "1155": {
@@ -3060,9 +3060,9 @@
     "size": 284
   },
   "1157": {
-    "filename": "1157_module.js",
+    "filename": "1157_GMenuManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GMenuManager",
     "size": 4643
   },
   "1158": {
@@ -3090,9 +3090,9 @@
     "size": 657
   },
   "1162": {
-    "filename": "1162_module.js",
+    "filename": "1162_GBorderProperties.js",
     "type": "unknown",
-    "name": null,
+    "name": "GBorderProperties",
     "size": 77564
   },
   "1163": {
@@ -3108,9 +3108,9 @@
     "size": 541
   },
   "1165": {
-    "filename": "1165_module.js",
+    "filename": "1165_GFileReviewFlowManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFileReviewFlowManager",
     "size": 7189
   },
   "1166": {
@@ -3288,33 +3288,33 @@
     "size": 65
   },
   "1198": {
-    "filename": "1198_module.js",
+    "filename": "1198_GFontDBClient.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFontDBClient",
     "size": 9284
   },
   "1199": {
-    "filename": "1199_module.js",
+    "filename": "1199_GLocalFontsProvider.js",
     "type": "unknown",
-    "name": null,
+    "name": "GLocalFontsProvider",
     "size": 5940
   },
   "1200": {
-    "filename": "1200_module.js",
+    "filename": "1200_GFontListFormatter.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFontListFormatter",
     "size": 6413
   },
   "1210": {
-    "filename": "1210_module.js",
+    "filename": "1210_JDataView.js",
     "type": "unknown",
-    "name": null,
+    "name": "JDataView",
     "size": 21189
   },
   "1238": {
-    "filename": "1238_module.js",
+    "filename": "1238_GUnsupportedFeaturesDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GUnsupportedFeaturesDialog",
     "size": 3851
   },
   "1239": {
@@ -3336,9 +3336,9 @@
     "size": 913
   },
   "1242": {
-    "filename": "1242_module.js",
+    "filename": "1242_MSTeamsAuthManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "MSTeamsAuthManager",
     "size": 11366
   },
   "1243": {
@@ -3354,9 +3354,9 @@
     "size": 185
   },
   "1245": {
-    "filename": "1245_module.js",
+    "filename": "1245_GCustomFontImporter.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCustomFontImporter",
     "size": 5310
   },
   "1246": {
@@ -3396,9 +3396,9 @@
     "size": 730
   },
   "1252": {
-    "filename": "1252_module.js",
+    "filename": "1252_GCrossFrameManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCrossFrameManager",
     "size": 4018
   },
   "1253": {
@@ -3414,9 +3414,9 @@
     "size": 2498
   },
   "1255": {
-    "filename": "1255_module.js",
+    "filename": "1255_GOpenFileRequestHandler.js",
     "type": "unknown",
-    "name": null,
+    "name": "GOpenFileRequestHandler",
     "size": 3641
   },
   "1256": {
@@ -3432,9 +3432,9 @@
     "size": 367
   },
   "1258": {
-    "filename": "1258_module.js",
+    "filename": "1258_JQueryUIWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "JQueryUIWidget",
     "size": 20798
   },
   "1259": {
@@ -3450,9 +3450,9 @@
     "size": 48489
   },
   "1261": {
-    "filename": "1261_module.js",
+    "filename": "1261_GFillProperties.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFillProperties",
     "size": 46079
   },
   "1262": {
@@ -3486,15 +3486,15 @@
     "size": 10683
   },
   "1267": {
-    "filename": "1267_module.js",
+    "filename": "1267_ColorQuantizer.js",
     "type": "unknown",
-    "name": null,
+    "name": "ColorQuantizer",
     "size": 15354
   },
   "1268": {
-    "filename": "1268_module.js",
+    "filename": "1268_GImageManipulation.js",
     "type": "unknown",
-    "name": null,
+    "name": "GImageManipulation",
     "size": 5690
   },
   "1269": {
@@ -3534,15 +3534,15 @@
     "size": 5032
   },
   "1275": {
-    "filename": "1275_module.js",
+    "filename": "1275_GSettingsDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GSettingsDialog",
     "size": 27203
   },
   "1276": {
-    "filename": "1276_module.js",
+    "filename": "1276_GAutoSaveManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAutoSaveManager",
     "size": 29740
   },
   "1277": {
@@ -3636,9 +3636,9 @@
     "size": 2578
   },
   "1292": {
-    "filename": "1292_module.js",
+    "filename": "1292_GCollaboratorsWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCollaboratorsWidget",
     "size": 4292
   },
   "1293": {
@@ -3684,9 +3684,9 @@
     "size": 630
   },
   "1300": {
-    "filename": "1300_module.js",
+    "filename": "1300_GCloudFileBrowser.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudFileBrowser",
     "size": 79275
   },
   "1301": {
@@ -3816,9 +3816,9 @@
     "size": 458
   },
   "1322": {
-    "filename": "1322_module.js",
+    "filename": "1322_GShareManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GShareManager",
     "size": 25605
   },
   "1323": {
@@ -3834,9 +3834,9 @@
     "size": 1570
   },
   "1325": {
-    "filename": "1325_module.js",
+    "filename": "1325_GReminderManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GReminderManager",
     "size": 9878
   },
   "1326": {
@@ -3942,9 +3942,9 @@
     "size": 1517
   },
   "1343": {
-    "filename": "1343_module.js",
+    "filename": "1343_GTranslationManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTranslationManager",
     "size": 10065
   },
   "1344": {
@@ -3990,9 +3990,9 @@
     "size": 1991
   },
   "1351": {
-    "filename": "1351_module.js",
+    "filename": "1351_GLayerItemUtils.js",
     "type": "unknown",
-    "name": null,
+    "name": "GLayerItemUtils",
     "size": 5648
   },
   "1352": {
@@ -4020,21 +4020,21 @@
     "size": 7117
   },
   "1356": {
-    "filename": "1356_module.js",
+    "filename": "1356_GAnnotationRow.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAnnotationRow",
     "size": 29544
   },
   "1357": {
-    "filename": "1357_module.js",
+    "filename": "1357_GAnnotationReplyEditor.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAnnotationReplyEditor",
     "size": 8879
   },
   "1358": {
-    "filename": "1358_module.js",
+    "filename": "1358_AmplitudeAnalytics.js",
     "type": "unknown",
-    "name": null,
+    "name": "AmplitudeAnalytics",
     "size": 10116
   },
   "1373": {
@@ -4074,15 +4074,15 @@
     "size": 562
   },
   "1379": {
-    "filename": "1379_module.js",
+    "filename": "1379_GGoogleFontsProvider.js",
     "type": "unknown",
-    "name": null,
+    "name": "GGoogleFontsProvider",
     "size": 8125
   },
   "1380": {
-    "filename": "1380_module.js",
+    "filename": "1380_GFontLauncherProvider.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFontLauncherProvider",
     "size": 18271
   },
   "1381": {
@@ -4140,21 +4140,21 @@
     "size": 56
   },
   "1400": {
-    "filename": "1400_module.js",
+    "filename": "1400_SketchImportModuleMap.js",
     "type": "unknown",
-    "name": null,
+    "name": "SketchImportModuleMap",
     "size": 4080
   },
   "1401": {
-    "filename": "1401_module.js",
+    "filename": "1401_ZlibInflate.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZlibInflate",
     "size": 57028
   },
   "1402": {
-    "filename": "1402_module.js",
+    "filename": "1402_ZipJS.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZipJS",
     "size": 31268
   },
   "1468": {
@@ -4200,15 +4200,15 @@
     "size": 2845
   },
   "1475": {
-    "filename": "1475_module.js",
+    "filename": "1475_GDocumentChooser.js",
     "type": "unknown",
-    "name": null,
+    "name": "GDocumentChooser",
     "size": 6066
   },
   "1476": {
-    "filename": "1476_module.js",
+    "filename": "1476_AdalAuthLibrary.js",
     "type": "unknown",
-    "name": null,
+    "name": "AdalAuthLibrary",
     "size": 53163
   },
   "1477": {
@@ -4230,9 +4230,9 @@
     "size": 959
   },
   "1480": {
-    "filename": "1480_Action_id.js",
+    "filename": "1480_MSTeamsSDK.js",
     "type": "action",
-    "name": "Action_id",
+    "name": "MSTeamsSDK",
     "size": 151937
   },
   "1481": {
@@ -4248,9 +4248,9 @@
     "size": 418
   },
   "1483": {
-    "filename": "1483_module.js",
+    "filename": "1483_GDesignerApp.js",
     "type": "unknown",
-    "name": "AppSettings",
+    "name": "GDesignerApp",
     "size": 50256
   },
   "1484": {
@@ -4278,15 +4278,15 @@
     "size": 299
   },
   "1488": {
-    "filename": "1488_module.js",
+    "filename": "1488_DragDropTouch.js",
     "type": "unknown",
-    "name": null,
+    "name": "DragDropTouch",
     "size": 17103
   },
   "1489": {
-    "filename": "1489_module.js",
+    "filename": "1489_AbortControllerPolyfill.js",
     "type": "unknown",
-    "name": null,
+    "name": "AbortControllerPolyfill",
     "size": 23259
   },
   "1490": {
@@ -4296,9 +4296,9 @@
     "size": 491
   },
   "1491": {
-    "filename": "1491_Je.js",
+    "filename": "1491_GDesignerWorkspace.js",
     "type": "class",
-    "name": "Je",
+    "name": "GDesignerWorkspace",
     "size": 146371
   },
   "1492": {
@@ -4314,15 +4314,15 @@
     "size": 411
   },
   "1494": {
-    "filename": "1494_module.js",
+    "filename": "1494_GAnalyticsPageStats.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAnalyticsPageStats",
     "size": 5444
   },
   "1495": {
-    "filename": "1495_module.js",
+    "filename": "1495_AnalyticsEventMap.js",
     "type": "unknown",
-    "name": null,
+    "name": "AnalyticsEventMap",
     "size": 125473
   },
   "1496": {
@@ -4350,9 +4350,9 @@
     "size": 340
   },
   "1500": {
-    "filename": "1500_module.js",
+    "filename": "1500_GDocumentTabBar.js",
     "type": "unknown",
-    "name": null,
+    "name": "GDocumentTabBar",
     "size": 33446
   },
   "1501": {
@@ -4368,9 +4368,9 @@
     "size": 1582
   },
   "1503": {
-    "filename": "1503_module.js",
+    "filename": "1503_GDocumentWindow.js",
     "type": "unknown",
-    "name": null,
+    "name": "GDocumentWindow",
     "size": 19038
   },
   "1504": {
@@ -4392,15 +4392,15 @@
     "size": 511
   },
   "1507": {
-    "filename": "1507_module.js",
+    "filename": "1507_GPurchasePanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPurchasePanel",
     "size": 18449
   },
   "1508": {
-    "filename": "1508_module.js",
+    "filename": "1508_GAccountPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAccountPanel",
     "size": 12740
   },
   "1509": {
@@ -4428,21 +4428,21 @@
     "size": 10803
   },
   "1513": {
-    "filename": "1513_module.js",
+    "filename": "1513_GExportDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GExportDialog",
     "size": 58634
   },
   "1514": {
-    "filename": "1514_module.js",
+    "filename": "1514_ZipJSBrowser.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZipJSBrowser",
     "size": 33548
   },
   "1515": {
-    "filename": "1515_module.js",
+    "filename": "1515_ZipJSFileSystem.js",
     "type": "unknown",
-    "name": null,
+    "name": "ZipJSFileSystem",
     "size": 15953
   },
   "1516": {
@@ -4458,15 +4458,15 @@
     "size": 3441
   },
   "1518": {
-    "filename": "1518_module.js",
+    "filename": "1518_JQueryUISortable.js",
     "type": "unknown",
-    "name": null,
+    "name": "JQueryUISortable",
     "size": 54815
   },
   "1519": {
-    "filename": "1519_module.js",
+    "filename": "1519_JQueryUIMouse.js",
     "type": "unknown",
-    "name": null,
+    "name": "JQueryUIMouse",
     "size": 7863
   },
   "1520": {
@@ -4572,27 +4572,27 @@
     "size": 25477
   },
   "1537": {
-    "filename": "1537_module.js",
+    "filename": "1537_GFileReviewProperties.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFileReviewProperties",
     "size": 16686
   },
   "1538": {
-    "filename": "1538_module.js",
+    "filename": "1538_GFileStatusHistoryDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFileStatusHistoryDialog",
     "size": 3934
   },
   "1539": {
-    "filename": "1539_module.js",
+    "filename": "1539_GPanelTabContainer.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPanelTabContainer",
     "size": 5121
   },
   "1540": {
-    "filename": "1540_module.js",
+    "filename": "1540_GSidebarTouchToolbar.js",
     "type": "unknown",
-    "name": null,
+    "name": "GSidebarTouchToolbar",
     "size": 5049
   },
   "1541": {
@@ -4602,21 +4602,21 @@
     "size": 70093
   },
   "1542": {
-    "filename": "1542_module.js",
+    "filename": "1542_GShapePresets.js",
     "type": "unknown",
-    "name": null,
+    "name": "GShapePresets",
     "size": 30114
   },
   "1543": {
-    "filename": "1543_module.js",
+    "filename": "1543_GTouchToolbarMixin.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTouchToolbarMixin",
     "size": 12247
   },
   "1544": {
-    "filename": "1544_module.js",
+    "filename": "1544_GNewDocumentDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GNewDocumentDialog",
     "size": 43619
   },
   "1545": {
@@ -4632,15 +4632,15 @@
     "size": 634
   },
   "1547": {
-    "filename": "1547_module.js",
+    "filename": "1547_GCloudFileBrowserDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudFileBrowserDialog",
     "size": 39941
   },
   "1548": {
-    "filename": "1548_module.js",
+    "filename": "1548_GCloudFolderItem.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudFolderItem",
     "size": 7899
   },
   "1549": {
@@ -4650,9 +4650,9 @@
     "size": 187
   },
   "1550": {
-    "filename": "1550_module.js",
+    "filename": "1550_GFileInfoPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFileInfoPanel",
     "size": 7341
   },
   "1551": {
@@ -4668,9 +4668,9 @@
     "size": 355
   },
   "1553": {
-    "filename": "1553_module.js",
+    "filename": "1553_GGoogleDrive.js",
     "type": "unknown",
-    "name": null,
+    "name": "GGoogleDrive",
     "size": 33881
   },
   "1554": {
@@ -4698,9 +4698,9 @@
     "size": 276
   },
   "1558": {
-    "filename": "1558_module.js",
+    "filename": "1558_GCloudTemplatesPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudTemplatesPanel",
     "size": 15706
   },
   "1559": {
@@ -4710,9 +4710,9 @@
     "size": 360
   },
   "1560": {
-    "filename": "1560_module.js",
+    "filename": "1560_GUserNameConfigDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GUserNameConfigDialog",
     "size": 4978
   },
   "1561": {
@@ -4728,15 +4728,15 @@
     "size": 6475
   },
   "1563": {
-    "filename": "1563_module.js",
+    "filename": "1563_GContextMenuTouch.js",
     "type": "unknown",
-    "name": null,
+    "name": "GContextMenuTouch",
     "size": 21892
   },
   "1564": {
-    "filename": "1564_module.js",
+    "filename": "1564_GAmplitudeEventTracker.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAmplitudeEventTracker",
     "size": 4029
   },
   "1565": {
@@ -4746,27 +4746,27 @@
     "size": 1040
   },
   "1566": {
-    "filename": "1566_module.js",
+    "filename": "1566_GShareLinkPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GShareLinkPanel",
     "size": 15514
   },
   "1567": {
-    "filename": "1567_module.js",
+    "filename": "1567_GShareDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GShareDialog",
     "size": 39013
   },
   "1568": {
-    "filename": "1568_module.js",
+    "filename": "1568_GCloudCommunicationManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCloudCommunicationManager",
     "size": 5107
   },
   "1569": {
-    "filename": "1569_module.js",
+    "filename": "1569_GAppStateManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAppStateManager",
     "size": 6383
   },
   "1570": {
@@ -4842,9 +4842,9 @@
     "size": 1157
   },
   "1582": {
-    "filename": "1582_module.js",
+    "filename": "1582_GGestureHelper.js",
     "type": "unknown",
-    "name": null,
+    "name": "GGestureHelper",
     "size": 3640
   },
   "1583": {
@@ -4860,9 +4860,9 @@
     "size": 829
   },
   "1585": {
-    "filename": "1585_module.js",
+    "filename": "1585_GTouchPinchZoomGesture.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTouchPinchZoomGesture",
     "size": 3803
   },
   "1586": {
@@ -4872,9 +4872,9 @@
     "size": 1335
   },
   "1587": {
-    "filename": "1587_module.js",
+    "filename": "1587_GTouchToolbar.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTouchToolbar",
     "size": 23326
   },
   "1588": {
@@ -4884,9 +4884,9 @@
     "size": 1038
   },
   "1589": {
-    "filename": "1589_module.js",
+    "filename": "1589_GTouchOnboarding.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTouchOnboarding",
     "size": 11200
   },
   "1590": {
@@ -4920,9 +4920,9 @@
     "size": 708
   },
   "1595": {
-    "filename": "1595_module.js",
+    "filename": "1595_Mousetrap.js",
     "type": "unknown",
-    "name": null,
+    "name": "Mousetrap",
     "size": 10761
   },
   "1596": {
@@ -5058,9 +5058,9 @@
     "size": 8485
   },
   "1618": {
-    "filename": "1618_module.js",
+    "filename": "1618_ScreenfulJS.js",
     "type": "unknown",
-    "name": null,
+    "name": "ScreenfulJS",
     "size": 3942
   },
   "1619": {
@@ -5136,9 +5136,9 @@
     "size": 2380
   },
   "1631": {
-    "filename": "1631_module.js",
+    "filename": "1631_GSharepointCheckInDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GSharepointCheckInDialog",
     "size": 4460
   },
   "1632": {
@@ -5190,9 +5190,9 @@
     "size": 1214
   },
   "1640": {
-    "filename": "1640_module.js",
+    "filename": "1640_GTranslationToolDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GTranslationToolDialog",
     "size": 18660
   },
   "1641": {
@@ -5292,9 +5292,9 @@
     "size": 8224
   },
   "1657": {
-    "filename": "1657_module.js",
+    "filename": "1657_GPatternChooserOverlay.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPatternChooserOverlay",
     "size": 13811
   },
   "1658": {
@@ -5328,9 +5328,9 @@
     "size": 4789
   },
   "1663": {
-    "filename": "1663_module.js",
+    "filename": "1663_GLibraryAssetsPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GLibraryAssetsPanel",
     "size": 35959
   },
   "1664": {
@@ -5424,9 +5424,9 @@
     "size": 398
   },
   "1679": {
-    "filename": "1679_module.js",
+    "filename": "1679_GCleverbridgePurchaseManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCleverbridgePurchaseManager",
     "size": 4447
   },
   "1680": {
@@ -5442,9 +5442,9 @@
     "size": 379
   },
   "1682": {
-    "filename": "1682_module.js",
+    "filename": "1682_GWindowsStorePurchaseManager.js",
     "type": "unknown",
-    "name": null,
+    "name": "GWindowsStorePurchaseManager",
     "size": 4464
   },
   "1683": {
@@ -5520,27 +5520,27 @@
     "size": 678
   },
   "1695": {
-    "filename": "1695_module.js",
+    "filename": "1695_GAutoEditWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAutoEditWidget",
     "size": 4313
   },
   "1696": {
-    "filename": "1696_module.js",
+    "filename": "1696_GBlendModeChooser.js",
     "type": "unknown",
-    "name": null,
+    "name": "GBlendModeChooser",
     "size": 7940
   },
   "1697": {
-    "filename": "1697_module.js",
+    "filename": "1697_GCornerTypeChooser.js",
     "type": "unknown",
-    "name": null,
+    "name": "GCornerTypeChooser",
     "size": 5487
   },
   "1698": {
-    "filename": "1698_module.js",
+    "filename": "1698_GEyeDropper.js",
     "type": "unknown",
-    "name": null,
+    "name": "GEyeDropper",
     "size": 10239
   },
   "1699": {
@@ -5550,21 +5550,21 @@
     "size": 2655
   },
   "1700": {
-    "filename": "1700_module.js",
+    "filename": "1700_GFontsDialog.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFontsDialog",
     "size": 12346
   },
   "1701": {
-    "filename": "1701_module.js",
+    "filename": "1701_GFontsPanelWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GFontsPanelWidget",
     "size": 12589
   },
   "1702": {
-    "filename": "1702_module.js",
+    "filename": "1702_GInputBox.js",
     "type": "unknown",
-    "name": null,
+    "name": "GInputBox",
     "size": 14760
   },
   "1703": {
@@ -5580,15 +5580,15 @@
     "size": 1480
   },
   "1705": {
-    "filename": "1705_module.js",
+    "filename": "1705_GUnitBoxWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GUnitBoxWidget",
     "size": 4334
   },
   "1706": {
-    "filename": "1706_module.js",
+    "filename": "1706_GLayerPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GLayerPanel",
     "size": 33223
   },
   "1707": {
@@ -5604,9 +5604,9 @@
     "size": 180
   },
   "1709": {
-    "filename": "1709_module.js",
+    "filename": "1709_GVirtualList.js",
     "type": "unknown",
-    "name": null,
+    "name": "GVirtualList",
     "size": 5344
   },
   "1710": {
@@ -5616,15 +5616,15 @@
     "size": 3056
   },
   "1711": {
-    "filename": "1711_module.js",
+    "filename": "1711_GLayersPanelWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GLayersPanelWidget",
     "size": 6670
   },
   "1712": {
-    "filename": "1712_module.js",
+    "filename": "1712_GAnnotationPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GAnnotationPanel",
     "size": 41507
   },
   "1713": {
@@ -5646,21 +5646,21 @@
     "size": 3430
   },
   "1716": {
-    "filename": "1716_module.js",
+    "filename": "1716_GMentionsInput.js",
     "type": "unknown",
-    "name": null,
+    "name": "GMentionsInput",
     "size": 20290
   },
   "1717": {
-    "filename": "1717_module.js",
+    "filename": "1717_GPagePanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPagePanel",
     "size": 20056
   },
   "1718": {
-    "filename": "1718_module.js",
+    "filename": "1718_GSymbolsPanel.js",
     "type": "unknown",
-    "name": null,
+    "name": "GSymbolsPanel",
     "size": 11259
   },
   "1719": {
@@ -5676,21 +5676,21 @@
     "size": 2741
   },
   "1721": {
-    "filename": "1721_module.js",
+    "filename": "1721_GMenuButtonWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GMenuButtonWidget",
     "size": 5005
   },
   "1722": {
-    "filename": "1722_module.js",
+    "filename": "1722_GOverlayPlugin.js",
     "type": "unknown",
-    "name": null,
+    "name": "GOverlayPlugin",
     "size": 8535
   },
   "1723": {
-    "filename": "1723_module.js",
+    "filename": "1723_GPatternTargetWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPatternTargetWidget",
     "size": 4135
   },
   "1724": {
@@ -5700,9 +5700,9 @@
     "size": 1695
   },
   "1725": {
-    "filename": "1725_module.js",
+    "filename": "1725_GPropertyRowWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPropertyRowWidget",
     "size": 5261
   },
   "1726": {
@@ -5712,15 +5712,15 @@
     "size": 2908
   },
   "1727": {
-    "filename": "1727_module.js",
+    "filename": "1727_GDialogWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GDialogWidget",
     "size": 3789
   },
   "1728": {
-    "filename": "1728_module.js",
+    "filename": "1728_GRichTooltip.js",
     "type": "unknown",
-    "name": null,
+    "name": "GRichTooltip",
     "size": 9036
   },
   "1729": {
@@ -5736,15 +5736,15 @@
     "size": 907
   },
   "1731": {
-    "filename": "1731_module.js",
+    "filename": "1731_GStyleEditor.js",
     "type": "unknown",
-    "name": null,
+    "name": "GStyleEditor",
     "size": 23225
   },
   "1732": {
-    "filename": "1732_module.js",
+    "filename": "1732_GUserDetailsOverlay.js",
     "type": "unknown",
-    "name": null,
+    "name": "GUserDetailsOverlay",
     "size": 7869
   },
   "1733": {
@@ -5754,15 +5754,15 @@
     "size": 1438
   },
   "1734": {
-    "filename": "1734_module.js",
+    "filename": "1734_GRoleSelectorWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GRoleSelectorWidget",
     "size": 5628
   },
   "1735": {
-    "filename": "1735_module.js",
+    "filename": "1735_GPageButtonWidget.js",
     "type": "unknown",
-    "name": null,
+    "name": "GPageButtonWidget",
     "size": 4823
   },
   "1736": {
@@ -5784,9 +5784,9 @@
     "size": 21
   },
   "1739": {
-    "filename": "1739_module.js",
+    "filename": "1739_AmplitudeSDK.js",
     "type": "unknown",
-    "name": null,
+    "name": "AmplitudeSDK",
     "size": 120441
   }
 }

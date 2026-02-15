@@ -6,23 +6,23 @@
 function (exports, module, require) {
     "use strict";
     require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
-    const o = require(156) /* module_156 */,
+    const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       AppSettings = require(10) /* AppSettings */;
     exports.exports = class {
       static createFrom(e) {
         let module = false;
-        e instanceof o && (module = true);
-        var n = o.from(e);
-        n.setItemType(o.Type.File),
+        e instanceof GCloudStorageItem && (module = true);
+        var n = GCloudStorageItem.from(e);
+        n.setItemType(GCloudStorageItem.Type.File),
           module ||
             n.setPermissions([
-              o.Permission.Open,
-              o.Permission.Copy,
-              o.Permission.Editing,
-              o.Permission.Rename,
-              o.Permission.CutPaste,
-              o.Permission.Delete,
-              o.Permission.Download,
+              GCloudStorageItem.Permission.Open,
+              GCloudStorageItem.Permission.Copy,
+              GCloudStorageItem.Permission.Editing,
+              GCloudStorageItem.Permission.Rename,
+              GCloudStorageItem.Permission.CutPaste,
+              GCloudStorageItem.Permission.Delete,
+              GCloudStorageItem.Permission.Download,
             ]),
           n.autosave
             ? (n.setPreviewURL(n.autosave_url_t),
@@ -40,7 +40,7 @@ function (exports, module, require) {
           n.setMimeType(a.type),
           (n.ext = a.ext),
           (n.extension = a.ext),
-          (n.storage = o.Storage.Gravit),
+          (n.storage = GCloudStorageItem.Storage.Gravit),
           n
         );
       }

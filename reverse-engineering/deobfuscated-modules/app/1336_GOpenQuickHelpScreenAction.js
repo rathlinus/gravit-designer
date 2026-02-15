@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */;
     const MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      r = require(1589) /* module_1589 */;
+      GTouchOnboarding = require(1589) /* GTouchOnboarding */;
     function s() {}
     GCore.GObject.inherit(s, GAction),
       (s.ID = "help.open-quick-help"),
@@ -34,7 +34,7 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled();
       }),
       (s.prototype.execute = function () {
-        r.open();
+        GTouchOnboarding.open();
       }),
       (s.prototype.toString = function () {
         return "[Object GOpenQuickHelpScreenAction]";

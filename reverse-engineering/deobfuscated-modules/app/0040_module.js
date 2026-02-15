@@ -472,7 +472,7 @@ function (exports, module, require) {
       require(181) /* polyfill_ArrayBuffer_slice */,
       require(30) /* polyfill_Object_assign */,
       require(8) /* polyfill_bundle_ES6 */,
-      require(356) /* module_356 */,
+      require(356) /* polyfill_RegExp_constructor */,
       require(20) /* polyfill_RegExp_exec */,
       require(3) /* polyfill_RegExp_toString */,
       require(271) /* polyfill_String_endsWith */,

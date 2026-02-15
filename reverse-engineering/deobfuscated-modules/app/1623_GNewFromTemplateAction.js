@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      r = require(119) /* module_119 */;
+      GCloudStorage = require(119) /* GCloudStorage */;
     function s() {}
     GCore.GObject.inherit(s, GAction),
       (s.ID = "file.open-from-template"),
@@ -29,7 +29,7 @@ function (exports, module, require) {
       }),
       (s.prototype.isEnabled = function () {
         return (
-          r.isOnline() &&
+          GCloudStorage.isOnline() &&
           !gDesigner.isOffline(6e5) &&
           gDesigner.getApplicationManager().isCreatingNewDocumentEnabled()
         );

@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(23) /* globalThis */,
       i = n(29) /* isCallable */,
-      a = n(152) /* module_152 */,
+      a = n(152) /* polyfill_TypedArrays */,
       r = n(101) /* stub_requires_117 */,
       s = n(428) /* module_428 */,
       l = n(93) /* stub_requires_92 */,

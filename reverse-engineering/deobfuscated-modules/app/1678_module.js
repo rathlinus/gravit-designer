@@ -6,18 +6,18 @@
 function (exports, module, require) {
     "use strict";
     const o = require(1244) /* module_1244 */,
-      i = require(1679) /* module_1679 */,
-      a = require(1682) /* module_1682 */,
+      GCleverbridgePurchaseManager = require(1679) /* GCleverbridgePurchaseManager */,
+      GWindowsStorePurchaseManager = require(1682) /* GWindowsStorePurchaseManager */,
       r = require(1683) /* module_1683 */;
     exports.exports = class {
       static newInAppPurchase(e) {
         switch (e) {
           case o.Windows:
-            return new a();
+            return new GWindowsStorePurchaseManager();
           case o.Apple:
             return new r();
           default:
-            return new i();
+            return new GCleverbridgePurchaseManager();
         }
       }
     };

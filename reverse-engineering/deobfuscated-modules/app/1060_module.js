@@ -4,10 +4,10 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
-      require(98) /* module_98 */,
-      (o.pad.NoPadding = { pad: function () {}, unpad: function () {} }),
-      o.pad.NoPadding);
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      require(98) /* CryptoJSCipherBase */,
+      (CryptoJSCore.pad.NoPadding = { pad: function () {}, unpad: function () {} }),
+      CryptoJSCore.pad.NoPadding);
   }

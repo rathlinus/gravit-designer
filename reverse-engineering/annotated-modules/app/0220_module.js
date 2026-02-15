@@ -15,7 +15,7 @@ function (e, t, n) {
       c = o(n(554) /* module_554 */),
       d = o(n(555) /* module_555 */),
       u = n(237) /* Item */,
-      p = n(119) /* module_119 */;
+      p = n(119) /* GCloudStorage */;
     const g = n(436) /* module_436 */,
       h = n(86) /* module_86 */;
     var f = a.FILE_FORMATS.find((e) => e.default),

@@ -4,10 +4,10 @@
  */
 
 function (exports, module, require) {
-    var o, i, a, r, s, l;
+    var o, i, a, r, s, CryptoJSCore;
     exports.exports =
-      ((l = require(55) /* module_55 */),
-      (i = (o = l).lib),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      (i = (o = CryptoJSCore).lib),
       (a = i.Base),
       (r = i.WordArray),
       ((s = o.x64 = {}).Word = a.extend({
@@ -40,5 +40,5 @@ function (exports, module, require) {
           return exports;
         },
       })),
-      l);
+      CryptoJSCore);
   }

@@ -9,7 +9,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */;
     var GMenu = require(238) /* GMenu */,
       GMenu2 = require(339) /* GMenu */,
-      a = require(1157) /* module_1157 */;
+      GMenuManager = require(1157) /* GMenuManager */;
     function r(e) {
       (this._htmlElement = $("<nav></nav>").addClass("g-menu-bar")),
         this.setMenu(e || new GMenu(this));
@@ -19,7 +19,7 @@ function (exports, module, require) {
         return this._menu;
       }),
       (r.prototype.isActive = function () {
-        var e = a.getActiveMenu();
+        var e = GMenuManager.getActiveMenu();
         return (
           !!(e && e._parent && e._parent instanceof GMenu2) &&
           e._parent.getMenuBar() === this

@@ -57,7 +57,7 @@ function (e, t, n) {
       }
       return e;
     }
-    var p = n(163) /* module_163 */,
+    var p = n(163) /* GDocument */,
       g = n(18) /* MenuItemBuilder */,
       h = n(31) /* GAction */,
       f = n(446) /* module_446 */,

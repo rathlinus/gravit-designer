@@ -4,12 +4,12 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       require(382) /* module_382 */,
       (function (e) {
-        var t = o,
+        var t = CryptoJSCore,
           n = t.lib,
           i = n.WordArray,
           a = n.Hasher,
@@ -21,8 +21,8 @@ function (exports, module, require) {
         !(function () {
           for (var e = 1, t = 0, n = 0; n < 24; n++) {
             l[e + 5 * t] = (((n + 1) * (n + 2)) / 2) % 64;
-            var o = (2 * e + 3 * t) % 5;
-            (e = t % 5), (t = o);
+            var CryptoJSCore = (2 * e + 3 * t) % 5;
+            (e = t % 5), (t = CryptoJSCore);
           }
           for (e = 0; e < 5; e++)
             for (t = 0; t < 5; t++)
@@ -51,8 +51,8 @@ function (exports, module, require) {
           },
           _doProcessBlock: function (e, t) {
             for (
-              var n = this._state, o = this.blockSize / 2, i = 0;
-              i < o;
+              var n = this._state, CryptoJSCore = this.blockSize / 2, i = 0;
+              i < CryptoJSCore;
               i++
             ) {
               var a = e[t + 2 * i],
@@ -118,10 +118,10 @@ function (exports, module, require) {
           _doFinalize: function () {
             var t = this._data,
               n = t.words,
-              o = (this._nDataBytes, 8 * t.sigBytes),
+              CryptoJSCore = (this._nDataBytes, 8 * t.sigBytes),
               a = 32 * this.blockSize;
-            (n[o >>> 5] |= 1 << (24 - (o % 32))),
-              (n[((e.ceil((o + 1) / a) * a) >>> 5) - 1] |= 128),
+            (n[CryptoJSCore >>> 5] |= 1 << (24 - (CryptoJSCore % 32))),
+              (n[((e.ceil((CryptoJSCore + 1) / a) * a) >>> 5) - 1] |= 128),
               (t.sigBytes = 4 * n.length),
               this._process();
             for (
@@ -161,5 +161,5 @@ function (exports, module, require) {
         }));
         (t.SHA3 = a._createHelper(p)), (t.HmacSHA3 = a._createHmacHelper(p));
       })(Math),
-      o.SHA3);
+      CryptoJSCore.SHA3);
   }

@@ -4,11 +4,11 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       (function (e) {
-        var t = o,
+        var t = CryptoJSCore,
           n = t.lib,
           i = n.WordArray,
           a = n.Hasher,
@@ -49,9 +49,9 @@ function (exports, module, require) {
             },
             _doProcessBlock: function (e, t) {
               for (var n = 0; n < 16; n++) {
-                var o = t + n,
-                  i = e[o];
-                e[o] =
+                var CryptoJSCore = t + n,
+                  i = e[CryptoJSCore];
+                e[CryptoJSCore] =
                   (16711935 & ((i << 8) | (i >>> 24))) |
                   (4278255360 & ((i << 24) | (i >>> 8)));
               }
@@ -128,9 +128,9 @@ function (exports, module, require) {
               var e = this._data,
                 t = e.words,
                 n = 8 * this._nDataBytes,
-                o = 8 * e.sigBytes;
-              (t[o >>> 5] |= 128 << (24 - (o % 32))),
-                (t[14 + (((o + 64) >>> 9) << 4)] =
+                CryptoJSCore = 8 * e.sigBytes;
+              (t[CryptoJSCore >>> 5] |= 128 << (24 - (CryptoJSCore % 32))),
+                (t[14 + (((CryptoJSCore + 64) >>> 9) << 4)] =
                   (16711935 & ((n << 8) | (n >>> 24))) |
                   (4278255360 & ((n << 24) | (n >>> 8)))),
                 (e.sigBytes = 4 * (t.length + 1)),
@@ -169,5 +169,5 @@ function (exports, module, require) {
         (t.RIPEMD160 = a._createHelper(g)),
           (t.HmacRIPEMD160 = a._createHmacHelper(g));
       })(Math),
-      o.RIPEMD160);
+      CryptoJSCore.RIPEMD160);
   }

@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* module */,
       i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
-      r = n(1275) /* module_1275 */,
+      r = n(1275) /* GSettingsDialog */,
       s = n(1277) /* Action_edit_settings */;
     function l() {}
     o.GObject.inherit(l, a),

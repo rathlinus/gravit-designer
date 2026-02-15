@@ -10,7 +10,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */;
     const MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      r = require(1640) /* module_1640 */,
+      GTranslationToolDialog = require(1640) /* GTranslationToolDialog */,
       { IS_TRUNK: s, IS_LOCALHOST: l } = require(231) /* module_231 */;
     function c() {}
     GCore.GObject.inherit(c, GAction),
@@ -36,7 +36,7 @@ function (exports, module, require) {
         return !(!s && !l);
       }),
       (c.prototype.execute = function () {
-        this._translationTool || (this._translationTool = new r()),
+        this._translationTool || (this._translationTool = new GTranslationToolDialog()),
           this._translationTool.init();
       }),
       (c.prototype.toString = function () {

@@ -11,9 +11,9 @@ function (e, t, n) {
     const i = n(18) /* MenuItemBuilder */,
       a = n(31) /* GAction */,
       r = n(44) /* GSystemDialog */,
-      s = n(163) /* module_163 */,
+      s = n(163) /* GDocument */,
       l = n(85) /* GContainer */,
-      c = n(1255) /* module_1255 */;
+      c = n(1255) /* GOpenFileRequestHandler */;
     function d() {}
     o.GObject.inherit(d, a),
       (d.ID = "file.share.opensharedfile"),

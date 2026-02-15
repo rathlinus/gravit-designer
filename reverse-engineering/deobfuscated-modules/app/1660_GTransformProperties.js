@@ -12,7 +12,7 @@ function (exports, module, require) {
       a = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
       s = (require(173) /* stub_requires_1 */, require(135) /* GSettingChangedEvent */);
-    require(1162) /* module_1162 */;
+    require(1162) /* GBorderProperties */;
     function l() {
       this._elements = [];
     }

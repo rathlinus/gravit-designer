@@ -6,19 +6,19 @@
 function (exports, module, require) {
     "use strict";
     require(20) /* polyfill_RegExp_exec */, require(34) /* polyfill_String_replace */;
-    const o = require(177) /* module_177 */,
+    const GUserModel = require(177) /* GUserModel */,
       {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,
       } = require(10) /* AppSettings */,
       { GLocale: s, GLocaleKey: l } = require(1) /* module */;
-    exports.exports = class extends o {
+    exports.exports = class extends GUserModel {
       constructor() {
         let {
           access_id: exports,
           file_id: module,
           accessed: require,
-          name: o,
+          name: GUserModel,
           last_name: i,
           avatar: a,
           anonymous: r = false,
@@ -27,7 +27,7 @@ function (exports, module, require) {
         super({
           file_id: module,
           accessed: require,
-          name: o,
+          name: GUserModel,
           last_name: i,
           avatar: a,
           anonymous: r,

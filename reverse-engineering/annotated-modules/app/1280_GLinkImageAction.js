@@ -10,7 +10,7 @@ function (e, t, n) {
     var o = n(1) /* module */,
       i = n(67) /* GRichTooltipConfig */,
       a = n(18) /* MenuItemBuilder */,
-      r = n(163) /* module_163 */,
+      r = n(163) /* GDocument */,
       s = n(31) /* GAction */,
       l = n(85) /* GContainer */;
     function c() {

@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(8) /* polyfill_bundle_ES6 */, require(4) /* stub_requires_668 */, require(13) /* stub_requires_679 */;
     var GCore = require(1) /* module */;
-    const i = require(156) /* module_156 */,
+    const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       { FILE_FORMATS: a } = require(10) /* AppSettings */,
       r = a.find((e) => e.default),
       { COMMAND_SAVE: s } = require(591) /* module_591 */,
@@ -18,14 +18,14 @@ function (exports, module, require) {
       }
       async updateFileSceneAndMetadata(e, t, n, GCore) {
         const a = await this._requestWorkerToSave(e, t, n, GCore);
-        return i.from(a);
+        return GCloudStorageItem.from(a);
       }
-      _requestWorkerToSave(e, t, n, i) {
+      _requestWorkerToSave(e, t, n, GCloudStorageItem) {
         return new Promise((a, l) => {
           const c = this._request(s.REQUEST, {
             id: e,
             file: t,
-            metadata: i,
+            metadata: GCloudStorageItem,
             scene: GCore.GNode.serialize(n, { save: true }),
             type: r.type,
           });

@@ -11,7 +11,7 @@ function (e, t, n) {
       a = i.find((e) => e.default),
       { COMMAND_SAVE: r } = n(591) /* module_591 */,
       s = n(1164) /* module_1164 */,
-      l = n(556) /* Item */;
+      l = n(556) /* GGoogleDriveItem */;
     e.exports = class extends s {
       constructor(e, t) {
         super(e, t);

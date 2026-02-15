@@ -8,7 +8,7 @@ function (e, t, n) {
     n(8) /* polyfill_bundle_ES6 */, n(3) /* polyfill_RegExp_toString */;
     var o = n(1) /* module */;
     const i = n(237) /* Item */,
-      a = n(156) /* module_156 */;
+      a = n(156) /* GCloudStorageItem */;
     function r() {}
     o.GObject.inherit(r, i),
       (r.Item = function (e, t) {

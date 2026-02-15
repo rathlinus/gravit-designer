@@ -4,10 +4,10 @@
  */
 
 function (exports, module, require) {
-    var o, i, a, r, s, l, c, d;
+    var o, i, a, r, s, l, c, CryptoJSCore;
     exports.exports =
-      ((d = require(55) /* module_55 */),
-      (i = (o = d).lib),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      (i = (o = CryptoJSCore).lib),
       (a = i.WordArray),
       (r = i.Hasher),
       (s = o.algo),
@@ -33,8 +33,8 @@ function (exports, module, require) {
             ) {
               if (c < 16) l[c] = 0 | e[t + c];
               else {
-                var d = l[c - 3] ^ l[c - 8] ^ l[c - 14] ^ l[c - 16];
-                l[c] = (d << 1) | (d >>> 31);
+                var CryptoJSCore = l[c - 3] ^ l[c - 8] ^ l[c - 14] ^ l[c - 16];
+                l[c] = (CryptoJSCore << 1) | (CryptoJSCore >>> 31);
               }
               var u = ((o << 5) | (o >>> 27)) + s + l[c];
               (u +=
@@ -78,5 +78,5 @@ function (exports, module, require) {
         })),
       (o.SHA1 = r._createHelper(c)),
       (o.HmacSHA1 = r._createHmacHelper(c)),
-      d.SHA1);
+      CryptoJSCore.SHA1);
   }

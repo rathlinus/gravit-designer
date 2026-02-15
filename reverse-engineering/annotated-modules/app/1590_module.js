@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(16) /* _interopRequireDefault */(n(879) /* module_879 */);
-    const i = n(878) /* module_878 */;
+    var o = n(16) /* _interopRequireDefault */(n(879) /* GTouchClickGesture */);
+    const i = n(878) /* GTouchEventHandler */;
     e.exports = class extends i {
       constructor(e) {
         super(e),

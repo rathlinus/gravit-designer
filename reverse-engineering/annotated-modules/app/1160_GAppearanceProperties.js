@@ -13,7 +13,7 @@ function (e, t, n) {
       r = n(67) /* GRichTooltipConfig */,
       s = o(n(340) /* GTouchTool */),
       l = n(123) /* GProperties */,
-      c = n(857) /* module_857 */;
+      c = n(857) /* GInputSliderWidget */;
     n(173) /* stub_requires_1 */;
     const d = n(135) /* GSettingChangedEvent */;
     function u() {

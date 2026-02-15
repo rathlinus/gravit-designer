@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(20) /* polyfill_RegExp_exec */, n(34) /* polyfill_String_replace */, n(134) /* polyfill_String_startsWith */, n(4) /* stub_requires_668 */, n(41) /* stub_requires_682 */, n(13) /* stub_requires_679 */, n(32) /* stub_requires_670 */, n(33) /* polyfill_DOMCollection_forEach */;
     var o = n(1) /* module */,
-      i = n(1075) /* module_1075 */,
+      i = n(1075) /* NotoFontsData */,
       a = n(381) /* module_381 */;
     function r(e) {
       a.call(this, e);

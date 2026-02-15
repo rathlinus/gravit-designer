@@ -15,7 +15,7 @@ function (e, t, n) {
       l = n(67) /* GRichTooltipConfig */,
       c = o(n(340) /* GTouchTool */),
       d = n(123) /* GProperties */,
-      u = n(1153) /* module_1153 */,
+      u = n(1153) /* GPresets */,
       p = n(135) /* GSettingChangedEvent */,
       g = n(603) /* WindowEvent */,
       h = n(1328) /* module_1328 */,

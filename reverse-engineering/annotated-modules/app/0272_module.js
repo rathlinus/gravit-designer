@@ -6,7 +6,7 @@
 function (e, t, n) {
     var o, i, a;
     e.exports =
-      ((a = n(55) /* module_55 */),
+      ((a = n(55) /* CryptoJSCore */),
       (i = (o = a).lib.WordArray),
       (o.enc.Base64 = {
         stringify: function (e) {

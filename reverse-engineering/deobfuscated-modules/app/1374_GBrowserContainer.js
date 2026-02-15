@@ -24,18 +24,18 @@ function (exports, module, require) {
       r = require(85) /* GContainer */,
       s = require(1195) /* Item */;
     const GMarketingFileStorageItem = require(1378) /* GMarketingFileStorageItem */;
-    var barrel_sidebars = require(255) /* barrel_sidebars */,
-      d = require(1379) /* module_1379 */,
-      u = require(1380) /* module_1380 */,
-      p = require(1118) /* module_1118 */,
-      g = require(1199) /* module_1199 */,
+    var GFontsProviderManager = require(255) /* GFontsProviderManager */,
+      GGoogleFontsProvider = require(1379) /* GGoogleFontsProvider */,
+      GFontLauncherProvider = require(1380) /* GFontLauncherProvider */,
+      GCustomFontsProvider = require(1118) /* GCustomFontsProvider */,
+      GLocalFontsProvider = require(1199) /* GLocalFontsProvider */,
       h = require(220) /* Item */,
       f = require(1385) /* Item */,
       m = require(1386) /* Item */,
-      y = require(119) /* module_119 */,
-      v = require(163) /* module_163 */,
+      GCloudStorage = require(119) /* GCloudStorage */,
+      GDocument = require(163) /* GDocument */,
       _ = require(86) /* module_86 */,
-      b = require(1153) /* module_1153 */,
+      GPresets = require(1153) /* GPresets */,
       GSystemDialog = require(44) /* GSystemDialog */,
       AppSettings = require(10) /* AppSettings */.LOCAL_FONTS_API_ENABLED;
     const x = require(1482) /* module_1482 */,
@@ -59,7 +59,7 @@ function (exports, module, require) {
         return this._storage;
       }),
       (E.prototype.getSystemFontsProvider = function () {
-        return u;
+        return GFontLauncherProvider;
       }),
       (E.prototype.supportsLocalFonts = function () {
         return AppSettings;
@@ -67,16 +67,16 @@ function (exports, module, require) {
       (E.prototype.registerFontProviders = function () {
         if (
           (r.prototype.registerFontProviders.call(this),
-          barrel_sidebars.registerProvider(p),
-          barrel_sidebars.registerProvider(d),
+          GFontsProviderManager.registerProvider(GCustomFontsProvider),
+          GFontsProviderManager.registerProvider(GGoogleFontsProvider),
           this.supportsLocalFonts())
         )
           try {
-            barrel_sidebars.registerProvider(g);
+            GFontsProviderManager.registerProvider(GLocalFontsProvider);
           } catch (e) {
             console.error("Local Fonts Access API is not available");
           }
-        window.GSystemFontsProvider = u;
+        window.GSystemFontsProvider = GFontLauncherProvider;
       }),
       (E.prototype.openExternalLink = function (e, t) {
         e && e.preventDefault(), window.open(t, "_blank");
@@ -220,21 +220,21 @@ function (exports, module, require) {
         e.updateStatus(_.Loading, s),
           (async function () {
             try {
-              let d,
-                u = t.getType(),
-                p = t.getContent();
-              if (u === r.OpenFileRequest.Type.StoreContent)
-                (d = await gApi.getProviderContentDetails(p)),
-                  d && n(new f.Item(GObject, d.id, d.name, d), { loadingData: s });
-              else if (u === r.OpenFileRequest.Type.ExternalAsset)
-                (d = await gApi.getProviderContentDetails(p)),
-                  d && n(new m.Item(GObject, d.id, d.name, d, p), { loadingData: s });
-              else if (u === r.OpenFileRequest.Type.Preset) {
-                let e = JSON.parse(S(decodeURIComponent(p))),
+              let GGoogleFontsProvider,
+                GFontLauncherProvider = t.getType(),
+                GCustomFontsProvider = t.getContent();
+              if (GFontLauncherProvider === r.OpenFileRequest.Type.StoreContent)
+                (GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
+                  GGoogleFontsProvider && n(new f.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider), { loadingData: s });
+              else if (GFontLauncherProvider === r.OpenFileRequest.Type.ExternalAsset)
+                (GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
+                  GGoogleFontsProvider && n(new m.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider, GCustomFontsProvider), { loadingData: s });
+              else if (GFontLauncherProvider === r.OpenFileRequest.Type.Preset) {
+                let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
                   t =
                     e &&
                     (function (e) {
-                      let t = b.getPresets(),
+                      let t = GPresets.getPresets(),
                         n = null,
                         GObject = null;
                       for (let i of t) {
@@ -251,23 +251,23 @@ function (exports, module, require) {
                 t &&
                   t.presetLayout &&
                   (t.presetLayout.template
-                    ? ((d = await gApi
+                    ? ((GGoogleFontsProvider = await gApi
                         .getPresetTemplate({ type: t.presetLayout.template })
                         .catch(() => null)),
-                      d &&
+                      GGoogleFontsProvider &&
                         n(
-                          new GMarketingFileStorageItem(GObject, d.data, "".concat(e.id, ".gvdesign"), d.id),
-                          { content: e, file: d, preset: t, loadingData: s }
+                          new GMarketingFileStorageItem(GObject, GGoogleFontsProvider.data, "".concat(e.id, ".gvdesign"), GGoogleFontsProvider.id),
+                          { content: e, file: GGoogleFontsProvider, preset: t, loadingData: s }
                         ))
                     : n(t, {
                         content: e,
                         category: t.presetCategory,
                         loadingData: s,
                       }));
-              } else if (u === r.OpenFileRequest.Type.Template) {
-                let e = JSON.parse(S(decodeURIComponent(p))),
-                  { file: t, data: i } = await y.loadDesignData(e.id),
-                  GLocaleKey = v.FileTypes.find((e) => e.mime === t.type).ext;
+              } else if (GFontLauncherProvider === r.OpenFileRequest.Type.Template) {
+                let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
+                  { file: t, data: i } = await GCloudStorage.loadDesignData(e.id),
+                  GLocaleKey = GDocument.FileTypes.find((e) => e.mime === t.type).ext;
                 t &&
                   i &&
                   n(new GMarketingFileStorageItem(GObject, i, "".concat(t.name, ".").concat(GLocaleKey), t.id), {
@@ -278,30 +278,30 @@ function (exports, module, require) {
                   });
               } else {
                 let t;
-                if (u === r.OpenFileRequest.Type.DocumentOrToken) {
-                  let e = JSON.parse(p);
-                  (d = await gApi.getShare(e.token, true).catch(() => null)),
-                    d
+                if (GFontLauncherProvider === r.OpenFileRequest.Type.DocumentOrToken) {
+                  let e = JSON.parse(GCustomFontsProvider);
+                  (GGoogleFontsProvider = await gApi.getShare(e.token, true).catch(() => null)),
+                    GGoogleFontsProvider
                       ? (t = e.token)
-                      : (d = await gApi.getFile(e.doc).catch(() => null));
+                      : (GGoogleFontsProvider = await gApi.getFile(e.doc).catch(() => null));
                 } else
-                  u === r.OpenFileRequest.Type.Document
-                    ? (d = await gApi.getFile(p).catch(() => null))
-                    : u === r.OpenFileRequest.Type.Token &&
-                      ((t = p),
-                      (d = await gApi.getShare(t, true).catch(() => null)));
-                if (d)
-                  n(new h.Item(GObject, d.id, d.name, d, null, t, d.autosave), {
+                  GFontLauncherProvider === r.OpenFileRequest.Type.Document
+                    ? (GGoogleFontsProvider = await gApi.getFile(GCustomFontsProvider).catch(() => null))
+                    : GFontLauncherProvider === r.OpenFileRequest.Type.Token &&
+                      ((t = GCustomFontsProvider),
+                      (GGoogleFontsProvider = await gApi.getShare(t, true).catch(() => null)));
+                if (GGoogleFontsProvider)
+                  n(new h.Item(GObject, GGoogleFontsProvider.id, GGoogleFontsProvider.name, GGoogleFontsProvider, null, t, GGoogleFontsProvider.autosave), {
                     loadingData: s,
                   });
                 else {
                   (s.text = i.get(new GLocaleKey("GContainer", "text.load-failed"))),
                     e.updateStatus(_.LoadFailed, s),
-                    e.setFailedDocumentIdOrToken(p),
+                    e.setFailedDocumentIdOrToken(GCustomFontsProvider),
                     n(null);
-                  var barrel_sidebars = [];
+                  var GFontsProviderManager = [];
                   gDesigner.getShareManager().isPermissionRequestEnabled() &&
-                    barrel_sidebars.push({
+                    GFontsProviderManager.push({
                       label: i.get(
                         new GLocaleKey("GShareManager", "text.file-request-access")
                       ),
@@ -310,9 +310,9 @@ function (exports, module, require) {
                           "permission-dialog_no-access_request-access"
                         ),
                           gApi
-                            .requestPermission(p, {
+                            .requestPermission(GCustomFontsProvider, {
                               access: true,
-                              isToken: u === r.OpenFileRequest.Type.Token,
+                              isToken: GFontLauncherProvider === r.OpenFileRequest.Type.Token,
                             })
                             .then(() => {
                               e.gDialog("close"),
@@ -337,7 +337,7 @@ function (exports, module, require) {
                             });
                       },
                     }),
-                    barrel_sidebars.push({
+                    GFontsProviderManager.push({
                       label: i.get(new GLocaleKey("GLocale", "ok")),
                       onclick: (e) => {
                         gDesigner.stats("permission-dialog_no-access_click-ok"),
@@ -363,7 +363,7 @@ function (exports, module, require) {
                           "text.file-can-not-be-accessed-info"
                         )
                       ),
-                      buttons: barrel_sidebars,
+                      buttons: GFontsProviderManager,
                     });
                 }
               }

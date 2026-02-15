@@ -58,7 +58,7 @@ function (exports, module, require) {
       require(4) /* stub_requires_668 */,
       require(13) /* stub_requires_679 */,
       require(38) /* stub_requires_680 */,
-      require(1518) /* module_1518 */;
+      require(1518) /* JQueryUISortable */;
     const o = (module.REARRANGE_TAB_CLASS = "more-button"),
       i = (module.REARRANGE_TAB_SELECTOR = ".".concat(o));
     function a() {

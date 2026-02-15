@@ -12,7 +12,7 @@ function (exports, module, require) {
       a = require(67) /* GRichTooltipConfig */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
-      l = require(1513) /* module_1513 */,
+      GExportDialog = require(1513) /* GExportDialog */,
       c = require(446) /* module_446 */,
       GSaveAction = require(447) /* GSaveAction */;
     const u = require(86) /* module_86 */,
@@ -124,7 +124,7 @@ function (exports, module, require) {
           module = gDesigner.getActiveDocument(),
           require = this;
         function GEditor(t) {
-          new l(t, require._options || exports, require.getId()).open();
+          new GExportDialog(t, require._options || exports, require.getId()).open();
         }
         module && module.isCommercialProductFile()
           ? module.openPaywall(this.getId())

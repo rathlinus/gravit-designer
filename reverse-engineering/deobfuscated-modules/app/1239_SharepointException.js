@@ -16,7 +16,7 @@ function (exports, module, require) {
       require(30) /* polyfill_Object_assign */,
       require(57) /* polyfill_parseInt */,
       require(8) /* polyfill_bundle_ES6 */,
-      require(356) /* module_356 */,
+      require(356) /* polyfill_RegExp_constructor */,
       require(20) /* polyfill_RegExp_exec */,
       require(107) /* polyfill_RegExp_test */,
       require(3) /* polyfill_RegExp_toString */,
@@ -32,33 +32,33 @@ function (exports, module, require) {
       require(126) /* polyfill_URL_toJSON */,
       require(114) /* stub_requires_424 */;
     var GCore = require(1) /* module */,
-      a = _interopRequireDefault(require(1476) /* module_1476 */),
+      AdalAuthLibrary = _interopRequireDefault(require(1476) /* AdalAuthLibrary */),
       CloudException = require(802) /* CloudException */,
-      s = _interopRequireDefault(require(119) /* module_119 */),
+      GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       AppSettings = require(10) /* AppSettings */,
       c = require(593) /* module_593 */,
       GError = _interopRequireDefault(require(594) /* GError */),
       GMicrosoftUser = _interopRequireDefault(require(1477) /* GMicrosoftUser */),
-      p = _interopRequireDefault(require(1242) /* module_1242 */),
+      MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
-    const h = require(156) /* module_156 */;
+    const GCloudStorageItem = require(156) /* GCloudStorageItem */;
     let f = null,
       m = {};
-    const y = (module.TEAMS_COMMANDS = p.default.COMMANDS),
+    const y = (module.TEAMS_COMMANDS = MSTeamsAuthManager.default.COMMANDS),
       v = (module.GSharePointClient = function (e) {
         let {
           tenant: module,
           domain: require,
           clientID: _interopRequireDefault,
           id: GCore,
-          authTenant: a,
+          authTenant: AdalAuthLibrary,
           corporate: CloudException,
-          token: s,
+          token: GCloudStorage,
           relativePath: AppSettings,
         } = e;
-        (this.TOKEN = f || s),
+        (this.TOKEN = f || GCloudStorage),
           (this.BASE_URL = module),
-          (this.AUTH_TENANT = a || module),
+          (this.AUTH_TENANT = AdalAuthLibrary || module),
           (this.DOMAIN = require),
           (this.CLIENT_ID = _interopRequireDefault),
           (this.SETTINGS_ID = GCore),
@@ -158,7 +158,7 @@ function (exports, module, require) {
       (v.InvalidOnlyCharacters = ["."]),
       (v.convertFileToCloudItem = function (e) {
         const module = (e) => {
-          var t = h.from({
+          var t = GCloudStorageItem.from({
             id: e.UniqueId,
             version: e.UIVersionLabel,
             updated: e.TimeLastModified,
@@ -166,8 +166,8 @@ function (exports, module, require) {
             checkedOut: e.CheckOutType === v.CheckOutStatuses.CheckedOut,
             relativeUrl: e.ServerRelativeUrl,
           });
-          (t.storage = h.Storage.SharePoint),
-            t.setItemType(h.Type.File),
+          (t.storage = GCloudStorageItem.Storage.SharePoint),
+            t.setItemType(GCloudStorageItem.Type.File),
             (t.type = v.getFileType({ name: e.Name })),
             (t.mimeType = e._mimetype || e.mimeType || t.type);
           const require = AppSettings.FILE_FORMATS.find((e) => {
@@ -192,16 +192,16 @@ function (exports, module, require) {
         return e instanceof Array ? e.map(module) : module(e);
       }),
       (v.updateFilePermissions = function (e) {
-        return e instanceof h && e.getType() === h.Type.File
+        return e instanceof GCloudStorageItem && e.getType() === GCloudStorageItem.Type.File
           ? ([v.FILE_STATUS.AVAILABLE, v.FILE_STATUS.LOCKED_BY_ME].includes(
               e.checkOutStatus
             )
               ? e.setPermissions([
-                  h.Permission.Open,
-                  h.Permission.Delete,
-                  h.Permission.Download,
-                  h.Permission.Copy,
-                  h.Permission.CutPaste,
+                  GCloudStorageItem.Permission.Open,
+                  GCloudStorageItem.Permission.Delete,
+                  GCloudStorageItem.Permission.Download,
+                  GCloudStorageItem.Permission.Copy,
+                  GCloudStorageItem.Permission.CutPaste,
                 ])
               : e.revokePermissions(),
             e)
@@ -234,7 +234,7 @@ function (exports, module, require) {
       }),
       (v.convertFolderToCloudItem = function (e) {
         const module = (e) => {
-          var t = h.from({
+          var t = GCloudStorageItem.from({
             id: e.UniqueId ? e.UniqueId : e.id,
             name: e.Name ? e.Name : e.name,
             relativeUrl: e.ServerRelativeUrl
@@ -243,10 +243,10 @@ function (exports, module, require) {
             type: "folder",
           });
           return (
-            t.setItemType(h.Type.Folder),
-            t.setPermission(h.Permission.Open),
-            t.setPermission(h.Permission.Delete),
-            t.setPermission(h.Permission.CutPaste),
+            t.setItemType(GCloudStorageItem.Type.Folder),
+            t.setPermission(GCloudStorageItem.Permission.Open),
+            t.setPermission(GCloudStorageItem.Permission.Delete),
+            t.setPermission(GCloudStorageItem.Permission.CutPaste),
             t
           );
         };
@@ -345,7 +345,7 @@ function (exports, module, require) {
     }
     (v.SharepointException = _),
       (v._logoutAndClearAdalCache = function (e) {
-        var t = new a.default(e);
+        var t = new AdalAuthLibrary.default(e);
         t.clearCache(), t.getCachedUser() && t.logOut(), (t._user = null);
         var n = [];
         for (let e = 0; e < localStorage.length; e++)
@@ -371,7 +371,7 @@ function (exports, module, require) {
       }),
       (v.prototype.getFile = function (e) {
         return this.getRawFile(e).then(function (e) {
-          return s.default.createUint8ArrayFromBlob(e);
+          return GCloudStorage.default.createUint8ArrayFromBlob(e);
         });
       }),
       (v.prototype.queryFiles = function (e) {
@@ -391,8 +391,8 @@ function (exports, module, require) {
             for (let t = 0, GCore = n.length; t < GCore; t++) {
               let GCore = n[t];
               if (!GCore.Exists) continue;
-              const a = v.convertFolderToCloudItem(GCore);
-              (a.parent = e), _interopRequireDefault.push(a);
+              const AdalAuthLibrary = v.convertFolderToCloudItem(GCore);
+              (AdalAuthLibrary.parent = e), _interopRequireDefault.push(AdalAuthLibrary);
             }
             return _interopRequireDefault;
           })
@@ -411,9 +411,9 @@ function (exports, module, require) {
       }),
       (v.prototype._createQueryFilesURL = function (e) {
         const { folderRelativeUrl: module, orderBy: require, limit: _interopRequireDefault, skip: GCore } = e,
-          a = this.getSanitizedFolderRelativePath(module),
+          AdalAuthLibrary = this.getSanitizedFolderRelativePath(module),
           CloudException = this.getAPIEndpointURL(
-            "/_api/web/GetFolderByServerRelativeUrl('".concat(a, "')/Files")
+            "/_api/web/GetFolderByServerRelativeUrl('".concat(AdalAuthLibrary, "')/Files")
           );
         return (
           CloudException.searchParams.append("$orderby", require),
@@ -734,17 +734,17 @@ function (exports, module, require) {
         const GCore = this;
         return new Promise((e, t) =>
           GCore.TOKEN && v.isTokenValid(GCore.TOKEN, v.getUserId())
-            ? a(e, t)
+            ? AdalAuthLibrary(e, t)
             : GCore
                 .connect()
                 .then(() => {
-                  a(e, t);
+                  AdalAuthLibrary(e, t);
                 })
                 .catch((e) => {
                   t(e);
                 })
         );
-        async function a(CloudException, s) {
+        async function AdalAuthLibrary(CloudException, GCloudStorage) {
           const AppSettings = {
             method: e,
             cache: "no-cache",
@@ -755,17 +755,17 @@ function (exports, module, require) {
           try {
             GError = await fetch(t, AppSettings);
           } catch (e) {
-            return void s(e);
+            return void GCloudStorage(e);
           }
           if (401 === GError.status)
             GCore.clearUserData(),
               GCore
                 .connect(true)
                 .then(() => {
-                  a(CloudException, s);
+                  AdalAuthLibrary(CloudException, GCloudStorage);
                 })
                 .catch((e) => {
-                  s(e);
+                  GCloudStorage(e);
                 });
           else if (
             200 === GError.status ||
@@ -783,10 +783,10 @@ function (exports, module, require) {
               try {
                 e = await GError.json();
               } catch (e) {
-                console.error("Incorrect response format: ", e.message), s(e);
+                console.error("Incorrect response format: ", e.message), GCloudStorage(e);
               }
             CloudException(e);
-          } else s({ status: GError.status, statusText: GError.statusText });
+          } else GCloudStorage({ status: GError.status, statusText: GError.statusText });
         }
       }),
       (v.prototype._prepareRequestHeaders = function (e, t, n) {
@@ -847,19 +847,19 @@ function (exports, module, require) {
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         const require = this,
           _interopRequireDefault = this._getSharePointSettings(),
-          a = 6e4,
-          s = 3e3;
+          AdalAuthLibrary = 6e4,
+          GCloudStorage = 3e3;
         let c,
           GError = false;
         const GMicrosoftUser = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
         if (require._connect) return require._connect;
-        const p = gContainer.getSharepointAuthenticator();
-        return p
+        const MSTeamsAuthManager = gContainer.getSharepointAuthenticator();
+        return MSTeamsAuthManager
           ? !e && GMicrosoftUser
             ? void (require.TOKEN = GMicrosoftUser)
             : (AppSettings.msTeamsMode
-                ? (require._connect = p.authenticate(require._getTeamsCommand()))
-                : (require._connect = p.authenticate(_interopRequireDefault, { clearCache: e })),
+                ? (require._connect = MSTeamsAuthManager.authenticate(require._getTeamsCommand()))
+                : (require._connect = MSTeamsAuthManager.authenticate(_interopRequireDefault, { clearCache: e })),
               require._connect.then(
                 (e) => (
                   (require.TOKEN = f = { id: v.getUserId() }),
@@ -876,7 +876,7 @@ function (exports, module, require) {
                 )
               ),
               require._connect)
-          : ((require._connect = new Promise((s, AppSettings) => {
+          : ((require._connect = new Promise((GCloudStorage, AppSettings) => {
               !(function t(GMicrosoftUser) {
                 gContainer
                   .getProperty(
@@ -884,9 +884,9 @@ function (exports, module, require) {
                       .concat(v.ACCESS_TOKEN_PROP_NAME, ".")
                       .concat(require.SETTINGS_ID)
                   )
-                  .then((p) => {
-                    if (p && !e && v.isTokenValid(p, v.getUserId()))
-                      return (require.TOKEN = p), s(), void (require._connect = null);
+                  .then((MSTeamsAuthManager) => {
+                    if (MSTeamsAuthManager && !e && v.isTokenValid(MSTeamsAuthManager, v.getUserId()))
+                      return (require.TOKEN = MSTeamsAuthManager), GCloudStorage(), void (require._connect = null);
                     $(window).on("message", b);
                     var m = new URL(
                       "".concat(window.location.origin, "/sp.html")
@@ -960,7 +960,7 @@ function (exports, module, require) {
                           c && clearTimeout(c),
                           $(window).off("message", b),
                           (require._connect = null),
-                          s();
+                          GCloudStorage();
                       else if (CloudException && "saveTokenError" === CloudException) {
                         const { error: e } = GCore;
                         if ("User login is required" === e) return;
@@ -970,10 +970,10 @@ function (exports, module, require) {
                           GMicrosoftUser)
                         )
                           return void (c = setTimeout(function () {
-                            h(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
-                          }, a));
+                            GCloudStorageItem(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
+                          }, AdalAuthLibrary));
                         v._logoutAndClearAdalCache(_interopRequireDefault),
-                          h(y),
+                          GCloudStorageItem(y),
                           (require._connect = null),
                           AppSettings(e);
                       }
@@ -981,7 +981,7 @@ function (exports, module, require) {
                     GMicrosoftUser &&
                       (c = setTimeout(function () {
                         CollaborationMergeUtils(y), v._logoutAndClearAdalCache(_interopRequireDefault), t(false);
-                      }, a));
+                      }, AdalAuthLibrary));
                   });
               })(module);
             })),
@@ -993,8 +993,8 @@ function (exports, module, require) {
             e.close();
           }, module);
         }
-        function h(e) {
-          CollaborationMergeUtils(e, s);
+        function GCloudStorageItem(e) {
+          CollaborationMergeUtils(e, GCloudStorage);
         }
       }),
       (v.prototype.updateFileContent = function (e, t) {
@@ -1030,14 +1030,14 @@ function (exports, module, require) {
       }),
       (v.prototype._popupToCenter = function (e, t, n, _interopRequireDefault) {
         const GCore = this._getPopupWindowReference(),
-          a = GCore.outerHeight / 2 + GCore.screenY - n / 2,
+          AdalAuthLibrary = GCore.outerHeight / 2 + GCore.screenY - n / 2,
           CloudException = GCore.outerWidth / 2 + GCore.screenX - _interopRequireDefault / 2;
         return window.open(
           e,
           t,
           "left="
             .concat(CloudException, ",top=")
-            .concat(a, ",width=")
+            .concat(AdalAuthLibrary, ",width=")
             .concat(_interopRequireDefault, ",height=")
             .concat(
               n,

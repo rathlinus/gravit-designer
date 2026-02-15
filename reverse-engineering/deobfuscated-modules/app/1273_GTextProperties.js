@@ -35,7 +35,7 @@ function (exports, module, require) {
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
       s = require(67) /* GRichTooltipConfig */,
       GProperties = require(123) /* GProperties */,
-      barrel_sidebars = require(255) /* barrel_sidebars */,
+      GFontsProviderManager = require(255) /* GFontsProviderManager */,
       barrel_editor_actions = require(590) /* barrel_editor_actions */,
       GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
       GSystemDialog = require(44) /* GSystemDialog */;
@@ -448,8 +448,8 @@ function (exports, module, require) {
                 "patternchange",
                 function (e, n, GCore, a, CollaborationMergeUtils) {
                   for (var s = [], GProperties = 0; GProperties < this._text.length; GProperties++) {
-                    var barrel_sidebars = GTools.GElementEditor.getEditor(this._text[GProperties]);
-                    s.push(barrel_sidebars || this._text[GProperties]);
+                    var GFontsProviderManager = GTools.GElementEditor.getEditor(this._text[GProperties]);
+                    s.push(GFontsProviderManager || this._text[GProperties]);
                   }
                   var barrel_editor_actions = null;
                   CollaborationMergeUtils && (barrel_editor_actions = { chooserOn: true, textPattern: true });
@@ -578,10 +578,10 @@ function (exports, module, require) {
                         if (($(this).text(GProperties), "number" == typeof CollaborationMergeUtils))
                           try {
                             s.beginTransaction();
-                            for (var barrel_sidebars = 0; barrel_sidebars < t._text.length; barrel_sidebars++) {
+                            for (var GFontsProviderManager = 0; GFontsProviderManager < t._text.length; GFontsProviderManager++) {
                               var barrel_editor_actions =
-                                  GTools.GElementEditor.getEditor(t._text[barrel_sidebars]) ||
-                                  t._text[barrel_sidebars],
+                                  GTools.GElementEditor.getEditor(t._text[GFontsProviderManager]) ||
+                                  t._text[GFontsProviderManager],
                                 GSettingChangedEvent = (
                                   ((CollaborationMergeUtils / 100) *
                                     (GSystemDialog = t._getProperty("_tfi", [barrel_editor_actions]) || 20) *
@@ -606,10 +606,10 @@ function (exports, module, require) {
                       )
                         try {
                           s.beginTransaction();
-                          for (barrel_sidebars = 0; barrel_sidebars < t._text.length; barrel_sidebars++) {
+                          for (GFontsProviderManager = 0; GFontsProviderManager < t._text.length; GFontsProviderManager++) {
                             barrel_editor_actions =
-                              GTools.GElementEditor.getEditor(t._text[barrel_sidebars]) ||
-                              t._text[barrel_sidebars];
+                              GTools.GElementEditor.getEditor(t._text[GFontsProviderManager]) ||
+                              t._text[GFontsProviderManager];
                             var GSystemDialog = t._getProperty("_tfi", [barrel_editor_actions]) || 20;
                             GSettingChangedEvent =
                               Math.round(
@@ -638,7 +638,7 @@ function (exports, module, require) {
                   var t = $(this).prop("checked");
                   gDesigner.setSetting("font-set", t);
                   var n = gContainer.getSystemFontsProvider();
-                  t ? barrel_sidebars.enableProviders([n]) : barrel_sidebars.disableProviders([n]);
+                  t ? GFontsProviderManager.enableProviders([n]) : GFontsProviderManager.disableProviders([n]);
                 });
             if ("sc" === e)
               return $("<label></label>")
@@ -1668,7 +1668,7 @@ function (exports, module, require) {
                 (e === GTools.GEditor.InlineEditorEvent.Type.TextEdited && !t))
             ) {
               var CollaborationMergeUtils = a.getDocumentRange().plainText(),
-                s = barrel_sidebars.getProviderInstance(barrel_editor_actions).getDefaultFamilyForString(CollaborationMergeUtils),
+                s = GFontsProviderManager.getProviderInstance(barrel_editor_actions).getDefaultFamilyForString(CollaborationMergeUtils),
                 GProperties =
                   gDesigner.getWorkspace() &&
                   gDesigner.getWorkspace().getFontManager() &&
@@ -1798,8 +1798,8 @@ function (exports, module, require) {
           var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
           t.push(GProperties || this._text[s]);
         }
-        var barrel_sidebars = this._panel.find('input[data-property="fontSet"]');
-        barrel_sidebars.length && barrel_sidebars.prop("checked", gDesigner.getSetting("font-set"), false);
+        var GFontsProviderManager = this._panel.find('input[data-property="fontSet"]');
+        GFontsProviderManager.length && GFontsProviderManager.prop("checked", gDesigner.getSetting("font-set"), false);
         var barrel_editor_actions = this._getFormatting("underline", t) || null,
           GSettingChangedEvent = this._getFormatting("strikeout", t) || null,
           GSystemDialog = this._getFormatting("fractions", t) || false,
@@ -2182,13 +2182,13 @@ function (exports, module, require) {
                   if (GTools) {
                     const s = GCore.GText.PropertyMapping._tff,
                       GProperties = GCore.GText.PropertyMapping._tfs,
-                      barrel_sidebars = GCore.GText.PropertyMapping._tfw;
+                      GFontsProviderManager = GCore.GText.PropertyMapping._tfw;
                     t = GTools
                       .map(
                         (t) => (
                           (n = e.getElement()._getGravitValue(s, t[s])),
                           (a = e.getElement()._getGravitValue(GProperties, t[GProperties])),
-                          (CollaborationMergeUtils = e.getElement()._getGravitValue(barrel_sidebars, t[barrel_sidebars])),
+                          (CollaborationMergeUtils = e.getElement()._getGravitValue(GFontsProviderManager, t[GFontsProviderManager])),
                           n && a && CollaborationMergeUtils ? ye.getFont(n, a, CollaborationMergeUtils, false) : null
                         )
                       )
@@ -2499,7 +2499,7 @@ function (exports, module, require) {
           GProperties = this._panel
             .find('input[data-property="_tff"]')
             .gFontsButton("getFontList"),
-          barrel_sidebars = false;
+          GFontsProviderManager = false;
         if (
           (e === s.getFamily()
             ? (a =
@@ -2535,7 +2535,7 @@ function (exports, module, require) {
         ) {
           for (var barrel_editor_actions = 0, GSettingChangedEvent = 0; GSettingChangedEvent < GTools.length; GSettingChangedEvent++)
             Math.abs(n[0] - GTools[GSettingChangedEvent]) < Math.abs(n[0] - GTools[barrel_editor_actions]) && (barrel_editor_actions = GSettingChangedEvent);
-          (n[0] = GTools[barrel_editor_actions]), (barrel_sidebars = true);
+          (n[0] = GTools[barrel_editor_actions]), (GFontsProviderManager = true);
         }
         var GSystemDialog =
           (a || []).filter(function (e) {
@@ -2547,8 +2547,8 @@ function (exports, module, require) {
             (t[0] === GCore.GFont.Style.Normal && GSystemDialog[0].styles.length
               ? (t[0] = GCore.GFont.Style.Italic)
               : (t[0] = GCore.GFont.Style.Normal),
-            (barrel_sidebars = true)),
-          barrel_sidebars
+            (GFontsProviderManager = true)),
+          GFontsProviderManager
         );
       }),
       (v.prototype._toggleFormatting = function (e) {
@@ -2565,7 +2565,7 @@ function (exports, module, require) {
               fractions: this._getFormatting("fractions", n),
             },
             GProperties = this._getProperty("_tfw", n) || "",
-            barrel_sidebars = this._getProperty("_tfs", n) || "";
+            GFontsProviderManager = this._getProperty("_tfs", n) || "";
           if ("bold" === e) {
             let e;
             parseInt(GProperties) === GCore.GFont.Weight.Bold
@@ -2580,7 +2580,7 @@ function (exports, module, require) {
             this._assignProperties(
               ["_tfs"],
               [
-                barrel_sidebars === GCore.GFont.Style.Italic
+                GFontsProviderManager === GCore.GFont.Style.Italic
                   ? GCore.GFont.Style.Normal
                   : GCore.GFont.Style.Italic,
               ]
@@ -2691,10 +2691,10 @@ function (exports, module, require) {
                   this._text[s] instanceof GCore.GText &&
                   this._text[s].isFakeText()
                 ) {
-                  var barrel_sidebars = this._text[s].getContent(),
+                  var GFontsProviderManager = this._text[s].getContent(),
                     barrel_editor_actions = {};
-                  barrel_sidebars &&
-                    barrel_sidebars.forEach((t) => {
+                  GFontsProviderManager &&
+                    GFontsProviderManager.forEach((t) => {
                       barrel_editor_actions[t.fontFamily] = e;
                     });
                   var GSettingChangedEvent = this._text[s].getProperty("_tff");

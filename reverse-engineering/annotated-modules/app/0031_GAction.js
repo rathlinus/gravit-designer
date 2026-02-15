@@ -10,7 +10,7 @@ function (e, t, n) {
     n(3) /* polyfill_RegExp_toString */;
     var i = n(1) /* module */,
       a = n(15) /* module */,
-      r = o(n(844) /* module_844 */);
+      r = o(n(844) /* GActionIconMap */);
     function s() {}
     i.GObject.inherit(s, i.GObject),
       (s.SHORTCUT_DELAY = 500),

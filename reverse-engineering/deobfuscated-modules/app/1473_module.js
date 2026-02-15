@@ -9,7 +9,7 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */;
     require(10) /* AppSettings */;
-    require(1474) /* module_1474 */, require(220) /* Item */, require(44) /* GSystemDialog */, require(119) /* module_119 */;
+    require(1474) /* module_1474 */, require(220) /* Item */, require(44) /* GSystemDialog */, require(119) /* GCloudStorage */;
     function a(e, t, n) {
       (this._document = e),
         (this._storageItem = t),

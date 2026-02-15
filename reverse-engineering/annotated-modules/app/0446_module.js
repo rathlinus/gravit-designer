@@ -7,8 +7,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* _interopRequireDefault */,
       i = n(1) /* module */,
-      a = o(n(119) /* module_119 */),
-      r = o(n(860) /* module_860 */);
+      a = o(n(119) /* GCloudStorage */),
+      r = o(n(860) /* GEmbeddedLogin */);
     function s(e) {
       let t =
         arguments.length > 1 && void 0 !== arguments[1]

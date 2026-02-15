@@ -17,7 +17,7 @@ function (exports, module, require) {
       GUnloadEvent = require(1346) /* GUnloadEvent */,
       u = require(1348) /* StatusChangedEvent */,
       GSystemDialog = require(44) /* GSystemDialog */,
-      g = require(177) /* module_177 */,
+      GUserModel = require(177) /* GUserModel */,
       { DateAPI: h, ShareRoles: f } = require(10) /* AppSettings */;
     function m() {}
     GCore.GObject.inherit(m, GPanel),
@@ -429,7 +429,7 @@ function (exports, module, require) {
           return this._document
             .getCollaborativeTextController()
             .resetTextEditing();
-        const module = new g(exports.user);
+        const module = new GUserModel(exports.user);
         this._htmlElement.empty().append(
           $("<div/>")
             .addClass("container")

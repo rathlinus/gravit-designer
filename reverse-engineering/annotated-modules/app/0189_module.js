@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(152) /* module_152 */,
+    var o = n(152) /* polyfill_TypedArrays */,
       i = n(427) /* module_427 */,
       a = n(429) /* module_429 */,
       r = n(131) /* module_131 */,

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = require(466) /* module_466 */,
+    var ZlibInflateStream = require(466) /* ZlibInflateStream */,
       Buf = require(94) /* Exports_Buf */,
       a = require(312) /* module_312 */,
       r = require(314) /* module_314 */,
@@ -38,18 +38,18 @@ function (exports, module, require) {
         (this.chunks = []),
         (this.strm = new l()),
         (this.strm.avail_out = 0);
-      var n = o.inflateInit2(this.strm, t.windowBits);
+      var n = ZlibInflateStream.inflateInit2(this.strm, t.windowBits);
       if (n !== r.Z_OK) throw new Error(s[n]);
       if (
         ((this.header = new c()),
-        o.inflateGetHeader(this.strm, this.header),
+        ZlibInflateStream.inflateGetHeader(this.strm, this.header),
         t.dictionary &&
           ("string" == typeof t.dictionary
             ? (t.dictionary = a.string2buf(t.dictionary))
             : "[object ArrayBuffer]" === d.call(t.dictionary) &&
               (t.dictionary = new Uint8Array(t.dictionary)),
           t.raw &&
-            (n = o.inflateSetDictionary(this.strm, t.dictionary)) !== r.Z_OK))
+            (n = ZlibInflateStream.inflateSetDictionary(this.strm, t.dictionary)) !== r.Z_OK))
       )
         throw new Error(s[n]);
     }
@@ -81,9 +81,9 @@ function (exports, module, require) {
         if (
           (0 === p.avail_out &&
             ((p.output = new Buf.Buf8(g)), (p.next_out = 0), (p.avail_out = g)),
-          (n = o.inflate(p, r.Z_NO_FLUSH)) === r.Z_NEED_DICT &&
+          (n = ZlibInflateStream.inflate(p, r.Z_NO_FLUSH)) === r.Z_NEED_DICT &&
             h &&
-            (n = o.inflateSetDictionary(this.strm, h)),
+            (n = ZlibInflateStream.inflateSetDictionary(this.strm, h)),
           n === r.Z_BUF_ERROR && true === f && ((n = r.Z_OK), (f = false)),
           n !== r.Z_STREAM_END && n !== r.Z_OK)
         )
@@ -106,7 +106,7 @@ function (exports, module, require) {
       return (
         n === r.Z_STREAM_END && (s = r.Z_FINISH),
         s === r.Z_FINISH
-          ? ((n = o.inflateEnd(this.strm)),
+          ? ((n = ZlibInflateStream.inflateEnd(this.strm)),
             this.onEnd(n),
             (this.ended = true),
             n === r.Z_OK)

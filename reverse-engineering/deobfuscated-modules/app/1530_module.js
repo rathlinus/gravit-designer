@@ -11,7 +11,7 @@ function (exports, module, require) {
       a = require(1531) /* module_1531 */,
       r = require(1532) /* module_1532 */,
       s = require(1533) /* module_1533 */,
-      l = require(156) /* module_156 */,
+      GCloudStorageItem = require(156) /* GCloudStorageItem */,
       c = require(790) /* module_790 */,
       d = require(554) /* module_554 */;
     function u(e) {
@@ -83,12 +83,12 @@ function (exports, module, require) {
         const require = e.getStorage(),
           o = gDesigner.getSyncUser();
         return (
-          require === l.Storage.Gravit
+          require === GCloudStorageItem.Storage.Gravit
             ? (module = new a(this._worker, o))
-            : require === l.Storage.GoogleDrive
+            : require === GCloudStorageItem.Storage.GoogleDrive
             ? (module = new r(this._worker, o))
-            : (require !== l.Storage.SharePoint &&
-                require !== l.Storage.OneDriveBusiness) ||
+            : (require !== GCloudStorageItem.Storage.SharePoint &&
+                require !== GCloudStorageItem.Storage.OneDriveBusiness) ||
               (module = new s(this._worker, o)),
           module
         );

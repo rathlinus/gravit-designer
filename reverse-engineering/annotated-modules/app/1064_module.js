@@ -6,11 +6,11 @@
 function (e, t, n) {
     var o;
     e.exports =
-      ((o = n(55) /* module_55 */),
+      ((o = n(55) /* CryptoJSCore */),
       n(272) /* module_272 */,
       n(273) /* HmacMD5 */,
       n(234) /* module_234 */,
-      n(98) /* module_98 */,
+      n(98) /* CryptoJSCipherBase */,
       (function () {
         var e = o,
           t = e.lib.StreamCipher,

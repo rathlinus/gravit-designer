@@ -4,11 +4,11 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       (function (e) {
-        var t = o,
+        var t = CryptoJSCore,
           n = t.lib,
           i = n.WordArray,
           a = n.Hasher,
@@ -26,9 +26,9 @@ function (exports, module, require) {
           },
           _doProcessBlock: function (e, t) {
             for (var n = 0; n < 16; n++) {
-              var o = t + n,
-                i = e[o];
-              e[o] =
+              var CryptoJSCore = t + n,
+                i = e[CryptoJSCore];
+              e[CryptoJSCore] =
                 (16711935 & ((i << 8) | (i >>> 24))) |
                 (4278255360 & ((i << 24) | (i >>> 8)));
             }
@@ -122,11 +122,11 @@ function (exports, module, require) {
           _doFinalize: function () {
             var t = this._data,
               n = t.words,
-              o = 8 * this._nDataBytes,
+              CryptoJSCore = 8 * this._nDataBytes,
               i = 8 * t.sigBytes;
             n[i >>> 5] |= 128 << (24 - (i % 32));
-            var a = e.floor(o / 4294967296),
-              r = o;
+            var a = e.floor(CryptoJSCore / 4294967296),
+              r = CryptoJSCore;
             (n[15 + (((i + 64) >>> 9) << 4)] =
               (16711935 & ((a << 8) | (a >>> 24))) |
               (4278255360 & ((a << 24) | (a >>> 8)))),
@@ -148,23 +148,23 @@ function (exports, module, require) {
             return (e._hash = this._hash.clone()), e;
           },
         }));
-        function c(e, t, n, o, i, a, r) {
-          var s = e + ((t & n) | (~t & o)) + i + r;
+        function c(e, t, n, CryptoJSCore, i, a, r) {
+          var s = e + ((t & n) | (~t & CryptoJSCore)) + i + r;
           return ((s << a) | (s >>> (32 - a))) + t;
         }
-        function d(e, t, n, o, i, a, r) {
-          var s = e + ((t & o) | (n & ~o)) + i + r;
+        function d(e, t, n, CryptoJSCore, i, a, r) {
+          var s = e + ((t & CryptoJSCore) | (n & ~CryptoJSCore)) + i + r;
           return ((s << a) | (s >>> (32 - a))) + t;
         }
-        function u(e, t, n, o, i, a, r) {
-          var s = e + (t ^ n ^ o) + i + r;
+        function u(e, t, n, CryptoJSCore, i, a, r) {
+          var s = e + (t ^ n ^ CryptoJSCore) + i + r;
           return ((s << a) | (s >>> (32 - a))) + t;
         }
-        function p(e, t, n, o, i, a, r) {
-          var s = e + (n ^ (t | ~o)) + i + r;
+        function p(e, t, n, CryptoJSCore, i, a, r) {
+          var s = e + (n ^ (t | ~CryptoJSCore)) + i + r;
           return ((s << a) | (s >>> (32 - a))) + t;
         }
         (t.MD5 = a._createHelper(l)), (t.HmacMD5 = a._createHmacHelper(l));
       })(Math),
-      o.MD5);
+      CryptoJSCore.MD5);
   }

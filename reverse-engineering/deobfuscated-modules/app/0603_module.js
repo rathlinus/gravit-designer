@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     require(3) /* polyfill_RegExp_toString */;
     var GCore = require(1) /* module */,
-      i = require(1503) /* module_1503 */,
+      GDocumentWindow = require(1503) /* GDocumentWindow */,
       GSystemDialog = require(44) /* GSystemDialog */,
       GSaveAction = require(447) /* GSaveAction */,
       s = require(86) /* module_86 */;
@@ -72,25 +72,25 @@ function (exports, module, require) {
         }
       }),
       (l.prototype.addWindow = function (e, t, n) {
-        var GCore = e instanceof i ? e.getDocument() : e,
+        var GCore = e instanceof GDocumentWindow ? e.getDocument() : e,
           GSystemDialog = this._addWindow(GCore, t, n);
-        if (e instanceof i) {
+        if (e instanceof GDocumentWindow) {
           var GSaveAction = e.getView();
           GSystemDialog.getView() &&
             GSystemDialog.getView().transform(GSaveAction.getScrollX(), GSaveAction.getScrollY(), GSaveAction.getZoom());
         }
         return GSystemDialog;
       }),
-      (l.prototype.removeWindow = function (e, t, n, i) {
+      (l.prototype.removeWindow = function (e, t, n, GDocumentWindow) {
         var c = e.getDocument(),
           d = function (n) {
             if (!n || n.documentStatus !== s.SaveCancelled) {
               if (e === this._activeWindow) {
                 var GCore = this._windows.indexOf(e);
                 GCore > 0
-                  ? this.activateWindow(this._windows[GCore - 1], i)
+                  ? this.activateWindow(this._windows[GCore - 1], GDocumentWindow)
                   : GCore + 1 < this._windows.length
-                  ? this.activateWindow(this._windows[GCore + 1], i)
+                  ? this.activateWindow(this._windows[GCore + 1], GDocumentWindow)
                   : this.activateWindow(null);
               }
               c._activeWindow === e && (c._activeWindow = null),
@@ -145,7 +145,7 @@ function (exports, module, require) {
         );
       }),
       (l.prototype._addWindow = function (e, t, n) {
-        var GCore = new i(e, t);
+        var GCore = new GDocumentWindow(e, t);
         return (
           e._windows.push(GCore),
           "number" == typeof n

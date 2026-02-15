@@ -4,12 +4,12 @@
  */
 
 function (exports, module, require) {
-    var o, i;
+    var o, CryptoJSCore;
     exports.exports =
-      ((i = require(55) /* module_55 */),
-      require(98) /* module_98 */,
-      (i.mode.ECB =
-        (((o = i.lib.BlockCipherMode.extend()).Encryptor = o.extend({
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      require(98) /* CryptoJSCipherBase */,
+      (CryptoJSCore.mode.ECB =
+        (((o = CryptoJSCore.lib.BlockCipherMode.extend()).Encryptor = o.extend({
           processBlock: function (e, t) {
             this._cipher.encryptBlock(e, t);
           },
@@ -20,5 +20,5 @@ function (exports, module, require) {
           },
         })),
         o)),
-      i.mode.ECB);
+      CryptoJSCore.mode.ECB);
   }

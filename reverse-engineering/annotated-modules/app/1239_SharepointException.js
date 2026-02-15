@@ -16,7 +16,7 @@ function (e, t, n) {
       n(30) /* polyfill_Object_assign */,
       n(57) /* polyfill_parseInt */,
       n(8) /* polyfill_bundle_ES6 */,
-      n(356) /* module_356 */,
+      n(356) /* polyfill_RegExp_constructor */,
       n(20) /* polyfill_RegExp_exec */,
       n(107) /* polyfill_RegExp_test */,
       n(3) /* polyfill_RegExp_toString */,
@@ -32,16 +32,16 @@ function (e, t, n) {
       n(126) /* polyfill_URL_toJSON */,
       n(114) /* stub_requires_424 */;
     var i = n(1) /* module */,
-      a = o(n(1476) /* module_1476 */),
+      a = o(n(1476) /* AdalAuthLibrary */),
       r = n(802) /* CloudException */,
-      s = o(n(119) /* module_119 */),
+      s = o(n(119) /* GCloudStorage */),
       l = n(10) /* AppSettings */,
       c = n(593) /* module_593 */,
       d = o(n(594) /* GError */),
       u = o(n(1477) /* GMicrosoftUser */),
-      p = o(n(1242) /* module_1242 */),
+      p = o(n(1242) /* MSTeamsAuthManager */),
       g = n(40) /* CollaborationMergeUtils */;
-    const h = n(156) /* module_156 */;
+    const h = n(156) /* GCloudStorageItem */;
     let f = null,
       m = {};
     const y = (t.TEAMS_COMMANDS = p.default.COMMANDS),

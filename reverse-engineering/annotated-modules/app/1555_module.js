@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(30) /* polyfill_Object_assign */, n(4) /* stub_requires_668 */, n(38) /* stub_requires_680 */, n(97) /* stub_requires_684 */;
-    const o = n(156) /* module_156 */,
+    const o = n(156) /* GCloudStorageItem */,
       i = n(1301) /* module_1301 */;
     function a(e) {
       var t, n, o;

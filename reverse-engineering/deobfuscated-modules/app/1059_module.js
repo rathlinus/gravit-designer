@@ -4,11 +4,11 @@
  */
 
 function (exports, module, require) {
-    var o;
+    var CryptoJSCore;
     exports.exports =
-      ((o = require(55) /* module_55 */),
-      require(98) /* module_98 */,
-      (o.pad.ZeroPadding = {
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
+      require(98) /* CryptoJSCipherBase */,
+      (CryptoJSCore.pad.ZeroPadding = {
         pad: function (e, t) {
           var n = 4 * t;
           e.clamp(), (e.sigBytes += n - (e.sigBytes % n || n));
@@ -23,5 +23,5 @@ function (exports, module, require) {
           e.sigBytes = require + 1;
         },
       }),
-      o.pad.ZeroPadding);
+      CryptoJSCore.pad.ZeroPadding);
   }

@@ -57,7 +57,7 @@ function (exports, module, require) {
       }
       return e;
     }
-    var p = require(163) /* module_163 */,
+    var p = require(163) /* GDocument */,
       MenuItemBuilder = require(18) /* MenuItemBuilder */,
       GAction = require(31) /* GAction */,
       f = require(446) /* module_446 */,

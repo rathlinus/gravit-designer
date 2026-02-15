@@ -4,12 +4,12 @@
  */
 
 function (exports, module, require) {
-    var o, i, a, r, s, l, c, d;
+    var o, i, a, r, s, l, c, CryptoJSCore;
     exports.exports =
-      ((d = require(55) /* module_55 */),
+      ((CryptoJSCore = require(55) /* CryptoJSCore */),
       require(537) /* module_537 */,
       require(538) /* module_538 */,
-      (i = (o = d).lib),
+      (i = (o = CryptoJSCore).lib),
       (a = i.Base),
       (r = i.WordArray),
       (s = o.algo),
@@ -34,7 +34,7 @@ function (exports, module, require) {
               c && o.update(c);
               var c = o.update(e).finalize(t);
               o.reset();
-              for (var d = 1; d < l; d++) (c = o.finalize(c)), o.reset();
+              for (var CryptoJSCore = 1; CryptoJSCore < l; CryptoJSCore++) (c = o.finalize(c)), o.reset();
               i.concat(c);
             }
             return (i.sigBytes = 4 * s), i;
@@ -43,5 +43,5 @@ function (exports, module, require) {
       (o.EvpKDF = function (e, t, n) {
         return c.create(n).compute(e, t);
       }),
-      d.EvpKDF);
+      CryptoJSCore.EvpKDF);
   }

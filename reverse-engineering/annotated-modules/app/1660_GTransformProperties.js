@@ -12,7 +12,7 @@ function (e, t, n) {
       a = n(67) /* GRichTooltipConfig */,
       r = n(123) /* GProperties */,
       s = (n(173) /* stub_requires_1 */, n(135) /* GSettingChangedEvent */);
-    n(1162) /* module_1162 */;
+    n(1162) /* GBorderProperties */;
     function l() {
       this._elements = [];
     }

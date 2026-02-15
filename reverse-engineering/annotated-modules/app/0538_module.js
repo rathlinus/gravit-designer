@@ -6,7 +6,7 @@
 function (e, t, n) {
     var o, i, a, r;
     e.exports =
-      ((o = n(55) /* module_55 */),
+      ((o = n(55) /* CryptoJSCore */),
       (a = (i = o).lib.Base),
       (r = i.enc.Utf8),
       void (i.algo.HMAC = a.extend({

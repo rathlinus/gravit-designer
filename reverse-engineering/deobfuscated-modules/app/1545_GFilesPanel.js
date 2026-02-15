@@ -15,7 +15,7 @@ function (exports, module, require) {
       require(96) /* polyfill_JSON_stringify */,
       require(30) /* polyfill_Object_assign */,
       require(8) /* polyfill_bundle_ES6 */,
-      require(356) /* module_356 */,
+      require(356) /* polyfill_RegExp_constructor */,
       require(20) /* polyfill_RegExp_exec */,
       require(3) /* polyfill_RegExp_toString */,
       require(271) /* polyfill_String_endsWith */,
@@ -39,13 +39,13 @@ function (exports, module, require) {
     var GCore = require(1) /* module */,
       a = require(1546) /* module_1546 */,
       CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-      s = require(1154) /* module_1154 */,
+      GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
       l = require(1552) /* Exports_GGoogleDrive */,
       TYPES = require(862) /* Exports_TYPES */,
       d = require(858) /* Exports_GFilesPanel */,
       u = _interopRequireDefault(require(1556) /* module_1556 */),
       p = _interopRequireDefault(require(86) /* module_86 */),
-      g = _interopRequireDefault(require(119) /* module_119 */),
+      GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
       h = _interopRequireDefault(require(802) /* CloudException */),
       f = _interopRequireDefault(require(1240) /* module_1240 */),
       GSaveAsAction = _interopRequireDefault(require(445) /* GSaveAsAction */),
@@ -54,7 +54,7 @@ function (exports, module, require) {
       AppSettings = require(10) /* AppSettings */,
       AppSettings2 = require(519) /* AppSettings */,
       w = _interopRequireDefault(require(1557) /* module_1557 */);
-    const C = require(156) /* module_156 */,
+    const GCloudStorageItem = require(156) /* GCloudStorageItem */,
       GDocumentEvent = require(78) /* GDocumentEvent */;
     var S = AppSettings.CloudIntegration.cloudOptions,
       E = AppSettings.CloudIntegration.nativeOption,
@@ -86,12 +86,12 @@ function (exports, module, require) {
           documentToSave: _interopRequireDefault,
           cancelSave: GCore = CollaborationMergeUtils.fakeFunction,
           defaultFilename: a,
-          readyStateChange: s,
+          readyStateChange: GFileDownloadUtils,
           showExampleFiles: l,
           GUISettings: TYPES,
           saveMode: u,
           driveSettings: p = null,
-          isDashboard: g,
+          isDashboard: GCloudStorage,
           isCorporateStoragesEnabled: h = true,
         } = e;
         (this._GUISettings = TYPES || new T.GUISettings()),
@@ -105,9 +105,9 @@ function (exports, module, require) {
           (this.DEFAULT_FILENAME = a),
           (this._newClipBoard = false),
           (this._showExampleFiles = l),
-          (this._isDashboard = g),
+          (this._isDashboard = GCloudStorage),
           (this._isCorporateStoragesEnabled = h),
-          (this.readyStateChange = s),
+          (this.readyStateChange = GFileDownloadUtils),
           (this.search = (0, CollaborationMergeUtils.debounce)(this.search, 200));
         var GSaveAsAction = (e) =>
           function () {
@@ -276,8 +276,8 @@ function (exports, module, require) {
                 )
               )
             );
-          let s = {};
-          t.drive.hasTitleValidation() && (s = t.drive.getTitleValidator()),
+          let GFileDownloadUtils = {};
+          t.drive.hasTitleValidation() && (GFileDownloadUtils = t.drive.getTitleValidator()),
             new u.default(
               async function (_interopRequireDefault) {
                 if (
@@ -311,12 +311,12 @@ function (exports, module, require) {
                     return a(_interopRequireDefault);
                   if (t.drive.requiresOverwriteCollisionHandling()) {
                     for (
-                      var CollaborationMergeUtils = 0, s = _interopRequireDefault;
-                      await t.drive.folderExists(s, t.drive.getCurrentFolder());
+                      var CollaborationMergeUtils = 0, GFileDownloadUtils = _interopRequireDefault;
+                      await t.drive.folderExists(GFileDownloadUtils, t.drive.getCurrentFolder());
 
                     )
-                      s = "".concat(_interopRequireDefault, " (").concat(++CollaborationMergeUtils, ")");
-                    _interopRequireDefault = s;
+                      GFileDownloadUtils = "".concat(_interopRequireDefault, " (").concat(++CollaborationMergeUtils, ")");
+                    _interopRequireDefault = GFileDownloadUtils;
                   }
                 }
                 var l;
@@ -351,7 +351,7 @@ function (exports, module, require) {
               },
               "primary",
               CollaborationMergeUtils,
-              s
+              GFileDownloadUtils
             ).open();
         };
         return a(), this;
@@ -452,16 +452,16 @@ function (exports, module, require) {
                 );
               if (this.drive.requiresOverwriteCollisionHandling()) {
                 for (
-                  var a = 0, s = e;
+                  var a = 0, GFileDownloadUtils = e;
                   await this.drive.fileExists(
-                    s,
+                    GFileDownloadUtils,
                     t,
                     this.drive.getCurrentFolder()
                   );
 
                 )
-                  s = "".concat(e, " (").concat(++a, ")");
-                e = s;
+                  GFileDownloadUtils = "".concat(e, " (").concat(++a, ")");
+                e = GFileDownloadUtils;
               }
             }
             await this._triggerNewFileSave(e, t, require);
@@ -581,9 +581,9 @@ function (exports, module, require) {
       }),
       (T.prototype.handleFileDblClick = function (e) {
         return (
-          e.hasPermission(C.Permission.Open) && !this.isSaveMode()
+          e.hasPermission(GCloudStorageItem.Permission.Open) && !this.isSaveMode()
             ? (gDesigner.stats("filespanel_open_cloudfile"), this.openFile(e))
-            : e.hasPermission(C.Permission.Rename) &&
+            : e.hasPermission(GCloudStorageItem.Permission.Rename) &&
               (gDesigner.stats("filespanel_focus_filename-input"),
               this.view.focusFileNameInput(e)),
           this
@@ -675,8 +675,8 @@ function (exports, module, require) {
               )
             );
         } else t || (t = this.drive.getFileFormat(e) || TYPES.DEFAULT_TYPE);
-        var { ext: a, type: CollaborationMergeUtils, mime: s, version: l } = t;
-        CollaborationMergeUtils = CollaborationMergeUtils || s;
+        var { ext: a, type: CollaborationMergeUtils, mime: GFileDownloadUtils, version: l } = t;
+        CollaborationMergeUtils = CollaborationMergeUtils || GFileDownloadUtils;
         const d = this._triggerFileDownload(e, require, a, CollaborationMergeUtils, l);
         function u(t) {
           return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
@@ -724,7 +724,7 @@ function (exports, module, require) {
                 let GCore = e.name || l.name;
                 GCore.endsWith(".".concat(n)) &&
                   (GCore = GCore.replace(new RegExp(".".concat(n, "$")), "")),
-                  (0, s.downloadDataURI)(u, GCore, n, { type: _interopRequireDefault });
+                  (0, GFileDownloadUtils.downloadDataURI)(u, GCore, n, { type: _interopRequireDefault });
               }
             })
             .catch((e) => {
@@ -743,17 +743,17 @@ function (exports, module, require) {
           (a.onload = async function () {
             const e = new Uint8Array(this.result),
               a = GCore.GNode.deserialize(
-                g.default.unzipData(e),
+                GCloudStorage.default.unzipData(e),
                 gDesigner.getWorkspace()
               );
-            var s = { cancelled: false };
-            (module.cancel = (0, CollaborationMergeUtils.chaining)(module.cancel, () => (s.cancelled = true))),
+            var GFileDownloadUtils = { cancelled: false };
+            (module.cancel = (0, CollaborationMergeUtils.chaining)(module.cancel, () => (GFileDownloadUtils.cancelled = true))),
               await (0, CollaborationMergeUtils.resolveDocumentImages)(
                 a,
                 T.IMAGES_WAIT_TIMEOUT,
-                s
+                GFileDownloadUtils
               ).catch(() => {
-                s.cancelled
+                GFileDownloadUtils.cancelled
                   ? _interopRequireDefault()
                   : _interopRequireDefault(
                       new Error(
@@ -767,7 +767,7 @@ function (exports, module, require) {
                     );
               });
             var l = GCore.GNode.serialize(a, { save: true });
-            (null === l || "" === l || l.length < 1 || s.cancelled) && _interopRequireDefault();
+            (null === l || "" === l || l.length < 1 || GFileDownloadUtils.cancelled) && _interopRequireDefault();
             var TYPES = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
             TYPES.byteLength > 20 ? n(TYPES) : _interopRequireDefault();
           }),
@@ -805,8 +805,8 @@ function (exports, module, require) {
         a
       ) {
         const CollaborationMergeUtils = e.map(() => 0),
-          s = e.length,
-          l = 100 / s,
+          GFileDownloadUtils = e.length,
+          l = 100 / GFileDownloadUtils,
           TYPES = {};
         let d = gDesigner.getActiveDocument();
         d || (d = gDesigner.newInfiniteDocument()),
@@ -817,18 +817,18 @@ function (exports, module, require) {
             ),
             true
           ),
-          TYPES.progressInfo("0/".concat(s));
+          TYPES.progressInfo("0/".concat(GFileDownloadUtils));
         let u = 0,
-          g = false;
-        const h = () => TYPES.progressInfo("".concat(++u, "/").concat(s)),
-          f = () => TYPES.progressInfo("".concat(++u, "/").concat(s)),
-          GSaveAsAction = () => (g = true),
+          GCloudStorage = false;
+        const h = () => TYPES.progressInfo("".concat(++u, "/").concat(GFileDownloadUtils)),
+          f = () => TYPES.progressInfo("".concat(++u, "/").concat(GFileDownloadUtils)),
+          GSaveAsAction = () => (GCloudStorage = true),
           v = e.map((e, GCore) => {
-            var s = _interopRequireDefault;
-            !s && this.fileRequiresSourceDownload(e) && (s = true);
+            var GFileDownloadUtils = _interopRequireDefault;
+            !GFileDownloadUtils && this.fileRequiresSourceDownload(e) && (GFileDownloadUtils = true);
             var d = {
-              ext: ((s && (e.extension || e.ext)) || t).toLowerCase(),
-              type: (s && ((e instanceof C && e.getMimeType()) || e.type)) || n,
+              ext: ((GFileDownloadUtils && (e.extension || e.ext)) || t).toLowerCase(),
+              type: (GFileDownloadUtils && ((e instanceof GCloudStorageItem && e.getMimeType()) || e.type)) || n,
               version: a,
             };
             return this.downloadFile(
@@ -864,7 +864,7 @@ function (exports, module, require) {
             );
           })
         );
-        if (g) return void d.updateStatus(p.default.DownloadCancelled);
+        if (GCloudStorage) return void d.updateStatus(p.default.DownloadCancelled);
         const AppSettings2 = AppSettings.filter((e) => e && "rejected" === e.status);
         AppSettings2.length
           ? (d.updateStatus(p.default.DownloadFailed),
@@ -995,13 +995,13 @@ function (exports, module, require) {
           let a = true;
           try {
             var CollaborationMergeUtils,
-              s = [];
+              GFileDownloadUtils = [];
             let _interopRequireDefault = n.getSort();
             var l = n.view.getSearchValue();
             if (l) {
               if (n.hasMoreItemsToLoad()) {
                 try {
-                  s = await n.drive.fetchFiles(l, n.CURRENT_FILE_LOAD, _interopRequireDefault);
+                  GFileDownloadUtils = await n.drive.fetchFiles(l, n.CURRENT_FILE_LOAD, _interopRequireDefault);
                 } catch (e) {
                   throw new Error(
                     GCore.GLocale.get(
@@ -1012,10 +1012,10 @@ function (exports, module, require) {
                     )
                   );
                 }
-                (CollaborationMergeUtils = (s = n._sortFilesByMimeType(s)).length),
+                (CollaborationMergeUtils = (GFileDownloadUtils = n._sortFilesByMimeType(GFileDownloadUtils)).length),
                   n._updateCurrentFileLoad(CollaborationMergeUtils);
               }
-              s.forEach((e) => {
+              GFileDownloadUtils.forEach((e) => {
                 (e._rootPath = "/ ".concat(n._getFullPathNames(e).join(" / "))),
                   n.addFile(e),
                   n.drive.itemRequiresLazyUpdate(e).then((t) => {
@@ -1030,15 +1030,15 @@ function (exports, module, require) {
               if (n.hasMoreItemsToLoad() && !n._showExampleFiles) {
                 try {
                   (await n.drive.getPreviousSelectedFolder()) || (a = false),
-                    (CollaborationMergeUtils = (s = await n.drive.fetchFiles(
+                    (CollaborationMergeUtils = (GFileDownloadUtils = await n.drive.fetchFiles(
                       null,
                       n.CURRENT_FILE_LOAD,
                       _interopRequireDefault
                     )).length),
                     n.isSaveMode() ||
                       n._isDashboard ||
-                      (s = s.concat(await n.drive.loadExampleFiles())),
-                    (s = n._sortFilesByMimeType(s));
+                      (GFileDownloadUtils = GFileDownloadUtils.concat(await n.drive.loadExampleFiles())),
+                    (GFileDownloadUtils = n._sortFilesByMimeType(GFileDownloadUtils));
                 } catch (e) {
                   if (
                     (console.error(e),
@@ -1059,15 +1059,15 @@ function (exports, module, require) {
                     throw new v.default(t);
                   }
                   await n.setCloudDrive(E),
-                    (CollaborationMergeUtils = (s = await n.drive.fetchFiles(
+                    (CollaborationMergeUtils = (GFileDownloadUtils = await n.drive.fetchFiles(
                       null,
                       n.CURRENT_FILE_LOAD,
                       _interopRequireDefault
                     )).length),
                     n.isSaveMode() ||
                       n._isDashboard ||
-                      (s = s.concat(await n.drive.loadExampleFiles())),
-                    (s = n._sortFilesByMimeType(s));
+                      (GFileDownloadUtils = GFileDownloadUtils.concat(await n.drive.loadExampleFiles())),
+                    (GFileDownloadUtils = n._sortFilesByMimeType(GFileDownloadUtils));
                 }
                 n._updateCurrentFileLoad(CollaborationMergeUtils);
               }
@@ -1081,11 +1081,11 @@ function (exports, module, require) {
                     !n._showRecentFiles &&
                     0 === CollaborationMergeUtils &&
                     !((await n.drive.hasFolders()) && !n.isRootFolder())),
-                  n._showExampleFiles && (s = await n.drive.loadExampleFiles()),
-                  0 === s.length && (n._showEmptyPanel = false),
+                  n._showExampleFiles && (GFileDownloadUtils = await n.drive.loadExampleFiles()),
+                  0 === GFileDownloadUtils.length && (n._showEmptyPanel = false),
                   n._buildFolder(module)),
                 n.view.removeExampleFiles(),
-                s.forEach((e) => {
+                GFileDownloadUtils.forEach((e) => {
                   (n.drive.isItemAllowedToBeRendered(e) ||
                     n._showExampleFiles) &&
                     n.addFile(e, false, n._showExampleFiles || n._showEmptyPanel),
@@ -1187,9 +1187,9 @@ function (exports, module, require) {
           .getApplicationManager()
           .isOnlyFileOpenFromCloudEnabled() &&
           e &&
-          e instanceof C
-          ? (e.setPermissions(Object.values(C.Permission), false),
-            e.setPermission(C.Permission.Open),
+          e instanceof GCloudStorageItem
+          ? (e.setPermissions(Object.values(GCloudStorageItem.Permission), false),
+            e.setPermission(GCloudStorageItem.Permission.Open),
             e)
           : e;
       }),
@@ -1251,8 +1251,8 @@ function (exports, module, require) {
             this.updateFilesList(),
             this.drive.hasUserProfile())
           ) {
-            var s = await this.drive.getUser();
-            s && this.view.updateUserDetails(s);
+            var GFileDownloadUtils = await this.drive.getUser();
+            GFileDownloadUtils && this.view.updateUserDetails(GFileDownloadUtils);
           }
           _interopRequireDefault &&
             _interopRequireDefault.removeEventListener(
@@ -1528,7 +1528,7 @@ function (exports, module, require) {
             }
             if (
               e.SELECTION[0].getType &&
-              e.SELECTION[0].getType() === C.Type.Folder
+              e.SELECTION[0].getType() === GCloudStorageItem.Type.Folder
             ) {
               let t = null;
               if (
@@ -1695,7 +1695,7 @@ function (exports, module, require) {
       }),
       (T.prototype.fileRequiresSourceDownload = function (e) {
         return !this.drive.getSupportedFileFormats().some((t) => {
-          var n = e instanceof C ? e.getMimeType() : e.type;
+          var n = e instanceof GCloudStorageItem ? e.getMimeType() : e.type;
           const _interopRequireDefault = e.extension || e.ext || null;
           return t.type === n || (_interopRequireDefault && t.ext.toLowerCase() === _interopRequireDefault.toLowerCase());
         });

@@ -12,10 +12,10 @@ function (e, t, n) {
         n(10) /* AppSettings */,
       r = n(18) /* MenuItemBuilder */,
       s = n(31) /* GAction */,
-      l = n(119) /* module_119 */,
+      l = n(119) /* GCloudStorage */,
       c = n(448) /* GGravitCloudAction */,
       d = n(86) /* module_86 */,
-      u = n(163) /* module_163 */,
+      u = n(163) /* GDocument */,
       p = n(445) /* GSaveAsAction */,
       g = n(44) /* GSystemDialog */,
       h = i.find((e) => e.default).ext;

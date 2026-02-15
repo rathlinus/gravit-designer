@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     require(58) /* polyfill_Array_includes */, require(8) /* polyfill_bundle_ES6 */, require(71) /* polyfill_String_includes */;
-    const o = require(177) /* module_177 */,
+    const GUserModel = require(177) /* GUserModel */,
       i = require(805) /* module_805 */,
       { gApi: a } = require(10) /* AppSettings */,
       r = {};
@@ -15,18 +15,18 @@ function (exports, module, require) {
       delete r[e.user.getUID()];
     };
     function c(e) {
-      e instanceof o || (e = new o(e)),
+      e instanceof GUserModel || (e = new GUserModel(e)),
         (this._user = e),
         s || (gDesigner.addEventListener(i, l), (s = true));
     }
     (c.getUserDataFromAnnotAndUser = function (e, t) {
       const require = e.getProperty("uid");
-      let o = e.getProperty("name"),
+      let GUserModel = e.getProperty("name"),
         i = "";
       return (
         require === t.getUID() &&
-          ((o = t.getFirstName() || o), (i = t.getLastName() || "")),
-        { id: require, name: o, last_name: i }
+          ((GUserModel = t.getFirstName() || GUserModel), (i = t.getLastName() || "")),
+        { id: require, name: GUserModel, last_name: i }
       );
     }),
       (c.prototype.build = function (e) {
@@ -45,12 +45,12 @@ function (exports, module, require) {
               const t = await a
                 .getUser(e, true)
                 .catch(() => Promise.resolve(null));
-              r[e] = new o(t);
+              r[e] = new GUserModel(t);
             }
             return r[e];
-          })(this._user.getUID()).then((o) => {
-            o &&
-              (t = this._user.avatar || o.avatar) &&
+          })(this._user.getUID()).then((GUserModel) => {
+            GUserModel &&
+              (t = this._user.avatar || GUserModel.avatar) &&
               (t.includes("graph.microsoft.com") ||
               ("http" !== t.substr(0, 4) && "assets" !== t.substr(0, 6))
                 ? "<svg" === t.substr(0, 4) &&
@@ -63,7 +63,7 @@ function (exports, module, require) {
                         .addClass("svg")
                     )
                 : (this._user.hasOwnPictureAvatar() ||
-                    (!this._user.avatar && o.hasOwnPictureAvatar())) &&
+                    (!this._user.avatar && GUserModel.hasOwnPictureAvatar())) &&
                   require
                     .empty()
                     .append(

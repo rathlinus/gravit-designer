@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-15T12:34:25.542Z",
+  "timestamp": "2026-02-15T13:21:38.681Z",
   "filesProcessed": 1722,
   "requireCalls": {
     "total": 11430,
-    "resolved": 9866,
-    "unresolved": 1564,
-    "resolvedPercentage": 86
+    "resolved": 10233,
+    "unresolved": 1197,
+    "resolvedPercentage": 90
   }
 }
