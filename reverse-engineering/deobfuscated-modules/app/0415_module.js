@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(49) /* module_49 */,
-      i = n(27) /* module_27 */,
-      a = n(29) /* module_29 */,
-      r = n(21) /* module_21 */,
-      s = n(405) /* module_405 */,
-      l = n(404) /* module_404 */,
-      c = n(396) /* module_396 */,
-      d = n(93) /* module_93 */,
-      u = n(240) /* module_240 */,
+    var o = require(49) /* module_49 */,
+      i = require(27) /* module_27 */,
+      a = require(29) /* module_29 */,
+      r = require(21) /* module_21 */,
+      s = require(405) /* module_405 */,
+      l = require(404) /* module_404 */,
+      c = require(396) /* module_396 */,
+      d = require(93) /* module_93 */,
+      u = require(240) /* module_240 */,
       p = Object.assign,
       g = Object.defineProperty,
       h = i([].concat);
-    e.exports =
+    exports.exports =
       !p ||
       r(function () {
         if (
@@ -50,7 +50,7 @@ function (exports, module, require) {
       })
         ? function (e, t) {
             for (
-              var n = d(e), i = arguments.length, r = 1, p = l.f, g = c.f;
+              var require = d(e), i = arguments.length, r = 1, p = l.f, g = c.f;
               i > r;
 
             )
@@ -63,8 +63,8 @@ function (exports, module, require) {
                 v > _;
 
               )
-                (f = y[_++]), (o && !a(g, m, f)) || (n[f] = m[f]);
-            return n;
+                (f = y[_++]), (o && !a(g, m, f)) || (require[f] = m[f]);
+            return require;
           }
         : p;
   }

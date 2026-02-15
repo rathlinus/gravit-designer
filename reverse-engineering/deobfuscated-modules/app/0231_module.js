@@ -16,5 +16,5 @@ function (exports, module, require) {
         "undefined" != typeof WorkerGlobalScope &&
         self instanceof WorkerGlobalScope,
     };
-    e.exports = o;
+    exports.exports = o;
   }

@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     var i = {
       init: function (e) {
         e = $.extend({}, e);

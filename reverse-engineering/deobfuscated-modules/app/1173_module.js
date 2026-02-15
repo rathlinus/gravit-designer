@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(15) /* module_15 */,
-      a = o(n(85) /* GContainer */);
+    var o = require(16) /* module_16 */,
+      i = require(15) /* module */,
+      a = o(require(85) /* GContainer */);
     class r {
       static isSupported() {
         return (
@@ -30,5 +30,5 @@ function (exports, module, require) {
         return undefined !== window.BeforeInstallPromptEvent;
       }
     }
-    e.exports = r;
+    exports.exports = r;
   }

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */;
+    require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */;
     var i = {
       init: function (e) {
         e = $.extend({}, e);
-        const t = [
+        const module = [
           {
             group: null,
             options: [
@@ -199,17 +199,17 @@ function (exports, module, require) {
         ];
         return this.each(function () {
           const e = $(this);
-          for (let n = 0; n < t.length; ++n) {
+          for (let require = 0; require < module.length; ++require) {
             let o = e;
-            const { group: i, options: a } = t[n];
+            const { group: i, options: a } = module[require];
             i &&
               ((o = $('<optgroup label="' + i + '"></optgroup>')), e.append(o)),
               a.forEach((e) => {
-                let { type: t, name: n, isCompatible: i } = e;
+                let { type: module, name: require, isCompatible: i } = e;
                 o.append(
                   $("<option></option>")
-                    .attr("value", t)
-                    .text("".concat(n).concat(i ? "" : " *"))
+                    .attr("value", module)
+                    .text("".concat(require).concat(i ? "" : " *"))
                 );
               });
           }

@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(31) /* GAction */),
-      s = o(n(18) /* module_18 */);
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(31) /* GAction */),
+      s = o(require(18) /* module_18 */);
     class l extends r.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(),
           (this._type = e),
           (this._title = new i.GLocaleKey(
@@ -33,20 +33,20 @@ function (exports, module, require) {
         return false;
       }
       getShortcut() {
-        const e = [a.GKey.Constant.OPTION];
+        const exports = [a.GKey.Constant.OPTION];
         switch (this._type) {
           case l.Type.Next:
-            return e.concat(a.GKey.Constant.PERIOD);
+            return exports.concat(a.GKey.Constant.PERIOD);
           case l.Type.Previous:
-            return e.concat(a.GKey.Constant.COMMA);
+            return exports.concat(a.GKey.Constant.COMMA);
           default:
             return null;
         }
       }
       isEnabled() {
-        const e = gDesigner.getWindows(),
-          t = e && e.getWindows();
-        return t && t.length > 1;
+        const exports = gDesigner.getWindows(),
+          module = exports && exports.getWindows();
+        return module && module.length > 1;
       }
       execute() {
         if (this.isEnabled()) {
@@ -56,23 +56,23 @@ function (exports, module, require) {
         }
       }
       _getNextWindowAccordingToType(e) {
-        const t = e.getWindows(),
-          n = e && e.getActiveWindow(),
-          o = t.findIndex((e) => e === n);
+        const module = e.getWindows(),
+          require = e && e.getActiveWindow(),
+          o = module.findIndex((e) => e === require);
         switch (this._type) {
           case l.Type.Next:
-            return o === t.length - 1 ? t[0] : t[o + 1];
+            return o === module.length - 1 ? module[0] : module[o + 1];
           case l.Type.Previous:
-            return 0 === o ? t[t.length - 1] : t[o - 1];
+            return 0 === o ? module[module.length - 1] : module[o - 1];
           default:
             return null;
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GChangeActiveWindowAction]";
       }
     }
     (l.ID = "view.change-active-window"),
       (l.Type = { Next: "next", Previous: "previous" }),
-      (e.exports = l);
+      (exports.exports = l);
   }

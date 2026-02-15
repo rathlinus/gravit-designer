@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(110) /* module_110 */;
-    e.exports = o("document", "documentElement");
+    var o = require(110) /* module_110 */;
+    exports.exports = o("document", "documentElement");
   }

@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
@@ -52,13 +52,13 @@ function (exports, module, require) {
             : null,
           t = false;
         if (e)
-          for (var n = 0; !t && n < e.length; ++n)
+          for (var require = 0; !t && require < e.length; ++require)
             if (
-              !(e[n] instanceof o.GImage) &&
-              e[n].hasMixin(o.GVertexSource) &&
-              e[n].hasMixin(o.GStylable)
+              !(e[require] instanceof o.GImage) &&
+              e[require].hasMixin(o.GVertexSource) &&
+              e[require].hasMixin(o.GStylable)
             ) {
-              var i = e[n].getPaintLayers(),
+              var i = e[require].getPaintLayers(),
                 a = i ? i.getBorderLayers(true) : null;
               t = a && a.length >= 1;
             }
@@ -167,5 +167,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GVectorizeBorderAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

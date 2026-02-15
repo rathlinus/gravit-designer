@@ -6,10 +6,10 @@
 function (e, t, n) {
     "use strict";
     n(58) /* module_58 */, n(19) /* module_19 */, n(71) /* module_71 */, n(91) /* module_91 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(15) /* module_15 */,
+    var o = n(15) /* module */,
       i = n(882) /* module_882 */;
     const a = n(44) /* GSystemDialog */,
-      { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = n(1) /* module_1 */,
+      { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = n(1) /* module */,
       u = n(1191) /* module_1191 */,
       { getAnnotationType: p } = n(40) /* module_40 */;
     n(85) /* GContainer */;

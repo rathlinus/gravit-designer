@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(31) /* GAction */,
-      a = n(18) /* module_18 */;
-    const r = n(44) /* GSystemDialog */,
-      s = n(119) /* module_119 */;
+    require(8) /* module_8 */, require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(31) /* GAction */,
+      a = require(18) /* module_18 */;
+    const r = require(44) /* GSystemDialog */,
+      s = require(119) /* module_119 */;
     function l() {}
     o.GObject.inherit(l, i),
       (l.ID = "use-coupon-action"),
@@ -30,11 +30,11 @@ function (exports, module, require) {
       }),
       (l.prototype.isVisible = function () {
         if (!gDesigner.isInAppPurchaseAllowed()) return false;
-        const e = gDesigner.getLicense(),
-          t = !(e.isPro() && !e.isExpired()),
-          n = !gDesigner.isAnonymous(),
-          o = !e.isGuest();
-        return t && n && o;
+        const exports = gDesigner.getLicense(),
+          module = !(exports.isPro() && !exports.isExpired()),
+          require = !gDesigner.isAnonymous(),
+          o = !exports.isGuest();
+        return module && require && o;
       }),
       (l.prototype.execute = function () {
         r.prompt(
@@ -54,5 +54,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GUseCouponAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

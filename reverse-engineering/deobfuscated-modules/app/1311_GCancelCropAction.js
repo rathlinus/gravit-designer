@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(18) /* module_18 */,
-      r = (n(31) /* GAction */, n(106) /* GElementAction */);
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(18) /* module_18 */,
+      r = (require(31) /* GAction */, require(106) /* GElementAction */);
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "modify.cancel-crop"),
@@ -34,15 +34,15 @@ function (exports, module, require) {
         if (!r.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor(),
-            n = t.getIndividualSelection();
+          var module = e.getEditor(),
+            require = module.getIndividualSelection();
           if (
-            n &&
-            n.length &&
-            n[0] instanceof o.GImage &&
-            t.hasSelectionDetail()
+            require &&
+            require.length &&
+            require[0] instanceof o.GImage &&
+            module.hasSelectionDetail()
           )
-            return n[0].isReady();
+            return require[0].isReady();
         }
         return false;
       }),
@@ -74,5 +74,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GCancelCropAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

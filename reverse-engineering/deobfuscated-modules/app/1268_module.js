@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.cropImage = function (e, t) {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.cropImage = function (e, t) {
         if (!(e instanceof o.GImage)) return;
         t &&
           a.GEditor.tryRunTransaction(
@@ -25,7 +25,7 @@ function (exports, module, require) {
             n.getActiveTool().setEditMode(a.GSelectTool.EditMode.Select))
           : n.activateTool(a.GSubSelectTool, null, true);
       }),
-      (t.replaceImage = function (e, t) {
+      (module.replaceImage = function (e, t) {
         if (!(e instanceof o.GImage)) return;
         var n = n || t.getStorage() || gDesigner.getDefaultStorage();
         if (n && n.canPromptOpen()) {
@@ -124,7 +124,7 @@ function (exports, module, require) {
           );
         }
       }),
-      (t.setOriginSize = function (e) {
+      (module.setOriginSize = function (e) {
         if (!(e instanceof o.GImage)) return;
         a.GEditor.tryRunTransaction(
           e,
@@ -143,8 +143,8 @@ function (exports, module, require) {
           )
         );
       });
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(53) /* module_53 */,
-      r = (n(1267) /* module_1267 */, n(123) /* GProperties */, n(173) /* module_173 */, n(219) /* module_219 */);
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(53) /* module */,
+      r = (require(1267) /* module_1267 */, require(123) /* GProperties */, require(173) /* module_173 */, require(219) /* module_219 */);
   }

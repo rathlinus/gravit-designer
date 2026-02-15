@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(123) /* GProperties */,
-      a = n(1160) /* GAppearanceProperties */;
+    require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(123) /* GProperties */,
+      a = require(1160) /* GAppearanceProperties */;
     function r() {}
     o.GObject.inherit(r, i),
       (r.prototype._panel = null),
@@ -139,8 +139,8 @@ function (exports, module, require) {
           (this._elements = []),
           e && t)
         ) {
-          for (var n = 0; n < t.length; ++n) {
-            var i = t[n];
+          for (var require = 0; require < t.length; ++require) {
+            var i = t[require];
             if (
               i.getParent() &&
               i.getParent() instanceof o.GCompoundShape &&
@@ -190,5 +190,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GBoolOpProperties]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

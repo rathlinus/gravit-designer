@@ -5,26 +5,26 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var i = n(10) /* module_10 */,
-      a = n(1) /* module_1 */,
-      r = o(n(1187) /* module_1187 */);
+    var o = require(16) /* module_16 */;
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    var i = require(10) /* module_10 */,
+      a = require(1) /* module */,
+      r = o(require(1187) /* module_1187 */);
     class s extends i.GReminderDialog.Impl {
       open(e) {
-        let { dialog: t } = e;
-        this._dialog = t
+        let { dialog: module } = e;
+        this._dialog = module
           .getHTMLElement()
           .gDialog({ releaseOnClose: true, nowrap: true })
           .gDialog("open");
       }
       async openPurchaseFlow(e) {
-        let { dialog: t, options: n = {} } = e;
-        await gDesigner.openPaymentDialog(null, n).catch(() => null);
+        let { dialog: module, options: require = {} } = e;
+        await gDesigner.openPaymentDialog(null, require).catch(() => null);
       }
       openExternalLink(e) {
-        let { link: t } = e;
-        gContainer.openExternalLink(null, t);
+        let { link: module } = e;
+        gContainer.openExternalLink(null, module);
       }
       close() {
         this._dialog.gDialog("close");
@@ -38,12 +38,12 @@ function (exports, module, require) {
         });
       }
       getLicense() {
-        let e = gDesigner.getLicense();
+        let exports = gDesigner.getLicense();
         return Promise.resolve({
-          license: e._license,
-          expire: e._expire,
-          created: e._created,
-          legacy: e._legacy,
+          license: exports._license,
+          expire: exports._expire,
+          created: exports._created,
+          legacy: exports._legacy,
         });
       }
       getLanguage() {
@@ -51,29 +51,29 @@ function (exports, module, require) {
       }
     }
     class l extends r.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(), (this._dialogOptions = e);
       }
       async open() {
-        const e = new s(),
-          t = Object.assign(this._dialogOptions, { impl: e });
+        const exports = new s(),
+          module = Object.assign(this._dialogOptions, { impl: exports });
         switch (this._dialogOptions.endpoint) {
           case "/pro/reminder/proexpiresoon":
-            (await i.GReminderDialogFactory.newProExpireSoon(t)).open();
+            (await i.GReminderDialogFactory.newProExpireSoon(module)).open();
             break;
           case "/pro/reminder/proexpired":
-            (await i.GReminderDialogFactory.newProExpired(t)).open();
+            (await i.GReminderDialogFactory.newProExpired(module)).open();
             break;
           case "/pro/reminder/trialexpired":
-            (await i.GReminderDialogFactory.newTrialExpired(t)).open();
+            (await i.GReminderDialogFactory.newTrialExpired(module)).open();
             break;
           case "/pro/reminder/trialmessage":
-            (await i.GReminderDialogFactory.newTrialMessage(t)).open();
+            (await i.GReminderDialogFactory.newTrialMessage(module)).open();
             break;
           case "/pro/reminder/upgrade":
-            (await i.GReminderDialogFactory.newUpgradeScreen(t)).open();
+            (await i.GReminderDialogFactory.newUpgradeScreen(module)).open();
         }
       }
     }
-    e.exports = l;
+    exports.exports = l;
   }

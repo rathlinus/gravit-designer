@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     var o, i, a;
-    (i = [n(171) /* module_171 */, n(1519) /* module_1519 */, n(1520) /* module_1520 */, n(1257) /* module_1257 */, n(1259) /* module_1259 */, n(605) /* module_605 */, n(1258) /* module_1258 */]),
+    (i = [require(171) /* module_171 */, require(1519) /* module_1519 */, require(1520) /* module_1520 */, require(1257) /* module_1257 */, require(1259) /* module_1259 */, require(605) /* module_605 */, require(1258) /* module_1258 */]),
       undefined ===
         (a =
           "function" ==
@@ -355,19 +355,19 @@ function (exports, module, require) {
                           "ui-sortable-helper"
                         ))
                       : this.currentItem.show();
-                  for (var t = this.containers.length - 1; t >= 0; t--)
-                    this.containers[t]._trigger(
+                  for (var module = this.containers.length - 1; module >= 0; module--)
+                    this.containers[module]._trigger(
                       "deactivate",
                       null,
                       this._uiHash(this)
                     ),
-                      this.containers[t].containerCache.over &&
-                        (this.containers[t]._trigger(
+                      this.containers[module].containerCache.over &&
+                        (this.containers[module]._trigger(
                           "out",
                           null,
                           this._uiHash(this)
                         ),
-                        (this.containers[t].containerCache.over = 0));
+                        (this.containers[module].containerCache.over = 0));
                 }
                 return (
                   this.placeholder &&
@@ -567,8 +567,8 @@ function (exports, module, require) {
                   ":data(" + this.widgetName + "-item)"
                 );
                 this.items = e.grep(this.items, function (e) {
-                  for (var n = 0; n < t.length; n++)
-                    if (t[n] === e.item[0]) return false;
+                  for (var require = 0; require < t.length; require++)
+                    if (t[require] === e.item[0]) return false;
                   return true;
                 });
               },
@@ -1243,6 +1243,6 @@ function (exports, module, require) {
               },
             });
           })
-            ? o.apply(t, i)
-            : o) || (e.exports = a);
+            ? o.apply(module, i)
+            : o) || (exports.exports = a);
   }

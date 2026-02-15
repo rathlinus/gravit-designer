@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(237) /* module_237 */,
-      a = n(156) /* module_156 */;
+    require(8) /* module_8 */, require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(237) /* module_237 */,
+      a = require(156) /* module_156 */;
     function r() {}
     o.GObject.inherit(r, i),
       (r.Item = function (e, t) {
@@ -57,12 +57,12 @@ function (exports, module, require) {
           (this._filename = e.name);
       }),
       (r.Item.prototype.getFile = function () {
-        const e = this._file;
+        const exports = this._file;
         return (
-          !e.settings &&
+          !exports.settings &&
             this._client &&
-            (e.settings = this._client.getSettings()),
-          e
+            (exports.settings = this._client.getSettings()),
+          exports
         );
       }),
       (r.Item.prototype.hasFileSettings = function () {
@@ -113,5 +113,5 @@ function (exports, module, require) {
       (r.Item.prototype.toString = function () {
         return "[Object GExternalStorage.Item]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

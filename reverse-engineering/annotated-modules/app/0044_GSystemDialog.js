@@ -18,8 +18,8 @@ function (e, t, n) {
       n(38) /* module_38 */,
       n(33) /* module_33 */,
       n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
+    var o = n(1) /* module */,
+      i = n(15) /* module */;
     class a {
       static error(e) {
         let { showTitle: t = !0, closeCallback: n } =

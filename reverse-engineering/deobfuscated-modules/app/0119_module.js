@@ -5,56 +5,56 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(40) /* module_40 */,
-      s = n(845) /* module_845 */;
-    const l = n(1092) /* module_1092 */;
-    var c = n(78) /* GDocumentEvent */,
-      d = n(44) /* GSystemDialog */;
-    const u = n(1093) /* module_1093 */;
-    var p = n(85) /* GContainer */,
-      g = n(219) /* module_219 */,
-      h = n(358) /* module_358 */;
-    const f = n(86) /* module_86 */,
-      m = (n(156) /* module_156 */, n(256) /* GOfflineDialog */),
-      y = n(337) /* module_337 */,
-      v = n(435) /* Md5 */,
-      _ = n(165) /* module_165 */;
+    require(19) /* module_19 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var o = require(10) /* module_10 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(845) /* module_845 */;
+    const l = require(1092) /* module_1092 */;
+    var c = require(78) /* GDocumentEvent */,
+      d = require(44) /* GSystemDialog */;
+    const u = require(1093) /* module_1093 */;
+    var p = require(85) /* GContainer */,
+      g = require(219) /* module_219 */,
+      h = require(358) /* module_358 */;
+    const f = require(86) /* module_86 */,
+      m = (require(156) /* module_156 */, require(256) /* GOfflineDialog */),
+      y = require(337) /* module_337 */,
+      v = require(435) /* Md5 */,
+      _ = require(165) /* module_165 */;
     var b = o.FILE_FORMATS.find((e) => e.default),
       w = o.FILE_FORMATS.filter((e) => e.secondary),
       C = o.FOLDER_FORMAT;
-    const x = n(555) /* module_555 */,
+    const x = require(555) /* module_555 */,
       S = 10,
       E = 80,
       A = 90,
       T = 100;
     class G {
       static convertToCloudItem(e) {
-        const t = (e) => l.createFrom(e);
-        return e instanceof Array ? e.map(t) : t(e);
+        const module = (e) => l.createFrom(e);
+        return e instanceof Array ? e.map(module) : module(e);
       }
       static _getAuthorizationToken() {
         return null;
@@ -118,11 +118,11 @@ function (exports, module, require) {
         });
       }
       static resolveImage(e, t) {
-        function n(e, t) {
-          let n = e.url,
+        function require(e, t) {
+          let require = e.url,
             o = e.scene;
           if (o && o.isReleased()) return false;
-          let r = o && o.getDictionary() && o.getDictionary().getEntry(n);
+          let r = o && o.getDictionary() && o.getDictionary().getEntry(require);
           return (
             !r ||
             !/^data:.{0,255};base64,/i.exec(r.value) ||
@@ -142,18 +142,18 @@ function (exports, module, require) {
               e.scene &&
               e.scene.getDictionary() &&
               e.scene.getDictionary().getEntry(r);
-          if (n(e))
+          if (require(e))
             if ("string" == typeof r && r.startsWith("123rf://")) {
               var l = r.slice(8),
                 c = "ec23d185aa5ffb6495e02635803bb081";
               (function (e) {
                 var t = "https://www.123rfapis.com/?method=download&id=" + e;
                 t += "&dl_type=png";
-                const n = Math.floor(Date.now() / 1e3);
-                t += "&current_time=" + n;
+                const require = Math.floor(Date.now() / 1e3);
+                t += "&current_time=" + require;
                 var o = (function (e, t, n) {
                   return v(c + "759561ac90761219f6415da66f18a154" + e + t + n);
-                })(e, "png", n);
+                })(e, "png", require);
                 return (
                   (t += "&sign=" + o),
                   (t += "&api_key=" + c),
@@ -301,13 +301,13 @@ function (exports, module, require) {
                   });
             }
           function u(t, o, r, s, l) {
-            if (!n(e)) return;
+            if (!require(e)) return;
             const c = new Image();
             c.crossOrigin = "Anonymous";
             o && (c.width = o),
               r && (c.height = r),
               (c.onload = function () {
-                if (!n(e)) return void (c.onload = null);
+                if (!require(e)) return void (c.onload = null);
                 const t = document.createElement("CANVAS"),
                   d = t.getContext("2d");
                 l &&
@@ -733,14 +733,14 @@ function (exports, module, require) {
         );
       }
       static getRecentStorageItems() {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : o.FILE_FORMATS;
         var t = this;
         return new Promise((n, i) => {
           !(async function () {
-            const a = e.map((e) => e.type).join("|");
+            const a = exports.map((e) => e.type).join("|");
             try {
               if (t.isOnline()) {
                 var r = await o.gApi.listFiles({
@@ -763,9 +763,9 @@ function (exports, module, require) {
           t = _.ungzip(e, { to: "string" });
         } catch (a) {
           if ("undefined" == typeof TextDecoder && e.length > 1e7) {
-            for (var n = [], o = e.length, i = 0; i < o; i += 32768)
-              n.push(String.fromCharCode.apply(null, e.subarray(i, i + 32768)));
-            t = n.join("");
+            for (var require = [], o = e.length, i = 0; i < o; i += 32768)
+              require.push(String.fromCharCode.apply(null, e.subarray(i, i + 32768)));
+            t = require.join("");
           } else
             try {
               t =
@@ -779,23 +779,23 @@ function (exports, module, require) {
         return t;
       }
       static resendEmailConfirmation(e) {
-        let t, n;
+        let module, require;
         if (gContainer.getRuntime() === p.Runtime.Electron) {
           const e = gContainer.getPlatform();
-          ("darwin" !== e && "win32" !== e) || (t = "designer://"),
-            (n = gDesigner.getAssetsURL());
-        } else n = location.origin;
+          ("darwin" !== e && "win32" !== e) || (module = "designer://"),
+            (require = gDesigner.getAssetsURL());
+        } else require = location.origin;
         return o.gApi
           .resendEmailConfirmation({
-            appUrl: t,
-            webUrl: n,
+            appUrl: module,
+            webUrl: require,
             email: e.getEmail(),
             force: true,
             origin: location.origin,
           })
           .then(() => {
             let e = {},
-              t = new Promise((t) => (e.resolve = t));
+              module = new Promise((t) => (e.resolve = t));
             return (
               d.custom({
                 title: i.GLocale.get(
@@ -807,7 +807,7 @@ function (exports, module, require) {
                 icon: "ok",
                 closeCallback: () => e.resolve(),
               }),
-              t
+              module
             );
           })
           .catch((e) =>
@@ -868,7 +868,7 @@ function (exports, module, require) {
                   d.alert(e)
                 );
               case o.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_ACTIVE:
-                const { nextBillingDate: t } =
+                const { nextBillingDate: module } =
                   await o.gApi.subscription.getNextBillingDate();
                 return d.alert(
                   i.GLocale.get(
@@ -876,7 +876,7 @@ function (exports, module, require) {
                       "GCloudUtil",
                       "text.err-subscription-is-active"
                     )
-                  ).replace("%date", o.DateAPI.format(t))
+                  ).replace("%date", o.DateAPI.format(module))
                 );
               case o.gApi.ERROR_CODES.ERR_SUBSCRIPTION_IS_NOT_EXPIRED:
                 return d.alert(
@@ -904,5 +904,5 @@ function (exports, module, require) {
         }
       }
     }
-    e.exports = G;
+    exports.exports = G;
   }

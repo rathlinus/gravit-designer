@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
     function i() {}
     o.GObject.inherit(i, o.GEventTarget),
       (i.UpdateEvent = function () {}),
@@ -34,5 +34,5 @@ function (exports, module, require) {
       (i.prototype.toString = function () {
         return "[Object GView]";
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

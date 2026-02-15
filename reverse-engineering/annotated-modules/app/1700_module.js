@@ -6,14 +6,14 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(40) /* module_40 */,
       a = n(255) /* module_255 */,
       r = n(1118) /* module_1118 */,
       s = n(1199) /* module_1199 */,
       l = n(85) /* GContainer */,
       c = n(44) /* GSystemDialog */;
-    const { GPlatform: d } = n(15) /* module_15 */;
+    const { GPlatform: d } = n(15) /* module */;
     function u() {}
     o.GObject.inheritAndMix(u, o.GObject),
       (u.DISABLE_LOCAL_FONTS_ACCESS_WARING =

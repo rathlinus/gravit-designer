@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(23) /* module_23 */.RegExp;
-    e.exports = o(function () {
+    var o = require(21) /* module_21 */,
+      i = require(23) /* module_23 */.RegExp;
+    exports.exports = o(function () {
       var e = i(".", "s");
       return !(e.dotAll && e.test("\n") && "s" === e.flags);
     });

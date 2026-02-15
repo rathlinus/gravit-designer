@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const o = n(1117) /* module_1117 */.saveAs;
+    require(8) /* module_8 */;
+    const o = require(1117) /* module_1117 */.saveAs;
     function i() {}
     (i.prototype.download = async function () {
       let {
-        buffer: e,
-        name: t,
-        extension: n,
+        buffer: exports,
+        name: module,
+        extension: require,
         mime: i,
       } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-      o(new Blob([e], i), "".concat(t, ".").concat(n));
+      o(new Blob([exports], i), "".concat(module, ".").concat(require));
     }),
-      (e.exports = i);
+      (exports.exports = i);
   }

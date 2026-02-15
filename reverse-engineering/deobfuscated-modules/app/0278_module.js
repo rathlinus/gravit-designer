@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */;
-    var o = n(29) /* module_29 */,
-      i = n(79) /* module_79 */,
-      a = n(306) /* module_306 */,
-      r = n(21) /* module_21 */,
-      s = n(43) /* module_43 */,
-      l = n(100) /* module_100 */,
+    require(20) /* module_20 */;
+    var o = require(29) /* module_29 */,
+      i = require(79) /* module_79 */,
+      a = require(306) /* module_306 */,
+      r = require(21) /* module_21 */,
+      s = require(43) /* module_43 */,
+      l = require(100) /* module_100 */,
       c = s("species"),
       d = RegExp.prototype;
-    e.exports = function (e, t, n, u) {
+    exports.exports = function (e, t, n, u) {
       var p = s(e),
         g = !r(function () {
           var t = {};

@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
-      i = n(348) /* module_348 */,
-      a = n(35) /* module_35 */,
-      r = n(116) /* module_116 */,
-      s = n(62) /* module_62 */,
+    var o = require(27) /* module_27 */,
+      i = require(348) /* module_348 */,
+      a = require(35) /* module_35 */,
+      r = require(116) /* module_116 */,
+      s = require(62) /* module_62 */,
       l = o([].push);
-    e.exports = function (e) {
+    exports.exports = function (e) {
       if (a(e)) return e;
       if (i(e)) {
-        for (var t = e.length, n = [], o = 0; o < t; o++) {
+        for (var module = e.length, require = [], o = 0; o < module; o++) {
           var c = e[o];
           "string" == typeof c
-            ? l(n, c)
+            ? l(require, c)
             : ("number" != typeof c &&
                 "Number" !== r(c) &&
                 "String" !== r(c)) ||
-              l(n, s(c));
+              l(require, s(c));
         }
-        var d = n.length,
+        var d = require.length,
           u = true;
         return function (e, t) {
           if (u) return (u = false), t;
           if (i(this)) return t;
-          for (var o = 0; o < d; o++) if (n[o] === e) return t;
+          for (var o = 0; o < d; o++) if (require[o] === e) return t;
         };
       }
     };

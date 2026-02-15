@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     (function (e) {
-      n.d(t, "a", function () {
+      require.d(module, "a", function () {
         return o;
       });
       var o = function () {
@@ -20,5 +20,5 @@ function (exports, module, require) {
           ? e
           : undefined;
       };
-    }).call(this, n(109) /* module_109 */);
+    }).call(this, require(109) /* module_109 */);
   }

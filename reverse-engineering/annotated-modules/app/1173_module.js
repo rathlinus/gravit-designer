@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */,
-      i = n(15) /* module_15 */,
+      i = n(15) /* module */,
       a = o(n(85) /* GContainer */);
     class r {
       static isSupported() {

@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = (n(15) /* module_15 */, n(18) /* module_18 */),
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = (require(15) /* module */, require(18) /* module_18 */),
+      r = require(106) /* GElementAction */;
     function s() {
       this._title = new i.GLocaleKey("GEditElementActon", "title");
     }
@@ -53,8 +53,8 @@ function (exports, module, require) {
           )
             t = true;
           else
-            for (var n = 0; n < e.length; ++n)
-              e[n] instanceof i.GText && (t = true);
+            for (var require = 0; require < e.length; ++require)
+              e[require] instanceof i.GText && (t = true);
         return t;
       }),
       (s.prototype.execute = function (e) {
@@ -70,9 +70,9 @@ function (exports, module, require) {
               : null)) &&
           e.length > 0
         ) {
-          for (var n = 0; n < e.length && !t; ++n)
-            if (e[n] instanceof i.GText) {
-              var a = e[n].getGeometryBBox(),
+          for (var require = 0; require < e.length && !t; ++require)
+            if (e[require] instanceof i.GText) {
+              var a = e[require].getGeometryBBox(),
                 r = gDesigner.getWindows().getActiveWindow(),
                 s = r ? r.getView() : null;
               a &&
@@ -80,7 +80,7 @@ function (exports, module, require) {
                 (t = gDesigner
                   .getActiveDocument()
                   .getEditor()
-                  .openInlineEditor(e[n], s, new i.GPoint(a.getX(), a.getY())));
+                  .openInlineEditor(e[require], s, new i.GPoint(a.getX(), a.getY())));
             }
           t ||
             gDesigner.getToolManager().getActiveTool() ==
@@ -91,5 +91,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GEditElementActon]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

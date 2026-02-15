@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(193) /* module_193 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     function i() {}
     i.prototype.OPACITY_DEFAULT = {
       min: 0,

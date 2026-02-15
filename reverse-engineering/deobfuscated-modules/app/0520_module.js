@@ -13,5 +13,5 @@ function (exports, module, require) {
       OneDriveBusinessNative: 4,
     }),
       (o.SecurityLevel = { Lowest: 0, Highest: 1 }),
-      (e.exports = o);
+      (exports.exports = o);
   }

@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(29) /* module_29 */,
-      a = n(152) /* module_152 */,
-      r = n(101) /* module_101 */,
-      s = n(428) /* module_428 */,
-      l = n(93) /* module_93 */,
-      c = n(21) /* module_21 */,
+    var o = require(23) /* module_23 */,
+      i = require(29) /* module_29 */,
+      a = require(152) /* module_152 */,
+      r = require(101) /* module_101 */,
+      s = require(428) /* module_428 */,
+      l = require(93) /* module_93 */,
+      c = require(21) /* module_21 */,
       d = o.RangeError,
       u = o.Int8Array,
       p = u && u.prototype,

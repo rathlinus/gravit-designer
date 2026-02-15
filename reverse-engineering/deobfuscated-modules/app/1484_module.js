@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */;
-    var i = o(n(176) /* GSystem */),
-      a = n(1) /* module_1 */,
-      r = o(n(1242) /* module_1242 */),
-      s = o(n(44) /* GSystemDialog */),
-      l = o(n(443) /* module_443 */),
-      c = n(1243) /* module_1243 */;
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */;
+    var i = o(require(176) /* GSystem */),
+      a = require(1) /* module */,
+      r = o(require(1242) /* module_1242 */),
+      s = o(require(44) /* GSystemDialog */),
+      l = o(require(443) /* module_443 */),
+      c = require(1243) /* module_1243 */;
     const { isPrivateChat: d, isTeamsChannel: u } = l.default;
     function p(e) {
       if ("function" != typeof e)
@@ -32,16 +32,16 @@ function (exports, module, require) {
               )
             )
           );
-        const e = [c.MS_TEAMS_COMMAND];
+        const exports = [c.MS_TEAMS_COMMAND];
         (await d())
-          ? e.push(c.ONE_DRIVE_BUSINESS_COMMAND)
-          : (await u()) && e.push(c.SHAREPOINT_COMMAND),
+          ? exports.push(c.ONE_DRIVE_BUSINESS_COMMAND)
+          : (await u()) && exports.push(c.SHAREPOINT_COMMAND),
           r.default
             .getInstance()
-            .authenticate(e)
+            .authenticate(exports)
             .then(() => {
               this._callback();
             });
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

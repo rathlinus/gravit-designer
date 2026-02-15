@@ -6,16 +6,16 @@
 function (exports, module, require) {
     "use strict";
     function o() {
-      for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++)
-        t[n] = arguments[n];
-      t && this._updateFromArguments(t);
+      for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
+        module[require] = arguments[require];
+      module && this._updateFromArguments(module);
     }
-    n(19) /* module_19 */,
-      n(26) /* module_26 */,
+    require(19) /* module_19 */,
+      require(26) /* module_26 */,
       (o.prototype._updateFromArguments = function () {
-        for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++)
-          t[n] = arguments[n];
-        const o = new Map(...t);
+        for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
+          module[require] = arguments[require];
+        const o = new Map(...module);
         var i = false;
         const a = 0,
           r = 1,
@@ -45,5 +45,5 @@ function (exports, module, require) {
         return Object.isFrozen(this);
       }),
       Object.freeze(o.prototype),
-      (e.exports = o);
+      (exports.exports = o);
   }

@@ -8,9 +8,9 @@ function (exports, module, require) {
     function o(e) {
       this._providerManager = e;
     }
-    n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
+    require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
       (o.Errors = { UnknownError: 0, ConnectionError: 1 }),
       (o.prototype._providerManager = null),
       (o.prototype._enabled = true),
@@ -65,5 +65,5 @@ function (exports, module, require) {
         }
         return r;
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

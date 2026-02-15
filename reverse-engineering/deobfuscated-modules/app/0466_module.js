@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(94) /* module_94 */,
-      i = n(310) /* module_310 */,
-      a = n(311) /* module_311 */,
-      r = n(467) /* module_467 */,
-      s = n(468) /* module_468 */;
+    var o = require(94) /* module_94 */,
+      i = require(310) /* module_310 */,
+      a = require(311) /* module_311 */,
+      r = require(467) /* module_467 */,
+      s = require(468) /* module_468 */;
     function l(e) {
       return (
         ((e >>> 24) & 255) +
@@ -112,14 +112,14 @@ function (exports, module, require) {
       m = true;
     function y(e) {
       if (m) {
-        var t;
-        for (h = new o.Buf32(512), f = new o.Buf32(32), t = 0; t < 144; )
-          e.lens[t++] = 8;
-        for (; t < 256; ) e.lens[t++] = 9;
-        for (; t < 280; ) e.lens[t++] = 7;
-        for (; t < 288; ) e.lens[t++] = 8;
-        for (s(1, e.lens, 0, 288, h, 0, e.work, { bits: 9 }), t = 0; t < 32; )
-          e.lens[t++] = 5;
+        var module;
+        for (h = new o.Buf32(512), f = new o.Buf32(32), module = 0; module < 144; )
+          e.lens[module++] = 8;
+        for (; module < 256; ) e.lens[module++] = 9;
+        for (; module < 280; ) e.lens[module++] = 7;
+        for (; module < 288; ) e.lens[module++] = 8;
+        for (s(1, e.lens, 0, 288, h, 0, e.work, { bits: 9 }), module = 0; module < 32; )
+          e.lens[module++] = 5;
         s(2, e.lens, 0, 32, f, 0, e.work, { bits: 5 }), (m = false);
       }
       (e.lencode = h), (e.lenbits = 9), (e.distcode = f), (e.distbits = 5);
@@ -149,14 +149,14 @@ function (exports, module, require) {
         0
       );
     }
-    (t.inflateReset = u),
-      (t.inflateReset2 = p),
-      (t.inflateResetKeep = d),
-      (t.inflateInit = function (e) {
+    (module.inflateReset = u),
+      (module.inflateReset2 = p),
+      (module.inflateResetKeep = d),
+      (module.inflateInit = function (e) {
         return g(e, 15);
       }),
-      (t.inflateInit2 = g),
-      (t.inflate = function (e, t) {
+      (module.inflateInit2 = g),
+      (module.inflate = function (e, t) {
         var n,
           c,
           d,
@@ -817,12 +817,12 @@ function (exports, module, require) {
               L)
         );
       }),
-      (t.inflateEnd = function (e) {
+      (module.inflateEnd = function (e) {
         if (!e || !e.state) return -2;
         var t = e.state;
         return t.window && (t.window = null), (e.state = null), 0;
       }),
-      (t.inflateGetHeader = function (e, t) {
+      (module.inflateGetHeader = function (e, t) {
         var n;
         return e && e.state
           ? 0 == (2 & (n = e.state).wrap)
@@ -830,7 +830,7 @@ function (exports, module, require) {
             : ((n.head = t), (t.done = false), 0)
           : -2;
       }),
-      (t.inflateSetDictionary = function (e, t) {
+      (module.inflateSetDictionary = function (e, t) {
         var n,
           o = t.length;
         return e && e.state
@@ -843,5 +843,5 @@ function (exports, module, require) {
             : ((n.havedict = 1), 0)
           : -2;
       }),
-      (t.inflateInfo = "pako inflate (from Nodeca project)");
+      (module.inflateInfo = "pako inflate (from Nodeca project)");
   }

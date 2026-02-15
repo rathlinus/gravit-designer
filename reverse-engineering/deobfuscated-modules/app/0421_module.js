@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       CSSRuleList: 0,
       CSSStyleDeclaration: 0,
       CSSValueList: 0,

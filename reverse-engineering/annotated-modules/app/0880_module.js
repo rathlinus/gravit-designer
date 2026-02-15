@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(15) /* module_15 */;
+    var o = n(15) /* module */;
     e.exports = class {
       canActivate() {
         return !1;

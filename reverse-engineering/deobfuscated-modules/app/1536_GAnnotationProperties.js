@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(19) /* module_19 */, n(8) /* module_8 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = o(n(358) /* module_358 */),
-      s = n(123) /* GProperties */;
-    const l = n(393) /* GCollaborationEvent */,
-      c = n(392) /* module_392 */,
-      d = n(1165) /* module_1165 */,
-      u = n(135) /* GSettingChangedEvent */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(19) /* module_19 */, require(8) /* module_8 */, require(3) /* module_3 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = o(require(358) /* module_358 */),
+      s = require(123) /* GProperties */;
+    const l = require(393) /* GCollaborationEvent */,
+      c = require(392) /* module_392 */,
+      d = require(1165) /* module_1165 */,
+      u = require(135) /* GSettingChangedEvent */;
     function p(e, t, n, o, i, a, r, s) {
       (this._elements = []),
         (this._availableProperties = e || []),
@@ -366,10 +366,10 @@ function (exports, module, require) {
         "touch" === e.key && this._updateTouchComponents();
       }),
       (p.prototype._updateTouchComponents = function (e) {
-        const t = this._panel.find(".custom-checkbox-mode");
+        const module = this._panel.find(".custom-checkbox-mode");
         gDesigner.isTouchEnabled()
-          ? t.gCheckboxSlider()
-          : t.gCheckboxSlider("unmount");
+          ? module.gCheckboxSlider()
+          : module.gCheckboxSlider("unmount");
       }),
       (p.prototype.update = function (e, t, n) {
         if (
@@ -487,16 +487,16 @@ function (exports, module, require) {
         this._pendingUpdates.delete(e);
       }),
       (p.prototype._applyPendingUpdateForSelection = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : null;
-        function t(e) {
-          const t = this._pendingUpdates.get(e);
-          t && this._assignProperties(t.props, t.values, t.title, false, t.target);
+        function module(e) {
+          const module = this._pendingUpdates.get(e);
+          module && this._assignProperties(module.props, module.values, module.title, false, module.target);
         }
-        e
-          ? t.call(this, e)
+        exports
+          ? module.call(this, exports)
           : this._pendingUpdates.forEach((e, n) => {
-              t.call(this, n), this._cleanPendingUpdateForSelection(n);
+              module.call(this, n), this._cleanPendingUpdateForSelection(n);
             });
       }),
       (p.prototype._updateProperties = function () {
@@ -508,10 +508,10 @@ function (exports, module, require) {
           return void console.warn("Scene is null");
         var e = this._elements[0];
         i.GElementEditor.getEditor(e);
-        const t =
+        const module =
             !e.hasMixin(a.GAnnotation) ||
             r.default.isOwner(gDesigner.getSyncUser(), e),
-          n = this._getAppManager().isCommentingEditingEnabled();
+          require = this._getAppManager().isCommentingEditingEnabled();
         if (this._availableProperties.indexOf(p.PropertySet.FillLayer) >= 0) {
           var o = e.getPaintLayers().getFillLayers()[0];
           this._panel
@@ -528,7 +528,7 @@ function (exports, module, require) {
               "opacity",
               o ? o.getProperty("_op", false, false, true) : null
             ),
-            t && n
+            module && require
               ? this._panel
                   .find(
                     '[data-property="'.concat(p.PropertySet.FillLayer, '"]')
@@ -556,7 +556,7 @@ function (exports, module, require) {
               "opacity",
               o ? o.getProperty("_op", false, false, true) : null
             ),
-            t && n
+            module && require
               ? this._panel
                   .find(
                     '[data-property="'.concat(p.PropertySet.BorderLayer, '"]')
@@ -589,7 +589,7 @@ function (exports, module, require) {
                 ? new a.GLength.parseLength(s, a.GLength.Unit.PT)
                 : null
             ),
-            t && n
+            module && require
               ? l.removeClass("g-disabled").attr("disabled", false)
               : l.addClass("g-disabled").attr("disabled", true);
         }
@@ -603,7 +603,7 @@ function (exports, module, require) {
             var i = e.getPaintLayers().getBorderLayers()[0].getProperty(o),
               a = this._panel.find('[data-property="' + o + '"]');
             a.prop("checked", !!i),
-              t && n
+              module && require
                 ? (a.removeClass("g-disabled"), a.attr("disabled", false))
                 : (a.addClass("g-disabled"), a.attr("disabled", true));
           });
@@ -655,5 +655,5 @@ function (exports, module, require) {
       (p.prototype.toString = function () {
         return "[Object GAnnotationProperties]";
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

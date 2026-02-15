@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(328) /* module_328 */, n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(31) /* GAction */;
+    require(328) /* module_328 */, require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(31) /* GAction */;
     function l(e) {
       (this._type = e),
         (this._title = new i.GLocaleKey("GDistributeAction", "title." + e)),
@@ -219,5 +219,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GDistributeAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(1583) /* module_1583 */,
-      i = n(1189) /* module_1189 */;
-    e.exports = class {
-      constructor() {
+    const o = require(1583) /* module_1583 */,
+      i = require(1189) /* module_1189 */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         (this._gestures = []),
           (this._state = new i()),
           (this._delayedTouchEventsEnabled = true),
@@ -28,8 +28,8 @@ function (exports, module, require) {
         (this._swiping = false),
           this._state.update(e),
           this._handleDelayedTouchStartEvent(e);
-        const t = new o(e);
-        this._delayedTouchEventsEnabled && !t.areThereMultipleTouchPoints()
+        const module = new o(e);
+        this._delayedTouchEventsEnabled && !module.areThereMultipleTouchPoints()
           ? ((this._delayedTouchEvent = e),
             (this._delayedTouchEventTimeout = setTimeout(
               this._triggerDelayedTouchEvent.bind(this),
@@ -59,29 +59,29 @@ function (exports, module, require) {
       }
       _execute(e, t) {
         this._state.setSwiping(this._isSwiping());
-        const n = new o(t),
+        const require = new o(t),
           i = this._gestures.length;
         let a = false;
         for (let t = 0; t < i; t++) {
           const o = this._gestures[t];
           try {
             if (a) {
-              o.deactivate(n, this._state);
+              o.deactivate(require, this._state);
               continue;
             }
             if (
               ("start" === e &&
-                (o.canActivate(n, this._state)
-                  ? o.activate(n, this._state)
-                  : o.deactivate(n, this._state)),
+                (o.canActivate(require, this._state)
+                  ? o.activate(require, this._state)
+                  : o.deactivate(require, this._state)),
               !o.isActive())
             )
               continue;
-            a = o[e](n, this._state);
+            a = o[e](require, this._state);
           } catch (e) {
             console.error("GGestureHelper", e);
             try {
-              o.deactivate(n, this._state);
+              o.deactivate(require, this._state);
             } catch (e) {
               console.warn("GGestureHelper deactivation", e);
             }

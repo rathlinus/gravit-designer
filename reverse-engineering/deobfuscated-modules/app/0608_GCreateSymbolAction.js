@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */,
-      l = n(44) /* GSystemDialog */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */,
+      l = require(44) /* GSystemDialog */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
@@ -66,14 +66,14 @@ function (exports, module, require) {
         if (!s.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getIndividualSelection();
-          if (t && t.length)
+          var module = e.getEditor().getIndividualSelection();
+          if (module && module.length)
             for (
-              var n = 0, i = new o.GSymbol(), a = t.length - 1;
+              var require = 0, i = new o.GSymbol(), a = module.length - 1;
               a >= 0;
               --a
             ) {
-              var r = t[a];
+              var r = module[a];
               if (
                 (r instanceof o.GSymbol && !r.getMasterSymbol()) ||
                 (r.validateInsertion(i) &&
@@ -82,7 +82,7 @@ function (exports, module, require) {
                   !o.GSymbol.containsUnsupportedNodes(r))
               ) {
                 if (!(r instanceof o.GSymbol && r.isMaster())) return true;
-                if (++n > 1) return true;
+                if (++require > 1) return true;
               }
             }
         }
@@ -90,14 +90,14 @@ function (exports, module, require) {
       }),
       (c.prototype.execute = function () {
         if (!this.isPro() || gDesigner.isEnabledProFeatures()) {
-          var e = 1,
-            t = o.GLocale.get(
+          var exports = 1,
+            module = o.GLocale.get(
               new o.GLocaleKey(
                 "GCreateSymbolAction",
                 "createsymbol.defaultname"
               )
             ),
-            n = t + " " + e,
+            require = module + " " + exports,
             i = gDesigner.getActiveDocument();
           if (i) {
             var a = i.getScene();
@@ -105,8 +105,8 @@ function (exports, module, require) {
               (a.getSymbols() || []).forEach(function (i) {
                 i instanceof o.GSymbol &&
                   i.isMaster() &&
-                  i.getProperty("name") === n &&
-                  (e++, (n = t + " " + e));
+                  i.getProperty("name") === require &&
+                  (exports++, (require = module + " " + exports));
               }),
                 l.prompt(
                   o.GLocale.get(
@@ -117,18 +117,18 @@ function (exports, module, require) {
                   ),
                   (e) => {
                     if (gDesigner.getActiveDocument() && e) {
-                      var t = gDesigner.getActiveDocument().getEditor(),
-                        n = o.GNode.order(t.getIndividualSelection().slice());
-                      t.beginTransaction();
+                      var module = gDesigner.getActiveDocument().getEditor(),
+                        require = o.GNode.order(module.getIndividualSelection().slice());
+                      module.beginTransaction();
                       try {
                         for (
-                          var i = new o.GSymbol(), a = null, r = n.length - 1;
+                          var i = new o.GSymbol(), a = null, r = require.length - 1;
                           r >= 0;
                           --r
                         ) {
-                          var s = n[r];
+                          var s = require[r];
                           if (s instanceof o.GSymbol && s.convertToMaster(e))
-                            n.splice(r, 1);
+                            require.splice(r, 1);
                           else if (
                             s.validateInsertion(i) &&
                             !o.GSymbol.containsUnsupportedNodes(s)
@@ -141,9 +141,9 @@ function (exports, module, require) {
                             a = null;
                           }
                         }
-                        a && t.updateSelection(false, [o.GSymbol.create(n, a, e)]);
+                        a && module.updateSelection(false, [o.GSymbol.create(require, a, e)]);
                       } finally {
-                        t.commitTransaction(
+                        module.commitTransaction(
                           o.GLocale.get(
                             new o.GLocaleKey("GCreateSymbolAction", "title")
                           )
@@ -151,7 +151,7 @@ function (exports, module, require) {
                       }
                     }
                   },
-                  n
+                  require
                 );
           }
         } else gDesigner.handlePROFeatureInterruption();
@@ -162,5 +162,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GCreateSymbolAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

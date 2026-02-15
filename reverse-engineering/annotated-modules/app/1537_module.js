@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(16) /* module_16 */;
     n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */;
     var i = o(n(1155) /* module_1155 */);
-    const { GLocale: a, GLocaleKey: r, GObject: s } = n(1) /* module_1 */,
+    const { GLocale: a, GLocaleKey: r, GObject: s } = n(1) /* module */,
       l = n(392) /* module_392 */,
       c = n(1165) /* module_1165 */,
       d = n(123) /* GProperties */,

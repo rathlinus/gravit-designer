@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(116) /* module_116 */,
-      i = n(27) /* module_27 */;
-    e.exports = function (e) {
+    var o = require(116) /* module_116 */,
+      i = require(27) /* module_27 */;
+    exports.exports = function (e) {
       if ("Function" === o(e)) return i(e);
     };
   }

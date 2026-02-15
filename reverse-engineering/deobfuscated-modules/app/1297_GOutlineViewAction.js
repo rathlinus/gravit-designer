@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(18) /* module_18 */),
-      s = o(n(31) /* GAction */),
-      l = o(n(442) /* module_442 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = o(require(31) /* GAction */),
+      l = o(require(442) /* module_442 */);
     function c() {}
     i.GObject.inherit(c, s.default),
       (c.ID = "view.outline-view"),
@@ -38,9 +38,9 @@ function (exports, module, require) {
         return gDesigner.isTouchEnabled() ? "gravit-icon-out-line" : null;
       }),
       (c.prototype.isChecked = function () {
-        const e = gDesigner.getWindows().getActiveWindow();
-        if (e) {
-          const t = e.getView().getViewConfiguration();
+        const exports = gDesigner.getWindows().getActiveWindow();
+        if (exports) {
+          const t = exports.getView().getViewConfiguration();
           return (
             !!t && t.paintMode === i.GScenePaintConfiguration.PaintMode.Outline
           );
@@ -54,7 +54,7 @@ function (exports, module, require) {
         return [a.GKey.Constant.OPTION, "Y"];
       }),
       (c.prototype.execute = function () {
-        let e;
+        let exports;
         if (
           gDesigner
             .getWindows()
@@ -63,25 +63,25 @@ function (exports, module, require) {
             .getViewConfiguration().paintMode ===
           i.GScenePaintConfiguration.PaintMode.Outline
         ) {
-          var t = gDesigner.getActiveDocument();
-          if (t) {
-            var n = t.getScene().getActivePage();
-            if (n && !n.isFixedSized())
-              e = i.GScenePaintConfiguration.PaintMode.Full;
+          var module = gDesigner.getActiveDocument();
+          if (module) {
+            var require = module.getScene().getActivePage();
+            if (require && !require.isFixedSized())
+              exports = i.GScenePaintConfiguration.PaintMode.Full;
             else
-              e =
-                (n.getProperty(l.default.PAGE_CLIP_PROPERTY_NAME, true) ||
+              exports =
+                (require.getProperty(l.default.PAGE_CLIP_PROPERTY_NAME, true) ||
                   l.default.PAGE_CLIP_CONTENT_ENABLED) ===
                 l.default.PAGE_CLIP_CONTENT_ENABLED
                   ? i.GScenePaintConfiguration.PaintMode.Output
                   : i.GScenePaintConfiguration.PaintMode.Full;
-          } else e = i.GScenePaintConfiguration.PaintMode.Output;
-        } else e = i.GScenePaintConfiguration.PaintMode.Outline;
-        gDesigner.setPaintMode(e),
-          gDesigner.updateGEditorSceneConfigurationPaintMode(e);
+          } else exports = i.GScenePaintConfiguration.PaintMode.Output;
+        } else exports = i.GScenePaintConfiguration.PaintMode.Outline;
+        gDesigner.setPaintMode(exports),
+          gDesigner.updateGEditorSceneConfigurationPaintMode(exports);
       }),
       (c.prototype.toString = function () {
         return "[Object GOutlineViewAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

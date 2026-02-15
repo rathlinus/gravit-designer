@@ -23,8 +23,8 @@ function (e, t, n) {
       n(125) /* module_125 */,
       n(126) /* module_126 */,
       n(114) /* module_114 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
+    var o = n(1) /* module */,
+      i = n(15) /* module */;
     const {
         FileExtended: a,
         gApi: r,

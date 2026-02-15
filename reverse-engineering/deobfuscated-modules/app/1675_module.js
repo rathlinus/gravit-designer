@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = class {
-      constructor() {
+    exports.exports = class {
+      function Object() { [native code] }() {
         (this._dialog = $("<div></div>").gDialog({
           relaseOnClose: true,
           className: "g-maintenance-dialog",

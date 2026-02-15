@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(20) /* module_20 */, n(151) /* module_151 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     (o.GUtil.image2Canvas = function (e, t) {
       if ("string" == typeof e) {
         var n = new Image();

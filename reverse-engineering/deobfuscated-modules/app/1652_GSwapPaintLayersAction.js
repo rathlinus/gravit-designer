@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(31) /* GAction */),
-      s = o(n(18) /* module_18 */);
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(31) /* GAction */),
+      s = o(require(18) /* module_18 */);
     class l extends r.default {
       getId() {
         return l.ID;
@@ -29,19 +29,19 @@ function (exports, module, require) {
         return [a.GKey.Constant.X];
       }
       isEnabled() {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getEditor(),
-          n = t && t.getSelection();
-        return !!(n && n.find((e) => e.hasMixin(i.GStylable)));
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getEditor(),
+          require = module && module.getSelection();
+        return !!(require && require.find((e) => e.hasMixin(i.GStylable)));
       }
       execute() {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getEditor(),
-          n = t && t.getSelection();
-        if (n) {
-          t.beginTransaction();
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getEditor(),
+          require = module && module.getSelection();
+        if (require) {
+          module.beginTransaction();
           try {
-            n.forEach((e) => {
+            require.forEach((e) => {
               if (e.hasMixin(i.GStylable)) {
                 const t = e.getPaintLayers();
                 if (t) {
@@ -58,21 +58,21 @@ function (exports, module, require) {
               }
             });
           } finally {
-            t.commitTransaction(i.GLocale.get(this.getTitle()));
+            module.commitTransaction(i.GLocale.get(this.getTitle()));
           }
         }
       }
       _createPaintLayers(e, t) {
-        const n = ["_pt", "_op", "_vs", "_bl"];
+        const require = ["_pt", "_op", "_vs", "_bl"];
         switch (e) {
           case l.Type.Fill:
             return t.getBorderLayers().map((e) => {
-              const t = e.getProperties(n);
+              const t = e.getProperties(require);
               return new i.GStylable.FillPaintLayer(...t);
             });
           case l.Type.Border:
             return t.getFillLayers().map((e) => {
-              const t = e.getProperties(n);
+              const t = e.getProperties(require);
               return new i.GStylable.BorderPaintLayer(...t);
             });
           default:
@@ -90,12 +90,12 @@ function (exports, module, require) {
             !e.$closed &&
             t.setProperty("_ba", i.GStylable.BorderAlignment.Center);
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GSwapPaintLayersAction]";
       }
     }
     (l.ID = "modify.swap-paint-layers"),
       (l.TITLE = new i.GLocaleKey("GSwapPaintLayersAction", "title")),
       (l.Type = { Fill: "fill", Border: "border" }),
-      (e.exports = l);
+      (exports.exports = l);
   }

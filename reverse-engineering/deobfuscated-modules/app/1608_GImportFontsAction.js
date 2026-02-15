@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(67) /* GRichTooltipConfig */),
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */,
-      s = n(1245) /* module_1245 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = (require(15) /* module */, require(67) /* GRichTooltipConfig */),
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */,
+      s = require(1245) /* module_1245 */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
@@ -72,5 +72,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GImportFontsAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

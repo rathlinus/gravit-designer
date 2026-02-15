@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     e.exports = class {
       constructor(e, t) {
         (this._cb = t || null),

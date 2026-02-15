@@ -5,27 +5,27 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(596) /* module_596 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(218) /* module_218 */,
-      n(692) /* module_692 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */,
-      a = n(381) /* module_381 */;
+    require(19) /* module_19 */,
+      require(596) /* module_596 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(57) /* module_57 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(218) /* module_218 */,
+      require(692) /* module_692 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */,
+      a = require(381) /* module_381 */;
     function r(e) {
       if (r._instance)
         throw new Error("This class cannot be instantiated multiple times");
@@ -163,18 +163,18 @@ function (exports, module, require) {
           (this._taskLock = false),
           this._tmpConnection && !this._connection)
         ) {
-          var e = this._tmpConnection.url.split(":"),
-            t = parseInt(e[e.length - 1]);
+          var exports = this._tmpConnection.url.split(":"),
+            module = parseInt(exports[exports.length - 1]);
           this._tmpConnection = null;
-          var n = this._firstConnect ? r.START_PORT_SPAN : r.PORT_SPAN;
-          if (t > r.DEFAULT_PORT + n) return void this._cbFatal();
-          setTimeout(this._connect.bind(this), 2e3, t + 1);
+          var require = this._firstConnect ? r.START_PORT_SPAN : r.PORT_SPAN;
+          if (module > r.DEFAULT_PORT + require) return void this._cbFatal();
+          setTimeout(this._connect.bind(this), 2e3, module + 1);
         }
       }),
       (r.prototype._onmsg = function (e) {
         var t = e.data;
         if (t instanceof Blob) {
-          var n = t.slice(0, 1),
+          var require = t.slice(0, 1),
             o = t.slice(1, 5);
           t = t.slice(5);
           var i = null,
@@ -190,11 +190,11 @@ function (exports, module, require) {
                   s.readAsArrayBuffer(o);
               else if (null === a) {
                 a = s.result;
-                var n = new Uint8Array(a),
-                  l = new Uint32Array(n.buffer);
+                var require = new Uint8Array(a),
+                  l = new Uint32Array(require.buffer);
                 l[0] !== r.Cmd.stamp
-                  ? (n.reverse(),
-                    (l = new Uint32Array(n.buffer))[0] === r.Cmd.stamp &&
+                  ? (require.reverse(),
+                    (l = new Uint32Array(require.buffer))[0] === r.Cmd.stamp &&
                       ((this._doReverse = true), (e = true)))
                   : (e = true),
                   e && s.readAsArrayBuffer(t);
@@ -202,30 +202,30 @@ function (exports, module, require) {
             }.bind(this)
           );
           try {
-            s.readAsArrayBuffer(n);
+            s.readAsArrayBuffer(require);
           } catch (e) {
             return;
           }
         }
       }),
       (r.prototype._cbFail = function () {
-        for (var e = 0; e < this._listCallbacks.length; e++) {
-          var t = this._listCallbacks[e];
+        for (var exports = 0; exports < this._listCallbacks.length; exports++) {
+          var module = this._listCallbacks[exports];
           this._listCallbacks.shift(),
             this._fontList &&
             1 == this._fontList.length &&
             this._fontList[0].special
-              ? t.done(this._fontList, true, null)
-              : t.fail();
+              ? module.done(this._fontList, true, null)
+              : module.fail();
         }
         this._resolveCallback &&
-          ((t = this._resolveCallback),
+          ((module = this._resolveCallback),
           this._isInitialized() ||
             (this._oldUnresolved
-              ? this._oldUnresolved.push(t)
-              : (this._oldUnresolved = [t])),
+              ? this._oldUnresolved.push(module)
+              : (this._oldUnresolved = [module])),
           (this._resolveCallback = null),
-          t.fail ? t.fail() : t(true)),
+          module.fail ? module.fail() : module(true)),
           (this._taskLock = false);
       }),
       (r.prototype._cbFatal = function () {
@@ -241,13 +241,13 @@ function (exports, module, require) {
       (r.prototype._cbDone = function (e) {
         var t;
         if ((console.log("cb done"), this._listCallbacks))
-          for (var n = 0; n < this._listCallbacks.length; n++)
-            (t = this._listCallbacks[n]),
+          for (var require = 0; require < this._listCallbacks.length; require++)
+            (t = this._listCallbacks[require]),
               this._listCallbacks.shift(),
               (this._listCallbacks = null),
               t.done(this._fontList, true, null);
         this._resolveCallback &&
-          ((t = this._resolveCallbacks[n]),
+          ((t = this._resolveCallbacks[require]),
           (this._resolveCallback = null),
           e ? t.done(e) : t()),
           this._oldUnresolved &&
@@ -261,12 +261,12 @@ function (exports, module, require) {
         try {
           switch (e) {
             case r.Cmd.probe:
-              var n;
+              var require;
               if (this._doReverse) {
                 var o = new Uint8Array(t);
-                o.reverse(), (n = new Uint32Array(o.buffer));
-              } else n = new Uint32Array(t);
-              this._fontListLength = n[0];
+                o.reverse(), (require = new Uint32Array(o.buffer));
+              } else require = new Uint32Array(t);
+              this._fontListLength = require[0];
               var i = new Uint8Array(13);
               this._setData(i, r.Cmd.list), this._connection.send(i.buffer);
               break;
@@ -412,9 +412,9 @@ function (exports, module, require) {
       (r.prototype.addPreviews = function (e) {
         if (e.length)
           if (1 == e.length && e[0].special) {
-            var t = this;
+            var module = this;
             e[0].addPreviewCallback = function (e) {
-              e(t.getEnabler());
+              e(module.getEnabler());
             };
           } else {
             if (!this._isInitialized())
@@ -422,9 +422,9 @@ function (exports, module, require) {
                 (this._previewCallback = this.addPreviews),
                 void this._initialize()
               );
-            for (var n = 0; n < e.length; n++)
-              e[n].cachedPreview ||
-                (e[n].addPreviewCallback = function (e) {
+            for (var require = 0; require < e.length; require++)
+              e[require].cachedPreview ||
+                (e[require].addPreviewCallback = function (e) {
                   var t = document.createElement("div");
                   (t.innerHTML = this.family),
                     (t.style.fontFamily = this.family),
@@ -491,5 +491,5 @@ function (exports, module, require) {
       (r.prototype.getProviderId = function () {
         return s;
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

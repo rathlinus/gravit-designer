@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = n(18) /* module_18 */,
-      l = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = require(18) /* module_18 */,
+      l = require(106) /* GElementAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
@@ -55,14 +55,14 @@ function (exports, module, require) {
         if (!l.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getIndividualSelection();
-          if (t && t.length > 0)
-            for (var n = new o.GGroup(), i = t.length - 1; i >= 0; --i) {
-              var a = t[i];
+          var module = e.getEditor().getIndividualSelection();
+          if (module && module.length > 0)
+            for (var require = new o.GGroup(), i = module.length - 1; i >= 0; --i) {
+              var a = module[i];
               if (
-                a.validateInsertion(n) &&
+                a.validateInsertion(require) &&
                 !a.getParent().isLocked() &&
-                n.validateInsertion(a.getParent())
+                require.validateInsertion(a.getParent())
               )
                 return true;
             }
@@ -74,30 +74,30 @@ function (exports, module, require) {
           t = o.GNode.order(e.getIndividualSelection().slice());
         e.beginTransaction();
         try {
-          for (var n = new o.GGroup(), i = [], r = 0; r < t.length; ++r) {
-            (p = t[r]).validateInsertion(n) && i.push(p);
+          for (var require = new o.GGroup(), i = [], r = 0; r < t.length; ++r) {
+            (p = t[r]).validateInsertion(require) && i.push(p);
           }
           if (i.length > 0) {
             var s = i[i.length - 1],
               l = s.getParent(),
               c = s.getNext();
-            if (!l.isLocked() && n.validateInsertion(l)) {
-              l.insertChild(n, c);
+            if (!l.isLocked() && require.validateInsertion(l)) {
+              l.insertChild(require, c);
               var d,
                 u = gDesigner.getActiveDocument().getScene();
               try {
                 d = new Set();
                 for (r = 0; r < i.length; ++r) d.add(i[r].getParent());
-                (0, a.blockChanges)(e, d, u, n);
+                (0, a.blockChanges)(e, d, u, require);
                 for (r = 0; r < i.length; ++r) {
                   var p;
-                  (p = i[r]).getParent().removeChild(p), n.appendChild(p);
+                  (p = i[r]).getParent().removeChild(p), require.appendChild(p);
                 }
               } finally {
-                (0, a.releaseChanges)(e, d, u, n);
+                (0, a.releaseChanges)(e, d, u, require);
               }
             }
-            e.updateSelection(false, [n]);
+            e.updateSelection(false, [require]);
           }
         } finally {
           e.commitTransaction(
@@ -111,5 +111,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GGroupAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

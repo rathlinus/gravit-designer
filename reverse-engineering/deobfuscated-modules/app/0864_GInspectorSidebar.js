@@ -6,31 +6,31 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(168) /* module_168 */, n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(169) /* module_169 */, n(26) /* module_26 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(78) /* GDocumentEvent */,
-      r = n(606) /* GPanel */,
-      s = n(806) /* GSidebar */,
-      l = n(395) /* module_395 */,
-      c = n(1160) /* GAppearanceProperties */,
-      d = n(1261) /* module_1261 */,
-      u = n(1162) /* module_1162 */,
-      p = n(1262) /* GEffectProperties */,
-      g = n(1264) /* GBoolOpProperties */,
-      h = n(1265) /* GEllipseProperties */,
-      f = n(1266) /* GImageProperties */,
-      m = n(1269) /* GPathProperties */,
-      y = n(1270) /* GPolygonProperties */,
-      v = n(1271) /* GRectangleProperties */,
-      _ = n(1272) /* GSliceProperties */,
-      b = n(1273) /* GTextProperties */,
-      w = n(1274) /* GAlignProperties */,
-      C = n(1528) /* GVersionHistoryProperties */,
-      x = n(1159) /* module_1159 */;
-    const S = n(135) /* GSettingChangedEvent */,
-      E = n(198) /* Exports_GOutlineSidebar */,
-      A = n(807) /* module_807 */;
+    require(19) /* module_19 */, require(168) /* module_168 */, require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(169) /* module_169 */, require(26) /* module_26 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(78) /* GDocumentEvent */,
+      r = require(606) /* GPanel */,
+      s = require(806) /* GSidebar */,
+      l = require(395) /* module_395 */,
+      c = require(1160) /* GAppearanceProperties */,
+      d = require(1261) /* module_1261 */,
+      u = require(1162) /* module_1162 */,
+      p = require(1262) /* GEffectProperties */,
+      g = require(1264) /* GBoolOpProperties */,
+      h = require(1265) /* GEllipseProperties */,
+      f = require(1266) /* GImageProperties */,
+      m = require(1269) /* GPathProperties */,
+      y = require(1270) /* GPolygonProperties */,
+      v = require(1271) /* GRectangleProperties */,
+      _ = require(1272) /* GSliceProperties */,
+      b = require(1273) /* GTextProperties */,
+      w = require(1274) /* GAlignProperties */,
+      C = require(1528) /* GVersionHistoryProperties */,
+      x = require(1159) /* module_1159 */;
+    const S = require(135) /* GSettingChangedEvent */,
+      E = require(198) /* Exports_GOutlineSidebar */,
+      A = require(807) /* module_807 */;
     function T() {
       s.call(this), (this._propertyPanels = []), (this._touchTools = []);
     }
@@ -159,28 +159,28 @@ function (exports, module, require) {
         );
       }),
       (T.prototype.openFillPatternChooser = function () {
-        const e = this._getPropertyPanel(d);
-        e && e.properties.openPatternChooser();
+        const exports = this._getPropertyPanel(d);
+        exports && exports.properties.openPatternChooser();
       }),
       (T.prototype.openBorderPatternChooser = function () {
-        const e = this._getPropertyPanel(u);
-        e && e.properties.openPatternChooser();
+        const exports = this._getPropertyPanel(u);
+        exports && exports.properties.openPatternChooser();
       }),
       (T.prototype.openFillEyeDropper = function (e, t) {
-        const n = this._getPropertyPanel(d);
-        n && n.properties.openEyeDropper(e, t);
+        const require = this._getPropertyPanel(d);
+        require && require.properties.openEyeDropper(e, t);
       }),
       (T.prototype.openBorderEyeDropper = function (e, t) {
-        const n = this._getPropertyPanel(u);
-        n && n.properties.openEyeDropper(e, t);
+        const require = this._getPropertyPanel(u);
+        require && require.properties.openEyeDropper(e, t);
       }),
       (T.prototype.openTextColorEyeDropper = function (e, t) {
-        const n = this._getPropertyPanel(b);
-        n && n.properties.openEyeDropper(e, t);
+        const require = this._getPropertyPanel(b);
+        require && require.properties.openEyeDropper(e, t);
       }),
       (T.prototype.setPathPointsNodeType = function (e) {
-        const t = this._getPropertyPanel(m);
-        t && t.properties.assignNodeType(e);
+        const module = this._getPropertyPanel(m);
+        module && module.properties.assignNodeType(e);
       }),
       (T.prototype._sidebarEvent = function (e) {
         gDesigner.isTouchEnabled() &&
@@ -228,16 +228,16 @@ function (exports, module, require) {
       }),
       (T.prototype._updateVersionsPanel = function (e) {
         if (e.type === x.Type.Enable) {
-          var t;
+          var module;
           switch (((this._versionHistoryMode = true), this.getOrientation())) {
             case l.Orientation.Left:
-              t = gDesigner.getLeftSidebars();
+              module = gDesigner.getLeftSidebars();
               break;
             case l.Orientation.Right:
-              t = gDesigner.getRightSidebars();
+              module = gDesigner.getRightSidebars();
           }
-          t.setActiveSidebar(this.getId()),
-            gDesigner.setPartVisible(t.getSidebarsPart(), true),
+          module.setActiveSidebar(this.getId()),
+            gDesigner.setPartVisible(module.getSidebarsPart(), true),
             this._htmlElement.find(".panels").css("display", "none"),
             this._versionHistoryPanel.appendTo(this._htmlElement),
             this._versionHistoryPanel.css("display", "");
@@ -353,9 +353,9 @@ function (exports, module, require) {
             )),
           !this._elements || 0 === this._elements.length)
         ) {
-          var n = gDesigner.getToolManager().getActiveTool(),
+          var require = gDesigner.getToolManager().getActiveTool(),
             a = null;
-          n instanceof o.GItemTool && (a = n.getDefaultStyle())
+          require instanceof o.GItemTool && (a = require.getDefaultStyle())
             ? (this._elements = [a])
             : (this._elements = [this._document.getScene().getActivePage()]);
         }
@@ -426,9 +426,9 @@ function (exports, module, require) {
           this._updateUI();
       }),
       (T.prototype._updateUI = function () {
-        let e = this._htmlElement.find(".group-frame-property-panel"),
-          t = this._htmlElement.find(".frame-property-panel"),
-          n = this._htmlElement.find(".item-property-panel"),
+        let exports = this._htmlElement.find(".group-frame-property-panel"),
+          module = this._htmlElement.find(".frame-property-panel"),
+          require = this._htmlElement.find(".item-property-panel"),
           o = this._htmlElement.find(".symbol-instance-toolbar"),
           i = this._htmlElement.find(".symbol-instance-panel"),
           a = null;
@@ -440,12 +440,12 @@ function (exports, module, require) {
           a &&
             (i.insertAfter(a),
             o.insertAfter(a),
-            n.next().insertAfter(a),
-            n.insertAfter(a),
-            t.next().insertAfter(a),
-            t.insertAfter(a),
-            e.next().insertAfter(a),
-            e.insertAfter(a));
+            require.next().insertAfter(a),
+            require.insertAfter(a),
+            module.next().insertAfter(a),
+            module.insertAfter(a),
+            exports.next().insertAfter(a),
+            exports.insertAfter(a));
       }),
       (T.prototype._settingChanged = function (e) {
         "touch" === e.key &&
@@ -459,16 +459,16 @@ function (exports, module, require) {
         return true;
       }),
       (T.prototype.getTouchTools = function () {
-        let { disableContextSensitive: e = false } =
+        let { disableContextSensitive: exports = false } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        return e ? this._getAllTouchTools() : this._touchTools;
+        return exports ? this._getAllTouchTools() : this._touchTools;
       }),
       (T.prototype._getAllTouchTools = function () {
         return [
           ...new Set(
             this._propertyPanels.reduce((e, t) => {
-              const n = t.properties.getTouchTools();
-              return n && (e = e.concat(n)), e;
+              const require = t.properties.getTouchTools();
+              return require && (e = e.concat(require)), e;
             }, [])
           ),
         ];
@@ -476,6 +476,6 @@ function (exports, module, require) {
       (T.prototype.toString = function () {
         return "[Object GInspectorSidebar]";
       }),
-      n(1529) /* module_1529 */(T),
-      (e.exports = T);
+      require(1529) /* module_1529 */(T),
+      (exports.exports = T);
   }

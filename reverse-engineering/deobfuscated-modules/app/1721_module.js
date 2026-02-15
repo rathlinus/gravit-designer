@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */;
-    var o = n(1156) /* GMenuCloseEvent */,
-      i = n(444) /* module_444 */,
+    require(57) /* module_57 */;
+    var o = require(1156) /* GMenuCloseEvent */,
+      i = require(444) /* module_444 */,
       a = {
         init: function (e) {
           return (

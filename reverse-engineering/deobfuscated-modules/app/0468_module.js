@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(94) /* module_94 */,
+    var o = require(94) /* module_94 */,
       i = [
         3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59,
         67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0,
@@ -23,7 +23,7 @@ function (exports, module, require) {
         16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23,
         24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64,
       ];
-    e.exports = function (e, t, n, l, c, d, u, p) {
+    exports.exports = function (e, t, n, l, c, d, u, p) {
       var g,
         h,
         f,

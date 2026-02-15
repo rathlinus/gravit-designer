@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(223) /* module_223 */,
-      a = n(21) /* module_21 */,
-      r = n(324) /* module_324 */,
-      s = n(37) /* module_37 */,
-      l = n(244) /* module_244 */,
-      c = n(117) /* module_117 */,
+    var o = require(25) /* module_25 */,
+      i = require(223) /* module_223 */,
+      a = require(21) /* module_21 */,
+      r = require(324) /* module_324 */,
+      s = require(37) /* module_37 */,
+      l = require(244) /* module_244 */,
+      c = require(117) /* module_117 */,
       d = r.ArrayBuffer,
       u = r.DataView,
       p = u.prototype,
@@ -31,9 +31,9 @@ function (exports, module, require) {
         slice: function (e, t) {
           if (g && undefined === t) return g(s(this), e);
           for (
-            var n = s(this).byteLength,
-              o = l(e, n),
-              i = l(undefined === t ? n : t, n),
+            var require = s(this).byteLength,
+              o = l(e, require),
+              i = l(undefined === t ? require : t, require),
               a = new d(c(i - o)),
               r = new u(this),
               p = new u(a),

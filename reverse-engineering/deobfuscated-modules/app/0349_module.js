@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(124) /* module_124 */,
-      i = n(27) /* module_27 */,
-      a = n(240) /* module_240 */,
-      r = n(93) /* module_93 */,
-      s = n(101) /* module_101 */,
-      l = n(573) /* module_573 */,
+    var o = require(124) /* module_124 */,
+      i = require(27) /* module_27 */,
+      a = require(240) /* module_240 */,
+      r = require(93) /* module_93 */,
+      s = require(101) /* module_101 */,
+      l = require(573) /* module_573 */,
       c = i([].push),
       d = function (e) {
         var t = 1 === e,
@@ -57,7 +57,7 @@ function (exports, module, require) {
           return u ? -1 : i || d ? d : A;
         };
       };
-    e.exports = {
+    exports.exports = {
       forEach: d(0),
       map: d(1),
       filter: d(2),

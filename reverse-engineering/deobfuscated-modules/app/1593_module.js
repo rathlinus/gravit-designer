@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* module_10 */,
-      a = n(44) /* GSystemDialog */,
-      r = n(604) /* module_604 */,
-      s = n(337) /* module_337 */;
-    e.exports = class {
+    require(8) /* module_8 */;
+    const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* module_10 */,
+      a = require(44) /* GSystemDialog */,
+      r = require(604) /* module_604 */,
+      s = require(337) /* module_337 */;
+    exports.exports = class {
       async execute() {
-        let { [o.ResetPassword]: e } =
+        let { [o.ResetPassword]: exports } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         try {
           await i.passwordlessAuthentication.authenticateWithResetPasswordToken(
-            e
+            exports
           ),
             await s.checkLicense();
           const t = await gDesigner.getUser();
           t &&
             gDesigner.executeWhenReady(() => {
               new r(t, r.Tabs.ChangePassword, {
-                token: e,
+                token: exports,
                 tabs: [r.Tabs.ChangePassword],
               }).open();
             });

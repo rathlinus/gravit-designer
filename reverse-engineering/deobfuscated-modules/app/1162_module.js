@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(15) /* module_15 */,
-      a = n(53) /* module_53 */,
-      r = n(1) /* module_1 */,
-      s = n(67) /* GRichTooltipConfig */,
-      l = o(n(340) /* GTouchTool */),
-      c = o(n(807) /* module_807 */),
-      d = o(n(198) /* Exports_GOutlineSidebar */),
-      u = n(1161) /* module_1161 */,
-      p = o(n(565) /* module_565 */),
-      g = n(10) /* module_10 */,
-      h = n(123) /* GProperties */,
-      f = n(450) /* module_450 */;
-    const m = n(607) /* module_607 */,
-      y = n(44) /* GSystemDialog */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var i = require(15) /* module */,
+      a = require(53) /* module */,
+      r = require(1) /* module */,
+      s = require(67) /* GRichTooltipConfig */,
+      l = o(require(340) /* GTouchTool */),
+      c = o(require(807) /* module_807 */),
+      d = o(require(198) /* Exports_GOutlineSidebar */),
+      u = require(1161) /* module_1161 */,
+      p = o(require(565) /* module_565 */),
+      g = require(10) /* module_10 */,
+      h = require(123) /* GProperties */,
+      f = require(450) /* module_450 */;
+    const m = require(607) /* module_607 */,
+      y = require(44) /* GSystemDialog */;
     function v() {}
     r.GObject.inherit(v, h),
       (v.prototype._panel = null),
@@ -1164,9 +1164,9 @@ function (exports, module, require) {
       (v.prototype._updateProperties = function (e) {
         if (this._elements && this._elements.length) {
           this._panel.find(".border-block").remove();
-          var t = this._elements[0].getPaintLayers().getBorderLayers();
+          var module = this._elements[0].getPaintLayers().getBorderLayers();
           r.GUtil.each(
-            t,
+            module,
             function (t, n) {
               n && this._insertPaintLayer(n, e);
             }.bind(this)
@@ -1791,19 +1791,19 @@ function (exports, module, require) {
         ) {
           this._removePaintLayer(e.node);
           for (
-            var t = e.node.getPrevious();
-            t && !(t instanceof r.GStylable.BorderPaintLayer);
+            var module = e.node.getPrevious();
+            module && !(module instanceof r.GStylable.BorderPaintLayer);
 
           )
-            t = t.getPrevious();
-          if (!(t instanceof r.GStylable.BorderPaintLayer))
+            module = module.getPrevious();
+          if (!(module instanceof r.GStylable.BorderPaintLayer))
             for (
-              t = e.node.getNext();
-              t && !(t instanceof r.GStylable.BorderPaintLayer);
+              module = e.node.getNext();
+              module && !(module instanceof r.GStylable.BorderPaintLayer);
 
             )
-              t = t.getNext();
-          this._setSelectedPaintLayer(t), this._updateToolbar();
+              module = module.getNext();
+          this._setSelectedPaintLayer(module), this._updateToolbar();
         }
       }),
       (v.prototype._afterPropertiesChange = function (e) {
@@ -1929,8 +1929,8 @@ function (exports, module, require) {
           }.bind(this);
         if (this._getSelectedPaintLayer()) t(this._getSelectedPaintLayer());
         else {
-          var n = $(this._panel).find(".border-block:last").data("paintLayer");
-          n && t(n);
+          var require = $(this._panel).find(".border-block:last").data("paintLayer");
+          require && t(require);
         }
       }),
       (v.prototype._setSelectedPaintLayer = function (e) {
@@ -1946,7 +1946,7 @@ function (exports, module, require) {
       (v.prototype._iterateEqualPaintLayer = function (e, t) {
         if (e)
           for (
-            var n = e.getParent().getBorderLayers().indexOf(e), o = 0;
+            var require = e.getParent().getBorderLayers().indexOf(e), o = 0;
             o < this._elements.length;
             ++o
           ) {
@@ -1955,11 +1955,11 @@ function (exports, module, require) {
               i,
               function (i, a) {
                 ((a && a === e) ||
-                  (a.constructor === e.constructor && i === n)) &&
+                  (a.constructor === e.constructor && i === require)) &&
                   t(a, this._elements[o]);
               }.bind(this)
             );
           }
       }),
-      (e.exports = v);
+      (exports.exports = v);
   }

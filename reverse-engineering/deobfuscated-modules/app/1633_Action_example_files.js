@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(31) /* GAction */,
-      a = n(18) /* module_18 */,
-      r = n(256) /* GOfflineDialog */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(31) /* GAction */,
+      a = require(18) /* module_18 */,
+      r = require(256) /* GOfflineDialog */;
     function s() {}
     o.GObject.inherit(s, i),
       (s.ID = "example-files"),
@@ -28,18 +28,18 @@ function (exports, module, require) {
         return "help/learn";
       }),
       (s.prototype.execute = function () {
-        const e = {
+        const exports = {
             closable: true,
             showCloudOptions: true,
             openFromCloud: true,
             nativeCloud: true,
             showExampleFiles: true,
           },
-          t = () => gDesigner.openNewDocumentDialog(e);
-        gDesigner.isOffline() ? r.openUnavailableFeature(t) : t();
+          module = () => gDesigner.openNewDocumentDialog(exports);
+        gDesigner.isOffline() ? r.openUnavailableFeature(module) : module();
       }),
       (s.prototype.toString = function () {
         return "[GObject GExampleFilesAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

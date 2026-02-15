@@ -3,8 +3,8 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = (function () {
+function (exports, module) {
+    exports.exports = (function () {
       var e = function () {},
         t = function (e) {
           (this.canvas = document.createElement("canvas")),

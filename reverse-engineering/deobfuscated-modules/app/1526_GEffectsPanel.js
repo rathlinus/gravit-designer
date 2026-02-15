@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(1527) /* GEffectsButton */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(1527) /* GEffectsButton */;
     function a(e) {
       (this._htmlElement = $("<div></div>")
         .addClass("g-effects-panel")
@@ -42,23 +42,23 @@ function (exports, module, require) {
           e.length % 3 != 0;
 
         ) {
-          var t = new i();
-          e.push(t);
+          var module = new i();
+          e.push(module);
         }
         this._content.children(".g-effects-button").remove();
-        for (var n = 0; n < e.length; ++n)
-          if (e[n] instanceof i) this.addItem(e[n]);
+        for (var require = 0; require < e.length; ++require)
+          if (e[require] instanceof i) this.addItem(e[require]);
           else {
-            t = new i(
-              o.GLocale.getValue(e[n].i18n, "name"),
-              e[n].icon,
-              e[n].clazz,
-              e[n].cb,
-              !e[n].mostUsed,
-              e[n],
+            module = new i(
+              o.GLocale.getValue(e[require].i18n, "name"),
+              e[require].icon,
+              e[require].clazz,
+              e[require].cb,
+              !e[require].mostUsed,
+              e[require],
               this._catTranslate
             );
-            this.addItem(t);
+            this.addItem(module);
           }
       }),
       (a.prototype.open = function (e) {
@@ -70,5 +70,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GEffectsPanel]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

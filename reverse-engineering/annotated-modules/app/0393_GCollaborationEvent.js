@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */;
-    const { GEvent: o, GObject: i } = n(1) /* module_1 */;
+    const { GEvent: o, GObject: i } = n(1) /* module */;
     function a(e, t) {
       (this.type = e), (this.data = t);
     }

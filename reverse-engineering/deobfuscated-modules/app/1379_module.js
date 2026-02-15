@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(381) /* module_381 */;
+    require(57) /* module_57 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(381) /* module_381 */;
     function a(e) {
       i.call(this, e);
     }
@@ -33,7 +33,7 @@ function (exports, module, require) {
       }),
       (a.prototype.addPreviews = function (e, t) {
         for (
-          var n = new DOMParser(),
+          var require = new DOMParser(),
             o = false,
             i = function (e, t) {
               e
@@ -96,7 +96,7 @@ function (exports, module, require) {
                         r = s[10 * this.num + o];
                       r.addPreviewCallback || (r.addPreviewCallback = i);
                       try {
-                        (a = n.parseFromString(
+                        (a = require.parseFromString(
                           e[o],
                           "image/svg+xml"
                         ).firstChild) &&
@@ -228,5 +228,5 @@ function (exports, module, require) {
       (a.prototype.resetProvider = function () {
         this._load();
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(34) /* module_34 */, n(134) /* module_134 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(1075) /* module_1075 */,
-      a = n(381) /* module_381 */;
+    require(20) /* module_20 */, require(34) /* module_34 */, require(134) /* module_134 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(1075) /* module_1075 */,
+      a = require(381) /* module_381 */;
     function r(e) {
       a.call(this, e);
     }
@@ -118,16 +118,16 @@ function (exports, module, require) {
         return (n && n.family) || null;
       }),
       (r.prototype.addPreviews = function (e) {
-        for (var t = new DOMParser(), n = 0; n < e.length; n++)
-          e[n].cachedPreview ||
-            (e[n].addPreviewCallback = function (e) {
+        for (var module = new DOMParser(), require = 0; require < e.length; require++)
+          e[require].cachedPreview ||
+            (e[require].addPreviewCallback = function (e) {
               var n = new XMLHttpRequest();
               n.open("GET", this.preview),
                 (n.onload = function () {
                   var n;
                   if (this.status >= 200 && this.status < 300)
                     try {
-                      (n = t.parseFromString(
+                      (n = module.parseFromString(
                         this.response,
                         "image/svg+xml"
                       ).firstChild) &&
@@ -166,8 +166,8 @@ function (exports, module, require) {
       (r.prototype.hasFont = function (e) {
         var t = false;
         if (d)
-          for (var n = 0; n < d.length; ++n)
-            if (d[n].family === e) {
+          for (var require = 0; require < d.length; ++require)
+            if (d[require].family === e) {
               t = true;
               break;
             }
@@ -214,5 +214,5 @@ function (exports, module, require) {
       (r.prototype.getProviderId = function () {
         return s;
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
+    require(19) /* module_19 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
       i = null;
     function a(e) {
-      for (var t = 0; t < i.length; ++t) if (i[t].type === e) return i[t].icon;
+      for (var module = 0; module < i.length; ++module) if (i[module].type === e) return i[module].icon;
       return null;
     }
     function r(e) {
-      for (var t = 0; t < i.length; ++t)
-        $('button[data-corner-type="' + i[t].type + '"]').toggleClass(
+      for (var module = 0; module < i.length; ++module)
+        $('button[data-corner-type="' + i[module].type + '"]').toggleClass(
           "g-active",
-          i[t].type === e
+          i[module].type === e
         );
     }
     var s = {

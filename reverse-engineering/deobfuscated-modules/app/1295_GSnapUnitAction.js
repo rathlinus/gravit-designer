@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(15) /* module_15 */,
-      a = n(1) /* module_1 */,
-      r = n(18) /* module_18 */,
-      s = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(15) /* module */,
+      a = require(1) /* module */,
+      r = require(18) /* module_18 */,
+      s = require(31) /* GAction */;
     function l(e) {
       (this._category = e),
         (this._title = new a.GLocaleKey("GSnapUnitAction", "title." + e));
@@ -87,5 +87,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GSnapUnitAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

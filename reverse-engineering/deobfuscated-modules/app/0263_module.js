@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = t.GRegex = undefined);
-    const { NOTIFICATION_USER_MENTION_REGEX: o } = n(10) /* module_10 */,
-      i = (t.GRegex = {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = module.GRegex = undefined);
+    const { NOTIFICATION_USER_MENTION_REGEX: o } = require(10) /* module_10 */,
+      i = (module.GRegex = {
         String: {
           InParenthesis: { NotNegativeNumberInTheEnd: /\(\d+\)$/ },
           SpacesLineBreak: /\s/,
@@ -30,5 +30,5 @@ function (exports, module, require) {
         URLQuery: { NextParameter: /[?&]([^=#]+)=([^&#]*)/g },
         NavigatorUserAgent: { IS_CHROME_OS: /CrO[S\u017F]/i },
       });
-    t.default = { String: i.String };
+    module.default = { String: i.String };
   }

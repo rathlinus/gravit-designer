@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(40) /* module_40 */;
+    var o = require(40) /* module_40 */;
     function i(e, t, n) {
       (this.element = e),
         (this.mouseMoveCallback = t || o.fakeFunction),
@@ -21,8 +21,8 @@ function (exports, module, require) {
         (this.element.style.position = "absolute");
     }),
       (i.prototype._updateElementOffset = function (e, t) {
-        const n = this.element.getBoundingClientRect();
-        (this._offsetX = e - n.left), (this._offsetY = t - n.top);
+        const require = this.element.getBoundingClientRect();
+        (this._offsetX = e - require.left), (this._offsetY = t - require.top);
       }),
       (i.prototype._resetElementOffset = function () {
         (this._offsetX = 0), (this._offsetY = 0);
@@ -67,5 +67,5 @@ function (exports, module, require) {
           this.element.removeEventListener("mousedown", this._handleMouseDown),
           this.element.removeEventListener("dragstart", this._onDragStart);
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

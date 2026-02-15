@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(129) /* module_129 */;
-    e.exports = /ipad|iphone|ipod/i.test(o) && "undefined" != typeof Pebble;
+    var o = require(129) /* module_129 */;
+    exports.exports = /ipad|iphone|ipod/i.test(o) && "undefined" != typeof Pebble;
   }

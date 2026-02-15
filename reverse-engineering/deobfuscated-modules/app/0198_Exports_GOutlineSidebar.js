@@ -6,7 +6,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       SidebarsIds: {
         GInspectorSidebar: "inspector",
         GAnnotationsSidebar: "annotations",

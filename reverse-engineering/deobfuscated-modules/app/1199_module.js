@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(328) /* module_328 */, n(57) /* module_57 */, n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(134) /* module_134 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */,
-      i = n(381) /* module_381 */;
+    require(328) /* module_328 */, require(57) /* module_57 */, require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(134) /* module_134 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    var o = require(1) /* module */,
+      i = require(381) /* module_381 */;
     const {
       parseNativeFonts: a,
       getLocalFontsData: r,
       getFontFamily: s,
-    } = n(1200) /* module_1200 */;
+    } = require(1200) /* module_1200 */;
     function l(e) {
       i.call(this, e);
     }
@@ -24,9 +24,9 @@ function (exports, module, require) {
       (l.prototype._cachedParsedFonts = {}),
       (l.prototype.addPreviews = function (e) {
         if (e.length)
-          for (var t = 0; t < e.length; t++)
-            e[t].cachedPreview ||
-              (e[t].addPreviewCallback = function (e) {
+          for (var module = 0; module < e.length; module++)
+            e[module].cachedPreview ||
+              (e[module].addPreviewCallback = function (e) {
                 var t = document.createElement("div");
                 (t.innerHTML = this.displayname || this.family),
                   (t.style.fontFamily = this.family),
@@ -137,9 +137,9 @@ function (exports, module, require) {
             }));
       }),
       (l.prototype._getFilteredFontsList = function (e) {
-        let t =
+        let module =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 0,
-          n =
+          require =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : 9999;
@@ -149,16 +149,16 @@ function (exports, module, require) {
               ? t.family.toLowerCase().startsWith(e.replace(/%/g, ""))
               : t.family.toLowerCase() === e.toLowerCase()
           )
-          .slice(t, t + n);
+          .slice(module, module + require);
       }),
       (l.prototype._findInFontsList = function (e) {
         return this._fontList.find(function (t) {
-          let { family: n } = t;
-          return e === n;
+          let { family: require } = t;
+          return e === require;
         });
       }),
       (l.prototype.getProviderId = function () {
         return c;
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    n.r(t),
-      n.d(t, "encode", function () {
+    require.r(module),
+      require.d(module, "encode", function () {
         return a;
       }),
-      n.d(t, "decode", function () {
+      require.d(module, "decode", function () {
         return r;
       }),
-      n.d(t, "trim", function () {
+      require.d(module, "trim", function () {
         return s;
       }),
-      n.d(t, "isBase64", function () {
+      require.d(module, "isBase64", function () {
         return l;
       }),
-      n.d(t, "isUrlSafeBase64", function () {
+      require.d(module, "isUrlSafeBase64", function () {
         return c;
       });
     const o = { "+": "-", "/": "_" },

@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(328) /* module_328 */, n(20) /* module_20 */, n(34) /* module_34 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(841) /* module_841 */,
       a = n(217) /* GDocumentStatusEvent */,
       r = n(86) /* module_86 */;

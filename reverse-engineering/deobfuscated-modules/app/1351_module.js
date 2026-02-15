@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.buildLayerItemContainer = function (e, t, n, a) {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.buildLayerItemContainer = function (e, t, n, a) {
         var r = $(e);
         r.attr("draggable", false),
           r.gPro({
@@ -61,8 +61,8 @@ function (exports, module, require) {
         g && u && g.appendTo(u);
         return { container: r, title: c, titleGroup: s };
       }),
-      (t.getIconByLayerType = i),
-      (t.getLayerOrItemStatus = function (e) {
+      (module.getIconByLayerType = i),
+      (module.getLayerOrItemStatus = function (e) {
         var t = false,
           n = null,
           i = false,
@@ -93,7 +93,7 @@ function (exports, module, require) {
           hasSelection: c,
         };
       });
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       var n = null,
         i = null;

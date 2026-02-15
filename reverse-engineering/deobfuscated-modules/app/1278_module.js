@@ -13,5 +13,5 @@ function (exports, module, require) {
         return !!gDesigner.getSetting(o.getSetting(), true);
       }
     }
-    e.exports = o;
+    exports.exports = o;
   }

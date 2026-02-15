@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */;
-    const { GFontManager: o } = n(1) /* module_1 */;
+    const { GFontManager: o } = n(1) /* module */;
     e.exports = class {
       constructor(e) {
         (this._fontManager = e),

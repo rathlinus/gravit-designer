@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(328) /* module_328 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(328) /* module_328 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "modify.bmp2path"),
@@ -33,8 +33,8 @@ function (exports, module, require) {
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
-          for (var t = 0; t < e.length; ++t)
-            if (e[t] instanceof o.GImage && !e[t].getStatus()) return true;
+          for (var module = 0; module < e.length; ++module)
+            if (e[module] instanceof o.GImage && !e[module].getStatus()) return true;
         return false;
       }),
       (s.prototype.execute = function () {
@@ -144,5 +144,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GVectorizeImageAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

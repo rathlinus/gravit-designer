@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = undefined),
-      n(8) /* module_8 */;
-    const o = n(156) /* module_156 */,
-      i = n(220) /* module_220 */,
-      a = n(556) /* module_556 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = undefined),
+      require(8) /* module_8 */;
+    const o = require(156) /* module_156 */,
+      i = require(220) /* module_220 */,
+      a = require(556) /* module_556 */;
     function r() {}
     r.createStorageItem = async function (e) {
-      let t = null;
+      let module = null;
       switch (e.storage) {
         case o.Storage.Gravit:
-          t = await i.from(gDesigner.getDefaultStorage(), e);
+          module = await i.from(gDesigner.getDefaultStorage(), e);
           break;
         case o.Storage.GoogleDrive:
-          t = await new a.Item(gDesigner.getDefaultStorage(), e);
+          module = await new a.Item(gDesigner.getDefaultStorage(), e);
       }
-      return t;
+      return module;
     };
-    t.default = r;
+    module.default = r;
   }

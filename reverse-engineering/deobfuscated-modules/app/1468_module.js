@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var o = n(1469) /* module_1469 */,
-      i = n(10) /* module_10 */;
-    e.exports = new (class {
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    var o = require(1469) /* module_1469 */,
+      i = require(10) /* module_10 */;
+    exports.exports = new (class {
       async register(e) {
-        const t = gDesigner.getEnv();
-        if ("production" === t || "trunk" === t || "lts" === t || "rc" === t) {
+        const module = gDesigner.getEnv();
+        if ("production" === module || "trunk" === module || "lts" === module || "rc" === module) {
           const t = (0, o.getOS)(),
             n = gDesigner.getVersion();
           return i.gApi.diagnostic(

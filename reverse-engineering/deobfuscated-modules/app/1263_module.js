@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i() {}
     (i.DefaultStops = {
       Hue: function (e) {
@@ -20,26 +20,26 @@ function (exports, module, require) {
         return o.GColor.hsvToRGB([0, 0, e / 100]);
       },
     }),
-      (e.exports = i);
+      (exports.exports = i);
     var a = {
       init: function (e) {
         return (
           (e = $.extend({ min: 0, max: 360, stops: i.DefaultStops.Hue }, e)),
           this.each(function () {
             for (
-              var t = "",
-                n = 0,
+              var module = "",
+                require = 0,
                 i = Math.abs(e.min) + Math.abs(e.max),
                 a = e.min;
               a <= e.max;
               a += 20
             ) {
-              var r = e.stops.call(null, n);
-              (n += 20),
-                t && (t += ","),
-                (t += o.GColor.rgbToHtmlHex(r) + " " + (n / i) * 100 + "%");
+              var r = e.stops.call(null, require);
+              (require += 20),
+                module && (module += ","),
+                (module += o.GColor.rgbToHtmlHex(r) + " " + (require / i) * 100 + "%");
             }
-            (e.background = "linear-gradient(90deg," + t + ")"),
+            (e.background = "linear-gradient(90deg," + module + ")"),
               $(this).gInputSlider(e);
           })
         );

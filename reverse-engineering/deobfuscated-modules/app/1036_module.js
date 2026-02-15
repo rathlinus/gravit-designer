@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.GGoogleAPI = t.GDefaultGoogleAPI = undefined),
-      n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(26) /* module_26 */;
-    var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.GGoogleAPI = module.GDefaultGoogleAPI = undefined),
+      require(19) /* module_19 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(26) /* module_26 */;
+    var o = require(10) /* module_10 */,
+      i = require(1) /* module */;
     class a {
       isLoaded() {
         return true;
       }
       init() {
         let {
-          appId: e,
-          apiKey: t,
-          clientId: n,
+          appId: exports,
+          apiKey: module,
+          clientId: require,
           discoveryDocs: o,
           scope: i,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
@@ -57,36 +57,36 @@ function (exports, module, require) {
         throw "Not implemented";
       }
     }
-    t.GGoogleAPI = a;
-    t.GDefaultGoogleAPI = new (class extends a {
+    module.GGoogleAPI = a;
+    module.GDefaultGoogleAPI = new (class extends a {
       isLoaded() {
         return !!window.gapi;
       }
       async init() {
         let {
-          appId: e,
-          apiKey: t,
-          clientId: n,
+          appId: exports,
+          apiKey: module,
+          clientId: require,
           discoveryDocs: o,
           scope: a,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         return (
-          (this._appId = e),
-          (this._apiKey = t),
-          (this._clientId = n),
+          (this._appId = exports),
+          (this._apiKey = module),
+          (this._clientId = require),
           (this._discoveryDocs = o),
           (this._scope = a),
           await new Promise((e, t) => {
             gapi.load("client", { callback: e, onerror: t });
           }),
-          await gapi.client.init({ apiKey: t, discoveryDocs: o }),
+          await gapi.client.init({ apiKey: module, discoveryDocs: o }),
           new Promise(async (e, t) => {
             try {
               const t = await gContainer.getProperty(
                 "googleapi_auth_email_hint"
               );
               (this._tokenClient = google.accounts.oauth2.initTokenClient({
-                client_id: n,
+                client_id: require,
                 scope: a,
                 prompt: "",
                 callback: "",
@@ -119,8 +119,8 @@ function (exports, module, require) {
         return false;
       }
       install(e) {
-        const t = [],
-          n = (t) =>
+        const module = [],
+          require = (t) =>
             new Promise((n, o) => {
               let i = document.createElement("script");
               (i.async = true),
@@ -130,9 +130,9 @@ function (exports, module, require) {
                 (e || document.getElementsByTagName("head")[0]).appendChild(i);
             });
         return (
-          t.push(n("https://apis.google.com/js/api.js")),
-          t.push(n("https://accounts.google.com/gsi/client")),
-          Promise.all(t)
+          module.push(require("https://apis.google.com/js/api.js")),
+          module.push(require("https://accounts.google.com/gsi/client")),
+          Promise.all(module)
         );
       }
       async signIn() {
@@ -168,19 +168,19 @@ function (exports, module, require) {
       }
       async signOut() {
         this._picker && delete this._picker;
-        const e = await gContainer.getProperty("googleapi_auth_key");
-        await google.accounts.oauth2.revoke(e && e.access_token),
+        const exports = await gContainer.getProperty("googleapi_auth_key");
+        await google.accounts.oauth2.revoke(exports && exports.access_token),
           gapi.client.setToken(null),
           gContainer.setProperty("googleapi_auth_key", null),
           gContainer.setProperty("googleapi_auth_email_hint", null);
       }
       async getTokenConfiguration() {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        const t = await gContainer.getProperty("googleapi_auth_key");
-        return Object.assign(e, {
-          accessToken: t.access_token,
-          expires: t.expires_at,
+        const module = await gContainer.getProperty("googleapi_auth_key");
+        return Object.assign(exports, {
+          accessToken: module.access_token,
+          expires: module.expires_at,
           corporate: false,
         });
       }
@@ -226,10 +226,10 @@ function (exports, module, require) {
       }
       async getBasicProfile() {
         (await this.isSignedIn()) || (await this.signIn());
-        const e = await gContainer.getProperty("googleapi_auth_key");
+        const exports = await gContainer.getProperty("googleapi_auth_key");
         return fetch(
           "https://www.googleapis.com/oauth2/v3/userinfo?access_token=".concat(
-            e && e.access_token
+            exports && exports.access_token
           )
         )
           .then((e) => e.json())
@@ -250,8 +250,8 @@ function (exports, module, require) {
       }
       async getAccessToken() {
         (await this.isSignedIn()) || (await this.signIn());
-        const e = await gContainer.getProperty("googleapi_auth_key");
-        return { expires: e.expires_at, accessToken: e.access_token };
+        const exports = await gContainer.getProperty("googleapi_auth_key");
+        return { expires: exports.expires_at, accessToken: exports.access_token };
       }
     })();
   }

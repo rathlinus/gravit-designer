@@ -6,20 +6,20 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = (n(18) /* module_18 */, n(31) /* GAction */);
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = (require(18) /* module_18 */, require(31) /* GAction */);
     function a(e) {
-      let { name: t, category: n, group: i, link: a, icon: r, builder: s } = e;
-      (this._name = t),
-        (this._category = n),
+      let { name: module, category: require, group: i, link: a, icon: r, builder: s } = e;
+      (this._name = module),
+        (this._category = require),
         (this._group = i),
         (this._link = a),
         (this._builder = s),
-        (this._title = new o.GLocaleKey("GOpenLinkAction", "title." + t)),
+        (this._title = new o.GLocaleKey("GOpenLinkAction", "title." + module)),
         (this._icon = r);
     }
-    (a.Links = n(1622) /* module_1622 */),
+    (a.Links = require(1622) /* module_1622 */),
       o.GObject.inherit(a, i),
       (a.ID = "open-link"),
       (a.prototype._name = null),
@@ -55,5 +55,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GOpenLinkAction]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

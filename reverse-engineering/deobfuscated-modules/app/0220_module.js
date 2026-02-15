@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */,
-      r = o(n(336) /* module_336 */),
-      s = o(n(44) /* GSystemDialog */),
-      l = n(40) /* module_40 */,
-      c = o(n(554) /* module_554 */),
-      d = o(n(555) /* module_555 */),
-      u = n(237) /* module_237 */,
-      p = n(119) /* module_119 */;
-    const g = n(436) /* module_436 */,
-      h = n(86) /* module_86 */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(10) /* module_10 */,
+      r = o(require(336) /* module_336 */),
+      s = o(require(44) /* GSystemDialog */),
+      l = require(40) /* module_40 */,
+      c = o(require(554) /* module_554 */),
+      d = o(require(555) /* module_555 */),
+      u = require(237) /* module_237 */,
+      p = require(119) /* module_119 */;
+    const g = require(436) /* module_436 */,
+      h = require(86) /* module_86 */;
     var f = a.FILE_FORMATS.find((e) => e.default),
       m = a.FILE_FORMATS.filter((e) => !e.default);
-    const y = n(435) /* Md5 */,
-      v = n(165) /* module_165 */;
+    const y = require(435) /* Md5 */,
+      v = require(165) /* module_165 */;
     function _(e) {
       return fetch(a.gApi.url + "/error", {
         method: "POST",
@@ -115,10 +115,10 @@ function (exports, module, require) {
       }),
       (b.Item.prototype.setCollaborativeFileStatus = async function (e) {
         if (this._file.status !== e) {
-          var t = this._file.status;
+          var module = this._file.status;
           (this._file.status = e),
             gDesigner.hasEventListeners(r.default.FileStatusUpdate) &&
-              gDesigner.trigger(new r.default.FileStatusUpdate(this, t, e));
+              gDesigner.trigger(new r.default.FileStatusUpdate(this, module, e));
         }
       }),
       (b.Item.prototype.getCollaborativeFile = async function () {
@@ -140,20 +140,20 @@ function (exports, module, require) {
       }),
       (b.Item.prototype.setFile = function (e) {
         if (!e) throw new Error("File can not be null");
-        const t = this._file && this._file.status,
-          n = new a.FileExtended(e);
+        const module = this._file && this._file.status,
+          require = new a.FileExtended(e);
         (this._file = p.convertToCloudItem(e)),
           (this._id = e.id),
           (this._name = e.name),
           (this._versionId = e.version),
           (this._fileLastModifiedDate = new Date(e.updated)),
           (this._fileAutoSaveLastModifiedDate = new Date(e.autosave_updated)),
-          (this._isAutoSave = !!n.isAutoSave()),
-          this._file.status !== t &&
-            null != t &&
+          (this._isAutoSave = !!require.isAutoSave()),
+          this._file.status !== module &&
+            null != module &&
             gDesigner.hasEventListeners(r.default.FileStatusUpdate) &&
             gDesigner.trigger(
-              new r.default.FileStatusUpdate(this, t, this._file.status)
+              new r.default.FileStatusUpdate(this, module, this._file.status)
             );
       }),
       (b.Item.prototype.getFile = function () {
@@ -182,8 +182,8 @@ function (exports, module, require) {
           .catch(t);
       }),
       (b.Item.prototype.supportsSharing = function () {
-        let e = true;
-        return this._id || (e = false), e;
+        let exports = true;
+        return this._id || (exports = false), exports;
       }),
       (b.Item.prototype._canPerformExtensionSpecificWrite = function () {
         return false;
@@ -372,18 +372,18 @@ function (exports, module, require) {
       }),
       (b.Item.prototype._makeFileVisibleUpdateInternalVersionAndHash =
         async function (e) {
-          const t = a.COMPUTE_SHA256_FOR_FILES
+          const module = a.COMPUTE_SHA256_FOR_FILES
               ? await (0, l.getFileSHA256Digest)(e)
               : null,
-            n = { trashed: false };
-          t && (n.sha256 = t);
-          const o = await a.gApi.updateFile(this.getId(), n);
+            require = { trashed: false };
+          module && (require.sha256 = module);
+          const o = await a.gApi.updateFile(this.getId(), require);
           this.setVersionId(o.versionId);
         }),
       (b.Item.prototype._updateFileAfterSave = async function () {
-        const e = await a.gApi.getFile(this._id);
-        (this._fileLastModifiedDate = new Date(e.updated)),
-          (this._file = p.convertToCloudItem(e));
+        const exports = await a.gApi.getFile(this._id);
+        (this._fileLastModifiedDate = new Date(exports.updated)),
+          (this._file = p.convertToCloudItem(exports));
       }),
       (b.Item.prototype._isNewFile = function () {
         return !this.getId();
@@ -404,12 +404,12 @@ function (exports, module, require) {
         }
       }),
       (b.Item.prototype._uploadBinary = async function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const n = y.base64(e),
+        const require = y.base64(e),
           o = await a.gApi.signedPutUrls(this.getId(), {
             type: this.getType(),
-            md5: n,
+            md5: require,
           }),
           i = await fetch(o.url, {
             method: "PUT",
@@ -417,9 +417,9 @@ function (exports, module, require) {
               {
                 "Content-Type": this.getType(),
                 "Cache-Control": "public,max-age=31536000",
-                "Content-MD5": n,
+                "Content-MD5": require,
               },
-              t
+              module
             ),
             body: e,
           });
@@ -441,10 +441,10 @@ function (exports, module, require) {
           );
       }),
       (b.Item.prototype._checkUserQuotaLimit = async function () {
-        const { pro: e, free: t } = gDesigner.getLicense().getQuotas(),
-          n = gDesigner.isEnabledProFeatures() ? e : t;
-        if (n > 0) {
-          if ((await a.gApi.quota()) > n) {
+        const { pro: exports, free: module } = gDesigner.getLicense().getQuotas(),
+          require = gDesigner.isEnabledProFeatures() ? exports : module;
+        if (require > 0) {
+          if ((await a.gApi.quota()) > require) {
             const e = new Error(
               i.GLocale.get(
                 new i.GLocaleKey(
@@ -457,33 +457,33 @@ function (exports, module, require) {
           }
         }
       }),
-      n(1100) /* module_1100 */(b),
+      require(1100) /* module_1100 */(b),
       (b.Item.prototype.getUniqueId = function () {
         return this._id;
       }),
       (b.Item.prototype.hasUpdates = async function () {
         if (!this.getUniqueId()) return false;
-        let e = await this.getLatestFileInfo();
-        const t = e.getModificationTime() || e.updated || e.created,
-          n =
+        let exports = await this.getLatestFileInfo();
+        const module = exports.getModificationTime() || exports.updated || exports.created,
+          require =
             this._file.getModificationTime() ||
             this._file.updated ||
             this._file.created;
         (this._fileLastModifiedDate &&
           !isNaN(this._fileLastModifiedDate.getTime())) ||
-          (this._fileLastModifiedDate = new Date(n)),
+          (this._fileLastModifiedDate = new Date(require)),
           (this._fileAutoSaveLastModifiedDate &&
             !isNaN(this._fileAutoSaveLastModifiedDate.getTime())) ||
             (this._fileAutoSaveLastModifiedDate = new Date(
               this._file.autosave_updated
             ));
         return (
-          (e.autosave
+          (exports.autosave
             ? Math.max(
-                new Date(t).getTime(),
-                new Date(e.autosave_updated).getTime()
+                new Date(module).getTime(),
+                new Date(exports.autosave_updated).getTime()
               )
-            : new Date(t).getTime()) >
+            : new Date(module).getTime()) >
           (this._file.autosave
             ? Math.max(
                 this._fileLastModifiedDate.getTime(),
@@ -493,10 +493,10 @@ function (exports, module, require) {
         );
       }),
       (b.Item.prototype.getLatestFileInfo = async function () {
-        const e = await gDesigner
+        const exports = await gDesigner
           .getCloudCommunicationManager()
           .getFile(this._id);
-        return p.convertToCloudItem(e);
+        return p.convertToCloudItem(exports);
       }),
       (b.Item.prototype.exists = async function () {
         return p.fileExists(this._id);
@@ -516,5 +516,5 @@ function (exports, module, require) {
             i.send(t.body);
         });
       }),
-      (e.exports = b);
+      (exports.exports = b);
   }

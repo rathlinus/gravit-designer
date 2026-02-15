@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */;
     function l() {}
     o.GObject.inherit(l, s),
       (l.ID = "modify.converttorawpath"),
@@ -38,17 +38,17 @@ function (exports, module, require) {
       }),
       (l.prototype._isValidElement = function (e) {
         if (e instanceof o.GPath || e instanceof o.GCompoundPath) {
-          var t = [];
+          var module = [];
           if (e instanceof o.GCompoundPath)
             for (
-              var n = e.getPaths().getFirstChild();
-              null !== n;
-              n = n.getNext()
+              var require = e.getPaths().getFirstChild();
+              null !== require;
+              require = require.getNext()
             )
-              t.push(n);
-          else t = [e];
-          for (var i = 0; i < t.length; i++)
-            for (var a = t[i].getAnchorPoints().getFirstChild(); a; ) {
+              module.push(require);
+          else module = [e];
+          for (var i = 0; i < module.length; i++)
+            for (var a = module[i].getAnchorPoints().getFirstChild(); a; ) {
               if (o.GPathBase.isCornerType(a.getProperty("tp"))) return true;
               a = a.getNext();
             }
@@ -64,10 +64,10 @@ function (exports, module, require) {
         if (!s.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getSelection();
-          if (t)
-            for (var n = 0; n < t.length; ++n)
-              if (this._isValidElement(t[n])) return true;
+          var module = e.getEditor().getSelection();
+          if (module)
+            for (var require = 0; require < module.length; ++require)
+              if (this._isValidElement(module[require])) return true;
         }
         return false;
       }),
@@ -108,5 +108,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GConvertToRawPathAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

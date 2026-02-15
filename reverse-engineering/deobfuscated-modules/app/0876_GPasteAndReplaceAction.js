@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
-    const a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */;
+    const a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "edit.paste.replace"),
@@ -37,10 +37,10 @@ function (exports, module, require) {
       }),
       (s.prototype.isEnabled = function () {
         if (!r.prototype.isEnabled.call(this)) return false;
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getEditor(),
-          n = t && t.getSelection();
-        if (n && n.length > 0) {
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getEditor(),
+          require = module && module.getSelection();
+        if (require && require.length > 0) {
           if (document.queryCommandSupported("paste")) return true;
           const e = gDesigner.getClipboardMimeTypes();
           if (e && e.indexOf(o.GNode.MIME_TYPE) >= 0) return true;
@@ -84,14 +84,14 @@ function (exports, module, require) {
         }
       }),
       (s.prototype._fixTexts = function (e) {
-        const t = gDesigner.getActiveDocument(),
-          n = t && t.getEditor();
-        n &&
+        const module = gDesigner.getActiveDocument(),
+          require = module && module.getEditor();
+        require &&
           e.forEach((e) => {
             e.accept((t) => {
               if (t instanceof o.GText)
                 return (
-                  n.insertElements([e], true, true, false),
+                  require.insertElements([e], true, true, false),
                   e.getParent().removeChild(e),
                   false
                 );
@@ -99,16 +99,16 @@ function (exports, module, require) {
           });
       }),
       (s.prototype._replace = function (e, t) {
-        const n = this._getBoundingBox(t);
-        if (!n) return;
+        const require = this._getBoundingBox(t);
+        if (!require) return;
         const i = e.getGeometryBBox(),
           a = new o.GTransform(
             1,
             0,
             0,
             1,
-            i.getX() - n.getX(),
-            i.getY() - n.getY()
+            i.getX() - require.getX(),
+            i.getY() - require.getY()
           ),
           r = this._clone(t);
         return (
@@ -123,17 +123,17 @@ function (exports, module, require) {
         return e.map((e) => e.clone());
       }),
       (s.prototype._getBoundingBox = function (e) {
-        let t;
+        let module;
         return (
           e.forEach((e) => {
-            const n = e.getGeometryBBox();
-            n && !n.isEmpty() && (t = t ? t.united(n) : n);
+            const require = e.getGeometryBBox();
+            require && !require.isEmpty() && (module = module ? module.united(require) : require);
           }),
-          t
+          module
         );
       }),
       (s.prototype.toString = function () {
         return "[Object GPasteAndReplaceAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

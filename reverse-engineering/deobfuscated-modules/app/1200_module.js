@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(290) /* module_290 */, n(1381) /* module_1381 */, n(19) /* module_19 */, n(57) /* module_57 */, n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */;
+    require(290) /* module_290 */, require(1381) /* module_1381 */, require(19) /* module_19 */, require(57) /* module_57 */, require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(26) /* module_26 */;
+    var o = require(1) /* module */;
     function i(e) {
-      function t(e) {
+      function module(e) {
         if (Object(e) !== e)
           return Promise.reject(new TypeError(e + " is not an object."));
         var t = e.done;
@@ -23,28 +23,28 @@ function (exports, module, require) {
           s: null,
           n: null,
           next: function () {
-            return t(this.n.apply(this.s, arguments));
+            return module(this.n.apply(this.s, arguments));
           },
           return: function (e) {
             var n = this.s.return;
             return undefined === n
               ? Promise.resolve({ value: e, done: true })
-              : t(n.apply(this.s, arguments));
+              : module(n.apply(this.s, arguments));
           },
           throw: function (e) {
             var n = this.s.return;
             return undefined === n
               ? Promise.reject(e)
-              : t(n.apply(this.s, arguments));
+              : module(n.apply(this.s, arguments));
           },
         }),
         new i(e)
       );
     }
-    e.exports = {
+    exports.exports = {
       generateFormattedList: function (e) {
         if (!e) return null;
-        const t = [];
+        const module = [];
         var n = e.slice();
         for (let e = 0; e < n.length; e++) {
           var o = n[e],
@@ -59,18 +59,18 @@ function (exports, module, require) {
               },
             ],
             r = [o.family];
-          t.push({ family: null, displayname: i, fonts: a, families: r });
-          for (let t = n.length - 1; t > e; t--)
-            i === (n[t].displayname || n[t].family) &&
-              (r.indexOf(n[t].family) < 0 && r.push(n[t].family),
+          module.push({ family: null, displayname: i, fonts: a, families: r });
+          for (let module = n.length - 1; module > e; module--)
+            i === (n[module].displayname || n[module].family) &&
+              (r.indexOf(n[module].family) < 0 && r.push(n[module].family),
               a.push({
-                weight: parseInt(n[t].weight),
-                style: n[t].style,
-                family: n[t].family,
-                subfamily: n[t].subfamily || null,
-                displayname: n[t].displayname || null,
+                weight: parseInt(n[module].weight),
+                style: n[module].style,
+                family: n[module].family,
+                subfamily: n[module].subfamily || null,
+                displayname: n[module].displayname || null,
               }),
-              n.splice(t, 1));
+              n.splice(module, 1));
           var s = 0,
             l = r[0].length;
           if (l > 0)
@@ -81,15 +81,15 @@ function (exports, module, require) {
               }
               l > r[e].length && ((l = r[e].length), (s = e));
             }
-          t[t.length - 1].family = r[s];
+          module[module.length - 1].family = r[s];
         }
-        return t;
+        return module;
       },
       parseNativeFonts: async function (e) {
         if (!e || !Array.isArray(e) || !e.length) return [];
-        const t = [];
-        for (var n = 0; n < e.length; n++) {
-          const l = e[n],
+        const module = [];
+        for (var require = 0; require < e.length; require++) {
+          const l = e[require],
             c = await l.blob(),
             d = await c.arrayBuffer();
           if (d) {
@@ -98,7 +98,7 @@ function (exports, module, require) {
               for (var a = 0; a < i.length; a++) {
                 for (
                   var r = i[a], s = 2;
-                  t.find(
+                  module.find(
                     (e) =>
                       e.family === r.family &&
                       e.weight === r.weight &&
@@ -116,7 +116,7 @@ function (exports, module, require) {
                         ) +
                         " " +
                         r.subfamily));
-                t.push({
+                module.push({
                   weight: r.weight,
                   style: r.style,
                   family: r.family,
@@ -127,13 +127,13 @@ function (exports, module, require) {
               }
           }
         }
-        return t;
+        return module;
       },
       getLocalFontsData: async () => {
-        const e = [];
+        const exports = [];
         try {
-          var t,
-            n = false,
+          var module,
+            require = false,
             o = false;
           try {
             for (
@@ -155,42 +155,42 @@ function (exports, module, require) {
                   }
                   throw new TypeError("Object is not async iterable");
                 })(await window.queryLocalFonts());
-              (n = !(a = await r.next()).done);
-              n = false
+              (require = !(a = await r.next()).done);
+              require = false
             ) {
               const t = a.value;
-              e.push(t);
+              exports.push(t);
             }
           } catch (e) {
-            (o = true), (t = e);
+            (o = true), (module = e);
           } finally {
             try {
-              n && null != r.return && (await r.return());
+              require && null != r.return && (await r.return());
             } finally {
-              if (o) throw t;
+              if (o) throw module;
             }
           }
         } catch (e) {
           console.error(">>>error getting local fonts data:", e);
         }
-        return e;
+        return exports;
       },
       getFontFamily: function (e, t) {
-        let n = e,
-          o = t(n);
+        let require = e,
+          o = t(require);
         if (
           (o ||
-            ((n = n.replace(
+            ((require = require.replace(
               /[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]variant[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF][0-9]+$/,
               ""
             )),
-            (o = t(n))),
+            (o = t(require))),
           !o)
         ) {
-          let e = n.split(" ");
+          let e = require.split(" ");
           for (
             ;
-            e.length > 0 && (e.pop(), (n = e.join(" ")), (o = t(n)), !o);
+            e.length > 0 && (e.pop(), (require = e.join(" ")), (o = t(require)), !o);
 
           );
         }

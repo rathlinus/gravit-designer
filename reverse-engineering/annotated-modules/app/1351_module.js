@@ -93,7 +93,7 @@ function (e, t, n) {
           hasSelection: c,
         };
       });
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     function i(e, t) {
       var n = null,
         i = null;

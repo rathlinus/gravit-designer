@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const { GLocale: o, GLocaleKey: i } = n(1) /* module_1 */,
-      a = n(1166) /* module_1166 */,
-      r = n(177) /* module_177 */,
+    require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
+      a = require(1166) /* module_1166 */,
+      r = require(177) /* module_177 */,
       {
         gApi: s,
         Notification: l,
@@ -20,17 +20,17 @@ function (exports, module, require) {
             ACTION_IN_REVIEW: p,
           } = {},
         },
-      } = n(10) /* module_10 */;
+      } = require(10) /* module_10 */;
     function g() {
       (this._container = null), (this._opened = false);
     }
     (g.prototype._updateHistoryList = async function () {
-      const e = this._container.find(".list");
-      e.empty(), e.addClass("loading");
+      const exports = this._container.find(".list");
+      exports.empty(), exports.addClass("loading");
       var t = await s.annotations
         .getDesignHistory(gDesigner.getActiveDocument().getId())
         .catch((e) => []);
-      e.append(
+      exports.append(
         t.map((e) => {
           const t = l.from(e);
           var n;
@@ -86,7 +86,7 @@ function (exports, module, require) {
           }
         })
       ),
-        e.removeClass("loading");
+        exports.removeClass("loading");
     }),
       (g.prototype.open = function () {
         if (this._opened) return;
@@ -95,21 +95,21 @@ function (exports, module, require) {
           (this._container = $("<div/>").gDialog({
             className: "g-file-status-history-dialog",
           }));
-        let e = $("<div/>")
+        let exports = $("<div/>")
           .addClass("row")
           .addClass("header")
           .appendTo(this._container);
         $("<div/>")
           .addClass("title")
           .text(o.get(new i("GFileStatusHistoryDialog", "text.status-history")))
-          .appendTo(e),
+          .appendTo(exports),
           $("<div></div>")
             .addClass("btn-close")
             .click(() => {
               (this._opened = false), this._container.gDialog("close");
             })
             .append($("<span></span>").addClass("gravit-icon-close"))
-            .appendTo(e),
+            .appendTo(exports),
           $("<div/>").addClass("list").appendTo(this._container);
         this._container.gDialog("open", false), this._updateHistoryList();
       }),
@@ -119,5 +119,5 @@ function (exports, module, require) {
           last_name: e.last_name,
         }).getFullUserName();
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

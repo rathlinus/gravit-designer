@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(527) /* module_527 */;
-    const o = n(292) /* module_292 */,
-      i = n(1685) /* module_1685 */,
-      { gApi: a, DateAPI: r } = n(10) /* module_10 */;
-    e.exports = class {
+    require(8) /* module_8 */, require(527) /* module_527 */;
+    const o = require(292) /* module_292 */,
+      i = require(1685) /* module_1685 */,
+      { gApi: a, DateAPI: r } = require(10) /* module_10 */;
+    exports.exports = class {
       init() {
         gDesigner.addEventListener(o, this._userLoggedEvent, this);
       }
       async _userLoggedEvent(e) {
-        const t = e.user;
-        if (t && t.getUID()) {
+        const module = e.user;
+        if (module && module.getUID()) {
           gDesigner.removeEventListener(o, this._userLoggedEvent, this);
           try {
-            (await this._shouldShowWindowsStoreAnnouncement(t)) &&
+            (await this._shouldShowWindowsStoreAnnouncement(module)) &&
               this._showWindowsStoreAnnouncement();
           } finally {
             this._updateWindowStoreAnnouncementFlag();
@@ -26,10 +26,10 @@ function (exports, module, require) {
         }
       }
       async _shouldShowWindowsStoreAnnouncement(e) {
-        const { flags: { windowsStoreAnnouncement: t = false } = {} } = await a
+        const { flags: { windowsStoreAnnouncement: module = false } = {} } = await a
           .getUserSettings()
           .catch(() => ({}));
-        return !(t || !r.lt(e.created, Date.now()));
+        return !(module || !r.lt(e.created, Date.now()));
       }
       _updateWindowStoreAnnouncementFlag() {
         a.updateUserSettings({ flags: { windowsStoreAnnouncement: true } });

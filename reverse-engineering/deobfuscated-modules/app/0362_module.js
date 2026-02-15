@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(43) /* module_43 */("match");
-    e.exports = function (e) {
+    var o = require(43) /* module_43 */("match");
+    exports.exports = function (e) {
       var t = /./;
       try {
         "/./"[e](t);

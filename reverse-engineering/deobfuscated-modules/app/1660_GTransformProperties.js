@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(865) /* module_865 */, n(193) /* module_193 */, n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(123) /* GProperties */,
-      s = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);
-    n(1162) /* module_1162 */;
+    require(865) /* module_865 */, require(193) /* module_193 */, require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(123) /* GProperties */,
+      s = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */);
+    require(1162) /* module_1162 */;
     function l() {
       this._elements = [];
     }
@@ -618,10 +618,10 @@ function (exports, module, require) {
           (this._elements = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            !t[n].hasMixin(i.GElement.Transform) ||
-              t[n] instanceof i.GPage ||
-              this._elements.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            !t[require].hasMixin(i.GElement.Transform) ||
+              t[require] instanceof i.GPage ||
+              this._elements.push(t[require]);
           if (this._elements.length && this._elements.length === t.length)
             return (
               (this._document = e),
@@ -846,5 +846,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GTransformProperties]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

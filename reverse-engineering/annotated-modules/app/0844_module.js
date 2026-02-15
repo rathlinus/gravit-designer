@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(53) /* module_53 */,
+    var o = n(53) /* module */,
       i = {
         "gravit-cloud": "gravit-icon-cloud",
         "modify.merge": "gravit-icon-merge-union",

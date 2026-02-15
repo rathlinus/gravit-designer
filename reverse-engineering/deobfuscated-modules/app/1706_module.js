@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(57) /* module_57 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */, n(97) /* module_97 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = n(40) /* module_40 */,
-      l = n(67) /* GRichTooltipConfig */,
-      c = n(1351) /* module_1351 */,
-      d = o(n(565) /* module_565 */),
-      u = o(n(135) /* GSettingChangedEvent */),
-      p = n(451) /* module_451 */.GVirtualTree,
-      g = n(451) /* module_451 */.GVirtualTreeNodeNamed,
-      { VTREE_FREE_HEIGHT: h, VTREE_FREE_HEIGHT_TOUCH: f } = n(10) /* module_10 */,
-      m = n(450) /* module_450 */,
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(57) /* module_57 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */, require(97) /* module_97 */, require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = require(40) /* module_40 */,
+      l = require(67) /* GRichTooltipConfig */,
+      c = require(1351) /* module_1351 */,
+      d = o(require(565) /* module_565 */),
+      u = o(require(135) /* GSettingChangedEvent */),
+      p = require(451) /* module_451 */.GVirtualTree,
+      g = require(451) /* module_451 */.GVirtualTreeNodeNamed,
+      { VTREE_FREE_HEIGHT: h, VTREE_FREE_HEIGHT_TOUCH: f } = require(10) /* module_10 */,
+      m = require(450) /* module_450 */,
       y = ["name"];
     function v() {}
     function _(e, t, n, o, i) {
@@ -102,8 +102,8 @@ function (exports, module, require) {
     function x(e) {
       var t = $(this).data("glayerpanel");
       if (t.options.clickCallback) {
-        var n = T.call(this, e.id);
-        t.options.clickCallback(n);
+        var require = T.call(this, e.id);
+        t.options.clickCallback(require);
       }
     }
     function S(e) {
@@ -551,9 +551,9 @@ function (exports, module, require) {
             !(function (e) {
               var t = e.getScene();
               if (t) {
-                var n = e.getPage(),
+                var require = e.getPage(),
                   o = t.getActivePage();
-                if (o && n && n !== o) return true;
+                if (o && require && require !== o) return true;
               }
               return false;
             })(e.node))) &&
@@ -628,12 +628,12 @@ function (exports, module, require) {
       var e = $(this).data("glayerpanel");
       if ((e.vtree.beginUpdate(), e.scene && e.scene.getActivePage()))
         for (
-          var t = e.scene.getActivePage().getFirstChild();
-          null !== t;
-          t = t.getNext()
+          var module = e.scene.getActivePage().getFirstChild();
+          null !== module;
+          module = module.getNext()
         )
-          (t instanceof a.GLayer || t instanceof a.GItem) &&
-            M.call(this, t, true);
+          (module instanceof a.GLayer || module instanceof a.GItem) &&
+            M.call(this, module, true);
       e.vtree.endUpdate(), Y.call(this);
     }
     function Y() {
@@ -870,8 +870,8 @@ function (exports, module, require) {
       },
       toggleLockStatusOfLayerOrItem: function (e) {
         gDesigner.stats("layers_change_locktype");
-        const { parentLockType: t } = (0, c.getLayerOrItemStatus)(e);
-        if (!t || t === a.GBlock.LockType.Partial) {
+        const { parentLockType: module } = (0, c.getLayerOrItemStatus)(e);
+        if (!module || module === a.GBlock.LockType.Partial) {
           let n = e.getProperty("lkt");
           const o = e.getProperty("plkt");
           if (
@@ -882,7 +882,7 @@ function (exports, module, require) {
                     a.GBlock.ProgramLck.NoNewChildren |
                     a.GBlock.ProgramLck.NoDelete) || (n = null)
               : (n = a.GBlock.LockType.Full),
-            t !== a.GBlock.LockType.Partial || null !== n)
+            module !== a.GBlock.LockType.Partial || null !== n)
           ) {
             const t = [];
             if (r.GPlatform.modifiers.optionKey) {
@@ -918,8 +918,8 @@ function (exports, module, require) {
       },
       toggleHideStatusOfLayerOrItem: function (e) {
         gDesigner.stats("layers_toggle_visibility");
-        const { parentHidden: t } = (0, c.getLayerOrItemStatus)(e);
-        if (!t) {
+        const { parentHidden: module } = (0, c.getLayerOrItemStatus)(e);
+        if (!module) {
           const t = !e.getProperty("vis"),
             n = [];
           if (r.GPlatform.modifiers.optionKey) {
@@ -955,15 +955,15 @@ function (exports, module, require) {
         $(this).data("glayerpanel").currentFocus = e;
       },
       _updateLayout: function () {
-        const e = $(this).data("glayerpanel"),
-          t = e && e.vtree;
-        if (t) {
+        const exports = $(this).data("glayerpanel"),
+          module = exports && exports.vtree;
+        if (module) {
           const e = gDesigner.isTouchEnabled();
-          t.setFreeHeight(e ? f : h), t.setAnimatedDragEnabled(e);
+          module.setFreeHeight(e ? f : h), module.setAnimatedDragEnabled(e);
         }
       },
     };
-    (e.exports = v),
+    (exports.exports = v),
       ($.fn.gLayerPanel = function (e) {
         return J[e]
           ? J[e].apply(this, Array.prototype.slice.call(arguments, 1))

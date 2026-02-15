@@ -6,19 +6,19 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */;
-    const i = n(606) /* GPanel */,
-      a = n(394) /* GView */,
-      r = n(392) /* module_392 */,
-      s = n(393) /* GCollaborationEvent */,
-      l = n(78) /* GDocumentEvent */,
-      c = n(291) /* GNetworkAvailabilityChangedEvent */,
-      d = n(1346) /* GUnloadEvent */,
-      u = n(1348) /* module_1348 */,
-      p = n(44) /* GSystemDialog */,
-      g = n(177) /* module_177 */,
-      { DateAPI: h, ShareRoles: f } = n(10) /* module_10 */;
+    require(8) /* module_8 */, require(196) /* module_196 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var o = require(1) /* module */;
+    const i = require(606) /* GPanel */,
+      a = require(394) /* GView */,
+      r = require(392) /* module_392 */,
+      s = require(393) /* GCollaborationEvent */,
+      l = require(78) /* GDocumentEvent */,
+      c = require(291) /* GNetworkAvailabilityChangedEvent */,
+      d = require(1346) /* GUnloadEvent */,
+      u = require(1348) /* module_1348 */,
+      p = require(44) /* GSystemDialog */,
+      g = require(177) /* module_177 */,
+      { DateAPI: h, ShareRoles: f } = require(10) /* module_10 */;
     function m() {}
     o.GObject.inherit(m, i),
       (m.ID = "collaborative-text-panel"),
@@ -422,14 +422,14 @@ function (exports, module, require) {
         );
       }),
       (m.prototype._showRequestPanel = async function () {
-        const e = await this._document
+        const exports = await this._document
           .getCollaborativeTextController()
           .getCurrentLock();
-        if (!e)
+        if (!exports)
           return this._document
             .getCollaborativeTextController()
             .resetTextEditing();
-        const t = new g(e.user);
+        const module = new g(exports.user);
         this._htmlElement.empty().append(
           $("<div/>")
             .addClass("container")
@@ -443,7 +443,7 @@ function (exports, module, require) {
                       "GCollaborativeTextPanel",
                       "text.request-access-message"
                     )
-                  ).replace("%name", t.getFullUserName())
+                  ).replace("%name", module.getFullUserName())
                 )
             )
             .append(
@@ -479,7 +479,7 @@ function (exports, module, require) {
                                 "GCollaborativeTextPanel",
                                 "text.request-has-been-sent"
                               )
-                            ).replace("%name", t.getFullUserName())
+                            ).replace("%name", module.getFullUserName())
                           );
                       })
                       .catch((e) => {
@@ -497,10 +497,10 @@ function (exports, module, require) {
       (m.prototype._requestLock = function (e) {
         if (!this.isEnabled()) return;
         if (this._requestLockDialog) return;
-        const t = h.now(),
-          n = h.minutesToMilliseconds(5);
-        (this._lastRequestLockTime && t - this._lastRequestLockTime < n) ||
-          ((this._lastRequestLockTime = t),
+        const module = h.now(),
+          require = h.minutesToMilliseconds(5);
+        (this._lastRequestLockTime && module - this._lastRequestLockTime < require) ||
+          ((this._lastRequestLockTime = module),
           (this._requestLockDialog = p.custom({
             className: "g-request-lock-dialog",
             closeCallback: () => (this._requestLockDialog = null),
@@ -602,5 +602,5 @@ function (exports, module, require) {
       (m.prototype.getId = function () {
         return m.ID;
       }),
-      (e.exports = m);
+      (exports.exports = m);
   }

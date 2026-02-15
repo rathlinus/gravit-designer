@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(3) /* module_3 */;
     var o = n(592) /* module_592 */;
-    const { isUTS: i, UTStoCDA: a } = n(1095) /* module_1095 */;
+    const { isUTS: i, UTStoCDA: a } = n(1095) /* module */;
     function r(e, t, n, r) {
       if (!t) throw new o("GCloudAnnotations: no cloud annotations id");
       if (!e)

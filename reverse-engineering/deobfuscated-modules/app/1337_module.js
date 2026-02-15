@@ -6,26 +6,26 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    n(4) /* module_4 */,
-      n(13) /* module_13 */,
+    require(4) /* module_4 */,
+      require(13) /* module_13 */,
       (o.Orientation = { Vertical: "vertical", Horizontal: "horizontal" }),
       (function (e) {
-        const t = {
+        const module = {
           _toggleTransitions: function (t) {
             return e(this).toggleClass("g-transitions-off", !t), this;
           },
           _toggleVisibilty: function (t) {
-            const n = e(this);
-            if (n.hasClass("expanded") !== t)
+            const require = e(this);
+            if (require.hasClass("expanded") !== t)
               return (
-                n.toggleClass("collapsed", !t).toggleClass("expanded", t),
-                n.hasClass(o.Orientation.Vertical)
-                  ? n
+                require.toggleClass("collapsed", !t).toggleClass("expanded", t),
+                require.hasClass(o.Orientation.Vertical)
+                  ? require
                       .children(".g-collapsible-button:first")
                       .find("span")
                       .toggleClass("gravit-icon-touch-arrow-up", !t)
                       .toggleClass("gravit-icon-touch-arrow-down", t)
-                  : n
+                  : require
                       .siblings(".g-collapsible-button:first")
                       .find("span")
                       .toggleClass("gravit-icon-touch-arrow-right", !t)
@@ -49,8 +49,8 @@ function (exports, module, require) {
                       )
                       .on("click", () => {
                         const e = o.hasClass("expanded");
-                        t._toggleTransitions.call(i, true),
-                          t._toggleVisibilty.call(i, !e),
+                        module._toggleTransitions.call(i, true),
+                          module._toggleVisibilty.call(i, !e),
                           o.trigger("visibilitychanged", [!e]);
                       })
                   )
@@ -62,29 +62,29 @@ function (exports, module, require) {
                       )
                       .on("click", () => {
                         const e = o.hasClass("expanded");
-                        t._toggleTransitions.call(i, true),
-                          t._toggleVisibilty.call(i, !e, true),
+                        module._toggleTransitions.call(i, true),
+                          module._toggleVisibilty.call(i, !e, true),
                           o.trigger("visibilitychanged", [!e]);
                       })
                   );
             });
           },
           collapse: function () {
-            return t._toggleVisibilty.call(this, false);
+            return module._toggleVisibilty.call(this, false);
           },
           expand: function () {
-            return t._toggleVisibilty.call(this, true);
+            return module._toggleVisibilty.call(this, true);
           },
         };
         e.fn.gCollapsible = function (n) {
-          return t[n]
-            ? t[n].apply(this, Array.prototype.slice.call(arguments, 1))
+          return module[n]
+            ? module[n].apply(this, Array.prototype.slice.call(arguments, 1))
             : "object" != typeof n && n
             ? void e.error(
                 "Method " + n + " does not exist on jQuery.gCollapsible"
               )
-            : t.init.apply(this, arguments);
+            : module.init.apply(this, arguments);
         };
       })(jQuery),
-      (e.exports = o);
+      (exports.exports = o);
   }

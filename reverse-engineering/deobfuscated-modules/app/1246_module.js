@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.GPersona = undefined);
-    t.GPersona = {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.GPersona = undefined);
+    module.GPersona = {
       GraphicDesign: {
         name: "Graphic Designer",
         icon: "assets/img/brand/logo.svg",

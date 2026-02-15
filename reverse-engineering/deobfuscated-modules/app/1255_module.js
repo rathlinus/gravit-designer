@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */;
-    var i = o(n(78) /* GDocumentEvent */),
-      a = o(n(86) /* module_86 */),
-      r = o(n(449) /* GFitAllAction */),
-      s = o(n(85) /* GContainer */),
-      l = o(n(237) /* module_237 */),
-      c = n(1) /* module_1 */;
-    e.exports = class {
+    var o = require(16) /* module_16 */;
+    require(20) /* module_20 */, require(34) /* module_34 */;
+    var i = o(require(78) /* GDocumentEvent */),
+      a = o(require(86) /* module_86 */),
+      r = o(require(449) /* GFitAllAction */),
+      s = o(require(85) /* GContainer */),
+      l = o(require(237) /* module_237 */),
+      c = require(1) /* module */;
+    exports.exports = class {
       static handleOpenFileRequest(e, t) {
         gContainer.openStorageFile(e, t, function (n) {
           let o =

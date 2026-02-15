@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.getCollabInfo = c),
-      (t.handleCollabsData = async function (e) {
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.getCollabInfo = c),
+      (module.handleCollabsData = async function (e) {
         if (
           !gDesigner.getActiveDocument() ||
           !gDesigner.getActiveDocument().getStorageItem()
         )
           return;
-        let t = [];
-        const n = e
+        let module = [];
+        const require = e
           ? await e
           : gDesigner
               .getShareManager()
               .getCollaboratorsCached(gDesigner.getActiveDocument());
-        if (n && n.length)
-          for (let e = 0; e < n.length; e++) {
-            let o = n[e];
+        if (require && require.length)
+          for (let e = 0; e < require.length; e++) {
+            let o = require[e];
             if (
               !o.getRole().is(i.ShareRoles.Viewer) &&
               !o.getRole().is(i.ShareRoles.NoAccess)
             ) {
               let e = await c(o.getUID());
-              t.push(a.default.createUserMention(o, e));
+              module.push(a.default.createUserMention(o, e));
             }
           }
         let o,
@@ -36,11 +36,11 @@ function (exports, module, require) {
           l,
           d,
           u = [];
-        if (t.length) {
-          (o = t.filter((e) => e.getRole().is(i.ShareRoles.Reviewer))),
-            (s = t.filter((e) => e.getRole().is(i.ShareRoles.Approver))),
-            (l = t.filter((e) => e.getRole().is(i.ShareRoles.CoAuthor))),
-            (d = t.filter((e) => e.getRole().is(i.ShareRoles.Owner)));
+        if (module.length) {
+          (o = module.filter((e) => e.getRole().is(i.ShareRoles.Reviewer))),
+            (s = module.filter((e) => e.getRole().is(i.ShareRoles.Approver))),
+            (l = module.filter((e) => e.getRole().is(i.ShareRoles.CoAuthor))),
+            (d = module.filter((e) => e.getRole().is(i.ShareRoles.Owner)));
           const e = (0, r.createAdditionalMentions)();
           o && o.length && u.push(e.MENTION_ALL_REVIEWERS),
             s && s.length && u.push(e.MENTION_ALL_APPROVERS),
@@ -49,7 +49,7 @@ function (exports, module, require) {
             u.push(e.MENTION_ALL);
         }
         return {
-          data: t,
+          data: module,
           allReviewers: o,
           allApprovers: s,
           allCoAuthors: l,
@@ -57,34 +57,34 @@ function (exports, module, require) {
           additionalMentions: u,
         };
       }),
-      (t.replaceAdditionalCollabShowTextBeforeSend = function (e) {
-        const t = (0, r.createAdditionalMentions)();
+      (module.replaceAdditionalCollabShowTextBeforeSend = function (e) {
+        const module = (0, r.createAdditionalMentions)();
         return (
           this._mentionsCollection.forEach((n) => {
-            n.id === t.MENTION_ALL.id
-              ? e.replace(t.MENTION_ALL.showText, t.MENTION_ALL.id)
-              : n.id === t.MENTION_OWNER.id
-              ? e.replace(t.MENTION_OWNER.showText, t.MENTION_OWNER.id)
-              : n.id === t.MENTION_ALL_REVIEWERS.id
+            n.id === module.MENTION_ALL.id
+              ? e.replace(module.MENTION_ALL.showText, module.MENTION_ALL.id)
+              : n.id === module.MENTION_OWNER.id
+              ? e.replace(module.MENTION_OWNER.showText, module.MENTION_OWNER.id)
+              : n.id === module.MENTION_ALL_REVIEWERS.id
               ? e.replace(
-                  t.MENTION_ALL_REVIEWERS.showText,
-                  t.MENTION_ALL_REVIEWERS.id
+                  module.MENTION_ALL_REVIEWERS.showText,
+                  module.MENTION_ALL_REVIEWERS.id
                 )
-              : n.id === t.MENTION_ALL_APPROVERS.id
+              : n.id === module.MENTION_ALL_APPROVERS.id
               ? e.replace(
-                  t.MENTION_ALL_APPROVERS.showText,
-                  t.MENTION_ALL_APPROVERS.id
+                  module.MENTION_ALL_APPROVERS.showText,
+                  module.MENTION_ALL_APPROVERS.id
                 )
-              : n.id === t.MENTION_ALL_CO_AUTHORS.id &&
+              : n.id === module.MENTION_ALL_CO_AUTHORS.id &&
                 e.replace(
-                  t.MENTION_ALL_CO_AUTHORS.showText,
-                  t.MENTION_ALL_CO_AUTHORS.id
+                  module.MENTION_ALL_CO_AUTHORS.showText,
+                  module.MENTION_ALL_CO_AUTHORS.id
                 );
           }),
           e
         );
       }),
-      (t.showAssigneeRow = function (e) {
+      (module.showAssigneeRow = function (e) {
         if (!e || !e.length) return;
         e.mentionsInput("getMentions", (e) => {
           if (
@@ -92,10 +92,10 @@ function (exports, module, require) {
           ) {
             this._assigneeRow.show();
             let e = this._mentionsCollection.reduce((e, t) => {
-              let n = [],
+              let require = [],
                 o = e.map((e) => e.id);
               return (
-                (n =
+                (require =
                   t.id === s.MENTION_ALL_REVIEWERS.id &&
                   this._mentionData &&
                   this._mentionData.allReviewers &&
@@ -126,7 +126,7 @@ function (exports, module, require) {
                     : o.includes(t.id)
                     ? []
                     : [t]),
-                e.push(...n),
+                e.push(...require),
                 e
               );
             }, []);
@@ -150,25 +150,25 @@ function (exports, module, require) {
               this._assigneeCheckBox.prop("checked", this._shouldAssign);
         });
       }),
-      (t.updateAssignee = d),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(10) /* module_10 */,
-      a = o(n(883) /* module_883 */),
-      r = n(1353) /* Exports_GAnnotationPanel */;
+      (module.updateAssignee = d),
+      require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(71) /* module_71 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(10) /* module_10 */,
+      a = o(require(883) /* module_883 */),
+      r = require(1353) /* Exports_GAnnotationPanel */;
     const s = (0, r.createAdditionalMentions)(),
       l = {};
     async function c(e) {

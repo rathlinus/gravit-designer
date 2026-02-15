@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = (n(15) /* module_15 */, o(n(31) /* GAction */)),
-      r = (o(n(85) /* GContainer */), o(n(18) /* module_18 */)),
-      s = o(n(1173) /* module_1173 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = (require(15) /* module */, o(require(31) /* GAction */)),
+      r = (o(require(85) /* GContainer */), o(require(18) /* module_18 */)),
+      s = o(require(1173) /* module_1173 */);
     function l() {}
     i.GObject.inherit(l, a.default),
       (l.ID = "file.install-to-desktop"),
@@ -25,9 +25,9 @@ function (exports, module, require) {
         e &&
           e.prompt &&
           e.prompt().then(function (e) {
-            let { outcome: t } = e;
-            "dismissed" === t ||
-              ("accepted" === t &&
+            let { outcome: module } = e;
+            "dismissed" === module ||
+              ("accepted" === module &&
                 (gContainer.removeProperty(l.installPWA3timesAWeekPropName),
                 gContainer.removeProperty(l.closedInstallPWADialogDatePropName),
                 gDesigner.closeInstallPwaDialog()));
@@ -63,5 +63,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GInstallToDesktopAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -3,6 +3,6 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = require("path");
+function (exports, module) {
+    exports.exports = require("path");
   }

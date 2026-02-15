@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(1339) /* GPageProperties */),
-      r = o(n(31) /* GAction */),
-      s = o(n(18) /* module_18 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(1339) /* GPageProperties */),
+      r = o(require(31) /* GAction */),
+      s = o(require(18) /* module_18 */);
     function l() {}
     i.GObject.inherit(l, r.default),
       (l.ID = "view.fast-view"),
@@ -36,12 +36,12 @@ function (exports, module, require) {
         return true;
       }),
       (l.prototype.isChecked = function () {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getActiveWindow();
-        if (t) {
-          var n = t.getView().getViewConfiguration();
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getActiveWindow();
+        if (module) {
+          var require = module.getView().getViewConfiguration();
           return (
-            !!n && n.paintMode === i.GScenePaintConfiguration.PaintMode.Fast
+            !!require && require.paintMode === i.GScenePaintConfiguration.PaintMode.Fast
           );
         }
         return false;
@@ -54,12 +54,12 @@ function (exports, module, require) {
             .getView()
             .getViewConfiguration();
         if (t.paintMode === i.GScenePaintConfiguration.PaintMode.Fast) {
-          var n = gDesigner.getActiveDocument().getScene().getActivePage();
-          if (((t.defaultEffectDetailLevel = null), n && !n.isFixedSized()))
+          var require = gDesigner.getActiveDocument().getScene().getActivePage();
+          if (((t.defaultEffectDetailLevel = null), require && !require.isFixedSized()))
             e = i.GScenePaintConfiguration.PaintMode.Full;
           else
             e =
-              (n.getProperty(a.default.CLIP_PROPERTY_NAME, true) ||
+              (require.getProperty(a.default.CLIP_PROPERTY_NAME, true) ||
                 a.default.CLIP_CONTENT_ENABLED) ===
               a.default.CLIP_CONTENT_ENABLED
                 ? i.GScenePaintConfiguration.PaintMode.Output
@@ -73,5 +73,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[GAction GFastViewAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

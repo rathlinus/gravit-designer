@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(44) /* GSystemDialog */);
+    var o = require(16) /* module_16 */;
+    require(20) /* module_20 */, require(34) /* module_34 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(1) /* module */,
+      a = o(require(44) /* GSystemDialog */);
     function r(e, t, n, o) {
       let r =
         arguments.length > 4 && undefined !== arguments[4] ? arguments[4] : {};
@@ -83,5 +83,5 @@ function (exports, module, require) {
       (r.prototype.close = function () {
         this._dialog.gDialog("close");
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

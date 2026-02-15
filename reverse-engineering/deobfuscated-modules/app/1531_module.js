@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */;
-    const { FILE_FORMATS: i, gApi: a } = n(10) /* module_10 */,
+    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    var o = require(1) /* module */;
+    const { FILE_FORMATS: i, gApi: a } = require(10) /* module_10 */,
       r = i.find((e) => e.default),
-      { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = n(591) /* module_591 */,
-      c = n(1164) /* module_1164 */;
-    e.exports = class extends c {
-      constructor(e, t) {
+      { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = require(591) /* module_591 */,
+      c = require(1164) /* module_1164 */;
+    exports.exports = class extends c {
+      function Object() { [native code] }(e, t) {
         super(e, t);
       }
       async updateFileSceneAndMetadata(e, t, n, o) {
@@ -87,14 +87,14 @@ function (exports, module, require) {
         });
       }
       _saveThumbnail(e, t) {
-        const n = new XMLHttpRequest();
-        n.open("PUT", t);
+        const require = new XMLHttpRequest();
+        require.open("PUT", t);
         const o = {
           "Content-Type": "image/jpeg",
           "Cache-Control": "public,max-age=31600000",
         };
-        for (var i in o) n.setRequestHeader(i, o[i]);
-        n.send(e);
+        for (var i in o) require.setRequestHeader(i, o[i]);
+        require.send(e);
       }
     };
   }

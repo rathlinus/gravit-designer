@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(196) /* module_196 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */;
+    var o = n(53) /* module */,
+      i = n(1) /* module */;
     const { gApi: a } = n(10) /* module_10 */,
       r = n(393) /* GCollaborationEvent */,
       s = n(217) /* GDocumentStatusEvent */,

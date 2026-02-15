@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */;
-    const i = n(44) /* GSystemDialog */,
-      { DESIGNER: { TITLE: a } = {} } = n(10) /* module_10 */;
-    e.exports = class {
+    require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */;
+    var o = require(1) /* module */;
+    const i = require(44) /* GSystemDialog */,
+      { DESIGNER: { TITLE: a } = {} } = require(10) /* module_10 */;
+    exports.exports = class {
       async init() {
         (await this._shouldOpenWarningDialog()) &&
           gDesigner.executeWhenReady(() => this._openWarningDialog());

@@ -6,19 +6,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
-      r = n(15) /* module_15 */,
-      s = n(10) /* module_10 */,
-      l = n(40) /* module_40 */,
-      c = o(n(44) /* GSystemDialog */),
-      d = n(567) /* GAnnotationsSidebar */,
-      u = n(18) /* module_18 */,
-      p = n(31) /* GAction */;
-    const g = n(358) /* module_358 */,
-      h = n(607) /* module_607 */;
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var i = require(1) /* module */,
+      a = require(53) /* module */,
+      r = require(15) /* module */,
+      s = require(10) /* module_10 */,
+      l = require(40) /* module_40 */,
+      c = o(require(44) /* GSystemDialog */),
+      d = require(567) /* GAnnotationsSidebar */,
+      u = require(18) /* module_18 */,
+      p = require(31) /* GAction */;
+    const g = require(358) /* module_358 */,
+      h = require(607) /* module_607 */;
     function f() {}
     i.GObject.inherit(f, p),
       (f.ID = "edit.delete"),
@@ -52,10 +52,10 @@ function (exports, module, require) {
         var e = gDesigner.getActiveDocument();
         if (this._isConfirmWindowDisplaying) return false;
         if (e) {
-          var t = e.getEditor().getSelection();
-          if (t)
-            for (var n = 0; n < t.length; ++n)
-              if (t[n] instanceof i.GItem || t[n] instanceof i.GLayer)
+          var module = e.getEditor().getSelection();
+          if (module)
+            for (var require = 0; require < module.length; ++require)
+              if (module[require] instanceof i.GItem || module[require] instanceof i.GLayer)
                 return true;
         }
         return false;
@@ -125,5 +125,5 @@ function (exports, module, require) {
       (f.prototype.toString = function () {
         return "[Object GDeleteAction]";
       }),
-      (e.exports = f);
+      (exports.exports = f);
   }

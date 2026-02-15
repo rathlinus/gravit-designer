@@ -19,9 +19,9 @@ function (e, t, n) {
       n(169) /* module_169 */,
       n(33) /* module_33 */,
       n(26) /* module_26 */;
-    var i = n(15) /* module_15 */,
-      a = n(53) /* module_53 */,
-      r = n(1) /* module_1 */,
+    var i = n(15) /* module */,
+      a = n(53) /* module */,
+      r = n(1) /* module */,
       s = o(n(78) /* GDocumentEvent */),
       l = o(n(1330) /* module_1330 */),
       c = o(n(238) /* GMenu */),

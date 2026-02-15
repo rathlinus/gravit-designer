@@ -8,14 +8,14 @@ function (exports, module, require) {
     function o(e) {
       return pako.gzip(e, { level: 9 }).buffer;
     }
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.gzip = o),
-      (t.hasRootFolderInSelections = function (e, t) {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.gzip = o),
+      (module.hasRootFolderInSelections = function (e, t) {
         if (!e || !(t || []).length) return false;
         t instanceof Array || (t = [t]);
         return t.some((t) => e.isRootFolder(t));
       }),
-      (t.readResponseWithProgress = async function (e, t, n) {
+      (module.readResponseWithProgress = async function (e, t, n) {
         const i = e.body.getReader(),
           a = parseInt(e.headers.get("Content-Length")) || 0;
         let r = 0;
@@ -40,16 +40,16 @@ function (exports, module, require) {
           });
         }).then((e) => new Response(e));
       }),
-      n(19) /* module_19 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(97) /* module_97 */;
+      require(19) /* module_19 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(97) /* module_97 */;
   }

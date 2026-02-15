@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const {
         DESIGNER: { TITLE: i },
       } = n(10) /* module_10 */,

@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(340) /* GTouchTool */),
-      r = n(806) /* GSidebar */,
-      s = n(395) /* module_395 */,
-      l = n(1663) /* module_1663 */,
-      c = n(119) /* module_119 */;
-    const d = n(291) /* GNetworkAvailabilityChangedEvent */;
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(340) /* GTouchTool */),
+      r = require(806) /* GSidebar */,
+      s = require(395) /* module_395 */,
+      l = require(1663) /* module_1663 */,
+      c = require(119) /* module_119 */;
+    const d = require(291) /* GNetworkAvailabilityChangedEvent */;
     function u() {
       r.call(this);
     }
@@ -143,5 +143,5 @@ function (exports, module, require) {
       (u.prototype.toString = function () {
         return "[Object GLibrarySidebar]";
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

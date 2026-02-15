@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(4) /* module_4 */, n(38) /* module_38 */, n(97) /* module_97 */;
-    const o = n(156) /* module_156 */,
-      i = n(1301) /* module_1301 */;
+    require(30) /* module_30 */, require(4) /* module_4 */, require(38) /* module_38 */, require(97) /* module_97 */;
+    const o = require(156) /* module_156 */,
+      i = require(1301) /* module_1301 */;
     function a(e) {
       var t, n, o;
       if (
@@ -50,5 +50,5 @@ function (exports, module, require) {
           t
         );
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

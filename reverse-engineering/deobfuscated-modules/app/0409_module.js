@@ -9,18 +9,18 @@ function (exports, module, require) {
       i,
       a,
       r,
-      s = n(23) /* module_23 */,
-      l = n(200) /* module_200 */,
-      c = n(124) /* module_124 */,
-      d = n(35) /* module_35 */,
-      u = n(61) /* module_61 */,
-      p = n(21) /* module_21 */,
-      g = n(406) /* module_406 */,
-      h = n(157) /* module_157 */,
-      f = n(242) /* module_242 */,
-      m = n(303) /* module_303 */,
-      y = n(410) /* module_410 */,
-      v = n(245) /* module_245 */,
+      s = require(23) /* module_23 */,
+      l = require(200) /* module_200 */,
+      c = require(124) /* module_124 */,
+      d = require(35) /* module_35 */,
+      u = require(61) /* module_61 */,
+      p = require(21) /* module_21 */,
+      g = require(406) /* module_406 */,
+      h = require(157) /* module_157 */,
+      f = require(242) /* module_242 */,
+      m = require(303) /* module_303 */,
+      y = require(410) /* module_410 */,
+      v = require(245) /* module_245 */,
       _ = s.setImmediate,
       b = s.clearImmediate,
       w = s.process,
@@ -35,8 +35,8 @@ function (exports, module, require) {
     });
     var G = function (e) {
         if (u(T, e)) {
-          var t = T[e];
-          delete T[e], t();
+          var module = T[e];
+          delete T[e], module();
         }
       },
       P = function (e) {
@@ -95,5 +95,5 @@ function (exports, module, require) {
               : function (e) {
                   setTimeout(P(e), 0);
                 })),
-      (e.exports = { set: _, clear: b });
+      (exports.exports = { set: _, clear: b });
   }

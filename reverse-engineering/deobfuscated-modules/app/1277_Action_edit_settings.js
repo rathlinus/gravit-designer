@@ -7,5 +7,5 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    (o.ID = "edit.settings"), (e.exports = o);
+    (o.ID = "edit.settings"), (exports.exports = o);
   }

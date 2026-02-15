@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(223) /* module_223 */,
-      i = n(65) /* module_65 */,
-      a = n(239) /* module_239 */,
+    var o = require(223) /* module_223 */,
+      i = require(65) /* module_65 */,
+      a = require(239) /* module_239 */,
       r = o(o.bind);
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       return (
         i(e),
         undefined === t

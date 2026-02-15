@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */;
-    const a = n(256) /* GOfflineDialog */,
-      r = n(44) /* GSystemDialog */,
-      s = n(1350) /* module_1350 */;
-    e.exports = class {
+    require(19) /* module_19 */, require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */;
+    const a = require(256) /* GOfflineDialog */,
+      r = require(44) /* GSystemDialog */,
+      s = require(1350) /* module_1350 */;
+    exports.exports = class {
       async open(e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-        (this._url = e), (this._autoClose = t), (this._isPending = true);
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        (this._url = e), (this._autoClose = module), (this._isPending = true);
         return (await gDesigner.isOfflineAsync())
           ? new Promise((e, t) => {
               a.openRetryConnection(() => {
@@ -25,13 +25,13 @@ function (exports, module, require) {
       }
       async _open() {
         if ($(".g-payment-dialog").length) return Promise.reject();
-        const e = s.getInstance();
+        const exports = s.getInstance();
         this._dialog = $("<div></div>")
           .gDialog({
             className: "g-payment-dialog",
             releaseOnClose: true,
             closeCallback: () => {
-              e.cancelPurchase();
+              exports.cancelPurchase();
             },
           })
           .append(
@@ -42,20 +42,20 @@ function (exports, module, require) {
                 this._close();
               })
           );
-        const t = $("<div></div>").addClass("content").appendTo(this._dialog);
+        const module = $("<div></div>").addClass("content").appendTo(this._dialog);
         this._dialog.addClass("g-loading"), this._dialog.gDialog("open", false);
-        const n = this._getURL();
+        const require = this._getURL();
         $("<iframe/>")
-          .attr("src", n)
+          .attr("src", require)
           .on("load", () => {
             this._dialog.removeClass("g-loading");
           })
           .on("error", () => {
             this._dialog.removeClass("g-loading");
           })
-          .appendTo(t);
+          .appendTo(module);
         try {
-          await e.waitForPurchase();
+          await exports.waitForPurchase();
         } catch (e) {
           r.alert(
             o.GLocale.getValue(
@@ -68,14 +68,14 @@ function (exports, module, require) {
         }
       }
       _getURL() {
-        let e = this._url;
-        const t = gDesigner.getLinkerParam();
-        if (t) {
-          const n = new URL(e);
-          n.searchParams.set.apply(n.searchParams, t.split("=")),
-            (e = n.toString());
+        let exports = this._url;
+        const module = gDesigner.getLinkerParam();
+        if (module) {
+          const n = new URL(exports);
+          n.searchParams.set.apply(n.searchParams, module.split("=")),
+            (exports = n.toString());
         }
-        return e;
+        return exports;
       }
       _close() {
         if (this._isPending) {

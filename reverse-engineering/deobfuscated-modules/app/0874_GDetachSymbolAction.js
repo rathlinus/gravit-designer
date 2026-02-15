@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "modify.detachsymbol"),
@@ -41,10 +41,10 @@ function (exports, module, require) {
         if (!r.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getIndividualSelection();
-          if (t && t.length)
-            for (var n = t.length - 1; n >= 0; --n) {
-              var i = t[n];
+          var module = e.getEditor().getIndividualSelection();
+          if (module && module.length)
+            for (var require = module.length - 1; require >= 0; --require) {
+              var i = module[require];
               if (
                 i instanceof o.GSymbol &&
                 !i.isMaster() &&
@@ -61,15 +61,15 @@ function (exports, module, require) {
         if (t.length && t[0].getScene()) {
           e.beginTransaction();
           try {
-            for (var n = 0, i = 0; i < t.length; ++i) {
+            for (var require = 0, i = 0; i < t.length; ++i) {
               var a = t[i];
-              a instanceof o.GSymbol && a.detach() && n++;
+              a instanceof o.GSymbol && a.detach() && require++;
             }
           } finally {
             e.commitTransaction(
               o.GLocale.get(
                 new o.GLocaleKey("GDetachSymbolAction", "text.number-detached")
-              ).replace("%number", n > 1 ? "s" : "")
+              ).replace("%number", require > 1 ? "s" : "")
             );
           }
         }
@@ -77,5 +77,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GDetachSymbolAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

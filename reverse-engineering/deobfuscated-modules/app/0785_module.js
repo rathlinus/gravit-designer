@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    e.exports = new (class {
-      constructor() {
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    exports.exports = new (class {
+      function Object() { [native code] }() {
         (this._cache = {}), (this._initiliazed = false);
       }
       updateLicense(e) {
@@ -21,10 +21,10 @@ function (exports, module, require) {
       }
       getLicense() {
         if (this._cache.license) {
-          const { lastUpdate: e } = this._cache;
+          const { lastUpdate: exports } = this._cache;
           return (
             (this._cache.license = Object.assign({}, this._cache.license, {
-              lastUpdate: e,
+              lastUpdate: exports,
             })),
             this._cache.license
           );

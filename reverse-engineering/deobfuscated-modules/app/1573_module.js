@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */;
-    e.exports = class {
-      constructor() {
+    require(8) /* module_8 */, require(196) /* module_196 */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         this._promiseQueue = [];
       }
       pushPromise(e) {
@@ -21,10 +21,10 @@ function (exports, module, require) {
             t
           );
         }
-        const t = this._promiseQueue.length,
-          n = this._promiseQueue[t - 1],
+        const module = this._promiseQueue.length,
+          require = this._promiseQueue[module - 1],
           o = new Promise((t) => {
-            n.then(() => {
+            require.then(() => {
               e().then(t);
             });
           });

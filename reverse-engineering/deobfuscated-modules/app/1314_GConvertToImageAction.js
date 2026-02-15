@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */;
-    n(811) /* GGroupAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */;
+    require(811) /* GGroupAction */;
     function l() {}
     o.GObject.inherit(l, s),
       (l.USE_DPI = true),
@@ -42,11 +42,11 @@ function (exports, module, require) {
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
-          for (var t = 0; t < e.length; ++t)
+          for (var module = 0; module < e.length; ++module)
             if (
-              e[t] instanceof o.GElement &&
-              e[t].getPaintBBox() &&
-              !e[t].getPaintBBox().isEmpty()
+              e[module] instanceof o.GElement &&
+              e[module].getPaintBBox() &&
+              !e[module].getPaintBBox().isEmpty()
             )
               return true;
         return false;
@@ -83,8 +83,8 @@ function (exports, module, require) {
       (l.prototype._groupStuff = function (e) {
         if (e && 1 === e.length) return e[0];
         for (
-          var t = gDesigner.getActiveDocument(),
-            n = t ? t.getEditor() : null,
+          var module = gDesigner.getActiveDocument(),
+            require = module ? module.getEditor() : null,
             i = new o.GGroup(),
             r = [],
             s = 0;
@@ -104,13 +104,13 @@ function (exports, module, require) {
             try {
               l = new Set();
               for (s = 0; s < r.length; ++s) l.add(r[s].getParent());
-              (0, a.blockChanges)(n, l, p, i);
+              (0, a.blockChanges)(require, l, p, i);
               for (s = 0; s < r.length; ++s) {
                 var g;
                 (g = r[s]).getParent().removeChild(g), i.appendChild(g);
               }
             } finally {
-              (0, a.releaseChanges)(n, l, p, i);
+              (0, a.releaseChanges)(require, l, p, i);
             }
           }
         }
@@ -149,5 +149,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GConvertToImageAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(576) /* module_576 */,
+    var o = require(576) /* module_576 */,
       i = RangeError;
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       var n = o(e);
       if (n % t) throw new i("Wrong offset");
       return n;

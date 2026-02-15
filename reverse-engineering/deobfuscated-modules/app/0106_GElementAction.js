@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(31) /* GAction */),
-      r = o(n(567) /* GAnnotationsSidebar */),
-      s = o(n(10) /* module_10 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(31) /* GAction */),
+      r = o(require(567) /* GAnnotationsSidebar */),
+      s = o(require(10) /* module_10 */);
     function l() {}
     i.GObject.inherit(l, a.default),
       (l.prototype.isEnabled = function () {
@@ -23,5 +23,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GElementAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

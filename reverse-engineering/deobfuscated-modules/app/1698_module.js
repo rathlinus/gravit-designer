@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */;
-    const r = n(1699) /* module_1699 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */;
+    const r = require(1699) /* module_1699 */;
     function s() {}
     i.GObject.inheritAndMix(s, i.GObject);
     var l = {
@@ -49,13 +49,13 @@ function (exports, module, require) {
         return !!e && !!e.picker;
       },
       setValue: function (e) {
-        const t = $(this),
-          n = "string" == typeof e ? e : i.GPattern.asCSSBackground(e);
-        t.find(".g-eye-dropper-preview-color-difference")
+        const module = $(this),
+          require = "string" == typeof e ? e : i.GPattern.asCSSBackground(e);
+        module.find(".g-eye-dropper-preview-color-difference")
           .find(".current")
-          .css({ background: n });
-        const o = t.data("g-eye-dropper") || {};
-        (o.currentColor = n), t.data("g-eye-dropper", o);
+          .css({ background: require });
+        const o = module.data("g-eye-dropper") || {};
+        (o.currentColor = require), module.data("g-eye-dropper", o);
       },
       setActive: function (e, t, n) {
         if (e !== l.isActive.call(this)) {
@@ -253,7 +253,7 @@ function (exports, module, require) {
         }
       },
     };
-    (e.exports = s),
+    (exports.exports = s),
       ($.fn.gEyeDropper = function (e) {
         return l[e]
           ? l[e].apply(this, Array.prototype.slice.call(arguments, 1))

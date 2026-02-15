@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(57) /* module_57 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = (n(15) /* module_15 */, o(n(565) /* module_565 */)),
-      s = n(67) /* GRichTooltipConfig */,
-      l = o(n(135) /* GSettingChangedEvent */),
-      c = n(451) /* module_451 */.GVirtualTree,
-      d = (n(451) /* module_451 */.GVirtualTreeNode, n(451) /* module_451 */.GVirtualTreeNodeNamed),
-      { VTREE_FREE_HEIGHT: u, VTREE_FREE_HEIGHT_TOUCH: p } = n(10) /* module_10 */,
-      g = (n(173) /* module_173 */, n(450) /* module_450 */);
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(57) /* module_57 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = (require(15) /* module */, o(require(565) /* module_565 */)),
+      s = require(67) /* GRichTooltipConfig */,
+      l = o(require(135) /* GSettingChangedEvent */),
+      c = require(451) /* module_451 */.GVirtualTree,
+      d = (require(451) /* module_451 */.GVirtualTreeNode, require(451) /* module_451 */.GVirtualTreeNodeNamed),
+      { VTREE_FREE_HEIGHT: u, VTREE_FREE_HEIGHT_TOUCH: p } = require(10) /* module_10 */,
+      g = (require(173) /* module_173 */, require(450) /* module_450 */);
     function h() {}
     function f(e, t, n, o, i) {
       var a = true,
@@ -67,8 +67,8 @@ function (exports, module, require) {
     function v(e) {
       var t = $(this).data("gpagepanel");
       if (t.options.clickCallback) {
-        var n = b.call(this, e.id);
-        t.options.clickCallback(n);
+        var require = b.call(this, e.id);
+        t.options.clickCallback(require);
       }
     }
     function _(e, t) {
@@ -368,9 +368,9 @@ function (exports, module, require) {
     function k(e) {
       if (!e) return;
       $(this).find(".page-row.g-active").removeClass("g-active");
-      const t = w.call(this, e.id),
-        n = t && t.element;
-      n && $(n).closest(".page-row").addClass("g-active");
+      const module = w.call(this, e.id),
+        require = module && module.element;
+      require && $(require).closest(".page-row").addClass("g-active");
     }
     function O(e) {
       var t = $(this).data("gpagepanel"),
@@ -566,15 +566,15 @@ function (exports, module, require) {
         $(this).data("gpagepanel").vtree.resetRowHeight(e);
       },
       _updateLayout: function () {
-        const e = $(this).data("gpagepanel"),
-          t = e && e.vtree;
-        if (t) {
+        const exports = $(this).data("gpagepanel"),
+          module = exports && exports.vtree;
+        if (module) {
           const e = gDesigner.isTouchEnabled();
-          t.setFreeHeight(e ? p : u), t.setAnimatedDragEnabled(e);
+          module.setFreeHeight(e ? p : u), module.setAnimatedDragEnabled(e);
         }
       },
     };
-    (e.exports = h),
+    (exports.exports = h),
       ($.fn.gPagePanel = function (e) {
         return N[e]
           ? N[e].apply(this, Array.prototype.slice.call(arguments, 1))

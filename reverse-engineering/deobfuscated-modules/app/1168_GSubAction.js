@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(31) /* GAction */);
+    var o = require(16) /* module_16 */;
+    require(20) /* module_20 */, require(34) /* module_34 */;
+    var i = require(1) /* module */,
+      a = o(require(31) /* GAction */);
     class r extends a.default {
       static getSubActionId(e, t) {
         return "".concat(e, ".").concat(t);
       }
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(), (this._type = e), (this._title = null);
       }
       getId() {
@@ -27,8 +27,8 @@ function (exports, module, require) {
         return this._title;
       }
       getMainAction() {
-        const e = this._getMainActionId();
-        return gDesigner.getAction(e);
+        const exports = this._getMainActionId();
+        return gDesigner.getAction(exports);
       }
       isVisible() {
         return false;
@@ -40,18 +40,18 @@ function (exports, module, require) {
         return null;
       }
       getShortcutHint(e) {
-        const t = this.getMainAction().getShortcut(),
-          n = this.getShortcutSubKey(),
-          o = a.default.getActionShortcutHint(t, e);
-        return o && n
+        const module = this.getMainAction().getShortcut(),
+          require = this.getShortcutSubKey(),
+          o = a.default.getActionShortcutHint(module, e);
+        return o && require
           ? i.GLocale.getValue("GSubAction", "shortcut-hint-template")
               .replace("%mainShortcutHint", o)
-              .replace("%shortcutSubKeyHint", n)
+              .replace("%shortcutSubKeyHint", require)
           : null;
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GSubAction]";
       }
     }
-    (r.Type = {}), (e.exports = r);
+    (r.Type = {}), (exports.exports = r);
   }

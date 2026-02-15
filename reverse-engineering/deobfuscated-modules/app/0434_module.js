@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */;
-    const o = n(1072) /* module_1072 */;
-    e.exports = Object.assign({}, o);
+    require(30) /* module_30 */;
+    const o = require(1072) /* module_1072 */;
+    exports.exports = Object.assign({}, o);
   }

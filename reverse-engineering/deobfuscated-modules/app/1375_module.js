@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(348) /* module_348 */,
-      i = n(101) /* module_101 */,
-      a = n(1376) /* module_1376 */,
-      r = n(124) /* module_124 */,
+    var o = require(348) /* module_348 */,
+      i = require(101) /* module_101 */,
+      a = require(1376) /* module_1376 */,
+      r = require(124) /* module_124 */,
       s = function (e, t, n, l, c, d, u, p) {
         for (var g, h, f = c, m = 0, y = !!u && r(u, p); m < l; )
           m in n &&
@@ -20,5 +20,5 @@ function (exports, module, require) {
             m++;
         return f;
       };
-    e.exports = s;
+    exports.exports = s;
   }

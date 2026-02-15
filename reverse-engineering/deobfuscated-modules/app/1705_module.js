@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
       i = {
         value: function (e) {
           var t = i.options.call(this).unit;
           if (arguments.length > 0) {
             if (e) {
-              var n = gDesigner.getActiveDocument(),
-                a = n ? n.getScene() : null;
+              var require = gDesigner.getActiveDocument(),
+                a = require ? require.getScene() : null;
               $(this).gInputBox(
                 "value",
                 o.GUtil.formatNumber(

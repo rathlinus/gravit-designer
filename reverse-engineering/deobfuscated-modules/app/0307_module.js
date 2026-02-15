@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(37) /* module_37 */;
-    e.exports = function () {
+    var o = require(37) /* module_37 */;
+    exports.exports = function () {
       var e = o(this),
         t = "";
       return (

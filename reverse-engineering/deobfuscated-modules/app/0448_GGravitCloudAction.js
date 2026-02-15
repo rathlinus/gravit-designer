@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */,
-      s = n(844) /* module_844 */,
-      l = n(86) /* module_86 */,
-      c = n(220) /* module_220 */,
-      d = n(119) /* module_119 */,
-      u = n(446) /* module_446 */;
-    const p = n(256) /* GOfflineDialog */;
+    require(8) /* module_8 */, require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */,
+      s = require(844) /* module_844 */,
+      l = require(86) /* module_86 */,
+      c = require(220) /* module_220 */,
+      d = require(119) /* module_119 */,
+      u = require(446) /* module_446 */;
+    const p = require(256) /* GOfflineDialog */;
     function g(e) {
       (this._type = e),
         (this._title = new o.GLocaleKey("GGravitCloudAction", "title." + e));
@@ -152,5 +152,5 @@ function (exports, module, require) {
       (g.prototype.toString = function () {
         return "[Object GGravitCloudAction]";
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

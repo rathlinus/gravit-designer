@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(96) /* module_96 */, n(3) /* module_3 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
-    var o = n(10) /* module_10 */,
-      i = n(40) /* module_40 */;
-    const a = n(1186) /* module_1186 */,
-      r = n(1575) /* module_1575 */;
-    e.exports = class extends a {
-      constructor() {
+    require(19) /* module_19 */, require(96) /* module_96 */, require(3) /* module_3 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    var o = require(10) /* module_10 */,
+      i = require(40) /* module_40 */;
+    const a = require(1186) /* module_1186 */,
+      r = require(1575) /* module_1575 */;
+    exports.exports = class extends a {
+      function Object() { [native code] }() {
         super(), (this._url = new URL(o.gApi.url));
       }
       setId(e) {

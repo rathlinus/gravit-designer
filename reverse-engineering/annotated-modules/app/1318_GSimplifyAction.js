@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(865) /* module_865 */, n(193) /* module_193 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
+    var o = n(1) /* module */,
+      i = n(15) /* module */,
       a = n(40) /* module_40 */,
       r = n(18) /* module_18 */,
       s = n(106) /* GElementAction */,

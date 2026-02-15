@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(53) /* module_53 */,
-      s = o(n(18) /* module_18 */),
-      l = o(n(31) /* GAction */);
+    var o = require(16) /* module_16 */;
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(53) /* module */,
+      s = o(require(18) /* module_18 */),
+      l = o(require(31) /* GAction */);
     class c extends l.default {
-      constructor() {
+      function Object() { [native code] }() {
         super(), (this._lastIsCheckedValue = true);
       }
       getId() {
@@ -33,39 +33,39 @@ function (exports, module, require) {
         return !!this._getSelection();
       }
       isChecked() {
-        const e = this._getSelection();
-        if (!e) return this._lastIsCheckedValue;
-        const t = !!e.find(
+        const exports = this._getSelection();
+        if (!exports) return this._lastIsCheckedValue;
+        const module = !!exports.find(
           (e) =>
             !r.GElementEditor.getEditor(e).hasFlag(
               r.GBaseEditor.Flag.HideEditor
             )
         );
-        return (this._lastIsCheckedValue = t), t;
+        return (this._lastIsCheckedValue = module), module;
       }
       getShortcut() {
         return [a.GKey.Constant.SHIFT, a.GKey.Constant.META, "X"];
       }
       execute() {
-        const e = this._getEditor();
-        if (e) {
-          this.isChecked() ? e.hideSelection() : e.resetHideSelection();
+        const exports = this._getEditor();
+        if (exports) {
+          this.isChecked() ? exports.hideSelection() : exports.resetHideSelection();
         }
       }
       _getEditor() {
-        const e = gDesigner.getActiveDocument();
-        return e && e.getEditor();
+        const exports = gDesigner.getActiveDocument();
+        return exports && exports.getEditor();
       }
       _getSelection() {
-        const e = this._getEditor(),
-          t = e && e.getSelection();
-        return t && t.length > 0 ? t : null;
+        const exports = this._getEditor(),
+          module = exports && exports.getSelection();
+        return module && module.length > 0 ? module : null;
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GShowSelectionHandlesAction]";
       }
     }
     (c.ID = "view.canvas.show-selection-handles"),
       (c.TITLE = new i.GLocaleKey("GShowSelectionHandlesAction", "title")),
-      (e.exports = c);
+      (exports.exports = c);
   }

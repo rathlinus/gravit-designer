@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(3) /* module_3 */, n(38) /* module_38 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(609) /* GSelectByAction */);
     function r() {
       a.default.call(this, r.ID, r.TITLE);

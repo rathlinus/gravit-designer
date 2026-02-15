@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
@@ -73,5 +73,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GFitAllAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

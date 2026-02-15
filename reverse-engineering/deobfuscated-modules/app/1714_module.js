@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
+    require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
       (function (e) {
         (e.event.special.input = {
           setup: function (t, n) {

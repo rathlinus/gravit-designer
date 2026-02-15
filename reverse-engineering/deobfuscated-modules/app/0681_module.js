@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(65) /* module_65 */,
-      i = n(93) /* module_93 */,
-      a = n(240) /* module_240 */,
-      r = n(101) /* module_101 */,
+    var o = require(65) /* module_65 */,
+      i = require(93) /* module_93 */,
+      a = require(240) /* module_240 */,
+      r = require(101) /* module_101 */,
       s = TypeError,
       l = "Reduce of empty array with no initial value",
       c = function (e) {
@@ -31,5 +31,5 @@ function (exports, module, require) {
           return d;
         };
       };
-    e.exports = { left: c(false), right: c(true) };
+    exports.exports = { left: c(false), right: c(true) };
   }

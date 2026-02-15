@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     i.GObject.inherit(s, r),
       (s.ID = "edit.selectbyfonttype"),
@@ -31,8 +31,8 @@ function (exports, module, require) {
         if (!r.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e && e.getEditor() && e.getEditor().getSelection()) {
-          var t = this._getFontFamily();
-          return !(!t || !t.length);
+          var module = this._getFontFamily();
+          return !(!module || !module.length);
         }
         return false;
       }),
@@ -56,25 +56,25 @@ function (exports, module, require) {
       }),
       (s.prototype._getFontFamily = function () {
         for (
-          var e,
-            t = gDesigner.getActiveDocument().getEditor().getSelection(),
-            n = gDesigner.getWorkspace().getFontManager().getDefaultFont(),
+          var exports,
+            module = gDesigner.getActiveDocument().getEditor().getSelection(),
+            require = gDesigner.getWorkspace().getFontManager().getDefaultFont(),
             a = 0;
-          a < t.length;
+          a < module.length;
           a++
         ) {
-          var r = t[a];
+          var r = module[a];
           if (r instanceof i.GText) {
             var s = (o.GElementEditor.getEditor(r) || r).getProperty("_tff");
-            if ((s || (s = n && n.getFamily()), e)) {
-              if (e !== s) {
-                e = "";
+            if ((s || (s = require && require.getFamily()), exports)) {
+              if (exports !== s) {
+                exports = "";
                 break;
               }
-            } else e = s;
+            } else exports = s;
           }
         }
-        return e;
+        return exports;
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

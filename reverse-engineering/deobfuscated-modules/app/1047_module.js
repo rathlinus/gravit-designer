@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     var o, i, a, r, s, l, c, d;
-    e.exports =
-      ((d = n(55) /* module_55 */),
-      n(382) /* module_382 */,
-      n(737) /* module_737 */,
+    exports.exports =
+      ((d = require(55) /* module_55 */),
+      require(382) /* module_382 */,
+      require(737) /* module_737 */,
       (i = (o = d).x64),
       (a = i.Word),
       (r = i.WordArray),

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(27) /* module_27 */,
-      a = n(244) /* module_244 */,
+    var o = require(25) /* module_25 */,
+      i = require(27) /* module_27 */,
+      a = require(244) /* module_244 */,
       r = RangeError,
       s = String.fromCharCode,
       l = String.fromCodePoint,
@@ -16,15 +16,15 @@ function (exports, module, require) {
       { target: "String", stat: true, arity: 1, forced: !!l && 1 !== l.length },
       {
         fromCodePoint: function (e) {
-          for (var t, n = [], o = arguments.length, i = 0; o > i; ) {
-            if (((t = +arguments[i++]), a(t, 1114111) !== t))
-              throw new r(t + " is not a valid code point");
-            n[i] =
-              t < 65536
-                ? s(t)
-                : s(55296 + ((t -= 65536) >> 10), (t % 1024) + 56320);
+          for (var module, require = [], o = arguments.length, i = 0; o > i; ) {
+            if (((module = +arguments[i++]), a(module, 1114111) !== module))
+              throw new r(module + " is not a valid code point");
+            require[i] =
+              module < 65536
+                ? s(module)
+                : s(55296 + ((module -= 65536) >> 10), (module % 1024) + 56320);
           }
-          return c(n, "");
+          return c(require, "");
         },
       }
     );

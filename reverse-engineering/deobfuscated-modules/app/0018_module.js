@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e) {
-      let t =
+      let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1],
-        n = arguments.length > 2 ? arguments[2] : undefined;
+        require = arguments.length > 2 ? arguments[2] : undefined;
       (this.label = o.GLocale.get(e)),
-        (this.visible = t),
-        (this.icon = n),
+        (this.visible = module),
+        (this.icon = require),
         (this.parent = null);
     }
     function a(e) {
-      let t =
+      let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null,
-        n =
+        require =
           arguments.length > 2 && undefined !== arguments[2]
             ? arguments[2]
             : () => true,
@@ -30,9 +30,9 @@ function (exports, module, require) {
       return (
         Object.defineProperties(r, {
           label: { get: () => o.GLocale.get(new o.GLocaleKey(e[0], e[1])) },
-          visible: { get: n },
+          visible: { get: require },
           icon: { get: a },
-          parent: { get: () => t },
+          parent: { get: () => module },
         }),
         r
       );
@@ -168,21 +168,21 @@ function (exports, module, require) {
         null,
         () => gDesigner.isTouchEnabled(),
         () => {
-          const e = gDesigner.getSyncUser();
-          if (e) {
-            if (e.hasOwnPictureAvatar())
+          const exports = gDesigner.getSyncUser();
+          if (exports) {
+            if (exports.hasOwnPictureAvatar())
               return $("<div/>")
                 .addClass("avatar")
-                .css("background-image", 'url("'.concat(e.avatar, '")'));
-            const t = e.getUserColor();
+                .css("background-image", 'url("'.concat(exports.avatar, '")'));
+            const t = exports.getUserColor();
             return $("<div/>")
               .addClass("avatar")
               .css("background-color", t)
               .css("border-color", t)
-              .append($("<span/>").text(e.getUserNameInitials()));
+              .append($("<span/>").text(exports.getUserNameInitials()));
           }
           return null;
         }
       )),
-      (e.exports = i);
+      (exports.exports = i);
   }

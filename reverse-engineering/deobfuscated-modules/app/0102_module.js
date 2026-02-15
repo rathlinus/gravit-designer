@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(29) /* module_29 */,
-      i = n(37) /* module_37 */,
-      a = n(145) /* module_145 */;
-    e.exports = function (e, t, n) {
+    var o = require(29) /* module_29 */,
+      i = require(37) /* module_37 */,
+      a = require(145) /* module_145 */;
+    exports.exports = function (e, t, n) {
       var r, s;
       i(e);
       try {

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = function () {
+    exports.exports = function () {
       (this.text = 0),
         (this.time = 0),
         (this.xflags = 0),

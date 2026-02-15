@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(1239) /* SharepointException */);
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(1) /* module */,
+      a = o(require(1239) /* SharepointException */);
     const r = [
       {
         text: new i.GLocaleKey(
@@ -33,7 +33,7 @@ function (exports, module, require) {
         value: a.default.CheckinType.OverwriteCheckIn,
       },
     ];
-    e.exports = class {
+    exports.exports = class {
       static openCheckInDialog(e) {
         return new Promise(async (t) => {
           var n = $("<div></div>")

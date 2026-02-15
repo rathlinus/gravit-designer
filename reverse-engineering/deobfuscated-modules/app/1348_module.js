@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */;
-    const { gApi: a } = n(10) /* module_10 */,
-      r = n(393) /* GCollaborationEvent */,
-      s = n(217) /* GDocumentStatusEvent */,
-      l = n(86) /* module_86 */;
+    require(8) /* module_8 */, require(196) /* module_196 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */;
+    const { gApi: a } = require(10) /* module_10 */,
+      r = require(393) /* GCollaborationEvent */,
+      s = require(217) /* GDocumentStatusEvent */,
+      l = require(86) /* module_86 */;
     function c(e) {
       (this._document = e),
         (this._currentLock = null),
@@ -24,9 +24,9 @@ function (exports, module, require) {
           null,
           true
         );
-      const t = this._document.getEditor();
-      t &&
-        t.addEventListener(
+      const module = this._document.getEditor();
+      module &&
+        module.addEventListener(
           o.GEditor.InlineEditorEvent,
           this._inlineEditorEvent,
           this,
@@ -60,9 +60,9 @@ function (exports, module, require) {
       (c.prototype._alreadyRequestedAccess = false),
       (c.prototype.detach = function () {
         this._document.removeEventListener(r, this._collaborationEvent, this);
-        const e = this._document.getEditor();
-        e &&
-          e.removeEventListener(
+        const exports = this._document.getEditor();
+        exports &&
+          exports.removeEventListener(
             o.GEditor.InlineEditorEvent,
             this._inlineEditorEvent,
             this
@@ -101,19 +101,19 @@ function (exports, module, require) {
       }),
       (c.prototype.isLockedByMe = function () {
         if (!this._currentLock) return false;
-        const e = gDesigner.getSyncUser();
-        return this._currentLock.isLockedBy(e);
+        const exports = gDesigner.getSyncUser();
+        return this._currentLock.isLockedBy(exports);
       }),
       (c.prototype.reloadDocument = async function () {
         this._updateStatus(c.Status.Updating);
-        const e = (t) => {
+        const exports = (t) => {
           t.status !== l.Loading &&
-            (this._document.removeEventListener(s, e),
+            (this._document.removeEventListener(s, exports),
             this._document.unlock(),
             this.resetTextEditing());
         };
         await this.releaseLock(),
-          this._document.addEventListener(s, e),
+          this._document.addEventListener(s, exports),
           this._document.lock(),
           this._document.reload();
       }),
@@ -194,8 +194,8 @@ function (exports, module, require) {
             this._document.trigger(new c.StatusChangedEvent(this._status)));
       }),
       (c.prototype._closeInlineEditor = function () {
-        const e = this._document.getEditor();
-        e && (e.closeInlineEditor(), e.clearSelection());
+        const exports = this._document.getEditor();
+        exports && (exports.closeInlineEditor(), exports.clearSelection());
       }),
       (c.prototype._inlineEditorEvent = function (e) {
         switch (e.type) {
@@ -243,5 +243,5 @@ function (exports, module, require) {
           this._updateStatus(c.Status.UpdateAvailable);
         }
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

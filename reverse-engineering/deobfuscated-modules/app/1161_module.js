@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.handleDragForDeleteIcon = function (e, t, n, o, i, a) {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.handleDragForDeleteIcon = function (e, t, n, o, i, a) {
         if (!n) return false;
         var r = false;
         if (e.clientX < n.left || e.clientY < n.top || e.clientY > n.top + o) {

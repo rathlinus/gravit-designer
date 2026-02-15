@@ -6,47 +6,47 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(866) /* GAlignAction */,
-      s = n(869) /* GArrangeAction */,
-      l = n(1176) /* GAttachToPathAction */,
-      c = n(810) /* GConvertToPathAction */,
-      d = n(608) /* GCreateSymbolAction */,
-      u = n(874) /* GDetachSymbolAction */,
-      p = n(1177) /* GResetInstanceAction */,
-      g = n(1178) /* GDetachFromPathAction */,
-      h = n(867) /* GDistributeAction */,
-      f = n(811) /* GGroupAction */,
-      m = n(1179) /* GJoinPathsAction */;
-    const y = n(812) /* GMergeMainAction */;
-    var v = n(1180) /* GSelectByFontTypeAction */;
-    const _ = n(1304) /* GSelectByPaintLayerAction */,
-      b = n(1305) /* GSelectByBorderWidthAction */,
-      w = n(1306) /* GSelectByTransparencyAction */,
-      C = n(1307) /* GSelectByBlendModeAction */,
-      x = n(1308) /* GSelectByShapeAction */,
-      S = n(1309) /* GSelectByEffectAction */;
-    var E = n(870) /* GSplitAction */,
-      A = n(873) /* GSplitPathAction */,
-      T = n(871) /* GTransformAction */,
-      G = n(872) /* GVectorizeBorderAction */,
-      P = n(238) /* GMenu */,
-      D = n(339) /* GMenu */,
-      L = n(804) /* GMenuOpenEvent */,
-      I = n(1181) /* GMaskWithShapeAction */,
-      k = n(1310) /* GCropAction */,
-      O = n(1311) /* GCancelCropAction */,
-      F = n(1312) /* GEditElementActon */,
-      R = n(875) /* GPasteStyleAction */,
-      M = n(1182) /* GPasteHereAction */;
-    const N = n(876) /* GPasteAndReplaceAction */;
-    var B = n(861) /* GExportAction */,
-      U = n(450) /* module_450 */,
-      j = n(44) /* GSystemDialog */,
-      K = n(78) /* GDocumentEvent */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(866) /* GAlignAction */,
+      s = require(869) /* GArrangeAction */,
+      l = require(1176) /* GAttachToPathAction */,
+      c = require(810) /* GConvertToPathAction */,
+      d = require(608) /* GCreateSymbolAction */,
+      u = require(874) /* GDetachSymbolAction */,
+      p = require(1177) /* GResetInstanceAction */,
+      g = require(1178) /* GDetachFromPathAction */,
+      h = require(867) /* GDistributeAction */,
+      f = require(811) /* GGroupAction */,
+      m = require(1179) /* GJoinPathsAction */;
+    const y = require(812) /* GMergeMainAction */;
+    var v = require(1180) /* GSelectByFontTypeAction */;
+    const _ = require(1304) /* GSelectByPaintLayerAction */,
+      b = require(1305) /* GSelectByBorderWidthAction */,
+      w = require(1306) /* GSelectByTransparencyAction */,
+      C = require(1307) /* GSelectByBlendModeAction */,
+      x = require(1308) /* GSelectByShapeAction */,
+      S = require(1309) /* GSelectByEffectAction */;
+    var E = require(870) /* GSplitAction */,
+      A = require(873) /* GSplitPathAction */,
+      T = require(871) /* GTransformAction */,
+      G = require(872) /* GVectorizeBorderAction */,
+      P = require(238) /* GMenu */,
+      D = require(339) /* GMenu */,
+      L = require(804) /* GMenuOpenEvent */,
+      I = require(1181) /* GMaskWithShapeAction */,
+      k = require(1310) /* GCropAction */,
+      O = require(1311) /* GCancelCropAction */,
+      F = require(1312) /* GEditElementActon */,
+      R = require(875) /* GPasteStyleAction */,
+      M = require(1182) /* GPasteHereAction */;
+    const N = require(876) /* GPasteAndReplaceAction */;
+    var B = require(861) /* GExportAction */,
+      U = require(450) /* module_450 */,
+      j = require(44) /* GSystemDialog */,
+      K = require(78) /* GDocumentEvent */;
     function V(e) {
       var t = this._createContextMenu(),
         n = this._createCropMenu(),
@@ -844,5 +844,5 @@ function (exports, module, require) {
       (V.prototype.toString = function () {
         return "[Object GContextMenu]";
       }),
-      (e.exports = V);
+      (exports.exports = V);
   }

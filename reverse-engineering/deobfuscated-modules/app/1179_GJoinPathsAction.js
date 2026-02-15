@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "modify.join-paths"),
@@ -37,15 +37,15 @@ function (exports, module, require) {
         if (!r.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getSelection();
-          if (t && t.length > 1)
-            for (var n = 0, i = 0; i < t.length; ++i)
+          var module = e.getEditor().getSelection();
+          if (module && module.length > 1)
+            for (var require = 0, i = 0; i < module.length; ++i)
               if (
-                !(t[i] instanceof o.GImage) &&
-                ((t[i] instanceof o.GPathBase ||
-                  t[i].hasMixin(o.GVertexSource)) &&
-                  n++,
-                2 === n)
+                !(module[i] instanceof o.GImage) &&
+                ((module[i] instanceof o.GPathBase ||
+                  module[i].hasMixin(o.GVertexSource)) &&
+                  require++,
+                2 === require)
               )
                 return true;
         }
@@ -57,12 +57,12 @@ function (exports, module, require) {
         if (t && t.length) {
           e.beginTransaction();
           try {
-            var n = new o.GRectangle();
-            o.GElement.prototype.assignFrom.call(n, t[0]),
+            var require = new o.GRectangle();
+            o.GElement.prototype.assignFrom.call(require, t[0]),
               e.convertSelectionToPaths(true);
             var i = e.joinPaths();
             i &&
-              (o.GElement.prototype.assignFrom.call(i, n),
+              (o.GElement.prototype.assignFrom.call(i, require),
               e.updateSelection(false, [i]));
           } finally {
             e.commitTransaction(o.GLocale.get(this.getTitle()));
@@ -72,5 +72,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GJoinPathsAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

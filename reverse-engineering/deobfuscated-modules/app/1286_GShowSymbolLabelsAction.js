@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(18) /* module_18 */),
-      a = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = (require(15) /* module */, require(18) /* module_18 */),
+      a = require(31) /* GAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "view.canvas.show-symbol-labels"),
@@ -35,8 +35,8 @@ function (exports, module, require) {
       (r.prototype.isChecked = function () {
         var e = gDesigner.getWindows().getActiveWindow();
         if (e) {
-          var t = e.getView().getViewConfiguration();
-          return !!t && !!t.symbolLabelsVisible;
+          var module = e.getView().getViewConfiguration();
+          return !!module && !!module.symbolLabelsVisible;
         }
         return false;
       }),
@@ -53,5 +53,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GShowSymbolLabelsAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

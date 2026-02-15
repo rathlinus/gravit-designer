@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const { FILE_FORMATS: i, gApi: a } = n(10) /* module_10 */,
       r = i.find((e) => e.default),
       { COMMAND_SAVE: s, COMMAND_SYNC_IMAGES: l } = n(591) /* module_591 */,

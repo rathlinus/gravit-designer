@@ -21,8 +21,8 @@ function (e, t, n) {
       n(1175) /* module_1175 */,
       n(33) /* module_33 */,
       n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
+    var i = n(53) /* module */,
+      a = n(1) /* module */,
       r = n(882) /* module_882 */,
       s = n(10) /* module_10 */,
       l = o(n(1354) /* GInvalidationOptions */);

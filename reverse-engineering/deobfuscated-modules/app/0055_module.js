@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
+    exports.exports =
       ((o =
         o ||
         (function (e, t) {

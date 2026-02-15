@@ -20,8 +20,8 @@ function (e, t, n) {
       n(41) /* module_41 */,
       n(13) /* module_13 */,
       n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var i = n(1) /* module */,
+      a = n(15) /* module */,
       r = n(10) /* module_10 */,
       s = n(357) /* module_357 */,
       l = o(n(238) /* GMenu */),

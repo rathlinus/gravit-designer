@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(20) /* module_20 */, n(107) /* module_107 */, n(34) /* module_34 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var i = n(1) /* module */,
+      a = n(15) /* module */,
       r = o(n(1618) /* module_1618 */),
       s = o(n(85) /* GContainer */),
       l = o(n(31) /* GAction */),

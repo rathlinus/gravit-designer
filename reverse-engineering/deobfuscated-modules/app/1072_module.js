@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       DELETE_COMMENT_ANNOTATION: "DELETE_COMMENT_ANNOTATION",
       RESOLVE_COMMENT_ANNOTATION: "RESOLVE_COMMENT_ANNOTATION",
       RESOLVE_ALL_COMMENT_ANNOTATION: "RESOLVE_ALL_COMMENT_ANNOTATION",

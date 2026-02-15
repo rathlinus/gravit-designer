@@ -5,35 +5,35 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(163) /* module_163 */),
-      r = o(n(78) /* GDocumentEvent */),
-      s = o(n(86) /* module_86 */),
-      l = o(n(802) /* CloudException */),
-      c = o(n(355) /* module_355 */);
-    const d = n(1554) /* module_1554 */,
-      u = n(1301) /* module_1301 */,
-      p = n(556) /* module_556 */,
-      g = n(156) /* module_156 */,
-      h = n(1555) /* module_1555 */,
-      f = n(848) /* GoogleDriveException */,
-      m = n(595) /* module_595 */,
-      y = n(520) /* module_520 */,
-      v = n(119) /* module_119 */,
-      { gApi: _, CloudIntegration: b } = n(10) /* module_10 */,
-      { decrypt: w } = n(40) /* module_40 */,
-      C = n(44) /* GSystemDialog */;
+    var o = require(16) /* module_16 */;
+    require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */, require(196) /* module_196 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = o(require(163) /* module_163 */),
+      r = o(require(78) /* GDocumentEvent */),
+      s = o(require(86) /* module_86 */),
+      l = o(require(802) /* CloudException */),
+      c = o(require(355) /* module_355 */);
+    const d = require(1554) /* module_1554 */,
+      u = require(1301) /* module_1301 */,
+      p = require(556) /* module_556 */,
+      g = require(156) /* module_156 */,
+      h = require(1555) /* module_1555 */,
+      f = require(848) /* GoogleDriveException */,
+      m = require(595) /* module_595 */,
+      y = require(520) /* module_520 */,
+      v = require(119) /* module_119 */,
+      { gApi: _, CloudIntegration: b } = require(10) /* module_10 */,
+      { decrypt: w } = require(40) /* module_40 */,
+      C = require(44) /* GSystemDialog */;
     let x;
     function S() {
-      let e =
+      let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {},
-        t =
+        module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-      l.default.call(this, e), (this._accountId = t);
+      l.default.call(this, exports), (this._accountId = module);
       const {
-        clientId: n = null,
+        clientId: require = null,
         apiKey: o = null,
         appId: a = null,
         accessToken: r,
@@ -42,7 +42,7 @@ function (exports, module, require) {
       } = this._settings;
       if (
         ((this._settings = Object.assign(this._settings, {
-          clientId: n,
+          clientId: require,
           apiKey: o,
           appId: a,
           accessToken: r,
@@ -56,9 +56,9 @@ function (exports, module, require) {
             accessToken: r,
             expires: s,
             corporate: c,
-            accountId: t,
+            accountId: module,
           })),
-        (this._clientId = n),
+        (this._clientId = require),
         (this._apiKey = o),
         (this._appId = a),
         (this._folders = {}),
@@ -189,30 +189,30 @@ function (exports, module, require) {
           .then((e) => (e ? g.from(e) : e));
       }),
       (S.prototype._openFilePicker = function (e) {
-        const t = this;
-        async function n(e) {
-          const n = t.getRootFolder();
+        const module = this;
+        async function require(e) {
+          const require = module.getRootFolder();
           let o,
             i,
             a = false;
-          if ((({ parentId: o } = e[0]), o !== n.id))
+          if ((({ parentId: o } = e[0]), o !== require.id))
             try {
-              i = await t._googleDriveClient.getFileDetails(o);
+              i = await module._googleDriveClient.getFileDetails(o);
             } catch (e) {
-              (o = n.id), (a = true);
+              (o = require.id), (a = true);
             }
-          return i || (i = n), { folder: i, showMessage: a };
+          return i || (i = require), { folder: i, showMessage: a };
         }
         async function o(e, o) {
-          for (let n = 0; n < e.length; n++) {
-            let o = e[n];
+          for (let require = 0; require < e.length; require++) {
+            let o = e[require];
             const { id: i, type: a } = o;
             "folder" !== a &&
-              (await t._googleDriveClient.updateFileDetails(i, {
+              (await module._googleDriveClient.updateFileDetails(i, {
                 viewedByMeTime: new Date().toISOString(),
               }));
           }
-          const { showMessage: a, folder: r } = await n(e);
+          const { showMessage: a, folder: r } = await require(e);
           a &&
             C.messageWithInfo({
               mainMessage: i.GLocale.get(
@@ -228,7 +228,7 @@ function (exports, module, require) {
                 )
               ),
             }),
-            t.trigger(
+            module.trigger(
               new l.default.DriveEvent(
                 null,
                 l.default.DriveEvent.Type.FolderSwitchRequired,
@@ -244,7 +244,7 @@ function (exports, module, require) {
               const s = r[0],
                 { id: l, type: c } = s;
               "folder" !== c
-                ? (n(r).then((e) => {
+                ? (require(r).then((e) => {
                     let { showMessage: t } = e;
                     t &&
                       C.messageWithInfo({
@@ -323,14 +323,14 @@ function (exports, module, require) {
       (S.prototype.getUser = async function () {
         return new Promise(async (e, t) => {
           try {
-            var n;
-            if (this._settings.corporate) n = await gDesigner.getUser();
+            var require;
+            if (this._settings.corporate) require = await gDesigner.getUser();
             else {
               if (!gContainer.getGoogleAPI().isLoaded())
                 return t("Google Drive Client not loaded!");
-              n = await gContainer.getGoogleAPI().getBasicProfile();
+              require = await gContainer.getGoogleAPI().getBasicProfile();
             }
-            return e(n);
+            return e(require);
           } catch (e) {
             t(e);
           }
@@ -352,7 +352,7 @@ function (exports, module, require) {
       }),
       (S.prototype._loadClient = function () {
         return new Promise(async (e, t) => {
-          const n = this.isLowestSecurityLevel()
+          const require = this.isLowestSecurityLevel()
             ? "https://www.googleapis.com/auth/drive.file         https://www.googleapis.com/auth/userinfo.email"
             : "https://www.googleapis.com/auth/drive";
           var o, a, r;
@@ -365,11 +365,11 @@ function (exports, module, require) {
               const {
                 GOOGLE_DRIVE_PUBLIC_CLIENT_ID: e,
                 GOOGLE_DRIVE_PUBLIC_API_KEY: t,
-                GOOGLE_DRIVE_APP_ID: n,
+                GOOGLE_DRIVE_APP_ID: require,
               } = JSON.parse(w(s));
               (a = e),
                 (o = t),
-                (r = n),
+                (r = require),
                 (this._apiKey = o),
                 (this._clientId = a),
                 (this._appId = r);
@@ -390,7 +390,7 @@ function (exports, module, require) {
               discoveryDocs: [
                 "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",
               ],
-              scope: n,
+              scope: require,
             })
             .then(
               () => {
@@ -445,41 +445,41 @@ function (exports, module, require) {
         return gContainer.getGoogleAPI().signOut();
       }),
       (S.prototype.fetchFolders = async function (e, t) {
-        let n =
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : -1;
         var o = t ? this._getParentReference(t) : this._getParentContext();
         return this._search(
           u.from({
             type: g.Type.Folder,
-            limit: n > 0 ? n : 1e3,
+            limit: require > 0 ? require : 1e3,
             orderBy: S.SearchEngine.SortMap[e],
             parent: o,
           })
         ).then(async (e) => {
           this._currentPage = e;
-          let n = e.getItems();
+          let require = e.getItems();
           return (
             this.isRootFolder(t) &&
               !this.PREVIOUS_SELECTED_FOLDER_PATH.length &&
               ((this._rootFolderID =
-                n && n.length && "root" === n[0].getParentId()
-                  ? n[0].parents[0]
+                require && require.length && "root" === require[0].getParentId()
+                  ? require[0].parents[0]
                   : null),
               await this.generatePreviousSelectedFolderPath()),
-            n
+            require
           );
         });
       }),
       (S.prototype._buildSearchQuery = function (e) {
-        const t = new d();
+        const module = new d();
         var n = e.hasValue("type") && e.type;
         const o = n === g.Type.Folder,
           i = n === g.Type.File;
         return (
           o
-            ? t.add("mimeType", "=", f.MimeType.Folder)
+            ? module.add("mimeType", "=", f.MimeType.Folder)
             : i &&
-              (t.group((e) => {
+              (module.group((e) => {
                 this.getSupportedExtensions().forEach((t) =>
                   e.or("fileExtension", "=", t)
                 ),
@@ -487,16 +487,16 @@ function (exports, module, require) {
                     e.or("mimeType", "=", t)
                   );
               }),
-              this.shouldOnlyListOwnedFiles() && t.in("me", "owners")),
+              this.shouldOnlyListOwnedFiles() && module.in("me", "owners")),
           e.hasValue("parent")
-            ? "*" !== e.parent && t.in(e.parent, "parents")
-            : t.in("root", "parents"),
-          e.hasValue("name") && t.add("name", "contains", e.name),
-          e.hasValue("exactname") && t.add("name", "=", e.exactname),
+            ? "*" !== e.parent && module.in(e.parent, "parents")
+            : module.in("root", "parents"),
+          e.hasValue("name") && module.add("name", "contains", e.name),
+          e.hasValue("exactname") && module.add("name", "=", e.exactname),
           e.hasValue("fileExtension") &&
-            t.add("fileExtension", "=", e.fileExtension.toLowerCase()),
-          t.add("trashed", "=", new d.RawValue(false)),
-          t.build()
+            module.add("fileExtension", "=", e.fileExtension.toLowerCase()),
+          module.add("trashed", "=", new d.RawValue(false)),
+          module.build()
         );
       }),
       (S.prototype._getParentContext = function () {
@@ -576,11 +576,11 @@ function (exports, module, require) {
         );
       }),
       (S.prototype.getFolder = async function (e) {
-        const t = await this._googleDriveClient.getFileDetails(
+        const module = await this._googleDriveClient.getFileDetails(
           e.id || e,
           this.getCorporateStorage() ? { supportsAllDrives: true } : {}
         );
-        return this._convertToCloudItems(t).then((e) => e[0]);
+        return this._convertToCloudItems(module).then((e) => e[0]);
       }),
       (S.prototype.supportsSaveCollisionFlow = function () {
         return true;
@@ -640,7 +640,7 @@ function (exports, module, require) {
         );
       }),
       (S.prototype.saveNewFile = function (e, t) {
-        let n =
+        let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : "",
           o =
             arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
@@ -667,7 +667,7 @@ function (exports, module, require) {
           };
           var p = new a.default();
           try {
-            n = n || this.getDefaultFileFormat().ext.toUpperCase();
+            require = require || this.getDefaultFileFormat().ext.toUpperCase();
             var g = e.getScene();
             g.getActivePage().getGeometryBBox() ||
               d(
@@ -680,12 +680,12 @@ function (exports, module, require) {
               ),
               (o = e.updateSaveOptionsLastModifiedDate(o));
             const a = (
-                this.findFileFormatByExtension(n) || this.getDefaultFileFormat()
+                this.findFileFormatByExtension(require) || this.getDefaultFileFormat()
               ).mime,
               f = {
                 name: t,
                 mimeType: a,
-                fileExtension: n,
+                fileExtension: require,
                 parent: this._getParentContext(),
                 settings: this._settings,
               },
@@ -804,35 +804,35 @@ function (exports, module, require) {
         return true;
       }),
       (S.prototype.getCorporateStorages = function () {
-        let e =
+        let exports =
             arguments.length > 0 && undefined !== arguments[0]
               ? arguments[0]
               : new u(),
-          t = arguments.length > 1 ? arguments[1] : undefined;
+          module = arguments.length > 1 ? arguments[1] : undefined;
         if (this.shouldOnlyListOwnedFiles()) return Promise.resolve([]);
         var n =
-          (e.hasKey("limit") && e.getAsInt("limit")) || this.getQueryLimit();
+          (exports.hasKey("limit") && exports.getAsInt("limit")) || this.getQueryLimit();
         return (
-          (t = t || new h({ query: e })),
+          (module = module || new h({ query: exports })),
           new Promise(async (o, i) => {
             try {
               const i = {
-                  pageSize: n - t.getSize(),
+                  pageSize: n - module.getSize(),
                   fields: "*",
-                  nextPageToken: e.hasValue("nextPageToken") && e.nextPageToken,
+                  nextPageToken: exports.hasValue("nextPageToken") && exports.nextPageToken,
                 },
                 l = await this._googleDriveClient.searchTeamDrives(i);
               var { drives: a, nextPageToken: r } = l;
-              if (!a.length) return o(t);
+              if (!a.length) return o(module);
               a =
-                t.getSize() + a.length > n
-                  ? a.slice(0, Math.max(n - t.getSize(), 0))
+                module.getSize() + a.length > n
+                  ? a.slice(0, Math.max(n - module.getSize(), 0))
                   : a;
               var s = await this._convertToCloudItems(a);
               return (
-                t.update({ nextPageToken: r, items: s }),
-                t.getSize() < n && r && (t = await this.getStorages(e, t)),
-                o(t.getItems())
+                module.update({ nextPageToken: r, items: s }),
+                module.getSize() < n && r && (module = await this.getStorages(exports, module)),
+                o(module.getItems())
               );
             } catch (e) {
               i();
@@ -855,30 +855,30 @@ function (exports, module, require) {
         return p.getSupportedFileFormats();
       }),
       (S.prototype.generatePreviousSelectedFolderPath = async function () {
-        const e = this.getCurrentFolder();
-        if (this.isRootFolder(e))
+        const exports = this.getCurrentFolder();
+        if (this.isRootFolder(exports))
           return (
             (this.PREVIOUS_SELECTED_FOLDER_PATH = []),
             this.PREVIOUS_SELECTED_FOLDER_PATH
           );
-        this.PREVIOUS_SELECTED_FOLDER_PATH.push(e.id);
-        let t = e.getParentId()
-          ? e.getParentId()
-          : e.parents
-          ? e.parents[0]
+        this.PREVIOUS_SELECTED_FOLDER_PATH.push(exports.id);
+        let module = exports.getParentId()
+          ? exports.getParentId()
+          : exports.parents
+          ? exports.parents[0]
           : null;
-        if (t && t !== this._rootFolderID) {
-          let e = await this.getFolder(t).catch(() => null);
+        if (module && module !== this._rootFolderID) {
+          let e = await this.getFolder(module).catch(() => null);
           for (; e; )
             this.PREVIOUS_SELECTED_FOLDER_PATH.push(e.id),
-              (t = e.getParentId()
+              (module = e.getParentId()
                 ? e.getParentId()
                 : e.parents
                 ? e.parents[0]
                 : null),
               (e =
-                t && t !== this._rootFolderID
-                  ? await this.getFolder(t).catch(() => null)
+                module && module !== this._rootFolderID
+                  ? await this.getFolder(module).catch(() => null)
                   : null);
         }
         return this.PREVIOUS_SELECTED_FOLDER_PATH;
@@ -911,5 +911,5 @@ function (exports, module, require) {
             .concat(f.SearchEngine.Sorts.Ascending),
         },
       }),
-      (e.exports = S);
+      (exports.exports = S);
   }

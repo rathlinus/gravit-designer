@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(18) /* module_18 */),
-      s = o(n(1168) /* GSubAction */),
-      l = n(40) /* module_40 */,
-      c = n(67) /* GRichTooltipConfig */,
-      d = o(n(812) /* GMergeMainAction */),
-      u = n(10) /* module_10 */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = o(require(1168) /* GSubAction */),
+      l = require(40) /* module_40 */,
+      c = require(67) /* GRichTooltipConfig */,
+      d = o(require(812) /* GMergeMainAction */),
+      u = require(10) /* module_10 */;
     class p extends s.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(e),
           (this._title = new i.GLocaleKey(
             "GMergeSubAction",
@@ -29,9 +29,9 @@ function (exports, module, require) {
         return d.default.ID;
       }
       getFullTitle() {
-        const e = this.getTitle(),
-          t = this.getMainAction().getTitle();
-        return "".concat(i.GLocale.get(t), " (").concat(i.GLocale.get(e), ")");
+        const exports = this.getTitle(),
+          module = this.getMainAction().getTitle();
+        return "".concat(i.GLocale.get(module), " (").concat(i.GLocale.get(exports), ")");
       }
       getCategory() {
         return r.default.CATEGORY_MODIFY_COMBINE;
@@ -71,19 +71,19 @@ function (exports, module, require) {
         }
       }
       execute() {
-        const e = gDesigner.getActiveDocument().getEditor(),
-          t = e && i.GNode.order(e.getIndividualSelection().slice());
-        if (!t) return;
-        e.beginTransaction();
-        const n = this._shouldChangeBooleanOperation(t);
+        const exports = gDesigner.getActiveDocument().getEditor(),
+          module = exports && i.GNode.order(exports.getIndividualSelection().slice());
+        if (!module) return;
+        exports.beginTransaction();
+        const require = this._shouldChangeBooleanOperation(module);
         try {
-          n
+          require
             ? (this._setTransactionType(p.TransactionType.Merge),
-              this._changeBooleanOperationType(t[0]))
+              this._changeBooleanOperationType(module[0]))
             : (this._setTransactionType(p.TransactionType.Combine),
-              this._createCompoundShape(e, t));
+              this._createCompoundShape(exports, module));
         } finally {
-          e.commitTransaction(this._getTransactionName());
+          exports.commitTransaction(this._getTransactionName());
         }
       }
       _setTransactionType(e) {
@@ -96,11 +96,11 @@ function (exports, module, require) {
         );
       }
       _shouldChangeBooleanOperation(e) {
-        const [t] = e;
+        const [module] = e;
         return (
           1 === e.length &&
-          (t instanceof i.GCompoundShape ||
-            1 === d.default.getValidItems(t).length)
+          (module instanceof i.GCompoundShape ||
+            1 === d.default.getValidItems(module).length)
         );
       }
       _changeBooleanOperationType(e) {
@@ -111,11 +111,11 @@ function (exports, module, require) {
         )
           return e.setProperty("bool", this._getBooleanOperationType());
         if (e instanceof i.GCompoundShape && e.getFirstChild())
-          for (let t = e.getFirstChild().getNext(); null !== t; t = t.getNext())
-            t.setProperty("bool", this._getBooleanOperationType());
+          for (let module = e.getFirstChild().getNext(); null !== module; module = module.getNext())
+            module.setProperty("bool", this._getBooleanOperationType());
       }
       _createCompoundShape(e, t) {
-        const n = new i.GCompoundShape();
+        const require = new i.GCompoundShape();
         let o,
           a = [];
         if (
@@ -127,10 +127,10 @@ function (exports, module, require) {
           const r = t[t.length - 1];
           let s = r.getParent(),
             c = r.getNext();
-          for (; !n.validateInsertion(s); )
+          for (; !require.validateInsertion(s); )
             (c = s.getNext()), (s = s.getParent());
           if (!s) return;
-          s.insertChild(n, c);
+          s.insertChild(require, c);
           try {
             const t = [],
               r = [];
@@ -145,8 +145,8 @@ function (exports, module, require) {
               (a = t.concat(r));
             const c = s || a[0];
             if (
-              ((0, l.blockChanges)(e, o, null, n),
-              n.assignStyleFrom(c),
+              ((0, l.blockChanges)(e, o, null, require),
+              require.assignStyleFrom(c),
               c instanceof i.GText)
             ) {
               const e = c;
@@ -154,12 +154,12 @@ function (exports, module, require) {
                 !e.getPaintLayers().getFillLayers(true).length &&
                 e.getProperty("_fc")
               ) {
-                n.getPaintLayers().clearFillLayers();
+                require.getPaintLayers().clearFillLayers();
                 const t =
                   "string" == typeof e.getProperty("_fc")
                     ? i.GRGBColor.fromCSSColor(e.getProperty("_fc"))
                     : e.getProperty("_fc");
-                n.getPaintLayers().appendChild(
+                require.getPaintLayers().appendChild(
                   new i.GStylable.FillPaintLayer(t)
                 );
               }
@@ -178,12 +178,12 @@ function (exports, module, require) {
 
               )
                 (t = o), (o = o.getParent()), o.removeChild(t);
-              n.appendChild(e);
+              require.appendChild(e);
             });
           } finally {
-            (0, l.releaseChanges)(e, o, null, n);
+            (0, l.releaseChanges)(e, o, null, require);
           }
-          e.updateSelection(false, [n]);
+          e.updateSelection(false, [require]);
         }
       }
       _getBooleanOperationType() {
@@ -205,7 +205,7 @@ function (exports, module, require) {
           ? p.TOOLTIP_CONFIG[e][this._type]
           : null;
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GMergeSubAction]";
       }
     }
@@ -273,5 +273,5 @@ function (exports, module, require) {
           }),
         },
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

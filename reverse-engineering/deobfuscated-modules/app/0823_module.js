@@ -3,6 +3,6 @@
  * Type: unknown
  */
 
-function (e) {
-    e.exports = JSON.parse("[]");
+function (exports) {
+    exports.exports = JSON.parse("[]");
   }

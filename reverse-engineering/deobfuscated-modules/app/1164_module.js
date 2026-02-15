@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const o = n(11) /* GUtil */;
-    e.exports = class {
-      constructor(e, t) {
+    require(8) /* module_8 */;
+    const o = require(11) /* GUtil */;
+    exports.exports = class {
+      function Object() { [native code] }(e, t) {
         (this._worker = e), (this._user = t);
       }
       async updateFileSceneAndMetadata(e, t, n) {
         throw "Not implemented";
       }
       _request(e, t) {
-        const n = o.uuid(64);
+        const require = o.uuid(64);
         return (
           this._worker.postMessage({
             cmd: e,
             data: t,
-            id: n,
+            id: require,
             user: this._user,
           }),
-          n
+          require
         );
       }
     };

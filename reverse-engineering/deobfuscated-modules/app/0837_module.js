@@ -3,7 +3,7 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     String.prototype.codePointAt ||
       (function () {
         "use strict";

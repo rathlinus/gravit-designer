@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(58) /* module_58 */, n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
+    var o = n(1) /* module */,
+      i = n(15) /* module */,
       a = n(394) /* GView */,
       r = n(135) /* GSettingChangedEvent */,
       s = n(863) /* module_863 */,

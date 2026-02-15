@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(123) /* GProperties */,
-      a = (n(173) /* module_173 */, n(874) /* GDetachSymbolAction */),
-      r = n(566) /* GFitSelectionAction */;
-    const s = n(135) /* GSettingChangedEvent */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(123) /* GProperties */,
+      a = (require(173) /* module_173 */, require(874) /* GDetachSymbolAction */),
+      r = require(566) /* GFitSelectionAction */;
+    const s = require(135) /* GSettingChangedEvent */;
     function l() {}
     o.GObject.inherit(l, i),
       (l.prototype._panel = null),
@@ -213,5 +213,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GSymbolProperties]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

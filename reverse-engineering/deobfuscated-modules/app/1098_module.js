@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(10) /* module_10 */;
-    const i = n(292) /* module_292 */,
-      a = n(846) /* module_846 */;
-    e.exports = class {
-      constructor() {
+    require(8) /* module_8 */;
+    var o = require(10) /* module_10 */;
+    const i = require(292) /* module_292 */,
+      a = require(846) /* module_846 */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         this._isListening = false;
       }
       async checkLicense() {
-        let e;
-        if (gDesigner.isOffline()) e = a.newOfflineLicense();
+        let exports;
+        if (gDesigner.isOffline()) exports = a.newOfflineLicense();
         else
           try {
-            e = a.newLicense(await o.gApi.license.get());
+            exports = a.newLicense(await o.gApi.license.get());
           } catch (t) {
-            (e = a.newDefaultLicense()),
+            (exports = a.newDefaultLicense()),
               console.info("CheckLicense", "exception", t);
           }
-        this._setApplicationLicense(e);
+        this._setApplicationLicense(exports);
       }
       async _listenLicense() {
         if (!this._isListening)

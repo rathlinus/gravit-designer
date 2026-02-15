@@ -3,7 +3,7 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     function n() {}
-    (n.prototype.thumbnail = null), (e.exports = n);
+    (n.prototype.thumbnail = null), (exports.exports = n);
   }

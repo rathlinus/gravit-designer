@@ -20,7 +20,7 @@ function (e, t, n) {
       n(125) /* module_125 */,
       n(126) /* module_126 */,
       n(114) /* module_114 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(1343) /* module_1343 */),
       r = o(n(44) /* GSystemDialog */),
       s = n(40) /* module_40 */;

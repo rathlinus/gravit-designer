@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(31) /* GAction */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(31) /* GAction */;
     function l(e) {
       (this._type = e),
         (this._title = new i.GLocaleKey("GTransformAction", "title." + e)),
@@ -148,14 +148,14 @@ function (exports, module, require) {
         return null;
       }),
       (l.prototype.isEnabled = function (e) {
-        let t =
+        let module =
           e ||
           (gDesigner.getActiveDocument()
             ? gDesigner.getActiveDocument().getEditor().getSelection()
             : null) ||
           [];
         return (
-          (t = t.filter((e) => {
+          (module = module.filter((e) => {
             var t = o.GElementEditor.getEditor(e);
             return (
               t &&
@@ -163,7 +163,7 @@ function (exports, module, require) {
                 t.hasFlag(o.GBoxEditor.Flag.RotateHandle))
             );
           })),
-          t.length > 0
+          module.length > 0
         );
       }),
       (l.prototype.execute = function (e) {
@@ -235,5 +235,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GTransformAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

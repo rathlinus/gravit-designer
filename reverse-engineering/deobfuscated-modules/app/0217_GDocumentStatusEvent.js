@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this.status = e), (this.data = t);
     }
@@ -17,5 +17,5 @@ function (exports, module, require) {
       (i.prototype.toString = function () {
         return "[Object GDocumentStatusEvent]";
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

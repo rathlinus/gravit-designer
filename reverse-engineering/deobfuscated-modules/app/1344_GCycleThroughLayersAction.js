@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(15) /* module_15 */,
-      a = n(1) /* module_1 */,
-      r = o(n(18) /* module_18 */),
-      s = o(n(31) /* GAction */),
-      l = n(198) /* Exports_GOutlineSidebar */;
+    var o = require(16) /* module_16 */,
+      i = require(15) /* module */,
+      a = require(1) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = o(require(31) /* GAction */),
+      l = require(198) /* Exports_GOutlineSidebar */;
     class c extends s.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(),
           (this._type = e),
           (this._title = new a.GLocaleKey(
@@ -44,18 +44,18 @@ function (exports, module, require) {
         return false;
       }
       execute() {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : c.Mode.Level;
-        const t = gDesigner.getLeftSidebars().getActiveSidebar(),
-          n = gDesigner
+        const module = gDesigner.getLeftSidebars().getActiveSidebar(),
+          require = gDesigner
             .getLeftSidebars()
             .getSidebar(l.SidebarsIds.GOutlineSidebar),
-          o = n.getLayerPanel(),
+          o = require.getLayerPanel(),
           i = o.gLayerPanel("getCurrentFocusedNode");
-        if (!i || t !== n.getId()) return;
-        const r = this._getNextNodeInIteration(e, i);
+        if (!i || module !== require.getId()) return;
+        const r = this._getNextNodeInIteration(exports, i);
         if (r) {
           const e = o.gLayerPanel("getItem", i),
             t = o.gLayerPanel("getItem", r);
@@ -95,12 +95,12 @@ function (exports, module, require) {
             return null;
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GCycleThroughLayersAction]";
       }
     }
     (c.ID = "view.cycle-through-layers"),
       (c.Type = { Next: "next", Previous: "previous" }),
       (c.Mode = { Focus: "focus", Level: "level" }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = t.GGoogleDrive = t.GCloudDrive = undefined);
-    var i = o(n(862) /* module_862 */);
-    const a = (t.GCloudDrive = i.default);
-    var r = n(1553) /* module_1553 */;
-    t.GGoogleDrive = r;
-    t.default = { GCloudDrive: a, GGoogleDrive: r };
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = module.GGoogleDrive = module.GCloudDrive = undefined);
+    var i = o(require(862) /* module_862 */);
+    const a = (module.GCloudDrive = i.default);
+    var r = require(1553) /* module_1553 */;
+    module.GGoogleDrive = r;
+    module.default = { GCloudDrive: a, GGoogleDrive: r };
   }

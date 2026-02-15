@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(239) /* module_239 */,
+    var o = require(239) /* module_239 */,
       i = Function.prototype.call;
-    e.exports = o
+    exports.exports = o
       ? i.bind(i)
       : function () {
           return i.apply(i, arguments);

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     (function (t, n, o) {
       !(function (t) {
-        e.exports = t();
+        exports.exports = t();
       })(function () {
         var e, i, a;
         return (function e(t, n, o) {
@@ -4084,5 +4084,5 @@ function (exports, module, require) {
           : "undefined" != typeof self &&
             null !== self &&
             (self.P = self.Promise);
-    }).call(this, n(183) /* module_183 */, n(109) /* module_109 */, n(1115) /* module_1115 */.setImmediate);
+    }).call(this, require(183) /* module_183 */, require(109) /* module_109 */, require(1115) /* module_1115 */.setImmediate);
   }

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(53) /* module_53 */,
+    var o = require(53) /* module */,
       i = {
         "gravit-cloud": "gravit-icon-cloud",
         "modify.merge": "gravit-icon-merge-union",
@@ -33,5 +33,5 @@ function (exports, module, require) {
         "gravit-icon-send-to-front"),
       (i["arrange.order." + o.GEditor.ArrangeOrderType.SendToBack] =
         "gravit-icon-send-to-back"),
-      (e.exports = i);
+      (exports.exports = i);
   }

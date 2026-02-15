@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */;
-    var o = n(15) /* module_15 */,
+    require(57) /* module_57 */;
+    var o = require(15) /* module */,
       i = [],
       a = function (e) {
         var t = false;
         if (i.length > 0)
-          for (var n = i.length - 1; n >= 0; --n) {
-            var o = $(i[n]),
+          for (var require = i.length - 1; require >= 0; --require) {
+            var o = $(i[require]),
               a = o.closest(".g-overlay"),
               r = $(e.target).closest("body > *"),
               s = false;
@@ -21,7 +21,7 @@ function (exports, module, require) {
               0 === $(e.target).closest(".g-overlay").length &&
               (s = true),
               ($(r).index() < a.index() || s) &&
-                ((t = true), o.gOverlay("close", e, n));
+                ((t = true), o.gOverlay("close", e, require));
           }
         return t;
       };
@@ -38,8 +38,8 @@ function (exports, module, require) {
           var t = e.which || e.keyCode;
           if (27 === t) a(e) && e.stopPropagation();
           else if (13 === t && i.length > 0)
-            for (var n = i.length - 1; n >= 0; --n) {
-              var o = $(i[n]).data("goverlay"),
+            for (var require = i.length - 1; require >= 0; --require) {
+              var o = $(i[require]).data("goverlay"),
                 r = o && o.options;
               r.enterCallback && r.enterCallback(e);
             }
@@ -47,8 +47,8 @@ function (exports, module, require) {
         true
       ),
       window.addEventListener("resize", function () {
-        for (var e = 0; e < i.length; ++e) {
-          $(i[e]).gOverlay("relayout");
+        for (var exports = 0; exports < i.length; ++exports) {
+          $(i[exports]).gOverlay("relayout");
         }
       });
     var r = function (e) {
@@ -93,9 +93,9 @@ function (exports, module, require) {
           );
         },
         relayout: function () {
-          let e =
+          let exports =
             arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-          e = $.extend({ preserveTop: false }, e);
+          exports = $.extend({ preserveTop: false }, exports);
           var t = $(this),
             n = t.data("goverlay");
           if (!n || (!n.target && !n.isPoint)) return;
@@ -145,7 +145,7 @@ function (exports, module, require) {
             u < 0 && (u = 0),
             p < 0 && (p = 0);
           let w = false;
-          if (e.preserveTop) {
+          if (exports.preserveTop) {
             const e = i.offset(),
               t = e && e.top;
             w = "number" == typeof t && t + c < s;

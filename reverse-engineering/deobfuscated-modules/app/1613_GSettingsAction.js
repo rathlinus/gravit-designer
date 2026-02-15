@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(18) /* module_18 */,
-      a = n(31) /* GAction */,
-      r = n(1275) /* module_1275 */,
-      s = n(1277) /* Action_edit_settings */;
+    require(8) /* module_8 */, require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(18) /* module_18 */,
+      a = require(31) /* GAction */,
+      r = require(1275) /* module_1275 */,
+      s = require(1277) /* Action_edit_settings */;
     function l() {}
     o.GObject.inherit(l, a),
       (l.ID = s.ID),
@@ -37,5 +37,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GSettingsAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

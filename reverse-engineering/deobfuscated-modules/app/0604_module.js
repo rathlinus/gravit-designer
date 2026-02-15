@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */;
-    const i = n(1507) /* module_1507 */,
-      a = n(1508) /* module_1508 */,
-      r = n(1509) /* GChangePasswordPanel */,
-      s = (n(1158) /* Action_help_purchase */, n(805) /* module_805 */),
-      { gApi: l } = (n(177) /* module_177 */, n(10) /* module_10 */);
+    require(58) /* module_58 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    var o = require(1) /* module */;
+    const i = require(1507) /* module_1507 */,
+      a = require(1508) /* module_1508 */,
+      r = require(1509) /* GChangePasswordPanel */,
+      s = (require(1158) /* Action_help_purchase */, require(805) /* module_805 */),
+      { gApi: l } = (require(177) /* module_177 */, require(10) /* module_10 */);
     function c(e, t) {
-      let n =
+      let require =
         arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
-      (this._user = e), (this._options = n), this._init(t, n);
+      (this._user = e), (this._options = require), this._init(t, require);
     }
     o.GObject.inherit(c, o.GObject),
       (c.prototype._options = null),
@@ -27,9 +27,9 @@ function (exports, module, require) {
       }),
       (c.prototype._init = async function (e) {
         var t = this;
-        let n =
+        let require =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const { closeable: s = true, tabs: d } = n;
+        const { closeable: s = true, tabs: d } = require;
         gDesigner.getLicense();
         (this._dialog = $("<div></div>").gDialog({
           closeCallback: () => this._close(),
@@ -69,14 +69,14 @@ function (exports, module, require) {
           )
           .appendTo(p);
         (this._messageHandler = function (e) {
-          let n =
+          let require =
             arguments.length > 1 && undefined !== arguments[1]
               ? arguments[1]
               : "error";
           t._dialog.find(".message").remove(),
             e &&
               $("<div></div>")
-                .addClass("message " + n)
+                .addClass("message " + require)
                 .append($("<span></span>").html(e))
                 .on("click", (e) => $(e.target).closest(".message").remove())
                 .insertAfter(g);
@@ -126,7 +126,7 @@ function (exports, module, require) {
                 this._user,
                 this._messageHandler.bind(this),
                 this,
-                n
+                require
               ).getHTMLElement(),
               c.Tabs.Account
             ),
@@ -140,7 +140,7 @@ function (exports, module, require) {
                 this._user,
                 this._messageHandler.bind(this),
                 this,
-                n
+                require
               ).getHTMLElement(),
               c.Tabs.ChangePassword
             ),
@@ -155,7 +155,7 @@ function (exports, module, require) {
               new i(
                 this._user,
                 this._messageHandler.bind(this),
-                n
+                require
               ).getHTMLElement(),
               c.Tabs.Purchase
             );
@@ -168,16 +168,16 @@ function (exports, module, require) {
       }),
       (c.prototype._updateAvatar = function () {
         gDesigner.stats("profile-dialog_click_update-avatar");
-        let e = this._dialog.find(".avatar");
-        function t(t) {
-          e.removeClass("g-loading");
-          let n = o.GLocale.get(
+        let exports = this._dialog.find(".avatar");
+        function module(t) {
+          exports.removeClass("g-loading");
+          let require = o.GLocale.get(
             new o.GLocaleKey("GAccountPanel", "text.error")
           );
           t && t.message
-            ? (n = t.message)
-            : t && t.errors && (n = t.errors.map((e) => e[1]).join("<br>")),
-            this._messageHandler(n);
+            ? (require = t.message)
+            : t && t.errors && (require = t.errors.map((e) => e[1]).join("<br>")),
+            this._messageHandler(require);
         }
         gDesigner.getDefaultStorage().openPrompt(
           [
@@ -186,10 +186,10 @@ function (exports, module, require) {
             { ext: "jpeg", mime: "image/jpeg" },
           ],
           (n) => {
-            e.addClass("g-loading"),
+            exports.addClass("g-loading"),
               n.read((i) => {
                 if (i.byteLength > 102400)
-                  return void t.call(this, {
+                  return void module.call(this, {
                     message: o.GLocale.get(
                       new o.GLocaleKey(
                         "GProfileDialog",
@@ -208,21 +208,21 @@ function (exports, module, require) {
                     .getCloudCommunicationManager()
                     .updateAvatar(r)
                     .then((t) => {
-                      e.removeClass("g-loading"),
-                        e
+                      exports.removeClass("g-loading"),
+                        exports
                           .find(".picture")
                           .css(
                             "background-image",
                             "url(".concat(t.avatar, ")")
                           ),
-                        e.find(".picture").removeClass("g-profile-top-avatar"),
-                        e
+                        exports.find(".picture").removeClass("g-profile-top-avatar"),
+                        exports
                           .find(".picture")
                           .css({ "background-color": "transparent" }),
-                        e.find(".picture").text(""),
+                        exports.find(".picture").text(""),
                         gDesigner.getUser();
                     })
-                    .catch(t);
+                    .catch(module);
               });
           },
           false
@@ -262,5 +262,5 @@ function (exports, module, require) {
           this
         );
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

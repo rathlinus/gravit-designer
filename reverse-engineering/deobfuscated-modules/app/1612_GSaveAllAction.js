@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(18) /* module_18 */,
-      a = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(18) /* module_18 */,
+      a = require(31) /* GAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "file.save-all"),
@@ -33,11 +33,11 @@ function (exports, module, require) {
         return false;
       }),
       (r.prototype.execute = function () {
-        for (var e = gDesigner.getDocuments(), t = 0; t < e.length; ++t)
-          e[t].isModified() && e[t].save();
+        for (var exports = gDesigner.getDocuments(), module = 0; module < exports.length; ++module)
+          exports[module].isModified() && exports[module].save();
       }),
       (r.prototype.toString = function () {
         return "[Object GSaveAllAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

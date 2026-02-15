@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(110) /* module_110 */,
-      i = n(120) /* module_120 */,
-      a = n(43) /* module_43 */,
-      r = n(49) /* module_49 */,
+    var o = require(110) /* module_110 */,
+      i = require(120) /* module_120 */,
+      a = require(43) /* module_43 */,
+      r = require(49) /* module_49 */,
       s = a("species");
-    e.exports = function (e) {
+    exports.exports = function (e) {
       var t = o(e);
       r &&
         t &&

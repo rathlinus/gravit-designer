@@ -8,23 +8,23 @@ function (exports, module, require) {
     var o,
       i,
       a,
-      r = n(425) /* module_425 */,
-      s = n(49) /* module_49 */,
-      l = n(23) /* module_23 */,
-      c = n(35) /* module_35 */,
-      d = n(46) /* module_46 */,
-      u = n(61) /* module_61 */,
-      p = n(131) /* module_131 */,
-      g = n(185) /* module_185 */,
-      h = n(100) /* module_100 */,
-      f = n(79) /* module_79 */,
-      m = n(120) /* module_120 */,
-      y = n(144) /* module_144 */,
-      v = n(208) /* module_208 */,
-      _ = n(175) /* module_175 */,
-      b = n(43) /* module_43 */,
-      w = n(258) /* module_258 */,
-      C = n(80) /* module_80 */,
+      r = require(425) /* module_425 */,
+      s = require(49) /* module_49 */,
+      l = require(23) /* module_23 */,
+      c = require(35) /* module_35 */,
+      d = require(46) /* module_46 */,
+      u = require(61) /* module_61 */,
+      p = require(131) /* module_131 */,
+      g = require(185) /* module_185 */,
+      h = require(100) /* module_100 */,
+      f = require(79) /* module_79 */,
+      m = require(120) /* module_120 */,
+      y = require(144) /* module_144 */,
+      v = require(208) /* module_208 */,
+      _ = require(175) /* module_175 */,
+      b = require(43) /* module_43 */,
+      w = require(258) /* module_258 */,
+      C = require(80) /* module_80 */,
       x = C.enforce,
       S = C.get,
       E = l.Int8Array,
@@ -54,9 +54,9 @@ function (exports, module, require) {
       B = function (e) {
         var t = v(e);
         if (d(t)) {
-          var n = S(t);
-          return n && u(n, "TypedArrayConstructor")
-            ? n.TypedArrayConstructor
+          var require = S(t);
+          return require && u(require, "TypedArrayConstructor")
+            ? require.TypedArrayConstructor
             : B(t);
         }
       },
@@ -91,7 +91,7 @@ function (exports, module, require) {
       }),
       M))
         l[o] && h(l[o], O, o);
-    e.exports = {
+    exports.exports = {
       NATIVE_ARRAY_BUFFER_VIEWS: F,
       TYPED_ARRAY_TAG: R && O,
       aTypedArray: function (e) {

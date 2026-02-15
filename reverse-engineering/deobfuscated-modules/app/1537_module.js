@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = o(n(1155) /* module_1155 */);
-    const { GLocale: a, GLocaleKey: r, GObject: s } = n(1) /* module_1 */,
-      l = n(392) /* module_392 */,
-      c = n(1165) /* module_1165 */,
-      d = n(123) /* GProperties */,
-      u = n(78) /* GDocumentEvent */,
-      p = n(447) /* GSaveAction */,
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = o(require(1155) /* module_1155 */);
+    const { GLocale: a, GLocaleKey: r, GObject: s } = require(1) /* module */,
+      l = require(392) /* module_392 */,
+      c = require(1165) /* module_1165 */,
+      d = require(123) /* GProperties */,
+      u = require(78) /* GDocumentEvent */,
+      p = require(447) /* GSaveAction */,
       {
         FileStatus: {
           IN_REVIEW: g,
@@ -30,8 +30,8 @@ function (exports, module, require) {
         FileReviewStatusAvailable: w,
         ShareRoles: C,
         FILE_REVIEW_ENABLED: x,
-      } = n(10) /* module_10 */,
-      S = n(1538) /* module_1538 */;
+      } = require(10) /* module_10 */,
+      S = require(1538) /* module_1538 */;
     function E() {}
     s.inherit(E, d),
       (E.prototype.init = function (e, t) {
@@ -83,12 +83,12 @@ function (exports, module, require) {
           this._document && this._requestUIUpdate());
       }),
       (E.prototype._getDAOStatus = async function (e) {
-        const t = this._getAppManager();
+        const module = this._getAppManager();
         var n;
         switch (e) {
           case g:
             return (
-              (n = await t.hasAccess(y, true)),
+              (n = await module.hasAccess(y, true)),
               {
                 status: e,
                 getLabel: () =>
@@ -107,7 +107,7 @@ function (exports, module, require) {
             );
           case m:
             return (
-              (n = await t.hasAccess(_, true)),
+              (n = await module.hasAccess(_, true)),
               {
                 status: e,
                 getLabel: () =>
@@ -130,10 +130,10 @@ function (exports, module, require) {
               }
             );
           case h:
-            const i = t.hasRole(C.Owner),
+            const i = module.hasRole(C.Owner),
               s = await this._reviewManager.hasApprovers();
             return (
-              (n = await t.hasAccess(v, true)),
+              (n = await module.hasAccess(v, true)),
               {
                 status: e,
                 getLabel: () =>
@@ -171,7 +171,7 @@ function (exports, module, require) {
               }
             );
           case f:
-            n = await t.hasAccess(b, true);
+            n = await module.hasAccess(b, true);
             var o = this._getStatus();
             return {
               status: e,
@@ -203,7 +203,7 @@ function (exports, module, require) {
       }),
       (E.prototype._buildMainPanel = function (e) {
         this._mainPanel = e;
-        let t = $("<div/>")
+        let module = $("<div/>")
           .addClass("row")
           .addClass("header")
           .appendTo(this._mainPanel);
@@ -213,7 +213,7 @@ function (exports, module, require) {
           .click(() => {
             (this._opened = false), this._container.gDialog("close");
           })
-          .appendTo(t),
+          .appendTo(module),
           $("<div/>")
             .text(
               a.get(new r("GReviewDockerProperties", "text.status-history"))
@@ -224,12 +224,12 @@ function (exports, module, require) {
               gDesigner.stats("reviewdocker_open_status-history"),
                 this._fileStatusHistoryDialog.open();
             })
-            .appendTo(t),
+            .appendTo(module),
           (this._statusSelectorContainer = $("<div/>")
             .addClass("row")
             .addClass("status-selector")
             .appendTo(this._mainPanel));
-        let n = $("<div/>")
+        let require = $("<div/>")
           .addClass("row")
           .addClass("footer")
           .hide()
@@ -241,7 +241,7 @@ function (exports, module, require) {
               new r("GReviewDockerProperties", "text.please-share-to-start")
             )
           )
-          .appendTo(n),
+          .appendTo(require),
           $("<div/>")
             .addClass("footer-action")
             .text(
@@ -249,16 +249,16 @@ function (exports, module, require) {
             )
             .addClass("footer-action")
             .click(() => this._requestShare())
-            .appendTo(n),
+            .appendTo(require),
           this._mainPanel.appendTo(this._container);
       }),
       (E.prototype._requestShare = function () {
-        const e = gDesigner.getShareManager();
-        e.isShareProRestricted()
+        const exports = gDesigner.getShareManager();
+        exports.isShareProRestricted()
           ? gDesigner.stats("reviewdocker_nonprotriespro_share")
           : gDesigner.stats("reviewdocker_share"),
           this._document.getStorageItem()
-            ? e.share()
+            ? exports.share()
             : (new i.default()
                 .listen(u)
                 .when(
@@ -275,7 +275,7 @@ function (exports, module, require) {
                       (this._document.getStorageItem() &&
                         this._document.getId() === e.document.getId()))
                 )
-                .do(() => e.share()),
+                .do(() => exports.share()),
               gDesigner.executeAction(p.ID));
       }),
       (E.prototype._requestUIUpdate = async function () {
@@ -299,14 +299,14 @@ function (exports, module, require) {
       (E.prototype._updateFooter = function () {
         var e = this._mainPanel.find(".footer"),
           t = this._mainPanel.find(".history-actions");
-        const n = !(!this._document || !this._document.getStorageItem());
+        const require = !(!this._document || !this._document.getStorageItem());
         e
           .find(".footer-title")
           .text(
             a.get(
               new r(
                 "GReviewDockerProperties",
-                n
+                require
                   ? "text.please-share-to-start"
                   : "text-please-save-share-to-start"
               )
@@ -318,7 +318,7 @@ function (exports, module, require) {
               a.get(
                 new r(
                   "GReviewDockerProperties",
-                  n ? "text.share-design-now" : "text.save-share-design-now"
+                  require ? "text.share-design-now" : "text.save-share-design-now"
                 )
               )
             ),
@@ -429,7 +429,7 @@ function (exports, module, require) {
       }),
       (E.prototype._makeItemForDAO = async function (e, t) {
         let {
-          selected: n = false,
+          selected: require = false,
           canHover: o = true,
           loading: i = false,
           disabled: a = false,
@@ -438,7 +438,7 @@ function (exports, module, require) {
             .addClass("g-annotation-review-docker-status-item")
             .data("status", e)
             .attr("status-id", e.status)
-            .toggleClass("disabled", a || (!n && !(await e.isAvailable())))
+            .toggleClass("disabled", a || (!require && !(await e.isAvailable())))
             .toggleClass("can-hover", o)
             .toggleClass("loading", i),
           s = $("<div/>")
@@ -451,7 +451,7 @@ function (exports, module, require) {
           l
             ? (s.addClass(l),
               e.getIconLabel() && s.attr("data-title", e.getIconLabel()))
-            : s.toggleClass("selected", n);
+            : s.toggleClass("selected", require);
         }
         var c = $("<div/>").addClass("details-container").appendTo(r);
         return (
@@ -466,5 +466,5 @@ function (exports, module, require) {
       (E.prototype._isStatusChangeAllowed = function () {
         return true;
       }),
-      (e.exports = E);
+      (exports.exports = E);
   }

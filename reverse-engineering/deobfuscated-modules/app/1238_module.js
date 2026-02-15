@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(38) /* module_38 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */;
-    n(1150) /* module_1150 */;
+    require(19) /* module_19 */, require(38) /* module_38 */, require(26) /* module_26 */;
+    var o = require(1) /* module */;
+    require(1150) /* module_1150 */;
     function i(e) {
-      let t = [
+      let module = [
         ...new Set(
           e.map((e) =>
             e.features
@@ -78,7 +78,7 @@ function (exports, module, require) {
                 )
               ) +
                 "<br>" +
-                t
+                module
             )
           )
           .appendTo(this._dialog),
@@ -91,10 +91,10 @@ function (exports, module, require) {
                   .attr("type", "checkbox")
                   .css("margin-right", "5px")
                   .on("change", (e) => {
-                    let t = $(e.target).is(":checked");
+                    let module = $(e.target).is(":checked");
                     gDesigner.setSetting(
                       "disable_warning_unsupported_features",
-                      t
+                      module
                     );
                   })
               )
@@ -118,5 +118,5 @@ function (exports, module, require) {
       (i.prototype.close = function () {
         this._dialog.gDialog("close");
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

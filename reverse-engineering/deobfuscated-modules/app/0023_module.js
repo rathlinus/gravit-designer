@@ -9,7 +9,7 @@ function (exports, module, require) {
       var n = function (e) {
         return e && e.Math === Math && e;
       };
-      e.exports =
+      exports.exports =
         n("object" == typeof globalThis && globalThis) ||
         n("object" == typeof window && window) ||
         n("object" == typeof self && self) ||
@@ -19,5 +19,5 @@ function (exports, module, require) {
           return this;
         })() ||
         Function("return this")();
-    }).call(this, n(109) /* module_109 */);
+    }).call(this, require(109) /* module_109 */);
   }

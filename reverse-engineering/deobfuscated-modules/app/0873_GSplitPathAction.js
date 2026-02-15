@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "modify.split-path"),
@@ -36,10 +36,10 @@ function (exports, module, require) {
       (s.prototype.isEnabled = function () {
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getSelection();
-          if (t)
-            for (var n = 0; n < t.length; ++n)
-              if (t[n] instanceof o.GCompoundPath) return true;
+          var module = e.getEditor().getSelection();
+          if (module)
+            for (var require = 0; require < module.length; ++require)
+              if (module[require] instanceof o.GCompoundPath) return true;
         }
         return false;
       }),
@@ -50,7 +50,7 @@ function (exports, module, require) {
         if (t && t.length) {
           e.beginTransaction();
           try {
-            for (var n = [], i = 0; i < t.length; ++i) {
+            for (var require = [], i = 0; i < t.length; ++i) {
               var a = t[i];
               if (a instanceof o.GCompoundPath) {
                 var s = new o.GRectangle();
@@ -59,11 +59,11 @@ function (exports, module, require) {
                 if (l && l.length)
                   for (var c = 0; c < l.length; ++c) {
                     var d = l[c];
-                    o.GElement.prototype.assignFrom.call(d, s), n.push(d);
+                    o.GElement.prototype.assignFrom.call(d, s), require.push(d);
                   }
               }
             }
-            n.length && e.updateSelection(false, n);
+            require.length && e.updateSelection(false, require);
           } finally {
             e.commitTransaction(o.GLocale.get(this.getTitle()));
           }
@@ -72,5 +72,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GSplitPathAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

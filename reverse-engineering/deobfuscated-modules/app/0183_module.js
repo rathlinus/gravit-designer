@@ -3,10 +3,10 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     var n,
       o,
-      i = (e.exports = {});
+      i = (exports.exports = {});
     function a() {
       throw new Error("setTimeout has not been defined");
     }
@@ -50,11 +50,11 @@ function (e, t) {
     }
     function g() {
       if (!d) {
-        var e = s(p);
+        var exports = s(p);
         d = true;
-        for (var t = c.length; t; ) {
-          for (l = c, c = []; ++u < t; ) l && l[u].run();
-          (u = -1), (t = c.length);
+        for (var module = c.length; module; ) {
+          for (l = c, c = []; ++u < module; ) l && l[u].run();
+          (u = -1), (module = c.length);
         }
         (l = null),
           (d = false),
@@ -71,7 +71,7 @@ function (e, t) {
                 return o.call(this, e);
               }
             }
-          })(e);
+          })(exports);
       }
     }
     function h(e, t) {

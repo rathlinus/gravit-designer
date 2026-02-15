@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = class {
+    exports.exports = class {
       setId(e) {
         return this;
       }

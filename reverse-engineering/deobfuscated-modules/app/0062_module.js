@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(131) /* module_131 */,
+    var o = require(131) /* module_131 */,
       i = String;
-    e.exports = function (e) {
+    exports.exports = function (e) {
       if ("Symbol" === o(e))
         throw new TypeError("Cannot convert a Symbol value to a string");
       return i(e);

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(144) /* module_144 */,
+    var o = require(144) /* module_144 */,
       i = TypeError;
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       if (o(t, e)) return e;
       throw new i("Incorrect invocation");
     };

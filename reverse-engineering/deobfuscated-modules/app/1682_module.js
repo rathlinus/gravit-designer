@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    const o = n(1190) /* module_1190 */,
-      i = n(292) /* module_292 */,
-      a = n(291) /* GNetworkAvailabilityChangedEvent */,
+    require(8) /* module_8 */, require(196) /* module_196 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    const o = require(1190) /* module_1190 */,
+      i = require(292) /* module_292 */,
+      a = require(291) /* GNetworkAvailabilityChangedEvent */,
       {
         gApi: r,
         MicrosoftB2BKeyType: s,
@@ -17,18 +17,18 @@ function (exports, module, require) {
         IN_APP_PURCHASE: {
           WINDOWS: { production: d, trunk: u, rc: p, beta: g, lts: h } = {},
         } = {},
-      } = n(10) /* module_10 */,
-      { IS_PRODUCTION: f, IS_LTS: m, IS_RC: y, IS_BETA: v } = n(231) /* module_231 */,
+      } = require(10) /* module_10 */,
+      { IS_PRODUCTION: f, IS_LTS: m, IS_RC: y, IS_BETA: v } = require(231) /* module_231 */,
       {
         ERROR_CODES: { ERR_MICROSOFT_STORE_SERVICES_B2B_KEY_NOT_FOUND: _ },
       } = r;
-    e.exports = class extends o {
-      constructor() {
+    exports.exports = class extends o {
+      function Object() { [native code] }() {
         if ((super(), !window.napi)) return;
-        const { remote: e } = n(881) /* module_881 */,
-          t = e.getCurrentWindow().getNativeWindowHandle();
+        const { remote: exports } = require(881) /* module_881 */,
+          module = exports.getCurrentWindow().getNativeWindowHandle();
         (this._store = new window.napi.windowsStore.StoreContext()),
-          this._store.initialize(t),
+          this._store.initialize(module),
           gDesigner.addEventListener(i, this._userLoggedEvent, this),
           gDesigner.addEventListener(
             a,
@@ -88,16 +88,16 @@ function (exports, module, require) {
         });
       }
       async syncLicense() {
-        const e = await gDesigner.getUser();
-        if (e)
+        const exports = await gDesigner.getUser();
+        if (exports)
           return r.microsoftStoreServices
             .syncLicense()
             .then(() => gDesigner.requestLicenseUpdate())
             .catch(async (t) => {
               if (t.cloud && t.code === _) {
                 const t = await r.microsoftStoreServices.getAccessToken(),
-                  n = await this._createB2BKeyForPurchaseAPI(e, t),
-                  o = await this._createB2BKeyForCollectionsAPI(e, t);
+                  n = await this._createB2BKeyForPurchaseAPI(exports, t),
+                  o = await this._createB2BKeyForCollectionsAPI(exports, t);
                 return (
                   await r.microsoftStoreServices.updateB2BKeys({
                     accessToken: t,

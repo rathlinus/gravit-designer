@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var i = n(1) /* module */,
+      a = n(15) /* module */,
       r = o(n(1172) /* GInstallToDesktopAction */),
       s = o(n(1173) /* module_1173 */);
     function l(e) {

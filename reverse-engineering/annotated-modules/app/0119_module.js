@@ -27,8 +27,8 @@ function (e, t, n) {
       n(126) /* module_126 */,
       n(114) /* module_114 */;
     var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+      i = n(1) /* module */,
+      a = n(15) /* module */,
       r = n(40) /* module_40 */,
       s = n(845) /* module_845 */;
     const l = n(1092) /* module_1092 */;

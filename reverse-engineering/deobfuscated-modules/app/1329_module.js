@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = o(n(880) /* module_880 */),
-      a = o(n(1189) /* module_1189 */);
+    var o = require(16) /* module_16 */,
+      i = o(require(880) /* module_880 */),
+      a = o(require(1189) /* module_1189 */);
     class r extends i.default {
       canActivate() {
         return true;
@@ -36,5 +36,5 @@ function (exports, module, require) {
         super.cancel(e, t), (this._panState = null);
       }
     }
-    e.exports = r;
+    exports.exports = r;
   }

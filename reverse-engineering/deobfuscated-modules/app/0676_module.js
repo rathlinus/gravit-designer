@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
+    var o = require(27) /* module_27 */,
       i = /[^\0-\u007E]/,
       a = /[.\u3002\uFF0E\uFF61]/g,
       r = "Overflow: input needs wider integers to process",
@@ -72,7 +72,7 @@ function (exports, module, require) {
         }
         return p(o, "");
       };
-    e.exports = function (e) {
+    exports.exports = function (e) {
       var t,
         n,
         o = [],

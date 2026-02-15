@@ -5,31 +5,31 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(596) /* module_596 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(797) /* module_797 */,
-      a = n(15) /* module_15 */,
-      r = n(40) /* module_40 */,
-      s = n(10) /* module_10 */,
-      l = n(238) /* GMenu */,
-      c = n(444) /* module_444 */,
-      d = n(257) /* module_257 */,
-      u = n(1253) /* module_1253 */;
-    const p = n(1238) /* module_1238 */;
-    var g = n(44) /* GSystemDialog */;
-    const h = n(389) /* module_389 */;
+    require(19) /* module_19 */,
+      require(596) /* module_596 */,
+      require(30) /* module_30 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(797) /* module */,
+      a = require(15) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(10) /* module_10 */,
+      l = require(238) /* GMenu */,
+      c = require(444) /* module_444 */,
+      d = require(257) /* module_257 */,
+      u = require(1253) /* module_1253 */;
+    const p = require(1238) /* module_1238 */;
+    var g = require(44) /* GSystemDialog */;
+    const h = require(389) /* module_389 */;
     var f = {};
     function m(e, t, n) {
       (this._document = e),
@@ -771,13 +771,13 @@ function (exports, module, require) {
         if (!this._hasFormat()) return false;
         if (!(this._settings.format === h.PDF.ext)) return false;
         if (!e || !e.length) return false;
-        const t = new o.GLength(200, o.GLength.Unit.IN).toUnit(
+        const module = new o.GLength(200, o.GLength.Unit.IN).toUnit(
             o.GLength.Unit.PX
           ),
-          n = o.GLength.DPI;
+          require = o.GLength.DPI;
         return e.some((e) => {
-          const o = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, n);
-          if (o.getWidth() > t || o.getHeight() > t) return true;
+          const o = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, require);
+          if (o.getWidth() > module || o.getHeight() > module) return true;
         });
       }),
       (m.prototype._updateWarningSection = function (e) {
@@ -828,34 +828,34 @@ function (exports, module, require) {
           );
       }),
       (m.prototype._getStorageDestinations = function () {
-        const e = this._getFormat();
-        if (e) {
+        const exports = this._getFormat();
+        if (exports) {
           const t = gContainer.getStorageDestinations();
-          if (t) return t.filter((t) => t.isSupported(e));
+          if (t) return t.filter((t) => t.isSupported(exports));
         }
         return [];
       }),
       (m.prototype._getSelectedStorageDestination = function () {
-        const e = parseInt(
+        const exports = parseInt(
           this._settingsContainer
             .find("[data-setting=storage-destination] > .control > select")
             .val()
         );
-        return this._getStorageDestinations().find((t) => t.id === e);
+        return this._getStorageDestinations().find((t) => t.id === exports);
       }),
       (m.prototype._isStorageDestinationSettingAvailable = function () {
         return !(this._getStorageDestinations().length < 2);
       }),
       (m.prototype._updateStorageDestinationSetting = function () {
-        const e = this._isStorageDestinationSettingAvailable(),
-          t = e ? this._getStorageDestinations() : [];
+        const exports = this._isStorageDestinationSettingAvailable(),
+          module = exports ? this._getStorageDestinations() : [];
         this._settingsContainer
           .find("[data-setting=storage-destination]")
-          .css("display", e ? "" : "none")
+          .css("display", exports ? "" : "none")
           .find("select")
           .empty()
           .append(
-            t.map((e) => $("<option/>").attr("value", e.id).text(e.label))
+            module.map((e) => $("<option/>").attr("value", e.id).text(e.label))
           );
       }),
       (m.prototype._getFormat = function () {
@@ -923,19 +923,19 @@ function (exports, module, require) {
             (this._settings.backgroundOpacity = 1);
         else {
           this._settings.configuration.sceneBackground = false;
-          var e = this._settingsContainer
+          var exports = this._settingsContainer
             .find("[data-setting=background-color]")
             .find(".export-background-pattern-chooser");
           if (
-            (e.gPatternChooser("value")
-              ? ((this._settings.backgroundColor = e.gPatternChooser("value")),
+            (exports.gPatternChooser("value")
+              ? ((this._settings.backgroundColor = exports.gPatternChooser("value")),
                 (this._settings.backgroundOpacity =
-                  e.gPatternChooser("opacity")),
+                  exports.gPatternChooser("opacity")),
                 this._settings.backgroundColor instanceof o.GColor ||
                   ((this._settings.backgroundColor = o.GRGBColor.WHITE),
                   (this._settings.backgroundOpacity = 1),
-                  e.gPatternChooser("value", this._settings.backgroundColor),
-                  e.gPatternChooser(
+                  exports.gPatternChooser("value", this._settings.backgroundColor),
+                  exports.gPatternChooser(
                     "opacity",
                     this._settings.backgroundOpacity
                   )))
@@ -951,14 +951,14 @@ function (exports, module, require) {
                     (this._settings.backgroundOpacity = 1)
                   : ((this._settings.backgroundOpacity = 1),
                     (this._settings.backgroundColor = o.GRGBColor.WHITE)),
-                e.gPatternChooser("value", this._settings.backgroundColor),
-                e.gPatternChooser("opacity", this._settings.backgroundOpacity)),
+                exports.gPatternChooser("value", this._settings.backgroundColor),
+                exports.gPatternChooser("opacity", this._settings.backgroundOpacity)),
             "jpg" === this._settings.format)
           ) {
-            var t = o.GRGBColor.WHITE.getValue().slice(),
-              n = this._settings.backgroundColor.getValue().slice();
-            (t[3] = 1), (n[3] = this._settings.backgroundOpacity);
-            var i = o.GRGBColor.mix(t, n);
+            var module = o.GRGBColor.WHITE.getValue().slice(),
+              require = this._settings.backgroundColor.getValue().slice();
+            (module[3] = 1), (require[3] = this._settings.backgroundOpacity);
+            var i = o.GRGBColor.mix(module, require);
             (this._settings.backgroundColor = new o.GRGBColor(i)),
               (this._settings.backgroundOpacity = 1);
           }
@@ -1084,7 +1084,7 @@ function (exports, module, require) {
       }),
       (m.prototype._generateExportables = function () {
         if ("canvas" === this._activeMode || "selection" === this._activeMode) {
-          var e = {
+          var exports = {
             size: this._settings.size,
             suffix: "",
             format: this._settings.format,
@@ -1104,11 +1104,11 @@ function (exports, module, require) {
           if ("canvas" === this._activeMode)
             return u.generateExportables(
               this._document.getScene(),
-              $.extend({ name: this._document.getTitle() }, e),
+              $.extend({ name: this._document.getTitle() }, exports),
               false
             );
-          var t = this._document.getEditor().getSelection();
-          return t && t.length ? u.generateExportables(t, e, false) : [];
+          var module = this._document.getEditor().getSelection();
+          return module && module.length ? u.generateExportables(module, exports, false) : [];
         }
         if ("assets" === this._activeMode)
           return u.generateExportables(this._document.getScene(), null, true);
@@ -1116,7 +1116,7 @@ function (exports, module, require) {
       (m.prototype._export = async function (e) {
         this._options || (f = this._settings);
         var t = this._generateExportables();
-        let n = [];
+        let require = [];
         try {
           var r = this._previewContainer.find(".item .preview-check input");
           if (r.length) {
@@ -1144,11 +1144,11 @@ function (exports, module, require) {
             t.some((e) => {
               if ("jpg" === e.format || "png" === e.format) {
                 var t = o.GLength.DPI,
-                  n = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, t);
+                  require = i.GBitmapExport.getBitmapPaintArea(e.element, e.size, t);
                 if (
-                  n.getWidth() > h.width ||
-                  n.getHeight() > h.height ||
-                  n.getWidth() * n.getHeight() > h.area
+                  require.getWidth() > h.width ||
+                  require.getHeight() > h.height ||
+                  require.getWidth() * require.getHeight() > h.area
                 )
                   return true;
               }
@@ -1186,7 +1186,7 @@ function (exports, module, require) {
                 )
               )
               .css({ width: "500px" });
-          if (((n = this._persistOpacities(t)), t.length)) {
+          if (((require = this._persistOpacities(t)), t.length)) {
             const e = this._getSelectedStorageDestination();
             if (e && !(await this._checkWriteAccess(e))) return;
             var m = $("<div></div>")
@@ -1272,17 +1272,17 @@ function (exports, module, require) {
               );
           }
         } finally {
-          this._restoreOpacities(t, n);
+          this._restoreOpacities(t, require);
         }
       }),
       (m.prototype._checkWriteAccess = async function (e) {
-        const t = this._document.getStorage() || gDesigner.getDefaultStorage(),
-          n = await t.getWritePermission(e),
-          o = n.isAuthorized();
+        const module = this._document.getStorage() || gDesigner.getDefaultStorage(),
+          require = await module.getWritePermission(e),
+          o = require.isAuthorized();
         return (
           !o &&
-            n.hasStatusText() &&
-            g.error(n.getStatusText(), { showTitle: false }),
+            require.hasStatusText() &&
+            g.error(require.getStatusText(), { showTitle: false }),
           o
         );
       }),
@@ -1293,13 +1293,13 @@ function (exports, module, require) {
       }),
       (m.prototype._updateSizeMenu = function () {
         this._sizeMenu.clearItems();
-        let e = "1x";
+        let exports = "1x";
         if ("pdf" === this._settings.format) {
           const t =
             this._document &&
             this._document.getScene() &&
             this._document.getScene().getProperty("dpi");
-          (e = isNaN(t) ? "72dpi" : t + "dpi"),
+          (exports = isNaN(t) ? "72dpi" : t + "dpi"),
             this._sizeMenu.createAddItem(
               o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.default")) +
                 " (72dpi)"
@@ -1327,13 +1327,13 @@ function (exports, module, require) {
             this._sizeMenu.createAddItem("512h"),
             this._sizeMenu.createAddItem("128x128"),
             this._sizeMenu.createAddItem("300dpi");
-        for (var t = 0; t < this._sizeMenu.getItemCount(); t++)
+        for (var module = 0; module < this._sizeMenu.getItemCount(); module++)
           if (
             -1 !==
-            this._sizeMenu.getItem(t).getCaption().indexOf(this._settings.size)
+            this._sizeMenu.getItem(module).getCaption().indexOf(this._settings.size)
           )
             return;
-        (this._settings.size = e),
+        (this._settings.size = exports),
           this._settingsContainer
             .find(".g-input-select > input")
             .val(this._settings.size);
@@ -1341,10 +1341,10 @@ function (exports, module, require) {
       (m.prototype._updatePreview = function () {
         this._previewContainer.empty();
         var e = this._generateExportables();
-        let t = [];
+        let module = [];
         try {
           if (
-            ((t = this._persistOpacities(e)),
+            ((module = this._persistOpacities(e)),
             this._settingsContainer
               .find("[data-setting=export-all]")
               .css(
@@ -1354,7 +1354,7 @@ function (exports, module, require) {
             e.length)
           ) {
             for (
-              var n = $("<div></div>")
+              var require = $("<div></div>")
                   .addClass("loader")
                   .append(
                     $("<span></span>")
@@ -1492,7 +1492,7 @@ function (exports, module, require) {
                     .appendTo(d);
               } else G.addClass("content").appendTo(this._previewContainer);
             }
-            n.remove();
+            require.remove();
           } else
             switch (this._activeMode) {
               case "selection":
@@ -1519,34 +1519,34 @@ function (exports, module, require) {
                   .appendTo(this._previewContainer);
             }
         } finally {
-          this._restoreOpacities(e, t);
+          this._restoreOpacities(e, module);
         }
         this._updateStorageDestinationSetting(), this._updateWarningSection(e);
       }),
       (m.prototype._persistOpacities = function (e) {
-        let t = [];
+        let module = [];
         if (
           "canvas" === this._activeMode &&
           "svg" !== this._settings.format &&
           "pdf" !== this._settings.format
         )
-          for (var n = 0; n < e.length; ++n) {
-            var o = e[n];
+          for (var require = 0; require < e.length; ++require) {
+            var o = e[require];
             if (o.overrideBackground) {
               var i = o.element.getProperty("bop");
-              t.push({ index: n, opacity: i }), o.element.setProperty("bop", 0);
+              module.push({ index: require, opacity: i }), o.element.setProperty("bop", 0);
             }
           }
-        return t;
+        return module;
       }),
       (m.prototype._restoreOpacities = function (e, t) {
         if (t.length > 0)
-          for (var n = 0; n < e.length; ++n)
-            for (var o = e[n], i = 0; i < t.length; ++i)
-              if (n === t[i].index) {
+          for (var require = 0; require < e.length; ++require)
+            for (var o = e[require], i = 0; i < t.length; ++i)
+              if (require === t[i].index) {
                 o.element.setProperty("bop", t[i].opacity);
                 break;
               }
       }),
-      (e.exports = m);
+      (exports.exports = m);
   }

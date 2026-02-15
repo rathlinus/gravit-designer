@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(18) /* module_18 */),
-      s = o(n(1281) /* GMainAction */),
-      l = n(198) /* Exports_GOutlineSidebar */;
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = o(require(1281) /* GMainAction */),
+      l = require(198) /* Exports_GOutlineSidebar */;
     class c extends s.default {
       getId() {
         return c.ID;
@@ -38,7 +38,7 @@ function (exports, module, require) {
           l.SidebarsIds.GInspectorSidebar
         );
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GChangeAnchorPointsJointTypeMainAction]";
       }
     }
@@ -47,5 +47,5 @@ function (exports, module, require) {
         "GChangeAnchorPointsJointTypeMainAction",
         "title"
       )),
-      (e.exports = c);
+      (exports.exports = c);
   }

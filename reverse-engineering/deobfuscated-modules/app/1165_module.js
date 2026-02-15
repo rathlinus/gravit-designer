@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */, n(97) /* module_97 */;
-    var o = n(1) /* module_1 */;
-    const i = n(78) /* GDocumentEvent */,
-      a = n(393) /* GCollaborationEvent */,
-      r = n(433) /* module_433 */,
-      s = n(336) /* module_336 */,
-      l = n(868) /* module_868 */,
+    require(58) /* module_58 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */, require(97) /* module_97 */;
+    var o = require(1) /* module */;
+    const i = require(78) /* GDocumentEvent */,
+      a = require(393) /* GCollaborationEvent */,
+      r = require(433) /* module_433 */,
+      s = require(336) /* module_336 */,
+      l = require(868) /* module_868 */,
       {
         GFileReviewFlow: c,
         gApi: d,
@@ -19,7 +19,7 @@ function (exports, module, require) {
         FILE_REVIEW_ENABLED: p,
         Notification: g,
         NotificationConstants: { FILE_REVIEW_FLOW: h = [] },
-      } = n(10) /* module_10 */;
+      } = require(10) /* module_10 */;
     function f() {
       if (!p) return this;
       gDesigner.addEventListener(i, this._documentEvent, this),
@@ -43,10 +43,10 @@ function (exports, module, require) {
         e.removeEventListener(a, this._collaborationEvent, this);
       }),
       (f.prototype._storageItemFileStatusEvent = async function (e) {
-        let { storageItem: t, newStatus: n } = e;
-        this._fileId === t.getId() &&
+        let { storageItem: module, newStatus: require } = e;
+        this._fileId === module.getId() &&
           this._doc.isCollaborative() &&
-          this._setStatus(n) &&
+          this._setStatus(require) &&
           this.trigger(new f.UpdateEvent());
       }),
       (f.prototype._handleShareEvent = async function (e) {
@@ -58,24 +58,24 @@ function (exports, module, require) {
         }
       }),
       (f.prototype._documentEvent = async function (e) {
-        const t = e.document;
+        const module = e.document;
         switch (e.type) {
           case i.Type.Activated:
-            this._addDocumentEvents(t), this._updateFromDocument(t);
+            this._addDocumentEvents(module), this._updateFromDocument(module);
             break;
           case i.Type.Deactivated:
-            this._removeDocumentEvents(t),
-              this._updateFromDocument(t),
+            this._removeDocumentEvents(module),
+              this._updateFromDocument(module),
               (this._doc = null);
             break;
           case i.Type.StorageItemUpdated:
-            this._updateFromDocument(t);
+            this._updateFromDocument(module);
         }
       }),
       (f.prototype._collaborationEvent = async function (e) {
-        const { type: t, sender: n } = e;
-        if (n === gDesigner.getActiveDocument())
-          switch (t) {
+        const { type: module, sender: require } = e;
+        if (require === gDesigner.getActiveDocument())
+          switch (module) {
             case a.Type.ShareUpdate:
             case a.Type.UserUpdate:
               await this._updateCollaboratorRoleListIfInitialized(),
@@ -115,11 +115,11 @@ function (exports, module, require) {
         );
       }),
       (f.prototype._isCurrentUserApprover = function () {
-        const e = gDesigner.getSyncUser();
-        if (!e) return false;
+        const exports = gDesigner.getSyncUser();
+        if (!exports) return false;
         if (!this._collaboratorList) return false;
-        const t = this._collaboratorList.find((t) => t.getUID() === e.getUID());
-        return t && t.getRole().is(r.ROLES.APPROVER_ROLE);
+        const module = this._collaboratorList.find((t) => t.getUID() === exports.getUID());
+        return module && module.getRole().is(r.ROLES.APPROVER_ROLE);
       }),
       (f.prototype._shouldStatusDisabledForApproverWithCurrentStatus =
         function (e) {
@@ -169,12 +169,12 @@ function (exports, module, require) {
       }),
       (f.prototype._updateCollaboratorRoleList = async function () {
         if (!this._canUpdateCollaboratorList()) return;
-        const e = await gDesigner
+        const exports = await gDesigner
           .getShareManager()
           .getCollaboratorsCached(this._doc);
-        e &&
-          ((this._collaboratorList = e),
-          (this._collaboratorRoleList = e.map((e) => e.getRole())));
+        exports &&
+          ((this._collaboratorList = exports),
+          (this._collaboratorRoleList = exports.map((e) => e.getRole())));
       }),
       (f.prototype.hasApprovers = async function () {
         return (
@@ -185,14 +185,14 @@ function (exports, module, require) {
         );
       }),
       (f.prototype.getDocumentReviewHistory = async function (e) {
-        const t = await d.annotations.getDesignHistory(e).catch(() => []),
-          n = [];
-        for (let e = 0; e < t.length; e++) {
-          const o = t[e],
+        const module = await d.annotations.getDesignHistory(e).catch(() => []),
+          require = [];
+        for (let e = 0; e < module.length; e++) {
+          const o = module[e],
             i = g.from(o);
-          h.includes(i.getAction()) && n.push(i);
+          h.includes(i.getAction()) && require.push(i);
         }
-        return n;
+        return require;
       }),
-      (e.exports = f);
+      (exports.exports = f);
   }

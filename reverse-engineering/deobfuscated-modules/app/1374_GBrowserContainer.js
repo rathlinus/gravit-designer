@@ -6,40 +6,40 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var o = n(0) /* GObject */,
-      i = n(9) /* GLocale */,
-      a = n(47) /* GLocaleKey */,
-      r = n(85) /* GContainer */,
-      s = n(1195) /* module_1195 */;
-    const l = n(1378) /* GMarketingFileStorageItem */;
-    var c = n(255) /* module_255 */,
-      d = n(1379) /* module_1379 */,
-      u = n(1380) /* module_1380 */,
-      p = n(1118) /* module_1118 */,
-      g = n(1199) /* module_1199 */,
-      h = n(220) /* module_220 */,
-      f = n(1385) /* module_1385 */,
-      m = n(1386) /* module_1386 */,
-      y = n(119) /* module_119 */,
-      v = n(163) /* module_163 */,
-      _ = n(86) /* module_86 */,
-      b = n(1153) /* module_1153 */,
-      w = n(44) /* GSystemDialog */,
-      C = n(10) /* module_10 */.LOCAL_FONTS_API_ENABLED;
-    const x = n(1482) /* module_1482 */,
-      { base64StringToString: S } = n(40) /* module_40 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(96) /* module_96 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var o = require(0) /* GObject */,
+      i = require(9) /* GLocale */,
+      a = require(47) /* GLocaleKey */,
+      r = require(85) /* GContainer */,
+      s = require(1195) /* module_1195 */;
+    const l = require(1378) /* GMarketingFileStorageItem */;
+    var c = require(255) /* module_255 */,
+      d = require(1379) /* module_1379 */,
+      u = require(1380) /* module_1380 */,
+      p = require(1118) /* module_1118 */,
+      g = require(1199) /* module_1199 */,
+      h = require(220) /* module_220 */,
+      f = require(1385) /* module_1385 */,
+      m = require(1386) /* module_1386 */,
+      y = require(119) /* module_119 */,
+      v = require(163) /* module_163 */,
+      _ = require(86) /* module_86 */,
+      b = require(1153) /* module_1153 */,
+      w = require(44) /* GSystemDialog */,
+      C = require(10) /* module_10 */.LOCAL_FONTS_API_ENABLED;
+    const x = require(1482) /* module_1482 */,
+      { base64StringToString: S } = require(40) /* module_40 */;
     function E() {
       (this._storage = new s()),
         "serviceWorker" in navigator &&
@@ -185,27 +185,27 @@ function (exports, module, require) {
       (E.prototype.copyToClipboard = function (e) {
         if (navigator.clipboard) return navigator.clipboard.writeText(e);
         try {
-          var t = (function () {
+          var module = (function () {
               if (window.getSelection) {
                 var e = window.getSelection();
                 if (e.getRangeAt && e.rangeCount) return e.getRangeAt(0);
               } else if (document.selection && document.selection.createRange)
                 return document.selection.createRange();
             })(),
-            n = document.createElement("textArea");
+            require = document.createElement("textArea");
           return (
-            (n.value = e),
-            document.body.appendChild(n),
-            n.select(),
+            (require.value = e),
+            document.body.appendChild(require),
+            require.select(),
             document.execCommand("copy"),
-            document.body.removeChild(n),
+            document.body.removeChild(require),
             (function (e) {
               if (e)
                 if (window.getSelection) {
-                  var t = window.getSelection();
-                  t.removeAllRanges(), t.addRange(e);
+                  var module = window.getSelection();
+                  module.removeAllRanges(), module.addRange(e);
                 } else document.selection && e.select && e.select();
-            })(t),
+            })(module),
             Promise.resolve()
           );
         } catch (e) {
@@ -378,21 +378,21 @@ function (exports, module, require) {
           })();
       }),
       (E.prototype.handleDeepLinking = function (e) {
-        const t = r.prototype.handleDeepLinking.call(this, e),
-          n = [
+        const module = r.prototype.handleDeepLinking.call(this, e),
+          require = [
             r.DeepLinking.DirectLink,
             r.DeepLinking.FocusAnnot,
             r.DeepLinking.CreateShare,
           ];
         return (
-          t &&
-            !n.includes(t.link) &&
+          module &&
+            !require.includes(module.link) &&
             window.history.pushState(null, null, window.location.pathname),
-          t
+          module
         );
       }),
       (E.prototype.toString = function () {
         return "[Object GBrowserContainer]";
       }),
-      (e.exports = E);
+      (exports.exports = E);
   }

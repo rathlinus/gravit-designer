@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = n(18) /* module_18 */,
-      l = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = require(18) /* module_18 */,
+      l = require(106) /* GElementAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
@@ -55,10 +55,10 @@ function (exports, module, require) {
         if (!l.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getIndividualSelection();
-          if (t)
-            for (var n = 0; n < t.length; ++n) {
-              var i = t[n];
+          var module = e.getEditor().getIndividualSelection();
+          if (module)
+            for (var require = 0; require < module.length; ++require) {
+              var i = module[require];
               if (
                 i instanceof o.GGroup ||
                 i instanceof o.GCompoundShape ||
@@ -75,7 +75,7 @@ function (exports, module, require) {
           t = e.getIndividualSelection().slice();
         e.beginTransaction();
         try {
-          var n,
+          var require,
             i,
             r = [],
             s = gDesigner.getActiveDocument().getScene();
@@ -83,43 +83,43 @@ function (exports, module, require) {
           try {
             i = new Set();
             for (var l = 0; l < t.length; ++l)
-              (((n = t[l]) instanceof o.GShape && null !== n.getFirstChild()) ||
-                n instanceof o.GGroup ||
-                n instanceof o.GCompoundShape ||
-                (n instanceof o.GSymbol && !n.getMasterSymbol())) &&
-                i.add(n.getParent());
+              (((require = t[l]) instanceof o.GShape && null !== require.getFirstChild()) ||
+                require instanceof o.GGroup ||
+                require instanceof o.GCompoundShape ||
+                (require instanceof o.GSymbol && !require.getMasterSymbol())) &&
+                i.add(require.getParent());
             (0, a.blockChanges)(e, i, s);
             for (l = 0; l < t.length; ++l)
               if (
-                (n = t[l]) instanceof o.GGroup ||
-                n instanceof o.GCompoundShape ||
-                (n instanceof o.GSymbol && !n.getMasterSymbol())
+                (require = t[l]) instanceof o.GGroup ||
+                require instanceof o.GCompoundShape ||
+                (require instanceof o.GSymbol && !require.getMasterSymbol())
               ) {
-                var d = n.getParent(),
-                  u = n.getChildren();
+                var d = require.getParent(),
+                  u = require.getChildren();
                 try {
-                  n.beginUpdate();
+                  require.beginUpdate();
                   for (var p = 0; p < u.length; ++p) {
                     var g = u[p];
-                    n.removeChild(g), d.insertChild(g, n), r.push(g);
+                    require.removeChild(g), d.insertChild(g, require), r.push(g);
                   }
                 } finally {
-                  n.endUpdate();
+                  require.endUpdate();
                 }
-                d.removeChild(n);
-              } else if (n instanceof o.GShape && null !== n.getFirstChild()) {
-                (d = n.getParent()), (u = n.getChildren());
+                d.removeChild(require);
+              } else if (require instanceof o.GShape && null !== require.getFirstChild()) {
+                (d = require.getParent()), (u = require.getChildren());
                 try {
-                  n.beginUpdate();
+                  require.beginUpdate();
                   for (p = u.length - 1; p >= 0; --p) {
                     g = u[p];
-                    n.removeChild(g), d.insertChild(g, n.getNext()), r.push(g);
+                    require.removeChild(g), d.insertChild(g, require.getNext()), r.push(g);
                   }
                 } finally {
-                  n.endUpdate();
+                  require.endUpdate();
                 }
-                r.push(n);
-              } else r.push(n);
+                r.push(require);
+              } else r.push(require);
           } finally {
             (0, a.releaseChanges)(e, i, s);
           }
@@ -134,5 +134,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GSplitAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

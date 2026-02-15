@@ -3,8 +3,8 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = function () {
+function (exports, module) {
+    exports.exports = function () {
       throw new Error("define cannot be used indirect");
     };
   }

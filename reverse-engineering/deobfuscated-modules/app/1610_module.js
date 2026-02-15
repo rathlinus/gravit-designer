@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */,
-      i = n(237) /* module_237 */;
+    var o = require(1) /* module */,
+      i = require(237) /* module_237 */;
     function a() {}
     o.GObject.inherit(a, i),
       (a.Item = function (e) {
@@ -23,5 +23,5 @@ function (exports, module, require) {
       (a.Item.prototype.write = function (e, t, n, o) {
         (this._data = e), t && t();
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

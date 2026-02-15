@@ -7,16 +7,16 @@ function (exports, module, require) {
     "use strict";
     var o,
       i,
-      a = n(29) /* module_29 */,
-      r = n(27) /* module_27 */,
-      s = n(62) /* module_62 */,
-      l = n(307) /* module_307 */,
-      c = n(344) /* module_344 */,
-      d = n(296) /* module_296 */,
-      u = n(136) /* module_136 */,
-      p = n(80) /* module_80 */.get,
-      g = n(458) /* module_458 */,
-      h = n(459) /* module_459 */,
+      a = require(29) /* module_29 */,
+      r = require(27) /* module_27 */,
+      s = require(62) /* module_62 */,
+      l = require(307) /* module_307 */,
+      c = require(344) /* module_344 */,
+      d = require(296) /* module_296 */,
+      u = require(136) /* module_136 */,
+      p = require(80) /* module_80 */.get,
+      g = require(458) /* module_458 */,
+      h = require(459) /* module_459 */,
       f = d("native-string-replace", String.prototype.replace),
       m = RegExp.prototype.exec,
       y = m,
@@ -91,5 +91,5 @@ function (exports, module, require) {
             c[(d = T[r])[0]] = i[d[1]];
         return i;
       }),
-      (e.exports = y);
+      (exports.exports = y);
   }

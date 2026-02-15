@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(57) /* module_57 */,
-      n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
-    var i = o(n(883) /* module_883 */),
-      a = n(263) /* module_263 */,
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(57) /* module_57 */,
+      require(356) /* module_356 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(71) /* module_71 */,
+      require(34) /* module_34 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */;
+    var i = o(require(883) /* module_883 */),
+      a = require(263) /* module_263 */,
       r = 8,
       s = 9,
       l = 13,
@@ -79,8 +79,8 @@ function (exports, module, require) {
       },
       b = function (e, t) {
         if (e.createTextRange) {
-          var n = e.createTextRange();
-          n.move("character", t), n.select();
+          var require = e.createTextRange();
+          require.move("character", t), require.select();
         } else
           e.selectionStart ? (e.focus(), e.setSelectionRange(t, t)) : e.focus();
       },
@@ -88,8 +88,8 @@ function (exports, module, require) {
         return e.replace(a.GRegex.String.MentionInputRtrim, "");
       },
       C = function (e) {
-        let t = ++m + "";
-        return e ? e + t : t;
+        let module = ++m + "";
+        return e ? e + module : module;
       },
       x = function (e, t) {
         return (

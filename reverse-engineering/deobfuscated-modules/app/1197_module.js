@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    n(360) /* module_360 */("flat");
+    require(360) /* module_360 */("flat");
   }

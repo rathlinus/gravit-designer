@@ -3,8 +3,8 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     (function (t) {
-      e.exports = t;
+      exports.exports = t;
     }).call(this, {});
   }

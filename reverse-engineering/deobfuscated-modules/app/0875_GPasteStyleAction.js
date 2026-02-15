@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "edit.paste.style"),
@@ -37,12 +37,12 @@ function (exports, module, require) {
         if (!r.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getClipboardMimeTypes();
         if (e && e.indexOf(o.GNode.MIME_TYPE) >= 0) {
-          var t = gDesigner.getActiveDocument();
-          if (t) {
-            var n = t.getEditor().getIndividualSelection();
-            if (n)
-              for (var i = 0; i < n.length; ++i)
-                if (n[i].hasMixin(o.GStylable)) return true;
+          var module = gDesigner.getActiveDocument();
+          if (module) {
+            var require = module.getEditor().getIndividualSelection();
+            if (require)
+              for (var i = 0; i < require.length; ++i)
+                if (require[i].hasMixin(o.GStylable)) return true;
           }
         }
         return false;
@@ -57,39 +57,39 @@ function (exports, module, require) {
             .filterUnrestrictedCommercialFileElements(e)) &&
           e.length > 0
         ) {
-          for (var t = null, n = 0; n < e.length; ++n)
-            if (e[n].hasMixin(o.GStylable)) {
-              t = e[n];
+          for (var module = null, require = 0; require < e.length; ++require)
+            if (e[require].hasMixin(o.GStylable)) {
+              module = e[require];
               break;
             }
-          if (!t) return;
+          if (!module) return;
           var i = gDesigner.getActiveDocument().getEditor(),
             a = i.getIndividualSelection();
-          t instanceof o.GText &&
+          module instanceof o.GText &&
             gDesigner
               .getActiveDocument()
               .getScene()
               .getActivePage()
-              .appendChild(t),
+              .appendChild(module),
             i.beginTransaction();
           try {
-            for (n = 0; n < a.length; ++n) {
-              var r = a[n];
-              r.hasMixin(o.GStylable) && r.assignStyleFrom(t);
+            for (require = 0; require < a.length; ++require) {
+              var r = a[require];
+              r.hasMixin(o.GStylable) && r.assignStyleFrom(module);
             }
           } finally {
             i.commitTransaction(o.GLocale.get(this.getTitle())),
-              t instanceof o.GText &&
+              module instanceof o.GText &&
                 gDesigner
                   .getActiveDocument()
                   .getScene()
                   .getActivePage()
-                  .removeChild(t);
+                  .removeChild(module);
           }
         }
       }),
       (s.prototype.toString = function () {
         return "[Object GPasteStyleAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

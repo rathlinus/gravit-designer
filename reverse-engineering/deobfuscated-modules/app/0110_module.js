@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(35) /* module_35 */,
+    var o = require(23) /* module_23 */,
+      i = require(35) /* module_35 */,
       a = function (e) {
         return i(e) ? e : undefined;
       };
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       return arguments.length < 2 ? a(o[e]) : o[e] && o[e][t];
     };
   }

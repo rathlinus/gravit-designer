@@ -6,13 +6,13 @@
 function (exports, module, require) {
     "use strict";
     var o,
-      i = n(37) /* module_37 */,
-      a = n(617) /* module_617 */,
-      r = n(301) /* module_301 */,
-      s = n(259) /* module_259 */,
-      l = n(406) /* module_406 */,
-      c = n(242) /* module_242 */,
-      d = n(300) /* module_300 */,
+      i = require(37) /* module_37 */,
+      a = require(617) /* module_617 */,
+      r = require(301) /* module_301 */,
+      s = require(259) /* module_259 */,
+      l = require(406) /* module_406 */,
+      c = require(242) /* module_242 */,
+      d = require(300) /* module_300 */,
       u = d("IE_PROTO"),
       p = function () {},
       g = function (e) {
@@ -40,11 +40,11 @@ function (exports, module, require) {
                 e.close(),
                 e.F)
             : h(o);
-        for (var n = r.length; n--; ) delete f.prototype[r[n]];
+        for (var require = r.length; require--; ) delete f.prototype[r[require]];
         return f();
       };
     (s[u] = true),
-      (e.exports =
+      (exports.exports =
         Object.create ||
         function (e, t) {
           var n;

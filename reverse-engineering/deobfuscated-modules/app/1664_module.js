@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(10) /* module_10 */;
+    require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(10) /* module_10 */;
     class i {
       static getElements() {
         return i.isUnsplashIntegrationEnabled()
@@ -17,5 +17,5 @@ function (exports, module, require) {
         return o.ENABLE_UNSPLASH_INTEGRATION;
       }
     }
-    e.exports = i;
+    exports.exports = i;
   }

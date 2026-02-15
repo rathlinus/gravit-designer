@@ -5,39 +5,39 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(1175) /* module_1175 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(1201) /* module_1201 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = n(10) /* module_10 */,
-      l = o(n(1664) /* module_1664 */),
-      c = n(219) /* module_219 */,
-      d = n(809) /* GClipAction */,
-      { debounce: u, stringToBase64String: p } = n(40) /* module_40 */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(30) /* module_30 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(1175) /* module_1175 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var i = require(1201) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = require(10) /* module_10 */,
+      l = o(require(1664) /* module_1664 */),
+      c = require(219) /* module_219 */,
+      d = require(809) /* GClipAction */,
+      { debounce: u, stringToBase64String: p } = require(40) /* module_40 */;
     const g = l.default.getElements();
-    e.exports = class {
-      constructor(e) {
+    exports.exports = class {
+      function Object() { [native code] }(e) {
         (this._parent = e),
           (this._CURRENT_SKIP_COUNT = 0),
           (this._IMAGE_PAGE_COUNT = 1),
@@ -434,10 +434,10 @@ function (exports, module, require) {
       }
       _transformNode(e, t) {
         if (t && e.hasMixin(a.GElement.Transform)) {
-          var n = e.getGeometryBBox(),
-            o = n && n.getX() ? n.getX() : 0,
-            i = n && n.getY() ? n.getY() : 0;
-          n && ((o += n.getWidth() / 2), (i += n.getHeight() / 2)),
+          var require = e.getGeometryBBox(),
+            o = require && require.getX() ? require.getX() : 0,
+            i = require && require.getY() ? require.getY() : 0;
+          require && ((o += require.getWidth() / 2), (i += require.getHeight() / 2)),
             e.transform(new a.GTransform(1, 0, 0, 1, t.x - o, t.y - i), true);
         }
       }
@@ -582,9 +582,9 @@ function (exports, module, require) {
           );
       }
       _initElements(e) {
-        for (var t = this, n = 0; n < g.length; ++n) {
-          let r = g[n];
-          if (n > 0 && n % 3 == 0) {
+        for (var module = this, require = 0; require < g.length; ++require) {
+          let r = g[require];
+          if (require > 0 && require % 3 == 0) {
             let t = $("<div/>")
               .addClass("assets")
               .css("display", "none")
@@ -637,9 +637,9 @@ function (exports, module, require) {
                 d.empty(),
                 c.find(".assets-wrapper").empty();
               var u = function (e) {
-                let t = a.hasClass(e);
+                let module = a.hasClass(e);
                 a.removeClass("first second third"),
-                  t
+                  module
                     ? (a.css("display", "none"), n.removeClass("active"))
                     : (a.addClass(e),
                       a.css("display", ""),
@@ -651,12 +651,12 @@ function (exports, module, require) {
                 p.removeClass(),
                 p.addClass("assets-content"),
                 p.addClass("asset-" + r.path.slice(8).replace(/\./g, "-")),
-                t._createScrollEvent(s, a),
-                (t._CURRENT_SKIP_COUNT = 0),
-                (t._IMAGE_PAGE_COUNT = 1),
-                (t._CURRENT_CATEGORY = r),
-                (t._CURRENT_ROOT_CATEGORY = r),
-                l || t._loadAssets(d, r, t._updateUI);
+                module._createScrollEvent(s, a),
+                (module._CURRENT_SKIP_COUNT = 0),
+                (module._IMAGE_PAGE_COUNT = 1),
+                (module._CURRENT_CATEGORY = r),
+                (module._CURRENT_ROOT_CATEGORY = r),
+                l || module._loadAssets(d, r, module._updateUI);
             })
             .appendTo(o);
           var i = $("<div/>").addClass("content").appendTo(s);
@@ -757,10 +757,10 @@ function (exports, module, require) {
           : this._libraryPanel.find(".assets").removeClass("loading");
       }
       _toggleShowMoreButton(e, t) {
-        let n = this._libraryPanel.find(".assets").find(".button-wrapper");
-        n.find(".load-more")[t ? "addClass" : "removeClass"]("hidden"),
-          n[t ? "addClass" : "removeClass"]("loading"),
-          n[e ? "removeClass" : "addClass"]("hidden");
+        let require = this._libraryPanel.find(".assets").find(".button-wrapper");
+        require.find(".load-more")[t ? "addClass" : "removeClass"]("hidden"),
+          require[t ? "addClass" : "removeClass"]("loading"),
+          require[e ? "removeClass" : "addClass"]("hidden");
       }
       _getPreviewURI(e) {
         return e.content && !e.url_t
@@ -871,18 +871,18 @@ function (exports, module, require) {
             void this._addAsset(this._currentItem)
           );
         if (((this._dragMoved = false), this._dragging)) {
-          var t = gDesigner.getActiveDocument();
+          var module = gDesigner.getActiveDocument();
           document.removeEventListener("mousemove", this._itemDragListener),
             document.removeEventListener("touchmove", this._itemDragListener),
             document.removeEventListener("mouseup", this._itemDragEndListener),
             document.removeEventListener("touchend", this._itemDragEndListener);
-          var n = e.clientX,
+          var require = e.clientX,
             o = e.clientY;
-          if (gDesigner.positionIsOnCanvas(n, o)) {
-            var i = t.getActiveWindow().getView(),
+          if (gDesigner.positionIsOnCanvas(require, o)) {
+            var i = module.getActiveWindow().getView(),
               a = {};
             Object.assign(a, e),
-              (a.clientX = n),
+              (a.clientX = require),
               (a.clientY = o),
               (a.offsetX =
                 e.offsetX + (this._dragOffset && this._dragOffset.x)),
@@ -891,7 +891,7 @@ function (exports, module, require) {
               (a.pageX = e.pageX + (this._dragOffset && this._dragOffset.x)),
               (a.pageY = e.pageY + (this._dragOffset && this._dragOffset.y));
             var r = i._convertClientPositionFromMousePosition(a),
-              s = i.getViewTransform(t.scene).mapPoint(r);
+              s = i.getViewTransform(module.scene).mapPoint(r);
             (r = { x: s._x, y: s._y }), this._addAsset(this._currentItem, r);
           }
           (this._dragging = false),
@@ -916,9 +916,9 @@ function (exports, module, require) {
         return e.indexOf(Math.min.apply(null, e)) || 0;
       }
       _getThumbnailSize(e) {
-        const t = 200 / e.image.width,
-          n = parseInt(e.image.height * t) + 4;
-        return new a.GRect(0, 0, 200, n);
+        const module = 200 / e.image.width,
+          require = parseInt(e.image.height * module) + 4;
+        return new a.GRect(0, 0, 200, require);
       }
       _getChildrenHeight(e) {
         return $(e)

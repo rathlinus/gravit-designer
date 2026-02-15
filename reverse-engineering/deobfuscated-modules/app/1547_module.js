@@ -5,33 +5,33 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(557) /* module_557 */, n(26) /* module_26 */;
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */,
-      n(8) /* module_8 */,
-      n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(34) /* module_34 */,
-      n(851) /* module_851 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(322) /* module_322 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(1300) /* module_1300 */),
-      s = n(1163) /* module_1163 */,
-      l = n(40) /* module_40 */,
-      c = n(593) /* module_593 */,
-      d = o(n(44) /* GSystemDialog */),
+    require(19) /* module_19 */, require(557) /* module_557 */, require(26) /* module_26 */;
+    var o = require(16) /* module_16 */;
+    require(96) /* module_96 */,
+      require(8) /* module_8 */,
+      require(356) /* module_356 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(3) /* module_3 */,
+      require(271) /* module_271 */,
+      require(34) /* module_34 */,
+      require(851) /* module_851 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(322) /* module_322 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(1300) /* module_1300 */),
+      s = require(1163) /* module_1163 */,
+      l = require(40) /* module_40 */,
+      c = require(593) /* module_593 */,
+      d = o(require(44) /* GSystemDialog */),
       u = (function (e, t) {
         if ("function" == typeof WeakMap)
-          var n = new WeakMap(),
+          var require = new WeakMap(),
             o = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
@@ -40,7 +40,7 @@ function (exports, module, require) {
             r = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
             return r;
-          if ((i = t ? o : n)) {
+          if ((i = t ? o : require)) {
             if (i.has(e)) return i.get(e);
             i.set(e, r);
           }
@@ -55,21 +55,21 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(n(862) /* module_862 */),
-      p = n(858) /* module_858 */;
-    const g = n(156) /* module_156 */,
-      { CLOUD_DIALOG: h } = n(10) /* module_10 */,
-      { GPlatform: f } = n(15) /* module_15 */,
-      m = n(85) /* GContainer */,
-      { GRegex: y } = n(263) /* module_263 */,
+      })(require(862) /* module_862 */),
+      p = require(858) /* module_858 */;
+    const g = require(156) /* module_156 */,
+      { CLOUD_DIALOG: h } = require(10) /* module_10 */,
+      { GPlatform: f } = require(15) /* module */,
+      m = require(85) /* GContainer */,
+      { GRegex: y } = require(263) /* module_263 */,
       v = function () {
         r.default.apply(this, arguments),
           (this._lockEnter = false),
           this.panel.addClass("full-width");
       };
     i.GObject.inherit(v, r.default);
-    var _ = n(238) /* GMenu */,
-      b = n(339) /* GMenu */;
+    var _ = require(238) /* GMenu */,
+      b = require(339) /* GMenu */;
     (v.prototype._lockEnter = false),
       (v.prototype.filesPanel = null),
       (v.prototype.createHeader = function () {
@@ -201,21 +201,21 @@ function (exports, module, require) {
       }),
       (v.prototype._permissionChanged = function () {
         r.default.prototype._permissionChanged.call(this);
-        const e = this.panel.find(".header").find(".new-folder");
+        const exports = this.panel.find(".header").find(".new-folder");
         if (this._isCreateFolderEnabled())
-          e.attr(
+          exports.attr(
             "data-title",
             i.GLocale.get(
               new i.GLocaleKey("GFilesPanel", "action.new-folder-tooltip")
             )
           ),
-            e.removeClass("g-disabled");
+            exports.removeClass("g-disabled");
         else {
           const t = i.GLocale.get(
             new i.GLocaleKey("GFilesPanel", "text.option-isnt-available"),
             "This option isn’t available for Cloud Drives"
           );
-          e.attr("data-title", t), e.addClass("g-disabled");
+          exports.attr("data-title", t), exports.addClass("g-disabled");
         }
       }),
       (v.prototype.addSearchBar = function (e) {
@@ -232,8 +232,8 @@ function (exports, module, require) {
       (v.prototype.createFooter = function (e) {
         var t = $("<div/>").addClass("footer").appendTo(this.panel);
         if (this.filesPanel.isSaveMode()) {
-          var n = $("<div />").addClass("save-form-container").appendTo(t);
-          const a = $("<div/>").addClass("input-container").appendTo(n);
+          var require = $("<div />").addClass("save-form-container").appendTo(t);
+          const a = $("<div/>").addClass("input-container").appendTo(require);
           var o = $("<input/>")
             .addClass("file-name")
             .val(
@@ -298,9 +298,9 @@ function (exports, module, require) {
                   function (e) {
                     e.stopPropagation();
                     const t = this._getSelectedExtension(),
-                      n = this._getSaveOptions();
+                      require = this._getSaveOptions();
                     this.filesPanel._canDownload(t) &&
-                      this.filesPanel.handleSave(o.val(), t, n);
+                      this.filesPanel.handleSave(o.val(), t, require);
                   }.bind(this)
                 )
                 .appendTo(a),
@@ -312,27 +312,27 @@ function (exports, module, require) {
         } else t.hide();
       }),
       (v.prototype._getSelectedExtension = function () {
-        const e = this.panel
+        const exports = this.panel
           .find(".save-form-container")
           .find("option:selected")
           .val();
-        if (!e)
+        if (!exports)
           return (
             (this.filesPanel.getDefaultSaveFormat() &&
               this.filesPanel.getDefaultSaveFormat().ext) ||
             u.DEFAULT_TYPE.ext
           );
-        const t = this.filesPanel.getPossibleExtensions();
-        return (0, l.getExtensionFromString)(e, t) || u.DEFAULT_TYPE.ext;
+        const module = this.filesPanel.getPossibleExtensions();
+        return (0, l.getExtensionFromString)(exports, module) || u.DEFAULT_TYPE.ext;
       }),
       (v.prototype._getSelectedVersion = function () {
-        const e = this.panel
+        const exports = this.panel
           .find(".save-form-container")
           .find("option:selected")
           .val();
-        if (!e) return Number(this.filesPanel.getDefaultVersionForSave());
-        const t = this._getVersionFromValue(e);
-        return Number(t || this.filesPanel.getDefaultVersionForSave());
+        if (!exports) return Number(this.filesPanel.getDefaultVersionForSave());
+        const module = this._getVersionFromValue(exports);
+        return Number(module || this.filesPanel.getDefaultVersionForSave());
       }),
       (v.prototype._setSelectedExtension = function (e) {
         this.panel
@@ -348,16 +348,16 @@ function (exports, module, require) {
         return e.endsWith(".cdr") ? e.replace(new RegExp(".cdr$"), "") : e;
       }),
       (v.prototype.addFile = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
-          n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
+          require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         const o = this._removeCDRExtensionFromFileName(e.name);
         var a = this,
           r = this.filesPanel.isItemSelected(e),
           c = this.filesPanel.isItemInClipboard(e),
           d = null;
-        d = t
+        d = module
           ? this.panel.find(".g-recent-files-list")
-          : n
+          : require
           ? this.panel.find(".g-example-files-list")
           : this.panel.find(".g-files-list");
         var u = $("<div/>")
@@ -375,14 +375,14 @@ function (exports, module, require) {
               return t.stopPropagation(), void t.preventDefault();
             $(this).addClass("dragging"),
               $(".g-tooltip").toggleClass("visible", false);
-            const n = t.dataTransfer || t.originalEvent.dataTransfer,
+            const require = t.dataTransfer || t.originalEvent.dataTransfer,
               o = document.createElement("div"),
               i = $(o);
             i.addClass("drag-ghost-item"),
               i.text(e.name),
               document.getElementById(e.id).appendChild(o),
-              n.setDragImage(o, 30, 15),
-              n.setData("text/plain", JSON.stringify(e));
+              require.setDragImage(o, 30, 15),
+              require.setData("text/plain", JSON.stringify(e));
           })
           .on("drag", function (e) {
             if (a._isDuringRenaming())
@@ -410,7 +410,7 @@ function (exports, module, require) {
                 n.preventDefault(),
                 a._isDuringRenaming() ||
                   (this.filesPanel.handleFileClick(e, u),
-                  this._updateFileInfoPanel(e, u, t));
+                  this._updateFileInfoPanel(e, u, module));
             }.bind(this)
           )
           .on(
@@ -539,25 +539,25 @@ function (exports, module, require) {
           this._openContextMenuForEventPosition(n));
       }),
       (v.prototype._updateFileNamePreview = function (e, t) {
-        const n = this._removeCDRExtensionFromFileName(t.name);
+        const require = this._removeCDRExtensionFromFileName(t.name);
         var o = $(e).find(".file-name-container");
-        o.attr("data-ending", "..." + n.substr(n.length - 4));
+        o.attr("data-ending", "..." + require.substr(require.length - 4));
         var i = o.find(".name");
-        i.text(n),
+        i.text(require),
           ((e) => e && e.offsetWidth < e.scrollWidth)(i[0]) &&
             o.addClass("ending");
       }),
       (v.prototype.addFolder = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        this._factoryFolder(e, t)
+        this._factoryFolder(e, module)
           .getHTMLContainer()
           .appendTo(this.panel.find(".g-folders-list.main"));
       }),
       (v.prototype.addCustomFolder = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        this._factoryFolder(e, t)
+        this._factoryFolder(e, module)
           .getHTMLContainer()
           .appendTo(this.panel.find(".g-folders-list.custom-folders")),
           "shared_files_with_me" === e.id &&
@@ -593,15 +593,15 @@ function (exports, module, require) {
         this.panel.find(".g-gravit-folder").length > 0
           ? this.panel.find(".g-folders-list").show()
           : this.panel.find(".g-folders-list").hide();
-        const t = this.panel.find(".header"),
-          n = t.find(".new-folder"),
-          o = t.find(".back");
+        const module = this.panel.find(".header"),
+          require = module.find(".new-folder"),
+          o = module.find(".back");
         this.getSearchValue()
-          ? (n.addClass("g-disabled"),
+          ? (require.addClass("g-disabled"),
             o.addClass("g-hidden"),
             this.panel.find(".g-files-list").find(".g-gravit-file").length <
               1 && this._showNoResultsInfo())
-          : this._isCreateFolderEnabled() && n.removeClass("g-disabled"),
+          : this._isCreateFolderEnabled() && require.removeClass("g-disabled"),
           this.filesPanel.isRootFolder()
             ? o.addClass("g-hidden")
             : o.removeClass("g-hidden"),
@@ -816,15 +816,15 @@ function (exports, module, require) {
             click: () => {
               if (this._isFolderSelected()) {
                 gDesigner.stats("filespanel-view_open_cloudfolder");
-                var e = this.filesPanel.getSelection(),
-                  t = this._getSelectedFolderUIElement();
-                this.filesPanel.navigateToFolder(e[0]),
-                  this.filesPanel.manageOpenFolder(t, e[0]),
+                var exports = this.filesPanel.getSelection(),
+                  module = this._getSelectedFolderUIElement();
+                this.filesPanel.navigateToFolder(exports[0]),
+                  this.filesPanel.manageOpenFolder(module, exports[0]),
                   this._expandSelectedFolder();
               } else {
                 gDesigner.stats("filespanel-view_opencontext_cloud");
-                e = this.filesPanel.getSelection();
-                this.filesPanel.openFile.call(this.filesPanel, e[0]);
+                exports = this.filesPanel.getSelection();
+                this.filesPanel.openFile.call(this.filesPanel, exports[0]);
               }
             },
             update: (e) => {
@@ -843,10 +843,10 @@ function (exports, module, require) {
             click: () => {
               var e = this.filesPanel.getSelection();
               gDesigner.stats("filespanel-view_rename_cloud");
-              const t = this._isFolderSelected()
+              const module = this._isFolderSelected()
                 ? $(".g-gravit-folder.selected")
                 : this._rightSide.find(".selected").eq(0);
-              this._renameFile(e[0], t);
+              this._renameFile(e[0], module);
             },
             update: (e) => {
               var t = this.filesPanel.getSelection();
@@ -866,10 +866,10 @@ function (exports, module, require) {
             },
             update: (e) => {
               var t = this.filesPanel.getSelection();
-              const n =
+              const require =
                 this.filesPanel.isClipboardModeCut() ||
                 this.filesPanel.isClipboardModeCopy();
-              e.sender.setEnabled(n),
+              e.sender.setEnabled(require),
                 e.sender.setVisible(
                   this._checkItemPermission(t, g.Permission.CutPaste) ||
                     (0, c.hasRootFolderInSelections)(this.filesPanel.drive, t)
@@ -1020,12 +1020,12 @@ function (exports, module, require) {
         this.panel.find(".g-left-side").toggleClass("g-no-display", !e);
       }),
       (v.prototype.getSearchValue = function () {
-        const e = this.panel
+        const exports = this.panel
           .find(".header")
           .find(".search-container")
           .find(".search-field")
           .val();
-        return e ? e.trim() : "";
+        return exports ? exports.trim() : "";
       }),
       (v.prototype.focusFileNameInput = function (e) {
         this.setFileNameInputValue(e.name),
@@ -1049,5 +1049,5 @@ function (exports, module, require) {
       (v.prototype._getSelectedFolderUIElement = function () {
         return $(".g-gravit-folder.g-cloud-element.selected");
       }),
-      (e.exports = v);
+      (exports.exports = v);
   }

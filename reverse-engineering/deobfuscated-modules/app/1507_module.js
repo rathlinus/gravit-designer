@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    n(290) /* module_290 */, n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
-    var o = n(357) /* module_357 */,
-      i = n(1) /* module_1 */,
-      a = n(40) /* module_40 */;
+    require(290) /* module_290 */, require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */;
+    var o = require(357) /* module_357 */,
+      i = require(1) /* module */,
+      a = require(40) /* module_40 */;
     const {
         gApi: r,
         LINKS: s,
         DESIGNER: { TITLE: l } = {},
         SubscriptionStatus: c,
-      } = n(10) /* module_10 */,
-      d = (n(173) /* module_173 */, n(337) /* module_337 */),
+      } = require(10) /* module_10 */,
+      d = (require(173) /* module_173 */, require(337) /* module_337 */),
       u = ["number", "name", "price", "date"];
     function p(e, t) {
-      let n =
+      let require =
         arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
       (this._user = e),
-        (this._options = n),
+        (this._options = require),
         (this._query = { skip: 0, name: "", issued: "true" }),
         (this._messageHandler = t),
         (this._typing = false),
@@ -32,11 +32,11 @@ function (exports, module, require) {
     i.GObject.inherit(p, i.GObject),
       (p.prototype._init = function () {
         this._container = $("<div></div>").addClass("g-purchase-panel");
-        let e = undefined;
-        const t = () => this._showInfoIfAny(),
-          n = (n) => {
-            e && clearTimeout(e),
-              (e = setTimeout(t, 500)),
+        let exports = undefined;
+        const module = () => this._showInfoIfAny(),
+          require = (n) => {
+            exports && clearTimeout(exports),
+              (exports = setTimeout(module, 500)),
               this._search($(n.target).closest("input").val());
           };
         $("<div></div>")
@@ -51,11 +51,11 @@ function (exports, module, require) {
                   new i.GLocaleKey("GPurchasePanel", "text.search-label")
                 )
               )
-              .on("input", (0, a.debounce)((0, a.throttle)(n, 500), 500))
+              .on("input", (0, a.debounce)((0, a.throttle)(require, 500), 500))
               .on("keyup", (e) => {
                 13 === e.which &&
                   (gDesigner.stats("profile-dialog_purchase-panel_search"),
-                  n(e));
+                  require(e));
               })
           )
           .append(
@@ -98,14 +98,14 @@ function (exports, module, require) {
                   .attr("data-property", "direction")
                   .addClass("gravit-icon-sort-asc")
                   .on("click", (e) => {
-                    let t = $(e.target).closest("span"),
-                      n = t.data("direction"),
+                    let module = $(e.target).closest("span"),
+                      require = module.data("direction"),
                       o = "asc";
-                    "-" === n
-                      ? ((n = ""), (o = "asc"))
-                      : ((n = "-"), (o = "desc")),
-                      t.data("direction", n),
-                      t.toggleClass(
+                    "-" === require
+                      ? ((require = ""), (o = "asc"))
+                      : ((require = "-"), (o = "desc")),
+                      module.data("direction", require),
+                      module.toggleClass(
                         "gravit-icon-sort-asc gravit-icon-sort-desc"
                       ),
                       gDesigner.stats("profile-dialog_purchase-panel_sort", o),
@@ -152,8 +152,8 @@ function (exports, module, require) {
               gContainer.openExternalLink(e, s.CLEVERBRIDGE_SUPPORT_URL);
           }),
           $(this._purchaseList).scroll((e) => {
-            let t = $(e.currentTarget);
-            t[0].scrollHeight - t.scrollTop() === t.outerHeight() &&
+            let module = $(e.currentTarget);
+            module[0].scrollHeight - module.scrollTop() === module.outerHeight() &&
               $(this._purchaseList).children().length > 0 &&
               this._load();
           });
@@ -203,7 +203,7 @@ function (exports, module, require) {
         }
       }),
       (p.prototype._addOrUpdateItem = function (e, t) {
-        const n = e.issued_coupon && e.issued_coupon.lifetime;
+        const require = e.issued_coupon && e.issued_coupon.lifetime;
         (t =
           t ||
           $("<div></div>")
@@ -227,7 +227,7 @@ function (exports, module, require) {
           a && t.addClass("g-selected");
         const u =
           e.name ||
-          (n
+          (require
             ? i.GLocale.get(
                 new i.GLocaleKey(
                   "GPurchasePanel",
@@ -273,7 +273,7 @@ function (exports, module, require) {
             " "
           )
           .concat(e.created ? i.GLocale.toLocaleDate(new Date(e.created)) : "");
-        !n &&
+        !require &&
           e.issued_coupon &&
           e.issued_coupon.expires &&
           (p += ", ".concat(
@@ -342,7 +342,7 @@ function (exports, module, require) {
                   );
                 };
                 if (u.status === c.Active)
-                  n
+                  require
                     ? g.text(a + ".")
                     : g.text(
                         ""
@@ -477,13 +477,13 @@ function (exports, module, require) {
         );
       }),
       (p.prototype._handleError = function (e) {
-        let t = i.GLocale.get(
+        let module = i.GLocale.get(
           new i.GLocaleKey("GCommonNames", "text.something-wrong")
         );
         e && e.message
-          ? (t = e.message)
-          : e && e.errors && (t = e.errors.map((e) => e[1]).join("<br>")),
-          this._messageHandler(t);
+          ? (module = e.message)
+          : e && e.errors && (module = e.errors.map((e) => e[1]).join("<br>")),
+          this._messageHandler(module);
       }),
       (p.prototype._toggleLoading = function (e) {
         e
@@ -493,5 +493,5 @@ function (exports, module, require) {
       (p.prototype.getHTMLElement = function () {
         return this._container;
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

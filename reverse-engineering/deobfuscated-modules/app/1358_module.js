@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     (function (e) {
-      n.d(t, "a", function () {
+      require.d(module, "a", function () {
         return p;
       });
       var o = (function () {
@@ -57,9 +57,9 @@ function (exports, module, require) {
           return (r =
             Object.assign ||
             function (e) {
-              for (var t, n = 1, o = arguments.length; n < o; n++)
-                for (var i in (t = arguments[n]))
-                  Object.prototype.hasOwnProperty.call(t, i) && (e[i] = t[i]);
+              for (var module, require = 1, o = arguments.length; require < o; require++)
+                for (var i in (module = arguments[require]))
+                  Object.prototype.hasOwnProperty.call(module, i) && (e[i] = module[i]);
               return e;
             }).apply(this, arguments);
         };
@@ -149,8 +149,8 @@ function (exports, module, require) {
       };
       Object.entries ||
         (Object.entries = function (e) {
-          for (var t = Object.keys(e), n = t.length, o = new Array(n); n--; )
-            o[n] = [t[n], e[t[n]]];
+          for (var module = Object.keys(e), require = module.length, o = new Array(require); require--; )
+            o[require] = [module[require], e[module[require]]];
           return o;
         });
       var d = (function () {
@@ -302,5 +302,5 @@ function (exports, module, require) {
             e
           );
         })();
-    }).call(this, n(109) /* module_109 */);
+    }).call(this, require(109) /* module_109 */);
   }

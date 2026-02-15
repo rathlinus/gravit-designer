@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(123) /* GProperties */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(123) /* GProperties */;
     function a() {
       this._items = [];
     }
@@ -97,8 +97,8 @@ function (exports, module, require) {
           (this._items = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n) {
-            t[n] instanceof o.GGroup && this._items.push(t[n]);
+          for (var require = 0; require < t.length; ++require) {
+            t[require] instanceof o.GGroup && this._items.push(t[require]);
           }
           if (this._items.length && this._items.length === t.length)
             return (
@@ -147,5 +147,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GGroupFrameProperties]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

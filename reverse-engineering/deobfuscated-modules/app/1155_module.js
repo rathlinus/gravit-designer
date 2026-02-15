@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }), (t.default = undefined);
+    Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     class o {
-      constructor() {
+      function Object() { [native code] }() {
         (this._condition = () => true), (this._finished = false);
       }
       _do(e, t) {
@@ -57,5 +57,5 @@ function (exports, module, require) {
         );
       }
     }
-    t.default = o;
+    module.default = o;
   }

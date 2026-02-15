@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
+    require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */;
     const {
         DESIGNER: { TITLE: i },
-      } = n(10) /* module_10 */,
-      a = n(606) /* GPanel */,
-      r = n(394) /* GView */,
-      s = n(1321) /* module_1321 */,
-      l = n(78) /* GDocumentEvent */,
-      c = n(860) /* module_860 */,
-      d = n(1667) /* module_1667 */;
+      } = require(10) /* module_10 */,
+      a = require(606) /* GPanel */,
+      r = require(394) /* GView */,
+      s = require(1321) /* module_1321 */,
+      l = require(78) /* GDocumentEvent */,
+      c = require(860) /* module_860 */,
+      d = require(1667) /* module_1667 */;
     function u() {}
     o.GObject.inherit(u, a),
       (u.ID = "notification-panel"),
@@ -240,5 +240,5 @@ function (exports, module, require) {
       (u.prototype.getId = function () {
         return u.ID;
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

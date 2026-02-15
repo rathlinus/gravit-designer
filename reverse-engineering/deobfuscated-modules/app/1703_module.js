@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */;
-    const i = n(238) /* GMenu */,
-      a = n(444) /* module_444 */;
+    require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */;
+    var o = require(1) /* module */;
+    const i = require(238) /* GMenu */,
+      a = require(444) /* module_444 */;
     var r = {
       value: function (e) {
         return arguments.length > 0
@@ -19,26 +19,26 @@ function (exports, module, require) {
         return (
           this.each(function () {
             e = o.GUtil.extend({ list: [] }, e);
-            const t = new i();
+            const module = new i();
             e.list
               .map((e) => ("object" != typeof e ? { title: e, data: e } : e))
               .forEach((e) => {
-                let { title: n, data: o } = e;
-                return t.createAddItem(n).setData(o);
+                let { title: require, data: o } = e;
+                return module.createAddItem(require).setData(o);
               });
-            const n = $(this);
-            n.addClass("g-input-select")
+            const require = $(this);
+            require.addClass("g-input-select")
               .append(
                 $("<input/>")
                   .attr("type", "text")
                   .gInputBox(e)
-                  .on("change", () => n.trigger("change"))
+                  .on("change", () => require.trigger("change"))
               )
               .append(
                 $("<button></button>")
                   .css("display", e.list.length ? "" : "none")
                   .on("click", (e) => {
-                    t.open(
+                    module.open(
                       e.target,
                       a.Position.Right_Bottom,
                       a.Position.Right_Bottom,

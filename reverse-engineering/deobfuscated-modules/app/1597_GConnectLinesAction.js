@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "modify.connect-lines"),
@@ -33,8 +33,8 @@ function (exports, module, require) {
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
-          for (var t = 0; t < e.length; ++t)
-            if (e[t] instanceof o.GPath) return true;
+          for (var module = 0; module < e.length; ++module)
+            if (e[module] instanceof o.GPath) return true;
         return false;
       }),
       (s.prototype.execute = function () {
@@ -93,5 +93,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GConnectLinesAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

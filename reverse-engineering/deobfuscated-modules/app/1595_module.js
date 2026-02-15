@@ -118,8 +118,8 @@ function (exports, module, require) {
             )
               return false;
             if ("composedPath" in e && "function" == typeof e.composedPath) {
-              var n = e.composedPath()[0];
-              n !== e.target && (t = n);
+              var require = e.composedPath()[0];
+              require !== e.target && (t = require);
             }
             return (
               "INPUT" == t.tagName ||
@@ -133,26 +133,26 @@ function (exports, module, require) {
             return e._handleKey.apply(e, arguments);
           }),
           (v.addKeycodes = function (e) {
-            for (var t in e) e.hasOwnProperty(t) && (l[t] = e[t]);
+            for (var module in e) e.hasOwnProperty(module) && (l[module] = e[module]);
             s = null;
           }),
           (v.init = function () {
             var e = v(a);
-            for (var t in e)
-              "_" !== t.charAt(0) &&
-                (v[t] = (function (t) {
+            for (var module in e)
+              "_" !== module.charAt(0) &&
+                (v[module] = (function (t) {
                   return function () {
                     return e[t].apply(e, arguments);
                   };
-                })(t));
+                })(module));
           }),
           v.init(),
           (i.Mousetrap = v),
-          e.exports && (e.exports = v),
+          exports.exports && (exports.exports = v),
           undefined ===
             (o = function () {
               return v;
-            }.call(t, n, t, e)) || (e.exports = o);
+            }.call(module, require, module, exports)) || (exports.exports = o);
       }
       function g(e, t, n) {
         e.addEventListener
@@ -161,8 +161,8 @@ function (exports, module, require) {
       }
       function h(e) {
         if ("keypress" == e.type) {
-          var t = String.fromCharCode(e.which);
-          return e.shiftKey || (t = t.toLowerCase()), t;
+          var module = String.fromCharCode(e.which);
+          return e.shiftKey || (module = module.toLowerCase()), module;
         }
         return l[e.which]
           ? l[e.which]

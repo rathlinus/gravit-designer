@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(21) /* module_21 */,
-      a = n(27) /* module_27 */,
-      r = n(62) /* module_62 */,
-      s = n(262) /* module_262 */.trim,
-      l = n(248) /* module_248 */,
+    var o = require(23) /* module_23 */,
+      i = require(21) /* module_21 */,
+      a = require(27) /* module_27 */,
+      r = require(62) /* module_62 */,
+      s = require(262) /* module_262 */.trim,
+      l = require(248) /* module_248 */,
       c = o.parseInt,
       d = o.Symbol,
       u = d && d.iterator,
@@ -23,7 +23,7 @@ function (exports, module, require) {
           !i(function () {
             c(Object(u));
           }));
-    e.exports = h
+    exports.exports = h
       ? function (e, t) {
           var n = s(r(e));
           return c(n, t >>> 0 || (g(p, n) ? 16 : 10));

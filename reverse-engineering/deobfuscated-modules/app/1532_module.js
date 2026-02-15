@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
-    const { FILE_FORMATS: i } = n(10) /* module_10 */,
+    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */;
+    const { FILE_FORMATS: i } = require(10) /* module_10 */,
       a = i.find((e) => e.default),
-      { COMMAND_SAVE: r } = n(591) /* module_591 */,
-      s = n(1164) /* module_1164 */,
-      l = n(556) /* module_556 */;
-    e.exports = class extends s {
-      constructor(e, t) {
+      { COMMAND_SAVE: r } = require(591) /* module_591 */,
+      s = require(1164) /* module_1164 */,
+      l = require(556) /* module_556 */;
+    exports.exports = class extends s {
+      function Object() { [native code] }(e, t) {
         super(e, t);
       }
       async updateFileSceneAndMetadata(e, t, n, o) {

@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    const { GLocale: o, GLocaleKey: i } = n(1) /* module_1 */,
-      a = n(883) /* module_883 */;
-    e.exports = {
+    const { GLocale: o, GLocaleKey: i } = require(1) /* module */,
+      a = require(883) /* module_883 */;
+    exports.exports = {
       createAdditionalMentions: function () {
         return {
           MENTION_ALL_REVIEWERS: new a({

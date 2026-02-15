@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(15) /* module_15 */,
-      a = n(1) /* module_1 */,
-      r = n(198) /* Exports_GOutlineSidebar */,
-      s = o(n(18) /* module_18 */),
-      l = o(n(31) /* GAction */);
+    var o = require(16) /* module_16 */,
+      i = require(15) /* module */,
+      a = require(1) /* module */,
+      r = require(198) /* Exports_GOutlineSidebar */,
+      s = o(require(18) /* module_18 */),
+      l = o(require(31) /* GAction */);
     class c extends l.default {
       getId() {
         return c.ID;
@@ -29,23 +29,23 @@ function (exports, module, require) {
         return false;
       }
       execute() {
-        const e = gDesigner.getLeftSidebars().getActiveSidebar(),
-          t = gDesigner
+        const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
+          module = gDesigner
             .getLeftSidebars()
             .getSidebar(r.SidebarsIds.GOutlineSidebar),
-          n = t.getLayerPanel(),
-          o = n.gLayerPanel("getCurrentFocusedNode");
-        if (o && e === t.getId()) {
-          const e = n.gLayerPanel("getItem", o);
+          require = module.getLayerPanel(),
+          o = require.gLayerPanel("getCurrentFocusedNode");
+        if (o && exports === module.getId()) {
+          const e = require.gLayerPanel("getItem", o);
           e.hasFlag(a.GNode.Flag.Selected) &&
-            n.gLayerPanel("toggleHideStatusOfLayerOrItem", e);
+            require.gLayerPanel("toggleHideStatusOfLayerOrItem", e);
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GToggleLayerVisibilityAction]";
       }
     }
     (c.ID = "view.toggle-layer-visibility"),
       (c.TITLE = new a.GLocaleKey("GToggleLayerVisibilityAction", "title")),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     var o, i;
-    e.exports =
-      ((i = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+    exports.exports =
+      ((i = require(55) /* module_55 */),
+      require(98) /* module_98 */,
       (i.mode.ECB =
         (((o = i.lib.BlockCipherMode.extend()).Encryptor = o.extend({
           processBlock: function (e, t) {

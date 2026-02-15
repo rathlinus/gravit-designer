@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */,
-      s = n(163) /* module_163 */;
-    const l = n(446) /* module_446 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */,
+      s = require(163) /* module_163 */;
+    const l = require(446) /* module_446 */;
     function c() {}
     o.GObject.inherit(c, r),
       (c.ID = "file.open"),
@@ -65,5 +65,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GOpenAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(94) /* module_94 */;
+    var o = require(94) /* module_94 */;
     function i(e) {
-      for (var t = e.length; --t >= 0; ) e[t] = 0;
+      for (var module = e.length; --module >= 0; ) e[module] = 0;
     }
     var a = [
         0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4,
@@ -292,7 +292,7 @@ function (exports, module, require) {
             (e.pending += n);
         })(e, t, n, true);
     }
-    (t._tr_init = function (e) {
+    (module._tr_init = function (e) {
       O ||
         (!(function () {
           var e,
@@ -327,8 +327,8 @@ function (exports, module, require) {
         (e.bi_valid = 0),
         A(e);
     }),
-      (t._tr_stored_block = F),
-      (t._tr_flush_block = function (e, t, n, o) {
+      (module._tr_stored_block = F),
+      (module._tr_flush_block = function (e, t, n, o) {
         var i,
           a,
           r = 0;
@@ -385,7 +385,7 @@ function (exports, module, require) {
           A(e),
           o && T(e);
       }),
-      (t._tr_tally = function (e, t, n) {
+      (module._tr_tally = function (e, t, n) {
         return (
           (e.pending_buf[e.d_buf + 2 * e.last_lit] = (t >>> 8) & 255),
           (e.pending_buf[e.d_buf + 2 * e.last_lit + 1] = 255 & t),
@@ -400,7 +400,7 @@ function (exports, module, require) {
           e.last_lit === e.lit_bufsize - 1
         );
       }),
-      (t._tr_align = function (e) {
+      (module._tr_align = function (e) {
         C(e, 2, 3),
           x(e, 256, c),
           (function (e) {

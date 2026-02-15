@@ -5,33 +5,33 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var i = n(10) /* module_10 */,
-      a = n(1) /* module_1 */,
-      r = o(n(1187) /* module_1187 */);
+    var o = require(16) /* module_16 */;
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    var i = require(10) /* module_10 */,
+      a = require(1) /* module */,
+      r = o(require(1187) /* module_1187 */);
     function s() {}
     a.GObject.inherit(s, i.GPaywallDialog.Impl),
       (s.prototype.open = function (e) {
-        let { dialog: t } = e;
-        this._dialog = t
+        let { dialog: module } = e;
+        this._dialog = module
           .getHTMLElement()
           .gDialog({ releaseOnClose: true, nowrap: true })
           .gDialog("open");
       }),
       (s.prototype.close = function () {
-        let { licenseHasBeenUpgraded: e = false } =
+        let { licenseHasBeenUpgraded: exports = false } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         this._dialog.closest(".g-dialog-container").remove(),
-          e && gDesigner.requestLicenseUpdate();
+          exports && gDesigner.requestLicenseUpdate();
       }),
       (s.prototype.openPurchaseFlow = async function (e) {
-        let { dialog: t, options: n = {} } = e;
-        await gDesigner.openPaymentDialog(null, n).catch(() => null), t.close();
+        let { dialog: module, options: require = {} } = e;
+        await gDesigner.openPaymentDialog(null, require).catch(() => null), module.close();
       }),
       (s.prototype.openExternalLink = function (e) {
-        let { link: t } = e;
-        gContainer.openExternalLink(null, t);
+        let { link: module } = e;
+        gContainer.openExternalLink(null, module);
       }),
       (s.prototype.getProduct = function () {
         return Promise.resolve({
@@ -42,12 +42,12 @@ function (exports, module, require) {
         });
       }),
       (s.prototype.getLicense = function () {
-        let e = gDesigner.getLicense();
+        let exports = gDesigner.getLicense();
         return Promise.resolve({
-          license: e.getLicenseType(),
-          expire: e.getExpirationDate(),
-          created: e.getCreationDate(),
-          legacy: e.isLegacy(),
+          license: exports.getLicenseType(),
+          expire: exports.getExpirationDate(),
+          created: exports.getCreationDate(),
+          legacy: exports.isLegacy(),
         });
       }),
       (s.prototype.getUser = function () {
@@ -57,7 +57,7 @@ function (exports, module, require) {
         return a.GLocale.getLanguage();
       });
     class l extends r.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(), (this._dialogOptions = e);
       }
       async open() {
@@ -66,5 +66,5 @@ function (exports, module, require) {
         ).open();
       }
     }
-    e.exports = l;
+    exports.exports = l;
   }

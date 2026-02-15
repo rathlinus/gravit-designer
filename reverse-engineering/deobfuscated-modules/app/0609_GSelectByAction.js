@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */;
-    const a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */;
+    const a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */;
     function s(e, t) {
       r.call(this), (this._id = e), (this._title = t);
     }
@@ -30,24 +30,24 @@ function (exports, module, require) {
       }),
       (s.prototype.isEnabled = function () {
         if (!r.prototype.isEnabled.call(this)) return false;
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getEditor(),
-          n = t && t.getSelection();
-        if (!n || !n.length) return false;
-        return this._createPattern(n) !== s.EmptyPattern;
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getEditor(),
+          require = module && module.getSelection();
+        if (!require || !require.length) return false;
+        return this._createPattern(require) !== s.EmptyPattern;
       }),
       (s.prototype._createPattern = function (e) {
-        const t = e && e.length;
-        if (!t) return s.EmptyPattern;
-        const n = this._getValue(e[0]);
-        if (n === s.EmptyValue) return s.EmptyPattern;
-        for (let o = 1; o < t; o++) {
+        const module = e && e.length;
+        if (!module) return s.EmptyPattern;
+        const require = this._getValue(e[0]);
+        if (require === s.EmptyValue) return s.EmptyPattern;
+        for (let o = 1; o < module; o++) {
           const t = e[o],
             i = this._getValue(t);
           if (i === s.EmptyValue) return s.EmptyPattern;
-          if (!this._matches(n, i)) return s.EmptyPattern;
+          if (!this._matches(require, i)) return s.EmptyPattern;
         }
-        return n;
+        return require;
       }),
       (s.prototype._matches = function (e, t) {
         return (
@@ -60,15 +60,15 @@ function (exports, module, require) {
         throw "Not implemented";
       }),
       (s.prototype.execute = function () {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getScene(),
-          n = e && e.getEditor(),
-          a = n && n.getSelection();
-        if (!t || !a || !a.length) return;
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getScene(),
+          require = exports && exports.getEditor(),
+          a = require && require.getSelection();
+        if (!module || !a || !a.length) return;
         const r = this._createPattern(a);
         if (r === s.EmptyPattern) return;
         const l = [];
-        t.accept((e) => {
+        module.accept((e) => {
           if (e instanceof o.GElement && !e.hasMixin(o.GAnnotation)) {
             const t = this._createPattern([e]);
             this._matches(r, t) && l.push(e);
@@ -76,9 +76,9 @@ function (exports, module, require) {
         }),
           l.length > 0 &&
             i.GEditor.tryRunTransaction(
-              t,
+              module,
               () => {
-                n.updateSelection(false, l);
+                require.updateSelection(false, l);
               },
               o.GLocale.get(this.getTitle())
             );
@@ -86,5 +86,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GSelectByAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(57) /* module_57 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
+    var i = n(53) /* module */,
+      a = n(1) /* module */,
       r = n(67) /* GRichTooltipConfig */,
       s = o(n(340) /* GTouchTool */),
       l = n(866) /* GAlignAction */,

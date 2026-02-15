@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.GCloudUser = r),
-      (t.default = undefined),
-      n(58) /* module_58 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */;
-    var o = n(1241) /* GCloudRole */;
-    const i = n(0) /* GObject */,
-      a = n(177) /* module_177 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.GCloudUser = r),
+      (module.default = undefined),
+      require(58) /* module_58 */,
+      require(3) /* module_3 */,
+      require(71) /* module_71 */;
+    var o = require(1241) /* GCloudRole */;
+    const i = require(0) /* GObject */,
+      a = require(177) /* module_177 */;
     function r() {}
     i.inherit(r, a),
       (r.ValidRoles = [
@@ -54,5 +54,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GCloudUser]";
       });
-    t.default = r;
+    module.default = r;
   }

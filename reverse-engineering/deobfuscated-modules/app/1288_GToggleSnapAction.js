@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(31) /* GAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
@@ -62,18 +62,18 @@ function (exports, module, require) {
       }),
       (l.prototype.getTooltipConfig = function (e) {
         if (!e) return null;
-        const t = l.TOOLTIP_CONFIG[e];
+        const module = l.TOOLTIP_CONFIG[e];
         return (
-          t.setConfig({
+          module.setConfig({
             title: o.GLocale.get(
               new o.GLocaleKey("GToggleSnapAction", "tootlip-title-action")
             ),
           }),
-          t
+          module
         );
       }),
       (l.prototype.toString = function () {
         return "[Object GToggleSnapAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1246) /* module_1246 */,
-      i = n(1250) /* module_1250 */;
-    e.exports = class {
-      constructor() {
+    require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1246) /* module_1246 */,
+      i = require(1250) /* module_1250 */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         (this._htmlElement = $("<div></div>").addClass("g-persona-bar")),
           (this._container = $("<div></div>")
             .addClass("g-persona-container")

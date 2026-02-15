@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(238) /* GMenu */,
-      i = n(339) /* GMenu */,
-      a = n(1157) /* module_1157 */;
+    require(3) /* module_3 */;
+    var o = require(238) /* GMenu */,
+      i = require(339) /* GMenu */,
+      a = require(1157) /* module_1157 */;
     function r(e) {
       (this._htmlElement = $("<nav></nav>").addClass("g-menu-bar")),
         this.setMenu(e || new o(this));
@@ -39,5 +39,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GMenuBar]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

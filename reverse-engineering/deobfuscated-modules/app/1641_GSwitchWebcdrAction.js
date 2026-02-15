@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */;
-    var r = n(219) /* module_219 */,
-      s = n(85) /* GContainer */;
-    const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = n(231) /* module_231 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */;
+    var r = require(219) /* module_219 */,
+      s = require(85) /* GContainer */;
+    const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231) /* module_231 */;
     function u(e) {
-      let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-      (this._serverName = e), (this._isDefault = !!t);
+      let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+      (this._serverName = e), (this._isDefault = !!module);
     }
     o.GObject.inherit(u, a),
       (u.ID = "help.switchwebcdr"),
@@ -27,8 +27,8 @@ function (exports, module, require) {
         return true;
       }),
       (u.prototype.isChecked = function () {
-        let e = gDesigner.getSetting("webcdr_choice");
-        return (!!e && e === this._serverName) || (!e && this._isDefault);
+        let exports = gDesigner.getSetting("webcdr_choice");
+        return (!!exports && exports === this._serverName) || (!exports && this._isDefault);
       }),
       (u.prototype.getTitle = function () {
         return this._serverName;
@@ -62,5 +62,5 @@ function (exports, module, require) {
       (u.prototype.toString = function () {
         return "[Object GSwitchWebcdrAction]";
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

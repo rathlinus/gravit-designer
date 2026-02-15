@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(357) /* module_357 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = n(123) /* GProperties */,
-      l = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(357) /* module_357 */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = require(123) /* GProperties */,
+      l = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */);
     function c() {
       this._pathes = [];
     }
@@ -23,7 +23,7 @@ function (exports, module, require) {
       (c.prototype._points = null),
       (c.prototype.init = function (e, t) {
         this._panel = e;
-        const n = (e) => {
+        const require = (e) => {
           const t = this._getTargetNodeType($(e.target));
           this.assignNodeType(t);
         };
@@ -96,7 +96,7 @@ function (exports, module, require) {
                   )
               )
               .on("change", function (e) {
-                n(e);
+                require(e);
               });
           if ("ctp" === e)
             return $("<span></span>")
@@ -154,11 +154,11 @@ function (exports, module, require) {
                   var e = t._document
                       .getScene()
                       .stringToPoint($(this).gInputSlider("value")),
-                    n = 0;
-                  n < t._points.length;
-                  ++n
+                    require = 0;
+                  require < t._points.length;
+                  ++require
                 )
-                  t._points[n].setProperty("cl", e, false, false, true);
+                  t._points[require].setProperty("cl", e, false, false, true);
                 t._panel
                   .find('[type="text"][data-point-property="cl"]')
                   .gInputBox(
@@ -304,7 +304,7 @@ function (exports, module, require) {
                     .append(
                       $("<span></span>").addClass("gravit-icon-node-straight")
                     )
-                    .on("click", n),
+                    .on("click", require),
                 },
                 {
                   width: "25%",
@@ -322,7 +322,7 @@ function (exports, module, require) {
                     .append(
                       $("<span></span>").addClass("gravit-icon-node-mirrored")
                     )
-                    .on("click", n),
+                    .on("click", require),
                 },
                 {
                   width: "25%",
@@ -345,7 +345,7 @@ function (exports, module, require) {
                         "gravit-icon-node-disconnected"
                       )
                     )
-                    .on("click", n),
+                    .on("click", require),
                 },
                 {
                   width: "25%",
@@ -370,7 +370,7 @@ function (exports, module, require) {
                     .append(
                       $("<span></span>").addClass("gravit-icon-node-assymetric")
                     )
-                    .on("click", n),
+                    .on("click", require),
                 },
               ],
             })
@@ -429,9 +429,9 @@ function (exports, module, require) {
           (this._points = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            if (t[n] instanceof o.GPath || t[n] instanceof o.GCompoundPath) {
-              var a = t[n];
+          for (var require = 0; require < t.length; ++require)
+            if (t[require] instanceof o.GPath || t[require] instanceof o.GCompoundPath) {
+              var a = t[require];
               this._pathes.push(a);
               var r = function (e) {
                 for (
@@ -504,20 +504,20 @@ function (exports, module, require) {
         }
       }),
       (c.prototype.assignNodeType = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : "-";
         gDesigner.stats(
           "pathproperties_assign_nodetype",
-          this._getStatsNodeType(e)
+          this._getStatsNodeType(exports)
         );
-        const t = this._document,
-          n = t && t.getEditor();
-        if (n) {
-          n.beginTransaction();
+        const module = this._document,
+          require = module && module.getEditor();
+        if (require) {
+          require.beginTransaction();
           try {
             let t = null,
               i = null;
-            "-" === e &&
+            "-" === exports &&
               ((t = ["tp", "hlx", "hly", "hrx", "hry", "ah"]),
               (i = [
                 o.GPathBase.CornerType.Rounded,
@@ -529,9 +529,9 @@ function (exports, module, require) {
               ])),
               this._points.forEach((n) => {
                 if (
-                  "-" !== e &&
+                  "-" !== exports &&
                   ((t = ["ah", "tp"]),
-                  (i = [false, e]),
+                  (i = [false, exports]),
                   null === n.getProperty("hlx") &&
                     null === n.getProperty("hrx"))
                 ) {
@@ -540,7 +540,7 @@ function (exports, module, require) {
                     s = n.getParent().getNextPoint(n),
                     l = s ? s.getProperty("hlx") : null;
                   if (
-                    e != o.GPathBase.AnchorPoint.Type.Asymmetric ||
+                    exports != o.GPathBase.AnchorPoint.Type.Asymmetric ||
                     null !== r ||
                     null !== l
                   )
@@ -594,7 +594,7 @@ function (exports, module, require) {
                   n.setProperty("ah", false);
               });
           } finally {
-            n.commitTransaction(
+            require.commitTransaction(
               o.GLocale.get(
                 new o.GLocaleKey(
                   "GPathProperties",
@@ -619,13 +619,13 @@ function (exports, module, require) {
           e.flag === o.GNode.Flag.Selected &&
           e.node instanceof o.GPathBase.AnchorPoint
         ) {
-          var t = e.node.getParent() ? e.node.getParent().getParent() : null,
-            n =
-              t && t.getParent() && t.getParent().getParent()
-                ? t.getParent().getParent()
+          var module = e.node.getParent() ? e.node.getParent().getParent() : null,
+            require =
+              module && module.getParent() && module.getParent().getParent()
+                ? module.getParent().getParent()
                 : null;
-          ((t && this._pathes.indexOf(t) >= 0) ||
-            (n && this._pathes.indexOf(n) >= 0)) &&
+          ((module && this._pathes.indexOf(module) >= 0) ||
+            (require && this._pathes.indexOf(require) >= 0)) &&
             (e.set
               ? this._points.push(e.node)
               : this._points.splice(this._points.indexOf(e.node), 1),
@@ -641,16 +641,16 @@ function (exports, module, require) {
           this._panel.find("[path-only]").css("display", "none");
         else {
           this._panel.find("[path-only]").css("display", "");
-          var e = this._pathes[0];
-          e instanceof o.GPath
+          var exports = this._pathes[0];
+          exports instanceof o.GPath
             ? (this._panel
                 .find('input[data-path-property="closed"]')
                 .prop("disabled", false)
-                .prop("checked", e.getProperty("closed")),
+                .prop("checked", exports.getProperty("closed")),
               this._panel
                 .find('input[data-path-property="csc"]')
                 .prop("disabled", false)
-                .prop("checked", !!e.getProperty("csc")))
+                .prop("checked", !!exports.getProperty("csc")))
             : (this._panel
                 .find('input[data-path-property="closed"]')
                 .prop("disabled", true)
@@ -658,7 +658,7 @@ function (exports, module, require) {
               this._panel
                 .find('input[data-path-property="csc"]')
                 .prop("disabled", false)
-                .prop("checked", !!e.getProperty("csc")));
+                .prop("checked", !!exports.getProperty("csc")));
         }
       }),
       (c.prototype._settingChanged = function (e) {
@@ -668,14 +668,14 @@ function (exports, module, require) {
         var e = this._points.length > 0 ? this._points[0] : null;
         if (e) {
           this._panel.find("[point-only]").css("display", "");
-          var t = this._getPointCoord(e);
+          var module = this._getPointCoord(e);
           this._panel
             .find('input[data-point-property="x"]')
             .val(
               this._document
                 .getScene()
                 .pointToString(
-                  t.getX(),
+                  module.getX(),
                   this._document.getScene().getOptimalDecimalsCount()
                 )
             ),
@@ -685,34 +685,34 @@ function (exports, module, require) {
                 this._document
                   .getScene()
                   .pointToString(
-                    t.getY(),
+                    module.getY(),
                     this._document.getScene().getOptimalDecimalsCount()
                   )
               );
-          var n = true,
+          var require = true,
             i = e.getProperty("tp");
           for (var a in o.GPathBase.AnchorPoint.Type)
             if (o.GPathBase.AnchorPoint.Type[a] === i) {
-              n = false;
+              require = false;
               break;
             }
-          var r = n ? "-" : i;
+          var r = require ? "-" : i;
           this._panel.find('select[data-point-property="tp"]').val(r),
             this._panel.find("[data-node-type]").each(function (e, t) {
               var n = $(t);
               n.toggleClass("g-active", n.attr("data-node-type") === r);
             }),
-            this._panel.find("[corner-only]").css("display", n ? "" : "none"),
+            this._panel.find("[corner-only]").css("display", require ? "" : "none"),
             this._panel
               .find('[data-point-property="ctp"]')
-              .css("display", n ? "" : "none")
+              .css("display", require ? "" : "none")
               .gCornerTypePicker(
                 "value",
-                n ? i : o.GPathBase.CornerType.Rounded
+                require ? i : o.GPathBase.CornerType.Rounded
               ),
             this._panel
               .find('div[data-point-property="cl"]')
-              .prop("disabled", !n)
+              .prop("disabled", !require)
               .gInputSlider(
                 "value",
                 this._document
@@ -724,7 +724,7 @@ function (exports, module, require) {
               ),
             this._panel
               .find('input[data-point-property="cl"]')
-              .prop("disabled", !n)
+              .prop("disabled", !require)
               .val(
                 this._document
                   .getScene()
@@ -735,7 +735,7 @@ function (exports, module, require) {
               ),
             this._panel
               .find('input[data-point-property="cr"]')
-              .prop("disabled", !n || e.getProperty("cu"))
+              .prop("disabled", !require || e.getProperty("cu"))
               .val(
                 this._document
                   .getScene()
@@ -746,7 +746,7 @@ function (exports, module, require) {
               ),
             this._panel
               .find('button[data-point-property="cu"]')
-              .prop("disabled", !n)
+              .prop("disabled", !require)
               .toggleClass("g-active", !!e.getProperty("cu"));
         } else this._panel.find("[point-only]").css("display", "none");
       }),
@@ -861,5 +861,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GPathProperties]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

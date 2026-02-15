@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(23) /* module_23 */.RegExp,
+    var o = require(21) /* module_21 */,
+      i = require(23) /* module_23 */.RegExp,
       a = o(function () {
         var e = i("a", "y");
         return (e.lastIndex = 2), null !== e.exec("abcd");
@@ -22,5 +22,5 @@ function (exports, module, require) {
           var e = i("^r", "gy");
           return (e.lastIndex = 2), null !== e.exec("str");
         });
-    e.exports = { BROKEN_CARET: s, MISSED_STICKY: r, UNSUPPORTED_Y: a };
+    exports.exports = { BROKEN_CARET: s, MISSED_STICKY: r, UNSUPPORTED_Y: a };
   }

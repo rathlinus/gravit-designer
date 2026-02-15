@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const o = n(156) /* module_156 */;
+    require(8) /* module_8 */, require(196) /* module_196 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    const o = require(156) /* module_156 */;
     function i(e, t, n) {
       var o;
       (this._folder = e),
@@ -110,8 +110,8 @@ function (exports, module, require) {
       }),
       (i.prototype.loadChildrenOnDemand = function (e) {
         this.setLoading(true);
-        const t = (this._children || []).length;
-        return e(this._folder, 100, t)
+        const module = (this._children || []).length;
+        return e(this._folder, 100, module)
           .then((e) => {
             (this._done = e.length < 100),
               e.length &&
@@ -187,8 +187,8 @@ function (exports, module, require) {
         );
       }),
       (i.prototype.onFileDrop = function (e) {
-        let t = null,
-          n = this;
+        let module = null,
+          require = this;
         return (
           this._element
             .on("drop", async function (t) {
@@ -196,19 +196,19 @@ function (exports, module, require) {
               const i = t.originalEvent.dataTransfer,
                 a = JSON.parse(i.getData("text"));
               var r = o.from(a);
-              e(r, n._folder);
+              e(r, require._folder);
             })
             .on("dragover", function (e) {
               $(this).addClass("drag-over"),
-                t ||
-                  (t = setTimeout(() => {
-                    n._isOpen || n._folderState.trigger("click");
+                module ||
+                  (module = setTimeout(() => {
+                    require._isOpen || require._folderState.trigger("click");
                   }, 1e3));
             })
             .on("dragleave", function (e) {
               $(this).removeClass("drag-over"),
-                t && clearTimeout(t),
-                (t = null);
+                module && clearTimeout(module),
+                (module = null);
             }),
           this
         );
@@ -230,5 +230,5 @@ function (exports, module, require) {
       (i.prototype.getHTMLElement = function () {
         return this._element;
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

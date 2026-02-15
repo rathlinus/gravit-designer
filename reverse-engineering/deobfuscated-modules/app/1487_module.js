@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = class {
+    exports.exports = class {
       static getSetting() {
         return "show_welcome_screen";
       }
       static isEnabled() {
-        const e = gDesigner.getSetting("show_welcome_screen");
-        return "boolean" != typeof e || e;
+        const exports = gDesigner.getSetting("show_welcome_screen");
+        return "boolean" != typeof exports || exports;
       }
     };
   }

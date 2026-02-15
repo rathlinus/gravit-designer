@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    e.exports = class {
-      constructor(e) {
-        let t =
+    require(8) /* module_8 */;
+    exports.exports = class {
+      function Object() { [native code] }(e) {
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 0;
-        (this._factory = e), (this._timeout = t), (this._lastCheckTime = 0);
+        (this._factory = e), (this._timeout = module), (this._lastCheckTime = 0);
       }
       get() {
         if (this._timeout) {

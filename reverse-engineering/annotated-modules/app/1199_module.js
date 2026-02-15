@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(328) /* module_328 */, n(57) /* module_57 */, n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(134) /* module_134 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(381) /* module_381 */;
     const {
       parseNativeFonts: a,

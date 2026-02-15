@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(4) /* module_4 */, n(322) /* module_322 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
-    const a = n(880) /* module_880 */;
+    require(30) /* module_30 */, require(4) /* module_4 */, require(322) /* module_322 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */;
+    const a = require(880) /* module_880 */;
     class r extends a {
-      constructor() {
-        let e =
+      function Object() { [native code] }() {
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         super(),
           (this._lastClickPoint = null),
@@ -22,7 +22,7 @@ function (exports, module, require) {
               doubleTapThreshold: 0,
               doubleTapDelay: 100,
             },
-            e
+            exports
           ));
       }
       canActivate() {
@@ -73,16 +73,16 @@ function (exports, module, require) {
           t.isSwiping())
         )
           return;
-        const n = Date.now();
+        const require = Date.now();
         e.iterateChangedTouches((e) => {
           this._dispatchEventFromTouch("click", e);
         });
         const a = e.getOriginalEvent().changedTouches[0];
         a &&
           (this._doubleTapTouches ||
-            (this._isDblClick(a, n) &&
+            (this._isDblClick(a, require) &&
               this._dispatchEventFromTouch("dblclick", a)),
-          (this._lastClickEventTime = n),
+          (this._lastClickEventTime = require),
           (this._lastClickPoint = new o.GPoint(a.screenX, a.screenY)));
       }
       cancel(e) {
@@ -106,11 +106,11 @@ function (exports, module, require) {
         return false;
       }
       _getTwoTouchPointsNearby(e) {
-        const t = e.length;
-        if (t > 1)
-          for (let n = 0; n < t; n++)
-            for (let i = n + 1; i < t; i++) {
-              const t = e[n],
+        const module = e.length;
+        if (module > 1)
+          for (let require = 0; require < module; require++)
+            for (let i = require + 1; i < module; i++) {
+              const t = e[require],
                 a = e[i];
               if (
                 o.GMath.ptDist(t.screenX, t.screenY, a.screenX, a.screenY) <=
@@ -121,5 +121,5 @@ function (exports, module, require) {
         return null;
       }
     }
-    (r.DetectionMode = { Target: 0, Nearby: 1 }), (e.exports = r);
+    (r.DetectionMode = { Target: 0, Nearby: 1 }), (exports.exports = r);
   }

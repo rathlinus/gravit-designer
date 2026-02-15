@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = { DEFAULT: 0, PRESS_AND_HOLD: 1 };
+    exports.exports = { DEFAULT: 0, PRESS_AND_HOLD: 1 };
   }

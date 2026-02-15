@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(119) /* module_119 */;
     e.exports = function (e) {
       (e.CommercialProduct = function (t, n, o, i) {

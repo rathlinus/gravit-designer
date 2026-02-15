@@ -5,48 +5,48 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(20) /* module_20 */,
-      n(71) /* module_71 */,
-      n(247) /* module_247 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(15) /* module_15 */,
-      a = n(53) /* module_53 */,
-      r = n(1) /* module_1 */,
-      s = o(n(78) /* GDocumentEvent */),
-      l = o(n(1330) /* module_1330 */),
-      c = o(n(238) /* GMenu */),
-      d = o(n(339) /* GMenu */),
-      u = o(n(1331) /* GCutCopyAction */),
-      p = o(n(877) /* GPasteAction */),
-      g = o(n(1183) /* GPasteInPlaceAction */),
-      h = o(n(1184) /* GPasteInsideAction */),
-      f = o(n(875) /* GPasteStyleAction */),
-      m = o(n(876) /* GPasteAndReplaceAction */),
-      y = o(n(1332) /* GDeleteAction */),
-      v = o(n(811) /* GGroupAction */),
-      _ = o(n(870) /* GSplitAction */),
-      b = o(n(1333) /* GSelectAllAction */),
-      w = o(n(1334) /* GDeselectAllAction */),
-      C = o(n(869) /* GArrangeAction */),
-      x = o(n(1335) /* GToggleFullscreenAction */),
-      S = o(n(810) /* GConvertToPathAction */),
-      E = o(n(1336) /* GOpenQuickHelpScreenAction */),
-      A = o(n(1337) /* module_1337 */),
-      T = o(n(1590) /* module_1590 */),
-      G = o(n(878) /* module_878 */),
-      P = o(n(879) /* module_879 */);
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(20) /* module_20 */,
+      require(71) /* module_71 */,
+      require(247) /* module_247 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(15) /* module */,
+      a = require(53) /* module */,
+      r = require(1) /* module */,
+      s = o(require(78) /* GDocumentEvent */),
+      l = o(require(1330) /* module_1330 */),
+      c = o(require(238) /* GMenu */),
+      d = o(require(339) /* GMenu */),
+      u = o(require(1331) /* GCutCopyAction */),
+      p = o(require(877) /* GPasteAction */),
+      g = o(require(1183) /* GPasteInPlaceAction */),
+      h = o(require(1184) /* GPasteInsideAction */),
+      f = o(require(875) /* GPasteStyleAction */),
+      m = o(require(876) /* GPasteAndReplaceAction */),
+      y = o(require(1332) /* GDeleteAction */),
+      v = o(require(811) /* GGroupAction */),
+      _ = o(require(870) /* GSplitAction */),
+      b = o(require(1333) /* GSelectAllAction */),
+      w = o(require(1334) /* GDeselectAllAction */),
+      C = o(require(869) /* GArrangeAction */),
+      x = o(require(1335) /* GToggleFullscreenAction */),
+      S = o(require(810) /* GConvertToPathAction */),
+      E = o(require(1336) /* GOpenQuickHelpScreenAction */),
+      A = o(require(1337) /* module_1337 */),
+      T = o(require(1590) /* module_1590 */),
+      G = o(require(878) /* module_878 */),
+      P = o(require(879) /* module_879 */);
     class D extends G.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(e),
           this.addGesture(new P.default()),
           this.setDelayedTouchEventsEnabled(false);
@@ -67,8 +67,8 @@ function (exports, module, require) {
       },
       I = Object.values(L),
       k = (e, t) => {
-        const n = gDesigner.getActiveDocument(),
-          o = n && n.getActiveWindow(),
+        const require = gDesigner.getActiveDocument(),
+          o = require && require.getActiveWindow(),
           i = o && o.getView(),
           a = i && i.getHtmlElement();
         a && a.dispatchEvent(new KeyboardEvent(e, { keyCode: t }));
@@ -109,16 +109,16 @@ function (exports, module, require) {
           "g-virtual-key"
         ),
           this._htmlElement.gCollapsible();
-        const e = $("<div/>").addClass("container").appendTo(this._htmlElement),
-          t = (e) => {
-            const t = this._keyDownInveral[e];
-            t && (clearInterval(t), delete this._keyDownInveral[e]),
+        const exports = $("<div/>").addClass("container").appendTo(this._htmlElement),
+          module = (e) => {
+            const module = this._keyDownInveral[e];
+            module && (clearInterval(module), delete this._keyDownInveral[e]),
               O(e) && i.GPlatform.releaseKey(e),
               k("keyup", L[e]);
           },
-          n = (e) => {
-            const t = this._keyDownInveral[e];
-            t && clearInterval(t),
+          require = (e) => {
+            const module = this._keyDownInveral[e];
+            module && clearInterval(module),
               ((e) => F.includes(e))(e) &&
                 (this._keyDownInveral[e] = setInterval(() => {
                   k("keydown", L[e]);
@@ -133,52 +133,52 @@ function (exports, module, require) {
               icon: a,
               actionClass: "g-virtual-key" + (l ? " " + l : ""),
               mousedown: (e) => {
-                e.stopImmediatePropagation(), this._isHoldingKey(o) || n(o);
+                e.stopImmediatePropagation(), this._isHoldingKey(o) || require(o);
               },
               click: (e) => {
                 e.stopImmediatePropagation(),
                   this._isHoldingKey(o) ||
-                    (t(o), gDesigner.stats("virtualkey_assistantbar_click", o));
+                    (module(o), gDesigner.stats("virtualkey_assistantbar_click", o));
               },
               dblclick: r,
               mouseup: (e) => {
-                e.stopImmediatePropagation(), this._isHoldingKey(o) || t(o);
+                e.stopImmediatePropagation(), this._isHoldingKey(o) || module(o);
               },
               touchstart: () => {
-                this._isHoldingKey(o) || n(o);
+                this._isHoldingKey(o) || require(o);
               },
               touchend: () => {
-                this._isHoldingKey(o) || t(o);
+                this._isHoldingKey(o) || module(o);
               },
               touchcancel: () => {
-                this._isHoldingKey(o) || t(o);
+                this._isHoldingKey(o) || module(o);
               },
               active: () => !!this._keyState[L[o]] || this._isHoldingKey(o),
             });
             return new D(c[0]), c;
           },
           r = function (e) {
-            let t =
+            let module =
               arguments.length > 1 && undefined !== arguments[1]
                 ? arguments[1]
                 : "";
             return e.reduce((e, t) => {
-              let { icon: n, action: o, isEnabled: i } = t;
+              let { icon: require, action: o, isEnabled: i } = t;
               const a = e.createAddItem(o);
               return (
-                n && a.setIcon(n),
+                require && a.setIcon(require),
                 i &&
                   a.addEventListener(d.default.UpdateEvent, () => {
                     a.setEnabled(i());
                   }),
                 e
               );
-            }, new c.default(null, "g-assistant-bar-menu" + (t ? " " + t : "")));
+            }, new c.default(null, "g-assistant-bar-menu" + (module ? " " + module : "")));
           },
           s = (e) => {
             let {
-              action: t,
-              name: n,
+              action: module,
+              name: require,
               menu: o,
               icon: i,
               click: a,
@@ -200,17 +200,17 @@ function (exports, module, require) {
             if (
               (f && y.addClass(f),
               h && (m.data("active", h), m.toggleClass("g-active", !!h())),
-              t &&
-                (m.data("action", t),
-                i || (i = t.getIcon()),
+              module &&
+                (m.data("action", module),
+                i || (i = module.getIcon()),
                 a ||
                   (a = () =>
                     gDesigner.executeAction(
-                      t.getId(),
+                      module.getId(),
                       undefined,
                       "assistantbar"
                     ))),
-              n && $("<span/>").text(n).appendTo(y),
+              require && $("<span/>").text(require).appendTo(y),
               i && $("<span/>").addClass(i).appendTo(y),
               a && y.on("click", a),
               r && y.on("dblclick", r),
@@ -240,10 +240,10 @@ function (exports, module, require) {
             }
             return m;
           },
-          l = $("<div/>").addClass("left-side").appendTo(e),
+          l = $("<div/>").addClass("left-side").appendTo(exports),
           T = $("<div/>")
             .addClass("right-side")
-            .appendTo(e)
+            .appendTo(exports)
             .gCollapsible({ orientation: A.default.Orientation.Horizontal })
             .gCollapsible("collapse")
             .on("visibilitychanged", (e, t) => {
@@ -313,10 +313,10 @@ function (exports, module, require) {
                 content: s({
                   icon: "gravit-icon-touch-selection",
                   click: () => {
-                    const e = gDesigner.getActiveDocument(),
-                      t = e && e.getEditor();
-                    if (t) {
-                      t.getSelection() && t.getSelection().length > 0
+                    const exports = gDesigner.getActiveDocument(),
+                      module = exports && exports.getEditor();
+                    if (module) {
+                      module.getSelection() && module.getSelection().length > 0
                         ? gDesigner.executeAction(
                             w.default.ID,
                             undefined,
@@ -468,11 +468,11 @@ function (exports, module, require) {
             });
       }),
       (R.prototype._toggleModifierKey = function (e) {
-        const t = !i.GPlatform.isHoldingKey(e);
-        this._toggleKey(e, t),
+        const module = !i.GPlatform.isHoldingKey(e);
+        this._toggleKey(e, module),
           this._htmlElement
             .find(".g-virtual-key-".concat(e))
-            .toggleClass("g-held", t),
+            .toggleClass("g-held", module),
           this._updateActions();
       }),
       (R.prototype._toggleKey = function (e, t) {
@@ -565,14 +565,14 @@ function (exports, module, require) {
         this._updateActions();
       }),
       (R.prototype._documentEvent = function (e) {
-        const t = e.document;
-        if (!t.isLockedByVersionHistory())
+        const module = e.document;
+        if (!module.isLockedByVersionHistory())
           switch (e.type) {
             case s.default.Type.Activated:
-              this._activateDocument(t), this._updateActions();
+              this._activateDocument(module), this._updateActions();
               break;
             case s.default.Type.Deactivated:
-              this._deactivateDocument(t), this._updateActions();
+              this._deactivateDocument(module), this._updateActions();
               break;
             case s.default.Type.Modified:
               this._updateActions();
@@ -580,37 +580,37 @@ function (exports, module, require) {
       }),
       (R.prototype._updateActions = function () {
         this._htmlElement.find(".toolbar-button").each(function () {
-          const e = $(this),
-            t = e.data("action"),
-            n = e.data("active");
-          if (t) {
-            const n = !t.isAvailable() || !t.isEnabled();
-            e.find("button").prop("disabled", n).toggleClass("g-disabled", n);
+          const exports = $(this),
+            module = exports.data("action"),
+            require = exports.data("active");
+          if (module) {
+            const n = !module.isAvailable() || !module.isEnabled();
+            exports.find("button").prop("disabled", n).toggleClass("g-disabled", n);
           }
-          n && e.toggleClass("g-active", !!n());
+          require && exports.toggleClass("g-active", !!require());
         });
       }),
       (R.prototype._isArrangeActionEnabled = function (e) {
         if (!gDesigner.getAction(C.default.ID + "." + e).isEnabled()) return false;
-        const t = this._document
+        const module = this._document
           ? this._document.getEditor().getIndividualSelection()
           : null;
-        if (!t) return false;
-        if (t.length > 1) return true;
-        const n = t[0],
-          o = n.getParent();
+        if (!module) return false;
+        if (module.length > 1) return true;
+        const require = module[0],
+          o = require.getParent();
         switch (e) {
           case a.GEditor.ArrangeOrderType.SendToFront:
-            if (n.getNext()) {
-              let e = n.getNext(),
+            if (require.getNext()) {
+              let e = require.getNext(),
                 t = null;
               for (; !t && e; )
                 e instanceof r.GElement && (t = e), (e = e.getNext());
-              return !!t && a.GEditor.validateBlockInsertion(o, n);
+              return !!t && a.GEditor.validateBlockInsertion(o, require);
             }
             return false;
           case a.GEditor.ArrangeOrderType.BringForward: {
-            let e = n.getNext();
+            let e = require.getNext();
             if (e) {
               let t = null;
               for (; !t && e; )
@@ -619,31 +619,31 @@ function (exports, module, require) {
                   (e = e.getNext());
               if (null !== t) {
                 const e = t.getNext();
-                return a.GEditor.validateBlockInsertion(o, n, e);
+                return a.GEditor.validateBlockInsertion(o, require, e);
               }
             }
             return false;
           }
           case a.GEditor.ArrangeOrderType.SendBackward: {
-            let e = n.getPrevious();
+            let e = require.getPrevious();
             if (null !== e) {
               let t = null;
               for (; !t && e; )
                 e instanceof r.GElement &&
                   (e.hasFlag(r.GNode.Flag.Selected) ||
-                    (a.GEditor.validateBlockInsertion(o, n, e) && (t = e))),
+                    (a.GEditor.validateBlockInsertion(o, require, e) && (t = e))),
                   (e = e.getPrevious());
               return !!t;
             }
             return false;
           }
           case a.GEditor.ArrangeOrderType.SendToBack:
-            if (null !== n.getPrevious()) {
+            if (null !== require.getPrevious()) {
               let e = o.getFirstChild(),
                 t = null;
-              for (; !t && e && e !== n; )
+              for (; !t && e && e !== require; )
                 e instanceof r.GElement &&
-                  a.GEditor.validateBlockInsertion(o, n, e) &&
+                  a.GEditor.validateBlockInsertion(o, require, e) &&
                   (t = e),
                   (e = e.getNext());
               return !!t;
@@ -655,5 +655,5 @@ function (exports, module, require) {
       (R.prototype.getHtmlElement = function () {
         return this._htmlElement;
       }),
-      (e.exports = R);
+      (exports.exports = R);
   }

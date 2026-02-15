@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(8) /* module_8 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    const { GObject: o } = n(1) /* module_1 */,
-      { GPlatform: i } = n(15) /* module_15 */,
+    const { GObject: o } = n(1) /* module */,
+      { GPlatform: i } = n(15) /* module */,
       a = n(1355) /* module_1355 */,
       r = n(1191) /* module_1191 */,
       s = n(1356) /* module_1356 */,

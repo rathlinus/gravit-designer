@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
-      r = o(n(340) /* GTouchTool */),
-      s = n(123) /* GProperties */,
-      l = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(1) /* module */,
+      a = require(53) /* module */,
+      r = o(require(340) /* GTouchTool */),
+      s = require(123) /* GProperties */,
+      l = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */);
     function c() {
       this._slices = [];
     }
@@ -209,14 +209,14 @@ function (exports, module, require) {
         return false;
       }),
       (c.prototype._updateUI = function () {
-        let e = (e) => {
+        let exports = (e) => {
             e.prev().remove();
           },
-          t = (e, t) => {
+          module = (e, t) => {
             e.prev().length ||
               $("<span/>").addClass("g-input-label").text(t).insertBefore(e);
           },
-          n = this._panel.find(".slice-position-left-row .property-label span"),
+          require = this._panel.find(".slice-position-left-row .property-label span"),
           o = this._panel.find(".slice-size-width-row .property-label span"),
           a = this._panel.find(".x-input"),
           r = this._panel.find(".y-input"),
@@ -225,28 +225,28 @@ function (exports, module, require) {
         gDesigner.isTouchEnabled()
           ? (this._panel.find(".trm-checkbox").gCheckboxSlider(),
             this._panel.find(".cls-check-checkbox").gCheckboxSlider(),
-            n.text(
+            require.text(
               i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.position"))
             ),
             o.text(
               i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.size"))
             ),
-            t(a, "x"),
-            t(r, "y"),
-            t(s, "w"),
-            t(l, "h"))
+            module(a, "x"),
+            module(r, "y"),
+            module(s, "w"),
+            module(l, "h"))
           : (this._panel.find(".trm-checkbox").gCheckboxSlider("unmount"),
             this._panel.find(".cls-check-checkbox").gCheckboxSlider("unmount"),
-            n.text(
+            require.text(
               i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.left"))
             ),
             o.text(
               i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.width"))
             ),
-            e(a),
-            e(r),
-            e(s),
-            e(l));
+            exports(a),
+            exports(r),
+            exports(s),
+            exports(l));
       }),
       (c.prototype._afterPropertiesChange = function (e) {
         !e.temporary &&
@@ -326,5 +326,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GSliceProperties]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

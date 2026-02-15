@@ -6,21 +6,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(57) /* module_57 */, n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */,
-      r = n(1163) /* module_1163 */,
-      s = o(n(123) /* GProperties */),
-      l = o(n(1159) /* module_1159 */),
-      c = o(n(220) /* module_220 */),
-      d = o(n(163) /* module_163 */),
-      u = o(n(219) /* module_219 */),
-      p = o(n(78) /* GDocumentEvent */),
-      g = o(n(86) /* module_86 */),
-      h = o(n(217) /* GDocumentStatusEvent */),
-      f = o(n(336) /* module_336 */),
-      m = o(n(67) /* GRichTooltipConfig */);
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(57) /* module_57 */, require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(10) /* module_10 */,
+      r = require(1163) /* module_1163 */,
+      s = o(require(123) /* GProperties */),
+      l = o(require(1159) /* module_1159 */),
+      c = o(require(220) /* module_220 */),
+      d = o(require(163) /* module_163 */),
+      u = o(require(219) /* module_219 */),
+      p = o(require(78) /* GDocumentEvent */),
+      g = o(require(86) /* module_86 */),
+      h = o(require(217) /* GDocumentStatusEvent */),
+      f = o(require(336) /* module_336 */),
+      m = o(require(67) /* GRichTooltipConfig */);
     function y() {}
     i.GObject.inherit(y, s.default),
       (y.ID = "version-history"),
@@ -143,16 +143,16 @@ function (exports, module, require) {
           this._toggleLoading(true);
         var t = this;
         this._fileId = e;
-        const n = [
+        const require = [
           a.gApi.listVersions(this._fileId, "tf").then((e) => {
-            const { f: t, t: n } = e;
+            const { f: t, t: require } = e;
             let o = [];
-            for (let e = 0, t = n ? n.length : 0; e < t; e++)
-              n[e]
-                ? o.push(a.gApi.getFile(this._fileId, false, n[e].versionId, "t"))
+            for (let e = 0, t = require ? require.length : 0; e < t; e++)
+              require[e]
+                ? o.push(a.gApi.getFile(this._fileId, false, require[e].versionId, "t"))
                 : o.push(null);
             return Promise.all(o).then((e) => {
-              let n = [];
+              let require = [];
               for (let o = 0, i = t.length; o < i; o++) {
                 let i = {
                   version: t[o],
@@ -161,19 +161,19 @@ function (exports, module, require) {
                     url_t: "assets/icon/versus.svg",
                   },
                 };
-                n.push(i);
+                require.push(i);
               }
-              return Promise.resolve(n);
+              return Promise.resolve(require);
             });
           }),
         ];
         a.AUTO_SAVE_ENABLED &&
-          n.push(
+          require.push(
             a.gApi.listAutoSaves(this._fileId).then((e) => {
               let t = [],
-                n = [];
+                require = [];
               for (let t = 0, o = e.versions.length; t < o; t++)
-                n.push(
+                require.push(
                   e.versions_t && e.versions_t[t]
                     ? a.gApi.getAutoSaveThumbnail(
                         this._fileId,
@@ -181,7 +181,7 @@ function (exports, module, require) {
                       )
                     : null
                 );
-              return Promise.all(n).then((n) => {
+              return Promise.all(require).then((n) => {
                 for (let o = 0, i = e.versions.length; o < i; o++) {
                   let i = {
                     version: e.versions[o],
@@ -198,10 +198,10 @@ function (exports, module, require) {
               });
             })
           ),
-          Promise.all(n)
+          Promise.all(require)
             .then((e) => {
-              let [n, o] = e;
-              t._renderVersionsList(n, o), this._toggleLoading(false);
+              let [require, o] = e;
+              t._renderVersionsList(require, o), this._toggleLoading(false);
             })
             .catch(
               (e) => (
@@ -219,7 +219,7 @@ function (exports, module, require) {
             );
       }),
       (y.prototype._renderVersionsList = function (e, t) {
-        const n = gDesigner.isEnabledProFeatures(),
+        const require = gDesigner.isEnabledProFeatures(),
           o = this,
           s = gDesigner.getActiveDocument().getStorageItem(),
           l = s && s.getVersionId && s.getVersionId(),
@@ -244,7 +244,7 @@ function (exports, module, require) {
                 ? "vhi-initial"
                 : ""
             )
-            .addClass(n || s.latest ? "" : "vhi-disabled")
+            .addClass(require || s.latest ? "" : "vhi-disabled")
             .addClass(
               (c ? l === s.versionId : s.versionId === h.version.versionId)
                 ? "vhi-active"
@@ -289,7 +289,7 @@ function (exports, module, require) {
                 .addClass("gravit-icon-settings")
                 .on("click", function (e) {
                   e.stopPropagation(),
-                    (n || s.latest) &&
+                    (require || s.latest) &&
                       ($(this).find(".vhi-settings-list").toggle(),
                       gDesigner.stats(
                         "version-history-panel_click_setting-icon"
@@ -386,7 +386,7 @@ function (exports, module, require) {
                 gDesigner.intercomStats("Open version from history");
             })
             .on("mouseenter", function () {
-              (n || s.latest) && $(this).addClass("show-icon");
+              (require || s.latest) && $(this).addClass("show-icon");
             })
             .on("mouseleave", function () {
               $(this).removeClass("show-icon"),
@@ -394,10 +394,10 @@ function (exports, module, require) {
             });
         };
         function v(e) {
-          for (let t = 0, n = e.length; t < n; t++) {
+          for (let t = 0, require = e.length; t < require; t++) {
             let o = e[t],
               i = null;
-            (i = o.autosave ? d : u), i.append(y(o, t, n));
+            (i = o.autosave ? d : u), i.append(y(o, t, require));
           }
         }
         u.empty(),
@@ -413,33 +413,33 @@ function (exports, module, require) {
           );
       }),
       (y.prototype._updatePanelHeight = function () {
-        let e =
+        let exports =
           parseInt(
             this._panel.closest(".sidebar-inspector").outerHeight(),
             10
           ) - parseInt(this._toolbar.outerHeight(), 10);
-        this._panel.css("height", e);
+        this._panel.css("height", exports);
       }),
       (y.prototype._documentStatusEventHandler = function (e) {
-        let { status: t } = e;
-        t === g.default.LoadFailed && this._closePreview();
+        let { status: module } = e;
+        module === g.default.LoadFailed && this._closePreview();
       }),
       (y.prototype._documentEvent = function (e) {
-        let { document: t, type: n } = e;
-        if (n === p.default.Type.AutoSaveSynchronized)
+        let { document: module, type: require } = e;
+        if (require === p.default.Type.AutoSaveSynchronized)
           return void this._updateVersionHistory(this._fileId);
         if (this._loadingPreview) return;
-        const o = t.getStorageItem() instanceof c.default.Item,
-          i = t.getScene();
-        ((o && t.getStorageItem().getId() !== this._fileId) ||
+        const o = module.getStorageItem() instanceof c.default.Item,
+          i = module.getScene();
+        ((o && module.getStorageItem().getId() !== this._fileId) ||
           (!o && i && i.getProperty("cid") !== this._fileId)) &&
           this.close();
       }),
       (y.prototype._storageEventHandler = function (e) {
-        let { type: t, storageItem: n } = e;
-        t === f.default.Type.VersionUpdate &&
-          n instanceof c.default.Item &&
-          this._fileId === n.getId() &&
+        let { type: module, storageItem: require } = e;
+        module === f.default.Type.VersionUpdate &&
+          require instanceof c.default.Item &&
+          this._fileId === require.getId() &&
           this._updateVersionHistory(this._fileId);
       }),
       (y.prototype._showPreview = async function (e, t, n, o) {
@@ -667,5 +667,5 @@ function (exports, module, require) {
       (y.prototype.toString = function () {
         return "[Object GVersionHistoryProperties]";
       }),
-      (e.exports = y);
+      (exports.exports = y);
   }

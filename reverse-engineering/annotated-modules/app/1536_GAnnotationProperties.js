@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(58) /* module_58 */, n(19) /* module_19 */, n(8) /* module_8 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
+    var i = n(53) /* module */,
+      a = n(1) /* module */,
       r = o(n(358) /* module_358 */),
       s = n(123) /* GProperties */;
     const l = n(393) /* GCollaborationEvent */,

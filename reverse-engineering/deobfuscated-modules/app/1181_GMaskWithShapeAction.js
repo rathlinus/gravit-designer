@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(106) /* GElementAction */,
-      s = n(809) /* GClipAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(106) /* GElementAction */,
+      s = require(809) /* GClipAction */;
     function l() {}
     o.GObject.inherit(l, r),
       (l.ID = "modify.mask-with-shape"),
@@ -45,48 +45,48 @@ function (exports, module, require) {
             (s.prototype.execute.call(this, true, true),
             e.getSelection().length > 0)
           ) {
-            var t = e.getSelection()[0];
-            t.setProperty(
+            var module = e.getSelection()[0];
+            module.setProperty(
               "name",
               o.GLocale.get(
                 new o.GLocaleKey("GMaskWithShapeAction", "text.mask")
               )
             );
-            var n = t.getPaintLayers();
-            if (n) {
+            var require = module.getPaintLayers();
+            if (require) {
               for (
                 var i = (function (e) {
                     e: for (
-                      var t = e.getFirstChild();
-                      null !== t;
-                      t = t.getNext()
+                      var module = e.getFirstChild();
+                      null !== module;
+                      module = module.getNext()
                     )
                       if (
-                        t instanceof o.GStylable.FillPaintLayer &&
-                        t.getProperty("_pt") instanceof o.GLinearGradient
+                        module instanceof o.GStylable.FillPaintLayer &&
+                        module.getProperty("_pt") instanceof o.GLinearGradient
                       ) {
-                        var n = t.getProperty("_pt");
-                        n;
-                        t: for (var i = 0; i < n.getStops().length; ++i) {
-                          var a = n.getStops()[i].color.toScreenCSS();
+                        var require = module.getProperty("_pt");
+                        require;
+                        t: for (var i = 0; i < require.getStops().length; ++i) {
+                          var a = require.getStops()[i].color.toScreenCSS();
                           if ("#FFFFFF" !== a && "#000000" !== a) {
-                            n = null;
+                            require = null;
                             break t;
                           }
                         }
-                        if (n) break e;
+                        if (require) break e;
                       }
-                    return n;
-                  })(n),
+                    return require;
+                  })(require),
                   a = [],
-                  r = n.getFirstChild();
+                  r = require.getFirstChild();
                 null !== r;
                 r = r.getNext()
               )
                 r instanceof o.GStylable.FillPaintLayer && a.push(r);
-              for (var l = 0; l < a.length; ++l) n.removeChild(a[l]);
+              for (var l = 0; l < a.length; ++l) require.removeChild(a[l]);
               if (
-                (n.insertChild(
+                (require.insertChild(
                   new o.GStylable.FillPaintLayer(o.GRGBColor.WHITE)
                 ),
                 i)
@@ -97,7 +97,7 @@ function (exports, module, require) {
                   "#FFFFFF" === c.color.toScreenCSS() && (c.opacity = 0);
                 }
                 var d = new o.GOverlayEffect();
-                t.getEffects().appendChild(d),
+                module.getEffects().appendChild(d),
                   d.setProperties(["alm", "opc", "pat"], [true, 1, i]);
               }
             }
@@ -109,5 +109,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GMaskWithShapeAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

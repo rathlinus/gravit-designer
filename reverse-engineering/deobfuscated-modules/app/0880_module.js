@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(15) /* module_15 */;
-    e.exports = class {
+    var o = require(15) /* module */;
+    exports.exports = class {
       canActivate() {
         return false;
       }
@@ -25,7 +25,7 @@ function (exports, module, require) {
       cancel(e, t) {}
       gesture(e, t) {}
       _dispatchEventFromTouch(e, t) {
-        let n =
+        let require =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : o.GMouseEvent.BUTTON_LEFT,
@@ -46,7 +46,7 @@ function (exports, module, require) {
           false,
           false,
           false,
-          n,
+          require,
           null
         ),
           t.target.dispatchEvent(a);

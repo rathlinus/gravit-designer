@@ -8,7 +8,7 @@ function (e, t, n) {
     n(30) /* module_30 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(247) /* module_247 */, n(91) /* module_91 */;
     var o = n(263) /* module_263 */,
       i = n(10) /* module_10 */;
-    const { GObject: a } = n(1) /* module_1 */,
+    const { GObject: a } = n(1) /* module */,
       r = n(733) /* module_733 */,
       s = n(589) /* module_589 */,
       l = {},

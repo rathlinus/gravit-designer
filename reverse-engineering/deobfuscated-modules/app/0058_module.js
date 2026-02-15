@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(403) /* module_403 */.includes,
-      a = n(21) /* module_21 */,
-      r = n(360) /* module_360 */;
+    var o = require(25) /* module_25 */,
+      i = require(403) /* module_403 */.includes,
+      a = require(21) /* module_21 */,
+      r = require(360) /* module_360 */;
     o(
       {
         target: "Array",

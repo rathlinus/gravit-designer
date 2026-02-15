@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */;
-    var i = n(15) /* module_15 */,
-      a = n(1) /* module_1 */,
-      r = o(n(18) /* module_18 */),
-      s = n(198) /* Exports_GOutlineSidebar */;
-    const l = n(31) /* GAction */;
+    var o = require(16) /* module_16 */;
+    require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */;
+    var i = require(15) /* module */,
+      a = require(1) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = require(198) /* Exports_GOutlineSidebar */;
+    const l = require(31) /* GAction */;
     class c extends l {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(),
           (this._type = e),
           (this._title = new a.GLocaleKey(
@@ -60,13 +60,13 @@ function (exports, module, require) {
         return false;
       }
       execute() {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getEditor(),
-          n = t && t.getSelection(),
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getEditor(),
+          require = module && module.getSelection(),
           o = gDesigner
             .getRightSidebars()
             .getSidebar(s.SidebarsIds.GInspectorSidebar),
-          i = n && n.filter((e) => e && e.hasMixin(a.GStylable));
+          i = require && require.filter((e) => e && e.hasMixin(a.GStylable));
         if (!(i && i.length > 0)) return;
         const { pageX: r, pageY: l } = this._getLastCursorPoint();
         switch (this._type) {
@@ -83,14 +83,14 @@ function (exports, module, require) {
         }
       }
       _getLastCursorPoint() {
-        const e = gDesigner.getCursorManager().getLastCursorPoint();
-        return { pageX: (e && e.getX()) || 0, pageY: (e && e.getY()) || 0 };
+        const exports = gDesigner.getCursorManager().getLastCursorPoint();
+        return { pageX: (exports && exports.getX()) || 0, pageY: (exports && exports.getY()) || 0 };
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GEyeDropperAction]";
       }
     }
     (c.ID = "edit.eyedropper"),
       (c.Type = { Border: "border", Fill: "fill", Text: "text" }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -7,9 +7,9 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(19) /* module_19 */, n(57) /* module_57 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = (n(15) /* module_15 */, o(n(565) /* module_565 */)),
+    var i = n(53) /* module */,
+      a = n(1) /* module */,
+      r = (n(15) /* module */, o(n(565) /* module_565 */)),
       s = n(67) /* GRichTooltipConfig */,
       l = o(n(135) /* GSettingChangedEvent */),
       c = n(451) /* module_451 */.GVirtualTree,

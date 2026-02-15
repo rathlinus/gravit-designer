@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var o = n(53) /* module */,
+      i = n(1) /* module */,
+      a = n(15) /* module */,
       r = n(866) /* GAlignAction */,
       s = n(869) /* GArrangeAction */,
       l = n(1176) /* GAttachToPathAction */,

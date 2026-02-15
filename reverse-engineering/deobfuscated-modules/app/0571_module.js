@@ -3,6 +3,6 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = require("http");
+function (exports, module) {
+    exports.exports = require("http");
   }

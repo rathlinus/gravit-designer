@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
-      i = n(232) /* module_232 */,
-      a = n(558) /* module_558 */.getWeakData,
-      r = n(146) /* module_146 */,
-      s = n(37) /* module_37 */,
-      l = n(194) /* module_194 */,
-      c = n(46) /* module_46 */,
-      d = n(121) /* module_121 */,
-      u = n(349) /* module_349 */,
-      p = n(61) /* module_61 */,
-      g = n(80) /* module_80 */,
+    var o = require(27) /* module_27 */,
+      i = require(232) /* module_232 */,
+      a = require(558) /* module_558 */.getWeakData,
+      r = require(146) /* module_146 */,
+      s = require(37) /* module_37 */,
+      l = require(194) /* module_194 */,
+      c = require(46) /* module_46 */,
+      d = require(121) /* module_121 */,
+      u = require(349) /* module_349 */,
+      p = require(61) /* module_61 */,
+      g = require(80) /* module_80 */,
       h = g.set,
       f = g.getterFor,
       m = u.find,
@@ -52,7 +52,7 @@ function (exports, module, require) {
         return ~t && v(this.entries, t, 1), !!~t;
       },
     }),
-      (e.exports = {
+      (exports.exports = {
         getConstructor: function (e, t, n, o) {
           var u = e(function (e, i) {
               r(e, g),

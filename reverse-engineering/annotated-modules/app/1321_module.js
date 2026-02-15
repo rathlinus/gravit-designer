@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(30) /* module_30 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     function i(e, t) {
       (this.notification = Object.assign(
         { popup: !1, annonymous: !1 },

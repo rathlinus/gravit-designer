@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this.type = e), (this.data = t);
     }
@@ -13,5 +13,5 @@ function (exports, module, require) {
       (i.Type = { OpenInAppLink: 1 }),
       (i.prototype.type = null),
       (i.prototype.data = null),
-      (e.exports = i);
+      (exports.exports = i);
   }

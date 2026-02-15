@@ -16,9 +16,9 @@ function (e, t, n) {
       n(32) /* module_32 */,
       n(38) /* module_38 */,
       n(33) /* module_33 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var o = n(53) /* module */,
+      i = n(1) /* module */,
+      a = n(15) /* module */,
       r = n(40) /* module_40 */,
       s = n(67) /* GRichTooltipConfig */,
       l = n(1151) /* GSwatchesChangedEvent */,

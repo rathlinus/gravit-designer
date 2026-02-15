@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(193) /* module_193 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(866) /* GAlignAction */,
-      r = n(867) /* GDistributeAction */,
-      s = n(123) /* GProperties */,
-      l = n(135) /* GSettingChangedEvent */;
+    require(193) /* module_193 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(866) /* GAlignAction */,
+      r = require(867) /* GDistributeAction */,
+      s = require(123) /* GProperties */,
+      l = require(135) /* GSettingChangedEvent */;
     function c() {
       this._elements = [];
     }
@@ -91,13 +91,13 @@ function (exports, module, require) {
       }),
       (c.prototype._spaceEvent = function (e) {
         if (13 === e.keyCode) {
-          var t = $(e.target).closest("input"),
-            n = t.attr("data-dist"),
-            o = this._document.getScene().stringToPoint(t.gInputBox("value"));
+          var module = $(e.target).closest("input"),
+            require = module.attr("data-dist"),
+            o = this._document.getScene().stringToPoint(module.gInputBox("value"));
           !isNaN(o) &&
             o > 0 &&
             gDesigner.executeAction(
-              r.ID + "." + n,
+              r.ID + "." + require,
               [this._elements, null, o],
               "shortcut"
             ),
@@ -115,10 +115,10 @@ function (exports, module, require) {
           (this._elements = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            !t[n].hasMixin(i.GElement.Transform) ||
-              t[n] instanceof i.GPage ||
-              this._elements.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            !t[require].hasMixin(i.GElement.Transform) ||
+              t[require] instanceof i.GPage ||
+              this._elements.push(t[require]);
           if (this._elements.length >= 2 && this._elements.length === t.length)
             return (
               (this._document = e),
@@ -150,5 +150,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GAlignProperties]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

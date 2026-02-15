@@ -7,7 +7,7 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    n(3) /* module_3 */,
+    require(3) /* module_3 */,
       (o.prototype._touchTools = null),
       (o.prototype.init = function (e, t) {
         throw new Error("Not Supported.");
@@ -39,5 +39,5 @@ function (exports, module, require) {
       (o.prototype.toString = function () {
         return "[Object GProperties]";
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

@@ -8,7 +8,7 @@ function (exports, module, require) {
     function o() {
       this.stack = [];
     }
-    n(38) /* module_38 */,
+    require(38) /* module_38 */,
       (o.RawValue = function (e) {
         this.value = e;
       }),
@@ -70,5 +70,5 @@ function (exports, module, require) {
           .join(" ");
       }),
       (o.Connector = { AND: "AND", IN: "IN", OR: "OR" }),
-      (e.exports = o);
+      (exports.exports = o);
   }

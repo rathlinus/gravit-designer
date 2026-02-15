@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */,
-      r = n(1589) /* module_1589 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */,
+      r = require(1589) /* module_1589 */;
     function s() {}
     o.GObject.inherit(s, a),
       (s.ID = "help.open-quick-help"),
@@ -39,5 +39,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GOpenQuickHelpScreenAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

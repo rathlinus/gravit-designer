@@ -9,10 +9,10 @@ function (exports, module, require) {
         { ext: "gvdesign", type: "application/gravit+design", default: true },
       ],
       i = o.map((e) => {
-        let { ext: t } = e;
-        return t.toLowerCase();
+        let { ext: module } = e;
+        return module.toLowerCase();
       });
-    e.exports = {
+    exports.exports = {
       AmplitudeHelper: {
         logEvent() {},
         updateUserProperty() {},

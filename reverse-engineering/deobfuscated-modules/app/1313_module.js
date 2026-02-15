@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(255) /* module_255 */,
-      s = n(590) /* module_590 */,
-      l = n(567) /* GAnnotationsSidebar */;
+    require(58) /* module_58 */, require(19) /* module_19 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(38) /* module_38 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(255) /* module_255 */,
+      s = require(590) /* module_590 */,
+      l = require(567) /* GAnnotationsSidebar */;
     const c = ["text/xml", "text/plain"],
       d = [
         "image/svg+xml",
@@ -66,20 +66,20 @@ function (exports, module, require) {
     i.GObject.inherit(p, i.GObject),
       (p.URIListHandler = function () {}),
       (p.URIListHandler.prototype.handle = async function (e, t) {
-        const n = (await e.text())
+        const require = (await e.text())
           .split("\n")
           .filter((e) => !(0 === e.indexOf("#")))
           .map((e) =>
             fetch(e).then((e) => (e.ok ? e.blob() : Promise.reject()))
           );
-        (await Promise.all(n)).forEach((e) => {
+        (await Promise.all(require)).forEach((e) => {
           t[e.type] = e;
         });
       }),
       (p.TextHandler = function () {}),
       (p.TextHandler.prototype.handle = async function (e, t) {
-        const n = await e.text();
-        t[e.type] = n;
+        const require = await e.text();
+        t[e.type] = require;
       });
     const g = {
       "text/plain": new p.TextHandler(),
@@ -98,15 +98,15 @@ function (exports, module, require) {
           });
           if (!e || "denied" === e.state) return Promise.reject();
         }
-        const e = await navigator.clipboard.read();
-        if (!e) return Promise.reject();
-        for (const t of e) {
+        const exports = await navigator.clipboard.read();
+        if (!exports) return Promise.reject();
+        for (const module of exports) {
           const e = {};
-          for (const n of t.types) {
-            if (!u.includes(n)) continue;
-            const o = await t.getType(n),
-              i = g[n];
-            i ? await i.handle(o, e) : (e[n] = o);
+          for (const require of module.types) {
+            if (!u.includes(require)) continue;
+            const o = await module.getType(require),
+              i = g[require];
+            i ? await i.handle(o, e) : (e[require] = o);
           }
           this.handlePasteData(e);
         }
@@ -119,23 +119,23 @@ function (exports, module, require) {
           (this._pasteArea && document.activeElement === this._pasteArea[0]) ||
           gDesigner.isGravitIME(document.activeElement)
         ) {
-          var t = e.clipboardData;
+          var module = e.clipboardData;
           if (
             e.clipboardData &&
             e.clipboardData.items &&
             e.clipboardData.items.length
           ) {
-            for (var n = t.items, o = {}, r = 0; r < n.length; r++) {
+            for (var require = module.items, o = {}, r = 0; r < require.length; r++) {
               var s = null;
-              switch ((d = n[r].type)) {
+              switch ((d = require[r].type)) {
                 case "image/png":
                 case "image/jpeg":
                 case "image/gif":
                 case "application/pdf":
-                  s = n[r].getAsFile();
+                  s = require[r].getAsFile();
                   break;
                 default:
-                  s = t.getData(d) || null;
+                  s = module.getData(d) || null;
               }
               s && (o[d] = s);
             }
@@ -146,19 +146,19 @@ function (exports, module, require) {
           } else if (this._pasteArea) {
             o = {};
             var l = 0;
-            if (t.types && t.types.length) {
-              var c = t.types;
+            if (module.types && module.types.length) {
+              var c = module.types;
               for (r = 0; r < c.length; r++) {
                 var d;
                 if (
                   "public.file-url" === (d = c[r]) &&
-                  t.files &&
-                  l < t.files.length
+                  module.files &&
+                  l < module.files.length
                 ) {
-                  var u = t.files[l++];
+                  var u = module.files[l++];
                   u && (o[u.type] = u);
                 } else {
-                  (s = t.getData(d)) && (o[d] = s);
+                  (s = module.getData(d)) && (o[d] = s);
                 }
               }
             }
@@ -166,8 +166,8 @@ function (exports, module, require) {
               function () {
                 var e = this._pasteArea.children();
                 if (1 === e.length && e.is("img")) {
-                  var t = i.GUtil.dataUrlToBlob(e[0].src);
-                  t && (o[t.type] = t);
+                  var module = i.GUtil.dataUrlToBlob(e[0].src);
+                  module && (o[module.type] = module);
                 }
                 this._handlePasteData(o), this._pasteArea.empty();
               }.bind(this),
@@ -183,9 +183,9 @@ function (exports, module, require) {
       }),
       (p.prototype._canTrigger = function () {
         var e = gDesigner.getActiveDocument();
-        const t = e && e.getEditor();
-        if (t && t.isInlineEditing()) {
-          const e = this._filterForInlineEditing(t.getSelection());
+        const module = e && e.getEditor();
+        if (module && module.isInlineEditing()) {
+          const e = this._filterForInlineEditing(module.getSelection());
           if (e && 1 === e.length && e[0] instanceof i.GText) return true;
         }
         return !(!e || gDesigner.getRightSidebars().getActiveSidebar() == l.ID);
@@ -196,9 +196,9 @@ function (exports, module, require) {
       (p.prototype._handlePasteData = function (e) {
         if (!this._canTrigger()) return false;
         for (
-          var t = !this._callback,
-            n = gDesigner.getActiveDocument(),
-            a = n.getEditor(),
+          var module = !this._callback,
+            require = gDesigner.getActiveDocument(),
+            a = require.getEditor(),
             l = 0;
           l < c.length;
           ++l
@@ -221,7 +221,7 @@ function (exports, module, require) {
                     if (
                       e &&
                       "false" != e &&
-                      (!n.getStorageItem() || n.getStorageItem().getId() != e)
+                      (!require.getStorageItem() || require.getStorageItem().getId() != e)
                     )
                       return;
                   }
@@ -234,7 +234,7 @@ function (exports, module, require) {
           if (e[i.GNode.MIME_TYPE]) {
             var g = i.GNode.deserialize(e[i.GNode.MIME_TYPE]),
               h = g instanceof i.GPage,
-              f = n.filterUnrestrictedCommercialFileElements(
+              f = require.filterUnrestrictedCommercialFileElements(
                 h ? g.getChildren() : g
               );
             if ((f && f.length > 0) || h) {
@@ -290,9 +290,9 @@ function (exports, module, require) {
                   );
                 }
               } else {
-                var w = n.getScene().getStyles();
+                var w = require.getScene().getStyles();
                 if (m.length > 0 || h) {
-                  t && a.beginTransaction();
+                  module && a.beginTransaction();
                   try {
                     for (var C = 0; C < y.length; ++C) {
                       let e = y[C],
@@ -317,7 +317,7 @@ function (exports, module, require) {
                           [e.getProperty("name"), false, e.getProperty("ps")]
                         ),
                         o.assignStyleFrom(e),
-                        n.getScene().getStyles().insertChild(o));
+                        require.getScene().getStyles().insertChild(o));
                       for (var S = 0; S < m.length; ++S) {
                         let e = m[S];
                         e.hasProperty("sref") &&
@@ -338,7 +338,7 @@ function (exports, module, require) {
                         E.isFixedSized() || this._centerToView(true);
                     }
                   } finally {
-                    t &&
+                    module &&
                       a.commitTransaction(
                         i.GLocale.get(
                           new i.GLocaleKey("GPaste", "action.paste")
@@ -374,7 +374,7 @@ function (exports, module, require) {
                 return void o.GElementEditor.getEditor(P).processPaste(u);
               }
             } else {
-              (P = new i.GText()).setText(u, true, true), t && a.beginTransaction();
+              (P = new i.GText()).setText(u, true, true), module && a.beginTransaction();
               try {
                 if (!this.executeCallback([P], true)) {
                   if (
@@ -391,7 +391,7 @@ function (exports, module, require) {
                 }
               } finally {
                 return void (
-                  t &&
+                  module &&
                   a.commitTransaction(
                     i.GLocale.get(new i.GLocaleKey("GPaste", "action.paste"))
                   )
@@ -403,9 +403,9 @@ function (exports, module, require) {
         for (var L = 0; L < d.length; ++L) {
           var I = d[L];
           if (e[I]) {
-            t && a.beginTransaction();
+            module && a.beginTransaction();
             try {
-              n.placeOrImport(
+              require.placeOrImport(
                 e[I],
                 null,
                 false,
@@ -413,7 +413,7 @@ function (exports, module, require) {
                 this.executeCallback.bind(this)
               );
             } finally {
-              t &&
+              module &&
                 a.commitTransaction(
                   i.GLocale.get(
                     new i.GLocaleKey("GPaste", "action.paste-image")
@@ -431,19 +431,19 @@ function (exports, module, require) {
       }),
       (p.prototype._filterForStyleExceptions = function (e) {
         for (
-          var t = [i.GPage, i.GGroup, i.GSymbol], n = [], o = 0;
+          var module = [i.GPage, i.GGroup, i.GSymbol], require = [], o = 0;
           o < e.length;
           o++
         ) {
-          for (var a = e[o], r = true, s = 0; s < t.length; s++) {
-            if (a instanceof t[s]) {
+          for (var a = e[o], r = true, s = 0; s < module.length; s++) {
+            if (a instanceof module[s]) {
               r = false;
               break;
             }
           }
-          r && n.push(a);
+          r && require.push(a);
         }
-        return n;
+        return require;
       }),
       (p.prototype._centerToView = function (e) {
         var t,
@@ -498,5 +498,5 @@ function (exports, module, require) {
           (this._callback(e, t), (this._callback = null), true)
         );
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

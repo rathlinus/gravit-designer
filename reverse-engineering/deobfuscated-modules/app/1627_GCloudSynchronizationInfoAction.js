@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */,
-      r = n(85) /* GContainer */,
-      { CLOUD_SYNC_FEATURE: { NEW_LAYOUT: s } = {} } = n(10) /* module_10 */;
+    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */,
+      r = require(85) /* GContainer */,
+      { CLOUD_SYNC_FEATURE: { NEW_LAYOUT: s } = {} } = require(10) /* module_10 */;
     function l() {}
     o.GObject.inherit(l, a),
       (l.ID = "sync.info"),
@@ -19,9 +19,9 @@ function (exports, module, require) {
         return l.ID;
       }),
       (l.prototype.getTitle = function () {
-        const e = gDesigner.getActiveDocument();
-        if (e && e.getScene()) {
-          const t = e.getScene().lastModifiedDate();
+        const exports = gDesigner.getActiveDocument();
+        if (exports && exports.getScene()) {
+          const t = exports.getScene().lastModifiedDate();
           return t
             ? o.GLocale.get(
                 new o.GLocaleKey(
@@ -54,8 +54,8 @@ function (exports, module, require) {
         return "file";
       }),
       (l.prototype.isVisible = function () {
-        const e = gDesigner.getActiveDocument();
-        return e && e.isCloudSyncOn() && e.isCloudSynchronismAvailable();
+        const exports = gDesigner.getActiveDocument();
+        return exports && exports.isCloudSyncOn() && exports.isCloudSynchronismAvailable();
       }),
       (l.prototype.isEnabled = function () {
         return false;
@@ -70,5 +70,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GCloudSynchronizationInfoAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

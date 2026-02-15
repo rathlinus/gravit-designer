@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(71) /* module_71 */, n(91) /* module_91 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(15) /* module_15 */,
-      i = n(882) /* module_882 */;
-    const a = n(44) /* GSystemDialog */,
-      { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = n(1) /* module_1 */,
-      u = n(1191) /* module_1191 */,
-      { getAnnotationType: p } = n(40) /* module_40 */;
-    n(85) /* GContainer */;
+    require(58) /* module_58 */, require(19) /* module_19 */, require(71) /* module_71 */, require(91) /* module_91 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(15) /* module */,
+      i = require(882) /* module_882 */;
+    const a = require(44) /* GSystemDialog */,
+      { GSystem: r, GLocale: s, GLocaleKey: l, GObject: c, GNode: d } = require(1) /* module */,
+      u = require(1191) /* module_1191 */,
+      { getAnnotationType: p } = require(40) /* module_40 */;
+    require(85) /* GContainer */;
     function g(e) {
       let {
-        container: t,
-        annotation: n,
+        container: module,
+        annotation: require,
         onSubmit: o,
         onCancel: i,
         onAssignTo: a,
         mentionData: r,
       } = e;
-      (this._containter = t),
-        (this._annotation = n),
+      (this._containter = module),
+        (this._annotation = require),
         (this._onSubmit = o),
         (this._onCancel = i),
         (this._onAssignTo = a),
@@ -226,8 +226,8 @@ function (exports, module, require) {
             this._onAssignTo(this._assignees);
       }),
       (g.prototype.requestFocus = function () {
-        const e = this._input[0];
-        e && e.focus ? e.focus() : this._input.focus();
+        const exports = this._input[0];
+        exports && exports.focus ? exports.focus() : this._input.focus();
       }),
       (g.prototype.forceSubmit = function () {
         this._addContent();
@@ -247,5 +247,5 @@ function (exports, module, require) {
       (g.prototype.scrollIntoView = function () {
         this._scrollToElement(this._input);
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

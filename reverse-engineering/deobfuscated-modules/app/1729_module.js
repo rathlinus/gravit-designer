@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
+    require(4) /* module_4 */, require(13) /* module_13 */;
     var o = function (e, t) {
         var n = $(e);
         n.addClass(t ? "collapsed" : "expanded"),

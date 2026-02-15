@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(10) /* module_10 */,
-      a = o(n(1582) /* module_1582 */);
-    e.exports = class {
-      constructor(e) {
+    var o = require(16) /* module_16 */,
+      i = require(10) /* module_10 */,
+      a = o(require(1582) /* module_1582 */);
+    exports.exports = class {
+      function Object() { [native code] }(e) {
         (this._target = e),
           (this._lastTouchStartEvent = 0),
           (this._touchmoved = false),
@@ -60,13 +60,13 @@ function (exports, module, require) {
             ));
       }
       deactivate(e) {
-        const t = e || this._target;
-        t &&
-          (t.removeEventListener("touchstart", this._handleEventBound),
-          t.removeEventListener("touchmove", this._handleEventBound),
-          t.removeEventListener("touchend", this._handleEventBound),
-          t.removeEventListener("touchcancel", this._handleEventBound),
-          t.removeEventListener("gesturestart", this._handleEventBound)),
+        const module = e || this._target;
+        module &&
+          (module.removeEventListener("touchstart", this._handleEventBound),
+          module.removeEventListener("touchmove", this._handleEventBound),
+          module.removeEventListener("touchend", this._handleEventBound),
+          module.removeEventListener("touchcancel", this._handleEventBound),
+          module.removeEventListener("gesturestart", this._handleEventBound)),
           document.removeEventListener(
             "scroll",
             this._handleScrollEventBound,
@@ -96,9 +96,9 @@ function (exports, module, require) {
         }
       }
       _touchStart(e) {
-        const t = e.targetTouches[0] || e.changedTouches[0];
-        t
-          ? ((this._touchStartX = t.clientX), (this._touchStartY = t.clientY))
+        const module = e.targetTouches[0] || e.changedTouches[0];
+        module
+          ? ((this._touchStartX = module.clientX), (this._touchStartY = module.clientY))
           : ((this._touchStartX = 0), (this._touchStartY = 0)),
           (this._touchmoved = false),
           this._gestureHelper.touchStart(e);
@@ -120,10 +120,10 @@ function (exports, module, require) {
         this._gestureHelper.scroll(e);
       }
       _wasMoved(e) {
-        const t = e.changedTouches[0],
-          { clientX: n, clientY: o } = t;
+        const module = e.changedTouches[0],
+          { clientX: require, clientY: o } = module;
         return !(
-          Math.abs(n - this._touchStartX) < i.MIN_TOUCH_MOVE_DISTANCE &&
+          Math.abs(require - this._touchStartX) < i.MIN_TOUCH_MOVE_DISTANCE &&
           Math.abs(o - this._touchStartY) < i.MIN_TOUCH_MOVE_DISTANCE
         );
       }

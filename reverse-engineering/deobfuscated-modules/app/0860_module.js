@@ -5,27 +5,27 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var o = n(1) /* module_1 */,
-      i = n(263) /* module_263 */,
-      a = n(40) /* module_40 */;
-    const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = n(10) /* module_10 */,
-      c = n(85) /* GContainer */,
-      d = n(1252) /* module_1252 */,
-      u = n(859) /* module_859 */,
+    require(19) /* module_19 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var o = require(1) /* module */,
+      i = require(263) /* module_263 */,
+      a = require(40) /* module_40 */;
+    const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* module_10 */,
+      c = require(85) /* GContainer */,
+      d = require(1252) /* module_1252 */,
+      u = require(859) /* module_859 */,
       p = function (e) {
         return gContainer.signWithOAuth(e);
       };
@@ -37,18 +37,18 @@ function (exports, module, require) {
     }
     o.GObject.inherit(g, s.Impl),
       (g.prototype.openOAuth = function (e) {
-        let { dialog: t, provider: n } = e;
-        p(n)
-          .then((e) => t._postLogin(e))
-          .catch((e) => t._handleError(e));
+        let { dialog: module, provider: require } = e;
+        p(require)
+          .then((e) => module._postLogin(e))
+          .catch((e) => module._handleError(e));
       }),
       (g.prototype.openPurchaseFlow = async function (e) {
-        let { dialog: t, options: n = {} } = e;
-        await gDesigner.openPaymentDialog(null, n).catch(() => null), t.close();
+        let { dialog: module, options: require = {} } = e;
+        await gDesigner.openPaymentDialog(null, require).catch(() => null), module.close();
       }),
       (g.prototype.openExternalLink = function (e) {
-        let { link: t } = e;
-        gContainer.openExternalLink(null, t);
+        let { link: module } = e;
+        gContainer.openExternalLink(null, module);
       }),
       (g.prototype.close = function () {
         this._closeCallback();
@@ -64,16 +64,16 @@ function (exports, module, require) {
       (h.prototype._popupInfo = null),
       (h.prototype.open = function () {
         var e = this;
-        let t =
+        let module =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        const n = u.getRuntimeCode();
-        this._loginConfiguration = Object.assign({ runtime: n }, t);
+        const require = u.getRuntimeCode();
+        this._loginConfiguration = Object.assign({ runtime: require }, module);
         const {
           anonymous: i = false,
           animate: a = false,
           version: l = "",
           options: c = {},
-        } = t;
+        } = module;
         let h;
         if (
           ((this._oldTitle = document.title),
@@ -95,7 +95,7 @@ function (exports, module, require) {
             anonymous: i,
             version: l,
             options: c,
-            runtime: n,
+            runtime: require,
           }).open(this._frame);
         } else {
           const t = this._buildURL(this._loginConfiguration);
@@ -134,7 +134,7 @@ function (exports, module, require) {
       }),
       (h.prototype._showPopupInfo = function (e) {
         this._popupInfo && this._popupInfo.remove();
-        const t = e.charAt(0).toUpperCase() + e.slice(1);
+        const module = e.charAt(0).toUpperCase() + e.slice(1);
         (this._popupInfo = $("<div/>")
           .addClass("g-embedded-login")
           .addClass("popup-info")
@@ -151,7 +151,7 @@ function (exports, module, require) {
                         "text.pop-has-been-blocked"
                       )
                     )
-                      .replace("%provider", t)
+                      .replace("%provider", module)
                       .replace("%app", l)
                   )
               )
@@ -181,16 +181,16 @@ function (exports, module, require) {
           this._popupInfo.appendTo($("body"));
       }),
       (h.prototype._buildURL = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         const {
-          anonymous: t = false,
-          signup: n = false,
+          anonymous: module = false,
+          signup: require = false,
           closeable: s = true,
           flow: l,
           options: d = {},
           runtime: u,
-        } = e;
+        } = exports;
         let p, g, h, f;
         if (gContainer.getRuntime() === c.Runtime.Electron) {
           const e = gContainer.getPlatform();
@@ -202,14 +202,14 @@ function (exports, module, require) {
           v = gDesigner.getSignupOptions();
         v &&
           Object.entries(v).forEach((e) => {
-            let [t, n] = e;
-            n && y.set(t, n);
+            let [module, require] = e;
+            require && y.set(module, require);
           }),
           g && y.set("webUrl", g),
           p && y.set("appUrl", p),
-          (gDesigner.showCreateAccount() || n || v) && y.set("newuser", true),
+          (gDesigner.showCreateAccount() || require || v) && y.set("newuser", true),
           gDesigner.enterpriseLoginForm() && y.set("enterprise", "1"),
-          t && y.set("anonymous", t),
+          module && y.set("anonymous", module),
           s || y.set("closeable", s),
           l && y.set("flow", l),
           gContainer.shouldBypassEmailVerification() &&
@@ -239,16 +239,16 @@ function (exports, module, require) {
       }),
       (h.prototype.close = async function (e) {
         e && r.setAuthorizationToken && r.setAuthorizationToken(e);
-        const t = await gDesigner.getUser();
-        t &&
-          (this._isDeactivatedUser(t)
-            ? this._handleDeactivatedUser(t)
+        const module = await gDesigner.getUser();
+        module &&
+          (this._isDeactivatedUser(module)
+            ? this._handleDeactivatedUser(module)
             : (document.title === this._newTitle &&
                 (document.title = this._oldTitle),
               this._crossFrame
                 ? this._crossFrame.close()
                 : this._frame && this._frame.remove(),
-              this._callback && this._callback(t)));
+              this._callback && this._callback(module)));
       }),
       (h.prototype._isDeactivatedUser = function (e) {
         return (
@@ -269,5 +269,5 @@ function (exports, module, require) {
         }
         gDesigner.openDeactivatedUserDialog(e);
       }),
-      (e.exports = h);
+      (exports.exports = h);
   }

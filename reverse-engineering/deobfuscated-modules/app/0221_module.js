@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     (function (e) {
-      var o = n(250) /* module_250 */,
-        i = n(515) /* module_515 */,
-        a = n(516) /* module_516 */;
+      var o = require(250) /* module_250 */,
+        i = require(515) /* module_515 */,
+        a = require(516) /* module_516 */;
       function r() {
         return l.TYPED_ARRAY_SUPPORT ? 2147483647 : 1073741823;
       }
@@ -94,7 +94,7 @@ function (exports, module, require) {
       }
       function u(e, t) {
         if ((d(t), (e = s(e, t < 0 ? 0 : 0 | g(t))), !l.TYPED_ARRAY_SUPPORT))
-          for (var n = 0; n < t; ++n) e[n] = 0;
+          for (var require = 0; require < t; ++require) e[require] = 0;
         return e;
       }
       function p(e, t) {
@@ -373,12 +373,12 @@ function (exports, module, require) {
           return n;
         })(o);
       }
-      (t.Buffer = l),
-        (t.SlowBuffer = function (e) {
+      (module.Buffer = l),
+        (module.SlowBuffer = function (e) {
           +e != e && (e = 0);
           return l.alloc(+e);
         }),
-        (t.INSPECT_MAX_BYTES = 50),
+        (module.INSPECT_MAX_BYTES = 50),
         (l.TYPED_ARRAY_SUPPORT =
           undefined !== e.TYPED_ARRAY_SUPPORT
             ? e.TYPED_ARRAY_SUPPORT
@@ -400,7 +400,7 @@ function (exports, module, require) {
                   return false;
                 }
               })()),
-        (t.kMaxLength = r()),
+        (module.kMaxLength = r()),
         (l.poolSize = 8192),
         (l._augment = function (e) {
           return (e.__proto__ = l.prototype), e;
@@ -446,15 +446,15 @@ function (exports, module, require) {
             throw new TypeError("Arguments must be Buffers");
           if (e === t) return 0;
           for (
-            var n = e.length, o = t.length, i = 0, a = Math.min(n, o);
+            var require = e.length, o = t.length, i = 0, a = Math.min(require, o);
             i < a;
             ++i
           )
             if (e[i] !== t[i]) {
-              (n = e[i]), (o = t[i]);
+              (require = e[i]), (o = t[i]);
               break;
             }
-          return n < o ? -1 : o < n ? 1 : 0;
+          return require < o ? -1 : o < require ? 1 : 0;
         }),
         (l.isEncoding = function (e) {
           switch (String(e).toLowerCase()) {
@@ -499,26 +499,26 @@ function (exports, module, require) {
           var e = this.length;
           if (e % 2 != 0)
             throw new RangeError("Buffer size must be a multiple of 16-bits");
-          for (var t = 0; t < e; t += 2) m(this, t, t + 1);
+          for (var module = 0; module < e; module += 2) m(this, module, module + 1);
           return this;
         }),
         (l.prototype.swap32 = function () {
           var e = this.length;
           if (e % 4 != 0)
             throw new RangeError("Buffer size must be a multiple of 32-bits");
-          for (var t = 0; t < e; t += 4)
-            m(this, t, t + 3), m(this, t + 1, t + 2);
+          for (var module = 0; module < e; module += 4)
+            m(this, module, module + 3), m(this, module + 1, module + 2);
           return this;
         }),
         (l.prototype.swap64 = function () {
           var e = this.length;
           if (e % 8 != 0)
             throw new RangeError("Buffer size must be a multiple of 64-bits");
-          for (var t = 0; t < e; t += 8)
-            m(this, t, t + 7),
-              m(this, t + 1, t + 6),
-              m(this, t + 2, t + 5),
-              m(this, t + 3, t + 4);
+          for (var module = 0; module < e; module += 8)
+            m(this, module, module + 7),
+              m(this, module + 1, module + 6),
+              m(this, module + 2, module + 5),
+              m(this, module + 3, module + 4);
           return this;
         }),
         (l.prototype.toString = function () {
@@ -535,7 +535,7 @@ function (exports, module, require) {
         }),
         (l.prototype.inspect = function () {
           var e = "",
-            n = t.INSPECT_MAX_BYTES;
+            n = module.INSPECT_MAX_BYTES;
           return (
             this.length > 0 &&
               ((e = this.toString("hex", 0, n).match(/.{2}/g).join(" ")),
@@ -1107,5 +1107,5 @@ function (exports, module, require) {
           t[i + n] = e[i];
         return i;
       }
-    }).call(this, n(109) /* module_109 */);
+    }).call(this, require(109) /* module_109 */);
   }

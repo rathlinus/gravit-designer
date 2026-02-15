@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(123) /* GProperties */;
-    const a = n(135) /* GSettingChangedEvent */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(123) /* GProperties */;
+    const a = require(135) /* GSettingChangedEvent */;
     function r() {
       this._items = [];
     }
@@ -118,8 +118,8 @@ function (exports, module, require) {
           e)
         ) {
           gDesigner.addEventListener(a, this._settingChanged, this);
-          for (var n = 0; n < t.length; ++n)
-            t[n] instanceof o.GItem && this._items.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            t[require] instanceof o.GItem && this._items.push(t[require]);
           if (
             this._items.length &&
             this._items.length === t.length &&
@@ -223,5 +223,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GItemProperties]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

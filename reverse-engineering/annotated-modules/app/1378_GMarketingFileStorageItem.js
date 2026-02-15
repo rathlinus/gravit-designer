@@ -12,7 +12,7 @@ function (e, t, n) {
     function a(e, t, n, o) {
       i.default.Item.call(this, e, t, n), (this._fileId = o);
     }
-    n(1) /* module_1 */.GObject.inheritAndMix(a, i.default.Item),
+    n(1) /* module */.GObject.inheritAndMix(a, i.default.Item),
       (a.prototype.isRegistrable = function () {
         return !!this.getId();
       }),

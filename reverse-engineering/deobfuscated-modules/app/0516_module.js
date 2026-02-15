@@ -3,9 +3,9 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     var n = {}.toString;
-    e.exports =
+    exports.exports =
       Array.isArray ||
       function (e) {
         return "[object Array]" == n.call(e);

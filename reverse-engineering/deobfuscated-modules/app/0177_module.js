@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(247) /* module_247 */, n(91) /* module_91 */;
-    var o = n(263) /* module_263 */,
-      i = n(10) /* module_10 */;
-    const { GObject: a } = n(1) /* module_1 */,
-      r = n(733) /* module_733 */,
-      s = n(589) /* module_589 */,
+    require(30) /* module_30 */, require(20) /* module_20 */, require(107) /* module_107 */, require(3) /* module_3 */, require(247) /* module_247 */, require(91) /* module_91 */;
+    var o = require(263) /* module_263 */,
+      i = require(10) /* module_10 */;
+    const { GObject: a } = require(1) /* module */,
+      r = require(733) /* module_733 */,
+      s = require(589) /* module_589 */,
       l = {},
       c = [
         "#B30000",
@@ -33,9 +33,9 @@ function (exports, module, require) {
         "#BF00FF",
       ];
     function d() {
-      let e =
+      let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-      Object.assign(this, e);
+      Object.assign(this, exports);
     }
     a.inheritAndMix(d, s, [r, i.User], true),
       (d.equals = function (e, t) {
@@ -57,9 +57,9 @@ function (exports, module, require) {
         if (!this._color) {
           const t = this.getUID();
           if (!l[t]) {
-            var e = c.shift();
+            var exports = c.shift();
             l[t] =
-              e ||
+              exports ||
               "#" +
                 (
                   (((32 * Math.random()) | 0) << 3) |
@@ -81,9 +81,9 @@ function (exports, module, require) {
         return this.anonymous;
       }),
       (d.prototype.isGravitAccount = function () {
-        const e = this.getEmail();
+        const exports = this.getEmail();
         return /\@(gravit\.io|designer\.io|corel\.com|corelvector\.com)$/.test(
-          e
+          exports
         );
       }),
       (d.prototype.isEmailVerified = function () {
@@ -100,18 +100,18 @@ function (exports, module, require) {
         }
       }),
       (d.prototype.getUserNameInitials = function () {
-        const e = this.getFirstName();
+        const exports = this.getFirstName();
         try {
           if (this.last_name && this.last_name.trim()) {
             const t = this.last_name;
             return ""
-              .concat(e.substr(0, 1))
+              .concat(exports.substr(0, 1))
               .concat(t.substr(0, 1))
               .toLocaleUpperCase();
           }
-          return e ? "".concat(e.substr(0, 1)) : "";
+          return exports ? "".concat(exports.substr(0, 1)) : "";
         } catch (t) {
-          return e ? "".concat(e.substr(0, 1)) : "";
+          return exports ? "".concat(exports.substr(0, 1)) : "";
         }
       }),
       (d.prototype.getLastName = function () {
@@ -123,5 +123,5 @@ function (exports, module, require) {
       (d.prototype.getAccountName = function () {
         return this.email || this.login || "";
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

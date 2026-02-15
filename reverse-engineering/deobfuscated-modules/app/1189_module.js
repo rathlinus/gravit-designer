@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(97) /* module_97 */;
-    e.exports = class {
-      constructor() {
+    require(4) /* module_4 */, require(97) /* module_97 */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         this._swiping = false;
       }
       update(e) {

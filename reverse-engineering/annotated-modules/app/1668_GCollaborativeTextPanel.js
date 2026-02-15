@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = n(606) /* GPanel */,
       a = n(394) /* GView */,
       r = n(392) /* module_392 */,

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */;
-    e.exports = !o(function () {
-      function e() {}
+    var o = require(21) /* module_21 */;
+    exports.exports = !o(function () {
+      function exports() {}
       return (
-        (e.prototype.constructor = null),
-        Object.getPrototypeOf(new e()) !== e.prototype
+        (exports.prototype.constructor = null),
+        Object.getPrototypeOf(new exports()) !== exports.prototype
       );
     });
   }

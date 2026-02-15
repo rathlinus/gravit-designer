@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(8) /* module_8 */, n(4) /* module_4 */, n(322) /* module_322 */, n(32) /* module_32 */, n(38) /* module_38 */, n(97) /* module_97 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    const { GObject: o } = n(1) /* module_1 */,
+    const { GObject: o } = n(1) /* module */,
       i = n(1069) /* module_1069 */;
     function a() {
       (this._resourceMap = new i()),

@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(20) /* module_20 */, n(34) /* module_34 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(44) /* GSystemDialog */);
-    const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = n(10) /* module_10 */,
-      l = n(78) /* GDocumentEvent */,
+    var o = require(16) /* module_16 */;
+    require(20) /* module_20 */, require(34) /* module_34 */;
+    var i = require(1) /* module */,
+      a = o(require(44) /* GSystemDialog */);
+    const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = require(10) /* module_10 */,
+      l = require(78) /* GDocumentEvent */,
       c = r.minutesToMilliseconds(1),
       d = 0.8,
       u = r.minutesToMilliseconds(30);
-    e.exports = class {
-      constructor() {
+    exports.exports = class {
+      function Object() { [native code] }() {
         let {
-          memoryCheckInterval: e = c,
-          memoryUsageThreshold: t = d,
-          autostartTime: n = u,
+          memoryCheckInterval: exports = c,
+          memoryUsageThreshold: module = d,
+          autostartTime: require = u,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        (this._memoryCheckInterval = Math.max(e, r.minutesToMilliseconds(1))),
-          (this._memoryUsageThreshold = t),
-          (this._autostartTime = n);
+        (this._memoryCheckInterval = Math.max(exports, r.minutesToMilliseconds(1))),
+          (this._memoryUsageThreshold = module),
+          (this._autostartTime = require);
       }
       start() {
         this.stop(),
@@ -49,8 +49,8 @@ function (exports, module, require) {
           (this._openWarningDialog(), this.stop(), this._scheduleStartup());
       }
       _calculateThreshold() {
-        const e = gContainer.getMemoryInfo();
-        return e ? e.heapSizeInUse / e.heapSizeLimit : 0;
+        const exports = gContainer.getMemoryInfo();
+        return exports ? exports.heapSizeInUse / exports.heapSizeLimit : 0;
       }
       _scheduleStartup() {
         this._autostartTime > 0 &&

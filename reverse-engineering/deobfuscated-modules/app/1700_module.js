@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = n(255) /* module_255 */,
-      r = n(1118) /* module_1118 */,
-      s = n(1199) /* module_1199 */,
-      l = n(85) /* GContainer */,
-      c = n(44) /* GSystemDialog */;
-    const { GPlatform: d } = n(15) /* module_15 */;
+    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = require(255) /* module_255 */,
+      r = require(1118) /* module_1118 */,
+      s = require(1199) /* module_1199 */,
+      l = require(85) /* GContainer */,
+      c = require(44) /* GSystemDialog */;
+    const { GPlatform: d } = require(15) /* module */;
     function u() {}
     o.GObject.inheritAndMix(u, o.GObject),
       (u.DISABLE_LOCAL_FONTS_ACCESS_WARING =
@@ -85,7 +85,7 @@ function (exports, module, require) {
         );
       },
       g = function (e, t) {
-        let n =
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
         var r = $("<a></a>")
             .data("provider", t)
@@ -95,7 +95,7 @@ function (exports, module, require) {
               "click",
               i.watchDog.trap(
                 function (t) {
-                  n
+                  require
                     ? gDesigner.stats(
                         "fonts_click_protab",
                         o.GLocale.get(e, undefined, o.GLocaleLanguage.English)
@@ -127,35 +127,35 @@ function (exports, module, require) {
                     c.length && a.disableProviders(c);
                   }
                 },
-                () => !n,
+                () => !require,
                 (t) => {
                   gDesigner.stats(
                     "fonts_nonprotriespro_protab",
                     o.GLocale.get(e)
                   );
                 },
-                n
+                require
               )
             ),
           l = $("<li></li>")
             .addClass("tablink")
-            .gPro({ pro: !!n, feature: n })
+            .gPro({ pro: !!require, feature: require })
             .append(r);
         return l;
       },
       h = function (e, t) {
         if (e) {
-          var n = e.data("gfontsbutton");
-          n && n.fontList && n.fontList.gFontsPanel("search", t, e.val());
+          var require = e.data("gfontsbutton");
+          require && require.fontList && require.fontList.gFontsPanel("search", t, e.val());
         }
       };
     const f = function () {
-      const e = $(this).data("gfontsbutton");
-      e &&
-        (e.fontListContainer && e.fontListContainer.gOverlay("close", this),
-        e.options &&
-          e.options.closeCallback &&
-          e.options.closeCallback.call(this));
+      const exports = $(this).data("gfontsbutton");
+      exports &&
+        (exports.fontListContainer && exports.fontListContainer.gOverlay("close", this),
+        exports.options &&
+          exports.options.closeCallback &&
+          exports.options.closeCallback.call(this));
     };
     var m = function (e) {
         var t = $(e),
@@ -338,7 +338,7 @@ function (exports, module, require) {
           );
         },
       };
-    (e.exports = u),
+    (exports.exports = u),
       ($.fn.gFontsButton = function (e) {
         return y[e]
           ? y[e].apply(this, Array.prototype.slice.call(arguments, 1))

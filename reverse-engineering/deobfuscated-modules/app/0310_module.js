@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = function (e, t, n, o) {
+    exports.exports = function (e, t, n, o) {
       for (
         var i = (65535 & e) | 0, a = ((e >>> 16) & 65535) | 0, r = 0;
         0 !== n;

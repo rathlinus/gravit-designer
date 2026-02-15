@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */,
-      a = n(357) /* module_357 */,
-      r = n(604) /* module_604 */,
-      s = (n(1158) /* Action_help_purchase */, null),
+    require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */,
+      a = require(357) /* module_357 */,
+      r = require(604) /* module_604 */,
+      s = (require(1158) /* Action_help_purchase */, null),
       l = null;
     var c = {
       init: function () {
@@ -41,14 +41,14 @@ function (exports, module, require) {
             })
             .gOverlay("open", this)),
             gDesigner.getUser().then(async (e) => {
-              let t = !i.PROFILE_DIALOG_URL;
+              let module = !i.PROFILE_DIALOG_URL;
               i.PROFILE_DIALOG_URL &&
-                (t = await i.gApi.hasPurchases().catch(() => false)),
+                (module = await i.gApi.hasPurchases().catch(() => false)),
                 s.removeClass("loading"),
                 s.append(
                   (function (e, t) {
                     gDesigner.getLicense();
-                    const n = () => {
+                    const require = () => {
                         s.gOverlay("close");
                       },
                       a = e.canUpdateSelfAccountData();
@@ -83,7 +83,7 @@ function (exports, module, require) {
                                           o,
                                           i.gApi.url + "/profile"
                                         ),
-                                    n();
+                                    require();
                                 }),
                               $("<button/>")
                                 .html(
@@ -100,7 +100,7 @@ function (exports, module, require) {
                                     "profile_click_signout-button"
                                   ),
                                     gDesigner.signout(),
-                                    n();
+                                    require();
                                 }),
                             ])
                         );
@@ -171,7 +171,7 @@ function (exports, module, require) {
                             .append(c),
                       l
                     );
-                  })(e, t)
+                  })(e, module)
                 );
             });
         });

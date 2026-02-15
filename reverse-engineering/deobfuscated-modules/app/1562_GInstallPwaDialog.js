@@ -6,32 +6,32 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(1172) /* GInstallToDesktopAction */),
-      s = o(n(1173) /* module_1173 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(1172) /* GInstallToDesktopAction */),
+      s = o(require(1173) /* module_1173 */);
     function l(e) {
-      const t = (e) => {
+      const module = (e) => {
         if (a.GKey.translateKey(e.keyCode) === a.GKey.Constant.ESC)
           return (
             e.preventDefault(),
             e.stopPropagation(),
-            $(document).off("keydown", t),
+            $(document).off("keydown", module),
             this._dialog.gDialog("close"),
             false
           );
       };
-      let n = "g-install-pwa-dialog";
-      e && (n += "-dark"),
+      let require = "g-install-pwa-dialog";
+      e && (require += "-dark"),
         (this._dialog = $("<div />").gDialog({
           releaseOnClose: true,
-          className: n,
+          className: require,
           alwaysCloseable: true,
-          closeCallback: () => $(document).off("keydown", t),
+          closeCallback: () => $(document).off("keydown", module),
         })),
-        $(document).on("keydown", t),
+        $(document).on("keydown", module),
         this._dialog
           .append(this._getCloseButton())
           .append(this._getDialogContent());
@@ -213,5 +213,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GInstallPwaDialog]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

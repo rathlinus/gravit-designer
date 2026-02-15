@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    e.exports = class {
+    require(8) /* module_8 */;
+    exports.exports = class {
       static get DEFAULT_LAYOUT() {
         return 0;
       }

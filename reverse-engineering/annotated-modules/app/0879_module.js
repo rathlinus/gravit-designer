@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(30) /* module_30 */, n(4) /* module_4 */, n(322) /* module_322 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
+    var o = n(1) /* module */,
+      i = n(15) /* module */;
     const a = n(880) /* module_880 */;
     class r extends a {
       constructor() {

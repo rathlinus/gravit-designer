@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(15) /* module_15 */,
+    var i = n(15) /* module */,
       a = o(n(1340) /* GRenameLayerAction */),
       r = o(n(1344) /* GCycleThroughLayersAction */),
       s = {

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     var o, i, a, r;
-    e.exports =
-      ((r = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+    exports.exports =
+      ((r = require(55) /* module_55 */),
+      require(98) /* module_98 */,
       (i = (o = r).lib.CipherParams),
       (a = o.enc.Hex),
       (o.format.Hex = {

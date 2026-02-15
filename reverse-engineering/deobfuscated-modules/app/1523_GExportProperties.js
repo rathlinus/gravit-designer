@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(238) /* GMenu */,
-      s = n(444) /* module_444 */,
-      l = n(123) /* GProperties */,
-      c = n(1253) /* module_1253 */,
-      d = n(446) /* module_446 */,
-      u = n(442) /* module_442 */;
-    const p = n(135) /* GSettingChangedEvent */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(238) /* GMenu */,
+      s = require(444) /* module_444 */,
+      l = require(123) /* GProperties */,
+      c = require(1253) /* module_1253 */,
+      d = require(446) /* module_446 */,
+      u = require(442) /* module_442 */;
+    const p = require(135) /* GSettingChangedEvent */;
     function g() {}
     o.GObject.inherit(g, l),
       (g.prototype._panel = null),
@@ -132,11 +132,11 @@ function (exports, module, require) {
           e)
         ) {
           this._document = e;
-          var t = this._getElements();
+          var module = this._getElements();
           this._elements = [];
-          for (var n = false, i = 0; i < t.length; ++i)
-            t[i] instanceof o.GBlock && this._elements.push(t[i]),
-              t[i] instanceof o.GSlice || (n = true);
+          for (var require = false, i = 0; i < module.length; ++i)
+            module[i] instanceof o.GBlock && this._elements.push(module[i]),
+              module[i] instanceof o.GSlice || (require = true);
           if (this._elements && this._elements.length)
             return (
               (this._document = e),
@@ -147,7 +147,7 @@ function (exports, module, require) {
                   this._afterPropertiesChange,
                   this
                 ),
-              this._createSliceButton.css("display", n ? "" : "none"),
+              this._createSliceButton.css("display", require ? "" : "none"),
               this._updateProperties(),
               true
             );
@@ -165,10 +165,10 @@ function (exports, module, require) {
             (this._elements = e.filterIndividualElements(this._elements)),
           !this._elements || 0 === this._elements.length)
         ) {
-          var t = gDesigner.getToolManager().getActiveTool(),
-            n = null;
-          t instanceof i.GItemTool && (n = t.getDefaultStyle())
-            ? (this._elements = [n])
+          var module = gDesigner.getToolManager().getActiveTool(),
+            require = null;
+          module instanceof i.GItemTool && (require = module.getDefaultStyle())
+            ? (this._elements = [require])
             : (this._elements = [this._document.getScene().getActivePage()]);
         }
         return this._elements;
@@ -197,8 +197,8 @@ function (exports, module, require) {
         var e = this._document.getEditor();
         e.beginTransaction();
         try {
-          for (var t = [], n = 0; n < this._elements.length; ++n) {
-            var i = this._elements[n];
+          for (var module = [], require = 0; require < this._elements.length; ++require) {
+            var i = this._elements[require];
             if (!(i instanceof o.GSlice)) {
               var a = (
                   i.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
@@ -211,10 +211,10 @@ function (exports, module, require) {
                 [r.getX(), r.getY(), r.getWidth(), r.getHeight()]
               ),
                 s.setProperty(u.EXPORT_PROPERTY_NAME, a, true),
-                t.push(s);
+                module.push(s);
             }
           }
-          e.insertElements(t, true, true, false);
+          e.insertElements(module, true, true, false);
         } finally {
           e.commitTransaction(
             o.GLocale.get(
@@ -228,11 +228,11 @@ function (exports, module, require) {
         var e = this._document.getEditor();
         e.beginTransaction();
         try {
-          for (var t = 0; t < this._elements.length; ++t) {
+          for (var module = 0; module < this._elements.length; ++module) {
             for (
-              var n = this._elements[t],
+              var require = this._elements[module],
                 i = (
-                  n.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
+                  require.getProperty(u.EXPORT_PROPERTY_NAME, true, []) || []
                 ).slice(),
                 a = { sz: "", sf: "", fm: "png" },
                 r = [
@@ -256,7 +256,7 @@ function (exports, module, require) {
                 break;
               }
             }
-            i.push(a), n.setProperty(u.EXPORT_PROPERTY_NAME, i, true);
+            i.push(a), require.setProperty(u.EXPORT_PROPERTY_NAME, i, true);
           }
         } finally {
           e.commitTransaction(
@@ -292,8 +292,8 @@ function (exports, module, require) {
         var t = this._document.getEditor();
         t.beginTransaction();
         try {
-          for (var n = 0; n < this._elements.length; ++n) {
-            var i = this._elements[n],
+          for (var require = 0; require < this._elements.length; ++require) {
+            var i = this._elements[require],
               a = i.getProperty(u.EXPORT_PROPERTY_NAME, true);
             !a ||
               e >= a.length ||
@@ -512,5 +512,5 @@ function (exports, module, require) {
       (g.prototype.toString = function () {
         return "[Object GExportProperties]";
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

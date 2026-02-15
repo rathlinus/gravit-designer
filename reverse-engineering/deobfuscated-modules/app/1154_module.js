@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.downloadActiveFile = function () {
-        let e =
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.downloadActiveFile = function () {
+        let exports =
             arguments.length > 0 && undefined !== arguments[0]
               ? arguments[0]
               : null,
-          t =
+          module =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         if (!window.gDesigner) return false;
-        const n = window.gDesigner.getActiveDocument();
-        if (!n) return false;
+        const require = window.gDesigner.getActiveDocument();
+        if (!require) return false;
         if (!window.gContainer) return false;
         const o = window.gContainer.getStorage();
         if (!o) return false;
-        e = e || n.getExtension();
-        const i = "".concat(n.getTitle() || "Design", ".").concat(e);
+        exports = exports || require.getExtension();
+        const i = "".concat(require.getTitle() || "Design", ".").concat(exports);
         return (
           o.download(i, (e) => {
-            n.store(e, console.log, console.error, t);
+            require.store(e, console.log, console.error, module);
           }),
           true
         );
       }),
-      (t.downloadDataURI = function e(t, n, o, i) {
+      (module.downloadDataURI = function e(t, n, o, i) {
         if (t instanceof Blob) {
           var a = new FileReader();
           (a.onloadend = () => {
@@ -40,19 +40,19 @@ function (exports, module, require) {
           gContainer.download({ buffer: e, name: n, extension: o, mime: i });
         }
       }),
-      n(19) /* module_19 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(247) /* module_247 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */;
-    var o = n(1) /* module_1 */,
-      i = n(1210) /* module_1210 */,
+      require(19) /* module_19 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(247) /* module_247 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */;
+    var o = require(1) /* module */,
+      i = require(1210) /* module_1210 */,
       a = /["\*\/:<>\?\\\|]/g,
       r = /[\0-\x1F\x80-\x9F]/g,
       s = /^\.+$/,

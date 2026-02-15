@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */;
-    const o = n(177) /* module_177 */,
-      i = n(805) /* module_805 */,
-      { gApi: a } = n(10) /* module_10 */,
+    require(58) /* module_58 */, require(8) /* module_8 */, require(71) /* module_71 */;
+    const o = require(177) /* module_177 */,
+      i = require(805) /* module_805 */,
+      { gApi: a } = require(10) /* module_10 */,
       r = {};
     let s = false;
     const l = (e) => {
@@ -20,18 +20,18 @@ function (exports, module, require) {
         s || (gDesigner.addEventListener(i, l), (s = true));
     }
     (c.getUserDataFromAnnotAndUser = function (e, t) {
-      const n = e.getProperty("uid");
+      const require = e.getProperty("uid");
       let o = e.getProperty("name"),
         i = "";
       return (
-        n === t.getUID() &&
+        require === t.getUID() &&
           ((o = t.getFirstName() || o), (i = t.getLastName() || "")),
-        { id: n, name: o, last_name: i }
+        { id: require, name: o, last_name: i }
       );
     }),
       (c.prototype.build = function (e) {
         var t = null;
-        const n = $("<span></span>")
+        const require = $("<span></span>")
           .addClass("g-user-preview")
           .append(
             $("<div />")
@@ -54,7 +54,7 @@ function (exports, module, require) {
               (t.includes("graph.microsoft.com") ||
               ("http" !== t.substr(0, 4) && "assets" !== t.substr(0, 6))
                 ? "<svg" === t.substr(0, 4) &&
-                  n
+                  require
                     .empty()
                     .append(
                       $(t)
@@ -64,7 +64,7 @@ function (exports, module, require) {
                     )
                 : (this._user.hasOwnPictureAvatar() ||
                     (!this._user.avatar && o.hasOwnPictureAvatar())) &&
-                  n
+                  require
                     .empty()
                     .append(
                       $("<img>")
@@ -74,8 +74,8 @@ function (exports, module, require) {
                     )),
               e && e();
           }),
-          n
+          require
         );
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

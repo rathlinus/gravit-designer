@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.SHAREPOINT_COMMAND =
-        t.ONE_DRIVE_BUSINESS_COMMAND =
-        t.MS_TEAMS_COMMAND =
-        t.COMMAND_QUERY_PARAM =
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.SHAREPOINT_COMMAND =
+        module.ONE_DRIVE_BUSINESS_COMMAND =
+        module.MS_TEAMS_COMMAND =
+        module.COMMAND_QUERY_PARAM =
           undefined);
-    (t.ONE_DRIVE_BUSINESS_COMMAND = "onedrivebusiness"),
-      (t.SHAREPOINT_COMMAND = "sharepoint"),
-      (t.MS_TEAMS_COMMAND = "msteams"),
-      (t.COMMAND_QUERY_PARAM = "sp_command");
+    (module.ONE_DRIVE_BUSINESS_COMMAND = "onedrivebusiness"),
+      (module.SHAREPOINT_COMMAND = "sharepoint"),
+      (module.MS_TEAMS_COMMAND = "msteams"),
+      (module.COMMAND_QUERY_PARAM = "sp_command");
   }

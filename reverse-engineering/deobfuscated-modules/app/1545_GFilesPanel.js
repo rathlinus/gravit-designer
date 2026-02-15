@@ -6,56 +6,56 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(328) /* module_328 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(34) /* module_34 */,
-      n(851) /* module_851 */,
-      n(91) /* module_91 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(1546) /* module_1546 */,
-      r = n(40) /* module_40 */,
-      s = n(1154) /* module_1154 */,
-      l = n(1552) /* module_1552 */,
-      c = n(862) /* module_862 */,
-      d = n(858) /* module_858 */,
-      u = o(n(1556) /* module_1556 */),
-      p = o(n(86) /* module_86 */),
-      g = o(n(119) /* module_119 */),
-      h = o(n(802) /* CloudException */),
-      f = o(n(1240) /* module_1240 */),
-      m = o(n(445) /* GSaveAsAction */),
-      y = o(n(44) /* GSystemDialog */),
-      v = o(n(355) /* module_355 */),
-      _ = n(10) /* module_10 */,
-      b = n(519) /* module_519 */,
-      w = o(n(1557) /* module_1557 */);
-    const C = n(156) /* module_156 */,
-      x = n(78) /* GDocumentEvent */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(328) /* module_328 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(96) /* module_96 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(356) /* module_356 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(271) /* module_271 */,
+      require(34) /* module_34 */,
+      require(851) /* module_851 */,
+      require(91) /* module_91 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(97) /* module_97 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(1546) /* module_1546 */,
+      r = require(40) /* module_40 */,
+      s = require(1154) /* module_1154 */,
+      l = require(1552) /* module_1552 */,
+      c = require(862) /* module_862 */,
+      d = require(858) /* module_858 */,
+      u = o(require(1556) /* module_1556 */),
+      p = o(require(86) /* module_86 */),
+      g = o(require(119) /* module_119 */),
+      h = o(require(802) /* CloudException */),
+      f = o(require(1240) /* module_1240 */),
+      m = o(require(445) /* GSaveAsAction */),
+      y = o(require(44) /* GSystemDialog */),
+      v = o(require(355) /* module_355 */),
+      _ = require(10) /* module_10 */,
+      b = require(519) /* module_519 */,
+      w = o(require(1557) /* module_1557 */);
+    const C = require(156) /* module_156 */,
+      x = require(78) /* GDocumentEvent */;
     var S = _.CloudIntegration.cloudOptions,
       E = _.CloudIntegration.nativeOption,
       A = [..._.CloudIntegration.cloudOptions, _.CloudIntegration.nativeOption];
@@ -82,7 +82,7 @@ function (exports, module, require) {
       (T.prototype._initializeDefaultValues = function (e) {
         var t = this;
         let {
-          closeCallback: n = r.fakeFunction,
+          closeCallback: require = r.fakeFunction,
           documentToSave: o,
           cancelSave: i = r.fakeFunction,
           defaultFilename: a,
@@ -114,16 +114,16 @@ function (exports, module, require) {
             t._removeEventListeners(), e(...arguments);
           };
         (this._onCancelSaveCallback = i && m(i)),
-          (this._onCloseCallback = n && m(n)),
+          (this._onCloseCallback = require && m(require)),
           (this._documentToSave = o),
           (this._isSaveMode = u || this._documentToSave);
       }),
       (T.prototype._init = async function (e) {
-        let { parentComponent: t, nativeCloud: n, initCallback: o } = e;
+        let { parentComponent: module, nativeCloud: require, initCallback: o } = e;
         return (
           (this.USER = await gDesigner.getUser()),
-          (this.panel = $("<div/>").addClass("g-files-panel").appendTo(t)),
-          this.initLayout(n)
+          (this.panel = $("<div/>").addClass("g-files-panel").appendTo(module)),
+          this.initLayout(require)
             .then(() => {
               o && o();
             })
@@ -133,17 +133,17 @@ function (exports, module, require) {
         );
       }),
       (T.GUISettings = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        return Object.assign({ dialogControls: true, downloadSourceFile: false }, e);
+        return Object.assign({ dialogControls: true, downloadSourceFile: false }, exports);
       }),
       (T.prototype.unmount = function () {
-        function e() {
+        function exports() {
           this.panel && $(this.panel).remove();
         }
         this._initializingPromise
-          ? this._initializingPromise.then(() => e.call(this))
-          : e.call(this);
+          ? this._initializingPromise.then(() => exports.call(this))
+          : exports.call(this);
       }),
       (T.isMaximized = () => gContainer.getProperty("GFilesPanel.maximized")),
       (T.isFilesGridListStyle = () =>
@@ -165,7 +165,7 @@ function (exports, module, require) {
             .concat(T.DriveAccountsSettingName, ".")
             .concat(this.USER.id));
         var t = this;
-        let n = await gContainer.getProperty(T.DriveAccountsActiveSettingsName);
+        let require = await gContainer.getProperty(T.DriveAccountsActiveSettingsName);
         return (async function (n) {
           let o,
             i = true;
@@ -181,7 +181,7 @@ function (exports, module, require) {
           (await T.isFilesGridListStyle()) && t.toListView(),
             (await T.isMaximized()) && t._maximizeWindow(true),
             window.addEventListener("resize", t._minimizeWindow.bind(t));
-        })(n && n.activeSettingsId);
+        })(require && require.activeSettingsId);
       }),
       (T.prototype.updateCloudAccountName = function (e, t) {
         var n = this;
@@ -261,14 +261,14 @@ function (exports, module, require) {
       }),
       (T.prototype.handleNewFolder = function (e) {
         var t = this;
-        let n = false;
+        let require = false;
         gDesigner.stats("filespanel_create_cloudfolder"),
           this.view.toggleLoading(true);
         let o = 0;
         const a = (r) => {
           if ((o++, o > b.MAX_FOLDER_DEPTH_FOR_CLOUD))
             return (
-              (n = false),
+              (require = false),
               t.view.toggleLoading(false),
               void y.default.alert(
                 i.GLocale.get(
@@ -320,7 +320,7 @@ function (exports, module, require) {
                   }
                 }
                 var l;
-                (n = true),
+                (require = true),
                   t.drive
                     .createFolder(o)
                     .then(() => {
@@ -334,7 +334,7 @@ function (exports, module, require) {
                             a(o);
                           })
                         );
-                      (n = false),
+                      (require = false),
                         console.error(e),
                         y.default.alert(
                           i.GLocale.get(
@@ -347,7 +347,7 @@ function (exports, module, require) {
                     });
               },
               function () {
-                n || t.view.toggleLoading(false);
+                require || t.view.toggleLoading(false);
               },
               "primary",
               r,
@@ -411,7 +411,7 @@ function (exports, module, require) {
         );
       }),
       (T.prototype.handleSave = async function (e, t) {
-        let n =
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         t || (t = this.getDefaultExtensionForSave());
         const o = (e) =>
@@ -464,7 +464,7 @@ function (exports, module, require) {
                 e = s;
               }
             }
-            await this._triggerNewFileSave(e, t, n);
+            await this._triggerNewFileSave(e, t, require);
           } catch (e) {
             if (e && e.badName)
               return (
@@ -543,20 +543,20 @@ function (exports, module, require) {
           this.drive.getCurrentFolder())
         ) {
           this.view.toggleLoading(true), this.drive.navigateToParentFolder();
-          var e = this.drive.getCurrentFolder();
-          this.view.manageOpenFolder(null, e), this.view.resetSelection();
+          var exports = this.drive.getCurrentFolder();
+          this.view.manageOpenFolder(null, exports), this.view.resetSelection();
         }
         return this.updateFilesList(true, false), this;
       }),
       (T.prototype.navigateToRoot = function () {
-        let e =
+        let exports =
           !(arguments.length > 0 && undefined !== arguments[0]) || arguments[0];
         return (
           gDesigner.stats("filespanel_go-to-root_cloudfolder"),
           this.drive.isRootFolder() ||
             (this.view.toggleLoading(true),
             this.drive.setCurrentFolder(this.drive.getRootFolder()),
-            this.navigateToFolder(this.drive.getRootFolder(), e),
+            this.navigateToFolder(this.drive.getRootFolder(), exports),
             this.view.manageOpenFolder(null, this.drive.getRootFolder()),
             this.view.resetSelection()),
           this
@@ -662,7 +662,7 @@ function (exports, module, require) {
         return Promise.resolve(e);
       }),
       (T.prototype.downloadFile = function (e, t) {
-        let n =
+        let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {},
           o = arguments.length > 3 && undefined !== arguments[3] && arguments[3];
         if (o) {
@@ -677,9 +677,9 @@ function (exports, module, require) {
         } else t || (t = this.drive.getFileFormat(e) || c.DEFAULT_TYPE);
         var { ext: a, type: r, mime: s, version: l } = t;
         r = r || s;
-        const d = this._triggerFileDownload(e, n, a, r, l);
+        const d = this._triggerFileDownload(e, require, a, r, l);
         function u(t) {
-          return { promise: t, file: e, cancel: () => n.cancel && n.cancel() };
+          return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
         }
         return u(d);
       }),
@@ -736,7 +736,7 @@ function (exports, module, require) {
         );
       }),
       (T.prototype._repackNativeBlob = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return new Promise(async (n, o) => {
           const a = new FileReader();
@@ -747,7 +747,7 @@ function (exports, module, require) {
                 gDesigner.getWorkspace()
               );
             var s = { cancelled: false };
-            (t.cancel = (0, r.chaining)(t.cancel, () => (s.cancelled = true))),
+            (module.cancel = (0, r.chaining)(module.cancel, () => (s.cancelled = true))),
               await (0, r.resolveDocumentImages)(
                 a,
                 T.IMAGES_WAIT_TIMEOUT,
@@ -776,11 +776,11 @@ function (exports, module, require) {
         });
       }),
       (T.prototype.downloadSelectedFiles = async function () {
-        let { ext: e, type: t } =
+        let { ext: exports, type: module } =
             arguments.length > 0 && undefined !== arguments[0]
               ? arguments[0]
               : c.DEFAULT_TYPE,
-          n = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
+          require = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
           o = arguments.length > 2 ? arguments[2] : undefined;
         if (this.SELECTION.length < 1) return;
         const i = await Promise.all(
@@ -795,7 +795,7 @@ function (exports, module, require) {
             )
           ),
           a = this.SELECTION.filter((e, t) => !!i[t]);
-        await this._triggerSelectedFilesDownload(a, e, t, n, o);
+        await this._triggerSelectedFilesDownload(a, exports, module, require, o);
       }),
       (T.prototype._triggerSelectedFilesDownload = async function (
         e,
@@ -895,13 +895,13 @@ function (exports, module, require) {
           : d.updateStatus(p.default.Downloaded);
       }),
       (T.prototype.navigateToFolder = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        const n = this.getAvailableFileTypesFilter();
+        const require = this.getAvailableFileTypesFilter();
         this._navigateDriveToUserFolderOrRoot(e);
         const o = this.getAvailableFileTypesFilter();
-        this._clearFileFiltersInCaseAvailableFiltersDoesNotMatch(n, o),
-          t && this.updateFilesList(true, false);
+        this._clearFileFiltersInCaseAvailableFiltersDoesNotMatch(require, o),
+          module && this.updateFilesList(true, false);
         var i = this.SELECTION.indexOf(e);
         i > -1 && this.SELECTION.splice(i, 1);
         var a = this.TEMP_SELECTION.indexOf(e);
@@ -922,18 +922,18 @@ function (exports, module, require) {
         return true;
       }),
       (T.prototype.addFolder = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        this.view.addFolder(this.updateCloudItemForUserPermission(e), t);
+        this.view.addFolder(this.updateCloudItemForUserPermission(e), module);
       }),
       (T.prototype.addCustomFolder = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        this.view.addCustomFolder(this.updateCloudItemForUserPermission(e), t);
+        this.view.addCustomFolder(this.updateCloudItemForUserPermission(e), module);
       }),
       (T.prototype.getSort = function () {
-        let e = this.getCurrentAscend() ? "" : "-";
-        return (e += this.getCurrentSortType()), e;
+        let exports = this.getCurrentAscend() ? "" : "-";
+        return (exports += this.getCurrentSortType()), exports;
       }),
       (T.prototype.hasMoreItemsToLoad = function () {
         return -1 !== this.CURRENT_FILE_LOAD || this.drive.hasMoreItemsToLoad();
@@ -941,29 +941,29 @@ function (exports, module, require) {
       (T.prototype._sortFilesByMimeType = function (e) {
         if (0 === this.drive.getSelectedFilterForFileTypes().length) return e;
         return (function (e) {
-          let t = {};
+          let module = {};
           e.forEach((e) => {
-            let n = e.getMimeType();
-            (t[n] = t[n] || []), t[n].push(e);
+            let require = e.getMimeType();
+            (module[require] = module[require] || []), module[require].push(e);
           });
-          let n = [];
+          let require = [];
           return (
-            Object.values(t).forEach((e) => {
-              n = n.concat(e);
+            Object.values(module).forEach((e) => {
+              require = require.concat(e);
             }),
-            n
+            require
           );
         })(e);
       }),
       (T.prototype._displayRecentFiles = async function () {
-        let e;
+        let exports;
         if (this.isRootFolder() && !this._showExampleFiles)
           try {
-            (e = await this.drive.fetchRecentFiles()),
-              (e = this._sortFilesByMimeType(e)),
-              e &&
-                (this.view.toggleRecentFiles(!!e && e.length > 0),
-                e.forEach((e) => {
+            (exports = await this.drive.fetchRecentFiles()),
+              (exports = this._sortFilesByMimeType(exports)),
+              exports &&
+                (this.view.toggleRecentFiles(!!exports && exports.length > 0),
+                exports.forEach((e) => {
                   this.drive.isItemAllowedToBeRendered(e, true) &&
                     this.addFile(e, true),
                     this.drive.itemRequiresLazyUpdate(e).then((t) => {
@@ -980,12 +980,12 @@ function (exports, module, require) {
               )
             );
           } finally {
-            this._showRecentFiles = !!e && e.length > 0;
+            this._showRecentFiles = !!exports && exports.length > 0;
           }
         else this._showRecentFiles = false;
       }),
       (T.prototype.buildDepth = async function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         if (!gDesigner.getApplicationManager().isOpenFromCloudEnabled())
           return this.view.toggleLoading(false), Promise.reject();
@@ -1025,7 +1025,7 @@ function (exports, module, require) {
                       });
                   });
               }),
-                e && n._buildFolder(t);
+                e && n._buildFolder(module);
             } else {
               if (n.hasMoreItemsToLoad() && !n._showExampleFiles) {
                 try {
@@ -1083,7 +1083,7 @@ function (exports, module, require) {
                     !((await n.drive.hasFolders()) && !n.isRootFolder())),
                   n._showExampleFiles && (s = await n.drive.loadExampleFiles()),
                   0 === s.length && (n._showEmptyPanel = false),
-                  n._buildFolder(t)),
+                  n._buildFolder(module)),
                 n.view.removeExampleFiles(),
                 s.forEach((e) => {
                   (n.drive.isItemAllowedToBeRendered(e) ||
@@ -1135,7 +1135,7 @@ function (exports, module, require) {
             const i = await o(e);
             if (
               (n.view.toggleFolders(n._hasFolders && !n._showExampleFiles),
-              t && i)
+              module && i)
             ) {
               var a = await n.drive.getPreviousSelectedFolder();
               a &&
@@ -1156,30 +1156,30 @@ function (exports, module, require) {
         if (!e) return;
         if (this._showExampleFiles) return;
         this.addFolder(this.drive.getRootFolder(), null);
-        const t = [this.drive.getRootFolder()];
+        const module = [this.drive.getRootFolder()];
         if (!this.isSaveMode()) {
           const e = this._getSharedWithMeFolder();
           e && this.addCustomFolder(e, null);
         }
-        this._hasFolders = !!t && t.length > 0;
+        this._hasFolders = !!module && module.length > 0;
       }),
       (T.prototype._getSharedWithMeFolder = function () {
         return null;
       }),
       (T.prototype._updateCurrentFileLoad = function (e) {
-        let t;
-        (t =
+        let module;
+        (module =
           e > 0
             ? e < this.getQueryLimit()
               ? -1
               : this.CURRENT_FILE_LOAD + e
             : -1),
-          (this.CURRENT_FILE_LOAD = t);
+          (this.CURRENT_FILE_LOAD = module);
       }),
       (T.prototype.getCloudSettingsById = function (e) {
         return this.CLOUD_SETTINGS.find((t) => {
-          let { id: n } = t;
-          return n === e;
+          let { id: require } = t;
+          return require === e;
         });
       }),
       (T.prototype.updateCloudItemForUserPermission = function (e) {
@@ -1206,7 +1206,7 @@ function (exports, module, require) {
         return this.getCloudSettingsById(this.getCurrentDriveId());
       }),
       (T.prototype.setCloudDrive = async function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         if (!e)
           throw new Error(
@@ -1218,8 +1218,8 @@ function (exports, module, require) {
             )
           );
         this.view && this.view.toggleLoading(true);
-        const n = A.find((t) => t.type === e.type);
-        if (n.pro && !gDesigner.isEnabledProFeatures())
+        const require = A.find((t) => t.type === e.type);
+        if (require.pro && !gDesigner.isEnabledProFeatures())
           return void gDesigner.handlePROFeatureInterruption();
         const o = this.drive,
           r = this.getCurrentDriveId()
@@ -1244,7 +1244,7 @@ function (exports, module, require) {
           this._currentDriveId = e.id;
           const n = { activeSettingsId: e.id };
           if (
-            (t && gContainer.setProperty(T.DriveAccountsActiveSettingsName, n),
+            (module && gContainer.setProperty(T.DriveAccountsActiveSettingsName, n),
             this.drive.setQueryLimit(this.getQueryLimit()),
             this.drive.setDriveSettings(this._driveSettings),
             this.view.relayout(),
@@ -1287,17 +1287,17 @@ function (exports, module, require) {
       (T.prototype._handleDriveEvent = async function (e) {
         if (e.type === h.default.DriveEvent.Type.UserUpdated) {
           if (this.drive.hasUserProfile()) {
-            var t = await this.drive.getUser();
-            t && this.view.updateUserDetails(t);
+            var module = await this.drive.getUser();
+            module && this.view.updateUserDetails(module);
           }
         } else if (e.type === h.default.DriveEvent.Type.FolderSwitchRequired) {
-          const { folder: t } = e.data;
-          this.drive.isRootFolder(t)
+          const { folder: module } = e.data;
+          this.drive.isRootFolder(module)
             ? (this.isRootFolder() || this.navigateToRoot(false),
               this.updateFilesList(true, true))
-            : (this.drive.setCurrentFolder(t),
+            : (this.drive.setCurrentFolder(module),
               this.updateFilesList(true, true),
-              this.view.navigateToFolder(t));
+              this.view.navigateToFolder(module));
         }
       }),
       (T.prototype.getCreateCloudAccountOptions = async function () {
@@ -1309,14 +1309,14 @@ function (exports, module, require) {
       (T.prototype.updateCloudSettings = function () {
         var e = this;
         return gContainer.getProperty(e.accountSettingsKey).then(function (t) {
-          let n = t ? e._stringToSettings(t) : [];
+          let require = t ? e._stringToSettings(t) : [];
           return (
-            n instanceof Array || (n = []),
-            (n = n.filter((e) => {
+            require instanceof Array || (require = []),
+            (require = require.filter((e) => {
               var t = A.find((t) => e.type === t.type);
               return (t.pro && gDesigner.isEnabledProFeatures()) || !t.pro;
             })),
-            (e.CLOUD_SETTINGS = n.concat([E])),
+            (e.CLOUD_SETTINGS = require.concat([E])),
             true
           );
         });
@@ -1325,23 +1325,23 @@ function (exports, module, require) {
         return this.drive.getDefaultFileFormat().ext.toUpperCase();
       }),
       (T.prototype.updateFilesList = async function () {
-        let e =
+        let exports =
             !(arguments.length > 0 && undefined !== arguments[0]) || arguments[0],
-          t =
+          module =
             !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        const n = Math.random();
-        this.CURRENT_UPDATE_OPERATION_ID = n;
+        const require = Math.random();
+        this.CURRENT_UPDATE_OPERATION_ID = require;
         const o = this.view.getSearchValue();
         if (
           (await this._waitForBuildToFinish(),
-          n === this.CURRENT_UPDATE_OPERATION_ID &&
+          require === this.CURRENT_UPDATE_OPERATION_ID &&
             o === this.view.getSearchValue())
         ) {
-          e && t ? this.view.clearFilesAndFolders() : this.view.clearFiles(),
+          exports && module ? this.view.clearFilesAndFolders() : this.view.clearFiles(),
             (this.CURRENT_FILE_LOAD = 0),
             this.view.toggleEmptyPanel(false);
           try {
-            await this.buildDepth(e, t);
+            await this.buildDepth(exports, module);
           } catch (e) {
             return void console.warn(e);
           }
@@ -1350,8 +1350,8 @@ function (exports, module, require) {
               this._showExampleFiles || this._showEmptyPanel
             ),
             this.view.toggleRecentFiles(this._showRecentFiles),
-            e && this.view.updateLayout();
-        } else e && this.view.updateLayout();
+            exports && this.view.updateLayout();
+        } else exports && this.view.updateLayout();
       }),
       (T.prototype._waitForBuildToFinish = async function () {
         for (; this.BUILD_IN_PROGRESS; ) await (0, r.sleep)(200);
@@ -1367,15 +1367,15 @@ function (exports, module, require) {
           this.SELECTION.indexOf(e) < 0)
         ) {
           if (this.SELECTION.length)
-            for (var t = 0; t < this.SELECTION.length; t++)
-              this.SELECTION[t].getId() === e.getId() &&
-                this.SELECTION.splice(t, 1);
+            for (var module = 0; module < this.SELECTION.length; module++)
+              this.SELECTION[module].getId() === e.getId() &&
+                this.SELECTION.splice(module, 1);
           this.SELECTION.push(e);
         }
       }),
       (T.prototype.selectionHasFiles = function () {
-        for (var e = 0, t = this.SELECTION.length; e < t; e++)
-          if (this.drive.isFileSupported(this.SELECTION[e])) return true;
+        for (var exports = 0, module = this.SELECTION.length; exports < module; exports++)
+          if (this.drive.isFileSupported(this.SELECTION[exports])) return true;
         return false;
       }),
       (T.prototype.removeFromSelection = function (e) {
@@ -1503,15 +1503,15 @@ function (exports, module, require) {
           this.view.toggleLoading(true),
           (async function () {
             try {
-              for (var t = 0; t < e.SELECTION.length; ++t) {
-                var n = e.SELECTION[t];
-                await e.drive.deleteItem(n),
+              for (var module = 0; module < e.SELECTION.length; ++module) {
+                var require = e.SELECTION[module];
+                await e.drive.deleteItem(require),
                   gDesigner.hasEventListeners(h.default.DriveEvent) &&
                     gDesigner.trigger(
                       new h.default.DriveEvent(
                         null,
                         h.default.DriveEvent.Type.FileDeleted,
-                        n
+                        require
                       )
                     );
               }
@@ -1587,15 +1587,15 @@ function (exports, module, require) {
       }),
       (T.prototype.isItemSelected = function (e) {
         if (this.SELECTION.length < 1) return false;
-        for (let t = 0, n = this.SELECTION.length; t < n; ++t) {
-          if (this.SELECTION[t].id === e.id) return true;
+        for (let module = 0, require = this.SELECTION.length; module < require; ++module) {
+          if (this.SELECTION[module].id === e.id) return true;
         }
         return false;
       }),
       (T.prototype.isItemInClipboard = function (e) {
         if (this.TEMP_SELECTION.length < 1) return false;
-        for (let t = 0, n = this.TEMP_SELECTION.length; t < n; ++t) {
-          if (this.TEMP_SELECTION[t].id === e.id) return true;
+        for (let module = 0, require = this.TEMP_SELECTION.length; module < require; ++module) {
+          if (this.TEMP_SELECTION[module].id === e.id) return true;
         }
         return false;
       }),
@@ -1621,10 +1621,10 @@ function (exports, module, require) {
         return this.drive.getSelectedFilterForFileTypes();
       }),
       (T.prototype.addFileTypeToSelectedFilter = function (e) {
-        const t = this.drive
+        const module = this.drive
           .getAvailableFileTypesFilter()
           .find((t) => t.type === e);
-        gDesigner.stats("filespanel_format-filter_on", t.id),
+        gDesigner.stats("filespanel_format-filter_on", module.id),
           this.drive.addFileTypeToSelectedFilter(e);
       }),
       (T.prototype.clearAllFileTypesFromSelectedFilter = function () {
@@ -1633,10 +1633,10 @@ function (exports, module, require) {
           this.drive.clearAllFileTypesFromSelectedFilter();
       }),
       (T.prototype.deleteFileTypeFromSelectedFilter = function (e) {
-        const t = this.drive
+        const module = this.drive
           .getAvailableFileTypesFilter()
           .find((t) => t.type === e);
-        gDesigner.stats("filespanel_format-filter_off", t.id),
+        gDesigner.stats("filespanel_format-filter_off", module.id),
           this.drive.deleteFileTypeFromSelectedFilter(e);
       }),
       (T.prototype.getAvailableFileTypesFilter = function () {
@@ -1675,20 +1675,20 @@ function (exports, module, require) {
       }),
       (T.prototype.getAvailableExtensions = function () {
         for (
-          var e = false, t = null, n = 0;
-          n < this.SELECTION.length && !e;
-          ++n
+          var exports = false, module = null, require = 0;
+          require < this.SELECTION.length && !exports;
+          ++require
         ) {
-          var o = this.SELECTION[n],
+          var o = this.SELECTION[require],
             i = this.drive
               .getSupportedFileFormats()
               .find((e) => o.type === e.type);
-          i && i.secondary && (t ? (e = t.type !== i.type) : (t = i));
+          i && i.secondary && (module ? (exports = module.type !== i.type) : (module = i));
         }
-        return t
-          ? e
+        return module
+          ? exports
             ? [c.DEFAULT_TYPE.ext.toUpperCase()]
-            : [c.DEFAULT_TYPE.ext.toUpperCase(), t.ext.toUpperCase()]
+            : [c.DEFAULT_TYPE.ext.toUpperCase(), module.ext.toUpperCase()]
           : this.SELECTION.length
           ? c.FILE_EXTENSIONS
           : [];
@@ -1739,5 +1739,5 @@ function (exports, module, require) {
       (T.prototype.manageOpenFolder = function (e, t, n) {
         this.view.manageOpenFolder(e, t, n);
       }),
-      (e.exports = T);
+      (exports.exports = T);
   }

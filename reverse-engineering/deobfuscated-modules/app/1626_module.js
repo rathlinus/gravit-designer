@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(31) /* GAction */;
     function a(e) {
       this._action = e;
     }
@@ -78,5 +78,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return this._action.toString();
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "view.canvas.show-guide-lines"),
@@ -39,8 +39,8 @@ function (exports, module, require) {
       (s.prototype.isChecked = function () {
         var e = gDesigner.getWindows().getActiveWindow();
         if (e) {
-          var t = e.getView().getViewConfiguration();
-          return !!t && true === t.guideLinesVisible;
+          var module = e.getView().getViewConfiguration();
+          return !!module && true === module.guideLinesVisible;
         }
         return false;
       }),
@@ -57,5 +57,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GShowGuideLinesAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

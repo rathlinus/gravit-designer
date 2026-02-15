@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(527) /* module_527 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(31) /* GAction */,
       a = n(18) /* module_18 */;
     const { gApi: r } = n(10) /* module_10 */;

@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */;
-    const { GObject: o, GLocaleKey: i } = n(1) /* module_1 */,
+    const { GObject: o, GLocaleKey: i } = n(1) /* module */,
       a = n(31) /* GAction */,
       r = n(18) /* module_18 */,
       s = n(1644) /* module_1644 */;

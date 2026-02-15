@@ -12,7 +12,7 @@ function (e, t, n) {
       r = o(n(449) /* GFitAllAction */),
       s = o(n(85) /* GContainer */),
       l = o(n(237) /* module_237 */),
-      c = n(1) /* module_1 */;
+      c = n(1) /* module */;
     e.exports = class {
       static handleOpenFileRequest(e, t) {
         gContainer.openStorageFile(e, t, function (n) {

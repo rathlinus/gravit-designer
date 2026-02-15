@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(1503) /* module_1503 */,
       a = n(44) /* GSystemDialog */,
       r = n(447) /* GSaveAction */,

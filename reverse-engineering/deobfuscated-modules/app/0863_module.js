@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       Info: { id: "info" },
       Header: { id: "header" },
       Toolbar: { id: "toolbar" },

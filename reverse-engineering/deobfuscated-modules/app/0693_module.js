@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(21) /* module_21 */,
-      a = n(343) /* module_343 */,
-      r = n(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
+    var o = require(23) /* module_23 */,
+      i = require(21) /* module_21 */,
+      a = require(343) /* module_343 */,
+      r = require(152) /* module_152 */.NATIVE_ARRAY_BUFFER_VIEWS,
       s = o.ArrayBuffer,
       l = o.Int8Array;
-    e.exports =
+    exports.exports =
       !r ||
       !i(function () {
         l(1);

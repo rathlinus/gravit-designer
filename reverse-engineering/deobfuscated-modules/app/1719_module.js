@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */;
     const i = {
       init: function (e) {
         e = $.extend(
@@ -21,9 +21,9 @@ function (exports, module, require) {
           },
           e
         );
-        let t = $(this);
+        let module = $(this);
         return (
-          t.data("gsharebutton", { options: e }),
+          module.data("gsharebutton", { options: e }),
           this.addClass("share-button")
             .addClass("g-highlight-button")
             .addClass("highlighted")
@@ -31,28 +31,28 @@ function (exports, module, require) {
             .append($("<span/>").addClass("icon"))
             .append($("<span/>").addClass("label").text(e.defaultText))
             .on("click", () => {
-              if (t.hasClass("g-disabled")) return;
-              const n = gDesigner.getShareManager();
-              n.isShareProRestricted()
+              if (module.hasClass("g-disabled")) return;
+              const require = gDesigner.getShareManager();
+              require.isShareProRestricted()
                 ? (gDesigner.stats(e.restrictedStats),
                   gDesigner.handleShareFilePROFeatureInterruption())
                 : (gDesigner.stats(e.stats),
-                  n.share(t.data("gsharebutton").storeItem, e.closeCallback));
+                  require.share(module.data("gsharebutton").storeItem, e.closeCallback));
             }),
           this
         );
       },
       update: function (e) {
-        const { isPrivate: t, isSharing: n, disabled: i } = e,
+        const { isPrivate: module, isSharing: require, disabled: i } = e,
           a = $(this);
         i ? a.addClass("g-disabled") : a.removeClass("g-disabled");
         gDesigner.getShareManager().isShareProRestricted() && a.gPro();
         const r = a.data("gsharebutton");
         a.find(".icon")
-          .css("display", n ? "" : "none")
-          .toggleClass("gravit-icon-private-share", t)
-          .toggleClass("gravit-icon-public-share", !t);
-        const s = n
+          .css("display", require ? "" : "none")
+          .toggleClass("gravit-icon-private-share", module)
+          .toggleClass("gravit-icon-public-share", !module);
+        const s = require
           ? new o.GLocaleKey("GToolbar", "text.shared")
           : r.options.defaultText
           ? r.options.defaultText

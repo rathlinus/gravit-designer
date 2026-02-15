@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(67) /* GRichTooltipConfig */,
-      a = n(608) /* GCreateSymbolAction */;
+    require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(67) /* GRichTooltipConfig */,
+      a = require(608) /* GCreateSymbolAction */;
     function r(e) {
       var t = $(this).data("gsymbolspanel"),
         n = e.getMultireferenceId();
@@ -23,25 +23,25 @@ function (exports, module, require) {
     }
     function s(e, t) {
       if (e.isMaster()) {
-        var n = $(this).data("gsymbolspanel"),
+        var require = $(this).data("gsymbolspanel"),
           i = e.getMultireferenceId(),
           a = $(this).find("#symbol_" + i);
         if (a.length) {
-          if (n.scene) {
+          if (require.scene) {
             var r = d.call(this, e);
             if (
               r &&
               (r.removeEventListener(o.GSymbol.AfterThumbnailUpdate, l), !t)
             ) {
-              var s = n.blockHandlers;
-              (n.blockHandlers = true),
-                n.scene.removeSymbol(r),
-                (n.blockHandlers = s);
+              var s = require.blockHandlers;
+              (require.blockHandlers = true),
+                require.scene.removeSymbol(r),
+                (require.blockHandlers = s);
             }
           }
-          delete n.symbolNodes[i],
+          delete require.symbolNodes[i],
             a.remove(),
-            0 === Object.keys(n.symbolNodes).length && y.call(this);
+            0 === Object.keys(require.symbolNodes).length && y.call(this);
         }
       }
     }
@@ -72,8 +72,8 @@ function (exports, module, require) {
       var t = $(this).data("gsymbolspanel");
       if (e.isMaster()) {
         if (!(e instanceof o.GSymbol)) throw new Error("item not symbol");
-        var n = $(this).find(".symbol-panel-info").parent();
-        n.length && n.remove();
+        var require = $(this).find(".symbol-panel-info").parent();
+        require.length && require.remove();
         var a = $("<div />")
             .attr("draggable", false)
             .attr("id", "symbol_" + e.getMultireferenceId())
@@ -151,16 +151,16 @@ function (exports, module, require) {
       if (e.getScene()) return e;
       var t = $(this).data("gsymbolspanel");
       if (!t.scene) return null;
-      for (var n = t.scene.getSymbols(), o = 0; o < n.length; o++)
-        if (n[o].getMultireferenceId() === e.getMultireferenceId()) return n[o];
+      for (var require = t.scene.getSymbols(), o = 0; o < require.length; o++)
+        if (require[o].getMultireferenceId() === e.getMultireferenceId()) return require[o];
     }
     function u(e) {
       var t = $(this).data("gsymbolspanel");
       if (!t.blockHandlers && e.node instanceof o.GSymbol)
         if (e.data.created) {
           r.call(this, e.node);
-          var n = t.scene.getSymbolImage(e.node);
-          n ? l.call(this, { symbol: e.node, image: n }) : e.node.toBitmap();
+          var require = t.scene.getSymbolImage(e.node);
+          require ? l.call(this, { symbol: e.node, image: require }) : e.node.toBitmap();
         } else s.call(this, e.node, true);
     }
     function p(e) {
@@ -168,13 +168,13 @@ function (exports, module, require) {
     }
     function g(e) {
       for (
-        var t = $(this).data("gsymbolspanel"), n = e.node;
-        n && !(n instanceof o.GSymbol && n.isMaster());
+        var module = $(this).data("gsymbolspanel"), require = e.node;
+        require && !(require instanceof o.GSymbol && require.isMaster());
 
       )
-        n = n.getParent();
-      if (!t.blockHandlers && n) {
-        var i = n.getMultireferenceId(),
+        require = require.getParent();
+      if (!module.blockHandlers && require) {
+        var i = require.getMultireferenceId(),
           a = $(this)
             .find("#symbol_" + i)
             .find(".symbol-title-group");
@@ -189,11 +189,11 @@ function (exports, module, require) {
     }
     function f() {
       $(this).data("gsymbolspanel"), $(this).data("gsymbolspanel");
-      for (var e = $(this).find(".symbol-image"), t = 0; t < e.length; t++) {
-        var n = $(e[t]),
-          o = n.find("canvas");
+      for (var exports = $(this).find(".symbol-image"), module = 0; module < exports.length; module++) {
+        var require = $(exports[module]),
+          o = require.find("canvas");
         (o.css("width") || "0px").split("px")[0];
-        h(n, 0, (o.css("height") || "0px").split("px")[0]);
+        h(require, 0, (o.css("height") || "0px").split("px")[0]);
       }
     }
     function m() {
@@ -271,8 +271,8 @@ function (exports, module, require) {
         var e = $(this).data("gsymbolspanel"),
           t = $(this).find(".g-highlighted").parent().attr("id");
         if (t) {
-          var n = t.split("_")[1],
-            o = e.symbolNodes[n];
+          var require = t.split("_")[1],
+            o = e.symbolNodes[require];
           o && s.call(this, o);
         }
       },

@@ -51,7 +51,7 @@ function (e, t, n) {
       n(190) /* module_190 */,
       n(191) /* module_191 */,
       n(192) /* module_192 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(1210) /* module_1210 */,
       a = /["\*\/:<>\?\\\|]/g,
       r = /[\0-\x1F\x80-\x9F]/g,

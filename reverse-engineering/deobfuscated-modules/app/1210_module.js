@@ -6,7 +6,7 @@
 function (exports, module, require) {
     (function (t) {
       !(function (n) {
-        e.exports = (function (e) {
+        exports.exports = (function (e) {
           "use strict";
           function n(e, t) {
             return (
@@ -542,5 +542,5 @@ function (exports, module, require) {
           return a;
         })(this);
       })();
-    }).call(this, n(221) /* module_221 */.Buffer);
+    }).call(this, require(221) /* module_221 */.Buffer);
   }

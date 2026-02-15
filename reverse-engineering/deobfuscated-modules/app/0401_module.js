@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
-      i = n(21) /* module_21 */,
-      a = n(35) /* module_35 */,
-      r = n(61) /* module_61 */,
-      s = n(49) /* module_49 */,
-      l = n(199) /* Exports_GURABLE */.CONFIGURABLE,
-      c = n(299) /* module_299 */,
-      d = n(80) /* module_80 */,
+    var o = require(27) /* module_27 */,
+      i = require(21) /* module_21 */,
+      a = require(35) /* module_35 */,
+      r = require(61) /* module_61 */,
+      s = require(49) /* module_49 */,
+      l = require(199) /* Exports_GURABLE */.CONFIGURABLE,
+      c = require(299) /* module_299 */,
+      d = require(80) /* module_80 */,
       u = d.enforce,
       p = d.get,
       g = String,
@@ -26,7 +26,7 @@ function (exports, module, require) {
           return 8 !== h(function () {}, "length", { value: 8 }).length;
         }),
       _ = String(String).split("String"),
-      b = (e.exports = function (e, t, n) {
+      b = (exports.exports = function (e, t, n) {
         "Symbol(" === f(g(t), 0, 7) &&
           (t = "[" + m(g(t), /^Symbol\(([^)]*)\).*$/, "$1") + "]"),
           n && n.getter && (t = "get " + t),

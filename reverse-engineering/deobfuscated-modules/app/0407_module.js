@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(129) /* module_129 */,
-      a = n(116) /* module_116 */,
+    var o = require(23) /* module_23 */,
+      i = require(129) /* module_129 */,
+      a = require(116) /* module_116 */,
       r = function (e) {
         return i.slice(0, e.length) === e;
       };
-    e.exports = r("Bun/")
+    exports.exports = r("Bun/")
       ? "BUN"
       : r("Cloudflare-Workers")
       ? "CLOUDFLARE"

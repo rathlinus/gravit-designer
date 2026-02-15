@@ -28,9 +28,9 @@ function (e, t, n) {
       n(114) /* module_114 */;
     var i = n(10) /* module_10 */,
       a = n(231) /* module_231 */,
-      r = n(53) /* module_53 */,
-      s = n(1) /* module_1 */,
-      l = n(15) /* module_15 */,
+      r = n(53) /* module */,
+      s = n(1) /* module */,
+      l = n(15) /* module */,
       c = n(40) /* module_40 */,
       d = n(67) /* GRichTooltipConfig */,
       u = o(n(1484) /* module_1484 */),

@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e) {
       this.fullscreen = e;
     }
     o.GObject.inherit(i, o.GEvent),
       (i.prototype.fullscreen = false),
-      (e.exports = i);
+      (exports.exports = i);
   }

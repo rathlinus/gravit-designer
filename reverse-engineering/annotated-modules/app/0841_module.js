@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(96) /* module_96 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     function i(e, t, n, i) {
       (this._dialog = $("<div></div>")),
         (this._replacedFonts = {}),

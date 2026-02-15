@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = null;
     function a(e) {
       for (var t = 0; t < i.length; ++t) if (i[t].type === e) return i[t].icon;

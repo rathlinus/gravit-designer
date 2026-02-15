@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(271) /* module_271 */;
-    const o = n(10) /* module_10 */,
-      { IS_LOCALHOST: i, IS_RC: a } = n(231) /* module_231 */;
+    require(271) /* module_271 */;
+    const o = require(10) /* module_10 */,
+      { IS_LOCALHOST: i, IS_RC: a } = require(231) /* module_231 */;
     o.IS_TEAMS = "teams.coreldraw.app" === window.location.hostname;
     const r = window.location.hostname.endsWith(".ngrok.io");
     o.IS_TEAMS
@@ -26,5 +26,5 @@ function (exports, module, require) {
         o.trunkwebcdr && (o.gApi.webcdr = o.trunkwebcdr)),
       !o.gApi.webcdr && o.webcdr && (o.gApi.webcdr = o.webcdr),
       (window.gApi = o.gApi),
-      (e.exports = o);
+      (exports.exports = o);
   }

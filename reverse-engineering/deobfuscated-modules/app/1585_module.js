@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(10) /* module_10 */,
-      s = o(n(880) /* module_880 */),
-      l = o(n(1189) /* module_1189 */);
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(10) /* module_10 */,
+      s = o(require(880) /* module_880 */),
+      l = o(require(1189) /* module_1189 */);
     let c = false,
       d = 0,
       u = 0,
@@ -31,18 +31,18 @@ function (exports, module, require) {
         return e.areThereTwoTouchPointsOnTheTarget();
       }
       start(e) {
-        const t = e.getOriginalEvent(),
-          n = t.targetTouches[0];
-        (h = d = m = n.clientX),
-          (f = u = y = n.clientY),
+        const module = e.getOriginalEvent(),
+          require = module.targetTouches[0];
+        (h = d = m = require.clientX),
+          (f = u = y = require.clientY),
           (c = e.areThereTwoTouchPointsOnTheTarget());
         const o = gDesigner.getActiveView();
         if (!o) return;
         const i = gDesigner.getContextMenu();
         i && i.close(),
           (this._twoFingersState = new l.default()),
-          this._twoFingersState.update(t);
-        let a = t.targetTouches[1];
+          this._twoFingersState.update(module);
+        let a = module.targetTouches[1];
         (p = v = a.clientX),
           (g = _ = a.clientY),
           o.startTouchMode(),
@@ -50,14 +50,14 @@ function (exports, module, require) {
       }
       move(e) {
         if (!this._twoFingersState) return false;
-        const t = e.getOriginalEvent();
-        this._twoFingersState.update(t),
+        const module = e.getOriginalEvent();
+        this._twoFingersState.update(module),
           (this._moved = true),
-          t.cancelable && (t.preventDefault(), t.stopPropagation());
-        const n = gDesigner.getActiveView();
-        if (!n) return true;
-        const o = t.targetTouches[0],
-          s = t.targetTouches[1];
+          module.cancelable && (module.preventDefault(), module.stopPropagation());
+        const require = gDesigner.getActiveView();
+        if (!require) return true;
+        const o = module.targetTouches[0],
+          s = module.targetTouches[1];
         if (!s) return true;
         const { clientX: l, clientY: h } = o,
           { clientX: f, clientY: C } = s;
@@ -75,7 +75,7 @@ function (exports, module, require) {
           if (i.GMath.isEqualEps(e, t, r.MIN_TWO_FINGERS_TOUCH_MOVE_DISTANCE)) {
             const e = ((0 == m ? 0 : l - m) + (0 == v ? 0 : f - v)) / w,
               t = ((0 == y ? 0 : h - y) + (0 == _ ? 0 : C - _)) / w;
-            n.scrollBy(-e, -t);
+            require.scrollBy(-e, -t);
           } else {
             const r = t - e;
             let l =
@@ -91,10 +91,10 @@ function (exports, module, require) {
               l < a.GSceneWidget.options.minZoomFactor
                 ? a.GSceneWidget.options.minZoomFactor
                 : l;
-            var x = n
+            var x = require
               .getViewTransform()
-              .mapPoint(n._convertClientPositionFromMousePosition(c));
-            n.zoomAt(x, l);
+              .mapPoint(require._convertClientPositionFromMousePosition(c));
+            require.zoomAt(x, l);
           }
         }
         return (m = l), (y = h), (v = f), (_ = C), true;
@@ -111,9 +111,9 @@ function (exports, module, require) {
           e && e.endTouchMode();
         }
         d = u = p = g = m = y = v = _ = 0;
-        const t = !!this._moved;
-        return (this._moved = false), t;
+        const module = !!this._moved;
+        return (this._moved = false), module;
       }
     }
-    e.exports = C;
+    exports.exports = C;
   }

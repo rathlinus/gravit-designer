@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    n(53) /* module_53 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(1267) /* module_1267 */),
+    n(53) /* module */;
+    var o = n(1) /* module */,
+      i = (n(15) /* module */, n(1267) /* module_1267 */),
       a = n(123) /* GProperties */,
       {
         replaceImage: r,

@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(3) /* module_3 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = (n(53) /* module_53 */, n(18) /* module_18 */),
+    var o = n(1) /* module */,
+      i = n(15) /* module */,
+      a = (n(53) /* module */, n(18) /* module_18 */),
       r = n(106) /* GElementAction */;
     function s() {}
     o.GObject.inherit(s, r),

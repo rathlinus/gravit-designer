@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
-    e.exports = {
+    var o = require(1) /* module */;
+    exports.exports = {
       _reInitLayout: function () {
         (this._canvasPropertiesRowInTouch = $("<div></div>")
           .attr("data-property-row", "canvas-size")

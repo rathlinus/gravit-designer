@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(8) /* module_8 */, n(20) /* module_20 */, n(107) /* module_107 */, n(71) /* module_71 */, n(134) /* module_134 */, n(4) /* module_4 */, n(41) /* module_41 */, n(26) /* module_26 */;
-    var o = n(10) /* module_10 */;
-    const i = n(292) /* module_292 */,
-      a = n(220) /* module_220 */,
-      r = n(78) /* GDocumentEvent */,
-      s = n(536) /* module_536 */,
-      l = n(177) /* module_177 */,
-      c = n(393) /* GCollaborationEvent */;
+    require(58) /* module_58 */, require(19) /* module_19 */, require(8) /* module_8 */, require(20) /* module_20 */, require(107) /* module_107 */, require(71) /* module_71 */, require(134) /* module_134 */, require(4) /* module_4 */, require(41) /* module_41 */, require(26) /* module_26 */;
+    var o = require(10) /* module_10 */;
+    const i = require(292) /* module_292 */,
+      a = require(220) /* module_220 */,
+      r = require(78) /* GDocumentEvent */,
+      s = require(536) /* module_536 */,
+      l = require(177) /* module_177 */,
+      c = require(393) /* GCollaborationEvent */;
     var d = null;
     function u(e) {
       if (d) throw new Error("GCloudCommunicationManager is a singleton");
@@ -28,8 +28,8 @@ function (exports, module, require) {
       (u.prototype._userCache = null),
       (u.prototype.getUser = async function () {
         this._initializeUserCache();
-        const e = await this._userCache.get();
-        return e || this._userCache.reset(), e;
+        const exports = await this._userCache.get();
+        return exports || this._userCache.reset(), exports;
       }),
       (u.prototype.confirmEmail = function (e) {
         return o.gApi.confirmEmail(e).then((e) => (this._removeUserCache(), e));
@@ -59,9 +59,9 @@ function (exports, module, require) {
           : null;
       }),
       (u.prototype._userLoggedEvent = function (e) {
-        const { user: t } = e;
-        t
-          ? (this._initializeUserCache(), this._userCache.setCacheValue(t))
+        const { user: module } = e;
+        module
+          ? (this._initializeUserCache(), this._userCache.setCacheValue(module))
           : this._removeUserCache(),
           this._resetAllCache();
       }),
@@ -84,9 +84,9 @@ function (exports, module, require) {
       }),
       (u.prototype._resetFileCache = function (e) {
         if (e) {
-          var t = e.getId();
-          return t && this._fileCacheMapExt[t]
-            ? this._fileCacheMapExt[t].reset()
+          var module = e.getId();
+          return module && this._fileCacheMapExt[module]
+            ? this._fileCacheMapExt[module].reset()
             : undefined;
         }
       }),
@@ -94,34 +94,34 @@ function (exports, module, require) {
         this._fileCacheMapExt = {};
       }),
       (u.prototype._documentEvent = function (e) {
-        const t = e.document;
-        if (t)
+        const module = e.document;
+        if (module)
           switch (e.type) {
             case r.Type.Added:
-              this._updateDocState(t),
-                t.addEventListener(c, this._collaborationEvent, this);
+              this._updateDocState(module),
+                module.addEventListener(c, this._collaborationEvent, this);
               break;
             case r.Type.Removed:
-              t.removeEventListener(c, this._collaborationEvent, this);
+              module.removeEventListener(c, this._collaborationEvent, this);
               break;
             case r.Type.Modified:
-              this._updateDocState(t);
+              this._updateDocState(module);
           }
       }),
       (u.prototype._collaborationEvent = function (e) {
-        const { sender: t, type: n } = e;
-        n === c.Type.ShareUpdate && this._updateDocState(t);
+        const { sender: module, type: require } = e;
+        require === c.Type.ShareUpdate && this._updateDocState(module);
       }),
       (u.prototype._getFileExtended = async function (e) {
-        const t =
+        const module =
           (e = e || gDesigner.getActiveDocument()) && e.getStorageItem();
-        if (!t) return null;
-        const n = t.getId();
-        return n
-          ? t instanceof a.Item
-            ? this.getFileExtended(n).catch(() => null)
-            : t && t.supportsSharing() && t.supportsShadowFile()
-            ? t.getOrCreateCollaborativeFile()
+        if (!module) return null;
+        const require = module.getId();
+        return require
+          ? module instanceof a.Item
+            ? this.getFileExtended(require).catch(() => null)
+            : module && module.supportsSharing() && module.supportsShadowFile()
+            ? module.getOrCreateCollaborativeFile()
             : null
           : null;
       });
@@ -139,18 +139,18 @@ function (exports, module, require) {
       return a;
     }
     (u.prototype.initialize = function () {
-      const e = Object.keys(d).filter((e) => e.startsWith("get")),
-        t = o.CACHED_GAPI_FUNCTIONS.filter(
-          (t) => /^is|^get/.test(t) && !e.includes(t)
+      const exports = Object.keys(d).filter((e) => e.startsWith("get")),
+        module = o.CACHED_GAPI_FUNCTIONS.filter(
+          (t) => /^is|^get/.test(t) && !exports.includes(t)
         );
-      for (let e of t)
-        (p[e] = {}),
-          (d[e] = async function (e) {
-            const t = p[this];
-            if (undefined !== t[e]) return t[e];
-            const n = g(t, this, e);
-            return n instanceof Promise && (t[e] = n), n;
-          }.bind(e));
+      for (let exports of module)
+        (p[exports] = {}),
+          (d[exports] = async function (e) {
+            const module = p[this];
+            if (undefined !== module[e]) return module[e];
+            const require = g(module, this, e);
+            return require instanceof Promise && (module[e] = require), require;
+          }.bind(exports));
     }),
-      (e.exports = u);
+      (exports.exports = u);
   }

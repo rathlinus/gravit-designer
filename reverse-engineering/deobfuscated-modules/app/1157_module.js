@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(15) /* module_15 */,
-      i = n(1) /* module_1 */,
+    var o = require(15) /* module */,
+      i = require(1) /* module */,
       a = function (e) {
         e.changed.escapeKey && (e.isImmediatePropagationStopped = true);
       },
@@ -91,15 +91,15 @@ function (exports, module, require) {
         },
         createActionMenu: function (e, t) {
           for (
-            var n = [],
+            var require = [],
               o = function (e, o, i) {
                 e.getItemCount() > 0 &&
                   (function (e) {
-                    for (var t = 0; t < n.length; ++t)
-                      if (n[t].item === e) return n[t].group;
+                    for (var t = 0; t < require.length; ++t)
+                      if (require[t].item === e) return require[t].group;
                   })(e.getItem(e.getItemCount() - 1)) !== i &&
                   e.addItem(t.createDivider());
-                n.push({ item: o, group: i });
+                require.push({ item: o, group: i });
               },
               a = 0;
             a < e.length;
@@ -132,5 +132,5 @@ function (exports, module, require) {
           }
         },
       };
-    e.exports = r;
+    exports.exports = r;
   }

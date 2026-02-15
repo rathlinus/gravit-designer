@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(26) /* module_26 */;
+    require(19) /* module_19 */, require(26) /* module_26 */;
     class o extends Error {
-      constructor() {
+      function Object() { [native code] }() {
         super(...arguments),
           Error.captureStackTrace(this, o),
           (this.code = 57005);
@@ -16,5 +16,5 @@ function (exports, module, require) {
         return e && e.code && 57005 === e.code;
       }
     }
-    e.exports = o;
+    exports.exports = o;
   }

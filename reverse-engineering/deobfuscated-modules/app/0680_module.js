@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(29) /* module_29 */,
-      a = n(65) /* module_65 */,
-      r = n(37) /* module_37 */,
-      s = n(143) /* module_143 */,
-      l = n(371) /* module_371 */,
-      c = n(323) /* module_323 */,
-      d = n(102) /* module_102 */,
-      u = n(149) /* module_149 */,
-      p = n(74) /* module_74 */,
+    var o = require(25) /* module_25 */,
+      i = require(29) /* module_29 */,
+      a = require(65) /* module_65 */,
+      r = require(37) /* module_37 */,
+      s = require(143) /* module_143 */,
+      l = require(371) /* module_371 */,
+      c = require(323) /* module_323 */,
+      d = require(102) /* module_102 */,
+      u = require(149) /* module_149 */,
+      p = require(74) /* module_74 */,
       g = !p && u("map", TypeError),
       h = l(function () {
         var e = this.iterator,

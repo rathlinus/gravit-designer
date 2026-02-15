@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */;
-    e.exports = o(function () {
+    var o = require(21) /* module_21 */;
+    exports.exports = o(function () {
       if ("function" == typeof ArrayBuffer) {
-        var e = new ArrayBuffer(8);
-        Object.isExtensible(e) && Object.defineProperty(e, "a", { value: 8 });
+        var exports = new ArrayBuffer(8);
+        Object.isExtensible(exports) && Object.defineProperty(exports, "a", { value: 8 });
       }
     });
   }

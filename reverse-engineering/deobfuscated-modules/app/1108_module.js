@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    o(96) /* module_96 */, o(57) /* module_57 */, o(20) /* module_20 */, o(151) /* module_151 */, o(38) /* module_38 */;
+    require(96) /* module_96 */, require(57) /* module_57 */, require(20) /* module_20 */, require(151) /* module_151 */, require(38) /* module_38 */;
     var i = function () {
       (this.interval = 1e3), (this.maxInterval = 6e4);
     };
@@ -42,9 +42,9 @@ function (exports, module, require) {
         (this.url = e.url),
         !this.url)
       ) {
-        var n = e.params || {};
-        (n.uploadType = "resumable"),
-          (this.url = this.buildUrl_(e.fileId, n, e.baseUrl));
+        var module = e.params || {};
+        (module.uploadType = "resumable"),
+          (this.url = this.buildUrl_(e.fileId, module, e.baseUrl));
       }
       this.httpMethod = e.fileId ? "PATCH" : "POST";
     };
@@ -57,8 +57,8 @@ function (exports, module, require) {
         e.setRequestHeader("X-Upload-Content-Type", this.contentType),
         (e.onload = function () {
           if (e.status < 400) {
-            var t = e.getResponseHeader("Location");
-            (this.url = t), this.sendFile_();
+            var exports = e.getResponseHeader("Location");
+            (this.url = exports), this.sendFile_();
           } else this.onUploadError_(e);
         }.bind(this)),
         (e.onerror = this.onUploadError_.bind(this, e)),
@@ -129,5 +129,5 @@ function (exports, module, require) {
         var i = this.buildQuery_(t);
         return i && (o += "?" + i), o;
       }),
-      (t.exports = a);
+      (exports.exports = a);
   }

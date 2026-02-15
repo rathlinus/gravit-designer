@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */;
     function s(e) {
       this._zoomLevel = e;
     }
@@ -25,17 +25,17 @@ function (exports, module, require) {
         return s.ID + "." + this._zoomLevel.toString();
       }),
       (s.prototype.getTitle = function () {
-        let e = this._zoomLevel.toString() + "%";
+        let exports = this._zoomLevel.toString() + "%";
         return (
           gDesigner.isTouchEnabled() &&
             100 === this._zoomLevel &&
-            (e += " (".concat(
+            (exports += " (".concat(
               o.GLocale.get(
                 new o.GLocaleKey("GMagnificationAction", "text.actual-size")
               ),
               ")"
             )),
-          e
+          exports
         );
       }),
       (s.prototype.getCategory = function () {
@@ -79,5 +79,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GMagnificationAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

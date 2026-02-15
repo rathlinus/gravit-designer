@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }), (t.default = undefined);
-    var o = n(803) /* module_803 */,
-      i = n(10) /* module_10 */;
+    Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
+    var o = require(803) /* module_803 */,
+      i = require(10) /* module_10 */;
     const a =
         window && window.location && "localhost" === window.location.hostname,
       r = {
         getAppBaseUrl: function () {
-          let e =
+          let exports =
             arguments.length > 0 && undefined !== arguments[0] && arguments[0];
           switch (o.nodeEnv) {
             case "production":
@@ -24,10 +24,10 @@ function (exports, module, require) {
           }
           return o.isBeta
             ? i.betaURL
-            : e && a
+            : exports && a
             ? "http://localhost:9000"
             : i.trunkURL;
         },
       };
-    t.default = r;
+    module.default = r;
   }

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(27) /* module_27 */,
-      a = n(130) /* module_130 */,
-      r = n(1524) /* module_1524 */,
-      s = n(1525) /* module_1525 */,
-      l = n(21) /* module_21 */,
+    var o = require(25) /* module_25 */,
+      i = require(27) /* module_27 */,
+      a = require(130) /* module_130 */,
+      r = require(1524) /* module_1524 */,
+      s = require(1525) /* module_1525 */,
+      l = require(21) /* module_21 */,
       c = RangeError,
       d = String,
       u = Math.floor,
@@ -29,16 +29,16 @@ function (exports, module, require) {
           (i += t * e[o]), (e[o] = i % 1e7), (i = u(i / 1e7));
       },
       y = function (e, t) {
-        for (var n = 6, o = 0; --n >= 0; )
-          (o += e[n]), (e[n] = u(o / t)), (o = (o % t) * 1e7);
+        for (var require = 6, o = 0; --require >= 0; )
+          (o += e[require]), (e[require] = u(o / t)), (o = (o % t) * 1e7);
       },
       v = function (e) {
-        for (var t = 6, n = ""; --t >= 0; )
-          if ("" !== n || 0 === t || 0 !== e[t]) {
-            var o = d(e[t]);
-            n = "" === n ? o : n + p("0", 7 - o.length) + o;
+        for (var module = 6, require = ""; --module >= 0; )
+          if ("" !== require || 0 === module || 0 !== e[module]) {
+            var o = d(e[module]);
+            require = "" === require ? o : require + p("0", 7 - o.length) + o;
           }
-        return n;
+        return require;
       };
     o(
       {

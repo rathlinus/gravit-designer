@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */;
-    const o = n(177) /* module_177 */;
+    require(30) /* module_30 */;
+    const o = require(177) /* module_177 */;
     class i extends o {
-      constructor() {
+      function Object() { [native code] }() {
         let {
-          id: e,
-          name: t,
-          last_name: n,
+          id: exports,
+          name: module,
+          last_name: require,
           email: o,
           showText: i,
           avatar: a,
@@ -23,9 +23,9 @@ function (exports, module, require) {
           additional: d = false,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         super({
-          id: e,
-          name: t,
-          last_name: n,
+          id: exports,
+          name: module,
+          last_name: require,
           email: o,
           showText: i,
           avatar: a,
@@ -44,10 +44,10 @@ function (exports, module, require) {
         return this._additional ? this.name : super.getFullUserName();
       }
       static createUserMention(e, t) {
-        let n = e.getFirstName();
+        let require = e.getFirstName();
         return new i({
           id: e.getUID(),
-          name: n,
+          name: require,
           last_name: e.getLastName(),
           showText: "@" + e.getFullUserName(),
           avatar: t ? t.avatar : "assets/icon/notification-icon.svg",
@@ -56,9 +56,9 @@ function (exports, module, require) {
         });
       }
       static clone(e) {
-        const t = new i();
-        return Object.assign(t, e), t;
+        const module = new i();
+        return Object.assign(module, e), module;
       }
     }
-    e.exports = i;
+    exports.exports = i;
   }

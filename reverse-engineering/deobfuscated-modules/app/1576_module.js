@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */;
-    const o = n(1186) /* module_1186 */;
-    e.exports = class extends o {
-      constructor(e) {
+    require(30) /* module_30 */;
+    const o = require(1186) /* module_1186 */;
+    exports.exports = class extends o {
+      function Object() { [native code] }(e) {
         super(), (this._crossViewClass = e), (this._dialogOptions = {});
       }
       setTime(e) {

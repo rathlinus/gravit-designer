@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */, n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = n(847) /* module_847 */,
-      r = o(n(1239) /* SharepointException */),
-      s = o(n(388) /* module_388 */),
-      l = o(n(1481) /* module_1481 */),
-      c = n(10) /* module_10 */,
-      d = o(n(594) /* GError */);
-    const u = n(86) /* module_86 */,
-      p = n(336) /* module_336 */,
-      g = n(436) /* module_436 */,
-      h = n(78) /* GDocumentEvent */,
-      f = n(156) /* module_156 */,
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(30) /* module_30 */, require(8) /* module_8 */, require(196) /* module_196 */, require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = require(847) /* module_847 */,
+      r = o(require(1239) /* SharepointException */),
+      s = o(require(388) /* module_388 */),
+      l = o(require(1481) /* module_1481 */),
+      c = require(10) /* module_10 */,
+      d = o(require(594) /* GError */);
+    const u = require(86) /* module_86 */,
+      p = require(336) /* module_336 */,
+      g = require(436) /* module_436 */,
+      h = require(78) /* GDocumentEvent */,
+      f = require(156) /* module_156 */,
       m = 10,
       y = 50,
       v = 80,
@@ -26,19 +26,19 @@ function (exports, module, require) {
     function b() {}
     i.GObject.inherit(b, s.default),
       (b.Item = function (e, t) {
-        let n =
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
         s.default.Item.call(this, e, t),
           (this._ext = null),
-          (this._token = n),
+          (this._token = require),
           this._setExtension(),
           g.call(this, c.FILE_ID_PREFIX.SHAREPOINT);
       }),
       i.GObject.inheritAndMix(b.Item, s.default.Item, [g]),
       (b.Item.prototype._app = c.FILE_ID_PREFIX.SHAREPOINT),
       (b.Item.prototype.getId = function () {
-        const e = this._getSharepointId();
-        return e ? "".concat(this._app, "_").concat(e) : null;
+        const exports = this._getSharepointId();
+        return exports ? "".concat(this._app, "_").concat(exports) : null;
       }),
       (b.Item.prototype.setFile = function (e) {
         e &&
@@ -63,12 +63,12 @@ function (exports, module, require) {
         );
       }),
       (b.Item.prototype.setCollaborativeFileStatus = async function (e) {
-        const t = this._collaborativeFile;
-        if (t && t.status !== e) {
-          var n = t.status;
-          (t.status = e),
+        const module = this._collaborativeFile;
+        if (module && module.status !== e) {
+          var require = module.status;
+          (module.status = e),
             gDesigner.hasEventListeners(p.FileStatusUpdate) &&
-              gDesigner.trigger(new p.FileStatusUpdate(this, n, e));
+              gDesigner.trigger(new p.FileStatusUpdate(this, require, e));
         }
       }),
       (b.Item.prototype.getOrCreateCollaborativeFile = async function () {
@@ -81,7 +81,7 @@ function (exports, module, require) {
         );
       }),
       (b.Item.prototype.read = function (e, t) {
-        const n = this.getFile();
+        const require = this.getFile();
         if (this._rawData) {
           var o = this._rawData;
           return (this._rawData = null), e(o);
@@ -90,26 +90,26 @@ function (exports, module, require) {
           let i =
             arguments.length > 0 && undefined !== arguments[0] && arguments[0];
           return this._getClient()
-            .getFile(n)
+            .getFile(require)
             .then(async (t) => {
               const o = r.default.convertFileToCloudItem(
                 await this._getClient().getFileDetails(this.getFile())
               );
-              (o.status = n.status),
-                (o.checkOutStatus = n.checkOutStatus),
+              (o.status = require.status),
+                (o.checkOutStatus = require.checkOutStatus),
                 this.setFile(o),
                 this._setExtension(),
                 await this.syncShadowFile(),
                 e(t);
             })
             .catch((e) => {
-              const { id: a } = n;
+              const { id: a } = require;
               return !i && e && e.status && 404 === e.status && a
                 ? this._getClient()
                     .findFileById(a)
                     .then((e) => {
                       let { relativeUrl: t, name: i, type: a } = e;
-                      const r = Object.assign(n, {
+                      const r = Object.assign(require, {
                         name: i,
                         relativeUrl: t,
                         type: a,
@@ -137,54 +137,54 @@ function (exports, module, require) {
           new Date(this.getFile().updated) > new Date(e.getFile().updated)
         )
           return true;
-        const t = this.getFile(),
-          n = e.getFile();
+        const module = this.getFile(),
+          require = e.getFile();
         return (
-          new Date(t.getModificationTime()).getTime() >
-          new Date(n.getModificationTime()).getTime()
+          new Date(module.getModificationTime()).getTime() >
+          new Date(require.getModificationTime()).getTime()
         );
       }),
       (b.Item.prototype.hasVersionControl = function () {
         return true;
       }),
       (b.Item.prototype.hasUpdates = async function () {
-        const e = this.getFile();
-        if (!this.getId() || !e || (!e.updated && !e.getModificationTime()))
+        const exports = this.getFile();
+        if (!this.getId() || !exports || (!exports.updated && !exports.getModificationTime()))
           return false;
-        const t = await this.getLatestFileInfo();
-        return new b.Item(this.getStorage(), t).isVersionNewerThan(this);
+        const module = await this.getLatestFileInfo();
+        return new b.Item(this.getStorage(), module).isVersionNewerThan(this);
       }),
       (b.Item.prototype.getLatestFileVersion = async function () {
-        let e = this._getClient();
-        const t = this.getFile(),
-          n = await this.getLatestFileInfo(),
+        let exports = this._getClient();
+        const module = this.getFile(),
+          require = await this.getLatestFileInfo(),
           o = new b.Item(
             this.getStorage(),
-            Object.assign(n, {
-              settings: t.settings,
-              relativeUrl: t.relativeUrl,
+            Object.assign(require, {
+              settings: module.settings,
+              relativeUrl: module.relativeUrl,
             })
           );
-        return (o._rawData = await e.getFile(t)), o.setCloudClient(e), o;
+        return (o._rawData = await exports.getFile(module)), o.setCloudClient(exports), o;
       }),
       (b.Item.prototype.getLatestFileInfo = async function () {
-        const e = this.getFile(),
-          t = { relativeUrl: e.relativeUrl };
-        if (!t.relativeUrl) {
-          const n = e.getParent();
+        const exports = this.getFile(),
+          module = { relativeUrl: exports.relativeUrl };
+        if (!module.relativeUrl) {
+          const n = exports.getParent();
           n instanceof f &&
-            (t.relativeUrl = ""
+            (module.relativeUrl = ""
               .concat(n.relativeUrl, "/")
-              .concat(e.getNameWithExtension()));
+              .concat(exports.getNameWithExtension()));
         }
-        const n = await this._getClient().getFileDetails(t);
-        return r.default.convertFileToCloudItem(n);
+        const require = await this._getClient().getFileDetails(module);
+        return r.default.convertFileToCloudItem(require);
       }),
       (b.Item.prototype.exists = async function () {
-        const e = this.getFile();
+        const exports = this.getFile();
         return this._getClient().fileExists(
-          e.getNameWithExtension(),
-          e.getParent()
+          exports.getNameWithExtension(),
+          exports.getParent()
         );
       }),
       (b.Item.prototype._setFileSizeAfterSaved = async function (e) {
@@ -258,15 +258,15 @@ function (exports, module, require) {
         }
       }),
       (b.Item.prototype._updateFileWithCreatedResponse = function (e) {
-        const t = r.default.convertFileToCloudItem(e);
-        (t.settings = f.GCloudSettings.from(this._getClient().getSettings())),
-          this.setFile(Object.assign(this.getFile(), t));
+        const module = r.default.convertFileToCloudItem(e);
+        (module.settings = f.GCloudSettings.from(this._getClient().getSettings())),
+          this.setFile(Object.assign(this.getFile(), module));
       }),
       (b.Item.prototype._updateModificationTime = async function () {
-        const e = this._getClient();
+        const exports = this._getClient();
         if (this.getFile().relativeUrl) {
           const t = r.default.convertFileToCloudItem(
-            await e.getFileDetails(this.getFile())
+            await exports.getFileDetails(this.getFile())
           );
           this.getFile().setModificationTime(t.updated),
             this.setFile(Object.assign(this.getFile(), { updated: t.updated }));
@@ -283,31 +283,31 @@ function (exports, module, require) {
         }
       }),
       (b.Item.prototype._createOrUpdateFile = async function (e) {
-        let t;
-        const n = this._getClient(),
+        let module;
+        const require = this._getClient(),
           o = e instanceof Blob ? e : new Blob([e]);
         this._getSharepointId()
-          ? ((t = await n.updateFileContentById(this._getSharepointId(), o)),
-            this._checkHttpResponseAndThrowIfNecessary(t))
-          : ((t = await n.createFile(this.getFile(), o)),
-            this._checkHttpResponseAndThrowIfNecessary(t),
-            this._updateFileWithCreatedResponse(await t.json())),
+          ? ((module = await require.updateFileContentById(this._getSharepointId(), o)),
+            this._checkHttpResponseAndThrowIfNecessary(module))
+          : ((module = await require.createFile(this.getFile(), o)),
+            this._checkHttpResponseAndThrowIfNecessary(module),
+            this._updateFileWithCreatedResponse(await module.json())),
           await async function () {
             const e = this.getFile(),
-              t = this._getClient();
-            let n = Object.assign(e, {
-              settings: f.GCloudSettings.from(t.getSettings()),
+              module = this._getClient();
+            let require = Object.assign(e, {
+              settings: f.GCloudSettings.from(module.getSettings()),
             });
             e.relativeUrl ||
               (e.relativeUrl =
                 e.parent &&
                 e.parent.relativeUrl + "/" + e.getNameWithExtension());
             if (e.relativeUrl) {
-              const o = await t.getFileDetails(e),
+              const o = await module.getFileDetails(e),
                 i = r.default.convertFileToCloudItem(o);
-              Object.assign(n, i);
+              Object.assign(require, i);
             }
-            this.setFile(n);
+            this.setFile(require);
           }.call(this);
       }),
       (b.Item.prototype.getToken = function () {
@@ -368,13 +368,13 @@ function (exports, module, require) {
         }
       }),
       (b.Item.prototype._setCheckOutStatus = function (e) {
-        const t = this.getFile();
+        const module = this.getFile();
         e === r.default.FILE_STATUS.AVAILABLE
-          ? (t.checkedOut = false)
+          ? (module.checkedOut = false)
           : (e !== r.default.FILE_STATUS.LOCKED_BY_ME &&
               e !== r.default.FILE_STATUS.LOCKED) ||
-            (t.checkedOut = true),
-          (t.checkOutStatus = e),
+            (module.checkedOut = true),
+          (module.checkOutStatus = e),
           this._triggerStorageItemEvent(p.Type.FileUpdated);
       }),
       (b.Item.prototype.refreshCheckOutStatus = async function () {
@@ -400,28 +400,28 @@ function (exports, module, require) {
         return !c.msTeamsMode || this.isCheckedOutByMe();
       }),
       (b.Item.prototype._getAndUpdateCheckOutFileStatus = async function () {
-        const e = await this._getCheckOutFileStatus();
-        return this._setCheckOutStatus(e), this.getFile().checkOutStatus;
+        const exports = await this._getCheckOutFileStatus();
+        return this._setCheckOutStatus(exports), this.getFile().checkOutStatus;
       }),
       (b.Item.prototype._triggerStorageItemEvent = async function (e) {
         gDesigner.hasEventListeners(p) && gDesigner.trigger(new p(e, this));
       }),
       (b.Item.prototype._getCheckOutFileStatus = async function () {
-        const e = this.getFile();
-        return e.checkOutStatus &&
-          e.checkOutStatus !== r.default.FILE_STATUS.LOADING
-          ? e.checkOutStatus
-          : this._getClient().getCheckOutFileStatus(e);
+        const exports = this.getFile();
+        return exports.checkOutStatus &&
+          exports.checkOutStatus !== r.default.FILE_STATUS.LOADING
+          ? exports.checkOutStatus
+          : this._getClient().getCheckOutFileStatus(exports);
       }),
       (b.Item.prototype.getMimeType = function () {
         return this.getFile().type;
       }),
       (b.Item.prototype.isEmailFromCorporateDomain = async function (e) {
-        const t = this._getClient();
-        return !!(await t.getAccountByEmail(e).catch(() => null));
+        const module = this._getClient();
+        return !!(await module.getAccountByEmail(e).catch(() => null));
       }),
       (b.Item.prototype._exportDocumentToCDR = function (e, t) {
-        let n =
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         return new Promise(async (o, i) => {
           (0, a.prepareCDRforSaving)(
@@ -430,7 +430,7 @@ function (exports, module, require) {
               return i(e);
             },
             t,
-            n,
+            require,
             function (e) {
               return o(new Blob([e]));
             }
@@ -438,35 +438,35 @@ function (exports, module, require) {
         });
       }),
       (b.Item.prototype._getClient = function () {
-        let e = this.getCloudClient();
-        const t = this.getFile();
+        let exports = this.getCloudClient();
+        const module = this.getFile();
         return (
-          !e &&
-            t &&
-            t.settings &&
-            ((e = r.default.getInstance(t.settings)), this.setCloudClient(e)),
-          e
+          !exports &&
+            module &&
+            module.settings &&
+            ((exports = r.default.getInstance(module.settings)), this.setCloudClient(exports)),
+          exports
         );
       }),
       (b.Item.prototype._setExtension = function (e) {
-        const t = e || this.getFile();
-        t &&
-          t.type &&
-          (["application/vnd.corel-draw", "application/cdr"].includes(t.type)
+        const module = e || this.getFile();
+        module &&
+          module.type &&
+          (["application/vnd.corel-draw", "application/cdr"].includes(module.type)
             ? (this._ext = "CDR")
-            : "application/des" === t.type && (this._ext = "DES"));
+            : "application/des" === module.type && (this._ext = "DES"));
       }),
       (b.Item.prototype.getMyPermissionsList = async function () {
-        const e = this._getClient(),
-          t = this.getFile(),
-          { High: n, Low: o } = await e
-            .getFileEffectiveBasePermissions(t)
+        const exports = this._getClient(),
+          module = this.getFile(),
+          { High: require, Low: o } = await exports
+            .getFileEffectiveBasePermissions(module)
             .catch(() => ({ High: 0, Low: 0 }));
         if (
-          new l.default(n, o).hasPermission(l.default.Permissions.EditListItems)
+          new l.default(require, o).hasPermission(l.default.Permissions.EditListItems)
         ) {
-          const n = await e._getUser(),
-            o = await e.getFileCreator(t);
+          const n = await exports._getUser(),
+            o = await exports.getFileCreator(module);
           return [
             { email: n.getEmail(), role: c.ShareRoles.ContentEditor.id },
             { email: o.getEmail(), role: c.ShareRoles.Owner.id },
@@ -477,5 +477,5 @@ function (exports, module, require) {
       (b.Item.prototype.toString = function () {
         return "[Object GSharePointStorage.Item]";
       }),
-      (e.exports = b);
+      (exports.exports = b);
   }

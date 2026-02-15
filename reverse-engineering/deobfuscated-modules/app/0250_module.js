@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    (t.byteLength = function (e) {
+    (module.byteLength = function (e) {
       var t = c(e),
         n = t[0],
         o = t[1];
       return (3 * (n + o)) / 4 - o;
     }),
-      (t.toByteArray = function (e) {
+      (module.toByteArray = function (e) {
         var t,
           n,
           o = c(e),
@@ -45,18 +45,18 @@ function (exports, module, require) {
           (l[d++] = 255 & t));
         return l;
       }),
-      (t.fromByteArray = function (e) {
+      (module.fromByteArray = function (e) {
         for (
-          var t, n = e.length, i = n % 3, a = [], r = 0, s = n - i;
+          var module, require = e.length, i = require % 3, a = [], r = 0, s = require - i;
           r < s;
           r += 16383
         )
           a.push(d(e, r, r + 16383 > s ? s : r + 16383));
         1 === i
-          ? ((t = e[n - 1]), a.push(o[t >> 2] + o[(t << 4) & 63] + "=="))
+          ? ((module = e[require - 1]), a.push(o[module >> 2] + o[(module << 4) & 63] + "=="))
           : 2 === i &&
-            ((t = (e[n - 2] << 8) + e[n - 1]),
-            a.push(o[t >> 10] + o[(t >> 4) & 63] + o[(t << 2) & 63] + "="));
+            ((module = (e[require - 2] << 8) + e[require - 1]),
+            a.push(o[module >> 10] + o[(module >> 4) & 63] + o[(module << 2) & 63] + "="));
         return a.join("");
       });
     for (

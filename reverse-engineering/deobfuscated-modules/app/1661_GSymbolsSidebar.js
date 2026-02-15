@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = o(n(340) /* GTouchTool */),
-      l = n(78) /* GDocumentEvent */,
-      c = n(608) /* GCreateSymbolAction */,
-      d = n(566) /* GFitSelectionAction */,
-      u = n(806) /* GSidebar */,
-      p = n(395) /* module_395 */;
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var i = require(1) /* module */,
+      a = require(53) /* module */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = o(require(340) /* GTouchTool */),
+      l = require(78) /* GDocumentEvent */,
+      c = require(608) /* GCreateSymbolAction */,
+      d = require(566) /* GFitSelectionAction */,
+      u = require(806) /* GSidebar */,
+      p = require(395) /* module_395 */;
     function g() {
       u.call(this);
     }
@@ -259,26 +259,26 @@ function (exports, module, require) {
       }),
       (g.prototype._clickSymbolCallback = function (e) {
         if (e && e.isMaster()) {
-          var t = this._document.getEditor();
-          if (t) {
-            var n = a.GEditor.getElementPage(e);
-            n && this._document.getScene().setActivePage(n),
-              t.clearSelection(),
-              t.updateSelection(false, [e]),
-              t.hasSelection() &&
+          var module = this._document.getEditor();
+          if (module) {
+            var require = a.GEditor.getElementPage(e);
+            require && this._document.getScene().setActivePage(require),
+              module.clearSelection(),
+              module.updateSelection(false, [e]),
+              module.hasSelection() &&
                 gDesigner.executeAction(d.ID, undefined, undefined, true);
           }
         }
       }),
       (g.prototype._dblClickSymbolCallback = function (e) {
         if (e && e.isMaster()) {
-          var t = this._document.getEditor(),
-            n = this._document.getScene(),
-            o = (n.getActivePage(), [e]);
-          n.visitLinks(e, function (e) {
+          var module = this._document.getEditor(),
+            require = this._document.getScene(),
+            o = (require.getActivePage(), [e]);
+          require.visitLinks(e, function (e) {
             e instanceof i.GSymbol && o.push(e);
           }),
-            t && (t.clearSelection(), t.updateSelection(false, o));
+            module && (module.clearSelection(), module.updateSelection(false, o));
         }
       }),
       (g.prototype._selectionUpdate = function () {
@@ -302,5 +302,5 @@ function (exports, module, require) {
       (g.prototype.toString = function () {
         return "[Object GSymbolsSidebar]";
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

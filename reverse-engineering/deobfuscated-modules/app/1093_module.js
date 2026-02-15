@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(8) /* module_8 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */;
-    const r = n(85) /* GContainer */,
-      s = n(44) /* GSystemDialog */,
-      l = n(177) /* module_177 */;
+    require(19) /* module_19 */, require(8) /* module_8 */, require(20) /* module_20 */, require(107) /* module_107 */, require(3) /* module_3 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(10) /* module_10 */,
+      i = require(1) /* module */,
+      a = require(10) /* module_10 */;
+    const r = require(85) /* GContainer */,
+      s = require(44) /* GSystemDialog */,
+      l = require(177) /* module_177 */;
     function c(e) {
-      let t =
+      let module =
         arguments.length > 1 && undefined !== arguments[1]
           ? arguments[1]
           : c.Forms.SignIn;
-      (this._callback = e), this._init(t);
+      (this._callback = e), this._init(module);
     }
     i.GObject.inherit(c, i.GObject),
       (c.Forms = {
@@ -40,11 +40,11 @@ function (exports, module, require) {
           this._activatePanel(e);
       }),
       (c.prototype._buildSignIn = function () {
-        let e = $("<div></div>")
+        let exports = $("<div></div>")
             .addClass("panel " + c.Forms.SignIn)
             .appendTo(this._container),
-          t = $("<div></div>").addClass("header").appendTo(e);
-        $("<div></div>").addClass("logo").appendTo(t),
+          module = $("<div></div>").addClass("header").appendTo(exports);
+        $("<div></div>").addClass("logo").appendTo(module),
           $("<div></div>")
             .addClass("text")
             .text(
@@ -54,8 +54,8 @@ function (exports, module, require) {
                   : new i.GLocaleKey("GLoginDialog", "text.sign-in")
               )
             )
-            .appendTo(t);
-        let n = $("<div></div>").addClass("body").appendTo(e);
+            .appendTo(module);
+        let require = $("<div></div>").addClass("body").appendTo(exports);
         $("<div></div>")
           .addClass("title")
           .addClass("simple")
@@ -66,8 +66,8 @@ function (exports, module, require) {
               )
             )
           )
-          .appendTo(n);
-        let s = $("<div></div>").addClass("subtitle").appendTo(n);
+          .appendTo(require);
+        let s = $("<div></div>").addClass("subtitle").appendTo(require);
         gDesigner.getStoreVendor() &&
           s
             .append(
@@ -94,19 +94,19 @@ function (exports, module, require) {
         let d = $("<div></div>")
           .addClass("message")
           .append($("<span></span>"))
-          .appendTo(n);
+          .appendTo(require);
         const u = this._createMessageHandler(d);
-        let p = $("<form></form>").attr("id", "signin-form").appendTo(n);
+        let p = $("<form></form>").attr("id", "signin-form").appendTo(require);
         p.on("submit", (e) => {
           gDesigner.stats("login-signup_login_login"),
             u(""),
             e.preventDefault();
-          const t = $(e.target),
-            n = t.find('input[data-property="email"]').val(),
-            i = t.find('input[data-property="password"]').val();
+          const module = $(e.target),
+            require = module.find('input[data-property="email"]').val(),
+            i = module.find('input[data-property="password"]').val();
           return (
             o.gApi
-              .signin({ email: n, password: i, app: "designer" })
+              .signin({ email: require, password: i, app: "designer" })
               .then(() => {
                 o.gApi
                   .getUser()
@@ -198,7 +198,7 @@ function (exports, module, require) {
               .appendTo(p));
         let m = $("<div></div>").addClass("oauth-buttons");
         if (a.HAS_ENTERPRISE) {
-          let e = $("<div></div>").addClass("enterprise-sign-in").appendTo(n),
+          let e = $("<div></div>").addClass("enterprise-sign-in").appendTo(require),
             t = $("<div></div>").addClass("content").appendTo(e);
           t.append(
             $("<div></div>")
@@ -271,7 +271,7 @@ function (exports, module, require) {
                   i.GLocale.get(new i.GLocaleKey("GLoginDialog", "text.or"))
                 )
               )
-              .appendTo(n),
+              .appendTo(require),
             m
               .append(
                 this._createFacebookButton(
@@ -283,7 +283,7 @@ function (exports, module, require) {
                   new i.GLocaleKey("GLoginDialog", "text.sign-google")
                 ).attr("tabindex", 2)
               )
-              .appendTo(n)),
+              .appendTo(require)),
             gDesigner.getStoreVendor() &&
               $("<footer></footer>")
                 .append(
@@ -301,9 +301,9 @@ function (exports, module, require) {
                       this.close(), this._callback(null);
                     })
                 )
-                .appendTo(e);
+                .appendTo(exports);
         }
-        return e;
+        return exports;
       }),
       (c.prototype._createGoogleButton = function (e) {
         return $("<button></button>")
@@ -347,11 +347,11 @@ function (exports, module, require) {
           });
       }),
       (c.prototype._buildSignUp = async function () {
-        let e = $("<div></div>")
+        let exports = $("<div></div>")
             .addClass("panel " + c.Forms.SignUp)
             .appendTo(this._container),
-          t = $("<div></div>").addClass("header").appendTo(e);
-        $("<div></div>").addClass("logo").appendTo(t),
+          module = $("<div></div>").addClass("header").appendTo(exports);
+        $("<div></div>").addClass("logo").appendTo(module),
           $("<div></div>")
             .addClass("text")
             .text(
@@ -359,8 +359,8 @@ function (exports, module, require) {
                 new i.GLocaleKey("GLoginDialog", "text.login-dialog-title")
               )
             )
-            .appendTo(t);
-        let n = $("<div></div>").addClass("body").appendTo(e);
+            .appendTo(module);
+        let require = $("<div></div>").addClass("body").appendTo(exports);
         $("<div></div>")
           .addClass("title")
           .addClass("simple")
@@ -371,7 +371,7 @@ function (exports, module, require) {
               )
             )
           )
-          .appendTo(n),
+          .appendTo(require),
           $("<div></div>")
             .addClass("subtitle")
             .append(
@@ -395,22 +395,22 @@ function (exports, module, require) {
                     this._activatePanel(c.Forms.SignIn);
                 })
             )
-            .appendTo(n);
+            .appendTo(require);
         let a = $("<div></div>")
           .addClass("message")
           .append($("<span></span>"))
-          .appendTo(n);
+          .appendTo(require);
         const s = this._createMessageHandler(a),
           d = gContainer.getRuntime() === r.Runtime.Electron;
-        let u = $("<form></form>").attr("id", "signup-form").appendTo(n);
+        let u = $("<form></form>").attr("id", "signup-form").appendTo(require);
         const p =
             undefined !== window.grecaptcha &&
             /^(prod|trunk)/.test("production") &&
             "localhost" !== location.hostname &&
             !d,
           g = async (e) => {
-            const t = u.find('input[data-property="email"]').val(),
-              n =
+            const module = u.find('input[data-property="email"]').val(),
+              require =
                 u.find('input[data-property="firstname"]').val() +
                 " " +
                 u.find('input[data-property="lastname"]').val(),
@@ -430,8 +430,8 @@ function (exports, module, require) {
             } else f = location.origin;
             o.gApi
               .signup({
-                email: t,
-                name: n,
+                email: module,
+                name: require,
                 password: i,
                 app: "designer",
                 recaptcha: a,
@@ -570,12 +570,12 @@ function (exports, module, require) {
               $("<input>")
                 .attr("type", "checkbox")
                 .on("change", (e) => {
-                  let t = $(e.target).is(":checked");
-                  gDesigner.stats("login-signup_create-account_i-agree", t),
+                  let module = $(e.target).is(":checked");
+                  gDesigner.stats("login-signup_create-account_i-agree", module),
                     u
                       .find('button[type="submit"]')
-                      .prop("disabled", !t)
-                      .toggleClass("g-disabled", !t);
+                      .prop("disabled", !module)
+                      .toggleClass("g-disabled", !module);
                 })
             )
             .append(
@@ -685,7 +685,7 @@ function (exports, module, require) {
                   i.GLocale.get(new i.GLocaleKey("GLoginDialog", "text.or"))
                 )
               )
-              .appendTo(n),
+              .appendTo(require),
             $("<div></div>")
               .addClass("oauth-buttons")
               .append(
@@ -698,7 +698,7 @@ function (exports, module, require) {
                   new i.GLocaleKey("GLoginDialog", "text.sign-google")
                 )
               )
-              .appendTo(n));
+              .appendTo(require));
         let m = $("<span></span>").addClass("link");
         return (
           gDesigner.getStoreVendor() &&
@@ -714,16 +714,16 @@ function (exports, module, require) {
               .on("click", () => {
                 this.close(), this._callback(null);
               }),
-          $("<footer></footer>").append(m).append(m).appendTo(e),
-          e
+          $("<footer></footer>").append(m).append(m).appendTo(exports),
+          exports
         );
       }),
       (c.prototype._buildResetPassword = function () {
-        let e = $("<div></div>")
+        let exports = $("<div></div>")
             .addClass("panel " + c.Forms.ResetPassword)
             .appendTo(this._container),
-          t = $("<div></div>").addClass("header").appendTo(e);
-        $("<div></div>").addClass("logo").appendTo(t),
+          module = $("<div></div>").addClass("header").appendTo(exports);
+        $("<div></div>").addClass("logo").appendTo(module),
           $("<div></div>")
             .addClass("text")
             .text(
@@ -734,8 +734,8 @@ function (exports, module, require) {
                 )
               )
             )
-            .appendTo(t);
-        let n = $("<div></div>").addClass("body").appendTo(e);
+            .appendTo(module);
+        let require = $("<div></div>").addClass("body").appendTo(exports);
         $("<div></div>")
           .addClass("title")
           .addClass("simple")
@@ -746,22 +746,22 @@ function (exports, module, require) {
               )
             )
           )
-          .appendTo(n);
+          .appendTo(require);
         let a = $("<div></div>")
           .addClass("message")
           .append($("<span></span>"))
-          .appendTo(n);
+          .appendTo(require);
         const s = this._createMessageHandler(a);
         let l = $("<form></form>")
           .attr("id", "reset-password-form")
-          .appendTo(n);
+          .appendTo(require);
         return (
           l.on("submit", (e) => {
             gDesigner.stats("login-signup_forgot-password_send-request"),
               s(""),
               e.preventDefault();
-            const t = l.find('input[data-property="email"]').val(),
-              n = location.href;
+            const module = l.find('input[data-property="email"]').val(),
+              require = location.href;
             let i, a;
             if (gContainer.getRuntime() === r.Runtime.Electron) {
               const e = gContainer.getPlatform();
@@ -770,7 +770,7 @@ function (exports, module, require) {
             } else a = location.origin;
             return (
               o.gApi
-                .resetPassword({ email: t, redirect: n, appUrl: i, webUrl: a })
+                .resetPassword({ email: module, redirect: require, appUrl: i, webUrl: a })
                 .then((e) => {
                   s(e && e.message, "info");
                 })
@@ -832,15 +832,15 @@ function (exports, module, require) {
                 )
             )
             .appendTo(l),
-          e
+          exports
         );
       }),
       (c.prototype._buildThanksSignup = function (e) {
-        let t = $("<div></div>")
+        let module = $("<div></div>")
             .addClass("panel " + c.Forms.Thanks)
             .appendTo(this._container),
-          n = $("<div></div>").addClass("header").appendTo(t);
-        $("<div></div>").addClass("logo").appendTo(n),
+          require = $("<div></div>").addClass("header").appendTo(module);
+        $("<div></div>").addClass("logo").appendTo(require),
           $("<div></div>")
             .addClass("text")
             .text(
@@ -848,8 +848,8 @@ function (exports, module, require) {
                 new i.GLocaleKey("GLoginDialog", "text.login-dialog-title")
               )
             )
-            .appendTo(n);
-        let o = $("<div></div>").addClass("body").appendTo(t);
+            .appendTo(require);
+        let o = $("<div></div>").addClass("body").appendTo(module);
         return (
           $("<div></div>")
             .addClass("title")
@@ -869,17 +869,17 @@ function (exports, module, require) {
             )
             .on("click", this.close.bind(this))
             .appendTo(o),
-          t
+          module
         );
       }),
       (c.prototype._createMessageHandler = function (e) {
         return function (t) {
-          let n =
+          let require =
             arguments.length > 1 && undefined !== arguments[1]
               ? arguments[1]
               : "error";
           e.removeClass("error info show"),
-            t && e.addClass("show").addClass(n).find("span").text(t);
+            t && e.addClass("show").addClass(require).find("span").text(t);
         };
       }),
       (c.prototype._activatePanel = function (e) {
@@ -899,12 +899,12 @@ function (exports, module, require) {
         t((e && e.message) || (e && e.errors.toString()) || "");
       }),
       (c.prototype._createPasswordInput = function () {
-        let e = $("<div></div>").addClass("input-field"),
-          t = $("<input>")
+        let exports = $("<div></div>").addClass("input-field"),
+          module = $("<input>")
             .attr("type", "password")
             .attr("required", true)
             .attr("data-property", "password")
-            .appendTo(e);
+            .appendTo(exports);
         return (
           $("<span></span>")
             .addClass("icon")
@@ -914,32 +914,32 @@ function (exports, module, require) {
                 .closest("span")
                 .toggleClass("gravit-icon-display gravit-icon-hide")
                 .hasClass("gravit-icon-hide")
-                ? t.attr("type", "password")
-                : t.attr("type", "text");
+                ? module.attr("type", "password")
+                : module.attr("type", "text");
             })
-            .appendTo(e),
-          e
+            .appendTo(exports),
+          exports
         );
       }),
       (c.prototype._getStatMappedForm = function () {
-        let e = null;
+        let exports = null;
         switch (this._activePanel) {
           case c.Forms.SignIn:
-            e = "login";
+            exports = "login";
             break;
           case c.Forms.SignUp:
-            e = "create-account";
+            exports = "create-account";
             break;
           case c.Forms.ResetPassword:
-            e = "forgot-password";
+            exports = "forgot-password";
             break;
           case c.Forms.Thanks:
-            e = "account-created";
+            exports = "account-created";
             break;
           default:
-            e = "login";
+            exports = "login";
         }
-        return e;
+        return exports;
       }),
       (c.prototype.open = function () {
         gDesigner.isOfflineAsync().then((e) => {
@@ -955,5 +955,5 @@ function (exports, module, require) {
       (c.prototype.close = function () {
         this._dialog.gDialog("close");
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

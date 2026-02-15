@@ -5,24 +5,24 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(1252) /* module_1252 */,
-      i = n(1187) /* module_1187 */,
-      { gApi: a } = n(10) /* module_10 */;
-    e.exports = class extends i {
-      constructor(e, t) {
+    const o = require(1252) /* module_1252 */,
+      i = require(1187) /* module_1187 */,
+      { gApi: a } = require(10) /* module_10 */;
+    exports.exports = class extends i {
+      function Object() { [native code] }(e, t) {
         super(), (this._id = e), (this._url = t);
       }
       open() {
         if (this._isOpen()) return;
-        const e = new o({ id: this._id, className: "overlay" });
-        e.open(this._url),
-          e.on("error", () => {
-            e.close();
+        const exports = new o({ id: this._id, className: "overlay" });
+        exports.open(this._url),
+          exports.on("error", () => {
+            exports.close();
           }),
           a.isCookieEnabled &&
             !a.isCookieEnabled() &&
-            e.on("load", () => {
-              e.postMessage(
+            exports.on("load", () => {
+              exports.postMessage(
                 { cmd: "auth", token: a.getAuthorizationToken() },
                 a.url
               );

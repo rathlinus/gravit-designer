@@ -116,16 +116,16 @@ function (exports, module, require) {
           if (this._loginInProgress) this.info("Login in progress");
           else {
             this._loginInProgress = true;
-            var e = this._guid();
-            (this.config.state = e), (this._idTokenNonce = this._guid());
-            var t = this._getItem(this.CONSTANTS.STORAGE.ANGULAR_LOGIN_REQUEST);
-            t && "" !== t
+            var exports = this._guid();
+            (this.config.state = exports), (this._idTokenNonce = this._guid());
+            var module = this._getItem(this.CONSTANTS.STORAGE.ANGULAR_LOGIN_REQUEST);
+            module && "" !== module
               ? this._saveItem(this.CONSTANTS.STORAGE.ANGULAR_LOGIN_REQUEST, "")
-              : (t = window.location.href),
-              this.verbose("Expected state: " + e + " startPage:" + t),
-              this._saveItem(this.CONSTANTS.STORAGE.LOGIN_REQUEST, t),
+              : (module = window.location.href),
+              this.verbose("Expected state: " + exports + " startPage:" + module),
+              this._saveItem(this.CONSTANTS.STORAGE.LOGIN_REQUEST, module),
               this._saveItem(this.CONSTANTS.STORAGE.LOGIN_ERROR, ""),
-              this._saveItem(this.CONSTANTS.STORAGE.STATE_LOGIN, e, true),
+              this._saveItem(this.CONSTANTS.STORAGE.STATE_LOGIN, exports, true),
               this._saveItem(
                 this.CONSTANTS.STORAGE.NONCE_IDTOKEN,
                 this._idTokenNonce,
@@ -133,18 +133,18 @@ function (exports, module, require) {
               ),
               this._saveItem(this.CONSTANTS.STORAGE.ERROR, ""),
               this._saveItem(this.CONSTANTS.STORAGE.ERROR_DESCRIPTION, "");
-            var n =
+            var require =
               this._getNavigateUrl("id_token", null) +
               "&nonce=" +
               encodeURIComponent(this._idTokenNonce);
             this.config.displayCall
-              ? this.config.displayCall(n)
+              ? this.config.displayCall(require)
               : this.popUp
               ? (this._saveItem(this.CONSTANTS.STORAGE.STATE_LOGIN, ""),
-                this._renewStates.push(e),
-                this.registerCallback(e, this.config.clientId, this.callback),
-                this._loginPopup(n))
-              : this.promptUser(n);
+                this._renewStates.push(exports),
+                this.registerCallback(exports, this.config.clientId, this.callback),
+                this._loginPopup(require))
+              : this.promptUser(require);
           }
         }),
         (o.prototype._openPopup = function (e, t, n, o) {
@@ -568,12 +568,12 @@ function (exports, module, require) {
           var e = this._getItem(this.CONSTANTS.STORAGE.TOKEN_KEYS);
           if (!this._isEmpty(e)) {
             e = e.split(this.CONSTANTS.RESOURCE_DELIMETER);
-            for (var t = 0; t < e.length && "" !== e[t]; t++)
+            for (var module = 0; module < e.length && "" !== e[module]; module++)
               this._saveItem(
-                this.CONSTANTS.STORAGE.ACCESS_TOKEN_KEY + e[t],
+                this.CONSTANTS.STORAGE.ACCESS_TOKEN_KEY + e[module],
                 ""
               ),
-                this._saveItem(this.CONSTANTS.STORAGE.EXPIRATION_KEY + e[t], 0);
+                this._saveItem(this.CONSTANTS.STORAGE.EXPIRATION_KEY + e[module], 0);
           }
           this._saveItem(this.CONSTANTS.STORAGE.TOKEN_KEYS, "");
         }),
@@ -590,14 +590,14 @@ function (exports, module, require) {
           if ((this.clearCache(), (this._user = null), this.config.logOutUri))
             e = this.config.logOutUri;
           else {
-            var t = "common",
-              n = "";
-            this.config.tenant && (t = this.config.tenant),
+            var module = "common",
+              require = "";
+            this.config.tenant && (module = this.config.tenant),
               this.config.postLogoutRedirectUri &&
-                (n =
+                (require =
                   "post_logout_redirect_uri=" +
                   encodeURIComponent(this.config.postLogoutRedirectUri)),
-              (e = this.instance + t + "/oauth2/logout?" + n);
+              (e = this.instance + module + "/oauth2/logout?" + require);
           }
           this.infoPii("Logout navigate to: " + e), this.promptUser(e);
         }),
@@ -609,12 +609,12 @@ function (exports, module, require) {
             throw new Error("callback is not a function");
           if (this._user) e(null, this._user);
           else {
-            var t = this._getItem(this.CONSTANTS.STORAGE.IDTOKEN);
-            this._isEmpty(t)
+            var module = this._getItem(this.CONSTANTS.STORAGE.IDTOKEN);
+            this._isEmpty(module)
               ? (this.warn("User information is not available"),
                 e("User information is not available", null))
               : (this.info("User exists in cache: "),
-                (this._user = this._createUser(t)),
+                (this._user = this._createUser(module)),
                 e(null, this._user));
           }
         }),
@@ -631,8 +631,8 @@ function (exports, module, require) {
               !this._urlContainsQueryStringParameter("domain_hint", e) &&
                 this._user.profile.upn.indexOf("@") > -1)
             ) {
-              var t = this._user.profile.upn.split("@");
-              e += "&domain_hint=" + encodeURIComponent(t[t.length - 1]);
+              var module = this._user.profile.upn.split("@");
+              e += "&domain_hint=" + encodeURIComponent(module[module.length - 1]);
             }
           return e;
         }),
@@ -714,8 +714,8 @@ function (exports, module, require) {
           var t = this._getItem(this.CONSTANTS.STORAGE.NONCE_IDTOKEN);
           if (t) {
             t = t.split(this.CONSTANTS.CACHE_DELIMETER);
-            for (var n = 0; n < t.length; n++)
-              if (t[n] && t[n] === e.profile.nonce) return true;
+            for (var require = 0; require < t.length; require++)
+              if (t[require] && t[require] === e.profile.nonce) return true;
           }
           return false;
         }),
@@ -723,8 +723,8 @@ function (exports, module, require) {
           var t = this._getItem(this.CONSTANTS.STORAGE.STATE_LOGIN);
           if (t) {
             t = t.split(this.CONSTANTS.CACHE_DELIMETER);
-            for (var n = 0; n < t.length; n++)
-              if (t[n] && t[n] === e.stateResponse)
+            for (var require = 0; require < t.length; require++)
+              if (t[require] && t[require] === e.stateResponse)
                 return (
                   (e.requestType = this.REQUEST_TYPE.LOGIN),
                   (e.stateMatch = true),
@@ -734,8 +734,8 @@ function (exports, module, require) {
           var o = this._getItem(this.CONSTANTS.STORAGE.STATE_RENEW);
           if (o) {
             o = o.split(this.CONSTANTS.CACHE_DELIMETER);
-            for (n = 0; n < o.length; n++)
-              if (o[n] && o[n] === e.stateResponse)
+            for (require = 0; require < o.length; require++)
+              if (o[require] && o[require] === e.stateResponse)
                 return (
                   (e.requestType = this.REQUEST_TYPE.RENEW_TOKEN),
                   (e.stateMatch = true),
@@ -746,8 +746,8 @@ function (exports, module, require) {
         }),
         (o.prototype._getResourceFromState = function (e) {
           if (e) {
-            var t = e.indexOf("|");
-            if (t > -1 && t + 1 < e.length) return e.substring(t + 1);
+            var module = e.indexOf("|");
+            if (module > -1 && module + 1 < e.length) return e.substring(module + 1);
           }
           return "";
         }),
@@ -867,12 +867,12 @@ function (exports, module, require) {
         }),
         (o.prototype.getResourceForEndpoint = function (e) {
           if (this.config && this.config.anonymousEndpoints)
-            for (var t = 0; t < this.config.anonymousEndpoints.length; t++)
-              if (e.indexOf(this.config.anonymousEndpoints[t]) > -1)
+            for (var module = 0; module < this.config.anonymousEndpoints.length; module++)
+              if (e.indexOf(this.config.anonymousEndpoints[module]) > -1)
                 return null;
           if (this.config && this.config.endpoints)
-            for (var n in this.config.endpoints)
-              if (e.indexOf(n) > -1) return this.config.endpoints[n];
+            for (var require in this.config.endpoints)
+              if (e.indexOf(require) > -1) return this.config.endpoints[require];
           return e.indexOf("http://") > -1 || e.indexOf("https://") > -1
             ? this._getHostFromUri(e) ===
               this._getHostFromUri(this.config.redirectUri)
@@ -886,52 +886,52 @@ function (exports, module, require) {
         }),
         (o.prototype.handleWindowCallback = function (e) {
           if ((null == e && (e = window.location.hash), this.isCallback(e))) {
-            var t = null,
-              n = false;
+            var module = null,
+              require = false;
             this._openedWindows.length > 0 &&
             this._openedWindows[this._openedWindows.length - 1].opener &&
             this._openedWindows[this._openedWindows.length - 1].opener
               ._adalInstance
-              ? ((t =
+              ? ((module =
                   this._openedWindows[this._openedWindows.length - 1].opener
                     ._adalInstance),
-                (n = true))
+                (require = true))
               : window.parent &&
                 window.parent._adalInstance &&
-                (t = window.parent._adalInstance);
+                (module = window.parent._adalInstance);
             var o,
               i,
-              a = t.getRequestInfo(e),
+              a = module.getRequestInfo(e),
               r = null;
             (i =
-              n || window.parent !== window
-                ? t._callBackMappedToRenewStates[a.stateResponse]
-                : t.callback),
-              t.info("Returned from redirect url"),
-              t.saveTokenFromHash(a),
+              require || window.parent !== window
+                ? module._callBackMappedToRenewStates[a.stateResponse]
+                : module.callback),
+              module.info("Returned from redirect url"),
+              module.saveTokenFromHash(a),
               a.requestType === this.REQUEST_TYPE.RENEW_TOKEN && window.parent
                 ? (window.parent !== window
-                    ? t.verbose("Window is in iframe, acquiring token silently")
-                    : t.verbose("acquiring token interactive in progress"),
+                    ? module.verbose("Window is in iframe, acquiring token silently")
+                    : module.verbose("acquiring token interactive in progress"),
                   (o =
-                    a.parameters[t.CONSTANTS.ACCESS_TOKEN] ||
-                    a.parameters[t.CONSTANTS.ID_TOKEN]),
-                  (r = t.CONSTANTS.ACCESS_TOKEN))
+                    a.parameters[module.CONSTANTS.ACCESS_TOKEN] ||
+                    a.parameters[module.CONSTANTS.ID_TOKEN]),
+                  (r = module.CONSTANTS.ACCESS_TOKEN))
                 : a.requestType === this.REQUEST_TYPE.LOGIN &&
-                  ((o = a.parameters[t.CONSTANTS.ID_TOKEN]),
-                  (r = t.CONSTANTS.ID_TOKEN));
-            var s = a.parameters[t.CONSTANTS.ERROR_DESCRIPTION],
-              l = a.parameters[t.CONSTANTS.ERROR];
+                  ((o = a.parameters[module.CONSTANTS.ID_TOKEN]),
+                  (r = module.CONSTANTS.ID_TOKEN));
+            var s = a.parameters[module.CONSTANTS.ERROR_DESCRIPTION],
+              l = a.parameters[module.CONSTANTS.ERROR];
             try {
               i && i(s, o, l, r);
             } catch (e) {
-              t.error("Error occurred in user defined callback function: " + e);
+              module.error("Error occurred in user defined callback function: " + e);
             }
             window.parent !== window ||
-              n ||
-              (t.config.navigateToLoginRequestUrl
-                ? (window.location.href = t._getItem(
-                    t.CONSTANTS.STORAGE.LOGIN_REQUEST
+              require ||
+              (module.config.navigateToLoginRequestUrl
+                ? (window.location.href = module._getItem(
+                    module.CONSTANTS.STORAGE.LOGIN_REQUEST
                   ))
                 : (window.location.hash = ""));
           }
@@ -951,8 +951,8 @@ function (exports, module, require) {
           var t = this._decodeJwt(e);
           if (!t) return null;
           try {
-            var n = t.JWSPayload,
-              o = this._base64DecodeStringUrlSafe(n);
+            var require = t.JWSPayload,
+              o = this._base64DecodeStringUrlSafe(require);
             return o
               ? JSON.parse(o)
               : (this.info(
@@ -1046,43 +1046,43 @@ function (exports, module, require) {
           return a;
         }),
         (o.prototype._decimalToHex = function (e) {
-          for (var t = e.toString(16); t.length < 2; ) t = "0" + t;
-          return t;
+          for (var module = e.toString(16); module.length < 2; ) module = "0" + module;
+          return module;
         }),
         (o.prototype._guid = function () {
           var e = window.crypto || window.msCrypto;
           if (e && e.getRandomValues) {
-            var t = new Uint8Array(16);
+            var module = new Uint8Array(16);
             return (
-              e.getRandomValues(t),
-              (t[6] |= 64),
-              (t[6] &= 79),
-              (t[8] |= 128),
-              (t[8] &= 191),
-              this._decimalToHex(t[0]) +
-                this._decimalToHex(t[1]) +
-                this._decimalToHex(t[2]) +
-                this._decimalToHex(t[3]) +
+              e.getRandomValues(module),
+              (module[6] |= 64),
+              (module[6] &= 79),
+              (module[8] |= 128),
+              (module[8] &= 191),
+              this._decimalToHex(module[0]) +
+                this._decimalToHex(module[1]) +
+                this._decimalToHex(module[2]) +
+                this._decimalToHex(module[3]) +
                 "-" +
-                this._decimalToHex(t[4]) +
-                this._decimalToHex(t[5]) +
+                this._decimalToHex(module[4]) +
+                this._decimalToHex(module[5]) +
                 "-" +
-                this._decimalToHex(t[6]) +
-                this._decimalToHex(t[7]) +
+                this._decimalToHex(module[6]) +
+                this._decimalToHex(module[7]) +
                 "-" +
-                this._decimalToHex(t[8]) +
-                this._decimalToHex(t[9]) +
+                this._decimalToHex(module[8]) +
+                this._decimalToHex(module[9]) +
                 "-" +
-                this._decimalToHex(t[10]) +
-                this._decimalToHex(t[11]) +
-                this._decimalToHex(t[12]) +
-                this._decimalToHex(t[13]) +
-                this._decimalToHex(t[14]) +
-                this._decimalToHex(t[15])
+                this._decimalToHex(module[10]) +
+                this._decimalToHex(module[11]) +
+                this._decimalToHex(module[12]) +
+                this._decimalToHex(module[13]) +
+                this._decimalToHex(module[14]) +
+                this._decimalToHex(module[15])
             );
           }
           for (
-            var n = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",
+            var require = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",
               o = "0123456789abcdef",
               i = 0,
               a = "",
@@ -1090,12 +1090,12 @@ function (exports, module, require) {
             r < 36;
             r++
           )
-            "-" !== n[r] && "4" !== n[r] && (i = (16 * Math.random()) | 0),
-              "x" === n[r]
+            "-" !== require[r] && "4" !== require[r] && (i = (16 * Math.random()) | 0),
+              "x" === require[r]
                 ? (a += o[i])
-                : "y" === n[r]
+                : "y" === require[r]
                 ? ((i &= 3), (a += o[(i |= 8)]))
-                : (a += n[r]);
+                : (a += require[r]);
           return a;
         }),
         (o.prototype._expiresIn = function (e) {
@@ -1107,21 +1107,21 @@ function (exports, module, require) {
         (o.prototype._addAdalFrame = function (e) {
           if (undefined !== e) {
             this.info("Add adal frame to document:" + e);
-            var t = document.getElementById(e);
-            if (!t) {
+            var module = document.getElementById(e);
+            if (!module) {
               if (
                 document.createElement &&
                 document.documentElement &&
                 (window.opera ||
                   -1 === window.navigator.userAgent.indexOf("MSIE 5.0"))
               ) {
-                var n = document.createElement("iframe");
-                n.setAttribute("id", e),
-                  n.setAttribute("aria-hidden", "true"),
-                  (n.style.visibility = "hidden"),
-                  (n.style.position = "absolute"),
-                  (n.style.width = n.style.height = n.borderWidth = "0px"),
-                  (t = document.getElementsByTagName("body")[0].appendChild(n));
+                var require = document.createElement("iframe");
+                require.setAttribute("id", e),
+                  require.setAttribute("aria-hidden", "true"),
+                  (require.style.visibility = "hidden"),
+                  (require.style.position = "absolute"),
+                  (require.style.width = require.style.height = require.borderWidth = "0px"),
+                  (module = document.getElementsByTagName("body")[0].appendChild(require));
               } else
                 document.body &&
                   document.body.insertAdjacentHTML &&
@@ -1133,9 +1133,9 @@ function (exports, module, require) {
                       e +
                       '" style="display:none"></iframe>'
                   );
-              window.frames && window.frames[e] && (t = window.frames[e]);
+              window.frames && window.frames[e] && (module = window.frames[e]);
             }
-            return t;
+            return module;
           }
         }),
         (o.prototype._saveItem = function (e, t, n) {
@@ -1196,7 +1196,7 @@ function (exports, module, require) {
         (o.prototype._cloneConfig = function (e) {
           if (null === e || "object" != typeof e) return e;
           var t = {};
-          for (var n in e) e.hasOwnProperty(n) && (t[n] = e[n]);
+          for (var require in e) e.hasOwnProperty(require) && (t[require] = e[require]);
           return t;
         }),
         (o.prototype._addLibMetadata = function () {
@@ -1255,9 +1255,9 @@ function (exports, module, require) {
         (o.prototype._libVersion = function () {
           return "1.0.18";
         }),
-        e.exports &&
-          ((e.exports = o),
-          (e.exports.inject = function (e) {
+        exports.exports &&
+          ((exports.exports = o),
+          (exports.exports.inject = function (e) {
             return new o(e);
           })),
         o

@@ -5,59 +5,59 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(8) /* module_8 */,
-      n(71) /* module_71 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(40) /* module_40 */,
-      r = n(10) /* module_10 */,
-      s = n(592) /* module_592 */,
-      l = n(1094) /* module_1094 */;
-    const c = n(434) /* module_434 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(8) /* module_8 */,
+      require(71) /* module_71 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(10) /* module_10 */,
+      s = require(592) /* module_592 */,
+      l = require(1094) /* module_1094 */;
+    const c = require(434) /* module_434 */;
     function d() {}
     async function u(e, t) {
-      const n = gDesigner.getSyncUser(),
+      const require = gDesigner.getSyncUser(),
         o = gDesigner.getApplicationManager(),
-        i = d.isOwner(n, e),
-        a = (e.getProperty("asgn") || []).includes(n.getUID()),
+        i = d.isOwner(require, e),
+        a = (e.getProperty("asgn") || []).includes(require.getUID()),
         r = o.isCommentingEditingEnabled(),
         s = await o.hasAccess(t);
       return r && (s || i || a);
     }
     (d.getCloudAnnotationsForDocument = async function (e) {
-      const t = e.getAnnotationsId();
-      if (!t)
+      const module = e.getAnnotationsId();
+      if (!module)
         throw new s(
           "GAnnotationsUtils.getCloudAnnotationsForDocument: can't get annotations id for the document"
         );
-      const n = await e.getAnnotationsToken(t);
+      const require = await e.getAnnotationsToken(module);
       return gDesigner
         .getAnnotationsManager()
-        .getAnnotations(t, n)
-        .then((o) => new l(o, t, n, e));
+        .getAnnotations(module, require)
+        .then((o) => new l(o, module, require, e));
     }),
       (d.updateAndReturnCloudAnnotationsForDocument = async function (e, t) {
-        const n = e.getAnnotationsId();
-        if (!n)
+        const require = e.getAnnotationsId();
+        if (!require)
           throw new s(
             "GAnnotationsUtils.updateAndReturnCloudAnnotationsForDocument: can't get annotations id for the document"
           );
         t || (t = []);
-        const o = await e.getAnnotationsToken(n);
+        const o = await e.getAnnotationsToken(require);
         return gDesigner
           .getAnnotationsManager()
-          .updateAnnotations(n, this._prepareAnnotations(e, t), o)
-          .then((t) => new l(t, n, o, e));
+          .updateAnnotations(require, this._prepareAnnotations(e, t), o)
+          .then((t) => new l(t, require, o, e));
       }),
       (d._prepareAnnotations = function (e, t) {
         return t;
@@ -146,16 +146,16 @@ function (exports, module, require) {
         );
       }),
       (d.findAnnotationsListForPage = function (e, t) {
-        const n =
+        const require =
           e.getProperty("Guid", true) || e.getAnnotations().getProperty("Guid");
         let o = null;
         if (!t || !t.length) return o;
         if (
-          (n &&
+          (require &&
             (o = this._findInAnnotationsObj(
               t,
-              (e) => e.Guid === n || e.aid === n,
-              (e) => e.$Guid === n || e["@Guid"] === n || e.$aid === n
+              (e) => e.Guid === require || e.aid === require,
+              (e) => e.$Guid === require || e["@Guid"] === require || e.$aid === require
             )),
           !o)
         ) {
@@ -280,9 +280,9 @@ function (exports, module, require) {
       }),
       (d.getCommentsCount = function (e) {
         if (!e.annotations) return 0;
-        let t = 0;
-        const n = { annotationsCollection: e.annotations, lastUpdateTime: 0 };
-        let o = new l(n, e.id);
+        let module = 0;
+        const require = { annotationsCollection: e.annotations, lastUpdateTime: 0 };
+        let o = new l(require, e.id);
         return (
           o &&
             o.annotationsCollection &&
@@ -293,12 +293,12 @@ function (exports, module, require) {
                     (e.$ &&
                       0 !== e.$.length &&
                       e.$.forEach(function (e) {
-                        "cmt" === e["@"] && t++;
+                        "cmt" === e["@"] && module++;
                       }),
-                    t++);
+                    module++);
                 });
             }),
-          t
+          module
         );
       }),
       (d.removeSidFromAnnotations = function (e) {
@@ -315,5 +315,5 @@ function (exports, module, require) {
             e.setProperty(t, n, i);
         });
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

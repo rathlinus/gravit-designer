@@ -11,7 +11,7 @@ function (e, t, n) {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,
       } = n(10) /* module_10 */,
-      { GLocale: s, GLocaleKey: l } = n(1) /* module_1 */;
+      { GLocale: s, GLocaleKey: l } = n(1) /* module */;
     e.exports = class extends o {
       constructor() {
         let {

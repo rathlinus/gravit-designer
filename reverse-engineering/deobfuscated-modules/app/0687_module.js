@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(688) /* module_688 */;
-    e.exports =
+    var o = require(688) /* module_688 */;
+    exports.exports =
       Math.fround ||
       function (e) {
         return o(

@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(29) /* module_29 */,
-      i = n(35) /* module_35 */,
-      a = n(46) /* module_46 */,
+    var o = require(29) /* module_29 */,
+      i = require(35) /* module_35 */,
+      a = require(46) /* module_46 */,
       r = TypeError;
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       var n, s;
       if ("string" === t && i((n = e.toString)) && !a((s = o(n, e)))) return s;
       if (i((n = e.valueOf)) && !a((s = o(n, e)))) return s;

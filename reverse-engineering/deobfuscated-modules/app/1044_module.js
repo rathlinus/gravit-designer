@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
-      ((o = n(55) /* module_55 */),
+    exports.exports =
+      ((o = require(55) /* module_55 */),
       (function () {
         if ("function" == typeof ArrayBuffer) {
-          var e = o.lib.WordArray,
-            t = e.init;
-          (e.init = function (e) {
+          var exports = o.lib.WordArray,
+            module = exports.init;
+          (exports.init = function (e) {
             if (
               (e instanceof ArrayBuffer && (e = new Uint8Array(e)),
               (e instanceof Int8Array ||
@@ -26,11 +26,11 @@ function (exports, module, require) {
                 (e = new Uint8Array(e.buffer, e.byteOffset, e.byteLength)),
               e instanceof Uint8Array)
             ) {
-              for (var n = e.byteLength, o = [], i = 0; i < n; i++)
+              for (var require = e.byteLength, o = [], i = 0; i < require; i++)
                 o[i >>> 2] |= e[i] << (24 - (i % 4) * 8);
-              t.call(this, o, n);
-            } else t.apply(this, arguments);
-          }).prototype = e;
+              module.call(this, o, require);
+            } else module.apply(this, arguments);
+          }).prototype = exports;
         }
       })(),
       o.lib.WordArray);

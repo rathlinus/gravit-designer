@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(30) /* module_30 */, n(193) /* module_193 */, n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = o(n(340) /* GTouchTool */),
-      l = n(123) /* GProperties */,
-      c = n(857) /* module_857 */;
-    n(173) /* module_173 */;
-    const d = n(135) /* GSettingChangedEvent */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(30) /* module_30 */, require(193) /* module_193 */, require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = o(require(340) /* GTouchTool */),
+      l = require(123) /* GProperties */,
+      c = require(857) /* module_857 */;
+    require(173) /* module_173 */;
+    const d = require(135) /* GSettingChangedEvent */;
     function u() {
       this._elements = [];
     }
@@ -366,8 +366,8 @@ function (exports, module, require) {
           e)
         ) {
           gDesigner.addEventListener(d, this._settingChanged, this);
-          for (var n = 0; n < t.length; ++n) {
-            var o = t[n];
+          for (var require = 0; require < t.length; ++require) {
+            var o = t[require];
             o.hasMixin(a.GStylable) &&
               o.getStylePropertySets().indexOf(a.GStylable.PropertySet.Style) >=
                 0 &&
@@ -411,11 +411,11 @@ function (exports, module, require) {
         return false;
       }),
       (u.prototype._updateUI = function () {
-        let e = this._panel.find(".g-style-sync");
+        let exports = this._panel.find(".g-style-sync");
         gDesigner.isTouchEnabled()
-          ? (e.text(""),
-            e.append($("<span></span>").addClass("g-style-sync-refresh-item")))
-          : e.text(
+          ? (exports.text(""),
+            exports.append($("<span></span>").addClass("g-style-sync-refresh-item")))
+          : exports.text(
               a.GLocale.get(
                 new a.GLocaleKey("GAppearanceProperties", "action.sync")
               )
@@ -429,8 +429,8 @@ function (exports, module, require) {
           e.flag === a.GNode.Flag.Selected &&
           (e.node instanceof a.GPGEdge || e.node instanceof a.GPGFacet)
         ) {
-          var t = e.node.getParent() ? e.node.getParent().getParent() : null;
-          t && this._elements.indexOf(t) >= 0 && this._updateProperties();
+          var module = e.node.getParent() ? e.node.getParent().getParent() : null;
+          module && this._elements.indexOf(module) >= 0 && this._updateProperties();
         }
       }),
       (u.prototype._afterPropertiesChange = function (e) {
@@ -442,10 +442,10 @@ function (exports, module, require) {
       }),
       (u.prototype._updateProperties = function () {
         if (this._elements && this._elements.length) {
-          var e = this._elements[0],
-            t = i.GElementEditor.getEditor(e),
-            n = function (n, o, i) {
-              var a = t ? t.getPartsProperty(n) : null;
+          var exports = this._elements[0],
+            module = i.GElementEditor.getEditor(exports),
+            require = function (n, o, i) {
+              var a = module ? module.getPartsProperty(n) : null;
               if (a) {
                 if (a.values.length) {
                   if (1 == a.values.length || o) return a.values[0];
@@ -455,16 +455,16 @@ function (exports, module, require) {
                 }
                 return i;
               }
-              return e.getProperty(n);
+              return exports.getProperty(n);
             },
-            o = 100 * n("_stop", false, null);
+            o = 100 * require("_stop", false, null);
           this._panel
             .find('.g-input-slider[data-property="_stop"]')
             .gInputSlider("value", null !== o ? o : 100),
             this._panel
               .find('[type="text"][data-property="_stop"]')
               .gInputBox("value", a.GUtil.formatOpacity(o)),
-            this._panel.find('[data-property="_sbl"]').val(n("_sbl", true));
+            this._panel.find('[data-property="_sbl"]').val(require("_sbl", true));
           var r = null,
             s = null;
           if (
@@ -556,5 +556,5 @@ function (exports, module, require) {
       (u.prototype.toString = function () {
         return "[Object GAppearanceProperties]";
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

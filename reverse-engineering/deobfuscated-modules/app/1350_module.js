@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    const o = n(337) /* module_337 */,
-      i = n(1338) /* module_1338 */,
-      { gApi: a, PurchaseStatus: r } = n(10) /* module_10 */,
-      { IS_TRUNK: s } = n(231) /* module_231 */;
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    const o = require(337) /* module_337 */,
+      i = require(1338) /* module_1338 */,
+      { gApi: a, PurchaseStatus: r } = require(10) /* module_10 */,
+      { IS_TRUNK: s } = require(231) /* module_231 */;
     let l;
     class c {
       static getInstance() {
@@ -25,12 +25,12 @@ function (exports, module, require) {
               this._ws.connect("/payload"),
               this._ws.on("payload", async (t) => {
                 try {
-                  const { data: n } = t;
+                  const { data: require } = t;
                   await this._tryCheckLicense(),
-                    await this._tryFireEvent(n),
-                    (n.licenseHasBeenUpgraded =
-                      this._shouldFireUserCompletedPurchaseEvent(n)),
-                    e(n);
+                    await this._tryFireEvent(require),
+                    (require.licenseHasBeenUpgraded =
+                      this._shouldFireUserCompletedPurchaseEvent(require)),
+                    e(require);
                 } finally {
                   this._ws.close();
                 }
@@ -60,9 +60,9 @@ function (exports, module, require) {
         }
       }
       _shouldFireUserCompletedPurchaseEvent(e) {
-        const { statusId: t } = e;
-        return !(!s || t !== r.SuccessfulTestOrder) || t === r.Paid;
+        const { statusId: module } = e;
+        return !(!s || module !== r.SuccessfulTestOrder) || module === r.Paid;
       }
     }
-    e.exports = c;
+    exports.exports = c;
   }

@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(290) /* module_290 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const { watchDog: o } = n(40) /* module_40 */,
-      i = n(433) /* module_433 */,
+    require(290) /* module_290 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    const { watchDog: o } = require(40) /* module_40 */,
+      i = require(433) /* module_433 */,
       a = {
         init: function (e) {
           return (
             (e = $.extend({ defaultRole: null, buttons: [] }, e)),
             this.each(function () {
-              const t = i.ROLES.ALL.filter((e) => e.isAssignable()),
-                n = $("<div/>")
+              const module = i.ROLES.ALL.filter((e) => e.isAssignable()),
+                require = $("<div/>")
                   .gOverlay({
                     padding: false,
                     clazz: "g-role-selector-overlay",
@@ -25,7 +25,7 @@ function (exports, module, require) {
                     $("<div/>")
                       .addClass("g-role-selector-roles")
                       .append(
-                        t.map((e) =>
+                        module.map((e) =>
                           $("<div/>")
                             .attr("role-id", e.id)
                             .addClass("g-role-selector-role")
@@ -58,7 +58,7 @@ function (exports, module, require) {
                                 () => {
                                   a.role.call(this, e),
                                     $(this).trigger("rolechange", e),
-                                    n.gOverlay("close");
+                                    require.gOverlay("close");
                                 },
                                 () => !e.pro
                               )
@@ -68,14 +68,14 @@ function (exports, module, require) {
                   );
               e.buttons &&
                 e.buttons.length &&
-                (n.append($("<hr/>")),
-                n.append(
+                (require.append($("<hr/>")),
+                require.append(
                   $("<div/>")
                     .addClass("g-role-selector-buttons")
                     .append(
                       e.buttons.map((e) => {
                         let {
-                          icon: t,
+                          icon: module,
                           label: o,
                           click: i,
                           closeOnClick: a,
@@ -85,35 +85,35 @@ function (exports, module, require) {
                           .append(
                             $("<span/>")
                               .addClass("icon")
-                              .addClass(t || "")
+                              .addClass(module || "")
                           )
                           .append($("<span/>").addClass("label").text(o))
                           .on("click", () => {
-                            i(), a && n.gOverlay("close");
+                            i(), a && require.gOverlay("close");
                           });
                       })
                     )
                 ));
               const r = $(this)
                   .data("options", e)
-                  .data("overlay", n)
+                  .data("overlay", require)
                   .addClass("g-role-selector")
                   .append($("<label/>"))
                   .append($("<span/>").addClass("gravit-icon-down"))
                   .on("click", (e) => {
-                    n.gOverlay("open", $(e.target).closest(".g-role-selector"));
+                    require.gOverlay("open", $(e.target).closest(".g-role-selector"));
                   }),
-                s = e.defaultRole || t[0];
+                s = e.defaultRole || module[0];
               return a.role.call(this, s), r;
             })
           );
         },
         role: function (e) {
-          let t =
+          let module =
             !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
           if (arguments.length > 0) {
             const n = $(this);
-            let o = t && n.data("options") ? n.data("options").role : null;
+            let o = module && n.data("options") ? n.data("options").role : null;
             (n.data("options").previousRole = o),
               (n.data("options").role = e),
               n.find("label").text(e.name);
@@ -129,9 +129,9 @@ function (exports, module, require) {
           return $(this).data("options").role;
         },
         restoreRole: function () {
-          const e = $(this);
-          e.data("options").previousRole &&
-            a.role.call(this, e.data("options").previousRole, false);
+          const exports = $(this);
+          exports.data("options").previousRole &&
+            a.role.call(this, exports.data("options").previousRole, false);
         },
       };
     $.fn.gRoleSelector = function (e) {

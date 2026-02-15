@@ -3,8 +3,8 @@
  * Type: unknown
  */
 
-function (e, t) {
-    (t.read = function (e, t, n, o, i) {
+function (exports, module) {
+    (module.read = function (e, t, n, o, i) {
       var a,
         r,
         s = 8 * i - o - 1,
@@ -31,7 +31,7 @@ function (e, t) {
       }
       return (g ? -1 : 1) * r * Math.pow(2, a - o);
     }),
-      (t.write = function (e, t, n, o, i, a) {
+      (module.write = function (e, t, n, o, i, a) {
         var r,
           s,
           l,

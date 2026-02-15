@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */,
-      i = n(18) /* module_18 */,
-      a = n(31) /* GAction */;
-    n(173) /* module_173 */;
+    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var o = require(1) /* module */,
+      i = require(18) /* module_18 */,
+      a = require(31) /* GAction */;
+    require(173) /* module_173 */;
     function r(e, t) {
       (this._guideId = e), (this._guideName = t);
     }
@@ -50,5 +50,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GToggleGuideAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

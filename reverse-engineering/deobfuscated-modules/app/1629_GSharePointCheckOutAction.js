@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(443) /* module_443 */);
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
-    var s = n(18) /* module_18 */,
-      l = n(31) /* GAction */;
-    const c = n(1152) /* module_1152 */,
-      d = n(44) /* GSystemDialog */;
+    var s = require(18) /* module_18 */,
+      l = require(31) /* GAction */;
+    const c = require(1152) /* module_1152 */,
+      d = require(44) /* GSystemDialog */;
     function u() {}
     i.GObject.inherit(u, l),
       (u.ID = "file.sharepoint-checkout"),
@@ -33,10 +33,10 @@ function (exports, module, require) {
       }),
       (u.prototype.isEnabled = function () {
         if (!r()) return false;
-        const e = gDesigner.getActiveDocument();
-        if (!e) return false;
-        const t = e.getStorageItem();
-        return !!t && t instanceof c.Item;
+        const exports = gDesigner.getActiveDocument();
+        if (!exports) return false;
+        const module = exports.getStorageItem();
+        return !!module && module instanceof c.Item;
       }),
       (u.prototype.isVisible = function () {
         return this.isEnabled();
@@ -69,5 +69,5 @@ function (exports, module, require) {
       (u.prototype.toString = function () {
         return "[Object GSharePointCheckOutAction]";
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(1503) /* module_1503 */,
-      a = n(44) /* GSystemDialog */,
-      r = n(447) /* GSaveAction */,
-      s = n(86) /* module_86 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(1503) /* module_1503 */,
+      a = require(44) /* GSystemDialog */,
+      r = require(447) /* GSaveAction */,
+      s = require(86) /* module_86 */;
     function l(e) {
       (this._htmlElement = e), (this._windows = []);
     }
@@ -53,12 +53,12 @@ function (exports, module, require) {
                   e.getDocument() !== this._activeWindow.getDocument()) ||
                   !this._activeWindow) &&
                 gDesigner.activateDocument(e.getDocument(), true);
-          var n = this._activeWindow;
+          var require = this._activeWindow;
           (this._activeWindow = e),
-            n &&
+            require &&
               this.hasEventListeners(l.WindowEvent) &&
               this.trigger(
-                new l.WindowEvent(l.WindowEvent.Type.Deactivated, n)
+                new l.WindowEvent(l.WindowEvent.Type.Deactivated, require)
               ),
             e &&
               ((e.getDocument()._activeWindow = e),
@@ -161,12 +161,12 @@ function (exports, module, require) {
         return this._htmlElement;
       }),
       (l.prototype.getWindow = function (e) {
-        for (var t = null, n = 0; n < this._windows.length; ++n)
-          if (this._windows[n].getDocument() === e) {
-            t = this._windows[n];
+        for (var module = null, require = 0; require < this._windows.length; ++require)
+          if (this._windows[require].getDocument() === e) {
+            module = this._windows[require];
             break;
           }
-        return t;
+        return module;
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

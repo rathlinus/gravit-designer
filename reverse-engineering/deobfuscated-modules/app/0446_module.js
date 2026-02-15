@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = o(n(119) /* module_119 */),
-      r = o(n(860) /* module_860 */);
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = o(require(119) /* module_119 */),
+      r = o(require(860) /* module_860 */);
     function s(e) {
-      let t =
+      let module =
         arguments.length > 1 && undefined !== arguments[1]
           ? arguments[1]
           : () => {};
-      (this._cb = e), (this._showFormCb = t), this._run();
+      (this._cb = e), (this._showFormCb = module), this._run();
     }
     i.GObject.inherit(s, i.GObject),
       (s.prototype._close = function () {
@@ -39,15 +39,15 @@ function (exports, module, require) {
             if (e) this._logged(e);
             else {
               this._dialog.closest(".loading").removeClass("loading");
-              var t = $("<div/>");
-              t.addClass("container").appendTo(this._dialog),
-                $("<div/>").addClass("logo").appendTo(t),
+              var module = $("<div/>");
+              module.addClass("container").appendTo(this._dialog),
+                $("<div/>").addClass("logo").appendTo(module),
                 $("<span/>")
                   .addClass("title")
                   .text(
                     i.GLocale.get(new i.GLocaleKey("GLoginPanel", "text.title"))
                   )
-                  .appendTo(t),
+                  .appendTo(module),
                 $("<span/>")
                   .addClass("subtitle")
                   .text(
@@ -55,9 +55,9 @@ function (exports, module, require) {
                       new i.GLocaleKey("GLoginPanel", "text.subtitle")
                     )
                   )
-                  .appendTo(t);
-              var n = $("<div/>");
-              n.addClass("buttons").appendTo(t);
+                  .appendTo(module);
+              var require = $("<div/>");
+              require.addClass("buttons").appendTo(module);
               var o = (e, t) => {
                 var o = $("<div/>");
                 o.on("click", t),
@@ -68,7 +68,7 @@ function (exports, module, require) {
                         new i.GLocaleKey("GLoginPanel", "text." + e)
                       )
                     )
-                    .appendTo(n);
+                    .appendTo(require);
               };
               o("login", () => {
                 a.default.performLogin().then((e) => {
@@ -88,5 +88,5 @@ function (exports, module, require) {
           }),
           this._dialog.gDialog("open", true);
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

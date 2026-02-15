@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(18) /* module_18 */),
-      s = o(n(1168) /* GSubAction */),
-      l = n(198) /* Exports_GOutlineSidebar */,
-      c = o(n(1345) /* GChangeAnchorPointsJointTypeMainAction */);
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = o(require(1168) /* GSubAction */),
+      l = require(198) /* Exports_GOutlineSidebar */,
+      c = o(require(1345) /* GChangeAnchorPointsJointTypeMainAction */);
     class d extends s.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(e),
           (this._title = new i.GLocaleKey(
             "GChangeAnchorPointsJointTypeSubAction",
@@ -44,11 +44,11 @@ function (exports, module, require) {
         }
       }
       execute() {
-        const e = gDesigner
+        const exports = gDesigner
             .getRightSidebars()
             .getSidebar(l.SidebarsIds.GInspectorSidebar),
-          t = this._getNodeType();
-        t && e.setPathPointsNodeType(t);
+          module = this._getNodeType();
+        module && exports.setPathPointsNodeType(module);
       }
       _getNodeType() {
         switch (this._type) {
@@ -66,7 +66,7 @@ function (exports, module, require) {
             return null;
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GChangeAnchorPointsJointTypeSubAction]";
       }
     }
@@ -77,5 +77,5 @@ function (exports, module, require) {
       Connector: "connector",
       Asymmetric: "asymmetric",
     }),
-      (e.exports = d);
+      (exports.exports = d);
   }

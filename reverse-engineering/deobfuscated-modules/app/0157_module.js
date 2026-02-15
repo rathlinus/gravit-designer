@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */;
-    e.exports = o([].slice);
+    var o = require(27) /* module_27 */;
+    exports.exports = o([].slice);
   }

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this.type = e), (this.fileId = t);
     }
@@ -13,5 +13,5 @@ function (exports, module, require) {
       (i.Type = { Enable: 1, Disable: 0, Close: 2 }),
       (i.prototype.fileId = null),
       (i.prototype.type = null),
-      (e.exports = i);
+      (exports.exports = i);
   }

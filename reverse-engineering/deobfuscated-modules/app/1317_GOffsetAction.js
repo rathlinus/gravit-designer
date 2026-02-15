@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(1185) /* GOutlineAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(1185) /* GOutlineAction */;
     function a() {}
     o.GObject.inherit(a, i),
       (a.ID = "modify.offset"),
@@ -57,5 +57,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GOffsetAction]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

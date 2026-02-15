@@ -6,8 +6,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    const { GEvent: o, GObject: i } = n(1) /* module_1 */;
+    require(3) /* module_3 */;
+    const { GEvent: o, GObject: i } = require(1) /* module */;
     function a(e, t) {
       (this.type = e), (this.data = t);
     }
@@ -27,5 +27,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GCollaborationEvent]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

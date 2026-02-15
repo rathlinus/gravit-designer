@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
-    e.exports = class {
-      constructor() {
+    var o = require(1) /* module */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         this._lastMousePoint = null;
       }
       init() {
@@ -18,8 +18,8 @@ function (exports, module, require) {
         );
       }
       _mouseMoveEventHandler(e) {
-        let { pageX: t, pageY: n } = e;
-        this._lastMousePoint = new o.GPoint(t, n);
+        let { pageX: module, pageY: require } = e;
+        this._lastMousePoint = new o.GPoint(module, require);
       }
       getLastCursorPoint() {
         return this._lastMousePoint;

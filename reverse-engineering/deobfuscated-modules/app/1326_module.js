@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */;
-    const i = n(1327) /* module_1327 */,
-      a = n(1577) /* module_1577 */;
+    require(8) /* module_8 */;
+    var o = require(1) /* module */;
+    const i = require(1327) /* module_1327 */,
+      a = require(1577) /* module_1577 */;
     class r {
       static openOfferReminder(e) {
         return r._openPaywall("reminder", e);
@@ -17,24 +17,24 @@ function (exports, module, require) {
         return r._openPaywall("subscribe", e);
       }
       static async _openPaywall() {
-        let e =
+        let exports =
             arguments.length > 0 && undefined !== arguments[0]
               ? arguments[0]
               : "reminder",
-          t =
+          module =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const n = await this._getProduct(),
+        const require = await this._getProduct(),
           r = this._getLayout(),
           s = gDesigner.getApplicationManager().isInAppPurchaseAvailable();
         return (await i.newBuilder(a))
           .setId("paywall-cross-frame")
-          .setEndpoint("/pro/paywall/".concat(e))
+          .setEndpoint("/pro/paywall/".concat(exports))
           .setTime(gDesigner.now())
           .setLanguage(o.GLocale.getLanguage())
-          .setCampaign(t.campaign)
-          .setShareFile(t.shareFile)
-          .setDashboard(t.dashboard)
-          .setProduct(n)
+          .setCampaign(module.campaign)
+          .setShareFile(module.shareFile)
+          .setDashboard(module.dashboard)
+          .setProduct(require)
           .setInAppPurchasesAvailable(s)
           .setLayout(r)
           .build()
@@ -47,5 +47,5 @@ function (exports, module, require) {
         return a.DEFAULT_LAYOUT;
       }
     }
-    e.exports = r;
+    exports.exports = r;
   }

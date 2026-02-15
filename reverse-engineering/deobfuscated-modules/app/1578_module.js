@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    n(1) /* module_1 */;
-    n(1327) /* module_1327 */, n(1579) /* module_1579 */;
+    require(8) /* module_8 */;
+    require(1) /* module */;
+    require(1327) /* module_1327 */, require(1579) /* module_1579 */;
     class o {
       static openTrialExpired() {
         return o._openReminder("trialexpired");
@@ -31,5 +31,5 @@ function (exports, module, require) {
         return gInAppPurchase.getProduct().catch(() => null);
       }
     }
-    e.exports = o;
+    exports.exports = o;
   }

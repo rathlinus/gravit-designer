@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var i = n(1154) /* module_1154 */,
-      a = o(n(389) /* module_389 */),
-      r = o(n(163) /* module_163 */),
-      s = o(n(1245) /* module_1245 */),
-      l = n(1) /* module_1 */;
-    e.exports = {
+    var o = require(16) /* module_16 */;
+    require(30) /* module_30 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var i = require(1154) /* module_1154 */,
+      a = o(require(389) /* module_389 */),
+      r = o(require(163) /* module_163 */),
+      s = o(require(1245) /* module_1245 */),
+      l = require(1) /* module */;
+    exports.exports = {
       debugDownloadPNG: function () {
         (0, i.downloadActiveFile)(a.default.PNG.ext);
       },
@@ -28,11 +28,11 @@ function (exports, module, require) {
         (0, i.downloadActiveFile)(a.default.JPG.ext);
       },
       debugOpenFile: function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const n = gDesigner.getDefaultStorage(),
-          o = Object.assign({ disableFileSystemAccessAPI: true, silent: true }, t);
-        n.openPrompt(
+        const require = gDesigner.getDefaultStorage(),
+          o = Object.assign({ disableFileSystemAccessAPI: true, silent: true }, module);
+        require.openPrompt(
           r.default.FileTypes.filter((e) => e.load),
           (t) => {
             gDesigner.openDocument(t), e && e();
@@ -42,14 +42,14 @@ function (exports, module, require) {
         );
       },
       debugImportFont: function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const n = Object.assign(
+        const require = Object.assign(
             { disableFileSystemAccessAPI: true, silent: true },
-            t
+            module
           ),
           o = new s.default();
-        o.import(e, n);
+        o.import(e, require);
       },
     };
   }

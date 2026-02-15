@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(198) /* Exports_GOutlineSidebar */,
-      r = n(567) /* GAnnotationsSidebar */,
-      s = n(18) /* module_18 */,
-      l = n(31) /* GAction */,
-      c = n(395) /* module_395 */;
+    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(198) /* Exports_GOutlineSidebar */,
+      r = require(567) /* GAnnotationsSidebar */,
+      s = require(18) /* module_18 */,
+      l = require(31) /* GAction */,
+      c = require(395) /* module_395 */;
     function d(e) {
       this._sidebar = e;
     }
@@ -82,5 +82,5 @@ function (exports, module, require) {
       (d.prototype.toString = function () {
         return "[Object GToggleSidebarAction]";
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

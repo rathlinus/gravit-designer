@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(15) /* module_15 */,
-      r = n(10) /* module_10 */,
-      s = n(40) /* module_40 */;
-    const l = n(18) /* module_18 */,
-      c = n(31) /* GAction */,
-      d = n(607) /* module_607 */,
-      u = n(44) /* GSystemDialog */;
+    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(15) /* module */,
+      r = require(10) /* module_10 */,
+      s = require(40) /* module_40 */;
+    const l = require(18) /* module_18 */,
+      c = require(31) /* GAction */,
+      d = require(607) /* module_607 */,
+      u = require(44) /* GSystemDialog */;
     function p(e) {
       (this._isCut = e),
         document.addEventListener(
@@ -78,17 +78,17 @@ function (exports, module, require) {
       (p.prototype._documentCutOrCopyEvent = function (e) {
         if (this._isBrowserHandleCopy(e)) return;
         e && e.preventDefault();
-        const t = gDesigner.getActiveDocument(),
-          n = t && t.getEditor();
+        const module = gDesigner.getActiveDocument(),
+          require = module && module.getEditor();
         if (this._isMouseOverContextStyleCopy()) {
           const t = this._getActiveStyleMouseOverContextBased();
           this._copyStyleToClipboard(t, e),
             this._notifyMouseOverContextOfSuccessfulCopy();
         } else {
-          let t = n && n.getSelection();
+          let t = require && require.getSelection();
           this._copySelectionToClipboard(t, e);
         }
-        this._isCut && n && this._deleteCutSelection(),
+        this._isCut && require && this._deleteCutSelection(),
           this._cutCopyArea && this._focusOnActiveArea();
       }),
       (p.prototype._documentBeforeCutOrCopyEvent = function (e) {
@@ -99,28 +99,28 @@ function (exports, module, require) {
       }),
       (p.prototype._focusOnActiveArea = function () {
         setTimeout(function () {
-          const e = gDesigner.getWindows();
-          e && e.getActiveWindow() && e.getActiveWindow().getView().focus();
+          const exports = gDesigner.getWindows();
+          exports && exports.getActiveWindow() && exports.getActiveWindow().getView().focus();
         }, 1);
       }),
       (p.prototype._filterOutSelectionWithSameParent = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : [];
-        e = o.GNode.order(e.slice());
-        let t = [];
-        const n = function (e) {
-          let n = false;
+        exports = o.GNode.order(exports.slice());
+        let module = [];
+        const require = function (e) {
+          let require = false;
           return (
-            t.forEach((t) => {
+            module.forEach((t) => {
               e.findParent((e) => {
-                n = e === t;
+                require = e === t;
               });
             }),
-            n
+            require
           );
         };
-        for (let o = 0; o < e.length; ++o) n(e[o]) || t.push(e[o]);
-        return t;
+        for (let o = 0; o < exports.length; ++o) require(exports[o]) || module.push(exports[o]);
+        return module;
       }),
       (p.prototype._isEditableElementFocused = function () {
         return !(
@@ -139,39 +139,39 @@ function (exports, module, require) {
         );
       }),
       (p.prototype._getActiveStyleMouseOverContextBased = function () {
-        const e = gDesigner.getActiveDocument(),
-          t = gDesigner.getMouseOverContext(),
-          n = e.getActiveStylesList();
+        const exports = gDesigner.getActiveDocument(),
+          module = gDesigner.getMouseOverContext(),
+          require = exports.getActiveStylesList();
         let o = null;
         return (
-          t.context === d.FillPropertiesPanel
-            ? (o = n.Fill)
-            : t.context === d.BorderPropertiesPanel
-            ? (o = n.Border)
-            : t.context === d.EffectPropertiesPanel && (o = n.Effect),
+          module.context === d.FillPropertiesPanel
+            ? (o = require.Fill)
+            : module.context === d.BorderPropertiesPanel
+            ? (o = require.Border)
+            : module.context === d.EffectPropertiesPanel && (o = require.Effect),
           o
         );
       }),
       (p.prototype._serializeData = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
         return o.GNode.serialize(e, {
-          exceptions: t,
+          exceptions: module,
           copy: true,
           copyIgnoreProperties: i.GEditorOptions.propertiesExcludedFromCopying,
         });
       }),
       (p.prototype._copyStyleToClipboard = function (e, t) {
-        const n = this._serializeData([e]),
+        const require = this._serializeData([e]),
           i =
             '<gravit mimeType="' +
             o.GNode.MIME_TYPE +
             '">' +
-            $("<div/>").text(n).html() +
+            $("<div/>").text(require).html() +
             "</gravit>";
         t
           ? t.clipboardData.setData("text/xml", i)
-          : gDesigner.setClipboardContent(o.GNode.MIME_TYPE, n);
+          : gDesigner.setClipboardContent(o.GNode.MIME_TYPE, require);
       }),
       (p.prototype._isRestricted = function () {
         return (
@@ -180,17 +180,17 @@ function (exports, module, require) {
         );
       }),
       (p.prototype._filterSupportedCopyNodes = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : [];
-        return e.filter(function (e) {
+        return exports.filter(function (e) {
           return e instanceof o.GItem || e instanceof o.GLayer;
         });
       }),
       (p.prototype._parseTextSelectionToEventClipboard = function (e, t) {
-        for (let n = 0; n < e.length; n++)
-          if (e[n] instanceof o.GText) {
+        for (let require = 0; require < e.length; require++)
+          if (e[require] instanceof o.GText) {
             let o,
-              a = e[n];
+              a = e[require];
             const r = a.getTLCore();
             if (r) {
               const t = i.GElementEditor.getEditor(a);
@@ -204,49 +204,49 @@ function (exports, module, require) {
           }
       }),
       (p.prototype._buildExceptionsForSelection = function () {
-        let e =
+        let exports =
             arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : [],
-          t = [];
-        for (let n = 0; n < e.length; n++)
-          t = t.concat(
+          module = [];
+        for (let require = 0; require < exports.length; require++)
+          module = module.concat(
             gDesigner
               .getActiveDocument()
               .getEditor()
-              .getLinkedElementsInSelection(e[n], e)
+              .getLinkedElementsInSelection(exports[require], exports)
           );
         return (
           r.HAS_ANNOTATIONS &&
-            (t = t.concat(
+            (module = module.concat(
               gDesigner
                 .getActiveDocument()
                 .getEditor()
-                .getAnnotationsExceptions(e)
+                .getAnnotationsExceptions(exports)
             )),
-          t
+          module
         );
       }),
       (p.prototype._extractStylesFromSelection = function (e) {
-        const t = [];
-        for (let n = 0; n < e.length; n++) {
-          const o = e[n];
+        const module = [];
+        for (let require = 0; require < e.length; require++) {
+          const o = e[require];
           o.hasProperty("sref") &&
             o.getReferencedStyle() &&
-            t.push(o.getReferencedStyle());
+            module.push(o.getReferencedStyle());
         }
-        return t;
+        return module;
       }),
       (p.prototype._deleteCutSelection = function () {
-        let e = o.GLocale.get(new o.GLocaleKey("text.cut-selection"));
-        const t = gDesigner.getActiveDocument(),
-          n = t && t.getEditor(),
+        let exports = o.GLocale.get(new o.GLocaleKey("text.cut-selection"));
+        const module = gDesigner.getActiveDocument(),
+          require = module && module.getEditor(),
           i = gDesigner.getMouseOverContext(),
-          a = t.getActiveStylesList();
-        n.beginTransaction();
+          a = module.getActiveStylesList();
+        require.beginTransaction();
         try {
           if (i.context && (a.Fill || a.Border || a.Effect)) {
             let t = null,
               r = null;
-            const l = n.getSelection();
+            const l = require.getSelection();
             i.context === d.FillPropertiesPanel
               ? ((t = a.Fill), (r = "fill"))
               : i.context === d.BorderPropertiesPanel
@@ -256,16 +256,16 @@ function (exports, module, require) {
               (0, s.iterateEqualStyleLayers)(r, t, l, function (e) {
                 e.getParent().removeChild(e);
               }),
-              (e = o.GLocale.get(this.getTitle()));
-          } else n.deleteSelection(true);
+              (exports = o.GLocale.get(this.getTitle()));
+          } else require.deleteSelection(true);
         } finally {
-          n.commitTransaction(e);
+          require.commitTransaction(exports);
         }
       }),
       (p.prototype._copySelectionToClipboard = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        const n = gDesigner.getActiveDocument();
+        const require = gDesigner.getActiveDocument();
         if (
           ((e = this._filterOutSelectionWithSameParent(e)),
           (e = this._filterSupportedCopyNodes(e)) && e.length)
@@ -273,7 +273,7 @@ function (exports, module, require) {
           const i = this._buildExceptionsForSelection(e),
             a = this._extractStylesFromSelection(e);
           e.push.apply(e, a),
-            this._isRestricted() && (e = n.restrictElements(e));
+            this._isRestricted() && (e = require.restrictElements(e));
           let r = this._serializeData(e, i);
           gDesigner.setClipboardContent(o.GNode.MIME_TYPE, r);
           const s = 1 === e.length && e[0];
@@ -284,13 +284,13 @@ function (exports, module, require) {
               '<gravit mimeType="' +
               o.GNode.MIME_TYPE +
               '" restricted="' +
-              (!!this._isRestricted() && n.getStorageItem().getId()) +
+              (!!this._isRestricted() && require.getStorageItem().getId()) +
               '">' +
               $("<div/>").text(r).html() +
               "</gravit>";
-            t
-              ? (t.clipboardData.setData("text/xml", i),
-                this._parseTextSelectionToEventClipboard(e, t))
+            module
+              ? (module.clipboardData.setData("text/xml", i),
+                this._parseTextSelectionToEventClipboard(e, module))
               : gContainer.copyToClipboard(i).catch(() => {
                   this._showError();
                 });
@@ -298,29 +298,29 @@ function (exports, module, require) {
         }
       }),
       (p.prototype._isMouseOverContextStyleCopy = function () {
-        const e = gDesigner.getActiveDocument(),
-          t = gDesigner.getMouseOverContext(),
-          n = e.getActiveStylesList();
-        return t.context && (n.Fill || n.Border || n.Effect);
+        const exports = gDesigner.getActiveDocument(),
+          module = gDesigner.getMouseOverContext(),
+          require = exports.getActiveStylesList();
+        return module.context && (require.Fill || require.Border || require.Effect);
       }),
       (p.prototype._notifyMouseOverContextOfSuccessfulCopy = function () {
-        const e = gDesigner.getMouseOverContext();
-        e.contextCallback && e.contextCallback(e.prevEvt);
+        const exports = gDesigner.getMouseOverContext();
+        exports.contextCallback && exports.contextCallback(exports.prevEvt);
       }),
       (p.prototype._showError = function () {
-        const e = this._isCut
+        const exports = this._isCut
           ? o.GLocale.get(new o.GLocaleKey("GCutCopyAction", "title.cut"))
           : o.GLocale.get(new o.GLocaleKey("GCutCopyAction", "title.copy"));
         u.alert(
           o.GLocale.get(
             new o.GLocaleKey("GCutCopyAction", "text.security-issues")
           )
-            .replace("%cutcopy", e)
+            .replace("%cutcopy", exports)
             .replace("%shortcut", a.GKey.shortcutToString(this.getShortcut()))
         );
       }),
       (p.prototype.toString = function () {
         return "[Object GCutCopyAction]";
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

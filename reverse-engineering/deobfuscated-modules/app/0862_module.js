@@ -5,46 +5,46 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.lookupByMimeType =
-        t.lookupByExtension =
-        t.default =
-        t.TYPES =
-        t.FILE_MIME_TYPES =
-        t.FILE_EXTENSIONS =
-        t.DEFAULT_TYPE =
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.lookupByMimeType =
+        module.lookupByExtension =
+        module.default =
+        module.TYPES =
+        module.FILE_MIME_TYPES =
+        module.FILE_EXTENSIONS =
+        module.DEFAULT_TYPE =
           undefined),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(71) /* module_71 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */,
-      r = o(n(119) /* module_119 */),
-      s = o(n(220) /* module_220 */),
-      l = o(n(163) /* module_163 */),
-      c = o(n(86) /* module_86 */),
-      d = o(n(802) /* CloudException */),
-      u = n(593) /* module_593 */;
-    const p = n(156) /* module_156 */,
+      require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(96) /* module_96 */,
+      require(30) /* module_30 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(71) /* module_71 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(10) /* module_10 */,
+      r = o(require(119) /* module_119 */),
+      s = o(require(220) /* module_220 */),
+      l = o(require(163) /* module_163 */),
+      c = o(require(86) /* module_86 */),
+      d = o(require(802) /* CloudException */),
+      u = require(593) /* module_593 */;
+    const p = require(156) /* module_156 */,
       {
         FILE_FORMATS: g,
         FOLDER_FORMAT: h,
         MAX_FOLDER_DEPTH_FOR_CLOUD: f,
-      } = n(10) /* module_10 */;
+      } = require(10) /* module_10 */;
     let m;
     function y() {
       d.default.apply(this, arguments),
@@ -142,7 +142,7 @@ function (exports, module, require) {
         return true;
       }),
       (y.prototype.fetchFolders = async function (e, t) {
-        let n =
+        let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : -1,
           o =
             arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : 0;
@@ -156,14 +156,14 @@ function (exports, module, require) {
               type: h,
               parent: this._extractId(t),
               sort: e + "",
-              limit: n > 0 ? n : 100,
+              limit: require > 0 ? require : 100,
               skip: o,
             })
             .then((e) => this._convertToFolderElement(e))
         );
       }),
       (y.prototype._convertToFolderElement = function (e) {
-        const t = (e) => {
+        const module = (e) => {
           var t = p.from(e);
           return (
             t.setItemType(p.Type.Folder),
@@ -178,21 +178,21 @@ function (exports, module, require) {
             t
           );
         };
-        return e instanceof Array ? e.map(t) : t(e);
+        return e instanceof Array ? e.map(module) : module(e);
       }),
       (y.prototype._buildFolderStructure = async function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : "asc";
         if (Object.keys(this.FOLDERS).length) return;
-        const t = await a.gApi.listFiles({
+        const module = await a.gApi.listFiles({
           type: h,
           parent: "*",
-          sort: e + "",
+          sort: exports + "",
           limit: Number.MAX_SAFE_INTEGER,
         });
-        (this.FOLDERS = this.buildFoldersHierarchy(t)),
+        (this.FOLDERS = this.buildFoldersHierarchy(module)),
           !this.CURRENT_FOLDER ||
             this.FOLDERS[this.CURRENT_FOLDER.id] ||
             this.isRootFolder(this.CURRENT_FOLDER) ||
@@ -244,7 +244,7 @@ function (exports, module, require) {
         });
       }),
       (y.prototype.saveNewFile = function (e, t) {
-        let n =
+        let require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : "",
           o =
             arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
@@ -252,7 +252,7 @@ function (exports, module, require) {
             arguments.length > 4 && undefined !== arguments[4]
               ? arguments[4]
               : null;
-        n = n || _.ext.toUpperCase();
+        require = require || _.ext.toUpperCase();
         var u = e.getScene();
         if (e.hasPagesWithInfiniteEmptyCanvas())
           return Promise.reject({
@@ -275,7 +275,7 @@ function (exports, module, require) {
           .createFile({
             name: t,
             parent: this._extractId(this.CURRENT_FOLDER),
-            type: (b(n) || _).type,
+            type: (b(require) || _).type,
             app: "designer",
             unit: u.getProperty("ut"),
             width: v.getWidth(),
@@ -307,7 +307,7 @@ function (exports, module, require) {
                   (p = gDesigner.getWindows().getActiveWindow().getView()),
                   p.transform(h, f, g),
                   (o = b.updateSaveOptionsLastModifiedDate(o)),
-                  i.GUtil.prepareForSaving(u, n),
+                  i.GUtil.prepareForSaving(u, require),
                   r.default.performSave(
                     b,
                     () => {
@@ -356,9 +356,9 @@ function (exports, module, require) {
           );
       }),
       (y.prototype.fetchRecentFiles = function () {
-        const e = this._getFileTypesForFilter().map((e) => ({ type: e }));
+        const exports = this._getFileTypesForFilter().map((e) => ({ type: e }));
         return r.default
-          .getRecentStorageItems(e)
+          .getRecentStorageItems(exports)
           .then((e) => this._convertAndUpdateCloudItems(e));
       }),
       (y.prototype.fetchFiles = function (e, t, n) {
@@ -378,17 +378,17 @@ function (exports, module, require) {
         return r.default.convertToCloudItem(e);
       }),
       (y.prototype._getFileTypesForFilter = function () {
-        const e = this.getSelectedFilterForFileTypes();
-        return 0 !== e.length ? e : this.getSupportedMIMETypes();
+        const exports = this.getSelectedFilterForFileTypes();
+        return 0 !== exports.length ? exports : this.getSupportedMIMETypes();
       }),
       (y.prototype.renameItem = function (e, t) {
         return a.gApi.updateFile(e.id, { name: t });
       }),
       (y.prototype.isItemAllowedToBeRendered = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
-          n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
+          require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         return (
-          !(!t && !n) || r.default.definePath(this.CURRENT_FOLDER) === e.parent
+          !(!module && !require) || r.default.definePath(this.CURRENT_FOLDER) === e.parent
         );
       }),
       (y.prototype.deleteItem = function (e) {
@@ -404,11 +404,11 @@ function (exports, module, require) {
         return r.default.changePathTree([e], t.id);
       }),
       (y.prototype.copyPaste = function (e) {
-        const t = r.default.definePath(this.CURRENT_FOLDER);
+        const module = r.default.definePath(this.CURRENT_FOLDER);
         return Promise.all(
           e.map(async (e) => {
-            const { id: n } = await a.gApi.copyFile(e.id, { parent: t });
-            return { id: n, parent: t };
+            const { id: require } = await a.gApi.copyFile(e.id, { parent: module });
+            return { id: require, parent: module };
           })
         );
       }),
@@ -456,42 +456,42 @@ function (exports, module, require) {
           (this.EXAMPLE_FILES_CACHE = await a.gApi
             .getExampleFiles()
             .catch(() => []));
-        const e = this.getSelectedFilterForFileTypes();
-        let t = this.EXAMPLE_FILES_CACHE;
+        const exports = this.getSelectedFilterForFileTypes();
+        let module = this.EXAMPLE_FILES_CACHE;
         return (
-          0 !== e.length &&
-            (t = t.filter((e) =>
+          0 !== exports.length &&
+            (module = module.filter((e) =>
               this._getFileTypesForFilter().includes(e.type)
             )),
-          t.map((e) => {
-            let t = p.from(e);
-            return t.setPermissions([p.Permission.Open]), t;
+          module.map((e) => {
+            let module = p.from(e);
+            return module.setPermissions([p.Permission.Open]), module;
           })
         );
       });
-    t.default = y;
-    const v = (t.TYPES = Object.assign(
+    module.default = y;
+    const v = (module.TYPES = Object.assign(
         { FOLDER: h },
         g.reduce((e, t) => ((e[t.ext.toUpperCase() + "_FILE"] = t), e), {})
       )),
-      _ = (t.DEFAULT_TYPE = Object.values(v).find((e) => e.default));
-    (t.FILE_EXTENSIONS = g.map((e) => {
-      let { ext: t } = e;
-      return t.toUpperCase();
+      _ = (module.DEFAULT_TYPE = Object.values(v).find((e) => e.default));
+    (module.FILE_EXTENSIONS = g.map((e) => {
+      let { ext: module } = e;
+      return module.toUpperCase();
     })),
-      (t.FILE_MIME_TYPES = g.map((e) => {
-        let { type: t } = e;
-        return t;
+      (module.FILE_MIME_TYPES = g.map((e) => {
+        let { type: module } = e;
+        return module;
       }));
-    t.lookupByMimeType = (e) =>
+    module.lookupByMimeType = (e) =>
       Object.values(v).find((t) => {
-        let { type: n } = t;
-        return !!n && n.toLowerCase() === e.toLowerCase();
+        let { type: require } = t;
+        return !!require && require.toLowerCase() === e.toLowerCase();
       });
     const b = (e) =>
       Object.values(v).find((t) => {
-        let { ext: n } = t;
-        return !!n && n.toLowerCase() === e.toLowerCase();
+        let { ext: require } = t;
+        return !!require && require.toLowerCase() === e.toLowerCase();
       });
-    t.lookupByExtension = b;
+    module.lookupByExtension = b;
   }

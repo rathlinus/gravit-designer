@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(58) /* module_58 */, n(8) /* module_8 */, n(20) /* module_20 */, n(71) /* module_71 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(40) /* module_40 */;
     function a(e, t) {
       let n =

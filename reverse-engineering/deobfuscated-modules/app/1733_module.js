@@ -8,19 +8,19 @@ function (exports, module, require) {
     const o = {
       init: function () {
         let {
-          feature: e,
-          pro: t = true,
-          badgeAlwaysVisible: n = false,
+          feature: exports,
+          pro: module = true,
+          badgeAlwaysVisible: require = false,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         return this.each(function () {
           var o = $(this);
           if (
-            (o.toggleClass("pro", !!t),
-            o.toggleClass("badge-always-visible", !!n),
-            t)
+            (o.toggleClass("pro", !!module),
+            o.toggleClass("badge-always-visible", !!require),
+            module)
           ) {
             const t = gDesigner.getLicense(),
-              n = t.isLegacy() && gDesigner.isLegacyFeature(e),
+              n = t.isLegacy() && gDesigner.isLegacyFeature(exports),
               i = t.isTrial() && !n;
             if (
               (o.toggleClass("trial", i),
@@ -33,7 +33,7 @@ function (exports, module, require) {
                   e.addClass("has-trial-option");
             }
           }
-          o.toggleClass("legacy-feature", gDesigner.isLegacyFeature(e));
+          o.toggleClass("legacy-feature", gDesigner.isLegacyFeature(exports));
         });
       },
     };

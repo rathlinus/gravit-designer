@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(124) /* module_124 */,
-      i = n(29) /* module_29 */,
-      a = n(37) /* module_37 */,
-      r = n(185) /* module_185 */,
-      s = n(305) /* module_305 */,
-      l = n(101) /* module_101 */,
-      c = n(144) /* module_144 */,
-      d = n(246) /* module_246 */,
-      u = n(204) /* module_204 */,
-      p = n(102) /* module_102 */,
+    var o = require(124) /* module_124 */,
+      i = require(29) /* module_29 */,
+      a = require(37) /* module_37 */,
+      r = require(185) /* module_185 */,
+      s = require(305) /* module_305 */,
+      l = require(101) /* module_101 */,
+      c = require(144) /* module_144 */,
+      d = require(246) /* module_246 */,
+      u = require(204) /* module_204 */,
+      p = require(102) /* module_102 */,
       g = TypeError,
       h = function (e, t) {
         (this.stopped = e), (this.result = t);
       },
       f = h.prototype;
-    e.exports = function (e, t, n) {
+    exports.exports = function (e, t, n) {
       var m,
         y,
         v,

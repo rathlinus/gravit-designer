@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(23) /* module_23 */,
-      a = n(27) /* module_27 */,
-      r = n(277) /* module_277 */,
-      s = n(79) /* module_79 */,
-      l = n(558) /* module_558 */,
-      c = n(121) /* module_121 */,
-      d = n(146) /* module_146 */,
-      u = n(35) /* module_35 */,
-      p = n(194) /* module_194 */,
-      g = n(46) /* module_46 */,
-      h = n(21) /* module_21 */,
-      f = n(343) /* module_343 */,
-      m = n(137) /* module_137 */,
-      y = n(288) /* module_288 */;
-    e.exports = function (e, t, n) {
+    var o = require(25) /* module_25 */,
+      i = require(23) /* module_23 */,
+      a = require(27) /* module_27 */,
+      r = require(277) /* module_277 */,
+      s = require(79) /* module_79 */,
+      l = require(558) /* module_558 */,
+      c = require(121) /* module_121 */,
+      d = require(146) /* module_146 */,
+      u = require(35) /* module_35 */,
+      p = require(194) /* module_194 */,
+      g = require(46) /* module_46 */,
+      h = require(21) /* module_21 */,
+      f = require(343) /* module_343 */,
+      m = require(137) /* module_137 */,
+      y = require(288) /* module_288 */;
+    exports.exports = function (e, t, n) {
       var v = -1 !== e.indexOf("Map"),
         _ = -1 !== e.indexOf("Weak"),
         b = v ? "set" : "add",

@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = n(10) /* module_10 */,
-      l = n(18) /* module_18 */,
-      c = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = require(10) /* module_10 */,
+      l = require(18) /* module_18 */,
+      c = require(106) /* GElementAction */;
     function d() {
       d.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
@@ -52,8 +52,8 @@ function (exports, module, require) {
         if (!c.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getIndividualSelection();
-          return t && t.length > 1;
+          var module = e.getEditor().getIndividualSelection();
+          return module && module.length > 1;
         }
         return false;
       }),
@@ -101,5 +101,5 @@ function (exports, module, require) {
       (d.prototype.toString = function () {
         return "[Object GClipAction]";
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */,
-      a = n(237) /* module_237 */,
-      r = n(220) /* module_220 */,
-      s = n(40) /* module_40 */.decrypt;
-    n(173) /* module_173 */;
+    require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */,
+      a = require(237) /* module_237 */,
+      r = require(220) /* module_220 */,
+      s = require(40) /* module_40 */.decrypt;
+    require(173) /* module_173 */;
     function l() {}
     o.GObject.inherit(l, a),
       (l.prototype.canPromptOpen = function () {
@@ -44,9 +44,9 @@ function (exports, module, require) {
           : o.GLocale.get(new o.GLocaleKey("GCommonNames", "text.image"));
       }),
       (l.Item.prototype.getFormattedPrice = async function () {
-        const e = await this.getPrice(),
-          t = o.GLocale.toLocaleCurrency(e, "USD");
-        return new Promise((e) => e(t));
+        const exports = await this.getPrice(),
+          module = o.GLocale.toLocaleCurrency(exports, "USD");
+        return new Promise((e) => e(module));
       }),
       (l.Item.prototype.setFile = function (e) {
         if (!e) throw new Error("File can not be null");
@@ -62,5 +62,5 @@ function (exports, module, require) {
       (l.Item.prototype.getExtension = function () {
         return this._file.extension && this._file.extension.toUpperCase();
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

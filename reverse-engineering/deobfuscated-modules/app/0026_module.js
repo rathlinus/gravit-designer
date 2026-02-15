@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(421) /* module_421 */,
-      a = n(422) /* module_422 */,
-      r = n(19) /* module_19 */,
-      s = n(100) /* module_100 */,
-      l = n(137) /* module_137 */,
-      c = n(43) /* module_43 */("iterator"),
+    var o = require(23) /* module_23 */,
+      i = require(421) /* module_421 */,
+      a = require(422) /* module_422 */,
+      r = require(19) /* module_19 */,
+      s = require(100) /* module_100 */,
+      l = require(137) /* module_137 */,
+      c = require(43) /* module_43 */("iterator"),
       d = r.values,
       u = function (e, t) {
         if (e) {
@@ -22,12 +22,12 @@ function (exports, module, require) {
               e[c] = d;
             }
           if ((l(e, t, true), i[t]))
-            for (var n in r)
-              if (e[n] !== r[n])
+            for (var require in r)
+              if (e[require] !== r[require])
                 try {
-                  s(e, n, r[n]);
+                  s(e, require, r[require]);
                 } catch (t) {
-                  e[n] = r[n];
+                  e[require] = r[require];
                 }
         }
       };

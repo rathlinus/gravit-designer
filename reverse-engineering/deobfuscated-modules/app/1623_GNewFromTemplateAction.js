@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(18) /* module_18 */,
-      a = n(31) /* GAction */,
-      r = n(119) /* module_119 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(18) /* module_18 */,
+      a = require(31) /* GAction */,
+      r = require(119) /* module_119 */;
     function s() {}
     o.GObject.inherit(s, a),
       (s.ID = "file.open-from-template"),
@@ -46,5 +46,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GNewFromTemplateAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

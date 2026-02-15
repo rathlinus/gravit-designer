@@ -19,7 +19,7 @@ function (e, t, n) {
       n(38) /* module_38 */,
       n(33) /* module_33 */,
       n(26) /* module_26 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const { TRANSLATION_MANAGER: i } = n(10) /* module_10 */;
     function a() {}
     o.GObject.inherit(a, o.GObject),

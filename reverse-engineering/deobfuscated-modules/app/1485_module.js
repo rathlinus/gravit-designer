@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = async function (e, t, n, o) {
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = async function (e, t, n, o) {
         var i = undefined !== window.dataLayer ? window.dataLayer : [],
           s = n;
         i.push({ version: "3.15.0" }),
@@ -23,16 +23,16 @@ function (exports, module, require) {
         var c = a.default.getRuntimeCode();
         i.push({ installType: c }), i.push({ event: "INIT_GTM_EVENT" });
       }),
-      n(8) /* module_8 */,
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(859) /* module_859 */),
-      r = n(40) /* module_40 */,
-      s = n(803) /* module_803 */;
+      require(8) /* module_8 */,
+      require(4) /* module_4 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = o(require(859) /* module_859 */),
+      r = require(40) /* module_40 */,
+      s = require(803) /* module_803 */;
     const { GA: { customDimensions: l } = {}, GoogleTagManagerSettings: c } =
-      n(10) /* module_10 */;
+      require(10) /* module_10 */;
     window.dataLayer = [];
     const d = c.getContainerId(s.nodeEnv);
     !(function (e, t, n, o, i) {

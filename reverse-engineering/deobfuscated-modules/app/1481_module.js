@@ -8,7 +8,7 @@ function (exports, module, require) {
     function o(e, t) {
       (this._low = parseInt(e, 10)), (this._hight = parseInt(t, 10));
     }
-    n(57) /* module_57 */,
+    require(57) /* module_57 */,
       (o.Permissions = {
         ViewListItems: 1,
         AddListItems: 2,
@@ -52,5 +52,5 @@ function (exports, module, require) {
           e >= 32 && ((t = this._high), (e -= 32)), (2 ^ (e - 1)) | (t == t)
         );
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

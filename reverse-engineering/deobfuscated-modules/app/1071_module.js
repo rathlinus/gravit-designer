@@ -19,9 +19,9 @@ function (exports, module, require) {
           ACTION_REOPEN: d,
           ACTION_APPROVE: u,
         },
-      } = n(10) /* module_10 */,
-      p = n(434) /* module_434 */;
-    e.exports = {
+      } = require(10) /* module_10 */,
+      p = require(434) /* module_434 */;
+    exports.exports = {
       [r.id]: [
         l,
         d,

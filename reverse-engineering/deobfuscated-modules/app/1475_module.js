@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(797) /* module_797 */,
-      i = n(1) /* module_1 */;
-    n(257) /* module_257 */;
+    require(8) /* module_8 */;
+    var o = require(797) /* module */,
+      i = require(1) /* module */;
+    require(257) /* module_257 */;
     function a(e, t, n, o, a, r) {
       (this._currentDocument = e),
         (this._newDocument = t),
@@ -176,5 +176,5 @@ function (exports, module, require) {
             )
         );
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

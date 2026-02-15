@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(328) /* module_328 */, n(20) /* module_20 */, n(34) /* module_34 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */,
-      i = n(841) /* module_841 */,
-      a = n(217) /* GDocumentStatusEvent */,
-      r = n(86) /* module_86 */;
-    const s = n(381) /* module_381 */,
-      l = n(256) /* GOfflineDialog */,
-      c = n(291) /* GNetworkAvailabilityChangedEvent */;
+    require(328) /* module_328 */, require(20) /* module_20 */, require(34) /* module_34 */, require(38) /* module_38 */;
+    var o = require(1) /* module */,
+      i = require(841) /* module_841 */,
+      a = require(217) /* GDocumentStatusEvent */,
+      r = require(86) /* module_86 */;
+    const s = require(381) /* module_381 */,
+      l = require(256) /* GOfflineDialog */,
+      c = require(291) /* GNetworkAvailabilityChangedEvent */;
     var d = [],
       u = function () {};
     function p() {
@@ -116,8 +116,8 @@ function (exports, module, require) {
         d.indexOf(t) < 0 && d.push(t);
       }),
       (p.unregisterProvider = function (e) {
-        for (var t = 0; t < d.length; t++)
-          d[t] instanceof e && d.splice(t--, 1);
+        for (var module = 0; module < d.length; module++)
+          d[module] instanceof e && d.splice(module--, 1);
       }),
       (p.getInstance = function () {
         return p._instance || new p();
@@ -131,21 +131,21 @@ function (exports, module, require) {
       }),
       (p.getProviderInstance = function (e) {
         if (p._instance)
-          for (var t = 0; t < d.length; t++) if (d[t] instanceof e) return d[t];
+          for (var module = 0; module < d.length; module++) if (d[module] instanceof e) return d[module];
         return null;
       }),
       (p.disableProviders = function (e) {
         if (p._instance) {
-          for (var t = 0; t < e.length; t++)
-            for (var n = e[t], o = 0; o < d.length; o++)
-              d[o] instanceof n ? d[o].setEnabled(false) : d[o].setEnabled(true);
+          for (var module = 0; module < e.length; module++)
+            for (var require = e[module], o = 0; o < d.length; o++)
+              d[o] instanceof require ? d[o].setEnabled(false) : d[o].setEnabled(true);
           p._instance.reset(null, false, true);
         }
       }),
       (p.enableProviders = function (e, t) {
         if (p._instance) {
-          for (var n = 0; n < e.length; n++)
-            for (var o = e[n], i = 0; i < d.length; i++)
+          for (var require = 0; require < e.length; require++)
+            for (var o = e[require], i = 0; i < d.length; i++)
               d[i] instanceof o
                 ? d[i].setEnabled(true)
                 : t || d[i].setEnabled(false);
@@ -413,7 +413,7 @@ function (exports, module, require) {
       (p.prototype.loadMore = function (e, t) {
         if (!this._loading) {
           if (0 === this._loadedPreviews && 0 === this._lastLoadedPreviews)
-            this._providerProbe(0, e, t, n, [], 0, false, true);
+            this._providerProbe(0, e, t, require, [], 0, false, true);
           else if (
             this._loadedPreviews >= 9999 &&
             this._lastLoadedPreviews < this._loadedPreviews + 20
@@ -423,20 +423,20 @@ function (exports, module, require) {
               this._lastLoaded < this._loaded + 9999
             ) {
               this._loading = true;
-              var n = new Date().getTime();
-              this._providerProbe(0, e, t, n, [], 0, false, false);
+              var require = new Date().getTime();
+              this._providerProbe(0, e, t, require, [], 0, false, false);
             } else {
               this._loading = true;
-              n = new Date().getTime();
-              this._providerProbe(0, e, t, n, [], 0, false, true);
+              require = new Date().getTime();
+              this._providerProbe(0, e, t, require, [], 0, false, true);
             }
           else if (
             this._loaded >= 9999 &&
             this._lastLoaded < this._loaded + 9999
           ) {
             this._loading = true;
-            n = new Date().getTime();
-            this._providerProbe(0, e, t, n, [], 0, false, false);
+            require = new Date().getTime();
+            this._providerProbe(0, e, t, require, [], 0, false, false);
           }
           return this._lastLoadedPreviews;
         }
@@ -496,10 +496,10 @@ function (exports, module, require) {
         if (this.isCacheEmpty()) return null;
         for (; t.length > 0; ) {
           if (m.hasOwnProperty(t)) {
-            var n = m[t];
-            if (n.faces)
-              for (var o = 0; o < n.faces.length; o++) {
-                var i = n.faces[o];
+            var require = m[t];
+            if (require.faces)
+              for (var o = 0; o < require.faces.length; o++) {
+                var i = require.faces[o];
                 if (i.family === e) return i;
                 if (i.families && i.families.indexOf(e) >= 0) return i;
               }
@@ -509,5 +509,5 @@ function (exports, module, require) {
         }
         return null;
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(119) /* module_119 */;
-    e.exports = function (e) {
+    require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(119) /* module_119 */;
+    exports.exports = function (e) {
       (e.CommercialProduct = function (t, n, o, i) {
         e.Item.call(this, t, n, o, i);
       }),

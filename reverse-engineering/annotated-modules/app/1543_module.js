@@ -19,7 +19,7 @@ function (e, t, n) {
       g = n(339) /* GMenu */,
       h = n(257) /* module_257 */,
       f = n(85) /* GContainer */,
-      { GSystem: m, GMath: y } = n(1) /* module_1 */,
+      { GSystem: m, GMath: y } = n(1) /* module */,
       { FILE_FORMATS: v } = n(10) /* module_10 */;
     e.exports = function (e) {
       (e.prototype._windowButton = null),

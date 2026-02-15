@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(1550) /* module_1550 */;
+    const o = require(1550) /* module_1550 */;
     function i() {}
     (i.getRenderForFile = function (e) {
       return new o();
     }),
-      (e.exports = i);
+      (exports.exports = i);
   }

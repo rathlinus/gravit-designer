@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = n(31) /* GAction */;
     function a(e) {
       this._action = e;

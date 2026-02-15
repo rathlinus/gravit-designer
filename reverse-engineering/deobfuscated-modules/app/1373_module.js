@@ -7,8 +7,8 @@ function (exports, module, require) {
     "use strict";
     var o,
       i,
-      a = n(1374) /* GBrowserContainer */,
-      r = n(1483) /* module_1483 */;
+      a = require(1374) /* GBrowserContainer */,
+      r = require(1483) /* module_1483 */;
     function s() {
       var e = new a();
       e.initLanguage(function () {

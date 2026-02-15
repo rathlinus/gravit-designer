@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(67) /* GRichTooltipConfig */,
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */;
-    const { TOUCH_LAYOUT: s } = n(10) /* module_10 */,
-      l = n(85) /* GContainer */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(67) /* GRichTooltipConfig */,
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */;
+    const { TOUCH_LAYOUT: s } = require(10) /* module_10 */,
+      l = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
@@ -86,5 +86,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GToggleTouchAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

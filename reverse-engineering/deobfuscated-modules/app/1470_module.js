@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(26) /* module_26 */;
-    const o = n(255) /* module_255 */;
-    e.exports = class {
-      constructor() {
+    require(19) /* module_19 */, require(26) /* module_26 */;
+    const o = require(255) /* module_255 */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         this._missingFonts = [];
       }
       start() {

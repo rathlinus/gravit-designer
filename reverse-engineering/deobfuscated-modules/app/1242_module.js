@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */;
-    var i = n(1) /* module_1 */,
-      a = n(1479) /* module_1479 */,
-      r = o(n(44) /* GSystemDialog */),
-      s = o(n(443) /* module_443 */),
-      l = n(1243) /* module_1243 */,
-      c = n(40) /* module_40 */;
+    var o = require(16) /* module_16 */;
+    require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */;
+    var i = require(1) /* module */,
+      a = require(1479) /* module_1479 */,
+      r = o(require(44) /* GSystemDialog */),
+      s = o(require(443) /* module_443 */),
+      l = require(1243) /* module_1243 */,
+      c = require(40) /* module_40 */;
     const { getAuthenticator: d, getTeamsContext: u } = s.default;
     function p() {}
     (p.Error = {
@@ -43,20 +43,20 @@ function (exports, module, require) {
       (p.prototype._authenticated = false),
       (p.prototype._tokens = null),
       (p.prototype.authenticate = async function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : [l.MS_TEAMS_COMMAND];
-        if (!(e instanceof Array)) return this._connectDrives(e);
+        if (!(exports instanceof Array)) return this._connectDrives(exports);
         if (this._authenticated) return true;
-        const t = this;
+        const module = this;
         return new Promise(
           async (n, o) => (
-            await t._authenticateCommand(e),
-            t
-              ._authWithCorelCloud(await t.getOrFetchMSTeamsAccessToken())
+            await module._authenticateCommand(exports),
+            module
+              ._authWithCorelCloud(await module.getOrFetchMSTeamsAccessToken())
               .then((e) => {
-                e ? ((t._authenticated = true), n(true)) : o();
+                e ? ((module._authenticated = true), n(true)) : o();
               })
               .catch(() => {
                 o();
@@ -73,28 +73,28 @@ function (exports, module, require) {
         return !(!e || !e.expires || e.expires <= Date.now() / 1e3);
       }),
       (p.prototype.isAuthenticated = function () {
-        const e = (this._tokens && this._tokens[l.MS_TEAMS_COMMAND]) || null;
+        const exports = (this._tokens && this._tokens[l.MS_TEAMS_COMMAND]) || null;
         return (
-          !(!e || !this.isTokenValid(e)) || ((this._authenticated = false), false)
+          !(!exports || !this.isTokenValid(exports)) || ((this._authenticated = false), false)
         );
       }),
       (p.prototype._authenticateCommand = async function (e) {
-        const t = this,
-          n = await this._getValidCachedTokens(),
+        const module = this,
+          require = await this._getValidCachedTokens(),
           o = {};
         let i = [];
-        if (!n || !Object.values(n).length)
+        if (!require || !Object.values(require).length)
           return this._processAuthenticationCommands(e);
-        for (let t = 0, a = e.length; t < a; t++)
-          n[e[t]] ? (o[e[t]] = n[e[t]]) : i.push(e[t]);
+        for (let module = 0, a = e.length; module < a; module++)
+          require[e[module]] ? (o[e[module]] = require[e[module]]) : i.push(e[module]);
         return 0 === i.length
-          ? (await t.setTokens(o, false), o)
+          ? (await module.setTokens(o, false), o)
           : this._processAuthenticationCommands(e, o);
       }),
       (p.prototype._processAuthenticationCommands = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const n = this;
+        const require = this;
         return new Promise((o, a) => {
           d()
             .then((r) =>
@@ -107,15 +107,15 @@ function (exports, module, require) {
                 height: 535,
                 successCallback: async function (e) {
                   const i = {};
-                  for (let t in e) {
-                    const { expires: n, accessToken: o } = e[t];
-                    i[t] = { token: o, expires: Number(n) };
+                  for (let module in e) {
+                    const { expires: require, accessToken: o } = e[module];
+                    i[module] = { token: o, expires: Number(require) };
                   }
-                  await n.setTokens(Object.assign(t, i)), o(i);
+                  await require.setTokens(Object.assign(module, i)), o(i);
                 },
                 failureCallback: function (t) {
                   t === p.FAIL_REASONS.POPUP_WINDOW_BLOCKED
-                    ? n._handleError(
+                    ? require._handleError(
                         p.Error.FAILED_TO_OPEN_WINDOW,
                         i.GLocale.get(
                           new i.GLocaleKey(
@@ -125,7 +125,7 @@ function (exports, module, require) {
                         ),
                         (t) => {
                           console.log("target", t.target),
-                            n
+                            require
                               ._processAuthenticationCommands(e)
                               .then((e) => {
                                 o(e);
@@ -136,7 +136,7 @@ function (exports, module, require) {
                         }
                       )
                     : t === p.FAIL_REASONS.CANCELLED_BY_USER
-                    ? (n._handleError(
+                    ? (require._handleError(
                         p.Error.CANCELLED_BY_USER,
                         i.GLocale.get(
                           new i.GLocaleKey(
@@ -147,7 +147,7 @@ function (exports, module, require) {
                         () => window.location.reload()
                       ),
                       a())
-                    : (n._handleError({ message: t }), a());
+                    : (require._handleError({ message: t }), a());
                 },
               })
             )
@@ -157,45 +157,45 @@ function (exports, module, require) {
         });
       }),
       (p.prototype._getValidCachedTokens = async function () {
-        const e = this._getCachedTokens();
-        if (!e) return null;
-        const t = await u(),
-          n = {};
-        if (e.userId !== t.loginHint) return n;
-        const o = Object.keys(e);
-        for (let t = 0, i = o.length; t < i; t++) {
-          const i = e[o[t]];
-          this.isTokenValid(i) && (n[o[t]] = i);
+        const exports = this._getCachedTokens();
+        if (!exports) return null;
+        const module = await u(),
+          require = {};
+        if (exports.userId !== module.loginHint) return require;
+        const o = Object.keys(exports);
+        for (let module = 0, i = o.length; module < i; module++) {
+          const i = exports[o[module]];
+          this.isTokenValid(i) && (require[o[module]] = i);
         }
-        return n;
+        return require;
       }),
       (p.prototype._getCachedTokens = function () {
-        const e = window.localStorage.getItem(p.CACHED_TOKENS_PROPERTY_NAME);
-        if (!e) return null;
-        let t = null;
+        const exports = window.localStorage.getItem(p.CACHED_TOKENS_PROPERTY_NAME);
+        if (!exports) return null;
+        let module = null;
         try {
-          t = JSON.parse((0, c.base64StringToString)(e));
+          module = JSON.parse((0, c.base64StringToString)(exports));
         } catch (e) {
           console.error("Cant decode cache tokens");
         }
-        return t;
+        return module;
       }),
       (p.prototype.setTokens = async function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        const n = (await u()).loginHint,
+        const require = (await u()).loginHint,
           o = await this._getValidCachedTokens();
-        (this._tokens = Object.assign({ userId: n }, o, e)),
-          t &&
+        (this._tokens = Object.assign({ userId: require }, o, e)),
+          module &&
             localStorage.setItem(
               p.CACHED_TOKENS_PROPERTY_NAME,
               (0, c.stringToBase64String)(JSON.stringify(this._tokens))
             );
       }),
       (p.prototype.getOrFetchMSTeamsAccessToken = async function () {
-        const e = (this._tokens && this._tokens[l.MS_TEAMS_COMMAND]) || null;
+        const exports = (this._tokens && this._tokens[l.MS_TEAMS_COMMAND]) || null;
         return (
-          (e && this.isTokenValid(e)) ||
+          (exports && this.isTokenValid(exports)) ||
             ((this._authenticated = false), await this.authenticate()),
           (this._tokens &&
             this._tokens[l.MS_TEAMS_COMMAND] &&
@@ -264,12 +264,12 @@ function (exports, module, require) {
         r.default.splashScreenError(o, t, n);
       }),
       (p.prototype._validateAuthenticatedUser = async function () {
-        const e = await this.getUser();
-        return !e || e.reload || e.deactivated
+        const exports = await this.getUser();
+        return !exports || exports.reload || exports.deactivated
           ? (this._handleError(p.Error.NOT_REGISTERED), false)
-          : e && e.microsoft_corporate_config
-          ? e.microsoft_corporate_config.client_id
-            ? !!e.microsoft_corporate_config.odb_client_id ||
+          : exports && exports.microsoft_corporate_config
+          ? exports.microsoft_corporate_config.client_id
+            ? !!exports.microsoft_corporate_config.odb_client_id ||
               (this._handleError(p.Error.ONEDRIVE_BUSINESS_ERROR), false)
             : (this._handleError(p.Error.SHAREPOINT_ERROR), false)
           : (this._handleError(p.Error.SHAREPOINT_ONEDRIVE_BUSINESS_ERROR), false);
@@ -279,7 +279,7 @@ function (exports, module, require) {
         this._loading = true;
         if (await a.gApi.isOffline({ includeCredentials: false }))
           return (this._loading = false), this._handleError(p.Error.OFFLINE), null;
-        const t = await a.gApi
+        const module = await a.gApi
           .authenticateMsTeamsUser(e)
           .catch(
             (e) => (
@@ -288,11 +288,11 @@ function (exports, module, require) {
               null
             )
           );
-        if (!t || !t.ok)
+        if (!module || !module.ok)
           return (
             this._handleError(p.Error.NOT_REGISTERED), (this._loading = false), false
           );
-        return (await t.json().catch(() => null))
+        return (await module.json().catch(() => null))
           ? ((this._loaded = true),
             (this._loading = false),
             this._validateAuthenticatedUser())
@@ -302,8 +302,8 @@ function (exports, module, require) {
       }),
       (p.prototype.getUser = async function () {
         if (this._user) return this._user;
-        const e = await gDesigner.getUser();
-        return e ? ((this._user = e), this._user) : null;
+        const exports = await gDesigner.getUser();
+        return exports ? ((this._user = exports), this._user) : null;
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

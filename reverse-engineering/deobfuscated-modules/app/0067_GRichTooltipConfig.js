@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = t.TOOLTIP_AREA = t.GRichTooltipConfig = undefined),
-      n(290) /* module_290 */,
-      n(3) /* module_3 */;
-    const o = (t.GRichTooltipConfig = function (e) {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = module.TOOLTIP_AREA = module.GRichTooltipConfig = undefined),
+      require(290) /* module_290 */,
+      require(3) /* module_3 */;
+    const o = (module.GRichTooltipConfig = function (e) {
       let {
-        title: t,
-        description: n,
+        title: module,
+        description: require,
         video: o,
         pic: i,
         isPro: a,
@@ -27,9 +27,9 @@ function (exports, module, require) {
         forceShow: g,
         flipHorizontal: h,
       } = e;
-      if (!t) throw new Error("");
-      (this._title = t),
-        (this._description = n),
+      if (!module) throw new Error("");
+      (this._title = module),
+        (this._description = require),
         (this._video = o),
         (this._pic = i),
         (this._isPro = a),
@@ -62,8 +62,8 @@ function (exports, module, require) {
       (o.prototype._flipHorizontal = false),
       (o.prototype.setConfig = function (e) {
         let {
-          title: t,
-          description: n,
+          title: module,
+          description: require,
           video: o,
           pic: i,
           isPro: a,
@@ -75,10 +75,10 @@ function (exports, module, require) {
           learnMore: u,
           upgradeToProStatsValue: p,
         } = e;
-        if ((undefined !== t && (this._title = t), !this._title))
+        if ((undefined !== module && (this._title = module), !this._title))
           throw new Error("");
         return (
-          undefined !== n && (this._description = n),
+          undefined !== require && (this._description = require),
           undefined !== o && (this._video = o),
           undefined !== i && (this._pic = i),
           undefined !== a && (this._isPro = a),
@@ -113,7 +113,7 @@ function (exports, module, require) {
       (o.prototype.toString = function () {
         return "[Object GRichTooltipConfig]";
       });
-    t.TOOLTIP_AREA = {
+    module.TOOLTIP_AREA = {
       TOOLBAR: "TOOLBAR",
       SIDEBAR: "SIDEBAR",
       MAIN_MENU: {
@@ -121,5 +121,5 @@ function (exports, module, require) {
         TRY_EXP_PDF_ADVANCED_SETTING: "TRY_EXP_PDF_ADVANCED_SETTING",
       },
     };
-    t.default = o;
+    module.default = o;
   }

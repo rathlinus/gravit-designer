@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(130) /* module_130 */,
-      i = n(62) /* module_62 */,
-      a = n(92) /* module_92 */,
+    var o = require(130) /* module_130 */,
+      i = require(62) /* module_62 */,
+      a = require(92) /* module_92 */,
       r = RangeError;
-    e.exports = function (e) {
+    exports.exports = function (e) {
       var t = i(a(this)),
         n = "",
         s = o(e);

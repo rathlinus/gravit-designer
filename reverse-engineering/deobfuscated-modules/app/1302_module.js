@@ -9,6 +9,6 @@ function (exports, module, require) {
       navigator.onLine &&
         ($(document).trigger("networkAvailable"), clearInterval(o));
     }, 2e4);
-    t.youtubePlaylist =
+    module.youtubePlaylist =
       "https://www.youtube.com/playlist?list=PLqsk_4aqUvEYxmy5NpQakcZXa6_3w-I8F";
   }

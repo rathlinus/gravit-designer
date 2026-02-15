@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(18) /* module_18 */),
-      r = o(n(31) /* GAction */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(18) /* module_18 */),
+      r = o(require(31) /* GAction */);
     const s = "designer.settings.enhanced-tooltips.enabled";
     let l = true;
     function c() {
@@ -53,5 +53,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GEnhancedTooltipsAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

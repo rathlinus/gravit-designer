@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     const i = [
       {
         selector: "#toolbar > .section > .menubar-toolbar-button",
@@ -213,19 +213,19 @@ function (exports, module, require) {
         className: "assistant-bar",
       },
     ];
-    e.exports = new (class {
-      constructor() {
+    exports.exports = new (class {
+      function Object() { [native code] }() {
         this._resizeBound = this._resize.bind(this);
       }
       open() {
         this._panel && this._panel.remove();
-        const e = $("body").addClass("g-quick-help");
+        const exports = $("body").addClass("g-quick-help");
         (this._panel = $("<div/>")
           .addClass("g-quick-help-screen")
           .addClass(o.GLocale.getLocaleTagISO6391())
           .addClass("hidden")
           .on("click", () => this.close())
-          .appendTo(e)),
+          .appendTo(exports)),
           gDesigner.getRightSidebars().disableContextSensitive(),
           this._update(),
           this._panel.removeClass("hidden"),
@@ -286,11 +286,11 @@ function (exports, module, require) {
           .appendTo(this._panel);
       }
       _createDynamicTooltip(e) {
-        const t = $(e.selector),
-          n = t.offset();
-        if (!n || !t.is(":visible")) return;
+        const module = $(e.selector),
+          require = module.offset();
+        if (!require || !module.is(":visible")) return;
         const i = this._createTooltip(e).appendTo(this._panel),
-          a = new o.GRect(n.left, n.top, t.outerWidth(), t.outerHeight()),
+          a = new o.GRect(require.left, require.top, module.outerWidth(), module.outerHeight()),
           r = new o.GRect(0, 0, i.outerWidth(), i.outerHeight()),
           s = this._calculatePosition(r, a, e);
         i.css({ top: s.getY(), left: s.getX() });
@@ -332,7 +332,7 @@ function (exports, module, require) {
         }
       }
       _createTooltip(e) {
-        const t = $("<div>")
+        const module = $("<div>")
           .addClass("content")
           .append(
             $("<span/>").text(
@@ -351,7 +351,7 @@ function (exports, module, require) {
                   .addClass("connector")
                   .css("display", e.disconnected ? "none" : "")
               )
-              .append(t)
+              .append(module)
           );
       }
     })();

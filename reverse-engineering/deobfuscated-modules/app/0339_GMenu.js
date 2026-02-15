@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(1499) /* GMenuActivateEvent */,
-      s = n(1156) /* GMenuCloseEvent */,
-      l = n(444) /* module_444 */,
-      c = n(1157) /* module_1157 */,
-      d = n(804) /* GMenuOpenEvent */;
+    require(30) /* module_30 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(1499) /* GMenuActivateEvent */,
+      s = require(1156) /* GMenuCloseEvent */,
+      l = require(444) /* module_444 */,
+      c = require(1157) /* module_1157 */,
+      d = require(804) /* GMenuOpenEvent */;
     function u(e, t, n, o) {
       (this._htmlElement = $("<li></li>").addClass("g-menu-item")),
         (this._category = e || u.Type.Item),
@@ -129,11 +129,11 @@ function (exports, module, require) {
         (this._pro = !!e),
           (this._feature = t),
           this._htmlElement.gPro({ pro: this._pro, feature: t });
-        let n = false;
+        let require = false;
         const o = gDesigner.getLicense(),
           i = o.isLegacy() && gDesigner.isLegacyFeature(t),
           r = !i && (o.isFree() || gDesigner.isAnonymous() || o.isExpired());
-        if ((this._pro && (n = o.isTrial() && !i), (!n && !r) || !this._action))
+        if ((this._pro && (require = o.isTrial() && !i), (!require && !r) || !this._action))
           return;
         let s = this._action.getTooltipConfig(this._action.getTooltipArea());
         s &&
@@ -156,15 +156,15 @@ function (exports, module, require) {
       (u.prototype.setIcon = function (e) {
         if (e !== this._icon) {
           this._icon = e;
-          var t = this._htmlElement.find(".g-menu-item-icon");
-          t.empty(),
+          var module = this._htmlElement.find(".g-menu-item-icon");
+          module.empty(),
             this._icon
               ? ("string" == typeof this._icon
-                  ? t.append($("<i></i>").addClass(e))
-                  : t.append(this._icon),
-                t.css("display", ""),
+                  ? module.append($("<i></i>").addClass(e))
+                  : module.append(this._icon),
+                module.css("display", ""),
                 this._htmlElement.addClass("has-icon"))
-              : (t.css("display", "none"),
+              : (module.css("display", "none"),
                 this._htmlElement.removeClass("has-icon"));
         }
       }),
@@ -174,13 +174,13 @@ function (exports, module, require) {
       (u.prototype.setCaption = function (e) {
         if (e !== this._caption) {
           this._caption = e;
-          var t = this._htmlElement.find(".g-menu-item-caption");
-          t.empty(),
+          var module = this._htmlElement.find(".g-menu-item-caption");
+          module.empty(),
             !this._caption ||
             this._caption instanceof o.GLocaleKey ||
             "string" == typeof this._caption
-              ? t.html(this._caption ? o.GLocale.get(this._caption) : "")
-              : t.append(this._caption);
+              ? module.html(this._caption ? o.GLocale.get(this._caption) : "")
+              : module.append(this._caption);
         }
       }),
       (u.prototype.getInfo = function () {
@@ -272,28 +272,28 @@ function (exports, module, require) {
             : this._htmlElement.addClass("g-disabled"));
       }),
       (u.prototype.setDetachable = function (e) {
-        const t = this._htmlElement
+        const module = this._htmlElement
           .find(".g-menu-item-detach")
           .css("display", e ? "" : "none");
         e
-          ? (t.on("click", this._detachBound),
-            t[0].addEventListener(
+          ? (module.on("click", this._detachBound),
+            module[0].addEventListener(
               "mousedown",
               this._stopPropagationEventListener,
               true
             ),
-            t[0].addEventListener(
+            module[0].addEventListener(
               "mouseup",
               this._stopPropagationEventListener,
               true
             ))
-          : (t.off("click", this._detachBound),
-            t[0].removeEventListener(
+          : (module.off("click", this._detachBound),
+            module[0].removeEventListener(
               "mousedown",
               this._stopPropagationEventListener,
               true
             ),
-            t[0].removeEventListener(
+            module[0].removeEventListener(
               "mouseup",
               this._stopPropagationEventListener,
               true
@@ -377,12 +377,12 @@ function (exports, module, require) {
           this.hasEventListeners(u.UpdateEvent) && this.trigger(u.UPDATE_EVENT);
       }),
       (u.prototype.activate = function () {
-        let e = false;
-        const t = () => {
-          let e,
-            t = this.getParent();
-          for (; t && ((e = t), t !== t.getParent()); ) t = t.getParent();
-          return e;
+        let exports = false;
+        const module = () => {
+          let exports,
+            module = this.getParent();
+          for (; module && ((exports = module), module !== module.getParent()); ) module = module.getParent();
+          return exports;
         };
         if (
           (this.hasEventListeners(u.BeforeActivateEvent) &&
@@ -391,23 +391,23 @@ function (exports, module, require) {
             this._action.isAvailable(this._componentId) &&
             this._action.isEnabled())
         ) {
-          let i = t();
-          var n = "execute";
+          let i = module();
+          var require = "execute";
           this._action.isPro() &&
             !gDesigner.isEnabledProFeatures(this._action.getId()) &&
-            (n = "nonprotriespro"),
+            (require = "nonprotriespro"),
             this._action.execute(),
-            (e = true);
+            (exports = true);
           var o = this._action.statsValue() || this._action.getId();
           i && "context" === i.__which
-            ? gDesigner.stats("action_" + n + "_context", o)
+            ? gDesigner.stats("action_" + require + "_context", o)
             : i && "menubar" === i.__which
-            ? gDesigner.stats("action_" + n + "_menu", o)
+            ? gDesigner.stats("action_" + require + "_menu", o)
             : i && "assistantbar" === i.__which
-            ? gDesigner.stats("action_" + n + "_assistantbar", o)
+            ? gDesigner.stats("action_" + require + "_assistantbar", o)
             : i && "touchmenu" === i.__which
-            ? gDesigner.stats("action_" + n + "_touchmenu", o)
-            : gDesigner.stats("action_" + n + "_toolbar", o);
+            ? gDesigner.stats("action_" + require + "_touchmenu", o)
+            : gDesigner.stats("action_" + require + "_toolbar", o);
         }
         if (this.isEnabled()) {
           if (
@@ -415,8 +415,8 @@ function (exports, module, require) {
             this._proFeatureInterruption &&
             !gDesigner.isEnabledProFeatures(this._feature)
           ) {
-            if (!e) {
-              let e = t();
+            if (!exports) {
+              let e = module();
               e && "context" === e.__which
                 ? gDesigner.stats(
                     "action_nonprotriespro_context",
@@ -560,5 +560,5 @@ function (exports, module, require) {
       (u.prototype.toString = function () {
         return "[Object GMenuItem]";
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

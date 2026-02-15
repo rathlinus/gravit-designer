@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(619) /* module_619 */,
-      i = n(46) /* module_46 */,
-      a = n(92) /* module_92 */,
-      r = n(620) /* module_620 */;
-    e.exports =
+    var o = require(619) /* module_619 */,
+      i = require(46) /* module_46 */,
+      a = require(92) /* module_92 */,
+      r = require(620) /* module_620 */;
+    exports.exports =
       Object.setPrototypeOf ||
       ("__proto__" in {}
         ? (function () {

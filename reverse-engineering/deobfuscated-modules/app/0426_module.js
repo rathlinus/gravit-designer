@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(130) /* module_130 */,
-      i = n(117) /* module_117 */,
+    var o = require(130) /* module_130 */,
+      i = require(117) /* module_117 */,
       a = RangeError;
-    e.exports = function (e) {
+    exports.exports = function (e) {
       if (undefined === e) return 0;
       var t = o(e),
         n = i(t);

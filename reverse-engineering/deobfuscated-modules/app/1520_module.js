@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     var o, i, a;
-    (i = [n(171) /* module_171 */, n(605) /* module_605 */]),
+    (i = [require(171) /* module_171 */, require(605) /* module_605 */]),
       undefined ===
         (a =
           "function" ==
@@ -22,6 +22,6 @@ function (exports, module, require) {
                   },
             });
           })
-            ? o.apply(t, i)
-            : o) || (e.exports = a);
+            ? o.apply(module, i)
+            : o) || (exports.exports = a);
   }

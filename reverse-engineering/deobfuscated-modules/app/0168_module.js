@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(681) /* module_681 */.left,
-      a = n(350) /* module_350 */,
-      r = n(213) /* module_213 */;
+    var o = require(25) /* module_25 */,
+      i = require(681) /* module_681 */.left,
+      a = require(350) /* module_350 */,
+      r = require(213) /* module_213 */;
     o(
       {
         target: "Array",
         proto: true,
-        forced: (!n(245) /* module_245 */ && r > 79 && r < 83) || !a("reduce"),
+        forced: (!require(245) /* module_245 */ && r > 79 && r < 83) || !a("reduce"),
       },
       {
         reduce: function (e) {

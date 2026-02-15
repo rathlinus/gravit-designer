@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var { ipcRenderer: o } = n(881) /* module_881 */;
-    const i = n(1349) /* module_1349 */;
+    require(3) /* module_3 */;
+    var { ipcRenderer: o } = require(881) /* module_881 */;
+    const i = require(1349) /* module_1349 */;
     function a() {}
     (a.prototype.installUpdate = function () {
       console.info(this.toString() + " Firing install update"),
@@ -28,5 +28,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GElectronUpdateServiceClient]";
       }),
-      (e.exports = new a());
+      (exports.exports = new a());
   }

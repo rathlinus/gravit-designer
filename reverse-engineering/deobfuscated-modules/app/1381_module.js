@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    n(1382) /* module_1382 */("asyncIterator");
+    require(1382) /* module_1382 */("asyncIterator");
   }

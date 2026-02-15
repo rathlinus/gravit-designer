@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(394) /* GView */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(394) /* GView */;
     function a() {
       i.call(this);
     }
@@ -43,7 +43,7 @@ function (exports, module, require) {
       }),
       (a.prototype.deactivate = function () {}),
       (a.prototype.getTouchTools = function (e) {
-        let { disableContextSensitive: t = false } = e;
+        let { disableContextSensitive: module = false } = e;
         return null;
       }),
       (a.prototype.updateBadge = function (e) {
@@ -52,5 +52,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GSidebar]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

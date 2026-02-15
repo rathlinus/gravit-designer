@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     const i = {
       [o.GLocaleLanguage.Portuguese]: "pt-br",
       [o.GLocaleLanguage.Spanish]: "es",
@@ -13,10 +13,10 @@ function (exports, module, require) {
       [o.GLocaleLanguage.Italian]: "it",
       [o.GLocaleLanguage.French]: "fr",
     };
-    e.exports = class {
-      constructor() {
-        const e = i[o.GLocale.getLanguage()] || 'en',
-          t = $('<iframe>')
+    exports.exports = class {
+      function Object() { [native code] }() {
+        const exports = i[o.GLocale.getLanguage()] || 'en',
+          module = $('<iframe>')
             .attr(
               'src',
               ''
@@ -34,7 +34,7 @@ function (exports, module, require) {
                 .on("click", () => this.close()),
             ],
           })
-          .append(t);
+          .append(module);
       }
       open() {
         this._dialog.gDialog("open", false);

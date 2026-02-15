@@ -31,7 +31,7 @@ function (exports, module, require) {
     }),
       (o._removeCallbacks = function (e) {
         if (o._cb.length) {
-          for (var t = 0; t < o._cb.length; t++) o._cb[t](e || null);
+          for (var module = 0; module < o._cb.length; module++) o._cb[module](e || null);
           o._cb = [];
         }
       }),
@@ -62,25 +62,25 @@ function (exports, module, require) {
               window.msIDBTransaction);
         } catch (e) {}
         if (window.indexedDB) {
-          var e = indexedDB.open("gravitFontsDB", 1);
+          var exports = indexedDB.open("gravitFontsDB", 1);
           if (
-            (e.addEventListener("error", () => {
+            (exports.addEventListener("error", () => {
               (this._failedStarting = true), o._removeCallbacks();
             }),
-            "done" === e.readyState)
+            "done" === exports.readyState)
           ) {
-            if (e.error)
+            if (exports.error)
               throw (
                 ((this._failedStarting = true),
                 new Error("Failed starting GFontDBClient"))
               );
-            this._requestSuccess({ target: e });
+            this._requestSuccess({ target: exports });
           } else
-            (e.onsuccess = this._requestSuccess.bind(this)),
-              (e.onerror = function (e) {
+            (exports.onsuccess = this._requestSuccess.bind(this)),
+              (exports.onerror = function (e) {
                 0;
               });
-          e.onupgradeneeded = this._createStore.bind(this);
+          exports.onupgradeneeded = this._createStore.bind(this);
         } else o._removeCallbacks();
       }),
       (o.prototype._requestSuccess = function (e) {
@@ -112,13 +112,13 @@ function (exports, module, require) {
           function (e) {
             this._dataBase || e.resolveWith(this, [true]);
             try {
-              var t = this._dataBase.transaction([i], "readwrite");
+              var module = this._dataBase.transaction([i], "readwrite");
               try {
-                var n = t.objectStore(i).clear();
-                (n.onsuccess = function (t) {
+                var require = module.objectStore(i).clear();
+                (require.onsuccess = function (t) {
                   e.resolveWith(this, [true]);
                 }.bind(this)),
-                  (n.onerror = function (t) {
+                  (require.onerror = function (t) {
                     e.resolveWith(this, [false]);
                   }.bind(this));
               } catch (t) {
@@ -135,9 +135,9 @@ function (exports, module, require) {
           function (t) {
             this._dataBase || t.resolveWith(this, [true]);
             try {
-              var n = this._dataBase.transaction([i], "readwrite");
+              var require = this._dataBase.transaction([i], "readwrite");
               try {
-                var o = n.objectStore(i).delete(e);
+                var o = require.objectStore(i).delete(e);
                 (o.onsuccess = function (e) {
                   t.resolveWith(this, [true]);
                 }.bind(this)),
@@ -262,5 +262,5 @@ function (exports, module, require) {
           }
         });
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

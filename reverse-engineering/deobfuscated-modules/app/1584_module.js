@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(53) /* module_53 */;
-    const i = n(878) /* module_878 */,
-      a = n(1585) /* module_1585 */,
-      r = n(879) /* module_879 */,
-      s = n(1586) /* module_1586 */,
-      l = n(1329) /* module_1329 */;
-    e.exports = class extends i {
-      constructor(e) {
+    var o = require(53) /* module */;
+    const i = require(878) /* module_878 */,
+      a = require(1585) /* module_1585 */,
+      r = require(879) /* module_879 */,
+      s = require(1586) /* module_1586 */,
+      l = require(1329) /* module_1329 */;
+    exports.exports = class extends i {
+      function Object() { [native code] }(e) {
         super(e),
           this.addGesture(new a()),
           this.addGesture(new r()),
@@ -27,8 +27,8 @@ function (exports, module, require) {
           super._touchStart(e);
       }
       _isSelecting() {
-        const e = gDesigner.getToolManager().getActiveTool();
-        return !!(e && e instanceof o.GSelectTool) && e.hasSelectedArea();
+        const exports = gDesigner.getToolManager().getActiveTool();
+        return !!(exports && exports instanceof o.GSelectTool) && exports.hasSelectedArea();
       }
     };
   }

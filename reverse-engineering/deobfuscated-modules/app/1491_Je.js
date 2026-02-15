@@ -6,42 +6,42 @@
 
 function (exports, module, require) {
     "use strict";
-    n(557) /* module_557 */;
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(596) /* module_596 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = n(10) /* module_10 */,
-      l = n(357) /* module_357 */,
-      c = o(n(1492) /* module_1492 */),
-      d = n(1246) /* module_1246 */,
-      u = n(40) /* module_40 */,
-      p = n(1247) /* module_1247 */,
+    require(557) /* module_557 */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(596) /* module_596 */,
+      require(96) /* module_96 */,
+      require(30) /* module_30 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(71) /* module_71 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(97) /* module_97 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = require(10) /* module_10 */,
+      l = require(357) /* module_357 */,
+      c = o(require(1492) /* module_1492 */),
+      d = require(1246) /* module_1246 */,
+      u = require(40) /* module_40 */,
+      p = require(1247) /* module_1247 */,
       g = (function (e, t) {
         if ("function" == typeof WeakMap)
-          var n = new WeakMap(),
+          var require = new WeakMap(),
             o = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
@@ -50,7 +50,7 @@ function (exports, module, require) {
             r = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
             return r;
-          if ((i = t ? o : n)) {
+          if ((i = t ? o : require)) {
             if (i.has(e)) return i.get(e);
             i.set(e, r);
           }
@@ -65,100 +65,100 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(n(1739) /* module_1739 */),
-      h = (o(n(1249) /* module_1249 */), o(n(1155) /* module_1155 */)),
-      f = o(n(556) /* module_556 */),
-      m = o(n(734) /* module_734 */),
-      y = o(n(1494) /* module_1494 */),
-      v = o(n(1496) /* module_1496 */),
-      _ = o(n(1497) /* module_1497 */),
-      b = o(n(1498) /* module_1498 */);
-    var w = n(163) /* module_163 */,
-      C = n(238) /* GMenu */,
-      x = n(339) /* GMenu */,
-      S = n(804) /* GMenuOpenEvent */,
-      E = n(1500) /* module_1500 */,
-      A = n(1521) /* module_1521 */,
-      T = n(1522) /* GInfo */,
-      G = n(1260) /* GOutlineSidebar */,
-      P = n(864) /* GInspectorSidebar */,
-      D = n(567) /* GAnnotationsSidebar */,
-      L = n(1539) /* module_1539 */,
-      I = n(395) /* module_395 */;
-    n(1540) /* module_1540 */;
-    var k = n(1541) /* GToolbar */,
-      O = n(603) /* module_603 */,
-      F = n(863) /* module_863 */,
-      R = n(1294) /* GDimensionProperties */,
-      M = n(135) /* GSettingChangedEvent */,
-      N = n(1151) /* GSwatchesChangedEvent */,
-      B = n(78) /* GDocumentEvent */,
-      U = n(1296) /* GNewWindowAction */,
-      j = n(1172) /* GInstallToDesktopAction */,
-      K = n(1170) /* GToggleSidebarAction */,
-      V = n(1297) /* GOutlineViewAction */,
-      H = (n(1298) /* GUseCouponAction */, n(255) /* module_255 */),
-      W = n(590) /* module_590 */,
-      z = n(1544) /* module_1544 */,
-      q = n(1560) /* module_1560 */,
-      Y = n(1562) /* GInstallPwaDialog */,
-      X = n(1303) /* GContextMenu */;
-    n(1563) /* module_1563 */;
-    var Q = n(119) /* module_119 */,
-      J = n(220) /* module_220 */,
-      Z = n(85) /* GContainer */,
-      ee = n(44) /* GSystemDialog */,
-      te = n(1276) /* module_1276 */,
-      ne = n(1564) /* module_1564 */,
-      oe = n(1250) /* module_1250 */,
-      ie = n(291) /* GNetworkAvailabilityChangedEvent */,
-      ae = n(1313) /* module_1313 */,
-      re = n(860) /* module_860 */,
-      se = n(441) /* module_441 */,
-      le = n(292) /* module_292 */,
-      ce = n(805) /* module_805 */,
-      de = n(1321) /* module_1321 */,
-      ue = n(392) /* module_392 */,
-      pe = n(868) /* module_868 */,
-      ge = n(1322) /* module_1322 */,
-      he = n(1568) /* module_1568 */,
-      fe = n(1569) /* module_1569 */,
-      me = n(1571) /* module_1571 */,
-      ye = n(1165) /* module_1165 */,
-      ve = n(1572) /* module_1572 */,
-      _e = n(846) /* module_846 */,
-      be = n(337) /* module_337 */,
-      we = n(1325) /* module_1325 */,
-      Ce = n(785) /* module_785 */,
-      xe = n(256) /* GOfflineDialog */,
-      Se = n(604) /* module_604 */,
-      Ee = n(1326) /* module_1326 */,
-      Ae = n(1328) /* module_1328 */,
-      Te = n(808) /* GApplicationStatusEvent */,
-      Ge = n(1188) /* module_1188 */,
-      Pe = n(447) /* GSaveAction */,
-      De = n(86) /* module_86 */,
-      Le = (n(18) /* module_18 */, n(442) /* module_442 */);
+      })(require(1739) /* module_1739 */),
+      h = (o(require(1249) /* module_1249 */), o(require(1155) /* module_1155 */)),
+      f = o(require(556) /* module_556 */),
+      m = o(require(734) /* module_734 */),
+      y = o(require(1494) /* module_1494 */),
+      v = o(require(1496) /* module_1496 */),
+      _ = o(require(1497) /* module_1497 */),
+      b = o(require(1498) /* module_1498 */);
+    var w = require(163) /* module_163 */,
+      C = require(238) /* GMenu */,
+      x = require(339) /* GMenu */,
+      S = require(804) /* GMenuOpenEvent */,
+      E = require(1500) /* module_1500 */,
+      A = require(1521) /* module_1521 */,
+      T = require(1522) /* GInfo */,
+      G = require(1260) /* GOutlineSidebar */,
+      P = require(864) /* GInspectorSidebar */,
+      D = require(567) /* GAnnotationsSidebar */,
+      L = require(1539) /* module_1539 */,
+      I = require(395) /* module_395 */;
+    require(1540) /* module_1540 */;
+    var k = require(1541) /* GToolbar */,
+      O = require(603) /* module_603 */,
+      F = require(863) /* module_863 */,
+      R = require(1294) /* GDimensionProperties */,
+      M = require(135) /* GSettingChangedEvent */,
+      N = require(1151) /* GSwatchesChangedEvent */,
+      B = require(78) /* GDocumentEvent */,
+      U = require(1296) /* GNewWindowAction */,
+      j = require(1172) /* GInstallToDesktopAction */,
+      K = require(1170) /* GToggleSidebarAction */,
+      V = require(1297) /* GOutlineViewAction */,
+      H = (require(1298) /* GUseCouponAction */, require(255) /* module_255 */),
+      W = require(590) /* module_590 */,
+      z = require(1544) /* module_1544 */,
+      q = require(1560) /* module_1560 */,
+      Y = require(1562) /* GInstallPwaDialog */,
+      X = require(1303) /* GContextMenu */;
+    require(1563) /* module_1563 */;
+    var Q = require(119) /* module_119 */,
+      J = require(220) /* module_220 */,
+      Z = require(85) /* GContainer */,
+      ee = require(44) /* GSystemDialog */,
+      te = require(1276) /* module_1276 */,
+      ne = require(1564) /* module_1564 */,
+      oe = require(1250) /* module_1250 */,
+      ie = require(291) /* GNetworkAvailabilityChangedEvent */,
+      ae = require(1313) /* module_1313 */,
+      re = require(860) /* module_860 */,
+      se = require(441) /* module_441 */,
+      le = require(292) /* module_292 */,
+      ce = require(805) /* module_805 */,
+      de = require(1321) /* module_1321 */,
+      ue = require(392) /* module_392 */,
+      pe = require(868) /* module_868 */,
+      ge = require(1322) /* module_1322 */,
+      he = require(1568) /* module_1568 */,
+      fe = require(1569) /* module_1569 */,
+      me = require(1571) /* module_1571 */,
+      ye = require(1165) /* module_1165 */,
+      ve = require(1572) /* module_1572 */,
+      _e = require(846) /* module_846 */,
+      be = require(337) /* module_337 */,
+      we = require(1325) /* module_1325 */,
+      Ce = require(785) /* module_785 */,
+      xe = require(256) /* GOfflineDialog */,
+      Se = require(604) /* module_604 */,
+      Ee = require(1326) /* module_1326 */,
+      Ae = require(1328) /* module_1328 */,
+      Te = require(808) /* GApplicationStatusEvent */,
+      Ge = require(1188) /* module_1188 */,
+      Pe = require(447) /* GSaveAction */,
+      De = require(86) /* module_86 */,
+      Le = (require(18) /* module_18 */, require(442) /* module_442 */);
     const {
       defaultLegacyUserSettings: { features: Ie },
     } = s.defaultUserSettings;
-    var ke = n(10) /* module_10 */;
+    var ke = require(10) /* module_10 */;
     const { gApi: Oe } = ke;
-    var Fe = n(388) /* module_388 */,
-      Re = n(1580) /* module_1580 */;
-    const Me = n(1581) /* module_1581 */,
-      Ne = n(1584) /* module_1584 */;
-    var Be = n(1587) /* module_1587 */;
-    n(607) /* module_607 */;
-    const Ue = n(40) /* module_40 */,
-      $e = n(177) /* module_177 */,
-      je = n(1338) /* module_1338 */,
-      Ke = n(1173) /* module_1173 */,
-      Ve = (n(1591) /* module_1591 */, n(1592) /* module_1592 */),
-      He = n(1593) /* module_1593 */,
-      We = n(1594) /* module_1594 */;
-    var ze = n(1595) /* module_1595 */;
-    n(1596) /* module_1596 */,
+    var Fe = require(388) /* module_388 */,
+      Re = require(1580) /* module_1580 */;
+    const Me = require(1581) /* module_1581 */,
+      Ne = require(1584) /* module_1584 */;
+    var Be = require(1587) /* module_1587 */;
+    require(607) /* module_607 */;
+    const Ue = require(40) /* module_40 */,
+      $e = require(177) /* module_177 */,
+      je = require(1338) /* module_1338 */,
+      Ke = require(1173) /* module_1173 */,
+      Ve = (require(1591) /* module_1591 */, require(1592) /* module_1592 */),
+      He = require(1593) /* module_1593 */,
+      We = require(1594) /* module_1594 */;
+    var ze = require(1595) /* module_1595 */;
+    require(1596) /* module_1596 */,
       ze.addKeycodes({ 173: "-" }),
       ze.addKeycodes({ 187: "=" }),
       ze.addKeycodes({ 61: "=" });
@@ -242,17 +242,17 @@ function (exports, module, require) {
                 (e.preventDefault(), document.activeElement.blur()),
               this._windows)
             ) {
-              var t = document.activeElement,
-                n = this._windows.getActiveWindow(),
+              var module = document.activeElement,
+                require = this._windows.getActiveWindow(),
                 o =
-                  $(t).is("input") &&
-                  "number" === $(t).attr("type") &&
-                  !$(t).hasClass("g-disabled") &&
-                  "true" !== $(t).attr("disabled");
-              !n ||
-                !n.getView() ||
-                (t && ($(t).is(":editable") || o)) ||
-                n.getView().focus();
+                  $(module).is("input") &&
+                  "number" === $(module).attr("type") &&
+                  !$(module).hasClass("g-disabled") &&
+                  "true" !== $(module).attr("disabled");
+              !require ||
+                !require.getView() ||
+                (module && ($(module).is(":editable") || o)) ||
+                require.getView().focus();
             }
           }.bind(this),
           false
@@ -322,14 +322,14 @@ function (exports, module, require) {
           this._initialized && gDesigner.updateRecentDocumentsAction();
         }),
         (this._paste = new ae());
-      const e = (e) => {
+      const exports = (e) => {
         this.hasEventListeners(ie) && this.trigger(new ie(e));
       };
-      $(window).on("online", () => e(true)),
+      $(window).on("online", () => exports(true)),
         $(window).on("offline", () => {
           "undefined" != typeof dataLayer &&
             dataLayer.push({ event: "NETWORK_DISCONNECTED_EVENT" }),
-            e(false);
+            exports(false);
         });
     }
     a.GObject.inherit(Je, a.GEventTarget),
@@ -525,9 +525,9 @@ function (exports, module, require) {
         return this._activeDocument ? this._activeDocument : null;
       }),
       (Je.prototype.getActiveView = function () {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getActiveWindow();
-        return t && t.getView();
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getActiveWindow();
+        return module && module.getView();
       }),
       (Je.prototype.getHeader = function () {
         return this._header;
@@ -635,14 +635,14 @@ function (exports, module, require) {
       (Je.prototype.setSetting = function (e, t) {
         if (this._settingsLoaded) {
           for (
-            var n = e instanceof Array ? e : [e],
+            var require = e instanceof Array ? e : [e],
               o = e instanceof Array ? t : [t],
               i = false,
               r = 0;
-            r < n.length;
+            r < require.length;
             ++r
           ) {
-            (e = n[r]), (t = o[r]);
+            (e = require[r]), (t = o[r]);
             if (
               !this._settings.hasOwnProperty(e) ||
               !a.GUtil.equals(this._settings[e], t, true)
@@ -662,10 +662,10 @@ function (exports, module, require) {
       }),
       (Je.prototype.getSwatches = function (e) {
         if (e.startsWith("document") && this.getActiveDocument()) {
-          var t = this.getActiveDocument().getScene().getSwatches(),
-            n = [];
-          if (t)
-            for (var o = t.getFirstChild(); null !== o; o = o.getNext()) {
+          var module = this.getActiveDocument().getScene().getSwatches(),
+            require = [];
+          if (module)
+            for (var o = module.getFirstChild(); null !== o; o = o.getNext()) {
               var i = a.GPattern.serialize(o.getProperty("_pt"));
               (((i.startsWith("C#") || i.startsWith("Y#")) &&
                 "document" === e) ||
@@ -674,9 +674,9 @@ function (exports, module, require) {
                 (i.startsWith("A#") && "document-angular-gradient" === e) ||
                 (i.startsWith("T#") && "document-texture-pattern" === e) ||
                 (i.startsWith("N#") && "document-noise-pattern" === e)) &&
-                n.push(o);
+                require.push(o);
             }
-          return n;
+          return require;
         }
         return this._swatches[e];
       }),
@@ -724,14 +724,14 @@ function (exports, module, require) {
         var t = [];
         if (e.startsWith("document"))
           for (
-            var n = this.getActiveDocument()
+            var require = this.getActiveDocument()
               .getScene()
               .getSwatches()
               .getFirstChild();
-            null !== n;
-            n = n.getNext()
+            null !== require;
+            require = require.getNext()
           )
-            t.push(n);
+            t.push(require);
         else
           t = (t = (t = (t = (t = (t = t.concat(this._swatches.global)).concat(
             this._swatches["global-linear-gradient"]
@@ -765,8 +765,8 @@ function (exports, module, require) {
         this._newDocumentDialog = new z();
       }),
       (Je.prototype.openNewDocumentDialog = function (e) {
-        const t = this.getApplicationManager();
-        (t.isCreatingNewDocumentEnabled() || t.isOpenFromCloudEnabled()) &&
+        const module = this.getApplicationManager();
+        (module.isCreatingNewDocumentEnabled() || module.isOpenFromCloudEnabled()) &&
           (this._newDocumentDialog || (this._newDocumentDialog = new z()),
           0 === $(".g-new-document-dialog").length
             ? this._newDocumentDialog.open(e)
@@ -795,12 +795,12 @@ function (exports, module, require) {
       }),
       (Je.prototype.openUserNameConfigDialog = function () {
         if (!s.ENABLE_COLLABORATION) return;
-        let e = this._shouldOpenUserNameConfigDialog();
-        if (!this._userNameConfigDialog && e) {
+        let exports = this._shouldOpenUserNameConfigDialog();
+        if (!this._userNameConfigDialog && exports) {
           const e = this._user || { name: "", last_name: "", anonymous: "" };
           this._userNameConfigDialog = new q(e.name, e.last_name, e.anonymous);
         }
-        e &&
+        exports &&
           0 === $(".g-username-config-dialog").length &&
           this._userNameConfigDialog.open();
       }),
@@ -843,20 +843,20 @@ function (exports, module, require) {
         return true;
       }),
       (Je.prototype._processOpenDocument = function (e, t) {
-        const n = e.getExtension(),
-          o = this._isNativeDesign(n),
+        const require = e.getExtension(),
+          o = this._isNativeDesign(require),
           i = new w(o ? e : null);
-        if (i.isExtensionAvailableForLoading(n))
+        if (i.isExtensionAvailableForLoading(require))
           return (
             this.addDocument(i, t),
-            (i.fileExtension = n),
+            (i.fileExtension = require),
             i.load(e),
             this.trigger(new B(B.Type.Opened, i)),
             i
           );
         var r = !!w.FileTypes.find(
           (e) =>
-            e.ext.toUpperCase() === n.toUpperCase() && "image" === e.category
+            e.ext.toUpperCase() === require.toUpperCase() && "image" === e.category
         )
           ? "text.suggestion-open-image"
           : "text.unsupported-file-extension";
@@ -868,8 +868,8 @@ function (exports, module, require) {
       (Je.prototype.openDocument = function (e, t) {
         if (!this._canOpenDocument(e)) return;
         if (e && (0, p.shouldShowExternalFileError)(e)) throw new m.default();
-        const n = e.getExtension();
-        if (this._isNativeDesign(n)) {
+        const require = e.getExtension();
+        if (this._isNativeDesign(require)) {
           const t = e.getUniqueId();
           if (null != t)
             for (var o = 0; o < this._documents.length; ++o) {
@@ -887,7 +887,7 @@ function (exports, module, require) {
         return this._processOpenDocument(e, t);
       }),
       (Je.prototype.addToRecentFiles = function (e) {
-        function t(t, n) {
+        function module(t, n) {
           let o =
             arguments.length > 2 && undefined !== arguments[2] && arguments[2];
           gContainer.getProperty(t).then(function (i) {
@@ -918,15 +918,15 @@ function (exports, module, require) {
           (e instanceof J.Item
             ? gDesigner.updateRecentDocumentsAction()
             : gContainer.getRuntime() === Z.Runtime.Electron
-            ? t("recent_documents", (e) => e.getUniqueId())
+            ? module("recent_documents", (e) => e.getUniqueId())
             : e instanceof Fe.Item &&
               gDesigner.getUser().then((e) => {
-                t(
+                module(
                   "recent_external_".concat(e.getUID()),
                   (e) => {
-                    const t =
+                    const module =
                       e instanceof f.default.Item ? "googledrive" : null;
-                    return JSON.stringify({ type: t, file: e.getFile() });
+                    return JSON.stringify({ type: module, file: e.getFile() });
                   },
                   true
                 );
@@ -935,12 +935,12 @@ function (exports, module, require) {
       (Je.prototype.activateDocument = function (e, t) {
         if (e != this._activeDocument) {
           if (this._activeDocument) {
-            var n = this._activeDocument;
+            var require = this._activeDocument;
             (this._activeDocument = null),
-              n.deactivate(),
+              require.deactivate(),
               this.hasEventListeners(B) &&
-                this.trigger(new B(B.Type.Deactivated, n)),
-              n.getActiveWindow() === this._windows.getActiveWindow() &&
+                this.trigger(new B(B.Type.Deactivated, require)),
+              require.getActiveWindow() === this._windows.getActiveWindow() &&
                 this._windows.activateWindow(null);
           }
           e &&
@@ -978,7 +978,7 @@ function (exports, module, require) {
         }
       }),
       (Je.prototype.handleWelcomeScreenOpenWithUserPermissions = function () {
-        let e = {
+        let exports = {
           closable: this.getApplicationManager().isCreatingNewDocumentEnabled(),
           showCloudOptions: true,
           closeCallback: (e) => {
@@ -987,7 +987,7 @@ function (exports, module, require) {
         };
         var t;
         this.getLicense().canAccessFreemium()
-          ? this.openNewDocumentDialog(e)
+          ? this.openNewDocumentDialog(exports)
           : (this._newDocumentDialog || (this._newDocumentDialog = new z()),
             null === (t = this._newDocumentDialog) ||
               undefined === t ||
@@ -998,18 +998,18 @@ function (exports, module, require) {
         return !!n && n.isAvailable() && n.isEnabled.apply(n, t);
       }),
       (Je.prototype.canActivateTool = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
         if (
-          !t ||
+          !module ||
           !s.HAS_ANNOTATIONS ||
           this.getRightSidebars().getActiveSidebar() != D.ID
         )
           return true;
-        const n = ["path", "shape", "knife", "insert"],
+        const require = ["path", "shape", "knife", "insert"],
           o = ["special"];
         return !gravit.tools.some((t) => {
           let { tool: i, group: a, category: r } = t;
-          return i === e && (n.includes(a) || o.includes(r));
+          return i === e && (require.includes(a) || o.includes(r));
         });
       }),
       (Je.prototype.executeAction = function (e, t, n, o) {
@@ -1389,11 +1389,11 @@ function (exports, module, require) {
         if (this._autoSaveManager) return this._autoSaveManager;
       }),
       (Je.prototype.isActiveDocument = function (e) {
-        const t = this.getActiveDocument();
+        const module = this.getActiveDocument();
         return (
-          !!t &&
+          !!module &&
           !!(e && e instanceof w) &&
-          (t === e || !(!t.getId() || t.getId() !== e.getId()))
+          (module === e || !(!module.getId() || module.getId() !== e.getId()))
         );
       }),
       (Je.prototype._setActiveAssistantBar = function (e) {
@@ -1426,12 +1426,12 @@ function (exports, module, require) {
           gContainer
             .getProperty("designer.settings")
             .then((e) => {
-              for (var t in ((e = e || {}), this._settings))
-                e.hasOwnProperty(t) || (e[t] = this._settings[t]);
-              for (var n in ((this._settings = e),
+              for (var module in ((e = e || {}), this._settings))
+                e.hasOwnProperty(module) || (e[module] = this._settings[module]);
+              for (var require in ((this._settings = e),
               (this._settingsLoaded = true),
               this._settings))
-                this.trigger(new M(n, undefined, this._settings[n], true));
+                this.trigger(new M(require, undefined, this._settings[require], true));
             })
             .catch((e) => Promise.reject(e)),
           gContainer
@@ -1446,10 +1446,10 @@ function (exports, module, require) {
                 (this._swatches["global-noise-pattern"] = []),
                 e)
               )
-                for (var t = 0; t < e.length; ++t) {
-                  var n =
-                      a.GNode.deserialize(e[t]) || a.GPattern.deserialize(e[t]),
-                    o = n instanceof a.GSwatch ? n : new a.GSwatch(n);
+                for (var module = 0; module < e.length; ++module) {
+                  var require =
+                      a.GNode.deserialize(e[module]) || a.GPattern.deserialize(e[module]),
+                    o = require instanceof a.GSwatch ? require : new a.GSwatch(require);
                   this._addGlobalSwatch(o);
                 }
               this.trigger(new N("global"));
@@ -1473,28 +1473,28 @@ function (exports, module, require) {
             this._swatches["global-noise-pattern"].push(e);
       }),
       (Je.prototype.updateRecentDocumentsAction = function () {
-        let e = [];
-        const t = gContainer.getProperty("recent_documents"),
-          n = gDesigner.getUser();
-        Promise.all([t, n])
+        let exports = [];
+        const module = gContainer.getProperty("recent_documents"),
+          require = gDesigner.getUser();
+        Promise.all([module, require])
           .then((e) => {
-            let [t, n] = e;
-            return n
+            let [module, require] = e;
+            return require
               ? Promise.all([
-                  t,
-                  n,
-                  gContainer.getProperty("recent_external_".concat(n.getUID())),
+                  module,
+                  require,
+                  gContainer.getProperty("recent_external_".concat(require.getUID())),
                 ])
               : Promise.reject();
           })
           .then((t) => {
-            let [n, o, i] = t;
+            let [require, o, i] = t;
             var a, r;
-            if (n)
-              for (a = 0, r = n.length; a < r; ++a) {
+            if (require)
+              for (a = 0, r = require.length; a < r; ++a) {
                 let t = gContainer.getStorage(),
-                  o = new t.constructor.Item(t, n[a]);
-                e.push(o);
+                  o = new t.constructor.Item(t, require[a]);
+                exports.push(o);
               }
             if (i)
               for (
@@ -1508,16 +1508,16 @@ function (exports, module, require) {
                 "googledrive" === o.type &&
                   (o.file.hasOwnProperty("version") && delete o.file.version,
                   (t = new f.default.Item(n, o.file))),
-                  t && e.push(t);
+                  t && exports.push(t);
               }
             var s = function () {
-              gContainer.updateRecentDocumentsAction(e);
+              gContainer.updateRecentDocumentsAction(exports);
             };
             Q.getRecentStorageItems()
               .then(async function (t) {
                 if (t.length > 0)
-                  for (var n = 0; n < t.length; ++n)
-                    e.push(await J.from(gDesigner.getDefaultStorage(), t[n]));
+                  for (var require = 0; require < t.length; ++require)
+                    exports.push(await J.from(gDesigner.getDefaultStorage(), t[require]));
               })
               .then(s)
               .catch(s);
@@ -1698,21 +1698,21 @@ function (exports, module, require) {
       }),
       (Je.prototype._createMainMenu = function () {
         for (
-          var e = [],
-            t = { items: [] },
-            n = function (t) {
-              for (var n = 0; n < e.length; ++n)
-                if (e[n].item === t) return e[n].group;
+          var exports = [],
+            module = { items: [] },
+            require = function (t) {
+              for (var require = 0; require < exports.length; ++require)
+                if (exports[require].item === t) return exports[require].group;
             },
             o = function (t, o, i) {
               if (t.items.length > 0) {
                 var a = t.items[t.items.length - 1];
-                if (n(a) !== i) {
+                if (require(a) !== i) {
                   var r = { type: "divider" };
                   if ("item" === a.type && a.action) {
                     var s = (function (t) {
-                      for (var o = n(t), i = [], a = 0; a < e.length; ++a)
-                        e[a].group === o && i.push(t);
+                      for (var o = require(t), i = [], a = 0; a < exports.length; ++a)
+                        exports[a].group === o && i.push(t);
                       return i;
                     })(a);
                     r.isVisible = function () {
@@ -1722,7 +1722,7 @@ function (exports, module, require) {
                   t.items.push(r);
                 }
               }
-              e.push({ item: o, group: i });
+              exports.push({ item: o, group: i });
             },
             i = 0;
           i < this._actions.length;
@@ -1740,7 +1740,7 @@ function (exports, module, require) {
             throw new Error(
               "The number of categories is different than the number of groups."
             );
-          var u = t;
+          var u = module;
           if (s)
             for (var p = 0; p < s.length; ++p) {
               let e = s[p],
@@ -1796,7 +1796,7 @@ function (exports, module, require) {
                 this.registerAdditionalShortcuts(e.action));
           }.bind(this),
           v = function (e, t) {
-            const n = e.category
+            const require = e.category
               ? (t) => {
                   t.setVisible(e.category.visible), t.setIcon(e.category.icon);
                 }
@@ -1807,20 +1807,20 @@ function (exports, module, require) {
                   e.caption,
                   function () {
                     for (var t = 0; t < e.items.length; ++t) {
-                      var n = e.items[t];
-                      "item" === n.type &&
+                      var require = e.items[t];
+                      "item" === require.type &&
                         this.updateMenuItem(
-                          n.item,
-                          a.GLocale.get(n.action.getTitle()),
-                          n.action.isEnabled(),
-                          !!n.action.isCheckable() && n.action.isChecked(),
-                          n.action.isPro(),
-                          n.action.getId()
+                          require.item,
+                          a.GLocale.get(require.action.getTitle()),
+                          require.action.isEnabled(),
+                          !!require.action.isCheckable() && require.action.isChecked(),
+                          require.action.isPro(),
+                          require.action.getId()
                         );
                     }
                   }.bind(this),
                   e.icon,
-                  n
+                  require
                 ),
                 i = 0;
               i < e.items.length;
@@ -1829,8 +1829,8 @@ function (exports, module, require) {
               y(e.items[i], o);
             return o;
           }.bind(this);
-        for (i = 0; i < t.items.length; ++i)
-          (g = t.items[i]), v(t.items[i], null);
+        for (i = 0; i < module.items.length; ++i)
+          (g = module.items[i]), v(module.items[i], null);
         this._mainMenu.update();
       }),
       (Je.prototype._workspaceResolveUrlEvent = function (e) {
@@ -1841,28 +1841,28 @@ function (exports, module, require) {
       }),
       (Je.prototype._applicationStateChangedEvent = function (e) {
         this._updateSidebars();
-        const t = this.getActiveDocument();
-        if (t && t.getStatus() === De.Ready) {
+        const module = this.getActiveDocument();
+        if (module && module.getStatus() === De.Ready) {
           this.getApplicationManager().isCommentingEnabled() &&
             this.openUserNameConfigDialog();
         }
       }),
       (Je.prototype._updateSidebars = function () {
-        const e = this.getApplicationManager(),
-          t = e.isInspectEnabled(),
-          n = e.isCommentingEnabled(),
-          o = e.isEditingEnabled();
+        const exports = this.getApplicationManager(),
+          module = exports.isInspectEnabled(),
+          require = exports.isCommentingEnabled(),
+          o = exports.isEditingEnabled();
         if (I.isOrientationActiveInSetting(I.Orientation.Right)) {
           const e = this._rightSidebars.getSidebar(
             this._rightSidebars.getActiveSidebar()
           );
           (e && e.isVisible()) ||
-            (o || t
+            (o || module
               ? this._rightSidebars.setActiveSidebar(P.ID)
-              : n
+              : require
               ? this._rightSidebars.setActiveSidebar(D.ID)
               : this._rightSidebars.setActiveSidebar(null)),
-            this.setPartVisible(F.RightSidebars, n || o || t),
+            this.setPartVisible(F.RightSidebars, require || o || module),
             this._rightSidebars.relayout();
         }
         if (I.isOrientationActiveInSetting(I.Orientation.Left)) {
@@ -1870,17 +1870,17 @@ function (exports, module, require) {
             this._leftSidebars.getActiveSidebar()
           );
           (e && e.isVisible()) ||
-            (t
+            (module
               ? this._leftSidebars.setActiveSidebar(G.ID)
               : this._leftSidebars.setActiveSidebar(null)),
-            this.setPartVisible(F.LeftSidebars, t),
+            this.setPartVisible(F.LeftSidebars, module),
             this._leftSidebars.relayout();
         }
       }),
       (Je.prototype._fontManagerResolveFontEvent = function (e) {
-        const t = Object.assign({}, e);
+        const module = Object.assign({}, e);
         try {
-          H.resolveFont(t);
+          H.resolveFont(module);
         } catch (t) {
           throw (e.failed(), t);
         }
@@ -1939,15 +1939,15 @@ function (exports, module, require) {
         }
       }),
       (Je.prototype._registerUsage = function (e) {
-        const t = e.getStorageItem();
-        t &&
-          t.isRegistrable() &&
-          Oe.usage(t.getId()).catch((e) => {
+        const module = e.getStorageItem();
+        module &&
+          module.isRegistrable() &&
+          Oe.usage(module.getId()).catch((e) => {
             console.error("gApi.usage error", e);
           });
       }),
       (Je.prototype._windowEvent = function (e) {
-        let t;
+        let module;
         switch (e.type) {
           case O.WindowEvent.Type.Added:
           case O.WindowEvent.Type.Removed:
@@ -1959,12 +1959,12 @@ function (exports, module, require) {
               this._leftSidebars.setView(e.window.getView()),
               this._rightSidebars.setView(e.window.getView()),
               this._updateTitle(),
-              (t = e.window.getView().getHtmlElement()),
-              this._editorTouchHandler.activate(t);
+              (module = e.window.getView().getHtmlElement()),
+              this._editorTouchHandler.activate(module);
             break;
           case O.WindowEvent.Type.Deactivated:
-            (t = e.window.getView().getHtmlElement()),
-              this._editorTouchHandler.deactivate(t),
+            (module = e.window.getView().getHtmlElement()),
+              this._editorTouchHandler.deactivate(module),
               this.getToolManager().setView(null),
               this._leftSidebars.setView(null),
               this._rightSidebars.setView(null),
@@ -2030,28 +2030,28 @@ function (exports, module, require) {
         }
       }),
       (Je.prototype._updateGTM = async function () {
-        const e = !!this.isTouchEnabled();
-        je.updateProperty("touch", e),
+        const exports = !!this.isTouchEnabled();
+        je.updateProperty("touch", exports),
           je.fireEvent(je.Events.SETTING_CHANGED_EVENT);
       }),
       (Je.prototype._updateEditorOptions = function () {
         this.isTouchEnabled()
           ? this._applyTouchEditorOptions()
           : this._applyDefaultEditorOptions();
-        const e = this.getActiveDocument(),
-          t = e && e.getActiveWindow(),
-          n = t && t.getView();
-        n && r.GPlatform.scheduleFrame(() => n.invalidate(null, true));
+        const exports = this.getActiveDocument(),
+          module = exports && exports.getActiveWindow(),
+          require = module && module.getView();
+        require && r.GPlatform.scheduleFrame(() => require.invalidate(null, true));
       }),
       (Je.prototype._applyTouchEditorOptions = function () {
-        const e = a.GPaintCanvas.getScreenDPI();
+        const exports = a.GPaintCanvas.getScreenDPI();
         (i.GEditorOptions.distanceHelperBehaviour =
           i.GSelectTool._DistanceHelperBehaviour.Click),
           (i.GEditorOptions.resizeHandlesInDetailMode = false),
           (i.GEditorOptions.rotateHandleInDetailMode = false),
           (i.GEditorOptions.annotationHandles.suppressRedundantCorners = true),
-          (i.GEditorOptions.annotationHandles.gradient.size = 16 * e),
-          (i.GEditorOptions.annotationHandles.gradient.sizeBig = 20 * e),
+          (i.GEditorOptions.annotationHandles.gradient.size = 16 * exports),
+          (i.GEditorOptions.annotationHandles.gradient.sizeBig = 20 * exports),
           (i.GEditorOptions.annotationHandles.preserveAspectRatio.side =
             a.GRect.Side.BOTTOM_RIGHT),
           (i.GEditorOptions.annotationHandles.tranformBox.skew.enabled = true),
@@ -2062,61 +2062,61 @@ function (exports, module, require) {
           (i.GTransformBox.OUTSIDE_TOLERANCE = 0),
           (i.GEditorOptions.annotPickDistance = 4),
           (i.GEditorOptions.pickDistance = 20),
-          (i.GEditorOptions.annotationHandles.tranformBox.size = 23 * e),
-          (i.GEditorOptions.annotationHandles.tranformBox.outlineWidth = 3 * e),
-          (i.GEditorOptions.annotationHandles.tranformBox.pivotSize = 23 * e),
+          (i.GEditorOptions.annotationHandles.tranformBox.size = 23 * exports),
+          (i.GEditorOptions.annotationHandles.tranformBox.outlineWidth = 3 * exports),
+          (i.GEditorOptions.annotationHandles.tranformBox.pivotSize = 23 * exports),
           (i.GEditorOptions.annotationHandles.tranformBox.pivotOutlineWidth =
-            3 * e),
+            3 * exports),
           (i.GEditorOptions.annotationHandles.tranformBox.outsideStroke = true),
           (i.GEditorOptions.annotationHandles.tranformBox.shadowColor =
             "transparent"),
           (i.GEditorOptions.rotateHandle = "bottom"),
-          (i.GEditorOptions.annotationHandles.rotate.size = 23 * e),
-          (i.GEditorOptions.annotationHandles.rotate.iconSize = 23 * e),
-          (i.GEditorOptions.annotationHandles.rotate.outlineWidth = e),
+          (i.GEditorOptions.annotationHandles.rotate.size = 23 * exports),
+          (i.GEditorOptions.annotationHandles.rotate.iconSize = 23 * exports),
+          (i.GEditorOptions.annotationHandles.rotate.outlineWidth = exports),
           (i.GEditorOptions.annotationHandles.rotate.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.rotate.distance = 46 * e),
-          (i.GEditorOptions.annotationHandles.resize.size = 23 * e),
-          (i.GEditorOptions.annotationHandles.resize.outlineWidth = 3 * e),
+          (i.GEditorOptions.annotationHandles.rotate.distance = 46 * exports),
+          (i.GEditorOptions.annotationHandles.resize.size = 23 * exports),
+          (i.GEditorOptions.annotationHandles.resize.outlineWidth = 3 * exports),
           (i.GEditorOptions.annotationHandles.resize.outsideStroke = true),
           (i.GEditorOptions.annotationHandles.resize.shadowColor =
             "transparent"),
-          (i.GEditorOptions.annotationHandles.rectangle.size = 22 * e),
-          (i.GEditorOptions.annotationHandles.rectangle.outlineWidth = 4 * e),
+          (i.GEditorOptions.annotationHandles.rectangle.size = 22 * exports),
+          (i.GEditorOptions.annotationHandles.rectangle.outlineWidth = 4 * exports),
           (i.GEditorOptions.annotationHandles.rectangle.outsideStroke = true),
           (i.GEditorOptions.annotationHandles.rectangle.shadowColor =
             "transparent"),
           (i.GEditorOptions.annotationHandles.rectangle.maxNumberOfDetailedSegments = 1),
-          (i.GEditorOptions.annotationHandles.polygon.size = 22 * e),
-          (i.GEditorOptions.annotationHandles.polygon.outlineWidth = 4 * e),
+          (i.GEditorOptions.annotationHandles.polygon.size = 22 * exports),
+          (i.GEditorOptions.annotationHandles.polygon.outlineWidth = 4 * exports),
           (i.GEditorOptions.annotationHandles.polygon.outsideStroke = true),
           (i.GEditorOptions.annotationHandles.polygon.shadowColor =
             "transparent"),
           (i.GEditorOptions.annotationHandles.polygon.maxNumberOfDetailedSegments = 2),
-          (i.GEditorOptions.annotationHandles.ellipse.size = 22 * e),
-          (i.GEditorOptions.annotationHandles.ellipse.outlineWidth = 4 * e),
+          (i.GEditorOptions.annotationHandles.ellipse.size = 22 * exports),
+          (i.GEditorOptions.annotationHandles.ellipse.outlineWidth = 4 * exports),
           (i.GEditorOptions.annotationHandles.ellipse.outsideStroke = true),
           (i.GEditorOptions.annotationHandles.ellipse.shadowColor =
             "transparent"),
           (i.GEditorOptions.annotationHandles.ellipse.maxNumberOfDetailedSegments = 2),
-          (i.GEditorOptions.annotationHandles.path.node.size = 20 * e),
-          (i.GEditorOptions.annotationHandles.path.node.outlineWidth = 2 * e),
-          (i.GEditorOptions.annotationHandles.path.control.size = 10 * e),
+          (i.GEditorOptions.annotationHandles.path.node.size = 20 * exports),
+          (i.GEditorOptions.annotationHandles.path.node.outlineWidth = 2 * exports),
+          (i.GEditorOptions.annotationHandles.path.control.size = 10 * exports),
           i.GSkewHorizontalAnnotation.setIconVisible(true),
           i.GSkewVerticalAnnotation.setIconVisible(true),
           i.GPreserveAspectRatioAnnotation.setIconVisible(true),
           i.GRotateAnnotation.setIconVisible(true);
       }),
       (Je.prototype._applyDefaultEditorOptions = function () {
-        const e = a.GPaintCanvas.getScreenDPI();
+        const exports = a.GPaintCanvas.getScreenDPI();
         (i.GEditorOptions.distanceHelperBehaviour =
           i.GSelectTool._DistanceHelperBehaviour.Default),
           (i.GEditorOptions.resizeHandlesInDetailMode = true),
           (i.GEditorOptions.rotateHandleInDetailMode = true),
           (i.GEditorOptions.annotationHandles.suppressRedundantCorners = false),
-          (i.GEditorOptions.annotationHandles.gradient.size = 9 * e),
-          (i.GEditorOptions.annotationHandles.gradient.sizeBig = 12 * e),
+          (i.GEditorOptions.annotationHandles.gradient.size = 9 * exports),
+          (i.GEditorOptions.annotationHandles.gradient.sizeBig = 12 * exports),
           i.GSkewHorizontalAnnotation.setIconVisible(false),
           i.GSkewVerticalAnnotation.setIconVisible(false),
           i.GPreserveAspectRatioAnnotation.setIconVisible(false),
@@ -2127,7 +2127,7 @@ function (exports, module, require) {
           (i.GTransformBox.OUTSIDE_TOLERANCE = 100),
           (i.GEditorOptions.annotPickDistance = 0),
           (i.GEditorOptions.pickDistance = 4),
-          (i.GEditorOptions.annotationHandles.tranformBox.size = 10 * e),
+          (i.GEditorOptions.annotationHandles.tranformBox.size = 10 * exports),
           (i.GEditorOptions.annotationHandles.tranformBox.outlineWidth = null),
           (i.GEditorOptions.annotationHandles.tranformBox.pivotSize = null),
           (i.GEditorOptions.annotationHandles.tranformBox.pivotOutlineWidth =
@@ -2138,29 +2138,29 @@ function (exports, module, require) {
           (i.GEditorOptions.annotationHandles.tranformBox.rotate.enabled = false),
           (i.GEditorOptions.annotationHandles.preserveAspectRatio.enabled = false),
           (i.GEditorOptions.rotateHandle = "top"),
-          (i.GEditorOptions.annotationHandles.rotate.size = 10 * e),
+          (i.GEditorOptions.annotationHandles.rotate.size = 10 * exports),
           (i.GEditorOptions.annotationHandles.rotate.outlineWidth = null),
           (i.GEditorOptions.annotationHandles.rotate.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.rotate.distance = 16 * e),
-          (i.GEditorOptions.annotationHandles.resize.size = 10 * e),
+          (i.GEditorOptions.annotationHandles.rotate.distance = 16 * exports),
+          (i.GEditorOptions.annotationHandles.resize.size = 10 * exports),
           (i.GEditorOptions.annotationHandles.resize.outlineWidth = null),
           (i.GEditorOptions.annotationHandles.resize.outsideStroke = false),
           (i.GEditorOptions.annotationHandles.resize.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.rectangle.size = 8 * e),
+          (i.GEditorOptions.annotationHandles.rectangle.size = 8 * exports),
           (i.GEditorOptions.annotationHandles.rectangle.outlineWidth = null),
           (i.GEditorOptions.annotationHandles.rectangle.outsideStroke = false),
           (i.GEditorOptions.annotationHandles.rectangle.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.polygon.size = 8 * e),
+          (i.GEditorOptions.annotationHandles.polygon.size = 8 * exports),
           (i.GEditorOptions.annotationHandles.polygon.outlineWidth = null),
           (i.GEditorOptions.annotationHandles.polygon.outsideStroke = false),
           (i.GEditorOptions.annotationHandles.polygon.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.ellipse.size = 8 * e),
+          (i.GEditorOptions.annotationHandles.ellipse.size = 8 * exports),
           (i.GEditorOptions.annotationHandles.ellipse.outlineWidth = null),
           (i.GEditorOptions.annotationHandles.ellipse.outsideStroke = false),
           (i.GEditorOptions.annotationHandles.ellipse.shadowColor = null),
-          (i.GEditorOptions.annotationHandles.path.node.size = 10 * e),
+          (i.GEditorOptions.annotationHandles.path.node.size = 10 * exports),
           (i.GEditorOptions.annotationHandles.path.node.outlineWidth = null),
-          (i.GEditorOptions.annotationHandles.path.control.size = 6 * e);
+          (i.GEditorOptions.annotationHandles.path.control.size = 6 * exports);
       }),
       (Je.prototype._updateLayout = function () {
         $("body").toggleClass("g-touch", this.isTouchEnabled()),
@@ -2247,14 +2247,14 @@ function (exports, module, require) {
           this.relayout();
       }),
       (Je.prototype._updateTitle = async function () {
-        let { saveToSessionHistory: e = true } =
+        let { saveToSessionHistory: exports = true } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         var t = "";
-        let n = ke.DESIGNER.TITLE;
+        let require = ke.DESIGNER.TITLE;
         var o =
           gContainer.getRuntime() === Z.Runtime.Browser ||
           gContainer.getRuntime() === Z.Runtime.PWA;
-        o && e && window.history.pushState(null, "Title", "/");
+        o && exports && window.history.pushState(null, "Title", "/");
         var i = this.getWindows().getActiveWindow();
         if (i) {
           t = i.getTitle() + " - ";
@@ -2263,7 +2263,7 @@ function (exports, module, require) {
             (e &&
               e.getOwner() &&
               !e.isDocumentFromTemplate() &&
-              ((n = ""),
+              ((require = ""),
               (t = a.GLocale.get(
                 new a.GLocaleKey("GDesigner", "text.design-by")
               )
@@ -2308,125 +2308,125 @@ function (exports, module, require) {
                       )));
           }
         }
-        (t += n), (document.title = (0, u.decodeHTML)(t));
+        (t += require), (document.title = (0, u.decodeHTML)(t));
       }),
       (Je.prototype.addNotification = function (e, t) {
         this.hasEventListeners(de) && this.trigger(new de(e, t));
       }),
       (Je.prototype._shortcutToMouseTrapShortcut = function (e) {
-        for (var t = "", n = 0; n < e.length; ++n) {
-          n > 0 && (t += "+");
-          var o = e[n];
+        for (var module = "", require = 0; require < e.length; ++require) {
+          require > 0 && (module += "+");
+          var o = e[require];
           if ("number" == typeof o)
             switch ((o = r.GKey.transformKey(o))) {
               case r.GKey.Constant.SPACE:
-                t += "space";
+                module += "space";
                 break;
               case r.GKey.Constant.ENTER:
-                t += "enter";
+                module += "enter";
                 break;
               case r.GKey.Constant.TAB:
-                t += "tab";
+                module += "tab";
                 break;
               case r.GKey.Constant.BACKSPACE:
-                t += "backspace";
+                module += "backspace";
                 break;
               case r.GKey.Constant.CONTROL:
-                t += "ctrl";
+                module += "ctrl";
                 break;
               case r.GKey.Constant.SHIFT:
-                t += "shift";
+                module += "shift";
                 break;
               case r.GKey.Constant.ALT_LEFT:
               case r.GKey.Constant.ALT_RIGHT:
-                t += "alt";
+                module += "alt";
                 break;
               case r.GKey.Constant.LEFT:
-                t += "left";
+                module += "left";
                 break;
               case r.GKey.Constant.UP:
-                t += "up";
+                module += "up";
                 break;
               case r.GKey.Constant.RIGHT:
-                t += "right";
+                module += "right";
                 break;
               case r.GKey.Constant.DOWN:
-                t += "down";
+                module += "down";
                 break;
               case r.GKey.Constant.PAGE_UP:
-                t += "pageup";
+                module += "pageup";
                 break;
               case r.GKey.Constant.PAGE_DOWN:
-                t += "pagedown";
+                module += "pagedown";
                 break;
               case r.GKey.Constant.HOME:
-                t += "home";
+                module += "home";
                 break;
               case r.GKey.Constant.END:
-                t += "end";
+                module += "end";
                 break;
               case r.GKey.Constant.INSERT:
-                t += "ins";
+                module += "ins";
                 break;
               case r.GKey.Constant.DELETE:
-                t += "del";
+                module += "del";
                 break;
               case r.GKey.Constant.COMMAND:
-                t += "meta";
+                module += "meta";
                 break;
               case r.GKey.Constant.F1:
-                t += "f1";
+                module += "f1";
                 break;
               case r.GKey.Constant.F2:
-                t += "f2";
+                module += "f2";
                 break;
               case r.GKey.Constant.F3:
-                t += "f3";
+                module += "f3";
                 break;
               case r.GKey.Constant.F4:
-                t += "f4";
+                module += "f4";
                 break;
               case r.GKey.Constant.F5:
-                t += "f5";
+                module += "f5";
                 break;
               case r.GKey.Constant.F6:
-                t += "f6";
+                module += "f6";
                 break;
               case r.GKey.Constant.F7:
-                t += "f7";
+                module += "f7";
                 break;
               case r.GKey.Constant.F8:
-                t += "f8";
+                module += "f8";
                 break;
               case r.GKey.Constant.F9:
-                t += "f9";
+                module += "f9";
                 break;
               case r.GKey.Constant.F10:
-                t += "f10";
+                module += "f10";
                 break;
               case r.GKey.Constant.F11:
-                t += "f11";
+                module += "f11";
                 break;
               case r.GKey.Constant.F12:
-                t += "f12";
+                module += "f12";
                 break;
               default:
                 throw new Error("Unknown key code");
             }
-          else t += o.toLowerCase();
+          else module += o.toLowerCase();
         }
-        return t;
+        return module;
       }),
       (Je.prototype.isGravitIME = function (e) {
         return e && e.className === r.GSceneWidget.GRAVIT_IME;
       }),
       (Je.prototype.hasModifiedDocuments = function () {
-        for (var e = false, t = this.getDocuments(), n = 0; n < t.length; ++n)
-          if (t[n].isModified()) {
-            e = true;
+        for (var exports = false, module = this.getDocuments(), require = 0; require < module.length; ++require)
+          if (module[require].isModified()) {
+            exports = true;
             break;
           }
-        return e;
+        return exports;
       }),
       (Je.prototype.getCanvasWidth = function () {
         return (
@@ -2554,31 +2554,31 @@ function (exports, module, require) {
         return this._storeVendor;
       }),
       (Je.prototype._userLoggedEvent = function (e) {
-        let t = e.user,
-          n = this.getHeader();
-        if ((n && n.updateLoginInfo(t), t && t.getUID()))
+        let module = e.user,
+          require = this.getHeader();
+        if ((require && require.updateLoginInfo(module), module && module.getUID()))
           this.executeWhenReady(() => {
             this.updateRecentDocumentsAction();
           }),
             (i.GEditorOptions.userConfig = {
-              userName: t.getFullUserName(),
-              uid: t.getUID(),
+              userName: module.getFullUserName(),
+              uid: module.getUID(),
             });
         else {
           const e = a.GLocale.get(
               new a.GLocaleKey("GCommonNames", "text.anonymous-user")
             ),
-            n = (t && t.getFullUserName()) || e;
+            n = (module && module.getFullUserName()) || e;
           i.GEditorOptions.userConfig = { userName: n, uid: -1 };
         }
       }),
       (Je.prototype._userPropertiesChangedEvent = function (e) {
-        const { user: t } = e;
-        t &&
-          t.getUID() &&
+        const { user: module } = e;
+        module &&
+          module.getUID() &&
           (i.GEditorOptions.userConfig = {
-            userName: t.getFullUserName(),
-            uid: t.getUID(),
+            userName: module.getFullUserName(),
+            uid: module.getUID(),
           });
       }),
       (Je.prototype._beforeInstallUpdate = function (e) {
@@ -2588,15 +2588,15 @@ function (exports, module, require) {
         if (this._user && "undefined" != typeof dataLayer) {
           dataLayer.push({ userType: this.getSubscriberUserType() });
           const r = this.getLicense();
-          var e = r.getExpirationDate() || new Date(0),
-            t = Math.floor(e.getTime() / 1e3),
-            n = r.getCreationDate() || new Date(0),
-            o = Math.floor(n.getTime() / 1e3),
-            i = s.DateAPI.diff(n, e),
+          var exports = r.getExpirationDate() || new Date(0),
+            module = Math.floor(exports.getTime() / 1e3),
+            require = r.getCreationDate() || new Date(0),
+            o = Math.floor(require.getTime() / 1e3),
+            i = s.DateAPI.diff(require, exports),
             a = s.DateAPI.millisecondsToDays(i);
-          s.DateAPI.eq(n, new Date(0)) && (o = "0000000000"),
-            s.DateAPI.eq(e, new Date(0)) && ((a = 0), (t = "0000000000")),
-            dataLayer.push({ expirationDate: t }),
+          s.DateAPI.eq(require, new Date(0)) && (o = "0000000000"),
+            s.DateAPI.eq(exports, new Date(0)) && ((a = 0), (module = "0000000000")),
+            dataLayer.push({ expirationDate: module }),
             dataLayer.push({ licenseDuration: a }),
             dataLayer.push({ creationDate: o });
         }
@@ -2648,12 +2648,12 @@ function (exports, module, require) {
                 },
               ],
               attachTimer: (e) => {
-                const t = () => {
+                const module = () => {
                   (this._reloading = false),
                     this.clearCountdown(e),
-                    $(window).off("online", t);
+                    $(window).off("online", module);
                 };
-                navigator.onLine && t(), $(window).on("online", t);
+                navigator.onLine && module(), $(window).on("online", module);
               },
             }),
           $("body")
@@ -2711,8 +2711,8 @@ function (exports, module, require) {
       }),
       (Je.prototype.reload = function (e) {
         let {
-          title: t,
-          subtitle: n,
+          title: module,
+          subtitle: require,
           icon: o,
           footer: i,
           buttons: a,
@@ -2724,8 +2724,8 @@ function (exports, module, require) {
             ee
               .custom({
                 icon: o,
-                title: t,
-                subtitle: n,
+                title: module,
+                subtitle: require,
                 footer: i,
                 buttons: a,
                 closeCallback: () => {
@@ -2736,25 +2736,25 @@ function (exports, module, require) {
               .css({ zIndex: 9999 })));
       }),
       (Je.prototype.clearCountdown = function (e) {
-        let { timeoutID: t, intervalID: n = 0 } = e;
-        n && clearInterval(n),
-          t && clearInterval(t),
-          $(".g-timer[data-interval=".concat(n, "]")).remove();
+        let { timeoutID: module, intervalID: require = 0 } = e;
+        require && clearInterval(require),
+          module && clearInterval(module),
+          $(".g-timer[data-interval=".concat(require, "]")).remove();
       }),
       (Je.prototype.createCountdown = function (e, t) {
-        let n = null;
+        let require = null;
         const o = s.DateAPI.addTime(new Date(), t),
           i = setInterval(() => {
             const e = o - Date.now();
-            if (e < 0) return clearInterval(i), void (n && n.remove());
+            if (e < 0) return clearInterval(i), void (require && require.remove());
             const t = Math.floor((e % 36e5) / 6e4),
               r = Math.floor((e % 6e4) / 1e3);
-            n ||
-              (n = $("<time></time>")
+            require ||
+              (require = $("<time></time>")
                 .attr("data-interval", i)
                 .addClass("g-timer")
                 .appendTo($("body"))),
-              n.text(
+              require.text(
                 a.GLocale.get(
                   new a.GLocaleKey("GCommonNames", "text.countdown-timer")
                 )
@@ -2766,7 +2766,7 @@ function (exports, module, require) {
         return e && (r = setTimeout(e, t)), { intervalID: i, timeoutID: r };
       }),
       (Je.prototype.openDeactivatedUserDialog = async function (e) {
-        const t = $(
+        const module = $(
           "<div>".concat(
             a.GLocale.get(
               new a.GLocaleKey("GDocument", "text.account-deactivated")
@@ -2776,16 +2776,16 @@ function (exports, module, require) {
             "</div>"
           )
         );
-        t.find("a").on("click", (t) => {
+        module.find("a").on("click", (t) => {
           t.preventDefault();
-          let n = $(t.target).closest(".g-dialog-content");
+          let require = $(t.target).closest(".g-dialog-content");
           return (
-            Q.resendEmailConfirmation(e).then(() => n.gDialog("close")), false
+            Q.resendEmailConfirmation(e).then(() => require.gDialog("close")), false
           );
         }),
           ee.custom({
             className: "g-deactivated-user-dialog",
-            subtitle: t,
+            subtitle: module,
             icon: "email",
           });
       }),
@@ -2794,19 +2794,19 @@ function (exports, module, require) {
       }),
       (Je.prototype.getUser = function () {
         return new Promise(async (e, t) => {
-          let n = await this.getCloudCommunicationManager().getUser();
-          this._anonymous = !!n && n.isAnonymous();
+          let require = await this.getCloudCommunicationManager().getUser();
+          this._anonymous = !!require && require.isAnonymous();
           let o = await this.isOfflineAsync();
-          if (!n && o) {
+          if (!require && o) {
             const e = Ce.getUser();
-            e && (n = new $e(e));
+            e && (require = new $e(e));
           }
           if (
-            !n ||
+            !require ||
             "lts" !== gDesigner.getEnv() ||
             this.isEnabledProFeatures()
           ) {
-            if (n && n.reload)
+            if (require && require.reload)
               return (
                 this.reload({
                   title:
@@ -2814,36 +2814,36 @@ function (exports, module, require) {
                 }),
                 void e(null)
               );
-            if (n)
-              if (!n || (this._user && $e.equals(this._user, n))) {
-                if (this._user && n && !n.isDeactivated()) {
+            if (require)
+              if (!require || (this._user && $e.equals(this._user, require))) {
+                if (this._user && require && !require.isDeactivated()) {
                   const e = { stats: undefined };
                   a.GUtil.equals(
                     Object.assign({}, this._user, e),
-                    Object.assign({}, n, e),
+                    Object.assign({}, require, e),
                     true
                   ) ||
-                    (this.hasEventListeners(ce) && this.trigger(new ce(n)));
+                    (this.hasEventListeners(ce) && this.trigger(new ce(require)));
                 }
               } else
                 "undefined" == typeof dataLayer ||
-                  n.isAnonymous() ||
-                  n.isDeactivated() ||
-                  (dataLayer.push({ userId: n.getUID() }),
-                  dataLayer.push({ userEmail: n.getEmail() }),
-                  dataLayer.push({ userName: n.name || "" }),
-                  dataLayer.push({ userLogin: n.login }),
+                  require.isAnonymous() ||
+                  require.isDeactivated() ||
+                  (dataLayer.push({ userId: require.getUID() }),
+                  dataLayer.push({ userEmail: require.getEmail() }),
+                  dataLayer.push({ userName: require.name || "" }),
+                  dataLayer.push({ userLogin: require.login }),
                   this._utm &&
                     this._utm.forEach((e, t) => dataLayer.push({ [t]: e })),
                   this._updateDataLayerWithLicenseData(),
                   dataLayer.push({ event: "USER_LOGGED_EVENT" })),
-                  this.hasEventListeners(le) && this.trigger(new le(n));
+                  this.hasEventListeners(le) && this.trigger(new le(require));
             var i;
             this._user &&
-              n &&
-              this._user.getUID() === n.getUID() &&
+              require &&
+              this._user.getUID() === require.getUID() &&
               (i = this._user.stats),
-              (this._user = n),
+              (this._user = require),
               this._user && !o && Ce.updateUser(this._user),
               i && (this._user.stats = i),
               e(this._user);
@@ -2869,8 +2869,8 @@ function (exports, module, require) {
       }),
       (Je.prototype.saveStats = function () {
         if (this._user && this._user.stats) {
-          var e = Ue.toMD5(JSON.stringify(this._user.stats || ""));
-          Ye !== e && (Oe.updateUser({ stats: this._user.stats }), (Ye = e));
+          var exports = Ue.toMD5(JSON.stringify(this._user.stats || ""));
+          Ye !== exports && (Oe.updateUser({ stats: this._user.stats }), (Ye = exports));
         }
       }),
       (Je.prototype.setEnv = function (e) {
@@ -2880,12 +2880,12 @@ function (exports, module, require) {
         return this._env;
       }),
       (Je.prototype.hasSynchronizingDocuments = function () {
-        for (var e = false, t = this.getDocuments(), n = 0; n < t.length; ++n)
-          if (t[n].isSynchronizing()) {
-            e = true;
+        for (var exports = false, module = this.getDocuments(), require = 0; require < module.length; ++require)
+          if (module[require].isSynchronizing()) {
+            exports = true;
             break;
           }
-        return e;
+        return exports;
       }),
       (Je.prototype.zoomAtViewCenter = function (e, t) {
         var n,
@@ -2950,11 +2950,11 @@ function (exports, module, require) {
           : Promise.resolve();
       }),
       (Je.prototype.canUnloadDocument = function (e) {
-        let { changeActiveDocument: t = true } =
+        let { changeActiveDocument: module = true } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return new Promise((n, o) => {
           if (!e.isModified() && !e.isSynchronizing()) return n(true);
-          t && this.getActiveDocument() !== e && this.activateDocument(e),
+          module && this.getActiveDocument() !== e && this.activateDocument(e),
             gDesigner.canExecuteAction(Pe.ID, [e]) || n(true),
             ee.advanced({
               title: a.GLocale.get(
@@ -3002,14 +3002,14 @@ function (exports, module, require) {
       }),
       (Je.prototype.exportSwatches = function (e) {
         for (
-          var t = this.getAllSwatches(e), n = new a.GSwatches(), o = 0;
-          o < t.length;
+          var module = this.getAllSwatches(e), require = new a.GSwatches(), o = 0;
+          o < module.length;
           ++o
         ) {
-          var i = t[o].clone();
-          n.appendChild(i);
+          var i = module[o].clone();
+          require.appendChild(i);
         }
-        var r = pako.gzip(a.GNode.serialize(n), { level: 9 }),
+        var r = pako.gzip(a.GNode.serialize(require), { level: 9 }),
           s = this.getDefaultStorage();
         if (s.canPromptSave())
           s.savePrompt(
@@ -3251,7 +3251,7 @@ function (exports, module, require) {
       }),
       (Je.prototype.setEnterpriseLoginForm = function (e) {}),
       (Je.prototype.runDeepLink = async function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         if ((console.log("Called: " + e), e))
           try {
@@ -3259,11 +3259,11 @@ function (exports, module, require) {
             if (0 === e.indexOf("purchase")) {
               let o;
               return (
-                t.hasOwnProperty("newuser") && (this._showCreateAccount = true),
+                module.hasOwnProperty("newuser") && (this._showCreateAccount = true),
                 ke.PURCHASE.URL_TO_PRODUCT &&
                   (o = ke.PURCHASE.URL_TO_PRODUCT[e]),
                 o &&
-                  (Object.assign(t, { productId: o }),
+                  (Object.assign(module, { productId: o }),
                   n
                     ? await Oe.updateUserSettings({
                         subscription: { annual: { productId: o } },
@@ -3273,13 +3273,13 @@ function (exports, module, require) {
                         value: o || "",
                         url: Oe.url,
                       })),
-                this.openPaymentDialog(null, Object.assign(t, { flow: e }))
+                this.openPaymentDialog(null, Object.assign(module, { flow: e }))
               );
             }
             if ("login_dialog" === e) this._user || Q.performLogin();
             else {
               if ("confirm_email" === e) {
-                const { confirm_email: e, flow: o } = t;
+                const { confirm_email: e, flow: o } = module;
                 return this.getCloudCommunicationManager()
                   .confirmEmail(e)
                   .then(async () => {
@@ -3305,7 +3305,7 @@ function (exports, module, require) {
                             ),
                           icon: "ok",
                         }),
-                          o && "confirm_email" !== o && this.runDeepLink(o, t);
+                          o && "confirm_email" !== o && this.runDeepLink(o, module);
                       });
                   })
                   .catch((e) => {
@@ -3342,18 +3342,18 @@ function (exports, module, require) {
                       .do(e);
               } else if ("procoupon" === e)
                 this.executeWhenReady(() => {
-                  Q.activateCoupon(t.procoupon);
+                  Q.activateCoupon(module.procoupon);
                 });
               else if ("annot" === e)
                 s.HAS_ANNOTATIONS &&
                   this.executeWhenReady(() => {
-                    const { annot: e } = t;
+                    const { annot: e } = module;
                     this.setPartVisible(F.RightSidebars, true),
                       this._rightSidebars.setActiveSidebar(D.ID);
                   });
               else if (
                 e === Z.DeepLinking.CreateShare &&
-                "true" === t[Z.DeepLinking.CreateShare]
+                "true" === module[Z.DeepLinking.CreateShare]
               )
                 new h.default()
                   .listen(Te)
@@ -3374,16 +3374,16 @@ function (exports, module, require) {
                   });
               else if (
                 e === Z.DeepLinking.ActivateTrial &&
-                t[Z.DeepLinking.ActivateTrial]
+                module[Z.DeepLinking.ActivateTrial]
               ) {
-                const e = t[Z.DeepLinking.ActivateTrial];
+                const e = module[Z.DeepLinking.ActivateTrial];
                 Oe.license.activateTrial(e).then(() => be.checkLicense());
               } else {
-                if (e === Z.DeepLinking.SetPassword) return new Ve().execute(t);
+                if (e === Z.DeepLinking.SetPassword) return new Ve().execute(module);
                 if (e === Z.DeepLinking.ResetPassword)
-                  return new He().execute(t);
+                  return new He().execute(module);
                 if (e === Z.DeepLinking.PasswordlessToken)
-                  return new We().execute(t);
+                  return new We().execute(module);
               }
             }
             return Promise.resolve();
@@ -3392,22 +3392,22 @@ function (exports, module, require) {
           }
       }),
       (Je.prototype.openProOffer = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        Ee.openSubscriptionOffer(e);
+        Ee.openSubscriptionOffer(exports);
       }),
       (Je.prototype.handlePROFeatureInterruption = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-        (e = $.extend({ campaign: "profeature" }, e)),
+        (exports = $.extend({ campaign: "profeature" }, exports)),
           this.isAnonymous()
             ? new re(() => {}).open({
                 anonymous: true,
                 signup: true,
                 animate: true,
-                options: e,
+                options: exports,
               })
-            : this.openProOffer(e);
+            : this.openProOffer(exports);
       }),
       (Je.prototype.handleShareFilePROFeatureInterruption = function () {
         this.handlePROFeatureInterruption({ shareFile: true });
@@ -3428,13 +3428,13 @@ function (exports, module, require) {
         return gInAppPurchase.canMakePayments();
       }),
       (Je.prototype.openPaymentDialog = async function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return (
           this.getAmplitudeHelper().logEvent(
             s.AmplitudeData.Events.ACCOUNT_CART_SCREEN
           ),
-          gInAppPurchase.purchase(e, t)
+          gInAppPurchase.purchase(e, module)
         );
       }),
       (Je.prototype.getWebURL = function () {
@@ -3473,8 +3473,8 @@ function (exports, module, require) {
           });
       }),
       (Je.prototype._executeShortcutAction = function (e, t) {
-        const n = e.isKeyBoardEventRequiredToExecute() ? [t] : [undefined];
-        return this.executeAction(e.getId(), n, "shortcut");
+        const require = e.isKeyBoardEventRequiredToExecute() ? [t] : [undefined];
+        return this.executeAction(e.getId(), require, "shortcut");
       }),
       (Je.prototype.getPaste = function () {
         return this._paste;
@@ -3487,38 +3487,38 @@ function (exports, module, require) {
       }),
       (Je.prototype.isEnabledProFeatures = function (e) {
         if (!this.isEnabledSubscriptions()) return true;
-        const t = this.getLicense();
+        const module = this.getLicense();
         return (
-          !(t.isFree() || this.isAnonymous() || t.isGuest()) &&
-          (!(!t.isLegacy() || !this.isLegacyFeature(e)) ||
-            (!t.isExpired() && (!t.isOffline() || !t.isOfflinePeriodExpired())))
+          !(module.isFree() || this.isAnonymous() || module.isGuest()) &&
+          (!(!module.isLegacy() || !this.isLegacyFeature(e)) ||
+            (!module.isExpired() && (!module.isOffline() || !module.isOfflinePeriodExpired())))
         );
       }),
       (Je.prototype.isProTooltipNeeded = function (e) {
-        const t = this.getLicense();
+        const module = this.getLicense();
         return (
-          !(e && this.isLegacyFeature(e) && t.isLegacy()) &&
-          !(t.isPro() && !t.isExpired())
+          !(e && this.isLegacyFeature(e) && module.isLegacy()) &&
+          !(module.isPro() && !module.isExpired())
         );
       }),
       (Je.prototype.preInit = async function (e) {
-        const t = this;
+        const module = this;
         await (async function () {
           e || (e = Oe.isEnabledSubscriptions());
           if (await e.catch(() => false))
             return (
-              (t._enabledSubscriptions = true),
+              (module._enabledSubscriptions = true),
               void gContainer.setProperty(
                 "enabled_subscriptions",
-                t._enabledSubscriptions
+                module._enabledSubscriptions
               )
             );
-          t._enabledSubscriptions = await gContainer
+          module._enabledSubscriptions = await gContainer
             .getProperty("enabled_subscriptions")
             .catch(() => false);
         })(),
           await new Promise((e) => {
-            t._applicationManager = new fe(e);
+            module._applicationManager = new fe(e);
           });
       }),
       (Je.prototype.isEnabledSubscriptions = function () {
@@ -3532,10 +3532,10 @@ function (exports, module, require) {
           this.updateLicenseInfo();
       }),
       (Je.prototype.updateLicenseInfo = async function () {
-        let e = this._license,
-          t = $(".license-info");
-        const n = t.data("type");
-        (n && n === e.getLicenseType()) || (t.remove(), (t = null));
+        let exports = this._license,
+          module = $(".license-info");
+        const require = module.data("type");
+        (require && require === exports.getLicenseType()) || (module.remove(), (module = null));
       }),
       (Je.prototype.getLicense = function () {
         return navigator.onLine
@@ -3548,7 +3548,7 @@ function (exports, module, require) {
           : this._license || _e.newDefaultLicense();
       }),
       (Je.prototype.activateTrialLicense = async function () {
-        const e = async () => {
+        const exports = async () => {
           this.toggleLoading(true);
           try {
             await Oe.license
@@ -3559,13 +3559,13 @@ function (exports, module, require) {
             this.toggleLoading(false);
           }
         };
-        gDesigner.isOffline() ? xe.openUnavailableFeature(e) : e();
+        gDesigner.isOffline() ? xe.openUnavailableFeature(exports) : exports();
       }),
       (Je.prototype.requestLicenseUpdate = function () {
-        let { showProOfferInTrial: e = s.LICENSE.UPGRADEABLE } =
+        let { showProOfferInTrial: exports = s.LICENSE.UPGRADEABLE } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         return (
-          we.reset("proOfferInTrial", e ? undefined : gDesigner.now()),
+          we.reset("proOfferInTrial", exports ? undefined : gDesigner.now()),
           be.checkLicense()
         );
       }),
@@ -3574,9 +3574,9 @@ function (exports, module, require) {
       }),
       (Je.prototype.isOffline = function (e) {
         if (!navigator.onLine) return (qe = true), (Xe = Date.now()), true;
-        const t = e || s.OFFLINE_CHECK_MIN_WAIT;
+        const module = e || s.OFFLINE_CHECK_MIN_WAIT;
         var n = !!qe;
-        if (Date.now() - Xe > t) {
+        if (Date.now() - Xe > module) {
           n = false;
           var o = new XMLHttpRequest();
           o.onerror = function () {
@@ -3598,10 +3598,10 @@ function (exports, module, require) {
       (Je.prototype.setPaintMode = function (e) {
         var t = this.getWindows().getActiveWindow();
         if (t) {
-          var n = t.getView();
-          (n.getViewConfiguration().paintMode = e),
+          var require = t.getView();
+          (require.getViewConfiguration().paintMode = e),
             r.GPlatform.scheduleFrame(() => {
-              n.invalidateAndResetCache(null),
+              require.invalidateAndResetCache(null),
                 this.hasEventListeners(Ae) && this.trigger(new Ae(e));
             });
         }
@@ -3611,9 +3611,9 @@ function (exports, module, require) {
         var e = !!qe,
           t = false;
         if (null === Qe && Date.now() - Xe > 3100) {
-          var n = this.getHeader();
-          n &&
-            n.showBusyIcon(
+          var require = this.getHeader();
+          require &&
+            require.showBusyIcon(
               a.GLocale.get(
                 new a.GLocaleKey("GCommonNames", "text.checking-connectivity")
               )
@@ -3645,18 +3645,18 @@ function (exports, module, require) {
                 }
               }))();
           } finally {
-            n && n.hideBusyIcon(), (qe = e);
+            require && require.hideBusyIcon(), (qe = e);
           }
         }
         return (Xe = Date.now()), !navigator.onLine || e;
       }),
       (Je.prototype.getLinkerParam = function (e) {
-        const t = window[window.GoogleAnalyticsObject];
-        if (t) {
-          const n = t.getAll && t.getAll();
+        const module = window[window.GoogleAnalyticsObject];
+        if (module) {
+          const n = module.getAll && module.getAll();
           if (n)
-            for (let t = 0; t < n.length; t++) {
-              let o = n[t];
+            for (let module = 0; module < n.length; module++) {
+              let o = n[module];
               if (!e || o.get("trackingId") === e) return o.get("linkerParam");
             }
         }
@@ -3666,8 +3666,8 @@ function (exports, module, require) {
         return "localhost" === window.location.hostname;
       }),
       (Je.prototype.getAppBaseUrl = function () {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
-        return v.default.getAppBaseUrl(e);
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+        return v.default.getAppBaseUrl(exports);
       }),
       (Je.prototype.setPwaEvent = function (e) {
         if (!e || "beforeinstallprompt" !== e.type) return;
@@ -3681,11 +3681,11 @@ function (exports, module, require) {
           window.screen.availWidth < 1024)
         )
           return;
-        const t = gDesigner.now().getTime();
+        const module = gDesigner.now().getTime();
         gContainer
           .getProperty(j.closedInstallPWADialogDatePropName)
           .then((e) => {
-            e && t - e < s.DateAPI.daysToMilliseconds(30)
+            e && module - e < s.DateAPI.daysToMilliseconds(30)
               ? gContainer.setProperty(
                   j.installPWA3timesAWeekPropName,
                   JSON.stringify([])
@@ -3693,16 +3693,16 @@ function (exports, module, require) {
               : gContainer
                   .getProperty(j.installPWA3timesAWeekPropName)
                   .then((e) => {
-                    let n,
+                    let require,
                       o = [];
                     if (e && e.length)
                       try {
-                        n = JSON.parse(e);
+                        require = JSON.parse(e);
                       } catch (e) {}
-                    n || (n = []);
-                    for (let e = 0, i = n.length; e < i; e++) {
-                      const i = n[e];
-                      t - i < s.DateAPI.daysToMilliseconds(7) && o.push(i);
+                    require || (require = []);
+                    for (let e = 0, i = require.length; e < i; e++) {
+                      const i = require[e];
+                      module - i < s.DateAPI.daysToMilliseconds(7) && o.push(i);
                     }
                     2 === o.length &&
                       (gDesigner._ready
@@ -3710,7 +3710,7 @@ function (exports, module, require) {
                         : this.executeWhenReady(() => {
                             gDesigner.showInstallPwaDialog();
                           })),
-                      o.push(t),
+                      o.push(module),
                       o.length > 2 && (o = o.slice(-2)),
                       gContainer.setProperty(
                         j.installPWA3timesAWeekPropName,
@@ -3720,12 +3720,12 @@ function (exports, module, require) {
           });
       }),
       (Je.prototype.showInstallPwaDialog = function () {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         if (!this._installPwaDialog) {
           this._shouldWaitForPWAEvent()
             ? ((this._waitingPwaDialog = true),
-              (this._waitingPwaDialogDarkBackground = e))
-            : ((this._installPwaDialog = new Y(e)),
+              (this._waitingPwaDialogDarkBackground = exports))
+            : ((this._installPwaDialog = new Y(exports)),
               this._installPwaDialog.open());
         }
       }),
@@ -3755,9 +3755,9 @@ function (exports, module, require) {
         return this._amplitudeHelper;
       }),
       (Je.prototype._initAmplitudeProperties = async function () {
-        const e = await this.getUser();
+        const exports = await this.getUser();
         (this._amplitudeHelper = new s.AmplitudeHelper(g, {
-          userId: null == e ? undefined : e.id,
+          userId: null == exports ? undefined : exports.id,
           apiKey: window.AMPLITUDE_API_KEY,
         })),
           new ne(this._amplitudeHelper);
@@ -3790,15 +3790,15 @@ function (exports, module, require) {
       }),
       (Je.prototype.isUserActivelyUsingApp = function () {
         var e;
-        const t =
+        const module =
             null === (e = this.getActiveDocument()) ||
             undefined === e ||
             null === (e = e.getEditor()) ||
             undefined === e
               ? undefined
               : e.getUndoStates(),
-          n = (null == t ? undefined : t.length) && t[t.length - 1];
-        return !!n && Date.now() - n.createdAt < ke.ACTIVE_USAGE_IDLE_TIME;
+          require = (null == module ? undefined : module.length) && module[module.length - 1];
+        return !!require && Date.now() - require.createdAt < ke.ACTIVE_USAGE_IDLE_TIME;
       }),
-      (e.exports = Je);
+      (exports.exports = Je);
   }

@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
     var s = n(18) /* module_18 */,

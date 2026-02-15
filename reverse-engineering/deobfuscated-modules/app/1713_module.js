@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(8) /* module_8 */, n(4) /* module_4 */, n(41) /* module_41 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    const { GObject: o } = n(1) /* module_1 */,
-      { GPlatform: i } = n(15) /* module_15 */,
-      a = n(1355) /* module_1355 */,
-      r = n(1191) /* module_1191 */,
-      s = n(1356) /* module_1356 */,
-      l = n(1357) /* module_1357 */,
-      { handleCollabsData: c } = (n(536) /* module_536 */, n(882) /* module_882 */),
-      d = n(1354) /* GInvalidationOptions */,
-      u = n(434) /* module_434 */;
+    require(19) /* module_19 */, require(8) /* module_8 */, require(4) /* module_4 */, require(41) /* module_41 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    const { GObject: o } = require(1) /* module */,
+      { GPlatform: i } = require(15) /* module */,
+      a = require(1355) /* module_1355 */,
+      r = require(1191) /* module_1191 */,
+      s = require(1356) /* module_1356 */,
+      l = require(1357) /* module_1357 */,
+      { handleCollabsData: c } = (require(536) /* module_536 */, require(882) /* module_882 */),
+      d = require(1354) /* GInvalidationOptions */,
+      u = require(434) /* module_434 */;
     function p() {
-      for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++)
-        t[n] = arguments[n];
-      a.call(this, ...t), r.call(this);
+      for (var exports = arguments.length, module = new Array(exports), require = 0; require < exports; require++)
+        module[require] = arguments[require];
+      a.call(this, ...module), r.call(this);
     }
     o.inheritAndMix(p, a, [r]),
       (p.prototype._checkTreeSanity = function () {
@@ -56,7 +56,7 @@ function (exports, module, require) {
         return this._collaboratorsCache;
       }),
       (p.prototype._beforeInvalidationStart = async function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : new d();
@@ -68,10 +68,10 @@ function (exports, module, require) {
           (this._hasReopenAccess = await t.hasAccess(
             u.REOPEN_COMMENT_ANNOTATION
           ));
-        const n = gDesigner.getActiveDocument(),
+        const require = gDesigner.getActiveDocument(),
           o = gDesigner.getShareManager();
-        e.collaboratorsCache && o.resetCollaboratorsCached(n),
-          (this._collaboratorsCache = o.getCollaboratorsCached(n)),
+        exports.collaboratorsCache && o.resetCollaboratorsCached(require),
+          (this._collaboratorsCache = o.getCollaboratorsCached(require)),
           (this._mentionData = await c(this._collaboratorsCache));
       }),
       (p.prototype._afterInvalidationEnd = function () {
@@ -81,21 +81,21 @@ function (exports, module, require) {
         $(this._container).gAnnotationPanel("scrollIntoView");
       }),
       (p.prototype._updateCommentStats = function () {
-        let e = 0,
-          t = 0,
-          n = this.getChildren(),
+        let exports = 0,
+          module = 0,
+          require = this.getChildren(),
           o = $(this._container).data("gannotationpanel"),
           i = o && o.options;
-        n &&
-          n.forEach((n) => {
+        require &&
+          require.forEach((n) => {
             n instanceof s &&
               !n.isParentAnnotationResolved() &&
-              (n.isRead() || t++, e++);
+              (n.isRead() || module++, exports++);
           }),
-          i && i.updateCommentCount && i.updateCommentCount(e, t);
+          i && i.updateCommentCount && i.updateCommentCount(exports, module);
       }),
       (p.prototype.getCommentStats = function () {
         return this._commentStats;
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

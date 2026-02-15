@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */;
+    require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(10) /* module_10 */,
+      i = require(1) /* module */;
     function a(e, t, n) {
       let a =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
@@ -166,5 +166,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GChangePasswordPanel]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

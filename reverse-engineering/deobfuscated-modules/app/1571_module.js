@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(26) /* module_26 */;
-    var o = n(10) /* module_10 */;
+    require(19) /* module_19 */, require(26) /* module_26 */;
+    var o = require(10) /* module_10 */;
     const {
         ANNOTATION_EVENT: i,
         SHARE_EVENT: a,
@@ -17,72 +17,72 @@ function (exports, module, require) {
         FILE_UPDATE_EVENT: d,
         FILE_AUTO_SAVE_EVENT: u,
       } = o.gApi.COLLABORATION_EVENTS,
-      p = n(393) /* GCollaborationEvent */,
-      g = n(78) /* GDocumentEvent */;
+      p = require(393) /* GCollaborationEvent */,
+      g = require(78) /* GDocumentEvent */;
     function h() {
       (this._documents = new Map()),
         gDesigner.addEventListener(g, this._documentEvent, this);
     }
     (h.prototype._documents = null),
       (h.prototype._documentEvent = function (e) {
-        const t = e.document;
+        const module = e.document;
         switch (e.type) {
           case g.Type.Added:
           case g.Type.Activated:
           case g.Type.StorageItemUpdated:
-            ((!t.isLockedByVersionHistory() && t.isCloudFile()) ||
-              (t.getId() &&
-                t.getStorageItem() &&
-                t.getStorageItem().supportsShadowFile())) &&
-              this.attachDocument(t);
+            ((!module.isLockedByVersionHistory() && module.isCloudFile()) ||
+              (module.getId() &&
+                module.getStorageItem() &&
+                module.getStorageItem().supportsShadowFile())) &&
+              this.attachDocument(module);
             break;
           case g.Type.Removed:
-            this.detachDocument(t);
+            this.detachDocument(module);
         }
       }),
       (h.prototype.attachDocument = function (e) {
         if (!o.ENABLE_COLLABORATION) return;
         if (this._documents.has(e)) return;
-        const t = new o.gApi.WebSocketClient();
-        t.setToken(e.getToken()),
-          t.connect("/v2/realtime/" + e.getId()),
+        const module = new o.gApi.WebSocketClient();
+        module.setToken(e.getToken()),
+          module.connect("/v2/realtime/" + e.getId()),
           o.ENABLE_COLLABORATION &&
-            (t.on(i, (t) => {
+            (module.on(i, (t) => {
               this._trigger(e, p.Type.AnnotationsUpdate, t.data);
             }),
-            t.on(r, (t) => {
+            module.on(r, (t) => {
               this._trigger(e, p.Type.UserUpdate, t.data);
             }),
-            t.on(s, (t) => {
+            module.on(s, (t) => {
               this._trigger(e, p.Type.ReviewStatusChanged, t.data);
             }),
-            t.on(l, (t) => {
+            module.on(l, (t) => {
               this._trigger(e, p.Type.LockRequest, t.data);
             }),
-            t.on(c, (t) => {
-              const n = t.data && t.data.lock ? new o.Lock(t.data.lock) : null;
-              this._trigger(e, p.Type.LockUpdated, n);
+            module.on(c, (t) => {
+              const require = t.data && t.data.lock ? new o.Lock(t.data.lock) : null;
+              this._trigger(e, p.Type.LockUpdated, require);
             }),
-            t.on(d, (t) => {
+            module.on(d, (t) => {
               this._trigger(e, p.Type.FileUpdate, t.data);
             })),
           o.SHARE_ENGINE &&
-            t.on(a, (t) => {
+            module.on(a, (t) => {
               this._trigger(e, p.Type.ShareUpdate, t.data);
             }),
           o.AUTO_SAVE_ENABLED &&
-            t.on(u, (t) => {
+            module.on(u, (t) => {
               this._trigger(e, p.Type.FileAutoSave, t.data);
             }),
-          this._documents.set(e, { doc: e, ws: t });
+          this._documents.set(e, { doc: e, ws: module });
       }),
       (h.prototype.detachDocument = function (e) {
-        const t = this._documents.get(e);
-        t && (t.ws.close(), this._documents.delete(e));
+        const module = this._documents.get(e);
+        module && (module.ws.close(), this._documents.delete(e));
       }),
       (h.prototype._trigger = function (e, t, n) {
         const o = new p(t, n);
         e.hasEventListeners(o) && e.trigger(o);
       }),
-      (e.exports = h);
+      (exports.exports = h);
   }

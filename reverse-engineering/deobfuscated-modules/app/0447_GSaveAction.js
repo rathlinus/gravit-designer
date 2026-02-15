@@ -6,24 +6,24 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(1247) /* module_1247 */,
-      s = n(10) /* module_10 */,
-      l = n(67) /* GRichTooltipConfig */,
-      c = n(18) /* module_18 */,
-      d = n(31) /* GAction */,
-      u = n(445) /* GSaveAsAction */,
-      p = n(448) /* GGravitCloudAction */,
-      g = n(86) /* module_86 */,
-      h = n(119) /* module_119 */,
-      f = n(1510) /* module_1510 */,
-      m = n(1511) /* module_1511 */;
-    const y = n(44) /* GSystemDialog */,
-      v = n(1512) /* module_1512 */;
-    var _ = n(85) /* GContainer */,
+    require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(1247) /* module_1247 */,
+      s = require(10) /* module_10 */,
+      l = require(67) /* GRichTooltipConfig */,
+      c = require(18) /* module_18 */,
+      d = require(31) /* GAction */,
+      u = require(445) /* GSaveAsAction */,
+      p = require(448) /* GGravitCloudAction */,
+      g = require(86) /* module_86 */,
+      h = require(119) /* module_119 */,
+      f = require(1510) /* module_1510 */,
+      m = require(1511) /* module_1511 */;
+    const y = require(44) /* GSystemDialog */,
+      v = require(1512) /* module_1512 */;
+    var _ = require(85) /* GContainer */,
       b = "." + s.FILE_FORMATS.find((e) => e.default).ext;
     function w() {
       w.TOOLTIP_CONFIG = {
@@ -142,9 +142,9 @@ function (exports, module, require) {
         }
       }),
       (w.prototype._saveDesktop = async function (e, t) {
-        let n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+        let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         if (e.isNew()) {
-          if (n) return this._saveToCloud(e, t);
+          if (require) return this._saveToCloud(e, t);
           new f(
             async function (n) {
               if (n === f.file()) {
@@ -226,5 +226,5 @@ function (exports, module, require) {
       (w.prototype.toString = function () {
         return "[Object GSaveAction]";
       }),
-      (e.exports = w);
+      (exports.exports = w);
   }

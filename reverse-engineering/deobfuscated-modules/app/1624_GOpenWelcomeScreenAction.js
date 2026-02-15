@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(31) /* GAction */,
-      a = n(18) /* module_18 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(31) /* GAction */,
+      a = require(18) /* module_18 */;
     function r() {}
     o.GObject.inherit(r, i),
       (r.ID = "open-welcome-screen"),
@@ -40,5 +40,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GOpenWelcomeScreenAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

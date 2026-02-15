@@ -22,9 +22,9 @@ function (exports, module, require) {
         NODE_JS ? (root = global) : WEB_WORKER && (root = self);
         var COMMON_JS =
             !root.JS_MD5_NO_COMMON_JS &&
-            "object" == typeof module &&
-            module.exports,
-          AMD = __webpack_require__(414) /* module_414 */,
+            "object" == typeof exports &&
+            exports.exports,
+          AMD = require(414) /* module_414 */,
           ARRAY_BUFFER =
             !root.JS_MD5_NO_ARRAY_BUFFER && "undefined" != typeof ArrayBuffer,
           HEX_CHARS = "0123456789abcdef".split(""),
@@ -913,14 +913,14 @@ function (exports, module, require) {
           });
         var exports = createMethod();
         COMMON_JS
-          ? (module.exports = exports)
+          ? (exports.exports = exports)
           : ((root.md5 = exports),
             AMD &&
               ((__WEBPACK_AMD_DEFINE_RESULT__ = function () {
                 return exports;
-              }.call(exports, __webpack_require__, exports, module)),
+              }.call(exports, require, exports, exports)),
               undefined === __WEBPACK_AMD_DEFINE_RESULT__ ||
-                (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)));
+                (exports.exports = __WEBPACK_AMD_DEFINE_RESULT__)));
       })();
-    }).call(this, __webpack_require__(183) /* module_183 */, __webpack_require__(109) /* module_109 */);
+    }).call(this, require(183) /* module_183 */, require(109) /* module_109 */);
   }

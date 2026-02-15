@@ -11,13 +11,13 @@ function (exports, module, require) {
       function a(e, t) {
         (this._id = e), (this._clearFn = t);
       }
-      (t.setTimeout = function () {
+      (module.setTimeout = function () {
         return new a(i.call(setTimeout, o, arguments), clearTimeout);
       }),
-        (t.setInterval = function () {
+        (module.setInterval = function () {
           return new a(i.call(setInterval, o, arguments), clearInterval);
         }),
-        (t.clearTimeout = t.clearInterval =
+        (module.clearTimeout = module.clearInterval =
           function (e) {
             e && e.close();
           }),
@@ -25,13 +25,13 @@ function (exports, module, require) {
         (a.prototype.close = function () {
           this._clearFn.call(o, this._id);
         }),
-        (t.enroll = function (e, t) {
+        (module.enroll = function (e, t) {
           clearTimeout(e._idleTimeoutId), (e._idleTimeout = t);
         }),
-        (t.unenroll = function (e) {
+        (module.unenroll = function (e) {
           clearTimeout(e._idleTimeoutId), (e._idleTimeout = -1);
         }),
-        (t._unrefActive = t.active =
+        (module._unrefActive = module.active =
           function (e) {
             clearTimeout(e._idleTimeoutId);
             var t = e._idleTimeout;
@@ -40,14 +40,14 @@ function (exports, module, require) {
                 e._onTimeout && e._onTimeout();
               }, t));
           }),
-        n(1116) /* module_1116 */,
-        (t.setImmediate =
+        require(1116) /* module_1116 */,
+        (module.setImmediate =
           ("undefined" != typeof self && self.setImmediate) ||
           (undefined !== e && e.setImmediate) ||
           (this && this.setImmediate)),
-        (t.clearImmediate =
+        (module.clearImmediate =
           ("undefined" != typeof self && self.clearImmediate) ||
           (undefined !== e && e.clearImmediate) ||
           (this && this.clearImmediate));
-    }).call(this, n(109) /* module_109 */);
+    }).call(this, require(109) /* module_109 */);
   }

@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "file.share"),
@@ -38,5 +38,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GShareAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

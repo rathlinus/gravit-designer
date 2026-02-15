@@ -12,7 +12,7 @@ function (e, t, n) {
       n(8) /* module_8 */,
       n(26) /* module_26 */;
     var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */;
+      i = n(1) /* module */;
     class a {
       isLoaded() {
         return !0;

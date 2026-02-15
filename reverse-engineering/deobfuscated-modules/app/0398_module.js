@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(295) /* module_295 */;
-    e.exports = o && !Symbol.sham && "symbol" == typeof Symbol.iterator;
+    var o = require(295) /* module_295 */;
+    exports.exports = o && !Symbol.sham && "symbol" == typeof Symbol.iterator;
   }

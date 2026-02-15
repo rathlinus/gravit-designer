@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
+    var o = n(1) /* module */,
+      i = n(15) /* module */;
     e.exports = class {
       constructor() {
         (this._dialog = this._createDialog()),

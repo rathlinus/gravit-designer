@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
-      ((o = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+    exports.exports =
+      ((o = require(55) /* module_55 */),
+      require(98) /* module_98 */,
       (o.mode.CTRGladman = (function () {
         var e = o.lib.BlockCipherMode.extend();
-        function t(e) {
+        function module(e) {
           if (255 == ((e >> 24) & 255)) {
-            var t = (e >> 16) & 255,
+            var module = (e >> 16) & 255,
               n = (e >> 8) & 255,
               o = 255 & e;
-            255 === t
-              ? ((t = 0),
+            255 === module
+              ? ((module = 0),
                 255 === n ? ((n = 0), 255 === o ? (o = 0) : ++o) : ++n)
-              : ++t,
+              : ++module,
               (e = 0),
-              (e += t << 16),
+              (e += module << 16),
               (e += n << 8),
               (e += o);
           } else e += 1 << 24;
@@ -34,7 +34,7 @@ function (exports, module, require) {
               r = this._counter;
             a && ((r = this._counter = a.slice(0)), (this._iv = undefined)),
               (function (e) {
-                0 === (e[0] = t(e[0])) && (e[1] = t(e[1]));
+                0 === (e[0] = module(e[0])) && (e[1] = module(e[1]));
               })(r);
             var s = r.slice(0);
             o.encryptBlock(s, 0);

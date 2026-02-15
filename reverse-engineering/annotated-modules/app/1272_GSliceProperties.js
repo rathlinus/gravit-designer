@@ -8,8 +8,8 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
+    var i = n(1) /* module */,
+      a = n(53) /* module */,
       r = o(n(340) /* GTouchTool */),
       s = n(123) /* GProperties */,
       l = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);

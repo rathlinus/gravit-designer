@@ -5,29 +5,29 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(57) /* module_57 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */,
-      r = n(357) /* module_357 */,
-      s = n(40) /* module_40 */,
-      l = o(n(256) /* GOfflineDialog */),
-      c = o(n(44) /* GSystemDialog */),
-      d = o(n(734) /* module_734 */),
-      u = n(163) /* module_163 */,
-      p = n(813) /* GOpenAction */,
-      g = n(1299) /* module_1299 */,
-      h = n(119) /* module_119 */,
-      f = n(1545) /* GFilesPanel */,
-      m = n(1558) /* module_1558 */,
-      y = n(1153) /* module_1153 */,
-      { youtubePlaylist: v } = n(1302) /* module_1302 */,
-      _ = n(446) /* module_446 */;
-    n(220) /* module_220 */;
-    const b = n(859) /* module_859 */,
-      w = n(441) /* module_441 */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(57) /* module_57 */, require(8) /* module_8 */, require(71) /* module_71 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = require(10) /* module_10 */,
+      r = require(357) /* module_357 */,
+      s = require(40) /* module_40 */,
+      l = o(require(256) /* GOfflineDialog */),
+      c = o(require(44) /* GSystemDialog */),
+      d = o(require(734) /* module_734 */),
+      u = require(163) /* module_163 */,
+      p = require(813) /* GOpenAction */,
+      g = require(1299) /* module_1299 */,
+      h = require(119) /* module_119 */,
+      f = require(1545) /* GFilesPanel */,
+      m = require(1558) /* module_1558 */,
+      y = require(1153) /* module_1153 */,
+      { youtubePlaylist: v } = require(1302) /* module_1302 */,
+      _ = require(446) /* module_446 */;
+    require(220) /* module_220 */;
+    const b = require(859) /* module_859 */,
+      w = require(441) /* module_441 */;
     function C() {
-      let e =
+      let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : null;
       var t = this._createFooter(),
         n = this;
@@ -39,7 +39,7 @@ function (exports, module, require) {
         this._newDocumentCustomSize.bind(this),
         this.getDialogElement.bind(this),
         (this._openFromCloud = false),
-        (this._parentDialogInstance = e),
+        (this._parentDialogInstance = exports),
         (this._spectatorModeClazz = "on-spectator-mode"),
         (this._cb = null),
         (this._dialog = $("<div></div>"));
@@ -404,20 +404,20 @@ function (exports, module, require) {
     }
     i.GObject.inherit(C, i.GObject),
       (C.prototype._getVersionInfoWidget = function () {
-        let e = "";
+        let exports = "";
         "lts" === gDesigner.getEnv()
-          ? (e = " LTS")
-          : "rc" === gDesigner.getEnv() && (e = " Staging");
-        const t = b.getRuntime();
+          ? (exports = " LTS")
+          : "rc" === gDesigner.getEnv() && (exports = " Staging");
+        const module = b.getRuntime();
         return (
-          t && (e += " ".concat(t.abbr)),
+          module && (exports += " ".concat(module.abbr)),
           $("<div/>")
             .addClass("version")
             .html(
               i.GLocale.get(new i.GLocaleKey("GCommonNames", "text.version")) +
                 " " +
                 gDesigner.getVersionFriendlyName() +
-                e
+                exports
             )
             .on("click", function () {
               if (
@@ -426,23 +426,23 @@ function (exports, module, require) {
                   "lts" !== gDesigner.getEnv() &&
                   "rc" !== gDesigner.getEnv())
               ) {
-                var t = $(this),
-                  n = t.data("nfo");
-                n || t.data("nfo", (n = { current: 0 })),
+                var module = $(this),
+                  require = module.data("nfo");
+                require || module.data("nfo", (require = { current: 0 })),
                   (function (n) {
                     switch (((n.current = (n.current + 1) % 4), n.current)) {
                       case 0:
-                        t.html(
+                        module.html(
                           i.GLocale.get(
                             new i.GLocaleKey("GCommonNames", "text.version")
                           ) +
                             " " +
                             gDesigner.getVersionFriendlyName() +
-                            e
+                            exports
                         );
                         break;
                       case 1:
-                        t.html(
+                        module.html(
                           i.GLocale.get(
                             new i.GLocaleKey(
                               "GCommonNames",
@@ -454,7 +454,7 @@ function (exports, module, require) {
                         );
                         break;
                       case 2:
-                        t.html(
+                        module.html(
                           i.GLocale.get(
                             new i.GLocaleKey("GCommonNames", "text.build")
                           ) +
@@ -463,7 +463,7 @@ function (exports, module, require) {
                         );
                         break;
                       case 3:
-                        t.html(
+                        module.html(
                           i.GLocale.get(
                             new i.GLocaleKey("GCommonNames", "text.commit")
                           ) +
@@ -471,7 +471,7 @@ function (exports, module, require) {
                             (gDesigner.getCommitSHA() || "").substr(0, 8)
                         );
                     }
-                  })(n);
+                  })(require);
               }
             })
         );
@@ -497,10 +497,10 @@ function (exports, module, require) {
         return this._dialog;
       }),
       (C.prototype._updateForUserLicense = function () {
-        const e = this._dialog.find(".header"),
-          t = this._dialog.find(".presets-frame"),
-          n = e.find(".preset .g-input"),
-          o = t.find(".presets .preset");
+        const exports = this._dialog.find(".header"),
+          module = this._dialog.find(".presets-frame"),
+          require = exports.find(".preset .g-input"),
+          o = module.find(".presets .preset");
         if (!this._isSpectatorMode())
           return (
             this._dialog
@@ -511,20 +511,20 @@ function (exports, module, require) {
               .find(".templates-option")
               .removeClass(this._spectatorModeClazz)
               .removeAttr("data-title"),
-            t.removeClass(this._spectatorModeClazz),
-            e.removeClass(this._spectatorModeClazz),
-            e.find(".select-overlay").remove(),
-            n
+            module.removeClass(this._spectatorModeClazz),
+            exports.removeClass(this._spectatorModeClazz),
+            exports.find(".select-overlay").remove(),
+            require
               .find("input")
               .removeAttr("readonly")
               .removeAttr("disabled")
               .removeAttr("data-title"),
-            n
+            require
               .find("select")
               .removeAttr("disabled")
               .removeAttr("data-title")
               .removeClass("g-disabled"),
-            n
+            require
               .find(".cloud-button")
               .removeAttr("disabled")
               .removeAttr("data-title")
@@ -547,31 +547,31 @@ function (exports, module, require) {
             .find(".templates-option")
             .addClass(this._spectatorModeClazz)
             .attr("data-title", a),
-          t.addClass(this._spectatorModeClazz),
-          e.addClass(this._spectatorModeClazz),
-          n
+          module.addClass(this._spectatorModeClazz),
+          exports.addClass(this._spectatorModeClazz),
+          require
             .find("input")
             .attr("readonly", true)
             .attr("disabled", true)
             .attr("data-title", a),
-          n
+          require
             .find("select")
             .attr("disabled", true)
             .attr("data-title", a)
             .addClass("g-disabled")
             .insertAfter(),
-          n
+          require
             .find(".cloud-button")
             .attr("data-title", a)
             .addClass("g-disabled")
             .removeClass("active"),
           o.find(".icon").attr("data-title", a),
           o.find(".select-container").attr("data-title", a),
-          e.find(".select-overlay").length ||
+          exports.find(".select-overlay").length ||
             $("<div>")
               .addClass("select-overlay")
               .attr("data-title", a)
-              .insertAfter(e.find(".preset .g-input select"));
+              .insertAfter(exports.find(".preset .g-input select"));
       }),
       (C.prototype._createOption = function (e, t, n, o, i, a) {
         var r = $("<div/>")
@@ -621,7 +621,7 @@ function (exports, module, require) {
                 ),
                 statType: "newdocumentdialog_click_example-files",
                 click: () => {
-                  const e = () =>
+                  const exports = () =>
                     new C().open({
                       closable: true,
                       openFromCloud: true,
@@ -630,8 +630,8 @@ function (exports, module, require) {
                       showExampleFiles: true,
                     });
                   gDesigner.isOffline()
-                    ? l.default.openUnavailableFeature(e)
-                    : e();
+                    ? l.default.openUnavailableFeature(exports)
+                    : exports();
                 },
               },
               {
@@ -982,8 +982,8 @@ function (exports, module, require) {
       }),
       (C.prototype.open = function (e) {
         let {
-          closable: t,
-          cb: n,
+          closable: module,
+          cb: require,
           showCloudOptions: o,
           openFromCloud: i,
           defaultOption: a,
@@ -995,7 +995,7 @@ function (exports, module, require) {
           nativeCloud: u,
           showExampleFiles: p,
         } = e;
-        (this._cb = n || null),
+        (this._cb = require || null),
           (this._closeCallback = d),
           (this._openFromCloud = i);
         h.isOnline();
@@ -1031,7 +1031,7 @@ function (exports, module, require) {
                   .trigger("click", [s, l, c, u, p])),
               a && this._dialog.find("." + a).trigger("click");
           }.bind(this);
-        this._dialog.gDialog("open", t),
+        this._dialog.gDialog("open", module),
           g(),
           f(),
           this._updateUI(),
@@ -1199,5 +1199,5 @@ function (exports, module, require) {
       (C.prototype._isSpectatorMode = function () {
         return false;
       }),
-      (e.exports = C);
+      (exports.exports = C);
   }

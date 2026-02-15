@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = o(n(85) /* GContainer */),
-      l = n(10) /* module_10 */,
-      c = n(18) /* module_18 */,
-      d = n(163) /* module_163 */,
-      u = n(31) /* GAction */;
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = o(require(85) /* GContainer */),
+      l = require(10) /* module_10 */,
+      c = require(18) /* module_18 */,
+      d = require(163) /* module_163 */,
+      u = require(31) /* GAction */;
     function p() {
       p.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
@@ -88,5 +88,5 @@ function (exports, module, require) {
       (p.prototype.toString = function () {
         return "[Object GPlaceImportAction]";
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

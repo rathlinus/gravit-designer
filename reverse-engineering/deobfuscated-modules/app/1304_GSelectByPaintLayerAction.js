@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */, n(38) /* module_38 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(609) /* GSelectByAction */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */, require(38) /* module_38 */;
+    var i = require(1) /* module */,
+      a = o(require(609) /* GSelectByAction */);
     function r(e) {
       (this._type = e), a.default.call(this, r.getId(e), r.getTitle(e));
     }
@@ -69,5 +69,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GSelectByPaintLayerAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

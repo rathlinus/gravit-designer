@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */,
-      i = n(43) /* module_43 */,
-      a = n(49) /* module_49 */,
-      r = n(74) /* module_74 */,
+    var o = require(21) /* module_21 */,
+      i = require(43) /* module_43 */,
+      a = require(49) /* module_49 */,
+      r = require(74) /* module_74 */,
       s = i("iterator");
-    e.exports = !o(function () {
+    exports.exports = !o(function () {
       var e = new URL("b?a=1&b=2&c=3", "https://a"),
         t = e.searchParams,
         n = new URLSearchParams("a=1&a=2&b=3"),

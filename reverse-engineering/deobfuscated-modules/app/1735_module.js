@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(168) /* module_168 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(169) /* module_169 */;
-    var o = n(1) /* module_1 */;
-    const i = n(238) /* GMenu */,
+    require(168) /* module_168 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(169) /* module_169 */;
+    var o = require(1) /* module */;
+    const i = require(238) /* GMenu */,
       a = (e) => {
         e.empty().append(
           $("<div/>")
@@ -30,19 +30,19 @@ function (exports, module, require) {
       s = {
         init: function () {
           return this.each(function () {
-            const e = $(this),
-              t = $("<button />")
+            const exports = $(this),
+              module = $("<button />")
                 .addClass("dropdown-button")
                 .append($("<span></span>").addClass("gravit-icon-down"));
-            e.data("g-page-button-dropdownbutton", t);
-            let n = new i(undefined, "g-page-menu");
-            e.addClass("g-page-button").gMenuButton({
+            exports.data("g-page-button-dropdownbutton", module);
+            let require = new i(undefined, "g-page-menu");
+            exports.addClass("g-page-button").gMenuButton({
               menu: () => {
-                const t = e.data("options") && e.data("options").scene;
+                const module = exports.data("options") && exports.data("options").scene;
                 return (
-                  t &&
-                    (n.clearItems(),
-                    t
+                  module &&
+                    (require.clearItems(),
+                    module
                       .getChildren()
                       .filter((e) => e instanceof o.GPage && e.isVisible())
                       .reduce(
@@ -52,36 +52,36 @@ function (exports, module, require) {
                           }),
                           e
                         ),
-                        n
+                        require
                       )),
-                  n
+                  require
                 );
               },
               getActiveItem: () => {
-                const t = e.data("options") && e.data("options").scene;
-                if (t) {
-                  const e = t.getActivePage();
-                  if (e) return n.findItem(e.getLabel());
+                const module = exports.data("options") && exports.data("options").scene;
+                if (module) {
+                  const e = module.getActivePage();
+                  if (e) return require.findItem(e.getLabel());
                 }
                 return null;
               },
-              reference: () => (gDesigner.isTouchEnabled() ? t : null),
+              reference: () => (gDesigner.isTouchEnabled() ? module : null),
             }),
-              gDesigner.isTouchEnabled() ? r(e) : a(e);
+              gDesigner.isTouchEnabled() ? r(exports) : a(exports);
           });
         },
         scene: function (e) {
-          const t = $(this),
-            n = t.data("options") || {};
+          const module = $(this),
+            require = module.data("options") || {};
           return (
-            n.scene !== e &&
-              (n.scene &&
-                n.scene.removeEventListener(
+            require.scene !== e &&
+              (require.scene &&
+                require.scene.removeEventListener(
                   o.GNode.AfterFlagChangeEvent,
                   s._afterFlagChangeEvent,
                   this
                 ),
-              (n.scene = e),
+              (require.scene = e),
               e &&
                 (s._activatePage.call(this, e.getActivePage()),
                 e.addEventListener(
@@ -89,41 +89,41 @@ function (exports, module, require) {
                   s._afterFlagChangeEvent,
                   this
                 ))),
-            t.data("options", n),
+            module.data("options", require),
             this
           );
         },
         reinit: function () {
-          const e = $(this);
+          const exports = $(this);
           gDesigner.isTouchEnabled()
-            ? r(e, e.data("g-page-button-dropdownbutton"))
-            : a(e);
-          const t = (e.data("options") || {}).scene;
-          t &&
-            (s._activatePage.call(this, t.getActivePage()),
-            t.hasEventListeners(
+            ? r(exports, exports.data("g-page-button-dropdownbutton"))
+            : a(exports);
+          const module = (exports.data("options") || {}).scene;
+          module &&
+            (s._activatePage.call(this, module.getActivePage()),
+            module.hasEventListeners(
               o.GNode.AfterFlagChangeEvent,
               s._afterFlagChangeEvent,
               this
             ) ||
-              t.addEventListener(
+              module.addEventListener(
                 o.GNode.AfterFlagChangeEvent,
                 s._afterFlagChangeEvent,
                 this
               ));
         },
         release: function () {
-          const e = $(this),
-            t = e.data("options");
+          const exports = $(this),
+            module = exports.data("options");
           return (
-            t &&
-              t.scene &&
-              t.scene.removeEventListener(
+            module &&
+              module.scene &&
+              module.scene.removeEventListener(
                 o.GNode.AfterFlagChangeEvent,
                 s._afterFlagChangeEvent,
                 this
               ),
-            e.remove(),
+            exports.remove(),
             this
           );
         },

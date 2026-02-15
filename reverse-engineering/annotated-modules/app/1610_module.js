@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(237) /* module_237 */;
     function a() {}
     o.GObject.inherit(a, i),

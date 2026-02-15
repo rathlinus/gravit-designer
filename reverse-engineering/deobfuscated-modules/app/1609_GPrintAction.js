@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(30) /* module_30 */, n(3) /* module_3 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(797) /* module_797 */,
-      r = n(40) /* module_40 */,
-      s = n(18) /* module_18 */,
-      l = n(31) /* GAction */,
-      c = n(446) /* module_446 */,
-      d = n(219) /* module_219 */,
-      u = n(1610) /* module_1610 */,
-      p = n(85) /* GContainer */;
-    const g = n(44) /* GSystemDialog */;
+    require(19) /* module_19 */, require(30) /* module_30 */, require(3) /* module_3 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(797) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(18) /* module_18 */,
+      l = require(31) /* GAction */,
+      c = require(446) /* module_446 */,
+      d = require(219) /* module_219 */,
+      u = require(1610) /* module_1610 */,
+      p = require(85) /* GContainer */;
+    const g = require(44) /* GSystemDialog */;
     var h = null,
       f = false,
       m = false;
@@ -42,8 +42,8 @@ function (exports, module, require) {
       }),
       (y.prototype.isEnabled = function () {
         if (!gDesigner.getApplicationManager().isExportEnabled()) return false;
-        const e = gDesigner.getActiveDocument();
-        return e && (!e.isNew() || e.isModified());
+        const exports = gDesigner.getActiveDocument();
+        return exports && (!exports.isNew() || exports.isModified());
       }),
       (y.prototype.getShortcut = function () {
         return [i.GKey.Constant.COMMAND, "P"];
@@ -184,5 +184,5 @@ function (exports, module, require) {
       (y.prototype.toString = function () {
         return "[Object GPrintAction]";
       }),
-      (e.exports = y);
+      (exports.exports = y);
   }

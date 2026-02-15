@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(381) /* module_381 */,
-      a = n(255) /* module_255 */,
-      r = n(1198) /* module_1198 */,
-      s = n(44) /* GSystemDialog */;
+    require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(57) /* module_57 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(381) /* module_381 */,
+      a = require(255) /* module_255 */,
+      r = require(1198) /* module_1198 */,
+      s = require(44) /* GSystemDialog */;
     function l(e) {
       i.call(this, e);
     }
@@ -33,15 +33,15 @@ function (exports, module, require) {
       (l.prototype._initializing = false),
       (l.prototype._queue = null),
       (l.prototype.addPreviews = function (e) {
-        for (var t = 0; t < e.length; t++) {
-          var n = document.createElement("image");
-          e[t].preview = n;
+        for (var module = 0; module < e.length; module++) {
+          var require = document.createElement("image");
+          e[module].preview = require;
         }
         if (e.length) {
           var i = this;
-          for (t = 0; t < e.length; t++)
-            e[t].cachedPreview ||
-              (e[t].addPreviewCallback = function (e, t) {
+          for (module = 0; module < e.length; module++)
+            e[module].cachedPreview ||
+              (e[module].addPreviewCallback = function (e, t) {
                 var n = $("<div></div>").addClass("preview-container"),
                   l = document.createElement("div");
                 (l.innerHTML = this.displayname || this.family),
@@ -203,7 +203,7 @@ function (exports, module, require) {
       (l.prototype.initialize = function () {
         if (!this._initialized && !this._initializing) {
           this._initializing = true;
-          var e = Array.prototype.slice.call(arguments);
+          var exports = Array.prototype.slice.call(arguments);
           this.load(
             "%",
             0,
@@ -212,7 +212,7 @@ function (exports, module, require) {
               done: function (t, n, o) {
                 (this._initialized = true),
                   (this._initializing = false),
-                  e.length && e[0].apply(this, e.slice(1)),
+                  exports.length && exports[0].apply(this, exports.slice(1)),
                   this._clearCallbacks();
               }.bind(this),
               fail: function () {
@@ -285,36 +285,36 @@ function (exports, module, require) {
       (l.prototype._generateFormattedList = function () {
         if (this._fontList) {
           this._formattedFontList = [];
-          for (var e = this._fontList.slice(), t = 0; t < e.length; t++) {
-            var n = e[t],
-              o = n.displayname || n.family,
+          for (var exports = this._fontList.slice(), module = 0; module < exports.length; module++) {
+            var require = exports[module],
+              o = require.displayname || require.family,
               i = [
                 {
-                  weight: parseInt(n.weight),
-                  style: n.style,
-                  family: n.family,
-                  subfamily: n.subfamily || null,
-                  displayname: n.displayname || null,
+                  weight: parseInt(require.weight),
+                  style: require.style,
+                  family: require.family,
+                  subfamily: require.subfamily || null,
+                  displayname: require.displayname || null,
                 },
               ],
-              a = [n.family];
+              a = [require.family];
             this._formattedFontList.push({
               family: null,
               displayname: o,
               fonts: i,
               families: a,
             });
-            for (var r = e.length - 1; r > t; r--)
-              o === (e[r].displayname || e[r].family) &&
-                (a.indexOf(e[r].family) < 0 && a.push(e[r].family),
+            for (var r = exports.length - 1; r > module; r--)
+              o === (exports[r].displayname || exports[r].family) &&
+                (a.indexOf(exports[r].family) < 0 && a.push(exports[r].family),
                 i.push({
-                  weight: parseInt(e[r].weight),
-                  style: e[r].style,
-                  family: e[r].family,
-                  subfamily: e[r].subfamily || null,
-                  displayname: e[r].displayname || null,
+                  weight: parseInt(exports[r].weight),
+                  style: exports[r].style,
+                  family: exports[r].family,
+                  subfamily: exports[r].subfamily || null,
+                  displayname: exports[r].displayname || null,
                 }),
-                e.splice(r, 1));
+                exports.splice(r, 1));
             var s = 0,
               l = a[0].length;
             if (l > 0)
@@ -410,5 +410,5 @@ function (exports, module, require) {
       (l.prototype.getProviderId = function () {
         return c;
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

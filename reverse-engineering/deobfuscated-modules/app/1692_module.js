@@ -5,21 +5,21 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */,
+    require(8) /* module_8 */,
       (function () {
-        function e() {
+        function exports() {
           return new Promise((e, t) => {
-            const n = new FileReader();
-            (n.onload = () => {
-              e(n.result);
+            const require = new FileReader();
+            (require.onload = () => {
+              e(require.result);
             }),
-              (n.onerror = t),
-              n.readAsArrayBuffer(this);
+              (require.onerror = t),
+              require.readAsArrayBuffer(this);
           });
         }
         "File" in self &&
-          (File.prototype.arrayBuffer = File.prototype.arrayBuffer || e),
+          (File.prototype.arrayBuffer = File.prototype.arrayBuffer || exports),
           "Blob" in self &&
-            (Blob.prototype.arrayBuffer = Blob.prototype.arrayBuffer || e);
+            (Blob.prototype.arrayBuffer = Blob.prototype.arrayBuffer || exports);
       })();
   }

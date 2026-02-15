@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(878) /* module_878 */,
-      i = n(879) /* module_879 */,
-      a = n(1329) /* module_1329 */;
-    e.exports = class extends o {
-      constructor(e) {
+    const o = require(878) /* module_878 */,
+      i = require(879) /* module_879 */,
+      a = require(1329) /* module_1329 */;
+    exports.exports = class extends o {
+      function Object() { [native code] }(e) {
         super(e),
           this.addGesture(
             new i({
@@ -21,19 +21,19 @@ function (exports, module, require) {
           this.setClickSuppressionEnabled(true);
       }
       _touchEnd(e) {
-        const t = e.changedTouches[0];
-        !t ||
-          ($(t.target).data("ginputbox") && this._touchmoved) ||
-          $(t.target).is(":focus") ||
+        const module = e.changedTouches[0];
+        !module ||
+          ($(module.target).data("ginputbox") && this._touchmoved) ||
+          $(module.target).is(":focus") ||
           (document.activeElement &&
-            document.activeElement !== t.target &&
+            document.activeElement !== module.target &&
             $(document.activeElement).blur(),
-          $(t.target).focus()),
+          $(module.target).focus()),
           super._touchEnd(e);
       }
       _handleEvent(e) {
-        const t = e.changedTouches && e.changedTouches[0];
-        if (!t || !$(t.target).is("select"))
+        const module = e.changedTouches && e.changedTouches[0];
+        if (!module || !$(module.target).is("select"))
           try {
             super._handleEvent(e);
           } finally {

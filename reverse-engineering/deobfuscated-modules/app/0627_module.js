@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(29) /* module_29 */,
-      a = n(65) /* module_65 */,
-      r = n(202) /* module_202 */,
-      s = n(304) /* module_304 */,
-      l = n(121) /* module_121 */;
+    var o = require(25) /* module_25 */,
+      i = require(29) /* module_29 */,
+      a = require(65) /* module_65 */,
+      r = require(202) /* module_202 */,
+      s = require(304) /* module_304 */,
+      l = require(121) /* module_121 */;
     o(
-      { target: "Promise", stat: true, forced: n(413) /* module_413 */ },
+      { target: "Promise", stat: true, forced: require(413) /* module_413 */ },
       {
         all: function (e) {
           var t = this,

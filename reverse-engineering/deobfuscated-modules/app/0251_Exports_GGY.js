@@ -9,14 +9,14 @@ function (exports, module, require) {
     var o,
       i,
       a,
-      r = n(21) /* module_21 */,
-      s = n(35) /* module_35 */,
-      l = n(46) /* module_46 */,
-      c = n(136) /* module_136 */,
-      d = n(208) /* module_208 */,
-      u = n(79) /* module_79 */,
-      p = n(43) /* module_43 */,
-      g = n(74) /* module_74 */,
+      r = require(21) /* module_21 */,
+      s = require(35) /* module_35 */,
+      l = require(46) /* module_46 */,
+      c = require(136) /* module_136 */,
+      d = require(208) /* module_208 */,
+      u = require(79) /* module_79 */,
+      p = require(43) /* module_43 */,
+      g = require(74) /* module_74 */,
       h = p("iterator"),
       f = false;
     [].keys &&
@@ -34,5 +34,5 @@ function (exports, module, require) {
         u(o, h, function () {
           return this;
         }),
-      (e.exports = { IteratorPrototype: o, BUGGY_SAFARI_ITERATORS: f });
+      (exports.exports = { IteratorPrototype: o, BUGGY_SAFARI_ITERATORS: f });
   }

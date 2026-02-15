@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = {
         value: function (e) {
           var t = i.options.call(this).unit;

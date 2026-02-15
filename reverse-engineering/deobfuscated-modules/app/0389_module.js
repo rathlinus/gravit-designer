@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i() {}
     (i.GVDESIGN = {
       ext: "gvdesign",
@@ -119,5 +119,5 @@ function (exports, module, require) {
       (i.getFileTypesArray = function () {
         return [i.GVDESIGN, i.PNG, i.HEIC, i.JPG, i.JPEG, i.SVG, i.PDF, i.EPS];
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

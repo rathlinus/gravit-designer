@@ -6,22 +6,22 @@
 
 function (exports, module, require) {
     "use strict";
-    n(193) /* module_193 */, n(57) /* module_57 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(357) /* module_357 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(123) /* GProperties */,
-      s = n(448) /* GGravitCloudAction */,
-      l = n(445) /* GSaveAsAction */,
-      c = n(86) /* module_86 */,
-      d = n(163) /* module_163 */,
-      u = n(119) /* module_119 */,
-      p = n(78) /* GDocumentEvent */,
-      g = n(135) /* GSettingChangedEvent */,
-      h = (n(446) /* module_446 */, n(44) /* GSystemDialog */),
-      f = n(257) /* module_257 */;
+    require(193) /* module_193 */, require(57) /* module_57 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(357) /* module_357 */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(123) /* GProperties */,
+      s = require(448) /* GGravitCloudAction */,
+      l = require(445) /* GSaveAsAction */,
+      c = require(86) /* module_86 */,
+      d = require(163) /* module_163 */,
+      u = require(119) /* module_119 */,
+      p = require(78) /* GDocumentEvent */,
+      g = require(135) /* GSettingChangedEvent */,
+      h = (require(446) /* module_446 */, require(44) /* GSystemDialog */),
+      f = require(257) /* module_257 */;
     const { FILE_FORMATS: m, CLOUD_SYNC_FEATURE: { NEW_LAYOUT: y } = {} } =
-      n(10) /* module_10 */;
+      require(10) /* module_10 */;
     var v = "." + m.find((e) => e.default).ext;
     function _() {}
     o.GObject.inherit(_, r),
@@ -719,14 +719,14 @@ function (exports, module, require) {
         e.temporary || this._scene !== e.node || this._updateProperties();
       }),
       (_.prototype._updateUI = function () {
-        let e = this._panel.find(".color-mode-row"),
-          t = this._panel.find(".dpi-row");
+        let exports = this._panel.find(".color-mode-row"),
+          module = this._panel.find(".dpi-row");
         if (gDesigner.isTouchEnabled()) {
           this._panel.find('input[data-property="gm-"]').is(":checked")
             ? this._panel.find(".grid-mode").removeClass("mode-on")
             : this._panel.find(".grid-mode").addClass("mode-on"),
-            e.insertAfter(t);
-          let n = t.find(".dpi-selector-column .g-input-select");
+            exports.insertAfter(module);
+          let n = module.find(".dpi-selector-column .g-input-select");
           n.find(".dpi-text").length ||
             $("<span/>")
               .addClass("dpi-text")
@@ -745,8 +745,8 @@ function (exports, module, require) {
                 )
               );
         } else
-          t.find(".dpi-selector-column .g-input-select .dpi-text").remove(),
-            e.insertBefore(t.prev()),
+          module.find(".dpi-selector-column .g-input-select .dpi-text").remove(),
+            exports.insertBefore(module.prev()),
             this._panel.find(".grid-mode").removeClass("mode-on"),
             this._panel
               .find(".unit-title-column span")
@@ -810,9 +810,9 @@ function (exports, module, require) {
                   )
                 : ""
             );
-        const n = gDesigner.getSetting("color_mode", o.GColor.ColorModes.RGB);
-        n && this._scene.setProperty("cm", n),
-          this._panel.find('select[data-property="cm"]').val(n),
+        const require = gDesigner.getSetting("color_mode", o.GColor.ColorModes.RGB);
+        require && this._scene.setProperty("cm", require),
+          this._panel.find('select[data-property="cm"]').val(require),
           this._panel
             .find('select[data-property="ut"]')
             .val(this._scene.getProperty("ut")),
@@ -1007,5 +1007,5 @@ function (exports, module, require) {
       (_.prototype.toString = function () {
         return "[Object GSceneProperties]";
       }),
-      (e.exports = _);
+      (exports.exports = _);
   }

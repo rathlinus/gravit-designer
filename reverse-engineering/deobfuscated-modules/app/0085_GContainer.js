@@ -6,34 +6,34 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(96) /* module_96 */,
-      n(8) /* module_8 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(169) /* module_169 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(1) /* module_1 */,
-      a = n(1036) /* module_1036 */,
-      r = n(10) /* module_10 */,
-      s = o(n(734) /* module_734 */),
-      l = (o(n(355) /* module_355 */), o(n(1037) /* module_1037 */)),
-      c = n(255) /* module_255 */,
-      d = n(590) /* module_590 */,
-      u = n(18) /* module_18 */,
-      p = n(843) /* GOpenRecentAction */,
-      g = n(257) /* module_257 */,
-      h = n(219) /* module_219 */,
-      f = n(44) /* GSystemDialog */,
-      m = n(78) /* GDocumentEvent */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(96) /* module_96 */,
+      require(8) /* module_8 */,
+      require(3) /* module_3 */,
+      require(71) /* module_71 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(169) /* module_169 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var i = require(1) /* module */,
+      a = require(1036) /* module_1036 */,
+      r = require(10) /* module_10 */,
+      s = o(require(734) /* module_734 */),
+      l = (o(require(355) /* module_355 */), o(require(1037) /* module_1037 */)),
+      c = require(255) /* module_255 */,
+      d = require(590) /* module_590 */,
+      u = require(18) /* module_18 */,
+      p = require(843) /* GOpenRecentAction */,
+      g = require(257) /* module_257 */,
+      h = require(219) /* module_219 */,
+      f = require(44) /* GSystemDialog */,
+      m = require(78) /* GDocumentEvent */;
     function y() {}
     i.GObject.inherit(y, i.GEventTarget),
       (y.OpenFileRequest = function (e, t) {
@@ -124,23 +124,23 @@ function (exports, module, require) {
         return window.localStorage.length;
       }),
       (y.prototype.setCookie = function (e) {
-        let { name: t, value: n } = e;
+        let { name: module, value: require } = e;
         return navigator.cookieEnabled
-          ? ((document.cookie = "".concat(t, "=").concat(n, "; path=/")),
+          ? ((document.cookie = "".concat(module, "=").concat(require, "; path=/")),
             (document.cookie = ""
-              .concat(t, "=")
-              .concat(n, "; path=/; domain=")
+              .concat(module, "=")
+              .concat(require, "; path=/; domain=")
               .concat(r.DOMAIN)),
             Promise.resolve())
           : Promise.reject();
       }),
       (y.prototype.handleDeepLinking = function (e) {
-        const t = new URL(e || window.location.href).searchParams,
-          n = Object.keys(y.DeepLinking).find((e) => t.has(y.DeepLinking[e]));
-        if (n) {
+        const module = new URL(e || window.location.href).searchParams,
+          require = Object.keys(y.DeepLinking).find((e) => module.has(y.DeepLinking[e]));
+        if (require) {
           const e = {
-            link: y.DeepLinking[n],
-            options: Array.from(t.entries()).reduce(
+            link: y.DeepLinking[require],
+            options: Array.from(module.entries()).reduce(
               (e, t) => ((e[t[0]] = t[1]), e),
               {}
             ),
@@ -167,10 +167,10 @@ function (exports, module, require) {
           this._updateClientAPI(e.document);
       }),
       (y.prototype._updateClientAPI = function (e) {
-        const t = e && e.getToken();
-        if (t) {
+        const module = e && e.getToken();
+        if (module) {
           const n = gDesigner.getActiveDocument();
-          (!n || e === n) && r.gApi.setToken({ token: t });
+          (!n || e === n) && r.gApi.setToken({ token: module });
         }
       }),
       (y.prototype.start = function () {}),
@@ -179,17 +179,17 @@ function (exports, module, require) {
         return r.gApi.magicLink.authenticate(e, t, n);
       }),
       (y.prototype.canUnload = function (e, t) {
-        let n =
+        let require =
           !(arguments.length > 2 && undefined !== arguments[2]) || arguments[2];
         var o = !e && !t;
-        return n ? Promise.resolve(o) : o;
+        return require ? Promise.resolve(o) : o;
       }),
       (y.prototype.openExternalLink = function () {}),
       (y.prototype.copyToClipboard = function () {
         return Promise.resolve();
       }),
       (y.prototype.initLanguage = function (e, t) {
-        const n = () =>
+        const require = () =>
           this.getProperty("designer.settings").then(async (e) => {
             if (e && e.hasOwnProperty("language")) {
               const t = e.language;
@@ -210,7 +210,7 @@ function (exports, module, require) {
             try {
               await o(t), e && e(), i();
             } catch (t) {
-              await n(), e && e(), i();
+              await require(), e && e(), i();
             }
           });
         async function o(e) {
@@ -225,10 +225,10 @@ function (exports, module, require) {
         r.gApi
           .getUser()
           .then(async (t) => {
-            t && !t.anonymous ? await o(t.locale) : await n(), e && e();
+            t && !t.anonymous ? await o(t.locale) : await require(), e && e();
           })
           .catch(async () => {
-            await n(), e && e();
+            await require(), e && e();
           });
       }),
       (y.prototype.newDocumentActionPerformed = function (e) {
@@ -246,9 +246,9 @@ function (exports, module, require) {
       (y.prototype.updateRecentDocumentsAction = function (e) {
         var t;
         this._recentDocuments = e;
-        const n = gDesigner.getMainMenu();
-        if (n) {
-          const e = (t = n.findItem(i.GLocale.get(u.CATEGORY_FILE.label)));
+        const require = gDesigner.getMainMenu();
+        if (require) {
+          const e = (t = require.findItem(i.GLocale.get(u.CATEGORY_FILE.label)));
           if (e && e.getMenu()) {
             const n = e
               .getMenu()
@@ -346,13 +346,13 @@ function (exports, module, require) {
       (y.prototype.verifyEnoughMemoryToSave = function (e) {
         try {
           if (e && e.getStorageItem()) {
-            var t = this._estimatingMemoryUsage(),
-              n =
+            var module = this._estimatingMemoryUsage(),
+              require =
                 this._getJsHeapLimitSize() -
-                (t +=
+                (module +=
                   e.getStorageItem().documentRealFileSize *
                   r.FILE_SIZE_TO_SAVING_RAM_COEFFCIENT);
-            if (2 * e.getStorageItem().documentRealFileSize > n) {
+            if (2 * e.getStorageItem().documentRealFileSize > require) {
               var o = i.GLocale.get(
                 new i.GLocaleKey("GContainer", "text.not-memary-enough")
               );
@@ -370,8 +370,8 @@ function (exports, module, require) {
         return [];
       }),
       (y.prototype.getDefaultStorageDestination = function (e) {
-        const t = this.getStorageDestinations();
-        return t ? t.find((t) => t.isSupported(e)) : null;
+        const module = this.getStorageDestinations();
+        return module ? module.find((t) => t.isSupported(e)) : null;
       }),
       (y.prototype.getSharepointAuthenticator = function () {
         return null;
@@ -391,5 +391,5 @@ function (exports, module, require) {
       (y.prototype._getNativeShareLinkInstance = function () {
         return null;
       }),
-      (e.exports = y);
+      (exports.exports = y);
   }

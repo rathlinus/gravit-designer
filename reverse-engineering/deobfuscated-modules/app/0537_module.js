@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     var o, i, a, r, s, l, c, d;
-    e.exports =
-      ((d = n(55) /* module_55 */),
+    exports.exports =
+      ((d = require(55) /* module_55 */),
       (i = (o = d).lib),
       (a = i.WordArray),
       (r = i.Hasher),
@@ -21,12 +21,12 @@ function (exports, module, require) {
           },
           _doProcessBlock: function (e, t) {
             for (
-              var n = this._hash.words,
-                o = n[0],
-                i = n[1],
-                a = n[2],
-                r = n[3],
-                s = n[4],
+              var require = this._hash.words,
+                o = require[0],
+                i = require[1],
+                a = require[2],
+                r = require[3],
+                s = require[4],
                 c = 0;
               c < 80;
               c++
@@ -51,11 +51,11 @@ function (exports, module, require) {
                 (i = o),
                 (o = u);
             }
-            (n[0] = (n[0] + o) | 0),
-              (n[1] = (n[1] + i) | 0),
-              (n[2] = (n[2] + a) | 0),
-              (n[3] = (n[3] + r) | 0),
-              (n[4] = (n[4] + s) | 0);
+            (require[0] = (require[0] + o) | 0),
+              (require[1] = (require[1] + i) | 0),
+              (require[2] = (require[2] + a) | 0),
+              (require[3] = (require[3] + r) | 0),
+              (require[4] = (require[4] + s) | 0);
           },
           _doFinalize: function () {
             var e = this._data,

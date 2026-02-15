@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(18) /* module_18 */,
-      r = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(31) /* GAction */;
     function s() {}
     o.GObject.inherit(s, r),
       (s.ID = "edit.select-all"),
@@ -47,24 +47,24 @@ function (exports, module, require) {
         )
           document.execCommand("selectAll");
         else {
-          var e = gDesigner.getActiveDocument().getEditor(),
-            t = gDesigner.getActiveDocument().getScene(),
-            n = t.getActivePage(),
+          var exports = gDesigner.getActiveDocument().getEditor(),
+            module = gDesigner.getActiveDocument().getScene(),
+            require = module.getActivePage(),
             i = gDesigner
               .getActiveDocument()
               .getActiveWindow()
               .getView()
               .getViewConfiguration().multiPageView,
             a = [];
-          t.accept(function (e) {
+          module.accept(function (e) {
             if (
               e instanceof o.GItem &&
               !e.hasMixin(o.GAnnotation) &&
               !(e.getParent() instanceof o.GItem) &&
-              (e.getPage() === n || i) &&
+              (e.getPage() === require || i) &&
               !e.isLocked()
             ) {
-              var t =
+              var module =
                   !e.getProperty("vis") ||
                   e.findParent(function (e) {
                     return e instanceof o.GBlock && !e.getProperty("vis");
@@ -75,14 +75,14 @@ function (exports, module, require) {
                   r & o.GBlock.ProgramLck.NoSizeChanges &&
                   r & o.GBlock.ProgramLck.NoMove &&
                   r & o.GBlock.ProgramLck.NoDelete;
-              t || s || a.push(e);
+              module || s || a.push(e);
             }
           }),
-            e.updateSelection(false, a);
+            exports.updateSelection(false, a);
         }
       }),
       (s.prototype.toString = function () {
         return "[Object GSelectAllAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

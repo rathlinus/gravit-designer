@@ -9,5 +9,5 @@ function (exports, module, require) {
     (o.createCDRIntegrationEngine = function () {
       return null;
     }),
-      (e.exports = o);
+      (exports.exports = o);
   }

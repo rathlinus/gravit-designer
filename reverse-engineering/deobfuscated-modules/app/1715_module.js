@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(34) /* module_34 */,
+    require(57) /* module_57 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(34) /* module_34 */,
       (function (e) {
         jQuery.fn.extend({
           elastic: function () {

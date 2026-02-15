@@ -6,49 +6,49 @@
 
 function (exports, module, require) {
     "use strict";
-    n(842) /* module_842 */;
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = t.TEAMS_COMMANDS = t.GSharePointClient = undefined),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(1476) /* module_1476 */),
-      r = n(802) /* CloudException */,
-      s = o(n(119) /* module_119 */),
-      l = n(10) /* module_10 */,
-      c = n(593) /* module_593 */,
-      d = o(n(594) /* GError */),
-      u = o(n(1477) /* module_1477 */),
-      p = o(n(1242) /* module_1242 */),
-      g = n(40) /* module_40 */;
-    const h = n(156) /* module_156 */;
+    require(842) /* module_842 */;
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = module.TEAMS_COMMANDS = module.GSharePointClient = undefined),
+      require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(96) /* module_96 */,
+      require(30) /* module_30 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(356) /* module_356 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(3) /* module_3 */,
+      require(271) /* module_271 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var i = require(1) /* module */,
+      a = o(require(1476) /* module_1476 */),
+      r = require(802) /* CloudException */,
+      s = o(require(119) /* module_119 */),
+      l = require(10) /* module_10 */,
+      c = require(593) /* module_593 */,
+      d = o(require(594) /* GError */),
+      u = o(require(1477) /* module_1477 */),
+      p = o(require(1242) /* module_1242 */),
+      g = require(40) /* module_40 */;
+    const h = require(156) /* module_156 */;
     let f = null,
       m = {};
-    const y = (t.TEAMS_COMMANDS = p.default.COMMANDS),
-      v = (t.GSharePointClient = function (e) {
+    const y = (module.TEAMS_COMMANDS = p.default.COMMANDS),
+      v = (module.GSharePointClient = function (e) {
         let {
-          tenant: t,
-          domain: n,
+          tenant: module,
+          domain: require,
           clientID: o,
           id: i,
           authTenant: a,
@@ -57,9 +57,9 @@ function (exports, module, require) {
           relativePath: l,
         } = e;
         (this.TOKEN = f || s),
-          (this.BASE_URL = t),
-          (this.AUTH_TENANT = a || t),
-          (this.DOMAIN = n),
+          (this.BASE_URL = module),
+          (this.AUTH_TENANT = a || module),
+          (this.DOMAIN = require),
           (this.CLIENT_ID = o),
           (this.SETTINGS_ID = i),
           (this.CORPORATE = r || false),
@@ -76,10 +76,10 @@ function (exports, module, require) {
         return 0 === e.indexOf(this.RELATIVE_PATH);
       }),
       (v.prototype.getSanitizedFolderRelativePath = function (e) {
-        let t = e;
+        let module = e;
         return (
-          this.RELATIVE_PATH && (t = (0, g.trimStart)(t, this.RELATIVE_PATH)),
-          (0, g.trimStart)(t, "/")
+          this.RELATIVE_PATH && (module = (0, g.trimStart)(module, this.RELATIVE_PATH)),
+          (0, g.trimStart)(module, "/")
         );
       }),
       (v.prototype.getSanitizedFileRelativePath = function (e) {
@@ -157,7 +157,7 @@ function (exports, module, require) {
       (v.InvalidContainings = ["_vti_"]),
       (v.InvalidOnlyCharacters = ["."]),
       (v.convertFileToCloudItem = function (e) {
-        const t = (e) => {
+        const module = (e) => {
           var t = h.from({
             id: e.UniqueId,
             version: e.UIVersionLabel,
@@ -170,12 +170,12 @@ function (exports, module, require) {
             t.setItemType(h.Type.File),
             (t.type = v.getFileType({ name: e.Name })),
             (t.mimeType = e._mimetype || e.mimeType || t.type);
-          const n = l.FILE_FORMATS.find((e) => {
-            let { type: n } = e;
-            return n === t.type;
+          const require = l.FILE_FORMATS.find((e) => {
+            let { type: require } = e;
+            return require === t.type;
           });
           return (
-            (t.extension = n && n.ext),
+            (t.extension = require && require.ext),
             (t.name = e.Name.replace(
               new RegExp(".(".concat(t.extension, ")$"), "i"),
               ""
@@ -189,7 +189,7 @@ function (exports, module, require) {
             t
           );
         };
-        return e instanceof Array ? e.map(t) : t(e);
+        return e instanceof Array ? e.map(module) : module(e);
       }),
       (v.updateFilePermissions = function (e) {
         return e instanceof h && e.getType() === h.Type.File
@@ -214,26 +214,26 @@ function (exports, module, require) {
         if (!e || !e.trim()) return false;
         if (v.hasSpecialChar(e)) return false;
         if (v.InvalidNames.indexOf(e) >= 0) return false;
-        for (let t = 0, n = v.InvalidNameBeginnings.length; t < n; t++) {
-          let n = v.InvalidNameBeginnings[t];
+        for (let module = 0, require = v.InvalidNameBeginnings.length; module < require; module++) {
+          let n = v.InvalidNameBeginnings[module];
           if (e.startsWith(n)) return false;
         }
-        for (let t = 0, n = v.InvalidNameEndings.length; t < n; t++) {
-          let n = v.InvalidNameEndings[t];
+        for (let module = 0, require = v.InvalidNameEndings.length; module < require; module++) {
+          let n = v.InvalidNameEndings[module];
           if (e.endsWith(n)) return false;
         }
-        for (let t = 0, n = v.InvalidContainings.length; t < n; t++) {
-          let n = v.InvalidContainings[t];
+        for (let module = 0, require = v.InvalidContainings.length; module < require; module++) {
+          let n = v.InvalidContainings[module];
           if (e.indexOf(n) >= 0) return false;
         }
-        for (let t = 0, n = v.InvalidOnlyCharacters.length; t < n; t++) {
-          const n = v.InvalidOnlyCharacters[t];
+        for (let module = 0, require = v.InvalidOnlyCharacters.length; module < require; module++) {
+          const n = v.InvalidOnlyCharacters[module];
           if (RegExp("^[".concat(n, "]+$")).test(e)) return false;
         }
         return true;
       }),
       (v.convertFolderToCloudItem = function (e) {
-        const t = (e) => {
+        const module = (e) => {
           var t = h.from({
             id: e.UniqueId ? e.UniqueId : e.id,
             name: e.Name ? e.Name : e.name,
@@ -250,23 +250,23 @@ function (exports, module, require) {
             t
           );
         };
-        return e instanceof Array ? e.map(t) : t(e);
+        return e instanceof Array ? e.map(module) : module(e);
       }),
       (v.getFileType = function (e) {
         return e.name.toLowerCase().endsWith(".cdrapp")
           ? l.FILE_FORMATS.find((e) => {
-              let { ext: t } = e;
-              return "cdrapp" === t;
+              let { ext: module } = e;
+              return "cdrapp" === module;
             }).type
           : e.name.toLowerCase().endsWith(".cdr")
           ? l.FILE_FORMATS.find((e) => {
-              let { ext: t } = e;
-              return "cdr" === t;
+              let { ext: module } = e;
+              return "cdr" === module;
             }).type
           : e.name.toLowerCase().endsWith(".des")
           ? l.FILE_FORMATS.find((e) => {
-              let { ext: t } = e;
-              return "des" === t;
+              let { ext: module } = e;
+              return "des" === module;
             }).type
           : undefined;
       }),
@@ -292,27 +292,27 @@ function (exports, module, require) {
         return gDesigner.getSyncUser().email;
       }),
       (v.clearOldAccessTokens = function () {
-        const e = [],
-          t = gContainer.getStorageLength();
-        for (let n = 0; n < t; n++) {
-          let t = gContainer.getPropertyKeyByIndex(n);
+        const exports = [],
+          module = gContainer.getStorageLength();
+        for (let require = 0; require < module; require++) {
+          let t = gContainer.getPropertyKeyByIndex(require);
           0 === t.indexOf("".concat(v.ACCESS_TOKEN_PROP_NAME, ".")) &&
-            e.push(t);
+            exports.push(t);
         }
-        const n = v.getUserId();
-        for (let t = 0; t < e.length; t++) {
-          o(e[t]);
+        const require = v.getUserId();
+        for (let module = 0; module < exports.length; module++) {
+          o(exports[module]);
         }
         function o(e) {
           gContainer.getProperty(e).then((t) => {
-            v.isTokenValid(t, n) || gContainer.removeProperty(e);
+            v.isTokenValid(t, require) || gContainer.removeProperty(e);
           });
         }
       }),
       (v.isTokenValid = function (e, t) {
-        const n = gContainer.getSharepointAuthenticator();
-        return n
-          ? n.isTokenValid(e)
+        const require = gContainer.getSharepointAuthenticator();
+        return require
+          ? require.isTokenValid(e)
           : !(!e || !e.expires || e.expires <= Date.now() / 1e3) &&
               !(!e.id || e.id !== t);
       }),
@@ -322,8 +322,8 @@ function (exports, module, require) {
         );
       }),
       (v.getValidCachedTokenOrNull = async function (e) {
-        const t = await v.getCachedToken(e);
-        return v.isTokenValid(t, v.getUserId()) ? t : null;
+        const module = await v.getCachedToken(e);
+        return v.isTokenValid(module, v.getUserId()) ? module : null;
       }),
       (v.saveTokenToCache = async function (e, t) {
         gContainer.setProperty(
@@ -333,13 +333,13 @@ function (exports, module, require) {
       }),
       (v.ExceptionCode = { LoginAborted: 1, FileAlreadyCheckedOut: 423 });
     class _ extends d.default {
-      constructor(e, t) {
+      function Object() { [native code] }(e, t) {
         super(e),
           (this.code = t),
           (this.__proto__ = _.prototype),
           (this.name = "SharepointException");
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object SharepointException]";
       }
     }
@@ -399,7 +399,7 @@ function (exports, module, require) {
         );
       }),
       (v.prototype.queryFilesByOwner = function (e, t) {
-        const n = (function (e) {
+        const require = (function (e) {
           return (
             e.searchParams.append("$select", "*"),
             e.searchParams.append("$expand", "Author"),
@@ -407,53 +407,53 @@ function (exports, module, require) {
             e
           );
         })(this._createQueryFilesURL(e));
-        return this.get(n);
+        return this.get(require);
       }),
       (v.prototype._createQueryFilesURL = function (e) {
-        const { folderRelativeUrl: t, orderBy: n, limit: o, skip: i } = e,
-          a = this.getSanitizedFolderRelativePath(t),
+        const { folderRelativeUrl: module, orderBy: require, limit: o, skip: i } = e,
+          a = this.getSanitizedFolderRelativePath(module),
           r = this.getAPIEndpointURL(
             "/_api/web/GetFolderByServerRelativeUrl('".concat(a, "')/Files")
           );
         return (
-          r.searchParams.append("$orderby", n),
+          r.searchParams.append("$orderby", require),
           r.searchParams.append("$top", o),
           r.searchParams.append("$skip", i),
           r
         );
       }),
       (v.prototype.findFileById = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
         return this.get(
           "/_api/search/query?querytext='" +
             e +
             "'&selectproperties='Title,Filename,ParentLink,DefaultEncodingURL'",
-          { headers: t }
+          { headers: module }
         ).then((e) => {
           if (e) {
             const {
                 PrimaryQueryResult: {
                   RelevantResults: {
                     Table: {
-                      Rows: [t],
+                      Rows: [module],
                     },
                   },
                 },
               } = e,
-              n = t.Cells.find((e) => {
-                let { Key: t } = e;
-                return "Filename" === t;
+              n = module.Cells.find((e) => {
+                let { Key: module } = e;
+                return "Filename" === module;
               }).Value;
             return {
-              name: t.Cells.find((e) => {
-                let { Key: t } = e;
-                return "Title" === t;
+              name: module.Cells.find((e) => {
+                let { Key: module } = e;
+                return "Title" === module;
               }).Value,
               type: v.getFileType({ name: n }),
-              relativeUrl: t.Cells.find((e) => {
-                let { Key: t } = e;
-                return "DefaultEncodingURL" === t;
+              relativeUrl: module.Cells.find((e) => {
+                let { Key: module } = e;
+                return "DefaultEncodingURL" === module;
               }).Value.replace("https://".concat(this.BASE_URL), ""),
             };
           }
@@ -461,20 +461,20 @@ function (exports, module, require) {
         });
       }),
       (v.prototype.getAdditionalItemData = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        const n = "/_api/web/GetFileByServerRelativeUrl('".concat(
+        const require = "/_api/web/GetFileByServerRelativeUrl('".concat(
           encodeURI("".concat(e.relativeUrl)),
           "')/ListItemAllFields?expand=Properties"
         );
-        return this.get(n, { headers: t });
+        return this.get(require, { headers: module });
       }),
       (v.prototype.checkOutFile = async function (e) {
-        const t = "/_api/web/GetFileByServerRelativeUrl('".concat(
+        const module = "/_api/web/GetFileByServerRelativeUrl('".concat(
           e.relativeUrl,
           "')/CheckOut()"
         );
-        return this.post(t).catch((e) => {
+        return this.post(module).catch((e) => {
           if (e.status === v.ExceptionCode.FileAlreadyCheckedOut)
             throw new v.SharepointException(
               i.GLocale.get(
@@ -496,39 +496,39 @@ function (exports, module, require) {
         return this.post(t);
       }),
       (v.prototype.checkInFile = function (e) {
-        let t =
+        let module =
             arguments.length > 1 && undefined !== arguments[1]
               ? arguments[1]
               : "New Comment",
-          n =
+          require =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : v.CheckinType.MinorCheckIn;
         const o = "/_api/web/GetFileByServerRelativeUrl('"
           .concat(e.relativeUrl, "')/CheckIn(comment='")
-          .concat(t, "', checkintype=")
-          .concat(n, ")");
+          .concat(module, "', checkintype=")
+          .concat(require, ")");
         return this.post(o);
       }),
       (v.prototype.getCheckOutFileInfo = function (e) {
-        const t = "/_api/web/GetFileByServerRelativeUrl('".concat(
+        const module = "/_api/web/GetFileByServerRelativeUrl('".concat(
           e.relativeUrl,
           "')/checkedOutByUser"
         );
-        return this.get(t);
+        return this.get(module);
       }),
       (v.prototype.getCheckOutFileStatus = async function (e) {
         if (e.hasOwnProperty("checkedOut") && !e.checkedOut)
           return v.FILE_STATUS.AVAILABLE;
-        const t = await this.getCheckOutFileInfo(e).catch(
+        const module = await this.getCheckOutFileInfo(e).catch(
           (e) => (
             console.error(">>>error retrieving checkout info: ", e.message),
             null
           )
         );
-        if (!t || true === t["odata.null"]) return v.FILE_STATUS.AVAILABLE;
-        const n = await this._getUser();
-        return t.UserId.NameId === n.getNameId()
+        if (!module || true === module["odata.null"]) return v.FILE_STATUS.AVAILABLE;
+        const require = await this._getUser();
+        return module.UserId.NameId === require.getNameId()
           ? v.FILE_STATUS.LOCKED_BY_ME
           : v.FILE_STATUS.LOCKED;
       }),
@@ -542,10 +542,10 @@ function (exports, module, require) {
         return new u.default(await this._getFileCreator(e));
       }),
       (v.prototype.getLibrarySettings = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : null;
         return this.get("/_api/web/lists/getByTitle('Documents')", {
-          headers: e,
+          headers: exports,
         }).then((e) => ({
           enableVersioning: e.EnableVersioning,
           enableMinorVersions: e.EnableMinorVersions,
@@ -554,46 +554,46 @@ function (exports, module, require) {
         }));
       }),
       (v.prototype.getFileDetails = async function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
         try {
-          return await this._getFileDetailsByRelativeURL(e, t);
+          return await this._getFileDetailsByRelativeURL(e, module);
         } catch (n) {
           if (e.id) {
             const n = await this.findFileById(e.id);
-            return this._getFileDetailsByRelativeURL(n, t);
+            return this._getFileDetailsByRelativeURL(n, module);
           }
           throw n;
         }
       }),
       (v.prototype._getFileDetailsByRelativeURL = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        const n = "/_api/web/GetFileByServerRelativeUrl('".concat(
+        const require = "/_api/web/GetFileByServerRelativeUrl('".concat(
           encodeURI("".concat(e.relativeUrl)),
           "')"
         );
-        return this.get(n, { headers: t });
+        return this.get(require, { headers: module });
       }),
       (v.prototype.getFolderDetails = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        const n = this.getSanitizedFolderRelativePath(e.relativeUrl),
+        const require = this.getSanitizedFolderRelativePath(e.relativeUrl),
           o = "/_api/web/GetFolderByServerRelativeUrl('".concat(
-            encodeURI(n),
+            encodeURI(require),
             "')"
           );
-        return this.get(o, { headers: t });
+        return this.get(o, { headers: module });
       }),
       (v.prototype.getParentFolder = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        const n = this.getSanitizedFolderRelativePath(e.relativeUrl),
+        const require = this.getSanitizedFolderRelativePath(e.relativeUrl),
           o = "/_api/Web/GetFolderByServerRelativePath(decodedurl='".concat(
-            encodeURI(n),
+            encodeURI(require),
             "')/ParentFolder"
           );
-        return this.get(o, { headers: t });
+        return this.get(o, { headers: module });
       }),
       (v.prototype.copyFileTo = function (e, t) {
         var n = "/_api/web/GetFileByServerRelativeUrl('"
@@ -619,10 +619,10 @@ function (exports, module, require) {
         return this.post(n, null, { rawResponse: true });
       }),
       (v.prototype.folderExists = function (e, t) {
-        const n = this.getSanitizedFolderRelativePath(t.relativeUrl);
+        const require = this.getSanitizedFolderRelativePath(t.relativeUrl);
         return this.get(
           "/_api/Web/GetFolderByServerRelativePath(decodedurl='".concat(
-            encodeURI("".concat(n) + "".concat(e ? "/".concat(e) : "")),
+            encodeURI("".concat(require) + "".concat(e ? "/".concat(e) : "")),
             "')/Exists/$value"
           )
         ).catch((e) => (!e.status || 404 !== e.status) && Promise.reject(e));
@@ -655,23 +655,23 @@ function (exports, module, require) {
         return this.get(t);
       }),
       (v.prototype.get = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : null;
-        return this._query("GET", e, null, t);
+        return this._query("GET", e, null, module);
       }),
       (v.prototype.post = function (e, t) {
-        let n,
+        let require,
           o =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : null;
         return (
-          (n = o && o.blobRequest ? new Blob([t]) : t),
-          this._query("POST", e, n, o)
+          (require = o && o.blobRequest ? new Blob([t]) : t),
+          this._query("POST", e, require, o)
         );
       }),
       (v.prototype._query = function (e, t) {
-        let n,
+        let require,
           o =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
@@ -681,13 +681,13 @@ function (exports, module, require) {
               ? arguments[3]
               : null;
         return (
-          (n =
+          (require =
             (i && i.fullLink) || t instanceof URL
               ? t instanceof URL
                 ? t.toString()
                 : t
               : this.getAPIEndpointURL(t).toString()),
-          this.query(e, n, o, i)
+          this.query(e, require, o, i)
         );
       }),
       (v.prototype.getAPIEndpointURL = function (e) {
@@ -723,7 +723,7 @@ function (exports, module, require) {
         return this.get(t);
       }),
       (v.prototype.query = function (e, t) {
-        let n =
+        let require =
             arguments.length > 2 && undefined !== arguments[2]
               ? arguments[2]
               : null,
@@ -748,8 +748,8 @@ function (exports, module, require) {
           const l = {
             method: e,
             cache: "no-cache",
-            headers: i._prepareRequestHeaders(e, n, o),
-            body: i._prepareRequestBody(e, n, o),
+            headers: i._prepareRequestHeaders(e, require, o),
+            body: i._prepareRequestBody(e, require, o),
           };
           let d;
           try {
@@ -843,55 +843,55 @@ function (exports, module, require) {
           .concat(this.SETTINGS_ID);
       }),
       (v.prototype.connect = async function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        const n = this,
+        const require = this,
           o = this._getSharePointSettings(),
           a = 6e4,
           s = 3e3;
         let c,
           d = false;
-        const u = await v.getValidCachedTokenOrNull(n.SETTINGS_ID);
-        if (n._connect) return n._connect;
+        const u = await v.getValidCachedTokenOrNull(require.SETTINGS_ID);
+        if (require._connect) return require._connect;
         const p = gContainer.getSharepointAuthenticator();
         return p
           ? !e && u
-            ? void (n.TOKEN = u)
+            ? void (require.TOKEN = u)
             : (l.msTeamsMode
-                ? (n._connect = p.authenticate(n._getTeamsCommand()))
-                : (n._connect = p.authenticate(o, { clearCache: e })),
-              n._connect.then(
+                ? (require._connect = p.authenticate(require._getTeamsCommand()))
+                : (require._connect = p.authenticate(o, { clearCache: e })),
+              require._connect.then(
                 (e) => (
-                  (n.TOKEN = f = { id: v.getUserId() }),
+                  (require.TOKEN = f = { id: v.getUserId() }),
                   e.expires && e.token
-                    ? ((n.TOKEN.expires = f.expires = Number(e.expires)),
-                      (n.TOKEN.token = f.token = e.token))
+                    ? ((require.TOKEN.expires = f.expires = Number(e.expires)),
+                      (require.TOKEN.token = f.token = e.token))
                     : "string" == typeof e &&
-                      ((n.TOKEN.expires = f.expires =
+                      ((require.TOKEN.expires = f.expires =
                         Math.floor(Date.now() / 1e3) + 3600),
-                      (n.TOKEN.token = f.token = e)),
-                  v.saveTokenToCache(n.SETTINGS_ID, n.TOKEN),
-                  delete n._connect,
-                  n.TOKEN
+                      (require.TOKEN.token = f.token = e)),
+                  v.saveTokenToCache(require.SETTINGS_ID, require.TOKEN),
+                  delete require._connect,
+                  require.TOKEN
                 )
               ),
-              n._connect)
-          : ((n._connect = new Promise((s, l) => {
+              require._connect)
+          : ((require._connect = new Promise((s, l) => {
               !(function t(u) {
                 gContainer
                   .getProperty(
                     ""
                       .concat(v.ACCESS_TOKEN_PROP_NAME, ".")
-                      .concat(n.SETTINGS_ID)
+                      .concat(require.SETTINGS_ID)
                   )
                   .then((p) => {
                     if (p && !e && v.isTokenValid(p, v.getUserId()))
-                      return (n.TOKEN = p), s(), void (n._connect = null);
+                      return (require.TOKEN = p), s(), void (require._connect = null);
                     $(window).on("message", b);
                     var m = new URL(
                       "".concat(window.location.origin, "/sp.html")
                     );
-                    const y = n._popupToCenter(
+                    const y = require._popupToCenter(
                       m.href,
                       "SharePointToken",
                       680,
@@ -911,14 +911,14 @@ function (exports, module, require) {
                         })
                       );
                     (y.onload = function () {
-                      n._toClear &&
+                      require._toClear &&
                         (y.postMessage(
                           { cmd: "clearCachedUser", sharepointSettings: o },
                           ""
                             .concat(window.location.protocol, "//")
                             .concat(window.location.host, "/sp.html")
                         ),
-                        delete n._toClear),
+                        delete require._toClear),
                         y.postMessage(
                           { cmd: "sharepointSettings", sharepointSettings: o },
                           ""
@@ -948,18 +948,18 @@ function (exports, module, require) {
                       let i = e.originalEvent.data;
                       const { cmd: r } = i;
                       if (r && "saveToken" === r)
-                        (n.TOKEN = f =
+                        (require.TOKEN = f =
                           {
                             expires: Math.floor(Date.now() / 1e3) + 3600,
                             token: i.token,
                             id: v.getUserId(),
                           }),
-                          v.saveTokenToCache(n.SETTINGS_ID, n.TOKEN),
+                          v.saveTokenToCache(require.SETTINGS_ID, require.TOKEN),
                           (d = true),
                           g(y),
                           c && clearTimeout(c),
                           $(window).off("message", b),
-                          (n._connect = null),
+                          (require._connect = null),
                           s();
                       else if (r && "saveTokenError" === r) {
                         const { error: e } = i;
@@ -974,7 +974,7 @@ function (exports, module, require) {
                           }, a));
                         v._logoutAndClearAdalCache(o),
                           h(y),
-                          (n._connect = null),
+                          (require._connect = null),
                           l(e);
                       }
                     }
@@ -983,15 +983,15 @@ function (exports, module, require) {
                         g(y), v._logoutAndClearAdalCache(o), t(false);
                       }, a));
                   });
-              })(t);
+              })(module);
             })),
-            n._connect);
+            require._connect);
         function g(e) {
-          let t =
+          let module =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 0;
           setTimeout(() => {
             e.close();
-          }, t);
+          }, module);
         }
         function h(e) {
           g(e, s);
@@ -1007,10 +1007,10 @@ function (exports, module, require) {
         );
       }),
       (v.prototype.updateItem = function (e, t) {
-        const n = this.getSanitizedFolderRelativePath(e.relativeUrl);
+        const require = this.getSanitizedFolderRelativePath(e.relativeUrl);
         return this.post(
           "/_api/web/GetFolderByServerRelativeUrl('".concat(
-            n,
+            require,
             "')/ListItemAllFields"
           ),
           t,
@@ -1018,9 +1018,9 @@ function (exports, module, require) {
         );
       }),
       (v.prototype.deleteItem = function (e) {
-        const t = this.getSanitizedFolderRelativePath(e.relativeUrl);
+        const module = this.getSanitizedFolderRelativePath(e.relativeUrl);
         return this.post(
-          "/_api/web/GetFolderByServerRelativeUrl('".concat(t, "')"),
+          "/_api/web/GetFolderByServerRelativeUrl('".concat(module, "')"),
           null,
           { headers: { "X-HTTP-Method": "DELETE" }, rawResponse: true }
         ).then((e) => {
@@ -1070,8 +1070,8 @@ function (exports, module, require) {
         return y.SHAREPOINT_COMMAND;
       }),
       (v.prototype.createFile = function (e, t) {
-        const n = e.parentUrl || e.parent.relativeUrl,
-          o = this.getSanitizedFolderRelativePath(n);
+        const require = e.parentUrl || e.parent.relativeUrl,
+          o = this.getSanitizedFolderRelativePath(require);
         var i = "/_api/web/GetFolderByServerRelativeUrl('"
           .concat(o, "')/Files/add(url='")
           .concat(e.getNameWithExtension(), "',overwrite=true)");
@@ -1096,5 +1096,5 @@ function (exports, module, require) {
       (v.prototype.toString = function () {
         return "[Object GSharePointClient]";
       });
-    t.default = v;
+    module.default = v;
   }

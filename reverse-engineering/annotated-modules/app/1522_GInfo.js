@@ -9,7 +9,7 @@ function (e, t, n) {
     var o = n(16) /* module_16 */;
     n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
     var i = n(10) /* module_10 */,
-      a = n(1) /* module_1 */,
+      a = n(1) /* module */,
       r = o(n(78) /* GDocumentEvent */);
     const s = n(44) /* GSystemDialog */,
       l = n(863) /* module_863 */,

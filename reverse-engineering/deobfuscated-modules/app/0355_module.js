@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n.r(t);
+    require.r(module);
     class o extends Error {
-      constructor(...e) {
+      function Object() { [native code] }(...e) {
         super(...e),
           (this.constructor = o),
           (this.__proto__ = o.prototype),
           (this.name = "AppError");
       }
-      toString() {
+      function toString() { [native code] }() {
         return this.message;
       }
     }
-    t.default = o;
+    module.default = o;
   }

@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(290) /* module_290 */, n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    var o = require(16) /* module_16 */;
+    require(290) /* module_290 */, require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */;
     var i,
       a,
       r,
-      s = n(15) /* module_15 */,
-      l = n(1) /* module_1 */,
-      c = o(n(11) /* GUtil */),
-      d = n(10) /* module_10 */,
-      u = n(67) /* GRichTooltipConfig */,
-      p = o(n(1342) /* GEnhancedTooltipsAction */),
+      s = require(15) /* module */,
+      l = require(1) /* module */,
+      c = o(require(11) /* GUtil */),
+      d = require(10) /* module_10 */,
+      u = require(67) /* GRichTooltipConfig */,
+      p = o(require(1342) /* GEnhancedTooltipsAction */),
       g = {
         init: function (e) {
           if (e) {
@@ -44,24 +44,24 @@ function (exports, module, require) {
               d.IS_COREL && !e.forceShow
                 ? this
                 : this.each(function () {
-                    const t = $(this);
+                    const module = $(this);
                     (e._id = c.default.uuid(7)),
-                      t.data("g-rich-tooltip", e),
-                      t.on("mouseover", function (e) {
+                      module.data("g-rich-tooltip", e),
+                      module.on("mouseover", function (e) {
                         i && (clearTimeout(i), (i = null)),
                           a && (clearTimeout(a), (a = null));
                         var n = function () {
-                          t.data("g-rich-tooltip-container-hovered", true),
-                            g.showTooltip.call(t, e);
+                          module.data("g-rich-tooltip-container-hovered", true),
+                            g.showTooltip.call(module, e);
                         };
                         r ? n() : (a = setTimeout(n, 500));
                       }),
-                      t.on("mouseout", function (e) {
+                      module.on("mouseout", function (e) {
                         a && (clearTimeout(a), (a = null)),
-                          t.data("g-rich-tooltip-container-hovered", false),
-                          g.hideTooltip.call(t, e);
+                          module.data("g-rich-tooltip-container-hovered", false),
+                          g.hideTooltip.call(module, e);
                       }),
-                      t.on("mousedown", function () {
+                      module.on("mousedown", function () {
                         a && (clearTimeout(a), (a = null));
                       });
                   })
@@ -69,34 +69,34 @@ function (exports, module, require) {
           }
         },
         showTooltip: function () {
-          const e = $(this),
-            t = e.data("g-rich-tooltip");
+          const exports = $(this),
+            module = exports.data("g-rich-tooltip");
           if (r) {
-            if (r.data("g-rich-tooltip-id") === t._id) return;
-            g.close.call(e);
+            if (r.data("g-rich-tooltip-id") === module._id) return;
+            g.close.call(exports);
           }
           gContainer.getProperty(p.default.StoragePropertyName).then((n) => {
-            (t.enhanced = "boolean" != typeof n || n),
-              (r = g.createTooltip(t)).on("mouseover", function () {
+            (module.enhanced = "boolean" != typeof n || n),
+              (r = g.createTooltip(module)).on("mouseover", function () {
                 i && (clearTimeout(i), (i = null)),
-                  e.data("g-rich-tooltip-self-tooltip-hovered", true);
+                  exports.data("g-rich-tooltip-self-tooltip-hovered", true);
               }),
               r.on("mouseout", function () {
-                e.data("g-rich-tooltip-self-tooltip-hovered", false),
-                  g.hideTooltip.call(e);
+                exports.data("g-rich-tooltip-self-tooltip-hovered", false),
+                  g.hideTooltip.call(exports);
               }),
               r.on("click", function () {
-                g.close.call(e);
+                g.close.call(exports);
               }),
-              r.gOverlay("open", e);
+              r.gOverlay("open", exports);
           });
         },
         hideTooltip: function () {
-          const e = $(this);
+          const exports = $(this);
           i = setTimeout(() => {
-            e.data("g-rich-tooltip-container-hovered") ||
-              e.data("g-rich-tooltip-self-tooltip-hovered") ||
-              g.close.call(e);
+            exports.data("g-rich-tooltip-container-hovered") ||
+              exports.data("g-rich-tooltip-self-tooltip-hovered") ||
+              g.close.call(exports);
           }, 100);
         },
         createTooltip: function (e) {
@@ -130,8 +130,8 @@ function (exports, module, require) {
         },
         createTooltipContent: function (e) {
           const {
-            title: t,
-            isPro: n,
+            title: module,
+            isPro: require,
             shortcut: o,
             video: i,
             pic: a,
@@ -157,7 +157,7 @@ function (exports, module, require) {
           g = g ? "".concat(g, " ").concat(m) : m;
           const y = $("<div />")
             .addClass("g-tooltip-content-wrapper")
-            .toggleClass("g-pro", n)
+            .toggleClass("g-pro", require)
             .append(
               $("<div />")
                 .addClass("g-tooltip-content-header")
@@ -173,7 +173,7 @@ function (exports, module, require) {
                   $("<div />")
                     .toggleClass("limit-width", !(!o || !o.length))
                     .addClass("g-tooltip-content-title")
-                    .text(t)
+                    .text(module)
                 )
             )
             .append(
@@ -199,7 +199,7 @@ function (exports, module, require) {
                 : ""
             )
             .append(
-              d && n && f
+              d && require && f
                 ? $("<div />")
                     .addClass("g-tooltip-content-footer")
                     .append(

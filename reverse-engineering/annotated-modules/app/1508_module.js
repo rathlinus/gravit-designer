@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
     var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */;
+      i = n(1) /* module */;
     const { bypassEmailVerification: a } = o.defaultUserSettings,
       r = n(44) /* GSystemDialog */,
       s = function (e) {

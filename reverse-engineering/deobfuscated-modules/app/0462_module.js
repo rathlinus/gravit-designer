@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(463) /* module_463 */,
-      i = n(94) /* module_94 */,
-      a = n(312) /* module_312 */,
-      r = n(225) /* module_225 */,
-      s = n(313) /* module_313 */,
+    var o = require(463) /* module_463 */,
+      i = require(94) /* module_94 */,
+      a = require(312) /* module_312 */,
+      r = require(225) /* module_225 */,
+      s = require(313) /* module_313 */,
       l = Object.prototype.toString;
     function c(e) {
       if (!(this instanceof c)) return new c(e);
@@ -112,12 +112,12 @@ function (exports, module, require) {
           (this.err = e),
           (this.msg = this.strm.msg);
       }),
-      (t.Deflate = c),
-      (t.deflate = d),
-      (t.deflateRaw = function (e, t) {
+      (module.Deflate = c),
+      (module.deflate = d),
+      (module.deflateRaw = function (e, t) {
         return ((t = t || {}).raw = true), d(e, t);
       }),
-      (t.gzip = function (e, t) {
+      (module.gzip = function (e, t) {
         return ((t = t || {}).gzip = true), d(e, t);
       });
   }

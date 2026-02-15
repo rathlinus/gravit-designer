@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(1352) /* module_1352 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(1709) /* module_1709 */;
+    require(57) /* module_57 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(1352) /* module_1352 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(1709) /* module_1709 */;
     function a() {}
     function r(e, t) {
       (this.id = e), (this.expanded = t);
@@ -109,17 +109,17 @@ function (exports, module, require) {
       }),
       (a.prototype.getNestLevel = function () {
         for (
-          var e = 0, t = this.parent;
-          null != t && t instanceof a;
-          t = t.parent
+          var exports = 0, module = this.parent;
+          null != module && module instanceof a;
+          module = module.parent
         )
-          ++e;
-        return e;
+          ++exports;
+        return exports;
       }),
       (a.prototype.isVisible = function () {
-        for (var e = this.parent; e instanceof a; ) {
-          if (!e.expanded) return false;
-          e = e.parent;
+        for (var exports = this.parent; exports instanceof a; ) {
+          if (!exports.expanded) return false;
+          exports = exports.parent;
         }
         return true;
       }),
@@ -280,16 +280,16 @@ function (exports, module, require) {
         this._initComputedVals(), this.requestInvalidation(true);
       }),
       (s.prototype.expandAndFocus = function (e, t) {
-        for (var n = 0, o = e; o.parent && o.parent !== this._root; )
+        for (var require = 0, o = e; o.parent && o.parent !== this._root; )
           (o = o.parent).expanded ||
             ((o.expanded = true),
             this._expandCallback && this._expandCallback(o));
         if (this._focusTimerId) return false;
         this._root.acceptChildren(function (t) {
-          return t !== e && (n++, true);
+          return t !== e && (require++, true);
         }, true),
           t || this.invalidate();
-        var i = n * this._rowHeight,
+        var i = require * this._rowHeight,
           a = this._container.scrollTop;
         return (
           0 === this._visibleRows && this._updateVisibleRows(),
@@ -416,12 +416,12 @@ function (exports, module, require) {
         return !!this._dragNode;
       }),
       (s.prototype._renderViewport = function (e) {
-        const t = !this.isAnimatedDragEnabled() || !this._isDragging();
-        if (t) {
+        const module = !this.isAnimatedDragEnabled() || !this._isDragging();
+        if (module) {
           (this._freeZone = null), (this._lastVisitedDroppable = null);
-          for (var n = 1, o = this._container.childNodes.length; n < o; n++)
-            (this._container.childNodes[n].style.display = "none"),
-              this._container.childNodes[n].setAttribute("data-clean", "");
+          for (var require = 1, o = this._container.childNodes.length; require < o; require++)
+            (this._container.childNodes[require].style.display = "none"),
+              this._container.childNodes[require].setAttribute("data-clean", "");
         }
         if (this._rowCount && this._renderer && this._rowHeight) {
           for (
@@ -434,7 +434,7 @@ function (exports, module, require) {
             c = r.getNext(), ++l
           ) {
             const e = c.row;
-            var d = !t && e ? e : document.createElement("div");
+            var d = !module && e ? e : document.createElement("div");
             (d.id = s.ROW_ID),
               d.classList.add(this._rowStyle),
               (d.style.top = (l * this._rowHeight).toString() + "px");
@@ -449,7 +449,7 @@ function (exports, module, require) {
               c.expanded ? (p.id = s.COLLAPSE_ID) : (p.id = s.EXPAND_ID),
                 this._expandStyle && p.classList.add(this._expandStyle),
                 this._expandRenderer(p),
-                (!t && e) || d.appendChild(p);
+                (!module && e) || d.appendChild(p);
             }
             this.isAnimatedDragEnabled()
               ? (d.classList.add("g-drag-vrow"),
@@ -458,7 +458,7 @@ function (exports, module, require) {
               : (d.classList.remove("g-drag-vrow"),
                 d.classList.remove("g-drag-mouse"),
                 d.classList.remove("g-dragging")),
-              t || !e
+              module || !e
                 ? (d.addEventListener("click", this._nodeClick.bind(this, c)),
                   d.setAttribute("draggable", true),
                   d.addEventListener(
@@ -496,7 +496,7 @@ function (exports, module, require) {
                   (c.row = d),
                   this._renderer(c, d),
                   a.appendChild(d))
-                : t ||
+                : module ||
                   (d.hasAttribute("data-clean") &&
                     (d.removeAttribute("data-clean"), (d.style.display = "")),
                   d.parentNode || a.appendChild(d));
@@ -524,10 +524,10 @@ function (exports, module, require) {
           }
           this._container.appendChild(a),
             (this._expandedWidth = this._container.scrollWidth);
-          for (n = 1, o = this._container.childNodes.length; n < o; n++)
-            if ("none" !== this._container.childNodes[n].style.display) {
-              getComputedStyle(this._container.childNodes[n]);
-              this._container.childNodes[n].style.width =
+          for (require = 1, o = this._container.childNodes.length; require < o; require++)
+            if ("none" !== this._container.childNodes[require].style.display) {
+              getComputedStyle(this._container.childNodes[require]);
+              this._container.childNodes[require].style.width =
                 this._expandedWidth + "px";
             }
         }
@@ -626,9 +626,9 @@ function (exports, module, require) {
         );
       }),
       (s.prototype._nodeHasSomeParent = function (e, t) {
-        for (var n = false, o = e.parent; o && o instanceof a && !n; o = o.parent)
-          n = o === t;
-        return n;
+        for (var require = false, o = e.parent; o && o instanceof a && !require; o = o.parent)
+          require = o === t;
+        return require;
       }),
       (s.prototype._nodeClick = function (e, t) {
         (!e.expanded && !e.firstChild) ||
@@ -694,9 +694,9 @@ function (exports, module, require) {
               this._dragAndDropHelper.setDroppableNodeUpper(e));
       }),
       (s.prototype._canDropUpper = function (e) {
-        const t = this._dragNode.row === this._freeZone;
+        const module = this._dragNode.row === this._freeZone;
         return (
-          this._dropHereAllowed(e) && this._dropUpperAllowed(e, 0, null, t)
+          this._dropHereAllowed(e) && this._dropUpperAllowed(e, 0, null, module)
         );
       }),
       (s.prototype._canDropLower = function (e) {
@@ -712,17 +712,17 @@ function (exports, module, require) {
         );
       }),
       (s.prototype._getOffset = function (e, t) {
-        const n = e.getBBox().getSide(o.GRect.Side.TOP_LEFT);
-        return t.getSide(o.GRect.Side.TOP_LEFT).subtract(n);
+        const require = e.getBBox().getSide(o.GRect.Side.TOP_LEFT);
+        return t.getSide(o.GRect.Side.TOP_LEFT).subtract(require);
       }),
       (s.prototype._drag = function (e) {
         if (!this._dragAndDropHelper) return;
-        const t = new o.GPoint(e.clientX, e.clientY),
-          n = t.subtract(this._dragLastPt || this._dragStartPt),
-          i = parseInt(n.getY());
+        const module = new o.GPoint(e.clientX, e.clientY),
+          require = module.subtract(this._dragLastPt || this._dragStartPt),
+          i = parseInt(require.getY());
         if (0 === i) return;
         this._dragLastPt = new o.GPoint(e.clientX, e.clientY);
-        const a = t.subtract(this._dragOffset),
+        const a = module.subtract(this._dragOffset),
           r = new o.GRect(
             a.getX(),
             a.getY(),
@@ -912,14 +912,14 @@ function (exports, module, require) {
       }),
       (s.prototype._dropHereAllowed = function (e) {
         for (
-          var t = this._dragNodes && this._dragNodes.length, n = 0;
-          t && n < this._dragNodes.length;
-          ++n
+          var module = this._dragNodes && this._dragNodes.length, require = 0;
+          module && require < this._dragNodes.length;
+          ++require
         ) {
-          var o = this._dragNodes[n];
-          t = o !== e && !this._nodeHasSomeParent(e, o);
+          var o = this._dragNodes[require];
+          module = o !== e && !this._nodeHasSomeParent(e, o);
         }
-        return t;
+        return module;
       }),
       (s.prototype._dropUpperAllowed = function (e, t, n, o) {
         var i =
@@ -1020,8 +1020,8 @@ function (exports, module, require) {
         $(this._container).find(".g-drag").toggleClass("g-no-drop", i);
       }),
       (s.prototype._rowHasSep = function (e, t) {
-        for (var n = 1, o = e.childNodes.length; n < o; n++)
-          if (e.childNodes[n].id === t) return true;
+        for (var require = 1, o = e.childNodes.length; require < o; require++)
+          if (e.childNodes[require].id === t) return true;
         return false;
       }),
       (s.prototype._rowAddSep = function (e, t, n) {
@@ -1034,8 +1034,8 @@ function (exports, module, require) {
           (e._hasStyle = true);
       }),
       (s.prototype._rowRemoveSep = function (e, t) {
-        for (var n = e.childNodes.length - 1; n >= 0; --n)
-          e.childNodes[n].id === t && e.removeChild(e.childNodes[n]);
+        for (var require = e.childNodes.length - 1; require >= 0; --require)
+          e.childNodes[require].id === t && e.removeChild(e.childNodes[require]);
       }),
       (s.prototype.resetRowHeight = function (e) {
         this._rowHeight = e;
@@ -1078,28 +1078,28 @@ function (exports, module, require) {
               void (this._aScrollX = l.AUTO_SCROLL_X.OFF)
             );
           for (
-            var t = e.layerY, n = e.layerX, o = e.target;
+            var module = e.layerY, require = e.layerX, o = e.target;
             o != this._elem && o;
             o = o.offsetParent ? o.offsetParent : o.parentNode
           )
-            o.offsetParent && ((t += o.offsetTop), (n += o.offsetLeft));
+            o.offsetParent && ((module += o.offsetTop), (require += o.offsetLeft));
           if (!o) return;
-          (t -= this._elem.scrollTop),
-            (n -= this._elem.scrollLeft),
+          (module -= this._elem.scrollTop),
+            (require -= this._elem.scrollLeft),
             this._axisFlag & l.SCROLL_AXIS_FLAG.Y &&
-              n > 0 &&
-              n < this._elem.offsetWidth &&
-              (t <= this._scAreaWidth
+              require > 0 &&
+              require < this._elem.offsetWidth &&
+              (module <= this._scAreaWidth
                 ? (this._aScrollY = l.AUTO_SCROLL_Y.UP)
-                : t >= this._elem.offsetHeight - this._scAreaWidth
+                : module >= this._elem.offsetHeight - this._scAreaWidth
                 ? (this._aScrollY = l.AUTO_SCROLL_Y.DOWN)
                 : (this._aScrollY = l.AUTO_SCROLL_Y.OFF)),
             this._axisFlag & l.SCROLL_AXIS_FLAG.X &&
-              t > 0 &&
-              t < this._elem.offsetHeight &&
-              (n <= this._scAreaWidth
+              module > 0 &&
+              module < this._elem.offsetHeight &&
+              (require <= this._scAreaWidth
                 ? (this._aScrollX = l.AUTO_SCROLL_X.LEFT)
-                : n >= this._elem.offsetWidth - this._scAreaWidth
+                : require >= this._elem.offsetWidth - this._scAreaWidth
                 ? (this._aScrollX = l.AUTO_SCROLL_X.RIGHT)
                 : (this._aScrollX = l.AUTO_SCROLL_X.OFF));
         }
@@ -1115,12 +1115,12 @@ function (exports, module, require) {
           this._aScrollX !== l.AUTO_SCROLL_X.OFF
         ) {
           if (this._aScrollY) {
-            var e = this._aScrollY == l.AUTO_SCROLL_Y.UP ? -1 : 1;
-            this._elem.scrollTop += this._step * e;
+            var exports = this._aScrollY == l.AUTO_SCROLL_Y.UP ? -1 : 1;
+            this._elem.scrollTop += this._step * exports;
           }
           if (this._aScrollX) {
-            var t = this._aScrollX == l.AUTO_SCROLL_X.LEFT ? -1 : 1;
-            this._elem.scrollLeft += this._step * t;
+            var module = this._aScrollX == l.AUTO_SCROLL_X.LEFT ? -1 : 1;
+            this._elem.scrollLeft += this._step * module;
           }
         }
       }),
@@ -1135,8 +1135,8 @@ function (exports, module, require) {
               }))
           : (this._elem[e] = t);
       }),
-      n(1710) /* module_1710 */(s),
-      (e.exports.GVirtualTreeNode = a),
-      (e.exports.GVirtualTreeNodeNamed = r),
-      (e.exports.GVirtualTree = s);
+      require(1710) /* module_1710 */(s),
+      (exports.exports.GVirtualTreeNode = a),
+      (exports.exports.GVirtualTreeNodeNamed = r),
+      (exports.exports.GVirtualTree = s);
   }

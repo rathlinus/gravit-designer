@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }), (t.default = undefined);
+    Object.defineProperty(module, "__esModule", { value: true }), (module.default = undefined);
     class o extends Error {
-      constructor() {
+      function Object() { [native code] }() {
         super("REPEAT"), (this.name = "GRepeatActionError");
       }
     }
-    t.default = o;
+    module.default = o;
   }

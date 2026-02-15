@@ -8,9 +8,9 @@ function (exports, module, require) {
     function o() {
       this._queue = new Set();
     }
-    n(19) /* module_19 */,
-      n(8) /* module_8 */,
-      n(26) /* module_26 */,
+    require(19) /* module_19 */,
+      require(8) /* module_8 */,
+      require(26) /* module_26 */,
       (o.prototype._queue = null),
       (o.prototype._isProcessing = false),
       (o.prototype._onNext = null),
@@ -36,13 +36,13 @@ function (exports, module, require) {
           );
       }),
       (o.prototype._processQueue = async function () {
-        const e = this._queue.values().next().value;
-        e &&
-          (await this._onNext(e).catch((e) => {
+        const exports = this._queue.values().next().value;
+        exports &&
+          (await this._onNext(exports).catch((e) => {
             console.error("[GQueue] - It should never get here", e);
           }),
-          this._queue.delete(e),
+          this._queue.delete(exports),
           await this._processQueue());
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

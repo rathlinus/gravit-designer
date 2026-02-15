@@ -6,9 +6,9 @@
 function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(26) /* module_26 */;
-    n(53) /* module_53 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(40) /* module_40 */, n(67) /* GRichTooltipConfig */, n(1351) /* module_1351 */),
+    n(53) /* module */;
+    var o = n(1) /* module */,
+      i = (n(15) /* module */, n(40) /* module_40 */, n(67) /* GRichTooltipConfig */, n(1351) /* module_1351 */),
       a = n(451) /* module_451 */.GVirtualTree,
       r = (n(451) /* module_451 */.GVirtualTreeNode, n(451) /* module_451 */.GVirtualTreeNodeNamed),
       { VTREE_FREE_HEIGHT: s } = n(10) /* module_10 */;

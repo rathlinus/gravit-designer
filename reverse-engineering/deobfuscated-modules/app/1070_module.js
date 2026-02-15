@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */;
-    const { GObject: o } = n(1) /* module_1 */;
+    require(30) /* module_30 */;
+    const { GObject: o } = require(1) /* module */;
     class i {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         Object.assign(this, e);
       }
     }
@@ -16,5 +16,5 @@ function (exports, module, require) {
       (i.prototype.applyFrom = function (e) {
         Object.assign(this, e);
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

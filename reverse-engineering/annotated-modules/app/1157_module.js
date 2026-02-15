@@ -5,8 +5,8 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(15) /* module_15 */,
-      i = n(1) /* module_1 */,
+    var o = n(15) /* module */,
+      i = n(1) /* module */,
       a = function (e) {
         e.changed.escapeKey && (e.isImmediatePropagationStopped = !0);
       },

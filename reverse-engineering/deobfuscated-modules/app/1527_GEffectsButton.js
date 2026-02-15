@@ -6,9 +6,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */;
     function a(e, t, n, a, r, s, l) {
       var c = e && t && n && a && l;
       if (
@@ -78,5 +78,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GEffectsButton]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

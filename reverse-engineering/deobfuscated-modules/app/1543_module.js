@@ -5,23 +5,23 @@
 
 function (exports, module, require) {
     "use strict";
-    n(168) /* module_168 */, n(4) /* module_4 */, n(13) /* module_13 */, n(169) /* module_169 */;
-    const o = n(449) /* GFitAllAction */,
-      i = n(566) /* GFitSelectionAction */,
-      a = n(447) /* GSaveAction */,
-      r = n(1171) /* GUndoAction */,
-      s = n(1167) /* GMagnificationAction */,
-      l = n(813) /* GOpenAction */,
-      c = n(448) /* GGravitCloudAction */,
-      d = n(445) /* GSaveAsAction */,
-      u = n(1293) /* GCloudSynchronizationAction */,
-      p = n(238) /* GMenu */,
-      g = n(339) /* GMenu */,
-      h = n(257) /* module_257 */,
-      f = n(85) /* GContainer */,
-      { GSystem: m, GMath: y } = n(1) /* module_1 */,
-      { FILE_FORMATS: v } = n(10) /* module_10 */;
-    e.exports = function (e) {
+    require(168) /* module_168 */, require(4) /* module_4 */, require(13) /* module_13 */, require(169) /* module_169 */;
+    const o = require(449) /* GFitAllAction */,
+      i = require(566) /* GFitSelectionAction */,
+      a = require(447) /* GSaveAction */,
+      r = require(1171) /* GUndoAction */,
+      s = require(1167) /* GMagnificationAction */,
+      l = require(813) /* GOpenAction */,
+      c = require(448) /* GGravitCloudAction */,
+      d = require(445) /* GSaveAsAction */,
+      u = require(1293) /* GCloudSynchronizationAction */,
+      p = require(238) /* GMenu */,
+      g = require(339) /* GMenu */,
+      h = require(257) /* module_257 */,
+      f = require(85) /* GContainer */,
+      { GSystem: m, GMath: y } = require(1) /* module */,
+      { FILE_FORMATS: v } = require(10) /* module_10 */;
+    exports.exports = function (e) {
       (e.prototype._windowButton = null),
         (e.prototype._nativeButton = null),
         (e.prototype._touchSection = null),
@@ -82,7 +82,7 @@ function (exports, module, require) {
           const e = $("<button />")
               .addClass("dropdown-button")
               .append($("<span></span>").addClass("gravit-icon-down")),
-            t = new p(undefined, "g-zoom-menu");
+            module = new p(undefined, "g-zoom-menu");
           this._touchZoomButton = $("<div/>")
             .addClass("zoom-button")
             .addClass("toolbar-button")
@@ -97,7 +97,7 @@ function (exports, module, require) {
             .append(e)
             .gMenuButton({
               menu: () => (
-                t.clearItems(),
+                module.clearItems(),
                 [
                   gDesigner.getAction(o.ID),
                   gDesigner.getAction(i.ID),
@@ -105,7 +105,7 @@ function (exports, module, require) {
                   gDesigner.getAction("".concat(s.ID, ".100")),
                   gDesigner.getAction("".concat(s.ID, ".200")),
                   gDesigner.getAction("".concat(s.ID, ".400")),
-                ].reduce((e, t) => (e.createAddItem(t), e), t)
+                ].reduce((e, t) => (e.createAddItem(t), e), module)
               ),
               getActiveItem: () => {
                 var e = gDesigner.getWindows().getActiveWindow(),
@@ -113,7 +113,7 @@ function (exports, module, require) {
                   o = n && y.round(n, false, 0),
                   i = o && gDesigner.getAction("".concat(s.ID, ".").concat(o)),
                   a = i && i.getTitle();
-                return a && t.findItem(a);
+                return a && module.findItem(a);
               },
               reference: e,
             });
@@ -185,11 +185,11 @@ function (exports, module, require) {
             caption: " ",
             menu: () => {
               e.clearItems();
-              const t = gDesigner.getWindows();
-              return t
+              const module = gDesigner.getWindows();
+              return module
                 .getWindows()
                 .reduce(
-                  (e, n) => (this._createAndAppendWindowTabToMenu(t, e, n), e),
+                  (e, n) => (this._createAndAppendWindowTabToMenu(module, e, n), e),
                   e
                 );
             },
@@ -213,9 +213,9 @@ function (exports, module, require) {
             i.setIcon(h["gravit-icon-cloud"]);
         }),
         (e.prototype._findActiveWindowItemInMenu = function (e) {
-          const t = gDesigner.getWindows(),
-            n = t && t.getActiveWindow(),
-            o = this._getWindowTitle(n);
+          const module = gDesigner.getWindows(),
+            require = module && module.getActiveWindow(),
+            o = this._getWindowTitle(require);
           return o && e.findItem(o);
         }),
         (e.prototype._createNativeButton = function () {
@@ -268,7 +268,7 @@ function (exports, module, require) {
               if (o) {
                 const i = o.getDocument();
                 var e = this._getWindowTitle(o),
-                  t = "..." + e.substr(e.length - 3);
+                  module = "..." + e.substr(e.length - 3);
                 const a = this._windowButton
                   .show()
                   .toggleClass("syncing", i && i.isSynchronizing())
@@ -276,12 +276,12 @@ function (exports, module, require) {
                   .text(e);
                 this._windowButton.find(".subicon").remove(),
                   this._windowButton.find(".ending").remove();
-                var n = a[0].offsetWidth < a[0].scrollWidth;
-                this._windowButton.toggleClass("text-overflow", n),
-                  n &&
+                var require = a[0].offsetWidth < a[0].scrollWidth;
+                this._windowButton.toggleClass("text-overflow", require),
+                  require &&
                     $("<span/>")
                       .addClass("ending")
-                      .attr("data-ending", t)
+                      .attr("data-ending", module)
                       .insertBefore(
                         this._windowButton.find(".gravit-icon-down")
                       ),
@@ -298,12 +298,12 @@ function (exports, module, require) {
             } else this._windowButton.hide();
         }),
         (e.prototype._getWindowTitle = function (e) {
-          const t = e && e.getDocument();
+          const module = e && e.getDocument();
           return (
             e &&
             ""
               .concat(e.getTitleWithExtension())
-              .concat(t && t.isModified() ? "*" : "")
+              .concat(module && module.isModified() ? "*" : "")
           );
         });
     };

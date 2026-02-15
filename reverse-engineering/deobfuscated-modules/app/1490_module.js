@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const { gApi: o } = n(10) /* module_10 */,
-      i = n(536) /* module_536 */;
+    require(8) /* module_8 */;
+    const { gApi: o } = require(10) /* module_10 */,
+      i = require(536) /* module_536 */;
     class a {
       static async checkMaintenance() {
         try {
@@ -19,5 +19,5 @@ function (exports, module, require) {
         return false;
       }
     }
-    (a._cache = new i(() => o.maintenance.getStatus(), 6e4)), (e.exports = a);
+    (a._cache = new i(() => o.maintenance.getStatus(), 6e4)), (exports.exports = a);
   }

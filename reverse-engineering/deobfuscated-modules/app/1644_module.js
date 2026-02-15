@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
-    e.exports = class {
-      constructor() {
+    require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */;
+    exports.exports = class {
+      function Object() { [native code] }() {
         (this._dialog = this._createDialog()),
           this._dialog.append(
             this._createCloseButton(),
@@ -24,19 +24,19 @@ function (exports, module, require) {
         this._dialog.gDialog("close");
       }
       _getTitle() {
-        const e = o.GLocale.getValue("GShortcutsDialog", "text.title");
-        return $("<div />").addClass("title").text(e);
+        const exports = o.GLocale.getValue("GShortcutsDialog", "text.title");
+        return $("<div />").addClass("title").text(exports);
       }
       _getContent() {
-        const e = $("<table/>"),
-          t = $("<tbody/>").appendTo(e);
+        const exports = $("<table/>"),
+          module = $("<tbody/>").appendTo(exports);
         return (
           gDesigner.getActions().forEach((e) => {
             if (!e.isAvailable()) return;
-            const n = e.getShortcutHint({ isWordMode: true });
-            if (n) {
+            const require = e.getShortcutHint({ isWordMode: true });
+            if (require) {
               const i = o.GLocale.get(e.getFullTitle());
-              this._createTableRow(i, n).appendTo(t);
+              this._createTableRow(i, require).appendTo(module);
             }
           }),
           gravit.tools.forEach((e) => {
@@ -44,10 +44,10 @@ function (exports, module, require) {
               const n = i.GKey.shortcutToString(e.key);
               if (!n) return;
               const a = o.GLocale.get(e.richTooltipConfig.getConfig().title);
-              this._createTableRow(a, n).appendTo(t);
+              this._createTableRow(a, n).appendTo(module);
             }
           }),
-          $("<div/>").addClass("wrapper").append(e)
+          $("<div/>").addClass("wrapper").append(exports)
         );
       }
       _createDialog() {
@@ -57,16 +57,16 @@ function (exports, module, require) {
         });
       }
       _createCloseButton() {
-        const e = $("<span />").addClass("gravit-icon-close");
+        const exports = $("<span />").addClass("gravit-icon-close");
         return $("<div />")
           .addClass("g-btn-close")
-          .append(e)
+          .append(exports)
           .on("click", this.close.bind(this));
       }
       _createTableRow(e, t) {
-        const n = $("<tr/>");
+        const require = $("<tr/>");
         return (
-          $("<td/>").text(e).appendTo(n), $("<td/>").text(t).appendTo(n), n
+          $("<td/>").text(e).appendTo(require), $("<td/>").text(t).appendTo(require), require
         );
       }
     };

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    n(290) /* module_290 */, n(38) /* module_38 */;
+    require(290) /* module_290 */, require(38) /* module_38 */;
     const {
         ShareRoles: o,
         defaultUserSettings: {
@@ -16,30 +16,30 @@ function (exports, module, require) {
             } = {},
           } = {},
         } = {},
-      } = n(10) /* module_10 */,
-      r = n(1067) /* module_1067 */,
-      s = n(1070) /* module_1070 */,
-      l = n(1071) /* module_1071 */;
+      } = require(10) /* module_10 */,
+      r = require(1067) /* module_1067 */,
+      s = require(1070) /* module_1070 */,
+      l = require(1071) /* module_1071 */;
     function c() {
       throw "No instantiate";
     }
     (c.makeFromShare = function (e) {
-      const t = c._makeFromShareRole(e.getRole());
+      const module = c._makeFromShareRole(e.getRole());
       return (
-        t &&
-          (t.applyPermissions(new s(e.getPermissions())), t.lockPermissions()),
-        t
+        module &&
+          (module.applyPermissions(new s(e.getPermissions())), module.lockPermissions()),
+        module
       );
     }),
       (c.makeFromShareRole = function (e) {
-        const t = c._makeFromShareRole(e);
-        return t.lockPermissions(), t;
+        const module = c._makeFromShareRole(e);
+        return module.lockPermissions(), module;
       }),
       (c._makeFromShareRole = function (e) {
         if (!e) return null;
         const {
-            id: t,
-            name: n,
+            id: module,
+            name: require,
             description: o,
             status: i,
             pro: a,
@@ -48,9 +48,9 @@ function (exports, module, require) {
             level: u,
           } = e,
           p = new r({
-            id: t,
+            id: module,
             level: u,
-            name: n,
+            name: require,
             description: o,
             status: i,
             pro: a,
@@ -83,5 +83,5 @@ function (exports, module, require) {
           return c.makeFromShareRole(o.Viewer);
         },
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -11,7 +11,7 @@ function (e, t, n) {
       a = o(n(389) /* module_389 */),
       r = o(n(163) /* module_163 */),
       s = o(n(1245) /* module_1245 */),
-      l = n(1) /* module_1 */;
+      l = n(1) /* module */;
     e.exports = {
       debugDownloadPNG: function () {
         (0, i.downloadActiveFile)(a.default.PNG.ext);

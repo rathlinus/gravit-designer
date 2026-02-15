@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(18) /* module_18 */),
-      a = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = (require(15) /* module */, require(18) /* module_18 */),
+      a = require(106) /* GElementAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "modify.resetinstance"),
@@ -33,10 +33,10 @@ function (exports, module, require) {
         if (!a.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getIndividualSelection();
-          if (t && t.length)
-            for (var n = t.length - 1; n >= 0; --n) {
-              var i = t[n];
+          var module = e.getEditor().getIndividualSelection();
+          if (module && module.length)
+            for (var require = module.length - 1; require >= 0; --require) {
+              var i = module[require];
               if (!i.isLocked()) {
                 if (i instanceof o.GSymbol && !i.isLocked() && !i.inSync())
                   return true;
@@ -58,8 +58,8 @@ function (exports, module, require) {
           t = o.GNode.order(e.getIndividualSelection().slice());
         e.beginTransaction();
         try {
-          for (var n = 0; n < t.length; ++n) {
-            var i = t[n];
+          for (var require = 0; require < t.length; ++require) {
+            var i = t[require];
             if (
               (i instanceof o.GSymbol &&
                 !i.isLocked() &&
@@ -81,5 +81,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GResetInstanceAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const { GObject: o } = n(1) /* module_1 */;
+    require(8) /* module_8 */;
+    const { GObject: o } = require(1) /* module */;
     function i(e) {
       (this._app = e), (this._collaborativeFile = null);
     }
@@ -32,5 +32,5 @@ function (exports, module, require) {
       (i.prototype.setCollaborativeFileStatus = async function (e) {
         throw "Not implemented";
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

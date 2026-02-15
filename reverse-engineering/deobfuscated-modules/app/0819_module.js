@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     (function (e, o) {
-      var i = n(570) /* module_570 */,
-        a = n(660) /* module_660 */.spawn,
-        r = n(178) /* module_178 */;
-      t.XMLHttpRequest = function () {
+      var i = require(570) /* module_570 */,
+        a = require(660) /* module_660 */.spawn,
+        r = require(178) /* module_178 */;
+      module.XMLHttpRequest = function () {
         "use strict";
         var t,
           s,
           l = this,
-          c = n(571) /* module_571 */,
-          d = n(572) /* module_572 */,
+          c = require(571) /* module_571 */,
+          d = require(572) /* module_572 */,
           u = {},
           p = false,
           g = { "User-Agent": "node-XMLHttpRequest", Accept: "*/*" },
@@ -318,7 +318,7 @@ function (exports, module, require) {
           }),
           (this.dispatchEvent = function (e) {
             if (("function" == typeof l["on" + e] && l["on" + e](), e in b))
-              for (var t = 0, n = b[e].length; t < n; t++) b[e][t].call(l);
+              for (var t = 0, require = b[e].length; t < require; t++) b[e][t].call(l);
           });
         var w = function (e) {
           (e != l.LOADING && l.readyState === e) ||
@@ -330,5 +330,5 @@ function (exports, module, require) {
               (l.dispatchEvent("load"), l.dispatchEvent("loadend")));
         };
       };
-    }).call(this, n(221) /* module_221 */.Buffer, n(183) /* module_183 */);
+    }).call(this, require(221) /* module_221 */.Buffer, require(183) /* module_183 */);
   }

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(96) /* module_96 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */;
+    require(96) /* module_96 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */;
     function i(e, t, n, i) {
       (this._dialog = $("<div></div>")),
         (this._replacedFonts = {}),
@@ -90,17 +90,17 @@ function (exports, module, require) {
             )
             .css({ marginTop: "5px" })
             .appendTo(this._dialog);
-          for (var t = 0; t < e.length; t++) $(e[t]).appendTo(this._dialog);
+          for (var module = 0; module < e.length; module++) $(e[module]).appendTo(this._dialog);
         }
       }),
       (i.prototype.setMissingFonts = function (e) {
         if (e) {
-          var t = Object.keys(this._replacedFonts);
+          var module = Object.keys(this._replacedFonts);
           if (Array.isArray(e)) {
-            var n = gDesigner.getWorkspace().getFontManager().getDefaultFont();
+            var require = gDesigner.getWorkspace().getFontManager().getDefaultFont();
             this._keepFontsButton.show(),
               e.forEach((e) => {
-                this._replacedFonts[e] = n.getFamily();
+                this._replacedFonts[e] = require.getFamily();
               });
           } else
             this._keepFontsButton.hide(),
@@ -109,7 +109,7 @@ function (exports, module, require) {
               });
           var o = this;
           Object.keys(this._replacedFonts).forEach((e) => {
-            if (!(t.indexOf(e) >= 0)) {
+            if (!(module.indexOf(e) >= 0)) {
               var i = $("<div></div>")
                 .addClass("font-row")
                 .appendTo(this._fontsContainer);
@@ -127,7 +127,7 @@ function (exports, module, require) {
                       o._replacedFonts[t.data("font")] = e;
                     },
                   })
-                  .val(o._replacedFonts[e] || n.getFamily())
+                  .val(o._replacedFonts[e] || require.getFamily())
                   .appendTo(i);
             }
           });
@@ -154,20 +154,20 @@ function (exports, module, require) {
         gDesigner.stats("missingfonts_keep_fonts");
         var e = this._document.getScene();
         if (e) {
-          var t = e.getProperty("cst") || [];
+          var module = e.getProperty("cst") || [];
           Object.keys(this._replacedFonts).forEach((e) => {
-            !t.indexOf(e) >= 0 && t.push(e);
+            !module.indexOf(e) >= 0 && module.push(e);
           }),
-            e.setProperty("cst", t),
+            e.setProperty("cst", module),
             this.close();
         } else this.close();
       }),
       (i.prototype._hasFakeTextNodes = function () {
         var e = false;
-        const t = this._document && this._document.getScene();
+        const module = this._document && this._document.getScene();
         return (
-          t &&
-            t.acceptChildren((t) => {
+          module &&
+            module.acceptChildren((t) => {
               if (
                 t instanceof o.GText &&
                 (t.isFakeText() || t.hasEmbeddedFonts())
@@ -184,18 +184,18 @@ function (exports, module, require) {
               if (e.isFakeText() || !e.$fontFamilies)
                 e.replaceFonts(this._replacedFonts, e.hasEmbeddedFonts());
               else {
-                var t = gDesigner
+                var module = gDesigner
                     .getWorkspace()
                     .getFontManager()
                     .getDefaultFont(),
-                  n = Object.keys(this._replacedFonts),
+                  require = Object.keys(this._replacedFonts),
                   i = e.getContent();
                 i &&
                   (i.forEach((o, i) => {
                     var a =
                       (e.$fontFamilies && e.$fontFamilies[i]) || o.fontFamily;
-                    -1 !== n.indexOf(a) &&
-                      (o.fontFamily = this._replacedFonts[a] || t.getFamily());
+                    -1 !== require.indexOf(a) &&
+                      (o.fontFamily = this._replacedFonts[a] || module.getFamily());
                   }),
                   (e._runsDirty = true),
                   (e.$content = JSON.stringify(i)),
@@ -220,5 +220,5 @@ function (exports, module, require) {
           }),
           this.close(true);
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

@@ -8,7 +8,7 @@ function (e, t, n) {
     var o = n(16) /* module_16 */;
     n(8) /* module_8 */;
     var i = o(n(176) /* GSystem */),
-      a = n(1) /* module_1 */,
+      a = n(1) /* module */,
       r = o(n(1242) /* module_1242 */),
       s = o(n(44) /* GSystemDialog */),
       l = o(n(443) /* module_443 */),

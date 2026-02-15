@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var i = n(15) /* module_15 */,
-      a = o(n(31) /* GAction */),
-      r = o(n(1168) /* GSubAction */);
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    var i = require(15) /* module */,
+      a = o(require(31) /* GAction */),
+      r = o(require(1168) /* GSubAction */);
     class s extends a.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(), (this.Type = e.Type);
-        const t = Object.values(this.Type);
-        (this._subActionIds = t.map((e) =>
+        const module = Object.values(this.Type);
+        (this._subActionIds = module.map((e) =>
           r.default.getSubActionId(this.getId(), e)
         )),
           (this._timeoutId = null),
@@ -32,8 +32,8 @@ function (exports, module, require) {
           : null;
       }
       getShortcutSubKeys() {
-        const e = this.getSubActions();
-        return e ? e.map((e) => e.getShortcutSubKey()).filter((e) => e) : null;
+        const exports = this.getSubActions();
+        return exports ? exports.map((e) => e.getShortcutSubKey()).filter((e) => e) : null;
       }
       getShortcutHint(e) {
         return null;
@@ -50,21 +50,21 @@ function (exports, module, require) {
           }, a.default.SHORTCUT_DELAY));
       }
       _executeFromShortcutSubKey(e) {
-        const t = this.getSubActions();
-        if (!t) return;
-        const n = t.find((t) => t.getShortcutSubKey() === e);
-        n && n.execute();
+        const module = this.getSubActions();
+        if (!module) return;
+        const require = module.find((t) => t.getShortcutSubKey() === e);
+        require && require.execute();
       }
       _shortcutSubKeyHandler(e) {
-        const t = i.GKey.translateCode(e.code),
-          n = this.getShortcutSubKeys();
+        const module = i.GKey.translateCode(e.code),
+          require = this.getShortcutSubKeys();
         this._resetShortcutSubKeyListener(),
-          t &&
-            n &&
-            n.includes(t) &&
+          module &&
+            require &&
+            require.includes(module) &&
             (e.preventDefault(),
             e.stopPropagation(),
-            this._executeFromShortcutSubKey(t));
+            this._executeFromShortcutSubKey(module));
       }
       _resetShortcutSubKeyListener() {
         this._timeoutId &&
@@ -76,9 +76,9 @@ function (exports, module, require) {
           clearTimeout(this._timeoutId),
           (this._timeoutId = null));
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GMainAction]";
       }
     }
-    e.exports = s;
+    exports.exports = s;
   }

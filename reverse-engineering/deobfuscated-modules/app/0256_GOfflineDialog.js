@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(10) /* module_10 */,
-      s = n(357) /* module_357 */;
+    require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(38) /* module_38 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(10) /* module_10 */,
+      s = require(357) /* module_357 */;
     function l(e, t, n) {
       const a = (e) => {
         if (i.GKey.translateKey(e.keyCode) === i.GKey.Constant.ESC)
@@ -68,17 +68,17 @@ function (exports, module, require) {
     }
     o.GObject.inherit(l, o.GObject),
       (l.openOfflineWarning = async function () {
-        const e = await gDesigner.getUser();
-        if (!e) return;
-        const t = gDesigner.getLicense(),
-          n = gDesigner.now();
+        const exports = await gDesigner.getUser();
+        if (!exports) return;
+        const module = gDesigner.getLicense(),
+          require = gDesigner.now();
         let i = r.DateAPI.millisecondsToDays(
-          r.DateAPI.diff(r.DateAPI.toUTCZone(n), t.getOfflineExpirationDate())
+          r.DateAPI.diff(r.DateAPI.toUTCZone(require), module.getOfflineExpirationDate())
         );
         new l(
           o.GLocale.get(
             new o.GLocaleKey("GOfflineDialog", "text.offline-title")
-          ).replace("%name", e.getFullUserName()),
+          ).replace("%name", exports.getFullUserName()),
           o.GLocale.get(
             new o.GLocaleKey("GOfflineDialog", "text.offline-subtitle")
           ).replace("%days", i),
@@ -102,15 +102,15 @@ function (exports, module, require) {
       }),
       (l.openRetryConnection = async function (e, t) {
         if ($(".g-offline-dialog").length) return;
-        const n = await gDesigner.getUser();
+        const require = await gDesigner.getUser();
         new l(
           t ||
             o.GLocale.get(
               new o.GLocaleKey("GOfflineDialog", "text.offline-title-retry")
             ).replace(
               "%name",
-              n
-                ? n.getFullUserName()
+              require
+                ? require.getFullUserName()
                 : o.GLocale.get(
                     new o.GLocaleKey(
                       "GOfflineDialog",
@@ -154,5 +154,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GOfflineDialog]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -3,11 +3,11 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     (function () {
       !(function (e) {
         "use strict";
-        function t(e, t) {
+        function module(e, t) {
           var n = { raw: true, chunkSize: 1048576 };
           t && "number" == typeof t.level && (n.level = t.level),
             (this._backEnd = e ? new pako.Deflate(n) : new pako.Inflate(n)),
@@ -16,15 +16,15 @@ function (e, t) {
             (this._backEnd.onData = this._onData.bind(this));
         }
         function n(e) {
-          t.call(this, true, e);
+          module.call(this, true, e);
         }
         function o() {
-          t.call(this, false);
+          module.call(this, false);
         }
-        (t.prototype._onData = function (e) {
+        (module.prototype._onData = function (e) {
           this._chunks.push(e), (this._dataLength += e.length);
         }),
-          (t.prototype._fetchData = function () {
+          (module.prototype._fetchData = function () {
             var e = this._backEnd;
             if (0 !== e.err) throw new Error(e.msg);
             var t,
@@ -39,14 +39,14 @@ function (e, t) {
             }
             return (n.length = 0), (this._dataLength = 0), t;
           }),
-          (t.prototype.append = function (e, t) {
+          (module.prototype.append = function (e, t) {
             return this._backEnd.push(e, false), this._fetchData();
           }),
-          (t.prototype.flush = function () {
+          (module.prototype.flush = function () {
             return this._backEnd.push(new Uint8Array(0), true), this._fetchData();
           }),
-          (n.prototype = Object.create(t.prototype)),
-          (o.prototype = Object.create(t.prototype));
+          (n.prototype = Object.create(module.prototype)),
+          (o.prototype = Object.create(module.prototype));
         var i = e.zip || e;
         (i.Deflater = i._pako_Deflater = n),
           (i.Inflater = i._pako_Inflater = o);

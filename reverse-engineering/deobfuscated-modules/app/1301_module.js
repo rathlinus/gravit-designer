@@ -6,8 +6,8 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    n(30) /* module_30 */,
-      n(57) /* module_57 */,
+    require(30) /* module_30 */,
+      require(57) /* module_57 */,
       (o.prototype.type = null),
       (o.prototype.hasKey = function (e) {
         return this.hasOwnProperty(e);
@@ -29,5 +29,5 @@ function (exports, module, require) {
         CDRAPP: "cdr",
         GVDESIGN: "gvdesign",
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

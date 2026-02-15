@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
-      ((o = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+    exports.exports =
+      ((o = require(55) /* module_55 */),
+      require(98) /* module_98 */,
       (o.pad.ZeroPadding = {
         pad: function (e, t) {
           var n = 4 * t;
@@ -15,12 +15,12 @@ function (exports, module, require) {
         },
         unpad: function (e) {
           for (
-            var t = e.words, n = e.sigBytes - 1;
-            !((t[n >>> 2] >>> (24 - (n % 4) * 8)) & 255);
+            var module = e.words, require = e.sigBytes - 1;
+            !((module[require >>> 2] >>> (24 - (require % 4) * 8)) & 255);
 
           )
-            n--;
-          e.sigBytes = n + 1;
+            require--;
+          e.sigBytes = require + 1;
         },
       }),
       o.pad.ZeroPadding);

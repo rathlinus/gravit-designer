@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const { PasswordlessAuthenticationActions: o, gApi: i } = n(10) /* module_10 */,
-      a = n(337) /* module_337 */,
-      r = n(44) /* GSystemDialog */;
-    e.exports = class {
+    require(8) /* module_8 */;
+    const { PasswordlessAuthenticationActions: o, gApi: i } = require(10) /* module_10 */,
+      a = require(337) /* module_337 */,
+      r = require(44) /* GSystemDialog */;
+    exports.exports = class {
       async execute() {
-        let { [o.PasswordlessToken]: e } =
+        let { [o.PasswordlessToken]: exports } =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         try {
           return (
             await i.passwordlessAuthentication.authenticateWithPasswordlessToken(
-              e
+              exports
             ),
             await a.checkLicense(),
             gDesigner.getUser()

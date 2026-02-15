@@ -7,9 +7,9 @@
 function (e, t, n) {
     "use strict";
     n(58) /* module_58 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var o = n(53) /* module */,
+      i = n(1) /* module */,
+      a = n(15) /* module */,
       r = n(449) /* GFitAllAction */,
       s = n(566) /* GFitSelectionAction */,
       l = n(123) /* GProperties */;

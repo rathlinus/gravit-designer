@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(129) /* module_129 */;
-    e.exports = /MSIE|Trident/.test(o);
+    var o = require(129) /* module_129 */;
+    exports.exports = /MSIE|Trident/.test(o);
   }

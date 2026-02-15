@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(43) /* module_43 */("iterator"),
+    var o = require(43) /* module_43 */("iterator"),
       i = false;
     try {
       var a = 0,
@@ -24,7 +24,7 @@ function (exports, module, require) {
           throw 2;
         });
     } catch (e) {}
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       try {
         if (!t && !i) return false;
       } catch (e) {

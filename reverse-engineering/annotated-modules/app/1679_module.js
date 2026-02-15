@@ -9,7 +9,7 @@ function (e, t, n) {
     n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */;
     var i = o(n(1249) /* module_1249 */),
       a = o(n(1155) /* module_1155 */),
-      r = n(1) /* module_1 */;
+      r = n(1) /* module */;
     const {
         gApi: s,
         IN_APP_PURCHASE: {

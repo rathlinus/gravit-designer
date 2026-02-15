@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(40) /* module_40 */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */;
     function l() {}
     i.GObject.inherit(l, s),
       (l.ID = "modify.split-line"),
@@ -38,8 +38,8 @@ function (exports, module, require) {
             : null,
           t = false;
         if (e)
-          for (var n = 0; !t && n < e.length; ++n)
-            e[n] instanceof i.GPath && (t = this._isPathSplittable(e[n]));
+          for (var require = 0; !t && require < e.length; ++require)
+            e[require] instanceof i.GPath && (t = this._isPathSplittable(e[require]));
         return t;
       }),
       (l.prototype.execute = function () {
@@ -170,5 +170,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GSplitLineAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

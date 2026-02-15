@@ -11,7 +11,7 @@ function (exports, module, require) {
       r = Math.floor,
       s = Math.log,
       l = Math.LN2;
-    e.exports = {
+    exports.exports = {
       pack: function (e, t, n) {
         var c,
           d,

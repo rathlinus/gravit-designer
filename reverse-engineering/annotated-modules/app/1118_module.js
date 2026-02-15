@@ -16,7 +16,7 @@ function (e, t, n) {
       n(32) /* module_32 */,
       n(38) /* module_38 */,
       n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(381) /* module_381 */,
       a = n(255) /* module_255 */,
       r = n(1198) /* module_1198 */,

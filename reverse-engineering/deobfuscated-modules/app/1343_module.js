@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(247) /* module_247 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var o = n(1) /* module_1 */;
-    const { TRANSLATION_MANAGER: i } = n(10) /* module_10 */;
+    require(19) /* module_19 */,
+      require(96) /* module_96 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(247) /* module_247 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var o = require(1) /* module */;
+    const { TRANSLATION_MANAGER: i } = require(10) /* module_10 */;
     function a() {}
     o.GObject.inherit(a, o.GObject),
       (a.prototype._translationBase = null),
@@ -64,23 +64,23 @@ function (exports, module, require) {
       }),
       (a.FormatTypes = { CSV: "CSV" }),
       (a.prototype.import = function (e) {
-        let t =
+        let module =
             arguments.length > 1 && undefined !== arguments[1]
               ? arguments[1]
               : a.FormatTypes.CSV,
-          n =
+          require =
             !(arguments.length > 2 && undefined !== arguments[2]) || arguments[2];
-        switch (t) {
+        switch (module) {
           case a.FormatTypes.CSV:
             return this._handleCSVImport(e).then((e) =>
-              this.applyTranslationPatch(e, n)
+              this.applyTranslationPatch(e, require)
             );
         }
       }),
       (a.prototype.applyTranslationPatch = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        var n = t ? this._translations : this._clone(this._translations);
+        var n = module ? this._translations : this._clone(this._translations);
         return (
           e.forEach((e) => {
             var t = n.find((t) => t.language === e.language);
@@ -116,32 +116,32 @@ function (exports, module, require) {
         );
       }),
       (a.prototype.export = function () {
-        let e =
+        let exports =
             arguments.length > 0 && undefined !== arguments[0]
               ? arguments[0]
               : a.FormatTypes.CSV,
-          t =
+          module =
             arguments.length > 1 && undefined !== arguments[1]
               ? arguments[1]
               : null,
-          n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
-        switch (e) {
+          require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+        switch (exports) {
           case a.FormatTypes.CSV:
-            return this._exportAsCSV({ language: t, onlyEmpty: n });
+            return this._exportAsCSV({ language: module, onlyEmpty: require });
         }
       }),
       (a.prototype.getMetaData = function () {
         return Promise.resolve(JSON.stringify(this._translations, null, 4));
       }),
       (a.prototype._exportAsCSV = function (e) {
-        let { language: t = null, onlyEmpty: n = false } = e;
+        let { language: module = null, onlyEmpty: require = false } = e;
         const o = function (e) {
           return (e && e.replace(/\r?\n|\r/g, "")) || "";
         };
         var i =
-            (null != t &&
-              !isNaN(t) &&
-              this._translations.filter((e) => e.keyValue === t)) ||
+            (null != module &&
+              !isNaN(module) &&
+              this._translations.filter((e) => e.keyValue === module)) ||
             this._translations,
           r = [];
         const s = this._translations.find((e) => e.isDefault);
@@ -155,13 +155,13 @@ function (exports, module, require) {
                     e.translationsExtended &&
                     e.translationsExtended[t] &&
                     e.translationsExtended[t][i]),
-                  (n && "" !== e.translations[t][i].trim()) ||
+                  (require && "" !== e.translations[t][i].trim()) ||
                     r.push(
                       [
                         e.language,
                         t,
                         i,
-                        o(n ? s.translations[t][i] : e.translations[t][i]),
+                        o(require ? s.translations[t][i] : e.translations[t][i]),
                         o(l),
                       ].join(a._CSV_SEPARATOR)
                     );
@@ -269,5 +269,5 @@ function (exports, module, require) {
       (a.prototype.isConsideringExtension = function () {
         return !!i.CONSIDER_EXTENSION;
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

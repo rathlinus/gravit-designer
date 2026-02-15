@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
+    require(30) /* module_30 */, require(3) /* module_3 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this.notification = Object.assign(
         { popup: false, annonymous: false },
@@ -19,5 +19,5 @@ function (exports, module, require) {
       (i.prototype.toString = function () {
         return "GEvent [GNotificationEvent]";
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(53) /* module_53 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(40) /* module_40 */),
-      a = (n(67) /* GRichTooltipConfig */, n(238) /* GMenu */),
-      r = (n(1151) /* GSwatchesChangedEvent */, n(857) /* module_857 */, n(173) /* module_173 */, n(877) /* GPasteAction */, n(44) /* GSystemDialog */),
-      s = n(1150) /* module_1150 */;
+    require(53) /* module */;
+    var o = require(1) /* module */,
+      i = (require(15) /* module */, require(40) /* module_40 */),
+      a = (require(67) /* GRichTooltipConfig */, require(238) /* GMenu */),
+      r = (require(1151) /* GSwatchesChangedEvent */, require(857) /* module_857 */, require(173) /* module_173 */, require(877) /* GPasteAction */, require(44) /* GSystemDialog */),
+      s = require(1150) /* module_1150 */;
     function l() {
       this.initLayout(),
         this._container.gOverlay({
@@ -331,7 +331,7 @@ function (exports, module, require) {
       }),
       (l.prototype._createMixerPalette = function (e) {
         for (
-          var t = $("<div />")
+          var module = $("<div />")
               .attr("data-container", "tints")
               .addClass("tints")
               .append(
@@ -344,11 +344,11 @@ function (exports, module, require) {
                   )
               )
               .appendTo(e),
-            n = 1;
-          n <= 8;
-          n += 1
+            require = 1;
+          require <= 8;
+          require += 1
         )
-          this._createPaletteSwatch(o.GRGBColor.WHITE, t, false, false);
+          this._createPaletteSwatch(o.GRGBColor.WHITE, module, false, false);
         var i = $("<div />")
           .attr("data-container", "shades")
           .addClass("shades")
@@ -362,7 +362,7 @@ function (exports, module, require) {
               )
           )
           .appendTo(e);
-        for (n = 1; n <= 8; n += 1)
+        for (require = 1; require <= 8; require += 1)
           this._createPaletteSwatch(o.GRGBColor.WHITE, i, false, false);
         var a = $("<div />")
           .attr("data-container", "tones")
@@ -377,7 +377,7 @@ function (exports, module, require) {
               )
           )
           .appendTo(e);
-        for (n = 1; n <= 8; n += 1)
+        for (require = 1; require <= 8; require += 1)
           this._createPaletteSwatch(o.GRGBColor.WHITE, a, false, false);
         var r = $("<div />")
           .attr("data-container", "mixes")
@@ -392,7 +392,7 @@ function (exports, module, require) {
               )
           )
           .appendTo(e);
-        for (n = 1; n <= 8; n += 1)
+        for (require = 1; require <= 8; require += 1)
           this._createPaletteSwatch(o.GRGBColor.WHITE, r, false, false);
         this._updateMixerPalette();
       }),
@@ -418,9 +418,9 @@ function (exports, module, require) {
         return { isTouchEnabled: true };
       }),
       (s.prototype._relayout = function () {
-        let e =
+        let exports =
           !(arguments.length > 0 && undefined !== arguments[0]) || arguments[0];
-        this._container.gOverlay("relayout", { preserveTop: e });
+        this._container.gOverlay("relayout", { preserveTop: exports });
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

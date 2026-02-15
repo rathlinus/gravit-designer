@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(557) /* module_557 */, n(26) /* module_26 */;
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(271) /* module_271 */;
+    require(19) /* module_19 */, require(557) /* module_557 */, require(26) /* module_26 */;
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(271) /* module_271 */;
     var i = (function (e, t) {
         if ("function" == typeof WeakMap)
-          var n = new WeakMap(),
+          var require = new WeakMap(),
             o = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
@@ -19,7 +19,7 @@ function (exports, module, require) {
             r = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
             return r;
-          if ((i = t ? o : n)) {
+          if ((i = t ? o : require)) {
             if (i.has(e)) return i.get(e);
             i.set(e, r);
           }
@@ -34,11 +34,11 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(n(10) /* module_10 */),
-      a = o(n(389) /* module_389 */),
-      r = n(1) /* module_1 */;
-    const s = n(78) /* GDocumentEvent */,
-      l = n(441) /* module_441 */,
+      })(require(10) /* module_10 */),
+      a = o(require(389) /* module_389 */),
+      r = require(1) /* module */;
+    const s = require(78) /* GDocumentEvent */,
+      l = require(441) /* module_441 */,
       {
         PRODUCT_NAME: c,
         PRODUCT_APP_NAME: d,
@@ -46,15 +46,15 @@ function (exports, module, require) {
         PRODUCT_LANGUAGE: p,
         PRODUCT_ENVIRONMENT: g,
       } = i.AmplitudeData.UserProperties;
-    e.exports = class {
-      constructor(e) {
+    exports.exports = class {
+      function Object() { [native code] }(e) {
         gDesigner.addEventListener(s, this._handleDocumentEvent, this),
           gDesigner.addEventListener(l, this._handleLicenseChangedEvent, this),
           (this._amplitudeHelper = e),
           this._updateUserProperties();
       }
       _updateUserProperties() {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : gDesigner.getLicense();
@@ -66,7 +66,7 @@ function (exports, module, require) {
             [p]: r.GLocale.lookupLocale(r.GLocale.getLanguage()).toUpperCase(),
             [g]: "production",
           },
-          e
+          exports
         );
       }
       _handleLicenseChangedEvent(e) {
@@ -88,8 +88,8 @@ function (exports, module, require) {
             );
             break;
           case s.Type.Saving:
-            const { referer: t } = e.data;
-            this._isSimplifiedExporting(t)
+            const { referer: module } = e.data;
+            this._isSimplifiedExporting(module)
               ? this._documentExported(e)
               : this._documentSaved(e);
         }

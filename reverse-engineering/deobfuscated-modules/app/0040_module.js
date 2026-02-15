@@ -5,31 +5,31 @@
 
 function (exports, module, require) {
     "use strict";
-    n(91) /* module_91 */, n(842) /* module_842 */;
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t._cloneChildrenIntoReceiver = E),
-      (t._mergeChildren = x),
-      (t._mergePath = C),
-      (t._mergeProperties = b),
-      (t._mergeStyle = w),
-      (t._removeDeletedChildren = S),
-      (t._tryAndCatch = undefined),
-      (t._updateCommonChildren = A),
-      (t.areNodePropertiesDifferent = y),
-      (t.base64StringToString = function (e) {
-        let t;
+    require(91) /* module_91 */, require(842) /* module_842 */;
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module._cloneChildrenIntoReceiver = E),
+      (module._mergeChildren = x),
+      (module._mergePath = C),
+      (module._mergeProperties = b),
+      (module._mergeStyle = w),
+      (module._removeDeletedChildren = S),
+      (module._tryAndCatch = undefined),
+      (module._updateCommonChildren = A),
+      (module.areNodePropertiesDifferent = y),
+      (module.base64StringToString = function (e) {
+        let module;
         try {
-          t = f(l.toByteArray(e));
+          module = f(l.toByteArray(e));
         } catch (e) {
-          t = "";
+          module = "";
         }
-        return t;
+        return module;
       }),
-      (t.base64URLSafeEncode = function (e) {
+      (module.base64URLSafeEncode = function (e) {
         return (0, r.trim)((0, r.encode)(e));
       }),
-      (t.blockChanges = function (e, t, n, o) {
+      (module.blockChanges = function (e, t, n, o) {
         n && n.startBlockReferenceChanges();
         o && o.beginUpdate();
         e && e._beginSelectionUpdate();
@@ -38,7 +38,7 @@ function (exports, module, require) {
             e.beginUpdate();
           });
       }),
-      (t.buildDialogDocumentHasUpdates = function (e, t, n, o) {
+      (module.buildDialogDocumentHasUpdates = function (e, t, n, o) {
         return c.custom({
           subtitle: i.GLocale.get(
             new i.GLocaleKey("GSaveAction", "has-new-version-when-save-message")
@@ -87,27 +87,27 @@ function (exports, module, require) {
           ],
         });
       }),
-      (t.chaining = undefined),
-      (t.debounce = function (e, t) {
-        let n;
+      (module.chaining = undefined),
+      (module.debounce = function (e, t) {
+        let require;
         return function () {
           const o = arguments;
           let i = () => {
-            (n = 0), e.apply(this, o);
+            (require = 0), e.apply(this, o);
           };
-          n && clearTimeout(n), (n = setTimeout(i, t));
+          require && clearTimeout(require), (require = setTimeout(i, t));
         };
       }),
-      (t.decodeFromUTF8 = f),
-      (t.decodeHTML = function (e) {
+      (module.decodeFromUTF8 = f),
+      (module.decodeHTML = function (e) {
         return $("<textarea/>").html(e).text();
       }),
-      (t.decrypt = function (e) {
+      (module.decrypt = function (e) {
         try {
-          var t = e.split(":"),
-            n = t.shift(),
-            o = s.enc.Hex.parse(n),
-            i = t.join(":");
+          var module = e.split(":"),
+            require = module.shift(),
+            o = s.enc.Hex.parse(require),
+            i = module.join(":");
           return s.AES.decrypt(i, g, {
             iv: o,
             format: s.format.OpenSSL,
@@ -117,40 +117,40 @@ function (exports, module, require) {
           return;
         }
       }),
-      (t.encodeToUTF8 = m),
-      (t.encrypt = function (e) {
+      (module.encodeToUTF8 = m),
+      (module.encrypt = function (e) {
         try {
-          var t = s.lib.WordArray.random(32),
-            n = s.AES.encrypt(e, g, {
-              iv: t,
+          var module = s.lib.WordArray.random(32),
+            require = s.AES.encrypt(e, g, {
+              iv: module,
               format: s.format.OpenSSL,
               mode: s.mode.CBC,
             });
-          return t.toString(s.enc.Hex) + ":" + n.toString();
+          return module.toString(s.enc.Hex) + ":" + require.toString();
         } catch (e) {
           return;
         }
       }),
-      (t.fakeFunction = function () {}),
-      (t.getAnnotationType = function (e) {
-        let t = e
+      (module.fakeFunction = function () {}),
+      (module.getAnnotationType = function (e) {
+        let module = e
           .toString()
           .match(
             /\[G((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)Annotation\]/
           );
-        return (t && t[1]) || null;
+        return (module && module[1]) || null;
       }),
-      (t.getExtensionFromString = function (e, t) {
+      (module.getExtensionFromString = function (e, t) {
         var n = new RegExp("\\b" + t.join("|") + "\\b", "gim"),
           o = e.match(n);
         return o ? o[0] : null;
       }),
-      (t.getFileNameWithoutExtension = function (e, t) {
+      (module.getFileNameWithoutExtension = function (e, t) {
         e.toLowerCase().endsWith(".".concat(t).toLowerCase()) &&
           (e = e.substr(0, e.lastIndexOf(".")));
         return e;
       }),
-      (t.getFileSHA256Digest = async function (e) {
+      (module.getFileSHA256Digest = async function (e) {
         e instanceof Blob
           ? (e = await e.arrayBuffer())
           : "string" == typeof e && (e = m(e));
@@ -158,20 +158,20 @@ function (exports, module, require) {
           .SHA256(
             (function (e) {
               for (
-                var t = new Uint8Array(e), n = [], o = 0;
-                o < t.length;
+                var module = new Uint8Array(e), require = [], o = 0;
+                o < module.length;
                 o += 4
               )
-                n.push(
-                  (t[o] << 24) | (t[o + 1] << 16) | (t[o + 2] << 8) | t[o + 3]
+                require.push(
+                  (module[o] << 24) | (module[o + 1] << 16) | (module[o + 2] << 8) | module[o + 3]
                 );
-              return s.lib.WordArray.create(n, t.length);
+              return s.lib.WordArray.create(require, module.length);
             })(e)
           )
           .toString();
       }),
-      (t.getFileStateAndRole = function (e, t) {
-        let n,
+      (module.getFileStateAndRole = function (e, t) {
+        let require,
           o =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         const i = t.getPrivateShareList();
@@ -186,7 +186,7 @@ function (exports, module, require) {
             edit: p,
           } = t;
           e.getUID() === i
-            ? ((n = d.makeFromShare(t)),
+            ? ((require = d.makeFromShare(t)),
               l
                 ? Object.assign(o, {
                     owner: true,
@@ -218,28 +218,28 @@ function (exports, module, require) {
           Object.assign(o, {
             isPrivate: i && i.filter((e) => !e.owner).length > 0,
           }),
-          { state: o, role: n, publicShare: r }
+          { state: o, role: require, publicShare: r }
         );
       }),
-      (t.getSizeInfo = function (e) {
+      (module.getSizeInfo = function (e) {
         var t = e;
-        const n = 1e6,
-          o = 1e3 * n;
+        const require = 1e6,
+          o = 1e3 * require;
         var i = { gb: 0, mb: 0, kb: 0 },
           a = Math.floor(t / o);
         a && ((i.gb = a), (t -= a * o));
-        var r = Math.floor(t / n);
-        r && ((i.mb = r), (t -= r * n));
+        var r = Math.floor(t / require);
+        r && ((i.mb = r), (t -= r * require));
         var s = Math.floor(t / 1e3);
         s && ((i.kb = s), (t -= 1e3 * s));
         return i;
       }),
-      (t.getVersionFromString = function (e, t, n) {
+      (module.getVersionFromString = function (e, t, n) {
         var o = e.match(t.join("|"));
         return o ? o[0] : n;
       }),
-      (t.isDifferent = v),
-      (t.isFunction = function (e) {
+      (module.isDifferent = v),
+      (module.isFunction = function (e) {
         if (undefined === e) return false;
         var t = Object.prototype.toString.call(e);
         return (
@@ -251,7 +251,7 @@ function (exports, module, require) {
           ].indexOf(t) >= 0
         );
       }),
-      (t.isPassiveSupported = function () {
+      (module.isPassiveSupported = function () {
         if (undefined === T) {
           T = false;
           try {
@@ -268,7 +268,7 @@ function (exports, module, require) {
         }
         return T;
       }),
-      (t.isSupportedScreenSize = function (e) {
+      (module.isSupportedScreenSize = function (e) {
         if (!e && i.GSystem.hardware === i.GSystem.Hardware.Tablet) {
           return (
             (window.screen.height > window.screen.width
@@ -278,9 +278,9 @@ function (exports, module, require) {
         }
         return (e || window.screen.availWidth) >= p;
       }),
-      (t.isSymbol = h),
-      (t.isSymbolInstance = undefined),
-      (t.iterateAroundIndex = function (e, t, n) {
+      (module.isSymbol = h),
+      (module.isSymbolInstance = undefined),
+      (module.iterateAroundIndex = function (e, t, n) {
         var o = 0,
           i = 0,
           a = e.length;
@@ -297,7 +297,7 @@ function (exports, module, require) {
               : i--;
         }
       }),
-      (t.iterateEqualStyleLayers = function (e, t, n, o) {
+      (module.iterateEqualStyleLayers = function (e, t, n, o) {
         var a = [];
         if (n.length > 1) {
           for (var r = 0; r < n.length; r++) {
@@ -325,8 +325,8 @@ function (exports, module, require) {
           });
         } else o(t);
       }),
-      (t.mergeNode = _),
-      (t.releaseChanges = function (e, t, n) {
+      (module.mergeNode = _),
+      (module.releaseChanges = function (e, t, n) {
         t &&
           t.forEach((e) => {
             e.endUpdate();
@@ -344,14 +344,14 @@ function (exports, module, require) {
           });
         n && n.endBlockReferenceChanges();
       }),
-      (t.removeAllSuffixWhichLikeExtension = function (e, t) {
-        const n = ".".concat(t).toLowerCase();
-        for (; e.toLowerCase().endsWith(n); )
+      (module.removeAllSuffixWhichLikeExtension = function (e, t) {
+        const require = ".".concat(t).toLowerCase();
+        for (; e.toLowerCase().endsWith(require); )
           e = e.substr(0, e.lastIndexOf("."));
         return e;
       }),
-      (t.resolveDocumentImages = function (e, t) {
-        let n =
+      (module.resolveDocumentImages = function (e, t) {
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         return new Promise(async (o, a) => {
           const r = (e) =>
@@ -365,7 +365,7 @@ function (exports, module, require) {
             s > 0)
           ) {
             let l = setTimeout(() => {
-              (s > 0 || n.cancelled) &&
+              (s > 0 || require.cancelled) &&
                 (e.removeEventListener(i.GImage.StatusEvent, c), a());
             }, t);
             const c = (t) => {
@@ -375,7 +375,7 @@ function (exports, module, require) {
                 (l && (clearTimeout(l), (l = null)),
                 e.removeEventListener(i.GImage.StatusEvent, c),
                 o(true)),
-                n.cancelled &&
+                require.cancelled &&
                   (l && (clearTimeout(l), (l = null)),
                   e.removeEventListener(i.GImage.StatusEvent, c),
                   a());
@@ -384,19 +384,19 @@ function (exports, module, require) {
           } else o(true);
         });
       }),
-      (t.saveBBoxes = function (e) {
+      (module.saveBBoxes = function (e) {
         var t = [];
         e.accept(function (e) {
           if (e instanceof i.GElement) {
-            var n = e.getPaintBBox(false, null, true);
-            t.push(n);
+            var require = e.getPaintBBox(false, null, true);
+            t.push(require);
           }
         });
-        for (var n = new Float64Array(4 * t.length), o = 0; o < t.length; ++o)
+        for (var require = new Float64Array(4 * t.length), o = 0; o < t.length; ++o)
           for (var a = i.GRect.serialize(t[o]), r = 0; r < 4; ++r)
-            n[4 * o + r] = a[r];
+            require[4 * o + r] = a[r];
         (s = "Test_invisible-.dat"),
-          (l = n),
+          (l = require),
           navigator.webkitTemporaryStorage.requestQuota(1e3, function (e) {
             var t = e;
             console.log("Requested bytes:", 1e3, "Granted bytes:", t),
@@ -441,66 +441,66 @@ function (exports, module, require) {
           });
         var s, l;
       }),
-      (t.sleep = function (e) {
+      (module.sleep = function (e) {
         return new Promise((t) => setTimeout(t, e));
       }),
-      (t.stringToBase64String = function (e) {
+      (module.stringToBase64String = function (e) {
         return l.fromByteArray(m(e));
       }),
-      (t.throttle = function (e, t) {
-        let n;
+      (module.throttle = function (e, t) {
+        let require;
         return function () {
           const o = arguments;
-          n || (e.apply(this, o), (n = true), setTimeout(() => (n = false), t));
+          require || (e.apply(this, o), (require = true), setTimeout(() => (require = false), t));
         };
       }),
-      (t.toCapitalize = function (e) {
+      (module.toCapitalize = function (e) {
         return e.charAt(0).toUpperCase() + e.slice(1);
       }),
-      (t.toMD5 = function (e) {
+      (module.toMD5 = function (e) {
         return s.MD5(e).toString();
       }),
-      (t.trimStart = function (e, t) {
+      (module.trimStart = function (e, t) {
         if (!t || !t.length) return e;
         if (!e || !e.startsWith(t)) return e;
         return e.substring(t.length);
       }),
-      (t.watchDog = undefined),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(71) /* module_71 */,
-      n(151) /* module_151 */,
-      n(134) /* module_134 */,
-      n(1041) /* module_1041 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(84) /* GAnnotation */),
-      r = n(1042) /* module_1042 */;
-    const s = n(1043) /* module_1043 */;
-    var l = n(250) /* module_250 */,
-      c = n(44) /* GSystemDialog */;
-    const d = n(433) /* module_433 */,
-      { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = n(10) /* module_10 */;
-    t.watchDog = {
+      (module.watchDog = undefined),
+      require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(356) /* module_356 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(271) /* module_271 */,
+      require(71) /* module_71 */,
+      require(151) /* module_151 */,
+      require(134) /* module_134 */,
+      require(1041) /* module_1041 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = o(require(84) /* GAnnotation */),
+      r = require(1042) /* module_1042 */;
+    const s = require(1043) /* module_1043 */;
+    var l = require(250) /* module_250 */,
+      c = require(44) /* GSystemDialog */;
+    const d = require(433) /* module_433 */,
+      { HAS_ANNOTATIONS: u, MIN_SUPPORTED_SCREEN_SIZE: p } = require(10) /* module_10 */;
+    module.watchDog = {
       trap: (e, t, n, o) => (i) =>
         ((e, t, n, o, i) =>
           gDesigner.isEnabledProFeatures(i) || (n && n(e))
@@ -514,7 +514,7 @@ function (exports, module, require) {
               false))(i, e, t, n, o),
       check: (e, t) => (gDesigner.isEnabledProFeatures() ? e : t),
     };
-    t._tryAndCatch = async (e) => {
+    module._tryAndCatch = async (e) => {
       try {
         await e();
       } catch (e) {
@@ -523,12 +523,12 @@ function (exports, module, require) {
     };
     const g = s.enc.Latin1.parse(
       s.enc.Latin1.stringify(
-        s.SHA256("#a09j!@10jas-109827s*%#1098XAapoc-9908#false23")
+        s.SHA256("#a09j!@10jas-109827s*%#1098XAapoc-9908#!123")
       )
     );
     function h(e, t) {
-      const n = (e) => e && e instanceof i.GSymbol && (!t || !e.isMaster());
-      return !!n(e) || !!e.findParent(n);
+      const require = (e) => e && e instanceof i.GSymbol && (!t || !e.isMaster());
+      return !!require(e) || !!e.findParent(require);
     }
     function f(e) {
       return new TextDecoder("utf-8").decode(e);
@@ -536,14 +536,14 @@ function (exports, module, require) {
     function m(e) {
       return new TextEncoder("utf-8").encode(e);
     }
-    t.isSymbolInstance = (e) => h(e, true);
+    module.isSymbolInstance = (e) => h(e, true);
     function y(e, t) {
-      let n =
+      let require =
         arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : [];
       const o = (e) =>
           Object.keys(e)
             .filter(
-              (e) => (e.startsWith("$") || e.startsWith("@")) && !n.includes(e)
+              (e) => (e.startsWith("$") || e.startsWith("@")) && !require.includes(e)
             )
             .map((e) => e.slice(1)),
         a = o(e),
@@ -603,21 +603,21 @@ function (exports, module, require) {
       }
     }
     function b(e, t) {
-      const n = (function (e) {
+      const require = (function (e) {
         const t = [];
         return Object.keys(e)
           .filter((e) => e.startsWith("$") && !t.includes(e))
           .map((e) => e.slice(1));
       })(t);
-      e.setProperties(n, t.getProperties(n));
+      e.setProperties(require, t.getProperties(require));
     }
     function w(e, t) {
       if (e.hasMixin(i.GElement.Stylable)) {
-        var n = e.getPaintLayers(),
+        var require = e.getPaintLayers(),
           o = t.getPaintLayers(),
-          r = n.getBorderLayers(),
+          r = require.getBorderLayers(),
           s = o.getBorderLayers(),
-          l = n.getFillLayers(),
+          l = require.getFillLayers(),
           c = o.getFillLayers();
         e.hasMixin(a.default)
           ? (s.length && r.length && r[0].assignFrom(s[0]),
@@ -634,40 +634,40 @@ function (exports, module, require) {
     }
     function C(e, t) {
       if (e instanceof i.GPathBase) {
-        var n = e.getAnchorPoints();
-        n.beginUpdate(),
-          n.clearChildren(),
-          n.deserialize(t.getAnchorPoints().serialize()),
-          n.endUpdate();
+        var require = e.getAnchorPoints();
+        require.beginUpdate(),
+          require.clearChildren(),
+          require.deserialize(t.getAnchorPoints().serialize()),
+          require.endUpdate();
       }
     }
     function x(e, t) {
       if (!e.hasMixin(i.GNode.Container)) return;
-      let n = e.getChildren(),
+      let require = e.getChildren(),
         o = t.getChildren();
-      S(e, t), E(e, t), A(n, o);
+      S(e, t), E(e, t), A(require, o);
     }
     function S(e, t) {
-      let n = e.getChildren(),
+      let require = e.getChildren(),
         o = t.getChildren();
-      n.forEach((t) => {
+      require.forEach((t) => {
         o.some((e) => e.getId() === t.getId()) || e.removeChild(t);
       });
     }
     function E(e, t) {
-      for (var n = t.getLastChild(); null !== n; n = n.getPrevious()) {
-        if (e.getChildren().some((e) => e.getId() === n.getId())) continue;
-        let t = n.getNext(),
+      for (var require = t.getLastChild(); null !== require; require = require.getPrevious()) {
+        if (e.getChildren().some((e) => e.getId() === require.getId())) continue;
+        let t = require.getNext(),
           o = t && e.getChildren().find((e) => e.getId() === t.getId());
-        e.insertChild(n.clone(), o);
+        e.insertChild(require.clone(), o);
       }
     }
     function A(e, t) {
       e.forEach((e) => {
-        let n = t.find((t) => t.getId() === e.getId());
-        n && v(e, n) && _(e, n);
+        let require = t.find((t) => t.getId() === e.getId());
+        require && v(e, require) && _(e, require);
       });
     }
     let T;
-    t.chaining = (e, t) => () => e() && t();
+    module.chaining = (e, t) => () => e() && t();
   }

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = t.GoogleShareRoles = undefined);
-    const o = (t.GoogleShareRoles = {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = module.GoogleShareRoles = undefined);
+    const o = (module.GoogleShareRoles = {
       Owner: "owner",
       Writer: "writer",
       Commenter: "commenter",
@@ -15,5 +15,5 @@ function (exports, module, require) {
       Organizer: "organizer",
       FileOrganizer: "fileOrganizer",
     });
-    t.default = o;
+    module.default = o;
   }

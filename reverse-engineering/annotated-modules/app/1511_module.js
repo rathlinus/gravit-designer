@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     function i(e, t) {
       (this._neverRemind = !1),
         (this._agreeCb = e),

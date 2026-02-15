@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this.type = e), (this.storageItem = t);
     }
@@ -22,5 +22,5 @@ function (exports, module, require) {
         (this.storageItem = e), (this.oldStatus = t), (this.newStatus = n);
       }),
       o.GObject.inherit(i.FileStatusUpdate, o.GEvent),
-      (e.exports = i);
+      (exports.exports = i);
   }

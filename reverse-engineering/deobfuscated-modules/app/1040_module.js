@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(88) /* module_88 */.f;
-    e.exports = function (e, t, n) {
+    var o = require(88) /* module_88 */.f;
+    exports.exports = function (e, t, n) {
       n in e ||
         o(e, n, {
           configurable: true,

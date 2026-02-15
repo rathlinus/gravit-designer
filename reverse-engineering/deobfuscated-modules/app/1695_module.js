@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(15) /* module_15 */,
-      a = o(n(1340) /* GRenameLayerAction */),
-      r = o(n(1344) /* GCycleThroughLayersAction */),
+    var o = require(16) /* module_16 */;
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(15) /* module */,
+      a = o(require(1340) /* GRenameLayerAction */),
+      r = o(require(1344) /* GCycleThroughLayersAction */),
       s = {
         init: function (e) {
           e = $.extend(
@@ -22,9 +22,9 @@ function (exports, module, require) {
               ($(t).data("gautoedit", { options: e, input: null }),
               !e.noDblClickEdit)
             ) {
-              var n = $(t).data("gautoedit");
+              var require = $(t).data("gautoedit");
               $(t).on("dblclick", function (e) {
-                s.open.call(t, n);
+                s.open.call(t, require);
               });
             }
           });

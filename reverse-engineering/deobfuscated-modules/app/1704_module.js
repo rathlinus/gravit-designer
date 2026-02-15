@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */,
+    var o = require(1) /* module */,
       i = {
         value: function (e) {
-          const t = $(this);
+          const module = $(this);
           return arguments.length > 0
-            ? (t.prop("checked", !!e), this)
+            ? (module.prop("checked", !!e), this)
             : i.isChecked.call(this);
         },
         unmount() {
-          const e = $(this);
-          return e.removeClass("g-checkbox-slider"), e;
+          const exports = $(this);
+          return exports.removeClass("g-checkbox-slider"), exports;
         },
         isChecked: function () {
           return $(this).is(":checked");
@@ -23,16 +23,16 @@ function (exports, module, require) {
         init: function (e) {
           return (
             this.each(function () {
-              const t = $(this);
+              const module = $(this);
               e = o.GUtil.extend({ onChange: function () {} }, e);
-              const n = i.isChecked.call(this);
-              t.addClass("g-checkbox-slider")
+              const require = i.isChecked.call(this);
+              module.addClass("g-checkbox-slider")
                 .prop("type", "checkbox")
-                .prop("checked", n)
-                .toggleClass("checked", n)
+                .prop("checked", require)
+                .toggleClass("checked", require)
                 .on("change", function (t) {
-                  const n = i.isChecked.call(this);
-                  $(this).toggleClass("checked", n), e.onChange(n);
+                  const require = i.isChecked.call(this);
+                  $(this).toggleClass("checked", require), e.onChange(require);
                 });
             }),
             this

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(8) /* module_8 */, n(4) /* module_4 */, n(322) /* module_322 */, n(32) /* module_32 */, n(38) /* module_38 */, n(97) /* module_97 */, n(33) /* module_33 */, n(26) /* module_26 */;
-    const { GObject: o } = n(1) /* module_1 */,
-      i = n(1069) /* module_1069 */;
+    require(19) /* module_19 */, require(8) /* module_8 */, require(4) /* module_4 */, require(322) /* module_322 */, require(32) /* module_32 */, require(38) /* module_38 */, require(97) /* module_97 */, require(33) /* module_33 */, require(26) /* module_26 */;
+    const { GObject: o } = require(1) /* module */,
+      i = require(1069) /* module_1069 */;
     function a() {
       (this._resourceMap = new i()),
         (this._controlSubjectState = { locked: false });
@@ -53,20 +53,20 @@ function (exports, module, require) {
       (a.prototype.canSync = function (e) {
         return (e = e instanceof Array ? e : [e]).every((e) => {
           if (!this._resourceMap.has(e)) return false;
-          const t = this._resourceMap.get(e);
-          if (!t) return true;
-          return !!t(this, e);
+          const module = this._resourceMap.get(e);
+          if (!module) return true;
+          return !!module(this, e);
         });
       }),
       (a.prototype.extend = function (e) {
         if (this._controlSubjectState.locked) return this;
         if (!(e instanceof a)) throw "Not a valid instance to extend";
-        const t = o(this._resourceMap),
-          n = o(e._resourceMap);
-        return (this._resourceMap = new i(...t, ...n)), this;
+        const module = o(this._resourceMap),
+          require = o(e._resourceMap);
+        return (this._resourceMap = new i(...module, ...require)), this;
         function o(e) {
           return e instanceof Map ? e : new Map(Object.entries(e));
         }
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

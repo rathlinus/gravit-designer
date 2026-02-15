@@ -22,7 +22,7 @@ function (e, t, n) {
       n(38) /* module_38 */,
       n(97) /* module_97 */,
       n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(355) /* module_355 */),
       r = o(n(594) /* GError */),
       s = n(858) /* module_858 */;

@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(309) /* module_309 */.charAt,
-      i = n(62) /* module_62 */,
-      a = n(80) /* module_80 */,
-      r = n(418) /* module_418 */,
-      s = n(252) /* module_252 */,
+    var o = require(309) /* module_309 */.charAt,
+      i = require(62) /* module_62 */,
+      a = require(80) /* module_80 */,
+      r = require(418) /* module_418 */,
+      s = require(252) /* module_252 */,
       l = a.set,
       c = a.getterFor("String Iterator");
     r(

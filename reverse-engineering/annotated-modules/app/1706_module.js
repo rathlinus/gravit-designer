@@ -7,9 +7,9 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(19) /* module_19 */, n(57) /* module_57 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */, n(97) /* module_97 */, n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
+    var i = n(53) /* module */,
+      a = n(1) /* module */,
+      r = n(15) /* module */,
       s = n(40) /* module_40 */,
       l = n(67) /* GRichTooltipConfig */,
       c = n(1351) /* module_1351 */,

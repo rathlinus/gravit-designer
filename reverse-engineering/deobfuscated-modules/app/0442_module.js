@@ -12,5 +12,5 @@ function (exports, module, require) {
       (o.EXPORT_PROPERTY_NAME = "__export"),
       (o.MULTIPAGE_VIEW_ENABLED = "mve"),
       (o.PropertiesToExcludeFromCopying = null),
-      (e.exports = o);
+      (exports.exports = o);
   }

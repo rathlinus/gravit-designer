@@ -7,7 +7,7 @@ function (exports, module, require) {
     "use strict";
     var o = Math.ceil,
       i = Math.floor;
-    e.exports =
+    exports.exports =
       Math.trunc ||
       function (e) {
         var t = +e;

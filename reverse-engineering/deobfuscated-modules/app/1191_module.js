@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    const { GObject: o } = n(1) /* module_1 */,
-      { GPlatform: i } = n(15) /* module_15 */;
+    require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    const { GObject: o } = require(1) /* module */,
+      { GPlatform: i } = require(15) /* module */;
     function a() {
       this._children = [];
     }
@@ -38,11 +38,11 @@ function (exports, module, require) {
       }),
       (a.prototype._scrollToElement = function (e) {
         if (!e || !e[0]) return;
-        const t = i.webBrowser === i.constructor.WebBrowser.Firefox,
-          n = t ? "start" : "nearest",
-          o = t ? "auto" : "smooth";
+        const module = i.webBrowser === i.constructor.WebBrowser.Firefox,
+          require = module ? "start" : "nearest",
+          o = module ? "auto" : "smooth";
         "function" == typeof e[0].scrollIntoView &&
-          e[0].scrollIntoView({ behavior: o, block: n });
+          e[0].scrollIntoView({ behavior: o, block: require });
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

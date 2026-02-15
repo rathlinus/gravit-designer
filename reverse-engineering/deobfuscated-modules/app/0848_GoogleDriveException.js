@@ -6,30 +6,30 @@
 
 function (exports, module, require) {
     "use strict";
-    n(557) /* module_557 */;
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(1) /* module_1 */,
-      a = n(40) /* module_40 */,
-      r = n(593) /* module_593 */,
-      s = o(n(787) /* module_787 */),
+    require(557) /* module_557 */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */,
+      require(96) /* module_96 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var i = require(1) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(593) /* module_593 */,
+      s = o(require(787) /* module_787 */),
       l = (function (e, t) {
         if ("function" == typeof WeakMap)
-          var n = new WeakMap(),
+          var require = new WeakMap(),
             o = new WeakMap();
         return (function (e, t) {
           if (!t && e && e.__esModule) return e;
@@ -38,7 +38,7 @@ function (exports, module, require) {
             r = { __proto__: null, default: e };
           if (null === e || ("object" != typeof e && "function" != typeof e))
             return r;
-          if ((i = t ? o : n)) {
+          if ((i = t ? o : require)) {
             if (i.has(e)) return i.get(e);
             i.set(e, r);
           }
@@ -53,11 +53,11 @@ function (exports, module, require) {
                 : (r[t] = e[t]));
           return r;
         })(e, t);
-      })(n(789) /* module_789 */),
-      c = o(n(594) /* GError */);
-    const d = n(1108) /* module_1108 */,
-      u = n(595) /* module_595 */,
-      { HTTP_STATUS_CODES: p } = n(10) /* module_10 */;
+      })(require(789) /* module_789 */),
+      c = o(require(594) /* GError */);
+    const d = require(1108) /* module_1108 */,
+      u = require(595) /* module_595 */,
+      { HTTP_STATUS_CODES: p } = require(10) /* module_10 */;
     function g(e) {
       this.setTokenIssuer(e);
     }
@@ -71,13 +71,13 @@ function (exports, module, require) {
       }),
       (g.ExceptionCode = { LoginAborted: 1 });
     class h extends c.default {
-      constructor(e, t) {
+      function Object() { [native code] }(e, t) {
         super(e),
           (this.code = t),
           (this.__proto__ = h.prototype),
           (this.name = "GoogleDriveException");
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GoogleDriveException]";
       }
     }
@@ -119,7 +119,7 @@ function (exports, module, require) {
         return "google";
       }),
       (g.prototype.getFilePermissions = async function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
         if (
           !this.getTokenIssuerSettings() ||
           !this.getTokenIssuerSettings().corporate
@@ -135,7 +135,7 @@ function (exports, module, require) {
               new i.GLocaleKey("GGoogleDrive", "error.no-file-found")
             )
           );
-        let n = [];
+        let require = [];
         const o = await this.getAccessToken(),
           a = { fields: "*", supportsAllDrives: true, pageSize: 50 };
         return new Promise((i, r) => {
@@ -156,20 +156,20 @@ function (exports, module, require) {
               .then((e) => e.json())
               .then((e) => {
                 const { permissions: o, nextPageToken: a } = e;
-                o.length && (n = n.concat(o)),
+                o.length && (require = require.concat(o)),
                   a
                     ? setTimeout(function () {
                         l(a);
                       })
                     : i(
-                        t
-                          ? n
-                          : n.map((e) => {
-                              let { emailAddress: t, role: n } = e;
+                        module
+                          ? require
+                          : require.map((e) => {
+                              let { emailAddress: module, role: require } = e;
                               return {
-                                email: t,
-                                role: s.default[n],
-                                externalRole: n,
+                                email: module,
+                                role: s.default[require],
+                                externalRole: require,
                               };
                             })
                       );
@@ -194,15 +194,15 @@ function (exports, module, require) {
               new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        const { role: n, emailAddress: o } = t;
-        if (!n || !o)
+        const { role: require, emailAddress: o } = t;
+        if (!require || !o)
           return Promise.reject(
             i.GLocale.get(
               new i.GLocaleKey("GGoogleDrive", "error.not-enough-parameters")
             )
           );
         const a = await this.getShareIdForEmail(e, o).catch(() => []),
-          r = { type: "user", emailAddress: o, role: l.default[n.id] };
+          r = { type: "user", emailAddress: o, role: l.default[require.id] };
         if (a && a.length > 0) {
           const t = await this.removeShare(e, a[0]);
           if (t.error) {
@@ -243,8 +243,8 @@ function (exports, module, require) {
               new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        const { role: n, domain: o } = t;
-        if (!n || !o)
+        const { role: require, domain: o } = t;
+        if (!require || !o)
           return Promise.reject(
             i.GLocale.get(
               new i.GLocaleKey("GGoogleDrive", "error.not-enough-parameters")
@@ -253,7 +253,7 @@ function (exports, module, require) {
         const a = {
           type: "domain",
           domain: o,
-          role: l.default[n.id],
+          role: l.default[require.id],
           allowFileDiscovery: true,
         };
         return this._createShare(e, a);
@@ -268,7 +268,7 @@ function (exports, module, require) {
               new i.GLocaleKey("GGoogleDrive", "error.only-for-corporate")
             )
           );
-        const n = new URL(
+        const require = new URL(
             "https://www.googleapis.com/drive/v3/files/".concat(
               e,
               "/permissions"
@@ -276,8 +276,8 @@ function (exports, module, require) {
           ),
           o = await this.getAccessToken(),
           a = { fields: "*", supportsAllDrives: true, sendNotificationEmail: false };
-        for (var r in a) n.searchParams.append(r, a[r]);
-        return fetch(n.toString(), {
+        for (var r in a) require.searchParams.append(r, a[r]);
+        return fetch(require.toString(), {
           method: "POST",
           headers: new Headers({
             Authorization: "Bearer ".concat(o),
@@ -290,8 +290,8 @@ function (exports, module, require) {
         return this.getTokenIssuerSettings() &&
           this.getTokenIssuerSettings().corporate
           ? (await this.getFilePermissions(e, true)).filter((e) => {
-              let { emailAddress: n } = e;
-              return n === t;
+              let { emailAddress: require } = e;
+              return require === t;
             })
           : Promise.reject(
               i.GLocale.get(
@@ -300,7 +300,7 @@ function (exports, module, require) {
             );
       }),
       (g.prototype.removeShare = async function (e, t) {
-        let { id: n } = t;
+        let { id: require } = t;
         if (
           !this.getTokenIssuerSettings() ||
           !this.getTokenIssuerSettings().corporate
@@ -313,7 +313,7 @@ function (exports, module, require) {
         const o = new URL(
             "https://www.googleapis.com/drive/v3/files/"
               .concat(e, "/permissions/")
-              .concat(n)
+              .concat(require)
           ),
           a = await this.getAccessToken(),
           r = { fields: "*", supportsAllDrives: true };
@@ -451,20 +451,20 @@ function (exports, module, require) {
         ).then((e) => e.blob());
       }),
       (g.prototype.getFileDetails = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         var n = new URL(
           "https://www.googleapis.com/drive/v3/files/".concat(e, "?fields=*")
         );
-        for (var o in t) n.searchParams.append(o, t[o]);
+        for (var o in module) n.searchParams.append(o, module[o]);
         return this._request(n.toString(), { method: "GET" }).then((e) =>
           e.ok ? e.json() : e.json().then((e) => Promise.reject(e))
         );
       }),
       (g.prototype.fileExists = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        return this.getFileDetails(e, t)
+        return this.getFileDetails(e, module)
           .then(() => true)
           .catch((e) => {
             if (e.error) {
@@ -476,29 +476,29 @@ function (exports, module, require) {
           });
       }),
       (g.prototype.updateFileDetails = function (e) {
-        let t =
+        let module =
             arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {},
-          n =
+          require =
             arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
-        if (Object.keys(t).length < 1) return Promise.resolve();
+        if (Object.keys(module).length < 1) return Promise.resolve();
         var o = new URL("https://www.googleapis.com/drive/v3/files/".concat(e));
-        for (var i in n) o.searchParams.append(i, n[i]);
+        for (var i in require) o.searchParams.append(i, require[i]);
         return this._request(o.toString(), {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(t),
+          body: JSON.stringify(module),
         });
       }),
       (g.prototype.searchFiles = function (e) {
         var t = new URL("https://www.googleapis.com/drive/v3/files");
-        for (var n in e) t.searchParams.append(n, e[n]);
+        for (var require in e) t.searchParams.append(require, e[require]);
         return this._request(t.toString(), { method: "GET" }).then((e) =>
           e.json()
         );
       }),
       (g.prototype.searchTeamDrives = function (e) {
         var t = new URL("https://www.googleapis.com/drive/v3/drives");
-        for (var n in e) t.searchParams.append(n, e[n]);
+        for (var require in e) t.searchParams.append(require, e[require]);
         return this._request(t.toString(), { method: "GET" }).then((e) =>
           e.json()
         );
@@ -521,11 +521,11 @@ function (exports, module, require) {
         );
       }),
       (g.prototype.supportsEmailDomainCheck = async function () {
-        const e = await this.getTokenInfo().catch(() => null);
-        if (!e) return false;
-        const { scope: t } = e;
-        return Array.isArray(t) ? t.some((e) => n(e)) : n(t);
-        function n(e) {
+        const exports = await this.getTokenInfo().catch(() => null);
+        if (!exports) return false;
+        const { scope: module } = exports;
+        return Array.isArray(module) ? module.some((e) => require(e)) : require(module);
+        function require(e) {
           return e.indexOf("admin.directory.user") >= 0;
         }
       }),
@@ -565,5 +565,5 @@ function (exports, module, require) {
         }
         return new g(new u(e));
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

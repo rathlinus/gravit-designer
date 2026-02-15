@@ -6,18 +6,18 @@
 function (exports, module, require) {
     "use strict";
     function o() {
-      let e =
+      let exports =
           arguments.length > 0 && undefined !== arguments[0]
             ? arguments[0]
             : o.Unsupported.KeepEditable,
-        t = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 0,
-        n =
+        module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : 0,
+        require =
           arguments.length > 2 && undefined !== arguments[2]
             ? arguments[2]
             : undefined;
-      (this.unsupportedChoice = e),
-        (this.formatVersion = t),
-        (this.lastModifiedDate = n);
+      (this.unsupportedChoice = exports),
+        (this.formatVersion = module),
+        (this.lastModifiedDate = require);
     }
     (o.Unsupported = {
       KeepAppearance: 0,
@@ -28,5 +28,5 @@ function (exports, module, require) {
       (o.prototype.unsupportedChoice = o.Unsupported.KeepEditable),
       (o.prototype.formatVersion = 0),
       (o.prototype.lastModifiedDate = undefined),
-      (e.exports = o);
+      (exports.exports = o);
   }

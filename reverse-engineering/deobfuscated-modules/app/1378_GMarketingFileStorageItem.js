@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = o(n(1195) /* module_1195 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = o(require(1195) /* module_1195 */);
     function a(e, t, n, o) {
       i.default.Item.call(this, e, t, n), (this._fileId = o);
     }
-    n(1) /* module_1 */.GObject.inheritAndMix(a, i.default.Item),
+    require(1) /* module */.GObject.inheritAndMix(a, i.default.Item),
       (a.prototype.isRegistrable = function () {
         return !!this.getId();
       }),
@@ -22,5 +22,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GMarketingFileStorageItem]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

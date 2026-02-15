@@ -492,7 +492,7 @@ function (e, t, n) {
       n(38) /* module_38 */,
       n(97) /* module_97 */,
       n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(84) /* GAnnotation */),
       r = n(1042) /* module_1042 */;
     const s = n(1043) /* module_1043 */;

@@ -5,33 +5,33 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(8) /* module_8 */,
-      n(91) /* module_91 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */;
-    var o = n(1) /* module_1 */,
-      i = n(797) /* module_797 */,
-      a = n(40) /* module_40 */,
-      r = n(10) /* module_10 */,
-      s = n(237) /* module_237 */,
-      l = n(163) /* module_163 */,
-      c = n(442) /* module_442 */;
-    const d = n(389) /* module_389 */;
+    require(19) /* module_19 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(8) /* module_8 */,
+      require(91) /* module_91 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */;
+    var o = require(1) /* module */,
+      i = require(797) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(10) /* module_10 */,
+      s = require(237) /* module_237 */,
+      l = require(163) /* module_163 */,
+      c = require(442) /* module_442 */;
+    const d = require(389) /* module_389 */;
     function u() {}
-    (window.pako = n(165) /* module_165 */),
-      n(1514) /* module_1514 */,
-      n(1515) /* module_1515 */,
-      n(1516) /* module_1516 */,
+    (window.pako = require(165) /* module_165 */),
+      require(1514) /* module_1514 */,
+      require(1515) /* module_1515 */,
+      require(1516) /* module_1516 */,
       (zip.useWebWorkers = false),
       (u.generateExportables = function (e, t, n) {
         var i = e instanceof Array ? e : [e];
@@ -89,8 +89,8 @@ function (exports, module, require) {
         return a;
       }),
       (u._validateCommercialDocument = function () {
-        const e = gDesigner.getActiveDocument();
-        return !e || !e.isCommercialProductFile() || (e.openPaywall(), false);
+        const exports = gDesigner.getActiveDocument();
+        return !exports || !exports.isCommercialProductFile() || (exports.openPaywall(), false);
       }),
       (u.exportExportable = function (e, t, n, s) {
         if (this._validateCommercialDocument()) {
@@ -385,5 +385,5 @@ function (exports, module, require) {
       (u.ZipDirectory.prototype.exportBlob = function (e) {
         this._zipDirectory.exportBlob(e);
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

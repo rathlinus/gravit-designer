@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */;
+    require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */;
     const a = {
       init: function (e) {
         e = $.extend(
@@ -22,9 +22,9 @@ function (exports, module, require) {
           },
           e
         );
-        let t = $(this);
+        let module = $(this);
         return (
-          t.data("gunsharebutton", { options: e }),
+          module.data("gunsharebutton", { options: e }),
           this.addClass("unshare-button")
             .addClass("g-highlight-button")
             .addClass("highlighted")
@@ -32,14 +32,14 @@ function (exports, module, require) {
             .append($("<span/>").addClass("icon"))
             .append($("<span/>").addClass("label").text(e.defaultText))
             .on("click", () => {
-              if (t.hasClass("g-disabled")) return;
+              if (module.hasClass("g-disabled")) return;
               gDesigner.getShareManager().isShareProRestricted()
                 ? (gDesigner.stats(e.restrictedStats),
                   gDesigner.handleShareFilePROFeatureInterruption())
                 : (gDesigner.stats(e.stats),
                   gDesigner.getUser().then(async (n) => {
                     if (!n) return;
-                    const o = t.data("gunsharebutton").storeItem.getId(),
+                    const o = module.data("gunsharebutton").storeItem.getId(),
                       a = n.getUID();
                     console.log(
                       "About to call unshare with item id: %s and user id: %s",
@@ -55,10 +55,10 @@ function (exports, module, require) {
         );
       },
       update: function (e) {
-        const { disabled: t, hidden: n } = e,
+        const { disabled: module, hidden: require } = e,
           o = $(this);
-        t ? o.addClass("g-disabled") : o.removeClass("g-disabled"),
-          n ? o.hide() : o.show();
+        module ? o.addClass("g-disabled") : o.removeClass("g-disabled"),
+          require ? o.hide() : o.show();
         gDesigner.getShareManager().isShareProRestricted() && o.gPro();
         const i = o.data("gunsharebutton");
         return (

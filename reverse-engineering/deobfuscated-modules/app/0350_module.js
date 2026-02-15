@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */;
-    e.exports = function (e, t) {
+    var o = require(21) /* module_21 */;
+    exports.exports = function (e, t) {
       var n = [][e];
       return (
         !!n &&

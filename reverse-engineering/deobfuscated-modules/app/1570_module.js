@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(3) /* module_3 */;
-    const { HAS_ANNOTATIONS: o } = n(10) /* module_10 */;
+    require(30) /* module_30 */, require(3) /* module_3 */;
+    const { HAS_ANNOTATIONS: o } = require(10) /* module_10 */;
     function i() {
-      let e =
+      let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       Object.assign(
         this,
@@ -26,7 +26,7 @@ function (exports, module, require) {
           copyPaste: true,
           isDocumentTabManagementEnabled: true,
         },
-        e
+        exports
       );
     }
     (i.prototype.isDocumentTabManagementEnabled = true),
@@ -44,5 +44,5 @@ function (exports, module, require) {
       (i.prototype.toString = function () {
         return "Object [GApplicationState]";
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

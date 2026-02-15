@@ -12,18 +12,18 @@ function (exports, module, require) {
     function i(e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }
-    (t.assign = function (e) {
-      for (var t = Array.prototype.slice.call(arguments, 1); t.length; ) {
-        var n = t.shift();
-        if (n) {
-          if ("object" != typeof n)
-            throw new TypeError(n + "must be non-object");
-          for (var o in n) i(n, o) && (e[o] = n[o]);
+    (module.assign = function (e) {
+      for (var module = Array.prototype.slice.call(arguments, 1); module.length; ) {
+        var require = module.shift();
+        if (require) {
+          if ("object" != typeof require)
+            throw new TypeError(require + "must be non-object");
+          for (var o in require) i(require, o) && (e[o] = require[o]);
         }
       }
       return e;
     }),
-      (t.shrinkBuf = function (e, t) {
+      (module.shrinkBuf = function (e, t) {
         return e.length === t
           ? e
           : e.subarray
@@ -51,16 +51,16 @@ function (exports, module, require) {
           return [].concat.apply([], e);
         },
       };
-    (t.setTyped = function (e) {
+    (module.setTyped = function (e) {
       e
-        ? ((t.Buf8 = Uint8Array),
-          (t.Buf16 = Uint16Array),
-          (t.Buf32 = Int32Array),
-          t.assign(t, a))
-        : ((t.Buf8 = Array),
-          (t.Buf16 = Array),
-          (t.Buf32 = Array),
-          t.assign(t, r));
+        ? ((module.Buf8 = Uint8Array),
+          (module.Buf16 = Uint16Array),
+          (module.Buf32 = Int32Array),
+          module.assign(module, a))
+        : ((module.Buf8 = Array),
+          (module.Buf16 = Array),
+          (module.Buf32 = Array),
+          module.assign(module, r));
     }),
-      t.setTyped(o);
+      module.setTyped(o);
   }

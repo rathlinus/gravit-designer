@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(15) /* module_15 */,
-      a = n(1) /* module_1 */,
-      r = o(n(18) /* module_18 */),
-      s = n(198) /* Exports_GOutlineSidebar */;
-    const l = n(31) /* GAction */;
+    var o = require(16) /* module_16 */,
+      i = require(15) /* module */,
+      a = require(1) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = require(198) /* Exports_GOutlineSidebar */;
+    const l = require(31) /* GAction */;
     class c extends l {
       getId() {
         return c.ID;
@@ -29,22 +29,22 @@ function (exports, module, require) {
         return false;
       }
       execute() {
-        const e = gDesigner.getLeftSidebars().getActiveSidebar(),
-          t = gDesigner
+        const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
+          module = gDesigner
             .getLeftSidebars()
             .getSidebar(s.SidebarsIds.GOutlineSidebar),
-          n = t.getLayerPanel(),
-          { currentFocus: o } = n.data("glayerpanel");
-        if (o && e === t.getId()) {
-          const e = n.gLayerPanel("getTitleOfLayer", $(o.row));
+          require = module.getLayerPanel(),
+          { currentFocus: o } = require.data("glayerpanel");
+        if (o && exports === module.getId()) {
+          const e = require.gLayerPanel("getTitleOfLayer", $(o.row));
           e.gAutoEdit("open", e.data("gautoedit"));
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GRenameLayerAction]";
       }
     }
     (c.ID = "edit.rename-layer"),
       (c.TITLE = new a.GLocaleKey("GRenameLayerAction", "title")),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(65) /* module_65 */,
+    var o = require(65) /* module_65 */,
       i = TypeError,
       a = function (e) {
         var t, n;
@@ -17,7 +17,7 @@ function (exports, module, require) {
           (this.resolve = o(t)),
           (this.reject = o(n));
       };
-    e.exports.f = function (e) {
+    exports.exports.f = function (e) {
       return new a(e);
     };
   }

@@ -10,15 +10,15 @@ function (exports, module, require) {
       a,
       r,
       s,
-      l = n(23) /* module_23 */,
-      c = n(411) /* module_411 */,
-      d = n(124) /* module_124 */,
-      u = n(409) /* module_409 */.set,
-      p = n(412) /* module_412 */,
-      g = n(410) /* module_410 */,
-      h = n(624) /* module_624 */,
-      f = n(625) /* module_625 */,
-      m = n(245) /* module_245 */,
+      l = require(23) /* module_23 */,
+      c = require(411) /* module_411 */,
+      d = require(124) /* module_124 */,
+      u = require(409) /* module_409 */.set,
+      p = require(412) /* module_412 */,
+      g = require(410) /* module_410 */,
+      h = require(624) /* module_624 */,
+      f = require(625) /* module_625 */,
+      m = require(245) /* module_245 */,
       y = l.MutationObserver || l.WebKitMutationObserver,
       v = l.document,
       _ = l.process,
@@ -61,5 +61,5 @@ function (exports, module, require) {
           C.head || o(), C.add(e);
         });
     }
-    e.exports = w;
+    exports.exports = w;
   }

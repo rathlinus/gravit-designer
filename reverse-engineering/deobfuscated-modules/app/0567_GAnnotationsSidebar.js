@@ -6,43 +6,43 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(8) /* module_8 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(97) /* module_97 */, n(33) /* module_33 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = o(n(238) /* GMenu */),
-      l = o(n(339) /* GMenu */),
-      c = n(67) /* GRichTooltipConfig */,
-      d = o(n(340) /* GTouchTool */),
-      u = n(1275) /* module_1275 */,
-      p = n(444) /* module_444 */,
-      g = n(78) /* GDocumentEvent */,
-      h = (n(606) /* GPanel */, n(806) /* GSidebar */),
-      f = n(395) /* module_395 */,
-      m = n(864) /* GInspectorSidebar */,
-      y = n(123) /* GProperties */,
-      v = n(1535) /* GAnnotations */,
-      _ = n(603) /* module_603 */,
-      b = n(1536) /* GAnnotationProperties */,
-      w = n(358) /* module_358 */,
-      C = n(592) /* module_592 */;
-    const x = n(392) /* module_392 */,
-      S = n(135) /* GSettingChangedEvent */;
-    var E = n(1537) /* module_1537 */;
-    const A = n(291) /* GNetworkAvailabilityChangedEvent */,
-      T = n(393) /* GCollaborationEvent */,
-      G = n(336) /* module_336 */,
-      P = n(434) /* module_434 */,
-      { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = n(10) /* module_10 */,
-      I = n(86) /* module_86 */,
-      k = n(217) /* GDocumentStatusEvent */,
-      O = n(1279) /* module_1279 */,
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(8) /* module_8 */, require(3) /* module_3 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(38) /* module_38 */, require(97) /* module_97 */, require(33) /* module_33 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = o(require(238) /* GMenu */),
+      l = o(require(339) /* GMenu */),
+      c = require(67) /* GRichTooltipConfig */,
+      d = o(require(340) /* GTouchTool */),
+      u = require(1275) /* module_1275 */,
+      p = require(444) /* module_444 */,
+      g = require(78) /* GDocumentEvent */,
+      h = (require(606) /* GPanel */, require(806) /* GSidebar */),
+      f = require(395) /* module_395 */,
+      m = require(864) /* GInspectorSidebar */,
+      y = require(123) /* GProperties */,
+      v = require(1535) /* GAnnotations */,
+      _ = require(603) /* module_603 */,
+      b = require(1536) /* GAnnotationProperties */,
+      w = require(358) /* module_358 */,
+      C = require(592) /* module_592 */;
+    const x = require(392) /* module_392 */,
+      S = require(135) /* GSettingChangedEvent */;
+    var E = require(1537) /* module_1537 */;
+    const A = require(291) /* GNetworkAvailabilityChangedEvent */,
+      T = require(393) /* GCollaborationEvent */,
+      G = require(336) /* module_336 */,
+      P = require(434) /* module_434 */,
+      { SHOW_SIDEBAR_BADGE: D, NOTIFICATION_SETTINGS_ENABLED: L } = require(10) /* module_10 */,
+      I = require(86) /* module_86 */,
+      k = require(217) /* GDocumentStatusEvent */,
+      O = require(1279) /* module_1279 */,
       {
         DateAPI: F,
         FileStatus: { APPROVED: R },
-      } = n(10) /* module_10 */,
-      M = n(198) /* Exports_GOutlineSidebar */;
+      } = require(10) /* module_10 */,
+      M = require(198) /* Exports_GOutlineSidebar */;
     function N() {
       h.call(this),
         (this._annotationPanels = []),
@@ -115,8 +115,8 @@ function (exports, module, require) {
       (N.prototype._toggleShowResolved = function (e) {
         if (e !== this._showResolved) {
           this._showResolved = e;
-          for (var t = this._annotationPanels.length - 1; t >= 0; t--) {
-            this._annotationPanels[t].properties.toggleShowResolved(e);
+          for (var module = this._annotationPanels.length - 1; module >= 0; module--) {
+            this._annotationPanels[module].properties.toggleShowResolved(e);
           }
           (this._document
             .getActiveWindow()
@@ -189,8 +189,8 @@ function (exports, module, require) {
           : Promise.resolve();
       }),
       (N.prototype._getAnnotationsToSet = function (e, t) {
-        let n = w.findAnnotationsListForPage(t, e);
-        return n || (n = { "@": "annlst" }), n;
+        let require = w.findAnnotationsListForPage(t, e);
+        return require || (require = { "@": "annlst" }), require;
       }),
       (N.prototype.init = function (e) {
         h.prototype.init.call(this, e),
@@ -199,7 +199,7 @@ function (exports, module, require) {
             null,
             "g-annotation-sidebar-notification-menu"
           ));
-        const t = gDesigner
+        const module = gDesigner
           .getApplicationManager()
           .isCommentingEditingEnabled();
         (this._sidebarTitle = $("<div></div>")
@@ -208,13 +208,13 @@ function (exports, module, require) {
           (this._annotationToolbar = $("<div></div>").addClass(
             "toolbar annotations-toolbar"
           ));
-        const n = $("<button></button>");
+        const require = $("<button></button>");
         var o = $("<div></div>")
           .addClass("annotation-sidebar-options")
           .gOverlay({
             releaseOnClose: false,
             clazz: "g-annotation-sidebar-option-overlay",
-            closeCallback: () => n.removeClass("g-active"),
+            closeCallback: () => require.removeClass("g-active"),
           });
         this._annotationsToolbarPanel = $("<div></div>")
           .addClass("properties-panel")
@@ -222,7 +222,7 @@ function (exports, module, require) {
         var r = $("<div></div>")
           .addClass("annotation-options-box")
           .appendTo(this._annotationToolbar);
-        n
+        require
           .attr(
             "data-title",
             a.GLocale.get(
@@ -235,7 +235,7 @@ function (exports, module, require) {
             "click",
             function (e) {
               o.gOverlay("open", $(e.target).closest("button")),
-                n.addClass("g-active");
+                require.addClass("g-active");
             }.bind(this)
           )
           .appendTo(r),
@@ -286,7 +286,7 @@ function (exports, module, require) {
               },
             ],
           })),
-          t &&
+          module &&
             this._optionsToolbar.gPropertyRow({
               noPaddingRight: true,
               clickable: true,
@@ -568,11 +568,11 @@ function (exports, module, require) {
       }),
       (N.prototype._deactivateAnnotations = function () {
         if (this._document) {
-          var e = this._document.getEditor();
-          e.getSelection() &&
-            e.updateSelection(
+          var exports = this._document.getEditor();
+          exports.getSelection() &&
+            exports.updateSelection(
               false,
-              e.getSelection().filter((e) => !e.hasMixin(a.GAnnotation))
+              exports.getSelection().filter((e) => !e.hasMixin(a.GAnnotation))
             ),
             (this._document
               .getActiveWindow()
@@ -677,11 +677,11 @@ function (exports, module, require) {
         this._updateToolbar();
       }),
       (N.prototype._updateToolbar = async function () {
-        const e = gDesigner.getApplicationManager(),
-          t = e.isCommentingEditingEnabled(),
-          n = await e.hasAccess(P.RESOLVE_ALL_COMMENT_ANNOTATION),
+        const exports = gDesigner.getApplicationManager(),
+          module = exports.isCommentingEditingEnabled(),
+          require = await exports.hasAccess(P.RESOLVE_ALL_COMMENT_ANNOTATION),
           o = this._optionsToolbar.find(".resolve-all-row");
-        t && n ? o.parent().show() : o.parent().hide();
+        module && require ? o.parent().show() : o.parent().hide();
       }),
       (N.prototype._windowEvent = function (e) {
         e.type === _.WindowEvent.Type.Activated &&
@@ -693,8 +693,8 @@ function (exports, module, require) {
           if (e.type === g.Type.Activated) {
             (this._document = e.document),
               (this._storageItem = this._document.getStorageItem());
-            var t = this._document && this._document.getScene();
-            (this._localAnnotations = t && t.getAnnotations()),
+            var module = this._document && this._document.getScene();
+            (this._localAnnotations = module && module.getAnnotations()),
               this._document.isLocked() || this._updateFromToolOrSelection(true),
               this._active && !this._listenersAdded && this._addListeners(),
               this._active &&
@@ -764,7 +764,7 @@ function (exports, module, require) {
           this._notificationMenu.setTooltipType(c.TOOLTIP_AREA.SIDEBAR),
           this._document.getId() &&
             gApi.updateFileData(this._document.getId()).then((e) => {
-              const t = [
+              const module = [
                 {
                   caption: a.GLocale.get(
                     new a.GLocaleKey(
@@ -796,9 +796,9 @@ function (exports, module, require) {
                   statType: "None",
                 },
               ];
-              (t[e.data.notifications_disabled || 0].checked = true),
+              (module[e.data.notifications_disabled || 0].checked = true),
                 0 === this._notificationMenu.getItemCount() &&
-                  t.forEach((e) => {
+                  module.forEach((e) => {
                     this._notificationMenu.addItem(this._createMenuItem(e));
                   });
             });
@@ -809,14 +809,14 @@ function (exports, module, require) {
           t.setChecked(e.checked),
           t.setCaption(e.caption),
           t.addEventListener(l.default.ActivateEvent, (t) => {
-            const { sender: n } = t;
+            const { sender: require } = t;
             this._notificationMenu._items.forEach((e) => {
               e.setChecked(false);
             }),
-              n.setChecked(true),
+              require.setChecked(true),
               gDesigner.stats("annotations_settings_notifications", e.statType),
               gApi.updateFileData(this._document.getId(), {
-                notifications_disabled: this._notificationMenu.indexOf(n),
+                notifications_disabled: this._notificationMenu.indexOf(require),
               });
           }),
           t
@@ -827,12 +827,12 @@ function (exports, module, require) {
       }),
       (N.prototype._collaborationEvent = function (e) {
         if (e.type === T.Type.AnnotationsUpdate) {
-          const { data: { lastUpdateTime: t } = {} } = e;
-          if (t && this._document) {
+          const { data: { lastUpdateTime: module } = {} } = e;
+          if (module && this._document) {
             const e = this._document.getScene();
             !e ||
               (e.getLastTimeAnnotationsFromCloudModified() &&
-                !F.lt(e.getLastTimeAnnotationsFromCloudModified(), t, false)) ||
+                !F.lt(e.getLastTimeAnnotationsFromCloudModified(), module, false)) ||
               this.syncAnnotations();
           }
         } else e.type === T.Type.ReviewStatusChanged && this._updateToolbar();
@@ -848,8 +848,8 @@ function (exports, module, require) {
         e.previousTool;
         var t = e.newTool;
         if (e.newTool.hasMixin(i.GAnnotationTool)) {
-          var n = gDesigner.getActiveDocument();
-          n && n.getEditor() && n.getEditor().clearSelection();
+          var require = gDesigner.getActiveDocument();
+          require && require.getEditor() && require.getEditor().clearSelection();
         }
         this._activeTool(t);
       }),
@@ -885,12 +885,12 @@ function (exports, module, require) {
         );
       }),
       (N.prototype._updateSelection = function () {
-        const e = this._document && this._document.getEditor();
-        if (e) {
-          var t = this._document.getScene().getActivePage();
+        const exports = this._document && this._document.getEditor();
+        if (exports) {
+          var module = this._document.getScene().getActivePage();
           if (
-            ((this._page = t),
-            (this._elements = e.getSelection()),
+            ((this._page = module),
+            (this._elements = exports.getSelection()),
             this._elements && this._elements.length)
           ) {
             if (
@@ -908,9 +908,9 @@ function (exports, module, require) {
             );
           }
           if (!this._elements || 0 === this._elements.length) {
-            var n = gDesigner.getToolManager().getActiveTool();
-            if (n instanceof i.GItemTool) {
-              var o = n.getDefaultStyle();
+            var require = gDesigner.getToolManager().getActiveTool();
+            if (require instanceof i.GItemTool) {
+              var o = require.getDefaultStyle();
               o && (this._elements = [o]);
             }
           }
@@ -971,7 +971,7 @@ function (exports, module, require) {
         return t;
       }),
       (N.prototype._addPropertiesPanel = function (e, t) {
-        let n,
+        let require,
           o,
           i = $("<div></div>")
             .css("display", "none")
@@ -979,10 +979,10 @@ function (exports, module, require) {
           r = false;
         const s = this._panelsContainer.find(".scrolling-panels");
         if (e instanceof y) {
-          n = e;
+          require = e;
           var l = $("<div></div>").addClass("annotations-property-panel");
           if (
-            (n.init(l, this._annotationToolbar),
+            (require.init(l, this._annotationToolbar),
             e._availableProperties && 0 === e._availableProperties.length)
           )
             return r;
@@ -1005,7 +1005,7 @@ function (exports, module, require) {
             this._annotationProperties.push({
               panel: i,
               toolbar: o,
-              properties: n,
+              properties: require,
               topArrow: c,
             });
         } else {
@@ -1013,9 +1013,9 @@ function (exports, module, require) {
             ((o = $("<div></div>").addClass(
               "annotations-page-toolbar toolbar"
             )),
-            (n = new v()),
+            (require = new v()),
             i.appendTo(s),
-            n.init(
+            require.init(
               i,
               o,
               this._active,
@@ -1063,28 +1063,28 @@ function (exports, module, require) {
               }
             }
           }
-          n.setPage(e),
+          require.setPage(e),
             this._annotationPanels.push({
               panel: i,
               toolbar: o,
-              properties: n,
+              properties: require,
             });
         }
         return r;
       }),
       (N.prototype._updateToolbarButtons = function () {
         this._annotationProperties.forEach((e, t) => {
-          const { topArrow: n, properties: o } = e;
+          const { topArrow: require, properties: o } = e;
           if (o instanceof b) {
             const e = gDesigner.isTouchEnabled()
               ? N.ANNOTATION_PROPERTIES_ARROW_POSITION_TOUCH
               : N.ANNOTATION_PROPERTIES_ARROW_POSITION;
-            n.find(".arrow-top").css("right", e[t] + "%");
+            require.find(".arrow-top").css("right", e[t] + "%");
           }
         });
       }),
       (N.prototype._updatePropertyPanels = function (e, t) {
-        let n =
+        let require =
           !(arguments.length > 2 && undefined !== arguments[2]) || arguments[2];
         if (this._updatingPropertyPanels) return;
         this.updateNotificationOption(), (this._updatingPropertyPanels = true);
@@ -1110,7 +1110,7 @@ function (exports, module, require) {
                 else {
                   var u = c.getPage().getAnnotations().getChildren();
                   (d = l.properties.update(this._document, u, t)),
-                    n && l.properties.relayout();
+                    require && l.properties.relayout();
                 }
               if (l.toolbar && l.toolbar !== this._annotationToolbar)
                 l.toolbar.css("display", d ? "" : "none"),
@@ -1272,29 +1272,29 @@ function (exports, module, require) {
       }),
       (N.prototype.isAnnotationPropertiesEditing = function () {
         return this._annotationProperties.some((e) => {
-          let { properties: t } = e;
-          return (t.isEditing && t.isEditing()) || false;
+          let { properties: module } = e;
+          return (module.isEditing && module.isEditing()) || false;
         });
       }),
       (N.prototype.updateNotificationOption = function () {
-        const e = this._optionsToolbar
+        const exports = this._optionsToolbar
           .find(".notification-label")
           .closest(".columns");
         this._document && this._document.isCloudFile()
-          ? (e.removeAttr("data-title"), e.toggleClass("g-disabled", false))
-          : (e.attr(
+          ? (exports.removeAttr("data-title"), exports.toggleClass("g-disabled", false))
+          : (exports.attr(
               "data-title",
               a.GLocale.get(
                 new a.GLocaleKey("GAnnotationsSidebar", "text.save-file-tip")
               )
             ),
-            e.toggleClass("g-disabled", true));
+            exports.toggleClass("g-disabled", true));
       }),
       (N.prototype.toString = function () {
         return "[Object GAnnotationsSidebar]";
       }),
       (N.prototype._createHoverNotificationFrag = function () {
-        let e = $("<div>")
+        let exports = $("<div>")
           .addClass("g-menu hover-notification-container")
           .html(
             a.GLocale.get(
@@ -1302,34 +1302,34 @@ function (exports, module, require) {
             )
           );
         return (
-          e
+          exports
             .find("span")
             .addClass("highlight")
             .click(() => {
               new u().then((e) => e.open());
             }),
-          e
+          exports
         );
       }),
       (N.prototype._openHoverNotification = function (e) {
-        let t = this._createHoverNotificationFrag(),
-          n = $("body").find(".g-annotation-sidebar-notification-menu")[0];
+        let module = this._createHoverNotificationFrag(),
+          require = $("body").find(".g-annotation-sidebar-notification-menu")[0];
         if (
-          (t.appendTo($("body")),
+          (module.appendTo($("body")),
           document.addEventListener("click", this._removeHoverNotificationFrag),
-          n &&
-            (n.addEventListener("mouseenter", function () {
+          require &&
+            (require.addEventListener("mouseenter", function () {
               let e = $("body").find(".hover-notification-container");
               e.length && $(e[0]).css("display", "block");
             }),
-            n.addEventListener("mouseleave", function () {
+            require.addEventListener("mouseleave", function () {
               let e = $("body").find(".hover-notification-container");
               e.length &&
                 setTimeout(function () {
                   $(e[0]).css("display", "none");
                 }, 250);
             }),
-            $(n)
+            $(require)
               .find("li")
               .map((e, t) => {
                 t.addEventListener("mousedown", function () {
@@ -1337,10 +1337,10 @@ function (exports, module, require) {
                   e.length && $(e[0]).css("display", "none");
                 });
               })),
-          t.parent().is("body"))
+          module.parent().is("body"))
         ) {
-          var o = t.outerWidth(),
-            i = t.outerHeight(),
+          var o = module.outerWidth(),
+            i = module.outerHeight(),
             a = $(window).width(),
             r = $(window).height(),
             s = { x: 0, y: 0, width: 0, height: 0 },
@@ -1363,19 +1363,19 @@ function (exports, module, require) {
           const h = this._rangeRightY ? this._rangeRightY : r;
           u + i >= h && (u = h - i);
           const f = u - i - 10;
-          t.css("left", d),
-            t.css("top", f),
-            t.addClass("g-menu-right g-menu-bottom");
+          module.css("left", d),
+            module.css("top", f),
+            module.addClass("g-menu-right g-menu-bottom");
         }
       }),
       (N.prototype._removeHoverNotificationFrag = function () {
-        let e = $("body").find(".hover-notification-container");
-        e.length &&
-          (e.remove(),
+        let exports = $("body").find(".hover-notification-container");
+        exports.length &&
+          (exports.remove(),
           document.removeEventListener(
             "click",
             this._removeHoverNotificationFrag
           ));
       }),
-      (e.exports = N);
+      (exports.exports = N);
   }

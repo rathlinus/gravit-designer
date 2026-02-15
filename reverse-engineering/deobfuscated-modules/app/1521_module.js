@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */;
-    const o = n(394) /* GView */,
-      i = n(78) /* GDocumentEvent */,
-      a = n(86) /* module_86 */,
-      r = n(217) /* GDocumentStatusEvent */;
+    require(4) /* module_4 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */;
+    const o = require(394) /* GView */,
+      i = require(78) /* GDocumentEvent */,
+      a = require(86) /* module_86 */,
+      r = require(217) /* GDocumentStatusEvent */;
     function s(e) {
       this._htmlElement = e;
     }
@@ -21,10 +21,10 @@ function (exports, module, require) {
           .addClass("root")
           .appendTo(this._htmlElement)),
           gravit.footer.forEach((e) => {
-            let t = $("<div></div>").addClass("panel-container");
-            this._root.append(t),
-              e.init(t),
-              this._panels.push({ container: t, panel: e }),
+            let module = $("<div></div>").addClass("panel-container");
+            this._root.append(module),
+              e.init(module),
+              this._panels.push({ container: module, panel: e }),
               this._activePanel || this.setActivePanel(e.getId()),
               e.addEventListener(
                 o.UpdateEvent,
@@ -37,21 +37,21 @@ function (exports, module, require) {
           gDesigner.addEventListener(i, this._documentEvent, this);
       }),
       (s.prototype._documentEvent = function (e) {
-        const t = e.document;
+        const module = e.document;
         switch (e.type) {
           case i.Type.Activated:
-            t.addEventListener(r, this._documentStatusChanged, this),
-              (this._document = t);
+            module.addEventListener(r, this._documentStatusChanged, this),
+              (this._document = module);
             break;
           case i.Type.Deactivated:
-            t.removeEventListener(r, this._documentStatusChanged, this),
+            module.removeEventListener(r, this._documentStatusChanged, this),
               (this._document = null);
         }
       }),
       (s.prototype._documentStatusChanged = function (e) {
         if (!this._document || gDesigner.getActiveDocument() !== this._document)
           return;
-        const t = (e) => this._htmlElement.toggleClass("document-loading", e);
+        const module = (e) => this._htmlElement.toggleClass("document-loading", e);
         switch (e.status) {
           case a.Loading:
           case a.Saving:
@@ -63,7 +63,7 @@ function (exports, module, require) {
               e.status === a.Saving
             )
               return;
-            t(true);
+            module(true);
             break;
           case a.LoadCancelled:
           case a.DownloadCancelled:
@@ -74,21 +74,21 @@ function (exports, module, require) {
           case a.DownloadFailed:
           case a.Loaded:
           case a.LoadFailed:
-            t(false);
+            module(false);
         }
       }),
       (s.prototype._updateFooter = function () {
-        const e = this._panels.some((e) => e.panel.isEnabled());
-        this._htmlElement.css("display", e ? "" : "none");
+        const exports = this._panels.some((e) => e.panel.isEnabled());
+        this._htmlElement.css("display", exports ? "" : "none");
       }),
       (s.prototype.setActivePanel = function (e) {
-        for (var t = 0; t < this._panels.length; ++t) {
-          var n = this._panels[t],
-            o = n.panel.getId();
+        for (var module = 0; module < this._panels.length; ++module) {
+          var require = this._panels[module],
+            o = require.panel.getId();
           o === e
-            ? (n.container.css("display", ""), n.panel.activate())
-            : (n.container.css("display", "none"),
-              o === this._activePanel && n.panel.deactivate());
+            ? (require.container.css("display", ""), require.panel.activate())
+            : (require.container.css("display", "none"),
+              o === this._activePanel && require.panel.deactivate());
         }
         this._activePanel = e;
       }),
@@ -96,5 +96,5 @@ function (exports, module, require) {
       (s.prototype.getHeight = function () {
         return this._htmlElement[0].clientHeight;
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

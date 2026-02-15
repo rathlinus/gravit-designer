@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.cdrFormatVersionToReleaseYear = function (e) {
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.cdrFormatVersionToReleaseYear = function (e) {
         return parseFloat(e) + 2e3 - 2;
       }),
-      (t.prepareCDRforSaving = t.default = undefined),
-      (t.releaseYearToCdrFormatVersion = function (e) {
+      (module.prepareCDRforSaving = module.default = undefined),
+      (module.releaseYearToCdrFormatVersion = function (e) {
         return e && e >= 2020 ? e - 2e3 + 2 : 0;
       }),
-      n(193) /* module_193 */,
-      n(8) /* module_8 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(217) /* GDocumentStatusEvent */),
-      r = o(n(86) /* module_86 */);
-    const s = n(1101) /* module_1101 */,
-      l = (t.prepareCDRforSaving = async function (e, t, n, o, l) {
+      require(193) /* module_193 */,
+      require(8) /* module_8 */;
+    var i = require(1) /* module */,
+      a = o(require(217) /* GDocumentStatusEvent */),
+      r = o(require(86) /* module_86 */);
+    const s = require(1101) /* module_1101 */,
+      l = (module.prepareCDRforSaving = async function (e, t, n, o, l) {
         if (!gDesigner.getCDRIntegrationEngine()) return t(), false;
         const c = await gDesigner.getUser();
         n.userName = c
@@ -74,5 +74,5 @@ function (exports, module, require) {
           )
         );
       });
-    t.default = { prepareCDRforSaving: l };
+    module.default = { prepareCDRforSaving: l };
   }

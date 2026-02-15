@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(1244) /* module_1244 */,
-      i = n(1679) /* module_1679 */,
-      a = n(1682) /* module_1682 */,
-      r = n(1683) /* module_1683 */;
-    e.exports = class {
+    const o = require(1244) /* module_1244 */,
+      i = require(1679) /* module_1679 */,
+      a = require(1682) /* module_1682 */,
+      r = require(1683) /* module_1683 */;
+    exports.exports = class {
       static newInAppPurchase(e) {
         switch (e) {
           case o.Windows:

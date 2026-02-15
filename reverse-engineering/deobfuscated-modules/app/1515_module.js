@@ -3,7 +3,7 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     (function () {
       !(function () {
         "use strict";

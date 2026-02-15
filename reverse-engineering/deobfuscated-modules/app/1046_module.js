@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     var o, i, a, r, s, l;
-    e.exports =
-      ((l = n(55) /* module_55 */),
-      n(736) /* module_736 */,
+    exports.exports =
+      ((l = require(55) /* module_55 */),
+      require(736) /* module_736 */,
       (i = (o = l).lib.WordArray),
       (a = o.algo),
       (r = a.SHA256),

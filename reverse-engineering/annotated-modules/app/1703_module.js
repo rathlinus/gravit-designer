@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(38) /* module_38 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = n(238) /* GMenu */,
       a = n(444) /* module_444 */;
     var r = {

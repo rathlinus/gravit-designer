@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
-    n(173) /* module_173 */;
+    var o = require(1) /* module */;
+    require(173) /* module_173 */;
     function i() {}
     o.GObject.inheritAndMix(i, o.GObject);
     var a = null;
@@ -18,9 +18,9 @@ function (exports, module, require) {
       MERCH: "preset-merch",
     }),
       (i.getPresets = function () {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         return (
-          (a && !e) ||
+          (a && !exports) ||
             (a = [
               {
                 id: i.TYPE.PRINT,
@@ -1128,5 +1128,5 @@ function (exports, module, require) {
           a
         );
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

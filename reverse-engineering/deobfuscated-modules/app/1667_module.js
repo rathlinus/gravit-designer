@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this._builder = e), (this._onClose = t);
     }
@@ -23,5 +23,5 @@ function (exports, module, require) {
       }),
       o.GObject.inherit(i.Event, o.GEvent),
       (i.Event.Type = { Close: 0 }),
-      (e.exports = i);
+      (exports.exports = i);
   }

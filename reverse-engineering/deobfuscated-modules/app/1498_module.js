@@ -14,5 +14,5 @@ function (exports, module, require) {
       (o.prototype.setEnabled = function (e) {
         $("#overlay").css("display", e ? "none" : "unset");
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(31) /* GAction */),
-      s = o(n(18) /* module_18 */),
-      l = n(198) /* Exports_GOutlineSidebar */;
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(31) /* GAction */),
+      s = o(require(18) /* module_18 */),
+      l = require(198) /* Exports_GOutlineSidebar */;
     class c extends r.default {
       getId() {
         return c.ID;
@@ -29,15 +29,15 @@ function (exports, module, require) {
         return false;
       }
       execute() {
-        const e = gDesigner.getLeftSidebars(),
-          t = e && e.getSidebar(l.SidebarsIds.GOutlineSidebar);
-        t && t.toggleMultiPageMode();
+        const exports = gDesigner.getLeftSidebars(),
+          module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar);
+        module && module.toggleMultiPageMode();
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GToggleMultiPageModeAction]";
       }
     }
     (c.ID = "view.toggle-multi-page-mode"),
       (c.TITLE = new i.GLocaleKey("GToggleMultiPageModeAction", "title")),
-      (e.exports = c);
+      (exports.exports = c);
   }

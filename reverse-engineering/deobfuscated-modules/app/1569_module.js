@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var i = o(n(11) /* GUtil */);
-    n(1322) /* module_1322 */;
-    const a = n(808) /* GApplicationStatusEvent */,
-      r = n(1570) /* module_1570 */,
-      s = n(392) /* module_392 */,
-      l = n(1323) /* module_1323 */,
-      c = n(441) /* module_441 */,
+    var o = require(16) /* module_16 */;
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    var i = o(require(11) /* GUtil */);
+    require(1322) /* module_1322 */;
+    const a = require(808) /* GApplicationStatusEvent */,
+      r = require(1570) /* module_1570 */,
+      s = require(392) /* module_392 */,
+      l = require(1323) /* module_1323 */,
+      c = require(441) /* module_441 */,
       {
         SHARE_ENGINE: d,
         HAS_ANNOTATIONS: u,
@@ -21,7 +21,7 @@ function (exports, module, require) {
         FileStatus: { APPROVED: g },
         FILE_REVIEW_ENABLED: h,
         LEGACY_SHARE_DIALOG: f,
-      } = n(10) /* module_10 */;
+      } = require(10) /* module_10 */;
     function m(e) {
       (this._state = new r()),
         d && gDesigner.addEventListener(l, this._shareStateChangedEvent, this),
@@ -33,9 +33,9 @@ function (exports, module, require) {
       e && e();
     }),
       (m.prototype._shareStateChangedEvent = function (e) {
-        const t = new r(Object.assign({}, this._state)),
+        const module = new r(Object.assign({}, this._state)),
           {
-            owner: n,
+            owner: require,
             share: o,
             sharing: i,
             edit: a,
@@ -46,8 +46,8 @@ function (exports, module, require) {
             role: p,
             realtimeCollaborators: g = [],
           } = e.state;
-        n
-          ? Object.assign(t, {
+        require
+          ? Object.assign(module, {
               edit: true,
               saveAs: true,
               export: true,
@@ -55,7 +55,7 @@ function (exports, module, require) {
               copyPaste: true,
               comment: !!u,
             })
-          : Object.assign(t, {
+          : Object.assign(module, {
               edit: a,
               saveAs: l,
               export: l,
@@ -63,14 +63,14 @@ function (exports, module, require) {
               inspect: s,
               comment: c,
             }),
-          Object.assign(t, {
+          Object.assign(module, {
             isShareEnabled: o,
             isSharing: i,
             isPrivateSharing: d,
             role: p,
             realtimeCollaborators: g,
           }),
-          this._setState(t, e.document);
+          this._setState(module, e.document);
       }),
       (m.prototype._setState = function (e, t) {
         i.default.equals(e, this._state, true) ||
@@ -127,11 +127,11 @@ function (exports, module, require) {
       (m.prototype.isCommentingEditingEnabled = function () {
         if (!this.isCommentingEnabled()) return false;
         if (h) {
-          var e = true,
-            t = gDesigner.getActiveDocument(),
-            n = t && t.getStorageItem(),
-            o = n && n.getFile();
-          return o && o.status === g && (e = false), e;
+          var exports = true,
+            module = gDesigner.getActiveDocument(),
+            require = module && module.getStorageItem(),
+            o = require && require.getFile();
+          return o && o.status === g && (exports = false), exports;
         }
         return true;
       }),
@@ -139,17 +139,17 @@ function (exports, module, require) {
         return this._state.copyPaste;
       }),
       (m.prototype.hasAccess = async function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-        const n = gDesigner.getShareManager().getRole();
-        return !(!n || !((!t && n.is(p.Owner)) || (await n.can(e))));
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        const require = gDesigner.getShareManager().getRole();
+        return !(!require || !((!module && require.is(p.Owner)) || (await require.can(e))));
       }),
       (m.prototype.hasPermission = function (e, t) {
-        const n = gDesigner.getShareManager().getRole(e);
-        return !(!n || !n.hasPermission(t));
+        const require = gDesigner.getShareManager().getRole(e);
+        return !(!require || !require.hasPermission(t));
       }),
       (m.prototype.hasRole = function (e) {
-        const t = gDesigner.getShareManager().getRole();
-        return !!t && t.is(e);
+        const module = gDesigner.getShareManager().getRole();
+        return !!module && module.is(e);
       }),
       (m.prototype.isFileFormatEnabledForSaveAs = function (e) {
         return this._state.saveAs;
@@ -184,5 +184,5 @@ function (exports, module, require) {
       (m.prototype.isImportResourcesEnabled = function () {
         return this.isOpenFilesFromLocalEnabled();
       }),
-      (e.exports = m);
+      (exports.exports = m);
   }

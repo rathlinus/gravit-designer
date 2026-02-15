@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const { gApi: o } = n(10) /* module_10 */;
-    e.exports = class {
+    require(8) /* module_8 */;
+    const { gApi: o } = require(10) /* module_10 */;
+    exports.exports = class {
       canMakePayments() {
         return true;
       }

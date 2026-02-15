@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(34) /* module_34 */;
-    var o = n(10) /* module_10 */;
-    const { GLocale: i, GLocaleKey: a } = n(1) /* module_1 */;
+    require(20) /* module_20 */, require(34) /* module_34 */;
+    var o = require(10) /* module_10 */;
+    const { GLocale: i, GLocaleKey: a } = require(1) /* module */;
     function r(e) {
       this._htmlElement = e;
     }
     (r.prototype.init = function () {
-      const e = $("<div></div>")
+      const exports = $("<div></div>")
         .addClass("container")
         .appendTo(this._htmlElement);
       $("<p></p>")
@@ -31,10 +31,10 @@ function (exports, module, require) {
               )
             )
         )
-        .appendTo(e);
+        .appendTo(exports);
     }),
       (r.prototype.setEnabled = function (e) {
         $("#banner").css("display", e ? "none" : "unset");
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

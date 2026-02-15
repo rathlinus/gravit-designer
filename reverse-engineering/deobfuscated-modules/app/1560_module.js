@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(96) /* module_96 */, n(30) /* module_30 */, n(8) /* module_8 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
-      r = o(n(1561) /* module_1561 */),
-      s = o(n(177) /* module_177 */);
-    const { gApi: l } = n(10) /* module_10 */;
-    e.exports = class {
-      constructor(e, t) {
-        let n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+    var o = require(16) /* module_16 */;
+    require(96) /* module_96 */, require(30) /* module_30 */, require(8) /* module_8 */;
+    var i = require(1) /* module */,
+      a = require(53) /* module */,
+      r = o(require(1561) /* module_1561 */),
+      s = o(require(177) /* module_177 */);
+    const { gApi: l } = require(10) /* module_10 */;
+    exports.exports = class {
+      function Object() { [native code] }(e, t) {
+        let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         (this._firstName = e),
           (this._lastName = t),
-          (this._anonymous = n),
+          (this._anonymous = require),
           (this._confirmBtn = $("<button/>")
             .addClass("confirm-btn")
             .attr("disabled", this._checkNameFieldsFilled())
@@ -113,15 +113,15 @@ function (exports, module, require) {
           );
       }
       async _updateUserName() {
-        const e = { name: this._firstName, last_name: this._lastName },
-          t = new s.default(e);
+        const exports = { name: this._firstName, last_name: this._lastName },
+          module = new s.default(exports);
         this._anonymous
           ? gContainer.setCookie({
               name: r.default.ANONYMOUS_USERNAME,
-              value: encodeURIComponent(JSON.stringify(e)),
+              value: encodeURIComponent(JSON.stringify(exports)),
             })
-          : await l.updateUser(e),
-          await this._updateUserProperties(t),
+          : await l.updateUser(exports),
+          await this._updateUserProperties(module),
           this.close();
       }
       async _updateUserProperties(e) {

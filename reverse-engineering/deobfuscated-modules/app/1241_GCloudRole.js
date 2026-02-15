@@ -10,10 +10,10 @@ function (exports, module, require) {
       if (!o.Type[e]) throw new Error("Incorrect Clour Role type");
       this._type = e;
     }
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.GCloudRole = o),
-      (t.default = undefined),
-      n(3) /* module_3 */,
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.GCloudRole = o),
+      (module.default = undefined),
+      require(3) /* module_3 */,
       (o.Type = {
         Viewer: "Viewer",
         Coauthor: "Coauthor",
@@ -33,5 +33,5 @@ function (exports, module, require) {
       (o.prototype.toString = function () {
         return "[Object GCloudRole]";
       });
-    t.default = o;
+    module.default = o;
   }

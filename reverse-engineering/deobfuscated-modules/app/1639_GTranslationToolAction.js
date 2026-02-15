@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */,
-      r = n(1640) /* module_1640 */,
-      { IS_TRUNK: s, IS_LOCALHOST: l } = n(231) /* module_231 */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */,
+      r = require(1640) /* module_1640 */,
+      { IS_TRUNK: s, IS_LOCALHOST: l } = require(231) /* module_231 */;
     function c() {}
     o.GObject.inherit(c, a),
       (c.ID = "help.translationtool"),
@@ -42,5 +42,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GTranslationToolAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

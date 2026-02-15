@@ -6,23 +6,23 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */, n(20) /* module_20 */, n(3) /* module_3 */, n(71) /* module_71 */, n(34) /* module_34 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
-      r = n(40) /* module_40 */,
-      s = n(10) /* module_10 */,
-      l = n(67) /* GRichTooltipConfig */,
-      c = o(n(340) /* GTouchTool */),
-      d = n(123) /* GProperties */,
-      u = n(1153) /* module_1153 */,
-      p = n(135) /* GSettingChangedEvent */,
-      g = n(603) /* module_603 */,
-      h = n(1328) /* module_1328 */,
-      f = n(442) /* module_442 */;
-    const m = n(44) /* GSystemDialog */,
-      y = n(1604) /* module_1604 */,
-      v = n(78) /* GDocumentEvent */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */, require(20) /* module_20 */, require(3) /* module_3 */, require(71) /* module_71 */, require(34) /* module_34 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = require(53) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(10) /* module_10 */,
+      l = require(67) /* GRichTooltipConfig */,
+      c = o(require(340) /* GTouchTool */),
+      d = require(123) /* GProperties */,
+      u = require(1153) /* module_1153 */,
+      p = require(135) /* GSettingChangedEvent */,
+      g = require(603) /* module_603 */,
+      h = require(1328) /* module_1328 */,
+      f = require(442) /* module_442 */;
+    const m = require(44) /* GSystemDialog */,
+      y = require(1604) /* module_1604 */,
+      v = require(78) /* GDocumentEvent */;
     function _() {}
     i.GObject.inherit(_, d),
       (_.prototype._panel = null),
@@ -387,10 +387,10 @@ function (exports, module, require) {
         throw new Error("Unknown input property: " + e);
       }),
       (_.prototype._windowEvent = function (e) {
-        const { type: t, window: n } = e;
-        if (t !== g.WindowEvent.Type.Activated)
+        const { type: module, window: require } = e;
+        if (module !== g.WindowEvent.Type.Activated)
           return void (
-            t === g.WindowEvent.Type.Removed &&
+            module === g.WindowEvent.Type.Removed &&
             this._lastScene &&
             (this._lastScene.removeEventListener(
               i.GNode.AfterPropertiesChangeEvent,
@@ -404,7 +404,7 @@ function (exports, module, require) {
             ),
             (this._lastScene = null))
           );
-        if (n.getDocument() !== gDesigner.getActiveDocument()) return;
+        if (require.getDocument() !== gDesigner.getActiveDocument()) return;
         const o = gDesigner.getActiveDocument().getScene();
         o.addEventListener(
           i.GNode.AfterFlagChangeEvent,
@@ -439,20 +439,20 @@ function (exports, module, require) {
         );
       }),
       (_.prototype._pageActivationEventHandler = function (e) {
-        let { node: t, flag: n } = e;
-        if (t instanceof i.GPage && n === i.GNode.Flag.Active) {
+        let { node: module, flag: require } = e;
+        if (module instanceof i.GPage && require === i.GNode.Flag.Active) {
           const e = gDesigner
               .getWindows()
               .getActiveWindow()
               .getView()
               .getViewConfiguration().paintMode,
-            n = !t.isFixedSized();
+            n = !module.isFixedSized();
           if (n && e === i.GScenePaintConfiguration.PaintMode.Output)
             gDesigner.setPaintMode(i.GScenePaintConfiguration.PaintMode.Full),
               this._updatePageSetting(f.PAGE_CLIP_CONTENT_DISABLED);
           else if (!n) {
             var o =
-              t.getProperty(f.PAGE_CLIP_PROPERTY_NAME, true) ||
+              module.getProperty(f.PAGE_CLIP_PROPERTY_NAME, true) ||
               (s.PAGE_CLIP_DEFAULT
                 ? f.PAGE_CLIP_CONTENT_ENABLED
                 : f.PAGE_CLIP_CONTENT_DISABLED);
@@ -462,14 +462,14 @@ function (exports, module, require) {
                 : i.GScenePaintConfiguration.PaintMode.Full
             );
           }
-          this.updatePropertiesAvailability(t);
+          this.updatePropertiesAvailability(module);
         }
       }),
       (_.prototype._propertiesUpdateEventHandler = function (e) {
-        let { node: t, temporary: n, properties: o } = e;
+        let { node: module, temporary: require, properties: o } = e;
         if (
-          !n &&
-          t instanceof i.GPage &&
+          !require &&
+          module instanceof i.GPage &&
           (o.indexOf("w") >= 0 || o.indexOf("h") >= 0)
         ) {
           var a = gDesigner
@@ -477,7 +477,7 @@ function (exports, module, require) {
               .getActiveWindow()
               .getView()
               .getViewConfiguration().paintMode,
-            r = !t.isFixedSized();
+            r = !module.isFixedSized();
           r && a === i.GScenePaintConfiguration.PaintMode.Output
             ? (gDesigner.setPaintMode(
                 i.GScenePaintConfiguration.PaintMode.Full
@@ -608,7 +608,7 @@ function (exports, module, require) {
           (this._hrAfterbleedRow = $("<hr/>")
             .attr("data-property-row", "fixed-size")
             .appendTo(e));
-        const n = l.GRichTooltipConfig.from({
+        const require = l.GRichTooltipConfig.from({
           title: i.GLocale.get(
             new i.GLocaleKey("GPageProperties", "text.margin-tooltip-title")
           ),
@@ -642,7 +642,7 @@ function (exports, module, require) {
                 label: i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.left")
                 ),
-                content: this._createInput("ml").gRichTooltip(n),
+                content: this._createInput("ml").gRichTooltip(require),
               },
               {
                 clazz: "margin-input-column",
@@ -650,7 +650,7 @@ function (exports, module, require) {
                 label: i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.top")
                 ),
-                content: this._createInput("mt").gRichTooltip(n),
+                content: this._createInput("mt").gRichTooltip(require),
               },
               {
                 clazz: "margin-input-column",
@@ -658,7 +658,7 @@ function (exports, module, require) {
                 label: i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.right")
                 ),
-                content: this._createInput("mr").gRichTooltip(n),
+                content: this._createInput("mr").gRichTooltip(require),
               },
               {
                 clazz: "margin-input-column",
@@ -666,7 +666,7 @@ function (exports, module, require) {
                 label: i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.bottom")
                 ),
-                content: this._createInput("mb").gRichTooltip(n),
+                content: this._createInput("mb").gRichTooltip(require),
               },
               {
                 clazz: "margin-btn-column",
@@ -837,12 +837,12 @@ function (exports, module, require) {
           );
         else if ("@trim" === e) {
           this._ownChange = true;
-          var t = this._document.getEditor();
-          t.beginTransaction();
+          var module = this._document.getEditor();
+          module.beginTransaction();
           try {
             this._pages.forEach((e) => e.trimToContent());
           } finally {
-            t.commitTransaction(
+            module.commitTransaction(
               i.GLocale.get(
                 new i.GLocaleKey("GPageProperties", "action.change-size")
               )
@@ -850,12 +850,12 @@ function (exports, module, require) {
               (this._ownChange = false);
           }
         } else {
-          var n = this._document.getScene(),
+          var require = this._document.getScene(),
             o = e.split("x"),
-            a = n.stringToPoint(o[0]),
-            r = n.stringToPoint(o[1]),
+            a = require.stringToPoint(o[0]),
+            r = require.stringToPoint(o[1]),
             s = +o[2];
-          n.getProperty("dpi") !== s && n.setProperty("dpi", s),
+          require.getProperty("dpi") !== s && require.setProperty("dpi", s),
             this._assignProperties(
               ["w", "h"],
               [a, r],
@@ -1391,5 +1391,5 @@ function (exports, module, require) {
       (_.prototype.toString = function () {
         return "[Object GPageProperties]";
       }),
-      (e.exports = _);
+      (exports.exports = _);
   }

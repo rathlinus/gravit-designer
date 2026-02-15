@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = undefined),
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
-    t.default = class {
-      constructor() {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = undefined),
+      require(4) /* module_4 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */;
+    module.default = class {
+      function Object() { [native code] }() {
         this._executions = [];
       }
       step(e) {

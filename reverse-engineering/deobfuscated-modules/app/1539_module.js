@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(394) /* GView */;
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(394) /* GView */;
     function a(e) {
       (this._htmlElement = e),
         (this._collapseIcon = $(
@@ -49,16 +49,16 @@ function (exports, module, require) {
       (a.prototype.setActivePanel = function (e) {
         if (e === this._activePanel) this.toggleCollapseMode();
         else {
-          for (var t = 0; t < this._panels.length; ++t) {
-            var n = this._panels[t],
-              o = n.panel.getId();
+          for (var module = 0; module < this._panels.length; ++module) {
+            var require = this._panels[module],
+              o = require.panel.getId();
             o === e
-              ? (n.container.css("display", ""),
-                n.tab.addClass("g-active"),
-                n.panel.activate())
-              : (n.container.css("display", "none"),
-                n.tab.removeClass("g-active"),
-                o === this._activePanel && n.panel.deactivate());
+              ? (require.container.css("display", ""),
+                require.tab.addClass("g-active"),
+                require.panel.activate())
+              : (require.container.css("display", "none"),
+                require.tab.removeClass("g-active"),
+                o === this._activePanel && require.panel.deactivate());
           }
           this._activePanel = e;
         }
@@ -133,9 +133,9 @@ function (exports, module, require) {
       }),
       (a.prototype.relayout = function () {}),
       (a.prototype._getPanelInfo = function (e) {
-        for (var t = 0; t < this._panels.length; ++t) {
-          if (this._panels[t].panel.getId() === e) return this._panels[t];
+        for (var module = 0; module < this._panels.length; ++module) {
+          if (this._panels[module].panel.getId() === e) return this._panels[module];
         }
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

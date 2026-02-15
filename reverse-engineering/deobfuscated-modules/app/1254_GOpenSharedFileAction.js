@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */, n(125) /* module_125 */, n(126) /* module_126 */, n(114) /* module_114 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */,
-      r = n(44) /* GSystemDialog */,
-      s = n(163) /* module_163 */,
-      l = n(85) /* GContainer */,
-      c = n(1255) /* module_1255 */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */, require(125) /* module_125 */, require(126) /* module_126 */, require(114) /* module_114 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */,
+      r = require(44) /* GSystemDialog */,
+      s = require(163) /* module_163 */,
+      l = require(85) /* GContainer */,
+      c = require(1255) /* module_1255 */;
     function d() {}
     o.GObject.inherit(d, a),
       (d.ID = "file.share.opensharedfile"),
@@ -41,15 +41,15 @@ function (exports, module, require) {
           (e) => {
             if (undefined !== e)
               try {
-                var t = new URL(e).searchParams.get(
+                var module = new URL(e).searchParams.get(
                   l.OpenFileRequest.Type.Token
                 );
-                if (t) {
+                if (module) {
                   let e = new l.OpenFileRequest(
                     l.OpenFileRequest.Type.Token,
-                    t
+                    module
                   );
-                  gApi.setToken({ token: t });
+                  gApi.setToken({ token: module });
                   let n = new s();
                   n.setTitle(e.getContent()),
                     gDesigner.addDocument(n),
@@ -80,5 +80,5 @@ function (exports, module, require) {
       (d.prototype.toString = function () {
         return "[Object GOpenSharedFileAction]";
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

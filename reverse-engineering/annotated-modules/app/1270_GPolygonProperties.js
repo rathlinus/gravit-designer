@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(67) /* GRichTooltipConfig */,
       a = n(123) /* GProperties */,
       r = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);

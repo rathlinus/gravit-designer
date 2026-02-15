@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(19) /* module_19 */, n(193) /* module_193 */, n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */;
+    require(58) /* module_58 */, require(19) /* module_19 */, require(193) /* module_193 */, require(8) /* module_8 */, require(196) /* module_196 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var o = require(1) /* module */;
     const {
         gApi: i,
         AUTO_SAVE_ENABLED: a,
@@ -14,21 +14,21 @@ function (exports, module, require) {
         CloudIntegration: s,
         DESIGNER: l,
         EXTERNAL_APP: c,
-      } = n(10) /* module_10 */,
-      { buildDialogDocumentHasUpdates: d } = n(40) /* module_40 */,
-      u = n(85) /* GContainer */,
-      p = n(44) /* GSystemDialog */,
-      g = n(556) /* module_556 */,
-      h = n(448) /* GGravitCloudAction */,
-      f = n(78) /* GDocumentEvent */,
-      m = n(135) /* GSettingChangedEvent */,
-      y = n(291) /* GNetworkAvailabilityChangedEvent */,
-      v = n(1530) /* module_1530 */,
-      _ = n(1534) /* module_1534 */,
-      b = n(86) /* module_86 */,
-      w = n(217) /* GDocumentStatusEvent */,
-      { SETUP: C, CODES: x } = n(591) /* module_591 */,
-      S = n(1277) /* Action_edit_settings */;
+      } = require(10) /* module_10 */,
+      { buildDialogDocumentHasUpdates: d } = require(40) /* module_40 */,
+      u = require(85) /* GContainer */,
+      p = require(44) /* GSystemDialog */,
+      g = require(556) /* module_556 */,
+      h = require(448) /* GGravitCloudAction */,
+      f = require(78) /* GDocumentEvent */,
+      m = require(135) /* GSettingChangedEvent */,
+      y = require(291) /* GNetworkAvailabilityChangedEvent */,
+      v = require(1530) /* module_1530 */,
+      _ = require(1534) /* module_1534 */,
+      b = require(86) /* module_86 */,
+      w = require(217) /* GDocumentStatusEvent */,
+      { SETUP: C, CODES: x } = require(591) /* module_591 */,
+      S = require(1277) /* Action_edit_settings */;
     function E() {
       if (
         ((this._pendingSyncDialog = new Set()),
@@ -112,8 +112,8 @@ function (exports, module, require) {
         return this._status;
       }),
       (E.prototype._setInterval = function (e) {
-        const t = parseFloat(e) || r;
-        this._interval = 60 * t * 1e3;
+        const module = parseFloat(e) || r;
+        this._interval = 60 * module * 1e3;
       }),
       (E.prototype._shouldHandle = async function (e) {
         return (
@@ -135,8 +135,8 @@ function (exports, module, require) {
             Promise.reject(x.AUTOSAVE_OFFLINE_NOT_AVAILABLE)
           );
         this._offlineAlert && this._toggleOfflineAlert(false);
-        const t = [b.Saving, b.Syncing, b.Loading].includes(e.getStatus());
-        return this._autoSaveModel.has(e) || t
+        const module = [b.Saving, b.Syncing, b.Loading].includes(e.getStatus());
+        return this._autoSaveModel.has(e) || module
           ? x.AUTOSAVE_ALREADY_SAVING
           : e.isCloudFile() || e.isExternalFile()
           ? this._isCDRFile(e)
@@ -211,22 +211,22 @@ function (exports, module, require) {
         );
       }),
       (E.prototype._resetDocumentTimeout = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        const n = this._documentsMap.get(e);
-        n.timeoutId && (clearTimeout(n.timeoutId), (n.timeoutId = null)),
-          t &&
-            (n.timeoutId = setTimeout(() => {
+        const require = this._documentsMap.get(e);
+        require.timeoutId && (clearTimeout(require.timeoutId), (require.timeoutId = null)),
+          module &&
+            (require.timeoutId = setTimeout(() => {
               this._savingQueue.has(e) ||
                 (this._savingQueue.add(e), this._savingQueue.process());
             }, this._interval)),
-          this._documentsMap.set(e, n);
+          this._documentsMap.set(e, require);
       }),
       (E.prototype._resetAllDocumentsTimeout = function () {
-        let e =
+        let exports =
           !(arguments.length > 0 && undefined !== arguments[0]) || arguments[0];
-        for (let t of this._documentsMap.values())
-          this._resetDocumentTimeout(t.doc, e);
+        for (let module of this._documentsMap.values())
+          this._resetDocumentTimeout(module.doc, exports);
       }),
       (E.prototype.disable = function () {
         this.getStatus() !== E.Status.Disabled &&
@@ -386,9 +386,9 @@ function (exports, module, require) {
             (this._offlineAlert = null);
       }),
       (E.prototype._showWarnDialog = function () {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         return this._warnDialogShown ||
-          (e && this.getStatus() === E.Status.Enabled)
+          (exports && this.getStatus() === E.Status.Enabled)
           ? Promise.resolve()
           : this.getStatus() === E.Status.Enabled
           ? Promise.resolve(true)
@@ -526,12 +526,12 @@ function (exports, module, require) {
       }),
       (E.prototype._showSyncDialog = function (e) {
         if (gDesigner.getSetting(E.DISABLE_WARNING_SETTING_NAME)) return;
-        let t, n, i;
+        let module, require, i;
         e.hasCloudReference()
-          ? ((t = o.GLocale.get(
+          ? ((module = o.GLocale.get(
               new o.GLocaleKey("GAutoSave", "text.alert-cloud-reference-sync")
             )),
-            (n = o.GLocale.get(
+            (require = o.GLocale.get(
               new o.GLocaleKey(
                 "GAutoSave",
                 "text.alert-cloud-reference-sync-sub-text"
@@ -544,10 +544,10 @@ function (exports, module, require) {
                 shortcut: p.Shortcut.Enter,
               },
             ]))
-          : ((t = o.GLocale.get(
+          : ((module = o.GLocale.get(
               new o.GLocaleKey("GAutoSave", "text.alert-sync")
             )),
-            (n = o.GLocale.get(
+            (require = o.GLocale.get(
               new o.GLocaleKey("GAutoSave", "text.alert-sync-sub-text")
             )),
             (i = [
@@ -578,8 +578,8 @@ function (exports, module, require) {
             ])),
           (this._syncDialogShown[e.sessionId] = true),
           p.custom({
-            title: t.replace("%title", e.getTitle()),
-            subtitle: n.replace("%title", e.getTitle()),
+            title: module.replace("%title", e.getTitle()),
+            subtitle: require.replace("%title", e.getTitle()),
             className: "g-auto-save-sync-dialog",
             icon: "info",
             closeable: false,
@@ -707,8 +707,8 @@ function (exports, module, require) {
       }),
       (E.prototype._getExternalStorageName = function (e) {
         if (!e) return "";
-        const t = e.getStorageItem();
-        return t && t instanceof g.Item
+        const module = e.getStorageItem();
+        return module && module instanceof g.Item
           ? s.cloudOptions.find((e) => e.type === c.GOOGLEDRIVE).name
           : "";
       }),
@@ -721,8 +721,8 @@ function (exports, module, require) {
           (await this._shouldHideNotifications())
         )
           return;
-        let t = "";
-        t = e
+        let module = "";
+        module = e
           ? o.GLocale.get(
               new o.GLocaleKey("GAutoSave", "text.failed-auto-saving")
             )
@@ -731,7 +731,7 @@ function (exports, module, require) {
                 Math.floor(Math.random() * E.ALTERNATE_STRINGS.length)
               ]
             );
-        let n = {
+        let require = {
           custom: true,
           class: "g-auto-save-notification",
           enter: "enter",
@@ -752,16 +752,16 @@ function (exports, module, require) {
                     $("<div/>"),
                     $("<div/>"),
                   ]),
-            $("<div/>").addClass("message").text(t),
+            $("<div/>").addClass("message").text(module),
           ],
           closeCallback: function () {
             gContainer.setProperty(E.AUTO_SAVE_HIDE_NOTIFICATION_PROP_NAME, true);
           },
         };
-        gDesigner.addNotification(n);
+        gDesigner.addNotification(require);
       }),
       (E.prototype._isCDRFile = function (e) {
         return false;
       }),
-      (e.exports = E);
+      (exports.exports = E);
   }

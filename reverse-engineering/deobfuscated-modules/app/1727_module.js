@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */;
+    require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */;
     var o = [];
     function i() {
       if (o.length > 0) {
-        var e = $(o[o.length - 1]);
-        $(e).data("gdialog").closable && e.gDialog("close", true);
+        var exports = $(o[o.length - 1]);
+        $(exports).data("gdialog").closable && exports.gDialog("close", true);
       }
     }
     document.addEventListener("keydown", function (e) {
@@ -44,10 +44,10 @@ function (exports, module, require) {
               e.buttons && e.buttons.length)
             )
               for (
-                var n = $("<div></div>")
+                var require = $("<div></div>")
                     .addClass("g-dialog-footer")
                     .appendTo(t.closest(".g-dialog")),
-                  o = $("<div/>").addClass("buttons").appendTo(n),
+                  o = $("<div/>").addClass("buttons").appendTo(require),
                   i = 0;
                 i < e.buttons.length;
                 ++i

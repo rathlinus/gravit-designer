@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(31) /* GAction */),
-      r = o(n(18) /* module_18 */),
-      s = o(n(119) /* module_119 */),
-      l = o(n(1159) /* module_1159 */),
-      c = o(n(219) /* module_219 */),
-      d = o(n(256) /* GOfflineDialog */),
-      u = n(67) /* GRichTooltipConfig */;
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(31) /* GAction */),
+      r = o(require(18) /* module_18 */),
+      s = o(require(119) /* module_119 */),
+      l = o(require(1159) /* module_1159 */),
+      c = o(require(219) /* module_219 */),
+      d = o(require(256) /* GOfflineDialog */),
+      u = require(67) /* GRichTooltipConfig */;
     function p() {
       (this._title = new i.GLocaleKey("GVersionsHistoryAction", "title")),
         (p.TOOLTIP_CONFIG = {
@@ -93,7 +93,7 @@ function (exports, module, require) {
             ).open(),
             false
           );
-        const e = () => {
+        const exports = () => {
           gDesigner &&
             gDesigner.hasEventListeners(l.default) &&
             (gDesigner.trigger(
@@ -104,10 +104,10 @@ function (exports, module, require) {
             ),
             gDesigner.intercomStats("Entered version history"));
         };
-        gDesigner.isOffline() ? d.default.openUnavailableFeature(e) : e();
+        gDesigner.isOffline() ? d.default.openUnavailableFeature(exports) : exports();
       }),
       (p.prototype.toString = function () {
         return "[Object GVersionsHistoryAction]";
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

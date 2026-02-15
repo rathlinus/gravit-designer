@@ -16,9 +16,9 @@ function (exports, module, require) {
         p = "tablet",
         g = "smarttv",
         h = function (e) {
-          for (var t = {}, n = 0; n < e.length; n++)
-            t[e[n].toUpperCase()] = e[n];
-          return t;
+          for (var module = {}, require = 0; require < e.length; require++)
+            module[e[require].toUpperCase()] = e[require];
+          return module;
         },
         f = function (e, t) {
           return "string" == typeof e && -1 !== m(t).indexOf(m(e));
@@ -34,11 +34,11 @@ function (exports, module, require) {
             );
         },
         v = function (e, t) {
-          for (var n, o, i, a, r, s, l = 0; l < t.length && !r; ) {
+          for (var require, o, i, a, r, s, l = 0; l < t.length && !r; ) {
             var c = t[l],
               d = t[l + 1];
-            for (n = o = 0; n < c.length && !r; )
-              if ((r = c[n++].exec(e)))
+            for (require = o = 0; require < c.length && !r; )
+              if ((r = c[require++].exec(e)))
                 for (i = 0; i < d.length; i++)
                   (s = r[++o]),
                     "object" == typeof (a = d[i]) && a.length > 0
@@ -59,11 +59,11 @@ function (exports, module, require) {
           }
         },
         _ = function (e, t) {
-          for (var n in t)
-            if ("object" == typeof t[n] && t[n].length > 0) {
-              for (var o = 0; o < t[n].length; o++)
-                if (f(t[n][o], e)) return "?" === n ? undefined : n;
-            } else if (f(t[n], e)) return "?" === n ? undefined : n;
+          for (var require in t)
+            if ("object" == typeof t[require] && t[require].length > 0) {
+              for (var o = 0; o < t[require].length; o++)
+                if (f(t[require][o], e)) return "?" === require ? undefined : require;
+            } else if (f(t[require], e)) return "?" === require ? undefined : require;
           return e;
         },
         b = {
@@ -694,13 +694,13 @@ function (exports, module, require) {
         (C.CPU = h(["architecture"])),
         (C.DEVICE = h([r, c, l, "console", u, g, p, "wearable", "embedded"])),
         (C.ENGINE = C.OS = h([s, d])),
-        undefined !== t
-          ? (undefined !== e && e.exports && (t = e.exports = C), (t.UAParser = C))
-          : n(414) /* module_414 */
+        undefined !== module
+          ? (undefined !== exports && exports.exports && (module = exports.exports = C), (module.UAParser = C))
+          : require(414) /* module_414 */
           ? undefined ===
               (o = function () {
                 return C;
-              }.call(t, n, t, e)) || (e.exports = o)
+              }.call(module, require, module, exports)) || (exports.exports = o)
           : undefined !== i && (i.UAParser = C);
       var x = undefined !== i && (i.jQuery || i.Zepto);
       if (x && !x.ua) {
@@ -712,7 +712,7 @@ function (exports, module, require) {
           (x.ua.set = function (e) {
             S.setUA(e);
             var t = S.getResult();
-            for (var n in t) x.ua[n] = t[n];
+            for (var require in t) x.ua[require] = t[require];
           });
       }
     })("object" == typeof window ? window : this);

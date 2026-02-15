@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
-      i = n(35) /* module_35 */,
-      a = n(297) /* module_297 */,
+    var o = require(27) /* module_27 */,
+      i = require(35) /* module_35 */,
+      a = require(297) /* module_297 */,
       r = o(Function.toString);
     i(a.inspectSource) ||
       (a.inspectSource = function (e) {
         return r(e);
       }),
-      (e.exports = a.inspectSource);
+      (exports.exports = a.inspectSource);
   }

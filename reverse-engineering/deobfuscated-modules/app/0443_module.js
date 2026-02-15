@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(557) /* module_557 */,
-      n(26) /* module_26 */,
-      Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = undefined),
-      n(8) /* module_8 */;
+    require(19) /* module_19 */,
+      require(557) /* module_557 */,
+      require(26) /* module_26 */,
+      Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = undefined),
+      require(8) /* module_8 */;
     var o = (function (e, t) {
       if ("function" == typeof WeakMap)
-        var n = new WeakMap(),
+        var require = new WeakMap(),
           o = new WeakMap();
       return (function (e, t) {
         if (!t && e && e.__esModule) return e;
@@ -22,7 +22,7 @@ function (exports, module, require) {
           r = { __proto__: null, default: e };
         if (null === e || ("object" != typeof e && "function" != typeof e))
           return r;
-        if ((i = t ? o : n)) {
+        if ((i = t ? o : require)) {
           if (i.has(e)) return i.get(e);
           i.set(e, r);
         }
@@ -37,8 +37,8 @@ function (exports, module, require) {
               : (r[t] = e[t]));
         return r;
       })(e, t);
-    })(n(1480) /* Action_id */);
-    const i = n(10) /* module_10 */;
+    })(require(1480) /* Action_id */);
+    const i = require(10) /* module_10 */;
     let a = false,
       r = false,
       s = null;
@@ -51,8 +51,8 @@ function (exports, module, require) {
         OTHER: { label: "Other" },
       },
       isExecutingOnMSTeams: async () => {
-        const e = await l.getTeamsContext().catch(() => false);
-        return !!e && !!e.tid;
+        const exports = await l.getTeamsContext().catch(() => false);
+        return !!exports && !!exports.tid;
       },
       getTeamsEnv: async function () {
         switch ((s || (await l.initTeams()), s.hostClientType)) {
@@ -70,11 +70,11 @@ function (exports, module, require) {
       isExecutingOnChannelOrChatSingletonPromise: () => r,
       initTeams: () => {
         if (s) return Promise.resolve();
-        const e = i.msTeamsMode ? 15e3 : 0;
+        const exports = i.msTeamsMode ? 15e3 : 0;
         return new Promise((t, n) => {
           const i = setTimeout(() => {
             n();
-          }, e);
+          }, exports);
           o.initialize(() => {
             o.getContext((e) => {
               (s = e), clearTimeout(i), t();
@@ -98,5 +98,5 @@ function (exports, module, require) {
       a = e;
     }),
       (r = l.isExecutingOnChannelOrChat());
-    t.default = l;
+    module.default = l;
   }

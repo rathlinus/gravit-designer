@@ -6,15 +6,15 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(606) /* GPanel */,
-      a = n(394) /* GView */,
-      r = n(78) /* GDocumentEvent */,
-      s = n(291) /* GNetworkAvailabilityChangedEvent */,
-      l = n(217) /* GDocumentStatusEvent */,
-      c = n(86) /* module_86 */;
-    n(1348) /* module_1348 */;
+    require(8) /* module_8 */, require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(606) /* GPanel */,
+      a = require(394) /* GView */,
+      r = require(78) /* GDocumentEvent */,
+      s = require(291) /* GNetworkAvailabilityChangedEvent */,
+      l = require(217) /* GDocumentStatusEvent */,
+      c = require(86) /* module_86 */;
+    require(1348) /* module_1348 */;
     function d() {}
     o.GObject.inherit(d, i),
       (d.ID = "document-notifications-panel"),
@@ -67,7 +67,7 @@ function (exports, module, require) {
         this._htmlElement.toggleClass("offline", !e.connected);
       }),
       (d.prototype._update = async function () {
-        let e =
+        let exports =
           !(arguments.length > 0 && undefined !== arguments[0]) || arguments[0];
         if (
           !this.isEnabled() ||
@@ -76,14 +76,14 @@ function (exports, module, require) {
           this._document.getStatus() === c.Loading
         )
           return void this._close(true);
-        let t = !e || (await this._document.isUpdateAvailable());
-        t ? this._showUpdatePanel() : this._close(),
+        let module = !exports || (await this._document.isUpdateAvailable());
+        module ? this._showUpdatePanel() : this._close(),
           this.trigger(a.UPDATE_EVENT);
       }),
       (d.prototype._close = function () {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         this._htmlElement.css("display", "none"),
-          e && this.trigger(a.UPDATE_EVENT);
+          exports && this.trigger(a.UPDATE_EVENT);
       }),
       (d.prototype._showUpdatePanel = function () {
         this._htmlElement.empty().append(
@@ -155,5 +155,5 @@ function (exports, module, require) {
       (d.prototype.getId = function () {
         return d.ID;
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

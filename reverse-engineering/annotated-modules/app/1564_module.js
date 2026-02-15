@@ -36,7 +36,7 @@ function (e, t, n) {
         })(e, t);
       })(n(10) /* module_10 */),
       a = o(n(389) /* module_389 */),
-      r = n(1) /* module_1 */;
+      r = n(1) /* module */;
     const s = n(78) /* GDocumentEvent */,
       l = n(441) /* module_441 */,
       {

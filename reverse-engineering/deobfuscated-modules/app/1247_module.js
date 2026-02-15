@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.shouldShowExternalFileError = function (e) {
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.shouldShowExternalFileError = function (e) {
         return e instanceof s.Item && !e.hasFileSettings();
       }),
-      (t.updateSaveOptions = function (e, t, n) {
+      (module.updateSaveOptions = function (e, t, n) {
         if (n.getFullName()) {
           const o = (0, i.getExtensionFromString)(
             n.getFullName(),
@@ -32,9 +32,9 @@ function (exports, module, require) {
         }
         return e;
       }),
-      n(38) /* module_38 */;
-    var i = n(40) /* module_40 */,
-      a = n(10) /* module_10 */,
-      r = o(n(1248) /* module_1248 */);
-    const s = n(388) /* module_388 */;
+      require(38) /* module_38 */;
+    var i = require(40) /* module_40 */,
+      a = require(10) /* module_10 */,
+      r = o(require(1248) /* module_1248 */);
+    const s = require(388) /* module_388 */;
   }

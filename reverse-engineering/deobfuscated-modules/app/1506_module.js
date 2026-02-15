@@ -4,8 +4,8 @@
  */
 
 function (exports, module, require) {
-    var o = n(1251) /* module_1251 */.default;
-    (e.exports = function (e, t) {
+    var o = require(1251) /* module_1251 */.default;
+    (exports.exports = function (e, t) {
       if ("object" != o(e) || !e) return e;
       var n = e[Symbol.toPrimitive];
       if (undefined !== n) {
@@ -15,6 +15,6 @@ function (exports, module, require) {
       }
       return ("string" === t ? String : Number)(e);
     }),
-      (e.exports.__esModule = true),
-      (e.exports.default = e.exports);
+      (exports.exports.__esModule = true),
+      (exports.exports.default = exports.exports);
   }

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = class {
+    exports.exports = class {
       static calculateProgress(e, t, n) {
         return e + (t - e) * n;
       }

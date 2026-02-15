@@ -19,7 +19,7 @@ function (e, t, n) {
       n(41) /* module_41 */,
       n(13) /* module_13 */,
       n(97) /* module_97 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = n(40) /* module_40 */,
       r = o(n(847) /* module_847 */),
       s = o(n(848) /* GoogleDriveException */),

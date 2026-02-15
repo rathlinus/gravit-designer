@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(116) /* module_116 */;
-    e.exports =
+    var o = require(116) /* module_116 */;
+    exports.exports =
       Array.isArray ||
       function (e) {
         return "Array" === o(e);

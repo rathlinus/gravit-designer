@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(443) /* module_443 */),
-      r = n(10) /* module_10 */,
-      s = n(18) /* module_18 */,
-      l = n(31) /* GAction */,
-      c = n(219) /* module_219 */,
-      d = n(85) /* GContainer */,
-      u = n(119) /* module_119 */;
-    const p = n(44) /* GSystemDialog */,
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = o(require(443) /* module_443 */),
+      r = require(10) /* module_10 */,
+      s = require(18) /* module_18 */,
+      l = require(31) /* GAction */,
+      c = require(219) /* module_219 */,
+      d = require(85) /* GContainer */,
+      u = require(119) /* module_119 */;
+    const p = require(44) /* GSystemDialog */,
       { isExecutingOnMSTeamsSync: g } = a.default;
     function h(e, t) {
       (this._locale = e), (this._title = h.Translations[e] || t);
@@ -90,5 +90,5 @@ function (exports, module, require) {
       (h.prototype.toString = function () {
         return "[Object GSwitchLanguageAction]";
       }),
-      (e.exports = h);
+      (exports.exports = h);
   }

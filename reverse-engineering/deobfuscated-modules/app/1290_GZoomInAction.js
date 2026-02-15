@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = n(18) /* module_18 */,
-      l = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = require(18) /* module_18 */,
+      l = require(31) /* GAction */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
@@ -63,15 +63,15 @@ function (exports, module, require) {
           t = null;
         if (o.GZoomTool.options.zoomLevels) {
           for (
-            var n = o.GZoomTool.options.zoomLevels,
+            var require = o.GZoomTool.options.zoomLevels,
               i = e.getZoom(),
-              r = n.length - 1,
+              r = require.length - 1,
               s = 0;
-            s < n.length;
+            s < require.length;
             s++
           )
-            if ((i < n[r - s] && (t = n[r - s]), i === n[s])) {
-              t = r > 0 ? n[s + 1] : a.GSceneWidget.options.maxZoomFactor;
+            if ((i < require[r - s] && (t = require[r - s]), i === require[s])) {
+              t = r > 0 ? require[s + 1] : a.GSceneWidget.options.maxZoomFactor;
               break;
             }
         } else t = e.getZoom() * c.ZOOM_STEP;
@@ -83,5 +83,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GZoomInAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

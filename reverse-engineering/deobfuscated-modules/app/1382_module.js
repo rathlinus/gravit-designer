@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1383) /* module_1383 */,
-      i = n(61) /* module_61 */,
-      a = n(1384) /* module_1384 */,
-      r = n(88) /* module_88 */.f;
-    e.exports = function (e) {
+    var o = require(1383) /* module_1383 */,
+      i = require(61) /* module_61 */,
+      a = require(1384) /* module_1384 */,
+      r = require(88) /* module_88 */.f;
+    exports.exports = function (e) {
       var t = o.Symbol || (o.Symbol = {});
       i(t, e) || r(t, e, { value: a.f(e) });
     };

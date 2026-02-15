@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(340) /* GTouchTool */),
       r = n(806) /* GSidebar */,
       s = n(395) /* module_395 */,

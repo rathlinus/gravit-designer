@@ -5,21 +5,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(93) /* module_93 */,
-      i = n(244) /* module_244 */,
-      a = n(101) /* module_101 */;
-    e.exports = function (e) {
+    var o = require(93) /* module_93 */,
+      i = require(244) /* module_244 */,
+      a = require(101) /* module_101 */;
+    exports.exports = function (e) {
       for (
-        var t = o(this),
-          n = a(t),
+        var module = o(this),
+          require = a(module),
           r = arguments.length,
-          s = i(r > 1 ? arguments[1] : undefined, n),
+          s = i(r > 1 ? arguments[1] : undefined, require),
           l = r > 2 ? arguments[2] : undefined,
-          c = undefined === l ? n : i(l, n);
+          c = undefined === l ? require : i(l, require);
         c > s;
 
       )
-        t[s++] = e;
-      return t;
+        module[s++] = e;
+      return module;
     };
   }

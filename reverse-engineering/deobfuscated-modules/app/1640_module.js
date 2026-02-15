@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(71) /* module_71 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(1343) /* module_1343 */),
-      r = o(n(44) /* GSystemDialog */),
-      s = n(40) /* module_40 */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(71) /* module_71 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var i = require(1) /* module */,
+      a = o(require(1343) /* module_1343 */),
+      r = o(require(44) /* GSystemDialog */),
+      s = require(40) /* module_40 */;
     function l() {}
     i.GObject.inherit(l, i.GObject),
       (l.prototype._translationManager = null),
@@ -95,10 +95,10 @@ function (exports, module, require) {
                 .attr("type", "checkbox")
                 .addClass("check-temporary")
                 .on("change", (e) => {
-                  const t = $(e.target).closest("input").is(":checked");
+                  const module = $(e.target).closest("input").is(":checked");
                   this._body
                     .find(".translations-container")
-                    .toggleClass("filter-by-temporary", !!t);
+                    .toggleClass("filter-by-temporary", !!module);
                 })
             )
             .append(
@@ -175,13 +175,13 @@ function (exports, module, require) {
         (this._translation.isAvailable = e), (this._hasUnappliedChanges = true);
       }),
       (l.prototype._handleLanguageChange = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-        if (!t && parseInt(this._currentLanguage) === parseInt(e)) return;
-        const n = () => {
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        if (!module && parseInt(this._currentLanguage) === parseInt(e)) return;
+        const require = () => {
           this._setLoadingStatus(true),
             (this._currentLanguage = parseInt(e)),
             (this._hasUnappliedChanges = false);
-          let t = this._translationManager.isConsideringExtension();
+          let module = this._translationManager.isConsideringExtension();
           this._header.find(".language-chooser").val(this._currentLanguage),
             this._body.find(".translations-container").remove();
           var n = $("<div></div>")
@@ -244,7 +244,7 @@ function (exports, module, require) {
                           .attr("placeholder", "Translation")
                           .val(a)
                           .appendTo(i),
-                        t)
+                        module)
                       ) {
                         var l =
                           this._translation.translationsExtended &&
@@ -312,13 +312,13 @@ function (exports, module, require) {
               "You have modified strings, you'll lose them if you don't apply them first, are you sure?",
               (e) => {
                 e
-                  ? n()
+                  ? require()
                   : this._header
                       .find(".language-chooser")
                       .val(this._currentLanguage);
               }
             )
-          : n();
+          : require();
       }),
       (l.prototype.close = function () {
         this._hasUnappliedChanges || this._shouldDownloadMetaData
@@ -468,5 +468,5 @@ function (exports, module, require) {
               )
           );
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

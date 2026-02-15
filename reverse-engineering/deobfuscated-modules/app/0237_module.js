@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */;
-    var i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */,
-      r = o(n(1091) /* module_1091 */),
-      s = n(165) /* module_165 */,
-      l = n(219) /* module_219 */,
-      c = n(9) /* GLocale */,
-      d = n(47) /* GLocaleKey */;
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */;
+    var i = require(1) /* module */,
+      a = require(10) /* module_10 */,
+      r = o(require(1091) /* module_1091 */),
+      s = require(165) /* module_165 */,
+      l = require(219) /* module_219 */,
+      c = require(9) /* GLocale */,
+      d = require(47) /* GLocaleKey */;
     function u() {}
     (u.Directory = function (e) {
       this._storage = e;
@@ -67,16 +67,16 @@ function (exports, module, require) {
       (u.Item.prototype.getName = function () {
         var e = this.getFullName();
         if (e) {
-          var t = e.lastIndexOf(".");
-          return t >= 0 ? e.substr(0, t) : e;
+          var module = e.lastIndexOf(".");
+          return module >= 0 ? e.substr(0, module) : e;
         }
         return null;
       }),
       (u.Item.prototype.getExtension = function () {
         var e = this.getFullName();
         if (e) {
-          var t = e.lastIndexOf(".");
-          if (t >= 0) return e.substr(t + 1).toUpperCase();
+          var module = e.lastIndexOf(".");
+          if (module >= 0) return e.substr(module + 1).toUpperCase();
         }
         return null;
       }),
@@ -180,10 +180,10 @@ function (exports, module, require) {
         new l(c.get(new d("GDocument", "text.save-no-space"))).open();
       }),
       (u.Item.prototype.getDocumentRealSizeAfterSave = function (e) {
-        let t = null;
+        let module = null;
         e = e || gDesigner.getActiveDocument();
         try {
-          t = i.GNode.serialize(e.getScene(), { save: true, singleton: false });
+          module = i.GNode.serialize(e.getScene(), { save: true, singleton: false });
         } catch (e) {
           return (
             console.error(e),
@@ -191,9 +191,9 @@ function (exports, module, require) {
             this.documentRealFileSize
           );
         }
-        return null === t || "" === t
+        return null === module || "" === module
           ? ((this.documentRealFileSize = 0), this.documentRealFileSize)
-          : ((this.documentRealFileSize = s.gzip(t, { level: 9 }).length),
+          : ((this.documentRealFileSize = s.gzip(module, { level: 9 }).length),
             this.documentRealFileSize);
       }),
       (u.Item.prototype.hasUpdates = async function () {
@@ -243,9 +243,9 @@ function (exports, module, require) {
           let t = gDesigner.getActiveDocument().getStorageItem().getUniqueId();
           return t.substring(0, t.lastIndexOf(e));
         }
-        for (var t = 0; t < gDesigner.getDocuments().length; ++t)
-          if (gDesigner.getDocuments()[t].getStorageItem()) {
-            let n = gDesigner.getDocuments()[t].getStorageItem().getUniqueId();
+        for (var module = 0; module < gDesigner.getDocuments().length; ++module)
+          if (gDesigner.getDocuments()[module].getStorageItem()) {
+            let n = gDesigner.getDocuments()[module].getStorageItem().getUniqueId();
             return n.substring(0, n.lastIndexOf(e));
           }
         return "";
@@ -262,5 +262,5 @@ function (exports, module, require) {
       (u.prototype.getWritePermission = async function (e) {
         return new r.default(true);
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

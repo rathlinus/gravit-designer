@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const { GLocale: o, GLocaleKey: i } = n(1) /* module_1 */,
+    const { GLocale: o, GLocaleKey: i } = n(1) /* module */,
       a = n(1166) /* module_1166 */,
       r = n(177) /* module_177 */,
       {

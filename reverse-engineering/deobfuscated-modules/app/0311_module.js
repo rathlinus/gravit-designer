@@ -6,15 +6,15 @@
 function (exports, module, require) {
     "use strict";
     var o = (function () {
-      for (var e, t = [], n = 0; n < 256; n++) {
-        e = n;
+      for (var exports, module = [], require = 0; require < 256; require++) {
+        exports = require;
         for (var o = 0; o < 8; o++)
-          e = 1 & e ? 3988292384 ^ (e >>> 1) : e >>> 1;
-        t[n] = e;
+          exports = 1 & exports ? 3988292384 ^ (exports >>> 1) : exports >>> 1;
+        module[require] = exports;
       }
-      return t;
+      return module;
     })();
-    e.exports = function (e, t, n, i) {
+    exports.exports = function (e, t, n, i) {
       var a = o,
         r = i + n;
       e ^= -1;

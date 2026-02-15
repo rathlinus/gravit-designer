@@ -5,255 +5,255 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(196) /* module_196 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var i = n(10) /* module_10 */,
-      a = n(231) /* module_231 */,
-      r = n(53) /* module_53 */,
-      s = n(1) /* module_1 */,
-      l = n(15) /* module_15 */,
-      c = n(40) /* module_40 */,
-      d = n(67) /* GRichTooltipConfig */,
-      u = o(n(1484) /* module_1484 */),
-      p = o(n(443) /* module_443 */),
-      g = o(n(1485) /* module_1485 */),
-      h = o(n(1486) /* module_1486 */),
-      f = o(n(1487) /* module_1487 */);
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(196) /* module_196 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var i = require(10) /* module_10 */,
+      a = require(231) /* module_231 */,
+      r = require(53) /* module */,
+      s = require(1) /* module */,
+      l = require(15) /* module */,
+      c = require(40) /* module_40 */,
+      d = require(67) /* GRichTooltipConfig */,
+      u = o(require(1484) /* module_1484 */),
+      p = o(require(443) /* module_443 */),
+      g = o(require(1485) /* module_1485 */),
+      h = o(require(1486) /* module_1486 */),
+      f = o(require(1487) /* module_1487 */);
     const {
         nodeEnv: m,
         isBeta: y,
         storeVendor: v,
         isCorel: _,
         isTeams: b,
-      } = n(803) /* module_803 */,
-      w = n(231) /* module_231 */,
+      } = require(803) /* module_803 */,
+      w = require(231) /* module_231 */,
       C = !v,
-      x = n(859) /* module_859 */;
-    n(1488) /* module_1488 */;
-    n(1489) /* module_1489 */;
-    const S = n(1490) /* module_1490 */;
-    var E = n(1491) /* Je */,
-      A = n(163) /* module_163 */,
-      T = n(866) /* GAlignAction */,
-      G = n(869) /* GArrangeAction */,
-      P = n(1176) /* GAttachToPathAction */,
-      D = n(1311) /* GCancelCropAction */,
-      L = n(809) /* GClipAction */,
-      I = n(1597) /* GConnectLinesAction */,
-      k = n(810) /* GConvertToPathAction */,
-      O = n(1320) /* GConvertToRawPathAction */,
-      F = n(608) /* GCreateSymbolAction */,
-      R = n(1310) /* GCropAction */,
-      M = n(874) /* GDetachSymbolAction */,
-      N = n(1177) /* GResetInstanceAction */,
-      B = n(1316) /* GCreateNestedCompoundAction */,
-      U = n(1331) /* GCutCopyAction */,
-      j = n(1332) /* GDeleteAction */,
-      K = n(1334) /* GDeselectAllAction */,
-      V = n(1178) /* GDetachFromPathAction */,
-      H = n(867) /* GDistributeAction */,
-      W = n(1315) /* GDuplicateAction */,
-      z = n(1312) /* GEditElementActon */,
-      q = n(861) /* GExportAction */,
-      Y = n(449) /* GFitAllAction */,
-      X = n(1598) /* GFitCurrentLayerAction */,
-      Q = n(566) /* GFitSelectionAction */,
-      J = n(811) /* GGroupAction */,
-      Z = n(1599) /* GInvertSelectionAction */,
-      ee = n(1172) /* GInstallToDesktopAction */,
-      te = n(1179) /* GJoinPathsAction */,
-      ne = n(1167) /* GMagnificationAction */;
-    const oe = n(812) /* GMergeMainAction */,
-      ie = n(1600) /* GMergeSubAction */;
-    var ae = n(1601) /* GNewAction */,
-      re = n(1602) /* GNewClipboardAction */,
-      se = n(1296) /* GNewWindowAction */,
-      le = n(1317) /* GOffsetAction */,
-      ce = n(1282) /* GOriginalViewAction */,
-      de = n(1185) /* GOutlineAction */,
-      ue = n(1297) /* GOutlineViewAction */,
-      pe = n(1603) /* Action_view_fast_view */,
-      ge = n(877) /* GPasteAction */,
-      he = n(1183) /* GPasteInPlaceAction */;
-    const fe = n(876) /* GPasteAndReplaceAction */;
-    var me = n(1184) /* GPasteInsideAction */,
-      ye = n(1182) /* GPasteHereAction */,
-      ve = n(875) /* GPasteStyleAction */,
-      _e = n(1605) /* GEnterLayerGroupAction */,
-      be = n(1606) /* GLockLayerAction */,
-      we = n(1607) /* GToggleLayerVisibilityAction */,
-      Ce = n(1340) /* GRenameLayerAction */,
-      xe = n(813) /* GOpenAction */,
-      Se = n(1299) /* module_1299 */,
-      Ee = n(1608) /* GImportFontsAction */,
-      Ae = n(1609) /* GPrintAction */,
-      Te = n(1284) /* GRedoAction */,
-      Ge = n(1611) /* GReverseOrderAction */,
-      Pe = n(447) /* GSaveAction */,
-      De = n(1612) /* GSaveAllAction */,
-      Le = n(445) /* GSaveAsAction */,
-      Ie = n(1333) /* GSelectAllAction */,
-      ke = n(1180) /* GSelectByFontTypeAction */;
-    const Oe = n(1304) /* GSelectByPaintLayerAction */,
-      Fe = n(1305) /* GSelectByBorderWidthAction */,
-      Re = n(1306) /* GSelectByTransparencyAction */,
-      Me = n(1307) /* GSelectByBlendModeAction */,
-      Ne = n(1308) /* GSelectByShapeAction */,
-      Be = n(1309) /* GSelectByEffectAction */;
-    var Ue = n(1613) /* GSettingsAction */,
-      $e = n(1285) /* GShowGridAction */,
-      je = n(1169) /* GShowGuideLinesAction */,
-      Ke = n(1286) /* GShowSymbolLabelsAction */,
-      Ve = n(1614) /* GShowRulersAction */,
-      He = n(1615) /* GShowSlicesAction */,
-      We = n(1318) /* GSimplifyAction */,
-      ze = n(1295) /* GSnapUnitAction */,
-      qe = n(870) /* GSplitAction */,
-      Ye = n(1319) /* GSplitLineAction */,
-      Xe = n(873) /* GSplitPathAction */,
-      Qe = n(1287) /* GToggleGuideAction */,
-      Je = n(1288) /* GToggleSnapAction */,
-      Ze = n(1289) /* GToggleSnapZonesAction */,
-      et = n(1283) /* GPlaceImportAction */,
-      tt = n(1280) /* GLinkImageAction */,
-      nt = n(871) /* GTransformAction */,
-      ot = n(1171) /* GUndoAction */,
-      it = n(872) /* GVectorizeBorderAction */,
-      at = n(1616) /* GVectorizeImageAction */,
-      rt = n(1314) /* GConvertToImageAction */,
-      st = n(1290) /* GZoomInAction */,
-      lt = n(1291) /* GZoomOutAction */,
-      ct = n(1617) /* GPlayAction */,
-      dt = n(1619) /* GShowEffectsAction */,
-      ut = n(1335) /* GToggleFullscreenAction */,
-      pt = n(448) /* GGravitCloudAction */,
-      gt = n(1256) /* GVersionsHistoryAction */,
-      ht = n(1620) /* GSwitchLanguageAction */,
-      ft = n(1621) /* GOpenLinkAction */,
-      mt = n(1336) /* GOpenQuickHelpScreenAction */,
-      yt = n(1623) /* GNewFromTemplateAction */,
-      vt = n(843) /* GOpenRecentAction */,
-      _t = n(1181) /* GMaskWithShapeAction */,
-      bt = n(1624) /* GOpenWelcomeScreenAction */,
-      wt = n(1342) /* GEnhancedTooltipsAction */,
-      Ct = (n(1298) /* GUseCouponAction */, n(1625) /* GCheckForUpdatesAction */),
-      xt = n(1626) /* module_1626 */,
-      St = n(1293) /* GCloudSynchronizationAction */,
-      Et = n(1627) /* GCloudSynchronizationInfoAction */,
-      At = n(1628) /* GShareAction */,
-      Tt = n(1629) /* GSharePointCheckOutAction */,
-      Gt = n(1630) /* GSharePointCheckInAction */,
-      Pt = n(1632) /* GQuitAction */,
-      Dt = n(1633) /* Action_example_files */,
-      Lt = (n(1158) /* Action_help_purchase */, n(1634) /* GToggleTouchAction */),
-      It = n(1635) /* GOpenAccountSettingsAction */,
-      kt = n(1636) /* GLogoutAction */,
-      Ot = n(1637) /* GToggleProBETALicenseAction */;
-    const Ft = n(1638) /* GImportImageFromIOSAction */;
-    var Rt = n(1254) /* GOpenSharedFileAction */,
-      Mt = n(1639) /* GTranslationToolAction */,
-      Nt = n(1641) /* GSwitchWebcdrAction */;
-    n(1642) /* GTogglePaintLayersVisibilityAction */;
-    const Bt = n(1643) /* GShowShortcutsAction */,
-      Ut = n(1645) /* GEyeDropperAction */,
-      $t = n(1646) /* GShowSelectionHandlesAction */,
-      jt = n(1647) /* GChangeOpacityAction */,
-      Kt = n(1344) /* GCycleThroughLayersAction */,
-      Vt = n(1345) /* GChangeAnchorPointsJointTypeMainAction */,
-      Ht = n(1648) /* GChangeAnchorPointsJointTypeSubAction */,
-      Wt = n(1649) /* GCloseActiveWindowAction */,
-      zt = n(1650) /* GToggleMultiPageModeAction */,
-      qt = n(1341) /* GChangeActivePageAction */,
-      Yt = n(1651) /* GChangeActiveWindowAction */,
-      Xt = n(1652) /* GSwapPaintLayersAction */,
-      Qt = n(1653) /* GCreateNewLayerAction */;
-    n(78) /* GDocumentEvent */, n(86) /* module_86 */;
-    var Jt = n(1346) /* GUnloadEvent */,
-      Zt = (n(1347) /* module_1347 */, n(1160) /* GAppearanceProperties */),
-      en = n(1261) /* module_1261 */,
-      tn = n(1162) /* module_1162 */,
-      nn = n(1264) /* GBoolOpProperties */,
-      on = n(1262) /* GEffectProperties */,
-      an = n(1265) /* GEllipseProperties */,
-      rn = n(1266) /* GImageProperties */,
-      sn = n(1654) /* GFrameProperties */,
-      ln = n(1655) /* GGroupFrameProperties */,
-      cn = n(1656) /* GItemProperties */,
-      dn = n(864) /* GInspectorSidebar */,
-      un = n(1260) /* GOutlineSidebar */,
-      pn = n(567) /* GAnnotationsSidebar */,
-      gn = n(1269) /* GPathProperties */,
-      hn = n(1150) /* module_1150 */,
-      fn = n(1657) /* module_1657 */,
-      mn = n(1270) /* GPolygonProperties */,
-      yn = n(1271) /* GRectangleProperties */,
-      vn = n(1339) /* GPageProperties */,
-      _n = n(1658) /* GSymbolProperties */,
-      bn = n(1659) /* GSceneProperties */,
-      wn = n(1272) /* GSliceProperties */,
-      Cn = n(1273) /* GTextProperties */,
-      xn = n(1294) /* GDimensionProperties */,
-      Sn = n(1660) /* GTransformProperties */,
-      En = n(1274) /* GAlignProperties */,
-      An = n(1661) /* GSymbolsSidebar */,
-      Tn = n(1662) /* GLibrarySidebar */,
-      Gn = n(1665) /* GSoftwareUpdatePanel */,
-      Pn = n(1666) /* GNotificationPanel */,
-      Dn = n(1668) /* GCollaborativeTextPanel */,
-      Ln = n(1669) /* GDocumentNotificationsPanel */,
-      In = n(1670) /* module_1670 */,
-      kn = n(85) /* GContainer */,
-      On = n(1672) /* module_1672 */,
-      Fn = (n(237) /* module_237 */, n(1673) /* module_1673 */),
-      Rn = n(119) /* module_119 */,
-      Mn = n(1674) /* module_1674 */,
-      Nn = n(44) /* GSystemDialog */,
-      Bn = n(860) /* module_860 */,
-      Un = n(1675) /* module_1675 */,
-      $n = n(337) /* module_337 */,
-      jn = n(1325) /* module_1325 */,
-      Kn = n(785) /* module_785 */,
-      Vn = n(1676) /* GSoftwareUpdateManager */,
-      Hn = n(808) /* GApplicationStatusEvent */,
-      Wn = n(292) /* module_292 */;
+      x = require(859) /* module_859 */;
+    require(1488) /* module_1488 */;
+    require(1489) /* module_1489 */;
+    const S = require(1490) /* module_1490 */;
+    var E = require(1491) /* Je */,
+      A = require(163) /* module_163 */,
+      T = require(866) /* GAlignAction */,
+      G = require(869) /* GArrangeAction */,
+      P = require(1176) /* GAttachToPathAction */,
+      D = require(1311) /* GCancelCropAction */,
+      L = require(809) /* GClipAction */,
+      I = require(1597) /* GConnectLinesAction */,
+      k = require(810) /* GConvertToPathAction */,
+      O = require(1320) /* GConvertToRawPathAction */,
+      F = require(608) /* GCreateSymbolAction */,
+      R = require(1310) /* GCropAction */,
+      M = require(874) /* GDetachSymbolAction */,
+      N = require(1177) /* GResetInstanceAction */,
+      B = require(1316) /* GCreateNestedCompoundAction */,
+      U = require(1331) /* GCutCopyAction */,
+      j = require(1332) /* GDeleteAction */,
+      K = require(1334) /* GDeselectAllAction */,
+      V = require(1178) /* GDetachFromPathAction */,
+      H = require(867) /* GDistributeAction */,
+      W = require(1315) /* GDuplicateAction */,
+      z = require(1312) /* GEditElementActon */,
+      q = require(861) /* GExportAction */,
+      Y = require(449) /* GFitAllAction */,
+      X = require(1598) /* GFitCurrentLayerAction */,
+      Q = require(566) /* GFitSelectionAction */,
+      J = require(811) /* GGroupAction */,
+      Z = require(1599) /* GInvertSelectionAction */,
+      ee = require(1172) /* GInstallToDesktopAction */,
+      te = require(1179) /* GJoinPathsAction */,
+      ne = require(1167) /* GMagnificationAction */;
+    const oe = require(812) /* GMergeMainAction */,
+      ie = require(1600) /* GMergeSubAction */;
+    var ae = require(1601) /* GNewAction */,
+      re = require(1602) /* GNewClipboardAction */,
+      se = require(1296) /* GNewWindowAction */,
+      le = require(1317) /* GOffsetAction */,
+      ce = require(1282) /* GOriginalViewAction */,
+      de = require(1185) /* GOutlineAction */,
+      ue = require(1297) /* GOutlineViewAction */,
+      pe = require(1603) /* Action_view_fast_view */,
+      ge = require(877) /* GPasteAction */,
+      he = require(1183) /* GPasteInPlaceAction */;
+    const fe = require(876) /* GPasteAndReplaceAction */;
+    var me = require(1184) /* GPasteInsideAction */,
+      ye = require(1182) /* GPasteHereAction */,
+      ve = require(875) /* GPasteStyleAction */,
+      _e = require(1605) /* GEnterLayerGroupAction */,
+      be = require(1606) /* GLockLayerAction */,
+      we = require(1607) /* GToggleLayerVisibilityAction */,
+      Ce = require(1340) /* GRenameLayerAction */,
+      xe = require(813) /* GOpenAction */,
+      Se = require(1299) /* module_1299 */,
+      Ee = require(1608) /* GImportFontsAction */,
+      Ae = require(1609) /* GPrintAction */,
+      Te = require(1284) /* GRedoAction */,
+      Ge = require(1611) /* GReverseOrderAction */,
+      Pe = require(447) /* GSaveAction */,
+      De = require(1612) /* GSaveAllAction */,
+      Le = require(445) /* GSaveAsAction */,
+      Ie = require(1333) /* GSelectAllAction */,
+      ke = require(1180) /* GSelectByFontTypeAction */;
+    const Oe = require(1304) /* GSelectByPaintLayerAction */,
+      Fe = require(1305) /* GSelectByBorderWidthAction */,
+      Re = require(1306) /* GSelectByTransparencyAction */,
+      Me = require(1307) /* GSelectByBlendModeAction */,
+      Ne = require(1308) /* GSelectByShapeAction */,
+      Be = require(1309) /* GSelectByEffectAction */;
+    var Ue = require(1613) /* GSettingsAction */,
+      $e = require(1285) /* GShowGridAction */,
+      je = require(1169) /* GShowGuideLinesAction */,
+      Ke = require(1286) /* GShowSymbolLabelsAction */,
+      Ve = require(1614) /* GShowRulersAction */,
+      He = require(1615) /* GShowSlicesAction */,
+      We = require(1318) /* GSimplifyAction */,
+      ze = require(1295) /* GSnapUnitAction */,
+      qe = require(870) /* GSplitAction */,
+      Ye = require(1319) /* GSplitLineAction */,
+      Xe = require(873) /* GSplitPathAction */,
+      Qe = require(1287) /* GToggleGuideAction */,
+      Je = require(1288) /* GToggleSnapAction */,
+      Ze = require(1289) /* GToggleSnapZonesAction */,
+      et = require(1283) /* GPlaceImportAction */,
+      tt = require(1280) /* GLinkImageAction */,
+      nt = require(871) /* GTransformAction */,
+      ot = require(1171) /* GUndoAction */,
+      it = require(872) /* GVectorizeBorderAction */,
+      at = require(1616) /* GVectorizeImageAction */,
+      rt = require(1314) /* GConvertToImageAction */,
+      st = require(1290) /* GZoomInAction */,
+      lt = require(1291) /* GZoomOutAction */,
+      ct = require(1617) /* GPlayAction */,
+      dt = require(1619) /* GShowEffectsAction */,
+      ut = require(1335) /* GToggleFullscreenAction */,
+      pt = require(448) /* GGravitCloudAction */,
+      gt = require(1256) /* GVersionsHistoryAction */,
+      ht = require(1620) /* GSwitchLanguageAction */,
+      ft = require(1621) /* GOpenLinkAction */,
+      mt = require(1336) /* GOpenQuickHelpScreenAction */,
+      yt = require(1623) /* GNewFromTemplateAction */,
+      vt = require(843) /* GOpenRecentAction */,
+      _t = require(1181) /* GMaskWithShapeAction */,
+      bt = require(1624) /* GOpenWelcomeScreenAction */,
+      wt = require(1342) /* GEnhancedTooltipsAction */,
+      Ct = (require(1298) /* GUseCouponAction */, require(1625) /* GCheckForUpdatesAction */),
+      xt = require(1626) /* module_1626 */,
+      St = require(1293) /* GCloudSynchronizationAction */,
+      Et = require(1627) /* GCloudSynchronizationInfoAction */,
+      At = require(1628) /* GShareAction */,
+      Tt = require(1629) /* GSharePointCheckOutAction */,
+      Gt = require(1630) /* GSharePointCheckInAction */,
+      Pt = require(1632) /* GQuitAction */,
+      Dt = require(1633) /* Action_example_files */,
+      Lt = (require(1158) /* Action_help_purchase */, require(1634) /* GToggleTouchAction */),
+      It = require(1635) /* GOpenAccountSettingsAction */,
+      kt = require(1636) /* GLogoutAction */,
+      Ot = require(1637) /* GToggleProBETALicenseAction */;
+    const Ft = require(1638) /* GImportImageFromIOSAction */;
+    var Rt = require(1254) /* GOpenSharedFileAction */,
+      Mt = require(1639) /* GTranslationToolAction */,
+      Nt = require(1641) /* GSwitchWebcdrAction */;
+    require(1642) /* GTogglePaintLayersVisibilityAction */;
+    const Bt = require(1643) /* GShowShortcutsAction */,
+      Ut = require(1645) /* GEyeDropperAction */,
+      $t = require(1646) /* GShowSelectionHandlesAction */,
+      jt = require(1647) /* GChangeOpacityAction */,
+      Kt = require(1344) /* GCycleThroughLayersAction */,
+      Vt = require(1345) /* GChangeAnchorPointsJointTypeMainAction */,
+      Ht = require(1648) /* GChangeAnchorPointsJointTypeSubAction */,
+      Wt = require(1649) /* GCloseActiveWindowAction */,
+      zt = require(1650) /* GToggleMultiPageModeAction */,
+      qt = require(1341) /* GChangeActivePageAction */,
+      Yt = require(1651) /* GChangeActiveWindowAction */,
+      Xt = require(1652) /* GSwapPaintLayersAction */,
+      Qt = require(1653) /* GCreateNewLayerAction */;
+    require(78) /* GDocumentEvent */, require(86) /* module_86 */;
+    var Jt = require(1346) /* GUnloadEvent */,
+      Zt = (require(1347) /* module_1347 */, require(1160) /* GAppearanceProperties */),
+      en = require(1261) /* module_1261 */,
+      tn = require(1162) /* module_1162 */,
+      nn = require(1264) /* GBoolOpProperties */,
+      on = require(1262) /* GEffectProperties */,
+      an = require(1265) /* GEllipseProperties */,
+      rn = require(1266) /* GImageProperties */,
+      sn = require(1654) /* GFrameProperties */,
+      ln = require(1655) /* GGroupFrameProperties */,
+      cn = require(1656) /* GItemProperties */,
+      dn = require(864) /* GInspectorSidebar */,
+      un = require(1260) /* GOutlineSidebar */,
+      pn = require(567) /* GAnnotationsSidebar */,
+      gn = require(1269) /* GPathProperties */,
+      hn = require(1150) /* module_1150 */,
+      fn = require(1657) /* module_1657 */,
+      mn = require(1270) /* GPolygonProperties */,
+      yn = require(1271) /* GRectangleProperties */,
+      vn = require(1339) /* GPageProperties */,
+      _n = require(1658) /* GSymbolProperties */,
+      bn = require(1659) /* GSceneProperties */,
+      wn = require(1272) /* GSliceProperties */,
+      Cn = require(1273) /* GTextProperties */,
+      xn = require(1294) /* GDimensionProperties */,
+      Sn = require(1660) /* GTransformProperties */,
+      En = require(1274) /* GAlignProperties */,
+      An = require(1661) /* GSymbolsSidebar */,
+      Tn = require(1662) /* GLibrarySidebar */,
+      Gn = require(1665) /* GSoftwareUpdatePanel */,
+      Pn = require(1666) /* GNotificationPanel */,
+      Dn = require(1668) /* GCollaborativeTextPanel */,
+      Ln = require(1669) /* GDocumentNotificationsPanel */,
+      In = require(1670) /* module_1670 */,
+      kn = require(85) /* GContainer */,
+      On = require(1672) /* module_1672 */,
+      Fn = (require(237) /* module_237 */, require(1673) /* module_1673 */),
+      Rn = require(119) /* module_119 */,
+      Mn = require(1674) /* module_1674 */,
+      Nn = require(44) /* GSystemDialog */,
+      Bn = require(860) /* module_860 */,
+      Un = require(1675) /* module_1675 */,
+      $n = require(337) /* module_337 */,
+      jn = require(1325) /* module_1325 */,
+      Kn = require(785) /* module_785 */,
+      Vn = require(1676) /* GSoftwareUpdateManager */,
+      Hn = require(808) /* GApplicationStatusEvent */,
+      Wn = require(292) /* module_292 */;
     const zn = i.FILE_FORMATS.find((e) => e.default).ext,
       qn = i.FILE_FORMATS.filter((e) => e.secondary).map((e) => e.ext);
-    var Yn = n(1678) /* module_1678 */;
-    const Xn = new (n(1343) /* module_1343 */)();
+    var Yn = require(1678) /* module_1678 */;
+    const Xn = new (require(1343) /* module_1343 */)();
     Xn.init();
-    const Qn = n(1684) /* module_1684 */,
-      Jn = n(1686) /* module_1686 */,
-      Zn = n(1687) /* module_1687 */,
-      eo = n(1255) /* module_1255 */,
+    const Qn = require(1684) /* module_1684 */,
+      Jn = require(1686) /* module_1686 */,
+      Zn = require(1687) /* module_1687 */,
+      eo = require(1255) /* module_1255 */,
       {
         isExecutingOnMSTeams: to,
         isExecutingOnMSTeamsSync: no,
         isTeamsChannel: oo,
         getTeamsLocale: io,
       } = p.default;
-    n(18) /* module_18 */, n(1688) /* module_1688 */, n(1154) /* module_1154 */, n(1689) /* module_1689 */, n(1690) /* module_1690 */, n(1691) /* module_1691 */, n(1693) /* GLongPressEvent */, n(1694) /* module_1694 */;
+    require(18) /* module_18 */, require(1688) /* module_1688 */, require(1154) /* module_1154 */, require(1689) /* module_1689 */, require(1690) /* module_1690 */, require(1691) /* module_1691 */, require(1693) /* GLongPressEvent */, require(1694) /* module_1694 */;
     var ao = window;
     const ro = !!/^trunk/.test("production") && !y;
-    (ao.gApi = n(10) /* module_10 */.gApi), (ao.gApi.webcdr = null);
+    (ao.gApi = require(10) /* module_10 */.gApi), (ao.gApi.webcdr = null);
     const so = async () => S.checkMaintenance();
     so(),
       ro &&
@@ -264,9 +264,9 @@ function (exports, module, require) {
         s.GTranslationEvents.addEventListener(
           s.GTranslationNotificationEvent,
           (e) => {
-            let { project: t, type: n, content: o, data: i } = e;
-            if (t === s.GTranslation.Projects.Designer)
-              switch (n) {
+            let { project: module, type: require, content: o, data: i } = e;
+            if (module === s.GTranslation.Projects.Designer)
+              switch (require) {
                 case s.GTranslationNotificationEvent.Type.Warning:
                   gContainer.getRuntime() === kn.Runtime.Electron
                     ? console.error(o)
@@ -286,16 +286,16 @@ function (exports, module, require) {
       (ao.gApi.lang = s.GLocale.getLanguage());
     let lo = null;
     (ao.gravit = null),
-      n(1738) /* module_1738 */,
+      require(1738) /* module_1738 */,
       (ao.gDesigner = new E()),
       ao.gDesigner.getUser(),
       (ao.gQA = h.default);
     const co = ao.gDesigner.isOfflineAsync();
     ao.gInAppPurchase = Yn.newInAppPurchase(v);
-    const { GA: { customDimensions: uo } = {} } = n(10) /* module_10 */;
+    const { GA: { customDimensions: uo } = {} } = require(10) /* module_10 */;
     gDesigner.addEventListener(Wn, (e) => {
-      let { user: t } = e;
-      t &&
+      let { user: module } = e;
+      module &&
         !gDesigner.isAnonymous() &&
         "undefined" != typeof dataLayer &&
         uo &&
@@ -310,12 +310,12 @@ function (exports, module, require) {
       (ao.gPatternChooserNormal = null),
       (ao.gPatternChooserTouch = null),
       (ao.gContainer = null);
-    e.exports = async function (e) {
+    exports.exports = async function (e) {
       (ao.gContainer = e), (0, c._tryAndCatch)(() => $n.start());
-      let t = null;
-      const n = gDesigner.getUser();
-      n.then((e) => {
-        e && (t = i.gApi.isEnabledSubscriptions());
+      let module = null;
+      const require = gDesigner.getUser();
+      require.then((e) => {
+        e && (module = i.gApi.isEnabledSubscriptions());
       }),
         (window.onerror = function (e, t, n, o, i) {
           Mn.isPluginError(i)
@@ -365,7 +365,7 @@ function (exports, module, require) {
               },
             ]));
       if (await so()) {
-        if (gContainer.getRuntime() !== kn.Runtime.Electron || !(await n)) {
+        if (gContainer.getRuntime() !== kn.Runtime.Electron || !(await require)) {
           $("<iframe></iframe>")
             .addClass("cross-frame")
             .attr("src", "assets/static/maintenance/index.html")
@@ -408,7 +408,7 @@ function (exports, module, require) {
           (await gContainer
             .signWithMagicLink(p.get("magiclink"), p.get("d"), p.get("token"))
             .catch(() => null),
-          (t = i.gApi.isEnabledSubscriptions())),
+          (module = i.gApi.isEnabledSubscriptions())),
         p)
       ) {
         gDesigner.setUTM(
@@ -422,12 +422,12 @@ function (exports, module, require) {
         const e = ["firstName", "lastName", "email", "to"],
           t = Array.from(p.entries())
             .filter((t) => {
-              let [n] = t;
-              return e.includes(n);
+              let [require] = t;
+              return e.includes(require);
             })
             .reduce((e, t) => {
-              let [n, o] = t;
-              return Object.assign(e, { [n]: o });
+              let [require, o] = t;
+              return Object.assign(e, { [require]: o });
             }, {});
         Object.keys(t).length && gDesigner.setSignupOptions(t);
       }
@@ -442,8 +442,8 @@ function (exports, module, require) {
           _ ||
           i.gApi.initRecaptcha(),
         (async function (e, t) {
-          const n = await gDesigner.getUser();
-          (0, g.default)(e, t, gDesigner.getAppBaseUrl(), n);
+          const require = await gDesigner.getUser();
+          (0, g.default)(e, t, gDesigner.getAppBaseUrl(), require);
         })(gContainer.getRuntime(), v),
         !y ||
           (gContainer.getRuntime() !== kn.Runtime.Browser &&
@@ -470,7 +470,7 @@ function (exports, module, require) {
         gDesigner.setBuildNum("8795"),
         gDesigner.setVersionFriendlyName("i015.3");
       let E,
-        Wn = (0, c._tryAndCatch)(() => gDesigner.preInit(t)),
+        Wn = (0, c._tryAndCatch)(() => gDesigner.preInit(module)),
         Yn = gContainer.handleDeepLinking();
       Yn &&
         (E = await gDesigner
@@ -1180,9 +1180,9 @@ function (exports, module, require) {
             y ||
             a.IS_RC ||
             window.gdb_initrecordgravitaction(window.gravit.actions, Pe);
-        let t = new In(e._storage);
-        t.load(),
-          t.init(gravit),
+        let module = new In(e._storage);
+        module.load(),
+          module.init(gravit),
           (ao.gPatternChooserNormal = new hn()),
           (ao.gPatternChooserTouch = new fn()),
           gDesigner.isTouchEnabled()
@@ -1332,7 +1332,7 @@ function (exports, module, require) {
                 ).replace("%app", i.DESIGNER.TITLE),
                 "designer.settings.dont_show_unsupported_screen_size_dialog"
               )),
-          t.start(),
+          module.start(),
           await jn.start(),
           C &&
             (await (0, c._tryAndCatch)(() => {
@@ -1353,7 +1353,7 @@ function (exports, module, require) {
       ) {
         const e = async () => {
           const e = await gDesigner.getUser();
-          let t;
+          let module;
           if (
             e &&
             e.isAnonymous() &&
@@ -1361,9 +1361,9 @@ function (exports, module, require) {
             Yn.link === kn.DeepLinking.DirectLink
           ) {
             let e = Yn.options[kn.DeepLinking.DirectLink];
-            t = JSON.parse((0, c.base64StringToString)(e)).signup;
+            module = JSON.parse((0, c.base64StringToString)(e)).signup;
           }
-          if (!e || e.reload || e.deactivated || (e.isAnonymous() && t)) {
+          if (!e || e.reload || e.deactivated || (e.isAnonymous() && module)) {
             const n = Yn && Yn.link;
             e &&
               !e.isAnonymous() &&
@@ -1378,7 +1378,7 @@ function (exports, module, require) {
             await gContainer.preLogin().catch((e) => {
               console.warn("gContainer preLogin error", e);
             }),
-              new Bn(io).open({ flow: n, signup: t, version: "i015.3" }),
+              new Bn(io).open({ flow: n, signup: module, version: "i015.3" }),
               On.setupInAppLinkReloadAppForOnce(),
               p &&
                 p.has(kn.DeepLinking.PWADialog) &&

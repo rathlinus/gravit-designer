@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       Init: 0,
       Ready: 1,
       Loading: 10,

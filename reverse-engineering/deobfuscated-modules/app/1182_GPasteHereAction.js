@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(18) /* module_18 */, n(31) /* GAction */);
-    n(1313) /* module_1313 */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = (require(15) /* module */, require(18) /* module_18 */, require(31) /* GAction */);
+    require(1313) /* module_1313 */;
     function a() {
       this._targetPosition = null;
     }
@@ -71,15 +71,15 @@ function (exports, module, require) {
       }),
       (a.prototype._paste = function (e, t) {
         if (e && e.length > 0) {
-          for (var n = [], i = 0; i < e.length; ++i)
-            e[i] instanceof o.GElement && n.push(e[i]);
+          for (var require = [], i = 0; i < e.length; ++i)
+            e[i] instanceof o.GElement && require.push(e[i]);
           if (
-            (n = gDesigner
+            (require = gDesigner
               .getActiveDocument()
-              .filterUnrestrictedCommercialFileElements(n)).length > 0
+              .filterUnrestrictedCommercialFileElements(require)).length > 0
           ) {
             var a = gDesigner.getActiveDocument().getEditor();
-            n.forEach((e) => {
+            require.forEach((e) => {
               e instanceof o.GText &&
                 !e.getProperty("content") &&
                 (a.insertElements([e], false, true, true),
@@ -88,8 +88,8 @@ function (exports, module, require) {
               a.beginTransaction();
             try {
               var r;
-              a.insertElements(n, !t, true, true, true),
-                n.forEach((e) => {
+              a.insertElements(require, !t, true, true, true),
+                require.forEach((e) => {
                   var t = e.getGeometryBBox();
                   t && (r = r ? r.united(t) : t);
                 });
@@ -111,8 +111,8 @@ function (exports, module, require) {
                   )),
                 c)
               )
-                for (i = 0; i < n.length; ++i) {
-                  var d = n[i];
+                for (i = 0; i < require.length; ++i) {
+                  var d = require[i];
                   d.hasMixin(o.GElement.Transform) && d.transform(c, true);
                 }
             } finally {
@@ -126,5 +126,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GPasteHereAction]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

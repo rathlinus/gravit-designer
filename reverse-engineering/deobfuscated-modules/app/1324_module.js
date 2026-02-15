@@ -5,19 +5,19 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(34) /* module_34 */;
-    const o = n(177) /* module_177 */,
+    require(20) /* module_20 */, require(34) /* module_34 */;
+    const o = require(177) /* module_177 */,
       {
         SharePermissions: { COMMENT: i, EDIT: a },
         ShareRoles: r,
-      } = n(10) /* module_10 */,
-      { GLocale: s, GLocaleKey: l } = n(1) /* module_1 */;
-    e.exports = class extends o {
-      constructor() {
+      } = require(10) /* module_10 */,
+      { GLocale: s, GLocaleKey: l } = require(1) /* module */;
+    exports.exports = class extends o {
+      function Object() { [native code] }() {
         let {
-          access_id: e,
-          file_id: t,
-          accessed: n,
+          access_id: exports,
+          file_id: module,
+          accessed: require,
           name: o,
           last_name: i,
           avatar: a,
@@ -25,19 +25,19 @@ function (exports, module, require) {
           role: s,
         } = arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
         super({
-          file_id: t,
-          accessed: n,
+          file_id: module,
+          accessed: require,
           name: o,
           last_name: i,
           avatar: a,
           anonymous: r,
         }),
-          (this.id = e),
+          (this.id = exports),
           (this._role = s);
       }
       getTooltip() {
-        const e = this.getRole();
-        return e.is(r.Owner)
+        const exports = this.getRole();
+        return exports.is(r.Owner)
           ? s
               .get(new l("GCollaborators", "text.owner-tooltip"))
               .replace("%username", this.getFullUserName())
@@ -45,7 +45,7 @@ function (exports, module, require) {
               .get(
                 new l(
                   "GCollaborators",
-                  e.hasPermission(a)
+                  exports.hasPermission(a)
                     ? "text.can-edit-tooltip"
                     : "text.can-comment-tooltip"
                 )
@@ -53,8 +53,8 @@ function (exports, module, require) {
               .replace("%username", this.getFullUserName());
       }
       getIcon() {
-        const e = this.getRole();
-        return e.hasPermission(i) && !e.hasPermission(a)
+        const exports = this.getRole();
+        return exports.hasPermission(i) && !exports.hasPermission(a)
           ? "gravit-icon-avatar-comment"
           : null;
       }

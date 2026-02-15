@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(18) /* module_18 */),
-      r = o(n(163) /* module_163 */),
-      s = o(n(85) /* GContainer */),
-      l = o(n(106) /* GElementAction */);
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var i = require(1) /* module */,
+      a = o(require(18) /* module_18 */),
+      r = o(require(163) /* module_163 */),
+      s = o(require(85) /* GContainer */),
+      l = o(require(106) /* GElementAction */);
     function c(e) {
       this._source = e;
     }
@@ -42,18 +42,18 @@ function (exports, module, require) {
       }),
       (c.prototype.isEnabled = function (e) {
         if (!l.default.prototype.isEnabled.call(this)) return false;
-        const t = gDesigner.getActiveDocument();
+        const module = gDesigner.getActiveDocument();
         return (
-          !!t &&
-          !!(e = e || t.getStorage() || gDesigner.getDefaultStorage()) &&
+          !!module &&
+          !!(e = e || module.getStorage() || gDesigner.getDefaultStorage()) &&
           e.canPromptOpen() &&
           gDesigner.getApplicationManager().isImportResourcesEnabled()
         );
       }),
       (c.prototype.execute = async function (e, t) {
-        const n = gDesigner.getActiveDocument();
-        if (!n) return false;
-        e = e || n.getStorage() || gDesigner.getDefaultStorage();
+        const require = gDesigner.getActiveDocument();
+        if (!require) return false;
+        e = e || require.getStorage() || gDesigner.getDefaultStorage();
         const o = r.default.FileTypes.filter((e) => e.import_image);
         try {
           let i;
@@ -61,7 +61,7 @@ function (exports, module, require) {
             this._source === c.Source.FILES
               ? await e.openFromFiles(o)
               : await e.openFromPhotos(o)),
-            n.placeOrImport(i),
+            require.placeOrImport(i),
             t && t();
         } catch (e) {
           console.warn("GImportImageFromIOSAction.prototype.execute", e);
@@ -70,5 +70,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GImportImageFromIOSAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

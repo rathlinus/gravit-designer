@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(116) /* module_116 */,
-      i = n(184) /* module_184 */,
-      a = n(243) /* module_243 */.f,
-      r = n(157) /* module_157 */,
+    var o = require(116) /* module_116 */,
+      i = require(184) /* module_184 */,
+      a = require(243) /* module_243 */.f,
+      r = require(157) /* module_157 */,
       s =
         "object" == typeof window && window && Object.getOwnPropertyNames
           ? Object.getOwnPropertyNames(window)
           : [];
-    e.exports.f = function (e) {
+    exports.exports.f = function (e) {
       return s && "Window" === o(e)
         ? (function (e) {
             try {

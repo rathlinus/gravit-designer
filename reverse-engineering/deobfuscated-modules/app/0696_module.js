@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(124) /* module_124 */,
-      i = n(29) /* module_29 */,
-      a = n(408) /* module_408 */,
-      r = n(93) /* module_93 */,
-      s = n(101) /* module_101 */,
-      l = n(246) /* module_246 */,
-      c = n(204) /* module_204 */,
-      d = n(305) /* module_305 */,
-      u = n(697) /* module_697 */,
-      p = n(152) /* module_152 */.aTypedArrayConstructor,
-      g = n(429) /* module_429 */;
-    e.exports = function (e) {
+    var o = require(124) /* module_124 */,
+      i = require(29) /* module_29 */,
+      a = require(408) /* module_408 */,
+      r = require(93) /* module_93 */,
+      s = require(101) /* module_101 */,
+      l = require(246) /* module_246 */,
+      c = require(204) /* module_204 */,
+      d = require(305) /* module_305 */,
+      u = require(697) /* module_697 */,
+      p = require(152) /* module_152 */.aTypedArrayConstructor,
+      g = require(429) /* module_429 */;
+    exports.exports = function (e) {
       var t,
         n,
         h,

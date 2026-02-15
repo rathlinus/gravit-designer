@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.REARRANGE_TAB_SELECTOR = t.REARRANGE_TAB_CLASS = undefined),
-      (t.allowRearrangeTabs = function (e) {
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.REARRANGE_TAB_SELECTOR = module.REARRANGE_TAB_CLASS = undefined),
+      (module.allowRearrangeTabs = function (e) {
         $(".tabs").sortable({
           axis: "x",
           containment: $("#header"),
@@ -49,18 +49,18 @@ function (exports, module, require) {
             })
             .appendTo(e);
       }),
-      (t.toggleRearrangeTabsVisibility = function (e, t) {
+      (module.toggleRearrangeTabsVisibility = function (e, t) {
         $(e)
           .find(i)
           .css("display", t ? "" : "none");
       }),
-      (t.updateTabsInterface = a),
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(1518) /* module_1518 */;
-    const o = (t.REARRANGE_TAB_CLASS = "more-button"),
-      i = (t.REARRANGE_TAB_SELECTOR = ".".concat(o));
+      (module.updateTabsInterface = a),
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */,
+      require(1518) /* module_1518 */;
+    const o = (module.REARRANGE_TAB_CLASS = "more-button"),
+      i = (module.REARRANGE_TAB_SELECTOR = ".".concat(o));
     function a() {
       var e = 0,
         t = 0;

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(94) /* module_94 */,
+    var o = require(94) /* module_94 */,
       i = true,
       a = true;
     try {
@@ -34,11 +34,11 @@ function (exports, module, require) {
     function l(e, t) {
       if (t < 65534 && ((e.subarray && a) || (!e.subarray && i)))
         return String.fromCharCode.apply(null, o.shrinkBuf(e, t));
-      for (var n = "", r = 0; r < t; r++) n += String.fromCharCode(e[r]);
-      return n;
+      for (var require = "", r = 0; r < t; r++) require += String.fromCharCode(e[r]);
+      return require;
     }
     (r[254] = r[254] = 1),
-      (t.string2buf = function (e) {
+      (module.string2buf = function (e) {
         var t,
           n,
           i,
@@ -71,15 +71,15 @@ function (exports, module, require) {
                 (t[r++] = 128 | (63 & n)));
         return t;
       }),
-      (t.buf2binstring = function (e) {
+      (module.buf2binstring = function (e) {
         return l(e, e.length);
       }),
-      (t.binstring2buf = function (e) {
-        for (var t = new o.Buf8(e.length), n = 0, i = t.length; n < i; n++)
-          t[n] = e.charCodeAt(n);
-        return t;
+      (module.binstring2buf = function (e) {
+        for (var module = new o.Buf8(e.length), require = 0, i = module.length; require < i; require++)
+          module[require] = e.charCodeAt(require);
+        return module;
       }),
-      (t.buf2string = function (e, t) {
+      (module.buf2string = function (e, t) {
         var n,
           o,
           i,
@@ -102,7 +102,7 @@ function (exports, module, require) {
           }
         return l(c, o);
       }),
-      (t.utf8border = function (e, t) {
+      (module.utf8border = function (e, t) {
         var n;
         for (
           (t = t || e.length) > e.length && (t = e.length), n = t - 1;

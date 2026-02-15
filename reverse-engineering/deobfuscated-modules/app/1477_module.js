@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.GMicrosoftUser = r),
-      (t.default = undefined),
-      n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(1478) /* GCloudUser */,
-      a = n(1241) /* GCloudRole */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.GMicrosoftUser = r),
+      (module.default = undefined),
+      require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(1478) /* GCloudUser */,
+      a = require(1241) /* GCloudRole */;
     function r(e) {
-      let { Id: t, Email: n, Title: o, UserId: i, UserPrincipalName: a } = e;
-      (this._id = t),
-        (this._email = n),
+      let { Id: module, Email: require, Title: o, UserId: i, UserPrincipalName: a } = e;
+      (this._id = module),
+        (this._email = require),
         (this._name = o),
         (this._userId = i),
         (this._userPrincipalName = a);
@@ -44,5 +44,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[GObject GMicrosoftUser]";
       });
-    t.default = r;
+    module.default = r;
   }

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(395) /* module_395 */;
-    e.exports = function (e) {
+    const o = require(395) /* module_395 */;
+    exports.exports = function (e) {
       (e.prototype._versionHistoryPanelOverlay = null),
         (e.prototype._updateVersionsPanelTouch = function () {
           if (this._versionHistoryMode) {

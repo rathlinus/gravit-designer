@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(29) /* module_29 */,
-      a = n(74) /* module_74 */,
-      r = n(199) /* Exports_GURABLE */,
-      s = n(35) /* module_35 */,
-      l = n(419) /* module_419 */,
-      c = n(208) /* module_208 */,
-      d = n(175) /* module_175 */,
-      u = n(137) /* module_137 */,
-      p = n(100) /* module_100 */,
-      g = n(79) /* module_79 */,
-      h = n(43) /* module_43 */,
-      f = n(203) /* module_203 */,
-      m = n(251) /* Exports_GGY */,
+    var o = require(25) /* module_25 */,
+      i = require(29) /* module_29 */,
+      a = require(74) /* module_74 */,
+      r = require(199) /* Exports_GURABLE */,
+      s = require(35) /* module_35 */,
+      l = require(419) /* module_419 */,
+      c = require(208) /* module_208 */,
+      d = require(175) /* module_175 */,
+      u = require(137) /* module_137 */,
+      p = require(100) /* module_100 */,
+      g = require(79) /* module_79 */,
+      h = require(43) /* module_43 */,
+      f = require(203) /* module_203 */,
+      m = require(251) /* Exports_GGY */,
       y = r.PROPER,
       v = r.CONFIGURABLE,
       _ = m.IteratorPrototype,
@@ -27,7 +27,7 @@ function (exports, module, require) {
       C = function () {
         return this;
       };
-    e.exports = function (e, t, n, r, h, m, x) {
+    exports.exports = function (e, t, n, r, h, m, x) {
       l(n, t, r);
       var S,
         E,

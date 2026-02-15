@@ -18,9 +18,9 @@ function (e, t, n) {
       n(38) /* module_38 */,
       n(97) /* module_97 */,
       n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(797) /* module_797 */,
-      a = n(15) /* module_15 */,
+    var o = n(1) /* module */,
+      i = n(797) /* module */,
+      a = n(15) /* module */,
       r = n(40) /* module_40 */,
       s = n(10) /* module_10 */,
       l = n(238) /* GMenu */,

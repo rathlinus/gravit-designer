@@ -3,6 +3,6 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = require("electron");
+function (exports, module) {
+    exports.exports = require("electron");
   }

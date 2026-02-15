@@ -8,7 +8,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(58) /* module_58 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var i = n(15) /* module_15 */,
+    var i = n(15) /* module */,
       a = o(n(31) /* GAction */),
       r = o(n(1168) /* GSubAction */);
     class s extends a.default {

@@ -6,11 +6,11 @@
 function (exports, module, require) {
     "use strict";
     var o,
-      i = n(94) /* module_94 */,
-      a = n(464) /* module_464 */,
-      r = n(310) /* module_310 */,
-      s = n(311) /* module_311 */,
-      l = n(225) /* module_225 */;
+      i = require(94) /* module_94 */,
+      a = require(464) /* module_464 */,
+      r = require(310) /* module_310 */,
+      s = require(311) /* module_311 */,
+      l = require(225) /* module_225 */;
     function c(e, t) {
       return (e.msg = l[t]), t;
     }
@@ -18,7 +18,7 @@ function (exports, module, require) {
       return (e << 1) - (e > 4 ? 9 : 0);
     }
     function u(e) {
-      for (var t = e.length; --t >= 0; ) e[t] = 0;
+      for (var module = e.length; --module >= 0; ) e[module] = 0;
     }
     function p(e) {
       var t = e.state,
@@ -164,22 +164,22 @@ function (exports, module, require) {
       } while (e.lookahead < 262 && 0 !== e.strm.avail_in);
     }
     function v(e, t) {
-      for (var n, o; ; ) {
+      for (var require, o; ; ) {
         if (e.lookahead < 262) {
           if ((y(e), e.lookahead < 262 && 0 === t)) return 1;
           if (0 === e.lookahead) break;
         }
         if (
-          ((n = 0),
+          ((require = 0),
           e.lookahead >= 3 &&
             ((e.ins_h =
               ((e.ins_h << e.hash_shift) ^ e.window[e.strstart + 3 - 1]) &
               e.hash_mask),
-            (n = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
+            (require = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
             (e.head[e.ins_h] = e.strstart)),
-          0 !== n &&
-            e.strstart - n <= e.w_size - 262 &&
-            (e.match_length = m(e, n)),
+          0 !== require &&
+            e.strstart - require <= e.w_size - 262 &&
+            (e.match_length = m(e, require)),
           e.match_length >= 3)
         )
           if (
@@ -197,7 +197,7 @@ function (exports, module, require) {
                 (e.ins_h =
                   ((e.ins_h << e.hash_shift) ^ e.window[e.strstart + 3 - 1]) &
                   e.hash_mask),
-                (n = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
+                (require = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
                 (e.head[e.ins_h] = e.strstart);
             } while (0 != --e.match_length);
             e.strstart++;
@@ -224,26 +224,26 @@ function (exports, module, require) {
       );
     }
     function _(e, t) {
-      for (var n, o, i; ; ) {
+      for (var require, o, i; ; ) {
         if (e.lookahead < 262) {
           if ((y(e), e.lookahead < 262 && 0 === t)) return 1;
           if (0 === e.lookahead) break;
         }
         if (
-          ((n = 0),
+          ((require = 0),
           e.lookahead >= 3 &&
             ((e.ins_h =
               ((e.ins_h << e.hash_shift) ^ e.window[e.strstart + 3 - 1]) &
               e.hash_mask),
-            (n = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
+            (require = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
             (e.head[e.ins_h] = e.strstart)),
           (e.prev_length = e.match_length),
           (e.prev_match = e.match_start),
           (e.match_length = 2),
-          0 !== n &&
+          0 !== require &&
             e.prev_length < e.max_lazy_match &&
-            e.strstart - n <= e.w_size - 262 &&
-            ((e.match_length = m(e, n)),
+            e.strstart - require <= e.w_size - 262 &&
+            ((e.match_length = m(e, require)),
             e.match_length <= 5 &&
               (1 === e.strategy ||
                 (3 === e.match_length && e.strstart - e.match_start > 4096)) &&
@@ -263,7 +263,7 @@ function (exports, module, require) {
               ((e.ins_h =
                 ((e.ins_h << e.hash_shift) ^ e.window[e.strstart + 3 - 1]) &
                 e.hash_mask),
-              (n = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
+              (require = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h]),
               (e.head[e.ins_h] = e.strstart));
           } while (0 != --e.prev_length);
           if (
@@ -489,20 +489,20 @@ function (exports, module, require) {
       new b(32, 128, 258, 1024, _),
       new b(32, 258, 258, 4096, _),
     ]),
-      (t.deflateInit = function (e, t) {
+      (module.deflateInit = function (e, t) {
         return S(e, t, 8, 15, 8, 0);
       }),
-      (t.deflateInit2 = S),
-      (t.deflateReset = x),
-      (t.deflateResetKeep = C),
-      (t.deflateSetHeader = function (e, t) {
+      (module.deflateInit2 = S),
+      (module.deflateReset = x),
+      (module.deflateResetKeep = C),
+      (module.deflateSetHeader = function (e, t) {
         return e && e.state
           ? 2 !== e.state.wrap
             ? -2
             : ((e.state.gzhead = t), 0)
           : -2;
       }),
-      (t.deflate = function (e, t) {
+      (module.deflate = function (e, t) {
         var n, i, r, l;
         if (!e || !e.state || t > 5 || t < 0) return e ? c(e, -2) : -2;
         if (
@@ -787,7 +787,7 @@ function (exports, module, require) {
             i.wrap > 0 && (i.wrap = -i.wrap),
             0 !== i.pending ? 0 : 1);
       }),
-      (t.deflateEnd = function (e) {
+      (module.deflateEnd = function (e) {
         var t;
         return e && e.state
           ? 42 !== (t = e.state.status) &&
@@ -801,7 +801,7 @@ function (exports, module, require) {
             : ((e.state = null), 113 === t ? c(e, -3) : 0)
           : -2;
       }),
-      (t.deflateSetDictionary = function (e, t) {
+      (module.deflateSetDictionary = function (e, t) {
         var n,
           o,
           a,
@@ -865,5 +865,5 @@ function (exports, module, require) {
           0
         );
       }),
-      (t.deflateInfo = "pako deflate (from Nodeca project)");
+      (module.deflateInfo = "pako deflate (from Nodeca project)");
   }

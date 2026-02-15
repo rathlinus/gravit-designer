@@ -8,14 +8,14 @@ function (exports, module, require) {
     var o,
       i,
       a,
-      r = n(452) /* module_452 */,
-      s = n(23) /* module_23 */,
-      l = n(46) /* module_46 */,
-      c = n(100) /* module_100 */,
-      d = n(61) /* module_61 */,
-      u = n(297) /* module_297 */,
-      p = n(300) /* module_300 */,
-      g = n(259) /* module_259 */,
+      r = require(452) /* module_452 */,
+      s = require(23) /* module_23 */,
+      l = require(46) /* module_46 */,
+      c = require(100) /* module_100 */,
+      d = require(61) /* module_61 */,
+      u = require(297) /* module_297 */,
+      p = require(300) /* module_300 */,
+      g = require(259) /* module_259 */,
       h = s.TypeError,
       f = s.WeakMap;
     if (r || u.state) {
@@ -47,7 +47,7 @@ function (exports, module, require) {
           return d(e, y);
         });
     }
-    e.exports = {
+    exports.exports = {
       set: o,
       get: i,
       has: a,

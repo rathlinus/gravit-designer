@@ -5,73 +5,73 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(328) /* module_328 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(196) /* module_196 */,
-      n(20) /* module_20 */,
-      n(71) /* module_71 */,
-      n(151) /* module_151 */,
-      n(34) /* module_34 */,
-      n(851) /* module_851 */,
-      n(1388) /* module_1388 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = n(1201) /* module_1201 */,
-      l = n(797) /* module_797 */,
-      c = n(10) /* module_10 */,
-      d = n(40) /* module_40 */,
-      u = o(n(1468) /* module_1468 */),
-      p = o(n(1470) /* module_1470 */),
-      g = o(n(1471) /* module_1471 */),
-      h = o(n(177) /* module_177 */),
-      f = n(165) /* module_165 */;
-    const m = n(1472) /* module_1472 */;
-    var y = n(388) /* module_388 */,
-      v = n(78) /* GDocumentEvent */,
-      _ = n(86) /* module_86 */,
-      b = n(217) /* GDocumentStatusEvent */,
-      w = n(336) /* module_336 */,
-      C = n(237) /* module_237 */,
-      x = n(841) /* module_841 */,
-      S = n(1473) /* module_1473 */,
-      E = n(219) /* module_219 */,
-      A = n(1238) /* module_1238 */,
-      T = n(1475) /* module_1475 */,
-      G = n(255) /* module_255 */,
-      P = n(119) /* module_119 */,
-      D = n(220) /* module_220 */,
-      L = n(85) /* GContainer */;
-    const I = n(441) /* module_441 */,
-      k = n(392) /* module_392 */,
-      O = n(291) /* GNetworkAvailabilityChangedEvent */,
-      F = n(292) /* module_292 */,
-      R = n(44) /* GSystemDialog */,
-      M = n(442) /* module_442 */,
-      N = n(389) /* module_389 */,
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(328) /* module_328 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(196) /* module_196 */,
+      require(20) /* module_20 */,
+      require(71) /* module_71 */,
+      require(151) /* module_151 */,
+      require(34) /* module_34 */,
+      require(851) /* module_851 */,
+      require(1388) /* module_1388 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = require(1201) /* module */,
+      l = require(797) /* module */,
+      c = require(10) /* module_10 */,
+      d = require(40) /* module_40 */,
+      u = o(require(1468) /* module_1468 */),
+      p = o(require(1470) /* module_1470 */),
+      g = o(require(1471) /* module_1471 */),
+      h = o(require(177) /* module_177 */),
+      f = require(165) /* module_165 */;
+    const m = require(1472) /* module_1472 */;
+    var y = require(388) /* module_388 */,
+      v = require(78) /* GDocumentEvent */,
+      _ = require(86) /* module_86 */,
+      b = require(217) /* GDocumentStatusEvent */,
+      w = require(336) /* module_336 */,
+      C = require(237) /* module_237 */,
+      x = require(841) /* module_841 */,
+      S = require(1473) /* module_1473 */,
+      E = require(219) /* module_219 */,
+      A = require(1238) /* module_1238 */,
+      T = require(1475) /* module_1475 */,
+      G = require(255) /* module_255 */,
+      P = require(119) /* module_119 */,
+      D = require(220) /* module_220 */,
+      L = require(85) /* GContainer */;
+    const I = require(441) /* module_441 */,
+      k = require(392) /* module_392 */,
+      O = require(291) /* GNetworkAvailabilityChangedEvent */,
+      F = require(292) /* module_292 */,
+      R = require(44) /* GSystemDialog */,
+      M = require(442) /* module_442 */,
+      N = require(389) /* module_389 */,
       B = c.FILE_FORMATS.find((e) => e.default),
       U = c.FILE_FORMATS.filter((e) => e.secondary),
-      $ = n(393) /* GCollaborationEvent */,
-      j = n(436) /* module_436 */;
-    n(1152) /* module_1152 */;
+      $ = require(393) /* GCollaborationEvent */,
+      j = require(436) /* module_436 */;
+    require(1152) /* module_1152 */;
     function K(e) {
       (this._storageItem = e instanceof C.Item ? e : null),
         (this._windows = []),
@@ -145,9 +145,9 @@ function (exports, module, require) {
       }),
       (K.prototype._annotationFocused = false),
       (K.prototype.setAnnotationFocused = function () {
-        let e =
+        let exports =
           !(arguments.length > 0 && undefined !== arguments[0]) || arguments[0];
-        this._annotationFocused = e;
+        this._annotationFocused = exports;
       }),
       (K.prototype.isAnnotationFocused = function () {
         return this._annotationFocused;
@@ -207,8 +207,8 @@ function (exports, module, require) {
         return this._storageItem;
       }),
       (K.prototype.getExtension = function () {
-        const e = this.getStorageItem();
-        return e ? e.getExtension() : B.ext;
+        const exports = this.getStorageItem();
+        return exports ? exports.getExtension() : B.ext;
       }),
       (K.prototype.hasCDR = function () {
         return !!(
@@ -238,14 +238,14 @@ function (exports, module, require) {
         return this._scene;
       }),
       (K.prototype.setScene = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-        if (e !== this._scene || t) {
-          var n = false;
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        if (e !== this._scene || module) {
+          var require = false;
           gDesigner.getActiveDocument() === this &&
-            (gDesigner.activateDocument(null), (n = true)),
+            (gDesigner.activateDocument(null), (require = true)),
             this._updateScene(e),
             this._updateStatus(_.Ready, e),
-            n && gDesigner.activateDocument(this);
+            require && gDesigner.activateDocument(this);
         }
       }),
       (K.prototype.setFileFormatVersion = function () {}),
@@ -276,11 +276,11 @@ function (exports, module, require) {
         this._checkPermissionsAndUpdateState();
       }),
       (K.prototype._checkPermissionsAndUpdateState = function () {
-        const e = gDesigner.getApplicationManager().isInspectEnabled(),
-          t = gDesigner.getApplicationManager().isCommentingEnabled();
-        (e === this._editable && t === this._annotationsEditable) ||
-          ((this._editable = e),
-          (this._annotationsEditable = t),
+        const exports = gDesigner.getApplicationManager().isInspectEnabled(),
+          module = gDesigner.getApplicationManager().isCommentingEnabled();
+        (exports === this._editable && module === this._annotationsEditable) ||
+          ((this._editable = exports),
+          (this._annotationsEditable = module),
           this._updateState());
       }),
       (K.prototype._resolvedMissingEntryEvent = function (e) {
@@ -498,25 +498,25 @@ function (exports, module, require) {
         }
       }),
       (K.prototype._userLoggedEvent = function (e) {
-        const { user: t } = e;
-        t && this._editor && this._editor.setUID(new h.default(t).getUID());
+        const { user: module } = e;
+        module && this._editor && this._editor.setUID(new h.default(module).getUID());
       }),
       (K.prototype._handleDocumentEvent = function () {}),
       (K.prototype._handleStorageItemEvent = function () {}),
       (K.prototype._collaborationEvent = async function (e) {
         if (this.isLockedByVersionHistory()) return;
-        const { type: t, data: n } = e;
-        switch (t) {
+        const { type: module, data: require } = e;
+        switch (module) {
           case $.Type.ReviewStatusChanged:
             this.isCollaborative() &&
-              this.getStorageItem().setCollaborativeFileStatus(n.status);
+              this.getStorageItem().setCollaborativeFileStatus(require.status);
             break;
           case $.Type.FileUpdate:
             if (
-              n &&
-              n.metadata &&
-              n.metadata.sessionId &&
-              n.metadata.sessionId === this.sessionId
+              require &&
+              require.metadata &&
+              require.metadata.sessionId &&
+              require.metadata.sessionId === this.sessionId
             )
               return;
             (this._isUpdateAvailable = true),
@@ -556,13 +556,13 @@ function (exports, module, require) {
         }),
       (K.prototype.isUpdateAvailable = async function () {
         if (this._isUpdateAvailable) return true;
-        const e = this.getStorageItem();
+        const exports = this.getStorageItem();
         return (
           !(
-            !e ||
-            (!e.hasVersionControl() && !this.isCloudFile()) ||
+            !exports ||
+            (!exports.hasVersionControl() && !this.isCloudFile()) ||
             this._synchronizing
-          ) && e.hasUpdates()
+          ) && exports.hasUpdates()
         );
       }),
       (K.prototype.isIgnoringCurrentUpdate = function () {
@@ -591,10 +591,10 @@ function (exports, module, require) {
       }),
       (K.prototype.canSaveToCloud = async function () {
         if (!this._owner) return true;
-        const e = await gDesigner.getUser();
+        const exports = await gDesigner.getUser();
         return (
-          !!e &&
-          (this._owner.id === e.getUID() ||
+          !!exports &&
+          (this._owner.id === exports.getUID() ||
             gDesigner
               .getApplicationManager()
               .hasPermission(this, c.SharePermissions.EDIT))
@@ -679,17 +679,17 @@ function (exports, module, require) {
       }),
       (K.prototype._loadDataIntoDocument = async function (e, t) {
         t.progress && t.progress(5), await (0, d.sleep)(10);
-        const n = P.unzipData(e);
+        const require = P.unzipData(e);
         return (
           t.progress && t.progress(10),
           await (0, d.sleep)(10),
-          this.deserializeData(n, t)
+          this.deserializeData(require, t)
         );
       }),
       (K.prototype.deserializeData = function (e, t) {
-        const n = this.getActiveWindow();
+        const require = this.getActiveWindow();
         return (
-          n && n.centerAndZoom(),
+          require && require.centerAndZoom(),
           this._updateCloudSynchronism(this.isCloudFile()),
           new Promise(async (n, o) => {
             t || ((t = { progress: null }), this._updateStatus(_.Loading, t)),
@@ -993,18 +993,18 @@ function (exports, module, require) {
         return this.getStorageItem() && this.getStorageItem().hasMixin(j);
       }),
       (K.prototype.isShareable = function () {
-        const e = this.getStorageItem();
+        const exports = this.getStorageItem();
         return (
-          (this.isCloudFile() && e && e.getId()) ||
-          (e && e.getId() && e.supportsShadowFile() && e.supportsSharing())
+          (this.isCloudFile() && exports && exports.getId()) ||
+          (exports && exports.getId() && exports.supportsShadowFile() && exports.supportsSharing())
         );
       }),
       (K.prototype.isExternalFile = function () {
         return this.getStorageItem() instanceof y.Item;
       }),
       (K.prototype.isEditingEnabled = function () {
-        const e = this.getStorageItem();
-        return !e || e.isEditingEnabled();
+        const exports = this.getStorageItem();
+        return !exports || exports.isEditingEnabled();
       }),
       (K.prototype.getId = function () {
         return this.isCloudFile() || this.isExternalFile()
@@ -1020,8 +1020,8 @@ function (exports, module, require) {
         if (!c.HAS_ANNOTATIONS) return null;
         var e = this.getId();
         if (!e) {
-          var t = this.getScene();
-          (e = t.isCloudAnnotations() ? t.getProperty("cid") : null) ||
+          var module = this.getScene();
+          (e = module.isCloudAnnotations() ? module.getProperty("cid") : null) ||
             (e = this.getReservedId());
         }
         return e;
@@ -1029,10 +1029,10 @@ function (exports, module, require) {
       (K.prototype.getAnnotationsToken = async function (e) {
         if (!c.HAS_ANNOTATIONS) return null;
         var t = null;
-        let n = location.search.match(
+        let require = location.search.match(
           /token=(?:[\0-%'-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+/
         );
-        n && (t = n[0].slice(6));
+        require && (t = require[0].slice(6));
         var o = null,
           i = this.getScene(),
           a = this.getId(),
@@ -1058,9 +1058,9 @@ function (exports, module, require) {
         );
       }),
       (K.prototype.isWebFile = function () {
-        const e = this.getStorageItem();
-        return e
-          ? e instanceof D.Item
+        const exports = this.getStorageItem();
+        return exports
+          ? exports instanceof D.Item
           : gContainer.getRuntime() === L.Runtime.Browser ||
               gContainer.getRuntime() === L.Runtime.PWA;
       }),
@@ -1082,10 +1082,10 @@ function (exports, module, require) {
         return (
           e &&
           e.filter((e) => {
-            let t = e.getProperty("restricted", true) || false;
-            if (!t) return true;
-            let n = this.getStorageItem();
-            return n && n.getId() === t;
+            let module = e.getProperty("restricted", true) || false;
+            if (!module) return true;
+            let require = this.getStorageItem();
+            return require && require.getId() === module;
           })
         );
       }),
@@ -1114,14 +1114,14 @@ function (exports, module, require) {
         );
       }),
       (K.prototype.reload = async function () {
-        let e;
+        let exports;
         if (
           (gDesigner.hasEventListeners(v) &&
             gDesigner.trigger(new v(v.Type.BeforeReload, this)),
           this.isCloudFile())
         ) {
           const t = await c.gApi.getFile(this.getId());
-          (e = await D.from(
+          (exports = await D.from(
             gDesigner.getDefaultStorage(),
             t,
             undefined,
@@ -1129,38 +1129,38 @@ function (exports, module, require) {
             t.autosave
           )),
             this.getEditor() && this.getEditor().markSavePoint(),
-            this.setStorageItem(e);
-        } else e = this.getStorageItem();
-        this.load(e);
+            this.setStorageItem(exports);
+        } else exports = this.getStorageItem();
+        this.load(exports);
       }),
       (K.prototype.load = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         if ("lts" !== gDesigner.getEnv() || gDesigner.isEnabledProFeatures()) {
-          var n = e || this._storageItem;
-          if (n) {
-            var o = n.getName(),
-              i = n.getExtension();
-            (t = Object.assign(
+          var require = e || this._storageItem;
+          if (require) {
+            var o = require.getName(),
+              i = require.getExtension();
+            (module = Object.assign(
               {},
               { progress: null, filename: o, ext: i ? i.toLowerCase() : null },
-              t
+              module
             )),
-              this._updateStatus(_.Loading, t);
+              this._updateStatus(_.Loading, module);
             var r = (e) => {
-                let t = false;
+                let module = false;
                 G.getInstance().query(
                   (n) => {
                     var o = [];
                     n.faces.slice().map((e) => {
-                      for (var t = [e.family], n = 0; n < e.fonts.length; n++)
+                      for (var module = [e.family], n = 0; n < e.fonts.length; n++)
                         e.fonts[n].family &&
-                          t.indexOf(e.fonts[n].family) < 0 &&
-                          t.push(e.fonts[n].family);
-                      o = o.concat(t);
+                          module.indexOf(e.fonts[n].family) < 0 &&
+                          module.push(e.fonts[n].family);
+                      o = o.concat(module);
                     }),
                       s.GPDFImport.updateFontFamilies(o),
-                      t || ((t = true), e());
+                      module || ((module = true), e());
                   },
                   "%",
                   true
@@ -1176,7 +1176,7 @@ function (exports, module, require) {
                     ).open(),
                     void this._updateStatus(_.LoadFailed)
                   );
-                t.progress(100);
+                module.progress(100);
                 var l = gDesigner.createScene(),
                   c = l.getActivePage(),
                   d = new a.GImage();
@@ -1186,21 +1186,21 @@ function (exports, module, require) {
                     [r, s, "PNG" !== i ? a.GRGBColor.WHITE : null]
                   ),
                   c.appendChild(d),
-                  n.getName() && this.setTitle(n.getName()),
+                  require.getName() && this.setTitle(require.getName()),
                   this.setScene(l),
                   this._updateStatus(_.Loaded),
                   gDesigner.gtmEvent("DOCUMENT_IMPORT_EVENT");
               }.bind(this);
-            n.read(
+            require.read(
               async (e) => {
                 if ("GVDESIGN" === i || i === B.ext.toUpperCase()) {
                   gDesigner.stats("document_open_".concat(i.toLowerCase())),
-                    (t.checkAnnotations = true);
+                    (module.checkAnnotations = true);
                   const o = G.getInstance();
                   o.setShowMissingFontsDialog(false);
                   const a = new p.default();
                   a.start(),
-                    this._loadDataIntoDocument(e, t).finally(async () => {
+                    this._loadDataIntoDocument(e, module).finally(async () => {
                       try {
                         const e = gDesigner.getWorkspace().getFontManager();
                         await new g.default(e).waitForAllPendingFonts();
@@ -1210,13 +1210,13 @@ function (exports, module, require) {
                         a.stop(), o.setShowMissingFontsDialog(true);
                       }
                     }),
-                    gDesigner.addToRecentFiles(n),
+                    gDesigner.addToRecentFiles(require),
                     gDesigner.gtmEvent("DOCUMENT_OPEN_EVENT");
                 } else if (
                   U.length &&
                   U.find((e) => e.ext.toUpperCase() === i)
                 ) {
-                  await this._handleSecondaryFormatRead(n, e, t);
+                  await this._handleSecondaryFormatRead(require, e, module);
                   var o = gDesigner.getWindows().getActiveWindow().getView();
                   if (
                     o &&
@@ -1295,7 +1295,7 @@ function (exports, module, require) {
                               o.unit && e.setProperty("ut", o.unit);
                           }
                           this._updateStatus(_.Loaded),
-                            n.getName() && this.setTitle(n.getName()),
+                            require.getName() && this.setTitle(require.getName()),
                             this.setScene(e),
                             gDesigner.gtmEvent("DOCUMENT_IMPORT_EVENT");
                         } else this._updateStatus(_.LoadFailed);
@@ -1393,7 +1393,7 @@ function (exports, module, require) {
                             a.GNode._Change.AfterChildInsert,
                           ]),
                           this._updateStatus(_.Loaded),
-                          n.getName() && this.setTitle(n.getName()),
+                          require.getName() && this.setTitle(require.getName()),
                           this.setScene(s),
                           gDesigner.gtmEvent("DOCUMENT_IMPORT_EVENT");
                       },
@@ -1401,7 +1401,7 @@ function (exports, module, require) {
                         new E(e).open();
                       },
                       function (e) {
-                        t && t.progress && t.progress(e);
+                        module && module.progress && module.progress(e);
                       },
                       this.initCancelHandler.bind(this)
                     );
@@ -1464,7 +1464,7 @@ function (exports, module, require) {
                             ]),
                             i.setActivePage(t[0]),
                             this._updateStatus(_.Loaded),
-                            n.getName() && this.setTitle(n.getName()),
+                            require.getName() && this.setTitle(require.getName()),
                             this.setScene(i),
                             o instanceof Array &&
                               o.length &&
@@ -1485,7 +1485,7 @@ function (exports, module, require) {
                         }
                       },
                       function (e, n) {
-                        (h = Math.max(h, (e / n) * 100)), t.progress(h);
+                        (h = Math.max(h, (e / n) * 100)), module.progress(h);
                       },
                       f
                     )
@@ -1496,7 +1496,7 @@ function (exports, module, require) {
                     s.GSketchImport.import(
                       e,
                       {
-                        progress: t.progress,
+                        progress: module.progress,
                         fontProvider: J,
                         workspace: gDesigner.getWorkspace(),
                       },
@@ -1525,7 +1525,7 @@ function (exports, module, require) {
                             ]),
                             i.setActivePage(t[0]),
                             this._updateStatus(_.Loaded),
-                            n.getName() && this.setTitle(n.getName()),
+                            require.getName() && this.setTitle(require.getName()),
                             this.setScene(i),
                             gDesigner.gtmEvent("DOCUMENT_IMPORT_EVENT");
                         } else if (o)
@@ -1572,7 +1572,7 @@ function (exports, module, require) {
                   ).open()),
                   this._updateStatus(_.LoadFailed);
               },
-              t.progress
+              module.progress
             );
           }
         }
@@ -2070,16 +2070,16 @@ function (exports, module, require) {
           let e = gContainer.getSystemFontsProvider();
           e && G.enableProviders([e], true);
         }
-        let t = G.getInstance();
-        t && (e && (t.keepFontsMessage = e), t.setShowMissingFontsDialog(false));
+        let module = G.getInstance();
+        module && (e && (module.keepFontsMessage = e), module.setShowMissingFontsDialog(false));
       }),
       (K.prototype._postProcessFonts = function () {
         if (gContainer.getRuntime() === L.Runtime.Electron) {
           let e = gContainer.getSystemFontsProvider();
           e && G.disableProviders([e], true);
         }
-        let e = G.getInstance();
-        e && e.setShowMissingFontsDialog(true);
+        let exports = G.getInstance();
+        exports && exports.setShowMissingFontsDialog(true);
       }),
       (K.prototype._activateProgress = function (e) {
         if (this._activeWindow) {
@@ -2107,8 +2107,8 @@ function (exports, module, require) {
           this.removeAllEventListeners(true);
       }),
       (K.prototype.publish = function (e) {
-        const t = this._storageItem && this._storageItem.getExtension(),
-          n = !!U.find((e) => e.ext.toUpperCase() === t);
+        const module = this._storageItem && this._storageItem.getExtension(),
+          require = !!U.find((e) => e.ext.toUpperCase() === module);
         let o = false,
           i = true;
         return (
@@ -2117,7 +2117,7 @@ function (exports, module, require) {
             ? c.gApi.realtime.publishFile(
                 this.getId(),
                 { sessionId: this.sessionId },
-                n,
+                require,
                 o,
                 i
               )
@@ -2137,13 +2137,13 @@ function (exports, module, require) {
             (this._updateDocumentColorsFromElement(e.node, ["_pt"]),
             this.hasCDR())
           ) {
-            var t = e.node.getParent();
-            t &&
+            var module = e.node.getParent();
+            module &&
               (e.node instanceof a.GStylable.FillPaintLayer
-                ? t.getFillLayers(true).length > 1 &&
+                ? module.getFillLayers(true).length > 1 &&
                   R.showCDRUnsupportedObjectWarning()
                 : e.node instanceof a.GStylable.BorderPaintLayer &&
-                  t.getBorderLayers(true).length > 1 &&
+                  module.getBorderLayers(true).length > 1 &&
                   R.showCDRUnsupportedObjectWarning());
           }
         } else
@@ -2216,9 +2216,9 @@ function (exports, module, require) {
         }
       }),
       (K.prototype._afterFlagChangeEvent = function (e) {
-        const t = e.node;
+        const module = e.node;
         e.flag === a.GNode.Flag.Selected &&
-          t instanceof a.GCollabText &&
+          module instanceof a.GCollabText &&
           gDesigner.stats("document_canvas_select-collab-text");
       }),
       (K.prototype._licenseChangedEvent = function () {
@@ -2280,7 +2280,7 @@ function (exports, module, require) {
       }),
       (K.prototype._updateSymbolLock = function (e, t) {
         if (!this._editable) return;
-        const n = !t;
+        const require = !t;
         if ((e = e || this._scene)) {
           const o = (t) => {
             e.accept((e) => {
@@ -2296,14 +2296,14 @@ function (exports, module, require) {
           };
           gDesigner.isEnabledProFeatures()
             ? this._lockedSymbolInstances &&
-              (o((e) => e.setProperty("lkt", e.getProperty("lkt"), n, true)),
+              (o((e) => e.setProperty("lkt", e.getProperty("lkt"), require, true)),
               (this._lockedSymbolInstances = false))
             : (o((e) => {
                 t
                   ? e.hasFlag(a.GElement.Flag.FullLocked) &&
                     e.removeFlag(a.GElement.Flag.FullLocked)
                   : e.setFlag(a.GElement.Flag.FullLocked),
-                  e.setProperty("_pro", n, true);
+                  e.setProperty("_pro", require, true);
               }),
               (this._lockedSymbolInstances = true));
         }
@@ -2317,8 +2317,8 @@ function (exports, module, require) {
       (K.prototype._dropFileEvent = function (e) {
         var t = null;
         if (e.file.name) {
-          var n = e.file.name.lastIndexOf(".");
-          n >= 0 && (t = e.file.name.substr(n + 1));
+          var require = e.file.name.lastIndexOf(".");
+          require >= 0 && (t = e.file.name.substr(require + 1));
         }
         if (!t && e.file.type)
           for (var o = 0; o < K.FileTypes.length; ++o)
@@ -2353,19 +2353,19 @@ function (exports, module, require) {
         );
       }),
       (K.prototype._addDocumentColors = function (e) {
-        for (var t = 0; t < e.length; ++t) {
-          var n = a.GPattern.serialize(e[t]);
-          this._documentColors.hasOwnProperty(n)
-            ? (this._documentColors[n] += 1)
-            : (this._documentColors[n] = 1);
+        for (var module = 0; module < e.length; ++module) {
+          var require = a.GPattern.serialize(e[module]);
+          this._documentColors.hasOwnProperty(require)
+            ? (this._documentColors[require] += 1)
+            : (this._documentColors[require] = 1);
         }
       }),
       (K.prototype._clearDocumentColors = function (e) {
-        for (var t = 0; t < e.length; ++t) {
-          var n = a.GPattern.serialize(e[t]);
-          this._documentColors.hasOwnProperty(n) &&
-            0 == --this._documentColors[n] &&
-            delete this._documentColors[n];
+        for (var module = 0; module < e.length; ++module) {
+          var require = a.GPattern.serialize(e[module]);
+          this._documentColors.hasOwnProperty(require) &&
+            0 == --this._documentColors[require] &&
+            delete this._documentColors[require];
         }
       }),
       (K.prototype._updateDocumentColors = function (e, t) {
@@ -2381,8 +2381,8 @@ function (exports, module, require) {
           );
       }),
       (K.prototype._updateDocumentColorsFromGroup = function (e, t) {
-        for (var n = e.getChildren(), o = 0; o < n.length; o++) {
-          var i = n[o];
+        for (var require = e.getChildren(), o = 0; o < require.length; o++) {
+          var i = require[o];
           i instanceof a.GGroup || !i.hasMixin(a.GElement.Stylable)
             ? this._updateDocumentColorsFromGroup(i, t)
             : this._updateDocumentColors(i, t);
@@ -2458,22 +2458,22 @@ function (exports, module, require) {
       (K.prototype.buildPreview = function () {
         return new Promise((e) => {
           for (
-            var t = null, n = this._scene.getFirstChild();
-            null !== n;
-            n = n.getNext()
+            var module = null, require = this._scene.getFirstChild();
+            null !== require;
+            require = require.getNext()
           )
-            if (n instanceof a.GPage) {
-              t = n;
+            if (require instanceof a.GPage) {
+              module = require;
               break;
             }
-          if (t) {
-            var o = t._getBitmapPaintArea(),
+          if (module) {
+            var o = module._getBitmapPaintArea(),
               i = l.GBitmapExport.convertSizeToScale(
                 o.getWidth(),
                 o.getHeight(),
                 o.getWidth() > o.getHeight() ? "600w" : "600h"
               );
-            t.toBitmap(i.getX(), i.getY(), 2, a.GRGBColor.WHITE).toImageBlob(
+            module.toBitmap(i.getX(), i.getY(), 2, a.GRGBColor.WHITE).toImageBlob(
               "image/jpeg",
               e
             );
@@ -2481,8 +2481,8 @@ function (exports, module, require) {
         });
       }),
       (K.prototype.hasPagesWithInfiniteEmptyCanvas = function () {
-        for (var e = this._scene.getFirstChild(); null !== e; e = e.getNext())
-          if (e instanceof a.GPage && !e.getGeometryBBox()) return true;
+        for (var exports = this._scene.getFirstChild(); null !== exports; exports = exports.getNext())
+          if (exports instanceof a.GPage && !exports.getGeometryBBox()) return true;
         return false;
       }),
       (K.prototype.setReservedId = function (e) {
@@ -2522,7 +2522,7 @@ function (exports, module, require) {
       if (!e.arePropertiesEqual(t, Object.keys(a.GPath.GeometryProperties)))
         return false;
       for (
-        var n = Object.keys(a.GPathBase.AnchorPoint.GeometryProperties),
+        var require = Object.keys(a.GPathBase.AnchorPoint.GeometryProperties),
           o = e.getAnchorPoints(),
           i = t.getAnchorPoints(),
           r = o.getFirstChild(),
@@ -2530,40 +2530,40 @@ function (exports, module, require) {
         r && s;
         r = r.getNext(), s = s.getNext()
       )
-        if (!r.arePropertiesEqual(s, n)) return false;
+        if (!r.arePropertiesEqual(s, require)) return false;
       return null === r && null === s;
     }
     function Q(e) {
       e._blockUpdateChanges();
-      let t = e.getFirstChild();
-      for (; t; ) {
-        var n = t.getNext();
-        if (n) {
-          if (!Y(t, n)) {
-            t = n;
+      let module = e.getFirstChild();
+      for (; module; ) {
+        var require = module.getNext();
+        if (require) {
+          if (!Y(module, require)) {
+            module = require;
             continue;
           }
-          if (!(t instanceof a.GPath)) {
-            t = n;
+          if (!(module instanceof a.GPath)) {
+            module = require;
             continue;
           }
-          if (!X(t, n)) {
-            t = n;
+          if (!X(module, require)) {
+            module = require;
             continue;
           }
-          e.removeChild(n), t._blockUpdateChanges();
-          for (var o = n.getFirstChild(); null !== o; o = o.getNext())
-            n.removeChild(o), t.appendChild(o);
-          t._releaseUpdateChanges(), z++;
-        } else t = n;
+          e.removeChild(require), module._blockUpdateChanges();
+          for (var o = require.getFirstChild(); null !== o; o = o.getNext())
+            require.removeChild(o), module.appendChild(o);
+          module._releaseUpdateChanges(), z++;
+        } else module = require;
       }
-      for (t = e.getFirstChild(); null !== t; t = t.getNext()) Q(t);
+      for (module = e.getFirstChild(); null !== module; module = module.getNext()) Q(module);
       e._releaseUpdateChanges();
     }
     var J = {
       queryFirst: function (e, t) {
-        const n = (e, t) => {
-          let n,
+        const require = (e, t) => {
+          let require,
             o,
             i,
             a,
@@ -2579,7 +2579,7 @@ function (exports, module, require) {
           if (0 === g) return h;
           if (0 === h) return g;
           for (
-            g > h && ((n = e), (e = t), (t = n)),
+            g > h && ((require = e), (e = t), (t = require)),
               s = new Int8Array(g + 1),
               o = 0;
             o <= g;
@@ -2624,7 +2624,7 @@ function (exports, module, require) {
                       .getFontManager()
                       .getDefaultFont()
                       .getFamily(),
-                  a = n(o.family, i),
+                  a = require(o.family, i),
                   r = 0,
                   s = o.family;
                 for (let e = 0; e < t.length; e++) {
@@ -2632,10 +2632,10 @@ function (exports, module, require) {
                   let o;
                   if (l.families)
                     for (var c = 0; c < l.families.length; c++)
-                      (o = n(l.families[c], i)),
+                      (o = require(l.families[c], i)),
                         o < a && ((a = o), (r = e), (s = l.families[c]));
                   else
-                    (o = n(l.family, i)),
+                    (o = require(l.family, i)),
                       o < a && ((a = o), (r = e), (s = l.family));
                 }
                 o = null;
@@ -2669,5 +2669,5 @@ function (exports, module, require) {
         G.getInstance().query(a, i[o]);
       },
     };
-    e.exports = K;
+    exports.exports = K;
   }

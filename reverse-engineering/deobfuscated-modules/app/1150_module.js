@@ -5,25 +5,25 @@
 
 function (exports, module, require) {
     "use strict";
-    n(193) /* module_193 */,
-      n(57) /* module_57 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(34) /* module_34 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(40) /* module_40 */,
-      s = n(67) /* GRichTooltipConfig */,
-      l = n(1151) /* GSwatchesChangedEvent */,
-      c = n(857) /* module_857 */,
-      d = n(44) /* GSystemDialog */;
+    require(193) /* module_193 */,
+      require(57) /* module_57 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(34) /* module_34 */,
+      require(134) /* module_134 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(67) /* GRichTooltipConfig */,
+      l = require(1151) /* GSwatchesChangedEvent */,
+      c = require(857) /* module_857 */,
+      d = require(44) /* GSystemDialog */;
     function u() {
       this.initLayout(),
         this._container.gOverlay({ releaseOnClose: false, padding: false });
@@ -589,8 +589,8 @@ function (exports, module, require) {
               u._ColorModeToFrameworkColorMode[this._colorMode] ||
               i.GColor.ColorModes.RGB;
             e.forEach((e) => {
-              const n = i.GColorHelper.convertColor(e.color, t);
-              n && (e.color = n), this._updateGradientStop(e);
+              const require = i.GColorHelper.convertColor(e.color, t);
+              require && (e.color = require), this._updateGradientStop(e);
             }),
               this._updatePatternFromActiveGradient();
           }
@@ -809,10 +809,10 @@ function (exports, module, require) {
       }),
       (u.prototype.setActiveGradientStopByIdx = function (e) {
         if (this._activeGradient && null !== e) {
-          var t = this._activeGradient.getStops();
-          if (e >= 0 && e < t.length) {
-            var n = t[e];
-            this._setActiveGradientStop(n), this._updateOnlineEditorStops();
+          var module = this._activeGradient.getStops();
+          if (e >= 0 && e < module.length) {
+            var require = module[e];
+            this._setActiveGradientStop(require), this._updateOnlineEditorStops();
           }
         }
       }),
@@ -820,7 +820,7 @@ function (exports, module, require) {
         this._settings = t
           ? $.extend({ types: [] }, e)
           : $.extend({ types: [] }, this._settings, e);
-        const { types: n, singleOption: o } = this._settings;
+        const { types: require, singleOption: o } = this._settings;
         if (o) this._toolbar.css("display", "none");
         else {
           "none" === this._toolbar.css("display") &&
@@ -828,10 +828,10 @@ function (exports, module, require) {
           const e = [];
           for (let t = 0, o = u.PATTERN_TYPES.length; t < o; t++) {
             var i = u.PATTERN_TYPES[t],
-              a = !n.length;
+              a = !require.length;
             if (!a)
-              for (var r = 0; r < n.length; ++r)
-                if (i.isCompatible(n[r])) {
+              for (var r = 0; r < require.length; ++r)
+                if (i.isCompatible(require[r])) {
                   a = true;
                   break;
                 }
@@ -1732,7 +1732,7 @@ function (exports, module, require) {
       }),
       (u.prototype._createMixerPalette = function (e) {
         for (
-          var t = $("<div/>")
+          var module = $("<div/>")
               .attr("data-container", "tints")
               .addClass("swatches")
               .append(
@@ -1743,7 +1743,7 @@ function (exports, module, require) {
                 )
               )
               .appendTo(e),
-            n = $("<div/>")
+            require = $("<div/>")
               .attr("data-container", "shades")
               .append(
                 $("<label />").text(
@@ -1780,8 +1780,8 @@ function (exports, module, require) {
           r <= 10;
           r += 1
         )
-          this._createPaletteSwatch(i.GRGBColor.WHITE, t),
-            this._createPaletteSwatch(i.GRGBColor.WHITE, n),
+          this._createPaletteSwatch(i.GRGBColor.WHITE, module),
+            this._createPaletteSwatch(i.GRGBColor.WHITE, require),
             this._createPaletteSwatch(i.GRGBColor.WHITE, o),
             this._createPaletteSwatch(i.GRGBColor.WHITE, a);
         this._updateMixerPalette();
@@ -1791,13 +1791,13 @@ function (exports, module, require) {
       }),
       (u.prototype._updateMixerPalette = function () {
         var e = this.__getUpdateMixerPaletteParams();
-        function t(e, t, n) {
+        function module(e, t, n) {
           $(t[n])
             .css("background", i.GPattern.asCSSBackground(e))
             .data("swatch", new i.GSwatch(e));
         }
         for (
-          var n = [255, 255, 255],
+          var require = [255, 255, 255],
             o = [0, 0, 0],
             a = [128, 128, 128],
             r = this._color.toScreen(),
@@ -1818,10 +1818,10 @@ function (exports, module, require) {
           u += 1
         ) {
           var p = (u + 1) / (1 * e.maxCount);
-          t(new i.GRGBColor(i.GRGBColor.blend(r, n, p)), s, u),
-            t(new i.GRGBColor(i.GRGBColor.blend(r, o, p)), l, u),
-            t(new i.GRGBColor(i.GRGBColor.blend(r, a, p)), c, u),
-            t(
+          module(new i.GRGBColor(i.GRGBColor.blend(r, require, p)), s, u),
+            module(new i.GRGBColor(i.GRGBColor.blend(r, o, p)), l, u),
+            module(new i.GRGBColor(i.GRGBColor.blend(r, a, p)), c, u),
+            module(
               new i.GRGBColor(
                 i.GRGBColor.blend(r, this._oldColor.toScreen(), p)
               ),
@@ -1835,12 +1835,12 @@ function (exports, module, require) {
       }),
       (u.prototype._createUsedPalette = function (e) {
         var t = this.__getCreateUsedPaletteParams();
-        let n;
-        t.isTouchEnabled || (n = $("<div/>").addClass("swatches").appendTo(e));
+        let require;
+        t.isTouchEnabled || (require = $("<div/>").addClass("swatches").appendTo(e));
         for (var o = 0; o < t.maxCount; o += 1)
           this._createPaletteSwatch(
             i.GRGBColor.WHITE,
-            t.isTouchEnabled ? e : n,
+            t.isTouchEnabled ? e : require,
             false,
             false
           );
@@ -1851,10 +1851,10 @@ function (exports, module, require) {
           : [];
         $(".palettes > .used-palette").empty(),
           this._createUsedPalette($(".palettes > .used-palette"));
-        for (var t = 12, n = 0; n < t; n += 1) {
-          var o = n < e.length,
-            a = o ? e[n] : null,
-            r = this._palettes.find(".used-palette .swatches .swatch")[n],
+        for (var module = 12, require = 0; require < module; require += 1) {
+          var o = require < e.length,
+            a = o ? e[require] : null,
+            r = this._palettes.find(".used-palette .swatches .swatch")[require],
             s = new i.GSwatch(a);
           o &&
             $(r)
@@ -1862,9 +1862,9 @@ function (exports, module, require) {
               .data("swatch", s),
             $(r).css("display", o ? "" : "none"),
             s.isCMYK() && this._addCmykIcon($(r)),
-            n % 11 == 0 &&
+            require % 11 == 0 &&
               o &&
-              ((t += 12),
+              ((module += 12),
               this._createUsedPalette($(".palettes > .used-palette")));
         }
       }),
@@ -2007,9 +2007,9 @@ function (exports, module, require) {
       }),
       (u.prototype._updateActiveSwatch = function (e) {
         if ("swatches" === this._activePalette) {
-          var t = this._palettes.find(".swatches-palette." + e),
-            n = false;
-          t.find(".swatches-wrapper .swatches .swatch").each(
+          var module = this._palettes.find(".swatches-palette." + e),
+            require = false;
+          module.find(".swatches-wrapper .swatches .swatch").each(
             function (e, t) {
               var o = $(t),
                 a = i.GUtil.equals(
@@ -2017,11 +2017,11 @@ function (exports, module, require) {
                   new i.GSwatch(this._pattern, this._opacity),
                   true
                 );
-              a && (n = true), o.data("isActive", a).toggleClass("g-active", a);
+              a && (require = true), o.data("isActive", a).toggleClass("g-active", a);
             }.bind(this)
           ),
-            t.find(".toolbar button[data-active-swatch]").each(function (e, t) {
-              $(t).prop("disabled", !n);
+            module.find(".toolbar button[data-active-swatch]").each(function (e, t) {
+              $(t).prop("disabled", !require);
             });
         }
       }),
@@ -2089,24 +2089,24 @@ function (exports, module, require) {
           gDesigner.getWorkspace().getStyleEdManager() &&
           gDesigner.getWorkspace().getStyleEdManager().isActivated()
         ) {
-          var e = null;
+          var exports = null;
           this._activeGradientStop &&
             this._activeGradient &&
             Array.prototype.forEach.call(
               this._activeGradient.getStops(),
               function (t, n) {
-                t === this._activeGradientStop && (e = n);
+                t === this._activeGradientStop && (exports = n);
               }.bind(this)
             );
-          var t = gDesigner
+          var module = gDesigner
               .getWorkspace()
               .getStyleEdManager()
               .getActiveEditor(),
-            n = null;
-          null !== e &&
-            t &&
-            (n = { type: o.GGradientStyleEditor.STOP_HANDLE_PART_ID, idx: e }),
-            t && t.updatePartSelection(false, n ? [n] : null, true);
+            require = null;
+          null !== exports &&
+            module &&
+            (require = { type: o.GGradientStyleEditor.STOP_HANDLE_PART_ID, idx: exports }),
+            module && module.updatePartSelection(false, require ? [require] : null, true);
         }
       }),
       (u.prototype._insertGradientStop = function (e) {
@@ -2196,15 +2196,15 @@ function (exports, module, require) {
       (u.prototype._updatePatternFromActiveGradient = function (e) {
         if (this._activeGradient) {
           this._activeGradient.sortStops();
-          var t = this._activeGradient.clone(),
-            n = t.getStops();
+          var module = this._activeGradient.clone(),
+            require = module.getStops();
           Array.prototype.forEach.call(
             this._activeGradient.getStops(),
             function (e, t) {
-              e.remove && n.splice(t, 1);
+              e.remove && require.splice(t, 1);
             }
           ),
-            this._updatePattern(t, "gradient", null, e);
+            this._updatePattern(module, "gradient", null, e);
         }
       }),
       (u.prototype._rotateActiveGradient = function (e) {
@@ -2533,11 +2533,11 @@ function (exports, module, require) {
       }),
       (u.prototype._styleEditorHandler = function (e) {
         if (e.type === o.GStyleEdManager.EditorEventType.ActivePointChange) {
-          var t = this._activeGradient ? this._activeGradient.getStops() : null,
-            n = e.data ? e.data.idx : null;
-          t && null !== n && t.length > n
-            ? this._setActiveGradientStop(t[n])
-            : t && this._setActiveGradientStop(t.null),
+          var module = this._activeGradient ? this._activeGradient.getStops() : null,
+            require = e.data ? e.data.idx : null;
+          module && null !== require && module.length > require
+            ? this._setActiveGradientStop(module[require])
+            : module && this._setActiveGradientStop(module.null),
             this._updatePatternFromActiveGradient();
         }
       }),
@@ -2644,16 +2644,16 @@ function (exports, module, require) {
           this._extendedGamutInitiated !== u.ExtendedGamut.COMPONENTS ||
             this._colorMode !== u.ColorMode.HSV)
         ) {
-          var e = null,
-            t = function (e, t) {
+          var exports = null,
+            module = function (e, t) {
               return t;
             };
           switch (this._colorMode) {
             case u.ColorMode.RGB:
-              e = this._color.toScreen();
+              exports = this._color.toScreen();
               break;
             case u.ColorMode.HSV:
-              (e =
+              (exports =
                 (this._extendedGamutInitiated !==
                   u.ExtendedGamut.COLOR_SLIDER &&
                   this._extendedGamutInitiated !== u.ExtendedGamut.MAP) ||
@@ -2662,16 +2662,16 @@ function (exports, module, require) {
                     ? this._color.getValue()
                     : i.GColor.rgbToHSV(this._color.toScreen())
                   : this._extValue),
-                (t = function (e, t) {
+                (module = function (e, t) {
                   return 0 === e ? t : i.GUtil.formatNumber(100 * t, 0);
                 });
               break;
             case u.ColorMode.CMYK:
-              (e =
+              (exports =
                 this._color instanceof i.GCMYKColor
                   ? this._color.getValue()
                   : i.GColor.rgbToCMYK(this._color.toScreen())),
-                (t = function (e, t) {
+                (module = function (e, t) {
                   return i.GUtil.formatNumber(100 * t, 0);
                 });
           }
@@ -2680,25 +2680,25 @@ function (exports, module, require) {
             .each(function (n, o) {
               var i = $(o),
                 a = parseInt(i.attr("data-component-index"));
-              i.find("input").gInputBox("value", t(a, e[a]));
+              i.find("input").gInputBox("value", module(a, exports[a]));
             });
         }
       }),
       (u.prototype._updateMapMarker = function () {
         if (this._extendedGamutInitiated !== u.ExtendedGamut.MAP) {
-          var e,
-            t = this._colorMap.find("canvas")[0],
-            n = t.width,
-            o = t.height;
-          e =
+          var exports,
+            module = this._colorMap.find("canvas")[0],
+            require = module.width,
+            o = module.height;
+          exports =
             (this._extendedGamutInitiated !== u.ExtendedGamut.COLOR_SLIDER &&
               this._extendedGamutInitiated !== u.ExtendedGamut.COMPONENTS) ||
             !this._extValue ||
             this._colorMode !== u.ColorMode.HSV
               ? i.GColor.rgbToHSV(this._color.toScreen())
               : this._extValue;
-          var a = Math.round(e[1] * n),
-            r = Math.round((1 - e[2]) * o);
+          var a = Math.round(exports[1] * require),
+            r = Math.round((1 - exports[2]) * o);
           this._setMarkerPosition(a, r);
         }
       }),
@@ -2741,20 +2741,20 @@ function (exports, module, require) {
       }),
       (u.prototype._colorMapMouseDown = function (e) {
         if (e.originalEvent.isTrusted) {
-          var t = function (e, t) {
+          var module = function (e, t) {
               if (!e.isTrusted) return;
               e.cancelable && e.preventDefault();
-              let n = e.pageX,
+              let require = e.pageX,
                 o = e.pageY;
               if ("touchstart" === e.type || "touchmove" === e.type) {
                 const t = e.changedTouches[0];
-                (n = t && t.pageX), (o = t && t.pageY);
+                (require = t && t.pageX), (o = t && t.pageY);
               }
               var a = this._colorMap.find("canvas")[0],
                 r = a.width,
                 s = a.height,
                 l = this._colorMap.offset(),
-                c = Math.max(0, Math.min(r, Math.round(n - l.left))),
+                c = Math.max(0, Math.min(r, Math.round(require - l.left))),
                 d = Math.max(0, Math.min(s, Math.round(o - l.top)));
               const p = [
                 parseInt(this._colorSlider.gColorSlider("value")),
@@ -2771,17 +2771,17 @@ function (exports, module, require) {
                 this._updateColor(g, "map", !t, t),
                 (this._extendedGamutInitiated = null);
             }.bind(this),
-            n = function (e) {
-              t(e, true),
+            require = function (e) {
+              module(e, true),
                 e.stopPropagation(),
-                document.removeEventListener("mouseup", n, true),
-                document.removeEventListener("mousemove", t, true),
-                document.removeEventListener("touchmove", t, true);
+                document.removeEventListener("mouseup", require, true),
+                document.removeEventListener("mousemove", module, true),
+                document.removeEventListener("touchmove", module, true);
             };
-          t(e.originalEvent),
-            document.addEventListener("mouseup", n, true),
-            document.addEventListener("mousemove", t, true),
-            document.addEventListener("touchmove", t, true);
+          module(e.originalEvent),
+            document.addEventListener("mouseup", require, true),
+            document.addEventListener("mousemove", module, true),
+            document.addEventListener("touchmove", module, true);
         }
       }),
       (u.prototype._defineStopInitColor = function (e) {
@@ -2879,8 +2879,8 @@ function (exports, module, require) {
             },
             createDefault: function (e) {
               if (e instanceof i.GGradient)
-                for (var t = e.getStops(), n = 0; n < t.length; ++n)
-                  if (t[n].hasOwnProperty("color")) return t[n].color;
+                for (var module = e.getStops(), require = 0; require < module.length; ++require)
+                  if (module[require].hasOwnProperty("color")) return module[require].color;
               return new i.GRGBColor();
             },
           },
@@ -3253,8 +3253,8 @@ function (exports, module, require) {
         };
       })(jQuery),
       (u.prototype._clonePattern = function (e) {
-        const t = e.clone();
-        return t.setScene(gDesigner.getActiveDocument().getScene()), t;
+        const module = e.clone();
+        return module.setScene(gDesigner.getActiveDocument().getScene()), module;
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    const { GObject: o } = n(1) /* module_1 */,
-      { GPlatform: i } = n(15) /* module_15 */;
+    const { GObject: o } = n(1) /* module */,
+      { GPlatform: i } = n(15) /* module */;
     function a() {
       this._children = [];
     }

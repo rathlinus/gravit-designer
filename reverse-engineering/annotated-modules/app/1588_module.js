@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    n(1) /* module_1 */;
+    n(1) /* module */;
     var o = function () {
       this._timer = 0;
     };

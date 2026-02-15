@@ -22,5 +22,5 @@ function (exports, module, require) {
         o.isInitialized() && dataLayer.push({ event: e });
       }
     }
-    e.exports = o;
+    exports.exports = o;
   }

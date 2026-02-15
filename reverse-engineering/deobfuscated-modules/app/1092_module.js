@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    const o = n(156) /* module_156 */,
-      i = n(10) /* module_10 */;
-    e.exports = class {
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    const o = require(156) /* module_156 */,
+      i = require(10) /* module_10 */;
+    exports.exports = class {
       static createFrom(e) {
-        let t = false;
-        e instanceof o && (t = true);
+        let module = false;
+        e instanceof o && (module = true);
         var n = o.from(e);
         n.setItemType(o.Type.File),
-          t ||
+          module ||
             n.setPermissions([
               o.Permission.Open,
               o.Permission.Copy,
@@ -30,9 +30,9 @@ function (exports, module, require) {
             : (n.setPreviewURL(n.url_t || n.url_s),
               n.setModificationTime(e.updated));
         const a = i.FILE_FORMATS.find((e) => {
-          const t = n.getMimeType();
+          const module = n.getMimeType();
           return (
-            !(!t || e.type.toLowerCase() !== t.toLowerCase()) ||
+            !(!module || e.type.toLowerCase() !== module.toLowerCase()) ||
             e.ext.toLowerCase() === n.getExtension()
           );
         });

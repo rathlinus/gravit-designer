@@ -5,31 +5,31 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(71) /* module_71 */,
-      n(151) /* module_151 */,
-      n(34) /* module_34 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(10) /* module_10 */,
-      a = n(882) /* module_882 */,
-      r = n(1353) /* Exports_GAnnotationPanel */,
-      s = n(263) /* module_263 */,
-      l = n(67) /* GRichTooltipConfig */,
-      c = o(n(358) /* module_358 */),
-      d = o(n(1324) /* module_1324 */),
-      u = o(n(883) /* module_883 */);
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(71) /* module_71 */,
+      require(151) /* module_151 */,
+      require(34) /* module_34 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(10) /* module_10 */,
+      a = require(882) /* module_882 */,
+      r = require(1353) /* Exports_GAnnotationPanel */,
+      s = require(263) /* module_263 */,
+      l = require(67) /* GRichTooltipConfig */,
+      c = o(require(358) /* module_358 */),
+      d = o(require(1324) /* module_1324 */),
+      u = o(require(883) /* module_883 */);
     const {
         GSystem: p,
         GLocale: g,
@@ -39,20 +39,20 @@ function (exports, module, require) {
         GAnnotation: y,
         GObject: v,
         GNode: _,
-      } = n(1) /* module_1 */,
+      } = require(1) /* module */,
       {
         NEW_COMMENT_READ_TIMEOUT: b,
         ANNOTATION_PERMANENT_LINK: w,
         IS_COREL: C,
-      } = ((0, r.createAdditionalMentions)(), n(10) /* module_10 */),
-      x = n(1191) /* module_1191 */,
-      S = n(1166) /* module_1166 */,
-      E = n(434) /* module_434 */,
-      { getAnnotationType: A } = n(40) /* module_40 */;
+      } = ((0, r.createAdditionalMentions)(), require(10) /* module_10 */),
+      x = require(1191) /* module_1191 */,
+      S = require(1166) /* module_1166 */,
+      E = require(434) /* module_434 */,
+      { getAnnotationType: A } = require(40) /* module_40 */;
     function T(e) {
       let {
-        container: t,
-        annotation: n,
+        container: module,
+        annotation: require,
         relatedNodesCount: o,
         sidebarActive: i,
         isLastRow: a,
@@ -73,8 +73,8 @@ function (exports, module, require) {
         hasResolveAccess: b,
         hasReopenAccess: w,
       } = e;
-      (this._container = t),
-        (this._annotation = n),
+      (this._container = module),
+        (this._annotation = require),
         (this._relatedNodesCount = o),
         (this._sidebarActive = i),
         (this._isLastRow = a),
@@ -122,8 +122,8 @@ function (exports, module, require) {
         t.getEmail() === e;
     }
     function D(e) {
-      const t = (0, r.createAdditionalMentions)();
-      return Object.values(t).find((t) => t.getUID() === e);
+      const module = (0, r.createAdditionalMentions)();
+      return Object.values(module).find((t) => t.getUID() === e);
     }
     function L(e) {
       return f.xss(e);
@@ -745,40 +745,40 @@ function (exports, module, require) {
         }
       }),
       (T.prototype._generateCommentContentHTML = function (e) {
-        let t = "string" == typeof e ? e : L(e.getProperty("text"));
+        let module = "string" == typeof e ? e : L(e.getProperty("text"));
         if (
-          ((t = t || ""),
+          ((module = module || ""),
           !gDesigner.getActiveDocument() ||
             !gDesigner.getActiveDocument().getStorageItem())
         )
-          return { html: t, mentioned: [] };
-        let n = t.match(s.GRegex.String.USERNAME_RE);
-        if (!(n || []).length) return { html: t, mentioned: [] };
+          return { html: module, mentioned: [] };
+        let require = module.match(s.GRegex.String.USERNAME_RE);
+        if (!(require || []).length) return { html: module, mentioned: [] };
         let o = (this._data || []).filter((e) => {
-            let t = (e.getRole && e.getRole()) || e.role;
-            return !t.is(i.ShareRoles.Viewer) && !t.is(i.ShareRoles.NoAccess);
+            let module = (e.getRole && e.getRole()) || e.role;
+            return !module.is(i.ShareRoles.Viewer) && !module.is(i.ShareRoles.NoAccess);
           }),
           a = [];
         if (
-          (n.forEach((e) => {
-            const t = e.substring(1);
-            if (!t) return;
+          (require.forEach((e) => {
+            const module = e.substring(1);
+            if (!module) return;
             if (D(e)) return void a.push(e);
-            const n = o.find(P(t));
-            n &&
+            const require = o.find(P(module));
+            require &&
               !a.find(
                 (function (e) {
                   return (t) =>
                     e.getFirstName() === t.substring(1) ||
                     e.getFullUserName() === t.substring(1) ||
                     e.getEmail() === t.substring(1);
-                })(n)
+                })(require)
               ) &&
               a.push(e);
           }),
           !(a || []).length)
         )
-          return { html: t, mentioned: [] };
+          return { html: module, mentioned: [] };
         let r = o.filter(
           (e) =>
             a.includes("@" + e.getFirstName()) ||
@@ -787,29 +787,29 @@ function (exports, module, require) {
         );
         return (
           (r = r.map((e) => {
-            const t = Object.assign(new d.default(), e),
-              n = "@" + t.getEmail(),
-              o = "@" + t.getFirstName();
+            const module = Object.assign(new d.default(), e),
+              require = "@" + module.getEmail(),
+              o = "@" + module.getFirstName();
             return (
               a.includes(o)
-                ? (t.showText = "@" + t.getFullUserName())
-                : a.includes(n) && (t.showText = n),
-              t
+                ? (module.showText = "@" + module.getFullUserName())
+                : a.includes(require) && (module.showText = require),
+              module
             );
           })),
           a.forEach((e) => {
-            let n = e;
+            let require = e;
             const o = D(e);
-            if (o) (n = o.showText), r.push(o);
+            if (o) (require = o.showText), r.push(o);
             else {
               const o = e.substring(1),
                 i = r.find(P(o));
-              i && ((n = i.showText), t.includes(n) && (e = n));
+              i && ((require = i.showText), module.includes(require) && (e = require));
             }
-            t = t.replace(e, "<strong><span>" + n + "</span></strong>");
+            module = module.replace(e, "<strong><span>" + require + "</span></strong>");
           }),
-          { html: t, mentioned: r }
+          { html: module, mentioned: r }
         );
       }),
-      (e.exports = T);
+      (exports.exports = T);
   }

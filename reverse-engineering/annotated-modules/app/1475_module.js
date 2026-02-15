@@ -6,8 +6,8 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */;
-    var o = n(797) /* module_797 */,
-      i = n(1) /* module_1 */;
+    var o = n(797) /* module */,
+      i = n(1) /* module */;
     n(257) /* module_257 */;
     function a(e, t, n, o, a, r) {
       (this._currentDocument = e),

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
-      i = n(130) /* module_130 */,
-      a = n(62) /* module_62 */,
-      r = n(92) /* module_92 */,
+    var o = require(27) /* module_27 */,
+      i = require(130) /* module_130 */,
+      a = require(62) /* module_62 */,
+      r = require(92) /* module_92 */,
       s = o("".charAt),
       l = o("".charCodeAt),
       c = o("".slice),
@@ -36,5 +36,5 @@ function (exports, module, require) {
             : d - 56320 + ((o - 55296) << 10) + 65536;
         };
       };
-    e.exports = { codeAt: d(false), charAt: d(true) };
+    exports.exports = { codeAt: d(false), charAt: d(true) };
   }

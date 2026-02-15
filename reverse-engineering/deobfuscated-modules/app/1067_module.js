@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(290) /* module_290 */;
-    const { GObject: o, GLocale: i } = n(1) /* module_1 */,
-      a = n(1068) /* module_1068 */;
+    require(290) /* module_290 */;
+    const { GObject: o, GLocale: i } = require(1) /* module */,
+      a = require(1068) /* module_1068 */;
     function r(e) {
       let {
-        id: t,
-        level: n = 0,
+        id: module,
+        level: require = 0,
         name: o,
         description: i,
         status: r,
@@ -20,14 +20,14 @@ function (exports, module, require) {
         permissions: c,
       } = e;
       a.call(this),
-        (this.id = t),
+        (this.id = module),
         (this.name = o),
         (this.description = i),
         (this.status = r),
         (this.pro = s),
         (this.permissions = c),
         (this.assignable = l),
-        (this.level = n);
+        (this.level = require);
     }
     o.inheritAndMix(r, o, [a]),
       (r.prototype.getPermissions = function () {
@@ -72,5 +72,5 @@ function (exports, module, require) {
       (r.prototype.is = function (e) {
         return this.getId() === e.id;
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

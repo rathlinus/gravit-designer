@@ -5,53 +5,53 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(356) /* module_356 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(3) /* module_3 */,
-      n(151) /* module_151 */,
-      n(34) /* module_34 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(10) /* module_10 */,
-      s = n(357) /* module_357 */,
-      l = o(n(238) /* GMenu */),
-      c = o(n(339) /* GMenu */),
-      d = o(n(1501) /* GMenuBar */),
-      u = o(n(1502) /* module_1502 */),
-      p = o(n(603) /* module_603 */),
-      g = o(n(78) /* GDocumentEvent */),
-      h = o(n(217) /* GDocumentStatusEvent */),
-      f = o(n(86) /* module_86 */),
-      m = o(n(119) /* module_119 */),
-      y = o(n(447) /* GSaveAction */),
-      v = o(n(448) /* GGravitCloudAction */),
-      _ = o(n(861) /* GExportAction */),
-      b = o(n(1254) /* GOpenSharedFileAction */),
-      w = o(n(1256) /* GVersionsHistoryAction */),
-      C = o(n(388) /* module_388 */),
-      x = o(n(220) /* module_220 */),
-      S = o(n(44) /* GSystemDialog */),
-      E = o(n(862) /* module_862 */),
-      A = o(n(156) /* module_156 */),
-      T = o(n(163) /* module_163 */),
-      G = n(263) /* module_263 */,
-      P = n(1517) /* module_1517 */;
-    const D = n(257) /* module_257 */;
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(356) /* module_356 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(3) /* module_3 */,
+      require(151) /* module_151 */,
+      require(34) /* module_34 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(10) /* module_10 */,
+      s = require(357) /* module_357 */,
+      l = o(require(238) /* GMenu */),
+      c = o(require(339) /* GMenu */),
+      d = o(require(1501) /* GMenuBar */),
+      u = o(require(1502) /* module_1502 */),
+      p = o(require(603) /* module_603 */),
+      g = o(require(78) /* GDocumentEvent */),
+      h = o(require(217) /* GDocumentStatusEvent */),
+      f = o(require(86) /* module_86 */),
+      m = o(require(119) /* module_119 */),
+      y = o(require(447) /* GSaveAction */),
+      v = o(require(448) /* GGravitCloudAction */),
+      _ = o(require(861) /* GExportAction */),
+      b = o(require(1254) /* GOpenSharedFileAction */),
+      w = o(require(1256) /* GVersionsHistoryAction */),
+      C = o(require(388) /* module_388 */),
+      x = o(require(220) /* module_220 */),
+      S = o(require(44) /* GSystemDialog */),
+      E = o(require(862) /* module_862 */),
+      A = o(require(156) /* module_156 */),
+      T = o(require(163) /* module_163 */),
+      G = require(263) /* module_263 */,
+      P = require(1517) /* module_1517 */;
+    const D = require(257) /* module_257 */;
     let L = null;
-    r.LICENSE.UPGRADEABLE && (L = n(441) /* module_441 */);
-    const I = n(135) /* GSettingChangedEvent */,
-      k = n(392) /* module_392 */,
-      O = n(805) /* module_805 */,
+    r.LICENSE.UPGRADEABLE && (L = require(441) /* module_441 */);
+    const I = require(135) /* GSettingChangedEvent */,
+      k = require(392) /* module_392 */,
+      O = require(805) /* module_805 */,
       {
         InParenthesis: { NotNegativeNumberInTheEnd: F },
         NotNegativeNumber: R,
@@ -61,7 +61,7 @@ function (exports, module, require) {
           title: new i.GLocaleKey("GFilesPanel", "action.rename"),
           shortcut: null,
           callback: function (e, t) {
-            const n = this,
+            const require = this,
               o = e.getDocument(),
               a = o.getStorageItem();
             let s = true;
@@ -88,7 +88,7 @@ function (exports, module, require) {
                   if (h && h !== c)
                     if (a) {
                       if (
-                        (n._updateSyncStatus(
+                        (require._updateSyncStatus(
                           t,
                           i.GLocale.get(
                             new i.GLocaleKey(
@@ -138,7 +138,7 @@ function (exports, module, require) {
                                   );
                                 })(h)))
                             )
-                              return n._updateSyncStatus(t, ""), l();
+                              return require._updateSyncStatus(t, ""), l();
                             if (c.requiresOverwriteCollisionHandling())
                               for (
                                 d = h;
@@ -156,7 +156,7 @@ function (exports, module, require) {
                           return (
                             console.log(">>>.error-renaming e", e),
                             s.val(p),
-                            n._updateSyncStatus(
+                            require._updateSyncStatus(
                               t,
                               i.GLocale.get(
                                 new i.GLocaleKey(
@@ -186,7 +186,7 @@ function (exports, module, require) {
                         gDesigner.trigger(
                           new g.default(g.default.Type.Modified, o)
                         ),
-                        n._updateSyncStatus(t, ""),
+                        require._updateSyncStatus(t, ""),
                         u.text(
                           d +
                             (r.USE_EXTENSION_IN_FILENAME
@@ -212,15 +212,15 @@ function (exports, module, require) {
           requiresPro: false,
           isEnabled: () => gDesigner.getApplicationManager().isEditingEnabled(),
           isVisible: (e) => {
-            const t = e.getDocument().getStorageItem();
-            return !(t && t instanceof C.default.Item);
+            const module = e.getDocument().getStorageItem();
+            return !(module && module instanceof C.default.Item);
           },
         },
         {
           separator: true,
           isVisible: (e) => {
-            const t = e.getDocument().getStorageItem();
-            return !(t && t instanceof C.default.Item);
+            const module = e.getDocument().getStorageItem();
+            return !(module && module instanceof C.default.Item);
           },
         },
         {
@@ -249,10 +249,10 @@ function (exports, module, require) {
           },
           stats: "header_contextmenu_share",
           isEnabled: (e) => {
-            const t = e.getDocument().getStorageItem();
+            const module = e.getDocument().getStorageItem();
             return (
               gDesigner.getApplicationManager().isShareEnabled() &&
-              t instanceof x.default.Item
+              module instanceof x.default.Item
             );
           },
           requiresPro: false,
@@ -286,32 +286,32 @@ function (exports, module, require) {
           title: new i.GLocaleKey("GHeader", "action.context-menu.duplicate"),
           shortcut: null,
           callback: function (e) {
-            const t = e.getDocument(),
-              n = t.getStorageItem(),
+            const module = e.getDocument(),
+              require = module.getStorageItem(),
               o = () => {
-                const e = t.getScene(),
-                  n = new T.default(e.clone(null, gDesigner.getWorkspace()));
-                t.getFileFormatVersion() &&
-                  n.setFileFormatVersion(t.getFileFormatVersion());
-                const o = t.getTitle();
+                const e = module.getScene(),
+                  require = new T.default(e.clone(null, gDesigner.getWorkspace()));
+                module.getFileFormatVersion() &&
+                  require.setFileFormatVersion(module.getFileFormatVersion());
+                const o = module.getTitle();
                 let i;
                 if (new RegExp(F).test(o)) {
                   const e = o.match(F),
                     t = parseInt(e[0].match(R)[0]);
                   i = o.replace(F, "(".concat(t + 1, ")"));
                 } else i = "".concat(o, "(1)");
-                const a = gDesigner.getDocuments().indexOf(t);
-                n.setTitle(i), gDesigner.addDocument(n, a + 1);
+                const a = gDesigner.getDocuments().indexOf(module);
+                require.setTitle(i), gDesigner.addDocument(require, a + 1);
               };
-            n && n instanceof x.default.Item
+            require && require instanceof x.default.Item
               ? (() => {
-                  const e = n.getFile().parent,
-                    o = gDesigner.getDocuments().indexOf(t),
+                  const e = require.getFile().parent,
+                    o = gDesigner.getDocuments().indexOf(module),
                     i = new E.default();
                   i.setCurrentFolder(A.default.from({ id: e })),
-                    i.copyPaste([n.getFile()]).then(function (e) {
-                      let [{ id: t }] = e;
-                      return i.openFile(t, o + 1);
+                    i.copyPaste([require.getFile()]).then(function (e) {
+                      let [{ id: module }] = e;
+                      return i.openFile(module, o + 1);
                     });
                 })()
               : o();
@@ -332,7 +332,7 @@ function (exports, module, require) {
           title: new i.GLocaleKey("GHeader", "action.context-menu.close-other"),
           shortcut: null,
           callback: function (e) {
-            const t = gDesigner
+            const module = gDesigner
               .getWindows()
               .getWindows()
               .slice()
@@ -345,7 +345,7 @@ function (exports, module, require) {
                 )
               ),
               (e) => {
-                e && N(t);
+                e && N(module);
               },
               null,
               null,
@@ -387,10 +387,10 @@ function (exports, module, require) {
         },
       ];
     function N(e) {
-      const t = gDesigner.getWindows();
-      for (let n = 0, o = e.length; n < o; n++) {
-        const o = e[n];
-        t.removeWindow(o);
+      const module = gDesigner.getWindows();
+      for (let require = 0, o = e.length; require < o; require++) {
+        const o = e[require];
+        module.removeWindow(o);
       }
     }
     function B(e) {
@@ -498,11 +498,11 @@ function (exports, module, require) {
           this._updateViewBasedOnPermissions();
       }),
       (B.prototype._updateViewBasedOnPermissions = function () {
-        const e = gDesigner
+        const exports = gDesigner
           .getApplicationManager()
           .isDocumentTabManagementEnabled();
-        this._windows.find(".tabs").css("display", e ? "" : "none"),
-          (0, P.toggleRearrangeTabsVisibility)(this._htmlElement, e);
+        this._windows.find(".tabs").css("display", exports ? "" : "none"),
+          (0, P.toggleRearrangeTabsVisibility)(this._htmlElement, exports);
       }),
       (B.prototype.relayout = function () {
         gDesigner.getApplicationManager().isInspectEnabled()
@@ -788,15 +788,15 @@ function (exports, module, require) {
       }),
       (B.prototype.getWindowTab = function (e) {
         for (
-          var t = this._windows.find(".tabs").find(".tab"), n = null, o = 0;
-          o < t.length;
+          var module = this._windows.find(".tabs").find(".tab"), require = null, o = 0;
+          o < module.length;
           ++o
         )
-          if ($(t[o]).data("window") === e) {
-            n = t[o];
+          if ($(module[o]).data("window") === e) {
+            require = module[o];
             break;
           }
-        return n;
+        return require;
       }),
       (B.prototype.handleContextMenu = function (e, t) {
         var n = t.outerWidth() - 10;
@@ -819,7 +819,7 @@ function (exports, module, require) {
             .gOverlay("open", t);
       }),
       (B.prototype._createContextMenu = function (e, t) {
-        const n = new l.default(),
+        const require = new l.default(),
           o = this;
         return (
           M.map((a) => {
@@ -840,7 +840,7 @@ function (exports, module, require) {
               } = a;
             const b = l instanceof i.GLocaleKey ? i.GLocale.get(l) : l;
             if ((f && (r = "function" == typeof f ? f() : f), g)) {
-              const t = n.createAddDivider();
+              const t = require.createAddDivider();
               return (
                 _ instanceof Function
                   ? t.setVisible(_(e))
@@ -849,10 +849,10 @@ function (exports, module, require) {
               );
             }
             d
-              ? (s = n.createAddItem(b, () => {
+              ? (s = require.createAddItem(b, () => {
                   d.call(o, e, t);
                 }))
-              : ((s = n.createAddItem(b)),
+              : ((s = require.createAddItem(b)),
                 m && s.setAction(gDesigner.getAction(r))),
               u && s.setShortcutHint(u),
               p && s.setPro(p, r),
@@ -866,13 +866,13 @@ function (exports, module, require) {
                   e && gDesigner.stats(e);
                   o._contextMenu.gOverlay("close"),
                     (o._contextMenu = null),
-                    n.clearItems();
+                    require.clearItems();
                 })(y),
                   v && s.setEnabled(v(e));
               }),
               s.setCaption(b);
           }),
-          n.getHtmlElement()
+          require.getHtmlElement()
         );
       }),
       (B.prototype._getCloudDocumentIconClass = function (e) {
@@ -896,5 +896,5 @@ function (exports, module, require) {
       (B.prototype.setWindowTabEnable = function (e) {
         $(".tab > span").css("pointer-events", e ? "auto" : "none");
       }),
-      (e.exports = B);
+      (exports.exports = B);
   }

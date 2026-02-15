@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(31) /* GAction */,
-      l = n(1513) /* module_1513 */,
-      c = n(446) /* module_446 */,
-      d = n(447) /* GSaveAction */;
-    const u = n(86) /* module_86 */,
-      p = n(44) /* GSystemDialog */;
+    require(30) /* module_30 */, require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(31) /* GAction */,
+      l = require(1513) /* module_1513 */,
+      c = require(446) /* module_446 */,
+      d = require(447) /* GSaveAction */;
+    const u = require(86) /* module_86 */,
+      p = require(44) /* GSystemDialog */;
     function g(e) {
       (this._options = e || null),
         (g.TOOLTIP_CONFIG = {
@@ -120,15 +120,15 @@ function (exports, module, require) {
         return !!gDesigner.getActiveDocument();
       }),
       (g.prototype.execute = function () {
-        const e = arguments[0],
-          t = gDesigner.getActiveDocument(),
-          n = this;
+        const exports = arguments[0],
+          module = gDesigner.getActiveDocument(),
+          require = this;
         function i(t) {
-          new l(t, n._options || e, n.getId()).open();
+          new l(t, require._options || exports, require.getId()).open();
         }
-        t && t.isCommercialProductFile()
-          ? t.openPaywall(this.getId())
-          : t.hasPagesWithInfiniteEmptyCanvas()
+        module && module.isCommercialProductFile()
+          ? module.openPaywall(this.getId())
+          : module.hasPagesWithInfiniteEmptyCanvas()
           ? p.alert(
               o.GLocale.get(
                 new o.GLocaleKey(
@@ -140,7 +140,7 @@ function (exports, module, require) {
           : new c(
               () => {
                 $(".g-export-dialog").length ||
-                  (t.isNew()
+                  (module.isNew()
                     ? p.confirm(
                         o.GLocale.get(
                           new o.GLocaleKey(
@@ -153,28 +153,28 @@ function (exports, module, require) {
                             ? gDesigner.executeAction(
                                 d.ID,
                                 [
-                                  t,
+                                  module,
                                   function () {
                                     let e =
                                       arguments.length > 0 &&
                                       undefined !== arguments[0]
                                         ? arguments[0]
                                         : {};
-                                    const { documentStatus: t = null } = e;
-                                    t &&
-                                      t === u.Saved &&
+                                    const { documentStatus: module = null } = e;
+                                    module &&
+                                      module === u.Saved &&
                                       i(gDesigner.getActiveDocument());
                                   },
                                   true,
                                 ],
                                 "unsavedhandler"
                               )
-                            : i(t);
+                            : i(module);
                         },
                         o.GLocale.get(new o.GLocaleKey("GLocale", "no")),
                         o.GLocale.get(new o.GLocaleKey("GLocale", "yes"))
                       )
-                    : i(t));
+                    : i(module));
               },
               () => {
                 gDesigner.stats("action-cancelled_anonymous", this.getId());
@@ -194,5 +194,5 @@ function (exports, module, require) {
       (g.prototype.toString = function () {
         return "[Object GExportAction]";
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

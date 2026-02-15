@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(19) /* module_19 */, n(8) /* module_8 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
     var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */,
+      i = n(1) /* module */,
       a = n(10) /* module_10 */;
     const r = n(85) /* GContainer */,
       s = n(44) /* GSystemDialog */,

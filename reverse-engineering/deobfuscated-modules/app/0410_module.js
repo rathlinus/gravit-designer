@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(129) /* module_129 */;
-    e.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(o);
+    var o = require(129) /* module_129 */;
+    exports.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(o);
   }

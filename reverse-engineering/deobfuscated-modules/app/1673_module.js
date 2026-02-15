@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */;
+    require(57) /* module_57 */;
     var o,
       i,
       a = null,
@@ -23,26 +23,26 @@ function (exports, module, require) {
       }
       static showTooltip(e) {
         o = undefined;
-        let t = l._getTooltipElement();
+        let module = l._getTooltipElement();
         if (a || e) {
-          var n = $(a || e).closest("[data-title]");
-          if (n.length) {
-            var r = n[0].getBoundingClientRect(),
-              c = n.attr("data-title"),
-              d = parseInt(n.attr("data-custom-left-offset") || 0),
-              u = !!parseInt(n.attr("data-wrap") || 0);
+          var require = $(a || e).closest("[data-title]");
+          if (require.length) {
+            var r = require[0].getBoundingClientRect(),
+              c = require.attr("data-title"),
+              d = parseInt(require.attr("data-custom-left-offset") || 0),
+              u = !!parseInt(require.attr("data-wrap") || 0);
             if (r && c) {
-              t.addClass("visible").toggleClass("wrap", u).text(c);
-              var p = r.left + r.width / 2 - t.outerWidth() / 2 + "px",
+              module.addClass("visible").toggleClass("wrap", u).text(c);
+              var p = r.left + r.width / 2 - module.outerWidth() / 2 + "px",
                 g = r.top + r.height + "px";
-              t.css({ left: p, top: g }),
-                t.offset().top + r.height > l._getBodyHeight() &&
-                  t.css("top", r.top - r.height + "px");
+              module.css({ left: p, top: g }),
+                module.offset().top + r.height > l._getBodyHeight() &&
+                  module.css("top", r.top - r.height + "px");
               const e = l._getBodyWidth();
-              if (d + t.offset().left + t.outerWidth() > e) {
+              if (d + module.offset().left + module.outerWidth() > e) {
                 let n =
-                  t.offset().left - (t.offset().left + t.outerWidth() - e) + d;
-                t.css("left", n + "px");
+                  module.offset().left - (module.offset().left + module.outerWidth() - e) + d;
+                module.css("left", n + "px");
               }
               l.resetIdle(), (s = true), (i = setTimeout(l.resetIdle, 500));
             }
@@ -58,13 +58,13 @@ function (exports, module, require) {
       }
       static documentOverListener(e) {
         l.resetTooltip();
-        let t = $(e.target).closest("[data-title]"),
-          n =
-            t.data("gRichTooltip") ||
-            t.parent().data("gRichTooltip") ||
-            t.children().eq(0).data("gRichTooltip");
-        t.length > 0 &&
-          !n &&
+        let module = $(e.target).closest("[data-title]"),
+          require =
+            module.data("gRichTooltip") ||
+            module.parent().data("gRichTooltip") ||
+            module.children().eq(0).data("gRichTooltip");
+        module.length > 0 &&
+          !require &&
           ((a = e.target),
           s ? l.showTooltip() : (o = setTimeout(l.showTooltip, 500)));
       }
@@ -77,7 +77,7 @@ function (exports, module, require) {
           document.addEventListener("mouseout", l.documentOutListener);
       }
     }
-    e.exports = l;
+    exports.exports = l;
     var c = {
       show: function () {
         l.showTooltip($(this)),

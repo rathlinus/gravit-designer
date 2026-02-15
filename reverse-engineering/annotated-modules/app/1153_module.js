@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     n(173) /* module_173 */;
     function i() {}
     o.GObject.inheritAndMix(i, o.GObject);

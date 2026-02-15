@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(43) /* module_43 */;
-    t.f = o;
+    var o = require(43) /* module_43 */;
+    module.f = o;
   }

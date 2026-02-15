@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(110) /* module_110 */,
-      i = n(35) /* module_35 */,
-      a = n(144) /* module_144 */,
-      r = n(398) /* module_398 */,
+    var o = require(110) /* module_110 */,
+      i = require(35) /* module_35 */,
+      a = require(144) /* module_144 */,
+      r = require(398) /* module_398 */,
       s = Object;
-    e.exports = r
+    exports.exports = r
       ? function (e) {
           return "symbol" == typeof e;
         }

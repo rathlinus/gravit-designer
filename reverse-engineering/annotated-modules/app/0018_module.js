@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     function i(e) {
       let t =
           !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],

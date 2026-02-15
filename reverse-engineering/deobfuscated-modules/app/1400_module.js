@@ -96,12 +96,12 @@ function (exports, module, require) {
     };
     function i(e) {
       var t = a(e);
-      return n(t);
+      return require(t);
     }
     function a(e) {
-      if (!n.o(o, e)) {
-        var t = new Error("Cannot find module '" + e + "'");
-        throw ((t.code = "MODULE_NOT_FOUND"), t);
+      if (!require.o(o, e)) {
+        var module = new Error("Cannot find module '" + e + "'");
+        throw ((module.code = "MODULE_NOT_FOUND"), module);
       }
       return o[e];
     }
@@ -109,6 +109,6 @@ function (exports, module, require) {
       return Object.keys(o);
     }),
       (i.resolve = a),
-      (e.exports = i),
+      (exports.exports = i),
       (i.id = 1400);
   }

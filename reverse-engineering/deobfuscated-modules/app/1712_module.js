@@ -5,42 +5,42 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(71) /* module_71 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(1175) /* module_1175 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(882) /* module_882 */,
-      s = n(10) /* module_10 */,
-      l = o(n(1354) /* GInvalidationOptions */);
-    const c = n(44) /* GSystemDialog */,
-      d = n(358) /* module_358 */,
-      u = n(1355) /* module_1355 */,
-      p = n(1713) /* module_1713 */,
-      g = n(1357) /* module_1357 */,
-      h = n(1356) /* module_1356 */,
-      f = n(1279) /* module_1279 */,
-      m = n(177) /* module_177 */,
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(71) /* module_71 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(1175) /* module_1175 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(882) /* module_882 */,
+      s = require(10) /* module_10 */,
+      l = o(require(1354) /* GInvalidationOptions */);
+    const c = require(44) /* GSystemDialog */,
+      d = require(358) /* module_358 */,
+      u = require(1355) /* module_1355 */,
+      p = require(1713) /* module_1713 */,
+      g = require(1357) /* module_1357 */,
+      h = require(1356) /* module_1356 */,
+      f = require(1279) /* module_1279 */,
+      m = require(177) /* module_177 */,
       y = ["text"];
     function v() {}
     function _(e) {
       var t = $(this).data("gannotationpanel");
       if (t.options.clickCallback) {
-        var n = x.call(this, e.id);
-        t.options.clickCallback(n);
+        var require = x.call(this, e.id);
+        t.options.clickCallback(require);
       }
     }
     function b(e) {
@@ -112,12 +112,12 @@ function (exports, module, require) {
       );
     }
     function D() {
-      const e = $(this).data("gannotationpanel");
-      if (e && e.syncCallback)
+      const exports = $(this).data("gannotationpanel");
+      if (exports && exports.syncCallback)
         try {
-          e.syncCallback();
+          exports.syncCallback();
         } finally {
-          e.syncCallback = null;
+          exports.syncCallback = null;
         }
     }
     function L(e, t, n) {
@@ -429,15 +429,15 @@ function (exports, module, require) {
       return u;
     }
     function I(e, t) {
-      let n = e.getProperty("asgn");
-      if (!(n || []).length) return;
+      let require = e.getProperty("asgn");
+      if (!(require || []).length) return;
       var o = e.getProperty("rsv");
       let s = $("<div/>")
           .addClass("already-assigned-user-row")
           .appendTo($(this)),
         l = $("<span/>").addClass("assigned-content-group").appendTo(s);
       return (
-        (0, r.getCollabInfo)(n[0]).then(async (n) => {
+        (0, r.getCollabInfo)(require[0]).then(async (n) => {
           let r = new m(n).getFullUserName();
           $("<span/>")
             .addClass("assign-to-text")
@@ -556,14 +556,14 @@ function (exports, module, require) {
     }
     function U(e) {
       if (!(e instanceof a.GComment)) return false;
-      for (var t = true, n = e.getNext(); n; ) {
-        if (n instanceof a.GComment && !n.getProperty("rmd")) {
-          t = false;
+      for (var module = true, require = e.getNext(); require; ) {
+        if (require instanceof a.GComment && !require.getProperty("rmd")) {
+          module = false;
           break;
         }
-        n = n.getNext();
+        require = require.getNext();
       }
-      return t;
+      return module;
     }
     function j(e) {
       var t = gDesigner.getSyncUser();
@@ -671,9 +671,9 @@ function (exports, module, require) {
             )
           );
       else {
-        var n = gDesigner.getActiveDocument();
-        if (n) {
-          var o = n.getEditor().getSelection();
+        var require = gDesigner.getActiveDocument();
+        if (require) {
+          var o = require.getEditor().getSelection();
           o &&
             o.map((t) => {
               t.hasMixin(a.GAnnotation) && H(e, t);
@@ -708,13 +708,13 @@ function (exports, module, require) {
       );
     }
     function X(e, t) {
-      let n = $(this).data("gannotationpanel"),
+      let require = $(this).data("gannotationpanel"),
         o = false;
       const i = {};
-      if (!n) return;
-      if (n.blockAnnotationsUpdate) return;
-      if (null !== n.scheduledUpdate)
-        return void (n.updateInProgress && (n.scheduleNextUpdate = true));
+      if (!require) return;
+      if (require.blockAnnotationsUpdate) return;
+      if (null !== require.scheduledUpdate)
+        return void (require.updateInProgress && (require.scheduleNextUpdate = true));
       if (
         e &&
         e.node &&
@@ -735,19 +735,19 @@ function (exports, module, require) {
       let l = gDesigner.getActiveDocument();
       l &&
         l.getAnnotationsId() &&
-        (n.scheduledUpdate = setTimeout(() => {
+        (require.scheduledUpdate = setTimeout(() => {
           let e = $(this).data("gannotationpanel");
           if (!e) return;
           if (Y.call(this) || e.vtree.isPendingInvalidation())
             return (e.scheduledUpdate = null), void X.call(this);
           console.log("updating annotations"), (e.updateInProgress = true);
-          let n = e.page.getAnnotations();
+          let require = e.page.getAnnotations();
           d.updateAndReturnCloudAnnotationsForDocument(
             l,
-            a.GNode.store(n, { recordedTransaction: o, recordedProperties: i })
+            a.GNode.store(require, { recordedTransaction: o, recordedProperties: i })
           )
             .then((e) => {
-              let n = e.annotationsCollection,
+              let require = e.annotationsCollection,
                 r = false,
                 s = $(this).data("gannotationpanel");
               if (!s) return r;
@@ -757,7 +757,7 @@ function (exports, module, require) {
                 (s.updateInProgress = false),
                 !s.scheduleNextUpdate)
               ) {
-                let e = d.findAnnotationsListForPage(s.page, n);
+                let e = d.findAnnotationsListForPage(s.page, require);
                 if (e) {
                   let n = a.GNode.restore(e),
                     l = n.getChildren();
@@ -779,7 +779,7 @@ function (exports, module, require) {
                   s.page.getAnnotations().clearChildren(),
                   s.vtree.endUpdate(t),
                   ne.call(this)),
-                  s.options.updateAnnotationCache(n);
+                  s.options.updateAnnotationCache(require);
               }
               if (
                 ((s.scheduledUpdate = null),
@@ -855,8 +855,8 @@ function (exports, module, require) {
           e.node.hasMixin(a.GAnnotation) &&
           e.properties.includes("rsv") &&
           setTimeout(() => {
-            let n = e.values[e.properties.indexOf("rsv")];
-            (undefined !== n && false !== n) !== e.node.getProperty("rsv") &&
+            let require = e.values[e.properties.indexOf("rsv")];
+            (undefined !== require && false !== require) !== e.node.getProperty("rsv") &&
               (V.call(this, e.node),
               e.node.addComment(
                 "",
@@ -964,11 +964,11 @@ function (exports, module, require) {
       var e = $(this).data("gannotationpanel");
       if ((e.vtree.beginUpdate(), e.page))
         for (
-          var t = e.page.getAnnotations().getFirstChild();
-          null !== t;
-          t = t.getNext()
+          var module = e.page.getAnnotations().getFirstChild();
+          null !== module;
+          module = module.getNext()
         )
-          t.getProperty("rmd") || K.call(this, t, true);
+          module.getProperty("rmd") || K.call(this, module, true);
       e.vtree.endUpdate();
     }
     function ne(e) {
@@ -1138,26 +1138,26 @@ function (exports, module, require) {
         $(this).data("gannotationpanel").syncCallback = e;
       },
       annotations: function (e) {
-        let t = false;
+        let module = false;
         if (Y.call(this)) return f.DELAYED;
-        let n = $(this).data("gannotationpanel"),
+        let require = $(this).data("gannotationpanel"),
           o = a.GNode.restore(e),
           i = o.getChildren();
         return (
           o.clearChildren(),
-          (n.blockAnnotationsUpdate = true),
-          n.vtree.beginUpdate(),
-          (t = d.mergeAnnotations(
-            n.page.getAnnotations(),
-            n.page.getAnnotations().getChildren(),
+          (require.blockAnnotationsUpdate = true),
+          require.vtree.beginUpdate(),
+          (module = d.mergeAnnotations(
+            require.page.getAnnotations(),
+            require.page.getAnnotations().getChildren(),
             o,
             i
           )),
-          n.vtree.endUpdate(),
-          (n.blockAnnotationsUpdate = false),
+          require.vtree.endUpdate(),
+          (require.blockAnnotationsUpdate = false),
           ne.call(this),
           te.call(this),
-          t ? f.UPDATED : f.SKIPPED
+          module ? f.UPDATED : f.SKIPPED
         );
       },
       blockHandlers: function (e) {
@@ -1174,9 +1174,9 @@ function (exports, module, require) {
         return $(this).data("gannotationpanel") && (t = A.call(this, e)), t;
       },
       scrollIntoView: function () {
-        const e = $(this).find(".annotation-row.g-selected").attr("id");
-        if (e) {
-          const t = S.call(this, e);
+        const exports = $(this).find(".annotation-row.g-selected").attr("id");
+        if (exports) {
+          const t = S.call(this, exports);
           t &&
             (t.reply
               ? t.reply.scrollIntoView()
@@ -1187,7 +1187,7 @@ function (exports, module, require) {
         return x.call(this, e.id);
       },
     };
-    (e.exports = v),
+    (exports.exports = v),
       ($.fn.gAnnotationPanel = function (e) {
         return oe[e]
           ? oe[e].apply(this, Array.prototype.slice.call(arguments, 1))

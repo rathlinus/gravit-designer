@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     var o, i, a, r, s, l, c, d;
-    e.exports =
-      ((d = n(55) /* module_55 */),
-      n(537) /* module_537 */,
-      n(538) /* module_538 */,
+    exports.exports =
+      ((d = require(55) /* module_55 */),
+      require(537) /* module_537 */,
+      require(538) /* module_538 */,
       (i = (o = d).lib),
       (a = i.Base),
       (r = i.WordArray),
@@ -22,12 +22,12 @@ function (exports, module, require) {
           },
           compute: function (e, t) {
             for (
-              var n = this.cfg,
-                o = n.hasher.create(),
+              var require = this.cfg,
+                o = require.hasher.create(),
                 i = r.create(),
                 a = i.words,
-                s = n.keySize,
-                l = n.iterations;
+                s = require.keySize,
+                l = require.iterations;
               a.length < s;
 
             ) {

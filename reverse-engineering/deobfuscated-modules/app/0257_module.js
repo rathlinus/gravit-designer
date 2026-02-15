@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(1074) /* module_1074 */;
+    const o = require(1074) /* module_1074 */;
     (o.icon = ""),
       (o["cloud-logo"] = "assets/img/cloud/cloud_logo_white.svg"),
       (o["gravit-icon-cloud-logo"] = "gravit-icon-cloud"),
@@ -14,5 +14,5 @@ function (exports, module, require) {
       (o["gravit-icon-cloud-save-choose"] =
         "gravit-icon-gravit-cloud-file-save-choose"),
       (o["gravit-icon-share-copy"] = "gravit-icon-share-copy"),
-      (e.exports = o);
+      (exports.exports = o);
   }

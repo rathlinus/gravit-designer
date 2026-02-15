@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     n(20) /* module_20 */, n(34) /* module_34 */;
     var o = n(10) /* module_10 */;
-    const { GLocale: i, GLocaleKey: a } = n(1) /* module_1 */;
+    const { GLocale: i, GLocaleKey: a } = n(1) /* module */;
     function r(e) {
       this._htmlElement = e;
     }

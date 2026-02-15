@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(18) /* module_18 */,
-      a = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(18) /* module_18 */,
+      a = require(106) /* GElementAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "modify.reverse-order"),
@@ -33,8 +33,8 @@ function (exports, module, require) {
             : null,
           t = false;
         if (e)
-          for (var n = 0; !t && n < e.length; ++n)
-            e[n] instanceof o.GPath && (t = true);
+          for (var require = 0; !t && require < e.length; ++require)
+            e[require] instanceof o.GPath && (t = true);
         return t;
       }),
       (r.prototype.execute = function () {
@@ -59,5 +59,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GReverseOrderAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

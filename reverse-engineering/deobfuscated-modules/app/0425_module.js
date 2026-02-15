@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports =
+    exports.exports =
       "undefined" != typeof ArrayBuffer && "undefined" != typeof DataView;
   }

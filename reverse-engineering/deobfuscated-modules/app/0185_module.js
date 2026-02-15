@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = String;
-    e.exports = function (e) {
+    exports.exports = function (e) {
       try {
         return o(e);
       } catch (e) {

@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const { GLocale: o, GLocaleKey: i } = n(1) /* module_1 */;
+    const { GLocale: o, GLocaleKey: i } = n(1) /* module */;
     function a() {
       throw "No instantiate";
     }

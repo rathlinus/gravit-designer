@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(18) /* module_18 */,
-      a = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(18) /* module_18 */,
+      a = require(106) /* GElementAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "modify.detachFromPath"),
@@ -37,8 +37,8 @@ function (exports, module, require) {
           ? gDesigner.getActiveDocument().getEditor().getSelection()
           : null;
         if (e)
-          for (var t = 0; t < e.length; ++t)
-            if (e[t] instanceof o.GText && e[t].hasPathAttached()) return true;
+          for (var module = 0; module < e.length; ++module)
+            if (e[module] instanceof o.GText && e[module].hasPathAttached()) return true;
         return false;
       }),
       (r.prototype.execute = function () {
@@ -64,5 +64,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[Object GDetachFromPathAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

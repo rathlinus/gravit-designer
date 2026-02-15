@@ -5,22 +5,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(15) /* module_15 */,
-      a = n(53) /* module_53 */,
-      r = n(1) /* module_1 */,
-      s = n(10) /* module_10 */,
-      l = n(67) /* GRichTooltipConfig */,
-      c = o(n(340) /* GTouchTool */),
-      d = o(n(807) /* module_807 */),
-      u = o(n(198) /* Exports_GOutlineSidebar */),
-      p = n(1161) /* module_1161 */,
-      g = o(n(565) /* module_565 */),
-      h = n(123) /* GProperties */,
-      f = n(450) /* module_450 */;
-    const m = n(607) /* module_607 */,
-      y = n(44) /* GSystemDialog */;
+    var o = require(16) /* module_16 */;
+    require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(15) /* module */,
+      a = require(53) /* module */,
+      r = require(1) /* module */,
+      s = require(10) /* module_10 */,
+      l = require(67) /* GRichTooltipConfig */,
+      c = o(require(340) /* GTouchTool */),
+      d = o(require(807) /* module_807 */),
+      u = o(require(198) /* Exports_GOutlineSidebar */),
+      p = require(1161) /* module_1161 */,
+      g = o(require(565) /* module_565 */),
+      h = require(123) /* GProperties */,
+      f = require(450) /* module_450 */;
+    const m = require(607) /* module_607 */,
+      y = require(44) /* GSystemDialog */;
     function v() {}
     r.GObject.inherit(v, h),
       (v.prototype._panel = null),
@@ -467,19 +467,19 @@ function (exports, module, require) {
       }),
       (v.prototype._updateProperties = function (e) {
         if (this._elements && this._elements.length) {
-          var t = this._elements[0];
+          var module = this._elements[0];
           this._panel.find(".fill-block").remove();
-          var n = t.getPaintLayers().getFillLayers();
+          var require = module.getPaintLayers().getFillLayers();
           r.GUtil.each(
-            n,
+            require,
             function (t, n) {
               n && this._insertPaintLayer(n, e);
             }.bind(this)
           ),
             this._advancedFillPanel
               .find('[data-property="evenodd"]')
-              .prop("disabled", !t.hasProperty("evenodd"))
-              .val(t.getProperty("evenodd") ? "1" : "0"),
+              .prop("disabled", !module.hasProperty("evenodd"))
+              .val(module.getProperty("evenodd") ? "1" : "0"),
             this._updateToolbar();
         } else console.warn("GFillPaintLayerProperties: empty _elements array");
       }),
@@ -1151,19 +1151,19 @@ function (exports, module, require) {
         ) {
           this._removePaintLayer(e.node);
           for (
-            var t = e.node.getPrevious();
-            t && !(t instanceof r.GStylable.FillPaintLayer);
+            var module = e.node.getPrevious();
+            module && !(module instanceof r.GStylable.FillPaintLayer);
 
           )
-            t = t.getPrevious();
-          if (!(t instanceof r.GStylable.FillPaintLayer))
+            module = module.getPrevious();
+          if (!(module instanceof r.GStylable.FillPaintLayer))
             for (
-              t = e.node.getNext();
-              t && !(t instanceof r.GStylable.FillPaintLayer);
+              module = e.node.getNext();
+              module && !(module instanceof r.GStylable.FillPaintLayer);
 
             )
-              t = t.getNext();
-          this._setSelectedPaintLayer(t), this._updateToolbar();
+              module = module.getNext();
+          this._setSelectedPaintLayer(module), this._updateToolbar();
         }
       }),
       (v.prototype._afterPropertiesChange = function (e) {
@@ -1174,7 +1174,7 @@ function (exports, module, require) {
       (v.prototype._iterateEqualPaintLayer = function (e, t) {
         if (e)
           for (
-            var n = e.getParent().getIndexOfChild(e), o = 0;
+            var require = e.getParent().getIndexOfChild(e), o = 0;
             o < this._elements.length;
             ++o
           ) {
@@ -1184,11 +1184,11 @@ function (exports, module, require) {
               function (a, r) {
                 ((r && r === e) ||
                   (r.constructor === e.constructor &&
-                    i.getIndexOfChild(r) === n)) &&
+                    i.getIndexOfChild(r) === require)) &&
                   t(r, this._elements[o]);
               }.bind(this)
             );
           }
       }),
-      (e.exports = v);
+      (exports.exports = v);
   }

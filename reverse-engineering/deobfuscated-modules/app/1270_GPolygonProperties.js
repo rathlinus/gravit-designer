@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(67) /* GRichTooltipConfig */,
-      a = n(123) /* GProperties */,
-      r = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);
+    require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(67) /* GRichTooltipConfig */,
+      a = require(123) /* GProperties */,
+      r = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */);
     function s() {
       this._polygons = [];
     }
@@ -551,8 +551,8 @@ function (exports, module, require) {
           (this._polygons = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            t[n] instanceof o.GPolygon && this._polygons.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            t[require] instanceof o.GPolygon && this._polygons.push(t[require]);
           if (this._polygons.length && this._polygons.length === t.length)
             return (
               (this._document = e),
@@ -746,8 +746,8 @@ function (exports, module, require) {
       (s.prototype._assignSize = function (e, t) {
         t || this._document.getEditor().beginTransaction();
         try {
-          for (var n = 0; n < this._polygons.length; ++n) {
-            var i = this._polygons[n],
+          for (var require = 0; require < this._polygons.length; ++require) {
+            var i = this._polygons[require],
               a = i.getProperty("or") * e;
             i.setProperty("ir", a, false, false, t);
           }
@@ -768,8 +768,8 @@ function (exports, module, require) {
       (s.prototype._assignPoints = function (e, t) {
         t || this._document.getEditor().beginTransaction();
         try {
-          for (var n = 0; n < this._polygons.length; ++n) {
-            var i = this._polygons[n],
+          for (var require = 0; require < this._polygons.length; ++require) {
+            var i = this._polygons[require],
               a = i.isPlainEdges(),
               r = Math.PI / e,
               s = o.GMath.normalizeAngleRadians(i.getProperty("oa") + r);
@@ -796,8 +796,8 @@ function (exports, module, require) {
         if (e) {
           t || this._document.getEditor().beginTransaction();
           try {
-            for (var n = 0; n < this._polygons.length; ++n) {
-              var i = this._polygons[n],
+            for (var require = 0; require < this._polygons.length; ++require) {
+              var i = this._polygons[require],
                 a = i.getProperty("or"),
                 r = i.getProperty("pts"),
                 s = i.getProperty("oa"),
@@ -824,5 +824,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GPolygonProperties]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

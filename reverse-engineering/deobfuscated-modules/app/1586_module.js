@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(10) /* module_10 */,
-      a = o(n(880) /* module_880 */);
+    var o = require(16) /* module_16 */,
+      i = require(10) /* module_10 */,
+      a = o(require(880) /* module_880 */);
     class r extends a.default {
       canActivate(e) {
         return e.isThereOneTouchPointOnTheTarget();
@@ -31,15 +31,15 @@ function (exports, module, require) {
         super.deactivate(e, t), this._dropLongPressEvent();
       }
       _startLongPressEvent(e) {
-        const t = e.getOriginalEvent();
+        const module = e.getOriginalEvent();
         if ((this._dropLongPressEvent(), e.areThereMultipleTouchPoints()))
           return;
-        const { clientX: n, clientY: o, target: a } = t.targetTouches[0];
+        const { clientX: require, clientY: o, target: a } = module.targetTouches[0];
         this._longPressEventTimeout = setTimeout(() => {
           const e = jQuery.Event("contextmenu", {
-            pageX: n,
+            pageX: require,
             pageY: o,
-            clientX: n,
+            clientX: require,
             clientY: o,
           });
           $(a).trigger(e);
@@ -50,5 +50,5 @@ function (exports, module, require) {
           clearTimeout(this._longPressEventTimeout);
       }
     }
-    e.exports = r;
+    exports.exports = r;
   }

@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(443) /* module_443 */),
-      s = o(n(1330) /* module_1330 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(443) /* module_443 */),
+      s = o(require(1330) /* module_1330 */);
     const { isExecutingOnMSTeamsSync: l } = r.default;
-    var c = n(863) /* module_863 */,
-      d = n(449) /* GFitAllAction */,
-      u = n(18) /* module_18 */,
-      p = n(31) /* GAction */,
-      g = n(1588) /* module_1588 */;
+    var c = require(863) /* module_863 */,
+      d = require(449) /* GFitAllAction */,
+      u = require(18) /* module_18 */,
+      p = require(31) /* GAction */,
+      g = require(1588) /* module_1588 */;
     function h() {
       this._banner.setBannerText(
         i.GLocale.get(
@@ -107,5 +107,5 @@ function (exports, module, require) {
       (h.prototype.toString = function () {
         return "[Object GToggleFullscreenAction]";
       }),
-      (e.exports = h);
+      (exports.exports = h);
   }

@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */;
-    var o = n(1) /* module_1 */,
-      i = n(67) /* GRichTooltipConfig */,
-      a = n(18) /* module_18 */,
-      r = n(163) /* module_163 */,
-      s = n(31) /* GAction */,
-      l = n(85) /* GContainer */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */;
+    var o = require(1) /* module */,
+      i = require(67) /* GRichTooltipConfig */,
+      a = require(18) /* module_18 */,
+      r = require(163) /* module_163 */,
+      s = require(31) /* GAction */,
+      l = require(85) /* GContainer */;
     function c() {
       c.TOOLTIP_CONFIG = {
         [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
@@ -90,5 +90,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GLinkImageAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,30 +5,30 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default =
-        t.GFilesPanelSortTypes =
-        t.GFilesPanelSortDirections =
-        t.GFilesPanelFileTypesFilter =
-        t.GFilesPanelClipboardModes =
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default =
+        module.GFilesPanelSortTypes =
+        module.GFilesPanelSortDirections =
+        module.GFilesPanelFileTypesFilter =
+        module.GFilesPanelClipboardModes =
           undefined);
-    const o = n(47) /* GLocaleKey */,
+    const o = require(47) /* GLocaleKey */,
       i =
-        ((t.GFilesPanelFileTypesFilter = [
+        ((module.GFilesPanelFileTypesFilter = [
           {
             id: "gvdesign",
             name: new o("GFilesPanel", "text.filter-type-gvdesign"),
             type: "application/gravit+design",
           },
         ]),
-        (t.GFilesPanelSortTypes = {
+        (module.GFilesPanelSortTypes = {
           UPDATED: "updated",
           NAME: "name",
           CREATED: "created",
         })),
-      a = (t.GFilesPanelSortDirections = { ASCEND: true, DESCEND: false }),
-      r = (t.GFilesPanelClipboardModes = { DEFAULT: 1, COPY: 2, CUT: 3 });
-    t.default = {
+      a = (module.GFilesPanelSortDirections = { ASCEND: true, DESCEND: false }),
+      r = (module.GFilesPanelClipboardModes = { DEFAULT: 1, COPY: 2, CUT: 3 });
+    module.default = {
       GFilesPanelSortTypes: i,
       GFilesPanelSortDirections: a,
       GFilesPanelClipboardModes: r,

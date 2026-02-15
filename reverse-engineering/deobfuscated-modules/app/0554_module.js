@@ -3,7 +3,7 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     class n {
       getImageAsBlob() {
         return new Blob([this.getImageAsBinary()], {
@@ -11,10 +11,10 @@ function (e, t) {
         });
       }
       getImageAsBinary() {
-        const e = atob(this.getImageAsBase64()),
-          t = new Uint8Array(e.length);
-        for (let n = 0; n < e.length; n++) t[n] = e.charCodeAt(n);
-        return t;
+        const exports = atob(this.getImageAsBase64()),
+          module = new Uint8Array(exports.length);
+        for (let n = 0; n < exports.length; n++) module[n] = exports.charCodeAt(n);
+        return module;
       }
       getMimeType() {
         return this.mimeType;
@@ -26,7 +26,7 @@ function (e, t) {
         return this.image.split("base64,")[1];
       }
       static async fromBlob(e) {
-        const t = new n(),
+        const module = new n(),
           o = await new Promise((t) => {
             const n = new FileReader();
             (n.onload = function (e) {
@@ -34,8 +34,8 @@ function (e, t) {
             }),
               n.readAsDataURL(e);
           });
-        return (t.image = o), (t.mimeType = e.type), t;
+        return (module.image = o), (module.mimeType = e.type), module;
       }
     }
-    e.exports = n;
+    exports.exports = n;
   }

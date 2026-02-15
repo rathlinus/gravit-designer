@@ -3,10 +3,10 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     function n(t) {
       return (
-        (e.exports = n =
+        (exports.exports = n =
           "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
             ? function (e) {
                 return typeof e;
@@ -19,12 +19,12 @@ function (e, t) {
                   ? "symbol"
                   : typeof e;
               }),
-        (e.exports.__esModule = true),
-        (e.exports.default = e.exports),
+        (exports.exports.__esModule = true),
+        (exports.exports.default = exports.exports),
         n(t)
       );
     }
-    (e.exports = n),
-      (e.exports.__esModule = true),
-      (e.exports.default = e.exports);
+    (exports.exports = n),
+      (exports.exports.__esModule = true),
+      (exports.exports.default = exports.exports);
   }

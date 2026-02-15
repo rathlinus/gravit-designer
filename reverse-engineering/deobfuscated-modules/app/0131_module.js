@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(622) /* module_622 */,
-      i = n(35) /* module_35 */,
-      a = n(116) /* module_116 */,
-      r = n(43) /* module_43 */("toStringTag"),
+    var o = require(622) /* module_622 */,
+      i = require(35) /* module_35 */,
+      a = require(116) /* module_116 */,
+      r = require(43) /* module_43 */("toStringTag"),
       s = Object,
       l =
         "Arguments" ===
@@ -17,7 +17,7 @@ function (exports, module, require) {
             return arguments;
           })()
         );
-    e.exports = o
+    exports.exports = o
       ? a
       : function (e) {
           var t, n, o;

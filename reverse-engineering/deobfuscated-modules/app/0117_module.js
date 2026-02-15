@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(130) /* module_130 */,
+    var o = require(130) /* module_130 */,
       i = Math.min;
-    e.exports = function (e) {
+    exports.exports = function (e) {
       var t = o(e);
       return t > 0 ? i(t, 9007199254740991) : 0;
     };

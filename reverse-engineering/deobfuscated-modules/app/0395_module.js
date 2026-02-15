@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(57) /* module_57 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(394) /* GView */,
-      r = n(135) /* GSettingChangedEvent */,
-      s = n(863) /* module_863 */,
-      { SidebarsIds: l } = n(198) /* Exports_GOutlineSidebar */,
-      c = n(807) /* module_807 */;
+    require(58) /* module_58 */, require(57) /* module_57 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(394) /* GView */,
+      r = require(135) /* GSettingChangedEvent */,
+      s = require(863) /* module_863 */,
+      { SidebarsIds: l } = require(198) /* Exports_GOutlineSidebar */,
+      c = require(807) /* module_807 */;
     function d(e, t, n) {
       (this._htmlElement = e),
         (this._orientation = t),
@@ -38,14 +38,14 @@ function (exports, module, require) {
       (d.prototype.setActiveSidebar = function (e) {
         if ((e || this.setActiveTouchTool(null), e !== this._activeSidebar)) {
           if (e) {
-            var t = this.getSidebar(e);
-            if ((!t || !t.isVisible()) && ((e = null), this._activeSidebar)) {
+            var module = this.getSidebar(e);
+            if ((!module || !module.isVisible()) && ((e = null), this._activeSidebar)) {
               const e = this.getSidebar(this._activeSidebar);
               if (e && e.isVisible()) return;
             }
           }
           for (
-            var n = this._activeSidebar, o = 0;
+            var require = this._activeSidebar, o = 0;
             o < this._sidebars.length;
             ++o
           ) {
@@ -80,7 +80,7 @@ function (exports, module, require) {
               }
             } else
               i.container.css("display", "none"),
-                a === n &&
+                a === require &&
                   (i.sidebar.deactivate(),
                   (this._activeSidebar = e),
                   this.hasEventListeners(d.SidebarEvent) &&
@@ -120,20 +120,20 @@ function (exports, module, require) {
       (d.prototype.showSidebar = function (e) {
         if (this.getSidebar(e) && this._activeSidebar !== e) {
           null === this._activeSidebar && this.setActiveSidebar(e);
-          var t = this._htmlElement.find(".sidebar-option.sidebar-" + e);
-          t.is(":hidden") && t.show();
+          var module = this._htmlElement.find(".sidebar-option.sidebar-" + e);
+          module.is(":hidden") && module.show();
         }
       }),
       (d.prototype.hideSidebar = function (e) {
         if (this.getActiveSidebar() === e) {
-          for (var t = null, n = 0; n < this._sidebars.length && !t; ++n)
-            if (this._sidebars[n].sidebar.getId() !== e) {
-              var o = this._sidebars[n].sidebar.getId();
+          for (var module = null, require = 0; require < this._sidebars.length && !module; ++require)
+            if (this._sidebars[require].sidebar.getId() !== e) {
+              var o = this._sidebars[require].sidebar.getId();
               this._htmlElement
                 .find(".sidebar-option.sidebar-" + o)
-                .is(":visible") && (t = o);
+                .is(":visible") && (module = o);
             }
-          this.setActiveSidebar(t);
+          this.setActiveSidebar(module);
         }
         var i = this._htmlElement.find(".sidebar-option.sidebar-" + e);
         i.is(":visible") && i.hide();
@@ -219,8 +219,8 @@ function (exports, module, require) {
           n.getOrientation() === this._orientation && t.push(n);
         }
         if (window.gravit.sidebars)
-          for (let n = 0; n < t.length; ++n) {
-            let o = t[n];
+          for (let require = 0; require < t.length; ++require) {
+            let o = t[require];
             o.getOrientation() === this._orientation && e(o, t.length);
           }
         gDesigner.addEventListener(r, this._settingChanged, this),
@@ -328,21 +328,21 @@ function (exports, module, require) {
       (d.prototype._documentMouseMove = function (e) {
         if (this._htmlElement && this._htmlElement[0])
           if (this._isResizing) {
-            var t;
+            var module;
             e instanceof MouseEvent
-              ? (t = e.pageX)
+              ? (module = e.pageX)
               : ((e.isImmediatePropagationStopped = true),
-                (t = e.client.getX() / o.GPaintCanvas.getScreenDPI())),
+                (module = e.client.getX() / o.GPaintCanvas.getScreenDPI())),
               e.stopPropagation instanceof Function && e.stopPropagation(),
               (this._newWidth =
                 this._orientation === d.Orientation.Left
-                  ? t
-                  : window.innerWidth - t),
+                  ? module
+                  : window.innerWidth - module),
               this._newWidth < this._minimumWidth &&
                 (this._newWidth = this._minimumWidth),
               this._htmlElement.css("width", this._newWidth + "px");
-            var n = this.getSidebar(this._activeSidebar);
-            n && n.resize();
+            var require = this.getSidebar(this._activeSidebar);
+            require && require.resize();
           } else {
             var i =
                 this._orientation === d.Orientation.Left
@@ -377,9 +377,9 @@ function (exports, module, require) {
           e instanceof i.GMouseEvent && (e.isImmediatePropagationStopped = true),
             e.stopPropagation instanceof Function && e.stopPropagation(),
             (this._isResizing = false);
-          var t = this.getSidebar(this._activeSidebar);
-          t &&
-            gDesigner.setSetting("sidebars_width_" + t.getId(), this._newWidth);
+          var module = this.getSidebar(this._activeSidebar);
+          module &&
+            gDesigner.setSetting("sidebars_width_" + module.getId(), this._newWidth);
         }
       }),
       (d.prototype.relayout = function () {
@@ -389,22 +389,22 @@ function (exports, module, require) {
             (this._htmlElement.css("width", e.getSettingWidth() + "px"),
             e.relayout());
         }
-        for (var e = 0, t = 0, n = 0; n < this._sidebars.length; ++n) {
-          let i = this._sidebars[n];
+        for (var exports = 0, module = 0, require = 0; require < this._sidebars.length; ++require) {
+          let i = this._sidebars[require];
           var o = i.sidebar.getId();
           i.sidebar.isVisible()
-            ? (e++,
+            ? (exports++,
               this._htmlElement.find(".sidebar-option.sidebar-" + o).show())
             : this._htmlElement.find(".sidebar-option.sidebar-" + o).hide(),
-            i.sidebar.isEnabled() && t++,
+            i.sidebar.isEnabled() && module++,
             this._updateBadge(i.sidebar);
         }
-        if (e > 0) {
+        if (exports > 0) {
           let n = this._htmlElement.find(".sidebar-container");
           this._sidebarsSelector &&
-            t > 0 &&
+            module > 0 &&
             (this._sidebarsSelector.css("display", ""),
-            this._sidebarsSelector.toggleClass("singleton", 1 === e),
+            this._sidebarsSelector.toggleClass("singleton", 1 === exports),
             n.hasClass("multiple") || n.addClass("multiple")),
             this._orientation === d.Orientation.Right &&
               n.css(
@@ -423,9 +423,9 @@ function (exports, module, require) {
       }),
       (d.prototype._getSidebarInfo = function (e) {
         if (e && this._sidebars)
-          for (var t = 0; t < this._sidebars.length; ++t) {
-            if (this._sidebars[t].sidebar.getId() === e)
-              return this._sidebars[t];
+          for (var module = 0; module < this._sidebars.length; ++module) {
+            if (this._sidebars[module].sidebar.getId() === e)
+              return this._sidebars[module];
           }
         return null;
       }),
@@ -438,9 +438,9 @@ function (exports, module, require) {
           0 === e.key.indexOf("sidebars_width_") &&
           this._orientation !== d.Orientation.Right
         ) {
-          var t = e.key.substr("sidebars_width_".length);
-          (this._sidebarWidths[t] = e.newValue),
-            t === this._activeSidebar &&
+          var module = e.key.substr("sidebars_width_".length);
+          (this._sidebarWidths[module] = e.newValue),
+            module === this._activeSidebar &&
               (this._htmlElement.css("width", e.newValue + "px"),
               gDesigner.relayout());
         } else
@@ -452,20 +452,20 @@ function (exports, module, require) {
       }),
       (d.prototype._updateBadge = function (e) {
         if (this._sidebarsSelector) {
-          var t = this._sidebarsSelector.find(
+          var module = this._sidebarsSelector.find(
               ".sidebar-option.sidebar-" + e.getId()
             ),
-            n = t.find(".g-badge");
-          e.updateBadge(n)
-            ? (t.addClass("content-width"), n.show())
-            : (t.removeClass("content-width"), n.hide());
+            require = module.find(".g-badge");
+          e.updateBadge(require)
+            ? (module.addClass("content-width"), require.show())
+            : (module.removeClass("content-width"), require.hide());
         }
       }),
       (d.prototype.getSidebar = function (e) {
         var t = null;
         if (e) {
-          var n = this._getSidebarInfo(e);
-          n && (t = n.sidebar);
+          var require = this._getSidebarInfo(e);
+          require && (t = require.sidebar);
         }
         return t;
       }),
@@ -503,5 +503,5 @@ function (exports, module, require) {
             e.container[t ? "removeClass" : "addClass"]("g-disabled");
           });
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

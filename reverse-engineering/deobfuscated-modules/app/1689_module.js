@@ -6,26 +6,26 @@
 function (exports, module, require) {
     "use strict";
     function o(e, t) {
-      let n,
+      let require,
         o,
         i = this;
       return function () {
         return (
           (o = Array.prototype.slice.call(arguments, 0)),
-          (n = clearTimeout(n, o)),
-          (n = setTimeout(function () {
-            e.apply(i, o), (n = 0);
+          (require = clearTimeout(require, o)),
+          (require = setTimeout(function () {
+            e.apply(i, o), (require = 0);
           }, t)),
           this
         );
       };
     }
     ($.expr[":"].editable = function (e) {
-      const t = $(e);
-      if ("true" === t.attr("contenteditable") || e.isContentEditable)
+      const module = $(e);
+      if ("true" === module.attr("contenteditable") || e.isContentEditable)
         return true;
-      if (t.is("input")) {
-        const e = t.attr("type");
+      if (module.is("input")) {
+        const e = module.attr("type");
         return (
           !e ||
           "" === e ||
@@ -44,7 +44,7 @@ function (exports, module, require) {
           "date" === e
         );
       }
-      return !!t.is("textArea");
+      return !!module.is("textArea");
     }),
       ($.expr[":"].textSelectable = function (e) {
         return "text" === $(e).css("user-select");

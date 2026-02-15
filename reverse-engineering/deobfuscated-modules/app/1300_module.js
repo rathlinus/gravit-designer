@@ -5,38 +5,38 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(596) /* module_596 */,
-      n(328) /* module_328 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(85) /* GContainer */),
-      s = n(858) /* module_858 */,
-      l = o(n(802) /* CloudException */),
-      c = o(n(44) /* GSystemDialog */),
-      d = n(40) /* module_40 */,
-      u = o(n(177) /* module_177 */),
-      p = n(10) /* module_10 */,
-      g = o(n(355) /* module_355 */),
-      h = n(519) /* module_519 */;
-    const f = n(1548) /* module_1548 */,
-      m = n(1166) /* module_1166 */,
-      y = n(1549) /* module_1549 */,
-      v = n(1174) /* module_1174 */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(596) /* module_596 */,
+      require(328) /* module_328 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(71) /* module_71 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(85) /* GContainer */),
+      s = require(858) /* module_858 */,
+      l = o(require(802) /* CloudException */),
+      c = o(require(44) /* GSystemDialog */),
+      d = require(40) /* module_40 */,
+      u = o(require(177) /* module_177 */),
+      p = require(10) /* module_10 */,
+      g = o(require(355) /* module_355 */),
+      h = require(519) /* module_519 */;
+    const f = require(1548) /* module_1548 */,
+      m = require(1166) /* module_1166 */,
+      y = require(1549) /* module_1549 */,
+      v = require(1174) /* module_1174 */;
     let _ = null;
     const b = function (e, t) {
       (this.panel = e),
@@ -178,21 +178,21 @@ function (exports, module, require) {
           const f = this.filesPanel.drive;
           this.toggleLoading(true),
             (e = "string" == typeof e ? await f.getFolder(e) : e);
-          var t = async (e, t) => {
+          var module = async (e, t) => {
             this.filesPanel.navigateToFolder(e);
             for (
-              var n = this._cloudFolders.find((t) => t.getFolder().id === e.id),
+              var require = this._cloudFolders.find((t) => t.getFolder().id === e.id),
                 o = 0;
               !(
-                n ||
+                require ||
                 (await (0, d.sleep)(100),
-                (n = this._cloudFolders.find((t) => t.getFolder().id === e.id)),
+                (require = this._cloudFolders.find((t) => t.getFolder().id === e.id)),
                 ++o > 30)
               );
 
             );
-            if ((this.manageOpenFolder(null, e, n), n)) {
-              var i = n.getHTMLContainer();
+            if ((this.manageOpenFolder(null, e, require), require)) {
+              var i = require.getHTMLContainer();
               0 === i[0].offsetTop && t && (i = t.getHTMLContainer()),
                 setTimeout(() => {
                   this.panel
@@ -206,9 +206,9 @@ function (exports, module, require) {
               (f.isRootFolder(e) || f.isRootFolder(e.parent))) ||
             f.isRootFolder(e.relativeUrl ? e.relativeUrl : e.parent)
           )
-            t(e);
+            module(e);
           else {
-            for (var n, o = [e], i = e, a = false; !n; )
+            for (var require, o = [e], i = e, a = false; !require; )
               if (
                 (i = await f
                   .getFolder(i.parent)
@@ -223,11 +223,11 @@ function (exports, module, require) {
               ) {
                 if ((o.push(i), o.length > h.MAX_FOLDER_DEPTH_FOR_CLOUD))
                   return Promise.reject(p.gApi.HTTP_STATUS_CODES.NOT_FOUND);
-                f.isRootFolder(i.parent) && (n = true);
+                f.isRootFolder(i.parent) && (require = true);
               } else {
                 if (a)
                   return Promise.reject(p.gApi.HTTP_STATUS_CODES.NOT_FOUND);
-                n = true;
+                require = true;
               }
             var r = o.reverse(),
               s = this._cloudFolders,
@@ -250,7 +250,7 @@ function (exports, module, require) {
                 ? (await u.refresh(),
                   (s = u.getChildren()),
                   u.toggleState(),
-                  (l = r.shift()) ? (c = l) : t(c, u))
+                  (l = r.shift()) ? (c = l) : module(c, u))
                 : (l = null);
             }
           }
@@ -402,18 +402,18 @@ function (exports, module, require) {
           this._permissionChanged();
       }),
       (b.prototype.updateLayout = function () {
-        const e = this.panel.find(".g-files-list");
-        if (e.hasClass("list-view")) {
+        const exports = this.panel.find(".g-files-list");
+        if (exports.hasClass("list-view")) {
           const t = (e, t) => {
-            let n, o, i;
+            let require, o, i;
             ({
               columnsAmount: o,
-              total: n,
+              total: require,
               totalRows: i,
             } = this._getGridData(e)),
               t && e.css("max-height", "");
             const a = e.hasClass("extended-list");
-            if (!n) return void e.addClass("single-row");
+            if (!require) return void e.addClass("single-row");
             if (!o || isNaN(o)) return;
             const r = a ? 6 : 2;
             t && !a && i > 2
@@ -431,12 +431,12 @@ function (exports, module, require) {
                   );
               });
           };
-          t(e), t(this.panel.find(".g-recent-files-list"), true);
+          t(exports), t(this.panel.find(".g-recent-files-list"), true);
         } else {
           const e = this.panel.find(".g-recent-files-list"),
             t = e.hasClass("extended-list"),
-            { totalRows: n, firstHeight: o } = this._getGridData(e);
-          if (n > 1 && !t) {
+            { totalRows: require, firstHeight: o } = this._getGridData(e);
+          if (require > 1 && !t) {
             const t = o + 10;
             e.css("max-height", t + "px");
           } else e.css("max-height", "1000px");
@@ -447,15 +447,15 @@ function (exports, module, require) {
         this._setContextMenuActiveRangeSize();
       }),
       (b.prototype._getGridData = function (e) {
-        const t = e.find(".g-gravit-file"),
-          n = t.length,
-          o = t.eq(0).width(),
-          i = t.eq(0).height();
+        const module = e.find(".g-gravit-file"),
+          require = module.length,
+          o = module.eq(0).width(),
+          i = module.eq(0).height();
         let a = 1;
         o && !isNaN(o) && (a = Math.floor(e.width() / o));
         return {
-          total: n,
-          totalRows: n % a > 0 ? Math.floor(n / a) + 1 : Math.floor(n / a),
+          total: require,
+          totalRows: require % a > 0 ? Math.floor(require / a) + 1 : Math.floor(require / a),
           columnsAmount: a,
           firstHeight: i,
         };
@@ -472,12 +472,12 @@ function (exports, module, require) {
               .removeClass("loading");
       }),
       (b.prototype.toggleRecentFiles = function (e) {
-        const t = this.panel.find(".g-right-side");
-        t.toggleClass("g-show-recent-files", !!e);
-        const n = !t.find(".g-files-list").is(":empty") && !!e;
-        t.find(".g-all-files").toggle(n);
-        const o = !t.find(".g-recent-files-list").is(":empty") && !!e;
-        t.find(".g-recent-files").toggle(o),
+        const module = this.panel.find(".g-right-side");
+        module.toggleClass("g-show-recent-files", !!e);
+        const require = !module.find(".g-files-list").is(":empty") && !!e;
+        module.find(".g-all-files").toggle(require);
+        const o = !module.find(".g-recent-files-list").is(":empty") && !!e;
+        module.find(".g-recent-files").toggle(o),
           this.panel.find(".g-recent-files-separator").toggle(o);
       }),
       (b.prototype.toggleFolders = function (e) {
@@ -486,8 +486,8 @@ function (exports, module, require) {
           this.panel.closest(".cloud-dialog").toggleClass("no-folders", !e);
       }),
       (b.prototype.createTopBar = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
-          n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1],
+          require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         e = new u.default(e);
         var o = this.filesPanel.getCloudSettings(),
           a = this.filesPanel.getCloudSettingsById(
@@ -496,7 +496,7 @@ function (exports, module, require) {
           r = this,
           s = $("<div />")
             .addClass("g-files-top-bar")
-            .addClass(n ? "default" : "")
+            .addClass(require ? "default" : "")
             .append(
               $("<div />")
                 .addClass("g-files-top-buttons")
@@ -581,12 +581,12 @@ function (exports, module, require) {
                 .append(new m(e).build().addClass("g-files-top-avatar"))
             );
         if (
-          (t
+          (module
             ? this.panel.find(".g-files-top-bar").replaceWith(s)
             : s.appendTo(this.panel),
-          n)
+          require)
         )
-          return void this._createRefreshButton(s, n);
+          return void this._createRefreshButton(s, require);
         var l = $("<div />")
           .addClass("g-files-top-cloud-menu")
           .append($("<div />").addClass("g-files-top-cloud-menu-icon"))
@@ -653,18 +653,18 @@ function (exports, module, require) {
         d &&
           d.length &&
           d.forEach((e) => {
-            let { title: t, icon: n, execute: o } = e;
+            let { title: module, icon: require, execute: o } = e;
             return $("<div/>")
               .addClass("g-files-top-cloud-refresh-content")
               .append(
                 $("<div/>")
                   .addClass("container")
-                  .append(n ? $("<div/>").addClass("icon").addClass(n) : "")
-                  .append($("<div/>").addClass("text").text(t))
+                  .append(require ? $("<div/>").addClass("icon").addClass(require) : "")
+                  .append($("<div/>").addClass("text").text(module))
               )
               .appendTo(s)
               .click(() => {
-                gDesigner.stats("filespanel-view_execute_action", t),
+                gDesigner.stats("filespanel-view_execute_action", module),
                   o(this.filesPanel.getContextSource()).catch((e) => {
                     "string" == typeof e
                       ? c.default.alert(e)
@@ -672,7 +672,7 @@ function (exports, module, require) {
                   });
               });
           }),
-          this._createRefreshButton(s, n);
+          this._createRefreshButton(s, require);
       }),
       (b.prototype.updateTopBar = function () {
         this.createTopBar(this.filesPanel.getUser(), true);
@@ -708,12 +708,12 @@ function (exports, module, require) {
       }),
       (b.prototype._cloudPane = async function (e) {
         try {
-          var t = this.filesPanel.getCloudSettings(),
-            n = $("<div/>")
+          var module = this.filesPanel.getCloudSettings(),
+            require = $("<div/>")
               .addClass("cloud-pane")
               .on("click", () => {
                 gDesigner.stats("filespanel-view_close_cloud-pane"),
-                  n.gOverlay("close");
+                  require.gOverlay("close");
               }),
             o = this.filesPanel.getCloudSettingsById(
               this.filesPanel.getCurrentDriveId()
@@ -723,9 +723,9 @@ function (exports, module, require) {
               .append($("<div />").addClass("cloud-pane-head-icon"))
               .on("click", () => {
                 gDesigner.stats("filespanel-view_close_cloud-pane"),
-                  n.gOverlay("close");
+                  require.gOverlay("close");
               })
-              .appendTo(n);
+              .appendTo(require);
           switch (o.type) {
             case "sharepoint":
             case "sharepoint-native":
@@ -742,17 +742,17 @@ function (exports, module, require) {
             default:
               a.addClass("native");
           }
-          if (t && t.length) {
+          if (module && module.length) {
             for (
               var r = $("<div />").addClass("items-container"),
                 s = 0,
-                l = t.length;
+                l = module.length;
               s < l;
               s++
             )
               try {
                 var d,
-                  u = t[s],
+                  u = module[s],
                   p = false,
                   h = [];
                 if (
@@ -767,7 +767,7 @@ function (exports, module, require) {
                   p = h.length > 0;
                 }
                 ((e) => {
-                  const t = $("<div />")
+                  const module = $("<div />")
                     .addClass("item")
                     .addClass(
                       e.id === this.filesPanel.getCurrentDriveId()
@@ -801,10 +801,10 @@ function (exports, module, require) {
                           try {
                             await this.filesPanel.setCloudDrive(e);
                           } catch (e) {
-                            var t;
-                            e && e instanceof g.default && (t = e),
+                            var module;
+                            e && e instanceof g.default && (module = e),
                               c.default.alert(
-                                t ||
+                                module ||
                                   i.GLocale.get(
                                     new i.GLocaleKey(
                                       "GCommonNames",
@@ -815,20 +815,20 @@ function (exports, module, require) {
                               console.error(">>>failed to set cloud drive", e);
                           }
                         }
-                        n.gOverlay("close");
+                        require.gOverlay("close");
                       }.bind(this)
                     )
                     .appendTo(r);
                   if (
                     (d &&
                       p &&
-                      t.append(
+                      module.append(
                         $("<div />")
                           .addClass("corporate-storage-list")
                           .addClass("arrow-open-right")
                       ),
                     e.deletable &&
-                      t.append(
+                      module.append(
                         $("<div />")
                           .addClass("account-settings-container")
                           .append(
@@ -845,7 +845,7 @@ function (exports, module, require) {
                                 "filespanel-view_open_edit-cloud-account-dialog"
                               ),
                               this._closeCorporateSubMenu(),
-                              n.gOverlay("close");
+                              require.gOverlay("close");
                           })
                       ),
                     d && p)
@@ -872,23 +872,23 @@ function (exports, module, require) {
                         data: e,
                       }))
                     )),
-                      this._corporateStoragesPane(t, a, async (e) => {
+                      this._corporateStoragesPane(module, a, async (e) => {
                         await this.filesPanel.drive.setCorporateStorage(e.data),
                           this.filesPanel.drive.setCurrentFolder(null),
                           this.filesPanel.updateFilesList(),
-                          n.gOverlay("close");
+                          require.gOverlay("close");
                       });
                   } else
-                    t.hover(() => {
+                    module.hover(() => {
                       this._closeCorporateSubMenu();
                     });
                 })(u);
               } catch (e) {
                 console.error(e);
               }
-            r.appendTo(n);
+            r.appendTo(require);
           }
-          t.some((e) => ["googledrive"].includes(e.type)) ||
+          module.some((e) => ["googledrive"].includes(e.type)) ||
             $("<div/>")
               .addClass("new-item")
               .append(
@@ -919,11 +919,11 @@ function (exports, module, require) {
               .on(
                 "click",
                 function () {
-                  this._newCloudAccountDialog(), n.gOverlay("close");
+                  this._newCloudAccountDialog(), require.gOverlay("close");
                 }.bind(this)
               )
-              .appendTo(n),
-            n
+              .appendTo(require),
+            require
               .gOverlay({
                 padding: false,
                 releaseOnClose: true,
@@ -944,9 +944,9 @@ function (exports, module, require) {
         }
       }),
       (b.prototype._editCloudPane = function (e) {
-        const t = this;
+        const module = this;
         if (e) {
-          var n = $("<div />")
+          var require = $("<div />")
             .addClass("edit-account-dialog-content")
             .on("keypress", function (e) {
               13 === e.keyCode &&
@@ -964,7 +964,7 @@ function (exports, module, require) {
                     "filespanel-view_close_edit-cloud-account-dialog",
                     e.name
                   ),
-                    n.gDialog("close");
+                    require.gDialog("close");
                 })
             )
             .append(
@@ -1015,19 +1015,19 @@ function (exports, module, require) {
                         "filespanel-view_disconnect_cloud-account",
                         e.name
                       ),
-                      t.filesPanel.deleteCloudDrive(e).then(async () => {
+                      module.filesPanel.deleteCloudDrive(e).then(async () => {
                         try {
-                          t.filesPanel.getCurrentDriveId() === e.id &&
-                            (t.toggleLoading(true),
-                            t.filesPanel.drive instanceof l.default &&
-                              (await t.filesPanel.drive.uninstall()),
-                            t.filesPanel.setCloudDrive(
-                              t.filesPanel.getCloudSettingsById(1)
+                          module.filesPanel.getCurrentDriveId() === e.id &&
+                            (module.toggleLoading(true),
+                            module.filesPanel.drive instanceof l.default &&
+                              (await module.filesPanel.drive.uninstall()),
+                            module.filesPanel.setCloudDrive(
+                              module.filesPanel.getCloudSettingsById(1)
                             ));
                         } catch (e) {
                           console.error(">>>e", e);
                         }
-                        n.gDialog("close");
+                        require.gDialog("close");
                       });
                   })
                   .text(
@@ -1049,7 +1049,7 @@ function (exports, module, require) {
                         "filespanel-view_close_edit-cloud-account-dialog",
                         e.name
                       ),
-                      n.gDialog("close");
+                      require.gDialog("close");
                   })
                   .text(
                     i.GLocale.get(
@@ -1066,19 +1066,19 @@ function (exports, module, require) {
                   .attr("tabindex", 2)
                   .on("click", async function (o) {
                     o.preventDefault(), o.stopPropagation();
-                    var i = n.find("#cloud-account-name").val();
+                    var i = require.find("#cloud-account-name").val();
                     let a = [];
                     i || a.push("cloud-account-name"),
                       a.length
                         ? a.forEach((e) => {
-                            n.find("#".concat(e)).addClass("error");
+                            require.find("#".concat(e)).addClass("error");
                           })
                         : (gDesigner.stats(
                             "filespanel-view_save_edit-cloud-account-dialog",
                             e.name
                           ),
-                          await t.filesPanel.updateCloudAccountName(e.id, i),
-                          n.gDialog("close"));
+                          await module.filesPanel.updateCloudAccountName(e.id, i),
+                          require.gDialog("close"));
                   })
                   .text(
                     i.GLocale.get(
@@ -1090,7 +1090,7 @@ function (exports, module, require) {
                   ),
               ],
             });
-          n.gDialog("open", true), n.find("#cloud-account-name").focus();
+          require.gDialog("open", true), require.find("#cloud-account-name").focus();
         } else console.error("vendor object is missing");
       }),
       (b.prototype._newCloudAccountDialog = async function () {
@@ -1102,7 +1102,7 @@ function (exports, module, require) {
           ),
           !(t.length < 1))
         ) {
-          var n = $("<div />")
+          var require = $("<div />")
               .append(
                 $("<div></div>")
                   .addClass("g-btn-close")
@@ -1111,7 +1111,7 @@ function (exports, module, require) {
                     gDesigner.stats(
                       "filespanel-view_close_new-cloud-account-dialog"
                     ),
-                      n.gDialog("close");
+                      require.gDialog("close");
                   })
               )
               .append(
@@ -1127,7 +1127,7 @@ function (exports, module, require) {
                   )
               ),
             o = $("<div />").addClass("vendor-options");
-          n.gDialog({
+          require.gDialog({
             releaseOnClose: true,
             closable: true,
             className: "g-cloud-account-options",
@@ -1169,12 +1169,12 @@ function (exports, module, require) {
                         ),
                         gDesigner.handlePROFeatureInterruption()
                       );
-                    n.gDialog("close"), e._addCloudDriveDialog(t);
+                    require.gDialog("close"), e._addCloudDriveDialog(t);
                   })
               );
             })(t[a]);
           }
-          n.append(o), n.gDialog("open");
+          require.append(o), require.gDialog("open");
         }
       }),
       (b.prototype._addCloudDriveDialog = function (e) {
@@ -1188,7 +1188,7 @@ function (exports, module, require) {
             "googledrive" === e.type)
           )
             return (function (e) {
-              let n =
+              let require =
                 arguments.length > 1 && undefined !== arguments[1] && arguments[1];
               return t.filesPanel.saveNewCloudAccount(e).then(async () => {
                 try {
@@ -1196,7 +1196,7 @@ function (exports, module, require) {
                 } catch (o) {
                   return (
                     t.filesPanel.deleteCloudDrive(e).then(() => {
-                      if (n) throw o.message;
+                      if (require) throw o.message;
                       c.default.alert(o.message);
                     }),
                     Promise.reject(o)
@@ -1232,10 +1232,10 @@ function (exports, module, require) {
           (this._corporateSubMenu = null));
       }),
       (b.prototype.updateUserDetails = function (e) {
-        let t;
+        let module;
         e instanceof u.default || (e = new u.default(e)),
-          (t = e.getUserReference()),
-          t && this.panel.find(".g-files-top-account-name").html(t);
+          (module = e.getUserReference()),
+          module && this.panel.find(".g-files-top-account-name").html(module);
       }),
       (b.prototype._corporateStoragesPane = async function (e, t, n) {
         const o = () => {
@@ -1465,11 +1465,11 @@ function (exports, module, require) {
       }),
       (b.prototype._createFilterFileTypeOverlay = function (e) {
         var t = $("<div/>").addClass("context-pane");
-        const n = this.filesPanel.getAvailableFileTypesFilter();
-        if (!n || !n.length) return;
+        const require = this.filesPanel.getAvailableFileTypesFilter();
+        if (!require || !require.length) return;
         var o = this;
         return (
-          n.forEach((n) => {
+          require.forEach((n) => {
             !(function (t, n) {
               const a = $('<input type="checkbox"/>').on("click", function (n) {
                 n.stopImmediatePropagation(),
@@ -1551,11 +1551,11 @@ function (exports, module, require) {
         var e = this.panel.closest(".g-dialog-container");
         if (!e.length) return;
         this.filesPanel.getSelectedFilterForFileTypes().forEach((t) => {
-          const n = this.filesPanel
+          const require = this.filesPanel
             .getAvailableFileTypesFilter()
             .find((e) => e.type === t);
           e
-            .find(".sort-option.".concat(n.id))
+            .find(".sort-option.".concat(require.id))
             .find("input[type=checkbox]")[0].checked = true;
         });
       }),
@@ -1602,9 +1602,9 @@ function (exports, module, require) {
           this._isMultiSelectionEnabled() &&
           a.GPlatform.modifiers.shiftKey
         ) {
-          var n = $(e),
-            o = n.nextAll(".g-cloud-element.selected"),
-            i = n.prevAll(".g-cloud-element.selected"),
+          var require = $(e),
+            o = require.nextAll(".g-cloud-element.selected"),
+            i = require.prevAll(".g-cloud-element.selected"),
             r = i.length > 0 ? i[0] : null,
             s = o.length > 0 ? o[0] : null;
           if (!r || !s) {
@@ -1629,19 +1629,19 @@ function (exports, module, require) {
             e.addClass("last-selected");
       }),
       (b.prototype.addToClipboard = function (e) {
-        let t = "";
-        (t = this.filesPanel.isClipboardModeCopy(e) ? "copy" : "cut"),
-          this.panel.find(".g-gravit-folder.selected").addClass(t),
-          this.panel.find(".g-gravit-file.selected").addClass(t),
+        let module = "";
+        (module = this.filesPanel.isClipboardModeCopy(e) ? "copy" : "cut"),
+          this.panel.find(".g-gravit-folder.selected").addClass(module),
+          this.panel.find(".g-gravit-file.selected").addClass(module),
           this.resetSelection();
       }),
       (b.prototype.resetClipboard = function (e) {
-        let t = "";
+        let module = "";
         this.filesPanel.isClipboardModeCopy(e)
-          ? (t = "copy")
-          : this.filesPanel.isClipboardModeCut(e) && (t = "cut"),
-          this.panel.find(".g-gravit-folder").removeClass(t),
-          this.panel.find(".g-gravit-file").removeClass(t);
+          ? (module = "copy")
+          : this.filesPanel.isClipboardModeCut(e) && (module = "cut"),
+          this.panel.find(".g-gravit-folder").removeClass(module),
+          this.panel.find(".g-gravit-file").removeClass(module);
       }),
       (b.prototype.shouldFilesBeRequested = function () {
         var e = this.panel.find(".g-right-side");
@@ -1972,13 +1972,13 @@ function (exports, module, require) {
         return this._permissions.includes(e);
       }),
       (b.prototype.setPermission = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         if (this._permissionSupported(e)) {
-          if (t) this.hasPermission(e) || this._permissions.push(e);
+          if (module) this.hasPermission(e) || this._permissions.push(e);
           else if (this.hasPermission(e)) {
-            var n = this._permissions.indexOf(e);
-            this._permissions.splice(n, 1);
+            var require = this._permissions.indexOf(e);
+            this._permissions.splice(require, 1);
           }
           this._permissionChanged();
         } else console.warn("Permission not supported: " + e);
@@ -2038,17 +2038,17 @@ function (exports, module, require) {
         }
       }),
       (b.prototype._scrollToTheFile = function (e) {
-        const t = this._rightSide.height() / 3,
-          n = e[0],
-          o = n.offsetTop - t > 0 ? n.offsetTop - t : 0;
+        const module = this._rightSide.height() / 3,
+          require = e[0],
+          o = require.offsetTop - module > 0 ? require.offsetTop - module : 0;
         this._rightSide.animate({ scrollTop: o + "px" }, 400);
       }),
       (b.prototype._expandRecentListIfFileWasHidden = function (e) {
-        const t = this.panel.find(".g-recent-files-list"),
-          n = this._getGridData(t);
-        t.find(".g-gravit-file").index(e) >= n.columnsAmount &&
+        const module = this.panel.find(".g-recent-files-list"),
+          require = this._getGridData(module);
+        module.find(".g-gravit-file").index(e) >= require.columnsAmount &&
           (this.panel.find(".g-recent-files-show-more").hide(),
-          t.css("max-height", "max-content"));
+          module.css("max-height", "max-content"));
       }),
       (b.prototype._permissionSupported = function (e) {
         return Object.values(b.Permission).includes(e);
@@ -2067,19 +2067,19 @@ function (exports, module, require) {
       }),
       (b.prototype._forceSearchInput = function (e) {
         if (a.GPlatform.modifiers.metaKey || a.GPlatform.modifiers.ctrlKey) {
-          var t = this.panel.find(".search-container > input.search-field");
-          t.length > 0 && (e.preventDefault(), t.focus());
+          var module = this.panel.find(".search-container > input.search-field");
+          module.length > 0 && (e.preventDefault(), module.focus());
         }
       }),
       (b.prototype._handlePasteShortcut = function (e) {
-        function t() {
+        function module() {
           e.preventDefault(), e.stopPropagation();
         }
         (a.GPlatform.modifiers.metaKey || a.GPlatform.modifiers.ctrlKey) &&
           (this.filesPanel.isClipboardModeCut()
-            ? (t(), this.filesPanel.performCutPaste())
+            ? (module(), this.filesPanel.performCutPaste())
             : this.filesPanel.isClipboardModeCopy() &&
-              (t(), this.filesPanel.performCopyPaste()));
+              (module(), this.filesPanel.performCopyPaste()));
       }),
       (b.prototype._handleEscShortcut = function (e) {
         this._fileInfoPanelIsOpen &&
@@ -2098,22 +2098,22 @@ function (exports, module, require) {
           );
       }),
       (b.prototype._setContextMenuActiveRangeSize = function (e) {
-        const t = e || this._contextMenu,
-          n = $(".frame.cloud-frame"),
-          o = n.offset();
+        const module = e || this._contextMenu,
+          require = $(".frame.cloud-frame"),
+          o = require.offset();
         o &&
-          (t.setActiveRangeSize(o.left, o.top, n.height(), n.width()),
+          (module.setActiveRangeSize(o.left, o.top, require.height(), require.width()),
           this._downloadContextMenu &&
             this._downloadContextMenu.setActiveRangeSize(
               o.left,
               o.top,
-              n.height(),
-              n.width()
+              require.height(),
+              require.width()
             ));
       }),
       (b.prototype._permissionChanged = function () {}),
       (b.prototype._isContextMenuAvailableForFile = function (e) {
         return this.filesPanel._isContextMenuAvailableForFile(e);
       }),
-      (e.exports = b);
+      (exports.exports = b);
   }

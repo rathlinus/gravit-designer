@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */(n(1573) /* module_1573 */);
-    e.exports = class {
-      constructor(e, t) {
+    var o = require(16) /* module_16 */(require(1573) /* module_1573 */);
+    exports.exports = class {
+      function Object() { [native code] }(e, t) {
         this._promiseManager = new o.default();
       }
       getAnnotations(e, t) {
@@ -17,10 +17,10 @@ function (exports, module, require) {
         return this._fetch({ id: e, data: t, shareToken: n });
       }
       _fetch(e) {
-        let { id: t, data: n, shareToken: o } = e;
-        const i = n
-          ? () => gApi.updateAnnotations(t, n, o)
-          : () => gApi.getAnnotations(t, o);
+        let { id: module, data: require, shareToken: o } = e;
+        const i = require
+          ? () => gApi.updateAnnotations(module, require, o)
+          : () => gApi.getAnnotations(module, o);
         return this._promiseManager.pushPromise(i);
       }
     };

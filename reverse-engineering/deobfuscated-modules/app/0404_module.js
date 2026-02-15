@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    t.f = Object.getOwnPropertySymbols;
+    module.f = Object.getOwnPropertySymbols;
   }

@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
-      ((o = n(55) /* module_55 */),
-      n(98) /* module_98 */,
+    exports.exports =
+      ((o = require(55) /* module_55 */),
+      require(98) /* module_98 */,
       (o.mode.CFB = (function () {
         var e = o.lib.BlockCipherMode.extend();
-        function t(e, t, n, o) {
+        function module(e, t, n, o) {
           var i = this._iv;
           if (i) {
             var a = i.slice(0);
@@ -24,7 +24,7 @@ function (exports, module, require) {
             processBlock: function (e, n) {
               var o = this._cipher,
                 i = o.blockSize;
-              t.call(this, e, n, i, o), (this._prevBlock = e.slice(n, n + i));
+              module.call(this, e, n, i, o), (this._prevBlock = e.slice(n, n + i));
             },
           })),
           (e.Decryptor = e.extend({
@@ -32,7 +32,7 @@ function (exports, module, require) {
               var o = this._cipher,
                 i = o.blockSize,
                 a = e.slice(n, n + i);
-              t.call(this, e, n, i, o), (this._prevBlock = a);
+              module.call(this, e, n, i, o), (this._prevBlock = a);
             },
           })),
           e

@@ -6,9 +6,9 @@
 function (exports, module, require) {
     "use strict";
     function o() {
-      let e =
+      let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
-      Object.assign(this, e);
+      Object.assign(this, exports);
     }
-    n(30) /* module_30 */, (o.prototype.getUID = function () {}), (e.exports = o);
+    require(30) /* module_30 */, (o.prototype.getUID = function () {}), (exports.exports = o);
   }

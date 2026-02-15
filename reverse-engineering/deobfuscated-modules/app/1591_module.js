@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = undefined),
-      n(19) /* module_19 */,
-      n(26) /* module_26 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = undefined),
+      require(19) /* module_19 */,
+      require(26) /* module_26 */;
     class o extends Error {
-      constructor() {
+      function Object() { [native code] }() {
         super(...arguments),
           (this.constructor = o),
           (this.__proto__ = o.prototype),
           (this.name = "GMSTeamsModeUserNotFoundError");
       }
-      toString() {
+      function toString() { [native code] }() {
         return this.message;
       }
     }
-    t.default = o;
+    module.default = o;
   }

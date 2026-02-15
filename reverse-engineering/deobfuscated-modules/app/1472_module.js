@@ -6,11 +6,11 @@
 function (exports, module, require) {
     "use strict";
     let o;
-    n(19) /* module_19 */, n(8) /* module_8 */, n(26) /* module_26 */;
+    require(19) /* module_19 */, require(8) /* module_8 */, require(26) /* module_26 */;
     class i {
       static async getInstance() {
         if (!o) {
-          const e = await n.e(12).then(n.t.bind(null, 1740, 7));
+          const e = await require.e(12).then(require.t.bind(null, 1740, 7));
           o = e.default;
         }
         return new i();
@@ -19,5 +19,5 @@ function (exports, module, require) {
         return o({ blob: e });
       }
     }
-    e.exports = i;
+    exports.exports = i;
   }

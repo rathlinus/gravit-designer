@@ -10,11 +10,11 @@ function (exports, module, require) {
           "undefined" != typeof window && undefined !== window.document
             ? window.document
             : {},
-        n = e.exports,
+        n = exports.exports,
         o = "undefined" != typeof Element && "ALLOW_KEYBOARD_INPUT" in Element,
         i = (function () {
           for (
-            var e,
+            var exports,
               n = [
                 [
                   "requestFullscreen",
@@ -63,8 +63,8 @@ function (exports, module, require) {
             o < i;
             o++
           )
-            if ((e = n[o]) && e[1] in t) {
-              for (o = 0; o < e.length; o++) a[n[0][o]] = e[o];
+            if ((exports = n[o]) && exports[1] in t) {
+              for (o = 0; o < exports.length; o++) a[n[0][o]] = exports[o];
               return a;
             }
           return false;
@@ -120,9 +120,9 @@ function (exports, module, require) {
               },
             },
           }),
-          n ? (e.exports = r) : (window.screenfull = r))
+          n ? (exports.exports = r) : (window.screenfull = r))
         : n
-        ? (e.exports = false)
+        ? (exports.exports = false)
         : (window.screenfull = false);
     })();
   }

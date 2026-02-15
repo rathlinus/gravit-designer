@@ -3,18 +3,18 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     !(function (e) {
       if (e) {
-        var t = {},
+        var module = {},
           n = e.prototype.stopCallback;
         (e.prototype.stopCallback = function (e, o, i, a) {
-          return !!this.paused || (!t[i] && !t[a] && n.call(this, e, o, i));
+          return !!this.paused || (!module[i] && !module[a] && n.call(this, e, o, i));
         }),
           (e.prototype.bindGlobal = function (e, n, o) {
             if ((this.bind(e, n, o), e instanceof Array))
-              for (var i = 0; i < e.length; i++) t[e[i]] = true;
-            else t[e] = true;
+              for (var i = 0; i < e.length; i++) module[e[i]] = true;
+            else module[e] = true;
           }),
           e.init();
       }

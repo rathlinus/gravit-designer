@@ -9,8 +9,8 @@ function (exports, module, require) {
     function o(e) {
       Object.assign(this, e);
     }
-    n(30) /* module_30 */,
-      n(3) /* module_3 */,
+    require(30) /* module_30 */,
+      require(3) /* module_3 */,
       (o.prototype.def = false),
       (o.prototype.id = null),
       (o.prototype.sidebar = null),
@@ -29,5 +29,5 @@ function (exports, module, require) {
         panelWidth: "380px",
         toolbar: ".appearance-toolbar",
       })),
-      (e.exports = o);
+      (exports.exports = o);
   }

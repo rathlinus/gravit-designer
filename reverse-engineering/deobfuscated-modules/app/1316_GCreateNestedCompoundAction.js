@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */, n(3) /* module_3 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(40) /* module_40 */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */;
+    require(19) /* module_19 */, require(3) /* module_3 */, require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(40) /* module_40 */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */;
     function l() {}
     o.GObject.inherit(l, s),
       (l.ID = "modify.createnestedcompound"),
@@ -38,11 +38,11 @@ function (exports, module, require) {
         if (!s.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getSelection(),
-            n = 0;
-          if (t && t.length)
-            for (var i = 0; i < t.length; ++i) {
-              if ((t[i] instanceof o.GCompoundShape && n++, n >= 2)) return true;
+          var module = e.getEditor().getSelection(),
+            require = 0;
+          if (module && module.length)
+            for (var i = 0; i < module.length; ++i) {
+              if ((module[i] instanceof o.GCompoundShape && require++, require >= 2)) return true;
             }
         }
         return false;
@@ -52,21 +52,21 @@ function (exports, module, require) {
           t = o.GNode.order(e.getIndividualSelection().slice());
         e.beginTransaction();
         try {
-          for (var n, i = [], r = new Set(), s = 0; s < t.length; ++s) {
+          for (var require, i = [], r = new Set(), s = 0; s < t.length; ++s) {
             (l = t[s]) instanceof o.GCompoundShape &&
-              (n ? (i.push(l), r.add(l.getParent())) : (n = l));
+              (require ? (i.push(l), r.add(l.getParent())) : (require = l));
           }
           if (i.length > 0) {
             try {
-              (0, a.blockChanges)(e, r, null, n);
+              (0, a.blockChanges)(e, r, null, require);
               for (s = 0; s < i.length; ++s) {
                 var l;
-                (l = i[s]).getParent().removeChild(l), n.appendChild(l);
+                (l = i[s]).getParent().removeChild(l), require.appendChild(l);
               }
             } finally {
-              (0, a.releaseChanges)(e, r, null, n);
+              (0, a.releaseChanges)(e, r, null, require);
             }
-            e.updateSelection(false, [n]);
+            e.updateSelection(false, [require]);
           }
         } finally {
           e.commitTransaction("Create nested compound");
@@ -75,5 +75,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GCreateNestedCompoundAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

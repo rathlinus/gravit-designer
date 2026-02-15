@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(31) /* GAction */),
-      s = o(n(18) /* module_18 */),
-      l = n(198) /* Exports_GOutlineSidebar */;
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(31) /* GAction */),
+      s = o(require(18) /* module_18 */),
+      l = require(198) /* Exports_GOutlineSidebar */;
     class c extends r.default {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         super(),
           (this._type = e),
           (this._title = new i.GLocaleKey(
@@ -34,12 +34,12 @@ function (exports, module, require) {
         return false;
       }
       getShortcut() {
-        const e = [a.GKey.Constant.META, a.GKey.Constant.OPTION];
+        const exports = [a.GKey.Constant.META, a.GKey.Constant.OPTION];
         switch (this._type) {
           case c.Type.Next:
-            return e.concat(a.GKey.Constant.DOWN);
+            return exports.concat(a.GKey.Constant.DOWN);
           case c.Type.Previous:
-            return e.concat(a.GKey.Constant.UP);
+            return exports.concat(a.GKey.Constant.UP);
           default:
             return null;
         }
@@ -55,19 +55,19 @@ function (exports, module, require) {
         }
       }
       execute() {
-        const e = gDesigner.getLeftSidebars(),
-          t = e && e.getSidebar(l.SidebarsIds.GOutlineSidebar),
-          n = gDesigner.getActiveDocument(),
-          o = n && n.getScene();
-        if (t && o) {
+        const exports = gDesigner.getLeftSidebars(),
+          module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar),
+          require = gDesigner.getActiveDocument(),
+          o = require && require.getScene();
+        if (module && o) {
           const e = this.getNextPage(o);
-          t.changeActivePage(e);
+          module.changeActivePage(e);
         }
       }
       getNextPage(e) {
-        const t = e.getActivePage();
+        const module = e.getActivePage();
         for (
-          let e = this._getNextPageAccordingToType(t);
+          let e = this._getNextPageAccordingToType(module);
           null !== e;
           e = this._getNextPageAccordingToType(e)
         )
@@ -84,11 +84,11 @@ function (exports, module, require) {
             return null;
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GChangeActivePageAction]";
       }
     }
     (c.ID = "view.change-active-page"),
       (c.Type = { Next: "next", Previous: "previous" }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(184) /* module_184 */,
-      i = n(360) /* module_360 */,
-      a = n(203) /* module_203 */,
-      r = n(80) /* module_80 */,
-      s = n(88) /* module_88 */.f,
-      l = n(418) /* module_418 */,
-      c = n(252) /* module_252 */,
-      d = n(74) /* module_74 */,
-      u = n(49) /* module_49 */,
+    var o = require(184) /* module_184 */,
+      i = require(360) /* module_360 */,
+      a = require(203) /* module_203 */,
+      r = require(80) /* module_80 */,
+      s = require(88) /* module_88 */.f,
+      l = require(418) /* module_418 */,
+      c = require(252) /* module_252 */,
+      d = require(74) /* module_74 */,
+      u = require(49) /* module_49 */,
       p = r.set,
       g = r.getterFor("Array Iterator");
-    e.exports = l(
+    exports.exports = l(
       Array,
       "Array",
       function (e, t) {

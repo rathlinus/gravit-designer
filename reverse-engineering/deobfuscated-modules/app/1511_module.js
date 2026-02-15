@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = require(1) /* module */;
     function i(e, t) {
       (this._neverRemind = false),
         (this._agreeCb = e),
@@ -114,5 +114,5 @@ function (exports, module, require) {
       (i.prototype.close = function () {
         this._dialog.gDialog("close");
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

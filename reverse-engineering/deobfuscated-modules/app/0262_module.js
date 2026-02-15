@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(27) /* module_27 */,
-      i = n(92) /* module_92 */,
-      a = n(62) /* module_62 */,
-      r = n(248) /* module_248 */,
+    var o = require(27) /* module_27 */,
+      i = require(92) /* module_92 */,
+      a = require(62) /* module_62 */,
+      r = require(248) /* module_248 */,
       s = o("".replace),
       l = RegExp("^[" + r + "]+"),
       c = RegExp("(^|[^" + r + "])[" + r + "]+$"),
@@ -18,5 +18,5 @@ function (exports, module, require) {
           return 1 & e && (n = s(n, l, "")), 2 & e && (n = s(n, c, "$1")), n;
         };
       };
-    e.exports = { start: d(1), end: d(2), trim: d(3) };
+    exports.exports = { start: d(1), end: d(2), trim: d(3) };
   }

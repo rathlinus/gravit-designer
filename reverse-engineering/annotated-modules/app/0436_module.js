@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */;
-    const { GObject: o } = n(1) /* module_1 */;
+    const { GObject: o } = n(1) /* module */;
     function i(e) {
       (this._app = e), (this._collaborativeFile = null);
     }

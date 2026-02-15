@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(29) /* module_29 */,
-      i = n(37) /* module_37 */,
-      a = n(35) /* module_35 */,
-      r = n(116) /* module_116 */,
-      s = n(306) /* module_306 */,
+    var o = require(29) /* module_29 */,
+      i = require(37) /* module_37 */,
+      a = require(35) /* module_35 */,
+      r = require(116) /* module_116 */,
+      s = require(306) /* module_306 */,
       l = TypeError;
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       var n = e.exec;
       if (a(n)) {
         var c = o(n, e, t);

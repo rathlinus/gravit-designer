@@ -5,45 +5,45 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(1303) /* GContextMenu */,
-      r = n(1176) /* GAttachToPathAction */,
-      s = n(810) /* GConvertToPathAction */,
-      l = n(608) /* GCreateSymbolAction */,
-      c = n(874) /* GDetachSymbolAction */,
-      d = n(1177) /* GResetInstanceAction */,
-      u = n(1178) /* GDetachFromPathAction */,
-      p = n(1179) /* GJoinPathsAction */;
-    const g = n(812) /* GMergeMainAction */;
-    var h = n(1180) /* GSelectByFontTypeAction */,
-      f = n(873) /* GSplitPathAction */,
-      m = n(871) /* GTransformAction */,
-      y = n(872) /* GVectorizeBorderAction */,
-      v = n(238) /* GMenu */,
-      _ = n(339) /* GMenu */,
-      b = n(444) /* module_444 */,
-      w = n(1181) /* GMaskWithShapeAction */,
-      C = n(877) /* GPasteAction */,
-      x = n(1183) /* GPasteInPlaceAction */,
-      S = n(1184) /* GPasteInsideAction */,
-      E = n(1182) /* GPasteHereAction */,
-      A = n(875) /* GPasteStyleAction */,
-      T = n(809) /* GClipAction */,
-      G = n(1314) /* GConvertToImageAction */,
-      P = n(1315) /* GDuplicateAction */,
-      D = n(1316) /* GCreateNestedCompoundAction */,
-      L = n(1185) /* GOutlineAction */,
-      I = n(1317) /* GOffsetAction */,
-      k = n(1318) /* GSimplifyAction */,
-      O = n(1319) /* GSplitLineAction */,
-      F = n(1320) /* GConvertToRawPathAction */,
-      R = n(566) /* GFitSelectionAction */,
-      M = n(31) /* GAction */,
-      { replaceImage: N, setOriginSize: B, cropImage: U } = n(1268) /* module_1268 */,
-      j = n(78) /* GDocumentEvent */;
-    const K = n(876) /* GPasteAndReplaceAction */;
+    require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(1303) /* GContextMenu */,
+      r = require(1176) /* GAttachToPathAction */,
+      s = require(810) /* GConvertToPathAction */,
+      l = require(608) /* GCreateSymbolAction */,
+      c = require(874) /* GDetachSymbolAction */,
+      d = require(1177) /* GResetInstanceAction */,
+      u = require(1178) /* GDetachFromPathAction */,
+      p = require(1179) /* GJoinPathsAction */;
+    const g = require(812) /* GMergeMainAction */;
+    var h = require(1180) /* GSelectByFontTypeAction */,
+      f = require(873) /* GSplitPathAction */,
+      m = require(871) /* GTransformAction */,
+      y = require(872) /* GVectorizeBorderAction */,
+      v = require(238) /* GMenu */,
+      _ = require(339) /* GMenu */,
+      b = require(444) /* module_444 */,
+      w = require(1181) /* GMaskWithShapeAction */,
+      C = require(877) /* GPasteAction */,
+      x = require(1183) /* GPasteInPlaceAction */,
+      S = require(1184) /* GPasteInsideAction */,
+      E = require(1182) /* GPasteHereAction */,
+      A = require(875) /* GPasteStyleAction */,
+      T = require(809) /* GClipAction */,
+      G = require(1314) /* GConvertToImageAction */,
+      P = require(1315) /* GDuplicateAction */,
+      D = require(1316) /* GCreateNestedCompoundAction */,
+      L = require(1185) /* GOutlineAction */,
+      I = require(1317) /* GOffsetAction */,
+      k = require(1318) /* GSimplifyAction */,
+      O = require(1319) /* GSplitLineAction */,
+      F = require(1320) /* GConvertToRawPathAction */,
+      R = require(566) /* GFitSelectionAction */,
+      M = require(31) /* GAction */,
+      { replaceImage: N, setOriginSize: B, cropImage: U } = require(1268) /* module_1268 */,
+      j = require(78) /* GDocumentEvent */;
+    const K = require(876) /* GPasteAndReplaceAction */;
     (a.prototype._contextMenuContainerTouch = null),
       (a.prototype._createTouchContextMenu = function () {
         var e = $("<div/>").gOverlay({
@@ -112,8 +112,8 @@ function (exports, module, require) {
             ],
           })
           .appendTo(e);
-        const n = gDesigner.getAction(g.ID),
-          i = n && n.getSubActions().concat(gDesigner.getAction(D.ID));
+        const require = gDesigner.getAction(g.ID),
+          i = require && require.getSubActions().concat(gDesigner.getAction(D.ID));
         $("<div/>")
           .addClass("compound-section")
           .gPropertyRow({
@@ -574,10 +574,10 @@ function (exports, module, require) {
       (a.prototype._getSelectedItems = function () {
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor();
-          if (t) {
-            var n = t.getSelection();
-            return n || [];
+          var module = e.getEditor();
+          if (module) {
+            var require = module.getSelection();
+            return require || [];
           }
         }
         return [];
@@ -597,9 +597,9 @@ function (exports, module, require) {
           i.GEditor.tryRunTransaction(
             gDesigner.getActiveDocument().getScene(),
             function () {
-              for (var t = 0; t < e.length; t++)
-                e[t].setProperty("vis", false),
-                  e[t].removeFlag(o.GNode.Flag.Highlighted);
+              for (var module = 0; module < e.length; module++)
+                e[module].setProperty("vis", false),
+                  e[module].removeFlag(o.GNode.Flag.Highlighted);
             },
             o.GLocale.get(
               new o.GLocaleKey("GCommonNames", "action.toggle-visibility")

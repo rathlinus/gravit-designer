@@ -5,26 +5,26 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */;
-    var o = n(10) /* module_10 */;
+    require(30) /* module_30 */, require(8) /* module_8 */;
+    var o = require(10) /* module_10 */;
     function i(e) {
       const {
-        accessToken: t,
-        expires: n,
+        accessToken: module,
+        expires: require,
         corporate: o,
         accountId: a,
       } = new i.Settings(e);
-      (this.accessToken = t),
-        (this.expires = n),
+      (this.accessToken = module),
+        (this.expires = require),
         (this.corporate = o),
         (this.accountId = a);
     }
     (i.Settings = function (e) {
       e || (e = {});
-      const { accessToken: t, expires: n, corporate: o = true, accountId: i } = e;
+      const { accessToken: module, expires: require, corporate: o = true, accountId: i } = e;
       return Object.assign(this, {
-        accessToken: t,
-        expires: n,
+        accessToken: module,
+        expires: require,
         corporate: o,
         accountId: i,
       });
@@ -44,21 +44,21 @@ function (exports, module, require) {
         return this.isExpired()
           ? this.corporate
             ? o.gApi.cloudServices.googleDrive.getAccessToken().then((e) => {
-                let { accessToken: t, expires: n } = e;
+                let { accessToken: module, expires: require } = e;
                 return (
-                  (this.expires = n), (this.accessToken = t), this.accessToken
+                  (this.expires = require), (this.accessToken = module), this.accessToken
                 );
               })
             : gContainer
                 .getGoogleAPI()
                 .getAccessToken()
                 .then((e) => {
-                  let { accessToken: t, expires: n } = e;
+                  let { accessToken: module, expires: require } = e;
                   return (
-                    (this.expires = n), (this.accessToken = t), this.accessToken
+                    (this.expires = require), (this.accessToken = module), this.accessToken
                   );
                 })
           : this.accessToken;
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

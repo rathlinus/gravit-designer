@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
+    require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
     var o = {
       init: function (e) {
         return (
@@ -17,21 +17,21 @@ function (exports, module, require) {
               e.hasOwnProperty("clazz") && t.addClass(e.clazz),
               e.hasOwnProperty("label") || e.hasOwnProperty("icon"))
             ) {
-              var n = $('<label class="property-label"></label>').appendTo(t);
+              var require = $('<label class="property-label"></label>').appendTo(t);
               if (e.hasOwnProperty("icon"))
                 t.addClass("icon-label"),
-                  n.addClass("strict-line-height"),
+                  require.addClass("strict-line-height"),
                   "string" == typeof e.icon
-                    ? $("<span></span>").addClass(e.icon).appendTo(n)
-                    : n.append(e.icon);
+                    ? $("<span></span>").addClass(e.icon).appendTo(require)
+                    : require.append(e.icon);
               else {
-                var o = $("<span />").addClass("vertical-align").appendTo(n);
+                var o = $("<span />").addClass("vertical-align").appendTo(require);
                 "string" == typeof e.label
                   ? o.text(e.label)
                   : o.append(e.label);
               }
               e.click &&
-                n
+                require
                   .addClass("clickable")
                   .find("span")
                   .append(

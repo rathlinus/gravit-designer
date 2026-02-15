@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    n(1) /* module_1 */;
+    require(1) /* module */;
     var o = function () {
       this._timer = 0;
     };
@@ -40,5 +40,5 @@ function (exports, module, require) {
           this
         );
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

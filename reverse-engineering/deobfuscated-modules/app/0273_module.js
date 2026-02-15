@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
-      ((o = n(55) /* module_55 */),
+    exports.exports =
+      ((o = require(55) /* module_55 */),
       (function (e) {
         var t = o,
           n = t.lib,

@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(40) /* module_40 */,
       a = n(1156) /* GMenuCloseEvent */,
       r = n(444) /* module_444 */,

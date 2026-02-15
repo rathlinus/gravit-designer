@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    const { GLocale: o, GLocaleKey: i } = n(1) /* module_1 */;
+    require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    const { GLocale: o, GLocaleKey: i } = require(1) /* module */;
     function a() {
       throw "No instantiate";
     }
@@ -21,12 +21,12 @@ function (exports, module, require) {
         });
       },
       mode: function (e) {
-        const t = r[e];
-        return t && ($(this).data("mode", e), t.call(this)), this;
+        const module = r[e];
+        return module && ($(this).data("mode", e), module.call(this)), this;
       },
       online: function () {
-        const e = $(this).data("collaborators") || [];
-        return r.collaborators.call(this, e), this;
+        const exports = $(this).data("collaborators") || [];
+        return r.collaborators.call(this, exports), this;
       },
       offline: function () {
         return (
@@ -124,5 +124,5 @@ function (exports, module, require) {
           )
         : r.init.apply(this, arguments);
     }),
-      (e.exports = a);
+      (exports.exports = a);
   }

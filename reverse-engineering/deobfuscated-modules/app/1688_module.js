@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(151) /* module_151 */;
-    var o = n(1) /* module_1 */;
+    require(20) /* module_20 */, require(151) /* module_151 */;
+    var o = require(1) /* module */;
     (o.GUtil.image2Canvas = function (e, t) {
       if ("string" == typeof e) {
-        var n = new Image();
+        var require = new Image();
         return (
           e && e.match(/^(http|https|\/\/)/)
-            ? (n.crossOrigin = "Anonymous")
-            : (n.crossOrigin = null),
-          (n.src = e),
-          (n.onload = function () {
-            this.image2Canvas(n, t);
+            ? (require.crossOrigin = "Anonymous")
+            : (require.crossOrigin = null),
+          (require.src = e),
+          (require.onload = function () {
+            this.image2Canvas(require, t);
           }.bind(this)),
           null
         );

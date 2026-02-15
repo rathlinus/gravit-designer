@@ -5,27 +5,27 @@
 
 function (exports, module, require) {
     "use strict";
-    n(1196) /* module_1196 */,
-      n(19) /* module_19 */,
-      n(1197) /* module_1197 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(8) /* module_8 */,
-      n(134) /* module_134 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
-    var o = n(176) /* GSystem */,
-      i = n(0) /* GObject */;
-    n(10) /* module_10 */;
-    var a = n(237) /* module_237 */,
-      r = n(1117) /* module_1117 */.saveAs,
+    require(1196) /* module_1196 */,
+      require(19) /* module_19 */,
+      require(1197) /* module_1197 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(8) /* module_8 */,
+      require(134) /* module_134 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */;
+    var o = require(176) /* GSystem */,
+      i = require(0) /* GObject */;
+    require(10) /* module_10 */;
+    var a = require(237) /* module_237 */,
+      r = require(1117) /* module_1117 */.saveAs,
       s = null,
       l = null;
     function c() {
@@ -52,24 +52,24 @@ function (exports, module, require) {
         return null;
       }),
       (c.Directory.prototype.addDirectory = async function (e) {
-        let t = null;
+        let module = null;
         try {
           return (
-            (t = await this._dirHandle.getDirectory(e, { create: true })),
-            await d(t),
-            new c.Directory(this._storage, t)
+            (module = await this._dirHandle.getDirectory(e, { create: true })),
+            await d(module),
+            new c.Directory(this._storage, module)
           );
         } catch (t) {
           throw new Error("Cannot create a directory: " + e);
         }
       }),
       (c.Directory.prototype.addFile = async function (e) {
-        let t = null;
+        let module = null;
         try {
           return (
-            (t = await this._dirHandle.getFile(e, { create: true })),
-            await d(t),
-            new c.Item(this._storage, null, t.name, t)
+            (module = await this._dirHandle.getFile(e, { create: true })),
+            await d(module),
+            new c.Item(this._storage, null, module.name, module)
           );
         } catch (e) {
           throw new Error("Cannot create a file");
@@ -304,5 +304,5 @@ function (exports, module, require) {
       (c.prototype.download = function (e, t) {
         return t(new c.Item(this, null, e));
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       2: "need dictionary",
       1: "stream end",
       0: "",

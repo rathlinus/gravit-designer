@@ -7,7 +7,7 @@
 function (e, t, n) {
     "use strict";
     n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
+    var o = n(1) /* module */,
       i = n(1527) /* GEffectsButton */;
     function a(e) {
       (this._htmlElement = $("<div></div>")

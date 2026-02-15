@@ -6,13 +6,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = n(18) /* module_18 */,
-      l = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = require(18) /* module_18 */,
+      l = require(31) /* GAction */;
     function c(e) {
       (this._type = e),
         (this._title = new i.GLocaleKey("GAlignAction", "title." + e)),
@@ -154,20 +154,20 @@ function (exports, module, require) {
         return "arrange/align-" + e;
       }),
       (c.prototype.getShortcut = function () {
-        const e = [a.GKey.Constant.OPTION];
+        const exports = [a.GKey.Constant.OPTION];
         switch (this._type) {
           case o.GEditor.ArrangeAlignType.AlignLeft:
-            return e.concat("A");
+            return exports.concat("A");
           case o.GEditor.ArrangeAlignType.AlignCenter:
-            return e.concat("H");
+            return exports.concat("H");
           case o.GEditor.ArrangeAlignType.AlignRight:
-            return e.concat("D");
+            return exports.concat("D");
           case o.GEditor.ArrangeAlignType.AlignTop:
-            return e.concat("W");
+            return exports.concat("W");
           case o.GEditor.ArrangeAlignType.AlignMiddle:
-            return e.concat("V");
+            return exports.concat("V");
           case o.GEditor.ArrangeAlignType.AlignBottom:
-            return e.concat("S");
+            return exports.concat("S");
           default:
             return null;
         }
@@ -220,5 +220,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GAlignAction]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

@@ -5,13 +5,13 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = n(257) /* module_257 */;
+    require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = require(257) /* module_257 */;
     class r {
-      constructor(e) {
-        let { closeCallback: t } =
+      function Object() { [native code] }(e) {
+        let { closeCallback: module } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         var n = this;
         (this._dialog = $("<div/>")
@@ -75,7 +75,7 @@ function (exports, module, require) {
             releaseOnClose: true,
             className: "g-save-chooser-dialog",
             closeTimeout: 0,
-            closeCallback: t,
+            closeCallback: module,
           });
       }
       open() {
@@ -91,5 +91,5 @@ function (exports, module, require) {
         return "cloud";
       }
     }
-    e.exports = r;
+    exports.exports = r;
   }

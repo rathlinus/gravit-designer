@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(168) /* module_168 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(169) /* module_169 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = n(238) /* GMenu */,
       a = (e) => {
         e.empty().append(

@@ -39,7 +39,7 @@ function (e, t, n) {
         GAnnotation: y,
         GObject: v,
         GNode: _,
-      } = n(1) /* module_1 */,
+      } = n(1) /* module */,
       {
         NEW_COMMENT_READ_TIMEOUT: b,
         ANNOTATION_PERMANENT_LINK: w,

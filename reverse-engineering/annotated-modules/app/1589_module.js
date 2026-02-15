@@ -5,7 +5,7 @@
 
 function (e, t, n) {
     "use strict";
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = [
       {
         selector: "#toolbar > .section > .menubar-toolbar-button",

@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(61) /* module_61 */,
-      i = n(35) /* module_35 */,
-      a = n(93) /* module_93 */,
-      r = n(300) /* module_300 */,
-      s = n(665) /* module_665 */,
+    var o = require(61) /* module_61 */,
+      i = require(35) /* module_35 */,
+      a = require(93) /* module_93 */,
+      r = require(300) /* module_300 */,
+      s = require(665) /* module_665 */,
       l = r("IE_PROTO"),
       c = Object,
       d = c.prototype;
-    e.exports = s
+    exports.exports = s
       ? c.getPrototypeOf
       : function (e) {
           var t = a(e);

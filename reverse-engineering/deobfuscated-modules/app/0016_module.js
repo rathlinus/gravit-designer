@@ -3,10 +3,10 @@
  * Type: unknown
  */
 
-function (e, t) {
-    (e.exports = function (e) {
+function (exports, module) {
+    (exports.exports = function (e) {
       return e && e.__esModule ? e : { default: e };
     }),
-      (e.exports.__esModule = true),
-      (e.exports.default = e.exports);
+      (exports.exports.__esModule = true),
+      (exports.exports.default = exports.exports);
   }

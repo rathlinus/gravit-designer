@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    n(424) /* module_424 */;
+    require(424) /* module_424 */;
   }

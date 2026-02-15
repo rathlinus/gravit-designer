@@ -6,22 +6,22 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(328) /* module_328 */, n(96) /* module_96 */, n(865) /* module_865 */, n(193) /* module_193 */, n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = n(67) /* GRichTooltipConfig */,
-      l = o(n(340) /* GTouchTool */),
-      c = o(n(807) /* module_807 */),
-      d = n(1161) /* module_1161 */,
-      u = o(n(565) /* module_565 */),
-      p = n(123) /* GProperties */,
-      g = n(1263) /* module_1263 */,
-      h = n(1526) /* GEffectsPanel */,
-      f = n(450) /* module_450 */;
-    const m = n(607) /* module_607 */,
-      { SidebarsIds: y } = n(198) /* Exports_GOutlineSidebar */;
+    var o = require(16) /* module_16 */;
+    require(328) /* module_328 */, require(96) /* module_96 */, require(865) /* module_865 */, require(193) /* module_193 */, require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = require(67) /* GRichTooltipConfig */,
+      l = o(require(340) /* GTouchTool */),
+      c = o(require(807) /* module_807 */),
+      d = require(1161) /* module_1161 */,
+      u = o(require(565) /* module_565 */),
+      p = require(123) /* GProperties */,
+      g = require(1263) /* module_1263 */,
+      h = require(1526) /* GEffectsPanel */,
+      f = require(450) /* module_450 */;
+    const m = require(607) /* module_607 */,
+      { SidebarsIds: y } = require(198) /* Exports_GOutlineSidebar */;
     var v = null,
       _ = null,
       b = null,
@@ -877,11 +877,11 @@ function (exports, module, require) {
           this._elements && this._elements.length)
         )
           for (
-            var t = this._elements[0].getEffects().getFirstChild();
-            null !== t;
-            t = t.getNext()
+            var module = this._elements[0].getEffects().getFirstChild();
+            null !== module;
+            module = module.getNext()
           )
-            t instanceof a.GStylable.Effect && this._insertEffect(t, e);
+            module instanceof a.GStylable.Effect && this._insertEffect(module, e);
         this._updateToolbar();
       }),
       (E.prototype._createAddEffectMenu = function () {
@@ -972,11 +972,11 @@ function (exports, module, require) {
       (E.prototype._validateInsertation = function (e, t) {
         if (t.isSingleton())
           for (
-            var n = a.GObject.getTypeId(t), o = e.getFirstChild();
+            var require = a.GObject.getTypeId(t), o = e.getFirstChild();
             null !== o;
             o = o.getNext()
           )
-            if (a.GObject.getTypeId(o) === n) return false;
+            if (a.GObject.getTypeId(o) === require) return false;
         return true;
       }),
       (E.prototype._createDefaultEffect = function (e, t, n) {
@@ -1018,9 +1018,9 @@ function (exports, module, require) {
       T = null;
     function G(e) {
       if (T) {
-        var t = $(e).data("effect");
-        if (t && (t !== T || r.GPlatform.modifiers.shiftKey))
-          return T.getParent() === t.getParent();
+        var module = $(e).data("effect");
+        if (module && (module !== T || r.GPlatform.modifiers.shiftKey))
+          return T.getParent() === module.getParent();
       }
       return false;
     }
@@ -2414,8 +2414,8 @@ function (exports, module, require) {
     }
     function M(e, t) {
       for (
-        var n = a.GObject.getTypeId(e),
-          o = (a.GNode.getClassFromId(n), e.getFXArray()),
+        var require = a.GObject.getTypeId(e),
+          o = (a.GNode.getClassFromId(require), e.getFXArray()),
           i = $("<div></div>"),
           r = 0;
         r < o.length;
@@ -2570,7 +2570,7 @@ function (exports, module, require) {
     function U(e) {
       var t = null;
       t = e instanceof a.GStylable.Effect ? e.constructor : e;
-      for (var n = 0; n < V.length; ++n) if (V[n].clazz === t) return V[n];
+      for (var require = 0; require < V.length; ++require) if (V[require].clazz === t) return V[require];
       throw new Error("Invalid effect/class");
     }
     var j = document.createElement("canvas"),
@@ -2915,5 +2915,5 @@ function (exports, module, require) {
           },
         ];
       };
-    e.exports = E;
+    exports.exports = E;
   }

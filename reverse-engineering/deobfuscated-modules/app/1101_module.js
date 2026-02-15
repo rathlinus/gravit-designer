@@ -23,5 +23,5 @@ function (exports, module, require) {
     }),
       (o.MaxFileSize = 471859200),
       (o.prototype.errCode = null),
-      (e.exports = o);
+      (exports.exports = o);
   }

@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    n(53) /* module_53 */;
-    var o = n(1) /* module_1 */,
-      i = (n(15) /* module_15 */, n(1267) /* module_1267 */),
-      a = n(123) /* GProperties */,
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    require(53) /* module */;
+    var o = require(1) /* module */,
+      i = (require(15) /* module */, require(1267) /* module_1267 */),
+      a = require(123) /* GProperties */,
       {
         replaceImage: r,
         setOriginSize: s,
         cropImage: l,
-      } = (n(173) /* module_173 */, n(219) /* module_219 */, n(1268) /* module_1268 */);
+      } = (require(173) /* module_173 */, require(219) /* module_219 */, require(1268) /* module_1268 */);
     function c() {}
     o.GObject.inherit(c, a),
       (c.prototype._panel = null),
@@ -183,13 +183,13 @@ function (exports, module, require) {
           (this._image = null),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            if (t[n] instanceof o.GImage) {
+          for (var require = 0; require < t.length; ++require)
+            if (t[require] instanceof o.GImage) {
               if (this._image) {
                 this._image = null;
                 break;
               }
-              this._image = t[n];
+              this._image = t[require];
             }
           if (this._image)
             return (
@@ -304,5 +304,5 @@ function (exports, module, require) {
       (c.prototype.toString = function () {
         return "[Object GImageProperties]";
       }),
-      (e.exports = c);
+      (exports.exports = c);
   }

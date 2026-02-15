@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = (n(173) /* module_173 */, false),
+    require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = (require(173) /* module_173 */, false),
       r = null,
       s = null;
     function l() {}
@@ -265,18 +265,18 @@ function (exports, module, require) {
     }
     function u(e) {
       if (r) {
-        var t = $(e).data("style");
-        return t && t.getReferenceId() !== r.getReferenceId();
+        var module = $(e).data("style");
+        return module && module.getReferenceId() !== r.getReferenceId();
       }
       return false;
     }
     function p(e, t) {
       if ((e.empty(), gDesigner.getActiveDocument().getScene().getStyles())) {
-        var n = gDesigner.getActiveDocument().getScene().getStyles();
+        var require = gDesigner.getActiveDocument().getScene().getStyles();
         t ||
           ($(".g-style-editor").find(".no-style").empty(),
           f($(".g-style-editor").find(".no-style")));
-        for (var o = n.getFirstChild(); null !== o; o = o.getNext())
+        for (var o = require.getFirstChild(); null !== o; o = o.getNext())
           false === o.getProperty("defaultStyle") && h(o, e, t);
       }
     }
@@ -622,7 +622,7 @@ function (exports, module, require) {
       },
       value: function (e) {},
     };
-    (e.exports = l),
+    (exports.exports = l),
       ($.fn.gDesignerStyleEditor = function (e) {
         return m[e]
           ? m[e].apply(this, Array.prototype.slice.call(arguments, 1))

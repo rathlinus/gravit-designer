@@ -3,7 +3,7 @@
  * Type: unknown
  */
 
-function (e, t) {
+function (exports, module) {
     var n;
     n = (function () {
       return this;
@@ -13,5 +13,5 @@ function (e, t) {
     } catch (e) {
       "object" == typeof window && (n = window);
     }
-    e.exports = n;
+    exports.exports = n;
   }

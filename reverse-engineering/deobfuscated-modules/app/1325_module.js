@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(8) /* module_8 */, n(20) /* module_20 */, n(527) /* module_527 */, n(107) /* module_107 */, n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(10) /* module_10 */;
-    const i = n(1326) /* module_1326 */,
-      a = n(1578) /* module_1578 */,
-      r = n(256) /* GOfflineDialog */,
-      s = n(441) /* module_441 */,
+    require(30) /* module_30 */, require(8) /* module_8 */, require(20) /* module_20 */, require(527) /* module_527 */, require(107) /* module_107 */, require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(10) /* module_10 */;
+    const i = require(1326) /* module_1326 */,
+      a = require(1578) /* module_1578 */,
+      r = require(256) /* GOfflineDialog */,
+      s = require(441) /* module_441 */,
       l = {
         offlineWarning: () => r.openOfflineWarning(),
         trialExpired: () => a.openTrialExpired(),
@@ -25,8 +25,8 @@ function (exports, module, require) {
         proOfferSpecialPrice: () => i.openOfferReminder(),
         proOfferInFree: () => i.openOfferReminder(),
       };
-    e.exports = new (class {
-      constructor() {
+    exports.exports = new (class {
+      function Object() { [native code] }() {
         (this._settings = Object.assign(
           {},
           o.defaultUserSettings.defaultUserSettings
@@ -57,77 +57,77 @@ function (exports, module, require) {
       }
       async checkReminders() {
         if (!gDesigner.isEnabledSubscriptions()) return;
-        let e = gDesigner.getSyncUser();
-        if (!e || e.deactivated) return;
+        let exports = gDesigner.getSyncUser();
+        if (!exports || exports.deactivated) return;
         if (!this._isAllowedToShowReminders()) return;
-        const t = gDesigner.getLicense(),
-          n = gDesigner.now();
-        if (t.canAccessFreemium(n)) {
-          if (t.isExpired(n)) {
-            if (t.isTrial() && this.once("trialExpired"))
-              return void this._checkPoint("proOfferInTrialExpired", n);
-            if (t.isPro()) return void this.once("proExpired");
+        const module = gDesigner.getLicense(),
+          require = gDesigner.now();
+        if (module.canAccessFreemium(require)) {
+          if (module.isExpired(require)) {
+            if (module.isTrial() && this.once("trialExpired"))
+              return void this._checkPoint("proOfferInTrialExpired", require);
+            if (module.isPro()) return void this.once("proExpired");
             this.execute("proOfferInTrialExpired");
-          } else if (t.isPro())
-            t.getExpirationDate() &&
-              (this.once("proExpireSoon", t.getExpirationDate()) ||
-                this.once("proExpireToday", t.getExpirationDate()));
-          else if (t.isTrial())
+          } else if (module.isPro())
+            module.getExpirationDate() &&
+              (this.once("proExpireSoon", module.getExpirationDate()) ||
+                this.once("proExpireToday", module.getExpirationDate()));
+          else if (module.isTrial())
             (await this._getShowTrialMessage()) &&
               this._waitUntilUserIsInactive() &&
               (this.execute("proOfferInTrial") ||
-                this.once("proOfferInTrialExpireSoon", t.getExpirationDate()) ||
-                this.once("proOfferInTrialLastWarning", t.getExpirationDate()));
-          else if (t.isFree()) {
-            const { reminders: { proOfferInFree: e = 15 } = {} } =
+                this.once("proOfferInTrialExpireSoon", module.getExpirationDate()) ||
+                this.once("proOfferInTrialLastWarning", module.getExpirationDate()));
+          else if (module.isFree()) {
+            const { reminders: { proOfferInFree: exports = 15 } = {} } =
               this._settings;
-            if (t.getCreationDate()) {
-              const i = o.DateAPI.addTime(t.getCreationDate(), e);
-              o.DateAPI.gte(n, i) &&
+            if (module.getCreationDate()) {
+              const i = o.DateAPI.addTime(module.getCreationDate(), exports);
+              o.DateAPI.gte(require, i) &&
                 this.execute("proOfferInFree") &&
-                this.reset("proOfferInTrial", n);
+                this.reset("proOfferInTrial", require);
             }
           }
-          t.isPro() ||
-            (t.isLegacy() &&
-              t.getSpecialPriceDate() &&
-              this.once("proOfferSpecialPrice", t.getSpecialPriceDate(), true)),
-            t.isOffline() &&
-              !t.isOfflinePeriodExpired() &&
-              (t.isPro() || t.isTrial()) &&
-              this.execute("offlineWarning", t.getOfflineWarningDate()),
-            t.isPro() &&
-              !t.isExpired(n) &&
+          module.isPro() ||
+            (module.isLegacy() &&
+              module.getSpecialPriceDate() &&
+              this.once("proOfferSpecialPrice", module.getSpecialPriceDate(), true)),
+            module.isOffline() &&
+              !module.isOfflinePeriodExpired() &&
+              (module.isPro() || module.isTrial()) &&
+              this.execute("offlineWarning", module.getOfflineWarningDate()),
+            module.isPro() &&
+              !module.isExpired(require) &&
               (this.reset("proExpired"), this.reset("proExpireToday"));
         } else
           (await this._getShowTrialMessage()) &&
             this._executeReminder("upgradeScreen");
       }
       _isAllowedToShowReminders() {
-        const e = new Date(gDesigner.now()).getTime(),
-          t = gDesigner.getLicense();
-        return !t.isTrial() || !o.DateAPI.lte(e, t.getCreationDate());
+        const exports = new Date(gDesigner.now()).getTime(),
+          module = gDesigner.getLicense();
+        return !module.isTrial() || !o.DateAPI.lte(exports, module.getCreationDate());
       }
       execute(e, t) {
-        const n = gDesigner.now();
+        const require = gDesigner.now();
         t && (t = o.DateAPI.addTime(t, -this._settings.reminders[e] || 0));
         const i = gDesigner.getSetting(e);
         return (
           !(
             i &&
-            !o.DateAPI.isExpired(n, new Date(i), this._settings.reminders[e])
+            !o.DateAPI.isExpired(require, new Date(i), this._settings.reminders[e])
           ) &&
-          !(t && !o.DateAPI.isExpired(n, t)) &&
+          !(t && !o.DateAPI.isExpired(require, t)) &&
           this._executeReminder(e)
         );
       }
       once(e, t) {
-        let n = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
+        let require = arguments.length > 2 && undefined !== arguments[2] && arguments[2];
         if (gDesigner.getSetting(e)) return false;
         const i = gDesigner.now();
         return (
           t && (t = o.DateAPI.addTime(t, -this._settings.reminders[e] || 0)),
-          !t || (!n && o.DateAPI.isExpired(i, t)) || (n && o.DateAPI.eq(i, t))
+          !t || (!require && o.DateAPI.isExpired(i, t)) || (require && o.DateAPI.eq(i, t))
             ? this._executeReminder(e)
             : undefined
         );
@@ -151,7 +151,7 @@ function (exports, module, require) {
           : false !== this._settings.flags[e];
       }
       _handleStats(e) {
-        let t, n;
+        let module, require;
         switch (e) {
           case "offlineWarning":
             gDesigner.pageTracking("/ProOfflineWarning");
@@ -187,14 +187,14 @@ function (exports, module, require) {
                 .catch(() => null);
             break;
           case "proExpireSoon":
-            (t = gDesigner.getLicense()),
-              (n = o.DateAPI.millisecondsToDays(
+            (module = gDesigner.getLicense()),
+              (require = o.DateAPI.millisecondsToDays(
                 o.DateAPI.diff(
                   o.DateAPI.toUTCZone(gDesigner.now()),
-                  t.getExpirationDate()
+                  module.getExpirationDate()
                 )
               )),
-              gDesigner.pageTracking("/ProReminders" + n);
+              gDesigner.pageTracking("/ProReminders" + require);
             break;
           case "proExpireToday":
             gDesigner.pageTracking("/ProReminders1");
@@ -209,14 +209,14 @@ function (exports, module, require) {
             gDesigner.pageTracking("/ProTrialExpired");
             break;
           case "proOfferInTrialExpireSoon":
-            (t = gDesigner.getLicense()),
-              (n = o.DateAPI.millisecondsToDays(
+            (module = gDesigner.getLicense()),
+              (require = o.DateAPI.millisecondsToDays(
                 o.DateAPI.diff(
                   o.DateAPI.toUTCZone(gDesigner.now()),
-                  t.getExpirationDate()
+                  module.getExpirationDate()
                 )
               )),
-              gDesigner.pageTracking("/ProTrialExpireSoon" + n);
+              gDesigner.pageTracking("/ProTrialExpireSoon" + require);
             break;
           case "proOfferInTrialLastWarning":
             gDesigner.pageTracking("/ProTrialExpireToday");
@@ -252,9 +252,9 @@ function (exports, module, require) {
       }
       async _getShowTrialMessage() {
         try {
-          const { showTrialMessage: e } =
+          const { showTrialMessage: exports } =
             (await o.gApi.client.getConfiguration()) || {};
-          return !!e;
+          return !!exports;
         } catch (e) {
           console.error(
             "Failed to load client configuration. Skipping trial reminders"

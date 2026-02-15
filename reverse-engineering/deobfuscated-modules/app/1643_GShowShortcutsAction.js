@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    const { GObject: o, GLocaleKey: i } = n(1) /* module_1 */,
-      a = n(31) /* GAction */,
-      r = n(18) /* module_18 */,
-      s = n(1644) /* module_1644 */;
+    require(3) /* module_3 */;
+    const { GObject: o, GLocaleKey: i } = require(1) /* module */,
+      a = require(31) /* GAction */,
+      r = require(18) /* module_18 */,
+      s = require(1644) /* module_1644 */;
     function l() {}
     o.inherit(l, a),
       (l.ID = "help.shortcuts"),
@@ -33,5 +33,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GShowShortcutsAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

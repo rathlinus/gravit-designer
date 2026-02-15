@@ -5,29 +5,29 @@
 
 function (exports, module, require) {
     "use strict";
-    n(168) /* module_168 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(196) /* module_196 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(1175) /* module_1175 */,
-      n(33) /* module_33 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */,
-      a = n(119) /* module_119 */,
-      r = n(163) /* module_163 */;
-    const { debounce: s } = n(40) /* module_40 */,
+    require(168) /* module_168 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(196) /* module_196 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(1175) /* module_1175 */,
+      require(33) /* module_33 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */,
+      a = require(119) /* module_119 */,
+      r = require(163) /* module_163 */;
+    const { debounce: s } = require(40) /* module_40 */,
       l = i.FILE_FORMATS.find((e) => e.default);
     var c = {},
       d = null;
     const u = i.CATEGORIES.filter((e) => e.active);
     class p {
-      constructor(e) {
+      function Object() { [native code] }(e) {
         (this._templatesPanel = $("<div/>")
           .addClass("g-templates-panel")
           .appendTo($("body"))),
@@ -342,17 +342,17 @@ function (exports, module, require) {
           this._removeEmptyColumns();
       }
       _removeEmptyColumns() {
-        const e = this._contentPanel
+        const exports = this._contentPanel
           .find(".assets-wrapper")
           .children(".column");
-        e.each((t, n) => {
-          n.children.length || e[t].remove();
+        exports.each((t, n) => {
+          n.children.length || exports[t].remove();
         });
       }
       _getThumbnailSize(e) {
-        const t = 235 / e.width,
-          n = parseInt(e.height * t) + 32;
-        return new o.GRect(0, 0, 235, n);
+        const module = 235 / e.width,
+          require = parseInt(e.height * module) + 32;
+        return new o.GRect(0, 0, 235, require);
       }
       _getChildrenHeight(e) {
         return $(e)
@@ -364,11 +364,11 @@ function (exports, module, require) {
         return e.indexOf(Math.min.apply(null, e)) || 0;
       }
       _loadHeader() {
-        const e = this._templatesPanel.find(".header");
-        0 === e.length &&
+        const exports = this._templatesPanel.find(".header");
+        0 === exports.length &&
           $("<div/>").addClass("header").appendTo(this._templatesPanel),
-          e.empty(),
-          e.append(
+          exports.empty(),
+          exports.append(
             $("<span/>")
               .addClass("title")
               .html(
@@ -415,11 +415,11 @@ function (exports, module, require) {
           (this._breadcrumbs = this._breadcrumbs.filter(
             (e) => e.key == p.DefaultBreadcrumbs.Welcome
           ));
-        const t = this.topBar.find(".breadcrumbs");
-        t.empty(),
+        const module = this.topBar.find(".breadcrumbs");
+        module.empty(),
           this._breadcrumbs.forEach((e) => {
             var n;
-            t.append(
+            module.append(
               $("<span/>")
                 .addClass("g-breadcrumb")
                 .append(
@@ -445,8 +445,8 @@ function (exports, module, require) {
         this._templatesPanel.toggleClass("loading", e);
       }
       _toggleLoadMoreButton(e) {
-        let t = this._contentPanel.find(".button-wrapper");
-        t && t[e ? "removeClass" : "addClass"]("hidden");
+        let module = this._contentPanel.find(".button-wrapper");
+        module && module[e ? "removeClass" : "addClass"]("hidden");
       }
     }
     (p.AssetType = {
@@ -455,5 +455,5 @@ function (exports, module, require) {
       Preset: "PRESET",
     }),
       (p.DefaultBreadcrumbs = { Welcome: "welcome", Templates: "templates" }),
-      (e.exports = p);
+      (exports.exports = p);
   }

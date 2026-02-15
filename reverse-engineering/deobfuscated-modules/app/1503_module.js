@@ -5,18 +5,18 @@
 
 function (exports, module, require) {
     "use strict";
-    n(20) /* module_20 */, n(3) /* module_3 */, n(271) /* module_271 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(40) /* module_40 */,
-      s = n(10) /* module_10 */,
-      l = n(86) /* module_86 */,
-      c = n(217) /* GDocumentStatusEvent */,
-      d = n(78) /* GDocumentEvent */,
-      u = (n(173) /* module_173 */, n(445) /* GSaveAsAction */),
-      p = n(255) /* module_255 */,
-      g = (n(163) /* module_163 */, n(442) /* module_442 */);
+    require(20) /* module_20 */, require(3) /* module_3 */, require(271) /* module_271 */, require(34) /* module_34 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(10) /* module_10 */,
+      l = require(86) /* module_86 */,
+      c = require(217) /* GDocumentStatusEvent */,
+      d = require(78) /* GDocumentEvent */,
+      u = (require(173) /* module_173 */, require(445) /* GSaveAsAction */),
+      p = require(255) /* module_255 */,
+      g = (require(163) /* module_163 */, require(442) /* module_442 */);
     const h = s.FILE_FORMATS.find((e) => e.default).ext;
     function f(e, t) {
       (this._container = $("<div></div>").addClass("window")),
@@ -101,8 +101,8 @@ function (exports, module, require) {
       }),
       (f.prototype.deactivate = function () {
         if (this._document) {
-          var e = this._document.getEditor();
-          e && e.closeInlineEditor(), this._view.cleanCache();
+          var exports = this._document.getEditor();
+          exports && exports.closeInlineEditor(), this._view.cleanCache();
         }
       }),
       (f.prototype.relayout = function (e, t, n, o) {
@@ -246,9 +246,9 @@ function (exports, module, require) {
               .append(e),
             t)
           ) {
-            var n = this;
+            var require = this;
             this._overlay.on("click", function () {
-              n._overlay.unbind("click", this), n._setOverlayContent(null);
+              require._overlay.unbind("click", this), require._setOverlayContent(null);
             });
           }
         } else this._overlay.remove();
@@ -266,40 +266,40 @@ function (exports, module, require) {
           case l.Saving:
           case l.Syncing:
           case l.Downloading:
-            var t = i.GLocale.get(
+            var module = i.GLocale.get(
                 new i.GLocaleKey("GCommonNames", "text.loading")
               ),
-              n = i.GLocale.get(
+              require = i.GLocale.get(
                 new i.GLocaleKey("GCommonNames", "text.loading-file")
               );
             e.status === l.Saving
-              ? ((t = i.GLocale.get(
+              ? ((module = i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.saving")
                 )),
-                (n = i.GLocale.get(
+                (require = i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.saving-file")
                 )))
               : e.status === l.Syncing
-              ? ((t = i.GLocale.get(
+              ? ((module = i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.synchronizing")
                 )),
-                (n = i.GLocale.get(
+                (require = i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.synchronizing-file")
                 )))
               : e.status === l.Downloading &&
-                ((t = i.GLocale.get(
+                ((module = i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.downloading")
                 )),
-                (n = i.GLocale.get(
+                (require = i.GLocale.get(
                   new i.GLocaleKey("GCommonNames", "text.downloading-file")
                 )));
             let c =
               e.data && e.data.filename
                 ? e.data.filename
                 : this._document.getTitle();
-            c && (n = n.replace("%name", c));
+            c && (require = require.replace("%name", c));
             let d = c
-              ? n + "..."
+              ? require + "..."
               : i.GLocale.get(
                   new i.GLocaleKey("GDocument", "text.opening-your-image")
                 );
@@ -310,7 +310,7 @@ function (exports, module, require) {
                 : null
             ),
               (e.data.text = (e, t) =>
-                this._overlay.find(".text").text(c && !t ? n : e)),
+                this._overlay.find(".text").text(c && !t ? require : e)),
               (e.data.progressInfo = (e) =>
                 this._overlay
                   .find(".progress-info")
@@ -359,14 +359,14 @@ function (exports, module, require) {
             this._setOverlayContent(null);
             break;
           case l.LoadFailed:
-            t = i.GLocale.get(
+            module = i.GLocale.get(
               new i.GLocaleKey("GCommonNames", "text.loading-failed")
             );
             !e.data ||
               !e.data.text ||
               e.data.text instanceof Function ||
-              (t = e.data.text),
-              this._setOverlayContent($("<span></span>").text(t));
+              (module = e.data.text),
+              this._setOverlayContent($("<span></span>").text(module));
             break;
           case l.SaveFailed:
             if (
@@ -475,14 +475,14 @@ function (exports, module, require) {
       }),
       (f.prototype._updateViewConfiguration = function () {
         if (this._document && this._document.isCommercialProductFile()) {
-          var e = new Image();
-          (e.onload = () => {
-            e.naturalWidth > 0 &&
-              e.naturalHeight > 0 &&
-              ((this._view.getViewConfiguration().watermark = e),
+          var exports = new Image();
+          (exports.onload = () => {
+            exports.naturalWidth > 0 &&
+              exports.naturalHeight > 0 &&
+              ((this._view.getViewConfiguration().watermark = exports),
               this._view.invalidate());
           }),
-            (e.src = "assets/img/brand/watermark.png");
+            (exports.src = "assets/img/brand/watermark.png");
         } else
           (this._view.getViewConfiguration().watermark = null),
             this._view.invalidate();
@@ -499,8 +499,8 @@ function (exports, module, require) {
       }),
       (f.prototype.getVisibleBBox = function () {
         if (this._document.getScene().isFixedSized()) {
-          var e = this._document.getScene();
-          return new i.GRect(0, 0, e.getProperty("w"), e.getProperty("h"));
+          var exports = this._document.getScene();
+          return new i.GRect(0, 0, exports.getProperty("w"), exports.getProperty("h"));
         }
         return this._view
           ? new i.GRect(0, 0, this._view.getWidth(), this._view.getHeight())
@@ -523,5 +523,5 @@ function (exports, module, require) {
           }
         }
       }),
-      (e.exports = f);
+      (exports.exports = f);
   }

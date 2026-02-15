@@ -6,26 +6,26 @@
 
 function (exports, module, require) {
     "use strict";
-    n(32) /* module_32 */, n(33) /* module_33 */;
-    var o = n(16) /* module_16 */,
-      i = o(n(1504) /* module_1504 */);
-    n(58) /* module_58 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(271) /* module_271 */,
-      n(71) /* module_71 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */;
-    var a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = n(67) /* GRichTooltipConfig */,
-      l = o(n(1248) /* module_1248 */),
-      c = n(10) /* module_10 */;
+    require(32) /* module_32 */, require(33) /* module_33 */;
+    var o = require(16) /* module_16 */,
+      i = o(require(1504) /* module_1504 */);
+    require(58) /* module_58 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(271) /* module_271 */,
+      require(71) /* module_71 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */;
+    var a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = require(67) /* GRichTooltipConfig */,
+      l = o(require(1248) /* module_1248 */),
+      c = require(10) /* module_10 */;
     function d(e, t) {
       var n = Object.keys(e);
       if (Object.getOwnPropertySymbols) {
@@ -39,41 +39,41 @@ function (exports, module, require) {
       return n;
     }
     function u(e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var n = null != arguments[t] ? arguments[t] : {};
-        t % 2
-          ? d(Object(n), true).forEach(function (t) {
-              (0, i.default)(e, t, n[t]);
+      for (var module = 1; module < arguments.length; module++) {
+        var require = null != arguments[module] ? arguments[module] : {};
+        module % 2
+          ? d(Object(require), true).forEach(function (t) {
+              (0, i.default)(e, t, require[t]);
             })
           : Object.getOwnPropertyDescriptors
-          ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-          : d(Object(n)).forEach(function (t) {
+          ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(require))
+          : d(Object(require)).forEach(function (t) {
               Object.defineProperty(
                 e,
                 t,
-                Object.getOwnPropertyDescriptor(n, t)
+                Object.getOwnPropertyDescriptor(require, t)
               );
             });
       }
       return e;
     }
-    var p = n(163) /* module_163 */,
-      g = n(18) /* module_18 */,
-      h = n(31) /* GAction */,
-      f = n(446) /* module_446 */,
-      m = n(86) /* module_86 */;
-    const y = n(44) /* GSystemDialog */,
-      v = n(389) /* module_389 */;
+    var p = require(163) /* module_163 */,
+      g = require(18) /* module_18 */,
+      h = require(31) /* GAction */,
+      f = require(446) /* module_446 */,
+      m = require(86) /* module_86 */;
+    const y = require(44) /* GSystemDialog */,
+      v = require(389) /* module_389 */;
     var _ = c.FILE_FORMATS.map((e) => e.ext);
     const b = c.FILE_FORMATS.find((e) => e.default).ext;
     function w(e) {
-      let t =
+      let module =
         arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
       (this._fileExt = e), (this._isNativeExt = !!_.includes(this._fileExt));
       var n = p.FileTypes.filter((t) => t.ext === e)[0];
       (this._title = n.title || n.name),
         (this._mime = n.mime),
-        (this._options = t),
+        (this._options = module),
         (w.TOOLTIP_CONFIG = {
           [s.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: s.GRichTooltipConfig.from({
             title: a.GLocale.get(
@@ -113,18 +113,18 @@ function (exports, module, require) {
                 new a.GLocaleKey("GDocument", "title.download-" + this._fileExt)
               );
         if ("pdf" === this._fileExt) {
-          var e = this._options.dpi ? this._options.dpi : 72;
+          var exports = this._options.dpi ? this._options.dpi : 72;
           return a.GLocale.get(
             new a.GLocaleKey("GSaveAsAction", "text.dpi-value")
           )
-            .replace("%dpiValue", e)
+            .replace("%dpiValue", exports)
             .replace(
               "%dpiString",
               a.GLocale.get(new a.GLocaleKey("GSaveAsAction", "text.dpi"))
             );
         }
         {
-          const { dpi: e = 72 } = this._options;
+          const { dpi: exports = 72 } = this._options;
           return a.GLocale.get(
             new a.GLocaleKey(
               "GSaveAsAction",
@@ -133,7 +133,7 @@ function (exports, module, require) {
           )
             .replace("%title", a.GLocale.get(this._title))
             .replace("%fileExtension", this._fileExt)
-            .replace("%dpiValue", e)
+            .replace("%dpiValue", exports)
             .replace(
               "%dpiString",
               a.GLocale.get(new a.GLocaleKey("GSaveAsAction", "text.dpi"))
@@ -293,9 +293,9 @@ function (exports, module, require) {
         }
       }),
       (w.prototype._checkWriteAccess = async function (e) {
-        const t = gContainer.getDefaultStorageDestination(this._fileExt);
-        if (t) {
-          const n = await e.getWritePermission(t),
+        const module = gContainer.getDefaultStorageDestination(this._fileExt);
+        if (module) {
+          const n = await e.getWritePermission(module),
             o = n.isAuthorized();
           return (
             !o && n.getStatusText() && this._showError(n.getStatusText()), o
@@ -315,5 +315,5 @@ function (exports, module, require) {
       (w.prototype.toString = function () {
         return "[Object GSaveAsAction]";
       }),
-      (e.exports = w);
+      (exports.exports = w);
   }

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(592) /* module_592 */;
-    const { isUTS: i, UTStoCDA: a } = n(1095) /* module_1095 */;
+    require(3) /* module_3 */;
+    var o = require(592) /* module_592 */;
+    const { isUTS: i, UTStoCDA: a } = require(1095) /* module */;
     function r(e, t, n, r) {
       if (!t) throw new o("GCloudAnnotations: no cloud annotations id");
       if (!e)
@@ -43,5 +43,5 @@ function (exports, module, require) {
       (r.prototype.toString = function () {
         return "[GCloudAnnotations]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

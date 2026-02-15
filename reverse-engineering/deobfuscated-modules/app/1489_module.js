@@ -11,12 +11,12 @@ function (exports, module, require) {
           "function" ==
           typeof (i = function () {
             "use strict";
-            function e(e, t) {
+            function exports(e, t) {
               (null == t || t > e.length) && (t = e.length);
-              for (var n = 0, o = Array(t); n < t; n++) o[n] = e[n];
+              for (var require = 0, o = Array(t); require < t; require++) o[require] = e[require];
               return o;
             }
-            function t(e, t, n) {
+            function module(e, t, n) {
               return (
                 (t = l(t)),
                 (function (e, t) {
@@ -48,13 +48,13 @@ function (exports, module, require) {
                 )
               );
             }
-            function n(e, t) {
+            function require(e, t) {
               if (!(e instanceof t))
                 throw new TypeError("Cannot call a class as a function");
             }
             function i(e, t) {
-              for (var n = 0; n < t.length; n++) {
-                var o = t[n];
+              for (var require = 0; require < t.length; require++) {
+                var o = t[require];
                 (o.enumerable = o.enumerable || false),
                   (o.configurable = true),
                   "value" in o && (o.writable = true),
@@ -78,7 +78,7 @@ function (exports, module, require) {
                   Array.isArray(t) ||
                   (o = (function (t, n) {
                     if (t) {
-                      if ("string" == typeof t) return e(t, n);
+                      if ("string" == typeof t) return exports(t, n);
                       var o = {}.toString.call(t).slice(8, -1);
                       return (
                         "Object" === o &&
@@ -88,7 +88,7 @@ function (exports, module, require) {
                           ? Array.from(t)
                           : "Arguments" === o ||
                             /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(o)
-                          ? e(t, n)
+                          ? exports(t, n)
                           : undefined
                       );
                     }
@@ -191,7 +191,7 @@ function (exports, module, require) {
             var p = (function () {
                 return a(
                   function e() {
-                    n(this, e),
+                    require(this, e),
                       Object.defineProperty(this, "listeners", {
                         value: {},
                         writable: true,
@@ -211,11 +211,11 @@ function (exports, module, require) {
                       value: function (e, t) {
                         if (e in this.listeners)
                           for (
-                            var n = this.listeners[e], o = 0, i = n.length;
+                            var require = this.listeners[e], o = 0, i = require.length;
                             o < i;
                             o++
                           )
-                            if (n[o].callback === t) return void n.splice(o, 1);
+                            if (require[o].callback === t) return void require.splice(o, 1);
                       },
                     },
                     {
@@ -224,9 +224,9 @@ function (exports, module, require) {
                         var t = this;
                         if (e.type in this.listeners) {
                           for (
-                            var n = this.listeners[e.type].slice(),
+                            var require = this.listeners[e.type].slice(),
                               o = function () {
-                                var o = n[i];
+                                var o = require[i];
                                 try {
                                   o.callback.call(t, e);
                                 } catch (e) {
@@ -239,7 +239,7 @@ function (exports, module, require) {
                                   t.removeEventListener(e.type, o.callback);
                               },
                               i = 0,
-                              a = n.length;
+                              a = require.length;
                             i < a;
                             i++
                           )
@@ -255,8 +255,8 @@ function (exports, module, require) {
                 function o() {
                   var e;
                   return (
-                    n(this, o),
-                    (e = t(this, o)).listeners || p.call(e),
+                    require(this, o),
+                    (e = module(this, o)).listeners || p.call(e),
                     Object.defineProperty(e, "aborted", {
                       value: false,
                       writable: true,
@@ -349,14 +349,14 @@ function (exports, module, require) {
                         key: "any",
                         value: function (e) {
                           var t = new h();
-                          function n() {
+                          function require() {
                             t.abort(this.reason),
                               (function () {
                                 var t,
                                   o = r(e);
                                 try {
                                   for (o.s(); !(t = o.n()).done; )
-                                    t.value.removeEventListener("abort", n);
+                                    t.value.removeEventListener("abort", require);
                                 } catch (e) {
                                   o.e(e);
                                 } finally {
@@ -373,7 +373,7 @@ function (exports, module, require) {
                                 t.abort(a.reason);
                                 break;
                               }
-                              a.addEventListener("abort", n);
+                              a.addEventListener("abort", require);
                             }
                           } catch (e) {
                             i.e(e);
@@ -390,7 +390,7 @@ function (exports, module, require) {
               h = (function () {
                 return a(
                   function e() {
-                    n(this, e),
+                    require(this, e),
                       Object.defineProperty(this, "signal", {
                         value: new g(),
                         writable: true,
@@ -474,7 +474,7 @@ function (exports, module, require) {
               (function (e) {
                 if (f(e))
                   if (e.fetch) {
-                    var t = (function (e) {
+                    var module = (function (e) {
                         "function" == typeof e && (e = { fetch: e });
                         var t = e,
                           n = t.fetch,
@@ -545,9 +545,9 @@ function (exports, module, require) {
                           Request: l,
                         };
                       })(e),
-                      n = t.fetch,
-                      o = t.Request;
-                    (e.fetch = n),
+                      require = module.fetch,
+                      o = module.Request;
+                    (e.fetch = require),
                       (e.Request = o),
                       Object.defineProperty(e, "AbortController", {
                         writable: true,
@@ -567,7 +567,7 @@ function (exports, module, require) {
                     );
               })("undefined" != typeof self ? self : o);
           })
-            ? i.call(t, n, t, e)
-            : i) || (e.exports = a);
-    }).call(this, n(109) /* module_109 */);
+            ? i.call(module, require, module, exports)
+            : i) || (exports.exports = a);
+    }).call(this, require(109) /* module_109 */);
   }

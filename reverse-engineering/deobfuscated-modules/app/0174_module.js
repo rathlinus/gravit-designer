@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       return {
         enumerable: !(1 & e),
         configurable: !(2 & e),

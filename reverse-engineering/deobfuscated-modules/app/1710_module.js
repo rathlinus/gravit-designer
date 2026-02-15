@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */,
-      n(3) /* module_3 */,
-      n(4) /* module_4 */,
-      n(1352) /* module_1352 */,
-      (e.exports = (e) => {
+    require(8) /* module_8 */,
+      require(3) /* module_3 */,
+      require(4) /* module_4 */,
+      require(1352) /* module_1352 */,
+      (exports.exports = (e) => {
         (e._DragAndDropHelper = function (e) {
           this._vtree = e;
         }),
@@ -32,23 +32,23 @@ function (exports, module, require) {
           }),
           (e._DragAndDropHelper.prototype.setDroppableNodeLower = function (e) {
             (this._droppableNodeLower = e), (this._droppableNodeUpper = null);
-            const t = this._vtree._dragNode;
+            const module = this._vtree._dragNode;
             this._vtree.beginUpdate(),
-              this._vtree.removeNode(t),
-              this._vtree.insertNodeAfter(e, t),
+              this._vtree.removeNode(module),
+              this._vtree.insertNodeAfter(e, module),
               this._vtree.endUpdate(true);
           }),
           (e._DragAndDropHelper.prototype.setDroppableNodeUpper = function (e) {
             (this._droppableNodeUpper = e), (this._droppableNodeLower = null);
-            const t = this._vtree._dragNode;
+            const module = this._vtree._dragNode;
             this._vtree.beginUpdate(),
-              this._vtree.removeNode(t),
-              this._vtree.insertNodeBefore(e, t),
+              this._vtree.removeNode(module),
+              this._vtree.insertNodeBefore(e, module),
               this._vtree.endUpdate(true);
           }),
           (e._DragAndDropHelper.prototype.drop = function () {
             const e = this._vtree._dragNode,
-              t = this._vtree._root;
+              module = this._vtree._root;
             if (this._droppableNodeInside) {
               const t = this._droppableNodeInside;
               this._vtree.beginUpdate(),
@@ -60,9 +60,9 @@ function (exports, module, require) {
             } else if (this._droppableNodeUpper) {
               const n = this._droppableNodeUpper;
               this._vtree._dropCallback &&
-                (n !== t
+                (n !== module
                   ? this._vtree._dropCallback(n.parent, e.next, e.previous, [e])
-                  : this._vtree._dropCallback(t, null, null, [e]));
+                  : this._vtree._dropCallback(module, null, null, [e]));
             } else if (this._droppableNodeLower) {
               const t = this._droppableNodeLower;
               this._vtree._dropCallback &&

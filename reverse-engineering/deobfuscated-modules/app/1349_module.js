@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       CheckingForUpdate: "checking-for-update",
       UpdateAvailable: "update-available",
       UpdateNotAvailable: "update-not-available",

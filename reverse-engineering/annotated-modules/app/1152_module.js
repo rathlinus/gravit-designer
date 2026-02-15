@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(58) /* module_58 */, n(30) /* module_30 */, n(8) /* module_8 */, n(196) /* module_196 */, n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = n(847) /* module_847 */,
       r = o(n(1239) /* SharepointException */),
       s = o(n(388) /* module_388 */),

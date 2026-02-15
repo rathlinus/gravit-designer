@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(1198) /* module_1198 */,
-      a = n(255) /* module_255 */,
-      r = n(1118) /* module_1118 */;
+    require(57) /* module_57 */, require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(1198) /* module_1198 */,
+      a = require(255) /* module_255 */,
+      r = require(1118) /* module_1118 */;
     function s() {
       try {
         this._fontDB = i.getInstance();
@@ -22,10 +22,10 @@ function (exports, module, require) {
       (s.prototype._tmpFontList = null),
       (s.prototype._importTrialCount = 0),
       (s.prototype.import = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
-        const { silent: n } = t;
-        return !n && this.busy()
+        const { silent: require } = module;
+        return !require && this.busy()
           ? this._importTrialCount++ > 100
             ? void e()
             : (setTimeout(
@@ -35,7 +35,7 @@ function (exports, module, require) {
                 100
               ),
               void this._importTrialCount++)
-          : ((this._importTrialCount = 0), this._prompt(e, t), true);
+          : ((this._importTrialCount = 0), this._prompt(e, module), true);
       }),
       (s.prototype._prompt = function (e, t) {
         var n = this,
@@ -156,5 +156,5 @@ function (exports, module, require) {
                 }))
             : e && e();
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

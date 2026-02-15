@@ -6,27 +6,27 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(596) /* module_596 */, n(30) /* module_30 */, n(57) /* module_57 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(15) /* module_15 */,
-      s = o(n(340) /* GTouchTool */),
-      l = n(67) /* GRichTooltipConfig */,
-      c = o(n(442) /* module_442 */),
-      d = n(78) /* GDocumentEvent */,
-      u = n(217) /* GDocumentStatusEvent */,
-      p = n(86) /* module_86 */,
-      g = n(603) /* module_603 */,
-      h = n(449) /* GFitAllAction */,
-      f = n(566) /* GFitSelectionAction */,
-      m = n(806) /* GSidebar */,
-      y = n(395) /* module_395 */,
-      v = n(1523) /* GExportProperties */,
-      _ = n(44) /* GSystemDialog */,
-      b = n(450) /* module_450 */;
-    const w = n(808) /* GApplicationStatusEvent */,
-      C = n(135) /* GSettingChangedEvent */;
+    var o = require(16) /* module_16 */;
+    require(596) /* module_596 */, require(30) /* module_30 */, require(57) /* module_57 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(15) /* module */,
+      s = o(require(340) /* GTouchTool */),
+      l = require(67) /* GRichTooltipConfig */,
+      c = o(require(442) /* module_442 */),
+      d = require(78) /* GDocumentEvent */,
+      u = require(217) /* GDocumentStatusEvent */,
+      p = require(86) /* module_86 */,
+      g = require(603) /* module_603 */,
+      h = require(449) /* GFitAllAction */,
+      f = require(566) /* GFitSelectionAction */,
+      m = require(806) /* GSidebar */,
+      y = require(395) /* module_395 */,
+      v = require(1523) /* GExportProperties */,
+      _ = require(44) /* GSystemDialog */,
+      b = require(450) /* module_450 */;
+    const w = require(808) /* GApplicationStatusEvent */,
+      C = require(135) /* GSettingChangedEvent */;
     function x() {
       m.call(this);
     }
@@ -357,20 +357,20 @@ function (exports, module, require) {
           (this._outlineSidebarElement = e);
       }),
       (x.prototype.toggleMultiPageMode = function () {
-        const e = this._getMultiPageSwitcher();
-        if (e) {
-          const t = e.is(":checked");
-          e.prop("checked", !t), e.trigger("change");
+        const exports = this._getMultiPageSwitcher();
+        if (exports) {
+          const t = exports.is(":checked");
+          exports.prop("checked", !t), exports.trigger("change");
         }
       }),
       (x.prototype._changePageMode = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         this._document
           .getScene()
           .setProperty(c.default.MULTIPAGE_VIEW_ENABLED, e),
           gContainer.setProperty(x.MULTIPAGE_MODE_ENABLED_OPTION_NAME, e),
-          t &&
+          module &&
             this._pageModeSwitch
               .find("input[data-property=multipage-switch]")
               .prop("checked", e);
@@ -382,20 +382,20 @@ function (exports, module, require) {
       }),
       (x.prototype._multiPageModeChangeEventHandler = function (e) {
         gDesigner.stats("pages_change_multipage-mode");
-        const t = $(e.target);
-        this._refreshPageModeSwitch(t, { showAlert: true });
-        const n = t.is(":checked");
-        this._changePageMode(n, false);
+        const module = $(e.target);
+        this._refreshPageModeSwitch(module, { showAlert: true });
+        const require = module.is(":checked");
+        this._changePageMode(require, false);
         const o = a.GLocale.get(
           new a.GLocaleKey("GOutlineSidebar", "action.toggle-page-mode")
         );
         this._document.getEditor().pushState(
           o,
           () => {
-            this._changePageMode(n);
+            this._changePageMode(require);
           },
           () => {
-            this._changePageMode(!n);
+            this._changePageMode(!require);
           },
           {
             actions: [
@@ -455,14 +455,14 @@ function (exports, module, require) {
                 e.preventDefault(), e.stopPropagation();
                 var t = this._layerPanel.gLayerPanel("getLastVisitedDroppable");
                 if (t) {
-                  var n = new CustomEvent("drop", {
+                  var require = new CustomEvent("drop", {
                     bubbles: true,
                     cancelable: true,
                   });
-                  this._copyDataTransfer(n, e),
-                    (n.altKey = e.originalEvent.altKey),
-                    (n.layerY = 0),
-                    t.dispatchEvent(n);
+                  this._copyDataTransfer(require, e),
+                    (require.altKey = e.originalEvent.altKey),
+                    (require.layerY = 0),
+                    t.dispatchEvent(require);
                 }
               }.bind(this)
             )),
@@ -572,10 +572,10 @@ function (exports, module, require) {
                 e.preventDefault(), e.stopPropagation();
                 var t = this._layerPanel.gLayerPanel("getLastVisitedDroppable");
                 if (t) {
-                  var n = document.createEvent("mouseEvent");
-                  n.initEvent("drop", true, true, null),
-                    this._copyDataTransfer(n, e),
-                    t.dispatchEvent(n);
+                  var require = document.createEvent("mouseEvent");
+                  require.initEvent("drop", true, true, null),
+                    this._copyDataTransfer(require, e),
+                    t.dispatchEvent(require);
                 }
               }.bind(this)
             )
@@ -702,18 +702,18 @@ function (exports, module, require) {
             .removeEventListener(g.WindowEvent, this._windowsEvent, this));
       }),
       (x.prototype._isMultiPageModeEnabled = function () {
-        const e = this._document
+        const exports = this._document
           .getScene()
           .getProperty(c.default.MULTIPAGE_VIEW_ENABLED);
-        return "boolean" == typeof e
-          ? e
+        return "boolean" == typeof exports
+          ? exports
           : gContainer.getProperty(x.MULTIPAGE_MODE_ENABLED_OPTION_NAME);
       }),
       (x.prototype._updateMultiPageMode = async function () {
-        const e = this._getMultiPageSwitcher(),
-          t = await this._isMultiPageModeEnabled();
-        e.prop("checked", t),
-          this._refreshPageModeSwitch(e, { skipInvalidation: true });
+        const exports = this._getMultiPageSwitcher(),
+          module = await this._isMultiPageModeEnabled();
+        exports.prop("checked", module),
+          this._refreshPageModeSwitch(exports, { skipInvalidation: true });
       }),
       (x.prototype._toolChangedEvent = function (e) {
         var t = e.previousTool,
@@ -742,18 +742,18 @@ function (exports, module, require) {
       (x.prototype._insertPage = function () {
         if (gDesigner.getApplicationManager().isEditingEnabled()) {
           gDesigner.stats("pages_insert_page");
-          var e = this._document.getScene();
+          var exports = this._document.getScene();
           i.GEditor.tryRunTransaction(
-            e,
+            exports,
             function () {
-              var t = e.insertPage();
-              e.setActivePage(t);
+              var t = exports.insertPage();
+              exports.setActivePage(t);
             },
             a.GLocale.get(
               new a.GLocaleKey("GOutlineSidebar", "action.insert-page")
             )
           ),
-            this._navigateDrawingCenter(e.getActivePage()),
+            this._navigateDrawingCenter(exports.getActivePage()),
             this._refreshSelection();
         }
       }),
@@ -767,7 +767,7 @@ function (exports, module, require) {
         );
       }),
       (x.prototype._refreshPageModeSwitch = function (e) {
-        let { showAlert: t = false, skipInvalidation: n = false } =
+        let { showAlert: module = false, skipInvalidation: require = false } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         const o = !this.sceneHasInfiniteCanvas();
         if (!this.isEnabled())
@@ -777,7 +777,7 @@ function (exports, module, require) {
           r = i.getView();
         (o ||
           (e.is(":checked") && e.prop("checked", false),
-          t &&
+          module &&
             _.alert(
               a.GLocale.get(
                 new a.GLocaleKey("GOutlineSidebar", "text.multipage-alert")
@@ -787,9 +787,9 @@ function (exports, module, require) {
             r.getViewConfiguration().pageLabelsVisible)) &&
           ((r.getViewConfiguration().multiPageView = e.is(":checked")),
           (r.getViewConfiguration().pageLabelsVisible = e.is(":checked")),
-          n ||
+          require ||
             (r.invalidate(null, true),
-            t && (i.centerAndZoom(), this._refreshSelection())));
+            module && (i.centerAndZoom(), this._refreshSelection())));
       }),
       (x.prototype._deletePage = function () {
         gDesigner.stats("pages_delete_page");
@@ -885,20 +885,20 @@ function (exports, module, require) {
         var t = null;
         if (e) {
           t = [];
-          var n = this._document.getEditor();
+          var require = this._document.getEditor();
           if (e.hasFlag(a.GNode.Flag.Selected)) {
-            var o = n.getSelection();
+            var o = require.getSelection();
             t = this._filterPageDraggable(o);
             t = a.GNode.order(t, true);
-          } else n.clearSelection(), t.push(e);
+          } else require.clearSelection(), t.push(e);
         }
         return t;
       }),
       (x.prototype._filterPageDraggable = function (e) {
         var t = [];
         if (e)
-          for (var n = 0; n < e.length; ++n) {
-            var o = e[n];
+          for (var require = 0; require < e.length; ++require) {
+            var o = e[require];
             o instanceof a.GPage &&
               !o.hasFlag(a.GElement.Flag.PartialLocked) &&
               t.push(o);
@@ -907,14 +907,14 @@ function (exports, module, require) {
       }),
       (x.prototype.changeActivePage = function (e) {
         gDesigner.stats("pages_select_page");
-        const t = this._document,
-          n = t && t.getScene();
-        n &&
+        const module = this._document,
+          require = module && module.getScene();
+        require &&
           e &&
           i.GEditor.tryRunTransaction(
-            n,
+            require,
             () => {
-              n.setActivePage(e),
+              require.setActivePage(e),
                 this._navigateDrawingCenter(e),
                 this._refreshSelection();
             },
@@ -929,9 +929,9 @@ function (exports, module, require) {
       (x.prototype._navigateDrawingCenter = function (e) {
         var t = this._document.getActiveWindow().getView();
         if (t.getViewConfiguration().multiPageView) {
-          var n = e.getTransform(),
+          var require = e.getTransform(),
             o = e.getGeometryBBox();
-          r = n.mapRect(o).getSide(a.GRect.Side.CENTER);
+          r = require.mapRect(o).getSide(a.GRect.Side.CENTER);
           t.zoomAtCenter(r);
         } else if (this._document.hasCDR()) {
           var i = e.getContentBBox();
@@ -942,36 +942,36 @@ function (exports, module, require) {
         }
       }),
       (x.prototype.createLayer = function () {
-        const e = this._document.getScene(),
-          t = new a.GLayer();
+        const exports = this._document.getScene(),
+          module = new a.GLayer();
         return (
-          t.setProperty(
+          module.setProperty(
             "name",
             a.GLocale.get(new a.GLocaleKey("GOutlineSidebar", "text.layer")) +
               " " +
-              e.queryCount("layer").toString()
+              exports.queryCount("layer").toString()
           ),
-          t
+          module
         );
       }),
       (x.prototype.insertLayer = function () {
         if (!gDesigner.getApplicationManager().isEditingEnabled()) return;
         gDesigner.stats("layers_insert_layer");
-        const e = this._document.getScene();
+        const exports = this._document.getScene();
         i.GEditor.tryRunTransaction(
-          e,
+          exports,
           () => {
-            const t = gDesigner.getActiveDocument(),
-              n = t && t.getEditor(),
-              o = (n && n.getSelection()) || [];
-            let i = e.getActivePage();
-            i || ((i = e.insertPage()), i.setFlag(a.GNode.Flag.Active));
+            const module = gDesigner.getActiveDocument(),
+              require = module && module.getEditor(),
+              o = (require && require.getSelection()) || [];
+            let i = exports.getActivePage();
+            i || ((i = exports.insertPage()), i.setFlag(a.GNode.Flag.Active));
             const r = this.createLayer(),
               s = o.filter((e) => !this._hasSelectedParentLayer(e)),
               l = a.GNode.order(s, true),
               c = l && l[0];
             ((c && c.getParent()) || i).insertChild(r, c),
-              e.setActiveLayer(r),
+              exports.setActiveLayer(r),
               this._moveLayers(r, null, s, false);
           },
           a.GLocale.get(
@@ -980,14 +980,14 @@ function (exports, module, require) {
         );
       }),
       (x.prototype._hasSelectedParentLayer = function (e) {
-        let t = false;
+        let module = false;
         for (
-          let n = e.getParent();
-          n instanceof a.GLayer && !t;
-          n = n.getParent()
+          let require = e.getParent();
+          require instanceof a.GLayer && !module;
+          require = require.getParent()
         )
-          n.hasFlag(a.GNode.Flag.Selected) && (t = true);
-        return t;
+          require.hasFlag(a.GNode.Flag.Selected) && (module = true);
+        return module;
       }),
       (x.prototype._moveLayerTreeNodeCallback = function (e, t, n, o) {
         const r = this._document.getScene();
@@ -1094,11 +1094,11 @@ function (exports, module, require) {
         var t = null;
         if (e) {
           gDesigner.stats("layers_start_drag"), (t = []);
-          var n = this._document.getEditor();
+          var require = this._document.getEditor();
           if (e.hasFlag(a.GNode.Flag.Selected)) {
-            var o = n.getSelection();
+            var o = require.getSelection();
             (t = this._filterLayerDraggable(o)), (t = a.GNode.order(t, true));
-          } else n.clearSelection(), t.push(e);
+          } else require.clearSelection(), t.push(e);
         }
         return t;
       }),
@@ -1108,8 +1108,8 @@ function (exports, module, require) {
       (x.prototype._filterLayerDraggable = function (e) {
         var t = [];
         if (e)
-          for (var n = 0; n < e.length; ++n) {
-            var o = e[n];
+          for (var require = 0; require < e.length; ++require) {
+            var o = e[require];
             if (!o.hasFlag(a.GElement.Flag.PartialLocked)) {
               for (
                 var i = false, r = o.getParent();
@@ -1129,14 +1129,14 @@ function (exports, module, require) {
             : gDesigner.stats("layers_select_layer"),
             this._document.getScene().updateActivePageForElem(e),
             this._document.getScene().updateActiveLayerForElem(e);
-          var t = this._document.getEditor(),
-            n = null,
+          var module = this._document.getEditor(),
+            require = null,
             o = false;
           if (
             (e instanceof a.GItem
-              ? (n = a.GItem)
-              : e instanceof a.GLayer && (n = a.GLayer),
-            n)
+              ? (require = a.GItem)
+              : e instanceof a.GLayer && (require = a.GLayer),
+            require)
           ) {
             if (
               (jQuery(
@@ -1154,21 +1154,21 @@ function (exports, module, require) {
                   !r.GPlatform.modifiers.shiftKey))
             )
               this._layerPanel.gLayerPanel("onlyUpdateStyle", true),
-                t.updateSelection(r.GPlatform.modifiers.metaKey, [e]),
+                module.updateSelection(r.GPlatform.modifiers.metaKey, [e]),
                 this._layerPanel.gLayerPanel("onlyUpdateStyle", false),
                 (o = true);
             else if (r.GPlatform.modifiers.shiftKey) {
-              var i = t.getSelection(),
+              var i = module.getSelection(),
                 s = null;
               if (i && i.length) {
                 for (var l = i.length - 1; l >= 0 && !s; --l)
-                  i[l] instanceof n && (s = i[l]);
+                  i[l] instanceof require && (s = i[l]);
                 if (s && s !== e) {
                   var c = [];
                   if (
                     (this._document.getScene().accept(
                       function (e) {
-                        return e instanceof n && c.push(e), true;
+                        return e instanceof require && c.push(e), true;
                       },
                       false,
                       true
@@ -1203,23 +1203,23 @@ function (exports, module, require) {
                     gDesigner.setSetting("auto_expand_layers", false),
                       d.length &&
                         (p > g && d.reverse(),
-                        t.updateSelection(false, d),
+                        module.updateSelection(false, d),
                         (o = true)),
                       setTimeout(function () {
                         gDesigner.setSetting("auto_expand_layers", v);
                       }, 50);
                   }
-                } else t.updateSelection(false, [e]), (o = true);
+                } else module.updateSelection(false, [e]), (o = true);
               }
             } else
               e.hasFlag(a.GNode.Flag.Selected) &&
                 (this._layerPanel.gLayerPanel("onlyUpdateStyle", true),
-                t.clearSelection(),
+                module.clearSelection(),
                 this._layerPanel.gLayerPanel("onlyUpdateStyle", false),
                 (o = true));
             if (o)
               if (r.GPlatform.modifiers.optionKey)
-                t.hasSelection()
+                module.hasSelection()
                   ? gDesigner.executeAction(f.ID, undefined, "outlinesidebar")
                   : gDesigner.executeAction(h.ID, undefined, "outlinesidebar");
               else if (
@@ -1296,5 +1296,5 @@ function (exports, module, require) {
       (x.prototype.toString = function () {
         return "[Object GOutlineSidebar]";
       }),
-      (e.exports = x);
+      (exports.exports = x);
   }

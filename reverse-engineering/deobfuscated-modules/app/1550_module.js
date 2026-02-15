@@ -5,17 +5,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */;
-    var i = n(1) /* module_1 */,
-      a = n(1163) /* module_1163 */,
-      r = o(n(1090) /* module_1090 */),
-      s = o(n(358) /* module_358 */),
-      l = n(40) /* module_40 */,
-      c = n(10) /* module_10 */;
-    const d = n(0) /* GObject */,
-      u = n(1551) /* module_1551 */,
-      p = n(1174) /* module_1174 */;
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(20) /* module_20 */, require(34) /* module_34 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */;
+    var i = require(1) /* module */,
+      a = require(1163) /* module_1163 */,
+      r = o(require(1090) /* module_1090 */),
+      s = o(require(358) /* module_358 */),
+      l = require(40) /* module_40 */,
+      c = require(10) /* module_10 */;
+    const d = require(0) /* GObject */,
+      u = require(1551) /* module_1551 */,
+      p = require(1174) /* module_1174 */;
     function g() {}
     d.inherit(g, u),
       (g.prototype.render = async function (e, t) {
@@ -26,7 +26,7 @@ function (exports, module, require) {
           .addClass("file-preview-container")
           .append($("<img/>").addClass("file-preview").attr("src", ""))
           .appendTo(e);
-        const t = $("<div/>").addClass("file-button-container").appendTo(e);
+        const module = $("<div/>").addClass("file-button-container").appendTo(e);
         $("<button/>")
           .gShareButton({
             clazz: "file-panel-share-button",
@@ -36,7 +36,7 @@ function (exports, module, require) {
             stats: "filespanel-view_infoPanel_share",
             restrictedStats: "filespanel-view_infoPanel_nonprotriespro-share",
           })
-          .appendTo(t)
+          .appendTo(module)
           .hide(),
           $("<div/>").addClass("file-name").appendTo(e),
           $("<div/>").addClass("file-created").appendTo(e);
@@ -86,7 +86,7 @@ function (exports, module, require) {
             .hide();
       }),
       (g.prototype._updateUIForFile = async function (e, t) {
-        const n = e.find(".share-button"),
+        const require = e.find(".share-button"),
           o = e.find(".comments-number"),
           d = e.find(".comments-label"),
           u = e.find(".collaborators-number"),
@@ -132,8 +132,8 @@ function (exports, module, require) {
         if (!v)
           return (
             h.hide(),
-            n.gShareButton("update", { disabled: true, isSharing: false }),
-            void n.attr(
+            require.gShareButton("update", { disabled: true, isSharing: false }),
+            void require.attr(
               "data-title",
               i.GLocale.get(
                 new i.GLocaleKey(
@@ -150,11 +150,11 @@ function (exports, module, require) {
           } = (0, l.getFileStateAndRole)(e, v, {})),
             !gDesigner.getApplicationManager().isShareEngineEnabled() ||
               (w && !C) ||
-              n.show(),
+              require.show(),
             h.show();
         }
         if (
-          (n.gShareButton("update", {
+          (require.gShareButton("update", {
             disabled: false,
             storeItem: y,
             isSharing: w,
@@ -163,7 +163,7 @@ function (exports, module, require) {
             },
             isPrivate: b,
           }),
-          n.removeAttr("data-title"),
+          require.removeAttr("data-title"),
           !w)
         )
           return (
@@ -182,24 +182,24 @@ function (exports, module, require) {
         S > 0 ? (m.show(), u.text(S)) : m.hide();
       }),
       (g.prototype._updateStatus = function (e, t) {
-        const n = e.find(".state");
+        const require = e.find(".state");
         switch (t) {
           case c.FileStatus.IN_REVIEW:
-            n.text(
+            require.text(
               i.GLocale.get(
                 new i.GLocaleKey("GReviewDockerProperties", "text.review-title")
               )
             );
             break;
           case c.FileStatus.REOPENED:
-            n.text(
+            require.text(
               i.GLocale.get(
                 new i.GLocaleKey("GReviewDockerProperties", "text.reopen-title")
               )
             );
             break;
           case c.FileStatus.AWAITING_APPROVAL:
-            n.text(
+            require.text(
               i.GLocale.get(
                 new i.GLocaleKey(
                   "GReviewDockerProperties",
@@ -209,7 +209,7 @@ function (exports, module, require) {
             );
             break;
           case c.FileStatus.APPROVED:
-            n.text(
+            require.text(
               i.GLocale.get(
                 new i.GLocaleKey(
                   "GReviewDockerProperties",
@@ -219,5 +219,5 @@ function (exports, module, require) {
             );
         }
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

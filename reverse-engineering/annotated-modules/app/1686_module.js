@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(8) /* module_8 */, n(20) /* module_20 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = n(44) /* GSystemDialog */,
       { DESIGNER: { TITLE: a } = {} } = n(10) /* module_10 */;
     e.exports = class {

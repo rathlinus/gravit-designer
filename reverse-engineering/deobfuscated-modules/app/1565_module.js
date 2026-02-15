@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(30) /* module_30 */, n(3) /* module_3 */;
-    const o = n(433) /* module_433 */;
+    require(30) /* module_30 */, require(3) /* module_3 */;
+    const o = require(433) /* module_433 */;
     function i() {
-      let e =
+      let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : {};
       Object.assign(
         this,
@@ -24,7 +24,7 @@ function (exports, module, require) {
           role: o.ROLES.NO_ACCESS_ROLE,
           realtimeCollaborators: [],
         },
-        e
+        exports
       );
     }
     (i.prototype.edit = false),
@@ -40,5 +40,5 @@ function (exports, module, require) {
       (i.prototype.toString = function () {
         return "Object [GShareState]";
       }),
-      (e.exports = i);
+      (exports.exports = i);
   }

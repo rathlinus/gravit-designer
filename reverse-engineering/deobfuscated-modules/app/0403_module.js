@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(184) /* module_184 */,
-      i = n(244) /* module_244 */,
-      a = n(101) /* module_101 */,
+    var o = require(184) /* module_184 */,
+      i = require(244) /* module_244 */,
+      a = require(101) /* module_101 */,
       r = function (e) {
         return function (t, n, r) {
           var s = o(t),
@@ -23,5 +23,5 @@ function (exports, module, require) {
           return !e && -1;
         };
       };
-    e.exports = { includes: r(true), indexOf: r(false) };
+    exports.exports = { includes: r(true), indexOf: r(false) };
   }

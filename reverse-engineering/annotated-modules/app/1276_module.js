@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(58) /* module_58 */, n(19) /* module_19 */, n(193) /* module_193 */, n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(34) /* module_34 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const {
         gApi: i,
         AUTO_SAVE_ENABLED: a,

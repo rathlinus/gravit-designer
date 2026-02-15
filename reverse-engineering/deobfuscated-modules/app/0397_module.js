@@ -5,15 +5,15 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(29) /* module_29 */,
-      i = n(46) /* module_46 */,
-      a = n(241) /* module_241 */,
-      r = n(145) /* module_145 */,
-      s = n(614) /* module_614 */,
-      l = n(43) /* module_43 */,
+    var o = require(29) /* module_29 */,
+      i = require(46) /* module_46 */,
+      a = require(241) /* module_241 */,
+      r = require(145) /* module_145 */,
+      s = require(614) /* module_614 */,
+      l = require(43) /* module_43 */,
       c = TypeError,
       d = l("toPrimitive");
-    e.exports = function (e, t) {
+    exports.exports = function (e, t) {
       if (!i(e) || a(e)) return e;
       var n,
         l = r(e, d);

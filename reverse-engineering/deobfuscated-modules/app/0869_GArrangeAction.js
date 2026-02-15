@@ -6,14 +6,14 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(10) /* module_10 */,
-      s = n(67) /* GRichTooltipConfig */,
-      l = n(18) /* module_18 */,
-      c = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(10) /* module_10 */,
+      s = require(67) /* GRichTooltipConfig */,
+      l = require(18) /* module_18 */,
+      c = require(31) /* GAction */;
     function d(e) {
       (this._type = e),
         (this._title = new i.GLocaleKey("GArrangeAction", "title." + e)),
@@ -126,5 +126,5 @@ function (exports, module, require) {
       (d.prototype.toString = function () {
         return "[Object GArrangeAction]";
       }),
-      (e.exports = d);
+      (exports.exports = d);
   }

@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(27) /* module_27 */,
-      a = n(65) /* module_65 */,
-      r = n(93) /* module_93 */,
-      s = n(101) /* module_101 */,
-      l = n(1038) /* module_1038 */,
-      c = n(62) /* module_62 */,
-      d = n(21) /* module_21 */,
-      u = n(351) /* module_351 */,
-      p = n(350) /* module_350 */,
-      g = n(521) /* module_521 */,
-      h = n(522) /* module_522 */,
-      f = n(213) /* module_213 */,
-      m = n(523) /* module_523 */,
+    var o = require(25) /* module_25 */,
+      i = require(27) /* module_27 */,
+      a = require(65) /* module_65 */,
+      r = require(93) /* module_93 */,
+      s = require(101) /* module_101 */,
+      l = require(1038) /* module_1038 */,
+      c = require(62) /* module_62 */,
+      d = require(21) /* module_21 */,
+      u = require(351) /* module_351 */,
+      p = require(350) /* module_350 */,
+      g = require(521) /* module_521 */,
+      h = require(522) /* module_522 */,
+      f = require(213) /* module_213 */,
+      m = require(523) /* module_523 */,
       y = [],
       v = i(y.sort),
       _ = i(y.push),
@@ -34,27 +34,27 @@ function (exports, module, require) {
         if (!(g && g > 3)) {
           if (h) return true;
           if (m) return m < 603;
-          var e,
-            t,
-            n,
+          var exports,
+            module,
+            require,
             o,
             i = "";
-          for (e = 65; e < 76; e++) {
-            switch (((t = String.fromCharCode(e)), e)) {
+          for (exports = 65; exports < 76; exports++) {
+            switch (((module = String.fromCharCode(exports)), exports)) {
               case 66:
               case 69:
               case 70:
               case 72:
-                n = 3;
+                require = 3;
                 break;
               case 68:
               case 71:
-                n = 4;
+                require = 4;
                 break;
               default:
-                n = 2;
+                require = 2;
             }
-            for (o = 0; o < 47; o++) y.push({ k: t + o, v: n });
+            for (o = 0; o < 47; o++) y.push({ k: module + o, v: require });
           }
           for (
             y.sort(function (e, t) {
@@ -64,7 +64,7 @@ function (exports, module, require) {
             o < y.length;
             o++
           )
-            (t = y[o].k.charAt(0)), i.charAt(i.length - 1) !== t && (i += t);
+            (module = y[o].k.charAt(0)), i.charAt(i.length - 1) !== module && (i += module);
           return "DGBEFHACIJK" !== i;
         }
       });

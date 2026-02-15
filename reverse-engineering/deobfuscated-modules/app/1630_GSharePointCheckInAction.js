@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(443) /* module_443 */);
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var i = require(1) /* module */,
+      a = o(require(443) /* module_443 */);
     const { isExecutingOnMSTeamsSync: r } = a.default;
-    var s = n(18) /* module_18 */,
-      l = n(31) /* GAction */;
-    const c = n(1152) /* module_1152 */,
-      d = n(44) /* GSystemDialog */,
-      u = n(1631) /* module_1631 */,
-      p = n(78) /* GDocumentEvent */;
+    var s = require(18) /* module_18 */,
+      l = require(31) /* GAction */;
+    const c = require(1152) /* module_1152 */,
+      d = require(44) /* GSystemDialog */,
+      u = require(1631) /* module_1631 */,
+      p = require(78) /* GDocumentEvent */;
     function g() {}
     i.GObject.inherit(g, l),
       (g.ID = "file.sharepoint-checkin"),
@@ -41,10 +41,10 @@ function (exports, module, require) {
       }),
       (g.prototype._isSupported = function () {
         if (!r()) return false;
-        const e = gDesigner.getActiveDocument();
-        if (!e) return false;
-        const t = e.getStorageItem();
-        return !!t && t instanceof c.Item;
+        const exports = gDesigner.getActiveDocument();
+        if (!exports) return false;
+        const module = exports.getStorageItem();
+        return !!module && module instanceof c.Item;
       }),
       (g.prototype.isVisible = function () {
         return this._isSupported();
@@ -77,5 +77,5 @@ function (exports, module, require) {
       (g.prototype.toString = function () {
         return "[Object GSharePointCheckInAction]";
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

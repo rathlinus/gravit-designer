@@ -3,8 +3,8 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = {
+function (exports, module) {
+    exports.exports = {
       nodeEnv: "production",
       isBeta: false,
       storeVendor: "",

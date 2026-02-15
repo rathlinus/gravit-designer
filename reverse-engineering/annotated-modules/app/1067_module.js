@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(290) /* module_290 */;
-    const { GObject: o, GLocale: i } = n(1) /* module_1 */,
+    const { GObject: o, GLocale: i } = n(1) /* module */,
       a = n(1068) /* module_1068 */;
     function r(e) {
       let {

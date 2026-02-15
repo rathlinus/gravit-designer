@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(123) /* GProperties */;
-    n(173) /* module_173 */;
+    require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(123) /* GProperties */;
+    require(173) /* module_173 */;
     function a() {
       this._ellipses = [];
     }
@@ -22,17 +22,17 @@ function (exports, module, require) {
         var t = function (e) {
           var t = this;
           if (0 === e.indexOf("etp-")) {
-            var n = "",
+            var require = "",
               i = parseInt(e.substr("etp-".length));
             switch (i) {
               case o.GEllipse.Type.Pie:
-                n = "gravit-icon-circle-pie";
+                require = "gravit-icon-circle-pie";
                 break;
               case o.GEllipse.Type.Chord:
-                n = "gravit-icon-ellipse-chord";
+                require = "gravit-icon-ellipse-chord";
                 break;
               case o.GEllipse.Type.Arc:
-                n = "gravit-icon-ellipse-arc";
+                require = "gravit-icon-ellipse-arc";
                 break;
               default:
                 throw new Error("");
@@ -54,7 +54,7 @@ function (exports, module, require) {
                   ),
                   i === o.GEllipse.Type.Arc && t._setBorderAlignmentCenter();
               })
-              .append($("<span></span>").addClass(n));
+              .append($("<span></span>").addClass(require));
           }
           if ("sa" === e || "ea" === e)
             return $("<input>")
@@ -142,8 +142,8 @@ function (exports, module, require) {
           (this._ellipses = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            t[n] instanceof o.GEllipse && this._ellipses.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            t[require] instanceof o.GEllipse && this._ellipses.push(t[require]);
           if (this._ellipses.length && this._ellipses.length === t.length)
             return (
               (this._document = e),
@@ -228,5 +228,5 @@ function (exports, module, require) {
       (a.prototype.toString = function () {
         return "[Object GEllipseProperties]";
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

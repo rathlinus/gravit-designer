@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(18) /* module_18 */,
-      r = n(873) /* GSplitPathAction */,
-      s = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(18) /* module_18 */,
+      r = require(873) /* GSplitPathAction */,
+      s = require(106) /* GElementAction */;
     function l() {}
     i.GObject.inherit(l, s),
       (l.ID = "modify.attachToPath"),
@@ -90,5 +90,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GAttachToPathAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
+    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */;
     function i(e, t, n, o, i, a, r, s, l, c) {
       (this._container = e),
         (this._renderer = t),
@@ -56,7 +56,7 @@ function (exports, module, require) {
       (i.prototype._afterInvalidationEnd = function (e) {}),
       (i.prototype.requestInvalidation = function (e, t) {
         if (null === this._invalidation) {
-          var n = $(this._container);
+          var require = $(this._container);
           if (!this._checkTreeSanity()) return;
           this._invalidation = setTimeout(() => {
             if (this._isInvalidationBlocked())
@@ -64,7 +64,7 @@ function (exports, module, require) {
                 (this._invalidation = null), void this.requestInvalidation(500)
               );
             this._beforeInvalidationStart(t).then(() => {
-              n.empty();
+              require.empty();
               let e = document.createDocumentFragment();
               for (let t = 0; t < this._nodes.length; t++) {
                 let n = this._newNode(this._nodes[t]),
@@ -74,7 +74,7 @@ function (exports, module, require) {
                     $(e).append($("<div/>").addClass("last-row-division")),
                   o && o.length && n.before(o);
               }
-              n.append(e),
+              require.append(e),
                 this._afterInvalidationEnd(),
                 (this._invalidation = null);
             });
@@ -131,17 +131,17 @@ function (exports, module, require) {
         else if (this._nodes.indexOf(t) >= 0)
           console.error("node already added");
         else {
-          var n = e ? e._depth : -1;
-          (t._depth = n + 1), this.insertNodeAfter(e, t);
+          var require = e ? e._depth : -1;
+          (t._depth = require + 1), this.insertNodeAfter(e, t);
         }
       }),
       (i.prototype.removeNode = function (e) {
         var t = this._nodes.indexOf(e);
         if (!(t < 0)) {
-          var n = $(this._container);
-          n.find("#" + this._nodes[t].id).remove(), this._nodes.splice(t, 1);
+          var require = $(this._container);
+          require.find("#" + this._nodes[t].id).remove(), this._nodes.splice(t, 1);
           for (var o = this._nodes[t]; o && e._depth < o._depth; )
-            n.find("#" + o.id).remove(),
+            require.find("#" + o.id).remove(),
               this._nodes.splice(t, 1),
               (o = this._nodes[t]);
         }
@@ -192,5 +192,5 @@ function (exports, module, require) {
         return null !== this._invalidation;
       }),
       (i.prototype.refresh = function () {}),
-      (e.exports = i);
+      (exports.exports = i);
   }

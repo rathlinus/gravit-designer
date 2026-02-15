@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     var o, i, a, r;
-    e.exports =
-      ((o = n(55) /* module_55 */),
+    exports.exports =
+      ((o = require(55) /* module_55 */),
       (a = (i = o).lib.Base),
       (r = i.enc.Utf8),
       void (i.algo.HMAC = a.extend({

@@ -957,7 +957,7 @@ function (e, t, n) {
                 return u.ParentAppWindow;
               },
             });
-          var p = n(15) /* module_15 */;
+          var p = n(15) /* module */;
           Object.defineProperty(t, "menus", {
             enumerable: !0,
             get: function () {
@@ -1077,7 +1077,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.authentication = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(7) /* GTransform */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */,
@@ -1321,7 +1321,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.settings = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
@@ -1434,7 +1434,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.logs = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(3) /* module_3 */;
           (t.logs || (t.logs = {})).registerGetLogHandler = function (e) {
@@ -1464,7 +1464,7 @@ function (e, t, n) {
               t.getUserJoinedTeams =
               t.initializePrivateApis =
                 void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
@@ -1572,7 +1572,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.menus = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(3) /* module_3 */;
           !(function (e) {
@@ -1631,7 +1631,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.ParentAppWindow = t.ChildAppWindow = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
@@ -1720,7 +1720,7 @@ function (e, t, n) {
             (t.media = void 0);
           var a = n(7) /* GTransform */,
             r = n(6) /* GRect */,
-            s = n(1) /* module_1 */,
+            s = n(1) /* module */,
             l = n(2) /* GNode */,
             c = n(5) /* GPoint */,
             d = n(18) /* module_18 */,
@@ -2059,7 +2059,7 @@ function (e, t, n) {
                 void 0);
           var o = n(17) /* GRGBColor */,
             i = n(4) /* module_4 */,
-            a = n(1) /* module_1 */;
+            a = n(1) /* module */;
           function r(e) {
             var t;
             return !(
@@ -2251,7 +2251,7 @@ function (e, t, n) {
               return i.logs;
             },
           });
-          var a = n(36) /* module_36 */;
+          var a = n(36) /* PartsPropertyVals */;
           Object.defineProperty(t, "NotificationTypes", {
             enumerable: !0,
             get: function () {
@@ -2357,7 +2357,7 @@ function (e, t, n) {
               return l.meetingRoom;
             },
           });
-          var c = n(39) /* module_39 */;
+          var c = n(39) /* PartInfo */;
           Object.defineProperty(t, "remoteCamera", {
             enumerable: !0,
             get: function () {
@@ -2378,7 +2378,7 @@ function (e, t, n) {
               return u.appEntity;
             },
           });
-          var p = n(42) /* module_42 */;
+          var p = n(42) /* module */;
           Object.defineProperty(t, "teams", {
             enumerable: !0,
             get: function () {
@@ -2391,7 +2391,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.bot = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */;
+            i = n(1) /* module */;
           !(function (e) {
             (e.sendQuery = function (e, t, n) {
               (0, i.ensureInitialized)(),
@@ -2429,7 +2429,7 @@ function (e, t, n) {
         },
         function (e, t, n) {
           var o = n(23) /* module_23 */,
-            i = n(24) /* module_24 */;
+            i = n(24) /* GEditorOptions */;
           ((n = i).v1 = o), (n.v4 = i), (e.exports = n);
         },
         function (e, t, n) {
@@ -2496,7 +2496,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.appInitialization = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(4) /* module_4 */,
             a = n(0) /* GObject */;
           !(function (e) {
@@ -2568,7 +2568,7 @@ function (e, t, n) {
               t._initialize =
               t.initialize =
                 void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(7) /* GTransform */,
             a = n(4) /* module_4 */,
             r = n(12) /* GMath */,
@@ -2578,7 +2578,7 @@ function (e, t, n) {
             d = n(0) /* GObject */,
             u = n(11) /* GUtil */,
             p = n(14) /* GPaintCanvas */,
-            g = n(15) /* module_15 */,
+            g = n(15) /* module */,
             h = n(3) /* module_3 */;
           function f(e, t) {
             i.GlobalVars.initializeCalled ||
@@ -2750,7 +2750,7 @@ function (e, t, n) {
               t.navigateToTab =
               t.returnFocus =
                 void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(5) /* GPoint */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */;
@@ -2829,7 +2829,7 @@ function (e, t, n) {
           var i = n(2) /* GNode */,
             a = n(16) /* module_16 */,
             r = n(0) /* GObject */,
-            s = n(1) /* module_1 */;
+            s = n(1) /* module */;
           !(function (e) {
             (e.startTask = function (e, t) {
               return (
@@ -2877,7 +2877,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.location = void 0);
           var o = n(6) /* GRect */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */,
             s = n(4) /* module_4 */;
@@ -2924,7 +2924,7 @@ function (e, t, n) {
             (t.meeting = void 0);
           var o = n(0) /* GObject */,
             i = n(3) /* module_3 */,
-            a = n(1) /* module_1 */,
+            a = n(1) /* module */,
             r = n(2) /* GNode */;
           !(function (e) {
             !(function (e) {
@@ -3101,7 +3101,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.monetization = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */;
           (t.monetization || (t.monetization = {})).openPurchaseExperience =
             function (e, t) {
@@ -3121,7 +3121,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.people = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(6) /* GRect */,
             r = n(18) /* module_18 */,
@@ -3146,7 +3146,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.video = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */,
             r = n(3) /* module_3 */;
           !(function (e) {
@@ -3189,7 +3189,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.sharing = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(6) /* GRect */,
             r = n(2) /* GNode */;
@@ -3271,7 +3271,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.stageView = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */;
           (t.stageView || (t.stageView = {})).open = function (e, t) {
             if (((0, i.ensureInitialized)(a.FrameContexts.content), !e))
@@ -3304,7 +3304,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.conversations = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(0) /* GObject */,
             r = n(3) /* module_3 */;
@@ -3363,7 +3363,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.meetingRoom = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(3) /* module_3 */;
           !(function (e) {
@@ -3434,7 +3434,7 @@ function (e, t, n) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.remoteCamera = void 0);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(0) /* GObject */,
             r = n(3) /* module_3 */;
@@ -3568,7 +3568,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.files = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(8) /* module_8 */;
           !(function (e) {
             !(function (e) {
@@ -3770,7 +3770,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.appEntity = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(8) /* module_8 */;
           (t.appEntity || (t.appEntity = {})).selectAppEntity = function (
             e,
@@ -3801,7 +3801,7 @@ function (e, t, n) {
           Object.defineProperty(t, "__esModule", { value: !0 }),
             (t.teams = void 0);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(8) /* module_8 */;
           !(function (e) {
             !(function (e) {

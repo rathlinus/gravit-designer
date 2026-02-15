@@ -6,18 +6,18 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(57) /* module_57 */, n(20) /* module_20 */, n(107) /* module_107 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var i = n(53) /* module_53 */,
-      a = n(1) /* module_1 */,
-      r = n(67) /* GRichTooltipConfig */,
-      s = o(n(340) /* GTouchTool */),
-      l = n(866) /* GAlignAction */,
-      c = n(867) /* GDistributeAction */,
-      d = n(123) /* GProperties */,
-      u = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */),
-      p = n(257) /* module_257 */,
-      g = n(1295) /* GSnapUnitAction */;
+    var o = require(16) /* module_16 */;
+    require(57) /* module_57 */, require(20) /* module_20 */, require(107) /* module_107 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var i = require(53) /* module */,
+      a = require(1) /* module */,
+      r = require(67) /* GRichTooltipConfig */,
+      s = o(require(340) /* GTouchTool */),
+      l = require(866) /* GAlignAction */,
+      c = require(867) /* GDistributeAction */,
+      d = require(123) /* GProperties */,
+      u = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */),
+      p = require(257) /* module_257 */,
+      g = require(1295) /* GSnapUnitAction */;
     function h() {
       this._elements = [];
     }
@@ -906,10 +906,10 @@ function (exports, module, require) {
           $(this._panel).find(".anchor-panel").css("display", "none"),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            !t[n].hasMixin(a.GElement.Transform) ||
-              t[n] instanceof a.GPage ||
-              this._elements.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            !t[require].hasMixin(a.GElement.Transform) ||
+              t[require] instanceof a.GPage ||
+              this._elements.push(t[require]);
           if (this._elements.length && this._elements.length === t.length)
             return (
               (this._document = e),
@@ -1105,7 +1105,7 @@ function (exports, module, require) {
       }),
       (h.prototype._assignDimension = function (e, t) {
         if (this._document) {
-          var n = null,
+          var require = null,
             o = null,
             r = "",
             s = this._getCurrentDimensions(false, false);
@@ -1113,7 +1113,7 @@ function (exports, module, require) {
             case "x":
             case "y":
               (r = "Move"),
-                (n = this._document.getScene().stringToPoint(t)),
+                (require = this._document.getScene().stringToPoint(t)),
                 (o = s ? ("x" == e ? s.x : s.y) : null);
               break;
             case "w":
@@ -1121,21 +1121,21 @@ function (exports, module, require) {
               (r = a.GLocale.get(
                 new a.GLocaleKey("GDimensionProperties", "action.change-size")
               )),
-                (n = this._document.getScene().stringToPoint(t)),
+                (require = this._document.getScene().stringToPoint(t)),
                 (o = s ? ("w" == e ? s.w : s.h) : null);
               break;
             case "rotate":
               (r = a.GLocale.get(
                 new a.GLocaleKey("GCommonNames", "action.rotate")
               )),
-                (n = a.GLength.parseEquationValue(t)),
+                (require = a.GLength.parseEquationValue(t)),
                 (o = s ? s.angle : null);
           }
           if (
-            null === n ||
-            "number" != typeof n ||
-            (("w" == e || "h" == e) && n <= 0) ||
-            n === o
+            null === require ||
+            "number" != typeof require ||
+            (("w" == e || "h" == e) && require <= 0) ||
+            require === o
           )
             this._updateDimensions();
           else {
@@ -1143,10 +1143,10 @@ function (exports, module, require) {
               var l = this._getDelta();
               switch (e) {
                 case "x":
-                  n += l.getX();
+                  require += l.getX();
                   break;
                 case "y":
-                  n += l.getY();
+                  require += l.getY();
               }
             }
             var c = function (t, o, i) {
@@ -1160,10 +1160,10 @@ function (exports, module, require) {
                     s = 1;
                   switch (e) {
                     case "w":
-                      (r = n / t.getWidth()), o && (s = r);
+                      (r = require / t.getWidth()), o && (s = r);
                       break;
                     case "h":
-                      (s = n / t.getHeight()), o && (r = s);
+                      (s = require / t.getHeight()), o && (r = s);
                   }
                   return new a.GTransform()
                     .translated(-t.getX(), -t.getY())
@@ -1171,15 +1171,15 @@ function (exports, module, require) {
                     .translated(t.getX(), t.getY());
                 }
                 if ("x" === e)
-                  return new a.GTransform().translated(n - t.getX(), 0);
+                  return new a.GTransform().translated(require - t.getX(), 0);
                 if ("y" === e)
-                  return new a.GTransform().translated(0, n - t.getY());
+                  return new a.GTransform().translated(0, require - t.getY());
                 if ("rotate" === e) {
                   var l = t.getSide(a.GRect.Side.CENTER);
                   i = i || 0;
                   return new a.GTransform()
                     .translated(-l.getX(), -l.getY())
-                    .rotated(i - a.GMath.toRadians(n))
+                    .rotated(i - a.GMath.toRadians(require))
                     .translated(l.getX(), l.getY());
                 }
               },
@@ -1235,43 +1235,43 @@ function (exports, module, require) {
         }
       }),
       (h.prototype._showAnchor = function () {
-        for (var e = this._elements, t = true, n = 0; n < e.length; ++n)
+        for (var exports = this._elements, module = true, require = 0; require < exports.length; ++require)
           if (
-            !e[n].getParent() ||
-            !e[n].getParent().hasMixin(a.GElement.Layout)
+            !exports[require].getParent() ||
+            !exports[require].getParent().hasMixin(a.GElement.Layout)
           ) {
-            t = false;
+            module = false;
             break;
           }
-        return t;
+        return module;
       }),
       (h.prototype._getHorizontalAnchorValue = function () {
         for (
-          var e = this._elements,
-            t = e[0].getProperty("hacr") ? e[0].getProperty("hacr") : 0,
-            n = 0;
-          n < e.length;
-          ++n
+          var exports = this._elements,
+            module = exports[0].getProperty("hacr") ? exports[0].getProperty("hacr") : 0,
+            require = 0;
+          require < exports.length;
+          ++require
         )
-          if (e[n].getProperty("hacr") !== t) {
-            t = 0;
+          if (exports[require].getProperty("hacr") !== module) {
+            module = 0;
             break;
           }
-        return t;
+        return module;
       }),
       (h.prototype._getVerticalAnchorValue = function () {
         for (
-          var e = this._elements,
-            t = e[0].getProperty("vacr") ? e[0].getProperty("vacr") : 0,
-            n = 0;
-          n < e.length;
-          ++n
+          var exports = this._elements,
+            module = exports[0].getProperty("vacr") ? exports[0].getProperty("vacr") : 0,
+            require = 0;
+          require < exports.length;
+          ++require
         )
-          if (e[n].getProperty("vacr") !== t) {
-            t = 0;
+          if (exports[require].getProperty("vacr") !== module) {
+            module = 0;
             break;
           }
-        return t;
+        return module;
       }),
       (h.prototype._defineAnchorButtonState = function (e, t) {
         null !== e &&
@@ -1388,8 +1388,8 @@ function (exports, module, require) {
       }),
       (h.prototype._assignAnchorProperty = function (e, t) {
         if (this._document) {
-          var n = this._document.getEditor();
-          n.beginTransaction();
+          var require = this._document.getEditor();
+          require.beginTransaction();
           try {
             for (var o = 0; o < this._elements.length; ++o) {
               var r = this._elements[o];
@@ -1400,7 +1400,7 @@ function (exports, module, require) {
               }
             }
           } finally {
-            n.commitTransaction(
+            require.commitTransaction(
               a.GLocale.get(
                 new a.GLocaleKey("GDimensionProperties", "action.change-anchor")
               )
@@ -1414,5 +1414,5 @@ function (exports, module, require) {
       (h.prototype.toString = function () {
         return "[Object GDimensionProperties]";
       }),
-      (e.exports = h);
+      (exports.exports = h);
   }

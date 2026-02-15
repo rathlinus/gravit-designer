@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(157) /* module_157 */,
+    var o = require(157) /* module_157 */,
       i = Math.floor,
       a = function (e, t) {
         var n = e.length;
@@ -36,5 +36,5 @@ function (exports, module, require) {
                 : u[f++];
         return e;
       };
-    e.exports = a;
+    exports.exports = a;
   }

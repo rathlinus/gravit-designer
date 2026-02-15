@@ -10,14 +10,14 @@ function (exports, module, require) {
         return this.each(function () {
           $(this).on("scroll", function () {
             if (gDesigner.isTouchEnabled()) {
-              var t = $(this)[0].scrollTop,
-                n =
+              var module = $(this)[0].scrollTop,
+                require =
                   "light" == gDesigner.getSetting("theme")
                     ? "DFDFDF"
                     : "2E2E2E";
-              (t = t > 20 ? 20 : t),
+              (module = module > 20 ? 20 : module),
                 $(e).css({
-                  "box-shadow": "0 ".concat(t, "px 20px -5px #").concat(n),
+                  "box-shadow": "0 ".concat(module, "px 20px -5px #").concat(require),
                 });
             }
           });

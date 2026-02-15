@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(53) /* module_53 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(123) /* GProperties */,
-      s = (n(173) /* module_173 */, n(135) /* GSettingChangedEvent */);
+    require(57) /* module_57 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(53) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(123) /* GProperties */,
+      s = (require(173) /* module_173 */, require(135) /* GSettingChangedEvent */);
     function l() {
       this._rectangles = [];
     }
@@ -392,8 +392,8 @@ function (exports, module, require) {
           (this._rectangles = []),
           e)
         ) {
-          for (var n = 0; n < t.length; ++n)
-            t[n] instanceof o.GRectangle && this._rectangles.push(t[n]);
+          for (var require = 0; require < t.length; ++require)
+            t[require] instanceof o.GRectangle && this._rectangles.push(t[require]);
           if (this._rectangles.length && this._rectangles.length === t.length)
             return (
               (this._document = e),
@@ -563,5 +563,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GRectangleProperties]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

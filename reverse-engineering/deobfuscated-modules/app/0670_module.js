@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(25) /* module_25 */,
-      i = n(29) /* module_29 */,
-      a = n(121) /* module_121 */,
-      r = n(65) /* module_65 */,
-      s = n(37) /* module_37 */,
-      l = n(143) /* module_143 */,
-      c = n(102) /* module_102 */,
-      d = n(149) /* module_149 */("forEach", TypeError);
+    var o = require(25) /* module_25 */,
+      i = require(29) /* module_29 */,
+      a = require(121) /* module_121 */,
+      r = require(65) /* module_65 */,
+      s = require(37) /* module_37 */,
+      l = require(143) /* module_143 */,
+      c = require(102) /* module_102 */,
+      d = require(149) /* module_149 */("forEach", TypeError);
     o(
       { target: "Iterator", proto: true, real: true, forced: d },
       {

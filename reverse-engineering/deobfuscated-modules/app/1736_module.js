@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    n(91) /* module_91 */;
+    require(91) /* module_91 */;
     const o = {
       init: function () {
         return (
           this.each(function () {
-            const e = $(this).addClass("g-share-user-input");
+            const exports = $(this).addClass("g-share-user-input");
             $("<input>")
               .attr("type", "email")
               .keypress((e) => {
-                const t = e.keyCode ? e.keyCode : e.which;
+                const module = e.keyCode ? e.keyCode : e.which;
                 if (
-                  ((32 != t && 13 != t) ||
+                  ((32 != module && 13 != module) ||
                     (e.stopPropagation(), e.preventDefault()),
-                  13 == t)
+                  13 == module)
                 ) {
                   const t = $(e.target).closest("input"),
                     n = t.val();
@@ -41,7 +41,7 @@ function (exports, module, require) {
                   );
                 }
               })
-              .appendTo(e);
+              .appendTo(exports);
           }),
           this
         );

@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     var o;
-    e.exports =
-      ((o = n(55) /* module_55 */),
-      n(382) /* module_382 */,
+    exports.exports =
+      ((o = require(55) /* module_55 */),
+      require(382) /* module_382 */,
       (function (e) {
         var t = o,
           n = t.lib,

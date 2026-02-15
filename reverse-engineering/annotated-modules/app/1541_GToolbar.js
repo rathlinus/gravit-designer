@@ -22,9 +22,9 @@ function (module, exports, __webpack_require__) {
       __webpack_require__(32) /* module_32 */,
       __webpack_require__(33) /* module_33 */,
       __webpack_require__(26) /* module_26 */;
-    var _editor = __webpack_require__(53) /* module_53 */,
-      _core = __webpack_require__(1) /* module_1 */,
-      _client = __webpack_require__(15) /* module_15 */,
+    var _editor = __webpack_require__(53) /* module */,
+      _core = __webpack_require__(1) /* module */,
+      _client = __webpack_require__(15) /* module */,
       _config = __webpack_require__(10) /* module_10 */,
       _richtooltipconfig = __webpack_require__(67) /* GRichTooltipConfig */;
     const GCategory = __webpack_require__(18) /* module_18 */,
@@ -1058,9 +1058,9 @@ function (module, exports, __webpack_require__) {
                     .closest(".toolbar-button")
                     .data("code");
                   function evaled() {
-                    var core = __webpack_require__(1) /* module_1 */,
-                      editor = __webpack_require__(53) /* module_53 */,
-                      client = __webpack_require__(15) /* module_15 */;
+                    var core = __webpack_require__(1) /* module */,
+                      editor = __webpack_require__(53) /* module */,
+                      client = __webpack_require__(15) /* module */;
                     eval("(" + code + ")")(
                       gDesigner.getActiveDocument().getEditor().getSelection(),
                       gDesigner.getActiveDocument().getScene(),

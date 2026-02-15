@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    const o = n(257) /* module_257 */;
-    e.exports = {
+    const o = require(257) /* module_257 */;
+    exports.exports = {
       NEWDOCUMENTDIALOG: { HR_UNDER_PRESETS: false },
       OFFLINEDIALOG: { HAS_FOOTER: true },
       PATHPROPERTIES: { PATH_JOIN_CLASS: "" },

@@ -10,19 +10,19 @@ function (exports, module, require) {
       (a = function () {
         return (function (e) {
           var t = {};
-          function n(o) {
+          function require(o) {
             if (t[o]) return t[o].exports;
             var i = (t[o] = { i: o, l: false, exports: {} });
-            return e[o].call(i.exports, i, i.exports, n), (i.l = true), i.exports;
+            return e[o].call(i.exports, i, i.exports, require), (i.l = true), i.exports;
           }
           return (
-            (n.m = e),
-            (n.c = t),
-            (n.d = function (e, t, o) {
-              n.o(e, t) ||
+            (require.m = e),
+            (require.c = t),
+            (require.d = function (e, t, o) {
+              require.o(e, t) ||
                 Object.defineProperty(e, t, { enumerable: true, get: o });
             }),
-            (n.r = function (e) {
+            (require.r = function (e) {
               "undefined" != typeof Symbol &&
                 Symbol.toStringTag &&
                 Object.defineProperty(e, Symbol.toStringTag, {
@@ -30,12 +30,12 @@ function (exports, module, require) {
                 }),
                 Object.defineProperty(e, "__esModule", { value: true });
             }),
-            (n.t = function (e, t) {
-              if ((1 & t && (e = n(e)), 8 & t)) return e;
+            (require.t = function (e, t) {
+              if ((1 & t && (e = require(e)), 8 & t)) return e;
               if (4 & t && "object" == typeof e && e && e.__esModule) return e;
               var o = Object.create(null);
               if (
-                (n.r(o),
+                (require.r(o),
                 Object.defineProperty(o, "default", {
                   enumerable: true,
                   value: e,
@@ -43,7 +43,7 @@ function (exports, module, require) {
                 2 & t && "string" != typeof e)
               )
                 for (var i in e)
-                  n.d(
+                  require.d(
                     o,
                     i,
                     function (t) {
@@ -52,7 +52,7 @@ function (exports, module, require) {
                   );
               return o;
             }),
-            (n.n = function (e) {
+            (require.n = function (e) {
               var t =
                 e && e.__esModule
                   ? function () {
@@ -61,27 +61,27 @@ function (exports, module, require) {
                   : function () {
                       return e;
                     };
-              return n.d(t, "a", t), t;
+              return require.d(t, "a", t), t;
             }),
-            (n.o = function (e, t) {
+            (require.o = function (e, t) {
               return Object.prototype.hasOwnProperty.call(e, t);
             }),
-            (n.p = ""),
-            n((n.s = 0))
+            (require.p = ""),
+            require((require.s = 0))
           );
         })([
           function (e, t, n) {
             "use strict";
-            var o = n(1) /* module_1 */,
+            var o = n(1) /* module */,
               i = n(146) /* module_146 */,
               a = n(162) /* GPathsGraph */,
               r = n(163) /* module_163 */,
               s = n(151) /* module_151 */,
-              l = n(164) /* module_164 */,
-              c = n(154) /* module_154 */,
-              d = n(155) /* module_155 */,
+              l = n(164) /* module */,
+              c = n(154) /* LabelHolder */,
+              d = n(155) /* module */,
               u = n(156) /* module_156 */,
-              p = n(153) /* module_153 */;
+              p = n(153) /* module */;
             if (n(4) /* module_4 */()) {
               var g = n(165) /* module_165 */.PDFNodeStream;
               i.setPDFNetworkStreamFactory(function (e) {
@@ -1243,7 +1243,7 @@ function (exports, module, require) {
             "use strict";
             var o = n(11) /* GUtil */,
               i = n(19) /* module_19 */;
-            e.exports = n(15) /* module_15 */
+            e.exports = n(15) /* module */
               ? function (e, t, n) {
                   return o.f(e, t, i(1, n));
                 }
@@ -1257,7 +1257,7 @@ function (exports, module, require) {
               i = n(14) /* GPaintCanvas */,
               a = n(18) /* module_18 */,
               r = Object.defineProperty;
-            t.f = n(15) /* module_15 */
+            t.f = n(15) /* module */
               ? Object.defineProperty
               : function (e, t, n) {
                   if ((o(e), (t = a(t, true)), o(n), i))
@@ -1302,7 +1302,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             e.exports =
-              !n(15) /* module_15 */ &&
+              !n(15) /* module */ &&
               !n(16) /* module_16 */(function () {
                 return (
                   7 !=
@@ -1430,7 +1430,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(24) /* module_24 */;
+            var o = n(24) /* GEditorOptions */;
             e.exports = function (e, t, n) {
               if ((o(e), undefined === t)) return e;
               switch (n) {
@@ -1554,7 +1554,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(36) /* module_36 */, (e.exports = n(9) /* GLocale */.String.endsWith);
+            n(36) /* PartsPropertyVals */, (e.exports = n(9) /* GLocale */.String.endsWith);
           },
           function (e, t, n) {
             "use strict";
@@ -1607,7 +1607,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(42) /* module_42 */,
+            var o = n(42) /* module */,
               i = n(25) /* module_25 */,
               a = n(44) /* GSystemDialog */;
             e.exports = function (e) {
@@ -1791,7 +1791,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(52) /* module_52 */,
+            var o = n(52) /* module */,
               i = n(19) /* module_19 */,
               a = n(59) /* GVertexInfo */,
               r = {};
@@ -1805,7 +1805,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(12) /* GMath */,
-              i = n(53) /* module_53 */,
+              i = n(53) /* module */,
               a = n(57) /* module_57 */,
               r = n(56) /* GShape */("IE_PROTO"),
               s = function () {},
@@ -1847,7 +1847,7 @@ function (exports, module, require) {
             var o = n(11) /* GUtil */,
               i = n(12) /* GMath */,
               a = n(54) /* GVertexContainer */;
-            e.exports = n(15) /* module_15 */
+            e.exports = n(15) /* module */
               ? Object.defineProperties
               : function (e, t) {
                   i(e);
@@ -1869,7 +1869,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(21) /* module_21 */,
-              i = n(42) /* module_42 */,
+              i = n(42) /* module */,
               a = n(41) /* module_41 */(false),
               r = n(56) /* GShape */("IE_PROTO");
             e.exports = function (e, t) {
@@ -1949,10 +1949,10 @@ function (exports, module, require) {
               i = n(7) /* GTransform */,
               a = n(61) /* module_61 */,
               r = n(63) /* GVertexTransformer */,
-              s = n(64) /* module_64 */,
+              s = n(64) /* module */,
               l = n(25) /* module_25 */,
               c = n(65) /* module_65 */,
-              d = n(66) /* module_66 */;
+              d = n(66) /* EdTransformOptions */;
             i(
               i.S +
                 i.F *
@@ -2165,7 +2165,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(77) /* module_77 */, (e.exports = n(9) /* GLocale */.Number.isNaN);
+            n(77) /* Wheel */, (e.exports = n(9) /* GLocale */.Number.isNaN);
           },
           function (e, t, n) {
             "use strict";
@@ -2195,11 +2195,11 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(82) /* module_82 */,
+            n(82) /* SavePoint */,
               n(47) /* GLocaleKey */,
               n(83) /* GPage */,
               n(86) /* module_86 */,
-              n(99) /* module_99 */,
+              n(99) /* module */,
               n(100) /* module_100 */,
               (e.exports = n(9) /* GLocale */.Promise);
           },
@@ -2283,7 +2283,7 @@ function (exports, module, require) {
             var o = n(45) /* GPathBase */,
               i = n(85) /* GContainer */,
               a = n(50) /* GPattern */,
-              r = n(42) /* module_42 */;
+              r = n(42) /* module */;
             (e.exports = n(49) /* module_49 */(
               Array,
               "Array",
@@ -2323,11 +2323,11 @@ function (exports, module, require) {
               d = n(67) /* GRichTooltipConfig */,
               u = n(7) /* GTransform */,
               p = n(13) /* module_13 */,
-              g = n(24) /* module_24 */,
+              g = n(24) /* GEditorOptions */,
               h = n(87) /* GVertexSource */,
               f = n(88) /* module_88 */,
-              m = n(89) /* module_89 */,
-              y = n(90) /* module_90 */.set,
+              m = n(89) /* module */,
+              y = n(90) /* Container */.set,
               v = n(92) /* module_92 */(),
               _ = n(93) /* module_93 */,
               b = n(94) /* module_94 */,
@@ -2588,10 +2588,10 @@ function (exports, module, require) {
             "use strict";
             var o = n(23) /* module_23 */,
               i = n(63) /* GVertexTransformer */,
-              a = n(64) /* module_64 */,
+              a = n(64) /* module */,
               r = n(12) /* GMath */,
               s = n(25) /* module_25 */,
-              l = n(66) /* module_66 */,
+              l = n(66) /* EdTransformOptions */,
               c = {},
               d = {},
               u = (e.exports = function (e, t, n, u, p) {
@@ -2624,7 +2624,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(12) /* GMath */,
-              i = n(24) /* module_24 */,
+              i = n(24) /* GEditorOptions */,
               a = n(30) /* module_30 */("species");
             e.exports = function (e, t) {
               var n,
@@ -2730,7 +2730,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(8) /* module_8 */,
-              i = n(90) /* module_90 */.set,
+              i = n(90) /* Container */.set,
               a = o.MutationObserver || o.WebKitMutationObserver,
               r = o.process,
               s = o.Promise,
@@ -2781,7 +2781,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(24) /* module_24 */;
+            var o = n(24) /* GEditorOptions */;
             function i(e) {
               var t, n;
               (this.promise = new e(function (e, o) {
@@ -2834,7 +2834,7 @@ function (exports, module, require) {
             "use strict";
             var o = n(8) /* module_8 */,
               i = n(11) /* GUtil */,
-              a = n(15) /* module_15 */,
+              a = n(15) /* module */,
               r = n(30) /* module_30 */("species");
             e.exports = function (e) {
               var t = o[e];
@@ -2854,7 +2854,7 @@ function (exports, module, require) {
             var o = n(7) /* GTransform */,
               i = n(9) /* GLocale */,
               a = n(8) /* module_8 */,
-              r = n(89) /* module_89 */,
+              r = n(89) /* module */,
               s = n(96) /* module_96 */;
             o(o.P + o.R, "Promise", {
               finally: function (e) {
@@ -2894,12 +2894,12 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(82) /* module_82 */, n(83) /* GPage */, n(102) /* module_102 */, n(114) /* module_114 */, n(116) /* module_116 */, (e.exports = n(9) /* GLocale */.WeakMap);
+            n(82) /* SavePoint */, n(83) /* GPage */, n(102) /* module_102 */, n(114) /* module_114 */, n(116) /* module_116 */, (e.exports = n(9) /* GLocale */.WeakMap);
           },
           function (e, t, n) {
             "use strict";
             var o,
-              i = n(103) /* module_103 */(0),
+              i = n(103) /* module */(0),
               a = n(20) /* module_20 */,
               r = n(107) /* module_107 */,
               s = n(71) /* module_71 */,
@@ -2998,7 +2998,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            var o = n(105) /* module_105 */;
+            var o = n(105) /* module */;
             e.exports = function (e, t) {
               return new (o(e))(t);
             };
@@ -3099,7 +3099,7 @@ function (exports, module, require) {
               r = n(13) /* module_13 */,
               s = n(87) /* GVertexSource */,
               l = n(88) /* module_88 */,
-              c = n(103) /* module_103 */,
+              c = n(103) /* module */,
               d = n(21) /* module_21 */,
               u = n(109) /* module_109 */,
               p = c(5),
@@ -3272,7 +3272,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(13) /* module_13 */,
-              i = n(112) /* module_112 */.set;
+              i = n(112) /* module */.set;
             e.exports = function (e, t, n) {
               var a,
                 r = t.constructor;
@@ -3322,12 +3322,12 @@ function (exports, module, require) {
             "use strict";
             var o = n(73) /* GRectangle */,
               i = n(19) /* module_19 */,
-              a = n(42) /* module_42 */,
+              a = n(42) /* module */,
               r = n(18) /* module_18 */,
               s = n(21) /* module_21 */,
               l = n(14) /* GPaintCanvas */,
               c = Object.getOwnPropertyDescriptor;
-            t.f = n(15) /* module_15 */
+            t.f = n(15) /* module */
               ? c
               : function (e, t) {
                   if (((e = a(e)), (t = r(t, true)), l))
@@ -3339,7 +3339,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(115) /* module_115 */("WeakMap");
+            n(115) /* module */("WeakMap");
           },
           function (e, t, n) {
             "use strict";
@@ -3361,7 +3361,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(24) /* module_24 */,
+              i = n(24) /* GEditorOptions */,
               a = n(23) /* module_23 */,
               r = n(88) /* module_88 */;
             e.exports = function (e) {
@@ -3393,7 +3393,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(82) /* module_82 */, n(83) /* GPage */, n(119) /* module_119 */, n(120) /* module_120 */, n(121) /* module_121 */, (e.exports = n(9) /* GLocale */.WeakSet);
+            n(82) /* SavePoint */, n(83) /* GPage */, n(119) /* module_119 */, n(120) /* module_120 */, n(121) /* module_121 */, (e.exports = n(9) /* GLocale */.WeakSet);
           },
           function (e, t, n) {
             "use strict";
@@ -3418,7 +3418,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(115) /* module_115 */("WeakSet");
+            n(115) /* module */("WeakSet");
           },
           function (e, t, n) {
             "use strict";
@@ -3465,7 +3465,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(127) /* module_127 */, n(82) /* module_82 */, (e.exports = n(9) /* GLocale */.Symbol);
+            n(127) /* module */, n(82) /* SavePoint */, (e.exports = n(9) /* GLocale */.Symbol);
           },
           function (e, t, n) {
             "use strict";
@@ -3487,7 +3487,7 @@ function (exports, module, require) {
             }
             var i = n(8) /* module_8 */,
               a = n(21) /* module_21 */,
-              r = n(15) /* module_15 */,
+              r = n(15) /* module */,
               s = n(7) /* GTransform */,
               l = n(20) /* module_20 */,
               c = n(107) /* module_107 */.KEY,
@@ -3496,16 +3496,16 @@ function (exports, module, require) {
               p = n(59) /* GVertexInfo */,
               g = n(22) /* GElement */,
               h = n(30) /* module_30 */,
-              f = n(128) /* module_128 */,
+              f = n(128) /* module */,
               m = n(129) /* module_129 */,
               y = n(130) /* module_130 */,
               v = n(106) /* GElementAction */,
               _ = n(12) /* GMath */,
               b = n(13) /* module_13 */,
-              w = n(42) /* module_42 */,
+              w = n(42) /* module */,
               C = n(18) /* module_18 */,
               x = n(19) /* module_19 */,
-              S = n(52) /* module_52 */,
+              S = n(52) /* module */,
               E = n(131) /* module_131 */,
               A = n(113) /* GCompoundPath */,
               T = n(11) /* GUtil */,
@@ -3732,7 +3732,7 @@ function (exports, module, require) {
             var o = n(8) /* module_8 */,
               i = n(9) /* GLocale */,
               a = n(32) /* module_32 */,
-              r = n(128) /* module_128 */,
+              r = n(128) /* module */,
               s = n(11) /* GUtil */.f;
             e.exports = function (e) {
               var t = i.Symbol || (i.Symbol = a ? {} : o.Symbol || {});
@@ -3771,7 +3771,7 @@ function (exports, module, require) {
                         : typeof e;
                     })(e);
             }
-            var i = n(42) /* module_42 */,
+            var i = n(42) /* module */,
               a = n(132) /* GLength */.f,
               r = {}.toString,
               s =
@@ -3883,12 +3883,12 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            n(140) /* module_140 */, (e.exports = n(9) /* GLocale */.Object.values);
+            n(140) /* module */, (e.exports = n(9) /* GLocale */.Object.values);
           },
           function (e, t, n) {
             "use strict";
             var o = n(7) /* GTransform */,
-              i = n(141) /* module_141 */(false);
+              i = n(141) /* module */(false);
             o(o.S, "Object", {
               values: function (e) {
                 return i(e);
@@ -3898,7 +3898,7 @@ function (exports, module, require) {
           function (e, t, n) {
             "use strict";
             var o = n(54) /* GVertexContainer */,
-              i = n(42) /* module_42 */,
+              i = n(42) /* module */,
               a = n(73) /* GRectangle */.f;
             e.exports = function (e) {
               return function (t) {
@@ -4004,7 +4004,7 @@ function (exports, module, require) {
                               ? "symbol"
                               : o(e);
                           },
-                    a = n(1) /* module_1 */.assert;
+                    a = n(1) /* module */.assert;
                   function r(e) {
                     return (
                       "string" == typeof e ||
@@ -4165,7 +4165,7 @@ function (exports, module, require) {
                     s = a.PromiseInvokeOrNoop,
                     l = a.ValidateAndNormalizeQueuingStrategy,
                     c = a.typeIsObject,
-                    d = n(1) /* module_1 */,
+                    d = n(1) /* module */,
                     u = d.assert,
                     p = d.rethrowAssertionErrorRejection,
                     g = n(3) /* module_3 */,
@@ -5031,7 +5031,7 @@ function (exports, module, require) {
                 },
                 function (e, t, n) {
                   var o = n(0) /* GObject */.IsFiniteNonNegativeNumber,
-                    i = n(1) /* module_1 */.assert;
+                    i = n(1) /* module */.assert;
                   (t.DequeueValue = function (e) {
                     i(
                       "_queue" in e && "_queueTotalSize" in e,
@@ -5117,7 +5117,7 @@ function (exports, module, require) {
                     f = h.createArrayFromList,
                     m = h.createDataProperty,
                     y = h.typeIsObject,
-                    v = n(1) /* module_1 */,
+                    v = n(1) /* module */,
                     _ = v.assert,
                     b = v.rethrowAssertionErrorRejection,
                     w = n(3) /* module_3 */,
@@ -6719,7 +6719,7 @@ function (exports, module, require) {
                     if (!(e instanceof t))
                       throw new TypeError("Cannot call a class as a function");
                   }
-                  var a = n(1) /* module_1 */.assert,
+                  var a = n(1) /* module */.assert,
                     r = n(0) /* GObject */,
                     s = r.InvokeOrNoop,
                     l = r.PromiseInvokeOrPerformFallback,
@@ -7893,9 +7893,9 @@ function (exports, module, require) {
               return (
                 (function (e) {
                   if (Array.isArray(e)) {
-                    for (var t = 0, n = new Array(e.length); t < e.length; t++)
-                      n[t] = e[t];
-                    return n;
+                    for (var t = 0, require = new Array(e.length); t < e.length; t++)
+                      require[t] = e[t];
+                    return require;
                   }
                 })(e) ||
                 (function (e) {
@@ -7917,8 +7917,8 @@ function (exports, module, require) {
                 throw new TypeError("Cannot call a class as a function");
             }
             function w(e, t) {
-              for (var n = 0; n < t.length; n++) {
-                var o = t[n];
+              for (var require = 0; require < t.length; require++) {
+                var o = t[require];
                 (o.enumerable = o.enumerable || false),
                   (o.configurable = true),
                   "value" in o && (o.writable = true),
@@ -7958,16 +7958,16 @@ function (exports, module, require) {
               ((E = T
                 ? function () {
                     return new Promise(function (e, t) {
-                      n.e(13)
+                      require.e(13)
                         .then(
                           function () {
                             try {
                               var o;
-                              (o = n(1192) /* module_1192 */), e(o.WorkerMessageHandler);
+                              (o = require(1192) /* module_1192 */), e(o.WorkerMessageHandler);
                             } catch (e) {
                               t(e);
                             }
-                          }.bind(null, n)
+                          }.bind(null, require)
                         )
                         .catch(t);
                     });
@@ -8503,8 +8503,8 @@ function (exports, module, require) {
                           (((e = {}).operatorListChanged = function () {
                             if (t.operatorList.lastChunk) {
                               t.opListReadCapability.resolve(t.operatorList);
-                              var n = t.renderTasks.indexOf(e);
-                              n >= 0 && t.renderTasks.splice(n, 1);
+                              var require = t.renderTasks.indexOf(e);
+                              require >= 0 && t.renderTasks.splice(require, 1);
                             }
                           }),
                           (t.receivingOperatorList = true),
@@ -8652,17 +8652,17 @@ function (exports, module, require) {
                     key: "_renderPageChunk",
                     value: function (e, t) {
                       for (
-                        var n = this.intentStates[t], o = 0, i = e.length;
+                        var require = this.intentStates[t], o = 0, i = e.length;
                         o < i;
                         o++
                       )
-                        n.operatorList.fnArray.push(e.fnArray[o]),
-                          n.operatorList.argsArray.push(e.argsArray[o]);
-                      n.operatorList.lastChunk = e.lastChunk;
-                      for (var a = 0; a < n.renderTasks.length; a++)
-                        n.renderTasks[a].operatorListChanged();
+                        require.operatorList.fnArray.push(e.fnArray[o]),
+                          require.operatorList.argsArray.push(e.argsArray[o]);
+                      require.operatorList.lastChunk = e.lastChunk;
+                      for (var a = 0; a < require.renderTasks.length; a++)
+                        require.renderTasks[a].operatorListChanged();
                       e.lastChunk &&
-                        ((n.receivingOperatorList = false), this._tryCleanup());
+                        ((require.receivingOperatorList = false), this._tryCleanup());
                     },
                   },
                   {
@@ -9434,12 +9434,12 @@ function (exports, module, require) {
                             function (e) {
                               if (!this.destroyed) {
                                 var t = v(e, 4),
-                                  n = t[0],
+                                  require = t[0],
                                   o = t[1],
                                   i = t[2],
                                   a = t[3],
                                   r = this.pageCache[o];
-                                if (!r.objs.has(n))
+                                if (!r.objs.has(require))
                                   switch (i) {
                                     case "JpegStream":
                                       return new Promise(function (e, t) {
@@ -9456,10 +9456,10 @@ function (exports, module, require) {
                                           }),
                                           (n.src = a);
                                       }).then(function (e) {
-                                        r.objs.resolve(n, e);
+                                        r.objs.resolve(require, e);
                                       });
                                     case "Image":
-                                      r.objs.resolve(n, a),
+                                      r.objs.resolve(require, a),
                                         a &&
                                           "data" in a &&
                                           a.data.length > 8e6 &&
@@ -9501,8 +9501,8 @@ function (exports, module, require) {
                                   t.operatorList)
                                 ) {
                                   t.operatorList.lastChunk = true;
-                                  for (var n = 0; n < t.renderTasks.length; n++)
-                                    t.renderTasks[n].operatorListChanged();
+                                  for (var require = 0; require < t.renderTasks.length; require++)
+                                    t.renderTasks[require].operatorListChanged();
                                 }
                               }
                             },
@@ -9768,8 +9768,8 @@ function (exports, module, require) {
                           .sendWithPromise("Cleanup", null)
                           .then(function () {
                             for (
-                              var t = 0, n = e.pageCache.length;
-                              t < n;
+                              var t = 0, require = e.pageCache.length;
+                              t < require;
                               t++
                             ) {
                               var o = e.pageCache[t];
@@ -10123,7 +10123,7 @@ function (exports, module, require) {
           },
           function (e, t, n) {
             "use strict";
-            e.exports = n(148) /* module_148 */;
+            e.exports = n(148) /* module */;
           },
           function (e, t, n) {
             "use strict";
@@ -10601,7 +10601,7 @@ function (exports, module, require) {
                   );
                 })() || Function("return this")()
               );
-            }).call(this, n(150) /* module_150 */(e));
+            }).call(this, n(150) /* module */(e));
           },
           function (e, t, n) {
             "use strict";
@@ -10679,7 +10679,7 @@ function (exports, module, require) {
                 t.RenderingCancelledException =
                 t.PageViewport =
                   undefined);
-            var o = n(1) /* module_1 */;
+            var o = n(1) /* module */;
             function i(e, t) {
               if (!(e instanceof t))
                 throw new TypeError("Cannot call a class as a function");
@@ -11079,7 +11079,7 @@ function (exports, module, require) {
               (t.FontLoader = t.FontFaceObject = undefined);
             var o,
               i = (o = n(147) /* GLinearGradient */) && o.__esModule ? o : { default: o },
-              a = n(1) /* module_1 */;
+              a = n(1) /* module */;
             function r(e) {
               return (r =
                 "function" == typeof Symbol &&
@@ -11663,8 +11663,8 @@ function (exports, module, require) {
             "use strict";
             Object.defineProperty(t, "__esModule", { value: true }),
               (t.CanvasGraphics = undefined);
-            var o = n(1) /* module_1 */,
-              i = n(155) /* module_155 */,
+            var o = n(1) /* module */,
+              i = n(155) /* module */,
               a = {
                 get value() {
                   return (0, o.shadow)(a, "value", (0, o.isLittleEndian)());
@@ -13364,7 +13364,7 @@ function (exports, module, require) {
                 return t.fromIR(e);
               }),
               (t.TilingPattern = undefined);
-            var o = n(1) /* module_1 */,
+            var o = n(1) /* module */,
               i = {
                 RadialAxial: {
                   fromIR: function (e) {
@@ -13790,7 +13790,7 @@ function (exports, module, require) {
               (t.MessageHandler = h);
             var o,
               i = (o = n(147) /* GLinearGradient */) && o.__esModule ? o : { default: o },
-              a = n(1) /* module_1 */;
+              a = n(1) /* module */;
             function r(e) {
               return (r =
                 "function" == typeof Symbol &&
@@ -14285,7 +14285,7 @@ function (exports, module, require) {
             "use strict";
             Object.defineProperty(t, "__esModule", { value: true }),
               (t.Metadata = undefined);
-            var o = n(1) /* module_1 */,
+            var o = n(1) /* module */,
               i = n(159) /* GLayer */;
             function a(e, t) {
               for (var n = 0; n < t.length; n++) {
@@ -14931,7 +14931,7 @@ function (exports, module, require) {
               (t.PDFDataTransportStream = undefined);
             var o,
               i = (o = n(147) /* GLinearGradient */) && o.__esModule ? o : { default: o },
-              a = n(1) /* module_1 */;
+              a = n(1) /* module */;
             function r(e, t, n, o, i, a, r) {
               try {
                 var s = e[a](r),
@@ -15209,7 +15209,7 @@ function (exports, module, require) {
             "use strict";
             Object.defineProperty(t, "__esModule", { value: true }),
               (t.WebGLContext = undefined);
-            var o = n(1) /* module_1 */;
+            var o = n(1) /* module */;
             function i(e, t) {
               for (var n = 0; n < t.length; n++) {
                 var o = t[n];
@@ -15647,7 +15647,7 @@ function (exports, module, require) {
             Object.defineProperty(t, "__esModule", { value: true }),
               (t.renderTextLayer = undefined);
             var o,
-              i = n(1) /* module_1 */,
+              i = n(1) /* module */,
               a = (o = n(3) /* module_3 */) && o.__esModule ? o : { default: o },
               r = (function () {
                 var e = /\S/,
@@ -16139,7 +16139,7 @@ function (exports, module, require) {
             Object.defineProperty(t, "__esModule", { value: true }),
               (t.AnnotationLayer = undefined);
             var o = n(151) /* module_151 */,
-              i = n(1) /* module_1 */;
+              i = n(1) /* module */;
             function a(e, t, n) {
               return (a =
                 "undefined" != typeof Reflect && Reflect.get
@@ -17592,7 +17592,7 @@ function (exports, module, require) {
                       try {
                         var o;
                         o = parseInt(i.versions.node) >= 8 ? e : new t(e);
-                        var a = n(1389) /* module_1389 */.deflateSync(o, { level: 9 });
+                        var a = require(1389) /* module_1389 */.deflateSync(o, { level: 9 });
                         return a instanceof Uint8Array ? a : new Uint8Array(a);
                       } catch (e) {
                         (0, s.warn)(
@@ -17706,7 +17706,7 @@ function (exports, module, require) {
                   ")"
                 );
               }
-              function n(e, t, n) {
+              function require(e, t, n) {
                 (this.svgFactory = new l.DOMSVGFactory()),
                   (this.current = new g()),
                   (this.transformMatrix = s.IDENTITY_MATRIX),
@@ -17727,7 +17727,7 @@ function (exports, module, require) {
                 r = 0,
                 c = 0;
               return (
-                (n.prototype = {
+                (require.prototype = {
                   save: function () {
                     this.transformStack.push(this.transformMatrix);
                     var e = this.current;
@@ -17745,14 +17745,14 @@ function (exports, module, require) {
                   loadDependencies: function (e) {
                     for (
                       var t = this,
-                        n = e.fnArray,
-                        o = n.length,
+                        require = e.fnArray,
+                        o = require.length,
                         i = e.argsArray,
                         a = 0;
                       a < o;
                       a++
                     )
-                      if (s.OPS.dependency === n[a])
+                      if (s.OPS.dependency === require[a])
                         for (var r = i[a], l = 0, c = r.length; l < c; l++) {
                           var d,
                             u = r[l],
@@ -17812,10 +17812,10 @@ function (exports, module, require) {
                     })(a);
                   },
                   executeOpTree: function (e) {
-                    for (var t = e.length, n = 0; n < t; n++) {
-                      var o = e[n].fn,
-                        i = e[n].fnId,
-                        a = e[n].args;
+                    for (var t = e.length, require = 0; require < t; require++) {
+                      var o = e[require].fn,
+                        i = e[require].fnId,
+                        a = e[require].args;
                       switch (0 | i) {
                         case s.OPS.beginText:
                           this.beginText();
@@ -17957,7 +17957,7 @@ function (exports, module, require) {
                           this.endPath();
                           break;
                         case 92:
-                          this.group(e[n].items);
+                          this.group(e[require].items);
                           break;
                         default:
                           (0, s.warn)("Unimplemented operator " + o);
@@ -18297,10 +18297,10 @@ function (exports, module, require) {
                   endPath: function () {
                     if (this.pendingClip) {
                       var e = this.current,
-                        n = "clippath" + r;
+                        require = "clippath" + r;
                       r++;
                       var o = this.svgFactory.createElement("svg:clipPath");
-                      o.setAttributeNS(null, "id", n),
+                      o.setAttributeNS(null, "id", require),
                         o.setAttributeNS(
                           null,
                           "transform",
@@ -18319,7 +18319,7 @@ function (exports, module, require) {
                             e.clipGroup = null;
                           }),
                           o.setAttributeNS(null, "clip-path", e.activeClipUrl)),
-                        (e.activeClipUrl = "url(#" + n + ")"),
+                        (e.activeClipUrl = "url(#" + require + ")"),
                         (this.tgrp = null);
                     }
                   },
@@ -18346,7 +18346,7 @@ function (exports, module, require) {
                     this.current.textHScale = e / 100;
                   },
                   setGState: function (e) {
-                    for (var t = 0, n = e.length; t < n; t++) {
+                    for (var t = 0, require = e.length; t < require; t++) {
                       var o = e[t],
                         i = o[0],
                         a = o[1];
@@ -18592,7 +18592,7 @@ function (exports, module, require) {
                     );
                   },
                 }),
-                n
+                require
               );
             })();
           },
@@ -18685,8 +18685,8 @@ function (exports, module, require) {
                 throw new TypeError("Cannot call a class as a function");
             }
             function m(e, t) {
-              for (var n = 0; n < t.length; n++) {
-                var o = t[n];
+              for (var require = 0; require < t.length; require++) {
+                var o = t[require];
                 (o.enumerable = o.enumerable || false),
                   (o.configurable = true),
                   "value" in o && (o.writable = true),
@@ -18696,10 +18696,10 @@ function (exports, module, require) {
             function y(e, t, n) {
               return t && m(e.prototype, t), n && m(e, n), e;
             }
-            var v = n(178) /* module_178 */,
-              _ = n(571) /* module_571 */,
-              b = n(572) /* module_572 */,
-              w = n(570) /* module_570 */,
+            var v = require(178) /* module_178 */,
+              _ = require(571) /* module_571 */,
+              b = require(572) /* module_572 */,
+              w = require(570) /* module_570 */,
               C = /^file:\/\/\/[a-zA-Z]:\//,
               x = (function () {
                 function e(t) {
@@ -19238,8 +19238,8 @@ function (exports, module, require) {
               (t.validateResponseStatus = function (e) {
                 return 200 === e || 206 === e;
               });
-            var o = n(1) /* module_1 */,
-              i = n(167) /* module_167 */;
+            var o = n(1) /* module */,
+              i = n(167) /* module */;
           },
           function (e, t, n) {
             "use strict";
@@ -19407,7 +19407,7 @@ function (exports, module, require) {
               (t.PDFFetchStream = undefined);
             var o,
               i = (o = n(147) /* GLinearGradient */) && o.__esModule ? o : { default: o },
-              a = n(1) /* module_1 */,
+              a = n(1) /* module */,
               r = n(166) /* GRendererConfig */;
             function s(e, t, n, o, i, a, r) {
               try {
@@ -19792,7 +19792,7 @@ function (exports, module, require) {
               (t.PDFNetworkStream = f),
               (t.NetworkManager = d);
             var o = s(n(147) /* GLinearGradient */),
-              i = n(1) /* module_1 */,
+              i = n(1) /* module */,
               a = n(166) /* GRendererConfig */,
               r = s(n(3) /* module_3 */);
             function s(e) {
@@ -20274,6 +20274,6 @@ function (exports, module, require) {
           },
         ]);
       }),
-        (e.exports = a());
-    }).call(this, n(221) /* module_221 */.Buffer, n(109) /* module_109 */, n(183) /* module_183 */);
+        (exports.exports = a());
+    }).call(this, require(221) /* module_221 */.Buffer, require(109) /* module_109 */, require(183) /* module_183 */);
   }

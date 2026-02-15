@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(35) /* module_35 */,
-      i = n(88) /* module_88 */,
-      a = n(401) /* module_401 */,
-      r = n(298) /* module_298 */;
-    e.exports = function (e, t, n, s) {
+    var o = require(35) /* module_35 */,
+      i = require(88) /* module_88 */,
+      a = require(401) /* module_401 */,
+      r = require(298) /* module_298 */;
+    exports.exports = function (e, t, n, s) {
       s || (s = {});
       var l = s.enumerable,
         c = undefined !== s.name ? s.name : t;

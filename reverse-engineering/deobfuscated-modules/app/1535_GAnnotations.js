@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(3) /* module_3 */, n(71) /* module_71 */, n(4) /* module_4 */, n(41) /* module_41 */, n(13) /* module_13 */, n(32) /* module_32 */, n(97) /* module_97 */, n(33) /* module_33 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(449) /* GFitAllAction */,
-      s = n(566) /* GFitSelectionAction */,
-      l = n(123) /* GProperties */;
-    const c = n(358) /* module_358 */,
-      d = n(86) /* module_86 */,
-      { SHOW_SIDEBAR_BADGE: u } = n(10) /* module_10 */;
+    require(58) /* module_58 */, require(3) /* module_3 */, require(71) /* module_71 */, require(4) /* module_4 */, require(41) /* module_41 */, require(13) /* module_13 */, require(32) /* module_32 */, require(97) /* module_97 */, require(33) /* module_33 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(449) /* GFitAllAction */,
+      s = require(566) /* GFitSelectionAction */,
+      l = require(123) /* GProperties */;
+    const c = require(358) /* module_358 */,
+      d = require(86) /* module_86 */,
+      { SHOW_SIDEBAR_BADGE: u } = require(10) /* module_10 */;
     function p() {
       this._elements = [];
     }
@@ -146,8 +146,8 @@ function (exports, module, require) {
         ) {
           this._document.getScene().updateActivePageForElem(e),
             this._document.getScene().updateActiveLayerForElem(e);
-          var t = this._document.getEditor(),
-            n = false;
+          var module = this._document.getEditor(),
+            require = false;
           if (
             (jQuery(
               gDesigner
@@ -172,13 +172,13 @@ function (exports, module, require) {
                   ((o = o.concat(t)),
                   this._document.getScene().updateActivePageForElem(t[0])));
             }
-            t.updateSelection(a.GPlatform.modifiers.metaKey, o), (n = true);
+            module.updateSelection(a.GPlatform.modifiers.metaKey, o), (require = true);
           }
-          if (n && a.GPlatform.modifiers.optionKey)
-            t.hasSelection()
+          if (require && a.GPlatform.modifiers.optionKey)
+            module.hasSelection()
               ? gDesigner.executeAction(s.ID, undefined, "outlinesidebar")
               : gDesigner.executeAction(r.ID, undefined, "outlinesidebar");
-          else if (n) {
+          else if (require) {
             let t;
             if (e.hasMixin(i.GAnnotation.Linkable)) {
               const n = e.getAnnotableReferences();
@@ -197,13 +197,13 @@ function (exports, module, require) {
         }
       }),
       (p.prototype._selectionChangedEvent = function () {
-        const e = this._document && this._document.getEditor(),
-          t = e && e.getSelection();
-        if (t && t.length) {
-          t.filter((e) => e.hasMixin(i.GAnnotable)).forEach((e) => {
-            const t = e.getLinkedAnnotations();
-            t &&
-              t.forEach((e) => {
+        const exports = this._document && this._document.getEditor(),
+          module = exports && exports.getSelection();
+        if (module && module.length) {
+          module.filter((e) => e.hasMixin(i.GAnnotable)).forEach((e) => {
+            const module = e.getLinkedAnnotations();
+            module &&
+              module.forEach((e) => {
                 e.hasFlag(i.GNode.Flag.Selected) ||
                   e.setFlag(i.GNode.Flag.Selected);
               });
@@ -239,10 +239,10 @@ function (exports, module, require) {
                     t.getParent() || e.data.parent.insertChild(t);
                 });
           else if (s && d) {
-            var t = e.data.parent.getChildren();
+            var module = e.data.parent.getChildren();
             (u = c
               .filterAnnotationElements(e.data.nodes)
-              .filter((e) => t.some((t) => t.getId() === e.getId()))),
+              .filter((e) => module.some((t) => t.getId() === e.getId()))),
               u.length && c.removeAnnotations(u, e.data.parent, undefined, false);
           }
         }
@@ -379,5 +379,5 @@ function (exports, module, require) {
       (p.prototype.toString = function () {
         return "[Object GAnnotations]";
       }),
-      (e.exports = p);
+      (exports.exports = p);
   }

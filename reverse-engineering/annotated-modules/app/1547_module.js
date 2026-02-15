@@ -22,8 +22,8 @@ function (e, t, n) {
       n(13) /* module_13 */,
       n(32) /* module_32 */,
       n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var i = n(1) /* module */,
+      a = n(15) /* module */,
       r = o(n(1300) /* module_1300 */),
       s = n(1163) /* module_1163 */,
       l = n(40) /* module_40 */,
@@ -59,7 +59,7 @@ function (e, t, n) {
       p = n(858) /* module_858 */;
     const g = n(156) /* module_156 */,
       { CLOUD_DIALOG: h } = n(10) /* module_10 */,
-      { GPlatform: f } = n(15) /* module_15 */,
+      { GPlatform: f } = n(15) /* module */,
       m = n(85) /* GContainer */,
       { GRegex: y } = n(263) /* module_263 */,
       v = function () {

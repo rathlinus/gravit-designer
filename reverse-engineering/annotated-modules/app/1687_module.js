@@ -7,7 +7,7 @@ function (e, t, n) {
     "use strict";
     var o = n(16) /* module_16 */;
     n(20) /* module_20 */, n(34) /* module_34 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(44) /* GSystemDialog */);
     const { DateAPI: r, DESIGNER: { TITLE: s } = {} } = n(10) /* module_10 */,
       l = n(78) /* GDocumentEvent */,

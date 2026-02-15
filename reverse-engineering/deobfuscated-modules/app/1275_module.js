@@ -5,14 +5,14 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(57) /* module_57 */, n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    var i = n(1) /* module_1 */,
-      a = n(53) /* module_53 */,
-      r = n(10) /* module_10 */,
-      s = n(1276) /* module_1276 */,
-      l = o(n(1278) /* module_1278 */),
-      c = n(85) /* GContainer */,
+    var o = require(16) /* module_16 */;
+    require(57) /* module_57 */, require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    var i = require(1) /* module */,
+      a = require(53) /* module */,
+      r = require(10) /* module_10 */,
+      s = require(1276) /* module_1276 */,
+      l = o(require(1278) /* module_1278 */),
+      c = require(85) /* GContainer */,
       d = null;
     function u() {
       return (
@@ -54,7 +54,7 @@ function (exports, module, require) {
     }
     i.GObject.inherit(u, i.GObject),
       (u.prototype._buildDialog = async function () {
-        let e = (
+        let exports = (
           await r.gApi
             .getUserSettings()
             .catch(() => ({ notifications_disabled: false }))
@@ -152,10 +152,10 @@ function (exports, module, require) {
                       .attr("type", "checkbox")
                       .attr("data-setting", s.DISABLE_WARNING_SETTING_NAME)
                       .on("change", function () {
-                        const e = !!this.checked;
+                        const exports = !!this.checked;
                         gDesigner.stats(
                           "settings_toggle_auto-save-warning-enabled",
-                          e
+                          exports
                         );
                       })
                       .prop(
@@ -395,7 +395,7 @@ function (exports, module, require) {
                     .on("change", () => {
                       gDesigner.stats("settings_toggle_disable-notifications");
                     })
-                    .prop("checked", e)
+                    .prop("checked", exports)
                 )
                 .append($("<div></div>"))
             )
@@ -413,8 +413,8 @@ function (exports, module, require) {
                     .attr("type", "checkbox")
                     .attr("data-setting", l.default.getSetting())
                     .on("change", (e) => {
-                      const t = $(e.target).closest("input").is(":checked");
-                      gDesigner.stats("settings_toggle_disable-scrubbing", t);
+                      const module = $(e.target).closest("input").is(":checked");
+                      gDesigner.stats("settings_toggle_disable-scrubbing", module);
                     })
                     .prop("checked", !l.default.isEnabled())
                 )
@@ -515,10 +515,10 @@ function (exports, module, require) {
             .find('[data-setting="decimals-num-onoff"]')
             .prop("checked")
         ) {
-          var n = this._dialog
+          var require = this._dialog
               .find('[data-setting="decimals-num-val"]')
               .gInputBox("value"),
-            o = i.GUtil.parseNumber(n);
+            o = i.GUtil.parseNumber(require);
           "number" != typeof o || isNaN(o) || (t = o);
         }
         gDesigner.setSetting(
@@ -608,8 +608,8 @@ function (exports, module, require) {
       }),
       (u.prototype._createThemeSelector = function () {
         for (
-          var e,
-            t = function (e, t) {
+          var exports,
+            module = function (e, t) {
               return $("<div/>")
                 .html(e.name)
                 .addClass("g-theme-row")
@@ -626,15 +626,15 @@ function (exports, module, require) {
                     t && t();
                 });
             },
-            n = 0;
-          n < d.length;
-          ++n
+            require = 0;
+          require < d.length;
+          ++require
         )
-          if (d[n].key === gDesigner.getSetting("theme", "light")) {
-            e = d[n];
+          if (d[require].key === gDesigner.getSetting("theme", "light")) {
+            exports = d[require];
             break;
           }
-        e = e || d[0];
+        exports = exports || d[0];
         var o = function () {
           $(".g-overlay.theme-selector")
             .find(".g-theme-row:hover")
@@ -645,18 +645,18 @@ function (exports, module, require) {
           .addClass("g-select")
           .css("min-width", "170px")
           .css("width", "max-content")
-          .text(e.name)
+          .text(exports.name)
           .attr("data-setting", "theme")
-          .data("theme", e.key)
+          .data("theme", exports.key)
           .addClass("g-theme-selector")
           .on("click", function (e) {
-            for (var n = $("<div/>"), i = 0; i < d.length; ++i)
-              n.append(
-                t(d[i], function () {
-                  n.gOverlay("close");
+            for (var require = $("<div/>"), i = 0; i < d.length; ++i)
+              require.append(
+                module(d[i], function () {
+                  require.gOverlay("close");
                 })
               );
-            n.gOverlay({
+            require.gOverlay({
               padding: false,
               releaseOnClose: true,
               clazz: "theme-selector",
@@ -764,5 +764,5 @@ function (exports, module, require) {
           [e, t]
         );
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

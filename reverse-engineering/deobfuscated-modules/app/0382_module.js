@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     var o, i, a, r, s, l;
-    e.exports =
-      ((l = n(55) /* module_55 */),
+    exports.exports =
+      ((l = require(55) /* module_55 */),
       (i = (o = l).lib),
       (a = i.Base),
       (r = i.WordArray),
@@ -21,23 +21,23 @@ function (exports, module, require) {
             (this.sigBytes = null != t ? t : 8 * e.length);
         },
         toX32: function () {
-          for (var e = this.words, t = e.length, n = [], o = 0; o < t; o++) {
-            var i = e[o];
-            n.push(i.high), n.push(i.low);
+          for (var exports = this.words, module = exports.length, require = [], o = 0; o < module; o++) {
+            var i = exports[o];
+            require.push(i.high), require.push(i.low);
           }
-          return r.create(n, this.sigBytes);
+          return r.create(require, this.sigBytes);
         },
         clone: function () {
           for (
-            var e = a.clone.call(this),
-              t = (e.words = this.words.slice(0)),
-              n = t.length,
+            var exports = a.clone.call(this),
+              module = (exports.words = this.words.slice(0)),
+              require = module.length,
               o = 0;
-            o < n;
+            o < require;
             o++
           )
-            t[o] = t[o].clone();
-          return e;
+            module[o] = module[o].clone();
+          return exports;
         },
       })),
       l);

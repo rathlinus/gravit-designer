@@ -5,34 +5,34 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.updateFileFn =
-        t.syncImagesToCloud =
-        t.listFilesFn =
-        t.fetchRequest =
-        t.default =
-        t.createFileAndGetSignedPutUrlsFn =
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.updateFileFn =
+        module.syncImagesToCloud =
+        module.listFilesFn =
+        module.fetchRequest =
+        module.default =
+        module.createFileAndGetSignedPutUrlsFn =
           undefined),
-      n(19) /* module_19 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(96) /* module_96 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(134) /* module_134 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(26) /* module_26 */,
-      n(114) /* module_114 */;
-    var i = o(n(227) /* GDictionary */);
-    const a = n(435) /* Md5 */,
-      r = (t.syncImagesToCloud = async function (e, t, n, o, r, s, l, c, d) {
+      require(19) /* module_19 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(96) /* module_96 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(134) /* module_134 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(26) /* module_26 */,
+      require(114) /* module_114 */;
+    var i = o(require(227) /* GDictionary */);
+    const a = require(435) /* Md5 */,
+      r = (module.syncImagesToCloud = async function (e, t, n, o, r, s, l, c, d) {
         try {
           var u = new i.default();
           const S = o.length;
@@ -131,9 +131,9 @@ function (exports, module, require) {
           i && "GET" !== o && (c.body = i), fetch(e, c).then((e) => e.json())
         );
       };
-    t.fetchRequest = s;
-    t.listFilesFn = (e, t, n) => s("".concat(n, "/file"), t, { query: e });
-    (t.createFileAndGetSignedPutUrlsFn = async function (e, t, n, o) {
+    module.fetchRequest = s;
+    module.listFilesFn = (e, t, n) => s("".concat(n, "/file"), t, { query: e });
+    (module.createFileAndGetSignedPutUrlsFn = async function (e, t, n, o) {
       var i = { method: "POST", body: { name: e, type: t, trashed: null } };
       const a = await s("".concat(n, "/file"), o, i);
       var r = { method: "PUT", body: { id: a.id, type: t } };
@@ -142,12 +142,12 @@ function (exports, module, require) {
         file: a,
       };
     }),
-      (t.updateFileFn = async function (e, t, n, o, i, a, r) {
+      (module.updateFileFn = async function (e, t, n, o, i, a, r) {
         const l = a && r ? await r(e) : null;
         return await s("".concat(o, "/file/").concat(t), i, {
           method: "PUT",
           body: { md5: n, trashed: false, sha256: l },
         });
       });
-    t.default = { syncImagesToCloud: r };
+    module.default = { syncImagesToCloud: r };
   }

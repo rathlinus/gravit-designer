@@ -6,30 +6,30 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    Object.defineProperty(t, "__esModule", { value: true }),
-      (t.default = t.WINDOW_STATUS_BLOCKED = undefined),
-      n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(96) /* module_96 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(71) /* module_71 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(38) /* module_38 */,
-      n(97) /* module_97 */,
-      n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = o(n(355) /* module_355 */),
-      r = o(n(594) /* GError */),
-      s = n(858) /* module_858 */;
-    const l = n(1240) /* module_1240 */,
-      c = n(520) /* module_520 */,
-      { FILE_FORMATS: d } = n(10) /* module_10 */;
-    t.WINDOW_STATUS_BLOCKED = "window-blocked";
+    var o = require(16) /* module_16 */;
+    Object.defineProperty(module, "__esModule", { value: true }),
+      (module.default = module.WINDOW_STATUS_BLOCKED = undefined),
+      require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(96) /* module_96 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(71) /* module_71 */,
+      require(134) /* module_134 */,
+      require(4) /* module_4 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(38) /* module_38 */,
+      require(97) /* module_97 */,
+      require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = o(require(355) /* module_355 */),
+      r = o(require(594) /* GError */),
+      s = require(858) /* module_858 */;
+    const l = require(1240) /* module_1240 */,
+      c = require(520) /* module_520 */,
+      { FILE_FORMATS: d } = require(10) /* module_10 */;
+    module.WINDOW_STATUS_BLOCKED = "window-blocked";
     function u(e) {
       (this._settings = e),
         this.setQueryLimit(10),
@@ -44,9 +44,9 @@ function (exports, module, require) {
     }
     i.GObject.inheritAndMix(u, i.GObject, [i.GEventTarget]),
       (u.DriveEvent = function (e, t) {
-        let n =
+        let require =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
-        (this.source = e), (this.type = t), (this.data = n);
+        (this.source = e), (this.type = t), (this.data = require);
       }),
       i.GObject.inherit(u.DriveEvent, i.GEvent),
       (u.DriveEvent.type = null),
@@ -60,13 +60,13 @@ function (exports, module, require) {
       }),
       (u.ExceptionCode = { InvalidCredentials: 1 });
     class p extends r.default {
-      constructor(e, t) {
+      function Object() { [native code] }(e, t) {
         super(e),
           (this.code = t),
           (this.__proto__ = p.prototype),
           (this.name = "CloudException");
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object CloudException]";
       }
     }
@@ -177,9 +177,9 @@ function (exports, module, require) {
         return false;
       }),
       (u.prototype.hasFolders = async function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : null;
-        return this.fetchFolders("name", e, 1).then((e) => !!e && e.length > 0);
+        return this.fetchFolders("name", exports, 1).then((e) => !!e && e.length > 0);
       }),
       (u.prototype.getFolders = function () {
         return this._folders;
@@ -214,10 +214,10 @@ function (exports, module, require) {
         return [];
       }),
       (u.prototype.filterSupportedFileFormats = function () {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : [];
-        const t = this.getSupportedMIMETypes();
-        return e.filter((e) => t.includes(e.getMimeType()));
+        const module = this.getSupportedMIMETypes();
+        return exports.filter((e) => module.includes(e.getMimeType()));
       }),
       (u.prototype.renameItem = function (e, t) {
         throw Error("Not implemented!");
@@ -253,18 +253,18 @@ function (exports, module, require) {
         this._corporateStorage = e;
       }),
       (u.prototype.initLastCorporateStorage = function (e) {
-        let t =
+        let module =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : "id";
-        const n = this;
+        const require = this;
         async function o(e) {
           if (!e) return null;
-          const o = await n.getCorporateStorages();
-          return o.length ? o.find((n) => n[t] === e) : null;
+          const o = await require.getCorporateStorages();
+          return o.length ? o.find((n) => n[module] === e) : null;
         }
         async function i(e) {
-          n.setCorporateStorage(e);
-          let t = await n.getPreviousSelectedFolder();
-          n.setCurrentFolder(t || n.getRootFolder());
+          require.setCorporateStorage(e);
+          let module = await require.getPreviousSelectedFolder();
+          require.setCurrentFolder(module || require.getRootFolder());
         }
         return e && this.supportsCorporateStorage()
           ? gContainer.getProperty(e).then(o).then(i)
@@ -316,8 +316,8 @@ function (exports, module, require) {
       }),
       (u.prototype.getSupportedExtensions = function () {
         return this.getSupportedFileFormats().map((e) => {
-          let { ext: t } = e;
-          return t.toLowerCase();
+          let { ext: module } = e;
+          return module.toLowerCase();
         });
       }),
       (u.prototype.getSupportedMIMETypes = function () {
@@ -325,19 +325,19 @@ function (exports, module, require) {
       }),
       (u.prototype.filterTypesWithSearchString = function (e, t) {
         if (!t || !e) return e;
-        let n;
+        let require;
         if (
           ((t = t.toLowerCase()).startsWith(".")
-            ? (n = t.slice(1))
-            : t.startsWith("*.") && (n = t.slice(2)),
-          !n)
+            ? (require = t.slice(1))
+            : t.startsWith("*.") && (require = t.slice(2)),
+          !require)
         )
           return e;
         const o = this.getSupportedFileFormats(),
           i = o
             .filter((t) => e.includes(g(t)))
             .map((e) => e.ext)
-            .filter((e) => e.startsWith(n));
+            .filter((e) => e.startsWith(require));
         if (i.length > 0) {
           return o.filter((e) => i.includes(e.ext)).map(g);
         }
@@ -353,15 +353,15 @@ function (exports, module, require) {
       }),
       (u.prototype.findFileFormatByExtension = function (e) {
         return this.getSupportedFileFormats().find((t) => {
-          let { ext: n } = t;
-          return !!n && n.toLowerCase() === e.toLowerCase();
+          let { ext: require } = t;
+          return !!require && require.toLowerCase() === e.toLowerCase();
         });
       }),
       (u.prototype.lookupByMimeType = function (e) {
-        const t = e.toLowerCase();
+        const module = e.toLowerCase();
         return this.getSupportedFileFormats().find((e) => {
-          const n = g(e);
-          return !!n && n.toLowerCase() === t;
+          const require = g(e);
+          return !!require && require.toLowerCase() === module;
         });
       }),
       (u.prototype.getFileFormat = function (e) {
@@ -426,5 +426,5 @@ function (exports, module, require) {
         return "id";
       }),
       (u.Provider = c.Provider);
-    t.default = u;
+    module.default = u;
   }

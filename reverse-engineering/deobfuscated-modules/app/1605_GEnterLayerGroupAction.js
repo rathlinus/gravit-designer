@@ -6,17 +6,17 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(15) /* module_15 */,
-      a = n(1) /* module_1 */,
-      r = n(198) /* Exports_GOutlineSidebar */,
-      s = o(n(18) /* module_18 */),
-      l = o(n(31) /* GAction */);
+    var o = require(16) /* module_16 */,
+      i = require(15) /* module */,
+      a = require(1) /* module */,
+      r = require(198) /* Exports_GOutlineSidebar */,
+      s = o(require(18) /* module_18 */),
+      l = o(require(31) /* GAction */);
     class c extends l.default {
-      constructor() {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+      function Object() { [native code] }() {
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
         super(),
-          (this._isReverse = e),
+          (this._isReverse = exports),
           (this._title = new a.GLocaleKey(
             "GEnterLayerGroupAction",
             "title".concat(this._isReverse ? ".reverse" : "")
@@ -40,31 +40,31 @@ function (exports, module, require) {
         return false;
       }
       execute() {
-        const e = gDesigner
+        const exports = gDesigner
             .getLeftSidebars()
             .getSidebar(r.SidebarsIds.GOutlineSidebar)
             .getLayerPanel(),
-          { vtree: t, currentFocus: n } = e.data("glayerpanel");
-        if (!n) return;
+          { vtree: module, currentFocus: require } = exports.data("glayerpanel");
+        if (!require) return;
         let o;
         if (
-          (!this._isReverse && n.firstChild
-            ? (o = n.firstChild)
-            : this._isReverse && n.parent && n.parent.row && (o = n.parent),
+          (!this._isReverse && require.firstChild
+            ? (o = require.firstChild)
+            : this._isReverse && require.parent && require.parent.row && (o = require.parent),
           o)
         ) {
-          const i = e.gLayerPanel("getItem", n),
-            r = e.gLayerPanel("getItem", o);
+          const i = exports.gLayerPanel("getItem", require),
+            r = exports.gLayerPanel("getItem", o);
           i.removeFlag(a.GNode.Flag.Selected),
             r.setFlag(a.GNode.Flag.Selected),
-            t.expandAndFocus(r);
+            module.expandAndFocus(r);
         }
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GEnterLayerGroupAction]";
       }
     }
     (c.ID = "view.enter-layer-group"),
       (c.ID_REVERSE = "view.enter-layer-group.reverse"),
-      (e.exports = c);
+      (exports.exports = c);
   }

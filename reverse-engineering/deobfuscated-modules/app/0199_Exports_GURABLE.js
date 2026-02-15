@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(49) /* module_49 */,
-      i = n(61) /* module_61 */,
+    var o = require(49) /* module_49 */,
+      i = require(61) /* module_61 */,
       a = Function.prototype,
       r = o && Object.getOwnPropertyDescriptor,
       s = i(a, "name"),
       l = s && "something" === function () {}.name,
       c = s && (!o || (o && r(a, "name").configurable));
-    e.exports = { EXISTS: s, PROPER: l, CONFIGURABLE: c };
+    exports.exports = { EXISTS: s, PROPER: l, CONFIGURABLE: c };
   }

@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     var o = "object" == typeof document && document.all;
-    e.exports =
+    exports.exports =
       undefined === o && undefined !== o
         ? function (e) {
             return "function" == typeof e || e === o;

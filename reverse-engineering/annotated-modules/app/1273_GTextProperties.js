@@ -29,9 +29,9 @@ function (e, t, n) {
       n(97) /* module_97 */,
       n(33) /* module_33 */,
       n(26) /* module_26 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
+    var o = n(53) /* module */,
+      i = n(1) /* module */,
+      a = n(15) /* module */,
       r = n(40) /* module_40 */,
       s = n(67) /* GRichTooltipConfig */,
       l = n(123) /* GProperties */,
@@ -39,7 +39,7 @@ function (e, t, n) {
       d = n(590) /* module_590 */,
       u = n(135) /* GSettingChangedEvent */,
       p = n(44) /* GSystemDialog */;
-    const g = n(148) /* module_148 */,
+    const g = n(148) /* module */,
       { toCapitalize: h } = n(40) /* module_40 */,
       { LISTS_FEATURE: f } = n(10) /* module_10 */;
     var m = "#2635#";

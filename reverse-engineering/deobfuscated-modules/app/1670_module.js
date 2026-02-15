@@ -5,9 +5,9 @@
 
 function (exports, module, require) {
     "use strict";
-    n(4) /* module_4 */, n(32) /* module_32 */, n(33) /* module_33 */;
-    n(1) /* module_1 */;
-    n(85) /* GContainer */, n(1671) /* GModule */;
+    require(4) /* module_4 */, require(32) /* module_32 */, require(33) /* module_33 */;
+    require(1) /* module */;
+    require(85) /* GContainer */, require(1671) /* GModule */;
     function o(e) {
       this._storage = e;
     }
@@ -76,5 +76,5 @@ function (exports, module, require) {
             }
           });
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */;
-    n(10) /* module_10 */;
-    n(1474) /* module_1474 */, n(220) /* module_220 */, n(44) /* GSystemDialog */, n(119) /* module_119 */;
+    require(8) /* module_8 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */;
+    require(10) /* module_10 */;
+    require(1474) /* module_1474 */, require(220) /* module_220 */, require(44) /* GSystemDialog */, require(119) /* module_119 */;
     function a(e, t, n) {
       (this._document = e),
         (this._storageItem = t),
@@ -70,8 +70,8 @@ function (exports, module, require) {
           this._load();
       }),
       (a.prototype._load = async function () {
-        const e = await this._storageItem.getFormattedPrice();
-        this._dialog.find("span.price").removeClass("g-loading").text(e);
+        const exports = await this._storageItem.getFormattedPrice();
+        this._dialog.find("span.price").removeClass("g-loading").text(exports);
       }),
       (a.prototype._buy = async function () {}),
       (a.prototype.open = async function () {
@@ -83,5 +83,5 @@ function (exports, module, require) {
         this._dialog.gDialog("close"),
           this._dialog.closest(".g-dialog").removeClass("slide-up");
       }),
-      (e.exports = a);
+      (exports.exports = a);
   }

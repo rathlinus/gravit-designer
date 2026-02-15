@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(19) /* module_19 */, n(8) /* module_8 */, n(134) /* module_134 */, n(4) /* module_4 */, n(13) /* module_13 */, n(26) /* module_26 */;
-    var i = n(1) /* module_1 */,
-      a = n(10) /* module_10 */,
-      r = o(n(536) /* module_536 */);
+    var o = require(16) /* module_16 */;
+    require(19) /* module_19 */, require(8) /* module_8 */, require(134) /* module_134 */, require(4) /* module_4 */, require(13) /* module_13 */, require(26) /* module_26 */;
+    var i = require(1) /* module */,
+      a = require(10) /* module_10 */,
+      r = o(require(536) /* module_536 */);
     class s {
       static async setLanguage(e) {
         try {
@@ -49,9 +49,9 @@ function (exports, module, require) {
         return await fetch(await this._getCDNURL(e, t)).then((e) => e.json());
       }
       static async _getCDNURL(e, t) {
-        const n = t.abbreviation,
+        const require = t.abbreviation,
           o = e.toLowerCase(),
-          i = "".concat(n, "/").concat(o);
+          i = "".concat(require, "/").concat(o);
         let s = this.translationsCacheMap.get(i);
         return (
           s ||
@@ -60,7 +60,7 @@ function (exports, module, require) {
                 i,
                 new r.default(() =>
                   a.gApi
-                    .fetchTranslationsURL(n, o)
+                    .fetchTranslationsURL(require, o)
                     .then((e) => e.url)
                     .catch(() => null)
                 )
@@ -70,5 +70,5 @@ function (exports, module, require) {
         );
       }
     }
-    (s.translationsCacheMap = new Map()), (e.exports = s);
+    (s.translationsCacheMap = new Map()), (exports.exports = s);
   }

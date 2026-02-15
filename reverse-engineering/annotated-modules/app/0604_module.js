@@ -6,7 +6,7 @@
 function (e, t, n) {
     "use strict";
     n(58) /* module_58 */, n(8) /* module_8 */, n(71) /* module_71 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(1) /* module_1 */;
+    var o = n(1) /* module */;
     const i = n(1507) /* module_1507 */,
       a = n(1508) /* module_1508 */,
       r = n(1509) /* GChangePasswordPanel */,

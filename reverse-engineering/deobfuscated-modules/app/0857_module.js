@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    n(193) /* module_193 */, n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */;
+    require(193) /* module_193 */, require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */;
     function i() {}
     i.prototype.OPACITY_DEFAULT = {
       min: 0,
@@ -135,7 +135,7 @@ function (exports, module, require) {
       value: function (e) {
         var t = $(this);
         if (t.data("options")) {
-          var n = t.data("options").min,
+          var require = t.data("options").min,
             i = t.data("options").max,
             r = t.data("options").maxDecimal ? t.data("options").maxDecimal : 0;
           if (undefined === e)
@@ -143,7 +143,7 @@ function (exports, module, require) {
               ? parseFloat(t.attr("value"))
               : o.GUtil.formatNumber(t.attr("value"), r);
           isNaN(e) || (e = o.GUtil.formatNumber(e, r)),
-            e > i ? (e = i) : e < n && (e = n);
+            e > i ? (e = i) : e < require && (e = require);
           var s = a(this, e);
           t.find(".g-input-slider-thumb").css("left", s + "%"),
             l(this, s),
@@ -163,7 +163,7 @@ function (exports, module, require) {
           : $(this).attr("disabled");
       },
     };
-    (e.exports = i),
+    (exports.exports = i),
       ($.fn.gInputSlider = function (e) {
         return c[e]
           ? c[e].apply(this, Array.prototype.slice.call(arguments, 1))

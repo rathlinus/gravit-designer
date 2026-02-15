@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */, n(196) /* module_196 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */, n(91) /* module_91 */, n(4) /* module_4 */, n(13) /* module_13 */, n(38) /* module_38 */;
-    var o = n(10) /* module_10 */,
-      i = n(1) /* module_1 */;
+    require(8) /* module_8 */, require(196) /* module_196 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */, require(91) /* module_91 */, require(4) /* module_4 */, require(13) /* module_13 */, require(38) /* module_38 */;
+    var o = require(10) /* module_10 */,
+      i = require(1) /* module */;
     const { bypassEmailVerification: a } = o.defaultUserSettings,
-      r = n(44) /* GSystemDialog */,
+      r = require(44) /* GSystemDialog */,
       s = function (e) {
         return e.json().then(function (t) {
           return Promise[e.status >= 400 ? "reject" : "resolve"](t);
@@ -26,7 +26,7 @@ function (exports, module, require) {
     }
     i.GObject.inherit(l, i.GObject),
       (l.prototype._openAccountDeletionConfirmationDialog = function () {
-        let e = "<span>"
+        let exports = "<span>"
           .concat(
             i.GLocale.get(
               new i.GLocaleKey("GAccountPanel", "text.delete-account-title")
@@ -67,7 +67,7 @@ function (exports, module, require) {
             "</span>"
           );
         r.custom({
-          title: e,
+          title: exports,
           styles: { buttons: { "justify-content": "flex-end" } },
           buttons: [
             {
@@ -109,7 +109,7 @@ function (exports, module, require) {
         );
       }),
       (l.prototype._getFooter = function () {
-        const e = $("<footer></footer>").append(
+        const exports = $("<footer></footer>").append(
           $("<div></div>")
             .addClass("buttons")
             .append(
@@ -172,7 +172,7 @@ function (exports, module, require) {
                       )
                   )
                 )
-                .appendTo(e),
+                .appendTo(exports),
               this._container.find(".cb-link").on("click", (e) => {
                 gDesigner.stats(
                   "profile-dialog_account-panel_cleverbridge-link"
@@ -183,12 +183,12 @@ function (exports, module, require) {
                   );
               });
           }),
-          e
+          exports
         );
       }),
       (l.prototype._init = function () {
         this._container = $("<div></div>").addClass("g-account-panel");
-        const e = $("<form></form>")
+        const exports = $("<form></form>")
             .appendTo(this._container)
             .on(
               "submit",
@@ -199,7 +199,7 @@ function (exports, module, require) {
                 false
               )
             ),
-          t = $("<div></div>")
+          module = $("<div></div>")
             .addClass("section")
             .append(
               $("<div></div>")
@@ -212,9 +212,9 @@ function (exports, module, require) {
                   )
                 )
             )
-            .appendTo(e),
-          n = this._getFooter();
-        n && n.appendTo(e);
+            .appendTo(exports),
+          require = this._getFooter();
+        require && require.appendTo(exports);
         const a = (e, t, n, o, i) => {
             const a = $("<input>")
                 .attr("type", o || "text")
@@ -247,17 +247,17 @@ function (exports, module, require) {
         let s = this._user.getFirstName(),
           l = this._user.getLastName();
         if (!l) {
-          let { first: e, last: t } = ((e) => {
-            let t = (e || "").split(" "),
-              n = t.slice(0, t.length - 1).join(" "),
-              o = t.slice(-1).join("");
+          let { first: exports, last: module } = ((e) => {
+            let module = (e || "").split(" "),
+              require = module.slice(0, module.length - 1).join(" "),
+              o = module.slice(-1).join("");
             return (
-              n.trim().length || ((n = o), (o = "")), { first: n, last: o }
+              require.trim().length || ((require = o), (o = "")), { first: require, last: o }
             );
           })(s);
-          (s = e), (l = t || "");
+          (s = exports), (l = module || "");
         }
-        let c = $("<div></div>").addClass("group-section").appendTo(t);
+        let c = $("<div></div>").addClass("group-section").appendTo(module);
         a(
           i.GLocale.get(new i.GLocaleKey("GAccountPanel", "text.first-name")),
           s,
@@ -278,7 +278,7 @@ function (exports, module, require) {
             i.GLocale.get(new i.GLocaleKey("GAccountPanel", "text.email")),
             this._user.getEmail(),
             "email"
-          ).appendTo(t),
+          ).appendTo(module),
           a(
             i.GLocale.get(
               new i.GLocaleKey("GAccountPanel", "text.old-password")
@@ -286,7 +286,7 @@ function (exports, module, require) {
             "",
             "old_password",
             "password"
-          ).appendTo(t),
+          ).appendTo(module),
           a(
             i.GLocale.get(
               new i.GLocaleKey("GAccountPanel", "text.new-password")
@@ -299,39 +299,39 @@ function (exports, module, require) {
             )
               .replace("%min-number", o.PasswordRules.PasswordLength.Minimum)
               .replace("%max-number", o.PasswordRules.PasswordLength.Maximum)
-          ).appendTo(t);
+          ).appendTo(module);
       }),
       (l.prototype._updateUser = async function () {
         this._toggleLoading(true);
-        const e = (e) => {
-          let t = i.GLocale.get(
+        const exports = (e) => {
+          let module = i.GLocale.get(
             new i.GLocaleKey("GAccountPanel", "text.error")
           );
           e && e.message
-            ? (t = e.message)
-            : e && e.errors && (t = e.errors.map((e) => e[1]).join("<br>")),
-            this._messageHandler(t),
+            ? (module = e.message)
+            : e && e.errors && (module = e.errors.map((e) => e[1]).join("<br>")),
+            this._messageHandler(module),
             this._toggleLoading(false);
         };
-        let t = { webUrl: gDesigner.getWebURL() },
-          n = this;
+        let module = { webUrl: gDesigner.getWebURL() },
+          require = this;
         this._container.find(".input-field > input").each(function () {
-          let e = $(this),
-            o = e.closest(".input-field").attr("data-property");
-          (("login" !== o && "email" !== o) || n._user[o] !== e.val().trim()) &&
-            (t[o] = e.val());
+          let exports = $(this),
+            o = exports.closest(".input-field").attr("data-property");
+          (("login" !== o && "email" !== o) || require._user[o] !== exports.val().trim()) &&
+            (module[o] = exports.val());
         }),
           this._container.find(".input-field > select").each(function () {
-            let e = $(this),
-              n = e.closest(".input-field").attr("data-property"),
-              o = e.find("option:selected").attr("value");
-            t[n] = o;
+            let exports = $(this),
+              require = exports.closest(".input-field").attr("data-property"),
+              o = exports.find("option:selected").attr("value");
+            module[require] = o;
           }),
           this._messageHandler(undefined);
         try {
           await gDesigner
             .getCloudCommunicationManager()
-            .updateUser(t)
+            .updateUser(module)
             .then(() =>
               this._messageHandler(
                 i.GLocale.get(
@@ -341,17 +341,17 @@ function (exports, module, require) {
               )
             )
             .then(() => {
-              t.email &&
-                this._user.getEmail() !== t.email &&
+              module.email &&
+                this._user.getEmail() !== module.email &&
                 !a &&
                 r.alert(
                   i.GLocale.get(
                     new i.GLocaleKey("GAccountPanel", "text.user-email-message")
-                  ).replace("%email", t.email)
+                  ).replace("%email", module.email)
                 );
             })
             .then(async () => (this._user = await gDesigner.getUser()))
-            .catch(e);
+            .catch(exports);
         } finally {
           this._toggleLoading(false);
         }
@@ -364,5 +364,5 @@ function (exports, module, require) {
           ? this._container.addClass("g-loading")
           : this._container.removeClass("g-loading");
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

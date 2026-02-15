@@ -5,24 +5,24 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(30) /* module_30 */,
-      n(8) /* module_8 */,
-      n(196) /* module_196 */,
-      n(3) /* module_3 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */,
-      n(125) /* module_125 */,
-      n(126) /* module_126 */,
-      n(114) /* module_114 */;
-    var o = n(1) /* module_1 */;
+    require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(30) /* module_30 */,
+      require(8) /* module_8 */,
+      require(196) /* module_196 */,
+      require(3) /* module_3 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */,
+      require(125) /* module_125 */,
+      require(126) /* module_126 */,
+      require(114) /* module_114 */;
+    var o = require(1) /* module */;
     const {
         gApi: i,
         IS_TRUNK: a,
@@ -34,10 +34,10 @@ function (exports, module, require) {
         rcURL: u,
         prodURL: p,
         HAS_ANNOTATIONS: g,
-      } = n(10) /* module_10 */,
-      { sleep: h, watchDog: f } = n(40) /* module_40 */,
-      m = n(44) /* GSystemDialog */,
-      y = n(85) /* GContainer */,
+      } = require(10) /* module_10 */,
+      { sleep: h, watchDog: f } = require(40) /* module_40 */,
+      m = require(44) /* GSystemDialog */,
+      y = require(85) /* GContainer */,
       v = [
         {
           id: "copy",
@@ -60,8 +60,8 @@ function (exports, module, require) {
           analyticsRef: "inspect",
         },
       ];
-    e.exports = class {
-      constructor(e, t) {
+    exports.exports = class {
+      function Object() { [native code] }(e, t) {
         (this._user = e),
           (this._dialog = $("<div/>")
             .append(
@@ -103,16 +103,16 @@ function (exports, module, require) {
                                     "sharedialog_click_sharing",
                                     t
                                   );
-                                  let n = { access: t };
+                                  let require = { access: t };
                                   t &&
                                     this._lastSharePermissions &&
-                                    (n = Object.assign(
+                                    (require = Object.assign(
                                       {},
                                       this._lastSharePermissions,
-                                      n
+                                      require
                                     )),
                                     this._toggleLoading(true),
-                                    this._setSharePermissions(n)
+                                    this._setSharePermissions(require)
                                       .catch(this._handleException)
                                       .finally(() => {
                                         this._toggleLoading(false);
@@ -173,12 +173,12 @@ function (exports, module, require) {
                     )
                     .on("click", async (e) => {
                       const t = $(e.target).closest(".share-link"),
-                        n = t.find("input").val();
-                      n &&
-                        n.trim().length &&
+                        require = t.find("input").val();
+                      require &&
+                        require.trim().length &&
                         (gDesigner.stats("sharedialog_click_copy"),
                         gContainer
-                          .copyToClipboard(n.trim())
+                          .copyToClipboard(require.trim())
                           .then(async () => {
                             const e = t.find(".share-copied");
                             e.addClass("visible"),
@@ -206,7 +206,7 @@ function (exports, module, require) {
                   v.map((e) => {
                     let {
                       id: t,
-                      label: n,
+                      label: require,
                       info: i,
                       sharePermissions: a,
                       shareBy: r,
@@ -221,11 +221,11 @@ function (exports, module, require) {
                         this._toggleLoading(true);
                         const t = $(e.target).closest("input").is(":checked");
                         gDesigner.stats("sharedialog_click_${analyticsRef}", t);
-                        const n = Object.entries(a).reduce(
+                        const require = Object.entries(a).reduce(
                             (e, n) => ((e[n[0]] = n[1] && t), e),
                             {}
                           ),
-                          o = Object.assign(this._getSharePermissions(), n, {
+                          o = Object.assign(this._getSharePermissions(), require, {
                             access: true,
                           });
                         (this._lastSharePermissions = o),
@@ -257,7 +257,7 @@ function (exports, module, require) {
                             .append(
                               $("<span/>")
                                 .addClass("title")
-                                .text(o.GLocale.get(n))
+                                .text(o.GLocale.get(require))
                                 .append(s ? $("<span></span>").gPro() : "")
                             )
                             .append(
@@ -322,14 +322,14 @@ function (exports, module, require) {
           return (
             v
               .filter((e) => {
-                let { pro: t } = e;
-                return !!t;
+                let { pro: module } = e;
+                return !!module;
               })
               .forEach((t) => {
-                let { sharePermissions: n } = t;
-                Object.entries(n).forEach((t) => {
-                  let [n, o] = t;
-                  Object.assign(e, { [n]: f.check(e[n], o) });
+                let { sharePermissions: require } = t;
+                Object.entries(require).forEach((t) => {
+                  let [require, o] = t;
+                  Object.assign(e, { [require]: f.check(e[require], o) });
                 });
               }),
             e
@@ -344,28 +344,28 @@ function (exports, module, require) {
               (this._shareList && this._shareList.length
                 ? await Promise.all(
                     this._shareList.map((t) => {
-                      let { token: n } = t;
-                      return i.updateShare(n, e);
+                      let { token: require } = t;
+                      return i.updateShare(require, e);
                     })
                   )
                 : await i.createShare(this._file.id, e)))
           : this._isSharingByLink() &&
             (await Promise.all(
               this._shareList.map((e) => {
-                let { token: t } = e;
-                return i.deleteShare(t);
+                let { token: module } = e;
+                return i.deleteShare(module);
               })
             )),
           (this._file = await i.getFile(this._file.id, true)),
           this._updateProperties();
       }
       _updateProperties() {
-        const e = this._file.link_accesses || [];
-        this._shareList = e;
-        const t = this._shareList.length && !!this._shareList[0].access,
-          n = this._shareList.length && !!this._shareList[0].copy,
+        const exports = this._file.link_accesses || [];
+        this._shareList = exports;
+        const module = this._shareList.length && !!this._shareList[0].access,
+          require = this._shareList.length && !!this._shareList[0].copy,
           i = this._shareList.length && !!this._shareList[0].inspect;
-        this._dialog.toggleClass("share-on", !!t),
+        this._dialog.toggleClass("share-on", !!module),
           this._dialog
             .find(".subtitle")
             .first()
@@ -373,7 +373,7 @@ function (exports, module, require) {
               o.GLocale.get(
                 new o.GLocaleKey(
                   "GShareDialog",
-                  "text.subtitle-".concat(t ? "on" : "off")
+                  "text.subtitle-".concat(module ? "on" : "off")
                 )
               )
             ),
@@ -383,14 +383,14 @@ function (exports, module, require) {
               o.GLocale.get(
                 new o.GLocaleKey(
                   "GShareDialog",
-                  "text.switch-".concat(t ? "on" : "off")
+                  "text.switch-".concat(module ? "on" : "off")
                 )
               )
             ),
-          this._dialog.find(".share-switch input").prop("checked", t),
+          this._dialog.find(".share-switch input").prop("checked", module),
           this._dialog
             .find("#copy > .share-setting-input > input")
-            .prop("checked", n),
+            .prop("checked", require),
           this._dialog
             .find("#inspect > .share-setting-input > input")
             .prop("checked", i);

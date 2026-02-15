@@ -6,10 +6,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */;
-    const i = n(18) /* module_18 */,
-      a = n(31) /* GAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */;
+    const i = require(18) /* module_18 */,
+      a = require(31) /* GAction */;
     function r() {}
     o.GObject.inherit(r, a),
       (r.ID = "account.open"),
@@ -30,13 +30,13 @@ function (exports, module, require) {
         gDesigner.runDeepLink("account");
       }),
       (r.prototype.isVisible = function () {
-        const e = gDesigner.getSyncUser();
+        const exports = gDesigner.getSyncUser();
         return (
-          !(e && !e.canUpdateSelfAccountData()) && gDesigner.isTouchEnabled()
+          !(exports && !exports.canUpdateSelfAccountData()) && gDesigner.isTouchEnabled()
         );
       }),
       (r.prototype.toString = function () {
         return "[Object GOpenAccountSettingsAction]";
       }),
-      (e.exports = r);
+      (exports.exports = r);
   }

@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(3) /* module_3 */;
-    var i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(844) /* module_844 */);
+    var o = require(16) /* module_16 */;
+    require(3) /* module_3 */;
+    var i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(844) /* module_844 */);
     function s() {}
     i.GObject.inherit(s, i.GObject),
       (s.SHORTCUT_DELAY = 500),
@@ -101,5 +101,5 @@ function (exports, module, require) {
       (s.prototype.toString = function () {
         return "[Object GAction]";
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

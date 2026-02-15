@@ -16,11 +16,11 @@ function (exports, module, require) {
                 /MSIE [1-9]\./.test(navigator.userAgent))
             )
           ) {
-            var t = e.document,
-              n = function () {
+            var module = e.document,
+              require = function () {
                 return e.URL || e.webkitURL || e;
               },
-              o = t.createElementNS("http://www.w3.org/1999/xhtml", "a"),
+              o = module.createElementNS("http://www.w3.org/1999/xhtml", "a"),
               i = "download" in o,
               a = /constructor/i.test(e.HTMLElement) || e.safari,
               r = /CriOS\/[\d]+/.test(navigator.userAgent),
@@ -31,7 +31,7 @@ function (exports, module, require) {
               },
               l = function (e) {
                 setTimeout(function () {
-                  "string" == typeof e ? n().revokeObjectURL(e) : e.remove();
+                  "string" == typeof e ? require().revokeObjectURL(e) : e.remove();
                 }, 4e4);
               },
               c = function (e) {
@@ -61,7 +61,7 @@ function (exports, module, require) {
                   };
                 if (((g.readyState = g.INIT), i))
                   return (
-                    (p = n().createObjectURL(t)),
+                    (p = require().createObjectURL(t)),
                     void setTimeout(function () {
                       var e, t;
                       (o.href = p),
@@ -94,7 +94,7 @@ function (exports, module, require) {
                       void (g.readyState = g.INIT)
                     );
                   }
-                  (p || (p = n().createObjectURL(t)), h)
+                  (p || (p = require().createObjectURL(t)), h)
                     ? (e.location.href = p)
                     : e.open(p, "_blank") || (e.location.href = p);
                   (g.readyState = g.DONE), f(), l(p);
@@ -130,13 +130,13 @@ function (exports, module, require) {
             ("undefined" != typeof window && window) ||
             this
         );
-    e.exports
-      ? (e.exports.saveAs = i)
-      : null !== n(1377) /* module_1377 */ &&
-        null !== n(414) /* module_414 */ &&
+    exports.exports
+      ? (exports.exports.saveAs = i)
+      : null !== require(1377) /* module_1377 */ &&
+        null !== require(414) /* module_414 */ &&
         (undefined ===
           (o = function () {
             return i;
-          }.call(t, n, t, e)) ||
-          (e.exports = o));
+          }.call(module, require, module, exports)) ||
+          (exports.exports = o));
   }

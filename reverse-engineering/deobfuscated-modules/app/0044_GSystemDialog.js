@@ -6,43 +6,43 @@
 
 function (exports, module, require) {
     "use strict";
-    n(19) /* module_19 */,
-      n(30) /* module_30 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(34) /* module_34 */,
-      n(4) /* module_4 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */;
+    require(19) /* module_19 */,
+      require(30) /* module_30 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(34) /* module_34 */,
+      require(4) /* module_4 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */;
     class a {
       static error(e) {
-        let { showTitle: t = true, closeCallback: n } =
+        let { showTitle: module = true, closeCallback: require } =
           arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
         return a.custom({
-          title: t
+          title: module
             ? o.GLocale.get(
                 new o.GLocaleKey("GCommonNames", "text.something-wrong")
               )
             : "",
           subtitle: gApi.formatError(e),
-          closeCallback: n,
+          closeCallback: require,
         });
       }
       static externalFileError(e) {
-        let t = e
+        let module = e
           ? o.GLocale.get(
               new o.GLocaleKey("GContainer", "text.load-failed-from-recent")
             )
           : o.GLocale.get(
               new o.GLocaleKey("GContainer", "text.load-failed-from-link")
             );
-        return a.custom({ subtitle: t, icon: "error" });
+        return a.custom({ subtitle: module, icon: "error" });
       }
       static splashScreenError(e, t, n) {
         var o = $("<div></div>").append(
@@ -189,14 +189,14 @@ function (exports, module, require) {
           c.find("input:first-child").focus().select();
       }
       static alert(e, t) {
-        let { closeByEnter: n = true, className: a } =
+        let { closeByEnter: require = true, className: a } =
           arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : {};
         var r,
           s = $("<div></div>").append(
             $("<div></div>").addClass("message").html(e)
           );
         const l = () => {
-          n && document.removeEventListener("keypress", r, true),
+          require && document.removeEventListener("keypress", r, true),
             s.gDialog("close"),
             t && t();
         };
@@ -217,7 +217,7 @@ function (exports, module, require) {
             ],
           }),
           s.gDialog("open", false),
-          n && document.addEventListener("keypress", r, true),
+          require && document.addEventListener("keypress", r, true),
           s
         );
       }
@@ -326,7 +326,7 @@ function (exports, module, require) {
         return Promise.resolve();
       }
       static showCDRUnsupportedObjectsWarning() {
-        let e =
+        let exports =
           arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : [];
         return gDesigner.getSetting("disable_cdr_unsupported_effects", false)
           ? Promise.resolve(
@@ -416,7 +416,7 @@ function (exports, module, require) {
                 onClick: () => {
                   gDesigner.stats("unsupported-dialog_click_details");
                 },
-                items: e,
+                items: exports,
               },
               onCancel: () => {
                 gDesigner.stats("unsupported-dialog_click_cancel");
@@ -486,9 +486,9 @@ function (exports, module, require) {
       }
       static _dialogV1() {
         let {
-          title: e = "",
-          label: t = "",
-          message: n = "",
+          title: exports = "",
+          label: module = "",
+          message: require = "",
           icon: i = "assets/icon/dialog/info.svg",
           closeable: a = true,
           buttons: r = [],
@@ -524,7 +524,7 @@ function (exports, module, require) {
             },
           }),
           h = $("<header></header>")
-            .append($("<span/>").addClass("title").text(e))
+            .append($("<span/>").addClass("title").text(exports))
             .appendTo(g);
         return (
           a &&
@@ -546,8 +546,8 @@ function (exports, module, require) {
                 .append(
                   $("<div/>")
                     .addClass("content")
-                    .append($("<span/>").addClass("label").text(t))
-                    .append($("<pre/>").addClass("message").text(n))
+                    .append($("<span/>").addClass("label").text(module))
+                    .append($("<pre/>").addClass("message").text(require))
                     .append(
                       s
                         ? $("<div/>")
@@ -560,9 +560,9 @@ function (exports, module, require) {
                                 )
                                 .on("click", (e) => {
                                   s.onClick && s.onClick.call(this);
-                                  const t = $(e.target).closest(".details");
-                                  t.find(".panel").toggleClass("collapsed"),
-                                    t
+                                  const module = $(e.target).closest(".details");
+                                  module.find(".panel").toggleClass("collapsed"),
+                                    module
                                       .find(".icon")
                                       .toggleClass(
                                         "gravit-icon-down gravit-icon-up"
@@ -588,7 +588,7 @@ function (exports, module, require) {
                             .addClass("options")
                             .append(
                               l.values.map((e, t) => {
-                                let n = $("<label/>")
+                                let require = $("<label/>")
                                   .append(
                                     $("<input/>")
                                       .attr("type", "radio")
@@ -610,13 +610,13 @@ function (exports, module, require) {
                                 return (
                                   l.tooltips &&
                                     l.tooltips[t] &&
-                                    n.append(
+                                    require.append(
                                       $("<span/>")
                                         .addClass("tooltip")
                                         .text("?")
                                         .attr("data-title", l.tooltips[t])
                                     ),
-                                  n
+                                  require
                                 );
                               })
                             )
@@ -656,7 +656,7 @@ function (exports, module, require) {
         );
       }
       static messageWithInfo(e) {
-        let { mainMessage: t, infoMessage: n } = e;
+        let { mainMessage: module, infoMessage: require } = e;
         const i = $("<div />").gDialog({
             releaseOnClose: true,
             className: "g-system-dialog g-message-with-info-dialog",
@@ -669,8 +669,8 @@ function (exports, module, require) {
           }),
           a = $("<div />").addClass("content").appendTo(i);
         return (
-          t && a.append($("<div />").addClass("main-message").html(t)),
-          n &&
+          module && a.append($("<div />").addClass("main-message").html(module)),
+          require &&
             a.append(
               $("<div />")
                 .addClass("info-message")
@@ -681,15 +681,15 @@ function (exports, module, require) {
                       $("<img/>").attr("src", "assets/icon/dialog/info.svg")
                     )
                 )
-                .append($("<div />").addClass("info-message-content").html(n))
+                .append($("<div />").addClass("info-message-content").html(require))
             ),
           i.gDialog("open", true)
         );
       }
       static custom(e) {
         let {
-          title: t = "",
-          subtitle: n = "",
+          title: module = "",
+          subtitle: require = "",
           styles: i = {},
           footer: a,
           icon: r,
@@ -724,8 +724,8 @@ function (exports, module, require) {
               .appendTo(h);
         let f = $("<div></div>")
           .addClass("content")
-          .append($("<span></span>").addClass("title").html(t))
-          .append($("<span></span>").addClass("subtitle").html(n))
+          .append($("<span></span>").addClass("title").html(module))
+          .append($("<span></span>").addClass("subtitle").html(require))
           .appendTo(h);
         if (
           (a && f.append($("<span></span>").addClass("footer").html(a)),
@@ -755,8 +755,8 @@ function (exports, module, require) {
             m.append(
               s.map((e) => {
                 let {
-                  label: t,
-                  onclick: n,
+                  label: module,
+                  onclick: require,
                   highlighted: o,
                   className: i,
                   position: a,
@@ -771,10 +771,10 @@ function (exports, module, require) {
                       g.length &&
                         (g.forEach((e) => Mousetrap.unbind(e)), (g = [])),
                       s && h.gDialog("close"),
-                      n && n(h));
+                      require && require(h));
                   },
                   d = $("<button></button>")
-                    .append($("<span></span>").text(t))
+                    .append($("<span></span>").text(module))
                     .addClass("g-pro-button " + (o ? "highlighted" : ""))
                     .on("click", () => c());
                 return (
@@ -794,14 +794,14 @@ function (exports, module, require) {
       }
       static advanced(e) {
         let {
-          title: t = "",
-          buttons: n = [],
+          title: module = "",
+          buttons: require = [],
           closeCallback: o,
           closeable: i = true,
         } = e;
         var a = [],
           r = $("<div></div>").append(
-            $("<div></div>").addClass("message").html(t)
+            $("<div></div>").addClass("message").html(module)
           );
         return (
           r.gDialog({
@@ -811,10 +811,10 @@ function (exports, module, require) {
               a.length && (a.forEach((e) => Mousetrap.unbind(e)), (a = [])),
                 o && o(e);
             },
-            buttons: n.map((e) => {
+            buttons: require.map((e) => {
               let {
-                label: t,
-                onclick: n,
+                label: module,
+                onclick: require,
                 highlighted: o,
                 className: i,
                 position: s,
@@ -828,11 +828,11 @@ function (exports, module, require) {
                     l && (Mousetrap.unbind(l), a.splice(a.indexOf(l), 1)),
                     a.length &&
                       (a.forEach((e) => Mousetrap.unbind(e)), (a = [])),
-                    n(r),
+                    require(r),
                     c && r.gDialog("close", false));
                 },
                 p = $("<button></button>")
-                  .append($("<span></span>").text(t))
+                  .append($("<span></span>").text(module))
                   .addClass(o ? "primary" : "")
                   .on("click", () => u());
               return (
@@ -849,9 +849,9 @@ function (exports, module, require) {
           r
         );
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GSystemDialog]";
       }
     }
-    (a.Shortcut = { Esc: "esc", Enter: "enter" }), (e.exports = a);
+    (a.Shortcut = { Esc: "esc", Enter: "enter" }), (exports.exports = a);
   }

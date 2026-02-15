@@ -6,11 +6,11 @@
 
 function (exports, module, require) {
     "use strict";
-    n(57) /* module_57 */, n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(10) /* module_10 */,
-      r = n(40) /* module_40 */;
+    require(57) /* module_57 */, require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(10) /* module_10 */,
+      r = require(40) /* module_40 */;
     function s() {}
     o.GObject.inherit(s, o.GEvent),
       (s.prototype._startX = 0),
@@ -68,13 +68,13 @@ function (exports, module, require) {
       }),
       (s.prototype._mouseDownHandler = function (e) {
         if (e.defaultPrevented) return void this._clearLongPressTimer();
-        let { clientX: t, clientY: n } = e;
+        let { clientX: module, clientY: require } = e;
         "touchstart" === e.type &&
           e.changedTouches &&
           e.changedTouches[0] &&
-          ({ clientX: t, clientY: n } = e.changedTouches[0]),
-          (this._startX = t),
-          (this._startY = n),
+          ({ clientX: module, clientY: require } = e.changedTouches[0]),
+          (this._startX = module),
+          (this._startY = require),
           this._startLongPressTimer(e);
       }),
       (s.prototype._startLongPressTimer = function (e) {
@@ -197,10 +197,10 @@ function (exports, module, require) {
       }),
       (s.prototype._mouseMoveHandler = function (e) {
         if ("touchmove" === e.type) {
-          const { clientX: t, clientY: n } = e.changedTouches[0];
+          const { clientX: module, clientY: require } = e.changedTouches[0];
           if (
-            Math.abs(t - this._startX) < a.MIN_TOUCH_MOVE_DISTANCE &&
-            Math.abs(n - this._startY) < a.MIN_TOUCH_MOVE_DISTANCE
+            Math.abs(module - this._startX) < a.MIN_TOUCH_MOVE_DISTANCE &&
+            Math.abs(require - this._startY) < a.MIN_TOUCH_MOVE_DISTANCE
           )
             return;
         }
@@ -210,5 +210,5 @@ function (exports, module, require) {
         return "[Object GLongPressEvent]";
       }),
       new s().startup(),
-      (e.exports = s);
+      (exports.exports = s);
   }

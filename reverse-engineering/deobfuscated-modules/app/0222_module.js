@@ -5,16 +5,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(49) /* module_49 */,
-      i = n(29) /* module_29 */,
-      a = n(396) /* module_396 */,
-      r = n(174) /* module_174 */,
-      s = n(184) /* module_184 */,
-      l = n(294) /* module_294 */,
-      c = n(61) /* module_61 */,
-      d = n(399) /* module_399 */,
+    var o = require(49) /* module_49 */,
+      i = require(29) /* module_29 */,
+      a = require(396) /* module_396 */,
+      r = require(174) /* module_174 */,
+      s = require(184) /* module_184 */,
+      l = require(294) /* module_294 */,
+      c = require(61) /* module_61 */,
+      d = require(399) /* module_399 */,
       u = Object.getOwnPropertyDescriptor;
-    t.f = o
+    module.f = o
       ? u
       : function (e, t) {
           if (((e = s(e)), (t = l(t)), d))

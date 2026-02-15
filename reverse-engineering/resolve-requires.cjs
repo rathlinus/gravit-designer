@@ -14,6 +14,7 @@ const walk = require('acorn-walk');
 
 // Directories
 const SRC_MODULES_DIR = path.join(__dirname, 'src', 'modules');
+const VENDOR_MODULES_DIR = path.join(__dirname, 'ast-extracted-modules');
 const VENDOR_MAP_PATH = path.join(__dirname, 'extracted-modules', 'module-map.json');
 const APP_MAP_PATH = path.join(__dirname, 'src', 'module-map.json');
 const OUTPUT_VENDOR_DIR = path.join(__dirname, 'annotated-modules', 'vendor');
@@ -38,9 +39,36 @@ function loadModuleMaps() {
   if (fs.existsSync(VENDOR_MAP_PATH)) {
     const vendorData = JSON.parse(fs.readFileSync(VENDOR_MAP_PATH, 'utf8'));
     Object.assign(vendorMap, vendorData);
-    console.log(`Loaded ${Object.keys(vendorMap).length} vendor class mappings`);
+    console.log(`Loaded ${Object.keys(vendorMap).length} vendor class mappings from module-map.json`);
   } else {
     console.warn('Warning: vendor module map not found');
+  }
+  
+  // Also extract names from vendor filenames (e.g., "285-GCommentAnnotation.js" → 285: "GCommentAnnotation")
+  if (fs.existsSync(VENDOR_MODULES_DIR)) {
+    let filenameNames = 0;
+    function scanDir(dir) {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        if (entry.isDirectory()) {
+          scanDir(path.join(dir, entry.name));
+        } else if (entry.name.endsWith('.js')) {
+          const match = entry.name.match(/^(\d+)-(.+)\.js$/);
+          if (match) {
+            const id = match[1];
+            const name = match[2];
+            if (!vendorMap[id]) {
+              vendorMap[id] = name;
+              filenameNames++;
+            }
+          }
+        }
+      }
+    }
+    scanDir(VENDOR_MODULES_DIR);
+    if (filenameNames > 0) {
+      console.log(`  + ${filenameNames} additional names from vendor filenames`);
+    }
+    console.log(`  = ${Object.keys(vendorMap).length} total vendor mappings`);
   }
   
   // Load app map (ID -> module info)
@@ -178,7 +206,7 @@ async function processModuleFile(inputPath, outputPath, moduleMap) {
 }
 
 /**
- * Process all modules in a directory
+ * Process all modules in a directory (flat or nested)
  */
 async function processDirectory(inputDir, outputDir, moduleMap, label) {
   console.log(`Processing ${label}...`);
@@ -188,18 +216,34 @@ async function processDirectory(inputDir, outputDir, moduleMap, label) {
     return;
   }
   
-  const files = await fs.readdir(inputDir);
-  const jsFiles = files.filter(f => f.endsWith('.js'));
+  // Walk all .js files recursively
+  const allFiles = [];
+  function walkDir(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walkDir(full);
+      } else if (entry.name.endsWith('.js')) {
+        allFiles.push(full);
+      }
+    }
+  }
+  walkDir(inputDir);
   
-  console.log(`  Found ${jsFiles.length} JavaScript files`);
+  console.log(`  Found ${allFiles.length} JavaScript files`);
   
-  for (const file of jsFiles) {
-    const inputPath = path.join(inputDir, file);
-    const outputPath = path.join(outputDir, file);
+  let processed = 0;
+  for (const inputPath of allFiles) {
+    const relPath = path.relative(inputDir, inputPath);
+    const outputPath = path.join(outputDir, relPath);
     await processModuleFile(inputPath, outputPath, moduleMap);
+    processed++;
+    if (processed % 200 === 0) {
+      console.log(`    Processed ${processed}/${allFiles.length} files...`);
+    }
   }
   
-  console.log(`  ✓ Processed ${jsFiles.length} files\n`);
+  console.log(`  ✓ Processed ${allFiles.length} files\n`);
 }
 
 /**
@@ -252,6 +296,7 @@ async function main() {
   
   // Combine both maps (app modules take precedence for overlaps)
   const combinedMap = { ...vendorMap, ...appMap };
+  console.log(`Combined map: ${Object.keys(combinedMap).length} total entries\n`);
   
   // Process app modules from src/modules
   await processDirectory(
@@ -261,8 +306,13 @@ async function main() {
     'App modules (src/modules)'
   );
   
-  // Note: Vendor modules would be processed similarly if they were extracted
-  // to a separate directory. For now, we only have app modules extracted.
+  // Process vendor modules from ast-extracted-modules
+  await processDirectory(
+    VENDOR_MODULES_DIR,
+    OUTPUT_VENDOR_DIR,
+    combinedMap,
+    'Vendor modules (ast-extracted-modules)'
+  );
   
   // Generate report
   generateReport();

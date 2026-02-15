@@ -5,7 +5,7 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = {
+    exports.exports = {
       Crop: 1,
       Canvas: 2,
       PagePanel: 3,

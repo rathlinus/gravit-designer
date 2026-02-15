@@ -16,7 +16,7 @@ function (e, t, n) {
       }),
       n(193) /* module_193 */,
       n(8) /* module_8 */;
-    var i = n(1) /* module_1 */,
+    var i = n(1) /* module */,
       a = o(n(217) /* GDocumentStatusEvent */),
       r = o(n(86) /* module_86 */);
     const s = n(1101) /* module_1101 */,

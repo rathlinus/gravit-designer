@@ -6,28 +6,28 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(18) /* module_18 */),
-      s = o(n(31) /* GAction */),
-      l = o(n(1281) /* GMainAction */);
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(18) /* module_18 */),
+      s = o(require(31) /* GAction */),
+      l = o(require(1281) /* GMainAction */);
     class c extends l.default {
       static getActionSubId(e) {
         return "".concat(c.ID, ".").concat(e);
       }
       static getValidItems(e) {
-        let t = [];
+        let module = [];
         if (e instanceof i.GGroup || e instanceof i.GCompoundShape)
-          for (let n = e.getFirstChild(); null !== n; n = n.getNext()) {
-            const e = c.getValidItems(n);
-            t = t.concat(e);
+          for (let require = e.getFirstChild(); null !== require; require = require.getNext()) {
+            const e = c.getValidItems(require);
+            module = module.concat(e);
           }
         else
           e.hasMixin(i.GVertexSource) &&
             e.validateInsertion(new i.GCompoundShape()) &&
-            t.push(e);
-        return t;
+            module.push(e);
+        return module;
       }
       getId() {
         return c.ID;
@@ -51,13 +51,13 @@ function (exports, module, require) {
         return super.getIcon.call(this);
       }
       isEnabled() {
-        const e = gDesigner.getActiveDocument(),
-          t = e && e.getEditor(),
-          n = t && t.getIndividualSelection();
-        if (!n || !n.length) return false;
+        const exports = gDesigner.getActiveDocument(),
+          module = exports && exports.getEditor(),
+          require = module && module.getIndividualSelection();
+        if (!require || !require.length) return false;
         let o = [];
-        for (let e = 0; e < n.length; ++e) {
-          const t = n[e];
+        for (let exports = 0; exports < require.length; ++exports) {
+          const t = require[exports];
           if (((o = o.concat(c.getValidItems(t))), o.length > 1)) return true;
         }
         if (1 === o.length) {
@@ -73,14 +73,14 @@ function (exports, module, require) {
         return s.default.prototype.getShortcutHint.call(this, e);
       }
       execute() {
-        const e = c.getActionSubId(this.Type.Union);
-        gDesigner.executeAction(e);
+        const exports = c.getActionSubId(this.Type.Union);
+        gDesigner.executeAction(exports);
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GMergeMainAction]";
       }
     }
     (c.ID = "modify.merge"),
       (c.TITLE = new i.GLocaleKey("GMergeMainAction", "title")),
-      (e.exports = c);
+      (exports.exports = c);
   }

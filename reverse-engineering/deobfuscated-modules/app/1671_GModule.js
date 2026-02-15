@@ -9,21 +9,21 @@ function (exports, module, require) {
     function o(e) {
       (this.id = e), (this._intervals = []), (this._timeouts = []);
     }
-    n(3) /* module_3 */,
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */,
+    require(3) /* module_3 */,
+      require(4) /* module_4 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */,
       (o.prototype.exports = null),
       (o.prototype.id = null),
       (o.prototype._intervals = null),
       (o.prototype._timeouts = null),
       (o.prototype.setTimeout = function () {
-        let e = setTimeout.apply(null, arguments);
-        return this._timeouts.push(e), e;
+        let exports = setTimeout.apply(null, arguments);
+        return this._timeouts.push(exports), exports;
       }),
       (o.prototype.setInterval = function () {
-        let e = setInterval.apply(null, arguments);
-        return this._intervals.push(e), e;
+        let exports = setInterval.apply(null, arguments);
+        return this._intervals.push(exports), exports;
       }),
       (o.prototype.unload = function () {
         this._timeouts.forEach((e) => clearTimeout(e)),
@@ -34,5 +34,5 @@ function (exports, module, require) {
       (o.prototype.toString = function () {
         return "[Object GModule]";
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

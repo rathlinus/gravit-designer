@@ -3,6 +3,6 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = jQuery;
+function (exports, module) {
+    exports.exports = jQuery;
   }

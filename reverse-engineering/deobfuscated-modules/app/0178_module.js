@@ -3,6 +3,6 @@
  * Type: unknown
  */
 
-function (e, t) {
-    e.exports = require("fs");
+function (exports, module) {
+    exports.exports = require("fs");
   }

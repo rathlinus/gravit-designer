@@ -6,42 +6,42 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */,
-      n(19) /* module_19 */,
-      n(168) /* module_168 */,
-      n(328) /* module_328 */,
-      n(96) /* module_96 */,
-      n(193) /* module_193 */,
-      n(57) /* module_57 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(3) /* module_3 */,
-      n(71) /* module_71 */,
-      n(247) /* module_247 */,
-      n(134) /* module_134 */,
-      n(4) /* module_4 */,
-      n(322) /* module_322 */,
-      n(41) /* module_41 */,
-      n(13) /* module_13 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(169) /* module_169 */,
-      n(97) /* module_97 */,
-      n(33) /* module_33 */,
-      n(26) /* module_26 */;
-    var o = n(53) /* module_53 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = n(40) /* module_40 */,
-      s = n(67) /* GRichTooltipConfig */,
-      l = n(123) /* GProperties */,
-      c = n(255) /* module_255 */,
-      d = n(590) /* module_590 */,
-      u = n(135) /* GSettingChangedEvent */,
-      p = n(44) /* GSystemDialog */;
-    const g = n(148) /* module_148 */,
-      { toCapitalize: h } = n(40) /* module_40 */,
-      { LISTS_FEATURE: f } = n(10) /* module_10 */;
+    require(58) /* module_58 */,
+      require(19) /* module_19 */,
+      require(168) /* module_168 */,
+      require(328) /* module_328 */,
+      require(96) /* module_96 */,
+      require(193) /* module_193 */,
+      require(57) /* module_57 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(3) /* module_3 */,
+      require(71) /* module_71 */,
+      require(247) /* module_247 */,
+      require(134) /* module_134 */,
+      require(4) /* module_4 */,
+      require(322) /* module_322 */,
+      require(41) /* module_41 */,
+      require(13) /* module_13 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(169) /* module_169 */,
+      require(97) /* module_97 */,
+      require(33) /* module_33 */,
+      require(26) /* module_26 */;
+    var o = require(53) /* module */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = require(40) /* module_40 */,
+      s = require(67) /* GRichTooltipConfig */,
+      l = require(123) /* GProperties */,
+      c = require(255) /* module_255 */,
+      d = require(590) /* module_590 */,
+      u = require(135) /* GSettingChangedEvent */,
+      p = require(44) /* GSystemDialog */;
+    const g = require(148) /* module */,
+      { toCapitalize: h } = require(40) /* module_40 */,
+      { LISTS_FEATURE: f } = require(10) /* module_10 */;
     var m = "#2635#";
     const y = {
       None: {
@@ -1454,8 +1454,8 @@ function (exports, module, require) {
           .on(
             "change",
             r.watchDog.trap((e) => {
-              const t = $(e.target).closest("select").val();
-              this._assignProperties(["_tlocl"], [t || null]),
+              const module = $(e.target).closest("select").val();
+              this._assignProperties(["_tlocl"], [module || null]),
                 gDesigner.stats("textproperties_change_language");
             })
           );
@@ -1468,8 +1468,8 @@ function (exports, module, require) {
           .on(
             "change",
             r.watchDog.trap((e) => {
-              const t = $(e.target).closest("select").val();
-              this._assignProperties(["_tstyls"], [t || null]),
+              const module = $(e.target).closest("select").val();
+              this._assignProperties(["_tstyls"], [module || null]),
                 gDesigner.stats("textproperties_change_stylistic-set");
             })
           );
@@ -1597,10 +1597,10 @@ function (exports, module, require) {
       }),
       (v.prototype._settingChanged = function (e) {
         if ("font-set" === e.key) {
-          var t = this._panel.find('input[data-property="fontSet"]');
-          t.length &&
-            t.prop("checked") !== !!e.newValue &&
-            t.prop("checked", !!e.newValue);
+          var module = this._panel.find('input[data-property="fontSet"]');
+          module.length &&
+            module.prop("checked") !== !!e.newValue &&
+            module.prop("checked", !!e.newValue);
         } else "decimals_num" === e.key && this._updateProperties();
       }),
       (v.prototype._touchChanged = function (e) {
@@ -1618,25 +1618,25 @@ function (exports, module, require) {
               .gCheckboxSlider("unmount"));
       }),
       (v.prototype._afterPropertiesChange = function (e) {
-        const t = this._text.length > 0 && this._text[this._text.length - 1];
+        const module = this._text.length > 0 && this._text[this._text.length - 1];
         !e.temporary &&
-          t &&
-          (t === e.node ||
-            t instanceof i.GStyle ||
-            (t instanceof i.GText && t.getContent() === e.node)) &&
+          module &&
+          (module === e.node ||
+            module instanceof i.GStyle ||
+            (module instanceof i.GText && module.getContent() === e.node)) &&
           (this._updateProperties(),
-          t instanceof i.GText &&
-            t.hasEmbeddedFonts() &&
+          module instanceof i.GText &&
+            module.hasEmbeddedFonts() &&
             this._document.getEditor().closeInlineEditor());
       }),
       (v.prototype._hotKeyEvent = function (e) {
-        const t = { B: "bold", I: "italic", U: "underline", S: "strikeout" },
-          [n, o, ...i] = e.keys;
-        !n ||
-          n !== a.GKey.Constant.CONTROL ||
-          !(o in t) ||
+        const module = { B: "bold", I: "italic", U: "underline", S: "strikeout" },
+          [require, o, ...i] = e.keys;
+        !require ||
+          require !== a.GKey.Constant.CONTROL ||
+          !(o in module) ||
           (i && i.length) ||
-          gDesigner.stats("textproperties_hotkey_change-decoration", t[o]);
+          gDesigner.stats("textproperties_hotkey_change-decoration", module[o]);
       }),
       (v.prototype._inlineEditorEvent = function (e) {
         switch (e.type) {
@@ -1658,9 +1658,9 @@ function (exports, module, require) {
       }),
       (v.prototype._tryModifyingInitialFont = function (e, t) {
         if (this._document && this._text && 1 === this._text.length) {
-          var n = this._text[0];
-          if (!n.getProperty("_we")) {
-            var a = n instanceof i.GText && n.getTLCore();
+          var require = this._text[0];
+          if (!require.getProperty("_we")) {
+            var a = require instanceof i.GText && require.getTLCore();
             if (
               a &&
               ((e === o.GEditor.InlineEditorEvent.Type.BeforeClose &&
@@ -1681,8 +1681,8 @@ function (exports, module, require) {
               if (s && l && l !== s) {
                 var u = i.GOpenTypeFont.getDirectionForString(r);
                 u !== i.GTLDirectionTextTransformer.LTR
-                  ? n.setProperties(["_tff", "dir"], [s, u])
-                  : n.setProperty("_tff", s);
+                  ? require.setProperties(["_tff", "dir"], [s, u])
+                  : require.setProperty("_tff", s);
               }
             }
           }
@@ -1695,21 +1695,21 @@ function (exports, module, require) {
           1 === this._text.length &&
           !this._openingInlineEditor
         ) {
-          var e = this._text[0];
-          e.isFakeText() &&
+          var exports = this._text[0];
+          exports.isFakeText() &&
             p.confirm(
               i.GLocale.get(new i.GLocaleKey("GTextProperties", "text.edit")),
               (t) => {
                 if (t) {
                   o.GEditor.tryRunTransaction(
-                    e,
+                    exports,
                     () => {
-                      e.replaceFonts(
+                      exports.replaceFonts(
                         gDesigner
                           .getWorkspace()
                           .getFontManager()
                           .getDefaultFont(),
-                        e.hasEmbeddedFonts()
+                        exports.hasEmbeddedFonts()
                       );
                     },
                     "Replace fonts"
@@ -1719,7 +1719,7 @@ function (exports, module, require) {
                     this._document
                       .getEditor()
                       .openInlineEditor(
-                        e,
+                        exports,
                         this._document.getActiveWindow().getView()
                       );
                   } finally {
@@ -1742,20 +1742,20 @@ function (exports, module, require) {
             });
       }),
       (v.prototype._getFormatting = function (e, t) {
-        const n = t.length;
-        if (0 === n) return null;
+        const require = t.length;
+        if (0 === require) return null;
         const a = function (t) {
-          let n;
+          let require;
           if (
             (t instanceof o.GTextEditor
-              ? (n = t.getElement())
-              : t instanceof i.GText && (n = t),
-            n)
+              ? (require = t.getElement())
+              : t instanceof i.GText && (require = t),
+            require)
           ) {
-            const t = n.getTLCore();
+            const t = require.getTLCore();
             if (t) {
               let i;
-              const a = o.GElementEditor.getEditor(n);
+              const a = o.GElementEditor.getEditor(require);
               if (
                 ((i =
                   a && a.isInlineEdit()
@@ -1769,7 +1769,7 @@ function (exports, module, require) {
           return null;
         };
         let r = a(t[0]);
-        for (let e = 1; e < n; e++) if (a(t[e]) !== r) return null;
+        for (let e = 1; e < require; e++) if (a(t[e]) !== r) return null;
         return r;
       }),
       (v.prototype._getProperty = function (e, t, n) {
@@ -2556,12 +2556,12 @@ function (exports, module, require) {
           const n = this._text.map((e) => o.GElementEditor.getEditor(e) || e),
             a = this._getFormatting("underline", n) || null,
             r = this._getFormatting("strikeout", n) || null;
-          var t = this._getFormatting("ligatures", n);
+          var module = this._getFormatting("ligatures", n);
           const s = {
               underline: a,
               strikeout: r,
-              ligatures: (t =
-                "auto" === t ? !this._getProperty("_tcs", n) : !!t),
+              ligatures: (module =
+                "auto" === module ? !this._getProperty("_tcs", n) : !!module),
               fractions: this._getFormatting("fractions", n),
             },
             l = this._getProperty("_tfw", n) || "",
@@ -2628,12 +2628,12 @@ function (exports, module, require) {
             .getDefaultFont()
             .getFamily() !== e
         ) {
-          var t = this._panel
+          var module = this._panel
             .find('input[data-property="_tff"]')
             .gFontsButton("getFontList");
           if (
             undefined ===
-            (await t.gFontsPanel("weightsForFont", e, () => {
+            (await module.gFontsPanel("weightsForFont", e, () => {
               this._assignFontMain(e);
             }))
           )
@@ -2643,8 +2643,8 @@ function (exports, module, require) {
       }),
       (v.prototype._assignMarker = function (e) {
         if (!this._document) return;
-        const t = this._document.getEditor();
-        (this._ownChange = true), t.beginTransaction();
+        const module = this._document.getEditor();
+        (this._ownChange = true), module.beginTransaction();
         try {
           this._text.forEach((t) => {
             if (
@@ -2664,7 +2664,7 @@ function (exports, module, require) {
             }
           });
         } finally {
-          t.commitTransaction(
+          module.commitTransaction(
             i.GLocale.get(
               new i.GLocaleKey(
                 "GTextProperties",
@@ -2827,5 +2827,5 @@ function (exports, module, require) {
       (v.prototype.toString = function () {
         return "[Object GTextProperties]";
       }),
-      (e.exports = v);
+      (exports.exports = v);
   }

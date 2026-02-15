@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(21) /* module_21 */;
-    e.exports = !o(function () {
+    var o = require(21) /* module_21 */;
+    exports.exports = !o(function () {
       return (
         7 !==
         Object.defineProperty({}, 1, {

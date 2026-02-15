@@ -209,10 +209,10 @@ function (exports, module, require) {
           if (
             ((function () {
               try {
-                var t = new e.URL("b", "http://a");
+                var module = new e.URL("b", "http://a");
                 return (
-                  (t.pathname = "c d"),
-                  "http://a/c%20d" === t.href && t.searchParams
+                  (module.pathname = "c d"),
+                  "http://a/c%20d" === module.href && module.searchParams
                 );
               } catch (e) {
                 return false;
@@ -382,7 +382,7 @@ function (exports, module, require) {
               })(),
             undefined !== e.location && !("origin" in e.location))
           ) {
-            var t = function () {
+            var module = function () {
               return (
                 e.location.protocol +
                 "//" +
@@ -392,12 +392,12 @@ function (exports, module, require) {
             };
             try {
               Object.defineProperty(e.location, "origin", {
-                get: t,
+                get: module,
                 enumerable: true,
               });
             } catch (n) {
               setInterval(function () {
-                e.location.origin = t();
+                e.location.origin = module();
               }, 100);
             }
           }
@@ -410,5 +410,5 @@ function (exports, module, require) {
             ? self
             : this
         );
-    }).call(this, n(109) /* module_109 */);
+    }).call(this, require(109) /* module_109 */);
   }

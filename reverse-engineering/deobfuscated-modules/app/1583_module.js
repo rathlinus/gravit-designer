@@ -5,8 +5,8 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = class {
-      constructor(e) {
+    exports.exports = class {
+      function Object() { [native code] }(e) {
         this._event = e;
       }
       areThereTwoTouchPoints() {
@@ -28,9 +28,9 @@ function (exports, module, require) {
         return this._event;
       }
       iterateChangedTouches(e) {
-        const t = this._event.changedTouches,
-          n = t.length;
-        for (let o = 0; o < n && false !== e(t[o]); o++);
+        const module = this._event.changedTouches,
+          require = module.length;
+        for (let o = 0; o < require && false !== e(module[o]); o++);
       }
       isTrusted() {
         return this._event.isTrusted;

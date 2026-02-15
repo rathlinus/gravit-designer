@@ -7,8 +7,8 @@
 function (e, t, n) {
     "use strict";
     n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
+    var o = n(1) /* module */,
+      i = n(15) /* module */,
       a = n(198) /* Exports_GOutlineSidebar */,
       r = n(567) /* GAnnotationsSidebar */,
       s = n(18) /* module_18 */,

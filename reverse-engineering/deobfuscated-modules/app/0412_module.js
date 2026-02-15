@@ -20,5 +20,5 @@ function (exports, module, require) {
           return null === (this.head = e.next) && (this.tail = null), e.item;
       },
     }),
-      (e.exports = o);
+      (exports.exports = o);
   }

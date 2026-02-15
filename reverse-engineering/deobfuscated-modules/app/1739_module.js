@@ -5,103 +5,103 @@
 
 function (exports, module, require) {
     "use strict";
-    n.r(t),
-      n.d(t, "createInstance", function () {
+    require.r(module),
+      require.d(module, "createInstance", function () {
         return Le;
       }),
-      n.d(t, "add", function () {
+      require.d(module, "add", function () {
         return ke;
       }),
-      n.d(t, "flush", function () {
+      require.d(module, "flush", function () {
         return Oe;
       }),
-      n.d(t, "getDeviceId", function () {
+      require.d(module, "getDeviceId", function () {
         return Fe;
       }),
-      n.d(t, "getSessionId", function () {
+      require.d(module, "getSessionId", function () {
         return Re;
       }),
-      n.d(t, "getUserId", function () {
+      require.d(module, "getUserId", function () {
         return Me;
       }),
-      n.d(t, "groupIdentify", function () {
+      require.d(module, "groupIdentify", function () {
         return Ne;
       }),
-      n.d(t, "identify", function () {
+      require.d(module, "identify", function () {
         return Be;
       }),
-      n.d(t, "init", function () {
+      require.d(module, "init", function () {
         return Ue;
       }),
-      n.d(t, "logEvent", function () {
+      require.d(module, "logEvent", function () {
         return $e;
       }),
-      n.d(t, "remove", function () {
+      require.d(module, "remove", function () {
         return je;
       }),
-      n.d(t, "reset", function () {
+      require.d(module, "reset", function () {
         return Ke;
       }),
-      n.d(t, "revenue", function () {
+      require.d(module, "revenue", function () {
         return Ve;
       }),
-      n.d(t, "setDeviceId", function () {
+      require.d(module, "setDeviceId", function () {
         return He;
       }),
-      n.d(t, "setGroup", function () {
+      require.d(module, "setGroup", function () {
         return We;
       }),
-      n.d(t, "setOptOut", function () {
+      require.d(module, "setOptOut", function () {
         return ze;
       }),
-      n.d(t, "setSessionId", function () {
+      require.d(module, "setSessionId", function () {
         return qe;
       }),
-      n.d(t, "setTransport", function () {
+      require.d(module, "setTransport", function () {
         return Ye;
       }),
-      n.d(t, "setUserId", function () {
+      require.d(module, "setUserId", function () {
         return Xe;
       }),
-      n.d(t, "track", function () {
+      require.d(module, "track", function () {
         return Qe;
       }),
-      n.d(t, "runQueuedFunctions", function () {
+      require.d(module, "runQueuedFunctions", function () {
         return ne;
       }),
-      n.d(t, "Revenue", function () {
+      require.d(module, "Revenue", function () {
         return O;
       }),
-      n.d(t, "Identify", function () {
+      require.d(module, "Identify", function () {
         return k;
       }),
-      n.d(t, "Types", function () {
+      require.d(module, "Types", function () {
         return o;
       });
     var o = {};
-    n.r(o),
-      n.d(o, "ServerZone", function () {
+    require.r(o),
+      require.d(o, "ServerZone", function () {
         return m;
       }),
-      n.d(o, "SpecialEventType", function () {
+      require.d(o, "SpecialEventType", function () {
         return w;
       }),
-      n.d(o, "IdentifyOperation", function () {
+      require.d(o, "IdentifyOperation", function () {
         return _;
       }),
-      n.d(o, "RevenueProperty", function () {
+      require.d(o, "RevenueProperty", function () {
         return b;
       }),
-      n.d(o, "LogLevel", function () {
+      require.d(o, "LogLevel", function () {
         return f;
       }),
-      n.d(o, "PluginType", function () {
+      require.d(o, "PluginType", function () {
         return g;
       }),
-      n.d(o, "Status", function () {
+      require.d(o, "Status", function () {
         return h;
       }),
-      n.d(o, "TransportType", function () {
+      require.d(o, "TransportType", function () {
         return V;
       });
     var i = function (e, t) {
@@ -112,8 +112,8 @@ function (exports, module, require) {
             e.__proto__ = t;
           }) ||
         function (e, t) {
-          for (var n in t)
-            Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
+          for (var require in t)
+            Object.prototype.hasOwnProperty.call(t, require) && (e[require] = t[require]);
         })(e, t);
     };
     function a(e, t) {
@@ -121,22 +121,22 @@ function (exports, module, require) {
         throw new TypeError(
           "Class extends value " + String(t) + " is not a constructor or null"
         );
-      function n() {
+      function require() {
         this.constructor = e;
       }
       i(e, t),
         (e.prototype =
           null === t
             ? Object.create(t)
-            : ((n.prototype = t.prototype), new n()));
+            : ((require.prototype = t.prototype), new require()));
     }
     var r = function () {
       return (r =
         Object.assign ||
         function (e) {
-          for (var t, n = 1, o = arguments.length; n < o; n++)
-            for (var i in (t = arguments[n]))
-              Object.prototype.hasOwnProperty.call(t, i) && (e[i] = t[i]);
+          for (var module, require = 1, o = arguments.length; require < o; require++)
+            for (var i in (module = arguments[require]))
+              Object.prototype.hasOwnProperty.call(module, i) && (e[i] = module[i]);
           return e;
         }).apply(this, arguments);
     };
@@ -368,35 +368,35 @@ function (exports, module, require) {
       w,
       C = "Amplitude Logger ",
       x = (function () {
-        function e() {
+        function exports() {
           this.logLevel = f.None;
         }
         return (
-          (e.prototype.disable = function () {
+          (exports.prototype.disable = function () {
             this.logLevel = f.None;
           }),
-          (e.prototype.enable = function (e) {
+          (exports.prototype.enable = function (e) {
             undefined === e && (e = f.Warn), (this.logLevel = e);
           }),
-          (e.prototype.log = function () {
-            for (var e = [], t = 0; t < arguments.length; t++)
-              e[t] = arguments[t];
+          (exports.prototype.log = function () {
+            for (var exports = [], module = 0; module < arguments.length; module++)
+              exports[module] = arguments[module];
             this.logLevel < f.Verbose ||
-              console.log("".concat(C, "[Log]: ").concat(e.join(" ")));
+              console.log("".concat(C, "[Log]: ").concat(exports.join(" ")));
           }),
-          (e.prototype.warn = function () {
-            for (var e = [], t = 0; t < arguments.length; t++)
-              e[t] = arguments[t];
+          (exports.prototype.warn = function () {
+            for (var exports = [], module = 0; module < arguments.length; module++)
+              exports[module] = arguments[module];
             this.logLevel < f.Warn ||
-              console.warn("".concat(C, "[Warn]: ").concat(e.join(" ")));
+              console.warn("".concat(C, "[Warn]: ").concat(exports.join(" ")));
           }),
-          (e.prototype.error = function () {
-            for (var e = [], t = 0; t < arguments.length; t++)
-              e[t] = arguments[t];
+          (exports.prototype.error = function () {
+            for (var exports = [], module = 0; module < arguments.length; module++)
+              exports[module] = arguments[module];
             this.logLevel < f.Error ||
-              console.error("".concat(C, "[Error]: ").concat(e.join(" ")));
+              console.error("".concat(C, "[Error]: ").concat(exports.join(" ")));
           }),
-          e
+          exports
         );
       })(),
       S = function () {
@@ -413,7 +413,7 @@ function (exports, module, require) {
         };
       },
       E = (function () {
-        function e(e) {
+        function exports(e) {
           var t, n, o;
           this._optOut = false;
           var i = S();
@@ -441,7 +441,7 @@ function (exports, module, require) {
           (this.serverZone = a.serverZone), (this.serverUrl = a.serverUrl);
         }
         return (
-          Object.defineProperty(e.prototype, "optOut", {
+          Object.defineProperty(exports.prototype, "optOut", {
             get: function () {
               return this._optOut;
             },
@@ -451,7 +451,7 @@ function (exports, module, require) {
             enumerable: false,
             configurable: true,
           }),
-          e
+          exports
         );
       })(),
       A = function (e, t) {
@@ -475,7 +475,7 @@ function (exports, module, require) {
         return { serverZone: o, serverUrl: A(o, n) };
       },
       G = (function () {
-        function e() {
+        function exports() {
           (this.name = "amplitude"),
             (this.type = g.DESTINATION),
             (this.retryTimeout = 1e3),
@@ -485,7 +485,7 @@ function (exports, module, require) {
             (this.queue = []);
         }
         return (
-          (e.prototype.setup = function (e) {
+          (exports.prototype.setup = function (e) {
             var t;
             return l(this, undefined, undefined, function () {
               var n,
@@ -523,7 +523,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.execute = function (e) {
+          (exports.prototype.execute = function (e) {
             var t = this;
             return new Promise(function (n) {
               var o = {
@@ -537,13 +537,13 @@ function (exports, module, require) {
               t.addToQueue(o);
             });
           }),
-          (e.prototype.addToQueue = function () {
-            for (var e = this, t = [], n = 0; n < arguments.length; n++)
-              t[n] = arguments[n];
-            var o = t.filter(function (t) {
-              return t.attempts < e.config.flushMaxRetries
+          (exports.prototype.addToQueue = function () {
+            for (var exports = this, module = [], require = 0; require < arguments.length; require++)
+              module[require] = arguments[require];
+            var o = module.filter(function (t) {
+              return t.attempts < exports.config.flushMaxRetries
                 ? ((t.attempts += 1), true)
-                : (e.fulfillRequest(
+                : (exports.fulfillRequest(
                     [t],
                     500,
                     "Event rejected due to exceeded retry count"
@@ -551,16 +551,16 @@ function (exports, module, require) {
                   false);
             });
             o.forEach(function (t) {
-              (e.queue = e.queue.concat(t)),
+              (exports.queue = exports.queue.concat(t)),
                 0 !== t.timeout
                   ? setTimeout(function () {
-                      (t.timeout = 0), e.schedule(0);
+                      (t.timeout = 0), exports.schedule(0);
                     }, t.timeout)
-                  : e.schedule(e.config.flushIntervalMillis);
+                  : exports.schedule(exports.config.flushIntervalMillis);
             }),
               this.saveEvents();
           }),
-          (e.prototype.schedule = function (e) {
+          (exports.prototype.schedule = function (e) {
             var t = this;
             this.scheduled ||
               ((this.scheduled = true),
@@ -570,7 +570,7 @@ function (exports, module, require) {
                 });
               }, e));
           }),
-          (e.prototype.flush = function (e) {
+          (exports.prototype.flush = function (e) {
             return (
               undefined === e && (e = false),
               l(this, undefined, undefined, function () {
@@ -612,7 +612,7 @@ function (exports, module, require) {
               })
             );
           }),
-          (e.prototype.send = function (e, t) {
+          (exports.prototype.send = function (e, t) {
             return (
               undefined === t && (t = true),
               l(this, undefined, undefined, function () {
@@ -673,7 +673,7 @@ function (exports, module, require) {
               })
             );
           }),
-          (e.prototype.handleReponse = function (e, t) {
+          (exports.prototype.handleReponse = function (e, t) {
             switch (e.status) {
               case h.Success:
                 this.handleSuccessResponse(e, t);
@@ -691,10 +691,10 @@ function (exports, module, require) {
                 this.handleOtherReponse(t);
             }
           }),
-          (e.prototype.handleSuccessResponse = function (e, t) {
+          (exports.prototype.handleSuccessResponse = function (e, t) {
             this.fulfillRequest(t, e.statusCode, "Event tracked successfully");
           }),
-          (e.prototype.handleInvalidResponse = function (e, t) {
+          (exports.prototype.handleInvalidResponse = function (e, t) {
             var n = this;
             if (
               e.body.missingField ||
@@ -727,13 +727,13 @@ function (exports, module, require) {
               this.addToQueue.apply(this, p([], u(a), false));
             }
           }),
-          (e.prototype.handlePayloadTooLargeResponse = function (e, t) {
+          (exports.prototype.handlePayloadTooLargeResponse = function (e, t) {
             1 !== t.length
               ? ((this.config.flushQueueSize /= 2),
                 this.addToQueue.apply(this, p([], u(t), false)))
               : this.fulfillRequest(t, e.statusCode, e.body.error);
           }),
-          (e.prototype.handleRateLimitResponse = function (e, t) {
+          (exports.prototype.handleRateLimitResponse = function (e, t) {
             var n = this,
               o = Object.keys(e.body.exceededDailyQuotaUsers),
               i = Object.keys(e.body.exceededDailyQuotaDevices),
@@ -753,7 +753,7 @@ function (exports, module, require) {
               });
             this.addToQueue.apply(this, p([], u(c), false));
           }),
-          (e.prototype.handleOtherReponse = function (e) {
+          (exports.prototype.handleOtherReponse = function (e) {
             var t = this;
             this.addToQueue.apply(
               this,
@@ -768,23 +768,23 @@ function (exports, module, require) {
               )
             );
           }),
-          (e.prototype.fulfillRequest = function (e, t, n) {
+          (exports.prototype.fulfillRequest = function (e, t, n) {
             this.saveEvents(),
               e.forEach(function (e) {
                 return e.callback(v(e.event, t, n));
               });
           }),
-          (e.prototype.saveEvents = function () {
+          (exports.prototype.saveEvents = function () {
             if (this.config.storageProvider) {
-              var e = Array.from(
+              var exports = Array.from(
                 this.queue.map(function (e) {
                   return e.event;
                 })
               );
-              this.config.storageProvider.set(this.storageKey, e);
+              this.config.storageProvider.set(this.storageKey, exports);
             }
           }),
-          e
+          exports
         );
       })(),
       P = function (e) {
@@ -825,9 +825,9 @@ function (exports, module, require) {
     var D,
       L = function (e) {
         if (Object.keys(e).length > 1e3) return false;
-        for (var t in e) {
-          var n = e[t];
-          if (!I(t, n)) return false;
+        for (var module in e) {
+          var require = e[module];
+          if (!I(module, require)) return false;
         }
         return true;
       },
@@ -861,48 +861,48 @@ function (exports, module, require) {
         return true;
       },
       k = (function () {
-        function e() {
+        function exports() {
           (this._propertySet = new Set()), (this._properties = {});
         }
         return (
-          (e.prototype.getUserProperties = function () {
+          (exports.prototype.getUserProperties = function () {
             return r({}, this._properties);
           }),
-          (e.prototype.set = function (e, t) {
+          (exports.prototype.set = function (e, t) {
             return this._safeSet(_.SET, e, t), this;
           }),
-          (e.prototype.setOnce = function (e, t) {
+          (exports.prototype.setOnce = function (e, t) {
             return this._safeSet(_.SET_ONCE, e, t), this;
           }),
-          (e.prototype.append = function (e, t) {
+          (exports.prototype.append = function (e, t) {
             return this._safeSet(_.APPEND, e, t), this;
           }),
-          (e.prototype.prepend = function (e, t) {
+          (exports.prototype.prepend = function (e, t) {
             return this._safeSet(_.PREPEND, e, t), this;
           }),
-          (e.prototype.postInsert = function (e, t) {
+          (exports.prototype.postInsert = function (e, t) {
             return this._safeSet(_.POSTINSERT, e, t), this;
           }),
-          (e.prototype.preInsert = function (e, t) {
+          (exports.prototype.preInsert = function (e, t) {
             return this._safeSet(_.PREINSERT, e, t), this;
           }),
-          (e.prototype.remove = function (e, t) {
+          (exports.prototype.remove = function (e, t) {
             return this._safeSet(_.REMOVE, e, t), this;
           }),
-          (e.prototype.add = function (e, t) {
+          (exports.prototype.add = function (e, t) {
             return this._safeSet(_.ADD, e, t), this;
           }),
-          (e.prototype.unset = function (e) {
+          (exports.prototype.unset = function (e) {
             return this._safeSet(_.UNSET, e, "-"), this;
           }),
-          (e.prototype.clearAll = function () {
+          (exports.prototype.clearAll = function () {
             return (
               (this._properties = {}),
               (this._properties[_.CLEAR_ALL] = "-"),
               this
             );
           }),
-          (e.prototype._safeSet = function (e, t, n) {
+          (exports.prototype._safeSet = function (e, t, n) {
             if (this._validate(e, t, n)) {
               var o = this._properties[e];
               return (
@@ -914,7 +914,7 @@ function (exports, module, require) {
             }
             return false;
           }),
-          (e.prototype._validate = function (e, t, n) {
+          (exports.prototype._validate = function (e, t, n) {
             return (
               undefined === this._properties[_.CLEAR_ALL] &&
               !this._propertySet.has(t) &&
@@ -923,33 +923,33 @@ function (exports, module, require) {
                 : e === _.UNSET || e === _.REMOVE || I(t, n))
             );
           }),
-          e
+          exports
         );
       })(),
       O = (function () {
-        function e() {
+        function exports() {
           (this.productId = ""), (this.quantity = 1), (this.price = 0);
         }
         return (
-          (e.prototype.setProductId = function (e) {
+          (exports.prototype.setProductId = function (e) {
             return (this.productId = e), this;
           }),
-          (e.prototype.setQuantity = function (e) {
+          (exports.prototype.setQuantity = function (e) {
             return e > 0 && (this.quantity = e), this;
           }),
-          (e.prototype.setPrice = function (e) {
+          (exports.prototype.setPrice = function (e) {
             return (this.price = e), this;
           }),
-          (e.prototype.setRevenueType = function (e) {
+          (exports.prototype.setRevenueType = function (e) {
             return (this.revenueType = e), this;
           }),
-          (e.prototype.setRevenue = function (e) {
+          (exports.prototype.setRevenue = function (e) {
             return (this.revenue = e), this;
           }),
-          (e.prototype.setEventProperties = function (e) {
+          (exports.prototype.setEventProperties = function (e) {
             return L(e) && (this.properties = e), this;
           }),
-          (e.prototype.getEventProperties = function () {
+          (exports.prototype.getEventProperties = function () {
             var e = this.properties ? r({}, this.properties) : {};
             return (
               (e[b.REVENUE_PRODUCT_ID] = this.productId),
@@ -960,15 +960,15 @@ function (exports, module, require) {
               e
             );
           }),
-          e
+          exports
         );
       })(),
       F = (function () {
-        function e() {
+        function exports() {
           (this.queue = []), (this.applying = false), (this.plugins = []);
         }
         return (
-          (e.prototype.register = function (e, t) {
+          (exports.prototype.register = function (e, t) {
             return l(this, undefined, undefined, function () {
               return c(this, function (n) {
                 switch (n.label) {
@@ -980,7 +980,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.deregister = function (e) {
+          (exports.prototype.deregister = function (e) {
             return (
               this.plugins.splice(
                 this.plugins.findIndex(function (t) {
@@ -991,16 +991,16 @@ function (exports, module, require) {
               Promise.resolve()
             );
           }),
-          (e.prototype.reset = function () {
+          (exports.prototype.reset = function () {
             (this.applying = false), (this.plugins = []);
           }),
-          (e.prototype.push = function (e) {
+          (exports.prototype.push = function (e) {
             var t = this;
             return new Promise(function (n) {
               t.queue.push([e, n]), t.scheduleApply(0);
             });
           }),
-          (e.prototype.scheduleApply = function (e) {
+          (exports.prototype.scheduleApply = function (e) {
             var t = this;
             this.applying ||
               ((this.applying = true),
@@ -1010,7 +1010,7 @@ function (exports, module, require) {
                 });
               }, e));
           }),
-          (e.prototype.apply = function (e) {
+          (exports.prototype.apply = function (e) {
             return l(this, undefined, undefined, function () {
               var t, n, o, i, a, s, l, p, h, f, m, y, _, b, w, C, x, S;
               return c(this, function (c) {
@@ -1095,7 +1095,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.flush = function () {
+          (exports.prototype.flush = function () {
             return l(this, undefined, undefined, function () {
               var e,
                 t,
@@ -1133,11 +1133,11 @@ function (exports, module, require) {
               });
             });
           }),
-          e
+          exports
         );
       })(),
       R = (function () {
-        function e(e) {
+        function exports(e) {
           undefined === e && (e = "$default"),
             (this.initializing = false),
             (this.q = []),
@@ -1147,7 +1147,7 @@ function (exports, module, require) {
             (this.name = e);
         }
         return (
-          (e.prototype._init = function (e) {
+          (exports.prototype._init = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 switch (t.label) {
@@ -1163,7 +1163,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.runQueuedFunctions = function (e) {
+          (exports.prototype.runQueuedFunctions = function (e) {
             return l(this, undefined, undefined, function () {
               var t, n, o, i, a, r;
               return c(this, function (s) {
@@ -1198,7 +1198,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.track = function (e, t, n) {
+          (exports.prototype.track = function (e, t, n) {
             var o = (function (e, t, n) {
               return r(
                 r(r({}, "string" == typeof e ? { event_type: e } : e), n),
@@ -1207,7 +1207,7 @@ function (exports, module, require) {
             })(e, t, n);
             return this.dispatch(o);
           }),
-          (e.prototype.identify = function (e, t) {
+          (exports.prototype.identify = function (e, t) {
             var n = (function (e, t) {
               return r(r({}, t), {
                 event_type: w.IDENTIFY,
@@ -1216,7 +1216,7 @@ function (exports, module, require) {
             })(e, t);
             return this.dispatch(n);
           }),
-          (e.prototype.groupIdentify = function (e, t, n, o) {
+          (exports.prototype.groupIdentify = function (e, t, n, o) {
             var i = (function (e, t, n, o) {
               var i;
               return r(r({}, o), {
@@ -1227,7 +1227,7 @@ function (exports, module, require) {
             })(e, t, n, o);
             return this.dispatch(i);
           }),
-          (e.prototype.setGroup = function (e, t, n) {
+          (exports.prototype.setGroup = function (e, t, n) {
             var o = (function (e, t, n) {
               var o,
                 i = new k();
@@ -1242,7 +1242,7 @@ function (exports, module, require) {
             })(e, t, n);
             return this.dispatch(o);
           }),
-          (e.prototype.revenue = function (e, t) {
+          (exports.prototype.revenue = function (e, t) {
             var n = (function (e, t) {
               return r(r({}, t), {
                 event_type: w.REVENUE,
@@ -1251,7 +1251,7 @@ function (exports, module, require) {
             })(e, t);
             return this.dispatch(n);
           }),
-          (e.prototype.add = function (e) {
+          (exports.prototype.add = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 return this.config
@@ -1260,7 +1260,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.remove = function (e) {
+          (exports.prototype.remove = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 return this.config
@@ -1269,11 +1269,11 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.dispatchWithCallback = function (e, t) {
+          (exports.prototype.dispatchWithCallback = function (e, t) {
             if (!this.config) return t(v(e, 0, "Client not initialized"));
             this.process(e).then(t);
           }),
-          (e.prototype.dispatch = function (e) {
+          (exports.prototype.dispatch = function (e) {
             return l(this, undefined, undefined, function () {
               var t = this;
               return c(this, function (n) {
@@ -1288,7 +1288,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.process = function (e) {
+          (exports.prototype.process = function (e) {
             return l(this, undefined, undefined, function () {
               var t, n, o;
               return c(this, function (i) {
@@ -1320,25 +1320,25 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.setOptOut = function (e) {
+          (exports.prototype.setOptOut = function (e) {
             this.config
               ? (this.config.optOut = Boolean(e))
               : this.q.push(this.setOptOut.bind(this, Boolean(e)));
           }),
-          (e.prototype.flush = function () {
+          (exports.prototype.flush = function () {
             return this.timeline.flush();
           }),
-          e
+          exports
         );
       })(),
       M = function (e) {
         return function () {
-          for (var t = [], n = 0; n < arguments.length; n++)
-            t[n] = arguments[n];
-          return { promise: e.apply(undefined, p([], u(t), false)) };
+          for (var module = [], require = 0; require < arguments.length; require++)
+            module[require] = arguments[require];
+          return { promise: e.apply(undefined, p([], u(module), false)) };
         };
       },
-      N = n(1358) /* module_1358 */,
+      N = require(1358) /* module_1358 */,
       B = function () {
         return N.a.getInstance("$default_instance");
       };
@@ -1351,13 +1351,13 @@ function (exports, module, require) {
       $,
       j,
       K = (function () {
-        function e() {
+        function exports() {
           (this.name = "identity"),
             (this.type = D.BEFORE),
             (this.identityStore = B().identityStore);
         }
         return (
-          (e.prototype.execute = function (e) {
+          (exports.prototype.execute = function (e) {
             return l(this, undefined, undefined, function () {
               var t;
               return c(this, function (n) {
@@ -1372,10 +1372,10 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.setup = function (e) {
+          (exports.prototype.setup = function (e) {
             return Promise.resolve(undefined);
           }),
-          e
+          exports
         );
       })();
     !(function (e) {
@@ -1408,9 +1408,9 @@ function (exports, module, require) {
         ("".concat(H, "_unsent"),
         function (e) {
           if (Object.keys(e).length > 1e3) return false;
-          for (var t in e) {
-            var n = e[t];
-            if (!z(t, n)) return false;
+          for (var module in e) {
+            var require = e[module];
+            if (!z(module, require)) return false;
           }
           return true;
         }),
@@ -1444,48 +1444,48 @@ function (exports, module, require) {
         return true;
       },
       q = (function () {
-        function e() {
+        function exports() {
           (this._propertySet = new Set()), (this._properties = {});
         }
         return (
-          (e.prototype.getUserProperties = function () {
+          (exports.prototype.getUserProperties = function () {
             return r({}, this._properties);
           }),
-          (e.prototype.set = function (e, t) {
+          (exports.prototype.set = function (e, t) {
             return this._safeSet(U.SET, e, t), this;
           }),
-          (e.prototype.setOnce = function (e, t) {
+          (exports.prototype.setOnce = function (e, t) {
             return this._safeSet(U.SET_ONCE, e, t), this;
           }),
-          (e.prototype.append = function (e, t) {
+          (exports.prototype.append = function (e, t) {
             return this._safeSet(U.APPEND, e, t), this;
           }),
-          (e.prototype.prepend = function (e, t) {
+          (exports.prototype.prepend = function (e, t) {
             return this._safeSet(U.PREPEND, e, t), this;
           }),
-          (e.prototype.postInsert = function (e, t) {
+          (exports.prototype.postInsert = function (e, t) {
             return this._safeSet(U.POSTINSERT, e, t), this;
           }),
-          (e.prototype.preInsert = function (e, t) {
+          (exports.prototype.preInsert = function (e, t) {
             return this._safeSet(U.PREINSERT, e, t), this;
           }),
-          (e.prototype.remove = function (e, t) {
+          (exports.prototype.remove = function (e, t) {
             return this._safeSet(U.REMOVE, e, t), this;
           }),
-          (e.prototype.add = function (e, t) {
+          (exports.prototype.add = function (e, t) {
             return this._safeSet(U.ADD, e, t), this;
           }),
-          (e.prototype.unset = function (e) {
+          (exports.prototype.unset = function (e) {
             return this._safeSet(U.UNSET, e, "-"), this;
           }),
-          (e.prototype.clearAll = function () {
+          (exports.prototype.clearAll = function () {
             return (
               (this._properties = {}),
               (this._properties[U.CLEAR_ALL] = "-"),
               this
             );
           }),
-          (e.prototype._safeSet = function (e, t, n) {
+          (exports.prototype._safeSet = function (e, t, n) {
             if (this._validate(e, t, n)) {
               var o = this._properties[e];
               return (
@@ -1497,7 +1497,7 @@ function (exports, module, require) {
             }
             return false;
           }),
-          (e.prototype._validate = function (e, t, n) {
+          (exports.prototype._validate = function (e, t, n) {
             return (
               undefined === this._properties[U.CLEAR_ALL] &&
               !this._propertySet.has(t) &&
@@ -1506,7 +1506,7 @@ function (exports, module, require) {
                 : e === U.UNSET || e === U.REMOVE || z(t, n))
             );
           }),
-          e
+          exports
         );
       })(),
       Y = function (e, t, n) {
@@ -1516,7 +1516,7 @@ function (exports, module, require) {
           [H, t, e.substring(0, n)].filter(Boolean).join("_")
         );
       },
-      X = n(611) /* module_611 */,
+      X = require(611) /* module_611 */,
       Q = function () {
         var e,
           t = Object(X.a)();
@@ -1564,9 +1564,9 @@ function (exports, module, require) {
         wbraid: undefined,
       },
       ee = (function () {
-        function e() {}
+        function exports() {}
         return (
-          (e.prototype.parse = function () {
+          (exports.prototype.parse = function () {
             return l(this, undefined, undefined, function () {
               return c(this, function (e) {
                 return [
@@ -1579,7 +1579,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.getUtmParam = function () {
+          (exports.prototype.getUtmParam = function () {
             var e = Q();
             return {
               utm_source: e.utm_source,
@@ -1589,7 +1589,7 @@ function (exports, module, require) {
               utm_content: e.utm_content,
             };
           }),
-          (e.prototype.getReferrer = function () {
+          (exports.prototype.getReferrer = function () {
             var e,
               t,
               n = { referrer: undefined, referring_domain: undefined };
@@ -1606,7 +1606,7 @@ function (exports, module, require) {
             } catch (e) {}
             return n;
           }),
-          (e.prototype.getClickIds = function () {
+          (exports.prototype.getClickIds = function () {
             var e,
               t = Q();
             return (
@@ -1622,11 +1622,11 @@ function (exports, module, require) {
               e
             );
           }),
-          e
+          exports
         );
       })(),
       te = (function () {
-        function e(e, t) {
+        function exports(e, t) {
           var n, o;
           (this.storage = t.storage),
             (this.storageKey = Y(e, "MKTG")),
@@ -1644,7 +1644,7 @@ function (exports, module, require) {
               null !== (o = t.initialEmptyValue) && undefined !== o ? o : "EMPTY");
         }
         return (
-          (e.prototype.isNewCampaign = function (e, t) {
+          (exports.prototype.isNewCampaign = function (e, t) {
             e.referrer;
             var n = s(e, ["referrer"]),
               o = t || {},
@@ -1656,7 +1656,7 @@ function (exports, module, require) {
               r = JSON.stringify(n) !== JSON.stringify(i);
             return !a && (!t || r);
           }),
-          (e.prototype.saveCampaignToStorage = function (e) {
+          (exports.prototype.saveCampaignToStorage = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 switch (t.label) {
@@ -1668,7 +1668,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.getCampaignFromStorage = function () {
+          (exports.prototype.getCampaignFromStorage = function () {
             return l(this, undefined, undefined, function () {
               return c(this, function (e) {
                 switch (e.label) {
@@ -1680,7 +1680,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.createCampaignEvent = function (e) {
+          (exports.prototype.createCampaignEvent = function (e) {
             var t,
               n,
               o = this,
@@ -1717,7 +1717,7 @@ function (exports, module, require) {
               this.trackPageViews && s
             );
           }),
-          (e.prototype.send = function (e) {
+          (exports.prototype.send = function (e) {
             return l(this, undefined, undefined, function () {
               var t, n;
               return c(this, function (o) {
@@ -1741,15 +1741,15 @@ function (exports, module, require) {
               });
             });
           }),
-          e
+          exports
         );
       })(),
       ne = function (e, t) {
         oe(e, t);
       },
       oe = function (e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var o = t[n],
+        for (var require = 0; require < t.length; require++) {
+          var o = t[require],
             i = o.name,
             a = o.args,
             r = o.resolve,
@@ -1764,8 +1764,8 @@ function (exports, module, require) {
       ie = function (e) {
         return e && undefined !== e._q;
       },
-      ae = n(610) /* module_610 */,
-      re = n.n(ae),
+      ae = require(610) /* module_610 */,
+      re = require.n(ae),
       se = function () {
         var e, t, n, o;
         if ("undefined" == typeof navigator) return "";
@@ -1787,7 +1787,7 @@ function (exports, module, require) {
           : "";
       },
       le = (function () {
-        function e() {
+        function exports() {
           var e;
           (this.name = "context"),
             (this.type = g.BEFORE),
@@ -1797,10 +1797,10 @@ function (exports, module, require) {
             (this.uaResult = new re.a(e).getResult());
         }
         return (
-          (e.prototype.setup = function (e) {
+          (exports.prototype.setup = function (e) {
             return (this.config = e), Promise.resolve(undefined);
           }),
-          (e.prototype.execute = function (e) {
+          (exports.prototype.execute = function (e) {
             return l(this, undefined, undefined, function () {
               var t, n, o, i, a;
               return c(this, function (s) {
@@ -1889,11 +1889,11 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.isSessionValid = function () {
+          (exports.prototype.isSessionValid = function () {
             var e = this.config.lastEventTime || Date.now();
             return Date.now() - e < this.config.sessionTimeout;
           }),
-          e
+          exports
         );
       })();
     !(function (e) {
@@ -1901,25 +1901,25 @@ function (exports, module, require) {
     })(V || (V = {}));
     var ce,
       de = (function () {
-        function e() {
+        function exports() {
           this.memoryStorage = new Map();
         }
         return (
-          (e.prototype.isEnabled = function () {
+          (exports.prototype.isEnabled = function () {
             return l(this, undefined, undefined, function () {
               return c(this, function (e) {
                 return [2, true];
               });
             });
           }),
-          (e.prototype.get = function (e) {
+          (exports.prototype.get = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 return [2, this.memoryStorage.get(e)];
               });
             });
           }),
-          (e.prototype.getRaw = function (e) {
+          (exports.prototype.getRaw = function (e) {
             return l(this, undefined, undefined, function () {
               var t;
               return c(this, function (n) {
@@ -1932,39 +1932,39 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.set = function (e, t) {
+          (exports.prototype.set = function (e, t) {
             return l(this, undefined, undefined, function () {
               return c(this, function (n) {
                 return this.memoryStorage.set(e, t), [2];
               });
             });
           }),
-          (e.prototype.remove = function (e) {
+          (exports.prototype.remove = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 return this.memoryStorage.delete(e), [2];
               });
             });
           }),
-          (e.prototype.reset = function () {
+          (exports.prototype.reset = function () {
             return l(this, undefined, undefined, function () {
               return c(this, function (e) {
                 return this.memoryStorage.clear(), [2];
               });
             });
           }),
-          e
+          exports
         );
       })(),
       ue = (function () {
-        function e(e, t) {
+        function exports(e, t) {
           (this.storage = e),
             (this.isSessionCacheValid = true),
             (this.storageKey = Y(t)),
             (this.cache = { optOut: false });
         }
         return (
-          (e.prototype.load = function () {
+          (exports.prototype.load = function () {
             var e;
             return l(this, undefined, undefined, function () {
               var t;
@@ -1984,11 +1984,11 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.setSession = function (e) {
+          (exports.prototype.setSession = function (e) {
             (this.cache = r(r({}, this.cache), e)),
               this.storage.set(this.storageKey, this.cache);
           }),
-          (e.prototype.getSessionId = function () {
+          (exports.prototype.getSessionId = function () {
             var e = this;
             return (
               (this.isSessionCacheValid = true),
@@ -1999,34 +1999,34 @@ function (exports, module, require) {
               this.cache.sessionId
             );
           }),
-          (e.prototype.setSessionId = function (e) {
+          (exports.prototype.setSessionId = function (e) {
             (this.isSessionCacheValid = false), this.setSession({ sessionId: e });
           }),
-          (e.prototype.getDeviceId = function () {
+          (exports.prototype.getDeviceId = function () {
             return this.cache.deviceId;
           }),
-          (e.prototype.setDeviceId = function (e) {
+          (exports.prototype.setDeviceId = function (e) {
             this.setSession({ deviceId: e });
           }),
-          (e.prototype.getUserId = function () {
+          (exports.prototype.getUserId = function () {
             return this.cache.userId;
           }),
-          (e.prototype.setUserId = function (e) {
+          (exports.prototype.setUserId = function (e) {
             this.setSession({ userId: e });
           }),
-          (e.prototype.getLastEventTime = function () {
+          (exports.prototype.getLastEventTime = function () {
             return this.cache.lastEventTime;
           }),
-          (e.prototype.setLastEventTime = function (e) {
+          (exports.prototype.setLastEventTime = function (e) {
             this.setSession({ lastEventTime: e });
           }),
-          (e.prototype.getOptOut = function () {
+          (exports.prototype.getOptOut = function () {
             return this.cache.optOut;
           }),
-          (e.prototype.setOptOut = function (e) {
+          (exports.prototype.setOptOut = function (e) {
             this.setSession({ optOut: e });
           }),
-          e
+          exports
         );
       })();
     !(function (e) {
@@ -2041,12 +2041,12 @@ function (exports, module, require) {
         (e.SystemError = "SystemError");
     })(ce || (ce = {}));
     var pe = (function (e) {
-        function t() {
+        function module() {
           return (null !== e && e.apply(this, arguments)) || this;
         }
         return (
-          a(t, e),
-          (t.prototype.send = function (e, t) {
+          a(module, e),
+          (module.prototype.send = function (e, t) {
             return l(this, undefined, undefined, function () {
               var n, o;
               return c(this, function (i) {
@@ -2073,16 +2073,16 @@ function (exports, module, require) {
               });
             });
           }),
-          t
+          module
         );
       })(
         (function () {
-          function e() {}
+          function exports() {}
           return (
-            (e.prototype.send = function (e, t) {
+            (exports.prototype.send = function (e, t) {
               return Promise.resolve(null);
             }),
-            (e.prototype.buildResponse = function (e) {
+            (exports.prototype.buildResponse = function (e) {
               var t,
                 n,
                 o,
@@ -2221,7 +2221,7 @@ function (exports, module, require) {
                   return { status: S, statusCode: x };
               }
             }),
-            (e.prototype.buildStatus = function (e) {
+            (exports.prototype.buildStatus = function (e) {
               return e >= 200 && e < 300
                 ? ce.Success
                 : 429 === e
@@ -2236,16 +2236,16 @@ function (exports, module, require) {
                 ? ce.Failed
                 : ce.Unknown;
             }),
-            e
+            exports
           );
         })()
       ),
       ge = (function () {
-        function e(e) {
+        function exports(e) {
           this.options = r({}, e);
         }
         return (
-          (e.prototype.isEnabled = function () {
+          (exports.prototype.isEnabled = function () {
             return l(this, undefined, undefined, function () {
               var t, n, o;
               return c(this, function (i) {
@@ -2253,7 +2253,7 @@ function (exports, module, require) {
                   case 0:
                     if (!Object(X.a)()) return [2, false];
                     (t = String(Date.now())),
-                      (n = new e(this.options)),
+                      (n = new exports(this.options)),
                       (o = "AMP_TEST"),
                       (i.label = 1);
                   case 1:
@@ -2274,7 +2274,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.get = function (e) {
+          (exports.prototype.get = function (e) {
             return l(this, undefined, undefined, function () {
               var t;
               return c(this, function (n) {
@@ -2296,7 +2296,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.getRaw = function (e) {
+          (exports.prototype.getRaw = function (e) {
             var t;
             return l(this, undefined, undefined, function () {
               var n, o, i;
@@ -2319,7 +2319,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.set = function (e, t) {
+          (exports.prototype.set = function (e, t) {
             var n;
             return l(this, undefined, undefined, function () {
               var o, i, a, r, s, l;
@@ -2351,7 +2351,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.remove = function (e) {
+          (exports.prototype.remove = function (e) {
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
                 switch (t.label) {
@@ -2363,20 +2363,20 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.reset = function () {
+          (exports.prototype.reset = function () {
             return l(this, undefined, undefined, function () {
               return c(this, function (e) {
                 return [2];
               });
             });
           }),
-          e
+          exports
         );
       })(),
       he = (function () {
-        function e() {}
+        function exports() {}
         return (
-          (e.prototype.isEnabled = function () {
+          (exports.prototype.isEnabled = function () {
             return l(this, undefined, undefined, function () {
               var t, n, o;
               return c(this, function (i) {
@@ -2384,7 +2384,7 @@ function (exports, module, require) {
                   case 0:
                     if (!Object(X.a)()) return [2, false];
                     (t = String(Date.now())),
-                      (n = new e()),
+                      (n = new exports()),
                       (o = "AMP_TEST"),
                       (i.label = 1);
                   case 1:
@@ -2405,7 +2405,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.get = function (e) {
+          (exports.prototype.get = function (e) {
             return l(this, undefined, undefined, function () {
               var t;
               return c(this, function (n) {
@@ -2422,7 +2422,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.getRaw = function (e) {
+          (exports.prototype.getRaw = function (e) {
             var t;
             return l(this, undefined, undefined, function () {
               return c(this, function (n) {
@@ -2435,7 +2435,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.set = function (e, t) {
+          (exports.prototype.set = function (e, t) {
             var n;
             return l(this, undefined, undefined, function () {
               return c(this, function (o) {
@@ -2448,7 +2448,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.remove = function (e) {
+          (exports.prototype.remove = function (e) {
             var t;
             return l(this, undefined, undefined, function () {
               return c(this, function (n) {
@@ -2461,7 +2461,7 @@ function (exports, module, require) {
               });
             });
           }),
-          (e.prototype.reset = function () {
+          (exports.prototype.reset = function () {
             var e;
             return l(this, undefined, undefined, function () {
               return c(this, function (t) {
@@ -2474,16 +2474,16 @@ function (exports, module, require) {
               });
             });
           }),
-          e
+          exports
         );
       })(),
       fe = (function () {
-        function e() {}
+        function exports() {}
         return (
-          (e.prototype.send = function (e, t) {
+          (exports.prototype.send = function (e, t) {
             return Promise.resolve(null);
           }),
-          (e.prototype.buildResponse = function (e) {
+          (exports.prototype.buildResponse = function (e) {
             var t,
               n,
               o,
@@ -2616,7 +2616,7 @@ function (exports, module, require) {
                 return { status: E, statusCode: S };
             }
           }),
-          (e.prototype.buildStatus = function (e) {
+          (exports.prototype.buildStatus = function (e) {
             return e >= 200 && e < 300
               ? h.Success
               : 429 === e
@@ -2631,17 +2631,17 @@ function (exports, module, require) {
               ? h.Failed
               : h.Unknown;
           }),
-          e
+          exports
         );
       })(),
       me = (function (e) {
-        function t() {
+        function module() {
           var t = (null !== e && e.apply(this, arguments)) || this;
           return (t.state = { done: 4 }), t;
         }
         return (
-          a(t, e),
-          (t.prototype.send = function (e, t) {
+          a(module, e),
+          (module.prototype.send = function (e, t) {
             return l(this, undefined, undefined, function () {
               var n = this;
               return c(this, function (o) {
@@ -2671,16 +2671,16 @@ function (exports, module, require) {
               });
             });
           }),
-          t
+          module
         );
       })(fe),
       ye = (function (e) {
-        function t() {
+        function module() {
           return (null !== e && e.apply(this, arguments)) || this;
         }
         return (
-          a(t, e),
-          (t.prototype.send = function (e, t) {
+          a(module, e),
+          (module.prototype.send = function (e, t) {
             return l(this, undefined, undefined, function () {
               var n = this;
               return c(this, function (o) {
@@ -2710,7 +2710,7 @@ function (exports, module, require) {
               });
             });
           }),
-          t
+          module
         );
       })(fe),
       ve = function () {
@@ -2738,7 +2738,7 @@ function (exports, module, require) {
         };
       },
       _e = (function (e) {
-        function t(t, n, o) {
+        function module(t, n, o) {
           var i,
             a,
             s,
@@ -2840,8 +2840,8 @@ function (exports, module, require) {
           );
         }
         return (
-          a(t, e),
-          Object.defineProperty(t.prototype, "deviceId", {
+          a(module, e),
+          Object.defineProperty(module.prototype, "deviceId", {
             get: function () {
               return this.sessionManager.getDeviceId();
             },
@@ -2851,7 +2851,7 @@ function (exports, module, require) {
             enumerable: false,
             configurable: true,
           }),
-          Object.defineProperty(t.prototype, "userId", {
+          Object.defineProperty(module.prototype, "userId", {
             get: function () {
               return this.sessionManager.getUserId();
             },
@@ -2861,7 +2861,7 @@ function (exports, module, require) {
             enumerable: false,
             configurable: true,
           }),
-          Object.defineProperty(t.prototype, "sessionId", {
+          Object.defineProperty(module.prototype, "sessionId", {
             get: function () {
               return this.sessionManager.getSessionId();
             },
@@ -2871,7 +2871,7 @@ function (exports, module, require) {
             enumerable: false,
             configurable: true,
           }),
-          Object.defineProperty(t.prototype, "optOut", {
+          Object.defineProperty(module.prototype, "optOut", {
             get: function () {
               return this.sessionManager.getOptOut();
             },
@@ -2884,7 +2884,7 @@ function (exports, module, require) {
             enumerable: false,
             configurable: true,
           }),
-          Object.defineProperty(t.prototype, "lastEventTime", {
+          Object.defineProperty(module.prototype, "lastEventTime", {
             get: function () {
               return this.sessionManager.getLastEventTime();
             },
@@ -2894,7 +2894,7 @@ function (exports, module, require) {
             enumerable: false,
             configurable: true,
           }),
-          t
+          module
         );
       })(E),
       be = function (e, t, n) {
@@ -3196,12 +3196,12 @@ function (exports, module, require) {
           }
       },
       De = (function (e) {
-        function t() {
+        function module() {
           return (null !== e && e.apply(this, arguments)) || this;
         }
         return (
-          a(t, e),
-          (t.prototype.init = function (t, n, o) {
+          a(module, e),
+          (module.prototype.init = function (t, n, o) {
             var i, a, s;
             return (
               undefined === t && (t = ""),
@@ -3291,7 +3291,7 @@ function (exports, module, require) {
               })
             );
           }),
-          (t.prototype.runAttributionStrategy = function (e, t) {
+          (module.prototype.runAttributionStrategy = function (e, t) {
             return (
               undefined === t && (t = false),
               l(this, undefined, undefined, function () {
@@ -3326,49 +3326,49 @@ function (exports, module, require) {
               })
             );
           }),
-          (t.prototype.getUserId = function () {
+          (module.prototype.getUserId = function () {
             var e;
             return null === (e = this.config) || undefined === e
               ? undefined
               : e.userId;
           }),
-          (t.prototype.setUserId = function (e) {
+          (module.prototype.setUserId = function (e) {
             this.config
               ? (this.config.userId = e)
               : this.q.push(this.setUserId.bind(this, e));
           }),
-          (t.prototype.getDeviceId = function () {
+          (module.prototype.getDeviceId = function () {
             var e;
             return null === (e = this.config) || undefined === e
               ? undefined
               : e.deviceId;
           }),
-          (t.prototype.setDeviceId = function (e) {
+          (module.prototype.setDeviceId = function (e) {
             this.config
               ? (this.config.deviceId = e)
               : this.q.push(this.setDeviceId.bind(this, e));
           }),
-          (t.prototype.reset = function () {
+          (module.prototype.reset = function () {
             this.setUserId(undefined), this.setDeviceId(P());
           }),
-          (t.prototype.getSessionId = function () {
+          (module.prototype.getSessionId = function () {
             var e;
             return null === (e = this.config) || undefined === e
               ? undefined
               : e.sessionId;
           }),
-          (t.prototype.setSessionId = function (e) {
+          (module.prototype.setSessionId = function (e) {
             this.config
               ? ((this.config.sessionId = e),
                 (this.config.lastEventTime = undefined))
               : this.q.push(this.setSessionId.bind(this, e));
           }),
-          (t.prototype.setTransport = function (e) {
+          (module.prototype.setTransport = function (e) {
             this.config
               ? (this.config.transportProvider = Ee(e))
               : this.q.push(this.setTransport.bind(this, e));
           }),
-          (t.prototype.identify = function (t, n) {
+          (module.prototype.identify = function (t, n) {
             if (ie(t)) {
               var o = t._q;
               (t._q = []), (t = oe(new k(), o));
@@ -3380,21 +3380,21 @@ function (exports, module, require) {
               e.prototype.identify.call(this, t, n)
             );
           }),
-          (t.prototype.groupIdentify = function (t, n, o, i) {
+          (module.prototype.groupIdentify = function (t, n, o, i) {
             if (ie(o)) {
               var a = o._q;
               (o._q = []), (o = oe(new k(), a));
             }
             return e.prototype.groupIdentify.call(this, t, n, o, i);
           }),
-          (t.prototype.revenue = function (t, n) {
+          (module.prototype.revenue = function (t, n) {
             if (ie(t)) {
               var o = t._q;
               (t._q = []), (t = oe(new O(), o));
             }
             return e.prototype.revenue.call(this, t, n);
           }),
-          t
+          module
         );
       })(R),
       Le = function () {

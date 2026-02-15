@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */,
-      i = n(200) /* module_200 */,
-      a = n(152) /* module_152 */,
-      r = n(21) /* module_21 */,
-      s = n(157) /* module_157 */,
+    var o = require(23) /* module_23 */,
+      i = require(200) /* module_200 */,
+      a = require(152) /* module_152 */,
+      r = require(21) /* module_21 */,
+      s = require(157) /* module_157 */,
       l = o.Int8Array,
       c = a.aTypedArray,
       d = a.exportTypedArrayMethod,

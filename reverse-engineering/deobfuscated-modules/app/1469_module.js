@@ -5,20 +5,20 @@
 
 function (exports, module, require) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: true }), (t.getOS = undefined);
-    var o = n(1) /* module_1 */;
-    t.getOS = () => {
-      let e = null;
+    Object.defineProperty(module, "__esModule", { value: true }), (module.getOS = undefined);
+    var o = require(1) /* module */;
+    module.getOS = () => {
+      let exports = null;
       switch (o.GSystem.operatingSystem) {
         case o.GSystem.OperatingSystem.Unix:
-          e = "Unix";
+          exports = "Unix";
           break;
         case o.GSystem.OperatingSystem.Windows:
-          e = "Windows";
+          exports = "Windows";
           break;
         case o.GSystem.OperatingSystem.OSX_IOS:
-          e = "OSX";
+          exports = "OSX";
       }
-      return e;
+      return exports;
     };
   }

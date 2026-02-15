@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */,
-      i = n(1) /* module_1 */,
-      a = n(15) /* module_15 */,
-      r = o(n(813) /* GOpenAction */);
+    var o = require(16) /* module_16 */,
+      i = require(1) /* module */,
+      a = require(15) /* module */,
+      r = o(require(813) /* GOpenAction */);
     function s() {}
     i.GObject.inherit(s, r.default),
       (s.ID = "".concat(r.default.ID, ".safari")),
@@ -23,5 +23,5 @@ function (exports, module, require) {
           a.GPlatform.webBrowser === a.GPlatform.constructor.WebBrowser.Safari
         );
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

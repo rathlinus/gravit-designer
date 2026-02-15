@@ -6,12 +6,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */;
-    var o = n(1) /* module_1 */,
-      i = n(15) /* module_15 */,
-      a = n(67) /* GRichTooltipConfig */,
-      r = n(18) /* module_18 */,
-      s = n(106) /* GElementAction */;
+    require(3) /* module_3 */;
+    var o = require(1) /* module */,
+      i = require(15) /* module */,
+      a = require(67) /* GRichTooltipConfig */,
+      r = require(18) /* module_18 */,
+      s = require(106) /* GElementAction */;
     function l() {
       l.TOOLTIP_CONFIG = {
         [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
@@ -54,16 +54,16 @@ function (exports, module, require) {
         if (!s.prototype.isEnabled.call(this)) return false;
         var e = gDesigner.getActiveDocument();
         if (e) {
-          var t = e.getEditor().getSelection();
-          if (t)
-            for (var n = 0; n < t.length; ++n)
+          var module = e.getEditor().getSelection();
+          if (module)
+            for (var require = 0; require < module.length; ++require)
               if (
-                !(t[n] instanceof o.GPath) &&
-                !(t[n] instanceof o.GImage) &&
-                !(t[n] instanceof o.GPathsGraph) &&
-                (t[n] instanceof o.GPathBase ||
-                  (t[n].hasMixin(o.GVertexSource) &&
-                    !(t[n] instanceof o.GCompoundPath)))
+                !(module[require] instanceof o.GPath) &&
+                !(module[require] instanceof o.GImage) &&
+                !(module[require] instanceof o.GPathsGraph) &&
+                (module[require] instanceof o.GPathBase ||
+                  (module[require].hasMixin(o.GVertexSource) &&
+                    !(module[require] instanceof o.GCompoundPath)))
               )
                 return true;
         }
@@ -78,5 +78,5 @@ function (exports, module, require) {
       (l.prototype.toString = function () {
         return "[Object GConvertToPathAction]";
       }),
-      (e.exports = l);
+      (exports.exports = l);
   }

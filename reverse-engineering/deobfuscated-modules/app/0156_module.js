@@ -5,21 +5,21 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(58) /* module_58 */,
-      n(30) /* module_30 */,
-      n(20) /* module_20 */,
-      n(271) /* module_271 */,
-      n(71) /* module_71 */,
-      n(151) /* module_151 */,
-      n(34) /* module_34 */,
-      n(91) /* module_91 */,
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(33) /* module_33 */;
-    var i = n(40) /* module_40 */,
-      a = o(n(263) /* module_263 */);
-    const { FILE_ID_PREFIX: r } = n(10) /* module_10 */;
+    var o = require(16) /* module_16 */;
+    require(58) /* module_58 */,
+      require(30) /* module_30 */,
+      require(20) /* module_20 */,
+      require(271) /* module_271 */,
+      require(71) /* module_71 */,
+      require(151) /* module_151 */,
+      require(34) /* module_34 */,
+      require(91) /* module_91 */,
+      require(4) /* module_4 */,
+      require(32) /* module_32 */,
+      require(33) /* module_33 */;
+    var i = require(40) /* module_40 */,
+      a = o(require(263) /* module_263 */);
+    const { FILE_ID_PREFIX: r } = require(10) /* module_10 */;
     function s() {
       this._permissions = [];
     }
@@ -32,8 +32,8 @@ function (exports, module, require) {
         return this._previewURL;
       }),
       (s.prototype.getParentId = function () {
-        const e = this.getParent();
-        return e instanceof s ? e.getId() : e;
+        const exports = this.getParent();
+        return exports instanceof s ? exports.getId() : exports;
       }),
       (s.prototype.getParent = function () {
         return this.parent;
@@ -53,18 +53,18 @@ function (exports, module, require) {
         return this.autosave;
       }),
       (s.prototype.getExtension = function () {
-        const e = this.extension || this.ext;
-        return (e && e.toLowerCase()) || null;
+        const exports = this.extension || this.ext;
+        return (exports && exports.toLowerCase()) || null;
       }),
       (s.prototype.getNameWithExtension = function () {
-        let e = this.getName();
-        e = s.normalizeMultipleDotsEnd(e);
-        const t = ".".concat(this.getExtension());
+        let exports = this.getName();
+        exports = s.normalizeMultipleDotsEnd(exports);
+        const module = ".".concat(this.getExtension());
         return (
-          !e.toLowerCase().endsWith(t)
-            ? (e += t)
-            : (e = e.substr(0, e.lastIndexOf(".")) + t),
-          e
+          !exports.toLowerCase().endsWith(module)
+            ? (exports += module)
+            : (exports = exports.substr(0, exports.lastIndexOf(".")) + module),
+          exports
         );
       }),
       (s.prototype.getNameWithoutExtension = function () {
@@ -108,13 +108,13 @@ function (exports, module, require) {
         return this._permissions.includes(e);
       }),
       (s.prototype.setPermission = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
         if (this._permissionSupported(e)) {
-          if (t) this.hasPermission(e) || this._permissions.push(e);
+          if (module) this.hasPermission(e) || this._permissions.push(e);
           else if (this.hasPermission(e)) {
-            var n = this._permissions.indexOf(e);
-            this._permissions.splice(n, 1);
+            var require = this._permissions.indexOf(e);
+            this._permissions.splice(require, 1);
           }
         } else console.warn("Permission not supported: " + e);
       }),
@@ -131,9 +131,9 @@ function (exports, module, require) {
         return this._modificationTime;
       }),
       (s.prototype.setPermissions = function (e) {
-        let t =
+        let module =
           !(arguments.length > 1 && undefined !== arguments[1]) || arguments[1];
-        e.forEach((e) => this.setPermission(e, t));
+        e.forEach((e) => this.setPermission(e, module));
       }),
       (s.prototype._permissionSupported = function (e) {
         return Object.values(s.Permission).includes(e);
@@ -178,8 +178,8 @@ function (exports, module, require) {
       }),
       (s.GCloudSettings = function () {}),
       (s.GCloudSettings.from = function (e) {
-        let t = new s.GCloudSettings();
-        return (t = Object.assign(t, e)), t;
+        let module = new s.GCloudSettings();
+        return (module = Object.assign(module, e)), module;
       }),
       (s.GCloudSettings.parseFromJSON = function (e, t) {
         try {
@@ -205,20 +205,20 @@ function (exports, module, require) {
       }),
       (s.getFileStorageId = function (e) {
         if (!e.id) return null;
-        const t = s.getPrefixIdForStorage(e.storage);
-        let n = e.id;
-        return t && (n = n.replace("".concat(t, "_"), "")), n;
+        const module = s.getPrefixIdForStorage(e.storage);
+        let require = e.id;
+        return module && (require = require.replace("".concat(module, "_"), "")), require;
       }),
       (s.getCollaborativeFileId = function (e, t) {
-        const n = s.getPrefixIdForStorage(t);
-        return "".concat(n ? n + "_" : "").concat(e);
+        const require = s.getPrefixIdForStorage(t);
+        return "".concat(require ? require + "_" : "").concat(e);
       }),
       (s.createOrReturnSelfInstance = function (e) {
         return e instanceof s ? e : s.from(e);
       }),
       (s.getExtensionFromName = function (e) {
-        const t = e.match(a.default.String.FileExtension);
-        return t ? t[0].slice(1) : null;
+        const module = e.match(a.default.String.FileExtension);
+        return module ? module[0].slice(1) : null;
       }),
       (s.normalizeMultipleDotsEnd = function (e) {
         if (e.endsWith(".")) {
@@ -227,5 +227,5 @@ function (exports, module, require) {
         }
         return e;
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

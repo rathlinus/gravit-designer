@@ -6,7 +6,7 @@
 function (exports, module, require) {
     "use strict";
     function o() {}
-    n(30) /* module_30 */,
+    require(30) /* module_30 */,
       Object.assign(o, {
         SETUP: { ENDPOINT: "SETUP_URL_ENDPOINT" },
         COMMAND_SAVE: {
@@ -29,5 +29,5 @@ function (exports, module, require) {
           AUTOSAVE_FILE_CONFLICT: "AUTOSAVE_FILE_CONFLICT",
         },
       }),
-      (e.exports = o);
+      (exports.exports = o);
   }

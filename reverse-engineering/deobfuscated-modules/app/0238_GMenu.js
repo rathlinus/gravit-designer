@@ -6,29 +6,29 @@
 
 function (exports, module, require) {
     "use strict";
-    n(3) /* module_3 */, n(4) /* module_4 */, n(13) /* module_13 */;
-    var o = n(1) /* module_1 */,
-      i = n(40) /* module_40 */,
-      a = n(1156) /* GMenuCloseEvent */,
-      r = n(444) /* module_444 */,
-      s = n(339) /* GMenu */,
-      l = n(1157) /* module_1157 */,
-      c = n(804) /* GMenuOpenEvent */,
-      d = n(31) /* GAction */;
+    require(3) /* module_3 */, require(4) /* module_4 */, require(13) /* module_13 */;
+    var o = require(1) /* module */,
+      i = require(40) /* module_40 */,
+      a = require(1156) /* GMenuCloseEvent */,
+      r = require(444) /* module_444 */,
+      s = require(339) /* GMenu */,
+      l = require(1157) /* module_1157 */,
+      c = require(804) /* GMenuOpenEvent */,
+      d = require(31) /* GAction */;
     function u(e, t) {
       (this._parent = e),
         (this._htmlElement = $("<ul></ul>").addClass("g-menu")),
         this._htmlElement.on("mouseover", this._mouseOver.bind(this)),
         this._htmlElement.on("mouseout", this._mouseOut.bind(this));
-      const n = (e) => {
+      const require = (e) => {
           e.cancelable ||
             (e.stopImmediatePropagation(),
             "touchmove" === e.type && this.closeMenus(true));
         },
         o = !!(0, i.isPassiveSupported)() && { capture: false, passive: true };
-      this._htmlElement[0].addEventListener("touchstart", n, o),
-        this._htmlElement[0].addEventListener("touchmove", n, o),
-        this._htmlElement[0].addEventListener("touchend", n, o),
+      this._htmlElement[0].addEventListener("touchstart", require, o),
+        this._htmlElement[0].addEventListener("touchmove", require, o),
+        this._htmlElement[0].addEventListener("touchend", require, o),
         t && this._htmlElement.addClass(t);
     }
     o.GObject.inherit(u, o.GEventTarget),
@@ -50,12 +50,12 @@ function (exports, module, require) {
       (u.prototype.isHovered = function (e) {
         if (this._hovered) return true;
         if (e) {
-          for (var t = 0; t < this.getItemCount(); ++t) {
-            var n = this.getItem(t);
+          for (var module = 0; module < this.getItemCount(); ++module) {
+            var require = this.getItem(module);
             if (
-              n instanceof s &&
-              n.getType() === s.Type.Menu &&
-              n.getMenu().isHovered(true)
+              require instanceof s &&
+              require.getType() === s.Type.Menu &&
+              require.getMenu().isHovered(true)
             )
               return true;
           }
@@ -70,19 +70,19 @@ function (exports, module, require) {
         return new s(s.Type.Divider);
       }),
       (u.prototype.setActiveItem = function (e) {
-        let t = this.getActiveItem();
-        t && t.changeActiveState(false), e.changeActiveState(true);
+        let module = this.getActiveItem();
+        module && module.changeActiveState(false), e.changeActiveState(true);
       }),
       (u.prototype.getActiveItem = function () {
-        let e = null;
-        for (let n = 0; n < this._items.length; n++) {
-          var t = this._items[n];
-          if (t.isActive()) {
-            e = t;
+        let exports = null;
+        for (let require = 0; require < this._items.length; require++) {
+          var module = this._items[require];
+          if (module.isActive()) {
+            exports = module;
             break;
           }
         }
-        return e;
+        return exports;
       }),
       (u.prototype.isRootMenu = function () {
         return !(this._parent && this._parent instanceof s);
@@ -136,9 +136,9 @@ function (exports, module, require) {
       }),
       (u.prototype.clearItems = function () {
         if (this._items) {
-          for (var e = 0; e < this._items.length; ++e)
-            (this._items[e]._parent = null),
-              this._items[e]._htmlElement.detach();
+          for (var exports = 0; exports < this._items.length; ++exports)
+            (this._items[exports]._parent = null),
+              this._items[exports]._htmlElement.detach();
           this._items = [];
         }
       }),
@@ -152,15 +152,15 @@ function (exports, module, require) {
         return this._items ? this._items.indexOf(e) : -1;
       }),
       (u.prototype.findItem = function (e) {
-        for (var t = 0; t < this.getItemCount(); ++t) {
-          var n = this.getItem(t);
-          if (e == n.getCaption()) return n;
+        for (var module = 0; module < this.getItemCount(); ++module) {
+          var require = this.getItem(module);
+          if (e == require.getCaption()) return require;
         }
         return null;
       }),
       (u.prototype.update = function () {
-        for (var e = 0; e < this.getItemCount(); ++e) {
-          this.getItem(e).update();
+        for (var exports = 0; exports < this.getItemCount(); ++exports) {
+          this.getItem(exports).update();
         }
       }),
       (u.prototype.isOpen = function () {
@@ -271,13 +271,13 @@ function (exports, module, require) {
         this._htmlElement.toggleClass("g-touch", !!e);
       }),
       (u.prototype.closeMenus = function () {
-        let e = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
-        for (var t = 0; t < this.getItemCount(); ++t) {
-          var n = this.getItem(t);
-          n instanceof s &&
-            n.getType() === s.Type.Menu &&
-            (!n.isForcedAsOpened() || e) &&
-            n.getMenu().close();
+        let exports = arguments.length > 0 && undefined !== arguments[0] && arguments[0];
+        for (var module = 0; module < this.getItemCount(); ++module) {
+          var require = this.getItem(module);
+          require instanceof s &&
+            require.getType() === s.Type.Menu &&
+            (!require.isForcedAsOpened() || exports) &&
+            require.getMenu().close();
         }
       }),
       (u.prototype._mouseOver = function (e) {
@@ -329,5 +329,5 @@ function (exports, module, require) {
             [e ? "on" : "off"]("click");
         });
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

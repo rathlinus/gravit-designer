@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(16) /* module_16 */;
-    n(8) /* module_8 */, n(20) /* module_20 */, n(3) /* module_3 */, n(34) /* module_34 */;
-    var i = n(10) /* module_10 */,
-      a = n(1) /* module_1 */,
-      r = o(n(78) /* GDocumentEvent */);
-    const s = n(44) /* GSystemDialog */,
-      l = n(863) /* module_863 */,
-      c = n(85) /* GContainer */,
-      d = n(805) /* module_805 */,
-      u = n(292) /* module_292 */,
+    var o = require(16) /* module_16 */;
+    require(8) /* module_8 */, require(20) /* module_20 */, require(3) /* module_3 */, require(34) /* module_34 */;
+    var i = require(10) /* module_10 */,
+      a = require(1) /* module */,
+      r = o(require(78) /* GDocumentEvent */);
+    const s = require(44) /* GSystemDialog */,
+      l = require(863) /* module_863 */,
+      c = require(85) /* GContainer */,
+      d = require(805) /* module_805 */,
+      u = require(292) /* module_292 */,
       { bypassEmailVerification: p } = i.defaultUserSettings;
     function g(e) {
       this._htmlElement = e;
@@ -131,5 +131,5 @@ function (exports, module, require) {
       (g.prototype.toString = function () {
         return "[Object GInfo]";
       }),
-      (e.exports = g);
+      (exports.exports = g);
   }

@@ -5,6 +5,6 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(23) /* module_23 */;
-    e.exports = o.Promise;
+    var o = require(23) /* module_23 */;
+    exports.exports = o.Promise;
   }

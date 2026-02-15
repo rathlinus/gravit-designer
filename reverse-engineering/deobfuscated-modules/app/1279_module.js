@@ -5,5 +5,5 @@
 
 function (exports, module, require) {
     "use strict";
-    e.exports = { SKIPPED: 0, UPDATED: 1, DELAYED: 2 };
+    exports.exports = { SKIPPED: 0, UPDATED: 1, DELAYED: 2 };
   }

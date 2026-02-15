@@ -5,29 +5,29 @@
 
 function (exports, module, require) {
     "use strict";
-    n(1196) /* module_1196 */,
-      n(19) /* module_19 */,
-      n(1197) /* module_1197 */,
-      n(180) /* module_180 */,
-      n(181) /* module_181 */,
-      n(8) /* module_8 */,
-      n(20) /* module_20 */,
-      n(107) /* module_107 */,
-      n(134) /* module_134 */,
-      n(218) /* module_218 */,
-      n(189) /* module_189 */,
-      n(190) /* module_190 */,
-      n(191) /* module_191 */,
-      n(192) /* module_192 */,
-      n(4) /* module_4 */,
-      n(32) /* module_32 */,
-      n(38) /* module_38 */,
-      n(33) /* module_33 */;
-    var o = n(176) /* GSystem */,
-      i = n(0) /* GObject */,
-      a = n(237) /* module_237 */;
-    const { GRegex: r } = n(263) /* module_263 */;
-    var s = n(1117) /* module_1117 */.saveAs,
+    require(1196) /* module_1196 */,
+      require(19) /* module_19 */,
+      require(1197) /* module_1197 */,
+      require(180) /* module_180 */,
+      require(181) /* module_181 */,
+      require(8) /* module_8 */,
+      require(20) /* module_20 */,
+      require(107) /* module_107 */,
+      require(134) /* module_134 */,
+      require(218) /* module_218 */,
+      require(189) /* module_189 */,
+      require(190) /* module_190 */,
+      require(191) /* module_191 */,
+      require(192) /* module_192 */,
+      require(4) /* module_4 */,
+      require(32) /* module_32 */,
+      require(38) /* module_38 */,
+      require(33) /* module_33 */;
+    var o = require(176) /* GSystem */,
+      i = require(0) /* GObject */,
+      a = require(237) /* module_237 */;
+    const { GRegex: r } = require(263) /* module_263 */;
+    var s = require(1117) /* module_1117 */.saveAs,
       l = false,
       c = null,
       d = null;
@@ -55,24 +55,24 @@ function (exports, module, require) {
         return null;
       }),
       (u.Directory.prototype.addDirectory = async function (e, t) {
-        let n = null;
+        let require = null;
         try {
           return (
-            (n = await this._dirHandle.getDirectory(e, { create: true })),
-            await p(n),
-            new u.Directory(this._storage, n)
+            (require = await this._dirHandle.getDirectory(e, { create: true })),
+            await p(require),
+            new u.Directory(this._storage, require)
           );
         } catch (t) {
           throw new Error("Cannot create a directory: " + e);
         }
       }),
       (u.Directory.prototype.addFile = async function (e, t) {
-        let n = null;
+        let require = null;
         try {
           return (
-            (n = await this._dirHandle.getFile(e, { create: true })),
-            await p(n),
-            new u.Item(this._storage, null, n.name, n)
+            (require = await this._dirHandle.getFile(e, { create: true })),
+            await p(require),
+            new u.Item(this._storage, null, require.name, require)
           );
         } catch (e) {
           throw new Error("Cannot create a file");
@@ -275,19 +275,19 @@ function (exports, module, require) {
         }
       }),
       (u.prototype._prepareDialogTypes = function (e) {
-        let t = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
-        const n = {};
+        let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
+        const require = {};
         let o = "";
         for (let i = 0, a = e.length; i < a; i++) {
           let { mime: a, ext: r } = e[i];
           a && r
-            ? (t && "jpg" === r && (a = "x-really-an-image/jpeg"),
-              undefined !== n[a]
-                ? (Array.isArray(n[a]) || (n[a] = [n[a]]),
-                  n[a].push(r.startsWith(".") ? r : ".".concat(r)),
+            ? (module && "jpg" === r && (a = "x-really-an-image/jpeg"),
+              undefined !== require[a]
+                ? (Array.isArray(require[a]) || (require[a] = [require[a]]),
+                  require[a].push(r.startsWith(".") ? r : ".".concat(r)),
                   o && (o += ", "),
                   (o += "*" + (r.startsWith(".") ? r : ".".concat(r))))
-                : ((n[a] = r.startsWith(".") ? r : ".".concat(r)),
+                : ((require[a] = r.startsWith(".") ? r : ".".concat(r)),
                   o && (o += ", "),
                   (o += "*" + (r.startsWith(".") ? r : ".".concat(r)))))
             : console.warn(
@@ -296,10 +296,10 @@ function (exports, module, require) {
                   .concat(r, '"')
               );
         }
-        return { description: o, accept: n };
+        return { description: o, accept: require };
       }),
       (u.prototype.download = function (e, t) {
         return t(new u.Item(this, null, e));
       }),
-      (e.exports = u);
+      (exports.exports = u);
   }

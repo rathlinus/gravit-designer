@@ -5,12 +5,12 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */,
-      a = n(237) /* module_237 */,
-      r = (n(220) /* module_220 */, n(40) /* module_40 */.decrypt);
-    n(173) /* module_173 */;
+    require(8) /* module_8 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */,
+      a = require(237) /* module_237 */,
+      r = (require(220) /* module_220 */, require(40) /* module_40 */.decrypt);
+    require(173) /* module_173 */;
     function s() {}
     o.GObject.inherit(s, a),
       (s.prototype.canPromptOpen = function () {
@@ -63,5 +63,5 @@ function (exports, module, require) {
       (s.Item.prototype.getExtension = function () {
         return this._file.extension && this._file.extension.toUpperCase();
       }),
-      (e.exports = s);
+      (exports.exports = s);
   }

@@ -5,10 +5,10 @@
 
 function (exports, module, require) {
     "use strict";
-    n(8) /* module_8 */;
-    const { GFontManager: o } = n(1) /* module_1 */;
-    e.exports = class {
-      constructor(e) {
+    require(8) /* module_8 */;
+    const { GFontManager: o } = require(1) /* module */;
+    exports.exports = class {
+      function Object() { [native code] }(e) {
         (this._fontManager = e),
           this._fontManager.addEventListener(
             o.FontAvailableEvent,

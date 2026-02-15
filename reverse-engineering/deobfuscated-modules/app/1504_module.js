@@ -4,8 +4,8 @@
  */
 
 function (exports, module, require) {
-    var o = n(1505) /* module_1505 */;
-    (e.exports = function (e, t, n) {
+    var o = require(1505) /* module_1505 */;
+    (exports.exports = function (e, t, n) {
       return (
         (t = o(t)) in e
           ? Object.defineProperty(e, t, {
@@ -18,6 +18,6 @@ function (exports, module, require) {
         e
       );
     }),
-      (e.exports.__esModule = true),
-      (e.exports.default = e.exports);
+      (exports.exports.__esModule = true),
+      (exports.exports.default = exports.exports);
   }

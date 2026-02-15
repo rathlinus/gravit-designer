@@ -6,37 +6,37 @@
 
 function (exports, module, require) {
     window,
-      (e.exports = (function (e) {
+      (exports.exports = (function (e) {
         var t = {};
-        function n(o) {
+        function require(o) {
           if (t[o]) return t[o].exports;
           var i = (t[o] = { i: o, l: false, exports: {} });
-          return e[o].call(i.exports, i, i.exports, n), (i.l = true), i.exports;
+          return e[o].call(i.exports, i, i.exports, require), (i.l = true), i.exports;
         }
         return (
-          (n.m = e),
-          (n.c = t),
-          (n.d = function (e, t, o) {
-            n.o(e, t) ||
+          (require.m = e),
+          (require.c = t),
+          (require.d = function (e, t, o) {
+            require.o(e, t) ||
               Object.defineProperty(e, t, { enumerable: true, get: o });
           }),
-          (n.r = function (e) {
+          (require.r = function (e) {
             "undefined" != typeof Symbol &&
               Symbol.toStringTag &&
               Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
               Object.defineProperty(e, "__esModule", { value: true });
           }),
-          (n.t = function (e, t) {
-            if ((1 & t && (e = n(e)), 8 & t)) return e;
+          (require.t = function (e, t) {
+            if ((1 & t && (e = require(e)), 8 & t)) return e;
             if (4 & t && "object" == typeof e && e && e.__esModule) return e;
             var o = Object.create(null);
             if (
-              (n.r(o),
+              (require.r(o),
               Object.defineProperty(o, "default", { enumerable: true, value: e }),
               2 & t && "string" != typeof e)
             )
               for (var i in e)
-                n.d(
+                require.d(
                   o,
                   i,
                   function (t) {
@@ -45,7 +45,7 @@ function (exports, module, require) {
                 );
             return o;
           }),
-          (n.n = function (e) {
+          (require.n = function (e) {
             var t =
               e && e.__esModule
                 ? function () {
@@ -54,13 +54,13 @@ function (exports, module, require) {
                 : function () {
                     return e;
                   };
-            return n.d(t, "a", t), t;
+            return require.d(t, "a", t), t;
           }),
-          (n.o = function (e, t) {
+          (require.o = function (e, t) {
             return Object.prototype.hasOwnProperty.call(e, t);
           }),
-          (n.p = ""),
-          n((n.s = 19))
+          (require.p = ""),
+          require((require.s = 19))
         );
       })([
         function (e, t, n) {
@@ -957,7 +957,7 @@ function (exports, module, require) {
                 return u.ParentAppWindow;
               },
             });
-          var p = n(15) /* module_15 */;
+          var p = n(15) /* module */;
           Object.defineProperty(t, "menus", {
             enumerable: true,
             get: function () {
@@ -1045,12 +1045,12 @@ function (exports, module, require) {
               }));
         },
         function (e, t) {
-          for (var n = [], o = 0; o < 256; ++o)
-            n[o] = (o + 256).toString(16).substr(1);
+          for (var require = [], o = 0; o < 256; ++o)
+            require[o] = (o + 256).toString(16).substr(1);
           e.exports = function (e, t) {
             var o = t || 0;
             return [
-              (t = n)[e[o++]],
+              (t = require)[e[o++]],
               t[e[o++]],
               t[e[o++]],
               t[e[o++]],
@@ -1077,7 +1077,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.authentication = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(7) /* GTransform */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */,
@@ -1321,7 +1321,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.settings = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
@@ -1434,7 +1434,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.logs = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(3) /* module_3 */;
           (t.logs || (t.logs = {})).registerGetLogHandler = function (e) {
@@ -1464,7 +1464,7 @@ function (exports, module, require) {
               t.getUserJoinedTeams =
               t.initializePrivateApis =
                 undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
@@ -1572,7 +1572,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.menus = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(3) /* module_3 */;
           !(function (e) {
@@ -1631,7 +1631,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.ParentAppWindow = t.ChildAppWindow = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(5) /* GPoint */,
             r = n(0) /* GObject */,
@@ -1720,7 +1720,7 @@ function (exports, module, require) {
             (t.media = undefined);
           var a = n(7) /* GTransform */,
             r = n(6) /* GRect */,
-            s = n(1) /* module_1 */,
+            s = n(1) /* module */,
             l = n(2) /* GNode */,
             c = n(5) /* GPoint */,
             d = n(18) /* module_18 */,
@@ -2059,7 +2059,7 @@ function (exports, module, require) {
                 undefined);
           var o = n(17) /* GRGBColor */,
             i = n(4) /* module_4 */,
-            a = n(1) /* module_1 */;
+            a = n(1) /* module */;
           function r(e) {
             var t;
             return !(
@@ -2251,7 +2251,7 @@ function (exports, module, require) {
               return i.logs;
             },
           });
-          var a = n(36) /* module_36 */;
+          var a = n(36) /* PartsPropertyVals */;
           Object.defineProperty(t, "NotificationTypes", {
             enumerable: true,
             get: function () {
@@ -2357,7 +2357,7 @@ function (exports, module, require) {
               return l.meetingRoom;
             },
           });
-          var c = n(39) /* module_39 */;
+          var c = n(39) /* PartInfo */;
           Object.defineProperty(t, "remoteCamera", {
             enumerable: true,
             get: function () {
@@ -2378,7 +2378,7 @@ function (exports, module, require) {
               return u.appEntity;
             },
           });
-          var p = n(42) /* module_42 */;
+          var p = n(42) /* module */;
           Object.defineProperty(t, "teams", {
             enumerable: true,
             get: function () {
@@ -2391,7 +2391,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.bot = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */;
+            i = n(1) /* module */;
           !(function (e) {
             (e.sendQuery = function (e, t, n) {
               (0, i.ensureInitialized)(),
@@ -2429,7 +2429,7 @@ function (exports, module, require) {
         },
         function (e, t, n) {
           var o = n(23) /* module_23 */,
-            i = n(24) /* module_24 */;
+            i = n(24) /* GEditorOptions */;
           ((n = i).v1 = o), (n.v4 = i), (e.exports = n);
         },
         function (e, t, n) {
@@ -2496,7 +2496,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.appInitialization = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(4) /* module_4 */,
             a = n(0) /* GObject */;
           !(function (e) {
@@ -2568,7 +2568,7 @@ function (exports, module, require) {
               t._initialize =
               t.initialize =
                 undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(7) /* GTransform */,
             a = n(4) /* module_4 */,
             r = n(12) /* GMath */,
@@ -2578,7 +2578,7 @@ function (exports, module, require) {
             d = n(0) /* GObject */,
             u = n(11) /* GUtil */,
             p = n(14) /* GPaintCanvas */,
-            g = n(15) /* module_15 */,
+            g = n(15) /* module */,
             h = n(3) /* module_3 */;
           function f(e, t) {
             i.GlobalVars.initializeCalled ||
@@ -2750,7 +2750,7 @@ function (exports, module, require) {
               t.navigateToTab =
               t.returnFocus =
                 undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(5) /* GPoint */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */;
@@ -2829,7 +2829,7 @@ function (exports, module, require) {
           var i = n(2) /* GNode */,
             a = n(16) /* module_16 */,
             r = n(0) /* GObject */,
-            s = n(1) /* module_1 */;
+            s = n(1) /* module */;
           !(function (e) {
             (e.startTask = function (e, t) {
               return (
@@ -2877,7 +2877,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.location = undefined);
           var o = n(6) /* GRect */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */,
             r = n(0) /* GObject */,
             s = n(4) /* module_4 */;
@@ -2924,7 +2924,7 @@ function (exports, module, require) {
             (t.meeting = undefined);
           var o = n(0) /* GObject */,
             i = n(3) /* module_3 */,
-            a = n(1) /* module_1 */,
+            a = n(1) /* module */,
             r = n(2) /* GNode */;
           !(function (e) {
             !(function (e) {
@@ -3101,7 +3101,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.monetization = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */;
           (t.monetization || (t.monetization = {})).openPurchaseExperience =
             function (e, t) {
@@ -3121,7 +3121,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.people = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(6) /* GRect */,
             r = n(18) /* module_18 */,
@@ -3146,7 +3146,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.video = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */,
             r = n(3) /* module_3 */;
           !(function (e) {
@@ -3189,7 +3189,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.sharing = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(6) /* GRect */,
             r = n(2) /* GNode */;
@@ -3271,7 +3271,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.stageView = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(2) /* GNode */;
           (t.stageView || (t.stageView = {})).open = function (e, t) {
             if (((0, i.ensureInitialized)(a.FrameContexts.content), !e))
@@ -3304,7 +3304,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.conversations = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(0) /* GObject */,
             r = n(3) /* module_3 */;
@@ -3363,7 +3363,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.meetingRoom = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(0) /* GObject */,
             a = n(3) /* module_3 */;
           !(function (e) {
@@ -3434,7 +3434,7 @@ function (exports, module, require) {
           "use strict";
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.remoteCamera = undefined);
-          var o = n(1) /* module_1 */,
+          var o = n(1) /* module */,
             i = n(2) /* GNode */,
             a = n(0) /* GObject */,
             r = n(3) /* module_3 */;
@@ -3568,7 +3568,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.files = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(8) /* module_8 */;
           !(function (e) {
             !(function (e) {
@@ -3770,7 +3770,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.appEntity = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(8) /* module_8 */;
           (t.appEntity || (t.appEntity = {})).selectAppEntity = function (
             e,
@@ -3801,7 +3801,7 @@ function (exports, module, require) {
           Object.defineProperty(t, "__esModule", { value: true }),
             (t.teams = undefined);
           var o = n(0) /* GObject */,
-            i = n(1) /* module_1 */,
+            i = n(1) /* module */,
             a = n(8) /* module_8 */;
           !(function (e) {
             !(function (e) {

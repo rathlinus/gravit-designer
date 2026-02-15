@@ -5,11 +5,11 @@
 
 function (exports, module, require) {
     "use strict";
-    var o = n(239) /* module_239 */,
+    var o = require(239) /* module_239 */,
       i = Function.prototype,
       a = i.call,
       r = o && i.bind.bind(a, a);
-    e.exports = o
+    exports.exports = o
       ? r
       : function (e) {
           return function () {

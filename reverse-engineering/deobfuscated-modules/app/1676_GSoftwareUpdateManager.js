@@ -6,16 +6,16 @@
 
 function (exports, module, require) {
     "use strict";
-    n(58) /* module_58 */, n(96) /* module_96 */, n(865) /* module_865 */, n(193) /* module_193 */, n(8) /* module_8 */, n(3) /* module_3 */, n(4) /* module_4 */, n(97) /* module_97 */;
-    var o = n(1) /* module_1 */,
-      i = n(10) /* module_10 */,
-      a = n(40) /* module_40 */;
-    const r = n(85) /* GContainer */,
-      s = n(1188) /* module_1188 */,
-      l = n(1349) /* module_1349 */;
+    require(58) /* module_58 */, require(96) /* module_96 */, require(865) /* module_865 */, require(193) /* module_193 */, require(8) /* module_8 */, require(3) /* module_3 */, require(4) /* module_4 */, require(97) /* module_97 */;
+    var o = require(1) /* module */,
+      i = require(10) /* module_10 */,
+      a = require(40) /* module_40 */;
+    const r = require(85) /* GContainer */,
+      s = require(1188) /* module_1188 */,
+      l = require(1349) /* module_1349 */;
     var c;
-    e.exports = class {
-      constructor() {
+    exports.exports = class {
+      function Object() { [native code] }() {
         (this._intervalPID = null),
           (this._releaseStatus = { version: undefined, forceUpdate: false }),
           (this._downloadCompleted = false);
@@ -140,7 +140,7 @@ function (exports, module, require) {
           gContainer.getRuntime()
         )
           ? (this._isElectron() &&
-              ((c = n(1677) /* GElectronUpdateServiceClient */).on(
+              ((c = require(1677) /* GElectronUpdateServiceClient */).on(
                 l.UpdateDownloaded,
                 this._handleDownloadComplete.bind(this)
               ),
@@ -164,31 +164,31 @@ function (exports, module, require) {
                 this.installElectronUpdate())),
             (this._intervalPID = setTimeout(
               function () {
-                let e = new Date().getTime();
-                gContainer.setProperty("last_update_check", e),
+                let exports = new Date().getTime();
+                gContainer.setProperty("last_update_check", exports),
                   this.checkForUpdates(true);
               }.bind(this),
               i.DateAPI.daysToMilliseconds(1)
             )),
             gContainer.getProperty("last_update_check").then((e) => {
-              let t = new Date().getTime();
+              let module = new Date().getTime();
               if (e) {
                 let n = i.DateAPI.diff(
                     i.DateAPI.toDate(e),
-                    i.DateAPI.toDate(t),
+                    i.DateAPI.toDate(module),
                     false
                   ),
                   o = i.DateAPI.daysToMilliseconds(1);
                 (n < 0 || n >= o) &&
-                  (gContainer.setProperty("last_update_check", t),
+                  (gContainer.setProperty("last_update_check", module),
                   this.checkForUpdates(true));
-              } else gContainer.setProperty("last_update_check", t);
+              } else gContainer.setProperty("last_update_check", module);
             }),
             gContainer.getProperty("old_version").then((e) => {
-              const t = this.getCurrentVersion();
+              const module = this.getCurrentVersion();
               e
-                ? e !== t &&
-                  (gContainer.setProperty("old_version", t),
+                ? e !== module &&
+                  (gContainer.setProperty("old_version", module),
                   i.gApi.software.getRelease().then((e) => {
                     e &&
                       !e.silent &&
@@ -198,7 +198,7 @@ function (exports, module, require) {
                         })
                       );
                   }))
-                : gContainer.setProperty("old_version", t);
+                : gContainer.setProperty("old_version", module);
             }))
           : console.warn(
               this.toString() + " Runtime not available for auto update!"
@@ -234,10 +234,10 @@ function (exports, module, require) {
         console.info(
           this.toString() + " Download in progress:" + JSON.stringify(t)
         );
-        const n = t.percent;
+        const require = t.percent;
         this._trigger(
           new s.Downloading({
-            percent: parseFloat(n).toFixed(2),
+            percent: parseFloat(require).toFixed(2),
             newVersion: this._releaseStatus.version,
             isSilent: this._releaseStatus.silent,
           })
@@ -274,7 +274,7 @@ function (exports, module, require) {
       getReleaseNotesLink() {
         return i.SOFTWARE_UPDATE.CHANGE_LOG_LINK;
       }
-      toString() {
+      function toString() { [native code] }() {
         return "[Object GSoftwareUpdateManager]";
       }
     };
