@@ -1,0 +1,90 @@
+/**
+ * Webpack Module #1634
+ * Type: class
+ * Name: GToggleTouchAction
+ */
+
+function (exports, module, require) {
+    "use strict";
+    n(3) /* module_3 */;
+    var o = n(1) /* module_1 */,
+      i = n(67) /* GRichTooltipConfig */,
+      a = n(18) /* module_18 */,
+      r = n(31) /* GAction */;
+    const { TOUCH_LAYOUT: s } = n(10) /* module_10 */,
+      l = n(85) /* GContainer */;
+    function c() {
+      c.TOOLTIP_CONFIG = {
+        [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
+          title: o.GLocale.get(
+            new o.GLocaleKey(
+              "GToggleTouchAction",
+              "text.try-this-feature-pro-tooltip-title"
+            )
+          ),
+          description: o.GLocale.get(
+            new o.GLocaleKey(
+              "GToggleTouchAction",
+              "text.try-this-feature-pro-tooltip-description"
+            )
+          ),
+          learnMore:
+            "",
+          upgradeToProStatsValue: "view.toggle-touch",
+          middle: false,
+          side: true,
+        }),
+      };
+    }
+    o.GObject.inherit(c, r),
+      (c.ID = "view.toggle-touch"),
+      (c.TITLE = new o.GLocaleKey("GToggleTouchAction", "title")),
+      (c.TITLE_DISABLE = new o.GLocaleKey(
+        "GToggleTouchAction",
+        "title-disable"
+      )),
+      (c.TOOLTIP_CONFIG = null),
+      (c.prototype.getId = function () {
+        return c.ID;
+      }),
+      (c.prototype.getTitle = function () {
+        return gDesigner.isTouchEnabled() ? c.TITLE_DISABLE : c.TITLE;
+      }),
+      (c.prototype.getGroup = function () {
+        return "touch";
+      }),
+      (c.prototype.getCategory = function () {
+        return a.CATEGORY_VIEW;
+      }),
+      (c.prototype.isCheckable = function () {
+        return true;
+      }),
+      (c.prototype.getIcon = function () {
+        return gDesigner.isTouchEnabled() ? "gravit-icon-touch-disable" : null;
+      }),
+      (c.prototype.execute = function () {
+        gDesigner.setTouchEnabled(!gDesigner.isTouchEnabled());
+      }),
+      (c.prototype.getTooltipArea = function () {
+        return i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+      }),
+      (c.prototype.getTooltipConfig = function (e) {
+        return (e && c.TOOLTIP_CONFIG[e]) || null;
+      }),
+      (c.prototype.isAvailable = function () {
+        return (
+          !!s &&
+          !gDesigner.getLicense().isGuest() &&
+          gContainer.getRuntime() !== l.Runtime.IPad
+        );
+      }),
+      (c.prototype.statsValue = function () {
+        return ""
+          .concat(c.ID, ".")
+          .concat(gDesigner.isTouchEnabled() ? "on" : "off");
+      }),
+      (c.prototype.toString = function () {
+        return "[Object GToggleTouchAction]";
+      }),
+      (e.exports = c);
+  }

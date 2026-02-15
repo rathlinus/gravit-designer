@@ -1,0 +1,10 @@
+/**
+ * Webpack Module #1384
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    var o = n(43) /* module_43 */;
+    t.f = o;
+  }

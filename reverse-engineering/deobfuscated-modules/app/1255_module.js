@@ -1,0 +1,100 @@
+/**
+ * Webpack Module #1255
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    var o = n(16) /* module_16 */;
+    n(20) /* module_20 */, n(34) /* module_34 */;
+    var i = o(n(78) /* GDocumentEvent */),
+      a = o(n(86) /* module_86 */),
+      r = o(n(449) /* GFitAllAction */),
+      s = o(n(85) /* GContainer */),
+      l = o(n(237) /* module_237 */),
+      c = n(1) /* module_1 */;
+    e.exports = class {
+      static handleOpenFileRequest(e, t) {
+        gContainer.openStorageFile(e, t, function (n) {
+          let o =
+            arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : {};
+          const d = t.getType();
+          function u(t) {
+            const n = (t) => {
+              if (t.type === i.default.Type.Activated && t.document === e) {
+                let e = t.document.getStatus();
+                e === a.default.LoadFailed ||
+                  e === a.default.LoadCancelled ||
+                  gDesigner.executeAction(r.default.ID, undefined, undefined, true),
+                  gDesigner.removeEventListener(i.default, n);
+              }
+            };
+            if (
+              (d !== s.default.OpenFileRequest.Type.Preset &&
+                gDesigner.addEventListener(i.default, n),
+              t instanceof l.default.Item)
+            ) {
+              if (
+                (e.setStorageItem(t),
+                e.setIsShared(true),
+                e.load(null, o && o.loadingData),
+                gDesigner.trigger(new i.default(i.default.Type.Modified, e)),
+                d === s.default.OpenFileRequest.Type.Template)
+              ) {
+                e.setDocumentFromTemplate(true);
+                let t = o.category,
+                  n = t && t.split(".");
+                n.length > 1 && (t = n.splice(1).join("."));
+                let i = t.toLowerCase().replace(/\./g, "-");
+                gDesigner.stats(
+                  "directlink_template_".concat(i),
+                  "".concat(o.file.name, " [").concat(o.content.id, "]")
+                );
+              } else if (d === s.default.OpenFileRequest.Type.Preset) {
+                e.setDocumentFromTemplate(true);
+                let t = o.preset.presetCategory
+                  .toLowerCase()
+                  .replace(
+                    /[\t-\r \/\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/g,
+                    "-"
+                  );
+                gDesigner.stats(
+                  "directlink_preset_".concat(t),
+                  o.preset.presetLayout.name
+                );
+              }
+            } else if (t && t.presetLayout) {
+              let n = gDesigner.createScene(),
+                { unit: o, dpi: i, width: a, height: r } = t.presetLayout,
+                s = t.presetCategory
+                  .toLowerCase()
+                  .replace(
+                    /[\t-\r \/\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/g,
+                    "-"
+                  );
+              n.setProperties(["ut", "dpi"], [o, i || c.GLength.DPI]),
+                n
+                  .getActivePage()
+                  .setProperties(
+                    ["bck", "w", "h"],
+                    [
+                      c.GRGBColor.WHITE,
+                      new c.GLength(a, o).toPoint(),
+                      new c.GLength(r, o).toPoint(),
+                    ]
+                  ),
+                e.setTitle(t.presetLayout.id),
+                e.setScene(n),
+                e.setDocumentFromTemplate(true),
+                e.setIsShared(true),
+                gDesigner.stats(
+                  "directlink_preset_".concat(s),
+                  t.presetLayout.name
+                );
+            }
+          }
+          return u(n), e;
+        });
+      }
+    };
+  }

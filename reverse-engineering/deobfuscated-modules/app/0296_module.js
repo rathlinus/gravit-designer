@@ -1,0 +1,12 @@
+/**
+ * Webpack Module #296
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    var o = n(297) /* module_297 */;
+    e.exports = function (e, t) {
+      return o[e] || (o[e] = t || {});
+    };
+  }

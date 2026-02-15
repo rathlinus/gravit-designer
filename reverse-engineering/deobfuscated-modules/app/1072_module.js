@@ -1,0 +1,14 @@
+/**
+ * Webpack Module #1072
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    e.exports = {
+      DELETE_COMMENT_ANNOTATION: "DELETE_COMMENT_ANNOTATION",
+      RESOLVE_COMMENT_ANNOTATION: "RESOLVE_COMMENT_ANNOTATION",
+      RESOLVE_ALL_COMMENT_ANNOTATION: "RESOLVE_ALL_COMMENT_ANNOTATION",
+      REOPEN_COMMENT_ANNOTATION: "REOPEN_COMMENT_ANNOTATION",
+    };
+  }

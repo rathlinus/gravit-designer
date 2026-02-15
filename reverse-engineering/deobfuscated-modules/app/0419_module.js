@@ -1,0 +1,25 @@
+/**
+ * Webpack Module #419
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    var o = n(251) /* Exports_GGY */.IteratorPrototype,
+      i = n(136) /* module_136 */,
+      a = n(174) /* module_174 */,
+      r = n(137) /* module_137 */,
+      s = n(203) /* module_203 */,
+      l = function () {
+        return this;
+      };
+    e.exports = function (e, t, n, c) {
+      var d = t + " Iterator";
+      return (
+        (e.prototype = i(o, { next: a(+!c, n) })),
+        r(e, d, false, true),
+        (s[d] = l),
+        e
+      );
+    };
+  }

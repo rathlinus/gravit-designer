@@ -1,0 +1,16 @@
+/**
+ * Webpack Module #1250
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+    "use strict";
+    var o = n(1) /* module_1 */;
+    function i(e, t) {
+      (this.oldPersona = e), (this.newPersona = t);
+    }
+    o.GObject.inherit(i, o.GEvent),
+      (i.prototype.oldPersona = null),
+      (i.prototype.newPersona = null),
+      (e.exports = i);
+  }
