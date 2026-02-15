@@ -12,7 +12,7 @@ function (e, t, n) {
     (i.GoogleTagManagerSettings = n(820)),
       (i.AUTO_SAVE_ENABLED =
         o.GPlatform.webBrowser !== o.GPlatform.constructor.WebBrowser.Safari),
-      (i.DOMAIN = window.location.host),
+      (i.DOMAIN = window.location.hostname),
       (i.GA = { customDimensions: ["EWOSU", "token", "template", "preset"] }),
       (i.PURCHASE = {
         URL_TO_PRODUCT: { purchase_flow: 214093, purchase_flow_new: 220444 },
@@ -47,10 +47,10 @@ function (e, t, n) {
       (i.GLocaleFactory = n(209).GLocale),
       (i.defaultUserSettings = n(253)),
       (i.i18n = {
-        trunk: "https://d2mocl49mz6ak6.cloudfront.net/trunk/locale",
-        staging: "https://d2mocl49mz6ak6.cloudfront.net/staging/locale",
-        preview: "https://d2mocl49mz6ak6.cloudfront.net/preview/locale",
-        production: "https://d2mocl49mz6ak6.cloudfront.net/production/locale",
+        trunk: window.location.origin + "/locale",
+        staging: window.location.origin + "/locale",
+        preview: window.location.origin + "/locale",
+        production: window.location.origin + "/locale",
       }),
       (i.SharePermissions = n(352)),
       (i.ShareRoles = n(287)),

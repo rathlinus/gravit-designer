@@ -1,0 +1,139 @@
+/**
+ * Webpack Module #10
+ * Type: unknown
+ */
+
+function (exports, module, require) {
+  'use strict';
+  var GEditor = require(15); /* GEditor */
+  const AppSettings = require(519) /* AppSettings */,
+    barrel_purchase_urls = require(520) /* barrel_purchase_urls */,
+    DataModule_231 = require(231); /* DataModule_231 */
+  ((AppSettings.GoogleTagManagerSettings = require(820)) /* module */,
+    (AppSettings.AUTO_SAVE_ENABLED =
+      GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari),
+    (AppSettings.DOMAIN = window.location.hostname),
+    (AppSettings.GA = { customDimensions: ['EWOSU', 'token', 'template', 'preset'] }),
+    (AppSettings.PURCHASE = {
+      URL_TO_PRODUCT: { purchase_flow: 214093, purchase_flow_new: 220444 },
+    }),
+    (AppSettings.LEGACY_SHARE_DIALOG = false),
+    (AppSettings.ENABLE_COLLABORATION = true),
+    (AppSettings.FILE_REVIEW_ENABLED = true),
+    (AppSettings.ENABLE_REQUEST_ACCESS = true),
+    (AppSettings.ENABLE_GUEST_ACCESS = true),
+    (AppSettings.IN_APP_PURCHASE.WINDOWS.production = 'ESDWINGRAVIT'),
+    (AppSettings.IN_APP_PURCHASE.WINDOWS.beta = 'ESDWINGRAVIT'),
+    (AppSettings.IN_APP_PURCHASE.WINDOWS.lts = 'ESDWINGRAVIT'),
+    (AppSettings.IN_APP_PURCHASE.WINDOWS.rc = 'GravitDesignerSubscription-rc'),
+    (AppSettings.IN_APP_PURCHASE.WINDOWS.trunk = 'GravitDesignerSubscription-trunk'),
+    (AppSettings.IN_APP_PURCHASE.CLEVERBRIDGE.openCartInAPopup = true),
+    (AppSettings.websocketURL =
+      (window.location.protocol === 'https:' ? 'wss://' : 'ws://') +
+      window.location.host +
+      '/license'),
+    (AppSettings.trunkWebsocketURL =
+      (window.location.protocol === 'https:' ? 'wss://' : 'ws://') +
+      window.location.host +
+      '/license'),
+    (AppSettings.rcWebsocketURL =
+      (window.location.protocol === 'https:' ? 'wss://' : 'ws://') +
+      window.location.host +
+      '/license'),
+    (AppSettings.betaWebsocketURL =
+      (window.location.protocol === 'https:' ? 'wss://' : 'ws://') +
+      window.location.host +
+      '/license'),
+    (AppSettings.cloudURL = window.location.origin),
+    (AppSettings.cloudTrunkURL = window.location.origin),
+    (AppSettings.cloudBetaURL = window.location.origin),
+    (AppSettings.cloudRCURL = window.location.origin),
+    (AppSettings.trunkURL = window.location.origin),
+    (AppSettings.betaURL = window.location.origin),
+    (AppSettings.ltsURL = window.location.origin),
+    (AppSettings.rcURL = window.location.origin),
+    (AppSettings.prodURL = window.location.origin),
+    (AppSettings.domain = window.location.hostname),
+    (AppSettings.gApi = require(417)) /* module */,
+    (AppSettings.DateAPI = require(209) /* module */.DateAPI),
+    (AppSettings.GLocaleFactory = require(209) /* module */.GLocale),
+    (AppSettings.defaultUserSettings = require(253)) /* module */,
+    (AppSettings.i18n = {
+      trunk: 'https://d2mocl49mz6ak6.cloudfront.net/trunk/locale',
+      staging: 'https://d2mocl49mz6ak6.cloudfront.net/staging/locale',
+      preview: 'https://d2mocl49mz6ak6.cloudfront.net/preview/locale',
+      production: 'https://d2mocl49mz6ak6.cloudfront.net/production/locale',
+    }),
+    (AppSettings.SharePermissions = require(352)) /* module */,
+    (AppSettings.ShareRoles = require(287)) /* module */,
+    (AppSettings.Share = require(575)) /* module */,
+    (AppSettings.Lock = require(579)) /* module */,
+    (AppSettings.FileExtended = require(574)) /* module */,
+    (AppSettings.FileTypes = require(825)) /* module */,
+    (AppSettings.MicrosoftB2BKeyType = require(826)) /* module */,
+    (AppSettings.PaymentProviders = require(577)) /* module */,
+    (AppSettings.PurchaseStatus = require(827)) /* module */,
+    (AppSettings.SubscriptionStatus = require(828)) /* module */,
+    (AppSettings.PasswordlessAuthenticationActions = require(580)) /* module */,
+    (AppSettings.PasswordRules = require(581)) /* module */,
+    (AppSettings.License = require(829)) /* module */,
+    (AppSettings.LicenseType = require(430)) /* module */,
+    (AppSettings.Runtime = require(582)) /* module */,
+    (AppSettings.User = require(830)) /* GCommonNames */,
+    (AppSettings.CloudUtils = require(254)) /* GCommonNames */,
+    (AppSettings.UTM = require(354)) /* module */,
+    DataModule_231.IS_WEB_WORKER ||
+      ((AppSettings.GLoginDialog = require(270) /* module */.GLoginDialog),
+      (AppSettings.GReminderDialogFactory = require(270) /* module */.GReminderDialogFactory),
+      (AppSettings.GReminderDialog = require(270) /* module */.GReminderDialog),
+      (AppSettings.GPaywallDialog = require(270) /* module */.GPaywallDialog)),
+    (AppSettings.PRESET_LIMIT = 20),
+    (AppSettings.CATEGORIES = require(831)) /* module */,
+    (AppSettings.ELEMENTS = require(832)) /* module */,
+    (AppSettings.GooglePickerBuilder = require(833)) /* module */,
+    (AppSettings.HAS_ANNOTATIONS = true),
+    (AppSettings.ANNOTATION_PERMANENT_LINK = true),
+    (AppSettings.ANONYMOUS_SESSION_ENABLED = true),
+    (AppSettings.USE_EXTENSION_IN_FILENAME = false),
+    (AppSettings.ALWAYS_SHOW_ACCOUNT_SETTING_DIALOG = false),
+    (AppSettings.Notification = require(834)) /* module */,
+    (AppSettings.NotificationConstants = require(585)) /* module */,
+    (AppSettings.FileStatus = require(586)) /* module */,
+    (AppSettings.FileReviewStatusAvailable = [
+      AppSettings.FileStatus.IN_REVIEW,
+      AppSettings.FileStatus.REOPENED,
+      AppSettings.FileStatus.AWAITING_APPROVAL,
+      AppSettings.FileStatus.APPROVED,
+    ]),
+    (AppSettings.GFileReviewFlow = require(835)) /* module */,
+    (AppSettings.GFileReviewActions = require(836)) /* module */);
+  const s = require(583); /* module */
+  ((AppSettings.NOTIFICATION_USER_MENTION_REGEX = s.NOTIFICATION.USER_MENTION),
+    (AppSettings.HTTP_STATUS_CODES = require(578)) /* module */,
+    (AppSettings.CloudIntegration = {
+      cloudOptions: [
+        {
+          name: 'Google Drive',
+          type: 'googledrive',
+          className: 'google-drive',
+          pro: true,
+          default: false,
+        },
+      ],
+      nativeOption: {
+        type: 'native',
+        name: 'Gravit Designer',
+        deletable: false,
+        pro: false,
+        id: barrel_purchase_urls.Provider.CloudNative,
+        default: true,
+      },
+    }),
+    (AppSettings.PAGE_CLIP_DEFAULT = true),
+    (AppSettings.msTeamsMode = false),
+    (AppSettings.thirdPartyCookieWarningLink = ''),
+    (AppSettings.LINKS.BLENDING_MODES_DOCUMENTATION_URL = ''),
+    (AppSettings.AmplitudeHelper = require(584)) /* module */,
+    (AppSettings.AmplitudeData = require(431)) /* module */,
+    (exports.exports = AppSettings));
+}

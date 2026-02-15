@@ -197,7 +197,7 @@ function (exports, module, require) {
   ((AppSettings.GoogleTagManagerSettings = require(820)) /* module */,
     (AppSettings.AUTO_SAVE_ENABLED =
       GEditor.GPlatform.webBrowser !== GEditor.GPlatform.constructor.WebBrowser.Safari),
-    (AppSettings.DOMAIN = window.location.host),
+    (AppSettings.DOMAIN = window.location.hostname),
     (AppSettings.GA = { customDimensions: ['EWOSU', 'token', 'template', 'preset'] }),
     (AppSettings.PURCHASE = {
       URL_TO_PRODUCT: { purchase_flow: 214093, purchase_flow_new: 220444 },
@@ -238,7 +238,7 @@ function (exports, module, require) {
     (AppSettings.ltsURL = window.location.origin),
     (AppSettings.rcURL = window.location.origin),
     (AppSettings.prodURL = window.location.origin),
-    (AppSettings.domain = window.location.host),
+    (AppSettings.domain = window.location.hostname),
     (AppSettings.gApi = require(417)) /* module */,
     (AppSettings.DateAPI = require(209) /* module */.DateAPI),
     (AppSettings.GLocaleFactory = require(209) /* module */.GLocale),
@@ -2994,7 +2994,7 @@ function (exports, module, require) {
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GOpenRecentAction = require(843) /* GOpenRecentAction */,
     barrel_panels = require(257) /* barrel_panels */,
-    h = require(219) /* GLocale */,
+    GLocale = require(219) /* GLocale */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GDocumentEvent = require(78); /* GDocumentEvent */
   function y() {}
@@ -3046,7 +3046,7 @@ function (exports, module, require) {
       PWA: 'pwa',
       IPad: 'ipad',
     }),
-    (y.GravitLanguages = [...i.GLocale.getAvailableLanguages()]),
+    (y.GravitLanguages = [...GCore.GLocale.getAvailableLanguages()]),
     (y.prototype._recentDocuments = null),
     (y.prototype._deepLinking = null),
     (y.prototype.getRuntime = function () {
@@ -3311,7 +3311,7 @@ function (exports, module, require) {
             var _interopRequireDefault = GCore.GLocale.get(
               new GCore.GLocaleKey('GContainer', 'text.not-memary-enough')
             );
-            new h(_interopRequireDefault).open();
+            new GLocale(_interopRequireDefault).open();
           }
         }
       } catch (e) {
@@ -5720,7 +5720,7 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     s = require(1201) /* module */,
     l = require(797) /* module */,
     AppSettings = require(10) /* AppSettings */,
@@ -5731,12 +5731,12 @@ function (exports, module, require) {
     GUserModel = _interopRequireDefault(require(177) /* GUserModel */),
     f = require(165); /* module_165 */
   const m = require(1472); /* module_1472 */
-  var y = require(388) /* Item */,
+  var Item = require(388) /* Item */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     _ = require(86) /* module_86 */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     GEvent_storageItem = require(336) /* GEvent_storageItem */,
-    C = require(237) /* Item */,
+    Item2 = require(237) /* Item */,
     GMissingFontsDialog = require(841) /* GMissingFontsDialog */,
     GPaywallDialog = require(1473) /* GPaywallDialog */,
     E = require(219) /* GLocale */,
@@ -5744,7 +5744,7 @@ function (exports, module, require) {
     GDocumentChooser = require(1475) /* GDocumentChooser */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     GCloudStorage = require(119) /* GCloudStorage */,
-    D = require(220) /* Item */,
+    Item3 = require(220) /* Item */,
     GContainer = require(85); /* GContainer */
   const GEvent_license = require(441) /* GEvent_license */,
     GEvent_document = require(392) /* GEvent_document */,
@@ -5759,7 +5759,7 @@ function (exports, module, require) {
     DataModule_436 = require(436); /* DataModule_436 */
   require(1152) /* Item */;
   function K(e) {
-    ((this._storageItem = e instanceof C.Item ? e : null),
+    ((this._storageItem = e instanceof Item2.Item ? e : null),
       (this._windows = []),
       (this._activeWindow = null),
       this._updateStatus(_.Init),
@@ -6265,10 +6265,10 @@ function (exports, module, require) {
     (K.prototype.insertElement = function (e, t, n, _interopRequireDefault) {
       var GTools = this.getScene();
       if (GTools.isFixedSized() && e.hasMixin(GCore.GElement.Transform)) {
-        var r = e.getGeometryBBox();
-        if (!r) return;
-        var s = r.getWidth(),
-          l = r.getHeight(),
+        var GEditor = e.getGeometryBBox();
+        if (!GEditor) return;
+        var s = GEditor.getWidth(),
+          l = GEditor.getHeight(),
           AppSettings = GTools.getProperty('w'),
           CollaborationMergeUtils = GTools.getProperty('h'),
           DataModule_1468 = new GCore.GTransform();
@@ -6278,16 +6278,16 @@ function (exports, module, require) {
           (s > AppSettings && (p = AppSettings / s),
             l > CollaborationMergeUtils && (g = CollaborationMergeUtils / l),
             p < g ? (g = p) : (p = g),
-            (DataModule_1468 = DataModule_1468.translated(-r.getX(), -r.getY())
+            (DataModule_1468 = DataModule_1468.translated(-GEditor.getX(), -GEditor.getY())
               .scaled(p, g)
-              .translated(r.getX(), r.getY())),
+              .translated(GEditor.getX(), GEditor.getY())),
             (s *= p),
             (l *= g));
         }
         (t &&
           (DataModule_1468 = DataModule_1468.translated(
-            (AppSettings - s) / 2 - r.getX(),
-            (CollaborationMergeUtils - l) / 2 - r.getY()
+            (AppSettings - s) / 2 - GEditor.getX(),
+            (CollaborationMergeUtils - l) / 2 - GEditor.getY()
           )),
           e.transform(DataModule_1468, true));
         var GUserModel = DataModule_1468.getScaleFactor(),
@@ -6400,8 +6400,8 @@ function (exports, module, require) {
       let _interopRequireDefault =
           arguments.length > 3 && undefined !== arguments[3] && arguments[3],
         GTools = arguments.length > 4 ? arguments[4] : undefined;
-      var r = GTools || {};
-      this.isModified() || Object.assign(r, { lastModifiedDate: e.getLastSavedTime() });
+      var GEditor = GTools || {};
+      this.isModified() || Object.assign(GEditor, { lastModifiedDate: e.getLastSavedTime() });
       const s = () => {
           (this._updateCloudSynchronism(false),
             n
@@ -6414,13 +6414,13 @@ function (exports, module, require) {
           (this._updateCloudSynchronism(true), t && t.apply(null, arguments));
         };
       this.isExternalFile()
-        ? this.performCloudSave(l, s, r, _interopRequireDefault)
+        ? this.performCloudSave(l, s, GEditor, _interopRequireDefault)
         : GCloudStorage.performSave(
             this,
             l,
             s,
-            r,
-            await D.from(gDesigner.getDefaultStorage(), e.getProperty('cid'), this.getTitle()),
+            GEditor,
+            await Item3.from(gDesigner.getDefaultStorage(), e.getProperty('cid'), this.getTitle()),
             _interopRequireDefault
           );
     }),
@@ -6434,14 +6434,14 @@ function (exports, module, require) {
       let _interopRequireDefault =
         arguments.length > 3 && undefined !== arguments[3] && arguments[3];
       var GTools = this;
-      let r = false;
+      let GEditor = false;
       if (this.isCommercialProductFile()) this.openPaywall();
       else {
         var s = this.getStorageItem(),
           l = (n) => {
             (_interopRequireDefault ||
               (n && 507 === n.code
-                ? (GSystemDialog.alert(n.message), n.noFailCall && (r = true))
+                ? (GSystemDialog.alert(n.message), n.noFailCall && (GEditor = true))
                 : GSystemDialog.confirm(
                     GCore.GLocale.get(
                       new GCore.GLocaleKey('GCommonNames', 'text.save-to-cloud-failed')
@@ -6453,9 +6453,9 @@ function (exports, module, require) {
                             [null, this],
                             'savefailed'
                           )
-                        : 'function' != typeof t || r
+                        : 'function' != typeof t || GEditor
                           ? 'function' == typeof e && e(false)
-                          : ((r = true), t());
+                          : ((GEditor = true), t());
                     },
                     GCore.GLocale.get(new GCore.GLocaleKey('GLocale', 'no')),
                     GCore.GLocale.get(new GCore.GLocaleKey('GLocale', 'yes'))
@@ -6468,7 +6468,7 @@ function (exports, module, require) {
                 new GDocumentEvent(GDocumentEvent.Type.SynchronismUpdateFailed, this)
               ),
               this.setErrored(true),
-              t && !r && ((r = true), t()));
+              t && !GEditor && ((GEditor = true), t()));
           };
         try {
           this.setSynchronizing(true);
@@ -6535,14 +6535,14 @@ function (exports, module, require) {
       }
     }),
     (K.prototype.chooseLatestDocument = async function (e, t, n, _interopRequireDefault, GTools) {
-      var r = (e) => {
+      var GEditor = (e) => {
         (n && n(e), (e instanceof Error || 'string' == typeof e) && console.error(e));
       };
       let s;
       try {
         s = await AppSettings.gApi.getFile(e.getProperty('cid'));
       } catch (e) {
-        return void r(e);
+        return void GEditor(e);
       }
       GCloudStorage.loadDesignData(
         e.getProperty('cid'),
@@ -6555,7 +6555,7 @@ function (exports, module, require) {
         .then(async (n) => {
           var s = n.data,
             l = n.file;
-          ((this._tempCloudStorageItem = await D.from(
+          ((this._tempCloudStorageItem = await Item3.from(
             gDesigner.getDefaultStorage(),
             e.getProperty('cid')
           )),
@@ -6588,9 +6588,9 @@ function (exports, module, require) {
                   GTools
                 ).open()
               : t(e)
-            : r();
+            : GEditor();
         })
-        .catch(r);
+        .catch(GEditor);
     }),
     (K.prototype.isCloudSynchronismAvailable = function () {
       return this._cloudSynchronismFlag;
@@ -6602,7 +6602,7 @@ function (exports, module, require) {
           gDesigner.trigger(new GDocumentEvent(GDocumentEvent.Type.CloudSynchronismUpdated, this)));
     }),
     (K.prototype.isCloudFile = function () {
-      return this.getStorageItem() instanceof D.Item;
+      return this.getStorageItem() instanceof Item3.Item;
     }),
     (K.prototype.isCollaborative = function () {
       return this.getStorageItem() && this.getStorageItem().hasMixin(DataModule_436);
@@ -6615,7 +6615,7 @@ function (exports, module, require) {
       );
     }),
     (K.prototype.isExternalFile = function () {
-      return this.getStorageItem() instanceof y.Item;
+      return this.getStorageItem() instanceof Item.Item;
     }),
     (K.prototype.isEditingEnabled = function () {
       const exports = this.getStorageItem();
@@ -6651,11 +6651,11 @@ function (exports, module, require) {
       var _interopRequireDefault = null,
         GTools = this.getScene(),
         GCore = this.getId(),
-        r = GTools.getProperty('cid'),
+        GEditor = GTools.getProperty('cid'),
         s = this.getReservedId();
       return (
         !t || (e !== GCore && e !== s)
-          ? e === r &&
+          ? e === GEditor &&
             e !== GCore &&
             e !== s &&
             (_interopRequireDefault = GTools.getProperty('asec'))
@@ -6677,12 +6677,12 @@ function (exports, module, require) {
     (K.prototype.isWebFile = function () {
       const exports = this.getStorageItem();
       return exports
-        ? exports instanceof D.Item
+        ? exports instanceof Item3.Item
         : gContainer.getRuntime() === GContainer.Runtime.Browser ||
             gContainer.getRuntime() === GContainer.Runtime.PWA;
     }),
     (K.prototype.isCommercialProductFile = function () {
-      return this.getStorageItem() && this.getStorageItem() instanceof D.CommercialProduct;
+      return this.getStorageItem() && this.getStorageItem() instanceof Item3.CommercialProduct;
     }),
     (K.prototype.restrictElements = function (e) {
       return (
@@ -6728,7 +6728,7 @@ function (exports, module, require) {
         this.isCloudFile())
       ) {
         const t = await AppSettings.gApi.getFile(this.getId());
-        ((exports = await D.from(
+        ((exports = await Item3.from(
           gDesigner.getDefaultStorage(),
           t,
           undefined,
@@ -6757,7 +6757,7 @@ function (exports, module, require) {
             module
           )),
             this._updateStatus(_.Loading, module));
-          var r = (e) => {
+          var GEditor = (e) => {
               let module = false;
               GFontsProviderManager.getInstance().query(
                 (n) => {
@@ -6776,7 +6776,7 @@ function (exports, module, require) {
                 true
               );
             },
-            l = function (e, _interopRequireDefault, r, s) {
+            l = function (e, _interopRequireDefault, GEditor, s) {
               if (e)
                 return (
                   new E(
@@ -6790,11 +6790,11 @@ function (exports, module, require) {
                 CollaborationMergeUtils = new GCore.GImage();
               (CollaborationMergeUtils.setProperties(
                 ['iw', 'ih', 'url'],
-                [r, s, _interopRequireDefault]
+                [GEditor, s, _interopRequireDefault]
               ),
                 AppSettings.setProperties(
                   ['w', 'h', 'bck'],
-                  [r, s, 'PNG' !== GTools ? GCore.GRGBColor.WHITE : null]
+                  [GEditor, s, 'PNG' !== GTools ? GCore.GRGBColor.WHITE : null]
                 ),
                 AppSettings.appendChild(CollaborationMergeUtils),
                 require.getName() && this.setTitle(require.getName()),
@@ -6857,7 +6857,7 @@ function (exports, module, require) {
                         else {
                           e = gDesigner.createScene();
                           var GTools = e.getActivePage(),
-                            r = null,
+                            GEditor = null,
                             s = [];
                           if (t instanceof GCore.GGroup)
                             for (var l = 1 === t.getChildren().length; t.getFirstChild(); ) {
@@ -6883,11 +6883,11 @@ function (exports, module, require) {
                               )
                                 (s.push(AppSettings),
                                   AppSettings.getPaintBBox() &&
-                                    (r = r
-                                      ? r.united(AppSettings.getPaintBBox())
+                                    (GEditor = GEditor
+                                      ? GEditor.united(AppSettings.getPaintBBox())
                                       : AppSettings.getPaintBBox()));
                             }
-                          else (s.push(t), GTools.appendChild(t), (r = t.getPaintBBox()));
+                          else (s.push(t), GTools.appendChild(t), (GEditor = t.getPaintBBox()));
                           (GCore.GUtil.each(s, function () {}),
                             GTools.setProperties(
                               ['w', 'h'],
@@ -6922,11 +6922,11 @@ function (exports, module, require) {
                     (e, t, _interopRequireDefault, GTools) => {
                       if ((this._postProcessFonts(), e || !t)) {
                         (e && new E(e).open(), this._updateStatus(_.LoadFailed));
-                        var r = gDesigner.getWindows().getActiveWindow().getView();
+                        var GEditor = gDesigner.getWindows().getActiveWindow().getView();
                         return (
-                          (r.getViewConfiguration().paintMode =
+                          (GEditor.getViewConfiguration().paintMode =
                             GCore.GScenePaintConfiguration.PaintMode.Output),
-                          void r.invalidate()
+                          void GEditor.invalidate()
                         );
                       }
                       var s = gDesigner.createScene(),
@@ -7015,7 +7015,7 @@ function (exports, module, require) {
                       e
                     ).open();
                   };
-                r(() =>
+                GEditor(() =>
                   s.GPDFImport.import(
                     e,
                     {},
@@ -7065,10 +7065,10 @@ function (exports, module, require) {
                                   e instanceof GCore.GText && e.toFakeText();
                                 });
                             }).open());
-                        var r = gDesigner.getWindows().getActiveWindow().getView();
-                        ((r.getViewConfiguration().paintMode =
+                        var GEditor = gDesigner.getWindows().getActiveWindow().getView();
+                        ((GEditor.getViewConfiguration().paintMode =
                           GCore.GScenePaintConfiguration.PaintMode.Output),
-                          r.invalidate(),
+                          GEditor.invalidate(),
                           gDesigner.gtmEvent('DOCUMENT_IMPORT_EVENT'));
                       }
                     },
@@ -7124,8 +7124,8 @@ function (exports, module, require) {
                         ).open(),
                           this._updateStatus(_.LoadFailed));
                       else {
-                        var r = { text: 'string' == typeof e ? e : null };
-                        this._updateStatus(_.LoadFailed, r);
+                        var GEditor = { text: 'string' == typeof e ? e : null };
+                        this._updateStatus(_.LoadFailed, GEditor);
                       }
                     }
                   ));
@@ -7170,11 +7170,11 @@ function (exports, module, require) {
       let _interopRequireDefault =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
       const GTools = !_interopRequireDefault.export;
-      var r = (e) => {
+      var GEditor = (e) => {
         (GTools && (this._updateStatus(_.SaveFailed, e), this._updateStatus(_.Ready)), n && n(e));
       };
-      if ('lts' === gDesigner.getEnv() && !gDesigner.isEnabledProFeatures()) return r();
-      if ((gContainer.verifyEnoughMemoryToSave(this), !this._scene)) return r();
+      if ('lts' === gDesigner.getEnv() && !gDesigner.isEnabledProFeatures()) return GEditor();
+      if ((gContainer.verifyEnoughMemoryToSave(this), !this._scene)) return GEditor();
       var s = e || this._storageItem;
       if (!s) throw new Error('Unable to save, no storage item available.');
       var CollaborationMergeUtils = s.getExtension(),
@@ -7202,7 +7202,7 @@ function (exports, module, require) {
           }
         },
         g = (e) => {
-          s.write(e, p, r, DataModule_1468.progress, this);
+          s.write(e, p, GEditor, DataModule_1468.progress, this);
         };
       const GUserModel = [
           GDocument_389.JPEG.ext.toUpperCase(),
@@ -7211,9 +7211,9 @@ function (exports, module, require) {
         ],
         m = [GDocument_389.JPEG.ext.toUpperCase(), GDocument_389.JPG.ext.toUpperCase()];
       if (CollaborationMergeUtils === B.ext.toUpperCase()) {
-        var y = this._scene,
+        var Item = this._scene,
           GDocumentStatusEvent = 0;
-        (y.acceptChildren(function () {
+        (Item.acceptChildren(function () {
           GDocumentStatusEvent++;
         }),
           DataModule_1468.progress &&
@@ -7223,17 +7223,19 @@ function (exports, module, require) {
             var e;
             try {
               e = GCore.GNode.serialize(
-                y,
+                Item,
                 GCore.GUtil.extend({ save: true }, _interopRequireDefault || {})
               );
             } catch (e) {
               return (
                 console.error(e),
-                void r(GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.cannot-save')))
+                void GEditor(
+                  GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.cannot-save'))
+                )
               );
             }
             null === e || '' === e || e.length < GDocumentStatusEvent
-              ? r(GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.cannot-save')))
+              ? GEditor(GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.cannot-save')))
               : (DataModule_1468.progress &&
                   DataModule_1468.progress instanceof Function &&
                   DataModule_1468.progress(50),
@@ -7242,15 +7244,17 @@ function (exports, module, require) {
                   (DataModule_1468.progress &&
                     DataModule_1468.progress instanceof Function &&
                     DataModule_1468.progress(75),
-                    t.byteLength > 20 + GDocumentStatusEvent ? g(t) : r('GZIP compression fail'));
+                    t.byteLength > 20 + GDocumentStatusEvent
+                      ? g(t)
+                      : GEditor('GZIP compression fail'));
                 }));
           }));
       } else if (U && U.find((e) => e.ext.toUpperCase() === CollaborationMergeUtils))
-        await this._handleSecondaryFormatSave(DataModule_1468, g, r, _interopRequireDefault);
+        await this._handleSecondaryFormatSave(DataModule_1468, g, GEditor, _interopRequireDefault);
       else if ('SVG' === CollaborationMergeUtils || 'SVGZ' === CollaborationMergeUtils) {
         const { exportOptions: e = {} } = _interopRequireDefault;
         l.GSVGExport.export(this._scene.getActivePage(), e, (e, t) => {
-          if (e || !t) return r();
+          if (e || !t) return GEditor();
           if (
             !_interopRequireDefault.suppressMessages &&
             !gDesigner.getSetting('disable_warning_unsupported_features', false)
@@ -7273,9 +7277,9 @@ function (exports, module, require) {
         });
       } else if (GUserModel.includes(CollaborationMergeUtils)) {
         var GEvent_storageItem = GCore.GLength.DPI,
-          C = this._scene.getActivePage();
+          Item2 = this._scene.getActivePage();
         l.GBitmapExport.export(
-          C,
+          Item2,
           null,
           m.includes(CollaborationMergeUtils) ? GCore.GRGBColor.WHITE : null,
           null,
@@ -7303,7 +7307,7 @@ function (exports, module, require) {
               },
               (e, t) => {
                 if (e || !t)
-                  return r(
+                  return GEditor(
                     GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.pdf-export-error'))
                   );
                 var n = new FileReader();
@@ -7314,7 +7318,7 @@ function (exports, module, require) {
               { message: (e) => DataModule_1468.progressInfo && DataModule_1468.progressInfo(e) }
             ));
         });
-      } else r();
+      } else GEditor();
     }),
     (K.prototype.initCancelHandler = function (e) {
       this._activeWindow && this._activeWindow.activateCancelLoading(e);
@@ -7327,11 +7331,11 @@ function (exports, module, require) {
               e.setProperty('name', _interopRequireDefault),
             t && e.hasMixin(GCore.GElement.Transform))
           ) {
-            var r = e.getGeometryBBox(),
-              s = r && r.getX() ? r.getX() : 0,
-              l = r && r.getY() ? r.getY() : 0,
-              AppSettings = t.center ? -r.getWidth() / 2 : 0,
-              CollaborationMergeUtils = t.center ? -r.getHeight() / 2 : 0;
+            var GEditor = e.getGeometryBBox(),
+              s = GEditor && GEditor.getX() ? GEditor.getX() : 0,
+              l = GEditor && GEditor.getY() ? GEditor.getY() : 0,
+              AppSettings = t.center ? -GEditor.getWidth() / 2 : 0,
+              CollaborationMergeUtils = t.center ? -GEditor.getHeight() / 2 : 0;
             e.transform(
               new GCore.GTransform(
                 1,
@@ -7353,8 +7357,9 @@ function (exports, module, require) {
                 GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.image-too-big'))
               ).open();
             else {
-              var r = new GCore.GImage();
-              (r.setProperties(['iw', 'ih', 'url'], [_interopRequireDefault, GTools, n]), l(r, t));
+              var GEditor = new GCore.GImage();
+              (GEditor.setProperties(['iw', 'ih', 'url'], [_interopRequireDefault, GTools, n]),
+                l(GEditor, t));
             }
           });
         };
@@ -7376,7 +7381,7 @@ function (exports, module, require) {
               e,
               gDesigner.getSetting('eps_outline_fonts', true),
               gDesigner.getWorkspace().getFontManager(),
-              (e, _interopRequireDefault, GTools, r) => {
+              (e, _interopRequireDefault, GTools, GEditor) => {
                 if (
                   (this._deactivateProgress(),
                   this._postProcessFonts(),
@@ -7391,12 +7396,12 @@ function (exports, module, require) {
                       (console.timeEnd('optimization time'), console.log('Nodes removed: ' + z)));
                   var s = _interopRequireDefault,
                     l = _interopRequireDefault.getPaintBBox();
-                  if (r) {
+                  if (GEditor) {
                     ((s = new GCore.GRectangle()).setBounds(0, 0, l.getWidth(), l.getHeight()),
                       s._blockUpdateChanges());
                     var AppSettings = new GCore.GStylable.FillPaintLayer();
                     for (
-                      AppSettings.setProperties(['_pt'], [r]),
+                      AppSettings.setProperties(['_pt'], [GEditor]),
                         s.getPaintLayers().appendChild(AppSettings);
                       _interopRequireDefault.getFirstChild();
                     ) {
@@ -7446,7 +7451,7 @@ function (exports, module, require) {
                   '...'
                 )
               : GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.opening-your-image')),
-            r = this._activateProgress(GTools);
+            GEditor = this._activateProgress(GTools);
           try {
             (this._preProcessFonts(),
               s.GPDFImport.import(
@@ -7458,16 +7463,16 @@ function (exports, module, require) {
                   else if (GTools && GTools.length) {
                     n || this._editor.beginTransaction();
                     try {
-                      var r = GTools.shift();
+                      var GEditor = GTools.shift();
                       ('production' !== gDesigner.getEnv() &&
                         'lts' !== gDesigner.getEnv() &&
                         (console.time('optimization time'), (z = 0)),
-                        Q(r),
+                        Q(GEditor),
                         'production' !== gDesigner.getEnv() &&
                           'lts' !== gDesigner.getEnv() &&
                           (console.timeEnd('optimization time'),
                           console.log('Nodes removed: ' + z)));
-                      var s = r.getGeometryBBox(),
+                      var s = GEditor.getGeometryBBox(),
                         l = new GCore.GRectangle();
                       (l.setProperty(
                         'name',
@@ -7475,8 +7480,8 @@ function (exports, module, require) {
                       ),
                         l.setBounds(s.getX(), s.getY(), s.getWidth(), s.getHeight()),
                         l.beginUpdate(),
-                        r.getChildren().forEach((e) => {
-                          (r.removeChild(e), l.appendChild(e));
+                        GEditor.getChildren().forEach((e) => {
+                          (GEditor.removeChild(e), l.appendChild(e));
                         }),
                         this._scene.appendChild(l),
                         l.acceptChildren((e) => {
@@ -7498,7 +7503,7 @@ function (exports, module, require) {
                     }
                   }
                 },
-                (e) => r(e),
+                (e) => GEditor(e),
                 function (e) {
                   new E(
                     GCore.GLocale.get(
@@ -7514,7 +7519,7 @@ function (exports, module, require) {
         },
         p = (e, t, n) => {
           t = t && t.toUpperCase();
-          var _interopRequireDefault = r.GPlatform.maxPngDataSize;
+          var _interopRequireDefault = GEditor.GPlatform.maxPngDataSize;
           switch (
             (('JPG' !== t && 'JPEG' !== t) ||
               (GCore.GSystem.operatingSystem !== GCore.GSystem.OperatingSystem.OSX_IOS &&
@@ -7562,7 +7567,7 @@ function (exports, module, require) {
               CollaborationMergeUtils(e, n);
           }
         };
-      if (e instanceof C.Item)
+      if (e instanceof Item2.Item)
         e.read((t) => {
           var n = e.getExtension(),
             _interopRequireDefault = e.getName();
@@ -7576,9 +7581,9 @@ function (exports, module, require) {
           f >= 0 && ((g = e.name.substr(f + 1)), (GUserModel = e.name.substr(0, f)));
         }
         if (!g && e.type)
-          for (var y = 0; y < K.FileTypes.length; ++y)
-            if (K.FileTypes[y].mime === e.type) {
-              g = K.FileTypes[y].ext;
+          for (var Item = 0; Item < K.FileTypes.length; ++Item)
+            if (K.FileTypes[Item].mime === e.type) {
+              g = K.FileTypes[Item].ext;
               break;
             }
         if (!gDesigner.isEnabledProFeatures()) {
@@ -7901,25 +7906,25 @@ function (exports, module, require) {
     }),
     (K.prototype._updateDocumentColorsFromElement = function (e, t, n) {
       for (var _interopRequireDefault = [], GTools = 0; GTools < t.length; ++GTools) {
-        var r = e.getProperty(t[GTools]);
-        if (r) {
-          var s = function (n, GTools, r) {
+        var GEditor = e.getProperty(t[GTools]);
+        if (GEditor) {
+          var s = function (n, GTools, GEditor) {
             if (n instanceof GCore.GColor) _interopRequireDefault.push(n);
             else if (n instanceof GCore.GGradient)
               for (var l = n.getStops(), AppSettings = 0; AppSettings < l.length; ++AppSettings)
                 _interopRequireDefault.push(l[AppSettings].color);
-            else if ('content' === t[r] && e instanceof GCore.GText && GTools) {
+            else if ('content' === t[GEditor] && e instanceof GCore.GText && GTools) {
               var CollaborationMergeUtils = e.getTLCore().getRichContent();
               if (CollaborationMergeUtils && CollaborationMergeUtils.length) {
                 var DataModule_1468 = e._getGravitValue(
                   'fontColor',
                   CollaborationMergeUtils[0].fontColor
                 );
-                s(DataModule_1468, false, r);
+                s(DataModule_1468, false, GEditor);
               }
             }
           };
-          s(r, true, GTools);
+          s(GEditor, true, GTools);
         }
       }
       _interopRequireDefault.length &&
@@ -7933,14 +7938,15 @@ function (exports, module, require) {
       n,
       _interopRequireDefault
     ) {
-      for (var GTools = [], r = [], s = [], l = 0; l < t.length; ++l) {
+      for (var GTools = [], GEditor = [], s = [], l = 0; l < t.length; ++l) {
         var AppSettings = n.indexOf(t[l]);
         if (AppSettings >= 0) {
-          (GTools.push(AppSettings), r.push(t[l]));
+          (GTools.push(AppSettings), GEditor.push(t[l]));
           var CollaborationMergeUtils = function (t, _interopRequireDefault, GTools) {
             if (t instanceof GCore.GColor) s.push(t);
             else if (t instanceof GCore.GGradient)
-              for (var r = t.getStops(), l = 0; l < r.length; ++l) s.push(r[l].color);
+              for (var GEditor = t.getStops(), l = 0; l < GEditor.length; ++l)
+                s.push(GEditor[l].color);
             else if (
               'content' === n[GTools] &&
               e instanceof GCore.GText &&
@@ -7958,7 +7964,7 @@ function (exports, module, require) {
         }
       }
       (s.length && this._clearDocumentColors(s),
-        r.length && this._updateDocumentColorsFromElement(e, r));
+        GEditor.length && this._updateDocumentColorsFromElement(e, GEditor));
     }),
     (K.prototype.setSynchronizing = function (e) {
       e !== this._synchronizing &&
@@ -8043,13 +8049,13 @@ function (exports, module, require) {
       var require = Object.keys(GCore.GPathBase.AnchorPoint.GeometryProperties),
         _interopRequireDefault = e.getAnchorPoints(),
         GTools = t.getAnchorPoints(),
-        r = _interopRequireDefault.getFirstChild(),
+        GEditor = _interopRequireDefault.getFirstChild(),
         s = GTools.getFirstChild();
-      r && s;
-      r = r.getNext(), s = s.getNext()
+      GEditor && s;
+      GEditor = GEditor.getNext(), s = s.getNext()
     )
-      if (!r.arePropertiesEqual(s, require)) return false;
-    return null === r && null === s;
+      if (!GEditor.arePropertiesEqual(s, require)) return false;
+    return null === GEditor && null === s;
   }
   function Q(e) {
     e._blockUpdateChanges();
@@ -8089,7 +8095,7 @@ function (exports, module, require) {
           _interopRequireDefault,
           GTools,
           GCore,
-          r,
+          GEditor,
           s,
           l,
           AppSettings,
@@ -8119,17 +8125,17 @@ function (exports, module, require) {
             GTools++
           )
             (p === e[GTools - 1]
-              ? (r = s[GTools - 1])
+              ? (GEditor = s[GTools - 1])
               : ((l = GCore + 1),
                 (AppSettings = s[GTools] + 1),
                 (CollaborationMergeUtils = l - ((l - AppSettings) & ((AppSettings - l) >> 7))),
                 (DataModule_1468 = s[GTools - 1] + 1),
-                (r =
+                (GEditor =
                   CollaborationMergeUtils -
                   ((CollaborationMergeUtils - DataModule_1468) &
                     ((DataModule_1468 - CollaborationMergeUtils) >> 7)))),
               (s[GTools - 1] = GCore),
-              (GCore = r));
+              (GCore = GEditor));
           s[g] = GCore;
         }
         return s[g];
@@ -8140,9 +8146,9 @@ function (exports, module, require) {
         GTools.length
           ? GTools[0] !== e.fontFamily && GTools.push(e.fontFamily)
           : GTools.push(e.fontFamily));
-      var GCore = function (r) {
+      var GCore = function (GEditor) {
         var s;
-        r.faces.length
+        GEditor.faces.length
           ? ((s = (function (t) {
               var _interopRequireDefault = {
                   family: t[0].fonts[0].family || t[0].family,
@@ -8154,7 +8160,7 @@ function (exports, module, require) {
                   e.fontFamily ||
                   gDesigner.getWorkspace().getFontManager().getDefaultFont().getFamily(),
                 GCore = require(_interopRequireDefault.family, GTools),
-                r = 0,
+                GEditor = 0,
                 s = _interopRequireDefault.family;
               for (let e = 0; e < t.length; e++) {
                 var l = t[e];
@@ -8163,14 +8169,16 @@ function (exports, module, require) {
                   for (var AppSettings = 0; AppSettings < l.families.length; AppSettings++)
                     ((_interopRequireDefault = require(l.families[AppSettings], GTools)),
                       _interopRequireDefault < GCore &&
-                        ((GCore = _interopRequireDefault), (r = e), (s = l.families[AppSettings])));
+                        ((GCore = _interopRequireDefault),
+                        (GEditor = e),
+                        (s = l.families[AppSettings])));
                 else
                   ((_interopRequireDefault = require(l.family, GTools)),
                     _interopRequireDefault < GCore &&
-                      ((GCore = _interopRequireDefault), (r = e), (s = l.family)));
+                      ((GCore = _interopRequireDefault), (GEditor = e), (s = l.family)));
               }
               _interopRequireDefault = null;
-              var CollaborationMergeUtils = t[r];
+              var CollaborationMergeUtils = t[GEditor];
               for (let t = 0; t < CollaborationMergeUtils.fonts.length; t++) {
                 var DataModule_1468 = CollaborationMergeUtils.fonts[t];
                 if (!DataModule_1468.family || DataModule_1468.family === s) {
@@ -8194,7 +8202,7 @@ function (exports, module, require) {
                 }
               }
               return _interopRequireDefault;
-            })(r.faces)),
+            })(GEditor.faces)),
             t(s))
           : _interopRequireDefault < GTools.length - 1
             ? (_interopRequireDefault++,
@@ -8313,7 +8321,7 @@ function (exports, module, require) {
     require(3) /* polyfill_RegExp_toString */,
     require(247) /* module_247 */,
     require(91)) /* polyfill_String_trim */;
-  var o = require(263) /* Exports_GRegex */,
+  var GRegex = require(263) /* Exports_GRegex */,
     AppSettings = require(10); /* AppSettings */
   const { GObject: a } = require(1) /* GCore */,
     r = require(733) /* module_733 */,
@@ -8394,7 +8402,7 @@ function (exports, module, require) {
     (d.prototype.getFirstName = function () {
       try {
         if (this.name && this.name.trim()) {
-          return this.name.trim().split(o.GRegex.String.SpacesLineBreak)[0];
+          return this.name.trim().split(GRegex.GRegex.String.SpacesLineBreak)[0];
         }
         return this.name || '';
       } catch (e) {
@@ -9134,7 +9142,7 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     c = _interopRequireDefault(require(554) /* module_554 */),
     d = _interopRequireDefault(require(555) /* module_555 */),
-    u = require(237) /* Item */,
+    Item = require(237) /* Item */,
     p = require(119); /* GCloudStorage */
   const DataModule_436 = require(436) /* DataModule_436 */,
     h = require(86); /* module_86 */
@@ -9150,7 +9158,7 @@ function (exports, module, require) {
     });
   }
   function b() {}
-  (GCore.GObject.inherit(b, u),
+  (GCore.GObject.inherit(b, Item),
     (b.ProgressStages = {
       Preparing: 0,
       SyncingImages: 50,
@@ -9176,7 +9184,7 @@ function (exports, module, require) {
     }),
     (b.Item = function (e, t, n, _interopRequireDefault, GCore, AppSettings, GEvent_storageItem) {
       if (
-        (u.Item.call(this, e),
+        (Item.Item.call(this, e),
         (this._filename = n),
         (this._id = t),
         (this._file = _interopRequireDefault && p.convertToCloudItem(_interopRequireDefault)),
@@ -9202,7 +9210,7 @@ function (exports, module, require) {
             ((this._ext = GSystemDialog.ext.toUpperCase()), (this._type = GSystemDialog.type)));
       }
     }),
-    GCore.GObject.inheritAndMix(b.Item, u.Item, [DataModule_436]),
+    GCore.GObject.inheritAndMix(b.Item, Item.Item, [DataModule_436]),
     (b.Item.prototype._filename = null),
     (b.Item.prototype._ext = null),
     (b.Item.prototype._type = null),
@@ -9355,8 +9363,8 @@ function (exports, module, require) {
                 n && n('scene is null')
               );
             try {
-              const u = v.gzip(c, { level: 9 }),
-                p = u.hasOwnProperty('size') ? u.size : u.length;
+              const Item = v.gzip(c, { level: 9 }),
+                p = Item.hasOwnProperty('size') ? Item.size : Item.length;
               if (p <= 0)
                 return (
                   _({
@@ -9366,7 +9374,7 @@ function (exports, module, require) {
                   (this._writing = false),
                   n && n('empty blob')
                 );
-              const DataModule_436 = v.ungzip(u, { to: 'string' });
+              const DataModule_436 = v.ungzip(Item, { to: 'string' });
               if ((this._verifyFileNotTooSmall(p, e), !DataModule_436))
                 return (
                   _({
@@ -9382,7 +9390,7 @@ function (exports, module, require) {
                       'Scene invalid, sending error, please try again or submit a bug issue on https://discuss.gravit.io'
                     )
                 );
-              var _interopRequireDefault = Md5.base64(u);
+              var _interopRequireDefault = Md5.base64(Item);
               const m = await e.buildPreview().catch(() => null),
                 w = await AppSettings.gApi.signedPutUrls(this._id, {
                   type: f.type,
@@ -9397,7 +9405,7 @@ function (exports, module, require) {
                     'Cache-Control': 'public,max-age=31536000',
                     'Content-MD5': _interopRequireDefault,
                   },
-                  body: u,
+                  body: Item,
                   onProgress: (e) => {
                     GSystemDialog(
                       d.default.calculateProgress(
@@ -9418,7 +9426,7 @@ function (exports, module, require) {
                 );
               await this._syncPreviewThumbnailWithCloud(m);
               const x = AppSettings.COMPUTE_SHA256_FOR_FILES
-                ? await (0, CollaborationMergeUtils.getFileSHA256Digest)(u)
+                ? await (0, CollaborationMergeUtils.getFileSHA256Digest)(Item)
                 : null;
               (await AppSettings.gApi.commitManualFileUpdate(this._id, [
                 AppSettings.FileTypes.MainFile,
@@ -13840,7 +13848,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GMenuActivateEvent = require(1499) /* GMenuActivateEvent */,
     GMenuCloseEvent = require(1156) /* GMenuCloseEvent */,
     l = require(444) /* module_444 */,
@@ -13963,7 +13971,7 @@ function (exports, module, require) {
       let GMenuCloseEvent = this._action.getTooltipConfig(this._action.getTooltipArea());
       GMenuCloseEvent &&
         this._htmlElement.gRichTooltip(
-          a.GRichTooltipConfig.from(
+          GRichTooltipConfig.GRichTooltipConfig.from(
             Object.assign({}, GMenuCloseEvent.getConfig(), {
               isPro: !gDesigner.isEnabledProFeatures() || !(GCore.isPro() && !GCore.isExpired()),
             })
@@ -14057,7 +14065,9 @@ function (exports, module, require) {
             let e = this._action.getTooltipConfig(t);
             e &&
               this.setTooltipConfig(
-                a.GRichTooltipConfig.from(Object.assign({}, e.getConfig(), { side: true }))
+                GRichTooltipConfig.GRichTooltipConfig.from(
+                  Object.assign({}, e.getConfig(), { side: true })
+                )
               );
           }
         }
@@ -15529,14 +15539,14 @@ function (exports, module, require) {
   'use strict';
   (require(8) /* polyfill_bundle_ES6 */, require(3)) /* polyfill_RegExp_toString */;
   var GCore = require(1); /* GCore */
-  const i = require(237) /* Item */,
+  const Item = require(237) /* Item */,
     GCloudStorageItem = require(156); /* GCloudStorageItem */
   function r() {}
-  (GCore.GObject.inherit(r, i),
+  (GCore.GObject.inherit(r, Item),
     (r.Item = function (e, t) {
-      (i.Item.call(this, e), this.setFile(t));
+      (Item.Item.call(this, e), this.setFile(t));
     }),
-    GCore.GObject.inherit(r.Item, i.Item),
+    GCore.GObject.inherit(r.Item, Item.Item),
     (r.Item.prototype._app = null),
     (r.Item.prototype._filename = null),
     (r.Item.prototype._ext = null),
@@ -18411,7 +18421,7 @@ function (exports, module, require) {
     require(38)) /* stub_requires_680 */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    s = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     l = _interopRequireDefault(require(1248) /* module_1248 */),
     AppSettings = require(10); /* AppSettings */
   function d(e, t) {
@@ -18458,15 +18468,16 @@ function (exports, module, require) {
       (this._mime = n.mime),
       (this._options = module),
       (w.TOOLTIP_CONFIG = {
-        [s.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: s.GRichTooltipConfig.from({
-          title: GCore.GLocale.get(
-            new GCore.GLocaleKey('GSaveAsAction', 'text.try-this-feature-pro-tooltip-title')
-          ),
-          learnMore: '',
-          upgradeToProStatsValue: 'file.save-as.pdf.300',
-          middle: false,
-          side: true,
-        }),
+        [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]:
+          GRichTooltipConfig.GRichTooltipConfig.from({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey('GSaveAsAction', 'text.try-this-feature-pro-tooltip-title')
+            ),
+            learnMore: '',
+            upgradeToProStatsValue: 'file.save-as.pdf.300',
+            middle: false,
+            side: true,
+          }),
       }));
   }
   (GCore.GObject.inherit(w, GAction),
@@ -18534,7 +18545,7 @@ function (exports, module, require) {
       return 'pdf' === this._fileExt && 300 === this._options.dpi;
     }),
     (w.prototype.getTooltipArea = function () {
-      return s.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+      return GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
     }),
     (w.prototype.getTooltipConfig = function (e) {
       return ('file.save-as.pdf.300' === this.getId() && e && w.TOOLTIP_CONFIG[e]) || null;
@@ -18597,8 +18608,8 @@ function (exports, module, require) {
       )
         return;
       _interopRequireDefault.referer = this.getId();
-      const s = !e.canDownload() || this._fileExt !== GDocument_389.PDF.ext;
-      if (e.canPromptSave() && s) {
+      const GRichTooltipConfig = !e.canDownload() || this._fileExt !== GDocument_389.PDF.ext;
+      if (e.canPromptSave() && GRichTooltipConfig) {
         const i = t.getStorageItem();
         (!GEditor && i && (GEditor = i.getName()),
           GEditor || (GEditor = t.getTitle()),
@@ -18767,7 +18778,7 @@ function (exports, module, require) {
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     DataModule_1247 = require(1247) /* DataModule_1247 */,
     AppSettings = require(10) /* AppSettings */,
-    l = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GSaveAsAction = require(445) /* GSaveAsAction */,
@@ -18777,12 +18788,12 @@ function (exports, module, require) {
     GCommonNames = require(1510) /* GCommonNames */,
     GWarnLinkedImageDialog = require(1511); /* GWarnLinkedImageDialog */
   const GSystemDialog = require(44) /* GSystemDialog */,
-    v = require(1512); /* Item */
+    Item = require(1512); /* Item */
   var GContainer = require(85) /* GContainer */,
     b = '.' + AppSettings.FILE_FORMATS.find((e) => e.default).ext;
   function w() {
     w.TOOLTIP_CONFIG = {
-      [l.TOOLTIP_AREA.TOOLBAR]: l.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GSaveAction', 'tooltip-title')),
         description: GCore.GLocale.get(new GCore.GLocaleKey('GSaveAction', 'tooltip-description')),
         shortcut: w.SHORTCUT,
@@ -18922,7 +18933,7 @@ function (exports, module, require) {
       else {
         const n = e.getStorageItem();
         let GCore = {};
-        (n instanceof v.Item && (GCore = (0, DataModule_1247.updateSaveOptions)(GCore, e, n)),
+        (n instanceof Item.Item && (GCore = (0, DataModule_1247.updateSaveOptions)(GCore, e, n)),
           e.store(n, t, null, GCore));
       }
     }),
@@ -18961,7 +18972,7 @@ function (exports, module, require) {
     GAction = require(31) /* GAction */,
     GActionIconMap = require(844) /* GActionIconMap */,
     l = require(86) /* module_86 */,
-    c = require(220) /* Item */,
+    Item = require(220) /* Item */,
     GCloudStorage = require(119) /* GCloudStorage */,
     GLoginPanel = require(446); /* GLoginPanel */
   const GOfflineDialog = require(256); /* GOfflineDialog */
@@ -19034,7 +19045,7 @@ function (exports, module, require) {
         var GEditor = gDesigner.getActiveDocument();
         if (GEditor.isCommercialProductFile()) return void GEditor.openPaywall(this.getId());
         var MenuItemBuilder = GEditor.getStorageItem();
-        MenuItemBuilder && MenuItemBuilder instanceof c.Item
+        MenuItemBuilder && MenuItemBuilder instanceof Item.Item
           ? GCloudStorage.performSave(
               GEditor,
               () => {
@@ -19099,12 +19110,12 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l() {
     l.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GFitAllAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GFitAllAction', 'tooltip-description')
@@ -19147,8 +19158,13 @@ function (exports, module, require) {
         n = t.getScene(),
         GEditor = t.getActiveWindow().getView().getViewConfiguration().multiPageView;
       if (n.isFixedSized() && !GEditor) {
-        var a = n.getActivePage();
-        e = new GCore.GRect(0, 0, a.getProperty('w'), a.getProperty('h'));
+        var GRichTooltipConfig = n.getActivePage();
+        e = new GCore.GRect(
+          0,
+          0,
+          GRichTooltipConfig.getProperty('w'),
+          GRichTooltipConfig.getProperty('h')
+        );
       } else e = n.getPaintBBox(GEditor);
       e && !e.isEmpty() && t.getActiveWindow().getView().zoomAll(e, false);
     }),
@@ -23214,7 +23230,7 @@ function (exports, module, require) {
     GoogleToCloudRoleMap = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
     NoAccessId = _interopRequireDefault(require(789) /* Exports_NoAccessId */),
     p = _interopRequireDefault(require(555) /* module_555 */);
-  const g = require(388) /* Item */,
+  const Item = require(388) /* Item */,
     GCloudStorage = require(119) /* GCloudStorage */,
     f = require(595) /* module_595 */,
     GEvent_storageItem = require(336) /* GEvent_storageItem */,
@@ -23232,7 +23248,7 @@ function (exports, module, require) {
     G = 80,
     P = 100;
   function D() {}
-  (GCore.GObject.inherit(D, g),
+  (GCore.GObject.inherit(D, Item),
     (D.getSupportedFileFormats = function () {
       return GDocument_389.getFileTypesArray().filter((e) => e.load);
     }),
@@ -23276,12 +23292,12 @@ function (exports, module, require) {
     (D.Item = function (e, t, n) {
       let _interopRequireDefault =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : null;
-      (g.Item.call(this, e, t),
+      (Item.Item.call(this, e, t),
         (this._rawData = n),
         (this._token = _interopRequireDefault),
         t && (this._setExtension(), t.version && (this._version = t.version)));
     }),
-    GCore.GObject.inheritAndMix(D.Item, g.Item, [DataModule_436]),
+    GCore.GObject.inheritAndMix(D.Item, Item.Item, [DataModule_436]),
     (D.Item.prototype._version = null),
     (D.Item.prototype._writing = false),
     (D.Item.prototype.setFile = function (e) {
@@ -23290,7 +23306,7 @@ function (exports, module, require) {
       const module = this._getOrCreateClient(),
         require = module && module.getTokenIssuerSettings();
       (!e.settings && require && (e = Object.assign(e, { settings: require })),
-        g.Item.prototype.setFile.call(this, e),
+        Item.Item.prototype.setFile.call(this, e),
         this._setExtension(),
         this._setVersion(e.version));
     }),
@@ -23431,10 +23447,10 @@ function (exports, module, require) {
             GDocument_389 = (e) => {
               GCloudStorage(p.default.calculateProgress(T, G, e));
             };
-          var g = this._id ? this._id : null;
+          var Item = this._id ? this._id : null;
           await this._getOrCreateClient()
             .upload(
-              g,
+              Item,
               GEvent_storageItem,
               GCloudStorageItem,
               GoogleDriveException.default.DefaultUploadType,
@@ -23897,7 +23913,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GMenu = _interopRequireDefault(require(238) /* GMenu */),
     GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
     GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
@@ -23910,7 +23926,7 @@ function (exports, module, require) {
     GInspectorSidebar = require(864) /* GInspectorSidebar */,
     GProperties = require(123) /* GProperties */,
     GAnnotations = require(1535) /* GAnnotations */,
-    _ = require(603) /* WindowEvent */,
+    WindowEvent = require(603) /* WindowEvent */,
     GAnnotationProperties = require(1536) /* GAnnotationProperties */,
     GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
     C = require(592); /* module_592 */
@@ -24034,10 +24050,10 @@ function (exports, module, require) {
                           _interopRequireDefault,
                           n.properties.getPage()
                         ),
-                        r = n.properties.setAnnotations(t);
-                      r === O.UPDATED
+                        GEditor = n.properties.setAnnotations(t);
+                      GEditor === O.UPDATED
                         ? (GTools = true)
-                        : r === O.DELAYED &&
+                        : GEditor === O.DELAYED &&
                           ((GCore = true),
                           n.properties.setDelayedSyncCallback(this.syncAnnotations.bind(this, e)));
                     }
@@ -24081,7 +24097,9 @@ function (exports, module, require) {
       this._annotationsToolbarPanel = $('<div></div>')
         .addClass('properties-panel')
         .addClass('annotations-properties-panel');
-      var r = $('<div></div>').addClass('annotation-options-box').appendTo(this._annotationToolbar);
+      var GEditor = $('<div></div>')
+        .addClass('annotation-options-box')
+        .appendTo(this._annotationToolbar);
       (require
         .attr(
           'data-title',
@@ -24096,7 +24114,7 @@ function (exports, module, require) {
               require.addClass('g-active'));
           }.bind(this)
         )
-        .appendTo(r),
+        .appendTo(GEditor),
         $('<span></span>').addClass('indicator').appendTo(this._annotationToolbar),
         (this._optionsToolbar = $('<div></div>').gPropertyRow({
           noPaddingRight: true,
@@ -24214,7 +24232,7 @@ function (exports, module, require) {
           )
           .appendTo(this._htmlElement),
         gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
-        gDesigner.getWindows().addEventListener(_.WindowEvent, this._windowEvent, this),
+        gDesigner.getWindows().addEventListener(WindowEvent.WindowEvent, this._windowEvent, this),
         gDesigner
           .getToolManager()
           .addEventListener(GTools.GToolManager.ToolChangedEvent, this._toolChangedEvent, this),
@@ -24382,7 +24400,7 @@ function (exports, module, require) {
         (this._showDistance = GTools.GEditorOptions.showDistance),
         (this._toolExitKey = GTools.GEditorOptions.toolExitKey),
         (GTools.GEditorOptions.showDistance = false),
-        (GTools.GEditorOptions.toolExitKey = r.GKey.Constant.ESC),
+        (GTools.GEditorOptions.toolExitKey = GEditor.GKey.Constant.ESC),
         this._document.getActiveWindow().getView().invalidateAndResetCache(null));
     }),
     (N.prototype._deactivateAnnotations = function () {
@@ -24460,7 +24478,9 @@ function (exports, module, require) {
         : _interopRequireDefault.parent().hide();
     }),
     (N.prototype._windowEvent = function (e) {
-      e.type === _.WindowEvent.Type.Activated && this._active && this._activateAnnotations();
+      e.type === WindowEvent.WindowEvent.Type.Activated &&
+        this._active &&
+        this._activateAnnotations();
     }),
     (N.prototype._documentEvent = function (e) {
       if (!e.document.isLockedByVersionHistory())
@@ -24725,7 +24745,7 @@ function (exports, module, require) {
       let require,
         _interopRequireDefault,
         GTools = $('<div></div>').css('display', 'none').addClass('properties-panel'),
-        r = false;
+        GEditor = false;
       const GMenu = this._panelsContainer.find('.scrolling-panels');
       if (e instanceof GProperties) {
         require = e;
@@ -24734,7 +24754,7 @@ function (exports, module, require) {
           (require.init(GMenu2, this._annotationToolbar),
           e._availableProperties && 0 === e._availableProperties.length)
         )
-          return r;
+          return GEditor;
         var GRichTooltipConfig = $('<div></div>').css('display', 'none');
         (e instanceof GAnnotationProperties &&
           GRichTooltipConfig.append(
@@ -24797,7 +24817,7 @@ function (exports, module, require) {
                 (n.setProperty('aid', t.getProperty('aid')), n.clearChildren());
                 for (let e = 0; e < _interopRequireDefault.length; e++)
                   n.appendChild(_interopRequireDefault[e]);
-                r = true;
+                GEditor = true;
               } else {
                 let e = GAnnotationsUtils.mergeAnnotations(
                   n,
@@ -24805,7 +24825,7 @@ function (exports, module, require) {
                   t,
                   _interopRequireDefault
                 );
-                r = r || e;
+                GEditor = GEditor || e;
               }
             }
           }
@@ -24817,7 +24837,7 @@ function (exports, module, require) {
             properties: require,
           }));
       }
-      return r;
+      return GEditor;
     }),
     (N.prototype._updateToolbarButtons = function () {
       this._annotationProperties.forEach((e, t) => {
@@ -24839,8 +24859,8 @@ function (exports, module, require) {
         try {
           e && (_interopRequireDefault = this._updateAnnotationArray());
           var GTools = this._annotationProperties.concat(this._annotationPanels),
-            r = this._annotationToolbar.find('.indicator');
-          r.css('visibility', 'hidden');
+            GEditor = this._annotationToolbar.find('.indicator');
+          GEditor.css('visibility', 'hidden');
           for (var GMenu = 0; GMenu < GTools.length; ++GMenu) {
             var GMenu2 = GTools[GMenu],
               GRichTooltipConfig = GMenu2.properties,
@@ -24880,8 +24900,8 @@ function (exports, module, require) {
               GTouchTool && !(GRichTooltipConfig instanceof GFileReviewProperties))
             ) {
               let e = this._annotationToolbar.find('.' + GRichTooltipConfig._toolbarIcon);
-              (r.css('left', e.position().left + e.width() / 2 - 6),
-                r.css('visibility', 'visible'));
+              (GEditor.css('left', e.position().left + e.width() / 2 - 6),
+                GEditor.css('visibility', 'visible'));
             }
             GTouchTool && this._annotationsToolbarPanel.css('display', '');
           }
@@ -24964,14 +24984,14 @@ function (exports, module, require) {
                 if (!n.getProperty('rsv'))
                   if (n.getChildren().length > 0) {
                     for (
-                      var r = n.getFirstChild();
-                      null !== r && r instanceof GCore.GComment;
-                      r = r.getNext()
+                      var GEditor = n.getFirstChild();
+                      null !== GEditor && GEditor instanceof GCore.GComment;
+                      GEditor = GEditor.getNext()
                     )
                       (GTools &&
-                        GTools.getUID() !== r.getProperty('uid') &&
-                        r.getProperty('type') !== GCore.GComment.Type.Close &&
-                        !(r.getProperty('read') || []).includes(GTools.getUID()) &&
+                        GTools.getUID() !== GEditor.getProperty('uid') &&
+                        GEditor.getProperty('type') !== GCore.GComment.Type.Close &&
+                        !(GEditor.getProperty('read') || []).includes(GTools.getUID()) &&
                         t.unread++,
                         t.total++);
                     (_interopRequireDefault ||
@@ -25058,7 +25078,7 @@ function (exports, module, require) {
         var _interopRequireDefault = module.outerWidth(),
           GTools = module.outerHeight(),
           GCore = $(window).width(),
-          r = $(window).height(),
+          GEditor = $(window).height(),
           GMenu = { x: 0, y: 0, width: 0, height: 0 },
           GMenu2 = $(e),
           GRichTooltipConfig = GMenu2.offset();
@@ -25070,7 +25090,7 @@ function (exports, module, require) {
         (GTouchTool = GMenu.x + GMenu.width) + _interopRequireDefault > GCore &&
           (GTouchTool = GMenu.x - _interopRequireDefault);
         var GSettingsDialog = 0;
-        (GSettingsDialog = GMenu.y + GMenu.height) + GTools > r &&
+        (GSettingsDialog = GMenu.y + GMenu.height) + GTools > GEditor &&
           (GSettingsDialog = GMenu.y - GTools);
         const n = this._rangeLeftX ? this._rangeLeftX : 0;
         GTouchTool < n && (GTouchTool = n);
@@ -25078,7 +25098,7 @@ function (exports, module, require) {
         GTouchTool + _interopRequireDefault >= p && (GTouchTool = p - _interopRequireDefault);
         const GDocumentEvent = this._rangeLeftY ? this._rangeLeftY : 0;
         GSettingsDialog < GDocumentEvent && (GSettingsDialog = GDocumentEvent);
-        const h = this._rangeRightY ? this._rangeRightY : r;
+        const h = this._rangeRightY ? this._rangeRightY : GEditor;
         GSettingsDialog + GTools >= h && (GSettingsDialog = h - GTools);
         const GSidebarContainer = GSettingsDialog - GTools - 10;
         (module.css('left', GTouchTool),
@@ -25982,13 +26002,13 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106) /* GElementAction */,
     GSystemDialog = require(44); /* GSystemDialog */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GCreateSymbolAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GCreateSymbolAction', 'tooltip-description')
@@ -26036,8 +26056,12 @@ function (exports, module, require) {
       if (e) {
         var module = e.getEditor().getIndividualSelection();
         if (module && module.length)
-          for (var require = 0, GEditor = new GCore.GSymbol(), a = module.length - 1; a >= 0; --a) {
-            var MenuItemBuilder = module[a];
+          for (
+            var require = 0, GEditor = new GCore.GSymbol(), GRichTooltipConfig = module.length - 1;
+            GRichTooltipConfig >= 0;
+            --GRichTooltipConfig
+          ) {
+            var MenuItemBuilder = module[GRichTooltipConfig];
             if (
               (MenuItemBuilder instanceof GCore.GSymbol && !MenuItemBuilder.getMasterSymbol()) ||
               (MenuItemBuilder.validateInsertion(GEditor) &&
@@ -26062,9 +26086,9 @@ function (exports, module, require) {
           require = module + ' ' + exports,
           GEditor = gDesigner.getActiveDocument();
         if (GEditor) {
-          var a = GEditor.getScene();
-          if (a)
-            ((a.getSymbols() || []).forEach(function (GEditor) {
+          var GRichTooltipConfig = GEditor.getScene();
+          if (GRichTooltipConfig)
+            ((GRichTooltipConfig.getSymbols() || []).forEach(function (GEditor) {
               GEditor instanceof GCore.GSymbol &&
                 GEditor.isMaster() &&
                 GEditor.getProperty('name') === require &&
@@ -26082,7 +26106,7 @@ function (exports, module, require) {
                     try {
                       for (
                         var GEditor = new GCore.GSymbol(),
-                          a = null,
+                          GRichTooltipConfig = null,
                           MenuItemBuilder = require.length - 1;
                         MenuItemBuilder >= 0;
                         --MenuItemBuilder
@@ -26098,14 +26122,17 @@ function (exports, module, require) {
                           !GCore.GSymbol.containsUnsupportedNodes(GElementAction)
                         ) {
                           if (
-                            !(a = GElementAction.getParent()).isLocked() &&
-                            GEditor.validateInsertion(a)
+                            !(GRichTooltipConfig = GElementAction.getParent()).isLocked() &&
+                            GEditor.validateInsertion(GRichTooltipConfig)
                           )
                             break;
-                          a = null;
+                          GRichTooltipConfig = null;
                         }
                       }
-                      a && module.updateSelection(false, [GCore.GSymbol.create(require, a, e)]);
+                      GRichTooltipConfig &&
+                        module.updateSelection(false, [
+                          GCore.GSymbol.create(require, GRichTooltipConfig, e),
+                        ]);
                     } finally {
                       module.commitTransaction(
                         GCore.GLocale.get(new GCore.GLocaleKey('GCreateSymbolAction', 'title'))
@@ -48643,13 +48670,13 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     AppSettings = require(10) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function d() {
     d.TOOLTIP_CONFIG = {
-      [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GClipAction', 'tooltip-title')),
         description: GCore.GLocale.get(new GCore.GLocaleKey('GClipAction', 'tooltip-description')),
         video: AppSettings.gApi.getRichTooltipVideoURL('Clip.mp4'),
@@ -48691,19 +48718,20 @@ function (exports, module, require) {
     (d.prototype.execute = function (e, t) {
       var n = gDesigner.getActiveDocument().getEditor(),
         GEditor = gDesigner.getActiveDocument().getScene(),
-        r = GCore.GNode.order(n.getIndividualSelection().slice(), e),
-        AppSettings = r.shift();
+        GRichTooltipConfig = GCore.GNode.order(n.getIndividualSelection().slice(), e),
+        AppSettings = GRichTooltipConfig.shift();
       if (!AppSettings.isLocked()) {
         var MenuItemBuilder,
           GElementAction = AppSettings.getPaintBBox();
         t || n.beginTransaction();
         try {
           MenuItemBuilder = new Set();
-          for (var d = 0; d < r.length; ++d) MenuItemBuilder.add(r[d].getParent());
+          for (var d = 0; d < GRichTooltipConfig.length; ++d)
+            MenuItemBuilder.add(GRichTooltipConfig[d].getParent());
           try {
             (0, CollaborationMergeUtils.blockChanges)(n, MenuItemBuilder, GEditor, AppSettings);
-            for (d = 0; d < r.length; ++d) {
-              var u = r[d];
+            for (d = 0; d < GRichTooltipConfig.length; ++d) {
+              var u = GRichTooltipConfig[d];
               u.validateInsertion(AppSettings) &&
                 u.getPaintBBox() &&
                 GElementAction &&
@@ -48736,12 +48764,12 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function l() {
     l.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GConvertToPathAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GConvertToPathAction', 'tooltip-description')
@@ -48813,12 +48841,12 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GGroupAction', 'tooltip-title')),
         description: GCore.GLocale.get(new GCore.GLocaleKey('GGroupAction', 'tooltip-description')),
         shortcut: c.SHORTCUT,
@@ -48876,8 +48904,12 @@ function (exports, module, require) {
         t = GCore.GNode.order(e.getIndividualSelection().slice());
       e.beginTransaction();
       try {
-        for (var require = new GCore.GGroup(), GEditor = [], r = 0; r < t.length; ++r) {
-          (p = t[r]).validateInsertion(require) && GEditor.push(p);
+        for (
+          var require = new GCore.GGroup(), GEditor = [], GRichTooltipConfig = 0;
+          GRichTooltipConfig < t.length;
+          ++GRichTooltipConfig
+        ) {
+          (p = t[GRichTooltipConfig]).validateInsertion(require) && GEditor.push(p);
         }
         if (GEditor.length > 0) {
           var MenuItemBuilder = GEditor[GEditor.length - 1],
@@ -48889,11 +48921,21 @@ function (exports, module, require) {
               u = gDesigner.getActiveDocument().getScene();
             try {
               d = new Set();
-              for (r = 0; r < GEditor.length; ++r) d.add(GEditor[r].getParent());
+              for (
+                GRichTooltipConfig = 0;
+                GRichTooltipConfig < GEditor.length;
+                ++GRichTooltipConfig
+              )
+                d.add(GEditor[GRichTooltipConfig].getParent());
               (0, CollaborationMergeUtils.blockChanges)(e, d, u, require);
-              for (r = 0; r < GEditor.length; ++r) {
+              for (
+                GRichTooltipConfig = 0;
+                GRichTooltipConfig < GEditor.length;
+                ++GRichTooltipConfig
+              ) {
                 var p;
-                ((p = GEditor[r]).getParent().removeChild(p), require.appendChild(p));
+                ((p = GEditor[GRichTooltipConfig]).getParent().removeChild(p),
+                  require.appendChild(p));
               }
             } finally {
               (0, CollaborationMergeUtils.releaseChanges)(e, d, u, require);
@@ -50481,7 +50523,7 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     DataModule_593 = require(593) /* DataModule_593 */,
-    s = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
+    GoogleToCloudRoleMap = _interopRequireDefault(require(787) /* Exports_GoogleToCloudRoleMap */),
     l = (function (e, t) {
       if ('function' == typeof WeakMap)
         var require = new WeakMap(),
@@ -50611,7 +50653,7 @@ function (exports, module, require) {
                             let { emailAddress: module, role: require } = e;
                             return {
                               email: module,
-                              role: s.default[require],
+                              role: GoogleToCloudRoleMap.default[require],
                               externalRole: require,
                             };
                           })
@@ -50736,8 +50778,11 @@ function (exports, module, require) {
         ),
         CollaborationMergeUtils = await this.getAccessToken(),
         DataModule_593 = { fields: '*', supportsAllDrives: true };
-      for (var s in DataModule_593)
-        _interopRequireDefault.searchParams.append(s, DataModule_593[s]);
+      for (var GoogleToCloudRoleMap in DataModule_593)
+        _interopRequireDefault.searchParams.append(
+          GoogleToCloudRoleMap,
+          DataModule_593[GoogleToCloudRoleMap]
+        );
       return fetch(_interopRequireDefault.toString(), {
         method: 'DELETE',
         headers: new Headers({ Authorization: 'Bearer '.concat(CollaborationMergeUtils) }),
@@ -50752,11 +50797,13 @@ function (exports, module, require) {
           new Blob([JSON.stringify(n)], { type: 'application/json' })
         ),
           DataModule_593.append('file', t));
-        var s = new URL('https://www.googleapis.com/upload/drive/v3/files/'.concat(e || '')),
+        var GoogleToCloudRoleMap = new URL(
+            'https://www.googleapis.com/upload/drive/v3/files/'.concat(e || '')
+          ),
           l = { uploadType: 'multipart', fields: '*' };
         for (var GError in (n.hasOwnProperty('driveId') && (l.supportsAllDrives = true), l))
-          s.searchParams.append(GError, l[GError]);
-        fetch(s.toString(), {
+          GoogleToCloudRoleMap.searchParams.append(GError, l[GError]);
+        fetch(GoogleToCloudRoleMap.toString(), {
           method: e ? 'PATCH' : 'POST',
           headers: new Headers({ Authorization: 'Bearer '.concat(_interopRequireDefault) }),
           body: DataModule_593,
@@ -50773,14 +50820,14 @@ function (exports, module, require) {
     (g.prototype._resumableUpload = async function (e, t, n, _interopRequireDefault) {
       const GCore = await this.getAccessToken();
       return new Promise((CollaborationMergeUtils, DataModule_593) => {
-        var s = n.mimeType || 'application/octet-stream';
+        var GoogleToCloudRoleMap = n.mimeType || 'application/octet-stream';
         const l = { fields: '*' };
         (n.hasOwnProperty('driveId') && (l.supportsAllDrives = true),
           new GoogleDriveResumableUpload({
             file: t,
             fileId: e,
             token: GCore,
-            contentType: s,
+            contentType: GoogleToCloudRoleMap,
             metadata: n,
             params: l,
             onComplete: function (e) {
@@ -50806,32 +50853,36 @@ function (exports, module, require) {
         'number' == typeof _interopRequireDefault ? _interopRequireDefault : 0;
       const GCore = await this.getAccessToken(),
         DataModule_593 = { Authorization: 'Bearer '.concat(GCore) },
-        s = t.headers ? Object.assign(DataModule_593, t.headers) : DataModule_593;
+        GoogleToCloudRoleMap = t.headers
+          ? Object.assign(DataModule_593, t.headers)
+          : DataModule_593;
       return (
         delete t.headers,
-        fetch(e, Object.assign({ headers: new Headers(s), signal: n }, t)).then(async (GCore) => {
-          if (!GCore.ok) {
-            var DataModule_593 = await GCore.json();
-            return GCore.status === p.UNAUTHORIZED &&
-              (await gContainer.getGoogleAPI().signIn(), 0 === _interopRequireDefault)
-              ? this._request(e, t, n, ++_interopRequireDefault)
-              : GCore.status === p.FORBIDDEN &&
-                  g.isUsageLimitError(DataModule_593) &&
-                  _interopRequireDefault < g.TRIAL_UNTIL_FAIL
-                ? (await (0, CollaborationMergeUtils.sleep)(
-                    1e3 * Math.pow(1 + _interopRequireDefault, 2)
-                  ),
-                  this._request(e, t, n, ++_interopRequireDefault))
-                : Promise.reject(DataModule_593);
+        fetch(e, Object.assign({ headers: new Headers(GoogleToCloudRoleMap), signal: n }, t)).then(
+          async (GCore) => {
+            if (!GCore.ok) {
+              var DataModule_593 = await GCore.json();
+              return GCore.status === p.UNAUTHORIZED &&
+                (await gContainer.getGoogleAPI().signIn(), 0 === _interopRequireDefault)
+                ? this._request(e, t, n, ++_interopRequireDefault)
+                : GCore.status === p.FORBIDDEN &&
+                    g.isUsageLimitError(DataModule_593) &&
+                    _interopRequireDefault < g.TRIAL_UNTIL_FAIL
+                  ? (await (0, CollaborationMergeUtils.sleep)(
+                      1e3 * Math.pow(1 + _interopRequireDefault, 2)
+                    ),
+                    this._request(e, t, n, ++_interopRequireDefault))
+                  : Promise.reject(DataModule_593);
+            }
+            return GCore;
           }
-          return GCore;
-        })
+        )
       );
     }),
     (g.prototype._requestWithProgress = async function (e, t, n, _interopRequireDefault, GCore) {
       GCore = 'number' == typeof GCore ? GCore : 0;
-      const s = await this.getAccessToken(),
-        l = { Authorization: 'Bearer '.concat(s) },
+      const GoogleToCloudRoleMap = await this.getAccessToken(),
+        l = { Authorization: 'Bearer '.concat(GoogleToCloudRoleMap) },
         GError = t.headers ? Object.assign(l, t.headers) : l;
       delete t.headers;
       const GoogleDriveResumableUpload = await fetch(
@@ -50946,7 +50997,7 @@ function (exports, module, require) {
     (g.UploadType = { Simple: 'simple', Resumable: 'resumeable' }),
     (g.DefaultUploadType = g.UploadType.Resumable),
     (g.CloudToGoogleRoleMap = l.default),
-    (g.GoogleToCloudRoleMap = s.default),
+    (g.GoogleToCloudRoleMap = GoogleToCloudRoleMap.default),
     (g.SearchEngine = {
       Sorts: { Ascending: '', Descending: 'desc' },
       OrderBy: {
@@ -51261,7 +51312,7 @@ function (exports, module, require) {
     require(126) /* polyfill_URL_toJSON */,
     require(114)) /* stub_requires_424 */;
   var GCore = require(1) /* GCore */,
-    i = require(263) /* Exports_GRegex */,
+    GRegex = require(263) /* Exports_GRegex */,
     CollaborationMergeUtils = require(40); /* CollaborationMergeUtils */
   const { gApi: r, GLoginDialog: s, DESIGNER: { TITLE: l } = {} } = require(10) /* AppSettings */,
     GContainer = require(85) /* GContainer */,
@@ -51309,7 +51360,7 @@ function (exports, module, require) {
       const require = DataModule_859.getRuntimeCode();
       this._loginConfiguration = Object.assign({ runtime: require }, module);
       const {
-        anonymous: i = false,
+        anonymous: GRegex = false,
         animate: CollaborationMergeUtils = false,
         version: l = '',
         options: GContainer = {},
@@ -51323,14 +51374,14 @@ function (exports, module, require) {
       ) {
         this._frame = $('<div></div>')
           .addClass('cross-frame')
-          .toggleClass('g-anonymous', i)
+          .toggleClass('g-anonymous', GRegex)
           .appendTo($('body'));
         const e = new g(() => this.close());
         new s({
           impl: e,
           gApi: r,
           origin: location.origin,
-          anonymous: i,
+          anonymous: GRegex,
           version: l,
           options: GContainer,
           runtime: require,
@@ -51338,7 +51389,7 @@ function (exports, module, require) {
       } else {
         const t = this._buildURL(this._loginConfiguration);
         ((this._crossFrame = new GCrossFrameManager({
-          className: i ? 'g-anonymous' : '',
+          className: GRegex ? 'g-anonymous' : '',
           oauth: (e) =>
             p(e.provider)
               .then((e) => this._crossFrame.postMessage({ cmd: 'postLogin', user: e }, '*'))
@@ -51441,7 +51492,7 @@ function (exports, module, require) {
       var _ = new URL(window.location.href);
       if (_.searchParams) ((h = _.searchParams.get('token')), (f = _.searchParams.get('d')));
       else {
-        for (var b, w = {}; (b = i.GRegex.URLQuery.NextParameter.exec(window.location.href)); )
+        for (var b, w = {}; (b = GRegex.GRegex.URLQuery.NextParameter.exec(window.location.href)); )
           w[b[1]] = b[2];
         ((h = w.token), (f = w.d));
       }
@@ -51489,7 +51540,7 @@ function (exports, module, require) {
   (require(30) /* polyfill_Object_assign */, require(3)) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GExportDialog = require(1513) /* GExportDialog */,
@@ -51500,7 +51551,7 @@ function (exports, module, require) {
   function g(e) {
     ((this._options = e || null),
       (g.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(new GCore.GLocaleKey('GExportAction', 'tooltip-title')),
           description: GCore.GLocale.get(
             new GCore.GLocaleKey('GExportAction', 'tooltip-description')
@@ -51508,36 +51559,38 @@ function (exports, module, require) {
           shortcut: g.SHORTCUT,
           learnMore: '',
         }),
-        [a.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: a.GRichTooltipConfig.from({
-          title: GCore.GLocale.get(
-            new GCore.GLocaleKey('GExportAction', 'text.try-this-feature-pro-tooltip-title')
-          ),
-          description: GCore.GLocale.get(
-            new GCore.GLocaleKey('GExportAction', 'text.try-this-feature-pro-tooltip-description')
-          ),
-          learnMore: '',
-          upgradeToProStatsValue: 'file.export',
-          middle: false,
-          side: true,
-        }),
-        [a.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING]: a.GRichTooltipConfig.from({
-          title: GCore.GLocale.get(
-            new GCore.GLocaleKey(
-              'GExportAction',
-              'text.try-export-pdf-advanced-setting-tooltip-title'
-            )
-          ),
-          description: GCore.GLocale.get(
-            new GCore.GLocaleKey(
-              'GExportAction',
-              'text.try-export-pdf-advanced-setting-tooltip-description'
-            )
-          ),
-          learnMore: '',
-          upgradeToProStatsValue: 'file.export.pdf',
-          middle: false,
-          side: true,
-        }),
+        [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]:
+          GRichTooltipConfig.GRichTooltipConfig.from({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey('GExportAction', 'text.try-this-feature-pro-tooltip-title')
+            ),
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey('GExportAction', 'text.try-this-feature-pro-tooltip-description')
+            ),
+            learnMore: '',
+            upgradeToProStatsValue: 'file.export',
+            middle: false,
+            side: true,
+          }),
+        [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING]:
+          GRichTooltipConfig.GRichTooltipConfig.from({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
+                'GExportAction',
+                'text.try-export-pdf-advanced-setting-tooltip-title'
+              )
+            ),
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
+                'GExportAction',
+                'text.try-export-pdf-advanced-setting-tooltip-description'
+              )
+            ),
+            learnMore: '',
+            upgradeToProStatsValue: 'file.export.pdf',
+            middle: false,
+            side: true,
+          }),
       }),
       this._initProTooltip());
   }
@@ -51547,11 +51600,12 @@ function (exports, module, require) {
     (g.SHORTCUT = [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, 'E']),
     (g.TOOLTIP_CONFIG = null),
     (g.prototype._initProTooltip = function () {
-      g.TOOLTIP_CONFIG[a.TOOLTIP_AREA.TOOLBAR] = a.GRichTooltipConfig.from(
-        Object.assign(g.TOOLTIP_CONFIG[a.TOOLTIP_AREA.TOOLBAR].getConfig(), {
-          isPro: gDesigner.isProTooltipNeeded(g.ID),
-        })
-      );
+      g.TOOLTIP_CONFIG[GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR] =
+        GRichTooltipConfig.GRichTooltipConfig.from(
+          Object.assign(g.TOOLTIP_CONFIG[GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR].getConfig(), {
+            isPro: gDesigner.isProTooltipNeeded(g.ID),
+          })
+        );
     }),
     (g.prototype.getId = function () {
       return this._options && this._options.format ? g.ID + '.' + this._options.format : g.ID;
@@ -51642,8 +51696,8 @@ function (exports, module, require) {
     }),
     (g.prototype.getTooltipArea = function () {
       return this._options && 'pdf' === this._options.format
-        ? a.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING
-        : a.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+        ? GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_EXP_PDF_ADVANCED_SETTING
+        : GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
     }),
     (g.prototype.getTooltipConfig = function (e) {
       return this._options
@@ -52679,16 +52733,16 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
-    r = require(67) /* GRichTooltipConfig */,
+    GEditor = require(15) /* GEditor */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function c(e) {
     ((this._type = e),
       (this._title = new GCore.GLocaleKey('GAlignAction', 'title.' + e)),
       (c.TOOLTIP_CONFIG = {
-        [r.TOOLTIP_AREA.SIDEBAR]: {
-          [GTools.GEditor.ArrangeAlignType.AlignLeft]: r.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR]: {
+          [GTools.GEditor.ArrangeAlignType.AlignLeft]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GAlignAction', 'text.align-left-tooltip-title')
             ),
@@ -52697,16 +52751,18 @@ function (exports, module, require) {
             ),
             learnMore: '',
           }),
-          [GTools.GEditor.ArrangeAlignType.AlignCenter]: r.GRichTooltipConfig.from({
-            title: GCore.GLocale.get(
-              new GCore.GLocaleKey('GAlignAction', 'text.align-center-tooltip-title')
-            ),
-            description: GCore.GLocale.get(
-              new GCore.GLocaleKey('GAlignAction', 'text.align-center-tooltip-description')
-            ),
-            learnMore: '',
-          }),
-          [GTools.GEditor.ArrangeAlignType.AlignRight]: r.GRichTooltipConfig.from({
+          [GTools.GEditor.ArrangeAlignType.AlignCenter]: GRichTooltipConfig.GRichTooltipConfig.from(
+            {
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey('GAlignAction', 'text.align-center-tooltip-title')
+              ),
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey('GAlignAction', 'text.align-center-tooltip-description')
+              ),
+              learnMore: '',
+            }
+          ),
+          [GTools.GEditor.ArrangeAlignType.AlignRight]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GAlignAction', 'text.align-right-tooltip-title')
             ),
@@ -52715,7 +52771,7 @@ function (exports, module, require) {
             ),
             learnMore: '',
           }),
-          [GTools.GEditor.ArrangeAlignType.AlignTop]: r.GRichTooltipConfig.from({
+          [GTools.GEditor.ArrangeAlignType.AlignTop]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GAlignAction', 'text.align-top-tooltip-title')
             ),
@@ -52724,24 +52780,28 @@ function (exports, module, require) {
             ),
             learnMore: '',
           }),
-          [GTools.GEditor.ArrangeAlignType.AlignMiddle]: r.GRichTooltipConfig.from({
-            title: GCore.GLocale.get(
-              new GCore.GLocaleKey('GAlignAction', 'text.align-middle-tooltip-title')
-            ),
-            description: GCore.GLocale.get(
-              new GCore.GLocaleKey('GAlignAction', 'text.align-middle-tooltip-description')
-            ),
-            learnMore: '',
-          }),
-          [GTools.GEditor.ArrangeAlignType.AlignBottom]: r.GRichTooltipConfig.from({
-            title: GCore.GLocale.get(
-              new GCore.GLocaleKey('GAlignAction', 'text.align-bottom-tooltip-title')
-            ),
-            description: GCore.GLocale.get(
-              new GCore.GLocaleKey('GAlignAction', 'text.align-bottom-tooltip-description')
-            ),
-            learnMore: '',
-          }),
+          [GTools.GEditor.ArrangeAlignType.AlignMiddle]: GRichTooltipConfig.GRichTooltipConfig.from(
+            {
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey('GAlignAction', 'text.align-middle-tooltip-title')
+              ),
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey('GAlignAction', 'text.align-middle-tooltip-description')
+              ),
+              learnMore: '',
+            }
+          ),
+          [GTools.GEditor.ArrangeAlignType.AlignBottom]: GRichTooltipConfig.GRichTooltipConfig.from(
+            {
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey('GAlignAction', 'text.align-bottom-tooltip-title')
+              ),
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey('GAlignAction', 'text.align-bottom-tooltip-description')
+              ),
+              learnMore: '',
+            }
+          ),
         },
       }));
   }
@@ -52779,7 +52839,7 @@ function (exports, module, require) {
       return 'arrange/align-' + e;
     }),
     (c.prototype.getShortcut = function () {
-      const exports = [a.GKey.Constant.OPTION];
+      const exports = [GEditor.GKey.Constant.OPTION];
       switch (this._type) {
         case GTools.GEditor.ArrangeAlignType.AlignLeft:
           return exports.concat('A');
@@ -52807,8 +52867,8 @@ function (exports, module, require) {
         ((e = e || (GCore ? GCore.getIndividualSelection() : null)),
         GCore && e && 1 === e.length && !n)
       ) {
-        var a = GTools.GElementEditor.getEditor(e[0]);
-        if (!a || !a.isAlignPartsAllowed())
+        var GEditor = GTools.GElementEditor.getEditor(e[0]);
+        if (!GEditor || !GEditor.isAlignPartsAllowed())
           if (GCore.getScene().isFixedSized())
             n = GCore.getScene().getActivePage().getGeometryBBox();
           else n = GCore.getScene().getPaintBBox();
@@ -52842,15 +52902,15 @@ function (exports, module, require) {
   (require(328) /* polyfill_Array_sort */, require(3)) /* polyfill_RegExp_toString */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l(e) {
     ((this._type = e),
       (this._title = new GCore.GLocaleKey('GDistributeAction', 'title.' + e)),
       (l.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.SIDEBAR]: {
-          [l.Type.Horizontal]: a.GRichTooltipConfig.from({
+        [GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR]: {
+          [l.Type.Horizontal]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GDistributeAction', 'text.horizontal-tooltip-title')
             ),
@@ -52859,7 +52919,7 @@ function (exports, module, require) {
             ),
             learnMore: '',
           }),
-          [l.Type.Vertical]: a.GRichTooltipConfig.from({
+          [l.Type.Vertical]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GDistributeAction', 'text.vertical-tooltip-title')
             ),
@@ -52912,10 +52972,10 @@ function (exports, module, require) {
       );
     }),
     (l.prototype.execute = function (e, t, n) {
-      var a = gDesigner.getActiveDocument(),
-        MenuItemBuilder = a.getScene();
-      e || (e = a.getEditor().getSelection());
-      var GAction = (e = a.getEditor().filterIndividualElements(e));
+      var GRichTooltipConfig = gDesigner.getActiveDocument(),
+        MenuItemBuilder = GRichTooltipConfig.getScene();
+      e || (e = GRichTooltipConfig.getEditor().getSelection());
+      var GAction = (e = GRichTooltipConfig.getEditor().filterIndividualElements(e));
       e = [];
       for (let t = 0; t < GAction.length; ++t) {
         var c = GAction[t];
@@ -52933,14 +52993,14 @@ function (exports, module, require) {
               e.elbbox.getX() + e.elbbox.getWidth() / 2 - t.elbbox.getX() - t.elbbox.getWidth() / 2
             );
           });
-          let a = null;
+          let GRichTooltipConfig = null;
           if (!n)
             if (e.length > 1) {
               let GTools = 0;
               for (let t = 0; t < e.length; ++t) GTools += e[t].elbbox.getWidth();
               GTools <= t.getWidth()
                 ? (n = (t.getWidth() - GTools) / (e.length - 1))
-                : (a =
+                : (GRichTooltipConfig =
                     (t.getWidth() -
                       e[0].elbbox.getWidth() / 2 -
                       e[e.length - 1].elbbox.getWidth() / 2) /
@@ -52950,7 +53010,7 @@ function (exports, module, require) {
             MenuItemBuilder,
             function () {
               var GTools = t.getX();
-              if (null === a)
+              if (null === GRichTooltipConfig)
                 for (let t = 0; t < e.length; ++t)
                   (GTools !== e[t].elbbox.getX() &&
                     e[t].element.transform(
@@ -52961,7 +53021,8 @@ function (exports, module, require) {
               else {
                 var MenuItemBuilder = GTools + e[0].elbbox.getWidth() / 2;
                 for (let t = 0; t < e.length; ++t) {
-                  var GAction = MenuItemBuilder + a * t - e[t].elbbox.getWidth() / 2;
+                  var GAction =
+                    MenuItemBuilder + GRichTooltipConfig * t - e[t].elbbox.getWidth() / 2;
                   GAction !== e[t].elbbox.getX() &&
                     e[t].element.transform(
                       new GCore.GTransform(1, 0, 0, 1, GAction - e[t].elbbox.getX(), 0),
@@ -52980,14 +53041,14 @@ function (exports, module, require) {
               (t.elbbox.getY() + t.elbbox.getHeight() / 2)
             );
           });
-          let a = null;
+          let GRichTooltipConfig = null;
           if (!n)
             if (e.length > 1) {
               let GTools = 0;
               for (let t = 0; t < e.length; ++t) GTools += e[t].elbbox.getHeight();
               GTools <= t.getHeight()
                 ? (n = (t.getHeight() - GTools) / (e.length - 1))
-                : (a =
+                : (GRichTooltipConfig =
                     (t.getHeight() -
                       e[0].elbbox.getHeight() / 2 -
                       e[e.length - 1].elbbox.getHeight() / 2) /
@@ -52997,7 +53058,7 @@ function (exports, module, require) {
             MenuItemBuilder,
             function () {
               var GTools = t.getY();
-              if (null === a)
+              if (null === GRichTooltipConfig)
                 for (let t = 0; t < e.length; ++t)
                   (GTools !== e[t].elbbox.getY() &&
                     e[t].element.transform(
@@ -53008,7 +53069,8 @@ function (exports, module, require) {
               else {
                 var MenuItemBuilder = GTools + e[0].elbbox.getHeight() / 2;
                 for (let t = 0; t < e.length; ++t) {
-                  var GAction = MenuItemBuilder + a * t - e[t].elbbox.getHeight() / 2;
+                  var GAction =
+                    MenuItemBuilder + GRichTooltipConfig * t - e[t].elbbox.getHeight() / 2;
                   GAction !== e[t].elbbox.getX() &&
                     e[t].element.transform(
                       new GCore.GTransform(1, 0, 0, 1, 0, GAction - e[t].elbbox.getY()),
@@ -53047,54 +53109,62 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
-    s = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function d(e) {
     ((this._type = e),
       (this._title = new GCore.GLocaleKey('GArrangeAction', 'title.' + e)),
       (d.TOOLTIP_CONFIG = {
-        [s.TOOLTIP_AREA.TOOLBAR]: {
-          [GTools.GEditor.ArrangeOrderType.BringForward]: s.GRichTooltipConfig.from({
-            title: GCore.GLocale.get(
-              new GCore.GLocaleKey('GArrangeAction', 'bring-forward-tooltip-title')
-            ),
-            description: GCore.GLocale.get(
-              new GCore.GLocaleKey('GArrangeAction', 'bring-forward-tooltip-description')
-            ),
-            shortcut: d.SHORTCUT[GTools.GEditor.ArrangeOrderType.BringForward],
-            video: AppSettings.gApi.getRichTooltipVideoURL('Bring_Forward.mp4'),
-            learnMore: '',
-          }),
-          [GTools.GEditor.ArrangeOrderType.SendBackward]: s.GRichTooltipConfig.from({
-            title: GCore.GLocale.get(
-              new GCore.GLocaleKey('GArrangeAction', 'send-backward-tooltip-title')
-            ),
-            description: GCore.GLocale.get(
-              new GCore.GLocaleKey('GArrangeAction', 'send-backward-tooltip-description')
-            ),
-            shortcut: d.SHORTCUT[GTools.GEditor.ArrangeOrderType.SendBackward],
-            video: AppSettings.gApi.getRichTooltipVideoURL('Send_Backward.mp4'),
-            learnMore: '',
-          }),
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: {
+          [GTools.GEditor.ArrangeOrderType.BringForward]:
+            GRichTooltipConfig.GRichTooltipConfig.from({
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey('GArrangeAction', 'bring-forward-tooltip-title')
+              ),
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey('GArrangeAction', 'bring-forward-tooltip-description')
+              ),
+              shortcut: d.SHORTCUT[GTools.GEditor.ArrangeOrderType.BringForward],
+              video: AppSettings.gApi.getRichTooltipVideoURL('Bring_Forward.mp4'),
+              learnMore: '',
+            }),
+          [GTools.GEditor.ArrangeOrderType.SendBackward]:
+            GRichTooltipConfig.GRichTooltipConfig.from({
+              title: GCore.GLocale.get(
+                new GCore.GLocaleKey('GArrangeAction', 'send-backward-tooltip-title')
+              ),
+              description: GCore.GLocale.get(
+                new GCore.GLocaleKey('GArrangeAction', 'send-backward-tooltip-description')
+              ),
+              shortcut: d.SHORTCUT[GTools.GEditor.ArrangeOrderType.SendBackward],
+              video: AppSettings.gApi.getRichTooltipVideoURL('Send_Backward.mp4'),
+              learnMore: '',
+            }),
         },
       }));
   }
   (GCore.GObject.inherit(d, GAction),
     (d.SHORTCUT = {
       [GTools.GEditor.ArrangeOrderType.SendToFront]: [
-        a.GKey.Constant.SHIFT,
-        a.GKey.Constant.META,
-        a.GKey.Constant.UP,
+        GEditor.GKey.Constant.SHIFT,
+        GEditor.GKey.Constant.META,
+        GEditor.GKey.Constant.UP,
       ],
-      [GTools.GEditor.ArrangeOrderType.BringForward]: [a.GKey.Constant.META, a.GKey.Constant.UP],
-      [GTools.GEditor.ArrangeOrderType.SendBackward]: [a.GKey.Constant.META, a.GKey.Constant.DOWN],
+      [GTools.GEditor.ArrangeOrderType.BringForward]: [
+        GEditor.GKey.Constant.META,
+        GEditor.GKey.Constant.UP,
+      ],
+      [GTools.GEditor.ArrangeOrderType.SendBackward]: [
+        GEditor.GKey.Constant.META,
+        GEditor.GKey.Constant.DOWN,
+      ],
       [GTools.GEditor.ArrangeOrderType.SendToBack]: [
-        a.GKey.Constant.SHIFT,
-        a.GKey.Constant.META,
-        a.GKey.Constant.DOWN,
+        GEditor.GKey.Constant.SHIFT,
+        GEditor.GKey.Constant.META,
+        GEditor.GKey.Constant.DOWN,
       ],
     }),
     (d.TOOLTIP_CONFIG = null),
@@ -53145,12 +53215,12 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GSplitAction', 'tooltip-title')),
         description: GCore.GLocale.get(new GCore.GLocaleKey('GSplitAction', 'tooltip-description')),
         shortcut: c.SHORTCUT,
@@ -53207,7 +53277,7 @@ function (exports, module, require) {
       try {
         var require,
           GEditor,
-          r = [],
+          GRichTooltipConfig = [],
           MenuItemBuilder = gDesigner.getActiveDocument().getScene();
         e.clearSelection();
         try {
@@ -53232,7 +53302,7 @@ function (exports, module, require) {
                 require.beginUpdate();
                 for (var p = 0; p < u.length; ++p) {
                   var g = u[p];
-                  (require.removeChild(g), d.insertChild(g, require), r.push(g));
+                  (require.removeChild(g), d.insertChild(g, require), GRichTooltipConfig.push(g));
                 }
               } finally {
                 require.endUpdate();
@@ -53244,17 +53314,19 @@ function (exports, module, require) {
                 require.beginUpdate();
                 for (p = u.length - 1; p >= 0; --p) {
                   g = u[p];
-                  (require.removeChild(g), d.insertChild(g, require.getNext()), r.push(g));
+                  (require.removeChild(g),
+                    d.insertChild(g, require.getNext()),
+                    GRichTooltipConfig.push(g));
                 }
               } finally {
                 require.endUpdate();
               }
-              r.push(require);
-            } else r.push(require);
+              GRichTooltipConfig.push(require);
+            } else GRichTooltipConfig.push(require);
         } finally {
           (0, CollaborationMergeUtils.releaseChanges)(e, GEditor, MenuItemBuilder);
         }
-        r.length > 0 && e.updateSelection(false, r);
+        GRichTooltipConfig.length > 0 && e.updateSelection(false, GRichTooltipConfig);
       } finally {
         e.commitTransaction(GCore.GLocale.get(c.TITLE));
       }
@@ -53275,16 +53347,16 @@ function (exports, module, require) {
     require(41)) /* stub_requires_682 */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l(e) {
     ((this._type = e),
       (this._title = new GCore.GLocaleKey('GTransformAction', 'title.' + e)),
       (l.TOOLTIP_CONFIG = {
-        [a.TOOLTIP_AREA.TOOLBAR]: {
+        [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: {
           [l.Type.Rotate45Left]: null,
-          [l.Type.Rotate90Left]: a.GRichTooltipConfig.from({
+          [l.Type.Rotate90Left]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GTransformAction', 'rotate-90-left-tooltip-title')
             ),
@@ -53295,7 +53367,7 @@ function (exports, module, require) {
           }),
           [l.Type.Rotate180Left]: null,
           [l.Type.Rotate45Right]: null,
-          [l.Type.Rotate90Right]: a.GRichTooltipConfig.from({
+          [l.Type.Rotate90Right]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GTransformAction', 'rotate-90-right-tooltip-title')
             ),
@@ -53305,7 +53377,7 @@ function (exports, module, require) {
             learnMore: '',
           }),
           [l.Type.Rotate180Right]: null,
-          [l.Type.FlipVertical]: a.GRichTooltipConfig.from({
+          [l.Type.FlipVertical]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GTransformAction', 'flip-vertical-tooltip-title')
             ),
@@ -53314,7 +53386,7 @@ function (exports, module, require) {
             ),
             learnMore: '',
           }),
-          [l.Type.FlipHorizontal]: a.GRichTooltipConfig.from({
+          [l.Type.FlipHorizontal]: GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GTransformAction', 'flip-horizontal-tooltip-title')
             ),
@@ -53416,15 +53488,15 @@ function (exports, module, require) {
               t.hasFlag(GTools.GBoxEditor.Flag.RotateHandle))
           );
         })));
-      var a = GTools.GEditor.getGroupGeometryBBox(e);
-      a &&
+      var GRichTooltipConfig = GTools.GEditor.getGroupGeometryBBox(e);
+      GRichTooltipConfig &&
         GTools.GEditor.tryRunTransaction(
           n,
           function () {
             for (var t = 0; t < e.length; ++t) {
               var n = e[t];
-              if (n.hasMixin(GCore.GElement.Transform) && a) {
-                var GTools = a.getSide(GCore.GRect.Side.CENTER),
+              if (n.hasMixin(GCore.GElement.Transform) && GRichTooltipConfig) {
+                var GTools = GRichTooltipConfig.getSide(GCore.GRect.Side.CENTER),
                   MenuItemBuilder = 0,
                   GAction = 1,
                   c = 1;
@@ -53481,12 +53553,12 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GCore = require(1) /* GCore */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GElementAction = require(106); /* GElementAction */
   function l() {
     l.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GVectorizeBorderAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GVectorizeBorderAction', 'tooltip-description')
@@ -53528,8 +53600,10 @@ function (exports, module, require) {
             e[require].hasMixin(GCore.GStylable)
           ) {
             var CollaborationMergeUtils = e[require].getPaintLayers(),
-              a = CollaborationMergeUtils ? CollaborationMergeUtils.getBorderLayers(true) : null;
-            t = a && a.length >= 1;
+              GRichTooltipConfig = CollaborationMergeUtils
+                ? CollaborationMergeUtils.getBorderLayers(true)
+                : null;
+            t = GRichTooltipConfig && GRichTooltipConfig.length >= 1;
           }
       return t;
     }),
@@ -53537,11 +53611,11 @@ function (exports, module, require) {
       var e,
         t = gDesigner.getActiveDocument(),
         n = t ? t.getEditor() : null,
-        a = (t && t.getScene(), n ? n.getIndividualSelection() : null),
+        GRichTooltipConfig = (t && t.getScene(), n ? n.getIndividualSelection() : null),
         MenuItemBuilder = [];
-      if (a)
-        for (var GElementAction = 0; GElementAction < a.length; ++GElementAction) {
-          var l = a[GElementAction];
+      if (GRichTooltipConfig)
+        for (var GElementAction = 0; GElementAction < GRichTooltipConfig.length; ++GElementAction) {
+          var l = GRichTooltipConfig[GElementAction];
           !l.hasMixin(GCore.GVertexSource) ||
             l instanceof GCore.GImage ||
             !l.hasMixin(GCore.GStylable) ||
@@ -53554,13 +53628,13 @@ function (exports, module, require) {
             for (
               var n,
                 CollaborationMergeUtils = t.cloneSubPaths(),
-                a = CollaborationMergeUtils.getFirstChild();
-              null !== a;
-              a = n
+                GRichTooltipConfig = CollaborationMergeUtils.getFirstChild();
+              null !== GRichTooltipConfig;
+              GRichTooltipConfig = n
             )
-              ((n = a.getNext()),
-                CollaborationMergeUtils.removeChild(a),
-                e.getPaths().appendChild(a));
+              ((n = GRichTooltipConfig.getNext()),
+                CollaborationMergeUtils.removeChild(GRichTooltipConfig),
+                e.getPaths().appendChild(GRichTooltipConfig));
         };
         n.beginTransaction();
         try {
@@ -53571,10 +53645,10 @@ function (exports, module, require) {
                 n = e.getProperty('_bw');
               n = n || 1;
               var CollaborationMergeUtils,
-                a = t == GCore.GStylable.BorderAlignment.Center ? 0.5 * n : n,
+                GRichTooltipConfig = t == GCore.GStylable.BorderAlignment.Center ? 0.5 * n : n,
                 MenuItemBuilder = new GCore.GVertexOffsetter(
                   GCore.GPathUtil.makeClockWise(d),
-                  a,
+                  GRichTooltipConfig,
                   t != GCore.GStylable.BorderAlignment.Outside,
                   t != GCore.GStylable.BorderAlignment.Inside,
                   0,
@@ -57338,14 +57412,14 @@ function (exports, module, require) {
     (module.default = undefined),
     require(8)) /* polyfill_bundle_ES6 */;
   const GCloudStorageItem = require(156) /* GCloudStorageItem */,
-    i = require(220) /* Item */,
+    Item = require(220) /* Item */,
     GGoogleDriveItem = require(556); /* GGoogleDriveItem */
   function r() {}
   r.createStorageItem = async function (e) {
     let module = null;
     switch (e.storage) {
       case GCloudStorageItem.Storage.Gravit:
-        module = await i.from(gDesigner.getDefaultStorage(), e);
+        module = await Item.from(gDesigner.getDefaultStorage(), e);
         break;
       case GCloudStorageItem.Storage.GoogleDrive:
         module = await new GGoogleDriveItem.Item(gDesigner.getDefaultStorage(), e);
@@ -63250,9 +63324,9 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    s = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GSwatchesChangedEvent = require(1151) /* GSwatchesChangedEvent */,
     GInputSliderWidget = require(857) /* GInputSliderWidget */,
     GSystemDialog = require(44); /* GSystemDialog */
@@ -63350,7 +63424,7 @@ function (exports, module, require) {
                   this._closeIfNeeded,
                   this
                 ),
-                GCore.getEditor().keysOn([a.GKey.Constant.OPTION])),
+                GCore.getEditor().keysOn([GEditor.GKey.Constant.OPTION])),
                 gDesigner.getWorkspace().getStyleEdManager() &&
                   gDesigner.getWorkspace().getStyleEdManager().isActivated() &&
                   gDesigner
@@ -63497,7 +63571,7 @@ function (exports, module, require) {
           }.bind(this)
         )
         .appendTo(n);
-      var s = $('<div/>').addClass('color-sliders').appendTo(n);
+      var GRichTooltipConfig = $('<div/>').addClass('color-sliders').appendTo(n);
       ((this._colorSlider = $('<div>')
         .gColorSlider()
         .css('box-sizing', 'border-box')
@@ -63514,7 +63588,7 @@ function (exports, module, require) {
               this._updateColorFromColorSlider());
           }.bind(this)
         )
-        .appendTo(s)),
+        .appendTo(GRichTooltipConfig)),
         (this._opacitySlider = $('<div/>')
           .gInputSlider(GInputSliderWidget.prototype.OPACITY_DEFAULT)
           .css('box-sizing', 'border-box')
@@ -63536,7 +63610,7 @@ function (exports, module, require) {
                 ));
             }.bind(this)
           )
-          .appendTo(s)),
+          .appendTo(GRichTooltipConfig)),
         (this._sliderColorThumb = $(this._colorSlider)
           .find('.g-input-slider-thumb')
           .css('box-sizing', 'border-box')),
@@ -63790,8 +63864,8 @@ function (exports, module, require) {
                         return false;
                     }
                     GTools.startsWith('#') || ((GTools = '#' + GTools), t.val(GTools));
-                    var a = /^#[0-9A-Za-z]{0,6}/.exec(GTools);
-                    a && a[0] && GTools !== a[0] && t.val(a[0]);
+                    var GEditor = /^#[0-9A-Za-z]{0,6}/.exec(GTools);
+                    GEditor && GEditor[0] && GTools !== GEditor[0] && t.val(GEditor[0]);
                   })
               )
               .append(
@@ -63801,9 +63875,9 @@ function (exports, module, require) {
               )
               .appendTo(this._colorComponents),
             n.isTouchEnabled && $('<div/>').css('width', '11%').appendTo(this._colorComponents));
-          var a = this._colorMode === u.ColorMode.RGB ? ['R', 'G', 'B'] : ['H', 'S', 'B'];
+          var GEditor = this._colorMode === u.ColorMode.RGB ? ['R', 'G', 'B'] : ['H', 'S', 'B'];
           Array.prototype.forEach.call(
-            a,
+            GEditor,
             function (e, t) {
               var GTools = 0;
               switch (e) {
@@ -63899,7 +63973,7 @@ function (exports, module, require) {
       var n = gDesigner.getActiveDocument();
       n &&
         (n.getEditor().addEventListener(GTools.GEditor.ModifiedEvent, this._closeIfNeeded, this),
-        n.getEditor().keysOff([a.GKey.Constant.OPTION]));
+        n.getEditor().keysOff([GEditor.GKey.Constant.OPTION]));
     }),
     (u.prototype.close = function () {
       this._container.gOverlay('close');
@@ -63925,20 +63999,20 @@ function (exports, module, require) {
         const e = [];
         for (let t = 0, GTools = u.PATTERN_TYPES.length; t < GTools; t++) {
           var GCore = u.PATTERN_TYPES[t],
-            a = !require.length;
-          if (!a)
+            GEditor = !require.length;
+          if (!GEditor)
             for (
               var CollaborationMergeUtils = 0;
               CollaborationMergeUtils < require.length;
               ++CollaborationMergeUtils
             )
               if (GCore.isCompatible(require[CollaborationMergeUtils])) {
-                a = true;
+                GEditor = true;
                 break;
               }
-          if (a) {
-            var s = u._createPatternOption(GCore);
-            e.push(s);
+          if (GEditor) {
+            var GRichTooltipConfig = u._createPatternOption(GCore);
+            e.push(GRichTooltipConfig);
           }
         }
         this._toolbar.find('.pattern-type-select').empty().append(e);
@@ -63973,8 +64047,9 @@ function (exports, module, require) {
                         .gInputBox('value', GCore.GUtil.formatNumber(100 * GTools, 0)),
                       this._pattern)
                     ) {
-                      var a = this._pattern.clone();
-                      (a.setAmount(GTools), this._updatePattern(a, 'noise_amount', null, true));
+                      var GEditor = this._pattern.clone();
+                      (GEditor.setAmount(GTools),
+                        this._updatePattern(GEditor, 'noise_amount', null, true));
                     }
                   }.bind(this)
                 )
@@ -64182,18 +64257,18 @@ function (exports, module, require) {
           var t = this._pattern.clone();
           (t.setMask($(e.target).prop('checked')), this._updatePattern(t, 'texture_mask'));
         },
-        a = (e) => {
+        GEditor = (e) => {
           var n = $(e.target),
             GTools = n.attr('data-property'),
-            a = parseFloat(n.gInputSlider('value')) / 100;
+            GEditor = parseFloat(n.gInputSlider('value')) / 100;
           if (
             (t
               .find('[type="text"][data-property="' + GTools + '"]')
-              .gInputBox('value', GCore.GUtil.formatNumber(100 * a, 0)),
+              .gInputBox('value', GCore.GUtil.formatNumber(100 * GEditor, 0)),
             this._pattern)
           ) {
             var CollaborationMergeUtils = this._pattern.clone();
-            (CollaborationMergeUtils.setTileSize(a),
+            (CollaborationMergeUtils.setTileSize(GEditor),
               this._updatePattern(CollaborationMergeUtils, 'texture_tile', null, true));
           }
         },
@@ -64204,7 +64279,7 @@ function (exports, module, require) {
               this._updatePattern(t, 'texture_tile'));
           }
         },
-        s = (e) => {
+        GRichTooltipConfig = (e) => {
           if ((gDesigner.stats('patternchooser_change_texture', 'tile'), this._pattern)) {
             var t = this._pattern.clone();
             (t.setTileSize(GCore.GLength.parseEquationValue($(e.target).gInputBox('value')) / 100),
@@ -64266,8 +64341,9 @@ function (exports, module, require) {
                           GTools instanceof GCore.GGroup
                         ) {
                           if (this._pattern) {
-                            var a = this._pattern.clone();
-                            (a.setTexture(GTools), this._updatePattern(a, 'texture_paste'));
+                            var GEditor = this._pattern.clone();
+                            (GEditor.setTexture(GTools),
+                              this._updatePattern(GEditor, 'texture_paste'));
                           }
                           e = true;
                           break;
@@ -64308,7 +64384,11 @@ function (exports, module, require) {
               $('<div/>').gPropertyRow({
                 columns: e.isTouchEnabled
                   ? this._createPatternEditorMaskRow(GTools)
-                  : this._createPatternEditorScaleRow(a, CollaborationMergeUtils, s),
+                  : this._createPatternEditorScaleRow(
+                      GEditor,
+                      CollaborationMergeUtils,
+                      GRichTooltipConfig
+                    ),
               })
             )
         )
@@ -64317,7 +64397,11 @@ function (exports, module, require) {
           .addClass(e.isTouchEnabled ? 'scale' : '')
           .gPropertyRow({
             columns: e.isTouchEnabled
-              ? this._createPatternEditorScaleRow(a, CollaborationMergeUtils, s)
+              ? this._createPatternEditorScaleRow(
+                  GEditor,
+                  CollaborationMergeUtils,
+                  GRichTooltipConfig
+                )
               : this._createPatternEditorMaskRow(GTools),
           })
           .appendTo(t));
@@ -64459,7 +64543,7 @@ function (exports, module, require) {
     }),
     (u.prototype._createPaletteSwatch = function (e, t, n, GTools) {
       var CollaborationMergeUtils = this.__getCreatePaletteSwatchParamas(),
-        s = e instanceof GCore.GSwatch ? e : new GCore.GSwatch(e),
+        GRichTooltipConfig = e instanceof GCore.GSwatch ? e : new GCore.GSwatch(e),
         GSwatchesChangedEvent = t;
       CollaborationMergeUtils.isTouchEnabled &&
         (GSwatchesChangedEvent = GTools
@@ -64483,17 +64567,17 @@ function (exports, module, require) {
           (t.stopPropagation(), GSwatchesChangedEvent.find('.grid-drag-overlay').remove());
           var n = false,
             GTools = $('.pattern-chooser'),
-            a = GTools.offset().top,
+            GEditor = GTools.offset().top,
             CollaborationMergeUtils = GTools.offset().left,
-            s = CollaborationMergeUtils + GTools.width(),
-            GInputSliderWidget = a + GTools.height(),
+            GRichTooltipConfig = CollaborationMergeUtils + GTools.width(),
+            GInputSliderWidget = GEditor + GTools.height(),
             GSystemDialog = t.pageX,
             p = t.pageY;
           if (
-            ((GSystemDialog > s ||
+            ((GSystemDialog > GRichTooltipConfig ||
               GSystemDialog < CollaborationMergeUtils ||
               p > GInputSliderWidget ||
-              p < a) &&
+              p < GEditor) &&
               (n = true),
             u.dragSwatch && n)
           ) {
@@ -64525,14 +64609,14 @@ function (exports, module, require) {
           }
           u.hasDropped = false;
         }.bind(this),
-        p = s.getProperty('_pt');
+        p = GRichTooltipConfig.getProperty('_pt');
       const g = p instanceof GCore.GTexturePattern && !(p instanceof GCore.GNoisePattern);
       gDesigner.getActiveDocument() && g && (p = this._clonePattern(p));
-      var h = s.getProperty('_op'),
+      var h = GRichTooltipConfig.getProperty('_op'),
         f = $('<div/>')
           .addClass('swatch')
           .css('background', GCore.GPattern.asCSSBackground(p, h))
-          .data('swatch', s)
+          .data('swatch', GRichTooltipConfig)
           .attr('draggable', n)
           .attr('data-long-press-delay', '500')
           .on('long-press', (e) => {
@@ -64549,12 +64633,18 @@ function (exports, module, require) {
                 CollaborationMergeUtils = $('.colormode-selector')
                   .children('option:selected')
                   .data('colormode');
-              if (a.GPlatform.modifiers.optionKey) {
-                var s = gDesigner.getActiveDocument().getEditor().selectFromPattern(n, true);
-                if (s) {
+              if (GEditor.GPlatform.modifiers.optionKey) {
+                var GRichTooltipConfig = gDesigner
+                  .getActiveDocument()
+                  .getEditor()
+                  .selectFromPattern(n, true);
+                if (GRichTooltipConfig) {
                   ($('.g-overlay .pattern-chooser').length > 0 &&
                     $('.g-overlay .pattern-chooser').gOverlay('close'),
-                    gDesigner.getActiveDocument().getEditor().updateSelection(false, s),
+                    gDesigner
+                      .getActiveDocument()
+                      .getEditor()
+                      .updateSelection(false, GRichTooltipConfig),
                     gDesigner.getActiveDocument().getEditor().blinkSelection(2e3, 4));
                   for (
                     var GSwatchesChangedEvent = $(
@@ -64581,7 +64671,7 @@ function (exports, module, require) {
           )
           .appendTo(GSwatchesChangedEvent);
       if (
-        (s.isCMYK() && this._addCmykIcon(f),
+        (GRichTooltipConfig.isCMYK() && this._addCmykIcon(f),
         n &&
           f
             .on('mousedown', function (e) {
@@ -64617,22 +64707,24 @@ function (exports, module, require) {
                         : 'document',
                       t.getProperty('_pt')
                     ),
-                    a = gDesigner.getSwatches(GTools),
+                    GEditor = gDesigner.getSwatches(GTools),
                     CollaborationMergeUtils = -1,
-                    s = -1;
-                  if (t && a && n) {
+                    GRichTooltipConfig = -1;
+                  if (t && GEditor && n) {
                     for (
                       var GInputSliderWidget = 0;
-                      GInputSliderWidget < a.length;
+                      GInputSliderWidget < GEditor.length;
                       ++GInputSliderWidget
                     )
-                      GCore.GUtil.equals(t, a[GInputSliderWidget])
+                      GCore.GUtil.equals(t, GEditor[GInputSliderWidget])
                         ? (CollaborationMergeUtils = GInputSliderWidget)
-                        : GCore.GUtil.equals(n, a[GInputSliderWidget]) && (s = GInputSliderWidget);
+                        : GCore.GUtil.equals(n, GEditor[GInputSliderWidget]) &&
+                          (GRichTooltipConfig = GInputSliderWidget);
                     (CollaborationMergeUtils > -1 &&
-                      s > -1 &&
-                      ((a = a.slice()).splice(CollaborationMergeUtils, 1), a.splice(s, 0, t)),
-                      gDesigner.setSwatches(GTools, a));
+                      GRichTooltipConfig > -1 &&
+                      ((GEditor = GEditor.slice()).splice(CollaborationMergeUtils, 1),
+                      GEditor.splice(GRichTooltipConfig, 0, t)),
+                      gDesigner.setSwatches(GTools, GEditor));
                   }
                 }
               }.bind(this)
@@ -64665,7 +64757,7 @@ function (exports, module, require) {
         n = $('<div/>').addClass('swatches').appendTo(e);
       t.isTouchEnabled && (n = e);
       var GTools = [0, 0, 0],
-        a = [255, 255, 255];
+        GEditor = [255, 255, 255];
       this._createPaletteSwatch(new GCore.GRGBColor(GTools), n, false, false);
       for (
         var CollaborationMergeUtils = 1;
@@ -64673,13 +64765,15 @@ function (exports, module, require) {
         CollaborationMergeUtils += 1
       )
         this._createPaletteSwatch(
-          new GCore.GRGBColor(GCore.GRGBColor.blend(GTools, a, CollaborationMergeUtils * (1 / 11))),
+          new GCore.GRGBColor(
+            GCore.GRGBColor.blend(GTools, GEditor, CollaborationMergeUtils * (1 / 11))
+          ),
           n,
           false,
           false
         );
-      this._createPaletteSwatch(new GCore.GRGBColor(a), n, false, false);
-      var s = [
+      this._createPaletteSwatch(new GCore.GRGBColor(GEditor), n, false, false);
+      var GRichTooltipConfig = [
           [152, 0, 0],
           [255, 0, 0],
           [255, 153, 0],
@@ -64701,8 +64795,8 @@ function (exports, module, require) {
           u = 0;
         n >= 0 &&
           ((GSystemDialog = GSwatchesChangedEvent[n].color), (u = GSwatchesChangedEvent[n].factor));
-        for (let e = 0; e < s.length; ++e) {
-          var p = s[e],
+        for (let e = 0; e < GRichTooltipConfig.length; ++e) {
+          var p = GRichTooltipConfig[e],
             g = GSystemDialog ? GCore.GRGBColor.blend(p, GSystemDialog, u) : p;
           this._createPaletteSwatch(new GCore.GRGBColor(g), GInputSliderWidget, false, false);
         }
@@ -64737,7 +64831,7 @@ function (exports, module, require) {
             )
             .addClass('swatches')
             .appendTo(e),
-          a = $('<div/>')
+          GEditor = $('<div/>')
             .attr('data-container', 'mixes')
             .append(
               $('<label />').text(
@@ -64753,7 +64847,7 @@ function (exports, module, require) {
         (this._createPaletteSwatch(GCore.GRGBColor.WHITE, module),
           this._createPaletteSwatch(GCore.GRGBColor.WHITE, require),
           this._createPaletteSwatch(GCore.GRGBColor.WHITE, GTools),
-          this._createPaletteSwatch(GCore.GRGBColor.WHITE, a));
+          this._createPaletteSwatch(GCore.GRGBColor.WHITE, GEditor));
       this._updateMixerPalette();
     }),
     (u.prototype.__getUpdateMixerPaletteParams = function () {
@@ -64769,9 +64863,11 @@ function (exports, module, require) {
       for (
         var require = [255, 255, 255],
           GTools = [0, 0, 0],
-          a = [128, 128, 128],
+          GEditor = [128, 128, 128],
           CollaborationMergeUtils = this._color.toScreen(),
-          s = this._palettes.find('.mixer-palette [data-container="tints"] .swatch'),
+          GRichTooltipConfig = this._palettes.find(
+            '.mixer-palette [data-container="tints"] .swatch'
+          ),
           GSwatchesChangedEvent = this._palettes.find(
             '.mixer-palette [data-container="shades"] .swatch'
           ),
@@ -64786,7 +64882,7 @@ function (exports, module, require) {
         var p = (u + 1) / (1 * e.maxCount);
         (module(
           new GCore.GRGBColor(GCore.GRGBColor.blend(CollaborationMergeUtils, require, p)),
-          s,
+          GRichTooltipConfig,
           u
         ),
           module(
@@ -64795,7 +64891,7 @@ function (exports, module, require) {
             u
           ),
           module(
-            new GCore.GRGBColor(GCore.GRGBColor.blend(CollaborationMergeUtils, a, p)),
+            new GCore.GRGBColor(GCore.GRGBColor.blend(CollaborationMergeUtils, GEditor, p)),
             GInputSliderWidget,
             u
           ),
@@ -64831,15 +64927,15 @@ function (exports, module, require) {
         this._createUsedPalette($('.palettes > .used-palette')));
       for (var module = 12, require = 0; require < module; require += 1) {
         var GTools = require < e.length,
-          a = GTools ? e[require] : null,
+          GEditor = GTools ? e[require] : null,
           CollaborationMergeUtils = this._palettes.find('.used-palette .swatches .swatch')[require],
-          s = new GCore.GSwatch(a);
+          GRichTooltipConfig = new GCore.GSwatch(GEditor);
         (GTools &&
           $(CollaborationMergeUtils)
-            .css('background', GCore.GPattern.asCSSBackground(a))
-            .data('swatch', s),
+            .css('background', GCore.GPattern.asCSSBackground(GEditor))
+            .data('swatch', GRichTooltipConfig),
           $(CollaborationMergeUtils).css('display', GTools ? '' : 'none'),
-          s.isCMYK() && this._addCmykIcon($(CollaborationMergeUtils)),
+          GRichTooltipConfig.isCMYK() && this._addCmykIcon($(CollaborationMergeUtils)),
           require % 11 == 0 &&
             GTools &&
             ((module += 12), this._createUsedPalette($('.palettes > .used-palette'))));
@@ -64852,7 +64948,7 @@ function (exports, module, require) {
             : GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.document'))
         ),
         GTools = $('<div/>').addClass('swatches-wrapper').addClass(t),
-        a = $('<div/>')
+        GEditor = $('<div/>')
           .addClass('toolbar')
           .addClass(t)
           .append(n)
@@ -64883,7 +64979,7 @@ function (exports, module, require) {
               })
           )
           .appendTo(e);
-      (GTools.appendTo(e), a.gAccordion(GTools, 'span', false));
+      (GTools.appendTo(e), GEditor.gAccordion(GTools, 'span', false));
     }),
     (u.prototype._getSwatchScope = function (e, t) {
       return t && t instanceof GCore.GLinearGradient
@@ -64907,17 +65003,19 @@ function (exports, module, require) {
         GTools = this._palettes
           .find('.swatches-palette .swatches-wrapper.' + (n ? e.substring(0, e.indexOf('-')) : e))
           .empty(),
-        a = gDesigner.getSwatches(e);
-      if (!a)
+        GEditor = gDesigner.getSwatches(e);
+      if (!GEditor)
         return void $('<div/>')
           .addClass('info')
           .text(GCore.GLocale.get(new GCore.GLocaleKey('GPatternChooser', 'text.error-on-loading')))
           .appendTo(GTools);
       var CollaborationMergeUtils = [],
-        s = [];
-      for (let e = 0; e < a.length; ++e)
-        a[e].isCMYK() ? s.push(a[e]) : CollaborationMergeUtils.push(a[e]);
-      CollaborationMergeUtils = CollaborationMergeUtils.concat(s);
+        GRichTooltipConfig = [];
+      for (let e = 0; e < GEditor.length; ++e)
+        GEditor[e].isCMYK()
+          ? GRichTooltipConfig.push(GEditor[e])
+          : CollaborationMergeUtils.push(GEditor[e]);
+      CollaborationMergeUtils = CollaborationMergeUtils.concat(GRichTooltipConfig);
       let GSwatchesChangedEvent = null;
       var GInputSliderWidget = 1;
       if (!t.isTouchEnabled && CollaborationMergeUtils.length)
@@ -64975,12 +65073,13 @@ function (exports, module, require) {
         (module.find('.swatches-wrapper .swatches .swatch').each(
           function (e, t) {
             var GTools = $(t),
-              a = GCore.GUtil.equals(
+              GEditor = GCore.GUtil.equals(
                 GTools.data('swatch'),
                 new GCore.GSwatch(this._pattern, this._opacity),
                 true
               );
-            (a && (require = true), GTools.data('isActive', a).toggleClass('g-active', a));
+            (GEditor && (require = true),
+              GTools.data('isActive', GEditor).toggleClass('g-active', GEditor));
           }.bind(this)
         ),
           module.find('.toolbar button[data-active-swatch]').each(function (e, t) {
@@ -65061,24 +65160,25 @@ function (exports, module, require) {
       var t = this._gradientEditor.find('.stops'),
         n = t.width(),
         GTools = t.height(),
-        a = t.offset(),
+        GEditor = t.offset(),
         CollaborationMergeUtils = null,
-        s = function (t, GCore) {
-          var s = Math.max(0, Math.min(n, Math.round(t.pageX - a.left)));
-          (t.pageY < a.top - u.EXTEND_DRAG_RANGE || t.pageY > a.top + GTools + u.EXTEND_DRAG_RANGE
+        GRichTooltipConfig = function (t, GCore) {
+          var GRichTooltipConfig = Math.max(0, Math.min(n, Math.round(t.pageX - GEditor.left)));
+          (t.pageY < GEditor.top - u.EXTEND_DRAG_RANGE ||
+          t.pageY > GEditor.top + GTools + u.EXTEND_DRAG_RANGE
             ? this._activeGradient.getStops().length >= 3 &&
               (CollaborationMergeUtils.css('display', 'none'), (e.remove = true))
             : (CollaborationMergeUtils.css('display', ''), (e.remove = false)),
-            (e.position = s / n),
+            (e.position = GRichTooltipConfig / n),
             this._updateGradientStop(e),
             this._updatePatternFromActiveGradient(!GCore));
         }.bind(this),
         GSwatchesChangedEvent = function (t) {
           if (
-            (s(t, true),
+            (GRichTooltipConfig(t, true),
             t.stopPropagation(),
             document.removeEventListener('mouseup', GSwatchesChangedEvent, true),
-            document.removeEventListener('mousemove', s, true),
+            document.removeEventListener('mousemove', GRichTooltipConfig, true),
             e.remove)
           ) {
             var n = this._activeGradient.getStops(),
@@ -65097,7 +65197,7 @@ function (exports, module, require) {
                 this._setActiveGradientStop(e),
                 this._updateOnlineEditorStops(),
                 document.addEventListener('mouseup', GSwatchesChangedEvent, true),
-                document.addEventListener('mousemove', s, true));
+                document.addEventListener('mousemove', GRichTooltipConfig, true));
               var n = this._activeGradient.getStops()[0].color;
               n instanceof GCore.GCMYKColor
                 ? this.setColorMode(u.ColorMode.CMYK)
@@ -65120,22 +65220,22 @@ function (exports, module, require) {
         GTools = n.width();
       n.find('.stop').each(
         function (n, GCore) {
-          var a = $(GCore);
-          if (a.data('stop') === e) {
-            (a.toggleClass('g-active', e === this._activeGradientStop),
+          var GEditor = $(GCore);
+          if (GEditor.data('stop') === e) {
+            (GEditor.toggleClass('g-active', e === this._activeGradientStop),
               t.isTouchEnabled &&
                 (e === this._activeGradientStop
-                  ? (a.css('background', e.color.toScreenCSS(e.opacity)),
-                    a.css('border', '2px solid #FFFFFF'))
-                  : (a.css('background', 'transparent'),
-                    a.css('border', '2px solid transparent'))));
+                  ? (GEditor.css('background', e.color.toScreenCSS(e.opacity)),
+                    GEditor.css('border', '2px solid #FFFFFF'))
+                  : (GEditor.css('background', 'transparent'),
+                    GEditor.css('border', '2px solid transparent'))));
             var CollaborationMergeUtils = Math.round(e.position * GTools),
-              s = a.outerWidth() / 2 + 1;
-            (CollaborationMergeUtils < s
-              ? t.isTouchEnabled || (CollaborationMergeUtils = s)
-              : CollaborationMergeUtils > GTools - s &&
-                (t.isTouchEnabled || (CollaborationMergeUtils = GTools - s)),
-              a.css('left', CollaborationMergeUtils + 'px'));
+              GRichTooltipConfig = GEditor.outerWidth() / 2 + 1;
+            (CollaborationMergeUtils < GRichTooltipConfig
+              ? t.isTouchEnabled || (CollaborationMergeUtils = GRichTooltipConfig)
+              : CollaborationMergeUtils > GTools - GRichTooltipConfig &&
+                (t.isTouchEnabled || (CollaborationMergeUtils = GTools - GRichTooltipConfig)),
+              GEditor.css('left', CollaborationMergeUtils + 'px'));
           }
         }.bind(this)
       );
@@ -65167,7 +65267,7 @@ function (exports, module, require) {
       return { isTouchEnabled: false };
     }),
     (u.prototype._updateColor = function (e, t, n, GTools) {
-      var a = this.__getUpdateColorParams();
+      var GEditor = this.__getUpdateColorParams();
       (GCore.GUtil.equals(e, this._color) && 'set_pattern' !== t && !GTools) ||
         ((this._color = e),
         this._updateSwatchesPalette(this._getSwatchScope('global', this._pattern)),
@@ -65200,7 +65300,7 @@ function (exports, module, require) {
         'swatch' !== t && 'mixer' === this._activePalette && this._updateMixerPalette(),
         GCore.GUtil.equals(this._oldColor, this._color) ||
           (0 === this._oldColorOpacity && this._updateOpacity(1)),
-        a.isTouchEnabled &&
+        GEditor.isTouchEnabled &&
           (this._sliderColorThumb.css('background', this._color.toScreenCSS(1)),
           this._sliderOpacityThumb.css('background', this._color.toScreenCSS(this._colorOpacity))),
         this._colorPreviewNew.css('background', this._color.toScreenCSS(this._colorOpacity)));
@@ -65209,7 +65309,7 @@ function (exports, module, require) {
       return { isTouchEnabled: false };
     }),
     (u.prototype._updateOpacity = function (e, t, n, GTools) {
-      var a = this.__getUpdateColorParams();
+      var GEditor = this.__getUpdateColorParams();
       if (e !== this._colorOpacity || 'set_opacity' === t || GTools) {
         if (this._activeGradientStop && 'set_opacity' === t) return;
         (this._activeGradientStop ||
@@ -65242,7 +65342,7 @@ function (exports, module, require) {
             'gradient-stop' !== t &&
             ((this._activeGradientStop.opacity = this._colorOpacity),
             this._updatePatternFromActiveGradient(n)),
-          a.isTouchEnabled &&
+          GEditor.isTouchEnabled &&
             (this._sliderColorThumb.css('background', this._color.toScreenCSS(1)),
             this._sliderOpacityThumb.css(
               'background',
@@ -65260,34 +65360,39 @@ function (exports, module, require) {
                 GCore = GTools.data('type');
               GCore && GTools.prop('selected', !!GCore.isInstance(e));
             })));
-        var a = this._pattern && this._pattern instanceof GCore.GGradient,
+        var GEditor = this._pattern && this._pattern instanceof GCore.GGradient,
           CollaborationMergeUtils = this._pattern && this._pattern instanceof GCore.GColor,
-          s =
+          GRichTooltipConfig =
             this._pattern &&
             this._pattern instanceof GCore.GTexturePattern &&
             !(e instanceof GCore.GNoisePattern),
           GSwatchesChangedEvent = this._pattern && this._pattern instanceof GCore.GNoisePattern,
           GInputSliderWidget = this._pattern && this._pattern instanceof GCore.GBackground;
-        (this._gradientEditor.css('display', a ? '' : 'none'),
-          this._gradientActions.css('display', a ? '' : ' none'),
-          this._colorEditor.css('display', CollaborationMergeUtils || a ? '' : 'none'),
+        (this._gradientEditor.css('display', GEditor ? '' : 'none'),
+          this._gradientActions.css('display', GEditor ? '' : ' none'),
+          this._colorEditor.css('display', CollaborationMergeUtils || GEditor ? '' : 'none'),
           this._palettes.css(
             'display',
-            CollaborationMergeUtils || a || s || GSwatchesChangedEvent ? '' : 'none'
+            CollaborationMergeUtils || GEditor || GRichTooltipConfig || GSwatchesChangedEvent
+              ? ''
+              : 'none'
           ),
-          s || GSwatchesChangedEvent
+          GRichTooltipConfig || GSwatchesChangedEvent
             ? (this._palettes
                 .find('.chooser')
                 .find("button[data-palette!='swatches']")
                 .css('display', 'none'),
               this._activatePalette('swatches'))
             : this._palettes.find('.chooser').find('button').css('display', ''),
-          this._patternEditor.css('display', s && !GSwatchesChangedEvent ? '' : 'none'),
+          this._patternEditor.css(
+            'display',
+            GRichTooltipConfig && !GSwatchesChangedEvent ? '' : 'none'
+          ),
           this._noiseEditor.css('display', GSwatchesChangedEvent ? '' : 'none'),
-          ('set_pattern' === t || ('set_type' === t && !a)) &&
+          ('set_pattern' === t || ('set_type' === t && !GEditor)) &&
             ((this._activeGradient = null), (this._activeGradientStop = null)));
         var GSystemDialog = null;
-        if (a) {
+        if (GEditor) {
           if (
             (this._gradientEditor.css(
               'background',
@@ -65325,13 +65430,13 @@ function (exports, module, require) {
               this._setActiveGradientStop(p, e && e instanceof GCore.GColor ? e : null, n),
               this._gradientActions.find('[data-action]').each(function (t, n) {
                 var GTools = $(n),
-                  a = true;
+                  GEditor = true;
                 switch (GTools.attr('data-action')) {
                   case 'rotate-left':
                   case 'rotate-right':
-                    a = e instanceof GCore.GLinearGradient;
+                    GEditor = e instanceof GCore.GLinearGradient;
                 }
-                GTools.css('display', a ? '' : 'none');
+                GTools.css('display', GEditor ? '' : 'none');
               }));
           }
           null === GSystemDialog &&
@@ -65353,7 +65458,7 @@ function (exports, module, require) {
           var v = this._patternEditor.find('[data-property="noise_type"]');
           (v.children('option').attr('selected', false),
             v.children('option[value="' + e.getType() + '"]').attr('selected', true));
-        } else if (s) {
+        } else if (GRichTooltipConfig) {
           this._updateTexture(e, t || 'update_pattern');
           var _ = !!e.getTexture(),
             b =
@@ -65415,7 +65520,7 @@ function (exports, module, require) {
               !!GTools,
               null !== GSystemDialog ? GSystemDialog : null
             ),
-          a && this._updateOnlineEditorStops(),
+          GEditor && this._updateOnlineEditorStops(),
           'swatches' === this._activePalette &&
             (this._updateSwatchesPalette(this._getSwatchScope('global', this._pattern)),
             this._updateSwatchesPalette(this._getSwatchScope('document', this._pattern))),
@@ -65557,8 +65662,8 @@ function (exports, module, require) {
         }
         this._colorComponents.find('[data-component-index]').each(function (n, GTools) {
           var GCore = $(GTools),
-            a = parseInt(GCore.attr('data-component-index'));
-          GCore.find('input').gInputBox('value', module(a, exports[a]));
+            GEditor = parseInt(GCore.attr('data-component-index'));
+          GCore.find('input').gInputBox('value', module(GEditor, exports[GEditor]));
         });
       }
     }),
@@ -65575,22 +65680,22 @@ function (exports, module, require) {
           this._colorMode !== u.ColorMode.HSV
             ? GCore.GColor.rgbToHSV(this._color.toScreen())
             : this._extValue;
-        var a = Math.round(exports[1] * require),
+        var GEditor = Math.round(exports[1] * require),
           CollaborationMergeUtils = Math.round((1 - exports[2]) * GTools);
-        this._setMarkerPosition(a, CollaborationMergeUtils);
+        this._setMarkerPosition(GEditor, CollaborationMergeUtils);
       }
     }),
     (u.prototype._setMarkerPosition = function (e, t) {
       var n = this._colorMap.find('.marker'),
         GTools = this._colorMap.find('canvas'),
         GCore = GTools[0].width,
-        a = GTools[0].height,
+        GEditor = GTools[0].height,
         CollaborationMergeUtils = n.width() / 2,
-        s = n.height() / 2;
+        GRichTooltipConfig = n.height() / 2;
       (e < CollaborationMergeUtils && (e = CollaborationMergeUtils),
-        t < s && (t = s),
+        t < GRichTooltipConfig && (t = GRichTooltipConfig),
         e > GCore - CollaborationMergeUtils && (e = GCore - CollaborationMergeUtils),
-        t > a - s && (t = a - s),
+        t > GEditor - GRichTooltipConfig && (t = GEditor - GRichTooltipConfig),
         n.css({ left: e + 'px', top: t + 'px' }));
     }),
     (u.prototype._updateColorMap = function () {
@@ -65601,17 +65706,17 @@ function (exports, module, require) {
       var t = e.width,
         n = e.height,
         GTools = e.getContext('2d'),
-        a = this._colorSlider.gColorSlider('value'),
+        GEditor = this._colorSlider.gColorSlider('value'),
         CollaborationMergeUtils = GTools.getImageData(0, 0, t, n);
       if (CollaborationMergeUtils) {
-        for (var s = 0; s < t; ++s)
+        for (var GRichTooltipConfig = 0; GRichTooltipConfig < t; ++GRichTooltipConfig)
           for (var GSwatchesChangedEvent = 0; GSwatchesChangedEvent < n; ++GSwatchesChangedEvent) {
             var GInputSliderWidget = GCore.GColor.hsvToRGB([
-                parseInt(a),
-                s / t,
+                parseInt(GEditor),
+                GRichTooltipConfig / t,
                 1 - GSwatchesChangedEvent / n,
               ]),
-              GSystemDialog = 4 * (GSwatchesChangedEvent * t + s);
+              GSystemDialog = 4 * (GSwatchesChangedEvent * t + GRichTooltipConfig);
             ((CollaborationMergeUtils.data[GSystemDialog] = GInputSliderWidget[0]),
               (CollaborationMergeUtils.data[GSystemDialog + 1] = GInputSliderWidget[1]),
               (CollaborationMergeUtils.data[GSystemDialog + 2] = GInputSliderWidget[2]),
@@ -65631,9 +65736,9 @@ function (exports, module, require) {
               const t = e.changedTouches[0];
               ((require = t && t.pageX), (GTools = t && t.pageY));
             }
-            var a = this._colorMap.find('canvas')[0],
-              CollaborationMergeUtils = a.width,
-              s = a.height,
+            var GEditor = this._colorMap.find('canvas')[0],
+              CollaborationMergeUtils = GEditor.width,
+              GRichTooltipConfig = GEditor.height,
               GSwatchesChangedEvent = this._colorMap.offset(),
               GInputSliderWidget = Math.max(
                 0,
@@ -65641,12 +65746,12 @@ function (exports, module, require) {
               ),
               GSystemDialog = Math.max(
                 0,
-                Math.min(s, Math.round(GTools - GSwatchesChangedEvent.top))
+                Math.min(GRichTooltipConfig, Math.round(GTools - GSwatchesChangedEvent.top))
               );
             const p = [
               parseInt(this._colorSlider.gColorSlider('value')),
               GInputSliderWidget / CollaborationMergeUtils,
-              1 - GSystemDialog / s,
+              1 - GSystemDialog / GRichTooltipConfig,
             ];
             var g;
             ((g =
@@ -65680,24 +65785,26 @@ function (exports, module, require) {
           var t = $(e).data('stop');
           return t && t.color instanceof GCore.GColor ? t.color.toScreen() : [0, 0, 0];
         },
-        a = [],
+        GEditor = [],
         CollaborationMergeUtils = [],
-        s = null,
+        GRichTooltipConfig = null,
         GSwatchesChangedEvent = null,
         GInputSliderWidget = null,
         GSystemDialog = null;
       for (let GTools = 0; GTools < t.length; ++GTools)
-        n(t[GTools]) < e ? CollaborationMergeUtils.push(t[GTools]) : a.push(t[GTools]);
+        n(t[GTools]) < e ? CollaborationMergeUtils.push(t[GTools]) : GEditor.push(t[GTools]);
       for (let e = 0; e < CollaborationMergeUtils.length; ++e)
-        s
+        GRichTooltipConfig
           ? n(CollaborationMergeUtils[e]) > GInputSliderWidget &&
-            ((s = CollaborationMergeUtils[e]), (GInputSliderWidget = n(CollaborationMergeUtils[e])))
-          : ((s = CollaborationMergeUtils[e]),
+            ((GRichTooltipConfig = CollaborationMergeUtils[e]),
+            (GInputSliderWidget = n(CollaborationMergeUtils[e])))
+          : ((GRichTooltipConfig = CollaborationMergeUtils[e]),
             (GInputSliderWidget = n(CollaborationMergeUtils[e])));
-      for (let e = 0; e < a.length; ++e)
+      for (let e = 0; e < GEditor.length; ++e)
         GSwatchesChangedEvent
-          ? n(a[e]) < GSystemDialog && ((GSwatchesChangedEvent = a[e]), (GSystemDialog = n(a[e])))
-          : ((GSwatchesChangedEvent = a[e]), (GSystemDialog = n(a[e])));
+          ? n(GEditor[e]) < GSystemDialog &&
+            ((GSwatchesChangedEvent = GEditor[e]), (GSystemDialog = n(GEditor[e])))
+          : ((GSwatchesChangedEvent = GEditor[e]), (GSystemDialog = n(GEditor[e])));
       var p = (100 * (e -= GInputSliderWidget)) / (GSystemDialog -= GInputSliderWidget) / 100;
       const g = (function (e, t, n) {
         var GTools = ((2 * n - 1) / 1 + 1) / 2,
@@ -65707,7 +65814,7 @@ function (exports, module, require) {
           Math.round(t[1] * GTools + e[1] * GCore),
           Math.round(t[2] * GTools + e[2] * GCore),
         ];
-      })(GTools(s), GTools(GSwatchesChangedEvent), p);
+      })(GTools(GRichTooltipConfig), GTools(GSwatchesChangedEvent), p);
       switch (this._colorMode) {
         case u.ColorMode.CMYK:
           return new GCore.GCMYKColor(GCore.GColor.rgbToCMYK(g));
@@ -65897,7 +66004,7 @@ function (exports, module, require) {
             window.gPatternChooser._updateSettings(n, true),
             this.each(function () {
               var GTools = this,
-                a = e(this),
+                GEditor = e(this),
                 CollaborationMergeUtils = null;
               n.label &&
                 (CollaborationMergeUtils = e('<span />')
@@ -65920,15 +66027,15 @@ function (exports, module, require) {
                           : gDesigner.stats('patternchooser_click_open'),
                         GCore.stopPropagation(),
                         GCore.preventDefault(),
-                        !a.hasClass('g-disabled'))
+                        !GEditor.hasClass('g-disabled'))
                       ) {
-                        var s = a.data('gpatternchooser');
-                        s.options.asButton && a.addClass('g-active');
-                        var GSwatchesChangedEvent = e.extend({}, s.options),
+                        var GRichTooltipConfig = GEditor.data('gpatternchooser');
+                        GRichTooltipConfig.options.asButton && GEditor.addClass('g-active');
+                        var GSwatchesChangedEvent = e.extend({}, GRichTooltipConfig.options),
                           GInputSliderWidget = e.extend(GSwatchesChangedEvent, {
                             onPattern: function (e, n, GCore) {
                               (t.value.call(GTools, e),
-                                a.trigger('patternchange', [
+                                GEditor.trigger('patternchange', [
                                   e,
                                   null,
                                   n,
@@ -65938,25 +66045,28 @@ function (exports, module, require) {
                             },
                             onOpacity: function (e, n) {
                               (t.opacity.call(GTools, e),
-                                a.trigger('patternchange', [undefined, e, n, true]));
+                                GEditor.trigger('patternchange', [undefined, e, n, true]));
                             },
                             onClose: function (e, t, n, GTools) {
                               var GCore = false;
                               return (
-                                a.trigger('chooserclose', [
+                                GEditor.trigger('chooserclose', [
                                   function () {
                                     ((GCore = true), n && n());
                                   },
                                   GTools,
                                 ]),
-                                !GCore && (s.options.asButton && a.removeClass('g-active'), true)
+                                !GCore &&
+                                  (GRichTooltipConfig.options.asButton &&
+                                    GEditor.removeClass('g-active'),
+                                  true)
                               );
                             },
                           });
-                        (window.gPatternChooser.open(a, GInputSliderWidget),
+                        (window.gPatternChooser.open(GEditor, GInputSliderWidget),
                           window.gPatternChooser.setOpacity(t.opacity.call(GTools)),
                           window.gPatternChooser.setPattern(t.value.call(GTools)),
-                          a.trigger('chooseropen'),
+                          GEditor.trigger('chooseropen'),
                           null !== CollaborationMergeUtils &&
                             window.gPatternChooser.setActiveGradientStopByIdx(
                               CollaborationMergeUtils
@@ -65966,7 +66076,7 @@ function (exports, module, require) {
                   )
                   .gPatternTarget()
                   .gRichTooltip(
-                    s.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey('GPatternChooser', 'text.color-picker-tooltip-title')
                       ),
@@ -65981,11 +66091,9 @@ function (exports, module, require) {
                   );
               if (
                 (n.asButton && GInputSliderWidget.addClass('g-button'),
-                a
-                  .addClass(
-                    GSwatchesChangedEvent ? 'g-pattern-chooser-simplified' : 'g-pattern-chooser'
-                  )
-                  .data('gpatternchooser', { options: n, opacity: 1 }),
+                GEditor.addClass(
+                  GSwatchesChangedEvent ? 'g-pattern-chooser-simplified' : 'g-pattern-chooser'
+                ).data('gpatternchooser', { options: n, opacity: 1 }),
                 !GSwatchesChangedEvent && !n.noEyedropper)
               ) {
                 var GSystemDialog = e('<div/>')
@@ -65993,11 +66101,11 @@ function (exports, module, require) {
                   .addClass('eye-drop')
                   .gEyeDropper({ onClick: n.onClickEyedropper })
                   .on('colorchange', function (e, t) {
-                    a.trigger('patternchange', [new GCore.GRGBColor(t), t[3] / 255, false]);
+                    GEditor.trigger('patternchange', [new GCore.GRGBColor(t), t[3] / 255, false]);
                   })
                   .removeClass('g-button')
                   .gRichTooltip(
-                    s.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey('GPatternChooser', 'text.eyedropper-tooltip-title')
                       ),
@@ -66011,8 +66119,8 @@ function (exports, module, require) {
                   );
                 GInputSliderWidget.append(GSystemDialog);
               }
-              (n.noEyedropper && a.addClass('only-picker'),
-                a.append(GInputSliderWidget).append(CollaborationMergeUtils));
+              (n.noEyedropper && GEditor.addClass('only-picker'),
+                GEditor.append(GInputSliderWidget).append(CollaborationMergeUtils));
             })
           );
         },
@@ -66057,7 +66165,7 @@ function (exports, module, require) {
           var t = e(this),
             n = t.data('gpatternchooser'),
             GTools = t.find('.preview').gPatternTarget('value'),
-            a = t.find('.preview');
+            GEditor = t.find('.preview');
           let CollaborationMergeUtils;
           (!GTools && n && n.nullValue && (GTools = n.nullValue),
             GTools instanceof GCore.GTexturePattern
@@ -66065,8 +66173,7 @@ function (exports, module, require) {
                   GTools,
                   n && 'number' == typeof n.opacity ? n.opacity : 1
                 )),
-                a
-                  .css('background-image', CollaborationMergeUtils)
+                GEditor.css('background-image', CollaborationMergeUtils)
                   .css('background-repeat', GTools.getRepeatMode())
                   .css('background-size', 'contain'),
                 t.find('.eye-drop').gEyeDropper('setValue', GTools))
@@ -66076,7 +66183,7 @@ function (exports, module, require) {
                   GTools,
                   n && 'number' == typeof n.opacity ? n.opacity : 1
                 )),
-                a.css('background', CollaborationMergeUtils),
+                GEditor.css('background', CollaborationMergeUtils),
                 t.find('.eye-drop').gEyeDropper('setValue', CollaborationMergeUtils)));
         },
         updateSettings: function (t) {
@@ -66125,7 +66232,7 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     a = require(847) /* module_847 */,
     SharepointException = _interopRequireDefault(require(1239) /* SharepointException */),
-    s = _interopRequireDefault(require(388) /* Item */),
+    Item = _interopRequireDefault(require(388) /* Item */),
     l = _interopRequireDefault(require(1481) /* module_1481 */),
     AppSettings = require(10) /* AppSettings */,
     GError = _interopRequireDefault(require(594) /* GError */);
@@ -66139,16 +66246,16 @@ function (exports, module, require) {
     v = 80,
     _ = 100;
   function b() {}
-  (GCore.GObject.inherit(b, s.default),
+  (GCore.GObject.inherit(b, Item.default),
     (b.Item = function (e, t) {
       let require = arguments.length > 2 && undefined !== arguments[2] ? arguments[2] : null;
-      (s.default.Item.call(this, e, t),
+      (Item.default.Item.call(this, e, t),
         (this._ext = null),
         (this._token = require),
         this._setExtension(),
         DataModule_436.call(this, AppSettings.FILE_ID_PREFIX.SHAREPOINT));
     }),
-    GCore.GObject.inheritAndMix(b.Item, s.default.Item, [DataModule_436]),
+    GCore.GObject.inheritAndMix(b.Item, Item.default.Item, [DataModule_436]),
     (b.Item.prototype._app = AppSettings.FILE_ID_PREFIX.SHAREPOINT),
     (b.Item.prototype.getId = function () {
       const exports = this._getSharepointId();
@@ -66160,7 +66267,7 @@ function (exports, module, require) {
         !e.relativeUrl &&
           e instanceof GCloudStorageItem &&
           (e.relativeUrl = e.parent && e.parent.relativeUrl + '/' + e.getNameWithExtension())),
-        s.default.Item.prototype.setFile.call(this, e));
+        Item.default.Item.prototype.setFile.call(this, e));
     }),
     (b.Item.prototype._getSharepointId = function () {
       return this._id ? this._id : null;
@@ -66310,9 +66417,9 @@ function (exports, module, require) {
           (SharepointException = e.getEditor().markSavePoint()));
         const n = {};
         e.updateStatus(u.Saving, n);
-        const s = _interopRequireDefault || n.progress,
+        const Item = _interopRequireDefault || n.progress,
           l = (e) => {
-            s && s(e);
+            Item && Item(e);
           },
           AppSettings = e.isNew();
         (l(m), GCore.GUtil.prepareForSaving(e.getScene(), this.getExtension()));
@@ -66352,8 +66459,8 @@ function (exports, module, require) {
         _interopRequireDefault = await this._exportDocumentToCDR(e, a, n);
       } else {
         var SharepointException = e.getScene(),
-          s = GCore.GNode.serialize(SharepointException, GCore.GUtil.extend({ save: true }, n));
-        _interopRequireDefault = new Blob([s]);
+          Item = GCore.GNode.serialize(SharepointException, GCore.GUtil.extend({ save: true }, n));
+        _interopRequireDefault = new Blob([Item]);
       }
       return _interopRequireDefault;
     }),
@@ -67777,7 +67884,7 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GProperties = require(123) /* GProperties */,
     GInputSliderWidget = require(857); /* GInputSliderWidget */
@@ -67819,7 +67926,7 @@ function (exports, module, require) {
             )
         )
         .gRichTooltip(
-          r.GRichTooltipConfig.from({
+          GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GAppearanceProperties', 'text.blend-tooltip-title')
             ),
@@ -67874,7 +67981,7 @@ function (exports, module, require) {
             .addClass('gravit-icon-touch-transparency')
             .gInputSlider(
               Object.assign({}, GInputSliderWidget.prototype.OPACITY_DEFAULT, {
-                richTooltipConfig: r.GRichTooltipConfig.from({
+                richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                   title: GCore.GLocale.get(
                     new GCore.GLocaleKey(
                       'GAppearanceProperties',
@@ -67901,11 +68008,17 @@ function (exports, module, require) {
                 var n = $(e.target),
                   _interopRequireDefault = n.attr('data-property'),
                   GTools = parseInt(n.gInputSlider('value')) / 100,
-                  r = 0;
-                r < t._elements.length;
-                ++r
+                  GRichTooltipConfig = 0;
+                GRichTooltipConfig < t._elements.length;
+                ++GRichTooltipConfig
               )
-                t._elements[r].setProperty(_interopRequireDefault, GTools, false, false, true);
+                t._elements[GRichTooltipConfig].setProperty(
+                  _interopRequireDefault,
+                  GTools,
+                  false,
+                  false,
+                  true
+                );
               t._panel
                 .find('[type="text"][data-property="' + _interopRequireDefault + '"]')
                 .gInputBox('value', GCore.GUtil.formatOpacity(100 * GTools));
@@ -68011,7 +68124,7 @@ function (exports, module, require) {
                     )
                     .gDesignerStyleEditor()
                     .gRichTooltip(
-                      r.GRichTooltipConfig.from({
+                      GRichTooltipConfig.GRichTooltipConfig.from({
                         title: GCore.GLocale.get(
                           new GCore.GLocaleKey(
                             'GAppearanceProperties',
@@ -68154,11 +68267,13 @@ function (exports, module, require) {
               if (GCore.values.length) {
                 if (1 == GCore.values.length || _interopRequireDefault) return GCore.values[0];
                 for (
-                  var r = GCore.values, GTouchTool = r[0], GProperties = 1;
-                  GProperties < r.length;
+                  var GRichTooltipConfig = GCore.values,
+                    GTouchTool = GRichTooltipConfig[0],
+                    GProperties = 1;
+                  GProperties < GRichTooltipConfig.length;
                   ++GProperties
                 )
-                  if (r[GProperties] !== GTouchTool) return GTools;
+                  if (GRichTooltipConfig[GProperties] !== GTouchTool) return GTools;
                 return GTouchTool;
               }
               return GTools;
@@ -68173,7 +68288,7 @@ function (exports, module, require) {
             .find('[type="text"][data-property="_stop"]')
             .gInputBox('value', GCore.GUtil.formatOpacity(_interopRequireDefault)),
           this._panel.find('[data-property="_sbl"]').val(require('_sbl', true)));
-        var r = null,
+        var GRichTooltipConfig = null,
           GTouchTool = null;
         if (
           1 === this._elements.length &&
@@ -68181,11 +68296,14 @@ function (exports, module, require) {
           this._elements[0].getReferencedStyle()
         ) {
           var GProperties = this._elements[0].getReferencedStyle();
-          ((r = gDesigner.getStylePreview(GProperties, this._elements[0] instanceof GCore.GText)),
+          ((GRichTooltipConfig = gDesigner.getStylePreview(
+            GProperties,
+            this._elements[0] instanceof GCore.GText
+          )),
             (GTouchTool = GProperties.getProperty('name')));
         }
-        if ((this._checkSyncState(), r))
-          (this._addPreview(r),
+        if ((this._checkSyncState(), GRichTooltipConfig))
+          (this._addPreview(GRichTooltipConfig),
             this._panel.find('.g-styles-field').text(GTouchTool),
             this._panel.find('.g-styles-field').removeClass('g-disabled'));
         else {
@@ -68238,8 +68356,9 @@ function (exports, module, require) {
         try {
           for (var GCore = 0; GCore < this._elements.length; ++GCore) {
             this._elements[GCore];
-            var r = GTools.GElementEditor.getEditor(this._elements[GCore]);
-            (r && r.applyPropertiesToParts(e, t)) || this._elements[GCore].setProperties(e, t);
+            var GRichTooltipConfig = GTools.GElementEditor.getEditor(this._elements[GCore]);
+            (GRichTooltipConfig && GRichTooltipConfig.applyPropertiesToParts(e, t)) ||
+              this._elements[GCore].setProperties(e, t);
           }
         } finally {
           _interopRequireDefault.commitTransaction(n);
@@ -68286,10 +68405,10 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13) /* stub_requires_679 */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var i = require(15) /* GEditor */,
+  var GEditor = require(15) /* GEditor */,
     GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    s = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
     GOutlineSidebar = _interopRequireDefault(require(198) /* Exports_GOutlineSidebar */),
@@ -68337,12 +68456,12 @@ function (exports, module, require) {
             (_interopRequireDefault = $(this._panel).find('.border-block:last').data('paintLayer')),
             _interopRequireDefault && this._assign(_interopRequireDefault, e, t, n));
         }.bind(this),
-        i = function (e, t, n) {
+        GEditor = function (e, t, n) {
           this._getSelectedPaintLayer()
             ? this._assign(this._getSelectedPaintLayer(), e, t, n)
             : this._panel.find('.border-block').each(
-                function (_interopRequireDefault, i) {
-                  var GTools = $(i).data('paintLayer');
+                function (_interopRequireDefault, GEditor) {
+                  var GTools = $(GEditor).data('paintLayer');
                   GTools && this._assign(GTools, e, t, n);
                 }.bind(this)
               );
@@ -68359,10 +68478,10 @@ function (exports, module, require) {
                   (n || (n = $(t._panel).find('.border-block:last').data('paintLayer')),
                   t._getProperty(n, '_blj') === GCore.GPaintCanvas.LineJoin.Miter)
                 ) {
-                  var i = GCore.GLength.parseEquationValue($(this).val());
-                  (gDesigner.stats('border_change_miterlimit', i),
-                    null !== i && i > 0
-                      ? _interopRequireDefault(['_vs', e], [true, i])
+                  var GEditor = GCore.GLength.parseEquationValue($(this).val());
+                  (gDesigner.stats('border_change_miterlimit', GEditor),
+                    null !== GEditor && GEditor > 0
+                      ? _interopRequireDefault(['_vs', e], [true, GEditor])
                       : t._updateProperties());
                 }
               })
@@ -68383,14 +68502,14 @@ function (exports, module, require) {
                         _interopRequireDefault >= 0 &&
                         t.push(_interopRequireDefault);
                     }),
-                  i(['_vs', e], [true, t]));
+                  GEditor(['_vs', e], [true, t]));
               })
               .gInputBox();
           if (0 === e.indexOf('_ba-')) {
             var n = '',
               GTools = '',
-              s = e.substr('_ba-'.length);
-            switch (s) {
+              GRichTooltipConfig = e.substr('_ba-'.length);
+            switch (GRichTooltipConfig) {
               case GCore.GStylable.BorderAlignment.Inside:
                 ((n = 'gravit-icon-line-stroke-inside'),
                   (GTools = GCore.GLocale.get(
@@ -68415,14 +68534,15 @@ function (exports, module, require) {
               .attr('data-property', e)
               .attr('data-title', GTools)
               .on('click', function () {
-                var e = s,
+                var e = GRichTooltipConfig,
                   t = Object.keys(GCore.GStylable.BorderAlignment);
                 for (var n of t)
-                  if (s === GCore.GStylable.BorderAlignment[n]) {
+                  if (GRichTooltipConfig === GCore.GStylable.BorderAlignment[n]) {
                     e = n;
                     break;
                   }
-                (gDesigner.stats('border_change_align', e), i(['_vs', '_ba'], [true, s]));
+                (gDesigner.stats('border_change_align', e),
+                  GEditor(['_vs', '_ba'], [true, GRichTooltipConfig]));
               })
               .append($('<span></span>').addClass(n));
           }
@@ -68455,7 +68575,7 @@ function (exports, module, require) {
               .attr('data-property', e)
               .on('click', function () {
                 (gDesigner.stats('border_change_cap', GTouchTool),
-                  i(['_vs', '_blc'], [true, GTouchTool]));
+                  GEditor(['_vs', '_blc'], [true, GTouchTool]));
               })
               .append($('<span></span>').addClass(n));
           }
@@ -68488,7 +68608,7 @@ function (exports, module, require) {
               .attr('data-property', e)
               .on('click', function () {
                 (gDesigner.stats('border_change_join', GEvent_type),
-                  i(['_vs', '_blj'], [true, GEvent_type]));
+                  GEditor(['_vs', '_blj'], [true, GEvent_type]));
               })
               .append($('<span></span>').addClass(n));
           }
@@ -68504,7 +68624,7 @@ function (exports, module, require) {
                       'border_toggle_markersoutline',
                       $(this).prop('checked') ? 'enable' : 'disable'
                     ),
-                      i([e], [$(this).prop('checked')]));
+                      GEditor([e], [$(this).prop('checked')]));
                   })
               )
               .append($('<div></div>'));
@@ -68522,11 +68642,11 @@ function (exports, module, require) {
               .on('input', function (t) {
                 var n = $(t.target),
                   _interopRequireDefault = parseInt(n.gInputSlider('value')) / 100;
-                i([e], [_interopRequireDefault]);
+                GEditor([e], [_interopRequireDefault]);
               })
               .on('change', function (t) {
                 (gDesigner.stats('border_change_markersposition'),
-                  i([e], [parseInt($(this).gInputSlider('value')) / 100]));
+                  GEditor([e], [parseInt($(this).gInputSlider('value')) / 100]));
               });
           if ('_bhms' === e || '_btms' === e)
             return $('<input>')
@@ -68534,7 +68654,10 @@ function (exports, module, require) {
               .attr('data-property', e)
               .on('change', function () {
                 (gDesigner.stats('border_change_tailmarkerscalation'),
-                  i([e], [GCore.GLength.parseEquationValue($(this).gInputBox('value')) / 100]));
+                  GEditor(
+                    [e],
+                    [GCore.GLength.parseEquationValue($(this).gInputBox('value')) / 100]
+                  ));
               })
               .gInputBox({ minValue: 1, incrementValue: 1, postfix: '%' });
           if ('_bhm' === e || '_btm' === e)
@@ -68642,7 +68765,8 @@ function (exports, module, require) {
                     n = GTools;
                     break;
                   }
-                (gDesigner.stats('border_change_headmarker', n), i([e], [$(this).val() || null]));
+                (gDesigner.stats('border_change_headmarker', n),
+                  GEditor([e], [$(this).val() || null]));
               });
           if (0 === e.indexOf('arrow-paste-')) {
             var GOutlineSidebar = e.substr('arrow-paste-'.length);
@@ -68664,14 +68788,21 @@ function (exports, module, require) {
                         var _interopRequireDefault = t[n],
                           GTools = GCore.GVertexInfo.calculateBounds(_interopRequireDefault, true);
                         if (GTools) {
-                          var s = GTools.getSide(GCore.GRect.Side.BOTTOM_CENTER);
-                          (i(
+                          var GRichTooltipConfig = GTools.getSide(GCore.GRect.Side.BOTTOM_CENTER);
+                          (GEditor(
                             [GOutlineSidebar],
                             [
                               new GCore.GVertexContainer(
                                 new GCore.GVertexTransformer(
                                   _interopRequireDefault,
-                                  new GCore.GTransform(1, 0, 0, -1, -s.getX(), -s.getY())
+                                  new GCore.GTransform(
+                                    1,
+                                    0,
+                                    0,
+                                    -1,
+                                    -GRichTooltipConfig.getX(),
+                                    -GRichTooltipConfig.getY()
+                                  )
                                 )
                               ),
                             ]
@@ -68814,7 +68945,7 @@ function (exports, module, require) {
                       .append(DataModule_1161('_bml'))
                   )
                   .gRichTooltip(
-                    s.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.miter-limit')
                       ),
@@ -68982,7 +69113,7 @@ function (exports, module, require) {
                           'border_change_autoscale',
                           $(this).prop('checked') ? 'enabled' : 'disabled'
                         ),
-                          i(['_bs'], [$(this).prop('checked')]));
+                          GEditor(['_bs'], [$(this).prop('checked')]));
                       })
                   )
                   .append(
@@ -69019,7 +69150,7 @@ function (exports, module, require) {
             }.bind(this)
           )
           .gRichTooltip(
-            s.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   'GBorderPaintLayerProperties',
@@ -69073,7 +69204,7 @@ function (exports, module, require) {
             );
           })
           .gRichTooltip(
-            s.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey(
                   'GBorderPaintLayerProperties',
@@ -69113,21 +69244,33 @@ function (exports, module, require) {
                         GCore.GRGBColor.BLACK,
                         t || GCore.GColor.ColorModes.RGB
                       );
-                    for (var i = 0; i < n._elements.length; ++i) {
-                      var GTools = n._elements[i],
-                        s = new GCore.GStylable.BorderPaintLayer();
+                    for (var GEditor = 0; GEditor < n._elements.length; ++GEditor) {
+                      var GTools = n._elements[GEditor],
+                        GRichTooltipConfig = new GCore.GStylable.BorderPaintLayer();
                       (GTools instanceof GCore.GText
-                        ? s.setProperty('_ba', GCore.GStylable.BorderAlignment.Outside)
+                        ? GRichTooltipConfig.setProperty(
+                            '_ba',
+                            GCore.GStylable.BorderAlignment.Outside
+                          )
                         : GTools instanceof GCore.GShape
                           ? GTools instanceof GCore.GEllipse &&
                             GTools.$etp === GCore.GEllipse.Type.Arc
-                            ? s.setProperty('_ba', GCore.GStylable.BorderAlignment.Center)
-                            : s.setProperty('_ba', GCore.GStylable.BorderAlignment.Inside)
+                            ? GRichTooltipConfig.setProperty(
+                                '_ba',
+                                GCore.GStylable.BorderAlignment.Center
+                              )
+                            : GRichTooltipConfig.setProperty(
+                                '_ba',
+                                GCore.GStylable.BorderAlignment.Inside
+                              )
                           : GTools instanceof GCore.GPath &&
                             !GTools.$closed &&
-                            s.setProperty('_ba', GCore.GStylable.BorderAlignment.Center),
-                        s.setProperty('_pt', _interopRequireDefault),
-                        GTools.getPaintLayers().appendChild(s));
+                            GRichTooltipConfig.setProperty(
+                              '_ba',
+                              GCore.GStylable.BorderAlignment.Center
+                            ),
+                        GRichTooltipConfig.setProperty('_pt', _interopRequireDefault),
+                        GTools.getPaintLayers().appendChild(GRichTooltipConfig));
                       const e = gDesigner
                         .getRightSidebars()
                         .getSidebar(GOutlineSidebar.default.SidebarsIds.GInspectorSidebar);
@@ -69143,7 +69286,7 @@ function (exports, module, require) {
             }.bind(this)
           )
           .gRichTooltip(
-            s.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GBorderPaintLayerProperties', 'text.add-border-tooltip-title')
               ),
@@ -69174,7 +69317,7 @@ function (exports, module, require) {
               var t = this._panel.find('.copy-info-overlay').eq(0),
                 n = this._panel.find('.border-block.g-selected') || null,
                 _interopRequireDefault = (n && n.position().top) || 0,
-                i = $('<span/>')
+                GEditor = $('<span/>')
                   .addClass('copy-info-overlay')
                   .css({ top: _interopRequireDefault })
                   .text(
@@ -69183,9 +69326,9 @@ function (exports, module, require) {
                     )
                   );
               (t && t.remove(),
-                this._panel.append(i),
+                this._panel.append(GEditor),
                 setTimeout(() => {
-                  i.animate({ opacity: 0, top: '+=20' }, 500, i.remove);
+                  GEditor.animate({ opacity: 0, top: '+=20' }, 500, GEditor.remove);
                 }, 1e3));
             }.bind(this)
           ),
@@ -69226,18 +69369,18 @@ function (exports, module, require) {
         (this._elements = []),
         e)
       ) {
-        for (var i = 0; i < t.length; ++i) {
-          var s = t[i],
+        for (var GEditor = 0; GEditor < t.length; ++GEditor) {
+          var GRichTooltipConfig = t[GEditor],
             GTouchTool = function (e, t) {
               t.hasMixin(GCore.GStylable) &&
                 t.getStylePropertySets().indexOf(GCore.GStylable.PropertySet.FillPaintLayers) >=
                   0 &&
                 this._elements.push(t);
             }.bind(this),
-            GEvent_type = GTools.GElementEditor.getEditor(s);
+            GEvent_type = GTools.GElementEditor.getEditor(GRichTooltipConfig);
           GEvent_type && GEvent_type.getStylableParts()
             ? GCore.GUtil.each(GEvent_type.getStylableParts(), GTouchTool)
-            : GTouchTool(null, s);
+            : GTouchTool(null, GRichTooltipConfig);
         }
         if (this._elements.length)
           return (
@@ -69312,13 +69455,13 @@ function (exports, module, require) {
         b = function (e) {
           if (GTouchTool) {
             var t = $(e).data('paintLayer');
-            if (t && (t !== GTouchTool || i.GPlatform.modifiers.shiftKey))
+            if (t && (t !== GTouchTool || GEditor.GPlatform.modifiers.shiftKey))
               return GTouchTool.getParent() === t.getParent();
           }
           return false;
         },
-        w = function (t, n, _interopRequireDefault, i) {
-          this._assign(e, t, n, _interopRequireDefault, i);
+        w = function (t, n, _interopRequireDefault, GEditor) {
+          this._assign(e, t, n, _interopRequireDefault, GEditor);
         }.bind(this),
         C = function (t) {
           if ('_pt' === t)
@@ -69355,29 +69498,29 @@ function (exports, module, require) {
                   n._document &&
                     (n._document.getEditor().resetHideSelection(), n._document.hasCDR()))
                 ) {
-                  var i = gPatternChooser.getPattern();
-                  !i ||
-                    i instanceof GCore.GRGBColor ||
+                  var GEditor = gPatternChooser.getPattern();
+                  !GEditor ||
+                    GEditor instanceof GCore.GRGBColor ||
                     GSystemDialog.showCDRUnsupportedObjectWarning();
                 }
                 n._chooserElem = null;
               })
-              .on('patternchange', function (e, t, n, _interopRequireDefault, i, GTools) {
+              .on('patternchange', function (e, t, n, _interopRequireDefault, GEditor, GTools) {
                 var GCore = ['_vs'],
-                  s = [true];
-                (undefined !== t && (GCore.push('_pt'), s.push(t)),
-                  'number' == typeof n && (GCore.push('_op'), s.push(n)));
+                  GRichTooltipConfig = [true];
+                (undefined !== t && (GCore.push('_pt'), GRichTooltipConfig.push(t)),
+                  'number' == typeof n && (GCore.push('_op'), GRichTooltipConfig.push(n)));
                 var GTouchTool = null;
-                (i &&
+                (GEditor &&
                   ((GTouchTool = { chooserOn: true }),
                   null != GTools && (GTouchTool.activeStopIdx = GTools)),
-                  w(GCore, s, _interopRequireDefault, GTouchTool));
+                  w(GCore, GRichTooltipConfig, _interopRequireDefault, GTouchTool));
               });
           if ('_bl' == t)
             return $('<select></select>')
               .gBlendMode()
               .gRichTooltip(
-                s.GRichTooltipConfig.from({
+                GRichTooltipConfig.GRichTooltipConfig.from({
                   title: GCore.GLocale.getValue(
                     'GAppearanceProperties',
                     'text.blend-tooltip-title'
@@ -69437,7 +69580,7 @@ function (exports, module, require) {
               })
               .gUnitBox({ minValue: 0, source: 'border' })
               .gRichTooltip(
-                s.GRichTooltipConfig.from({
+                GRichTooltipConfig.GRichTooltipConfig.from({
                   title: GCore.GLocale.get(
                     new GCore.GLocaleKey(
                       'GBorderPaintLayerProperties',
@@ -69501,13 +69644,13 @@ function (exports, module, require) {
           .on('dragstart', function (e) {
             if (!_interopRequireDefault) return (e.preventDefault(), void e.stopPropagation());
             var t = $(e.target).closest('.border-block'),
-              s = t.offset(),
+              GRichTooltipConfig = t.offset(),
               GOutlineSidebar = e.originalEvent;
             ((GEvent_type = window.gDragImage()).addClass('drag-delete gravit-icon-trash'),
               (GProperties = n._panel.offset()),
               (m = n._panel.outerHeight()),
-              (v = e.clientX - s.left),
-              (_ = e.clientY - s.top),
+              (v = e.clientX - GRichTooltipConfig.left),
+              (_ = e.clientY - GRichTooltipConfig.top),
               GOutlineSidebar.stopPropagation(),
               (GTouchTool = t.data('paintLayer')),
               (GOutlineSidebar.dataTransfer.effectAllowed = 'move'),
@@ -69548,26 +69691,26 @@ function (exports, module, require) {
                         GTouchTool && t && GTouchTool.getParent() === t.getParent())
                       ) {
                         var _interopRequireDefault = GTouchTool.getParent(),
-                          s = _interopRequireDefault.getIndexOfChild(GTouchTool),
+                          GRichTooltipConfig = _interopRequireDefault.getIndexOfChild(GTouchTool),
                           GEvent_type = _interopRequireDefault.getIndexOfChild(t);
                         (GTools.GEditor.tryRunTransaction(
                           _interopRequireDefault,
                           function () {
-                            if (i.GPlatform.modifiers.shiftKey) {
+                            if (GEditor.GPlatform.modifiers.shiftKey) {
                               var e = GTouchTool.clone();
                               _interopRequireDefault.insertChild(
                                 e,
-                                s < GEvent_type ? t.getNext() : t
+                                GRichTooltipConfig < GEvent_type ? t.getNext() : t
                               );
                             } else
-                              s !== GEvent_type &&
+                              GRichTooltipConfig !== GEvent_type &&
                                 (_interopRequireDefault.removeChild(GTouchTool),
                                 _interopRequireDefault.insertChild(
                                   GTouchTool,
-                                  s < GEvent_type ? t.getNext() : t
+                                  GRichTooltipConfig < GEvent_type ? t.getNext() : t
                                 ));
                           },
-                          i.GPlatform.modifiers.shiftKey
+                          GEditor.GPlatform.modifiers.shiftKey
                             ? GCore.GLocale.get(
                                 new GCore.GLocaleKey(
                                   'GBorderPaintLayerProperties',
@@ -69612,15 +69755,15 @@ function (exports, module, require) {
                 _interopRequireDefault &&
                 GTouchTool.getParent() === _interopRequireDefault.getParent())
             ) {
-              var s = GTouchTool.getParent(),
-                DataModule_1161 = s.getIndexOfChild(GTouchTool),
-                p = s.getIndexOfChild(_interopRequireDefault);
+              var GRichTooltipConfig = GTouchTool.getParent(),
+                DataModule_1161 = GRichTooltipConfig.getIndexOfChild(GTouchTool),
+                p = GRichTooltipConfig.getIndexOfChild(_interopRequireDefault);
               (GTools.GEditor.tryRunTransaction(
-                s,
+                GRichTooltipConfig,
                 function () {
-                  if (i.GPlatform.modifiers.shiftKey) {
+                  if (GEditor.GPlatform.modifiers.shiftKey) {
                     var e = GTouchTool.clone();
-                    s.insertChild(
+                    GRichTooltipConfig.insertChild(
                       e,
                       DataModule_1161 < p
                         ? _interopRequireDefault.getNext()
@@ -69628,15 +69771,15 @@ function (exports, module, require) {
                     );
                   } else
                     DataModule_1161 !== p &&
-                      (s.removeChild(GTouchTool),
-                      s.insertChild(
+                      (GRichTooltipConfig.removeChild(GTouchTool),
+                      GRichTooltipConfig.insertChild(
                         GTouchTool,
                         DataModule_1161 < p
                           ? _interopRequireDefault.getNext()
                           : _interopRequireDefault.getPrevious()
                       ));
                 },
-                i.GPlatform.modifiers.shiftKey
+                GEditor.GPlatform.modifiers.shiftKey
                   ? GCore.GLocale.get(
                       new GCore.GLocaleKey('GFillPaintLayerProperties', 'action.duplicate')
                     )
@@ -69770,14 +69913,14 @@ function (exports, module, require) {
       var n = this;
       e &&
         (this._panel.find('.border-block').each(function (t, _interopRequireDefault) {
-          var i = $(_interopRequireDefault);
-          if (i.data('paintLayer') === e) {
-            i.find('[data-property="_pt"]')
+          var GEditor = $(_interopRequireDefault);
+          if (GEditor.data('paintLayer') === e) {
+            GEditor.find('[data-property="_pt"]')
               .gPatternChooser('setPattern', e.getProperty('_pt', false, false, true))
               .gPatternChooser('value', e.getProperty('_pt', false, false, true))
               .gPatternChooser('opacity', e.getProperty('_op', false, false, true));
             var GTools = n._getProperty(e, '_bw', false, null);
-            (i.find('[data-property="_bw"]').each(function (e, t) {
+            (GEditor.find('[data-property="_bw"]').each(function (e, t) {
               $(t)
                 .gUnitBox({
                   unit:
@@ -69791,17 +69934,17 @@ function (exports, module, require) {
                   null !== GTools ? new GCore.GLength(GTools, GCore.GLength.Unit.PX) : null
                 );
             }),
-              i.find('[data-property="_op"]').each(function (t, n) {
+              GEditor.find('[data-property="_op"]').each(function (t, n) {
                 $(n).gInputBox(
                   'value',
                   GCore.GUtil.formatOpacity(100 * e.getProperty('_op', false, false, true))
                 );
               }),
-              i.find('[data-property="_bl"]').val(e.getProperty('_bl')));
-            var s = e.getProperty('_vs');
-            i.find('[data-property="_vs"]')
-              .removeClass('gravit-icon-' + (s ? 'hide' : 'display'))
-              .addClass('gravit-icon-' + (s ? 'display' : 'hide'));
+              GEditor.find('[data-property="_bl"]').val(e.getProperty('_bl')));
+            var GRichTooltipConfig = e.getProperty('_vs');
+            GEditor.find('[data-property="_vs"]')
+              .removeClass('gravit-icon-' + (GRichTooltipConfig ? 'hide' : 'display'))
+              .addClass('gravit-icon-' + (GRichTooltipConfig ? 'display' : 'hide'));
           }
         }),
         this._updateAdvancedSettings(),
@@ -69815,31 +69958,31 @@ function (exports, module, require) {
             .find('.preview')
             .trigger('click', null != t.activeStopIdx ? t.activeStopIdx : null));
     }),
-    (v.prototype._assign = function (e, t, n, _interopRequireDefault, i) {
+    (v.prototype._assign = function (e, t, n, _interopRequireDefault, GEditor) {
       if (_interopRequireDefault)
         this._iterateEqualPaintLayer(e, function (e) {
           e.setProperties(t, n, false, false, true);
         });
       else if (this._document) {
-        var s = null;
-        if (i) {
+        var GRichTooltipConfig = null;
+        if (GEditor) {
           var GTouchTool = e.getParent().getIndexOfChild(e);
-          s = $.extend({ borderLayerIndex: GTouchTool }, i);
+          GRichTooltipConfig = $.extend({ borderLayerIndex: GTouchTool }, GEditor);
         }
         this._ownChange = true;
         var GEvent_type = this._document.getEditor();
         GEvent_type.beginTransaction();
         try {
           this._iterateEqualPaintLayer(e, function (e, _interopRequireDefault) {
-            var i = GTools.GElementEditor.getEditor(_interopRequireDefault);
-            (i && i.applyPropertiesToParts(t, n)) || e.setProperties(t, n);
+            var GEditor = GTools.GElementEditor.getEditor(_interopRequireDefault);
+            (GEditor && GEditor.applyPropertiesToParts(t, n)) || e.setProperties(t, n);
           });
         } finally {
           (GEvent_type.commitTransaction(
             GCore.GLocale.get(
               new GCore.GLocaleKey('GBorderPaintLayerProperties', 'action.change-border-properties')
             ),
-            s
+            GRichTooltipConfig
           ),
             (this._ownChange = false));
         }
@@ -69889,14 +70032,14 @@ function (exports, module, require) {
             _interopRequireDefault
               .find('[data-property^="_ba"]')
               .each(function (n, _interopRequireDefault) {
-                var i = $(_interopRequireDefault),
-                  GTools = i.attr('data-property').substr('_ba-'.length);
+                var GEditor = $(_interopRequireDefault),
+                  GTools = GEditor.attr('data-property').substr('_ba-'.length);
                 if (
                   GTools === GCore.GStylable.BorderAlignment.Inside ||
                   GTools === GCore.GStylable.BorderAlignment.Outside
                 ) {
                   for (
-                    var s,
+                    var GRichTooltipConfig,
                       GTouchTool,
                       GEvent_type = false,
                       GOutlineSidebar = false,
@@ -69923,8 +70066,8 @@ function (exports, module, require) {
                         new GCore.GLocaleKey('GStylable', 'border-alignment.outside')
                       );
                   }
-                  (GEvent_type ? i.attr('disabled', true) : i.attr('disabled', false),
-                    (s =
+                  (GEvent_type ? GEditor.attr('disabled', true) : GEditor.attr('disabled', false),
+                    (GRichTooltipConfig =
                       GEvent_type && GOutlineSidebar
                         ? GCore.GLocale.get(
                             new GCore.GLocaleKey(
@@ -69935,37 +70078,39 @@ function (exports, module, require) {
                           ': ' +
                           GTouchTool
                         : GTouchTool),
-                    i.attr('data-title', s));
+                    GEditor.attr('data-title', GRichTooltipConfig));
                 }
-                i.toggleClass('g-active', e._getProperty(t, '_ba', true) === GTools);
+                GEditor.toggleClass('g-active', e._getProperty(t, '_ba', true) === GTools);
               }),
             _interopRequireDefault
               .find('[data-property^="_blc"]')
               .each(function (n, _interopRequireDefault) {
-                var i = $(_interopRequireDefault),
-                  GTools = i.attr('data-property').substr('_blc-'.length);
-                i.toggleClass('g-active', e._getProperty(t, '_blc', true) === GTools);
+                var GEditor = $(_interopRequireDefault),
+                  GTools = GEditor.attr('data-property').substr('_blc-'.length);
+                GEditor.toggleClass('g-active', e._getProperty(t, '_blc', true) === GTools);
               }),
             _interopRequireDefault
               .find('[data-property^="_blj"]')
               .each(function (n, _interopRequireDefault) {
-                var i = $(_interopRequireDefault),
-                  GTools = i.attr('data-property').substr('_blj-'.length);
-                i.toggleClass('g-active', e._getProperty(t, '_blj', true) === GTools);
+                var GEditor = $(_interopRequireDefault),
+                  GTools = GEditor.attr('data-property').substr('_blj-'.length);
+                GEditor.toggleClass('g-active', e._getProperty(t, '_blj', true) === GTools);
               }));
-          var i = _interopRequireDefault.find('[data-property="_bml"]');
-          (i.gInputBox('value', GCore.GUtil.formatNumber(this._getProperty(t, '_bml', true))),
+          var GEditor = _interopRequireDefault.find('[data-property="_bml"]');
+          (GEditor.gInputBox('value', GCore.GUtil.formatNumber(this._getProperty(t, '_bml', true))),
             this._getProperty(t, '_blj') !== GCore.GPaintCanvas.LineJoin.Miter
-              ? i.attr('disabled', true)
-              : i.removeAttr('disabled'));
+              ? GEditor.attr('disabled', true)
+              : GEditor.removeAttr('disabled'));
           var GTools = this._getProperty(t, '_bhm', false, null);
           _interopRequireDefault
             .find('[data-property="_bhm"]')
             .val(GTools instanceof GCore.GVertexContainer ? '#' : GTools || '');
-          var s = this._getProperty(t, '_btm', false, null);
+          var GRichTooltipConfig = this._getProperty(t, '_btm', false, null);
           (_interopRequireDefault
             .find('[data-property="_btm"]')
-            .val(s instanceof GCore.GVertexContainer ? '#' : s || ''),
+            .val(
+              GRichTooltipConfig instanceof GCore.GVertexContainer ? '#' : GRichTooltipConfig || ''
+            ),
             _interopRequireDefault
               .find('[data-property="_bhms"]')
               .gInputBox(
@@ -70020,12 +70165,12 @@ function (exports, module, require) {
           _interopRequireDefault < this._elements.length;
           ++_interopRequireDefault
         ) {
-          var i = this._elements[_interopRequireDefault].getPaintLayers().getBorderLayers();
+          var GEditor = this._elements[_interopRequireDefault].getPaintLayers().getBorderLayers();
           GCore.GUtil.each(
-            i,
-            function (i, GTools) {
+            GEditor,
+            function (GEditor, GTools) {
               ((GTools && GTools === e) ||
-                (GTools.constructor === e.constructor && i === require)) &&
+                (GTools.constructor === e.constructor && GEditor === require)) &&
                 t(GTools, this._elements[_interopRequireDefault]);
             }.bind(this)
           );
@@ -70529,7 +70674,7 @@ function (exports, module, require) {
     require(34)) /* polyfill_String_replace */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(198) /* Exports_GOutlineSidebar */,
+    GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
     GAnnotationsSidebar = require(567) /* GAnnotationsSidebar */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
@@ -70561,9 +70706,9 @@ function (exports, module, require) {
     }),
     (d.prototype.getShortcut = function () {
       switch (this._sidebar.getId()) {
-        case a.SidebarsIds.GOutlineSidebar:
+        case GOutlineSidebar.SidebarsIds.GOutlineSidebar:
           return [GEditor.GKey.Constant.OPTION, '1'];
-        case a.SidebarsIds.GInspectorSidebar:
+        case GOutlineSidebar.SidebarsIds.GInspectorSidebar:
           return [GEditor.GKey.Constant.OPTION, '2'];
         default:
           return null;
@@ -70606,12 +70751,12 @@ function (exports, module, require) {
     require(34)) /* polyfill_String_replace */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l() {
     l.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GUndoAction', 'tooltip-title')),
         description: GCore.GLocale.get(new GCore.GLocaleKey('GUndoAction', 'tooltip-description')),
         shortcut: l.SHORTCUT,
@@ -71975,7 +72120,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GSystem = require(176) /* GSystem */,
     GObject = require(0) /* GObject */,
-    a = require(237); /* Item */
+    Item = require(237); /* Item */
   const { GRegex: r } = require(263); /* Exports_GRegex */
   var FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
     l = false,
@@ -71992,11 +72137,11 @@ function (exports, module, require) {
         if ('granted' !== e) throw new Error('Cannot get write access');
       });
   }
-  (GObject.inherit(u, a),
+  (GObject.inherit(u, Item),
     (u.Directory = function (e, t) {
-      (a.Directory.call(this, e), (this._dirHandle = t), (this._id = null));
+      (Item.Directory.call(this, e), (this._dirHandle = t), (this._id = null));
     }),
-    GObject.inherit(u.Directory, a.Directory),
+    GObject.inherit(u.Directory, Item.Directory),
     (u.Directory.prototype._dirHandle = null),
     (u.Directory.prototype._id = null),
     (u.Directory.prototype.getUniqueId = function () {
@@ -72027,9 +72172,12 @@ function (exports, module, require) {
       }
     }),
     (u.Item = function (e, t, n, GSystem) {
-      (a.Item.call(this, e), (this._data = t), (this._filename = n), (this._fileHandle = GSystem));
+      (Item.Item.call(this, e),
+        (this._data = t),
+        (this._filename = n),
+        (this._fileHandle = GSystem));
     }),
-    GObject.inherit(u.Item, a.Item),
+    GObject.inherit(u.Item, Item.Item),
     (u.Item.prototype._data = null),
     (u.Item.prototype._filename = null),
     (u.Item.prototype._fileHandle = null),
@@ -72094,23 +72242,23 @@ function (exports, module, require) {
       if (!this._hasFileAPI() || !this.canChooseDirectory()) return;
       var GSystem = { type: d || 'open-directory' };
       let GObject = null;
-      var a = false;
+      var Item = false;
       window
         .chooseFileSystemEntries(GSystem)
         .then((e) => ((GObject = e), p(e)))
         .then(() => {
           let t = e(new u.Directory(this, GObject));
-          return ((a = true), t);
+          return ((Item = true), t);
         })
         .catch((e) => {
           if (e instanceof DOMException && 'SecurityError' === e.name) {
             if (((l = true), n)) return void n();
-          } else !a && !d && e instanceof TypeError && (d = 'openDirectory');
+          } else !Item && !d && e instanceof TypeError && (d = 'openDirectory');
           t && t();
         });
     }),
     (u.prototype.openPrompt = function (e, t, n) {
-      let { disableFileSystemAccessAPI: GObject = false, silent: a = false } =
+      let { disableFileSystemAccessAPI: GObject = false, silent: Item = false } =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
       if (!GObject && this._hasFileAPI()) {
         var r = { multiple: !!n };
@@ -72181,7 +72329,7 @@ function (exports, module, require) {
           : this._fileInput.removeAttribute('accept'),
         (this._fileInputCallback = t),
         this._fileInput.focus(),
-        a || this._fileInput.click());
+        Item || this._fileInput.click());
     }),
     (u.prototype.savePrompt = function (e, t, n, GSystem) {
       if (this._hasFileAPI()) {
@@ -72190,14 +72338,14 @@ function (exports, module, require) {
           ((GObject.suggestedName = e),
           (GObject.excludeAcceptAllOption = true),
           (GObject.types = [this._prepareDialogTypes(t, true)]));
-        var a = false;
+        var Item = false;
         window
           .showSaveFilePicker(GObject)
-          .then((e) => ((a = true), n(new u.Item(this, null, e.name, e))))
+          .then((e) => ((Item = true), n(new u.Item(this, null, e.name, e))))
           .catch((t) => {
             if (
-              (!a && !c && t instanceof TypeError && (c = 'saveFile'),
-              !a && t.code !== DOMException.ABORT_ERR)
+              (!Item && !c && t instanceof TypeError && (c = 'saveFile'),
+              !Item && t.code !== DOMException.ABORT_ERR)
             )
               return this.download(e, n);
             GSystem && GSystem();
@@ -72208,21 +72356,21 @@ function (exports, module, require) {
       let module = arguments.length > 1 && undefined !== arguments[1] && arguments[1];
       const require = {};
       let GSystem = '';
-      for (let GObject = 0, a = e.length; GObject < a; GObject++) {
-        let { mime: a, ext: r } = e[GObject];
-        a && r
-          ? (module && 'jpg' === r && (a = 'x-really-an-image/jpeg'),
-            undefined !== require[a]
-              ? (Array.isArray(require[a]) || (require[a] = [require[a]]),
-                require[a].push(r.startsWith('.') ? r : '.'.concat(r)),
+      for (let GObject = 0, Item = e.length; GObject < Item; GObject++) {
+        let { mime: Item, ext: r } = e[GObject];
+        Item && r
+          ? (module && 'jpg' === r && (Item = 'x-really-an-image/jpeg'),
+            undefined !== require[Item]
+              ? (Array.isArray(require[Item]) || (require[Item] = [require[Item]]),
+                require[Item].push(r.startsWith('.') ? r : '.'.concat(r)),
                 GSystem && (GSystem += ', '),
                 (GSystem += '*' + (r.startsWith('.') ? r : '.'.concat(r))))
-              : ((require[a] = r.startsWith('.') ? r : '.'.concat(r)),
+              : ((require[Item] = r.startsWith('.') ? r : '.'.concat(r)),
                 GSystem && (GSystem += ', '),
                 (GSystem += '*' + (r.startsWith('.') ? r : '.'.concat(r)))))
           : console.warn(
               'openPrompt warning: no mime or ext. given mime: "'
-                .concat(a, '", given ext: "')
+                .concat(Item, '", given ext: "')
                 .concat(r, '"')
             );
       }
@@ -75037,7 +75185,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   (Object.defineProperty(module, '__esModule', { value: true }),
     (module.shouldShowExternalFileError = function (e) {
-      return e instanceof s.Item && !e.hasFileSettings();
+      return e instanceof Item.Item && !e.hasFileSettings();
     }),
     (module.updateSaveOptions = function (e, t, n) {
       if (n.getFullName()) {
@@ -75064,7 +75212,7 @@ function (exports, module, require) {
   var CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
     r = _interopRequireDefault(require(1248) /* module_1248 */);
-  const s = require(388); /* Item */
+  const Item = require(388); /* Item */
 }
 ,
 function (exports, module, require) {
@@ -75282,7 +75430,7 @@ function (exports, module, require) {
     i = require(797) /* module */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
-    s = require(237) /* Item */,
+    Item = require(237) /* Item */,
     l = require(163) /* GDocument */,
     DataModule_442 = require(442); /* DataModule_442 */
   const GDocument_389 = require(389); /* GDocument_389 */
@@ -75298,7 +75446,7 @@ function (exports, module, require) {
         (i = e.getChildren().filter((e) => e instanceof GCore.GPage && e.isVisible()));
       var CollaborationMergeUtils = [],
         AppSettings = {};
-      function s(e) {
+      function Item(e) {
         var t = e.getProperty('name');
         if (!t) {
           var n = GCore.GObject.getTypeId(e);
@@ -75313,13 +75461,13 @@ function (exports, module, require) {
           CollaborationMergeUtils.push(
             GCore.GUtil.extend({}, t, {
               element: e,
-              name: 1 === i.length && t.name ? t.name : s(e),
+              name: 1 === i.length && t.name ? t.name : Item(e),
             })
           );
         else if (e.hasMixin(GCore.GNode.Properties)) {
           var AppSettings = e.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
           if (AppSettings && AppSettings instanceof Array && AppSettings.length)
-            for (var GDocument_389 = s(e), u = 0; u < AppSettings.length; ++u) {
+            for (var GDocument_389 = Item(e), u = 0; u < AppSettings.length; ++u) {
               var p = AppSettings[u];
               p.fm &&
                 CollaborationMergeUtils.push(
@@ -75349,7 +75497,7 @@ function (exports, module, require) {
       const exports = gDesigner.getActiveDocument();
       return !exports || !exports.isCommercialProductFile() || (exports.openPaywall(), false);
     }),
-    (u.exportExportable = function (e, t, n, s) {
+    (u.exportExportable = function (e, t, n, Item) {
       if (this._validateCommercialDocument()) {
         var l = e.element,
           DataModule_442 = e.format;
@@ -75428,12 +75576,15 @@ function (exports, module, require) {
                 p,
                 function (e, n) {
                   (!e && n && t(new Blob([n], { type: GDocument_389.PDF.mime })),
-                    s && (g.isAbort() ? s.close && s.close() : e && s.error && s.error(e)));
+                    Item &&
+                      (g.isAbort()
+                        ? Item.close && Item.close()
+                        : e && Item.error && Item.error(e)));
                 },
                 null,
-                s
+                Item
               );
-            s && (s.abort = () => g && g.abort());
+            Item && (Item.abort = () => g && g.abort());
           });
         }
       }
@@ -75452,7 +75603,11 @@ function (exports, module, require) {
     }),
     (u.exportToDirectory = async function (e, t, n, i) {
       if (this._validateCommercialDocument())
-        for (var CollaborationMergeUtils = {}, AppSettings = 0, s = [], l = 0; l < e.length; ++l) {
+        for (
+          var CollaborationMergeUtils = {}, AppSettings = 0, Item = [], l = 0;
+          l < e.length;
+          ++l
+        ) {
           var DataModule_442 = null,
             GDocument_389 = t;
           if ((DataModule_442 = e[l].name)) {
@@ -75507,7 +75662,7 @@ function (exports, module, require) {
                       }
                     else ++AppSettings === e.length && n && n();
                   };
-                })(GDocument_389, u.generateExportName(e[l], DataModule_442, s)),
+                })(GDocument_389, u.generateExportName(e[l], DataModule_442, Item)),
                 i
               );
           }
@@ -75534,9 +75689,9 @@ function (exports, module, require) {
               GCore.readAsArrayBuffer(e));
           },
           m = (e, n, GCore, i, AppSettings, l) => {
-            t instanceof s.Item
+            t instanceof Item.Item
               ? f(e, t, GCore)
-              : t instanceof s &&
+              : t instanceof Item &&
                 (!AppSettings && t.canPromptSave()
                   ? t.savePrompt(
                       n,
@@ -75568,7 +75723,7 @@ function (exports, module, require) {
               (y.element = e.map((e) => e.element)))),
           v)
         )
-          if (t instanceof s && t.canChooseDirectory())
+          if (t instanceof Item && t.canChooseDirectory())
             t.chooseDirectory(
               (t) => {
                 u.exportToDirectory(e, t, i, DataModule_442);
@@ -75605,7 +75760,8 @@ function (exports, module, require) {
           u.exportExportable(
             y,
             function (e) {
-              const n = t instanceof s && t.canDownload() && _ && _.ext === GDocument_389.PDF.ext;
+              const n =
+                t instanceof Item && t.canDownload() && _ && _.ext === GDocument_389.PDF.ext;
               m(e, u.generateExportName(y), i, _, n, h);
             },
             DataModule_442,
@@ -75614,11 +75770,11 @@ function (exports, module, require) {
       }
     }),
     (u.ZipDirectory = function (e, t) {
-      (s.Directory.call(this, e),
+      (Item.Directory.call(this, e),
         (this._zipRoot = t ? null : new zip.fs.FS()),
         (this._zipDirectory = t || this._zipRoot.root));
     }),
-    GCore.GObject.inherit(u.ZipDirectory, s.Directory),
+    GCore.GObject.inherit(u.ZipDirectory, Item.Directory),
     (u.ZipDirectory.prototype.addDirectory = async function (e) {
       return new u.ZipDirectory(this._storage, this._zipDirectory.addDirectory(e));
     }),
@@ -75719,7 +75875,7 @@ function (exports, module, require) {
     a = _interopRequireDefault(require(86) /* module_86 */),
     GFitAllAction = _interopRequireDefault(require(449) /* GFitAllAction */),
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
-    l = _interopRequireDefault(require(237) /* Item */),
+    Item = _interopRequireDefault(require(237) /* Item */),
     GCore = require(1); /* GCore */
   exports.exports = class {
     static handleOpenFileRequest(e, t) {
@@ -75740,7 +75896,7 @@ function (exports, module, require) {
           if (
             (d !== GContainer.default.OpenFileRequest.Type.Preset &&
               gDesigner.addEventListener(GDocumentEvent.default, n),
-            t instanceof l.default.Item)
+            t instanceof Item.default.Item)
           ) {
             if (
               (e.setStorageItem(t),
@@ -75825,30 +75981,31 @@ function (exports, module, require) {
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
     GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
-    c = _interopRequireDefault(require(219) /* GLocale */),
+    GLocale = _interopRequireDefault(require(219) /* GLocale */),
     GOfflineDialog = _interopRequireDefault(require(256) /* GOfflineDialog */),
-    u = require(67); /* GRichTooltipConfig */
+    GRichTooltipConfig = require(67); /* GRichTooltipConfig */
   function p() {
     ((this._title = new GCore.GLocaleKey('GVersionsHistoryAction', 'title')),
       (p.TOOLTIP_CONFIG = {
-        [u.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: u.GRichTooltipConfig.from({
-          title: GCore.GLocale.get(
-            new GCore.GLocaleKey(
-              'GVersionsHistoryAction',
-              'text.try-this-feature-pro-tooltip-title'
-            )
-          ),
-          description: GCore.GLocale.get(
-            new GCore.GLocaleKey(
-              'GVersionsHistoryAction',
-              'text.try-this-feature-pro-tooltip-description'
-            )
-          ),
-          learnMore: '',
-          upgradeToProStatsValue: 'gravit-versions-history',
-          middle: false,
-          side: true,
-        }),
+        [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]:
+          GRichTooltipConfig.GRichTooltipConfig.from({
+            title: GCore.GLocale.get(
+              new GCore.GLocaleKey(
+                'GVersionsHistoryAction',
+                'text.try-this-feature-pro-tooltip-title'
+              )
+            ),
+            description: GCore.GLocale.get(
+              new GCore.GLocaleKey(
+                'GVersionsHistoryAction',
+                'text.try-this-feature-pro-tooltip-description'
+              )
+            ),
+            learnMore: '',
+            upgradeToProStatsValue: 'gravit-versions-history',
+            middle: false,
+            side: true,
+          }),
       }));
   }
   (GCore.GObject.inherit(p, GAction.default),
@@ -75866,7 +76023,7 @@ function (exports, module, require) {
       return true;
     }),
     (p.prototype.getTooltipArea = function () {
-      return u.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+      return GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
     }),
     (p.prototype.getTooltipConfig = function (e) {
       return (e && p.TOOLTIP_CONFIG[e]) || null;
@@ -75892,7 +76049,7 @@ function (exports, module, require) {
     (p.prototype.execute = function () {
       if (gDesigner.getWindows().getActiveWindow().getDocument().isModified())
         return (
-          new c.default(
+          new GLocale.default(
             GCore.GLocale.get(
               new GCore.GLocaleKey('GVersionsHistoryAction', 'unsaved-modifications')
             )
@@ -76398,14 +76555,14 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
-    l = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     DataModule_442 = _interopRequireDefault(require(442) /* DataModule_442 */),
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
     p = require(86) /* module_86 */,
-    g = require(603) /* WindowEvent */,
+    WindowEvent = require(603) /* WindowEvent */,
     GFitAllAction = require(449) /* GFitAllAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GSidebar = require(806) /* GSidebar */,
@@ -76549,7 +76706,7 @@ function (exports, module, require) {
           .append($('<div></div>'))
           .appendTo(this._pageToolbar)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GOutlineSidebar', 'text.multipage-tooltip-title')
               ),
@@ -76579,7 +76736,7 @@ function (exports, module, require) {
           .append($('<span></span>').addClass('gravit-icon-trash'))
           .appendTo(this._pageToolbar)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GOutlineSidebar', 'text.delete-page-tooltip-title')
               ),
@@ -76605,7 +76762,7 @@ function (exports, module, require) {
           .append($('<span></span>').addClass('gravit-icon-addpage'))
           .appendTo(this._pageToolbar)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GOutlineSidebar', 'text.create-new-page-tooltip-title')
               ),
@@ -76658,11 +76815,11 @@ function (exports, module, require) {
           clickCallback: this._clickPageTreeNodeCallback.bind(this),
           startDraggingCallback: this._startPageDraggingCallback.bind(this),
         }));
-      var r = false,
+      var GEditor = false,
         GTouchTool = $('<div/>').attr('id', 'page-layer-divider'),
         DataModule_442 = function (e) {
           var GTools;
-          r &&
+          GEditor &&
             ((GTools = n - t + e.clientY) < this._pageContainerMinHeight &&
               (GTools = this._pageContainerMinHeight),
             GTools > this._pageContainerMaxHeight && (GTools = this._pageContainerMaxHeight),
@@ -76671,14 +76828,14 @@ function (exports, module, require) {
         GDocumentStatusEvent = function () {
           ($(document).off('mousemove', DataModule_442),
             $(document).off('mouseup', GDocumentStatusEvent),
-            (r = false),
+            (GEditor = false),
             (t = null),
             (n = null),
             e.removeClass('page-container-resizing'));
         },
         p = function (GTools) {
           ((t = GTools.clientY),
-            (r = true),
+            (GEditor = true),
             (n = parseInt(_interopRequireDefault.css('height'), 10)),
             e.addClass('page-container-resizing'),
             $(document).on('mousemove', DataModule_442),
@@ -76811,7 +76968,7 @@ function (exports, module, require) {
           .append($('<span></span>').addClass('gravit-icon-trash'))
           .appendTo(this._layerToolbar)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GOutlineSidebar', 'text.delete-layer-tooltip-title')
               ),
@@ -76830,7 +76987,7 @@ function (exports, module, require) {
           .append($('<span></span>').addClass('gravit-icon-addlayer'))
           .appendTo(this._layerToolbar)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GOutlineSidebar', 'text.new-layer-tooltip-title')
               ),
@@ -76874,7 +77031,7 @@ function (exports, module, require) {
                 this._document.getEditor().clearSelection());
               var e = this._document.getScene();
               (e && e.setActiveLayer(null),
-                r.GPlatform.modifiers.optionKey &&
+                GEditor.GPlatform.modifiers.optionKey &&
                   gDesigner.executeAction(GFitAllAction.ID, undefined, 'outlinesidebar'));
             }.bind(this)
           )
@@ -76918,7 +77075,9 @@ function (exports, module, require) {
           this._document.getStatus() === p.Ready || this._document.getStatus() === p.Loaded
             ? this._document.getActiveWindow()
               ? this._updateMultiPageMode()
-              : gDesigner.getWindows().addEventListener(g.WindowEvent, this._windowsEvent, this)
+              : gDesigner
+                  .getWindows()
+                  .addEventListener(WindowEvent.WindowEvent, this._windowsEvent, this)
             : this._document.addEventListener(
                 GDocumentStatusEvent,
                 this._documentStatusEvent,
@@ -76945,7 +77104,9 @@ function (exports, module, require) {
           gDesigner
             .getToolManager()
             .removeEventListener(GTools.GToolManager.ToolChangedEvent, this._updateExport, this),
-          gDesigner.getWindows().removeEventListener(g.WindowEvent, this._windowsEvent, this),
+          gDesigner
+            .getWindows()
+            .removeEventListener(WindowEvent.WindowEvent, this._windowsEvent, this),
           n.removeEventListener(GTools.GEditor.SelectionChangedEvent, this._updateExport, this),
           t.removeEventListener(GCore.GNode.AfterFlagChangeEvent, this._afterFlagChangeEvent, this),
           t.removeEventListener(
@@ -76966,9 +77127,11 @@ function (exports, module, require) {
         this._document.removeEventListener(GDocumentStatusEvent, this._documentStatusEvent, this));
     }),
     (x.prototype._windowsEvent = function (e) {
-      e.type === g.WindowEvent.Type.Activated &&
+      e.type === WindowEvent.WindowEvent.Type.Activated &&
         (this._updateMultiPageMode(),
-        gDesigner.getWindows().removeEventListener(g.WindowEvent, this._windowsEvent, this));
+        gDesigner
+          .getWindows()
+          .removeEventListener(WindowEvent.WindowEvent, this._windowsEvent, this));
     }),
     (x.prototype._isMultiPageModeEnabled = function () {
       const exports = this._document
@@ -77032,18 +77195,20 @@ function (exports, module, require) {
       if (!this.isEnabled()) return (e.attr('data-title', ''), void e.prop('disabled', true));
       e.prop('disabled', false);
       var GTools = this._document.getActiveWindow(),
-        r = GTools.getView();
+        GEditor = GTools.getView();
       (_interopRequireDefault ||
         (e.is(':checked') && e.prop('checked', false),
         module &&
           GSystemDialog.alert(
             GCore.GLocale.get(new GCore.GLocaleKey('GOutlineSidebar', 'text.multipage-alert'))
           ),
-        r.getViewConfiguration().multiPageView || r.getViewConfiguration().pageLabelsVisible)) &&
-        ((r.getViewConfiguration().multiPageView = e.is(':checked')),
-        (r.getViewConfiguration().pageLabelsVisible = e.is(':checked')),
+        GEditor.getViewConfiguration().multiPageView ||
+          GEditor.getViewConfiguration().pageLabelsVisible)) &&
+        ((GEditor.getViewConfiguration().multiPageView = e.is(':checked')),
+        (GEditor.getViewConfiguration().pageLabelsVisible = e.is(':checked')),
         require ||
-          (r.invalidate(null, true), module && (GTools.centerAndZoom(), this._refreshSelection())));
+          (GEditor.invalidate(null, true),
+          module && (GTools.centerAndZoom(), this._refreshSelection())));
     }),
     (x.prototype._deletePage = function () {
       gDesigner.stats('pages_delete_page');
@@ -77088,12 +77253,12 @@ function (exports, module, require) {
         _interopRequireDefault = t.getActivePage(),
         GCore = null;
       if (e.hasSelection()) {
-        var r = e.getSelection();
+        var GEditor = e.getSelection();
         n
           ? e.updateSelection(false, [_interopRequireDefault])
-          : (GCore = r.filter(function (e) {
+          : (GCore = GEditor.filter(function (e) {
               return GTools.GEditor.getElementPage(e) === _interopRequireDefault;
-            })).length !== r.length && e.updateSelection(false, GCore);
+            })).length !== GEditor.length && e.updateSelection(false, GCore);
       } else n && e.updateSelection(false, [_interopRequireDefault]);
     }),
     (x.prototype._movePageTreeNodeCallback = function (e, t, n) {
@@ -77167,13 +77332,13 @@ function (exports, module, require) {
       if (t.getViewConfiguration().multiPageView) {
         var require = e.getTransform(),
           _interopRequireDefault = e.getGeometryBBox();
-        r = require.mapRect(_interopRequireDefault).getSide(GCore.GRect.Side.CENTER);
-        t.zoomAtCenter(r);
+        GEditor = require.mapRect(_interopRequireDefault).getSide(GCore.GRect.Side.CENTER);
+        t.zoomAtCenter(GEditor);
       } else if (this._document.hasCDR()) {
         var GTools = e.getContentBBox();
         if (GTools && !GTools.isEmpty()) {
-          var r = GTools.getSide(GCore.GRect.Side.CENTER);
-          t.zoomAtCenter(r);
+          var GEditor = GTools.getSide(GCore.GRect.Side.CENTER);
+          t.zoomAtCenter(GEditor);
         }
       }
     }),
@@ -77202,16 +77367,16 @@ function (exports, module, require) {
             _interopRequireDefault = (require && require.getSelection()) || [];
           let GTools = exports.getActivePage();
           GTools || ((GTools = exports.insertPage()), GTools.setFlag(GCore.GNode.Flag.Active));
-          const r = this.createLayer(),
+          const GEditor = this.createLayer(),
             GTouchTool = _interopRequireDefault.filter((e) => !this._hasSelectedParentLayer(e)),
-            l = GCore.GNode.order(GTouchTool, true),
-            DataModule_442 = l && l[0];
+            GRichTooltipConfig = GCore.GNode.order(GTouchTool, true),
+            DataModule_442 = GRichTooltipConfig && GRichTooltipConfig[0];
           (((DataModule_442 && DataModule_442.getParent()) || GTools).insertChild(
-            r,
+            GEditor,
             DataModule_442
           ),
-            exports.setActiveLayer(r),
-            this._moveLayers(r, null, GTouchTool, false));
+            exports.setActiveLayer(GEditor),
+            this._moveLayers(GEditor, null, GTouchTool, false));
         },
         GCore.GLocale.get(new GCore.GLocaleKey('GOutlineSidebar', 'action.insert-layer'))
       );
@@ -77227,9 +77392,9 @@ function (exports, module, require) {
       return module;
     }),
     (x.prototype._moveLayerTreeNodeCallback = function (e, t, n, _interopRequireDefault) {
-      const r = this._document.getScene();
+      const GEditor = this._document.getScene();
       GTools.GEditor.tryRunTransaction(
-        r,
+        GEditor,
         () => {
           this._moveLayers(e, t, n, _interopRequireDefault);
         },
@@ -77251,7 +77416,7 @@ function (exports, module, require) {
         GTouchTool.startBlockReferenceChanges(),
         n.length > 1 && e.beginUpdate(),
         n.forEach((n) => {
-          (r.GPlatform.modifiers.optionKey
+          (GEditor.GPlatform.modifiers.optionKey
             ? n.hasMixin(GCore.GNode.Store) && (n = n.clone())
             : n.getParent().removeChild(n),
             n && (e.insertChild(n, t), e instanceof GCore.GCompoundShape && n.assignStyleFrom(e)));
@@ -77272,8 +77437,8 @@ function (exports, module, require) {
           _interopRequireDefault,
           function () {
             (this._document.getEditor().clearSelection(), n.length > 1 && e.beginUpdate());
-            for (var _interopRequireDefault = [], r = 0; r < n.length; ++r) {
-              var GTouchTool = n[r];
+            for (var _interopRequireDefault = [], GEditor = 0; GEditor < n.length; ++GEditor) {
+              var GTouchTool = n[GEditor];
               GTouchTool.validateInsertion(e) &&
                 GTouchTool.hasMixin(GCore.GNode.Store) &&
                 GTools.GEditor.validateBlockInsertion(e, GTouchTool) &&
@@ -77286,19 +77451,23 @@ function (exports, module, require) {
                 .insertElements(_interopRequireDefault, true, true, false, true, e, t),
               e instanceof GCore.GCompoundShape)
             )
-              for (var l = 0; l < _interopRequireDefault.length; ++l)
-                _interopRequireDefault[l].assignStyleFrom(e);
+              for (
+                var GRichTooltipConfig = 0;
+                GRichTooltipConfig < _interopRequireDefault.length;
+                ++GRichTooltipConfig
+              )
+                _interopRequireDefault[GRichTooltipConfig].assignStyleFrom(e);
             else if (e instanceof GCore.GShape) {
               var DataModule_442 = e.getPaintBBox();
               if (DataModule_442) {
                 var GDocumentEvent = DataModule_442.getX(),
                   GDocumentStatusEvent = DataModule_442.getY();
-                for (r = 0; r < _interopRequireDefault.length; ++r) {
-                  var p = _interopRequireDefault[r],
-                    g = p instanceof GCore.GElement ? p.getPaintBBox() : null;
-                  if (g && !DataModule_442.intersectsRect(g, true)) {
-                    var GFitAllAction = g.getX(),
-                      GFitSelectionAction = g.getY();
+                for (GEditor = 0; GEditor < _interopRequireDefault.length; ++GEditor) {
+                  var p = _interopRequireDefault[GEditor],
+                    WindowEvent = p instanceof GCore.GElement ? p.getPaintBBox() : null;
+                  if (WindowEvent && !DataModule_442.intersectsRect(WindowEvent, true)) {
+                    var GFitAllAction = WindowEvent.getX(),
+                      GFitSelectionAction = WindowEvent.getY();
                     null === GDocumentEvent ||
                       null === GFitAllAction ||
                       (GCore.GMath.isEqualEps(GDocumentEvent, GFitAllAction) &&
@@ -77348,11 +77517,11 @@ function (exports, module, require) {
           var _interopRequireDefault = e[require];
           if (!_interopRequireDefault.hasFlag(GCore.GElement.Flag.PartialLocked)) {
             for (
-              var GTools = false, r = _interopRequireDefault.getParent();
-              null != r && !GTools;
-              r = r.getParent()
+              var GTools = false, GEditor = _interopRequireDefault.getParent();
+              null != GEditor && !GTools;
+              GEditor = GEditor.getParent()
             )
-              GTools = r.hasFlag(GCore.GNode.Flag.Selected);
+              GTools = GEditor.hasFlag(GCore.GNode.Flag.Selected);
             GTools || t.push(_interopRequireDefault);
           }
         }
@@ -77378,21 +77547,26 @@ function (exports, module, require) {
             (jQuery(gDesigner.getWindows().getActiveWindow().getView().getHtmlElement())
               .find('> div[tabindex=0]')
               .focus(),
-            r.GPlatform.modifiers.metaKey ||
+            GEditor.GPlatform.modifiers.metaKey ||
               (!e.hasFlag(GCore.GNode.Flag.Selected) &&
                 !e.hasFlag(GCore.GElement.Flag.FullLocked) &&
-                !r.GPlatform.modifiers.shiftKey))
+                !GEditor.GPlatform.modifiers.shiftKey))
           )
             (this._layerPanel.gLayerPanel('onlyUpdateStyle', true),
-              module.updateSelection(r.GPlatform.modifiers.metaKey, [e]),
+              module.updateSelection(GEditor.GPlatform.modifiers.metaKey, [e]),
               this._layerPanel.gLayerPanel('onlyUpdateStyle', false),
               (_interopRequireDefault = true));
-          else if (r.GPlatform.modifiers.shiftKey) {
+          else if (GEditor.GPlatform.modifiers.shiftKey) {
             var GTools = module.getSelection(),
               GTouchTool = null;
             if (GTools && GTools.length) {
-              for (var l = GTools.length - 1; l >= 0 && !GTouchTool; --l)
-                GTools[l] instanceof require && (GTouchTool = GTools[l]);
+              for (
+                var GRichTooltipConfig = GTools.length - 1;
+                GRichTooltipConfig >= 0 && !GTouchTool;
+                --GRichTooltipConfig
+              )
+                GTools[GRichTooltipConfig] instanceof require &&
+                  (GTouchTool = GTools[GRichTooltipConfig]);
               if (GTouchTool && GTouchTool !== e) {
                 var DataModule_442 = [];
                 if (
@@ -77409,13 +77583,22 @@ function (exports, module, require) {
                   var GDocumentEvent = [],
                     GDocumentStatusEvent = false,
                     p = null,
-                    g = null;
-                  for (l = 0; l < DataModule_442.length && (null === p || null === g); ++l)
-                    DataModule_442[l] === GTouchTool || DataModule_442[l] === e
+                    WindowEvent = null;
+                  for (
+                    GRichTooltipConfig = 0;
+                    GRichTooltipConfig < DataModule_442.length &&
+                    (null === p || null === WindowEvent);
+                    ++GRichTooltipConfig
+                  )
+                    DataModule_442[GRichTooltipConfig] === GTouchTool ||
+                    DataModule_442[GRichTooltipConfig] === e
                       ? ((GDocumentStatusEvent = !GDocumentStatusEvent),
-                        GDocumentEvent.push(DataModule_442[l]),
-                        DataModule_442[l] === GTouchTool ? (p = l) : (g = l))
-                      : GDocumentStatusEvent && GDocumentEvent.push(DataModule_442[l]);
+                        GDocumentEvent.push(DataModule_442[GRichTooltipConfig]),
+                        DataModule_442[GRichTooltipConfig] === GTouchTool
+                          ? (p = GRichTooltipConfig)
+                          : (WindowEvent = GRichTooltipConfig))
+                      : GDocumentStatusEvent &&
+                        GDocumentEvent.push(DataModule_442[GRichTooltipConfig]);
                   var GSidebar = GTouchTool.getParent(),
                     GSidebarContainer = e.getParent();
                   GDocumentEvent = GDocumentEvent.filter(
@@ -77434,7 +77617,7 @@ function (exports, module, require) {
                   var GExportProperties = gDesigner.getSetting('auto_expand_layers');
                   (gDesigner.setSetting('auto_expand_layers', false),
                     GDocumentEvent.length &&
-                      (p > g && GDocumentEvent.reverse(),
+                      (p > WindowEvent && GDocumentEvent.reverse(),
                       module.updateSelection(false, GDocumentEvent),
                       (_interopRequireDefault = true)),
                     setTimeout(function () {
@@ -77450,7 +77633,7 @@ function (exports, module, require) {
               this._layerPanel.gLayerPanel('onlyUpdateStyle', false),
               (_interopRequireDefault = true));
           if (_interopRequireDefault)
-            if (r.GPlatform.modifiers.optionKey)
+            if (GEditor.GPlatform.modifiers.optionKey)
               module.hasSelection()
                 ? gDesigner.executeAction(GFitSelectionAction.ID, undefined, 'outlinesidebar')
                 : gDesigner.executeAction(GFitAllAction.ID, undefined, 'outlinesidebar');
@@ -77529,11 +77712,11 @@ function (exports, module, require) {
   (require(57) /* polyfill_parseInt */,
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
-  var i = require(15) /* GEditor */,
+  var GEditor = require(15) /* GEditor */,
     GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
-    l = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
     GOutlineSidebar = _interopRequireDefault(require(198) /* Exports_GOutlineSidebar */),
@@ -77663,7 +77846,7 @@ function (exports, module, require) {
             }.bind(this)
           )
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GFillPaintLayerProperties', 'text.fill-rule-tooltip-title')
               ),
@@ -77714,7 +77897,7 @@ function (exports, module, require) {
             );
           })
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GFillPaintLayerProperties', 'text.remove-layer-tooltip-title')
               ),
@@ -77749,10 +77932,10 @@ function (exports, module, require) {
                         GCore.GRGBColor.BLACK,
                         t || GCore.GColor.ColorModes.RGB
                       );
-                    for (var i = 0; i < n._elements.length; ++i) {
+                    for (var GEditor = 0; GEditor < n._elements.length; ++GEditor) {
                       var GTools = new GCore.GStylable.FillPaintLayer();
                       (GTools.setProperty('_pt', _interopRequireDefault),
-                        n._elements[i].getPaintLayers().appendChild(GTools));
+                        n._elements[GEditor].getPaintLayers().appendChild(GTools));
                     }
                   },
                   GCore.GLocale.get(new GCore.GLocaleKey('GFillPaintLayerProperties', 'action.add'))
@@ -77766,7 +77949,7 @@ function (exports, module, require) {
             }.bind(this)
           )
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GFillPaintLayerProperties', 'text.add-layer-tooltip-title')
               ),
@@ -77805,7 +77988,7 @@ function (exports, module, require) {
               var t = this._panel.find('.copy-info-overlay').eq(0),
                 n = this._panel.find('.fill-block.g-selected') || null,
                 _interopRequireDefault = (n && n.position().top) || 0,
-                i = $('<span/>')
+                GEditor = $('<span/>')
                   .addClass('copy-info-overlay')
                   .css({ top: _interopRequireDefault })
                   .text(
@@ -77814,9 +77997,9 @@ function (exports, module, require) {
                     )
                   );
               (t && t.remove(),
-                this._panel.append(i),
+                this._panel.append(GEditor),
                 setTimeout(() => {
-                  i.animate({ opacity: 0, top: '+=20' }, 500, i.remove);
+                  GEditor.animate({ opacity: 0, top: '+=20' }, 500, GEditor.remove);
                 }, 1e3));
             }.bind(this)
           ),
@@ -77858,9 +78041,9 @@ function (exports, module, require) {
         e)
       ) {
         e.getEditor();
-        for (var i = 0; i < t.length; ++i) {
-          var AppSettings = t[i],
-            l = function (e, t) {
+        for (var GEditor = 0; GEditor < t.length; ++GEditor) {
+          var AppSettings = t[GEditor],
+            GRichTooltipConfig = function (e, t) {
               t.hasMixin(GCore.GStylable) &&
                 t.getStylePropertySets().indexOf(GCore.GStylable.PropertySet.FillPaintLayers) >=
                   0 &&
@@ -77868,8 +78051,8 @@ function (exports, module, require) {
             }.bind(this),
             GTouchTool = GTools.GElementEditor.getEditor(AppSettings);
           GTouchTool && GTouchTool.getStylableParts()
-            ? GCore.GUtil.each(GTouchTool.getStylableParts(), l)
-            : l(null, AppSettings);
+            ? GCore.GUtil.each(GTouchTool.getStylableParts(), GRichTooltipConfig)
+            : GRichTooltipConfig(null, AppSettings);
         }
         if (this._elements.length)
           return (
@@ -77925,7 +78108,8 @@ function (exports, module, require) {
         var _interopRequireDefault = this._document.getEditor();
         _interopRequireDefault.beginTransaction();
         try {
-          for (var i = 0; i < this._elements.length; ++i) this._elements[i].setProperties(e, t);
+          for (var GEditor = 0; GEditor < this._elements.length; ++GEditor)
+            this._elements[GEditor].setProperties(e, t);
         } finally {
           (_interopRequireDefault.commitTransaction(
             n ||
@@ -77951,7 +78135,7 @@ function (exports, module, require) {
         m = null,
         v = 0,
         _ = 0,
-        b = function (t, n, _interopRequireDefault, i) {
+        b = function (t, n, _interopRequireDefault, GEditor) {
           if (_interopRequireDefault)
             this._iterateEqualPaintLayer(e, function (e) {
               e.setProperties(t, n, false, false, true);
@@ -77959,17 +78143,17 @@ function (exports, module, require) {
           else {
             if (!this._document) return;
             var AppSettings = null;
-            if (i) {
-              var l = e.getParent().getIndexOfChild(e);
-              AppSettings = $.extend({ fillLayerIndex: l }, i);
+            if (GEditor) {
+              var GRichTooltipConfig = e.getParent().getIndexOfChild(e);
+              AppSettings = $.extend({ fillLayerIndex: GRichTooltipConfig }, GEditor);
             }
             this._ownChange = true;
             var GTouchTool = this._document.getEditor();
             GTouchTool.beginTransaction();
             try {
               this._iterateEqualPaintLayer(e, function (e, _interopRequireDefault) {
-                var i = GTools.GElementEditor.getEditor(_interopRequireDefault);
-                (i && i.applyPropertiesToParts(t, n)) || e.setProperties(t, n);
+                var GEditor = GTools.GElementEditor.getEditor(_interopRequireDefault);
+                (GEditor && GEditor.applyPropertiesToParts(t, n)) || e.setProperties(t, n);
               });
             } finally {
               (GTouchTool.commitTransaction(
@@ -77985,7 +78169,7 @@ function (exports, module, require) {
         w = function (e) {
           if (GTouchTool) {
             var t = $(e).data('paintLayer');
-            if (t && (t !== GTouchTool || i.GPlatform.modifiers.shiftKey))
+            if (t && (t !== GTouchTool || GEditor.GPlatform.modifiers.shiftKey))
               return GTouchTool.getParent() === t.getParent();
           }
           return false;
@@ -77996,7 +78180,7 @@ function (exports, module, require) {
             ? $('<select></select>')
                 .gBlendMode()
                 .gRichTooltip(
-                  l.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GAppearanceProperties', 'text.blend-tooltip-title')
                     ),
@@ -78094,16 +78278,16 @@ function (exports, module, require) {
             if (!_interopRequireDefault) return (e.preventDefault(), void e.stopPropagation());
             var t = $(e.target).closest('.fill-block'),
               AppSettings = t.offset(),
-              l = e.originalEvent;
+              GRichTooltipConfig = e.originalEvent;
             ((GEvent_type = window.gDragImage()).addClass('drag-delete gravit-icon-trash'),
               (GProperties = n._panel.offset()),
               (m = n._panel.outerHeight()),
               (v = e.clientX - AppSettings.left),
               (_ = e.clientY - AppSettings.top),
-              l.stopPropagation(),
+              GRichTooltipConfig.stopPropagation(),
               (GTouchTool = t.data('paintLayer')),
-              (l.dataTransfer.effectAllowed = 'move'),
-              l.dataTransfer.setData('text/plain', 'dummy_data'),
+              (GRichTooltipConfig.dataTransfer.effectAllowed = 'move'),
+              GRichTooltipConfig.dataTransfer.setData('text/plain', 'dummy_data'),
               n._panel.find('.fill-block').each(function (e, t) {
                 $(t).append(
                   $('<div></div>')
@@ -78141,25 +78325,25 @@ function (exports, module, require) {
                       ) {
                         var _interopRequireDefault = GTouchTool.getParent(),
                           AppSettings = _interopRequireDefault.getIndexOfChild(GTouchTool),
-                          l = _interopRequireDefault.getIndexOfChild(t);
+                          GRichTooltipConfig = _interopRequireDefault.getIndexOfChild(t);
                         (GTools.GEditor.tryRunTransaction(
                           _interopRequireDefault,
                           function () {
-                            if (i.GPlatform.modifiers.shiftKey) {
+                            if (GEditor.GPlatform.modifiers.shiftKey) {
                               var e = GTouchTool.clone();
                               _interopRequireDefault.insertChild(
                                 e,
-                                AppSettings < l ? t.getNext() : t
+                                AppSettings < GRichTooltipConfig ? t.getNext() : t
                               );
                             } else
-                              AppSettings !== l &&
+                              AppSettings !== GRichTooltipConfig &&
                                 (_interopRequireDefault.removeChild(GTouchTool),
                                 _interopRequireDefault.insertChild(
                                   GTouchTool,
-                                  AppSettings < l ? t.getNext() : t
+                                  AppSettings < GRichTooltipConfig ? t.getNext() : t
                                 ));
                           },
-                          i.GPlatform.modifiers.shiftKey
+                          GEditor.GPlatform.modifiers.shiftKey
                             ? GCore.GLocale.get(
                                 new GCore.GLocaleKey(
                                   'GFillPaintLayerProperties',
@@ -78202,30 +78386,30 @@ function (exports, module, require) {
                 GTouchTool.getParent() === _interopRequireDefault.getParent())
             ) {
               var AppSettings = GTouchTool.getParent(),
-                l = AppSettings.getIndexOfChild(GTouchTool),
+                GRichTooltipConfig = AppSettings.getIndexOfChild(GTouchTool),
                 DataModule_1161 = AppSettings.getIndexOfChild(_interopRequireDefault);
               (GTools.GEditor.tryRunTransaction(
                 AppSettings,
                 function () {
-                  if (i.GPlatform.modifiers.shiftKey) {
+                  if (GEditor.GPlatform.modifiers.shiftKey) {
                     var e = GTouchTool.clone();
                     AppSettings.insertChild(
                       e,
-                      l < DataModule_1161
+                      GRichTooltipConfig < DataModule_1161
                         ? _interopRequireDefault.getNext()
                         : _interopRequireDefault
                     );
                   } else
-                    l !== DataModule_1161 &&
+                    GRichTooltipConfig !== DataModule_1161 &&
                       (AppSettings.removeChild(GTouchTool),
                       AppSettings.insertChild(
                         GTouchTool,
-                        l < DataModule_1161
+                        GRichTooltipConfig < DataModule_1161
                           ? _interopRequireDefault.getNext()
                           : _interopRequireDefault.getPrevious()
                       ));
                 },
-                i.GPlatform.modifiers.shiftKey
+                GEditor.GPlatform.modifiers.shiftKey
                   ? GCore.GLocale.get(
                       new GCore.GLocaleKey('GFillPaintLayerProperties', 'action.duplicate')
                     )
@@ -78307,21 +78491,23 @@ function (exports, module, require) {
                       n._document &&
                         (n._document.getEditor().resetHideSelection(), n._document.hasCDR()))
                     ) {
-                      var i = gPatternChooser.getPattern();
-                      !i ||
-                        i instanceof GCore.GRGBColor ||
+                      var GEditor = gPatternChooser.getPattern();
+                      !GEditor ||
+                        GEditor instanceof GCore.GRGBColor ||
                         GSystemDialog.showCDRUnsupportedObjectWarning();
                     }
                     n._chooserElem = null;
                   })
-                  .on('patternchange', function (e, t, n, _interopRequireDefault, i, GTools) {
+                  .on('patternchange', function (e, t, n, _interopRequireDefault, GEditor, GTools) {
                     var GCore = ['_vs'],
                       AppSettings = [true];
                     (undefined !== t && (GCore.push('_pt'), AppSettings.push(t)),
                       'number' == typeof n && (GCore.push('_op'), AppSettings.push(n)));
-                    var l = null;
-                    (i && ((l = { chooserOn: true }), null != GTools && (l.activeStopIdx = GTools)),
-                      b(GCore, AppSettings, _interopRequireDefault, l));
+                    var GRichTooltipConfig = null;
+                    (GEditor &&
+                      ((GRichTooltipConfig = { chooserOn: true }),
+                      null != GTools && (GRichTooltipConfig.activeStopIdx = GTools)),
+                      b(GCore, AppSettings, _interopRequireDefault, GRichTooltipConfig));
                   }),
               },
               {
@@ -78330,7 +78516,7 @@ function (exports, module, require) {
                   .addClass('normal')
                   .gBlendMode()
                   .gRichTooltip(
-                    l.GRichTooltipConfig.from({
+                    GRichTooltipConfig.GRichTooltipConfig.from({
                       title: GCore.GLocale.get(
                         new GCore.GLocaleKey('GAppearanceProperties', 'text.blend-tooltip-title')
                       ),
@@ -78472,24 +78658,22 @@ function (exports, module, require) {
     (v.prototype._updatePaintLayer = function (e, t) {
       e &&
         this._panel.find('.fill-block').each(function (n, _interopRequireDefault) {
-          var i = $(_interopRequireDefault);
-          if (i.data('paintLayer') === e) {
-            (i
-              .find('[data-property="_pt"]')
+          var GEditor = $(_interopRequireDefault);
+          if (GEditor.data('paintLayer') === e) {
+            (GEditor.find('[data-property="_pt"]')
               .gPatternChooser('setPattern', e.getProperty('_pt', false, false, true))
               .gPatternChooser('value', e.getProperty('_pt', false, false, true))
               .gPatternChooser('opacity', e.getProperty('_op', false, false, true)),
-              i.find('[data-property="_op"]').each(function (t, n) {
+              GEditor.find('[data-property="_op"]').each(function (t, n) {
                 $(n).gInputBox(
                   'value',
                   GCore.GUtil.formatOpacity(100 * e.getProperty('_op', false, false, true))
                 );
               }),
-              i.find('[data-property="_bl"]').val(e.getProperty('_bl')));
+              GEditor.find('[data-property="_bl"]').val(e.getProperty('_bl')));
             var AppSettings = e.getProperty('_vs');
             if (
-              (i
-                .find('[data-property="_vs"]')
+              (GEditor.find('[data-property="_vs"]')
                 .removeClass('gravit-icon-' + (AppSettings ? 'hide' : 'display'))
                 .addClass('gravit-icon-' + (AppSettings ? 'display' : 'hide')),
               t &&
@@ -78499,9 +78683,10 @@ function (exports, module, require) {
                 null != t.fillLayerIndex)
             )
               e.getParent().getIndexOfChild(e) == t.fillLayerIndex &&
-                i
-                  .find('.preview')
-                  .trigger('click', null != t.activeStopIdx ? t.activeStopIdx : null);
+                GEditor.find('.preview').trigger(
+                  'click',
+                  null != t.activeStopIdx ? t.activeStopIdx : null
+                );
           }
         });
     }),
@@ -78542,12 +78727,13 @@ function (exports, module, require) {
           _interopRequireDefault < this._elements.length;
           ++_interopRequireDefault
         ) {
-          var i = this._elements[_interopRequireDefault].getPaintLayers();
+          var GEditor = this._elements[_interopRequireDefault].getPaintLayers();
           GCore.GUtil.each(
-            i.getFillLayers(),
+            GEditor.getFillLayers(),
             function (GTools, GCore) {
               ((GCore && GCore === e) ||
-                (GCore.constructor === e.constructor && i.getIndexOfChild(GCore) === require)) &&
+                (GCore.constructor === e.constructor &&
+                  GEditor.getIndexOfChild(GCore) === require)) &&
                 t(GCore, this._elements[_interopRequireDefault]);
             }.bind(this)
           );
@@ -78569,8 +78755,8 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(15) /* GEditor */,
-    s = require(67) /* GRichTooltipConfig */,
+    GEditor = require(15) /* GEditor */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GEvent_type = _interopRequireDefault(require(807) /* GEvent_type */),
     DataModule_1161 = require(1161) /* DataModule_1161 */,
@@ -78656,7 +78842,7 @@ function (exports, module, require) {
               (gDesigner.stats('effects_open_effectsmenu', 'main'), n._openEffectsMenu(this));
             })
             .gRichTooltip(
-              s.GRichTooltipConfig.from({
+              GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey('GEffectProperties', 'text.add-effect-tooltip-title')
                 ),
@@ -78697,11 +78883,11 @@ function (exports, module, require) {
                 ));
             }).bind(this)();
           }.bind(this),
-          r = 0;
-        r < V.length;
-        ++r
+          GEditor = 0;
+        GEditor < V.length;
+        ++GEditor
       ) {
-        var DataModule_1161 = V[r];
+        var DataModule_1161 = V[GEditor];
         $.inArray(DataModule_1161.clazz, this._defaultEffects) > -1 &&
           this._createDefaultEffect(false, DataModule_1161, _interopRequireDefault);
       }
@@ -78801,26 +78987,27 @@ function (exports, module, require) {
       for (
         var _interopRequireDefault = e.getOwnerStylable(),
           GTools = e.getParent().getIndexOfChild(e),
-          r = 0;
-        r < this._elements.length;
-        ++r
+          GEditor = 0;
+        GEditor < this._elements.length;
+        ++GEditor
       )
-        if (!_interopRequireDefault || this._elements[r] !== _interopRequireDefault || n)
+        if (!_interopRequireDefault || this._elements[GEditor] !== _interopRequireDefault || n)
           for (
-            var s = this._elements[r].getEffects(), GTouchTool = s.getFirstChild();
+            var GRichTooltipConfig = this._elements[GEditor].getEffects(),
+              GTouchTool = GRichTooltipConfig.getFirstChild();
             null !== GTouchTool;
             GTouchTool = GTouchTool.getNext()
           )
             (GTouchTool !== e || n) &&
               ((GCore.GUtil.equals(GTouchTool, e) && !n) ||
                 (GTouchTool.constructor === e.constructor &&
-                  s.getIndexOfChild(GTouchTool) === GTools)) &&
+                  GRichTooltipConfig.getIndexOfChild(GTouchTool) === GTools)) &&
               t(GTouchTool);
     }),
     (E.prototype._insertEffect = function (e, t) {
       var n = this,
         _interopRequireDefault = null,
-        s = null,
+        GRichTooltipConfig = null,
         GTouchTool = null,
         GProperties = 0,
         DataModule_1263 = 0,
@@ -78914,7 +79101,7 @@ function (exports, module, require) {
               DataModule_1161 = GEvent_type.offset(),
               u = e.originalEvent;
             ((_interopRequireDefault = gDragImage()).addClass('drag-delete gravit-icon-trash'),
-              (s = n._panel.offset()),
+              (GRichTooltipConfig = n._panel.offset()),
               (GTouchTool = n._effectsPanel.outerHeight()),
               (GProperties = e.clientX - DataModule_1161.left),
               (DataModule_1263 = e.clientY - DataModule_1161.top),
@@ -78963,26 +79150,26 @@ function (exports, module, require) {
                         T && t && T.getParent() === t.getParent())
                       ) {
                         var _interopRequireDefault = T.getParent(),
-                          s = _interopRequireDefault.getIndexOfChild(T),
+                          GRichTooltipConfig = _interopRequireDefault.getIndexOfChild(T),
                           GTouchTool = _interopRequireDefault.getIndexOfChild(t);
                         GTools.GEditor.tryRunTransaction(
                           _interopRequireDefault,
                           function () {
-                            if (r.GPlatform.modifiers.shiftKey) {
+                            if (GEditor.GPlatform.modifiers.shiftKey) {
                               var e = T.clone();
                               _interopRequireDefault.insertChild(
                                 e,
-                                s < GTouchTool ? t.getNext() : t
+                                GRichTooltipConfig < GTouchTool ? t.getNext() : t
                               );
                             } else
-                              s !== GTouchTool &&
+                              GRichTooltipConfig !== GTouchTool &&
                                 (_interopRequireDefault.removeChild(T),
                                 _interopRequireDefault.insertChild(
                                   T,
-                                  s < GTouchTool ? t.getNext() : t
+                                  GRichTooltipConfig < GTouchTool ? t.getNext() : t
                                 ));
                           },
-                          r.GPlatform.modifiers.shiftKey
+                          GEditor.GPlatform.modifiers.shiftKey
                             ? GCore.GLocale.get(
                                 new GCore.GLocaleKey('GEffectProperties', 'action.duplicate')
                               )
@@ -79000,7 +79187,7 @@ function (exports, module, require) {
             (0, DataModule_1161.handleDragForDeleteIcon)(
               e,
               _interopRequireDefault,
-              s,
+              GRichTooltipConfig,
               GTouchTool,
               GProperties,
               DataModule_1263
@@ -79135,10 +79322,10 @@ function (exports, module, require) {
                 'effects_assign_effectproperty',
                 GCore.GLocale.getValue(x.i18n, 'name', e.getNodeName(), 666)
               );
-              var r = null;
+              var GEditor = null;
               if (GTools) {
-                var s = e.getParent().getIndexOfChild(e);
-                r = $.extend({ effectIndex: s }, GTools);
+                var GRichTooltipConfig = e.getParent().getIndexOfChild(e);
+                GEditor = $.extend({ effectIndex: GRichTooltipConfig }, GTools);
               }
               this._ownChange = true;
               var GTouchTool = this._document.getEditor();
@@ -79153,7 +79340,7 @@ function (exports, module, require) {
                   GCore.GLocale.get(
                     new GCore.GLocaleKey('GEffectProperties', 'action.change-properties')
                   ),
-                  r
+                  GEditor
                 ),
                   (this._ownChange = false));
               }
@@ -79187,19 +79374,23 @@ function (exports, module, require) {
                   n = e && $(e.target).closest('.effect-block'),
                   _interopRequireDefault = (n && n.height()) || 0,
                   GTools = (n && n.position().top) || 0,
-                  r = _interopRequireDefault ? GTools + _interopRequireDefault / 2 : GTools,
-                  s = $('<span/>')
+                  GEditor = _interopRequireDefault ? GTools + _interopRequireDefault / 2 : GTools,
+                  GRichTooltipConfig = $('<span/>')
                     .addClass('copy-info-overlay')
-                    .css({ top: r })
+                    .css({ top: GEditor })
                     .text(
                       GCore.GLocale.get(
                         new GCore.GLocaleKey('GEffectProperties', 'text.copy-effect')
                       )
                     );
                 (t && t.remove(),
-                  this._panel.append(s),
+                  this._panel.append(GRichTooltipConfig),
                   setTimeout(() => {
-                    s.animate({ opacity: 0, top: '+=20' }, 500, s.remove);
+                    GRichTooltipConfig.animate(
+                      { opacity: 0, top: '+=20' },
+                      500,
+                      GRichTooltipConfig.remove
+                    );
                   }, 1e3));
               }.bind(this)
             ),
@@ -79220,8 +79411,8 @@ function (exports, module, require) {
     }),
     (E.prototype._updateEffect = function (e, t) {
       this._effectsPanel.find('.effect-block').each(function (n, _interopRequireDefault) {
-        var r = $(_interopRequireDefault);
-        if (r.data('effect') === e) {
+        var GEditor = $(_interopRequireDefault);
+        if (GEditor.data('effect') === e) {
           U(e);
           if (
             e instanceof GCore.GOverlayEffect ||
@@ -79232,17 +79423,14 @@ function (exports, module, require) {
             e instanceof GCore.GLongShadowEffect
           )
             if (
-              (r
-                .find('[data-property="pat"]')
+              (GEditor.find('[data-property="pat"]')
                 .gPatternChooser('setPattern', e.getProperty('pat', false, false, true))
                 .gPatternChooser('value', e.getProperty('pat', false, false, true))
                 .gPatternChooser('opacity', e.getProperty('opc', false, false, true)),
-              r
-                .find('[data-property="opc"]')
-                .gInputBox(
-                  'value',
-                  GCore.GUtil.formatOpacity(100 * e.getProperty('opc', false, false, true))
-                ),
+              GEditor.find('[data-property="opc"]').gInputBox(
+                'value',
+                GCore.GUtil.formatOpacity(100 * e.getProperty('opc', false, false, true))
+              ),
               t &&
                 (t.evtType == GTools.GEditor.ModifiedEvent.Type.Undo ||
                   t.evtType == GTools.GEditor.ModifiedEvent.Type.Redo) &&
@@ -79250,17 +79438,16 @@ function (exports, module, require) {
                 null != t.effectIndex)
             )
               e.getParent().getIndexOfChild(e) == t.effectIndex &&
-                r
-                  .find('[data-property="pat"]')
+                GEditor.find('[data-property="pat"]')
                   .find('.preview')
                   .trigger('click', null != t.activeStopIdx ? t.activeStopIdx : null);
-          var s = e.getProperty('vs'),
+          var GRichTooltipConfig = e.getProperty('vs'),
             GTouchTool = e.getProperty('ly'),
             GEvent_type = e.getProperty('cl');
-          (r.toggleClass('g-selected', e.hasFlag(GCore.GNode.Flag.Selected)),
-            r.find('.effect-title input[type=checkbox]').prop('checked', s),
-            r.find('.effect-header').gAccordion('toggleOpen', !GEvent_type));
-          var DataModule_1161 = r.find('.effect-settings');
+          (GEditor.toggleClass('g-selected', e.hasFlag(GCore.GNode.Flag.Selected)),
+            GEditor.find('.effect-title input[type=checkbox]').prop('checked', GRichTooltipConfig),
+            GEditor.find('.effect-header').gAccordion('toggleOpen', !GEvent_type));
+          var DataModule_1161 = GEditor.find('.effect-settings');
           if (
             (DataModule_1161.css('display', GEvent_type ? 'none' : ''),
             e instanceof GCore.GBlurEffect &&
@@ -79299,8 +79486,7 @@ function (exports, module, require) {
                 'value',
                 new GCore.GLength(e.getProperty('y'))
               )),
-            r
-              .find('.effect-layer')
+            GEditor.find('.effect-layer')
               .attr(
                 'data-title',
                 GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.applies-to')) +
@@ -79360,14 +79546,14 @@ function (exports, module, require) {
               ),
               $(this._toolbar).gAccordion('toggleOpen', true),
               $(this._toolbar).gAccordion('init', $(this._panel)));
-            const r = gDesigner.getRightSidebars().getSidebar(y.GInspectorSidebar);
-            r.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, r));
+            const GEditor = gDesigner.getRightSidebars().getSidebar(y.GInspectorSidebar);
+            GEditor.trigger(new GEvent_type.default(GEvent_type.default.Type.ChildAdded, GEditor));
           }).bind(this)();
         }.bind(this),
-        r = {};
-      r[v] = new Array();
-      var s = $('<option></option>').attr({ value: v }).append(v);
-      t.append(s);
+        GEditor = {};
+      GEditor[v] = new Array();
+      var GRichTooltipConfig = $('<option></option>').attr({ value: v }).append(v);
+      t.append(GRichTooltipConfig);
       for (
         var GTouchTool = [], DataModule_1161 = 0;
         DataModule_1161 < V.length;
@@ -79379,14 +79565,16 @@ function (exports, module, require) {
           var GProperties = u.mostUsed,
             DataModule_1263 = u.category;
           if (DataModule_1263) {
-            if (!r[DataModule_1263]) {
-              r[DataModule_1263] = new Array();
-              s = $('<option></option>').attr({ value: DataModule_1263 }).append(DataModule_1263);
-              GTouchTool.push(s);
+            if (!GEditor[DataModule_1263]) {
+              GEditor[DataModule_1263] = new Array();
+              GRichTooltipConfig = $('<option></option>')
+                .attr({ value: DataModule_1263 })
+                .append(DataModule_1263);
+              GTouchTool.push(GRichTooltipConfig);
             }
-            r[DataModule_1263].push(u);
+            GEditor[DataModule_1263].push(u);
           }
-          GProperties && r[v].push(u);
+          GProperties && GEditor[v].push(u);
         }
       }
       GTouchTool.sort(function (e, t) {
@@ -79403,9 +79591,10 @@ function (exports, module, require) {
       for (DataModule_1161 = 0; DataModule_1161 < GTouchTool.length; ++DataModule_1161)
         t.append(GTouchTool[DataModule_1161]);
       (t.on('change', function (t) {
-        (gDesigner.stats('effects_choose_type', E.EngCat(this.value)), e.addItems(r[this.value]));
+        (gDesigner.stats('effects_choose_type', E.EngCat(this.value)),
+          e.addItems(GEditor[this.value]));
       }),
-        e.addItems(r[v]));
+        e.addItems(GEditor[v]));
     }),
     (E.prototype._validateInsertation = function (e, t) {
       if (t.isSingleton())
@@ -79431,11 +79620,11 @@ function (exports, module, require) {
               : GCore.GLocale.getValue(t.i18n, 'name')
           )
           .addClass('effects-default-label'),
-        r = $('<span>+</span>');
+        GEditor = $('<span>+</span>');
       $('<div></div>')
         .addClass('effects-default')
         .append(GTools)
-        .append(r)
+        .append(GEditor)
         .on('click', function () {
           _interopRequireDefault(this);
         })
@@ -79455,7 +79644,7 @@ function (exports, module, require) {
   function G(e) {
     if (T) {
       var module = $(e).data('effect');
-      if (module && (module !== T || r.GPlatform.modifiers.shiftKey))
+      if (module && (module !== T || GEditor.GPlatform.modifiers.shiftKey))
         return T.getParent() === module.getParent();
     }
     return false;
@@ -79463,15 +79652,15 @@ function (exports, module, require) {
   function P(e, t, n) {
     var _interopRequireDefault = n || e,
       GTools = _interopRequireDefault.getProperty.bind(_interopRequireDefault),
-      r = (this._document.getScene(), this._document.getEditor()),
-      s = GTools('shp'),
+      GEditor = (this._document.getScene(), this._document.getEditor()),
+      GRichTooltipConfig = GTools('shp'),
       GTouchTool =
         GCore.GNode.getClassFromId(GCore.GObject.getTypeId(_interopRequireDefault)).RANGES ||
         fxRanges,
       GEvent_type = this,
       DataModule_1161 = $('<div></div>');
-    for (var u in s) {
-      var GProperties = s[u];
+    for (var u in GRichTooltipConfig) {
+      var GProperties = GRichTooltipConfig[u];
       if (-1 !== ['contrast', 'brightness', 'hue', 'saturation'].indexOf(u)) {
         var GEffectsPanel = GTouchTool[u],
           f = 100 * GProperties;
@@ -79498,7 +79687,13 @@ function (exports, module, require) {
           ((v = DataModule_1263.DefaultStops.Saturation(0)),
           _interopRequireDefault instanceof GCore.GGLRecolourEffect)
         ) {
-          var _ = GCore.GMath.normalizeValue(s.hue, GEffectsPanel[0], GEffectsPanel[1], 0, 360);
+          var _ = GCore.GMath.normalizeValue(
+            GRichTooltipConfig.hue,
+            GEffectsPanel[0],
+            GEffectsPanel[1],
+            0,
+            360
+          );
           v = DataModule_1263.DefaultStops.Saturation(_);
         }
         var b = function (e, t, n) {
@@ -79506,14 +79701,14 @@ function (exports, module, require) {
             var GTools = $(n)
                 .closest('.effect-settings')
                 .find('.g-input-slider[data-property="saturation"]'),
-              r = GTools.gColorSlider('value');
+              GEditor = GTools.gColorSlider('value');
             GTools.empty()
               .gColorSlider({
                 min: 100 * GEffectsPanel[0],
                 max: 100 * GEffectsPanel[1],
                 stops: DataModule_1263.DefaultStops.Saturation(e),
               })
-              .gColorSlider('value', r)
+              .gColorSlider('value', GEditor)
               .trigger('input');
           }
         };
@@ -79530,17 +79725,17 @@ function (exports, module, require) {
                   .on('input', function (e) {
                     var n = $(e.target).data().property,
                       _interopRequireDefault = $(e.target).gColorSlider('value'),
-                      r = _interopRequireDefault,
-                      s = $(e.target).gColorSlider('minValue'),
+                      GEditor = _interopRequireDefault,
+                      GRichTooltipConfig = $(e.target).gColorSlider('minValue'),
                       GTouchTool = $(e.target).gColorSlider('maxValue');
                     ((_interopRequireDefault = GCore.GMath.normalizeValue(
                       _interopRequireDefault,
-                      s,
+                      GRichTooltipConfig,
                       GTouchTool,
                       GEffectsPanel[0],
                       GEffectsPanel[1]
                     )),
-                      b(r, n, e.target));
+                      b(GEditor, n, e.target));
                     var GEvent_type = GTools('shp');
                     if (GEvent_type[n] !== _interopRequireDefault) {
                       var DataModule_1161 = JSON.parse(JSON.stringify(GEvent_type));
@@ -79550,7 +79745,7 @@ function (exports, module, require) {
                     $(e.target)
                       .closest('.effect-settings')
                       .find('[data-property=' + n + ']:not(.g-input-slider)')
-                      .val(r)
+                      .val(GEditor)
                       .trigger('change');
                   }),
               },
@@ -79562,31 +79757,32 @@ function (exports, module, require) {
                   .val(f)
                   .on('change', function (e) {
                     var n = $(e.target).data().property,
-                      r = Number(
+                      GEditor = Number(
                         _interopRequireDefault
                           .propertyInverseTransform(n, parseFloat($(e.target).gInputBox('value')))
                           .toFixed(3)
                       ),
-                      s = GTools('shp'),
+                      GRichTooltipConfig = GTools('shp'),
                       GTouchTool = $(this)
                         .parents('.effect-settings')
                         .find('.g-input-slider[data-property=' + n + ']');
-                    (GTouchTool.gColorSlider('value') != r && GTouchTool.gColorSlider('value', r),
-                      b(r, n, e.target));
+                    (GTouchTool.gColorSlider('value') != GEditor &&
+                      GTouchTool.gColorSlider('value', GEditor),
+                      b(GEditor, n, e.target));
                     var GEvent_type = GTouchTool.gColorSlider('minValue'),
                       DataModule_1161 = GTouchTool.gColorSlider('maxValue');
                     if (
-                      ((r = GCore.GMath.normalizeValue(
-                        r,
+                      ((GEditor = GCore.GMath.normalizeValue(
+                        GEditor,
                         GEvent_type,
                         DataModule_1161,
                         GEffectsPanel[0],
                         GEffectsPanel[1]
                       )),
-                      s && s[n] !== r)
+                      GRichTooltipConfig && GRichTooltipConfig[n] !== GEditor)
                     ) {
-                      var u = JSON.parse(JSON.stringify(s));
-                      ((u[n] = r), t(['shp'], [u]));
+                      var u = JSON.parse(JSON.stringify(GRichTooltipConfig));
+                      ((u[n] = GEditor), t(['shp'], [u]));
                     }
                   })
                   .gInputBox({
@@ -79616,9 +79812,9 @@ function (exports, module, require) {
                   })
                   .attr('data-property', u)
                   .on('mousedown', function () {
-                    (r.hideSelection(),
+                    (GEditor.hideSelection(),
                       $(document).one('mouseup', function () {
-                        r.resetHideSelection();
+                        GEditor.resetHideSelection();
                       }));
                   })
                   .gInputSlider(
@@ -79629,24 +79825,27 @@ function (exports, module, require) {
                   )
                   .on('input', function (e) {
                     var n = $(e.target),
-                      r = n.data().property,
-                      s = GCore.GLength.parseEquation($(this).gInputSlider('value')),
+                      GEditor = n.data().property,
+                      GRichTooltipConfig = GCore.GLength.parseEquation(
+                        $(this).gInputSlider('value')
+                      ),
                       GTouchTool = 0;
-                    (s && (GTouchTool = s.toPoint()),
+                    (GRichTooltipConfig && (GTouchTool = GRichTooltipConfig.toPoint()),
                       (GTouchTool = Number(
-                        _interopRequireDefault.propertyTransform(r, GTouchTool).toFixed(3)
+                        _interopRequireDefault.propertyTransform(GEditor, GTouchTool).toFixed(3)
                       )));
                     var GEvent_type = GTools('shp');
                     if (
                       null !== GTouchTool &&
                       'number' == typeof GTouchTool &&
-                      GEvent_type[r] !== GTouchTool
+                      GEvent_type[GEditor] !== GTouchTool
                     ) {
                       var DataModule_1161 = JSON.parse(JSON.stringify(GEvent_type));
-                      ((DataModule_1161[r] = GTouchTool), t(['shp'], [DataModule_1161], true));
+                      ((DataModule_1161[GEditor] = GTouchTool),
+                        t(['shp'], [DataModule_1161], true));
                     }
                     n.closest('.effect-settings')
-                      .find('[data-property=' + r + ']:not(.g-input-slider)')
+                      .find('[data-property=' + GEditor + ']:not(.g-input-slider)')
                       .val(GTouchTool)
                       .trigger('change');
                   })
@@ -79654,13 +79853,15 @@ function (exports, module, require) {
                     var t = $(e.target),
                       n = t.data().property,
                       GTools = GCore.GLength.parseEquation($(this).gInputSlider('value')),
-                      r = 0;
-                    (GTools && (r = GTools.toPoint()),
-                      (r = Number(_interopRequireDefault.propertyTransform(n, r).toFixed(3))),
+                      GEditor = 0;
+                    (GTools && (GEditor = GTools.toPoint()),
+                      (GEditor = Number(
+                        _interopRequireDefault.propertyTransform(n, GEditor).toFixed(3)
+                      )),
                       t
                         .closest('.effect-settings')
                         .find('[data-property=' + n + ']:not(.g-input-slider)')
-                        .val(r)
+                        .val(GEditor)
                         .trigger('change'));
                   }),
               },
@@ -79671,22 +79872,22 @@ function (exports, module, require) {
                   .on('change', function (e) {
                     var n = $(e.target).data().property,
                       GCore = $(this).gUnitBox('value'),
-                      r = 0;
-                    GCore && (r = GCore.toPoint());
-                    var s = Number(
-                        _interopRequireDefault.propertyInverseTransform(n, r).toFixed(3)
+                      GEditor = 0;
+                    GCore && (GEditor = GCore.toPoint());
+                    var GRichTooltipConfig = Number(
+                        _interopRequireDefault.propertyInverseTransform(n, GEditor).toFixed(3)
                       ),
                       GTouchTool = GTools('shp'),
                       GEvent_type = $(this)
                         .parents('.effect-settings')
                         .find('[data-property=' + n + '].g-input-slider');
                     if (
-                      (GEvent_type.gInputSlider('value') != s &&
-                        GEvent_type.gInputSlider('value', s),
-                      null !== r && 'number' == typeof r && GTouchTool[n] !== r)
+                      (GEvent_type.gInputSlider('value') != GRichTooltipConfig &&
+                        GEvent_type.gInputSlider('value', GRichTooltipConfig),
+                      null !== GEditor && 'number' == typeof GEditor && GTouchTool[n] !== GEditor)
                     ) {
                       var DataModule_1161 = JSON.parse(JSON.stringify(GTouchTool));
-                      ((DataModule_1161[n] = r), t(['shp'], [DataModule_1161]));
+                      ((DataModule_1161[n] = GEditor), t(['shp'], [DataModule_1161]));
                     }
                   })
                   .gUnitBox({
@@ -79703,10 +79904,10 @@ function (exports, module, require) {
       } else if (GProperties instanceof Array && 3 === GProperties.length) {
         var w = undefined,
           C = [GCore.GColor];
-        (s.opacity &&
-          'object' == typeof s.opacity &&
-          'opacity' === s.opacity.type &&
-          ((w = s.opacity.value), C.push()),
+        (GRichTooltipConfig.opacity &&
+          'object' == typeof GRichTooltipConfig.opacity &&
+          'opacity' === GRichTooltipConfig.opacity.type &&
+          ((w = GRichTooltipConfig.opacity.value), C.push()),
           $('<div></div>')
             .gPropertyRow({
               label: GCore.GLocale.get(new GCore.GLocaleKey('GWebGLEffect', u)),
@@ -79726,17 +79927,17 @@ function (exports, module, require) {
                         GEvent_type._document.getEditor().resetHideSelection(),
                         (GEvent_type._chooserElem = null));
                     })
-                    .on('patternchange', function (e, n, _interopRequireDefault, GCore, r) {
-                      var s = GTools('shp'),
-                        GTouchTool = JSON.parse(JSON.stringify(s));
+                    .on('patternchange', function (e, n, _interopRequireDefault, GCore, GEditor) {
+                      var GRichTooltipConfig = GTools('shp'),
+                        GTouchTool = JSON.parse(JSON.stringify(GRichTooltipConfig));
                       (undefined !== n && (GTouchTool.color = n.getValue()),
                         'number' == typeof _interopRequireDefault &&
-                          s.opacity &&
-                          'object' == typeof s.opacity &&
-                          'opacity' === s.opacity.type &&
+                          GRichTooltipConfig.opacity &&
+                          'object' == typeof GRichTooltipConfig.opacity &&
+                          'opacity' === GRichTooltipConfig.opacity.type &&
                           (GTouchTool.opacity.value = _interopRequireDefault));
                       var GEvent_type = null;
-                      (r && (GEvent_type = { chooserOn: true }),
+                      (GEditor && (GEvent_type = { chooserOn: true }),
                         t(['shp'], [GTouchTool], GCore, GEvent_type));
                     }),
                 },
@@ -79753,8 +79954,8 @@ function (exports, module, require) {
                   _interopRequireDefault = $(e.target).val(),
                   GCore = GTools('shp');
                 if (GCore && (!GCore[n] || GCore[n].value !== _interopRequireDefault)) {
-                  var r = JSON.parse(JSON.stringify(GCore));
-                  ((r[n].value = _interopRequireDefault), t(['shp'], [r]));
+                  var GEditor = JSON.parse(JSON.stringify(GCore));
+                  ((GEditor[n].value = _interopRequireDefault), t(['shp'], [GEditor]));
                 }
               }),
             S = 0;
@@ -79796,8 +79997,8 @@ function (exports, module, require) {
                             _interopRequireDefault = $(this).is(':checked'),
                             GCore = GTools('shp');
                           if (GCore[n] !== _interopRequireDefault) {
-                            var r = JSON.parse(JSON.stringify(GCore));
-                            ((r[n] = _interopRequireDefault), t(['shp'], [r]));
+                            var GEditor = JSON.parse(JSON.stringify(GCore));
+                            ((GEditor[n] = _interopRequireDefault), t(['shp'], [GEditor]));
                           }
                         })
                     )
@@ -79813,8 +80014,8 @@ function (exports, module, require) {
     this._document.getScene();
     var _interopRequireDefault = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
       GTools = _interopRequireDefault('x'),
-      r = _interopRequireDefault('y'),
-      s = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
+      GEditor = _interopRequireDefault('y'),
+      GRichTooltipConfig = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
       GTouchTool = _interopRequireDefault('pat'),
       GEvent_type = _interopRequireDefault('opc'),
       DataModule_1161 = this,
@@ -79848,7 +80049,7 @@ function (exports, module, require) {
                   .attr('type', 'text')
                   .attr('data-property', 'y')
                   .gUnitBox({ source: 'effects' })
-                  .gUnitBox('value', new GCore.GLength(r, GCore.GLength.Unit.PT))
+                  .gUnitBox('value', new GCore.GLength(GEditor, GCore.GLength.Unit.PT))
                   .on('change', function () {
                     var e = $(this).gUnitBox('value'),
                       n = e ? e.toUnit(GCore.GLength.Unit.PT) : null;
@@ -79866,7 +80067,7 @@ function (exports, module, require) {
                     maxValue: u[1],
                     source: 'effects',
                   })
-                  .gUnitBox('value', s)
+                  .gUnitBox('value', GRichTooltipConfig)
                   .on('change', function (e) {
                     var n = $(this).gUnitBox('value'),
                       _interopRequireDefault = n ? n.toUnit(GCore.GLength.Unit.PT) : null;
@@ -79912,26 +80113,30 @@ function (exports, module, require) {
                       DataModule_1161._document.getEditor().resetHideSelection(),
                       (DataModule_1161._chooserElem = null));
                   })
-                  .on('patternchange', function (e, n, _interopRequireDefault, GTools, r, s) {
-                    var GTouchTool = [],
-                      GEvent_type = [];
-                    (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
-                      'number' == typeof _interopRequireDefault &&
-                        (GTouchTool.push('opc'),
-                        GEvent_type.push(_interopRequireDefault),
-                        $(e.target)
-                          .parents('.effect-settings')
-                          .find('[data-property="opc"]')
-                          .gInputBox(
-                            'value',
-                            GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
-                          )));
-                    var DataModule_1161 = null;
-                    (r &&
-                      ((DataModule_1161 = { chooserOn: true }),
-                      null != s && (DataModule_1161.activeStopIdx = s)),
-                      t(GTouchTool, GEvent_type, GTools, DataModule_1161));
-                  }),
+                  .on(
+                    'patternchange',
+                    function (e, n, _interopRequireDefault, GTools, GEditor, GRichTooltipConfig) {
+                      var GTouchTool = [],
+                        GEvent_type = [];
+                      (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
+                        'number' == typeof _interopRequireDefault &&
+                          (GTouchTool.push('opc'),
+                          GEvent_type.push(_interopRequireDefault),
+                          $(e.target)
+                            .parents('.effect-settings')
+                            .find('[data-property="opc"]')
+                            .gInputBox(
+                              'value',
+                              GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
+                            )));
+                      var DataModule_1161 = null;
+                      (GEditor &&
+                        ((DataModule_1161 = { chooserOn: true }),
+                        null != GRichTooltipConfig &&
+                          (DataModule_1161.activeStopIdx = GRichTooltipConfig)),
+                        t(GTouchTool, GEvent_type, GTools, DataModule_1161));
+                    }
+                  ),
               },
             ],
           })
@@ -79942,8 +80147,8 @@ function (exports, module, require) {
     this._document.getScene();
     var _interopRequireDefault = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
       GTools = _interopRequireDefault('a'),
-      r = _interopRequireDefault('s'),
-      s = _interopRequireDefault('l'),
+      GEditor = _interopRequireDefault('s'),
+      GRichTooltipConfig = _interopRequireDefault('l'),
       GTouchTool = _interopRequireDefault('b'),
       GEvent_type = _interopRequireDefault('c'),
       DataModule_1161 = _interopRequireDefault('pat'),
@@ -79956,8 +80161,8 @@ function (exports, module, require) {
       n,
       _interopRequireDefault,
       GTools,
-      r,
-      s,
+      GEditor,
+      GRichTooltipConfig,
       GTouchTool,
       GEvent_type,
       DataModule_1161
@@ -79980,22 +80185,23 @@ function (exports, module, require) {
               GTouchTool.gInputSlider('value', _interopRequireDefault),
               null !== _interopRequireDefault &&
                 'number' == typeof _interopRequireDefault &&
-                _interopRequireDefault >= r &&
-                _interopRequireDefault <= s &&
+                _interopRequireDefault >= GEditor &&
+                _interopRequireDefault <= GRichTooltipConfig &&
                 t([n], [_interopRequireDefault]));
           });
       return (
         GTools
           ? ((u = new GCore.GLength(_interopRequireDefault, GCore.GLength.Unit.PT)),
-            DataModule_1263.gUnitBox({ minValue: r, maxValue: s, source: 'effects' }).gUnitBox(
-              'value',
-              u
-            ))
+            DataModule_1263.gUnitBox({
+              minValue: GEditor,
+              maxValue: GRichTooltipConfig,
+              source: 'effects',
+            }).gUnitBox('value', u))
           : DataModule_1263.gInputBox({
-              minValue: r,
-              maxValue: s,
+              minValue: GEditor,
+              maxValue: GRichTooltipConfig,
               postfix: GEvent_type || '',
-              incrementValue: (s - r) / 100,
+              incrementValue: (GRichTooltipConfig - GEditor) / 100,
             }).gInputBox('value', _interopRequireDefault),
         $('<div></div>').gPropertyRow({
           columns: [
@@ -80006,9 +80212,9 @@ function (exports, module, require) {
                 .gInputSlider({
                   type: 'range',
                   maxDecimal: DataModule_1161,
-                  min: r,
-                  max: s,
-                  step: GTouchTool || (s - r) / 100,
+                  min: GEditor,
+                  max: GRichTooltipConfig,
+                  step: GTouchTool || (GRichTooltipConfig - GEditor) / 100,
                 })
                 .gInputSlider('value', _interopRequireDefault)
                 .attr('data-property', n)
@@ -80059,7 +80265,7 @@ function (exports, module, require) {
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GEffectProperties', 'text.softness')),
           's',
-          r,
+          GEditor,
           false,
           0,
           1,
@@ -80072,7 +80278,7 @@ function (exports, module, require) {
         f(
           GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.radius')),
           'l',
-          s,
+          GRichTooltipConfig,
           false,
           0,
           50,
@@ -80149,26 +80355,30 @@ function (exports, module, require) {
                     GEffectsPanel._document.getEditor().resetHideSelection(),
                     (GEffectsPanel._chooserElem = null));
                 })
-                .on('patternchange', function (e, n, _interopRequireDefault, GTools, r, s) {
-                  var GTouchTool = [],
-                    GEvent_type = [];
-                  (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
-                    'number' == typeof _interopRequireDefault &&
-                      (GTouchTool.push('opc'),
-                      GEvent_type.push(_interopRequireDefault),
-                      $(e.target)
-                        .parents('.effect-settings')
-                        .find('[data-property="opc"]')
-                        .gInputBox(
-                          'value',
-                          GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
-                        )));
-                  var DataModule_1161 = null;
-                  (r &&
-                    ((DataModule_1161 = { chooserOn: true }),
-                    null != s && (DataModule_1161.activeStopIdx = s)),
-                    t(GTouchTool, GEvent_type, GTools, DataModule_1161));
-                }),
+                .on(
+                  'patternchange',
+                  function (e, n, _interopRequireDefault, GTools, GEditor, GRichTooltipConfig) {
+                    var GTouchTool = [],
+                      GEvent_type = [];
+                    (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
+                      'number' == typeof _interopRequireDefault &&
+                        (GTouchTool.push('opc'),
+                        GEvent_type.push(_interopRequireDefault),
+                        $(e.target)
+                          .parents('.effect-settings')
+                          .find('[data-property="opc"]')
+                          .gInputBox(
+                            'value',
+                            GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
+                          )));
+                    var DataModule_1161 = null;
+                    (GEditor &&
+                      ((DataModule_1161 = { chooserOn: true }),
+                      null != GRichTooltipConfig &&
+                        (DataModule_1161.activeStopIdx = GRichTooltipConfig)),
+                      t(GTouchTool, GEvent_type, GTools, DataModule_1161));
+                  }
+                ),
             },
           ],
         })
@@ -80180,8 +80390,8 @@ function (exports, module, require) {
     this._document.getScene();
     var _interopRequireDefault = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
       GTools = _interopRequireDefault('a'),
-      r = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
-      s = new GCore.GLength(_interopRequireDefault('o'), GCore.GLength.Unit.PT),
+      GEditor = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
+      GRichTooltipConfig = new GCore.GLength(_interopRequireDefault('o'), GCore.GLength.Unit.PT),
       GTouchTool = _interopRequireDefault('pat'),
       GEvent_type = _interopRequireDefault('opc'),
       DataModule_1161 = this,
@@ -80193,7 +80403,7 @@ function (exports, module, require) {
         ? $('<input>')
             .attr('type', 'text')
             .gUnitBox({ minValue: u[0], maxValue: u[1], source: 'effects' })
-            .gUnitBox('value', r)
+            .gUnitBox('value', GEditor)
             .on('change', function (e) {
               t(['r'], [$(this).gUnitBox('value').toUnit(GCore.GLength.Unit.PT)]);
             })
@@ -80209,7 +80419,7 @@ function (exports, module, require) {
             ? $('<input>')
                 .attr('type', 'text')
                 .gUnitBox({ source: 'effects' })
-                .gUnitBox('value', s)
+                .gUnitBox('value', GRichTooltipConfig)
                 .on('change', function (e) {
                   t(['o'], [$(this).gUnitBox('value').toUnit(GCore.GLength.Unit.PT)]);
                 })
@@ -80247,12 +80457,12 @@ function (exports, module, require) {
                         DataModule_1161._document.getEditor().resetHideSelection(),
                         (DataModule_1161._chooserElem = null));
                     })
-                    .on('patternchange', function (e, n, _interopRequireDefault, GTools, r) {
-                      var s = [],
+                    .on('patternchange', function (e, n, _interopRequireDefault, GTools, GEditor) {
+                      var GRichTooltipConfig = [],
                         GTouchTool = [];
-                      (undefined !== n && (s.push('pat'), GTouchTool.push(n)),
+                      (undefined !== n && (GRichTooltipConfig.push('pat'), GTouchTool.push(n)),
                         'number' == typeof _interopRequireDefault &&
-                          (s.push('opc'),
+                          (GRichTooltipConfig.push('opc'),
                           GTouchTool.push(_interopRequireDefault),
                           $(e.target)
                             .parents('.effect-settings')
@@ -80262,8 +80472,8 @@ function (exports, module, require) {
                               GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
                             )));
                       var GEvent_type = null;
-                      (r && (GEvent_type = { chooserOn: true }),
-                        t(s, GTouchTool, GTools, GEvent_type));
+                      (GEditor && (GEvent_type = { chooserOn: true }),
+                        t(GRichTooltipConfig, GTouchTool, GTools, GEvent_type));
                     })
                 : undefined;
     };
@@ -80303,8 +80513,8 @@ function (exports, module, require) {
     this._document.getScene();
     var _interopRequireDefault = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
       GTools = _interopRequireDefault('a'),
-      r = new GCore.GLength(_interopRequireDefault('l'), GCore.GLength.Unit.PT),
-      s = _interopRequireDefault('pat'),
+      GEditor = new GCore.GLength(_interopRequireDefault('l'), GCore.GLength.Unit.PT),
+      GRichTooltipConfig = _interopRequireDefault('pat'),
       GTouchTool = _interopRequireDefault('opc'),
       GEvent_type = _interopRequireDefault('den'),
       DataModule_1161 = _interopRequireDefault('fdm'),
@@ -80314,7 +80524,7 @@ function (exports, module, require) {
           ? $('<input>')
               .attr('type', 'text')
               .gUnitBox({ minValue: 0, source: 'effects' })
-              .gUnitBox('value', r)
+              .gUnitBox('value', GEditor)
               .on('change', function (e) {
                 t(['l'], [$(this).gUnitBox('value').toUnit(GCore.GLength.Unit.PT)]);
               })
@@ -80380,7 +80590,7 @@ function (exports, module, require) {
                     ? $('<div></div>')
                         .attr('data-property', 'pat')
                         .gPatternChooser({ types: [GCore.GColor, GCore.GGradient] })
-                        .gPatternChooser('value', s)
+                        .gPatternChooser('value', GRichTooltipConfig)
                         .gPatternChooser('opacity', GTouchTool)
                         .on('chooseropen', function () {
                           (u._document.getEditor().hideSelection(), (u._chooserElem = $(this)));
@@ -80389,26 +80599,37 @@ function (exports, module, require) {
                           (u._document && u._document.getEditor().resetHideSelection(),
                             (u._chooserElem = null));
                         })
-                        .on('patternchange', function (e, n, _interopRequireDefault, GTools, r, s) {
-                          var GTouchTool = [],
-                            GEvent_type = [];
-                          (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
-                            'number' == typeof _interopRequireDefault &&
-                              (GTouchTool.push('opc'),
-                              GEvent_type.push(_interopRequireDefault),
-                              $(e.target)
-                                .parents('.effect-settings')
-                                .find('[data-property="opc"]')
-                                .gInputBox(
-                                  'value',
-                                  GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
-                                )));
-                          var DataModule_1161 = null;
-                          (r &&
-                            ((DataModule_1161 = { chooserOn: true }),
-                            null != s && (DataModule_1161.activeStopIdx = s)),
-                            t(GTouchTool, GEvent_type, GTools, DataModule_1161));
-                        })
+                        .on(
+                          'patternchange',
+                          function (
+                            e,
+                            n,
+                            _interopRequireDefault,
+                            GTools,
+                            GEditor,
+                            GRichTooltipConfig
+                          ) {
+                            var GTouchTool = [],
+                              GEvent_type = [];
+                            (undefined !== n && (GTouchTool.push('pat'), GEvent_type.push(n)),
+                              'number' == typeof _interopRequireDefault &&
+                                (GTouchTool.push('opc'),
+                                GEvent_type.push(_interopRequireDefault),
+                                $(e.target)
+                                  .parents('.effect-settings')
+                                  .find('[data-property="opc"]')
+                                  .gInputBox(
+                                    'value',
+                                    GCore.GUtil.formatOpacity(100 * _interopRequireDefault)
+                                  )));
+                            var DataModule_1161 = null;
+                            (GEditor &&
+                              ((DataModule_1161 = { chooserOn: true }),
+                              null != GRichTooltipConfig &&
+                                (DataModule_1161.activeStopIdx = GRichTooltipConfig)),
+                              t(GTouchTool, GEvent_type, GTools, DataModule_1161));
+                          }
+                        )
                     : undefined;
       };
     return $('<div></div>')
@@ -80459,8 +80680,8 @@ function (exports, module, require) {
     this._document.getScene();
     var _interopRequireDefault = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
       GTools = this._document.getEditor(),
-      r = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
-      s = _interopRequireDefault('b'),
+      GEditor = new GCore.GLength(_interopRequireDefault('r'), GCore.GLength.Unit.PT),
+      GRichTooltipConfig = _interopRequireDefault('b'),
       GTouchTool = $('<div></div>');
     return (
       $('<div></div>')
@@ -80509,7 +80730,7 @@ function (exports, module, require) {
               content: $('<input>')
                 .attr('data-property', 'r')
                 .gUnitBox({ source: 'effects' })
-                .gUnitBox('value', r)
+                .gUnitBox('value', GEditor)
                 .on('change', function (e) {
                   var n = $(this).gUnitBox('value'),
                     _interopRequireDefault = n ? n.toUnit(GCore.GLength.Unit.PT) : null,
@@ -80539,7 +80760,7 @@ function (exports, module, require) {
                 .append(
                   $('<input>')
                     .attr('type', 'checkbox')
-                    .prop('checked', s)
+                    .prop('checked', GRichTooltipConfig)
                     .on('change', function (e) {
                       t(['b'], [$(this).is(':checked')]);
                     })
@@ -80555,8 +80776,8 @@ function (exports, module, require) {
   function F(e, t, n) {
     var _interopRequireDefault = this._document.getEditor(),
       GTools = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
-      r = GTools('pat'),
-      s = GTools('opc'),
+      GEditor = GTools('pat'),
+      GRichTooltipConfig = GTools('opc'),
       GTouchTool = GTools('alm'),
       GEvent_type = this;
     return $('<div></div>').append(
@@ -80570,8 +80791,8 @@ function (exports, module, require) {
               content: $('<div></div>')
                 .attr('data-property', 'pat')
                 .gPatternChooser({ types: [GCore.GColor, GCore.GGradient] })
-                .gPatternChooser('value', r)
-                .gPatternChooser('opacity', s)
+                .gPatternChooser('value', GEditor)
+                .gPatternChooser('opacity', GRichTooltipConfig)
                 .on('chooseropen', function () {
                   (_interopRequireDefault.hideSelection(),
                     gDesigner.getWorkspace().getStyleEdManager().updateEditor(e, 'pat', false),
@@ -80586,18 +80807,21 @@ function (exports, module, require) {
                       _interopRequireDefault.resetHideSelection()),
                     (GEvent_type._chooserElem = null));
                 })
-                .on('patternchange', function (e, n, _interopRequireDefault, GTools, GCore, r) {
-                  var s = [],
-                    GTouchTool = [];
-                  (undefined !== n && (s.push('pat'), GTouchTool.push(n)),
-                    'number' == typeof _interopRequireDefault &&
-                      (s.push('opc'), GTouchTool.push(_interopRequireDefault)));
-                  var GEvent_type = null;
-                  (GCore &&
-                    ((GEvent_type = { chooserOn: true }),
-                    null != r && (GEvent_type.activeStopIdx = r)),
-                    t(s, GTouchTool, GTools, GEvent_type));
-                }),
+                .on(
+                  'patternchange',
+                  function (e, n, _interopRequireDefault, GTools, GCore, GEditor) {
+                    var GRichTooltipConfig = [],
+                      GTouchTool = [];
+                    (undefined !== n && (GRichTooltipConfig.push('pat'), GTouchTool.push(n)),
+                      'number' == typeof _interopRequireDefault &&
+                        (GRichTooltipConfig.push('opc'), GTouchTool.push(_interopRequireDefault)));
+                    var GEvent_type = null;
+                    (GCore &&
+                      ((GEvent_type = { chooserOn: true }),
+                      null != GEditor && (GEvent_type.activeStopIdx = GEditor)),
+                      t(GRichTooltipConfig, GTouchTool, GTools, GEvent_type));
+                  }
+                ),
             },
             { width: '20%' },
             {
@@ -80616,7 +80840,7 @@ function (exports, module, require) {
                   incrementValue: gDesigner.getOpacityIncrement(),
                   postfix: '%',
                 })
-                .gInputBox('value', GCore.GUtil.formatOpacity(100 * s)),
+                .gInputBox('value', GCore.GUtil.formatOpacity(100 * GRichTooltipConfig)),
             },
             { width: '20%' },
             {
@@ -80797,14 +81021,14 @@ function (exports, module, require) {
       var require = GCore.GObject.getTypeId(e),
         _interopRequireDefault = (GCore.GNode.getClassFromId(require), e.getFXArray()),
         GTools = $('<div></div>'),
-        r = 0;
-      r < _interopRequireDefault.length;
-      r++
+        GEditor = 0;
+      GEditor < _interopRequireDefault.length;
+      GEditor++
     )
       for (
-        var s = _interopRequireDefault[r],
+        var GRichTooltipConfig = _interopRequireDefault[GEditor],
           GTouchTool = GCore.GNode.getClassFromId(
-            GCore.GObject.getTypeId(_interopRequireDefault[r])
+            GCore.GObject.getTypeId(_interopRequireDefault[GEditor])
           ),
           GEvent_type = GCore.GNode.getName(GTouchTool),
           DataModule_1161 = 0;
@@ -80814,7 +81038,7 @@ function (exports, module, require) {
         if (V[DataModule_1161].clazz === GTouchTool) {
           GTools.append(
             V[DataModule_1161].createSettings
-              .call(this, e, B(GEvent_type, t), s)
+              .call(this, e, B(GEvent_type, t), GRichTooltipConfig)
               .css('margin-top', '7px')
           );
           break;
@@ -80824,8 +81048,8 @@ function (exports, module, require) {
   function N(e, t, n) {
     var _interopRequireDefault = this._document.getEditor(),
       GTools = n ? n.getProperty.bind(n) : e.getProperty.bind(e),
-      r = GTools('opc'),
-      s = new GCore.GLength(GTools('pad')),
+      GEditor = GTools('opc'),
+      GRichTooltipConfig = new GCore.GLength(GTools('pad')),
       GTouchTool = GTools('rfh'),
       GEvent_type = function (e) {
         return 'rfh' === e
@@ -80854,7 +81078,7 @@ function (exports, module, require) {
                   t([e], [_interopRequireDefault]);
                 })
                 .gUnitBox({ minValue: 0, incrementValue: 1, source: 'effects' })
-                .gUnitBox('value', s)
+                .gUnitBox('value', GRichTooltipConfig)
             : 'opacity-slider' === e
               ? $('<div/>')
                   .attr('data-property', 'opc')
@@ -80880,7 +81104,7 @@ function (exports, module, require) {
                   .on('change', function (e) {
                     t(['opc'], [parseFloat($(this).gInputSlider('value')) / 100]);
                   })
-                  .gInputSlider('value', 100 * r)
+                  .gInputSlider('value', 100 * GEditor)
               : 'opacity-input' === e
                 ? $('<input>')
                     .attr('type', 'text')
@@ -80902,7 +81126,7 @@ function (exports, module, require) {
                       incrementValue: 5,
                       postfix: '%',
                     })
-                    .gInputBox('value', GCore.GUtil.formatOpacity(100 * r))
+                    .gInputBox('value', GCore.GUtil.formatOpacity(100 * GEditor))
                 : undefined;
       };
     return $('<div></div>').gPropertyRow({
@@ -80935,9 +81159,14 @@ function (exports, module, require) {
   }
   function B(e, t) {
     return function (n, _interopRequireDefault, GTools) {
-      for (var GCore = n.slice(), r = _interopRequireDefault.slice(), s = 0; s < GCore.length; s++)
-        ((GCore[s] = e + '&' + GCore[s]), (r[s] = _interopRequireDefault[s]));
-      t(GCore, r, GTools);
+      for (
+        var GCore = n.slice(), GEditor = _interopRequireDefault.slice(), GRichTooltipConfig = 0;
+        GRichTooltipConfig < GCore.length;
+        GRichTooltipConfig++
+      )
+        ((GCore[GRichTooltipConfig] = e + '&' + GCore[GRichTooltipConfig]),
+          (GEditor[GRichTooltipConfig] = _interopRequireDefault[GRichTooltipConfig]));
+      t(GCore, GEditor, GTools);
     };
   }
   function U(e) {
@@ -82431,7 +82660,7 @@ function (exports, module, require) {
           (t) => {
             t.read((t) => {
               var n = new Blob([t]);
-              if (n.size > i.GPlatform.maxPngDataSize)
+              if (n.size > GEditor.GPlatform.maxPngDataSize)
                 new r(
                   GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.image-too-big'))
                 ).open();
@@ -82439,7 +82668,7 @@ function (exports, module, require) {
                 var s = new FileReader();
                 ((s.onload = () => {
                   var t = s.result;
-                  if (t.length > i.GPlatform.maxImgDataUrlLength)
+                  if (t.length > GEditor.GPlatform.maxImgDataUrlLength)
                     new r(
                       GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.image-too-big'))
                     ).open();
@@ -82447,9 +82676,9 @@ function (exports, module, require) {
                     var n = new Image();
                     ((n.onload = () => {
                       if (
-                        n.naturalHeight > i.GPlatform.maxImgLinearDimension ||
-                        n.naturalWidth > i.GPlatform.maxImgLinearDimension ||
-                        n.naturalWidth * n.naturalHeight > i.GPlatform.maxImgAreaDots
+                        n.naturalHeight > GEditor.GPlatform.maxImgLinearDimension ||
+                        n.naturalWidth > GEditor.GPlatform.maxImgLinearDimension ||
+                        n.naturalWidth * n.naturalHeight > GEditor.GPlatform.maxImgAreaDots
                       )
                         new r(
                           GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.image-too-big'))
@@ -82500,8 +82729,8 @@ function (exports, module, require) {
         function () {
           var t = e.getGeometryBBox(),
             n = t ? t.getX() : 0,
-            i = t ? t.getY() : 0,
-            GTools = new GCore.GTransform().translated(n, i);
+            GEditor = t ? t.getY() : 0,
+            GTools = new GCore.GTransform().translated(n, GEditor);
           e.setProperties(
             ['trf', 'itrf', 'pw', 'ph'],
             [GTools, GTools, e.getWidth(), e.getHeight()]
@@ -82511,7 +82740,7 @@ function (exports, module, require) {
       );
     }));
   var GCore = require(1) /* GCore */,
-    i = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GTools = require(53) /* GTools */,
     r =
       (require(1267) /* ColorQuantizer */,
@@ -82530,7 +82759,7 @@ function (exports, module, require) {
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
     a = require(357) /* module_357 */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     l = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
   function c() {
@@ -82630,7 +82859,7 @@ function (exports, module, require) {
             .gInputSlider({
               min: 0,
               max: 100,
-              richTooltipConfig: r.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(
                   new GCore.GLocaleKey('GCommonNames', 'text.corner-radius-slider-tooltip-title')
                 ),
@@ -82878,19 +83107,19 @@ function (exports, module, require) {
           if (t[require] instanceof GCore.GPath || t[require] instanceof GCore.GCompoundPath) {
             var a = t[require];
             this._pathes.push(a);
-            var r = function (e) {
+            var GRichTooltipConfig = function (e) {
               for (var t = e.getAnchorPoints().getFirstChild(); null !== t; t = t.getNext())
                 t.hasFlag(GCore.GNode.Flag.Selected) &&
                   (this._points.push(t), 1 == this._points.legth && (this._mainPath = e));
             }.bind(this);
-            if (a instanceof GCore.GPath) r(a);
+            if (a instanceof GCore.GPath) GRichTooltipConfig(a);
             else
               for (
                 var GProperties = a.getPaths().getFirstChild();
                 null !== GProperties;
                 GProperties = GProperties.getNext()
               )
-                r(GProperties);
+                GRichTooltipConfig(GProperties);
           }
         if (this._pathes.length && this._pathes.length === t.length)
           return (
@@ -82954,24 +83183,30 @@ function (exports, module, require) {
                 null === n.getProperty('hlx') && null === n.getProperty('hrx'))
               ) {
                 const a = n.getParent().getPreviousPoint(n),
-                  r = a ? a.getProperty('hrx') : null,
+                  GRichTooltipConfig = a ? a.getProperty('hrx') : null,
                   GProperties = n.getParent().getNextPoint(n),
                   l = GProperties ? GProperties.getProperty('hlx') : null;
                 if (
                   exports != GCore.GPathBase.AnchorPoint.Type.Asymmetric ||
-                  null !== r ||
+                  null !== GRichTooltipConfig ||
                   null !== l
                 )
                   GTools[0] = true;
                 else {
                   const e = n.getProperty('x'),
-                    r = n.getProperty('y');
+                    GRichTooltipConfig = n.getProperty('y');
                   if (a && a.getProperty('tp') != GCore.GPathBase.AnchorPoint.Type.Connector) {
                     const n = a.getProperty('x'),
                       GProperties = a.getProperty('y');
-                    if (!GCore.GMath.isEqualEps(e, n) || !GCore.GMath.isEqualEps(r, GProperties)) {
+                    if (
+                      !GCore.GMath.isEqualEps(e, n) ||
+                      !GCore.GMath.isEqualEps(GRichTooltipConfig, GProperties)
+                    ) {
                       const a = e + (n - e) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF,
-                        l = r + (GProperties - r) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
+                        l =
+                          GRichTooltipConfig +
+                          (GProperties - GRichTooltipConfig) *
+                            GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
                       (t.push('hlx'), t.push('hly'), GTools.push(a), GTools.push(l));
                     }
                   }
@@ -82981,9 +83216,14 @@ function (exports, module, require) {
                   ) {
                     const n = GProperties.getProperty('x'),
                       a = GProperties.getProperty('y');
-                    if (!GCore.GMath.isEqualEps(e, n) || !GCore.GMath.isEqualEps(r, a)) {
+                    if (
+                      !GCore.GMath.isEqualEps(e, n) ||
+                      !GCore.GMath.isEqualEps(GRichTooltipConfig, a)
+                    ) {
                       const GProperties = e + (n - e) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF,
-                        l = r + (a - r) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
+                        l =
+                          GRichTooltipConfig +
+                          (a - GRichTooltipConfig) * GCore.GPathBase.AnchorPoint.HANDLE_COEFF;
                       (t.push('hrx'), t.push('hry'), GTools.push(GProperties), GTools.push(l));
                     }
                   }
@@ -82991,8 +83231,10 @@ function (exports, module, require) {
               }
               n.setProperties(t, GTools);
               let a = n.getProperty('tp');
-              const r = n.getProperty('ah');
-              a == GCore.GPathBase.AnchorPoint.Type.Mirror && r && n.setProperty('ah', false);
+              const GRichTooltipConfig = n.getProperty('ah');
+              a == GCore.GPathBase.AnchorPoint.Type.Mirror &&
+                GRichTooltipConfig &&
+                n.setProperty('ah', false);
             }));
         } finally {
           require.commitTransaction(
@@ -83078,11 +83320,11 @@ function (exports, module, require) {
             require = false;
             break;
           }
-        var r = require ? '-' : GTools;
-        (this._panel.find('select[data-point-property="tp"]').val(r),
+        var GRichTooltipConfig = require ? '-' : GTools;
+        (this._panel.find('select[data-point-property="tp"]').val(GRichTooltipConfig),
           this._panel.find('[data-node-type]').each(function (e, t) {
             var n = $(t);
-            n.toggleClass('g-active', n.attr('data-node-type') === r);
+            n.toggleClass('g-active', n.attr('data-node-type') === GRichTooltipConfig);
           }),
           this._panel.find('[corner-only]').css('display', require ? '' : 'none'),
           this._panel
@@ -83169,8 +83411,12 @@ function (exports, module, require) {
         a = this._document.getEditor();
       a.beginTransaction();
       try {
-        for (var r = 0, GProperties = this._pathes.length; r < GProperties; ++r) {
-          e = this._pathes[r].getPaintLayers().getBorderLayers();
+        for (
+          var GRichTooltipConfig = 0, GProperties = this._pathes.length;
+          GRichTooltipConfig < GProperties;
+          ++GRichTooltipConfig
+        ) {
+          e = this._pathes[GRichTooltipConfig].getPaintLayers().getBorderLayers();
           for (var l = 0, c = e.length; l < c; l++)
             (t = e[l]) instanceof GCore.GStylable.BorderPaintLayer && t.setProperties(n, GTools);
         }
@@ -83189,13 +83435,13 @@ function (exports, module, require) {
         for (var GTools = 0; GTools < this._points.length; ++GTools) {
           var a = this._points[GTools];
           if ('x' === e) {
-            var r = this._getPointCoord(a),
-              GProperties = new GCore.GTransform(1, 0, 0, 1, t - r.getX(), 0);
-            this._transformPoint(a, GProperties, r);
+            var GRichTooltipConfig = this._getPointCoord(a),
+              GProperties = new GCore.GTransform(1, 0, 0, 1, t - GRichTooltipConfig.getX(), 0);
+            this._transformPoint(a, GProperties, GRichTooltipConfig);
           } else if ('y' === e) {
-            ((r = this._getPointCoord(a)),
-              (GProperties = new GCore.GTransform(1, 0, 0, 1, 0, t - r.getY())));
-            this._transformPoint(a, GProperties, r);
+            ((GRichTooltipConfig = this._getPointCoord(a)),
+              (GProperties = new GCore.GTransform(1, 0, 0, 1, 0, t - GRichTooltipConfig.getY())));
+            this._transformPoint(a, GProperties, GRichTooltipConfig);
           } else a.setProperties([e], [t]);
         }
       } finally {
@@ -83234,7 +83480,7 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* GCore */,
-    i = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     r = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
   function s() {
@@ -83293,10 +83539,10 @@ function (exports, module, require) {
               .addClass('g-flat')
               .attr('data-property', e)
               .gCornerTypePicker()
-              .on('cornertypechange', function (t, i) {
+              .on('cornertypechange', function (t, GRichTooltipConfig) {
                 n._assignProperty(
                   e,
-                  i,
+                  GRichTooltipConfig,
                   GCore.GLocale.get(
                     new GCore.GLocaleKey('GPolygonProperties', 'action.change-corner-type')
                   )
@@ -83308,11 +83554,13 @@ function (exports, module, require) {
               .attr('data-property', e)
               .on('change', function (t) {
                 gDesigner.stats('polygonproperties_change_corner-radius');
-                var i = n._document.getScene().stringToPoint($(this).val());
-                null !== i && 'number' == typeof i && i >= 0
+                var GRichTooltipConfig = n._document.getScene().stringToPoint($(this).val());
+                null !== GRichTooltipConfig &&
+                'number' == typeof GRichTooltipConfig &&
+                GRichTooltipConfig >= 0
                   ? n._assignProperty(
                       e,
-                      i < 0 ? 0 : i,
+                      GRichTooltipConfig < 0 ? 0 : GRichTooltipConfig,
                       GCore.GLocale.get(
                         new GCore.GLocaleKey('GPolygonProperties', 'action.change-corner-radius')
                       )
@@ -83327,7 +83575,7 @@ function (exports, module, require) {
                 .gInputSlider({
                   min: 0,
                   max: 100,
-                  richTooltipConfig: i.GRichTooltipConfig.from({
+                  richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey(
                         'GCommonNames',
@@ -83713,9 +83961,9 @@ function (exports, module, require) {
     (s.prototype._updateProperties = function (e) {
       var t = this._polygons[0],
         n = t.getProperty('or'),
-        i = t.getProperty('ir'),
+        GRichTooltipConfig = t.getProperty('ir'),
         GProperties = t.getProperty('pts'),
-        r = (i / n) * 100,
+        r = (GRichTooltipConfig / n) * 100,
         s = t.isPlainEdges(),
         l = t.getProperty('ocr');
       (this._panel.find('.g-input-slider[data-property="pts"]').gInputSlider('value', GProperties),
@@ -83822,7 +84070,7 @@ function (exports, module, require) {
     }),
     (s.prototype._assignCornersRadius = function (e, t, n) {
       t || this._document.getEditor().beginTransaction();
-      var i = 0;
+      var GRichTooltipConfig = 0;
       try {
         for (var GProperties = 0; GProperties < this._polygons.length; ++GProperties) {
           var r = this._polygons[GProperties];
@@ -83832,7 +84080,7 @@ function (exports, module, require) {
             (r.isPlainEdges()
               ? r.setProperties(['ocr'], [s], false, false, t)
               : (n || (s /= 2), r.setProperties(['ocr', 'icr'], [s, s], false, false, t)),
-              0 === GProperties && (i = s));
+              0 === GProperties && (GRichTooltipConfig = s));
           }
         }
       } finally {
@@ -83843,7 +84091,7 @@ function (exports, module, require) {
               GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.change-corners'))
             );
       }
-      return i;
+      return GRichTooltipConfig;
     }),
     (s.prototype._assignProperty = function (e, t, n) {
       this._assignProperties([e], [t], n);
@@ -83852,7 +84100,12 @@ function (exports, module, require) {
       var GCore = this._document.getEditor();
       GCore.beginTransaction();
       try {
-        for (var i = 0; i < this._polygons.length; ++i) this._polygons[i].setProperties(e, t);
+        for (
+          var GRichTooltipConfig = 0;
+          GRichTooltipConfig < this._polygons.length;
+          ++GRichTooltipConfig
+        )
+          this._polygons[GRichTooltipConfig].setProperties(e, t);
       } finally {
         GCore.commitTransaction(n);
       }
@@ -83861,9 +84114,9 @@ function (exports, module, require) {
       t || this._document.getEditor().beginTransaction();
       try {
         for (var require = 0; require < this._polygons.length; ++require) {
-          var i = this._polygons[require],
-            GProperties = i.getProperty('or') * e;
-          i.setProperty('ir', GProperties, false, false, t);
+          var GRichTooltipConfig = this._polygons[require],
+            GProperties = GRichTooltipConfig.getProperty('or') * e;
+          GRichTooltipConfig.setProperty('ir', GProperties, false, false, t);
         }
       } finally {
         t ||
@@ -83880,14 +84133,14 @@ function (exports, module, require) {
       t || this._document.getEditor().beginTransaction();
       try {
         for (var require = 0; require < this._polygons.length; ++require) {
-          var i = this._polygons[require],
-            GProperties = i.isPlainEdges(),
+          var GRichTooltipConfig = this._polygons[require],
+            GProperties = GRichTooltipConfig.isPlainEdges(),
             r = Math.PI / e,
-            s = GCore.GMath.normalizeAngleRadians(i.getProperty('oa') + r);
+            s = GCore.GMath.normalizeAngleRadians(GRichTooltipConfig.getProperty('oa') + r);
           if (GProperties) {
-            var l = i.getProperty('or') * Math.cos(r);
-            i.setProperties(['pts', 'ia', 'ir'], [e, s, l], false, false, t);
-          } else i.setProperties(['pts', 'ia'], [e, s], false, false, t);
+            var l = GRichTooltipConfig.getProperty('or') * Math.cos(r);
+            GRichTooltipConfig.setProperties(['pts', 'ia', 'ir'], [e, s, l], false, false, t);
+          } else GRichTooltipConfig.setProperties(['pts', 'ia'], [e, s], false, false, t);
         }
       } finally {
         t ||
@@ -83905,14 +84158,14 @@ function (exports, module, require) {
         t || this._document.getEditor().beginTransaction();
         try {
           for (var require = 0; require < this._polygons.length; ++require) {
-            var i = this._polygons[require],
-              GProperties = i.getProperty('or'),
-              r = i.getProperty('pts'),
-              s = i.getProperty('oa'),
+            var GRichTooltipConfig = this._polygons[require],
+              GProperties = GRichTooltipConfig.getProperty('or'),
+              r = GRichTooltipConfig.getProperty('pts'),
+              s = GRichTooltipConfig.getProperty('oa'),
               l = Math.PI / r,
               c = s + l,
               d = GProperties * Math.cos(l);
-            i.setProperties(['ir', 'ia'], [d, c], false, false, t);
+            GRichTooltipConfig.setProperties(['ir', 'ia'], [d, c], false, false, t);
           }
         } finally {
           t ||
@@ -83940,7 +84193,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     s = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
   function l() {
@@ -84056,7 +84309,7 @@ function (exports, module, require) {
                 .gInputSlider({
                   min: 0,
                   max: 100,
-                  richTooltipConfig: a.GRichTooltipConfig.from({
+                  richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey(
                         'GCommonNames',
@@ -84085,7 +84338,7 @@ function (exports, module, require) {
                       true
                     ),
                     t = n._document.getScene().getProperty('ut'),
-                    a =
+                    GRichTooltipConfig =
                       (t == GCore.GLength.Unit.PX || t == GCore.GLength.Unit.PT) &&
                       GTools.GGuides.options.guides &&
                       GTools.GGuides.options.guides.indexOf(GTools.GFullPixelsGuide.ID) >= 0
@@ -84093,7 +84346,7 @@ function (exports, module, require) {
                         : n._document.getScene().getOptimalDecimalsCount();
                   n._panel
                     .find('[type="text"][data-property="corners-radius"]')
-                    .val(n._document.getScene().pointToString(e, a));
+                    .val(n._document.getScene().pointToString(e, GRichTooltipConfig));
                 })
                 .on('change', function () {
                   (gDesigner.stats('rectangleproperties_input_corners-radius'),
@@ -84298,12 +84551,12 @@ function (exports, module, require) {
       var e = this._rectangles[0],
         t = e.getProperty('tl_sx'),
         n = e.getGeometryBBox(),
-        a = this._panel.find('.g-input-slider[data-property="corners-radius"]'),
+        GRichTooltipConfig = this._panel.find('.g-input-slider[data-property="corners-radius"]'),
         GProperties = this._panel.find('input[type="text"][data-property="corners-radius"]'),
         s = this._advancedPanel.find('[data-property="corners-type"]'),
         l = null === n;
       if (
-        (a.prop('disabled', l),
+        (GRichTooltipConfig.prop('disabled', l),
         GProperties.prop('disabled', l),
         this._panel.find('button').prop('disabled', l),
         l)
@@ -84319,7 +84572,7 @@ function (exports, module, require) {
             GTools.GGuides.options.guides.indexOf(GTools.GFullPixelsGuide.ID) >= 0
               ? 0
               : this._document.getScene().getOptimalDecimalsCount();
-        (a.gInputSlider('value', Math.round(c)),
+        (GRichTooltipConfig.gInputSlider('value', Math.round(c)),
           GProperties.gInputBox('value', this._document.getScene().pointToString(t, u)),
           s.gCornerTypePicker('value', e.getProperty('tl_ct')),
           this._advancedPanel
@@ -84335,10 +84588,14 @@ function (exports, module, require) {
               for (var n = 0; n < t.length; ++n) {
                 var GCore = t[n],
                   GTools = this._advancedPanel.find('button[data-property="' + GCore + '_uf"]'),
-                  a = this._advancedPanel.find('input[data-property="' + GCore + '_sx"]'),
+                  GRichTooltipConfig = this._advancedPanel.find(
+                    'input[data-property="' + GCore + '_sx"]'
+                  ),
                   GProperties = this._advancedPanel.find('input[data-property="' + GCore + '_sy"]'),
                   s = this._advancedPanel.find('button[data-property="' + GCore + '_ct"]');
-                (a.val(this._document.getScene().pointToString(e.getProperty(GCore + '_sx'), u)),
+                (GRichTooltipConfig.val(
+                  this._document.getScene().pointToString(e.getProperty(GCore + '_sx'), u)
+                ),
                   GProperties.val(
                     this._document.getScene().pointToString(e.getProperty(GCore + '_sy'), u)
                   ),
@@ -84355,20 +84612,24 @@ function (exports, module, require) {
       n || this._document.getEditor().beginTransaction();
       var GTools = 0;
       try {
-        for (var a = 0; a < this._rectangles.length; ++a)
-          if (this._rectangles[a].isVisible()) {
-            var GProperties = this._rectangles[a].getProperty('tl_sx'),
-              s = this._rectangles[a].getProperty('tl_ct');
+        for (
+          var GRichTooltipConfig = 0;
+          GRichTooltipConfig < this._rectangles.length;
+          ++GRichTooltipConfig
+        )
+          if (this._rectangles[GRichTooltipConfig].isVisible()) {
+            var GProperties = this._rectangles[GRichTooltipConfig].getProperty('tl_sx'),
+              s = this._rectangles[GRichTooltipConfig].getProperty('tl_ct');
             if (
               (0 === GProperties && 'string' == typeof t && 'number' != typeof e && (e = 0.25),
               'number' == typeof e)
             ) {
-              this._rectangles[a].getGeometryBBox();
-              GProperties = e * (this._rectangles[a].getPointsMinDistance() / 2);
+              this._rectangles[GRichTooltipConfig].getGeometryBBox();
+              GProperties = e * (this._rectangles[GRichTooltipConfig].getPointsMinDistance() / 2);
             }
             ('string' == typeof t && (s = t),
-              0 === a && (GTools = GProperties),
-              this._rectangles[a].setProperties(
+              0 === GRichTooltipConfig && (GTools = GProperties),
+              this._rectangles[GRichTooltipConfig].setProperties(
                 ['uf', 'tl_sx', 'tl_ct'],
                 [true, GProperties, s],
                 false,
@@ -84737,9 +84998,9 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    s = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
@@ -84939,23 +85200,23 @@ function (exports, module, require) {
               )
             );
         if (0 === e.indexOf('_ttrf-')) {
-          var a = '',
-            s = e.substr('_ttrf-'.length);
-          switch (s) {
+          var GEditor = '',
+            GRichTooltipConfig = e.substr('_ttrf-'.length);
+          switch (GRichTooltipConfig) {
             case GCore.GStylable.TextTransformation.Uppercase:
-              a = 'gravit-icon-text-transform-uppercase';
+              GEditor = 'gravit-icon-text-transform-uppercase';
               break;
             case GCore.GStylable.TextTransformation.Lowercase:
-              a = 'gravit-icon-text-transform-lowercase';
+              GEditor = 'gravit-icon-text-transform-lowercase';
               break;
             case GCore.GStylable.TextTransformation.Capitalize:
-              a = 'gravit-icon-text-transform-capitalize';
+              GEditor = 'gravit-icon-text-transform-capitalize';
               break;
             case GCore.GStylable.TextTransformation.SmallCaps:
-              a = 'gravit-icon-text-transform-smallcaps';
+              GEditor = 'gravit-icon-text-transform-smallcaps';
           }
           var GProperties = Object.keys(GCore.GStylable.TextTransformation).find(
-            (e) => GCore.GStylable.TextTransformation[e] === s
+            (e) => GCore.GStylable.TextTransformation[e] === GRichTooltipConfig
           );
           return $('<button></button>')
             .addClass('g-button')
@@ -84971,26 +85232,26 @@ function (exports, module, require) {
                   ),
                     t._assignProperty(
                       '_ttrf',
-                      $(e.target).closest('button').hasClass('g-active') ? null : s
+                      $(e.target).closest('button').hasClass('g-active') ? null : GRichTooltipConfig
                     ));
                 },
                 null,
                 (t) => gDesigner.stats('textproperties_nonprotriespro_advanced-settings', e)
               )
             )
-            .append($('<span></span>').addClass(a));
+            .append($('<span></span>').addClass(GEditor));
         }
         if (0 === e.indexOf('va-')) {
-          a = '';
+          GEditor = '';
           switch ((barrel_editor_actions = e.substr('va-'.length))) {
             case GCore.GText.VerticalAlign.Top:
-              a = 'gravit-icon-text-align-top';
+              GEditor = 'gravit-icon-text-align-top';
               break;
             case GCore.GText.VerticalAlign.Middle:
-              a = 'gravit-icon-text-align-middle';
+              GEditor = 'gravit-icon-text-align-middle';
               break;
             case GCore.GText.VerticalAlign.Bottom:
-              a = 'gravit-icon-text-align-bottom';
+              GEditor = 'gravit-icon-text-align-bottom';
           }
           return $('<button></button>')
             .addClass('g-button')
@@ -85010,23 +85271,23 @@ function (exports, module, require) {
                   $(this).hasClass('g-active') ? null : barrel_editor_actions
                 ));
             })
-            .append($('<span></span>').addClass(a));
+            .append($('<span></span>').addClass(GEditor));
         }
         if (0 === e.indexOf('_pal-')) {
           var barrel_editor_actions;
-          a = '';
+          GEditor = '';
           switch ((barrel_editor_actions = e.substr('_pal-'.length))) {
             case GCore.GStylable.ParagraphAlignment.Left:
-              a = 'gravit-icon-text-align-left';
+              GEditor = 'gravit-icon-text-align-left';
               break;
             case GCore.GStylable.ParagraphAlignment.Center:
-              a = 'gravit-icon-text-align-center';
+              GEditor = 'gravit-icon-text-align-center';
               break;
             case GCore.GStylable.ParagraphAlignment.Right:
-              a = 'gravit-icon-text-align-right';
+              GEditor = 'gravit-icon-text-align-right';
               break;
             case GCore.GStylable.ParagraphAlignment.Justify:
-              a = 'gravit-icon-text-justify';
+              GEditor = 'gravit-icon-text-justify';
           }
           return $('<button></button>')
             .addClass('g-button')
@@ -85050,7 +85311,7 @@ function (exports, module, require) {
                   $(this).hasClass('g-active') ? null : barrel_editor_actions
                 ));
             })
-            .append($('<span></span>').addClass(a));
+            .append($('<span></span>').addClass(GEditor));
         }
         if ('aw' === e || 'ah' === e)
           return $('<div></div>')
@@ -85090,19 +85351,24 @@ function (exports, module, require) {
             })
             .on(
               'patternchange',
-              function (e, n, GCore, a, CollaborationMergeUtils) {
-                for (var s = [], GProperties = 0; GProperties < this._text.length; GProperties++) {
+              function (e, n, GCore, GEditor, CollaborationMergeUtils) {
+                for (
+                  var GRichTooltipConfig = [], GProperties = 0;
+                  GProperties < this._text.length;
+                  GProperties++
+                ) {
                   var GFontsProviderManager = GTools.GElementEditor.getEditor(
                     this._text[GProperties]
                   );
-                  s.push(GFontsProviderManager || this._text[GProperties]);
+                  GRichTooltipConfig.push(GFontsProviderManager || this._text[GProperties]);
                 }
                 var barrel_editor_actions = null;
                 CollaborationMergeUtils &&
                   (barrel_editor_actions = { chooserOn: true, textPattern: true });
-                var GSettingChangedEvent = this._getProperty('_fc', s);
-                (GSettingChangedEvent || (GSettingChangedEvent = this._getFontColor(s)),
-                  t._assignProperty('_fc', n, a, barrel_editor_actions));
+                var GSettingChangedEvent = this._getProperty('_fc', GRichTooltipConfig);
+                (GSettingChangedEvent ||
+                  (GSettingChangedEvent = this._getFontColor(GRichTooltipConfig)),
+                  t._assignProperty('_fc', n, GEditor, barrel_editor_actions));
               }.bind(this)
             );
         if ('_tff' === e)
@@ -85163,12 +85429,12 @@ function (exports, module, require) {
                   GTools = e.split(m);
                 GTools[0] = parseInt(GTools[0]) || 400;
                 var GCore = [GTools[0], GTools[1]],
-                  a = ['_tfw', '_tfs'];
+                  GEditor = ['_tfw', '_tfs'];
                 (GTools[2] &&
                   GTools[2].length &&
                   GTools[2] !== n.getFamily() &&
-                  (a.push('_tff'), GCore.push(GTools[2])),
-                  t._assignProperties(a, GCore));
+                  (GEditor.push('_tff'), GCore.push(GTools[2])),
+                  t._assignProperties(GEditor, GCore));
               }
               t._document.getActiveWindow().getView().focus();
             });
@@ -85185,13 +85451,13 @@ function (exports, module, require) {
                     gDesigner.stats('textproperties_change_line-height');
                     var n = $(this).val(),
                       GTools = t._document.getScene(),
-                      a = t._panel.find('button[data-property="_plh_unit"]').text();
-                    if ('%' !== a) {
+                      GEditor = t._panel.find('button[data-property="_plh_unit"]').text();
+                    if ('%' !== GEditor) {
                       let e = GCore.GLength.parseEquation(n, GTools.getProperty('ut'));
                       e && (n = e.toUnit(GCore.GLength.Unit.PX));
                     } else n = GCore.GUtil.parseNumber(n);
-                    null === n || n > 0 || ('%' !== a && 0 === n)
-                      ? ('number' == typeof n && ('%' === a ? (n /= 100) : (n = String(n))),
+                    null === n || n > 0 || ('%' !== GEditor && 0 === n)
+                      ? ('number' == typeof n && ('%' === GEditor ? (n /= 100) : (n = String(n))),
                         t._assignProperty(e, n))
                       : t._updateProperties();
                   })
@@ -85206,22 +85472,22 @@ function (exports, module, require) {
                   .on('click', function () {
                     gDesigner.stats('textproperties_change_size');
                     var n = $(this).text(),
-                      a = t._document.getScene(),
+                      GEditor = t._document.getScene(),
                       CollaborationMergeUtils = t._panel.find('input[data-property="_plh"]').val(),
-                      s = t._document.getEditor();
+                      GRichTooltipConfig = t._document.getEditor();
                     if ('%' !== n) {
                       let e = GCore.GLength.parseEquation(
                         CollaborationMergeUtils,
-                        a.getProperty('ut')
+                        GEditor.getProperty('ut')
                       );
                       e && (CollaborationMergeUtils = e.toUnit(GCore.GLength.Unit.PX));
                     } else
                       CollaborationMergeUtils = GCore.GUtil.parseNumber(CollaborationMergeUtils);
                     if (null !== CollaborationMergeUtils && '%' === n) {
-                      var GProperties = a.getProperty('ut') || 'px';
+                      var GProperties = GEditor.getProperty('ut') || 'px';
                       if (($(this).text(GProperties), 'number' == typeof CollaborationMergeUtils))
                         try {
-                          s.beginTransaction();
+                          GRichTooltipConfig.beginTransaction();
                           for (
                             var GFontsProviderManager = 0;
                             GFontsProviderManager < t._text.length;
@@ -85240,7 +85506,7 @@ function (exports, module, require) {
                             barrel_editor_actions.setProperties([e], [GSettingChangedEvent]);
                           }
                         } finally {
-                          s.commitTransaction(
+                          GRichTooltipConfig.commitTransaction(
                             GCore.GLocale.get(
                               new GCore.GLocaleKey(
                                 'GTextProperties',
@@ -85254,7 +85520,7 @@ function (exports, module, require) {
                       ($(this).text('%'), 'number' == typeof CollaborationMergeUtils)
                     )
                       try {
-                        s.beginTransaction();
+                        GRichTooltipConfig.beginTransaction();
                         for (
                           GFontsProviderManager = 0;
                           GFontsProviderManager < t._text.length;
@@ -85272,7 +85538,7 @@ function (exports, module, require) {
                           barrel_editor_actions.setProperties([e], [GSettingChangedEvent]);
                         }
                       } finally {
-                        s.commitTransaction(
+                        GRichTooltipConfig.commitTransaction(
                           GCore.GLocale.get(
                             new GCore.GLocaleKey('GTextProperties', 'action.modify-text-properties')
                           )
@@ -85363,11 +85629,11 @@ function (exports, module, require) {
                         const GTools = t._document;
                         if (!GTools) return;
                         gDesigner.stats('textproperties_change_paragraph-spacing');
-                        const a = t._advancedSettings
+                        const GEditor = t._advancedSettings
                           .find('button[data-property="_pas_unit"]')
                           .text();
                         let CollaborationMergeUtils = null;
-                        if ('%' !== a) {
+                        if ('%' !== GEditor) {
                           let e = GCore.GLength.parseEquation(
                             $(n.target).closest('input').val(),
                             GTools.getScene().getProperty('ut')
@@ -85380,7 +85646,7 @@ function (exports, module, require) {
                         null === CollaborationMergeUtils ||
                         ('number' == typeof CollaborationMergeUtils && CollaborationMergeUtils >= 0)
                           ? ('number' == typeof CollaborationMergeUtils &&
-                              ('%' === a
+                              ('%' === GEditor
                                 ? (CollaborationMergeUtils /= 100)
                                 : (CollaborationMergeUtils = String(CollaborationMergeUtils))),
                             t._assignProperty(e, CollaborationMergeUtils))
@@ -85404,16 +85670,22 @@ function (exports, module, require) {
                       (e) => {
                         const n = t._document;
                         if (!n) return;
-                        const a = n.getScene(),
+                        const GEditor = n.getScene(),
                           CollaborationMergeUtils = $(e.target).text(),
-                          s = '%' === CollaborationMergeUtils ? a.getProperty('ut') || 'px' : '%';
-                        (gDesigner.stats('textproperties_change_paragraph-spacing-unit', s),
-                          $(e.target).text(s));
+                          GRichTooltipConfig =
+                            '%' === CollaborationMergeUtils
+                              ? GEditor.getProperty('ut') || 'px'
+                              : '%';
+                        (gDesigner.stats(
+                          'textproperties_change_paragraph-spacing-unit',
+                          GRichTooltipConfig
+                        ),
+                          $(e.target).text(GRichTooltipConfig));
                         let GProperties = null;
                         if ('%' !== CollaborationMergeUtils) {
                           let e = GCore.GLength.parseEquation(
                             t._advancedSettings.find('input[data-property="_pas"]').val(),
-                            a.getProperty('ut')
+                            GEditor.getProperty('ut')
                           );
                           e && (GProperties = e.toUnit(GCore.GLength.Unit.PX));
                         } else
@@ -85425,7 +85697,7 @@ function (exports, module, require) {
                             n = t._getProperty('_tfi', e) || 20;
                           let GCore;
                           ((GCore =
-                            '%' === s
+                            '%' === GRichTooltipConfig
                               ? Math.round(100 * parseFloat(GProperties / ((4 * n) / 3))) / 100
                               : String(((GProperties / 100) * n * 4) / 3)),
                             t._assignProperties(['_pas'], [GCore]));
@@ -85728,7 +86000,7 @@ function (exports, module, require) {
           })
           .appendTo(this._advancedSettings),
         (this._advancedSettingsButton = this._getAdvancedSettingsButton().appendTo(t)));
-      var a = $('<div/>').addClass('color-font').appendTo(e);
+      var GEditor = $('<div/>').addClass('color-font').appendTo(e);
       ($('<div></div>')
         .addClass('font-color-properties')
         .gPropertyRow({
@@ -85737,7 +86009,7 @@ function (exports, module, require) {
             { width: 'auto', content: n('_tff') },
           ],
         })
-        .appendTo(a),
+        .appendTo(GEditor),
         $('<div></div>')
           .addClass('font-style-properties')
           .gPropertyRow({
@@ -85763,7 +86035,7 @@ function (exports, module, require) {
               },
             ],
           })
-          .appendTo(a),
+          .appendTo(GEditor),
         $('<hr/>').appendTo(e),
         $('<div></div>')
           .addClass('decoration-properties')
@@ -86002,7 +86274,7 @@ function (exports, module, require) {
         })
         .gPro()
         .gRichTooltip(
-          s.GRichTooltipConfig.from({
+          GRichTooltipConfig.GRichTooltipConfig.from({
             title: GCore.GLocale.get(
               new GCore.GLocaleKey('GTextProperties', 'text.advanced-properties-icon-tooltip-title')
             ),
@@ -86040,7 +86312,7 @@ function (exports, module, require) {
         e)
       ) {
         for (
-          var a = false, CollaborationMergeUtils = 0;
+          var GEditor = false, CollaborationMergeUtils = 0;
           CollaborationMergeUtils < t.length;
           ++CollaborationMergeUtils
         )
@@ -86049,8 +86321,8 @@ function (exports, module, require) {
             : t[CollaborationMergeUtils] instanceof GCore.GStyle &&
               t[CollaborationMergeUtils].getProperty('_sdf') ===
                 GCore.GObject.getTypeId(GCore.GText) &&
-              (this._text.push(t[CollaborationMergeUtils]), (a = true));
-        if ((this._text.length && this._text.length === t.length) || a)
+              (this._text.push(t[CollaborationMergeUtils]), (GEditor = true));
+        if ((this._text.length && this._text.length === t.length) || GEditor)
           return (
             (this._document = e),
             this._document
@@ -86106,9 +86378,9 @@ function (exports, module, require) {
     }),
     (v.prototype._hotKeyEvent = function (e) {
       const module = { B: 'bold', I: 'italic', U: 'underline', S: 'strikeout' },
-        [require, GTools, ...i] = e.keys;
+        [require, GTools, ...GCore] = e.keys;
       !require ||
-        require !== a.GKey.Constant.CONTROL ||
+        require !== GEditor.GKey.Constant.CONTROL ||
         !(GTools in module) ||
         (GCore && GCore.length) ||
         gDesigner.stats('textproperties_hotkey_change-decoration', module[GTools]);
@@ -86132,14 +86404,14 @@ function (exports, module, require) {
       if (this._document && this._text && 1 === this._text.length) {
         var require = this._text[0];
         if (!require.getProperty('_we')) {
-          var a = require instanceof GCore.GText && require.getTLCore();
+          var GEditor = require instanceof GCore.GText && require.getTLCore();
           if (
-            a &&
-            ((e === GTools.GEditor.InlineEditorEvent.Type.BeforeClose && a.getWasEdited()) ||
+            GEditor &&
+            ((e === GTools.GEditor.InlineEditorEvent.Type.BeforeClose && GEditor.getWasEdited()) ||
               (e === GTools.GEditor.InlineEditorEvent.Type.TextEdited && !t))
           ) {
-            var CollaborationMergeUtils = a.getDocumentRange().plainText(),
-              s =
+            var CollaborationMergeUtils = GEditor.getDocumentRange().plainText(),
+              GRichTooltipConfig =
                 GFontsProviderManager.getProviderInstance(
                   barrel_editor_actions
                 ).getDefaultFamilyForString(CollaborationMergeUtils),
@@ -86148,12 +86420,12 @@ function (exports, module, require) {
                 gDesigner.getWorkspace().getFontManager() &&
                 gDesigner.getWorkspace().getFontManager().getDefaultFont() &&
                 gDesigner.getWorkspace().getFontManager().getDefaultFont().getFamily();
-            if (s && GProperties && GProperties !== s) {
+            if (GRichTooltipConfig && GProperties && GProperties !== GRichTooltipConfig) {
               var GSettingChangedEvent =
                 GCore.GOpenTypeFont.getDirectionForString(CollaborationMergeUtils);
               GSettingChangedEvent !== GCore.GTLDirectionTextTransformer.LTR
-                ? require.setProperties(['_tff', 'dir'], [s, GSettingChangedEvent])
-                : require.setProperty('_tff', s);
+                ? require.setProperties(['_tff', 'dir'], [GRichTooltipConfig, GSettingChangedEvent])
+                : require.setProperty('_tff', GRichTooltipConfig);
             }
           }
         }
@@ -86204,7 +86476,7 @@ function (exports, module, require) {
     (v.prototype._getFormatting = function (e, t) {
       const require = t.length;
       if (0 === require) return null;
-      const a = function (t) {
+      const GEditor = function (t) {
         let require;
         if (
           (t instanceof GTools.GTextEditor
@@ -86215,22 +86487,26 @@ function (exports, module, require) {
           const t = require.getTLCore();
           if (t) {
             let GCore;
-            const a = GTools.GElementEditor.getEditor(require);
-            if (((GCore = a && a.isInlineEdit() ? t.selectedRange() : t.getDocumentRange()), GCore))
+            const GEditor = GTools.GElementEditor.getEditor(require);
+            if (
+              ((GCore =
+                GEditor && GEditor.isInlineEdit() ? t.selectedRange() : t.getDocumentRange()),
+              GCore)
+            )
               return GCore.getFormatting()[e];
           }
         }
         return null;
       };
-      let CollaborationMergeUtils = a(t[0]);
-      for (let e = 1; e < require; e++) if (a(t[e]) !== CollaborationMergeUtils) return null;
+      let CollaborationMergeUtils = GEditor(t[0]);
+      for (let e = 1; e < require; e++) if (GEditor(t[e]) !== CollaborationMergeUtils) return null;
       return CollaborationMergeUtils;
     }),
     (v.prototype._getProperty = function (e, t, n) {
       var GTools = t.length;
       if (0 == GTools) return null;
-      for (var GCore = t[0].getProperty(e), a = 1; a < GTools; a++)
-        if (t[a].getProperty(e) !== GCore) return null;
+      for (var GCore = t[0].getProperty(e), GEditor = 1; GEditor < GTools; GEditor++)
+        if (t[GEditor].getProperty(e) !== GCore) return null;
       return GCore || !isNaN(GCore) ? GCore : 3 === arguments.length ? n : GCore;
     }),
     (v.prototype._getFontColor = function (e) {
@@ -86242,13 +86518,17 @@ function (exports, module, require) {
     (v.prototype._updateProperties = async function (e) {
       var t,
         n = (ye = gDesigner.getWorkspace().getFontManager()).getDefaultFont(),
-        a = null,
+        GEditor = null,
         CollaborationMergeUtils = null;
       if (!n) return;
       t = [];
-      for (var s = 0; s < this._text.length; s++) {
-        var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
-        t.push(GProperties || this._text[s]);
+      for (
+        var GRichTooltipConfig = 0;
+        GRichTooltipConfig < this._text.length;
+        GRichTooltipConfig++
+      ) {
+        var GProperties = GTools.GElementEditor.getEditor(this._text[GRichTooltipConfig]);
+        t.push(GProperties || this._text[GRichTooltipConfig]);
       }
       var GFontsProviderManager = this._panel.find('input[data-property="fontSet"]');
       GFontsProviderManager.length &&
@@ -86363,11 +86643,11 @@ function (exports, module, require) {
         ee = true,
         te = true;
       let ne, oe;
-      for (s = 0; s < t.length; s++) {
-        const e = t[s];
-        let a;
+      for (GRichTooltipConfig = 0; GRichTooltipConfig < t.length; GRichTooltipConfig++) {
+        const e = t[GRichTooltipConfig];
+        let GEditor;
         if (
-          ((a = e instanceof GTools.GTextEditor ? e.getFonts() : [e.getProperty('_tff')]),
+          ((GEditor = e instanceof GTools.GTextEditor ? e.getFonts() : [e.getProperty('_tff')]),
           1 == t.length)
         ) {
           var ie = e instanceof GTools.GTextEditor ? e.getElement() : e;
@@ -86379,9 +86659,9 @@ function (exports, module, require) {
             }
           }
         }
-        for (var se = 0; se < a.length; se++) {
+        for (var se = 0; se < GEditor.length; se++) {
           let e,
-            t = a[se];
+            t = GEditor[se];
           if (
             (t
               ? t === n.getFamily()
@@ -86399,14 +86679,14 @@ function (exports, module, require) {
           undefined === oe ? (oe = t) : oe !== t && ((te = false), (oe = ''));
         }
       }
-      for (s = 0; s < t.length; s++) {
+      for (GRichTooltipConfig = 0; GRichTooltipConfig < t.length; GRichTooltipConfig++) {
         var le = null,
           ce = null;
         let e;
         e =
-          t[s] instanceof GTools.GTextEditor
-            ? t[s].getFonts()
-            : [t[s].getProperty('_tff') || n.getFamily()];
+          t[GRichTooltipConfig] instanceof GTools.GTextEditor
+            ? t[GRichTooltipConfig].getFonts()
+            : [t[GRichTooltipConfig].getProperty('_tff') || n.getFamily()];
         for (se = 0; se < e.length; se++) {
           var de = e[se];
           let t;
@@ -86441,11 +86721,11 @@ function (exports, module, require) {
                     (n[GTools].subFamily || '');
                 return { weight: e, styles: t };
               }))),
-            (a = GCore.GUtil.unique(this._intersectArrays(a, le))),
+            (GEditor = GCore.GUtil.unique(this._intersectArrays(GEditor, le))),
             CollaborationMergeUtils
               ? ((t = CollaborationMergeUtils),
                 (t = t.filter((e) => {
-                  if (a.indexOf(e.weight) >= 0) {
+                  if (GEditor.indexOf(e.weight) >= 0) {
                     var t = ce.find((t) => t.weight === e.weight);
                     if (!t) return false;
                     var n = [];
@@ -86467,7 +86747,7 @@ function (exports, module, require) {
                   }
                   return false;
                 })))
-              : (t = ce.filter((e) => a.indexOf(e.weight) >= 0)),
+              : (t = ce.filter((e) => GEditor.indexOf(e.weight) >= 0)),
             (CollaborationMergeUtils = t));
         }
       }
@@ -86489,11 +86769,11 @@ function (exports, module, require) {
       (ue.empty(),
         (CollaborationMergeUtils && CollaborationMergeUtils.length) ||
           (CollaborationMergeUtils = [{ weight: 400, styles: [GCore.GFont.Style.Normal] }]),
-        (a && a.length) || (a = [400]));
-      for (s = 100; s <= 900; s += 100)
-        if (a.indexOf(s) >= 0) {
+        (GEditor && GEditor.length) || (GEditor = [400]));
+      for (GRichTooltipConfig = 100; GRichTooltipConfig <= 900; GRichTooltipConfig += 100)
+        if (GEditor.indexOf(GRichTooltipConfig) >= 0) {
           for (var pe = null, ge = 0; ge < CollaborationMergeUtils.length; ge++)
-            if (CollaborationMergeUtils[ge].weight === s) {
+            if (CollaborationMergeUtils[ge].weight === GRichTooltipConfig) {
               pe = CollaborationMergeUtils[ge].styles;
               break;
             }
@@ -86502,10 +86782,10 @@ function (exports, module, require) {
             var he = pe[ge].split(m);
             ((e =
               he[0] === GCore.GFont.Style.Italic
-                ? GCore.GLocale.get(GCore.GFont.WeightNameItalic[s])
-                : GCore.GLocale.get(GCore.GFont.WeightName[s])),
+                ? GCore.GLocale.get(GCore.GFont.WeightNameItalic[GRichTooltipConfig])
+                : GCore.GLocale.get(GCore.GFont.WeightName[GRichTooltipConfig])),
               he[2] && he[2].length && 0 != e.indexOf(he[2]) && (e = he[2] + ' ' + e));
-            var fe = s.toString() + m + he[0] + m + (he[1] || '');
+            var fe = GRichTooltipConfig.toString() + m + he[0] + m + (he[1] || '');
             $('<option></option>').attr('value', fe).text(e).appendTo(ue);
           }
         }
@@ -86542,15 +86822,15 @@ function (exports, module, require) {
             )
             .prop('disabled', true);
         var _e = ve.getAvailableScripts();
-        for (s = 0; s < _e.length; s++) {
-          var be = _e[s];
+        for (GRichTooltipConfig = 0; GRichTooltipConfig < _e.length; GRichTooltipConfig++) {
+          var be = _e[GRichTooltipConfig];
           if (be) {
             var we = be.toLowerCase().split('');
             ((we[0] = we[0].toUpperCase()),
               (be = we.join('')),
               me.append(
                 $('<option></option>')
-                  .attr('value', _e[s])
+                  .attr('value', _e[GRichTooltipConfig])
                   .text(
                     GCore.GLocale.get(
                       new GCore.GLocaleKey('GTextProperties', 'text.'.concat(be.toLowerCase())),
@@ -86567,32 +86847,34 @@ function (exports, module, require) {
             .map((e) => {
               let t = [],
                 n = e.getProperty('_tff'),
-                a = e.getProperty('_tfs'),
+                GEditor = e.getProperty('_tfs'),
                 CollaborationMergeUtils = e.getProperty('_tfw');
               if (e instanceof GTools.GTextEditor && !n) {
                 const GTools = e.getElement().getContent();
                 if (GTools) {
-                  const s = GCore.GText.PropertyMapping._tff,
+                  const GRichTooltipConfig = GCore.GText.PropertyMapping._tff,
                     GProperties = GCore.GText.PropertyMapping._tfs,
                     GFontsProviderManager = GCore.GText.PropertyMapping._tfw;
                   t = GTools.map(
                     (t) => (
-                      (n = e.getElement()._getGravitValue(s, t[s])),
-                      (a = e.getElement()._getGravitValue(GProperties, t[GProperties])),
+                      (n = e
+                        .getElement()
+                        ._getGravitValue(GRichTooltipConfig, t[GRichTooltipConfig])),
+                      (GEditor = e.getElement()._getGravitValue(GProperties, t[GProperties])),
                       (CollaborationMergeUtils = e
                         .getElement()
                         ._getGravitValue(GFontsProviderManager, t[GFontsProviderManager])),
-                      n && a && CollaborationMergeUtils
-                        ? ye.getFont(n, a, CollaborationMergeUtils, false)
+                      n && GEditor && CollaborationMergeUtils
+                        ? ye.getFont(n, GEditor, CollaborationMergeUtils, false)
                         : null
                     )
                   ).filter((e) => !!e);
                 }
               } else
                 n &&
-                  a &&
+                  GEditor &&
                   CollaborationMergeUtils &&
-                  (t = [ye.getFont(n, a, CollaborationMergeUtils, false)]);
+                  (t = [ye.getFont(n, GEditor, CollaborationMergeUtils, false)]);
               return t;
             })
             .reduce((e, t) => e.concat(t), [])
@@ -86619,7 +86901,7 @@ function (exports, module, require) {
               .appendTo(ue),
             ue.val('mixed'))
           : ue.val(Ce));
-      let xe = a.indexOf(GCore.GFont.Weight.Bold) >= 0;
+      let xe = GEditor.indexOf(GCore.GFont.Weight.Bold) >= 0;
       ((C && parseInt(C) === GCore.GFont.Weight.Bold) ||
         (x &&
           x === GCore.GFont.Style.Italic &&
@@ -86696,7 +86978,7 @@ function (exports, module, require) {
           e.chooserOn &&
           e.textPattern &&
           this._panel.find('[data-property="_fc"]').find('.preview').trigger('click'),
-        (this._weightsAvailable = a),
+        (this._weightsAvailable = GEditor),
         this._listTypeSettings.find('.list-type-group.g-selected').removeClass('g-selected'),
         this._listTypeSettings.find('.list-type-option.g-selected').removeClass('g-selected'),
         this._advancedSettings.find('[data-property="_pm"] > span').text(''),
@@ -86730,9 +87012,9 @@ function (exports, module, require) {
         .attr('disabled', true)
         .addClass('g-disabled');
       if (!e.isResolved() || !e.hasFeature(GCore.GFont.Features.LocalizedForm)) return;
-      let a = null;
-      t && 'auto' !== t && (a = GCore.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
-      const CollaborationMergeUtils = e.getAvailableLanguageSystemTags(a);
+      let GEditor = null;
+      t && 'auto' !== t && (GEditor = GCore.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
+      const CollaborationMergeUtils = e.getAvailableLanguageSystemTags(GEditor);
       if (CollaborationMergeUtils && 0 !== CollaborationMergeUtils.length)
         if (
           (GTools.attr('disabled', false).removeClass('g-disabled'),
@@ -86779,9 +87061,9 @@ function (exports, module, require) {
         .attr('disabled', true)
         .addClass('g-disabled');
       if (!e.isResolved() || !e.hasFeature(GCore.GFont.Features.StylisticSet)) return;
-      let a = null;
-      t && 'auto' !== t && (a = GCore.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
-      const CollaborationMergeUtils = e.getAvailableStylisticSets(a);
+      let GEditor = null;
+      t && 'auto' !== t && (GEditor = GCore.GOpenTypeFont.scriptNameToOpenTypeScriptTagString(t));
+      const CollaborationMergeUtils = e.getAvailableStylisticSets(GEditor);
       if (CollaborationMergeUtils && 0 !== CollaborationMergeUtils.length)
         if (
           (GTools.attr('disabled', false).removeClass('g-disabled'),
@@ -86826,20 +87108,20 @@ function (exports, module, require) {
     }),
     (v.prototype._correctStyleAndWeight = async function (e, t, n) {
       var GTools = null,
-        a = null,
+        GEditor = null,
         CollaborationMergeUtils = gDesigner.getWorkspace().getFontManager(),
-        s = CollaborationMergeUtils.getDefaultFont(),
+        GRichTooltipConfig = CollaborationMergeUtils.getDefaultFont(),
         GProperties = this._panel.find('input[data-property="_tff"]').gFontsButton('getFontList'),
         GFontsProviderManager = false;
       if (
-        (e === s.getFamily()
-          ? (a =
+        (e === GRichTooltipConfig.getFamily()
+          ? (GEditor =
               (GTools = CollaborationMergeUtils.getDefaultFontWeights()) &&
               GTools.map(function (e) {
                 return { weight: e, styles: CollaborationMergeUtils.getDefaultFontStyles() };
               }))
           : GProperties &&
-            (a =
+            (GEditor =
               (GTools = await GProperties.gFontsPanel(
                 'weightsForFont',
                 e,
@@ -86875,7 +87157,7 @@ function (exports, module, require) {
         ((n[0] = GTools[barrel_editor_actions]), (GFontsProviderManager = true));
       }
       var GSystemDialog =
-        (a || []).filter(function (e) {
+        (GEditor || []).filter(function (e) {
           if (e.weight === n[0]) return true;
         }) || [];
       return (
@@ -86891,11 +87173,11 @@ function (exports, module, require) {
     (v.prototype._toggleFormatting = function (e) {
       if (this._text && this._text.length) {
         const n = this._text.map((e) => GTools.GElementEditor.getEditor(e) || e),
-          a = this._getFormatting('underline', n) || null,
+          GEditor = this._getFormatting('underline', n) || null,
           CollaborationMergeUtils = this._getFormatting('strikeout', n) || null;
         var module = this._getFormatting('ligatures', n);
-        const s = {
-            underline: a,
+        const GRichTooltipConfig = {
+            underline: GEditor,
             strikeout: CollaborationMergeUtils,
             ligatures: (module = 'auto' === module ? !this._getProperty('_tcs', n) : !!module),
             fractions: this._getFormatting('fractions', n),
@@ -86933,9 +87215,10 @@ function (exports, module, require) {
                   const n = t.getTLCore();
                   if (n) {
                     let GCore;
-                    const a = GTools.GElementEditor.getEditor(t);
-                    ((GCore = a && a.isInlineEdit() ? n.selectedRange() : n.getDocumentRange()),
-                      GCore && GCore.setFormatting(e, 1 != s[e]));
+                    const GEditor = GTools.GElementEditor.getEditor(t);
+                    ((GCore =
+                      GEditor && GEditor.isInlineEdit() ? n.selectedRange() : n.getDocumentRange()),
+                      GCore && GCore.setFormatting(e, 1 != GRichTooltipConfig[e]));
                   }
                 }
               }));
@@ -86973,8 +87256,9 @@ function (exports, module, require) {
             const n = t.getTLCore();
             if (n) {
               let GCore;
-              const a = GTools.GElementEditor.getEditor(t);
-              ((GCore = a && a.isInlineEdit() ? n.selectedRange() : n.getDocumentRange()),
+              const GEditor = GTools.GElementEditor.getEditor(t);
+              ((GCore =
+                GEditor && GEditor.isInlineEdit() ? n.selectedRange() : n.getDocumentRange()),
                 GCore && GCore.toggleList(e));
             }
           }
@@ -86991,30 +87275,39 @@ function (exports, module, require) {
     (v.prototype._assignFontMain = async function (e) {
       var t,
         n,
-        a = gDesigner.getWorkspace().getFontManager();
-      a.getDefaultFont();
+        GEditor = gDesigner.getWorkspace().getFontManager();
+      GEditor.getDefaultFont();
       if (this._document) {
         var CollaborationMergeUtils = this._document.getEditor();
         if (this._text.length) {
           CollaborationMergeUtils.beginTransaction();
           try {
-            for (var s = 0; s < this._text.length; ++s) {
-              var GProperties = GTools.GElementEditor.getEditor(this._text[s]);
-              if (this._text[s] instanceof GCore.GText && this._text[s].isFakeText()) {
-                var GFontsProviderManager = this._text[s].getContent(),
+            for (
+              var GRichTooltipConfig = 0;
+              GRichTooltipConfig < this._text.length;
+              ++GRichTooltipConfig
+            ) {
+              var GProperties = GTools.GElementEditor.getEditor(this._text[GRichTooltipConfig]);
+              if (
+                this._text[GRichTooltipConfig] instanceof GCore.GText &&
+                this._text[GRichTooltipConfig].isFakeText()
+              ) {
+                var GFontsProviderManager = this._text[GRichTooltipConfig].getContent(),
                   barrel_editor_actions = {};
                 GFontsProviderManager &&
                   GFontsProviderManager.forEach((t) => {
                     barrel_editor_actions[t.fontFamily] = e;
                   });
-                var GSettingChangedEvent = this._text[s].getProperty('_tff');
+                var GSettingChangedEvent = this._text[GRichTooltipConfig].getProperty('_tff');
                 ((barrel_editor_actions[GSettingChangedEvent] = e),
-                  this._text[s].replaceFonts(barrel_editor_actions, true));
+                  this._text[GRichTooltipConfig].replaceFonts(barrel_editor_actions, true));
               } else {
-                var GSystemDialog = GProperties || this._text[s],
+                var GSystemDialog = GProperties || this._text[GRichTooltipConfig],
                   g = ['_tff'],
                   h = [e],
-                  f = this._text[s] instanceof GCore.GText && this._text[s].getTLCore();
+                  f =
+                    this._text[GRichTooltipConfig] instanceof GCore.GText &&
+                    this._text[GRichTooltipConfig].getTLCore();
                 if (f) {
                   let GTools;
                   GTools =
@@ -87058,7 +87351,7 @@ function (exports, module, require) {
                     ((t = [GSystemDialog.getProperty('_tfs') || GCore.GFont.Style.Normal]),
                     (n = [GSystemDialog.getProperty('_tfw') || GCore.GFont.Weight.Regular]),
                     await this._correctStyleAndWeight(e, t, n),
-                    !a.getFont(e, t[0], n[0]))
+                    !GEditor.getFont(e, t[0], n[0]))
                   )
                     continue;
                   (Array.prototype.push.apply(g, ['_tfs', '_tfw']),
@@ -87068,9 +87361,9 @@ function (exports, module, require) {
               }
               if (GProperties) {
                 var A = GProperties.getDefaultStyle();
-                A && A.assignStyleFrom(this._text[s]);
+                A && A.assignStyleFrom(this._text[GRichTooltipConfig]);
               }
-              this._text[s] instanceof GCore.GStyle && this._updateProperties();
+              this._text[GRichTooltipConfig] instanceof GCore.GStyle && this._updateProperties();
             }
           } finally {
             CollaborationMergeUtils.commitTransaction(
@@ -87085,15 +87378,19 @@ function (exports, module, require) {
     (v.prototype._assignProperty = function (e, t, n, GTools) {
       this._assignProperties([e], [t], n, GTools);
     }),
-    (v.prototype._assignProperties = function (e, t, n, a) {
+    (v.prototype._assignProperties = function (e, t, n, GEditor) {
       if (this._document) {
         var CollaborationMergeUtils = this._document.getEditor();
         n || ((this._ownChange = true), CollaborationMergeUtils.beginTransaction());
         try {
-          for (var s = 0; s < this._text.length; ++s) {
-            (GProperties = GTools.GElementEditor.getEditor(this._text[s]))
+          for (
+            var GRichTooltipConfig = 0;
+            GRichTooltipConfig < this._text.length;
+            ++GRichTooltipConfig
+          ) {
+            (GProperties = GTools.GElementEditor.getEditor(this._text[GRichTooltipConfig]))
               ? GProperties.setProperties(e, t, n)
-              : this._text[s].setProperties(e, t, false, false, n);
+              : this._text[GRichTooltipConfig].setProperties(e, t, false, false, n);
           }
         } finally {
           n ||
@@ -87101,14 +87398,18 @@ function (exports, module, require) {
               GCore.GLocale.get(
                 new GCore.GLocaleKey('GTextProperties', 'action.modify-text-properties')
               ),
-              a || null
+              GEditor || null
             ),
             (this._ownChange = false));
         }
         if (e.includes('sc'))
-          for (s = 0; s < this._text.length; ++s) {
+          for (
+            GRichTooltipConfig = 0;
+            GRichTooltipConfig < this._text.length;
+            ++GRichTooltipConfig
+          ) {
             var GProperties;
-            (GProperties = GTools.GElementEditor.getEditor(this._text[s])) &&
+            (GProperties = GTools.GElementEditor.getEditor(this._text[GRichTooltipConfig])) &&
               GProperties.requestInvalidation();
           }
       }
@@ -88607,14 +88908,14 @@ function (exports, module, require) {
     require(4) /* stub_requires_668 */,
     require(41)) /* stub_requires_682 */;
   var GCore = require(1) /* GCore */,
-    i = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GDocument = require(163) /* GDocument */,
     GAction = require(31) /* GAction */,
     GContainer = require(85); /* GContainer */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GLinkImageAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GLinkImageAction', 'tooltip-description')
@@ -88654,8 +88955,8 @@ function (exports, module, require) {
       (e = e || n.getStorage() || gDesigner.getDefaultStorage()).openPrompt(
         GDocument.FileTypes.filter((e) => 0 === e.mime.indexOf('image')),
         (e) => {
-          var i = 'file://' + e.getUniqueId(),
-            MenuItemBuilder = i,
+          var GRichTooltipConfig = 'file://' + e.getUniqueId(),
+            MenuItemBuilder = GRichTooltipConfig,
             GDocument = n.getScene().getDictionary().putValueIfAbsent(MenuItemBuilder);
           GDocument && (MenuItemBuilder = GDocument.getUrl());
           var GAction = new Image();
@@ -88668,7 +88969,7 @@ function (exports, module, require) {
               n.insertElement(e, true, true),
               t && t());
           }),
-            (GAction.src = i));
+            (GAction.src = GRichTooltipConfig));
         },
         false
       );
@@ -88821,7 +89122,7 @@ function (exports, module, require) {
     require(41)) /* stub_requires_682 */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GContainer = _interopRequireDefault(require(85) /* GContainer */),
     AppSettings = require(10) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
@@ -88829,7 +89130,7 @@ function (exports, module, require) {
     GAction = require(31); /* GAction */
   function p() {
     p.TOOLTIP_CONFIG = {
-      [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GPlaceImportAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GPlaceImportAction', 'tooltip-description')
@@ -88903,12 +89204,12 @@ function (exports, module, require) {
     require(34)) /* polyfill_String_replace */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l() {
     l.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GRedoAction', 'tooltip-title')),
         description: GCore.GLocale.get(new GCore.GLocaleKey('GRedoAction', 'tooltip-description')),
         shortcut: l.SHORTCUT,
@@ -89134,12 +89435,12 @@ function (exports, module, require) {
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function l() {
     l.TOOLTIP_CONFIG = {
-      [a.TOOLTIP_AREA.TOOLBAR]: a.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GToggleSnapAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GToggleSnapAction', 'tooltip-description')
@@ -89201,12 +89502,12 @@ function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
-    i = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function s() {
     s.TOOLTIP_CONFIG = {
-      [i.TOOLTIP_AREA.TOOLBAR]: i.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GToggleSnapZonesAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GToggleSnapZonesAction', 'tooltip-description')
@@ -89256,12 +89557,12 @@ function (exports, module, require) {
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GZoomInAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GZoomInAction', 'tooltip-description')
@@ -89309,16 +89610,20 @@ function (exports, module, require) {
         for (
           var require = GTools.GZoomTool.options.zoomLevels,
             GCore = e.getZoom(),
-            r = require.length - 1,
+            GRichTooltipConfig = require.length - 1,
             MenuItemBuilder = 0;
           MenuItemBuilder < require.length;
           MenuItemBuilder++
         )
           if (
-            (GCore < require[r - MenuItemBuilder] && (t = require[r - MenuItemBuilder]),
+            (GCore < require[GRichTooltipConfig - MenuItemBuilder] &&
+              (t = require[GRichTooltipConfig - MenuItemBuilder]),
             GCore === require[MenuItemBuilder])
           ) {
-            t = r > 0 ? require[MenuItemBuilder + 1] : GEditor.GSceneWidget.options.maxZoomFactor;
+            t =
+              GRichTooltipConfig > 0
+                ? require[MenuItemBuilder + 1]
+                : GEditor.GSceneWidget.options.maxZoomFactor;
             break;
           }
       } else t = e.getZoom() * c.ZOOM_STEP;
@@ -89339,12 +89644,12 @@ function (exports, module, require) {
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     GEditor = require(15) /* GEditor */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [r.TOOLTIP_AREA.TOOLBAR]: r.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(new GCore.GLocaleKey('GZoomOutAction', 'tooltip-title')),
         description: GCore.GLocale.get(
           new GCore.GLocaleKey('GZoomOutAction', 'tooltip-description')
@@ -89392,12 +89697,18 @@ function (exports, module, require) {
         for (
           var require = GTools.GZoomTool.options.zoomLevels,
             GCore = e.getZoom(),
-            r = (require.length, 0);
-          r < require.length;
-          r++
+            GRichTooltipConfig = (require.length, 0);
+          GRichTooltipConfig < require.length;
+          GRichTooltipConfig++
         )
-          if ((GCore > require[r] && (t = require[r]), GCore === require[r])) {
-            t = r > 0 ? require[r - 1] : GEditor.GSceneWidget.options.minZoomFactor;
+          if (
+            (GCore > require[GRichTooltipConfig] && (t = require[GRichTooltipConfig]),
+            GCore === require[GRichTooltipConfig])
+          ) {
+            t =
+              GRichTooltipConfig > 0
+                ? require[GRichTooltipConfig - 1]
+                : GEditor.GSceneWidget.options.minZoomFactor;
             break;
           }
       } else t = e.getZoom() / c.ZOOM_STEP;
@@ -89731,7 +90042,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GAlignAction = require(866) /* GAlignAction */,
     GDistributeAction = require(867) /* GDistributeAction */,
@@ -89845,7 +90156,7 @@ function (exports, module, require) {
       function _interopRequireDefault(e) {
         var t = GAlignAction.ID + '.' + e,
           n = gDesigner.getAction(t);
-        const _interopRequireDefault = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
+        const _interopRequireDefault = n.getTooltipConfig(GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR),
           GTools = $('<span></span>');
         return (
           barrel_panels.icon
@@ -89867,7 +90178,7 @@ function (exports, module, require) {
       function GProperties(e) {
         var t = GDistributeAction.ID + '.' + e,
           n = gDesigner.getAction(t);
-        const _interopRequireDefault = n.getTooltipConfig(r.TOOLTIP_AREA.SIDEBAR),
+        const _interopRequireDefault = n.getTooltipConfig(GRichTooltipConfig.TOOLTIP_AREA.SIDEBAR),
           GTools = $('<span></span>').append(n.getIcon());
         return (
           _interopRequireDefault && GTools.gRichTooltip(_interopRequireDefault),
@@ -90028,7 +90339,7 @@ function (exports, module, require) {
         $('<label></label>')
           .text(GCore.GLocale.get(new GCore.GLocaleKey('GDimensionProperties', 'text.alignTitle')))
           .prependTo(t));
-      const h = r.GRichTooltipConfig.from({
+      const h = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GDimensionProperties', 'text.property-x-y-tooltip-title')
           ),
@@ -90038,7 +90349,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        f = r.GRichTooltipConfig.from({
+        f = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GDimensionProperties', 'text.property-w-h-tooltip-title')
           ),
@@ -90048,7 +90359,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        m = r.GRichTooltipConfig.from({
+        m = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GDimensionProperties', 'text.keep-ratio-tooltip-title')
           ),
@@ -90056,7 +90367,7 @@ function (exports, module, require) {
             new GCore.GLocaleKey('GDimensionProperties', 'text.keep-ratio-tooltip-description')
           ),
         }),
-        y = r.GRichTooltipConfig.from({
+        y = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GDimensionProperties', 'text.transform-button-tooltip-title')
           ),
@@ -90069,7 +90380,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        v = r.GRichTooltipConfig.from({
+        v = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GDimensionProperties', 'text.rotate-angle-tooltip-title')
           ),
@@ -90157,7 +90468,7 @@ function (exports, module, require) {
                         }.bind(this)
                       )
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GDimensionProperties',
@@ -90200,7 +90511,7 @@ function (exports, module, require) {
                         }.bind(this)
                       )
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GDimensionProperties',
@@ -90243,7 +90554,7 @@ function (exports, module, require) {
                         }.bind(this)
                       )
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GDimensionProperties',
@@ -90292,7 +90603,7 @@ function (exports, module, require) {
                         }.bind(this)
                       )
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GDimensionProperties',
@@ -90335,7 +90646,7 @@ function (exports, module, require) {
                         }.bind(this)
                       )
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GDimensionProperties',
@@ -90378,7 +90689,7 @@ function (exports, module, require) {
                         }.bind(this)
                       )
                       .gRichTooltip(
-                        r.GRichTooltipConfig.from({
+                        GRichTooltipConfig.GRichTooltipConfig.from({
                           title: GCore.GLocale.get(
                             new GCore.GLocaleKey(
                               'GDimensionProperties',
@@ -90539,8 +90850,12 @@ function (exports, module, require) {
         _interopRequireDefault = 0;
       if (!e) {
         ((this._elementsBBox = null), (this._firstElementsBBox = null));
-        for (var r = 0; r < this._elements.length; ++r) {
-          var GTouchTool = this._elements[r];
+        for (
+          var GRichTooltipConfig = 0;
+          GRichTooltipConfig < this._elements.length;
+          ++GRichTooltipConfig
+        ) {
+          var GTouchTool = this._elements[GRichTooltipConfig];
           if (GTouchTool.hasMixin(GCore.GElement.Transform)) {
             var GAlignAction = null;
             if (t) {
@@ -90649,12 +90964,12 @@ function (exports, module, require) {
       if (this._document) {
         var require = null,
           _interopRequireDefault = null,
-          r = '',
+          GRichTooltipConfig = '',
           GTouchTool = this._getCurrentDimensions(false, false);
         switch (e) {
           case 'x':
           case 'y':
-            ((r = 'Move'),
+            ((GRichTooltipConfig = 'Move'),
               (require = this._document.getScene().stringToPoint(t)),
               (_interopRequireDefault = GTouchTool
                 ? 'x' == e
@@ -90664,7 +90979,7 @@ function (exports, module, require) {
             break;
           case 'w':
           case 'h':
-            ((r = GCore.GLocale.get(
+            ((GRichTooltipConfig = GCore.GLocale.get(
               new GCore.GLocaleKey('GDimensionProperties', 'action.change-size')
             )),
               (require = this._document.getScene().stringToPoint(t)),
@@ -90675,7 +90990,9 @@ function (exports, module, require) {
                 : null));
             break;
           case 'rotate':
-            ((r = GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.rotate'))),
+            ((GRichTooltipConfig = GCore.GLocale.get(
+              new GCore.GLocaleKey('GCommonNames', 'action.rotate')
+            )),
               (require = GCore.GLength.parseEquationValue(t)),
               (_interopRequireDefault = GTouchTool ? GTouchTool.angle : null));
         }
@@ -90701,19 +91018,20 @@ function (exports, module, require) {
               if ('w' === e || 'h' === e) {
                 if (('w' === e && t.getWidth() <= 0) || ('h' === e && t.getHeight() <= 0))
                   return new GCore.GTransform();
-                var r = 1,
+                var GRichTooltipConfig = 1,
                   GTouchTool = 1;
                 switch (e) {
                   case 'w':
-                    ((r = require / t.getWidth()), _interopRequireDefault && (GTouchTool = r));
+                    ((GRichTooltipConfig = require / t.getWidth()),
+                      _interopRequireDefault && (GTouchTool = GRichTooltipConfig));
                     break;
                   case 'h':
                     ((GTouchTool = require / t.getHeight()),
-                      _interopRequireDefault && (r = GTouchTool));
+                      _interopRequireDefault && (GRichTooltipConfig = GTouchTool));
                 }
                 return new GCore.GTransform()
                   .translated(-t.getX(), -t.getY())
-                  .scaled(r, GTouchTool)
+                  .scaled(GRichTooltipConfig, GTouchTool)
                   .translated(t.getX(), t.getY());
               }
               if ('x' === e) return new GCore.GTransform().translated(require - t.getX(), 0);
@@ -90733,7 +91051,7 @@ function (exports, module, require) {
           barrel_panels.beginTransaction();
           try {
             for (
-              var GSnapUnitAction = function (t, n, _interopRequireDefault, r) {
+              var GSnapUnitAction = function (t, n, _interopRequireDefault, GRichTooltipConfig) {
                   if (
                     (t =
                       _interopRequireDefault.length && _interopRequireDefault.indexOf(t) >= 0
@@ -90743,7 +91061,7 @@ function (exports, module, require) {
                     var GTouchTool =
                         (t instanceof GCore.GSymbol && ('x' === e || 'y' === e)) ||
                         'rotate' === e ||
-                        (r && r.fullContentTransform),
+                        (GRichTooltipConfig && GRichTooltipConfig.fullContentTransform),
                       GAlignAction = GTools.GElementEditor.openEditor(t);
                     GAlignAction
                       ? (GAlignAction._setTransform(n),
@@ -90783,7 +91101,7 @@ function (exports, module, require) {
                     );
               }
           } finally {
-            barrel_panels.commitTransaction(r);
+            barrel_panels.commitTransaction(GRichTooltipConfig);
           }
         }
       }
@@ -90946,8 +91264,8 @@ function (exports, module, require) {
             _interopRequireDefault < this._elements.length;
             ++_interopRequireDefault
           ) {
-            var r = this._elements[_interopRequireDefault];
-            if (r.getParent().hasMixin(GCore.GElement.Layout)) {
+            var GRichTooltipConfig = this._elements[_interopRequireDefault];
+            if (GRichTooltipConfig.getParent().hasMixin(GCore.GElement.Layout)) {
               var GTouchTool = GTools.GElementEditor.getEditor(
                 this._elements[_interopRequireDefault]
               );
@@ -90975,7 +91293,7 @@ function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
   var GTools = require(53) /* GTools */,
-    i = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GCore = require(1) /* GCore */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
@@ -91002,7 +91320,7 @@ function (exports, module, require) {
     (l.prototype.getShortcut = function () {
       switch (this._category) {
         case l.Type.FullUnit:
-          return [i.GKey.Constant.SHIFT, i.GKey.Constant.META, 'U'];
+          return [GEditor.GKey.Constant.SHIFT, GEditor.GKey.Constant.META, 'U'];
         default:
           return null;
       }
@@ -91028,17 +91346,17 @@ function (exports, module, require) {
               if (n.hasMixin(GCore.GElement.Transform)) {
                 var GTools = n.getGeometryBBox();
                 if (GTools && GTools.getWidth() + GTools.getHeight() !== 0) {
-                  var i = GCore.GMath.round(GTools.getX(), true),
+                  var GEditor = GCore.GMath.round(GTools.getX(), true),
                     MenuItemBuilder = GCore.GMath.round(GTools.getY(), true),
                     GAction = GCore.GMath.round(GTools.getWidth(), true),
                     c = GCore.GMath.round(GTools.getHeight(), true);
                   this._category === l.Type.HalfUnit &&
-                    ((i += 0.5), (MenuItemBuilder += 0.5), (GAction += 0.5), (c += 0.5));
+                    ((GEditor += 0.5), (MenuItemBuilder += 0.5), (GAction += 0.5), (c += 0.5));
                   var d = new GCore.GTransform()
                     .translated(-GTools.getX(), -GTools.getY())
                     .scaled(GAction / (GTools.getWidth() || 1), c / (GTools.getHeight() || 1))
                     .translated(GTools.getX(), GTools.getY())
-                    .translated(i - GTools.getX(), MenuItemBuilder - GTools.getY());
+                    .translated(GEditor - GTools.getX(), MenuItemBuilder - GTools.getY());
                   n.transform(d);
                 }
               }
@@ -93131,7 +93449,7 @@ function (exports, module, require) {
     require(41)) /* stub_requires_682 */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GAlignAction = require(866) /* GAlignAction */,
     GArrangeAction = require(869) /* GArrangeAction */,
     GAttachToPathAction = require(1176) /* GAttachToPathAction */,
@@ -93173,7 +93491,7 @@ function (exports, module, require) {
     var t = this._createContextMenu(),
       n = this._createCropMenu(),
       GCore = this._createPageMenu(),
-      a = this._createTouchContextMenu(),
+      GEditor = this._createTouchContextMenu(),
       GAlignAction = this._createFillPropertyMenu(),
       GArrangeAction = this._createBorderPropertyMenu(),
       GAttachToPathAction = this._createEffectPropertyMenu();
@@ -93226,7 +93544,7 @@ function (exports, module, require) {
               (this._mouseEvent = e.pageX ? e : GCreateSymbolAction),
               (this._options = GConvertToPathAction),
               gDesigner.isTouchEnabled() && GDistributeAction
-                ? a.gOverlay(
+                ? GEditor.gOverlay(
                     'open',
                     { x: GJoinPathsAction, y: GMergeMainAction },
                     undefined,
@@ -93240,7 +93558,7 @@ function (exports, module, require) {
                     }
                   )
                 : GDetachFromPathAction.open({ x: GJoinPathsAction, y: GMergeMainAction }),
-              (this._contextMenuTouch = a),
+              (this._contextMenuTouch = GEditor),
               (this._contextMenuDesktop = GDetachFromPathAction),
               true
             );
@@ -93450,7 +93768,9 @@ function (exports, module, require) {
                               gDesigner
                                 .getActiveDocument()
                                 .getEditor()
-                                .updateSelection(a.GPlatform.modifiers.shiftKey, [this.element]));
+                                .updateSelection(GEditor.GPlatform.modifiers.shiftKey, [
+                                  this.element,
+                                ]));
                           },
                           function () {
                             this.element.setFlag(GCore.GNode.Flag.Highlighted);
@@ -93469,7 +93789,7 @@ function (exports, module, require) {
                         gDesigner
                           .getActiveDocument()
                           .getEditor()
-                          .updateSelection(a.GPlatform.modifiers.shiftKey, [this.element]));
+                          .updateSelection(GEditor.GPlatform.modifiers.shiftKey, [this.element]));
                     },
                     function () {
                       this.element.setFlag(GCore.GNode.Flag.Highlighted);
@@ -93503,8 +93823,8 @@ function (exports, module, require) {
           .getView()
           ._convertClientPositionFromMousePosition(e),
         n = gDesigner.getActiveDocument().getScene(),
-        a = gDesigner.getWindows().getActiveWindow().getView(),
-        GAlignAction = a.getWorldTransform(n),
+        GEditor = gDesigner.getWindows().getActiveWindow().getView(),
+        GAlignAction = GEditor.getWorldTransform(n),
         GArrangeAction = function (e) {
           return !(e instanceof GCore.GPage);
         }.bind(this),
@@ -93519,7 +93839,7 @@ function (exports, module, require) {
           null,
           true,
           false,
-          a.getViewConfiguration().multiPageView
+          GEditor.getViewConfiguration().multiPageView
         );
       if (
         (GAttachToPathAction &&
@@ -93594,19 +93914,22 @@ function (exports, module, require) {
                   copyIgnoreProperties: GTools.GEditorOptions.propertiesExcludedFromCopying,
                 });
               (e.insertChild(n), e.renameClone(t, n));
-              var a = n.getPosition(true, true, true, true);
-              n.setProperty('off', new GCore.GTransform(1, 0, 0, 1, a.getX(), a.getY()));
+              var GEditor = n.getPosition(true, true, true, true);
+              n.setProperty(
+                'off',
+                new GCore.GTransform(1, 0, 0, 1, GEditor.getX(), GEditor.getY())
+              );
             },
             t.DUPLICATE
           ),
             gDesigner.stats('contextmenu_pages_duplicate'));
         }),
-        a = e.createAddItem(t.DELETE, function () {
+        GEditor = e.createAddItem(t.DELETE, function () {
           var e = gDesigner.getActiveDocument().getScene(),
             n = e.getActivePage(),
-            a = n.getSlavePages().length > 0;
+            GEditor = n.getSlavePages().length > 0;
           n.getProperty('plkt') & GCore.GBlock.ProgramLck.NoDelete ||
-            (a
+            (GEditor
               ? GSystemDialog.confirm(
                   GCore.GLocale.get(
                     new GCore.GLocaleKey('GOutlineSidebar', 'text.confirm-delete-masterpage')
@@ -93646,8 +93969,8 @@ function (exports, module, require) {
               var t =
                   e.isCommercialProductFile() ||
                   !gDesigner.getApplicationManager().isCopyPasteEnabled(),
-                a = n.getActivePage(),
-                GAlignAction = GCore.GNode.serialize(a, {
+                GEditor = n.getActivePage(),
+                GAlignAction = GCore.GNode.serialize(GEditor, {
                   copy: true,
                   copyIgnoreProperties: GTools.GEditorOptions.propertiesExcludedFromCopying,
                 }),
@@ -93672,7 +93995,7 @@ function (exports, module, require) {
         });
       return (
         n.setIcon('gravit-icon-duplicate'),
-        a.setIcon('gravit-icon-delete'),
+        GEditor.setIcon('gravit-icon-delete'),
         GAlignAction.setIcon('gravit-icon-copy'),
         GArrangeAction.setIcon('gravit-icon-export'),
         GArrangeAction.setProFeatureInterruption(false),
@@ -93702,11 +94025,11 @@ function (exports, module, require) {
               function () {
                 for (var n = 0; n < e.length; n++)
                   for (
-                    var GTools = e[n].getPaintLayers().getFillLayers(), a = 0;
-                    a < GTools.length;
-                    a++
+                    var GTools = e[n].getPaintLayers().getFillLayers(), GEditor = 0;
+                    GEditor < GTools.length;
+                    GEditor++
                   ) {
-                    var GAlignAction = GTools[a];
+                    var GAlignAction = GTools[GEditor];
                     if (GCore.GStylable.FillPaintLayer.equals(GAlignAction, t)) {
                       GAlignAction.getParent().removeChild(GAlignAction);
                       break;
@@ -93737,8 +94060,8 @@ function (exports, module, require) {
       return (
         GAlignAction.setIcon('gravit-icon-trash'),
         GArrangeAction.setIcon('gravit-icon-copy'),
-        GAlignAction.setShortcutHint([a.GKey.Constant.DELETE]),
-        GArrangeAction.setShortcutHint([a.GKey.Constant.META, 'C']),
+        GAlignAction.setShortcutHint([GEditor.GKey.Constant.DELETE]),
+        GArrangeAction.setShortcutHint([GEditor.GKey.Constant.META, 'C']),
         e.addEventListener(
           GMenuOpenEvent,
           function () {
@@ -93778,11 +94101,11 @@ function (exports, module, require) {
               function () {
                 for (var n = 0; n < e.length; n++)
                   for (
-                    var GTools = e[n].getPaintLayers().getBorderLayers(), a = 0;
-                    a < GTools.length;
-                    a++
+                    var GTools = e[n].getPaintLayers().getBorderLayers(), GEditor = 0;
+                    GEditor < GTools.length;
+                    GEditor++
                   ) {
-                    var GAlignAction = GTools[a];
+                    var GAlignAction = GTools[GEditor];
                     if (GCore.GStylable.BorderPaintLayer.equals(GAlignAction, t)) {
                       GAlignAction.getParent().removeChild(GAlignAction);
                       break;
@@ -93814,8 +94137,8 @@ function (exports, module, require) {
         GAlignAction.setIcon('gravit-icon-settings'),
         GArrangeAction.setIcon('gravit-icon-trash'),
         GAttachToPathAction.setIcon('gravit-icon-copy'),
-        GArrangeAction.setShortcutHint([a.GKey.Constant.DELETE]),
-        GAttachToPathAction.setShortcutHint([a.GKey.Constant.META, 'C']),
+        GArrangeAction.setShortcutHint([GEditor.GKey.Constant.DELETE]),
+        GAttachToPathAction.setShortcutHint([GEditor.GKey.Constant.META, 'C']),
         e.addEventListener(
           GMenuOpenEvent,
           function () {
@@ -93886,18 +94209,18 @@ function (exports, module, require) {
         GArrangeAction.setIcon('gravit-icon-circle'),
         GAttachToPathAction.setIcon('gravit-icon-fill'),
         GConvertToPathAction.setIcon('gravit-icon-stroke'),
-        GCreateSymbolAction.setShortcutHint([a.GKey.Constant.META, 'C']),
+        GCreateSymbolAction.setShortcutHint([GEditor.GKey.Constant.META, 'C']),
         e.addItem(GAlignAction),
         e.addEventListener(
           GMenuOpenEvent,
           function () {
             let e = null,
               GTools = null,
-              a = (t =
+              GEditor = (t =
                 this._options && this._options.data && this._options.data.effect).getProperty('ly');
-            (a === GCore.GStylable.StyleLayer.Fill
+            (GEditor === GCore.GStylable.StyleLayer.Fill
               ? ((e = 'gravit-icon-fill'), (GTools = n.APPLY_TO_FILL))
-              : a === GCore.GStylable.StyleLayer.Border
+              : GEditor === GCore.GStylable.StyleLayer.Border
                 ? ((e = 'gravit-icon-stroke'), (GTools = n.APPLY_TO_BORDER))
                 : ((e = 'gravit-icon-circle'), (GTools = n.APPLY_TO_ELEMENT)),
               GAlignAction.setIcon(e),
@@ -94342,7 +94665,7 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GFontsProviderManager = require(255) /* GFontsProviderManager */,
     barrel_editor_actions = require(590) /* barrel_editor_actions */,
     GAnnotationsSidebar = require(567); /* GAnnotationsSidebar */
@@ -94459,7 +94782,7 @@ function (exports, module, require) {
             barrel_editor_actions && (GTools[d] = barrel_editor_actions);
           }
           (this._handlePasteData(GTools),
-            a.GPlatform.webBrowser === a.GPlatform.constructor.WebBrowser.Firefox &&
+            GEditor.GPlatform.webBrowser === GEditor.GPlatform.constructor.WebBrowser.Firefox &&
               (e.stopPropagation(), e.preventDefault()));
         } else if (this._pasteArea) {
           GTools = {};
@@ -94520,7 +94843,7 @@ function (exports, module, require) {
       for (
         var module = !this._callback,
           require = gDesigner.getActiveDocument(),
-          a = require.getEditor(),
+          GEditor = require.getEditor(),
           GAnnotationsSidebar = 0;
         GAnnotationsSidebar < c.length;
         ++GAnnotationsSidebar
@@ -94567,23 +94890,23 @@ function (exports, module, require) {
               v =
                 1 === f.length &&
                 f[0] instanceof GCore.GText &&
-                a.hasSelection() &&
-                a.getSelection()[0] instanceof GCore.GText &&
-                a.isInlineEditing();
+                GEditor.hasSelection() &&
+                GEditor.getSelection()[0] instanceof GCore.GText &&
+                GEditor.isInlineEditing();
             if (v || (0 == m.length && 1 == f.length && !h)) {
               var _ = f[0];
-              a.beginTransaction();
+              GEditor.beginTransaction();
               try {
                 if (v) {
                   if (!GTools.GInlineTextEditor.HANDLECOPYPASTE) {
-                    var b = a.getSelection()[0];
+                    var b = GEditor.getSelection()[0];
                     GTools.GElementEditor.getEditor(b).processPaste(_);
                   }
                 } else if (
                   _ instanceof GCore.GStylable.FillPaintLayer ||
                   _ instanceof GCore.GStylable.BorderPaintLayer
                 ) {
-                  m = a.getSelection();
+                  m = GEditor.getSelection();
                   0 != (m = this._filterForStyleExceptions(m)).length &&
                     (m.length > 1
                       ? m.forEach(function (e) {
@@ -94595,7 +94918,7 @@ function (exports, module, require) {
                         })
                       : m[0].getPaintLayers().appendChild(_));
                 } else if (_ instanceof GCore.GStylable.Effect) {
-                  m = a.getSelection();
+                  m = GEditor.getSelection();
                   0 != (m = this._filterForStyleExceptions(m)).length &&
                     (m.length > 1
                       ? m.forEach(function (e) {
@@ -94605,14 +94928,14 @@ function (exports, module, require) {
                       : m[0].getEffects().appendChild(_));
                 }
               } finally {
-                a.commitTransaction(
+                GEditor.commitTransaction(
                   GCore.GLocale.get(new GCore.GLocaleKey('GPaste', 'action.paste'))
                 );
               }
             } else {
               var w = require.getScene().getStyles();
               if (m.length > 0 || h) {
-                module && a.beginTransaction();
+                module && GEditor.beginTransaction();
                 try {
                   for (var C = 0; C < y.length; ++C) {
                     let e = y[C],
@@ -94644,14 +94967,14 @@ function (exports, module, require) {
                       ? (g.clearChildren(),
                         g.setProperty('off', null),
                         E.appendChild(g),
-                        m.length > 0 && a.insertElements(m, true, true, false, true, g),
+                        m.length > 0 && GEditor.insertElements(m, true, true, false, true, g),
                         E.setActivePage(g))
-                      : a.insertElements(m, true, true, true, true),
+                      : GEditor.insertElements(m, true, true, true, true),
                       E.isFixedSized() || this._centerToView(true));
                   }
                 } finally {
                   module &&
-                    a.commitTransaction(
+                    GEditor.commitTransaction(
                       GCore.GLocale.get(new GCore.GLocaleKey('GPaste', 'action.paste'))
                     );
                 }
@@ -94668,18 +94991,18 @@ function (exports, module, require) {
               gDesigner.getWorkspace().getFontManager() &&
               gDesigner.getWorkspace().getFontManager().getDefaultFont() &&
               gDesigner.getWorkspace().getFontManager().getDefaultFont().getFamily();
-          const e = this._filterForInlineEditing(a.getSelection());
-          if (e && e.length > 0 && e[0] instanceof GCore.GText && a.isInlineEditing()) {
+          const e = this._filterForInlineEditing(GEditor.getSelection());
+          if (e && e.length > 0 && e[0] instanceof GCore.GText && GEditor.isInlineEditing()) {
             if (!GTools.GInlineTextEditor.HANDLECOPYPASTE) {
               var P = e[0];
               return void GTools.GElementEditor.getEditor(P).processPaste(u);
             }
           } else {
-            ((P = new GCore.GText()).setText(u, true, true), module && a.beginTransaction());
+            ((P = new GCore.GText()).setText(u, true, true), module && GEditor.beginTransaction());
             try {
               if (!this.executeCallback([P], true)) {
                 if (
-                  (a.insertElements([P], false, true, true),
+                  (GEditor.insertElements([P], false, true, true),
                   (A = T && T.getDefaultFamilyForString(u)) && A !== G)
                 ) {
                   var D = GCore.GOpenTypeFont.getDirectionForString(u);
@@ -94692,7 +95015,7 @@ function (exports, module, require) {
             } finally {
               return void (
                 module &&
-                a.commitTransaction(
+                GEditor.commitTransaction(
                   GCore.GLocale.get(new GCore.GLocaleKey('GPaste', 'action.paste'))
                 )
               );
@@ -94703,12 +95026,12 @@ function (exports, module, require) {
       for (var L = 0; L < d.length; ++L) {
         var I = d[L];
         if (e[I]) {
-          module && a.beginTransaction();
+          module && GEditor.beginTransaction();
           try {
             require.placeOrImport(e[I], null, false, true, this.executeCallback.bind(this));
           } finally {
             module &&
-              a.commitTransaction(
+              GEditor.commitTransaction(
                 GCore.GLocale.get(new GCore.GLocaleKey('GPaste', 'action.paste-image'))
               );
           }
@@ -94726,23 +95049,23 @@ function (exports, module, require) {
         GTools++
       ) {
         for (
-          var a = e[GTools], GFontsProviderManager = true, barrel_editor_actions = 0;
+          var GEditor = e[GTools], GFontsProviderManager = true, barrel_editor_actions = 0;
           barrel_editor_actions < module.length;
           barrel_editor_actions++
         ) {
-          if (a instanceof module[barrel_editor_actions]) {
+          if (GEditor instanceof module[barrel_editor_actions]) {
             GFontsProviderManager = false;
             break;
           }
         }
-        GFontsProviderManager && require.push(a);
+        GFontsProviderManager && require.push(GEditor);
       }
       return require;
     }),
     (p.prototype._centerToView = function (e) {
       var t,
         n,
-        a = gDesigner.getActiveDocument().getEditor(),
+        GEditor = gDesigner.getActiveDocument().getEditor(),
         GFontsProviderManager = gDesigner.getActiveDocument().getScene(),
         barrel_editor_actions = gDesigner.getWindows().getActiveWindow(),
         GAnnotationsSidebar = GFontsProviderManager.getActivePage();
@@ -94760,8 +95083,8 @@ function (exports, module, require) {
           GFontsProviderManager.isFixedSized() && (t = t.intersected(n)),
           t.isEmpty() && (t = n));
       } else t = n;
-      (a.arrangeAlign(GTools.GEditor.ArrangeAlignType.AlignCenter, null, true, t, true, e),
-        a.arrangeAlign(GTools.GEditor.ArrangeAlignType.AlignMiddle, null, true, t, true, e));
+      (GEditor.arrangeAlign(GTools.GEditor.ArrangeAlignType.AlignCenter, null, true, t, true, e),
+        GEditor.arrangeAlign(GTools.GEditor.ArrangeAlignType.AlignMiddle, null, true, t, true, e));
     }),
     (p.prototype.getArea = function () {
       return this._pasteArea;
@@ -95576,7 +95899,7 @@ function (exports, module, require) {
     GEvent_user = require(292) /* GEvent_user */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GDocumentStatusEvent = require(217) /* GDocumentStatusEvent */,
-    p = require(220) /* Item */,
+    Item = require(220) /* Item */,
     GCollaborationEvent = require(393) /* GCollaborationEvent */,
     GEvent_document_1323 = require(1323) /* GEvent_document_1323 */,
     f = require(86) /* module_86 */,
@@ -95597,7 +95920,7 @@ function (exports, module, require) {
     DataModule_1565 = require(1565) /* DataModule_1565 */,
     GEvent_type_868 = require(868) /* GEvent_type_868 */,
     D = require(536) /* module_536 */,
-    L = require(237) /* Item */,
+    Item2 = require(237) /* Item */,
     I = require(x ? 1566 : 1567);
   function k() {
     (y &&
@@ -95613,7 +95936,7 @@ function (exports, module, require) {
     (k.prototype._collaboratorsCached = {}),
     (k.prototype.share = function (e, t) {
       const require = this,
-        _interopRequireDefault = e instanceof L.Item,
+        _interopRequireDefault = e instanceof Item2.Item,
         GCore = async function () {
           let GCore = null;
           if (_interopRequireDefault) GCore = e;
@@ -95894,7 +96217,7 @@ function (exports, module, require) {
         _interopRequireDefault = await gDesigner.getUser();
       if (!_interopRequireDefault) return this._setState(e, module);
       if (e && e.isDocumentFromTemplate() && e.isShared()) this._applyStateFromTemplate(module);
-      else if (require instanceof p.Item) {
+      else if (require instanceof Item.Item) {
         const n = await this._getFileExtended(e);
         n && (await this._applyStateFromFile(_interopRequireDefault, n, module));
       } else if (
@@ -96986,7 +97309,7 @@ function (exports, module, require) {
     require(41)) /* stub_requires_682 */;
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
@@ -97013,14 +97336,14 @@ function (exports, module, require) {
       return 'ccp';
     }),
     (f.prototype.getShortcut = function () {
-      return [r.GKey.Constant.REMOVE];
+      return [GEditor.GKey.Constant.REMOVE];
     }),
     (f.prototype.getAdditionalShortcuts = function () {
       var e = [];
       return (
         GCore.GSystem.operatingSystem === GCore.GSystem.OperatingSystem.OSX_IOS
-          ? e.push([r.GKey.Constant.DELETE])
-          : e.push([r.GKey.Constant.BACKSPACE]),
+          ? e.push([GEditor.GKey.Constant.DELETE])
+          : e.push([GEditor.GKey.Constant.BACKSPACE]),
         e
       );
     }),
@@ -97045,8 +97368,8 @@ function (exports, module, require) {
         AppSettings.HAS_ANNOTATIONS &&
         gDesigner.getRightSidebars().getActiveSidebar() === GAnnotationsSidebar.ID
       ) {
-        var r = t.getSelection().filter((e) => GAnnotationsUtils.canDeleteAnnotation(e));
-        r.length &&
+        var GEditor = t.getSelection().filter((e) => GAnnotationsUtils.canDeleteAnnotation(e));
+        GEditor.length &&
           (this._setIsConfirmWindowDisplaying(true),
           GSystemDialog.default.confirm(
             GCore.GLocale.get(new GCore.GLocaleKey('GAnnotationPanel', 'text.confirm-remove')),
@@ -97055,8 +97378,8 @@ function (exports, module, require) {
                 gDesigner.getActiveDocument() &&
                 gDesigner.getActiveDocument().getEditor() === t &&
                 GAnnotationsUtils.removeAnnotations(
-                  r,
-                  r[0].getParent(),
+                  GEditor,
+                  GEditor[0].getParent(),
                   GCore.GLocale.get(this.getTitle())
                 ),
                 this._setIsConfirmWindowDisplaying(false));
@@ -97481,12 +97804,12 @@ function (exports, module, require) {
     GTools = require(53) /* GTools */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     AppSettings = require(10) /* AppSettings */,
-    l = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GProperties = require(123) /* GProperties */,
     GPresets = require(1153) /* GPresets */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
-    g = require(603) /* WindowEvent */,
+    WindowEvent = require(603) /* WindowEvent */,
     GEvent_paintMode = require(1328) /* GEvent_paintMode */,
     DataModule_442 = require(442); /* DataModule_442 */
   const GSystemDialog = require(44) /* GSystemDialog */,
@@ -97547,17 +97870,17 @@ function (exports, module, require) {
           .on(
             'patternchange',
             function (e, t, _interopRequireDefault, GTools, CollaborationMergeUtils, AppSettings) {
-              var l = [],
+              var GRichTooltipConfig = [],
                 GTouchTool = [];
               if (
-                (undefined !== t && (l.push('bck'), GTouchTool.push(t)),
+                (undefined !== t && (GRichTooltipConfig.push('bck'), GTouchTool.push(t)),
                 'number' == typeof _interopRequireDefault &&
-                  (l.push('bop'), GTouchTool.push(_interopRequireDefault)),
+                  (GRichTooltipConfig.push('bop'), GTouchTool.push(_interopRequireDefault)),
                 n._pages)
               )
                 if (GTools)
                   n._pages.forEach(function (e) {
-                    e.setProperties(l, GTouchTool, false, false, GTools);
+                    e.setProperties(GRichTooltipConfig, GTouchTool, false, false, GTools);
                   });
                 else {
                   var GProperties = null;
@@ -97565,7 +97888,7 @@ function (exports, module, require) {
                     ((GProperties = { chooserOn: true, pagePattern: true }),
                     null !== AppSettings && (GProperties.activeStopIdx = AppSettings)),
                     n._assignProperties(
-                      l,
+                      GRichTooltipConfig,
                       GTouchTool,
                       GCore.GLocale.get(
                         new GCore.GLocaleKey('GPageProperties', 'action.change-background')
@@ -97811,9 +98134,9 @@ function (exports, module, require) {
     }),
     (_.prototype._windowEvent = function (e) {
       const { type: module, window: require } = e;
-      if (module !== g.WindowEvent.Type.Activated)
+      if (module !== WindowEvent.WindowEvent.Type.Activated)
         return void (
-          module === g.WindowEvent.Type.Removed &&
+          module === WindowEvent.WindowEvent.Type.Removed &&
           this._lastScene &&
           (this._lastScene.removeEventListener(
             GCore.GNode.AfterPropertiesChangeEvent,
@@ -97985,7 +98308,7 @@ function (exports, module, require) {
     (_.prototype.init = function (e, t) {
       ((this._panel = e),
         (this._toolbar = t),
-        gDesigner.getWindows().addEventListener(g.WindowEvent, this._windowEvent, this),
+        gDesigner.getWindows().addEventListener(WindowEvent.WindowEvent, this._windowEvent, this),
         gDesigner.addEventListener(GEvent_paintMode, this._paintModeEvent, this),
         gDesigner.addEventListener(GDocumentEvent, this._documentEvent, this),
         this.setTouchTools([
@@ -98005,7 +98328,7 @@ function (exports, module, require) {
           .text(GCore.GLocale.get(new GCore.GLocaleKey('GPageProperties', 'title')).toUpperCase())
           .appendTo(t),
         (this._hrAfterbleedRow = $('<hr/>').attr('data-property-row', 'fixed-size').appendTo(e)));
-      const require = l.GRichTooltipConfig.from({
+      const require = GRichTooltipConfig.GRichTooltipConfig.from({
         title: GCore.GLocale.get(
           new GCore.GLocaleKey('GPageProperties', 'text.margin-tooltip-title')
         ),
@@ -98080,7 +98403,7 @@ function (exports, module, require) {
                 .append(this._createInput('master-page'))
                 .append($('<span></span>').gPro())
                 .gRichTooltip(
-                  l.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GPageProperties', 'text.master-tooltip-title')
                     ),
@@ -98102,7 +98425,7 @@ function (exports, module, require) {
           .find('[data-property="rotate-canvas"]')
           .parent('.content')
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GPageProperties', 'text.rotate-canvas-tooltip-title')
               ),
@@ -98116,7 +98439,7 @@ function (exports, module, require) {
           .find('[data-property="trim-canvas"]')
           .parent('.content')
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GPageProperties', 'text.trim-canvas-tooltip-title')
               ),
@@ -98130,7 +98453,7 @@ function (exports, module, require) {
           .find('[data-property="clip-content"]')
           .parent('.content')
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GPageProperties', 'text.clip-content-tooltip-title')
               ),
@@ -98143,7 +98466,7 @@ function (exports, module, require) {
           .find('[data-property="bl"]')
           .parent('.content')
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GPageProperties', 'text.bleed-tooltip-title')
               ),
@@ -98368,16 +98691,33 @@ function (exports, module, require) {
                   AppSettings < CollaborationMergeUtils.length;
                   AppSettings++
                 ) {
-                  var l = CollaborationMergeUtils[AppSettings];
+                  var GRichTooltipConfig = CollaborationMergeUtils[AppSettings];
                   $('<option></option>')
                     .attr('data-preset-id', n.id)
                     .attr(
                       'data-preset-locale-en',
-                      GCore.GLocale.get(l.localeClass, null, GCore.GLocaleLanguage.English)
+                      GCore.GLocale.get(
+                        GRichTooltipConfig.localeClass,
+                        null,
+                        GCore.GLocaleLanguage.English
+                      )
                     )
-                    .attr('value', l.width + 'x' + l.height + 'x' + (t.dpi || 72))
+                    .attr(
+                      'value',
+                      GRichTooltipConfig.width +
+                        'x' +
+                        GRichTooltipConfig.height +
+                        'x' +
+                        (t.dpi || 72)
+                    )
                     .text(
-                      ''.concat(l.name).concat(l.displaySize ? ' ' + l.width + 'x' + l.height : '')
+                      ''
+                        .concat(GRichTooltipConfig.name)
+                        .concat(
+                          GRichTooltipConfig.displaySize
+                            ? ' ' + GRichTooltipConfig.width + 'x' + GRichTooltipConfig.height
+                            : ''
+                        )
                     )
                     .appendTo(_interopRequireDefault);
                 }
@@ -98430,24 +98770,24 @@ function (exports, module, require) {
           .val(t.pointToString(n.getProperty('bl'), t.getOptimalDecimalsCount())),
         n.getProperty('bck') ||
           (n.setProperty('bck', GCore.GRGBColor.WHITE), n.setProperty('bop', 0)));
-      var l = n.getProperty('bck', false, false, true);
+      var GRichTooltipConfig = n.getProperty('bck', false, false, true);
       if (
         (this._panel.find('[data-property-row="background"]').css('display', ''),
         this._panel
           .find('[data-property="bck"]')
-          .css('display', l ? '' : 'none')
+          .css('display', GRichTooltipConfig ? '' : 'none')
           .gPatternChooser(
             'updateSettings',
             _interopRequireDefault
               ? { types: [GCore.GColor, GCore.GGradient, GCore.GTexturePattern] }
               : { types: [GCore.GColor] }
           )
-          .gPatternChooser('setPattern', l)
-          .gPatternChooser('value', l)
+          .gPatternChooser('setPattern', GRichTooltipConfig)
+          .gPatternChooser('value', GRichTooltipConfig)
           .gPatternChooser('opacity', n.getProperty('bop', false, false, true)),
         this._panel
           .find('input[data-property="bop"]')
-          .css('display', l ? '' : 'none')
+          .css('display', GRichTooltipConfig ? '' : 'none')
           .gInputBox('value', GCore.GUtil.formatOpacity(100 * n.getProperty('bop'))),
         _interopRequireDefault)
       ) {
@@ -98485,10 +98825,13 @@ function (exports, module, require) {
           .empty()
           .append($('<option></option>')),
         GSettingChangedEvent = -1,
-        g = null;
+        WindowEvent = null;
       (this._pages.forEach(function (e) {
         var t = e.getMasterPages();
-        t.length && (null === g ? (g = t[0]) : g !== t[0] && (g = undefined));
+        t.length &&
+          (null === WindowEvent
+            ? (WindowEvent = t[0])
+            : WindowEvent !== t[0] && (WindowEvent = undefined));
       }),
         t.iteratePages((e) => {
           if (this._pages.indexOf(e) < 0) {
@@ -98498,7 +98841,7 @@ function (exports, module, require) {
               .attr('value', GSettingChangedEvent)
               .text(e.getProperty('name'))
               .appendTo(GPresets);
-            g === e && t.prop('selected', true);
+            WindowEvent === e && t.prop('selected', true);
           }
         }, true),
         e &&
@@ -98539,8 +98882,9 @@ function (exports, module, require) {
           AppSettings = CollaborationMergeUtils.find(
             'option[value="' + CollaborationMergeUtils.val() + '"]'
           ).data('preset-id'),
-          l = _interopRequireDefault && this._excludedPresets.includes(AppSettings);
-        (CollaborationMergeUtils.attr('disabled', l),
+          GRichTooltipConfig =
+            _interopRequireDefault && this._excludedPresets.includes(AppSettings);
+        (CollaborationMergeUtils.attr('disabled', GRichTooltipConfig),
           this._panel.find('[data-property="bck"]').attr('disabled', !GTools),
           this._panel.find('input[data-property="bop"]').attr('disabled', !GTools),
           this._panel.find('input[data-property="w"]').attr('disabled', false),
@@ -98582,7 +98926,7 @@ function (exports, module, require) {
       }),
         this._panel.find(':disabled').each(function () {
           const e = $(this);
-          l ||
+          GRichTooltipConfig ||
             (e.attr('default-data-title', e.attr('default-data-title') || ''),
             e.attr(
               'data-title',
@@ -98610,7 +98954,7 @@ function (exports, module, require) {
           );
       (this._panel.find('.tooltip-wrapper').remove(),
         this._panel.find('select:disabled').each(function () {
-          l || GSettingChangedEvent($(this)).insertAfter($(this));
+          GRichTooltipConfig || GSettingChangedEvent($(this)).insertAfter($(this));
         }),
         GSettingChangedEvent().insertAfter(this._panel.find('[data-property="bck"][disabled]')));
     }),
@@ -98666,7 +99010,7 @@ function (exports, module, require) {
     GEditor = require(15) /* GEditor */,
     GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-    s = require(198); /* Exports_GOutlineSidebar */
+    GOutlineSidebar = require(198); /* Exports_GOutlineSidebar */
   const GAction = require(31); /* GAction */
   class c extends GAction {
     getId() {
@@ -98686,7 +99030,9 @@ function (exports, module, require) {
     }
     execute() {
       const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
-        module = gDesigner.getLeftSidebars().getSidebar(s.SidebarsIds.GOutlineSidebar),
+        module = gDesigner
+          .getLeftSidebars()
+          .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
         require = module.getLayerPanel(),
         { currentFocus: _interopRequireDefault } = require.data('glayerpanel');
       if (_interopRequireDefault && exports === module.getId()) {
@@ -98710,7 +99056,7 @@ function (exports, module, require) {
     GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-    l = require(198); /* Exports_GOutlineSidebar */
+    GOutlineSidebar = require(198); /* Exports_GOutlineSidebar */
   class c extends GAction.default {
     constructor(e) {
       (super(),
@@ -98755,7 +99101,7 @@ function (exports, module, require) {
     }
     execute() {
       const exports = gDesigner.getLeftSidebars(),
-        module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar),
+        module = exports && exports.getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
         require = gDesigner.getActiveDocument(),
         _interopRequireDefault = require && require.getScene();
       if (module && _interopRequireDefault) {
@@ -99090,7 +99436,7 @@ function (exports, module, require) {
     GCore = require(1) /* GCore */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */),
-    l = require(198); /* Exports_GOutlineSidebar */
+    GOutlineSidebar = require(198); /* Exports_GOutlineSidebar */
   class c extends GAction.default {
     constructor(e) {
       (super(),
@@ -99126,7 +99472,9 @@ function (exports, module, require) {
       let exports =
         arguments.length > 0 && undefined !== arguments[0] ? arguments[0] : c.Mode.Level;
       const module = gDesigner.getLeftSidebars().getActiveSidebar(),
-        require = gDesigner.getLeftSidebars().getSidebar(l.SidebarsIds.GOutlineSidebar),
+        require = gDesigner
+          .getLeftSidebars()
+          .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
         _interopRequireDefault = require.getLayerPanel(),
         GEditor = _interopRequireDefault.gLayerPanel('getCurrentFocusedNode');
       if (!GEditor || module !== require.getId()) return;
@@ -100007,8 +100355,8 @@ function (exports, module, require) {
   var AppSettings = require(10) /* AppSettings */,
     GCollaborationMentionsUtils = require(882) /* GCollaborationMentionsUtils */,
     r = require(1353) /* Exports_GAnnotationPanel */,
-    s = require(263) /* Exports_GRegex */,
-    l = require(67) /* GRichTooltipConfig */,
+    GRegex = require(263) /* Exports_GRegex */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GAnnotationsUtils = _interopRequireDefault(require(358) /* GAnnotationsUtils */),
     GCollaborators = _interopRequireDefault(require(1324) /* GCollaborators */),
     DataModule_883 = _interopRequireDefault(require(883) /* DataModule_883 */);
@@ -100039,8 +100387,8 @@ function (exports, module, require) {
       sidebarActive: AppSettings,
       isLastRow: GCollaborationMentionsUtils,
       mentionData: r,
-      onMouseEnter: s,
-      onMouseLeave: l,
+      onMouseEnter: GRegex,
+      onMouseLeave: GRichTooltipConfig,
       onChange: GAnnotationsUtils,
       onToggleState: GCollaborators,
       onResolve: DataModule_883,
@@ -100060,8 +100408,8 @@ function (exports, module, require) {
       (this._relatedNodesCount = _interopRequireDefault),
       (this._sidebarActive = AppSettings),
       (this._isLastRow = GCollaborationMentionsUtils),
-      (this._onMouseEnter = s),
-      (this._onMouseLeave = l),
+      (this._onMouseEnter = GRegex),
+      (this._onMouseLeave = GRichTooltipConfig),
       (this._onChange = GAnnotationsUtils),
       (this._onToggleState = GCollaborators),
       (this._onResolve = DataModule_883),
@@ -100121,10 +100469,10 @@ function (exports, module, require) {
         ),
         AppSettings = this,
         r = gDesigner.getSyncUser(),
-        s = GAnnotationsUtils.default.isOwner(r, n),
+        GRegex = GAnnotationsUtils.default.isOwner(r, n),
         GCollaborators = gDesigner.getApplicationManager();
-      const DataModule_883 = this._isCommentingEditingEnable && (this._hasResolveAccess || s),
-        f = this._isCommentingEditingEnable && (this._hasReopenAccess || s);
+      const DataModule_883 = this._isCommentingEditingEnable && (this._hasResolveAccess || GRegex),
+        f = this._isCommentingEditingEnable && (this._hasReopenAccess || GRegex);
       var v = $('<span></span>').addClass('annotation-title-group').appendTo(t);
       t.on('mouseenter', this._onMouseEnter).on('mouseleave', this._onMouseLeave);
       var b = $('<div/>').addClass('email-and-role-tooltop').appendTo(v);
@@ -100133,7 +100481,7 @@ function (exports, module, require) {
         .getRoleNameByUserId(n.getProperty('uid'))
         .then((e) => {
           b.gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: n.getProperty('email') || r.getEmail() || ' ',
               description: e,
               forceShow: true,
@@ -100384,10 +100732,10 @@ function (exports, module, require) {
               .click((e) => {
                 (e.stopPropagation(),
                   GCollaborators.hasAccess(E.RESOLVE_COMMENT_ANNOTATION).then((e) => {
-                    e || s
+                    e || GRegex
                       ? this._onToggleState(n)
                       : GCollaborators.hasAccess(E.REOPEN_COMMENT_ANNOTATION).then((e) => {
-                          (e || s) && this._onToggleState(n);
+                          (e || GRegex) && this._onToggleState(n);
                         });
                   }));
               })
@@ -100439,7 +100787,7 @@ function (exports, module, require) {
                   })
                   .append($('<span>').text(g.get(new h('GAnnotationPanel', 'text.resolve'))))
               )),
-        s &&
+        GRegex &&
           ((n.hasMixin(y) && !n.getProperty('rsv')) ||
             (n instanceof m && !n.getParent().getProperty('rsv'))) &&
           n.isFillingCompleted())
@@ -100476,7 +100824,7 @@ function (exports, module, require) {
               )
           );
       }
-      s &&
+      GRegex &&
         this._isCommentingEditingEnable &&
         U.append(
           $('<label>')
@@ -100608,9 +100956,9 @@ function (exports, module, require) {
           arguments.length > 5 && undefined !== arguments[5] ? arguments[5] : [],
         r = arguments.length > 6 && undefined !== arguments[6] ? arguments[6] : [];
       if (!e.hasClass('g-edit-mode')) {
-        var s = e.find('.annotation-comment-editor'),
-          l = e.find('.contenteditor-buttonrow');
-        s.val(L(n));
+        var GRegex = e.find('.annotation-comment-editor'),
+          GRichTooltipConfig = e.find('.contenteditor-buttonrow');
+        GRegex.val(L(n));
         var GAnnotationsUtils = this._generateCommentContentHTML(n);
         let _interopRequireDefault = GAnnotationsUtils.mentioned.map((e) => e.id),
           AppSettings = GCollaborationMentionsUtils.concat(r)
@@ -100624,13 +100972,13 @@ function (exports, module, require) {
           }),
           e.find('.annotation-comment-editor').mentionsInput('setMentions', AppSettings)),
           this.setMentionOverlayBorderVisiblity(true),
-          s.trigger('input'),
-          s[0].setSelectionRange(s[0].textLength, s[0].textLength),
-          l.show(),
-          l
-            .find('.annotations-addcomment')
-            .text(g.get(new h('GAnnotationPanel', t ? 'text.edit-comment' : 'text.add-comment'))),
-          setTimeout(() => s.focus()),
+          GRegex.trigger('input'),
+          GRegex[0].setSelectionRange(GRegex[0].textLength, GRegex[0].textLength),
+          GRichTooltipConfig.show(),
+          GRichTooltipConfig.find('.annotations-addcomment').text(
+            g.get(new h('GAnnotationPanel', t ? 'text.edit-comment' : 'text.add-comment'))
+          ),
+          setTimeout(() => GRegex.focus()),
           e.addClass('g-edit-mode'));
       }
     }),
@@ -100641,7 +100989,7 @@ function (exports, module, require) {
         !gDesigner.getActiveDocument() || !gDesigner.getActiveDocument().getStorageItem())
       )
         return { html: module, mentioned: [] };
-      let require = module.match(s.GRegex.String.USERNAME_RE);
+      let require = module.match(GRegex.GRegex.String.USERNAME_RE);
       if (!(require || []).length) return { html: module, mentioned: [] };
       let _interopRequireDefault = (this._data || []).filter((e) => {
           let module = (e.getRole && e.getRole()) || e.role;
@@ -101283,16 +101631,16 @@ function (exports, module, require) {
     i = require(9) /* GLocale */,
     GLocaleKey = require(47) /* GLocaleKey */,
     r = require(85) /* GContainer */,
-    s = require(1195); /* Item */
+    Item = require(1195); /* Item */
   const GMarketingFileStorageItem = require(1378); /* GMarketingFileStorageItem */
   var GFontsProviderManager = require(255) /* GFontsProviderManager */,
     GGoogleFontsProvider = require(1379) /* GGoogleFontsProvider */,
     GFontLauncherProvider = require(1380) /* GFontLauncherProvider */,
     GCustomFontsProvider = require(1118) /* GCustomFontsProvider */,
     GLocalFontsProvider = require(1199) /* GLocalFontsProvider */,
-    h = require(220) /* Item */,
-    f = require(1385) /* Item */,
-    m = require(1386) /* Item */,
+    Item2 = require(220) /* Item */,
+    Item3 = require(1385) /* Item */,
+    Item4 = require(1386) /* Item */,
     GCloudStorage = require(119) /* GCloudStorage */,
     GDocument = require(163) /* GDocument */,
     _ = require(86) /* module_86 */,
@@ -101302,7 +101650,7 @@ function (exports, module, require) {
   const DataModule_1482 = require(1482) /* DataModule_1482 */,
     { base64StringToString: S } = require(40); /* CollaborationMergeUtils */
   function E() {
-    ((this._storage = new s()),
+    ((this._storage = new Item()),
       'serviceWorker' in navigator &&
         setTimeout(function () {
           navigator.serviceWorker.register('/cacher.js').then(function (e) {
@@ -101389,30 +101737,33 @@ function (exports, module, require) {
         for (
           var GLocaleKey =
               /[&\?]((?:[\0-"\$-<>-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)=((?:[\0-"\$%'-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)/g,
-            s = {};
+            Item = {};
           (n = GLocaleKey.exec(window.location.href));
         )
-          s[n[1]] = n[2];
-        if (s.token && s.d)
+          Item[n[1]] = n[2];
+        if (Item.token && Item.d)
           i = new r.OpenFileRequest(r.OpenFileRequest.Type.DocumentOrToken, {
-            token: s[r.OpenFileRequest.Type.Token],
-            doc: s.d,
+            token: Item[r.OpenFileRequest.Type.Token],
+            doc: Item.d,
           });
-        else if (s.token)
-          i = new r.OpenFileRequest(r.OpenFileRequest.Type.Token, s[r.OpenFileRequest.Type.Token]);
-        else if (s.d) i = new r.OpenFileRequest(r.OpenFileRequest.Type.Document, s.d);
-        else if (s.storeContent)
+        else if (Item.token)
+          i = new r.OpenFileRequest(
+            r.OpenFileRequest.Type.Token,
+            Item[r.OpenFileRequest.Type.Token]
+          );
+        else if (Item.d) i = new r.OpenFileRequest(r.OpenFileRequest.Type.Document, Item.d);
+        else if (Item.storeContent)
           i = new r.OpenFileRequest(
             r.OpenFileRequest.Type.StoreContent,
-            s[r.OpenFileRequest.Type.StoreContent]
+            Item[r.OpenFileRequest.Type.StoreContent]
           );
-        else if (s[r.OpenFileRequest.Type.ExternalAsset])
+        else if (Item[r.OpenFileRequest.Type.ExternalAsset])
           i = new r.OpenFileRequest(
             r.OpenFileRequest.Type.StoreContent,
-            s[r.OpenFileRequest.Type.ExternalAsset]
+            Item[r.OpenFileRequest.Type.ExternalAsset]
           );
-        else if (s.directlink) {
-          t = s.directlink;
+        else if (Item.directlink) {
+          t = Item.directlink;
           try {
             (e = JSON.parse(S(decodeURIComponent(t))).type) === r.OpenFileRequest.Type.Preset
               ? (i = new r.OpenFileRequest(r.OpenFileRequest.Type.Preset, t))
@@ -101459,8 +101810,8 @@ function (exports, module, require) {
       E.openStorageFile(e, t, n, this._storage);
     }),
     (E.openStorageFile = function (e, t, n, GObject) {
-      var s = { progress: null };
-      (e.updateStatus(_.Loading, s),
+      var Item = { progress: null };
+      (e.updateStatus(_.Loading, Item),
         (async function () {
           try {
             let GGoogleFontsProvider,
@@ -101470,26 +101821,26 @@ function (exports, module, require) {
               ((GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
                 GGoogleFontsProvider &&
                   n(
-                    new f.Item(
+                    new Item3.Item(
                       GObject,
                       GGoogleFontsProvider.id,
                       GGoogleFontsProvider.name,
                       GGoogleFontsProvider
                     ),
-                    { loadingData: s }
+                    { loadingData: Item }
                   ));
             else if (GFontLauncherProvider === r.OpenFileRequest.Type.ExternalAsset)
               ((GGoogleFontsProvider = await gApi.getProviderContentDetails(GCustomFontsProvider)),
                 GGoogleFontsProvider &&
                   n(
-                    new m.Item(
+                    new Item4.Item(
                       GObject,
                       GGoogleFontsProvider.id,
                       GGoogleFontsProvider.name,
                       GGoogleFontsProvider,
                       GCustomFontsProvider
                     ),
-                    { loadingData: s }
+                    { loadingData: Item }
                   ));
             else if (GFontLauncherProvider === r.OpenFileRequest.Type.Preset) {
               let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
@@ -101522,12 +101873,12 @@ function (exports, module, require) {
                           ''.concat(e.id, '.gvdesign'),
                           GGoogleFontsProvider.id
                         ),
-                        { content: e, file: GGoogleFontsProvider, preset: t, loadingData: s }
+                        { content: e, file: GGoogleFontsProvider, preset: t, loadingData: Item }
                       ))
                   : n(t, {
                       content: e,
                       category: t.presetCategory,
-                      loadingData: s,
+                      loadingData: Item,
                     }));
             } else if (GFontLauncherProvider === r.OpenFileRequest.Type.Template) {
               let e = JSON.parse(S(decodeURIComponent(GCustomFontsProvider))),
@@ -101546,7 +101897,7 @@ function (exports, module, require) {
                     content: e,
                     file: t,
                     category: t.path,
-                    loadingData: s,
+                    loadingData: Item,
                   }
                 );
             } else {
@@ -101567,7 +101918,7 @@ function (exports, module, require) {
                     (GGoogleFontsProvider = await gApi.getShare(t, true).catch(() => null)));
               if (GGoogleFontsProvider)
                 n(
-                  new h.Item(
+                  new Item2.Item(
                     GObject,
                     GGoogleFontsProvider.id,
                     GGoogleFontsProvider.name,
@@ -101577,12 +101928,12 @@ function (exports, module, require) {
                     GGoogleFontsProvider.autosave
                   ),
                   {
-                    loadingData: s,
+                    loadingData: Item,
                   }
                 );
               else {
-                ((s.text = i.get(new GLocaleKey('GContainer', 'text.load-failed'))),
-                  e.updateStatus(_.LoadFailed, s),
+                ((Item.text = i.get(new GLocaleKey('GContainer', 'text.load-failed'))),
+                  e.updateStatus(_.LoadFailed, Item),
                   e.setFailedDocumentIdOrToken(GCustomFontsProvider),
                   n(null));
                 var GFontsProviderManager = [];
@@ -101634,9 +101985,9 @@ function (exports, module, require) {
           } catch (t) {
             (console.log(t),
               setTimeout(function () {
-                e.updateStatus(_.LoadFailed, s);
+                e.updateStatus(_.LoadFailed, Item);
               }, 10),
-              e.updateStatus(_.LoadFailed, s),
+              e.updateStatus(_.LoadFailed, Item),
               n(null));
           }
         })());
@@ -101696,12 +102047,12 @@ function (exports, module, require) {
   'use strict';
   var _interopRequireDefault = require(16); /* _interopRequireDefault */
   require(3) /* polyfill_RegExp_toString */;
-  var i = _interopRequireDefault(require(1195) /* Item */);
+  var Item = _interopRequireDefault(require(1195) /* Item */);
   function a(e, t, n, _interopRequireDefault) {
-    (i.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault));
+    (Item.default.Item.call(this, e, t, n), (this._fileId = _interopRequireDefault));
   }
   (require(1) /* GCore */
-    .GObject.inheritAndMix(a, i.default.Item),
+    .GObject.inheritAndMix(a, Item.default.Item),
     (a.prototype.isRegistrable = function () {
       return !!this.getId();
     }),
@@ -102416,12 +102767,12 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
-    a = require(237) /* Item */,
-    r = require(220) /* Item */,
+    Item = require(237) /* Item */,
+    Item2 = require(220) /* Item */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */.decrypt;
   require(173) /* stub_requires_1 */;
   function l() {}
-  (GCore.GObject.inherit(l, a),
+  (GCore.GObject.inherit(l, Item),
     (l.prototype.canPromptOpen = function () {
       return false;
     }),
@@ -102435,9 +102786,9 @@ function (exports, module, require) {
       return false;
     }),
     (l.Item = function (e, t, n, GCore) {
-      r.CommercialProduct.call(this, e, t, n, GCore);
+      Item2.CommercialProduct.call(this, e, t, n, GCore);
     }),
-    GCore.GObject.inherit(l.Item, r.CommercialProduct),
+    GCore.GObject.inherit(l.Item, Item2.CommercialProduct),
     (l.Item.prototype.getPrice = async function () {
       return Promise.resolve(this._file.price);
     }),
@@ -102478,11 +102829,11 @@ function (exports, module, require) {
   require(8) /* polyfill_bundle_ES6 */;
   var GCore = require(1) /* GCore */,
     AppSettings = require(10) /* AppSettings */,
-    a = require(237) /* Item */,
+    Item = require(237) /* Item */,
     r = (require(220) /* Item */, require(40) /* CollaborationMergeUtils */.decrypt);
   require(173) /* stub_requires_1 */;
   function s() {}
-  (GCore.GObject.inherit(s, a),
+  (GCore.GObject.inherit(s, Item),
     (s.prototype.canPromptOpen = function () {
       return false;
     }),
@@ -102496,13 +102847,13 @@ function (exports, module, require) {
       return true;
     }),
     (s.Item = function (e, t, n, GCore, AppSettings) {
-      (a.Item.call(this, e),
+      (Item.Item.call(this, e),
         (this._filename = n),
         (this._id = t),
         (this._file = GCore),
         (this._hash = AppSettings));
     }),
-    GCore.GObject.inherit(s.Item, a.Item),
+    GCore.GObject.inherit(s.Item, Item.Item),
     (s.Item.prototype.getName = function () {
       return this._filename
         ? this._filename
@@ -106458,18 +106809,24 @@ function (exports, module, require) {
     (module.default = undefined),
     require(3)) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
-    i = require(1478) /* GCloudUser */,
-    a = require(1241); /* GCloudRole */
+    GCloudUser = require(1478) /* GCloudUser */,
+    GCloudRole = require(1241); /* GCloudRole */
   function r(e) {
-    let { Id: module, Email: require, Title: GCore, UserId: i, UserPrincipalName: a } = e;
+    let {
+      Id: module,
+      Email: require,
+      Title: GCore,
+      UserId: GCloudUser,
+      UserPrincipalName: GCloudRole,
+    } = e;
     ((this._id = module),
       (this._email = require),
       (this._name = GCore),
-      (this._userId = i),
-      (this._userPrincipalName = a));
+      (this._userId = GCloudUser),
+      (this._userPrincipalName = GCloudRole));
   }
-  (GCore.GObject.inherit(r, i.GCloudUser),
-    (r.ValidRoles = [a.GCloudRole.Type.Viewer, a.GCloudRole.Type.ContentEditor]),
+  (GCore.GObject.inherit(r, GCloudUser.GCloudUser),
+    (r.ValidRoles = [GCloudRole.GCloudRole.Type.Viewer, GCloudRole.GCloudRole.Type.ContentEditor]),
     (r.prototype._userId = null),
     (r.prototype.getValidRoles = function () {
       return r.ValidRoles;
@@ -106500,25 +106857,25 @@ function (exports, module, require) {
     require(58) /* polyfill_Array_includes */,
     require(3) /* polyfill_RegExp_toString */,
     require(71)) /* polyfill_String_includes */;
-  var o = require(1241); /* GCloudRole */
+  var GCloudRole = require(1241); /* GCloudRole */
   const GObject = require(0) /* GObject */,
     GUserModel = require(177); /* GUserModel */
   function r() {}
   (GObject.inherit(r, GUserModel),
     (r.ValidRoles = [
-      o.GCloudRole.Type.Viewer,
-      o.GCloudRole.Type.Coauthor,
-      o.GCloudRole.Type.Creator,
-      o.GCloudRole.Type.Reviewer,
-      o.GCloudRole.Type.Approver,
-      o.GCloudRole.Type.ContentEditor,
+      GCloudRole.GCloudRole.Type.Viewer,
+      GCloudRole.GCloudRole.Type.Coauthor,
+      GCloudRole.GCloudRole.Type.Creator,
+      GCloudRole.GCloudRole.Type.Reviewer,
+      GCloudRole.GCloudRole.Type.Approver,
+      GCloudRole.GCloudRole.Type.ContentEditor,
     ]),
     (r.prototype._role = null),
     (r.prototype._id = null),
     (r.prototype._name = null),
     (r.prototype._email = null),
     (r.prototype.setRole = function (e) {
-      if (!(e instanceof o.GCloudRole)) throw new Error('Incorrect type parameter');
+      if (!(e instanceof GCloudRole.GCloudRole)) throw new Error('Incorrect type parameter');
       if (!this.getValidRoles().includes(e.getRole())) throw new Error('Incorrect User role');
       return ((this._role = e), this);
     }),
@@ -109885,9 +110242,9 @@ function (exports, module, require) {
     DataModule_231 = require(231) /* DataModule_231 */,
     GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    l = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    d = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GSystemDialog_1484 = _interopRequireDefault(require(1484) /* GSystemDialog_1484 */),
     p = _interopRequireDefault(require(443) /* module_443 */),
     AppSettings2 = _interopRequireDefault(require(1485) /* AppSettings */),
@@ -110206,34 +110563,34 @@ function (exports, module, require) {
             value: 'b03f5f7f11d50a3a',
           }),
           gDesigner.setSupportedBrowsers([
-            l.GPlatform.constructor.WebBrowser.Chrome,
-            l.GPlatform.constructor.WebBrowser.Firefox,
-            l.GPlatform.constructor.WebBrowser.Edge,
+            GEditor.GPlatform.constructor.WebBrowser.Chrome,
+            GEditor.GPlatform.constructor.WebBrowser.Firefox,
+            GEditor.GPlatform.constructor.WebBrowser.Edge,
           ]),
           gDesigner.setSupportedTabletBrowsers([
             {
               operatingSystem: GCore.GSystem.OperatingSystem.Unix,
-              platform: l.GPlatform.constructor.WebBrowser.Chrome,
+              platform: GEditor.GPlatform.constructor.WebBrowser.Chrome,
             },
             {
               operatingSystem: GCore.GSystem.OperatingSystem.OSX_IOS,
-              platform: l.GPlatform.constructor.WebBrowser.Safari,
+              platform: GEditor.GPlatform.constructor.WebBrowser.Safari,
             },
           ]))
         : (gDesigner.setSupportedBrowsers([
-            l.GPlatform.constructor.WebBrowser.Chrome,
-            l.GPlatform.constructor.WebBrowser.Firefox,
-            l.GPlatform.constructor.WebBrowser.Safari,
-            l.GPlatform.constructor.WebBrowser.Edge,
+            GEditor.GPlatform.constructor.WebBrowser.Chrome,
+            GEditor.GPlatform.constructor.WebBrowser.Firefox,
+            GEditor.GPlatform.constructor.WebBrowser.Safari,
+            GEditor.GPlatform.constructor.WebBrowser.Edge,
           ]),
           gDesigner.setSupportedTabletBrowsers([
             {
               operatingSystem: GCore.GSystem.OperatingSystem.Unix,
-              platform: l.GPlatform.constructor.WebBrowser.Chrome,
+              platform: GEditor.GPlatform.constructor.WebBrowser.Chrome,
             },
             {
               operatingSystem: GCore.GSystem.OperatingSystem.OSX_IOS,
-              platform: l.GPlatform.constructor.WebBrowser.Safari,
+              platform: GEditor.GPlatform.constructor.WebBrowser.Safari,
             },
           ])));
     if (await so()) {
@@ -110614,9 +110971,9 @@ function (exports, module, require) {
                 : []),
               new GOpenWelcomeScreenAction(),
               ...(C ? [new Ct()] : []),
-              ...ft.Links.filter((GShowGridAction) => 'eula' === GShowGridAction.name).map(
-                (GShowGridAction) => new GOpenLinkAction(GShowGridAction)
-              ),
+              ...GOpenLinkAction.Links.filter(
+                (GShowGridAction) => 'eula' === GShowGridAction.name
+              ).map((GShowGridAction) => new GOpenLinkAction(GShowGridAction)),
               new GTranslationToolAction(),
               ...(_ ? [new GToggleProBETALicenseAction()] : []),
               new GShowShortcutsAction(),
@@ -110645,7 +111002,7 @@ function (exports, module, require) {
               group: 'select',
               key: 'V',
               icon: 'gravit-icon-cursor-filled',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GPointerTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GPointerTool', 'tooltip-description')
@@ -110663,7 +111020,7 @@ function (exports, module, require) {
               group: 'select',
               key: 'D',
               icon: _ ? 'gravit-icon-cursor-subselect' : 'gravit-icon-cursor',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GSubSelectTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GSubSelectTool', 'tooltip-description')
@@ -110682,7 +111039,7 @@ function (exports, module, require) {
               category: 'special',
               key: 'O',
               icon: 'gravit-icon-rope',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GLassoTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GLassoTool', 'tooltip-description')
@@ -110700,7 +111057,7 @@ function (exports, module, require) {
               group: 'select',
               category: 'special',
               icon: 'gravit-icon-sheets',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GLayerTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GLayerTool', 'tooltip-description')
@@ -110717,7 +111074,7 @@ function (exports, module, require) {
               category: 'other',
               key: 'S',
               icon: 'gravit-icon-slice',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GSliceTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GSliceTool', 'tooltip-description')
@@ -110734,7 +111091,7 @@ function (exports, module, require) {
               group: 'path',
               key: 'P',
               icon: 'gravit-icon-pen',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GPenTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GPenTool', 'tooltip-description')
@@ -110754,7 +111111,7 @@ function (exports, module, require) {
               icon: 'gravit-icon-pen-filled',
               pro: true,
               feature: 'bezigon',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GBezigonTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GBezigonTool', 'tooltip-description')
@@ -110774,7 +111131,7 @@ function (exports, module, require) {
               category: 'modify',
               key: 'K',
               icon: 'gravit-icon-scalpel',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GKnifeTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GKnifeTool', 'tooltip-description')
@@ -110792,7 +111149,7 @@ function (exports, module, require) {
               group: 'path',
               category: 'hand',
               icon: 'gravit-icon-free-hand-draw',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GFreehandTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GFreehandTool', 'tooltip-description')
@@ -110809,7 +111166,7 @@ function (exports, module, require) {
               group: 'knife',
               category: 'modify',
               icon: 'gravit-icon-freehand-shape',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GMagicTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GMagicTool', 'tooltip-description')
@@ -110830,7 +111187,7 @@ function (exports, module, require) {
               group: 'shape',
               key: 'L',
               icon: 'gravit-icon-line',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GLineTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GLineTool', 'tooltip-description')
@@ -110849,7 +111206,7 @@ function (exports, module, require) {
               key: 'R',
               shortcuts: [['M']],
               icon: 'gravit-icon-rectangle',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GRectangleTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GRectangleTool', 'tooltip-description')
@@ -110867,7 +111224,7 @@ function (exports, module, require) {
               group: 'shape',
               key: 'E',
               icon: 'gravit-icon-ellipse',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GEllipseTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GEllipseTool', 'tooltip-description')
@@ -110885,7 +111242,7 @@ function (exports, module, require) {
               group: 'shape',
               category: 'polygon',
               icon: 'gravit-icon-polygon',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GPolygonTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GPolygonTool', 'tooltip-description')
@@ -110901,7 +111258,7 @@ function (exports, module, require) {
               group: 'shape',
               category: 'polygon',
               icon: 'gravit-icon-triangle',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GTriangleTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GTriangleTool', 'tooltip-description')
@@ -110917,7 +111274,7 @@ function (exports, module, require) {
               group: 'shape',
               category: 'polygon',
               icon: 'gravit-icon-star',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GStarTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GStarTool', 'tooltip-description')
@@ -110933,7 +111290,7 @@ function (exports, module, require) {
               group: 'insert',
               key: 'T',
               icon: 'gravit-icon-textbox',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GTextTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GTextTool', 'tooltip-description')
@@ -110951,7 +111308,7 @@ function (exports, module, require) {
               group: 'view',
               key: 'H',
               icon: 'gravit-icon-move',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GHandTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GHandTool', 'tooltip-description')
@@ -110968,7 +111325,7 @@ function (exports, module, require) {
               group: 'view',
               key: 'Z',
               icon: 'gravit-icon-zoom-in',
-              richTooltipConfig: d.GRichTooltipConfig.from({
+              richTooltipConfig: GRichTooltipConfig.GRichTooltipConfig.from({
                 title: GCore.GLocale.get(new GCore.GLocaleKey('GZoomTool', 'tooltip-title')),
                 description: GCore.GLocale.get(
                   new GCore.GLocaleKey('GZoomTool', 'tooltip-description')
@@ -111268,7 +111625,7 @@ function (exports, module, require) {
     MSTeamsAuthManager = _interopRequireDefault(require(1242) /* MSTeamsAuthManager */),
     s = _interopRequireDefault(require(44) /* GSystemDialog */),
     l = _interopRequireDefault(require(443) /* module_443 */),
-    c = require(1243); /* Exports_SHAREPOINT_COMMAND */
+    SHAREPOINT_COMMAND = require(1243); /* Exports_SHAREPOINT_COMMAND */
   const { isPrivateChat: d, isTeamsChannel: u } = l.default;
   function p(e) {
     if ('function' != typeof e)
@@ -111285,10 +111642,10 @@ function (exports, module, require) {
             new GCore.GLocaleKey('GSystemDialog', 'text.unsupported-mobile-for-msteams-new')
           )
         );
-      const exports = [c.MS_TEAMS_COMMAND];
+      const exports = [SHAREPOINT_COMMAND.MS_TEAMS_COMMAND];
       ((await d())
-        ? exports.push(c.ONE_DRIVE_BUSINESS_COMMAND)
-        : (await u()) && exports.push(c.SHAREPOINT_COMMAND),
+        ? exports.push(SHAREPOINT_COMMAND.ONE_DRIVE_BUSINESS_COMMAND)
+        : (await u()) && exports.push(SHAREPOINT_COMMAND.SHAREPOINT_COMMAND),
         MSTeamsAuthManager.default
           .getInstance()
           .authenticate(exports)
@@ -112375,7 +112732,7 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     l = require(357) /* module_357 */,
     DataModule_1492 = _interopRequireDefault(require(1492) /* DataModule_1492 */),
-    d = require(1246) /* Exports_GPersona */,
+    GPersona = require(1246) /* Exports_GPersona */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     DataModule_1247 = require(1247) /* DataModule_1247 */,
     g = (function (GUserModel, t) {
@@ -112432,7 +112789,7 @@ function (exports, module, require) {
     GSidebarContainer = require(395); /* GSidebarContainer */
   require(1540) /* GSidebarTouchToolbar */;
   var GToolbar = require(1541) /* GToolbar */,
-    O = require(603) /* WindowEvent */,
+    WindowEvent = require(603) /* WindowEvent */,
     F = require(863) /* module_863 */,
     GDimensionProperties = require(1294) /* GDimensionProperties */,
     GSettingChangedEvent = require(135) /* GSettingChangedEvent */,
@@ -112450,7 +112807,7 @@ function (exports, module, require) {
     GContextMenu = require(1303); /* GContextMenu */
   require(1563) /* GContextMenuTouch */;
   var GCloudStorage = require(119) /* GCloudStorage */,
-    J = require(220) /* Item */,
+    Item = require(220) /* Item */,
     GContainer = require(85) /* GContainer */,
     ee = require(44) /* GSystemDialog */,
     GAutoSaveManager = require(1276) /* GAutoSaveManager */,
@@ -112489,7 +112846,7 @@ function (exports, module, require) {
   } = AppSettings.defaultUserSettings;
   var AppSettings2 = require(10); /* AppSettings */
   const { gApi: Oe } = AppSettings2;
-  var Fe = require(388) /* Item */,
+  var Item2 = require(388) /* Item */,
     Re = require(1580); /* module_1580 */
   const DataModule_1581 = require(1581) /* DataModule_1581 */,
     Ne = require(1584); /* module_1584 */
@@ -112685,7 +113042,7 @@ function (exports, module, require) {
   (GCore.GObject.inherit(Je, GCore.GEventTarget),
     (Je.prototype._documentTouchHandler = null),
     (Je.prototype._editorTouchHandler = null),
-    (Je.prototype._persona = d.GPersona.GraphicDesign),
+    (Je.prototype._persona = GPersona.GPersona.GraphicDesign),
     (Je.prototype._paymentFlow = null),
     (Je.prototype._license = undefined),
     (Je.prototype._translationManager = undefined),
@@ -112939,7 +113296,7 @@ function (exports, module, require) {
       AppSettings,
       l,
       DataModule_1492,
-      d
+      GPersona
     ) {
       var CollaborationMergeUtils = new GMenu2(GMenu2.Type.Item);
       return (
@@ -112955,7 +113312,7 @@ function (exports, module, require) {
           CollaborationMergeUtils.setShortcutHint(GTools)),
         CollaborationMergeUtils.setIcon(n),
         CollaborationMergeUtils.setPro(AppSettings),
-        CollaborationMergeUtils.setNoHover(d),
+        CollaborationMergeUtils.setNoHover(GPersona),
         DataModule_1492 && CollaborationMergeUtils.addClass(DataModule_1492),
         this.updateMenuItem(CollaborationMergeUtils, t, true, false),
         GUserModel.addItem(CollaborationMergeUtils),
@@ -113063,11 +113420,14 @@ function (exports, module, require) {
               null !== DataModule_1492;
               DataModule_1492 = DataModule_1492.getNext()
             )
-              for (var d = 0; d < AppSettings.length; ++d)
-                GCore.GUtil.equals(DataModule_1492, AppSettings[d]) && l.push(DataModule_1492);
-            for (d = 0; d < l.length; ++d) GEditor.getSwatches().removeChild(l[d]);
+              for (var GPersona = 0; GPersona < AppSettings.length; ++GPersona)
+                GCore.GUtil.equals(DataModule_1492, AppSettings[GPersona]) &&
+                  l.push(DataModule_1492);
+            for (GPersona = 0; GPersona < l.length; ++GPersona)
+              GEditor.getSwatches().removeChild(l[GPersona]);
           }
-          for (d = 0; d < t.length; ++d) GEditor.getSwatches().appendChild(t[d]);
+          for (GPersona = 0; GPersona < t.length; ++GPersona)
+            GEditor.getSwatches().appendChild(t[GPersona]);
         } else if (GTools) {
           var CollaborationMergeUtils = this._swatches.global;
           CollaborationMergeUtils = (CollaborationMergeUtils = (CollaborationMergeUtils =
@@ -113079,8 +113439,8 @@ function (exports, module, require) {
             this._swatches['global-noise-pattern']
           );
           var DataModule_1247 = [];
-          for (d = 0; d < CollaborationMergeUtils.length; ++d)
-            DataModule_1247.push(GCore.GNode.serialize(CollaborationMergeUtils[d]));
+          for (GPersona = 0; GPersona < CollaborationMergeUtils.length; ++GPersona)
+            DataModule_1247.push(GCore.GNode.serialize(CollaborationMergeUtils[GPersona]));
           gContainer.setProperty('swatches', DataModule_1247);
         }
         this.trigger(new GSwatchesChangedEvent(GUserModel));
@@ -113285,11 +113645,11 @@ function (exports, module, require) {
         });
       }
       GUserModel &&
-        (GUserModel instanceof J.Item
+        (GUserModel instanceof Item.Item
           ? gDesigner.updateRecentDocumentsAction()
           : gContainer.getRuntime() === GContainer.Runtime.Electron
             ? module('recent_documents', (GUserModel) => GUserModel.getUniqueId())
-            : GUserModel instanceof Fe.Item &&
+            : GUserModel instanceof Item2.Item &&
               gDesigner.getUser().then((GUserModel) => {
                 module(
                   'recent_external_'.concat(GUserModel.getUID()),
@@ -113535,11 +113895,11 @@ function (exports, module, require) {
           .prependTo(t)));
       var n = (this._frame = $('<div></div>').appendTo(this._mainframe)),
         _interopRequireDefault = $('<div></div>').attr('id', F.Windows.id).appendTo(n);
-      this._windows = new O(_interopRequireDefault);
+      this._windows = new WindowEvent(_interopRequireDefault);
       var DataModule_1492 = $('<div></div>').attr('id', F.Info.id).appendTo(n);
       this._info = new GInfo(DataModule_1492);
-      var d = $('<div></div>').attr('id', F.Header.id).appendTo(n);
-      this._header = new GDocumentTabBar(d);
+      var GPersona = $('<div></div>').attr('id', F.Header.id).appendTo(n);
+      this._header = new GDocumentTabBar(GPersona);
       var DataModule_1247 = $('<div></div>').attr('id', F.Toolbar.id).appendTo(n);
       this._toolbar = new GToolbar(DataModule_1247);
       var g = $('<div></div>').attr('id', F.Banner.id).appendTo(n);
@@ -113690,7 +114050,7 @@ function (exports, module, require) {
         this._mainframe.css('display', ''),
         GCore.GColor.setCMYKProfile('USWebCoatedSWOPv2', 'assets/data/icc/'),
         (this._initialized = true),
-        this._windows.addEventListener(O.WindowEvent, this._windowEvent, this),
+        this._windows.addEventListener(WindowEvent.WindowEvent, this._windowEvent, this),
         this._leftSidebars.addEventListener(
           GSidebarContainer.SidebarEvent,
           this._sidebarEvent,
@@ -113898,7 +114258,7 @@ function (exports, module, require) {
             .then(async function (t) {
               if (t.length > 0)
                 for (var require = 0; require < t.length; ++require)
-                  exports.push(await J.from(gDesigner.getDefaultStorage(), t[require]));
+                  exports.push(await Item.from(gDesigner.getDefaultStorage(), t[require]));
             })
             .then(AppSettings)
             .catch(AppSettings);
@@ -114145,14 +114505,14 @@ function (exports, module, require) {
         AppSettings.reverse();
         var l = GEditor.getGroup(),
           DataModule_1492 = GEditor.getGroupIcon(),
-          d = (GEditor.getStyleClass(), l ? [''].concat(l.split('/')) : null);
-        if (d && AppSettings && AppSettings.length !== d.length - 1)
+          GPersona = (GEditor.getStyleClass(), l ? [''].concat(l.split('/')) : null);
+        if (GPersona && AppSettings && AppSettings.length !== GPersona.length - 1)
           throw new Error('The number of categories is different than the number of groups.');
         var CollaborationMergeUtils = module;
         if (AppSettings)
           for (var DataModule_1247 = 0; DataModule_1247 < AppSettings.length; ++DataModule_1247) {
             let GUserModel = AppSettings[DataModule_1247],
-              t = d ? d[DataModule_1247] : null;
+              t = GPersona ? GPersona[DataModule_1247] : null;
             for (
               var g = null, h = GUserModel.label.split('/')[DataModule_1247], GGoogleDriveItem = 0;
               GGoogleDriveItem < CollaborationMergeUtils.items.length;
@@ -114179,7 +114539,7 @@ function (exports, module, require) {
         (_interopRequireDefault(
           CollaborationMergeUtils,
           ExternalFileSettingsError,
-          d ? d[d.length - 1] : null
+          GPersona ? GPersona[GPersona.length - 1] : null
         ),
           CollaborationMergeUtils.items.push(ExternalFileSettingsError));
       }
@@ -114348,11 +114708,11 @@ function (exports, module, require) {
     (Je.prototype._windowEvent = function (GUserModel) {
       let module;
       switch (GUserModel.type) {
-        case O.WindowEvent.Type.Added:
-        case O.WindowEvent.Type.Removed:
+        case WindowEvent.WindowEvent.Type.Added:
+        case WindowEvent.WindowEvent.Type.Removed:
           this._updateTitle();
           break;
-        case O.WindowEvent.Type.Activated:
+        case WindowEvent.WindowEvent.Type.Activated:
           (1 === this._windows.getWindows().length && this._updateTheme(),
             this.getToolManager().setView(GUserModel.window.getView()),
             this._leftSidebars.setView(GUserModel.window.getView()),
@@ -114361,7 +114721,7 @@ function (exports, module, require) {
             (module = GUserModel.window.getView().getHtmlElement()),
             this._editorTouchHandler.activate(module));
           break;
-        case O.WindowEvent.Type.Deactivated:
+        case WindowEvent.WindowEvent.Type.Deactivated:
           ((module = GUserModel.window.getView().getHtmlElement()),
             this._editorTouchHandler.deactivate(module),
             this.getToolManager().setView(null),
@@ -114647,7 +115007,8 @@ function (exports, module, require) {
           let t = GUserModel.getStorageItem();
           GUserModel &&
             t &&
-            (t instanceof J.Item || (t.supportsShadowFile() && (await t.getCollaborativeFile()))) &&
+            (t instanceof Item.Item ||
+              (t.supportsShadowFile() && (await t.getCollaborativeFile()))) &&
             (GUserModel.getStorageItem().getToken()
               ? GUserModel.getFocusAnnotationId()
                 ? window.history.pushState(
@@ -115469,7 +115830,7 @@ function (exports, module, require) {
           )
           .append($('<span/>').addClass('count').text(' (0%)'))
           .appendTo($('#right-sidebars')),
-        d = function (GUserModel) {
+        GPersona = function (GUserModel) {
           (DataModule_1492.find('.info').text(
             GCore.GLocale.get(
               new GCore.GLocaleKey(
@@ -115552,14 +115913,14 @@ function (exports, module, require) {
           }),
             Promise.all(l).then(
               () => {
-                (d(true), t(GEditor));
+                (GPersona(true), t(GEditor));
               },
               (GUserModel) => {
-                (console.log(GUserModel), d(false), GCore());
+                (console.log(GUserModel), GPersona(false), GCore());
               }
             ));
         } catch (GUserModel) {
-          (console.log(GUserModel), d(false), GCore());
+          (console.log(GUserModel), GPersona(false), GCore());
         }
       });
     }),
@@ -118532,7 +118893,7 @@ function (exports, module, require) {
     GMenu2 = _interopRequireDefault(require(339) /* GMenu */),
     GMenuBar = _interopRequireDefault(require(1501) /* GMenuBar */),
     DataModule_1502 = _interopRequireDefault(require(1502) /* DataModule_1502 */),
-    p = _interopRequireDefault(require(603) /* WindowEvent */),
+    WindowEvent = _interopRequireDefault(require(603) /* WindowEvent */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
     f = _interopRequireDefault(require(86) /* module_86 */),
@@ -118542,13 +118903,13 @@ function (exports, module, require) {
     GExportAction = _interopRequireDefault(require(861) /* GExportAction */),
     b = _interopRequireDefault(require(1254) /* GOpenSharedFileAction */),
     w = _interopRequireDefault(require(1256) /* GVersionsHistoryAction */),
-    C = _interopRequireDefault(require(388) /* Item */),
-    x = _interopRequireDefault(require(220) /* Item */),
+    Item = _interopRequireDefault(require(388) /* Item */),
+    Item2 = _interopRequireDefault(require(220) /* Item */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
     TYPES = _interopRequireDefault(require(862) /* Exports_TYPES */),
     GCloudStorageItem = _interopRequireDefault(require(156) /* GCloudStorageItem */),
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
-    G = require(263) /* Exports_GRegex */,
+    GRegex = require(263) /* Exports_GRegex */,
     REARRANGE_TAB_ = require(1517); /* Exports_REARRANGE_TAB_ */
   const barrel_panels = require(257); /* barrel_panels */
   let GEvent_license = null;
@@ -118559,7 +118920,7 @@ function (exports, module, require) {
     {
       InParenthesis: { NotNegativeNumberInTheEnd: F },
       NotNegativeNumber: R,
-    } = G.GRegex.String,
+    } = GRegex.GRegex.String,
     M = [
       {
         title: new GCore.GLocaleKey('GFilesPanel', 'action.rename'),
@@ -118569,7 +118930,7 @@ function (exports, module, require) {
             _interopRequireDefault = e.getDocument(),
             GEditor = _interopRequireDefault.getStorageItem();
           let s = true;
-          if ((GEditor && (s = !(GEditor instanceof C.default.Item)), !s)) return false;
+          if ((GEditor && (s = !(GEditor instanceof Item.default.Item)), !s)) return false;
           const GMenu = () => {
             const s = t.find('input'),
               GMenu2 = e.getTitle();
@@ -118583,7 +118944,7 @@ function (exports, module, require) {
             (DataModule_1502.text(GMenuBar),
               s.css('width', DataModule_1502.outerWidth()),
               s.val(GMenu2));
-            var p = s.val(),
+            var WindowEvent = s.val(),
               GDocumentStatusEvent = false;
             (s.show(), DataModule_1502.hide(), s.focus());
             var f = async function () {
@@ -118601,7 +118962,7 @@ function (exports, module, require) {
                         ) + '...',
                         true
                       ),
-                      GEditor instanceof x.default.Item)
+                      GEditor instanceof Item2.default.Item)
                     ) {
                       let e = GEditor.getFile();
                       const GMenu2 = new TYPES.default();
@@ -118660,7 +119021,7 @@ function (exports, module, require) {
                       } catch (e) {
                         return (
                           console.log('>>>.error-renaming e', e),
-                          s.val(p),
+                          s.val(WindowEvent),
                           require._updateSyncStatus(
                             t,
                             GCore.GLocale.get(
@@ -118697,7 +119058,7 @@ function (exports, module, require) {
                       ),
                       s.css('width', DataModule_1502.outerWidth()));
                   } else e.getDocument().setTitle(GDocumentStatusEvent);
-                else s.val(p);
+                else s.val(WindowEvent);
               } catch (e) {
                 throw e;
               }
@@ -118715,14 +119076,14 @@ function (exports, module, require) {
         isEnabled: () => gDesigner.getApplicationManager().isEditingEnabled(),
         isVisible: (e) => {
           const module = e.getDocument().getStorageItem();
-          return !(module && module instanceof C.default.Item);
+          return !(module && module instanceof Item.default.Item);
         },
       },
       {
         separator: true,
         isVisible: (e) => {
           const module = e.getDocument().getStorageItem();
-          return !(module && module instanceof C.default.Item);
+          return !(module && module instanceof Item.default.Item);
         },
       },
       {
@@ -118755,7 +119116,8 @@ function (exports, module, require) {
         isEnabled: (e) => {
           const module = e.getDocument().getStorageItem();
           return (
-            gDesigner.getApplicationManager().isShareEnabled() && module instanceof x.default.Item
+            gDesigner.getApplicationManager().isShareEnabled() &&
+            module instanceof Item2.default.Item
           );
         },
         requiresPro: false,
@@ -118806,7 +119168,7 @@ function (exports, module, require) {
               const GEditor = gDesigner.getDocuments().indexOf(module);
               (require.setTitle(GCore), gDesigner.addDocument(require, GEditor + 1));
             };
-          require && require instanceof x.default.Item
+          require && require instanceof Item2.default.Item
             ? (() => {
                 const e = require.getFile().parent,
                   _interopRequireDefault = gDesigner.getDocuments().indexOf(module),
@@ -118821,7 +119183,7 @@ function (exports, module, require) {
         },
         isEnabled: (e) => {
           if (!gDesigner.getApplicationManager().isSavingAsEnabled()) return false;
-          return !(e.getDocument().getStorageItem() instanceof C.default.Item);
+          return !(e.getDocument().getStorageItem() instanceof Item.default.Item);
         },
         stats: 'header_contextmenu_duplicate',
         icon: 'gravit-icon-duplicate',
@@ -118972,7 +119334,9 @@ function (exports, module, require) {
         this.checkUser(),
         gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
         gDesigner.addEventListener(GSettingChangedEvent, this._settingChangedEvent, this),
-        gDesigner.getWindows().addEventListener(p.default.WindowEvent, this._windowEvent, this),
+        gDesigner
+          .getWindows()
+          .addEventListener(WindowEvent.default.WindowEvent, this._windowEvent, this),
         gDesigner.addEventListener(GEvent_user_805, this._userPropertiesChangedEvent, this),
         gDesigner.addEventListener(GEvent_document, this._applicationStateChangedEvent, this),
         $(document).on(
@@ -119075,14 +119439,14 @@ function (exports, module, require) {
     }),
     (B.prototype._windowEvent = function (e) {
       switch (e.type) {
-        case p.default.WindowEvent.Type.Added:
+        case WindowEvent.default.WindowEvent.Type.Added:
           this._addWindowTab(e.window, e.index);
           break;
-        case p.default.WindowEvent.Type.Removed:
+        case WindowEvent.default.WindowEvent.Type.Removed:
           this._removeWindowTab(e.window);
           break;
-        case p.default.WindowEvent.Type.Activated:
-        case p.default.WindowEvent.Type.Deactivated:
+        case WindowEvent.default.WindowEvent.Type.Activated:
+        case WindowEvent.default.WindowEvent.Type.Deactivated:
           this._updateActiveWindowTab();
       }
     }),
@@ -119290,7 +119654,7 @@ function (exports, module, require) {
               title: GMenu,
               callback: GMenuBar,
               shortcut: DataModule_1502,
-              requiresPro: p,
+              requiresPro: WindowEvent,
               separator: GDocumentEvent,
               icon: GDocumentStatusEvent,
               id: f,
@@ -119316,7 +119680,7 @@ function (exports, module, require) {
             : ((s = require.createAddItem(b)),
               GCloudStorage && s.setAction(gDesigner.getAction(AppSettings))),
             DataModule_1502 && s.setShortcutHint(DataModule_1502),
-            p && s.setPro(p, AppSettings),
+            WindowEvent && s.setPro(WindowEvent, AppSettings),
             GGravitCloudAction instanceof Function && s.setEnabled(GGravitCloudAction(e)),
             GExportAction instanceof Function
               ? s.setVisible(GExportAction(e))
@@ -119404,7 +119768,7 @@ function (exports, module, require) {
     require(13) /* stub_requires_679 */,
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
-  var o = require(1246) /* Exports_GPersona */,
+  var GPersona = require(1246) /* Exports_GPersona */,
     GEvent_oldPersona = require(1250); /* GEvent_oldPersona */
   exports.exports = class {
     constructor() {
@@ -119414,11 +119778,11 @@ function (exports, module, require) {
           .appendTo(this._htmlElement)));
     }
     init() {
-      var e = Object.keys(o.GPersona);
+      var e = Object.keys(GPersona.GPersona);
       e.length > 1 &&
         (gDesigner.addEventListener(GEvent_oldPersona, this._personaChangeEvent, this),
         e.forEach((e) => {
-          var t = o.GPersona[e];
+          var t = GPersona.GPersona[e];
           $('<div></div>')
             .data('persona', t)
             .attr('data-title', t.name)
@@ -119436,8 +119800,8 @@ function (exports, module, require) {
     _activate(e) {
       (this._htmlElement.find('.g-persona-item').removeClass('g-active'),
         this._htmlElement.find('.g-persona-item').each(function (t, n) {
-          var o = $(n);
-          if (o.data('persona') === e) return (o.addClass('g-active'), false);
+          var GPersona = $(n);
+          if (GPersona.data('persona') === e) return (GPersona.addClass('g-active'), false);
         }));
     }
     _personaChangeEvent(e) {
@@ -121028,7 +121392,7 @@ function (exports, module, require) {
   var GSystem = require(176) /* GSystem */,
     GObject = require(0); /* GObject */
   require(10) /* AppSettings */;
-  var a = require(237) /* Item */,
+  var Item = require(237) /* Item */,
     FileSaverJS = require(1117) /* FileSaverJS */.saveAs,
     s = null,
     l = null;
@@ -121043,11 +121407,11 @@ function (exports, module, require) {
         if ('granted' !== e) throw new Error('Cannot get write access');
       });
   }
-  (GObject.inherit(c, a),
+  (GObject.inherit(c, Item),
     (c.Directory = function (e, t) {
-      (a.Directory.call(this, e), (this._dirHandle = t), (this._id = null));
+      (Item.Directory.call(this, e), (this._dirHandle = t), (this._id = null));
     }),
-    GObject.inherit(c.Directory, a.Directory),
+    GObject.inherit(c.Directory, Item.Directory),
     (c.Directory.prototype._dirHandle = null),
     (c.Directory.prototype._id = null),
     (c.Directory.prototype.getUniqueId = function () {
@@ -121078,9 +121442,12 @@ function (exports, module, require) {
       }
     }),
     (c.Item = function (e, t, n, GSystem) {
-      (a.Item.call(this, e), (this._data = t), (this._filename = n), (this._fileHandle = GSystem));
+      (Item.Item.call(this, e),
+        (this._data = t),
+        (this._filename = n),
+        (this._fileHandle = GSystem));
     }),
-    GObject.inherit(c.Item, a.Item),
+    GObject.inherit(c.Item, Item.Item),
     (c.Item.prototype._data = null),
     (c.Item.prototype._filename = null),
     (c.Item.prototype._fileHandle = null),
@@ -121142,23 +121509,23 @@ function (exports, module, require) {
       if (!this._isFileAPIAvailable() || !this.canChooseDirectory()) return;
       var GSystem = { type: l || 'open-directory' };
       let GObject = null;
-      var a = false;
+      var Item = false;
       window
         .chooseFileSystemEntries(GSystem)
         .then((e) => ((GObject = e), d(e)))
         .then(() => {
           let t = e(new c.Directory(this, GObject));
-          return ((a = true), t);
+          return ((Item = true), t);
         })
         .catch((e) => {
           if (e instanceof DOMException && 'SecurityError' === e.name) {
             if ((console.warn('Bugged!'), n)) return void n();
-          } else !a && !l && e instanceof TypeError && (l = 'openDirectory');
+          } else !Item && !l && e instanceof TypeError && (l = 'openDirectory');
           t && t();
         });
     }),
     (c.prototype.openPrompt = function (e, t, n) {
-      let { disableFileSystemAccessAPI: GObject = false, silent: a = false } =
+      let { disableFileSystemAccessAPI: GObject = false, silent: Item = false } =
         arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {};
       if (!GObject && this._isFileAPIAvailable()) {
         var FileSaverJS = { multiple: !!n };
@@ -121245,7 +121612,7 @@ function (exports, module, require) {
           : this._fileInput.removeAttribute('accept'),
         (this._fileInputCallback = t),
         this._fileInput.focus(),
-        a || this._fileInput.click());
+        Item || this._fileInput.click());
     }),
     (c.prototype.savePrompt = function (e, t, n, GSystem) {
       if (this._isFileAPIAvailable()) {
@@ -121276,14 +121643,14 @@ function (exports, module, require) {
             })),
             (GObject.types = n));
         }
-        var a = false;
+        var Item = false;
         window
           .showSaveFilePicker(GObject)
-          .then((e) => ((a = true), n(new c.Item(this, null, e.name, e))))
+          .then((e) => ((Item = true), n(new c.Item(this, null, e.name, e))))
           .catch((t) => {
             if (
-              (!a && !s && t instanceof TypeError && (s = 'saveFile'),
-              !a && t.code !== DOMException.ABORT_ERR)
+              (!Item && !s && t instanceof TypeError && (s = 'saveFile'),
+              !Item && t.code !== DOMException.ABORT_ERR)
             )
               return this.download(e, n);
             GSystem && GSystem();
@@ -125564,7 +125931,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GMenu = require(238) /* GMenu */,
     s = require(444) /* module_444 */,
     GProperties = require(123) /* GProperties */,
@@ -125613,7 +125980,7 @@ function (exports, module, require) {
           .on('click', this._createSlice.bind(this))
           .appendTo(t)
           .gRichTooltip(
-            a.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GExportProperties', 'text.create-slice-tooltip-title')
               ),
@@ -125632,7 +125999,7 @@ function (exports, module, require) {
           .on('click', this._addExport.bind(this))
           .appendTo(t)
           .gRichTooltip(
-            a.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GExportProperties', 'text.add-export-tooltip-title')
               ),
@@ -125736,7 +126103,7 @@ function (exports, module, require) {
         for (var module = [], require = 0; require < this._elements.length; ++require) {
           var GTools = this._elements[require];
           if (!(GTools instanceof GCore.GSlice)) {
-            var a = (
+            var GRichTooltipConfig = (
                 GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
               ).slice(),
               GMenu = GTools.getPaintBBox();
@@ -125746,7 +126113,7 @@ function (exports, module, require) {
               ['x', 'y', 'w', 'h'],
               [GMenu.getX(), GMenu.getY(), GMenu.getWidth(), GMenu.getHeight()]
             ),
-              s.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true),
+              s.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GRichTooltipConfig, true),
               module.push(s));
           }
         }
@@ -125768,7 +126135,7 @@ function (exports, module, require) {
               GTools = (
                 require.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true, []) || []
               ).slice(),
-              a = { sz: '', sf: '', fm: 'png' },
+              GRichTooltipConfig = { sz: '', sf: '', fm: 'png' },
               GMenu = [
                 { sz: '1x', sf: '@1x' },
                 { sz: '2x', sf: '@2x' },
@@ -125790,11 +126157,13 @@ function (exports, module, require) {
                 break;
               }
             if (!ZipDirectory) {
-              ((a.sz = GProperties.sz), (a.sf = GTools.length > 0 ? GProperties.sf : ''));
+              ((GRichTooltipConfig.sz = GProperties.sz),
+                (GRichTooltipConfig.sf = GTools.length > 0 ? GProperties.sf : ''));
               break;
             }
           }
-          (GTools.push(a), require.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GTools, true));
+          (GTools.push(GRichTooltipConfig),
+            require.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GTools, true));
         }
       } finally {
         e.commitTransaction(
@@ -125809,8 +126178,12 @@ function (exports, module, require) {
       var GTools = this._document.getEditor();
       GTools.beginTransaction();
       try {
-        for (var a = 0; a < this._elements.length; ++a) {
-          var GMenu = this._elements[a],
+        for (
+          var GRichTooltipConfig = 0;
+          GRichTooltipConfig < this._elements.length;
+          ++GRichTooltipConfig
+        ) {
+          var GMenu = this._elements[GRichTooltipConfig],
             s = GMenu.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
           !s ||
             e >= s.length ||
@@ -125830,11 +126203,11 @@ function (exports, module, require) {
       try {
         for (var require = 0; require < this._elements.length; ++require) {
           var GTools = this._elements[require],
-            a = GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
-          !a ||
-            e >= a.length ||
-            ((a = a.slice()).splice(e, 1),
-            GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, a, true));
+            GRichTooltipConfig = GTools.getProperty(DataModule_442.EXPORT_PROPERTY_NAME, true);
+          !GRichTooltipConfig ||
+            e >= GRichTooltipConfig.length ||
+            ((GRichTooltipConfig = GRichTooltipConfig.slice()).splice(e, 1),
+            GTools.setProperty(DataModule_442.EXPORT_PROPERTY_NAME, GRichTooltipConfig, true));
         }
       } finally {
         t.commitTransaction(
@@ -125854,7 +126227,7 @@ function (exports, module, require) {
         t = gDesigner.isTouchEnabled(),
         n = t ? '40%' : '30%',
         GTools = t ? '25%' : '35%',
-        a = t ? '25%' : '30%',
+        GRichTooltipConfig = t ? '25%' : '30%',
         GMenu = t ? '12%' : '5%';
       if (this._elements)
         for (let t = 0; t < this._elements.length; ++t) {
@@ -125966,7 +126339,7 @@ function (exports, module, require) {
                   ),
               },
               {
-                width: a,
+                width: GRichTooltipConfig,
                 label: GLoginPanel
                   ? GCore.GLocale.get(new GCore.GLocaleKey('GExportProperties', 'text.format'))
                   : null,
@@ -126174,9 +126547,9 @@ function (exports, module, require) {
     DataModule_1163 = require(1163) /* DataModule_1163 */,
     GProperties = _interopRequireDefault(require(123) /* GProperties */),
     GEvent_fileId = _interopRequireDefault(require(1159) /* GEvent_fileId */),
-    c = _interopRequireDefault(require(220) /* Item */),
+    Item = _interopRequireDefault(require(220) /* Item */),
     GDocument = _interopRequireDefault(require(163) /* GDocument */),
-    u = _interopRequireDefault(require(219) /* GLocale */),
+    GLocale = _interopRequireDefault(require(219) /* GLocale */),
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
     g = _interopRequireDefault(require(86) /* module_86 */),
     GDocumentStatusEvent = _interopRequireDefault(require(217) /* GDocumentStatusEvent */),
@@ -126363,7 +126736,7 @@ function (exports, module, require) {
           })
           .catch(
             (e) => (
-              new u.default(
+              new GLocale.default(
                 GCore.GLocale.get(
                   new GCore.GLocaleKey('GVersionHistoryProperties', 'error-loading')
                 )
@@ -126378,9 +126751,9 @@ function (exports, module, require) {
         _interopRequireDefault = this,
         GProperties = gDesigner.getActiveDocument().getStorageItem(),
         GEvent_fileId = GProperties && GProperties.getVersionId && GProperties.getVersionId(),
-        c = !!GEvent_fileId;
+        Item = !!GEvent_fileId;
       let GDocument,
-        u = this._versionsContainer.find('.content');
+        GLocale = this._versionsContainer.find('.content');
       AppSettings.AUTO_SAVE_ENABLED && (GDocument = this._autoSaveContainer.find('.content'));
       const g = e.find((e) => e.version.latest);
       let GDocumentStatusEvent = g,
@@ -126391,14 +126764,15 @@ function (exports, module, require) {
           ((GDocumentStatusEvent = e), (GRichTooltipConfig = true));
       }
       const y = (e, t, AppSettings) => {
-        let { version: GProperties, thumbnail: GDocument, autosave: u } = e;
+        let { version: GProperties, thumbnail: GDocument, autosave: GLocale } = e;
         return $('<div />')
           .addClass('version-history-item')
           .addClass(
             (
-              c
+              Item
                 ? GEvent_fileId === GProperties.versionId
-                : ((GRichTooltipConfig && u) || (!GRichTooltipConfig && !u)) && GProperties.latest
+                : ((GRichTooltipConfig && GLocale) || (!GRichTooltipConfig && !GLocale)) &&
+                  GProperties.latest
             )
               ? 'vhi-initial'
               : ''
@@ -126406,7 +126780,7 @@ function (exports, module, require) {
           .addClass(require || GProperties.latest ? '' : 'vhi-disabled')
           .addClass(
             (
-              c
+              Item
                 ? GEvent_fileId === GProperties.versionId
                 : GProperties.versionId === GDocumentStatusEvent.version.versionId
             )
@@ -126472,7 +126846,7 @@ function (exports, module, require) {
                             GProperties.versionId,
                             GDocument.name,
                             $(this).closest('.version-history-item'),
-                            u
+                            GLocale
                           ),
                           $(this).parent('.vhi-settings-list').hide());
                       })
@@ -126494,7 +126868,7 @@ function (exports, module, require) {
                           _interopRequireDefault._applyVersion(
                             GProperties.versionId,
                             GDocument.name,
-                            u
+                            GLocale
                           ),
                           $(this).parent('.vhi-settings-list').hide());
                       })
@@ -126518,7 +126892,7 @@ function (exports, module, require) {
                     GProperties.versionId,
                     GDocument.name,
                     $(t),
-                    u
+                    GLocale
                   ),
                   gDesigner.intercomStats('Preview version from history'));
             }, 500);
@@ -126532,7 +126906,7 @@ function (exports, module, require) {
               );
             ($(this).data('dblclicked', 2),
               gDesigner.stats('version-history-panel_apply-version'),
-              _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, u),
+              _interopRequireDefault._applyVersion(GProperties.versionId, GDocument.name, GLocale),
               gDesigner.intercomStats('Open version from history'));
           })
           .on('mouseenter', function () {
@@ -126546,11 +126920,11 @@ function (exports, module, require) {
         for (let t = 0, require = e.length; t < require; t++) {
           let _interopRequireDefault = e[t],
             GCore = null;
-          ((GCore = _interopRequireDefault.autosave ? GDocument : u),
+          ((GCore = _interopRequireDefault.autosave ? GDocument : GLocale),
             GCore.append(y(_interopRequireDefault, t, require)));
         }
       }
-      (u.empty(),
+      (GLocale.empty(),
         GDocument && GDocument.empty(),
         v(e),
         AppSettings.AUTO_SAVE_ENABLED && v(t),
@@ -126573,7 +126947,7 @@ function (exports, module, require) {
       if (require === GDocumentEvent.default.Type.AutoSaveSynchronized)
         return void this._updateVersionHistory(this._fileId);
       if (this._loadingPreview) return;
-      const _interopRequireDefault = module.getStorageItem() instanceof c.default.Item,
+      const _interopRequireDefault = module.getStorageItem() instanceof Item.default.Item,
         GCore = module.getScene();
       ((_interopRequireDefault && module.getStorageItem().getId() !== this._fileId) ||
         (!_interopRequireDefault && GCore && GCore.getProperty('cid') !== this._fileId)) &&
@@ -126582,7 +126956,7 @@ function (exports, module, require) {
     (y.prototype._storageEventHandler = function (e) {
       let { type: module, storageItem: require } = e;
       module === GEvent_storageItem.default.Type.VersionUpdate &&
-        require instanceof c.default.Item &&
+        require instanceof Item.default.Item &&
         this._fileId === require.getId() &&
         this._updateVersionHistory(this._fileId);
     }),
@@ -126590,7 +126964,7 @@ function (exports, module, require) {
       var AppSettings = gDesigner.getActiveDocument();
       if (AppSettings.isModified())
         return (
-          new u.default(
+          new GLocale.default(
             GCore.GLocale.get(
               new GCore.GLocaleKey('GVersionsHistoryAction', 'unsaved-modifications')
             )
@@ -126599,7 +126973,7 @@ function (exports, module, require) {
         );
       this._loadingPreview = true;
       var DataModule_1163 = new GDocument.default(
-        await c.default.from(
+        await Item.default.from(
           gDesigner.getDefaultStorage(),
           this._fileId,
           t,
@@ -126754,7 +127128,7 @@ function (exports, module, require) {
       var _interopRequireDefault = gDesigner.getActiveDocument();
       if (_interopRequireDefault.isModified())
         return (
-          new u.default(
+          new GLocale.default(
             GCore.GLocale.get(
               new GCore.GLocaleKey('GVersionsHistoryAction', 'unsaved-modifications')
             )
@@ -126762,7 +127136,7 @@ function (exports, module, require) {
           false
         );
       var AppSettings = gDesigner.openDocumentWithReload(
-        await c.default.from(gDesigner.getDefaultStorage(), this._fileId, t, e, n)
+        await Item.default.from(gDesigner.getDefaultStorage(), this._fileId, t, e, n)
       );
       (gDesigner.activateDocument(AppSettings),
         this._previousDoc && (this._previousDoc = null),
@@ -127148,7 +127522,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GFitAllAction = require(449) /* GFitAllAction */,
     GFitSelectionAction = require(566) /* GFitSelectionAction */,
     GProperties = require(123); /* GProperties */
@@ -127163,10 +127537,10 @@ function (exports, module, require) {
     (p.prototype._toolbar = null),
     (p.prototype._document = null),
     (p.prototype._elements = null),
-    (p.prototype.init = function (e, t, n, GTools, a, GFitAllAction) {
+    (p.prototype.init = function (e, t, n, GTools, GEditor, GFitAllAction) {
       ((this._panel = e),
         (this._toolbar = t),
-        this._addListPanel(e, n, GTools, a, GFitAllAction),
+        this._addListPanel(e, n, GTools, GEditor, GFitAllAction),
         t.append(
           $('<label>')
             .addClass('annotation-panel-label')
@@ -127205,7 +127579,7 @@ function (exports, module, require) {
               this._document.getEditor().clearSelection();
               var e = this._document.getScene();
               (e && e.setActiveLayer(null),
-                a.GPlatform.modifiers.optionKey &&
+                GEditor.GPlatform.modifiers.optionKey &&
                   gDesigner.executeAction(GFitAllAction.ID, undefined, 'outlinesidebar'));
             }.bind(this)
           )
@@ -127280,10 +127654,10 @@ function (exports, module, require) {
           (jQuery(gDesigner.getWindows().getActiveWindow().getView().getHtmlElement())
             .find('> div[tabindex=0]')
             .focus(),
-          a.GPlatform.modifiers.metaKey ||
+          GEditor.GPlatform.modifiers.metaKey ||
             (!e.hasFlag(GCore.GNode.Flag.Selected) &&
               !e.hasFlag(GCore.GElement.Flag.FullLocked) &&
-              !a.GPlatform.modifiers.shiftKey))
+              !GEditor.GPlatform.modifiers.shiftKey))
         ) {
           let GTools = [e];
           if (e.hasMixin(GCore.GAnnotation.Linkable)) {
@@ -127294,9 +127668,9 @@ function (exports, module, require) {
                 ((GTools = GTools.concat(t)),
                 this._document.getScene().updateActivePageForElem(t[0])));
           }
-          (module.updateSelection(a.GPlatform.modifiers.metaKey, GTools), (require = true));
+          (module.updateSelection(GEditor.GPlatform.modifiers.metaKey, GTools), (require = true));
         }
-        if (require && a.GPlatform.modifiers.optionKey)
+        if (require && GEditor.GPlatform.modifiers.optionKey)
           module.hasSelection()
             ? gDesigner.executeAction(GFitSelectionAction.ID, undefined, 'outlinesidebar')
             : gDesigner.executeAction(GFitAllAction.ID, undefined, 'outlinesidebar');
@@ -127344,11 +127718,11 @@ function (exports, module, require) {
       if (this._isSyncTransactionEvent(e)) {
         const n = e.data.evtType === GTools.GEditor.ModifiedEvent.Type.Undo,
           GCore = e.data.evtType === GTools.GEditor.ModifiedEvent.Type.Redo,
-          a = e.data.type === GTools.GAnnotationEditor.TransactionType.RemoveAnnotation,
+          GEditor = e.data.type === GTools.GAnnotationEditor.TransactionType.RemoveAnnotation,
           GFitAllAction = e.data.type === GTools.GAnnotationEditor.TransactionType.AddAnnotation,
           GFitSelectionAction = !!this._document.getAnnotationsId(),
-          GProperties = (n && a) || (n && GFitAllAction) || (GCore && GFitAllAction),
-          d = GCore && a;
+          GProperties = (n && GEditor) || (n && GFitAllAction) || (GCore && GFitAllAction),
+          d = GCore && GEditor;
         let u;
         if (GFitSelectionAction && GProperties)
           ((u = GAnnotationsUtils.filterAnnotationElements(e.data.nodes)),
@@ -127401,7 +127775,7 @@ function (exports, module, require) {
         (this._elements = []),
         e)
       ) {
-        for (var a = 0; a < t.length; ++a) this._elements.push(t[a]);
+        for (var GEditor = 0; GEditor < t.length; ++GEditor) this._elements.push(t[GEditor]);
         if (this._elements.length === t.length) {
           if (((this._document = e), this._elements.length))
             return (
@@ -133032,13 +133406,13 @@ function (exports, module, require) {
     DataModule_1546 = require(1546) /* DataModule_1546 */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
     GFileDownloadUtils = require(1154) /* GFileDownloadUtils */,
-    l = require(1552) /* Exports_GGoogleDrive */,
+    GGoogleDrive = require(1552) /* Exports_GGoogleDrive */,
     TYPES = require(862) /* Exports_TYPES */,
     d = require(858) /* Exports_GFilesPanel */,
     GObject_1556 = _interopRequireDefault(require(1556) /* GObject_1556 */),
     p = _interopRequireDefault(require(86) /* module_86 */),
     GCloudStorage = _interopRequireDefault(require(119) /* GCloudStorage */),
-    h = _interopRequireDefault(require(802) /* CloudException */),
+    CloudException = _interopRequireDefault(require(802) /* CloudException */),
     f = _interopRequireDefault(require(1240) /* module_1240 */),
     GSaveAsAction = _interopRequireDefault(require(445) /* GSaveAsAction */),
     GSystemDialog = _interopRequireDefault(require(44) /* GSystemDialog */),
@@ -133050,7 +133424,7 @@ function (exports, module, require) {
     GDocumentEvent = require(78); /* GDocumentEvent */
   var S = AppSettings.CloudIntegration.cloudOptions,
     E = AppSettings.CloudIntegration.nativeOption,
-    A = [..._.CloudIntegration.cloudOptions, AppSettings.CloudIntegration.nativeOption];
+    A = [...AppSettings.CloudIntegration.cloudOptions, AppSettings.CloudIntegration.nativeOption];
   function T(e) {
     (this._initializeDefaultValues(e), (this._initializingPromise = this._init(e)));
   }
@@ -133077,12 +133451,12 @@ function (exports, module, require) {
         cancelSave: GCore = CollaborationMergeUtils.fakeFunction,
         defaultFilename: DataModule_1546,
         readyStateChange: GFileDownloadUtils,
-        showExampleFiles: l,
+        showExampleFiles: GGoogleDrive,
         GUISettings: TYPES,
         saveMode: GObject_1556,
         driveSettings: p = null,
         isDashboard: GCloudStorage,
-        isCorporateStoragesEnabled: h = true,
+        isCorporateStoragesEnabled: CloudException = true,
       } = e;
       ((this._GUISettings = TYPES || new T.GUISettings()),
         (this._driveSettings = p || new f.default()),
@@ -133094,9 +133468,9 @@ function (exports, module, require) {
         (this.BUILD_IN_PROGRESS = false),
         (this.DEFAULT_FILENAME = DataModule_1546),
         (this._newClipBoard = false),
-        (this._showExampleFiles = l),
+        (this._showExampleFiles = GGoogleDrive),
         (this._isDashboard = GCloudStorage),
-        (this._isCorporateStoragesEnabled = h),
+        (this._isCorporateStoragesEnabled = CloudException),
         (this.readyStateChange = GFileDownloadUtils),
         (this.search = (0, CollaborationMergeUtils.debounce)(this.search, 200)));
       var GSaveAsAction = (e) =>
@@ -133150,7 +133524,7 @@ function (exports, module, require) {
       };
     }),
     (T.prototype.initLayout = async function (e) {
-      ((this.drive = l.GCloudDrive.getInstance()),
+      ((this.drive = GGoogleDrive.GCloudDrive.getInstance()),
         this.drive.setQueryLimit(20),
         (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)),
         (this.accountSettingsKey = ''
@@ -133237,7 +133611,7 @@ function (exports, module, require) {
               : gContainer.removeProperty(t.accountSettingsKey));
           try {
             if ('googledrive' === e.type) {
-              var DataModule_1546 = new l.GGoogleDrive();
+              var DataModule_1546 = new GGoogleDrive.GGoogleDrive();
               (await DataModule_1546.install(), await DataModule_1546.uninstall());
             }
             gDesigner.removeExternalRecentFiles(e.type, e.id);
@@ -133279,7 +133653,7 @@ function (exports, module, require) {
                     _interopRequireDefault,
                     t.drive.getCurrentFolder()
                   )) &&
-                  !(await ((l = _interopRequireDefault),
+                  !(await ((GGoogleDrive = _interopRequireDefault),
                   new Promise((e) => {
                     GSystemDialog.default.confirm(
                       GCore.GLocale.get(
@@ -133287,7 +133661,7 @@ function (exports, module, require) {
                           'GFilesPanel',
                           'text.folder-already-exists-on-current-location'
                         )
-                      ).replace('%foldername', '"'.concat(l, '"')),
+                      ).replace('%foldername', '"'.concat(GGoogleDrive, '"')),
                       (t) => e(!!t),
                       null,
                       null,
@@ -133309,7 +133683,7 @@ function (exports, module, require) {
                   _interopRequireDefault = GFileDownloadUtils;
                 }
               }
-              var l;
+              var GGoogleDrive;
               ((require = true),
                 t.drive
                   .createFolder(_interopRequireDefault)
@@ -133612,10 +133986,16 @@ function (exports, module, require) {
         ext: DataModule_1546,
         type: CollaborationMergeUtils,
         mime: GFileDownloadUtils,
-        version: l,
+        version: GGoogleDrive,
       } = t;
       CollaborationMergeUtils = CollaborationMergeUtils || GFileDownloadUtils;
-      const d = this._triggerFileDownload(e, require, DataModule_1546, CollaborationMergeUtils, l);
+      const d = this._triggerFileDownload(
+        e,
+        require,
+        DataModule_1546,
+        CollaborationMergeUtils,
+        GGoogleDrive
+      );
       function GObject_1556(t) {
         return { promise: t, file: e, cancel: () => require.cancel && require.cancel() };
       }
@@ -133623,14 +134003,14 @@ function (exports, module, require) {
     }),
     (T.prototype._triggerFileDownload = function (e, t, n, _interopRequireDefault, GCore) {
       const DataModule_1546 = new AbortController(),
-        l = DataModule_1546.signal;
+        GGoogleDrive = DataModule_1546.signal;
       return (
         (t.progress = t.progress || (() => {})),
         this.drive
-          .getRawFile(e, l, t)
-          .then(async (l) => {
+          .getRawFile(e, GGoogleDrive, t)
+          .then(async (GGoogleDrive) => {
             let d,
-              GObject_1556 = l;
+              GObject_1556 = GGoogleDrive;
             if (
               ((t.cancel = (0, CollaborationMergeUtils.chaining)(t.cancel, () =>
                 DataModule_1546.abort()
@@ -133656,7 +134036,7 @@ function (exports, module, require) {
             }
             {
               t.done && t.done();
-              let GCore = e.name || l.name;
+              let GCore = e.name || GGoogleDrive.name;
               (GCore.endsWith('.'.concat(n)) &&
                 (GCore = GCore.replace(new RegExp('.'.concat(n, '$')), '')),
                 (0, GFileDownloadUtils.downloadDataURI)(GObject_1556, GCore, n, {
@@ -133705,10 +134085,13 @@ function (exports, module, require) {
                     )
                   );
             }));
-          var l = GCore.GNode.serialize(DataModule_1546, { save: true });
-          (null === l || '' === l || l.length < 1 || GFileDownloadUtils.cancelled) &&
+          var GGoogleDrive = GCore.GNode.serialize(DataModule_1546, { save: true });
+          (null === GGoogleDrive ||
+            '' === GGoogleDrive ||
+            GGoogleDrive.length < 1 ||
+            GFileDownloadUtils.cancelled) &&
             _interopRequireDefault();
-          var TYPES = new Uint8Array(pako.gzip(l, { level: 9 }).buffer);
+          var TYPES = new Uint8Array(pako.gzip(GGoogleDrive, { level: 9 }).buffer);
           TYPES.byteLength > 20 ? n(TYPES) : _interopRequireDefault();
         }),
           (DataModule_1546.onerror = _interopRequireDefault),
@@ -133748,7 +134131,7 @@ function (exports, module, require) {
     ) {
       const CollaborationMergeUtils = e.map(() => 0),
         GFileDownloadUtils = e.length,
-        l = 100 / GFileDownloadUtils,
+        GGoogleDrive = 100 / GFileDownloadUtils,
         TYPES = {};
       let d = gDesigner.getActiveDocument();
       (d || (d = gDesigner.newInfiniteDocument()),
@@ -133760,7 +134143,8 @@ function (exports, module, require) {
         TYPES.progressInfo('0/'.concat(GFileDownloadUtils)));
       let GObject_1556 = 0,
         GCloudStorage = false;
-      const h = () => TYPES.progressInfo(''.concat(++GObject_1556, '/').concat(GFileDownloadUtils)),
+      const CloudException = () =>
+          TYPES.progressInfo(''.concat(++GObject_1556, '/').concat(GFileDownloadUtils)),
         f = () => TYPES.progressInfo(''.concat(++GObject_1556, '/').concat(GFileDownloadUtils)),
         GSaveAsAction = () => (GCloudStorage = true),
         AppError = e.map((e, GCore) => {
@@ -133780,10 +134164,13 @@ function (exports, module, require) {
             {
               progress(e) {
                 CollaborationMergeUtils[GCore] = e;
-                const t = CollaborationMergeUtils.reduce((e, t) => e + Math.min(t / 100, 1) * l, 0);
+                const t = CollaborationMergeUtils.reduce(
+                  (e, t) => e + Math.min(t / 100, 1) * GGoogleDrive,
+                  0
+                );
                 TYPES.progress(t);
               },
-              done: h,
+              done: CloudException,
               failed: f,
               cancel: GSaveAsAction,
             },
@@ -133922,12 +134309,12 @@ function (exports, module, require) {
           var CollaborationMergeUtils,
             GFileDownloadUtils = [];
           let _interopRequireDefault = n.getSort();
-          var l = n.view.getSearchValue();
-          if (l) {
+          var GGoogleDrive = n.view.getSearchValue();
+          if (GGoogleDrive) {
             if (n.hasMoreItemsToLoad()) {
               try {
                 GFileDownloadUtils = await n.drive.fetchFiles(
-                  l,
+                  GGoogleDrive,
                   n.CURRENT_FILE_LOAD,
                   _interopRequireDefault
                 );
@@ -133972,8 +134359,8 @@ function (exports, module, require) {
                 if (
                   (console.error(e),
                   !(
-                    e instanceof h.default.CloudException &&
-                    e.code === h.default.ExceptionCode.InvalidCredentials
+                    e instanceof CloudException.default.CloudException &&
+                    e.code === CloudException.default.ExceptionCode.InvalidCredentials
                   ))
                 ) {
                   const t =
@@ -134136,7 +134523,7 @@ function (exports, module, require) {
       try {
         switch (e.type) {
           case 'googledrive':
-            ((this.drive = new l.GGoogleDrive(undefined, e.id)),
+            ((this.drive = new GGoogleDrive.GGoogleDrive(undefined, e.id)),
               await this.drive.install(),
               await this.drive.signIn(),
               (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)),
@@ -134146,7 +134533,7 @@ function (exports, module, require) {
               ));
             break;
           default:
-            ((this.drive = l.GCloudDrive.getInstance()),
+            ((this.drive = GGoogleDrive.GCloudDrive.getInstance()),
               (this.view = new DataModule_1546.GFilesPanelViewNative(this.panel, this)));
         }
         this._currentDriveId = e.id;
@@ -134164,11 +134551,15 @@ function (exports, module, require) {
         }
         (_interopRequireDefault &&
           _interopRequireDefault.removeEventListener(
-            h.default.DriveEvent,
+            CloudException.default.DriveEvent,
             this._handleDriveEvent,
             this
           ),
-          this.drive.addEventListener(h.default.DriveEvent, this._handleDriveEvent, this));
+          this.drive.addEventListener(
+            CloudException.default.DriveEvent,
+            this._handleDriveEvent,
+            this
+          ));
       } catch (e) {
         var TYPES;
         throw (
@@ -134187,12 +134578,12 @@ function (exports, module, require) {
       e ? await this.setCloudDrive(t) : await this.setCloudDrive(E);
     }),
     (T.prototype._handleDriveEvent = async function (e) {
-      if (e.type === h.default.DriveEvent.Type.UserUpdated) {
+      if (e.type === CloudException.default.DriveEvent.Type.UserUpdated) {
         if (this.drive.hasUserProfile()) {
           var module = await this.drive.getUser();
           module && this.view.updateUserDetails(module);
         }
-      } else if (e.type === h.default.DriveEvent.Type.FolderSwitchRequired) {
+      } else if (e.type === CloudException.default.DriveEvent.Type.FolderSwitchRequired) {
         const { folder: module } = e.data;
         this.drive.isRootFolder(module)
           ? (this.isRootFolder() || this.navigateToRoot(false), this.updateFilesList(true, true))
@@ -134384,9 +134775,13 @@ function (exports, module, require) {
             for (var module = 0; module < e.SELECTION.length; ++module) {
               var require = e.SELECTION[module];
               (await e.drive.deleteItem(require),
-                gDesigner.hasEventListeners(h.default.DriveEvent) &&
+                gDesigner.hasEventListeners(CloudException.default.DriveEvent) &&
                   gDesigner.trigger(
-                    new h.default.DriveEvent(null, h.default.DriveEvent.Type.FileDeleted, require)
+                    new CloudException.default.DriveEvent(
+                      null,
+                      CloudException.default.DriveEvent.Type.FileDeleted,
+                      require
+                    )
                   ));
             }
           } catch (t) {
@@ -136043,7 +136438,7 @@ function (exports, module, require) {
     s = _interopRequireDefault(require(86) /* module_86 */),
     CloudException = _interopRequireDefault(require(802) /* CloudException */),
     AppError = _interopRequireDefault(require(355) /* AppError */);
-  const d = require(1554) /* RawValue */,
+  const RawValue = require(1554) /* RawValue */,
     DataModule_1301 = require(1301) /* DataModule_1301 */,
     GGoogleDriveItem = require(556) /* GGoogleDriveItem */,
     GCloudStorageItem = require(156) /* GCloudStorageItem */,
@@ -136457,7 +136852,7 @@ function (exports, module, require) {
       });
     }),
     (S.prototype._buildSearchQuery = function (e) {
-      const module = new d();
+      const module = new RawValue();
       var n = e.hasValue('type') && e.type;
       const _interopRequireDefault = n === GCloudStorageItem.Type.Folder,
         GCore = n === GCloudStorageItem.Type.File;
@@ -136477,7 +136872,7 @@ function (exports, module, require) {
         e.hasValue('exactname') && module.add('name', '=', e.exactname),
         e.hasValue('fileExtension') &&
           module.add('fileExtension', '=', e.fileExtension.toLowerCase()),
-        module.add('trashed', '=', new d.RawValue(false)),
+        module.add('trashed', '=', new RawValue.RawValue(false)),
         module.build()
       );
     }),
@@ -136617,7 +137012,7 @@ function (exports, module, require) {
         _interopRequireDefault =
           arguments.length > 3 && undefined !== arguments[3] ? arguments[3] : {},
         CloudException = arguments.length > 4 ? arguments[4] : undefined;
-      return new Promise(async (AppError, d) => {
+      return new Promise(async (AppError, RawValue) => {
         const DataModule_1301 = function (e, t, n) {
           console.log(e);
           const _interopRequireDefault = gDesigner.getHeader(),
@@ -136633,14 +137028,16 @@ function (exports, module, require) {
             : a
               ? t.updateStatus(s.default.SaveFailed)
               : n.updateStatus(s.default.SaveFailed),
-            d(GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.error-saving-file'))));
+            RawValue(
+              GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.error-saving-file'))
+            ));
         };
         var GGoogleDriveItem = new a.default();
         try {
           require = require || this.getDefaultFileFormat().ext.toUpperCase();
           var GCloudStorageItem = e.getScene();
           (GCloudStorageItem.getActivePage().getGeometryBBox() ||
-            d(
+            RawValue(
               GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.error-emtpy-infinite-canvas')
               )
@@ -136702,7 +137099,7 @@ function (exports, module, require) {
                     (console.error('>>>saveNewFile write error', arguments),
                       GGoogleDriveItem.setSynchronizing(false),
                       CloudException && CloudException(s.default.SaveFailed),
-                      d());
+                      RawValue());
                   },
                   null,
                   _interopRequireDefault
@@ -138951,7 +139348,7 @@ function (exports, module, require) {
     GUserModel = require(177) /* GUserModel */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GContainer = require(85) /* GContainer */,
-    T = require(388) /* Item */,
+    Item = require(388) /* Item */,
     G = require(433) /* module_433 */,
     barrel_panels = require(257) /* barrel_panels */,
     DataModule_436 = require(436) /* DataModule_436 */,
@@ -139451,7 +139848,7 @@ function (exports, module, require) {
       this._toggleLoading(true);
       try {
         if (
-          this._storageItem instanceof T.Item &&
+          this._storageItem instanceof Item.Item &&
           !(await this._storageItem.isEmailFromCorporateDomain(e))
         )
           return (
@@ -139490,7 +139887,7 @@ function (exports, module, require) {
         const a = t && t.length > 0;
         let s = true;
         if (a) {
-          this._storageItem instanceof T.Item &&
+          this._storageItem instanceof Item.Item &&
             this._storageItem.getCloudClient().isCorporate() &&
             (t = t.filter(
               (e) =>
@@ -139623,7 +140020,7 @@ function (exports, module, require) {
           ),
           Promise.reject())
         : (this._toggleLoading(true),
-          this._storageItem instanceof T.Item
+          this._storageItem instanceof Item.Item
             ? this._storageItem
                 .isEmailFromCorporateDomain(GEditor)
                 .then((e) => {
@@ -139655,7 +140052,7 @@ function (exports, module, require) {
         s = this._storageItem.toString();
       let l = false;
       return (
-        this._storageItem instanceof T.Item &&
+        this._storageItem instanceof Item.Item &&
           (l = this._storageItem.getCloudClient().isCorporate()),
         s.indexOf('GCloudStorage') >= 0
           ? gDesigner.stats('sharedialog_private-share_cloud')
@@ -139881,7 +140278,7 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var AppSettings = require(10); /* AppSettings */
   const GEvent_user = require(292) /* GEvent_user */,
-    a = require(220) /* Item */,
+    Item = require(220) /* Item */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     s = require(536) /* module_536 */,
     GUserModel = require(177) /* GUserModel */,
@@ -139988,7 +140385,7 @@ function (exports, module, require) {
       if (!module) return null;
       const require = module.getId();
       return require
-        ? module instanceof a.Item
+        ? module instanceof Item.Item
           ? this.getFileExtended(require).catch(() => null)
           : module && module.supportsSharing() && module.supportsShadowFile()
             ? module.getOrCreateCollaborativeFile()
@@ -139997,17 +140394,17 @@ function (exports, module, require) {
     }));
   var p = {};
   async function g(e, t, n) {
-    let GEvent_user, a;
+    let GEvent_user, Item;
     try {
       if (((GEvent_user = AppSettings.gApi[t](n)), !(GEvent_user instanceof Promise)))
         return GEvent_user;
-      a = await GEvent_user;
+      Item = await GEvent_user;
     } catch (e) {
       throw e;
     } finally {
       delete e[n];
     }
-    return a;
+    return Item;
   }
   ((u.prototype.initialize = function () {
     const exports = Object.keys(d).filter((e) => e.startsWith('get')),
@@ -141098,7 +141495,7 @@ function (exports, module, require) {
     require(169) /* stub_requires_683 */,
     require(33) /* polyfill_DOMCollection_forEach */,
     require(26)) /* polyfill_DOMCollection_iterator */;
-  var i = require(15) /* GEditor */,
+  var GEditor = require(15) /* GEditor */,
     GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     GDocumentEvent = _interopRequireDefault(require(78) /* GDocumentEvent */),
@@ -141137,28 +141534,33 @@ function (exports, module, require) {
     }
   }
   const L = {
-      [i.GKey.Constant.LEFT]: 37,
-      [i.GKey.Constant.UP]: 38,
-      [i.GKey.Constant.RIGHT]: 39,
-      [i.GKey.Constant.DOWN]: 40,
-      [i.GKey.Constant.SHIFT]: 16,
-      [i.GKey.Constant.CONTROL]: 17,
-      [i.GKey.Constant.ALT_LEFT]: 18,
+      [GEditor.GKey.Constant.LEFT]: 37,
+      [GEditor.GKey.Constant.UP]: 38,
+      [GEditor.GKey.Constant.RIGHT]: 39,
+      [GEditor.GKey.Constant.DOWN]: 40,
+      [GEditor.GKey.Constant.SHIFT]: 16,
+      [GEditor.GKey.Constant.CONTROL]: 17,
+      [GEditor.GKey.Constant.ALT_LEFT]: 18,
     },
     I = Object.values(L),
     k = (e, t) => {
       const require = gDesigner.getActiveDocument(),
         _interopRequireDefault = require && require.getActiveWindow(),
-        i = _interopRequireDefault && _interopRequireDefault.getView(),
-        GTools = i && i.getHtmlElement();
+        GEditor = _interopRequireDefault && _interopRequireDefault.getView(),
+        GTools = GEditor && GEditor.getHtmlElement();
       GTools && GTools.dispatchEvent(new KeyboardEvent(e, { keyCode: t }));
     },
     O = (e) =>
-      e === i.GKey.Constant.ALT_LEFT ||
-      e === i.GKey.Constant.ALT_RIGHT ||
-      e === i.GKey.Constant.SHIFT ||
-      e === i.GKey.Constant.CONTROL,
-    F = [i.GKey.Constant.UP, i.GKey.Constant.LEFT, i.GKey.Constant.RIGHT, i.GKey.Constant.DOWN];
+      e === GEditor.GKey.Constant.ALT_LEFT ||
+      e === GEditor.GKey.Constant.ALT_RIGHT ||
+      e === GEditor.GKey.Constant.SHIFT ||
+      e === GEditor.GKey.Constant.CONTROL,
+    F = [
+      GEditor.GKey.Constant.UP,
+      GEditor.GKey.Constant.LEFT,
+      GEditor.GKey.Constant.RIGHT,
+      GEditor.GKey.Constant.DOWN,
+    ];
   function R(e) {
     ((this._htmlElement = e),
       (this._keyState = {}),
@@ -141180,13 +141582,13 @@ function (exports, module, require) {
     (R.prototype._keyUpBound = null),
     (R.prototype._mouseUpBound = null),
     (R.prototype.init = function () {
-      (i.GPlatform.constructor.bypassKeyDownRestrictionByClassName('g-virtual-key'),
+      (GEditor.GPlatform.constructor.bypassKeyDownRestrictionByClassName('g-virtual-key'),
         this._htmlElement.gCollapsible());
       const exports = $('<div/>').addClass('container').appendTo(this._htmlElement),
         module = (e) => {
           const module = this._keyDownInveral[e];
           (module && (clearInterval(module), delete this._keyDownInveral[e]),
-            O(e) && i.GPlatform.releaseKey(e),
+            O(e) && GEditor.GPlatform.releaseKey(e),
             k('keyup', L[e]));
         },
         require = (e) => {
@@ -141196,7 +141598,7 @@ function (exports, module, require) {
               (this._keyDownInveral[e] = setInterval(() => {
                 k('keydown', L[e]);
               }, 100)),
-            O(e) && i.GPlatform.holdKey(e),
+            O(e) && GEditor.GPlatform.holdKey(e),
             k('keydown', L[e]));
         },
         _interopRequireDefault = (e) => {
@@ -141207,7 +141609,7 @@ function (exports, module, require) {
             actionClass: GEvent_fullscreen,
           } = e;
           const GMenu = GDocumentEvent({
-            name: GTools ? null : i.GKey.toLocalizedShort(_interopRequireDefault, true),
+            name: GTools ? null : GEditor.GKey.toLocalizedShort(_interopRequireDefault, true),
             icon: GTools,
             actionClass: 'g-virtual-key' + (GEvent_fullscreen ? ' ' + GEvent_fullscreen : ''),
             mousedown: (e) => {
@@ -141244,13 +141646,13 @@ function (exports, module, require) {
           let module = arguments.length > 1 && undefined !== arguments[1] ? arguments[1] : '';
           return e.reduce(
             (e, t) => {
-              let { icon: require, action: _interopRequireDefault, isEnabled: i } = t;
+              let { icon: require, action: _interopRequireDefault, isEnabled: GEditor } = t;
               const GTools = e.createAddItem(_interopRequireDefault);
               return (
                 require && GTools.setIcon(require),
-                i &&
+                GEditor &&
                   GTools.addEventListener(GMenu2.default.UpdateEvent, () => {
-                    GTools.setEnabled(i());
+                    GTools.setEnabled(GEditor());
                   }),
                 e
               );
@@ -141263,7 +141665,7 @@ function (exports, module, require) {
             action: module,
             name: require,
             menu: _interopRequireDefault,
-            icon: i,
+            icon: GEditor,
             click: GTools,
             dblclick: GCore,
             mousedown: GDocumentEvent,
@@ -141289,12 +141691,12 @@ function (exports, module, require) {
               GPasteAndReplaceAction.toggleClass('g-active', !!GPasteInsideAction())),
             module &&
               (GPasteAndReplaceAction.data('action', module),
-              i || (i = module.getIcon()),
+              GEditor || (GEditor = module.getIcon()),
               GTools ||
                 (GTools = () =>
                   gDesigner.executeAction(module.getId(), undefined, 'assistantbar'))),
             require && $('<span/>').text(require).appendTo(GDeleteAction),
-            i && $('<span/>').addClass(i).appendTo(GDeleteAction),
+            GEditor && $('<span/>').addClass(GEditor).appendTo(GDeleteAction),
             GTools && GDeleteAction.on('click', GTools),
             GCore && GDeleteAction.on('dblclick', GCore),
             GDocumentEvent && GPasteAndReplaceAction.on('mousedown', GDocumentEvent),
@@ -141333,9 +141735,9 @@ function (exports, module, require) {
             {
               width: '86px',
               content: _interopRequireDefault({
-                key: i.GKey.Constant.SHIFT,
-                actionClass: 'g-virtual-key-'.concat(i.GKey.Constant.SHIFT),
-                dblclick: () => this._toggleModifierKey(i.GKey.Constant.SHIFT),
+                key: GEditor.GKey.Constant.SHIFT,
+                actionClass: 'g-virtual-key-'.concat(GEditor.GKey.Constant.SHIFT),
+                dblclick: () => this._toggleModifierKey(GEditor.GKey.Constant.SHIFT),
               }),
             },
             {
@@ -141437,17 +141839,17 @@ function (exports, module, require) {
               {
                 width: '86px',
                 content: _interopRequireDefault({
-                  key: i.GKey.Constant.CONTROL,
-                  actionClass: 'g-virtual-key-'.concat(i.GKey.Constant.CONTROL),
-                  dblclick: () => this._toggleModifierKey(i.GKey.Constant.CONTROL),
+                  key: GEditor.GKey.Constant.CONTROL,
+                  actionClass: 'g-virtual-key-'.concat(GEditor.GKey.Constant.CONTROL),
+                  dblclick: () => this._toggleModifierKey(GEditor.GKey.Constant.CONTROL),
                 }),
               },
               {
                 width: '114px',
                 content: _interopRequireDefault({
-                  key: i.GKey.Constant.ALT_LEFT,
-                  actionClass: 'g-virtual-key-'.concat(i.GKey.Constant.ALT_LEFT),
-                  dblclick: () => this._toggleModifierKey(i.GKey.Constant.ALT_LEFT),
+                  key: GEditor.GKey.Constant.ALT_LEFT,
+                  actionClass: 'g-virtual-key-'.concat(GEditor.GKey.Constant.ALT_LEFT),
+                  dblclick: () => this._toggleModifierKey(GEditor.GKey.Constant.ALT_LEFT),
                 }),
               },
               {
@@ -141493,14 +141895,14 @@ function (exports, module, require) {
               {
                 width: 'auto',
                 content: _interopRequireDefault({
-                  key: i.GKey.Constant.UP,
+                  key: GEditor.GKey.Constant.UP,
                   icon: 'gravit-icon-touch-arrow-key-up',
                 }),
               },
               {
                 width: 'auto',
                 content: _interopRequireDefault({
-                  key: i.GKey.Constant.DOWN,
+                  key: GEditor.GKey.Constant.DOWN,
                   icon: 'gravit-icon-touch-arrow-key-down',
                 }),
               },
@@ -141514,14 +141916,14 @@ function (exports, module, require) {
               {
                 width: 'auto',
                 content: _interopRequireDefault({
-                  key: i.GKey.Constant.LEFT,
+                  key: GEditor.GKey.Constant.LEFT,
                   icon: 'gravit-icon-touch-arrow-key-left',
                 }),
               },
               {
                 width: 'auto',
                 content: _interopRequireDefault({
-                  key: i.GKey.Constant.RIGHT,
+                  key: GEditor.GKey.Constant.RIGHT,
                   icon: 'gravit-icon-touch-arrow-key-right',
                 }),
               },
@@ -141533,15 +141935,15 @@ function (exports, module, require) {
         }));
     }),
     (R.prototype._toggleModifierKey = function (e) {
-      const module = !i.GPlatform.isHoldingKey(e);
+      const module = !GEditor.GPlatform.isHoldingKey(e);
       (this._toggleKey(e, module),
         this._htmlElement.find('.g-virtual-key-'.concat(e)).toggleClass('g-held', module),
         this._updateActions());
     }),
     (R.prototype._toggleKey = function (e, t) {
       t
-        ? (i.GPlatform.holdKey(e), this._heldKeys.set(e, true))
-        : (i.GPlatform.releaseKey(e), this._heldKeys.delete(e));
+        ? (GEditor.GPlatform.holdKey(e), this._heldKeys.set(e, true))
+        : (GEditor.GPlatform.releaseKey(e), this._heldKeys.delete(e));
     }),
     (R.prototype._isHoldingKey = function (e) {
       return !!this._heldKeys && !!this._heldKeys.get(e);
@@ -141567,7 +141969,11 @@ function (exports, module, require) {
         document.addEventListener('mouseup', this._mouseUpBound, true),
         gDesigner.addEventListener(GDocumentEvent.default, this._documentEvent, this),
         gDesigner.addEventListener(GEvent_fullscreen.default, this._fullScreenEvent, this),
-        i.GPlatform.addEventListener(i.GModifiersChangedEvent, this._modifiersChangedEvent, this),
+        GEditor.GPlatform.addEventListener(
+          GEditor.GModifiersChangedEvent,
+          this._modifiersChangedEvent,
+          this
+        ),
         this._activateDocument(gDesigner.getActiveDocument()),
         this._touchHandler.activate(this._htmlElement[0]),
         (this._heldKeys = new Map()),
@@ -141579,16 +141985,16 @@ function (exports, module, require) {
         document.removeEventListener('mouseup', this._mouseUpBound, true),
         gDesigner.removeEventListener(GDocumentEvent.default, this._documentEvent, this),
         gDesigner.removeEventListener(GEvent_fullscreen.default, this._fullScreenEvent, this),
-        i.GPlatform.removeEventListener(
-          i.GModifiersChangedEvent,
+        GEditor.GPlatform.removeEventListener(
+          GEditor.GModifiersChangedEvent,
           this._modifiersChangedEvent,
           this
         ),
         this._deactivateDocument(gDesigner.getActiveDocument()),
-        i.GPlatform.releaseKey(i.GKey.Constant.ALT_LEFT),
-        i.GPlatform.releaseKey(i.GKey.Constant.ALT_RIGHT),
-        i.GPlatform.releaseKey(i.GKey.Constant.SHIFT),
-        i.GPlatform.releaseKey(i.GKey.Constant.CONTROL),
+        GEditor.GPlatform.releaseKey(GEditor.GKey.Constant.ALT_LEFT),
+        GEditor.GPlatform.releaseKey(GEditor.GKey.Constant.ALT_RIGHT),
+        GEditor.GPlatform.releaseKey(GEditor.GKey.Constant.SHIFT),
+        GEditor.GPlatform.releaseKey(GEditor.GKey.Constant.CONTROL),
         this._touchHandler.deactivate(this._htmlElement[0]),
         (this._heldKeys = null));
     }),
@@ -142770,7 +143176,7 @@ function (exports, module, require) {
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GSubAction = _interopRequireDefault(require(1168) /* GSubAction */),
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    c = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GMergeMainAction = _interopRequireDefault(require(812) /* GMergeMainAction */),
     AppSettings = require(10); /* AppSettings */
   class p extends GSubAction.default {
@@ -142880,11 +143286,11 @@ function (exports, module, require) {
       ) {
         const MenuItemBuilder = t[t.length - 1];
         let GSubAction = MenuItemBuilder.getParent(),
-          c = MenuItemBuilder.getNext();
+          GRichTooltipConfig = MenuItemBuilder.getNext();
         for (; !require.validateInsertion(GSubAction); )
-          ((c = GSubAction.getNext()), (GSubAction = GSubAction.getParent()));
+          ((GRichTooltipConfig = GSubAction.getNext()), (GSubAction = GSubAction.getParent()));
         if (!GSubAction) return;
-        GSubAction.insertChild(require, c);
+        GSubAction.insertChild(require, GRichTooltipConfig);
         try {
           const t = [],
             MenuItemBuilder = [];
@@ -142897,13 +143303,13 @@ function (exports, module, require) {
                 _interopRequireDefault.add(e.getParent()));
             }),
             (GEditor = t.concat(MenuItemBuilder)));
-          const c = GSubAction || GEditor[0];
+          const GRichTooltipConfig = GSubAction || GEditor[0];
           if (
             ((0, CollaborationMergeUtils.blockChanges)(e, _interopRequireDefault, null, require),
-            require.assignStyleFrom(c),
-            c instanceof GCore.GText)
+            require.assignStyleFrom(GRichTooltipConfig),
+            GRichTooltipConfig instanceof GCore.GText)
           ) {
-            const e = c;
+            const e = GRichTooltipConfig;
             if (!e.getPaintLayers().getFillLayers(true).length && e.getProperty('_fc')) {
               require.getPaintLayers().clearFillLayers();
               const t =
@@ -142967,29 +143373,29 @@ function (exports, module, require) {
   }),
     (p.TransactionType = { Merge: 'merge', Combine: 'combine' }),
     (p.TOOLTIP_CONFIG = {
-      [c.TOOLTIP_AREA.TOOLBAR]: {
-        [p.Type.Union]: c.GRichTooltipConfig.from({
+      [GRichTooltipConfig.TOOLTIP_AREA.TOOLBAR]: {
+        [p.Type.Union]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.union.title'),
           description: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.union.description'),
           video: AppSettings.gApi.getRichTooltipVideoURL('Boolean_Union.mp4'),
           middle: false,
           learnMore: '',
         }),
-        [p.Type.Subtract]: c.GRichTooltipConfig.from({
+        [p.Type.Subtract]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.substract.title'),
           description: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.substract.description'),
           video: AppSettings.gApi.getRichTooltipVideoURL('Boolean_Subtract.mp4'),
           middle: false,
           learnMore: '',
         }),
-        [p.Type.Intersect]: c.GRichTooltipConfig.from({
+        [p.Type.Intersect]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.intersect.title'),
           description: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.intersect.description'),
           video: AppSettings.gApi.getRichTooltipVideoURL('Boolean_Intersect.mp4'),
           middle: false,
           learnMore: '',
         }),
-        [p.Type.Difference]: c.GRichTooltipConfig.from({
+        [p.Type.Difference]: GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.difference.title'),
           description: GCore.GLocale.getValue('GMergeSubAction', 'tooltip.difference.description'),
           video: AppSettings.gApi.getRichTooltipVideoURL('Boolean_Difference.mp4'),
@@ -143274,7 +143680,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
     GEditor = require(15) /* GEditor */,
     GCore = require(1) /* GCore */,
-    r = require(198) /* Exports_GOutlineSidebar */,
+    GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
   class c extends GAction.default {
@@ -143307,7 +143713,7 @@ function (exports, module, require) {
     execute() {
       const exports = gDesigner
           .getLeftSidebars()
-          .getSidebar(r.SidebarsIds.GOutlineSidebar)
+          .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar)
           .getLayerPanel(),
         { vtree: module, currentFocus: require } = exports.data('glayerpanel');
       if (!require) return;
@@ -143322,10 +143728,10 @@ function (exports, module, require) {
         _interopRequireDefault)
       ) {
         const GEditor = exports.gLayerPanel('getItem', require),
-          r = exports.gLayerPanel('getItem', _interopRequireDefault);
+          GOutlineSidebar = exports.gLayerPanel('getItem', _interopRequireDefault);
         (GEditor.removeFlag(GCore.GNode.Flag.Selected),
-          r.setFlag(GCore.GNode.Flag.Selected),
-          module.expandAndFocus(r));
+          GOutlineSidebar.setFlag(GCore.GNode.Flag.Selected),
+          module.expandAndFocus(GOutlineSidebar));
       }
     }
     toString() {
@@ -143342,7 +143748,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
     GEditor = require(15) /* GEditor */,
     GCore = require(1) /* GCore */,
-    r = require(198) /* Exports_GOutlineSidebar */,
+    GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
   class c extends GAction.default {
@@ -143363,7 +143769,9 @@ function (exports, module, require) {
     }
     execute() {
       const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
-        module = gDesigner.getLeftSidebars().getSidebar(r.SidebarsIds.GOutlineSidebar),
+        module = gDesigner
+          .getLeftSidebars()
+          .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
         require = module.getLayerPanel(),
         _interopRequireDefault = require.gLayerPanel('getCurrentFocusedNode');
       if (_interopRequireDefault && exports === module.getId()) {
@@ -143386,7 +143794,7 @@ function (exports, module, require) {
   var _interopRequireDefault = require(16) /* _interopRequireDefault */,
     GEditor = require(15) /* GEditor */,
     GCore = require(1) /* GCore */,
-    r = require(198) /* Exports_GOutlineSidebar */,
+    GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
     GAction = _interopRequireDefault(require(31) /* GAction */);
   class c extends GAction.default {
@@ -143407,7 +143815,9 @@ function (exports, module, require) {
     }
     execute() {
       const exports = gDesigner.getLeftSidebars().getActiveSidebar(),
-        module = gDesigner.getLeftSidebars().getSidebar(r.SidebarsIds.GOutlineSidebar),
+        module = gDesigner
+          .getLeftSidebars()
+          .getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar),
         require = module.getLayerPanel(),
         _interopRequireDefault = require.gLayerPanel('getCurrentFocusedNode');
       if (_interopRequireDefault && exports === module.getId()) {
@@ -143508,8 +143918,8 @@ function (exports, module, require) {
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
     GLoginPanel = require(446) /* GLoginPanel */,
-    d = require(219) /* GLocale */,
-    u = require(1610) /* Item */,
+    GLocale = require(219) /* GLocale */,
+    Item = require(1610) /* Item */,
     GContainer = require(85); /* GContainer */
   const GSystemDialog = require(44); /* GSystemDialog */
   var h = null,
@@ -143545,7 +143955,7 @@ function (exports, module, require) {
     (y.prototype.execute = function () {
       var e = gDesigner.getActiveDocument(),
         t = e.getScene(),
-        n = new u.Item('PDF'),
+        n = new Item.Item('PDF'),
         GEditor = {
           suppressMessages: true,
           dpi: gDesigner.isEnabledProFeatures() ? 300 : 150,
@@ -143584,12 +143994,12 @@ function (exports, module, require) {
               if (t || !GLoginPanel) return MenuItemBuilder();
               if ((GCore.push(GLoginPanel), n.shift(), n.length))
                 return void a.GSVGExport.export(n[0], GEditor, GAction);
-              let d = '';
-              for (var u = 0; u < GCore.length; u++) {
+              let GLocale = '';
+              for (var Item = 0; Item < GCore.length; Item++) {
                 let e =
                   'data:image/svg+xml;base64,' +
-                  (0, CollaborationMergeUtils.stringToBase64String)(GCore[u]);
-                d = d.concat(
+                  (0, CollaborationMergeUtils.stringToBase64String)(GCore[Item]);
+                GLocale = GLocale.concat(
                   "<img style='height:100%;width:auto;max-width:100%;display:block;' src='" +
                     e +
                     "'/>"
@@ -143600,7 +144010,7 @@ function (exports, module, require) {
                 "<style type='text/css' media='print'>@page { margin: 0mm; }</style>"),
                 (GContainer.body.style.margin = '0'),
                 (GContainer.body.style.height = '100%'),
-                (GContainer.body.innerHTML = d),
+                (GContainer.body.innerHTML = GLocale),
                 (GContainer.title = e.getTitle()),
                 $(h.contentWindow.document).ready(function () {
                   h.contentWindow.focus();
@@ -143614,7 +144024,7 @@ function (exports, module, require) {
           n.length && a.GSVGExport.export(n[0], GEditor, GAction);
         },
         v = () =>
-          new d(
+          new GLocale(
             GCore.GLocale.get(new GCore.GLocaleKey('GPrintAction', 'printing-disabled'))
           ).open(),
         _ = () => {
@@ -143681,13 +144091,13 @@ function (exports, module, require) {
 function (exports, module, require) {
   'use strict';
   var GCore = require(1) /* GCore */,
-    i = require(237); /* Item */
+    Item = require(237); /* Item */
   function a() {}
-  (GCore.GObject.inherit(a, i),
+  (GCore.GObject.inherit(a, Item),
     (a.Item = function (e) {
-      (i.Item.call(this, new a()), (this._extension = e));
+      (Item.Item.call(this, new a()), (this._extension = e));
     }),
-    GCore.GObject.inherit(a.Item, i.Item),
+    GCore.GObject.inherit(a.Item, Item.Item),
     (a.Item.prototype._extension = null),
     (a.Item.prototype.getExtension = function () {
       return this._extension;
@@ -144496,7 +144906,7 @@ function (exports, module, require) {
     AppSettings = require(10) /* AppSettings */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31) /* GAction */,
-    c = require(219) /* GLocale */,
+    GLocale = require(219) /* GLocale */,
     GContainer = require(85) /* GContainer */,
     GCloudStorage = require(119); /* GCloudStorage */
   const GSystemDialog = require(44) /* GSystemDialog */,
@@ -144557,7 +144967,7 @@ function (exports, module, require) {
       gContainer.getRuntime() === GContainer.Runtime.Browser ||
       gContainer.getRuntime() === GContainer.Runtime.PWA
         ? location.reload()
-        : new c(
+        : new GLocale(
             GCore.GLocale.get(new GCore.GLocaleKey('GNewDocumentDialog', 'text.restart-app'))
           ).open();
     }),
@@ -144961,7 +145371,7 @@ function (exports, module, require) {
   const { isExecutingOnMSTeamsSync: r } = a.default;
   var MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
-  const c = require(1152) /* Item */,
+  const Item = require(1152) /* Item */,
     GSystemDialog = require(44); /* GSystemDialog */
   function u() {}
   (GCore.GObject.inherit(u, GAction),
@@ -144984,7 +145394,7 @@ function (exports, module, require) {
       const exports = gDesigner.getActiveDocument();
       if (!exports) return false;
       const module = exports.getStorageItem();
-      return !!module && module instanceof c.Item;
+      return !!module && module instanceof Item.Item;
     }),
     (u.prototype.isVisible = function () {
       return this.isEnabled();
@@ -145026,7 +145436,7 @@ function (exports, module, require) {
   const { isExecutingOnMSTeamsSync: r } = a.default;
   var MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
-  const c = require(1152) /* Item */,
+  const Item = require(1152) /* Item */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GSharepointCheckInDialog = require(1631) /* GSharepointCheckInDialog */,
     GDocumentEvent = require(78); /* GDocumentEvent */
@@ -145056,7 +145466,7 @@ function (exports, module, require) {
       const exports = gDesigner.getActiveDocument();
       if (!exports) return false;
       const module = exports.getStorageItem();
-      return !!module && module instanceof c.Item;
+      return !!module && module instanceof Item.Item;
     }),
     (g.prototype.isVisible = function () {
       return this._isSupported();
@@ -145300,28 +145710,29 @@ function (exports, module, require) {
   'use strict';
   require(3) /* polyfill_RegExp_toString */;
   var GCore = require(1) /* GCore */,
-    i = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
   const { TOUCH_LAYOUT: s } = require(10) /* AppSettings */,
     GContainer = require(85); /* GContainer */
   function c() {
     c.TOOLTIP_CONFIG = {
-      [i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]: i.GRichTooltipConfig.from({
-        title: GCore.GLocale.get(
-          new GCore.GLocaleKey('GToggleTouchAction', 'text.try-this-feature-pro-tooltip-title')
-        ),
-        description: GCore.GLocale.get(
-          new GCore.GLocaleKey(
-            'GToggleTouchAction',
-            'text.try-this-feature-pro-tooltip-description'
-          )
-        ),
-        learnMore: '',
-        upgradeToProStatsValue: 'view.toggle-touch',
-        middle: false,
-        side: true,
-      }),
+      [GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON]:
+        GRichTooltipConfig.GRichTooltipConfig.from({
+          title: GCore.GLocale.get(
+            new GCore.GLocaleKey('GToggleTouchAction', 'text.try-this-feature-pro-tooltip-title')
+          ),
+          description: GCore.GLocale.get(
+            new GCore.GLocaleKey(
+              'GToggleTouchAction',
+              'text.try-this-feature-pro-tooltip-description'
+            )
+          ),
+          learnMore: '',
+          upgradeToProStatsValue: 'view.toggle-touch',
+          middle: false,
+          side: true,
+        }),
     };
   }
   (GCore.GObject.inherit(c, GAction),
@@ -145351,7 +145762,7 @@ function (exports, module, require) {
       gDesigner.setTouchEnabled(!gDesigner.isTouchEnabled());
     }),
     (c.prototype.getTooltipArea = function () {
-      return i.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
+      return GRichTooltipConfig.TOOLTIP_AREA.MAIN_MENU.TRY_PRO_COMMON;
     }),
     (c.prototype.getTooltipConfig = function (e) {
       return (e && c.TOOLTIP_CONFIG[e]) || null;
@@ -146027,7 +146438,7 @@ function (exports, module, require) {
   var GCore = require(1); /* GCore */
   const MenuItemBuilder = require(18) /* MenuItemBuilder */,
     GAction = require(31); /* GAction */
-  var r = require(219) /* GLocale */,
+  var GLocale = require(219) /* GLocale */,
     GContainer = require(85); /* GContainer */
   const { IS_TRUNK: l, IS_LOCALHOST: c, IS_BETA: d } = require(231); /* DataModule_231 */
   function u(e) {
@@ -146069,7 +146480,7 @@ function (exports, module, require) {
       gContainer.getRuntime() === GContainer.Runtime.Browser ||
       gContainer.getRuntime() === GContainer.Runtime.PWA
         ? location.reload()
-        : new r(
+        : new GLocale(
             GCore.GLocale.get(new GCore.GLocaleKey('GNewDocumentDialog', 'text.restart-app'))
           ).open();
     }),
@@ -146087,7 +146498,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class c extends GAction.default {
@@ -146113,7 +146524,7 @@ function (exports, module, require) {
         case c.Type.Fill:
           return ['F'];
         case c.Type.Border:
-          return [r.GKey.Constant.SHIFT, 'B'];
+          return [GEditor.GKey.Constant.SHIFT, 'B'];
       }
     }
     isVisible() {
@@ -146478,7 +146889,7 @@ function (exports, module, require) {
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */);
   class c extends GAction.default {
@@ -146505,17 +146916,17 @@ function (exports, module, require) {
     }
     getAdditionalShortcuts() {
       return [
-        r.GKey.Constant.Digit0,
-        r.GKey.Constant.Digit1,
-        r.GKey.Constant.Digit2,
-        r.GKey.Constant.Digit3,
-        r.GKey.Constant.Digit4,
-        r.GKey.Constant.Digit5,
-        r.GKey.Constant.Digit6,
-        r.GKey.Constant.Digit7,
-        r.GKey.Constant.Digit8,
-        r.GKey.Constant.Digit9,
-      ].map((e) => [r.GKey.Constant.SHIFT, e]);
+        GEditor.GKey.Constant.Digit0,
+        GEditor.GKey.Constant.Digit1,
+        GEditor.GKey.Constant.Digit2,
+        GEditor.GKey.Constant.Digit3,
+        GEditor.GKey.Constant.Digit4,
+        GEditor.GKey.Constant.Digit5,
+        GEditor.GKey.Constant.Digit6,
+        GEditor.GKey.Constant.Digit7,
+        GEditor.GKey.Constant.Digit8,
+        GEditor.GKey.Constant.Digit9,
+      ].map((e) => [GEditor.GKey.Constant.SHIFT, e]);
     }
     execute() {
       const exports = gDesigner.getActiveDocument(),
@@ -146536,7 +146947,7 @@ function (exports, module, require) {
         this._setOpacityLevel());
     }
     executeFromShortcut(e) {
-      const module = r.GKey.translateCode(e.code),
+      const module = GEditor.GKey.translateCode(e.code),
         require = this._currentValue;
       (this._setCurrentValue(module),
         require
@@ -146549,7 +146960,7 @@ function (exports, module, require) {
       return true;
     }
     getShortcutHint(e) {
-      const module = [r.GKey.Constant.SHIFT, '0 (1, 2, 25, 26, 3, 4, ... 9)'];
+      const module = [GEditor.GKey.Constant.SHIFT, '0 (1, 2, 25, 26, 3, 4, ... 9)'];
       return GAction.default.getActionShortcutHint(module, e);
     }
     _processDefinedCurrentValue() {
@@ -146714,7 +147125,7 @@ function (exports, module, require) {
     GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-    l = require(198); /* Exports_GOutlineSidebar */
+    GOutlineSidebar = require(198); /* Exports_GOutlineSidebar */
   class c extends GAction.default {
     getId() {
       return c.ID;
@@ -146733,7 +147144,7 @@ function (exports, module, require) {
     }
     execute() {
       const exports = gDesigner.getLeftSidebars(),
-        module = exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar);
+        module = exports && exports.getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar);
       module && module.toggleMultiPageMode();
     }
     toString() {
@@ -146931,7 +147342,7 @@ function (exports, module, require) {
     GEditor = require(15) /* GEditor */,
     GAction = _interopRequireDefault(require(31) /* GAction */),
     MenuItemBuilder = _interopRequireDefault(require(18) /* MenuItemBuilder */),
-    l = require(198) /* Exports_GOutlineSidebar */,
+    GOutlineSidebar = require(198) /* Exports_GOutlineSidebar */,
     GToggleSidebarAction = _interopRequireDefault(require(1170) /* GToggleSidebarAction */);
   class d extends GAction.default {
     getId() {
@@ -146955,11 +147366,13 @@ function (exports, module, require) {
     execute() {
       this._showOutlineSidebar();
       const exports = gDesigner.getLeftSidebars();
-      (exports && exports.getSidebar(l.SidebarsIds.GOutlineSidebar)).insertLayer();
+      (exports && exports.getSidebar(GOutlineSidebar.SidebarsIds.GOutlineSidebar)).insertLayer();
     }
     _showOutlineSidebar() {
       const exports = gDesigner.getAction(
-        ''.concat(GToggleSidebarAction.default.ID, '.').concat(l.SidebarsIds.GOutlineSidebar)
+        ''
+          .concat(GToggleSidebarAction.default.ID, '.')
+          .concat(GOutlineSidebar.SidebarsIds.GOutlineSidebar)
       );
       exports.isChecked() || exports.execute();
     }
@@ -148042,7 +148455,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GCore = require(1) /* GCore */,
     i = require(357) /* module_357 */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     GGravitCloudAction = require(448) /* GGravitCloudAction */,
     GSaveAsAction = require(445) /* GSaveAsAction */,
@@ -148142,8 +148555,8 @@ function (exports, module, require) {
             .gInputBox({ postfix: '°' });
         if (0 === e.indexOf('gm-')) {
           var i = '',
-            a = e.substr('gm-'.length);
-          switch (a) {
+            GRichTooltipConfig = e.substr('gm-'.length);
+          switch (GRichTooltipConfig) {
             case GCore.GScene.GridMode.Boxed:
               i = GCore.GLocale.get(new GCore.GLocaleKey('GSceneProperties', 'text.on'));
               break;
@@ -148162,11 +148575,15 @@ function (exports, module, require) {
                 .on('change', function () {
                   (gDesigner.stats(
                     'sceneproperties_change_grid-mode',
-                    'box' === a ? 'on' : 'axo' === a ? 'isometric' : 'off'
+                    'box' === GRichTooltipConfig
+                      ? 'on'
+                      : 'axo' === GRichTooltipConfig
+                        ? 'isometric'
+                        : 'off'
                   ),
                     n._assignProperty(
                       'gm',
-                      a || null,
+                      GRichTooltipConfig || null,
                       GCore.GLocale.get(
                         new GCore.GLocaleKey('GSceneProperties', 'action.change-grid-settings')
                       )
@@ -148189,18 +148606,18 @@ function (exports, module, require) {
                   $(this).val(i.getProperty('cm')),
                   void gDesigner.handlePROFeatureInterruption()
                 );
-              const a = $(this).val();
-              gDesigner.stats('sceneproperties_change_color-mode', a);
+              const GRichTooltipConfig = $(this).val();
+              gDesigner.stats('sceneproperties_change_color-mode', GRichTooltipConfig);
               var GProperties = i.getActivePage().getChildren();
               (!!GProperties &&
                 GProperties.find((e) => !(e instanceof GCore.GAnnotationsList)) &&
                 h.alert(
                   GCore.GLocale.get(new GCore.GLocaleKey('GSceneProperties', 'text.reminder'))
                 ),
-                gDesigner.setSetting('color_mode', a),
+                gDesigner.setSetting('color_mode', GRichTooltipConfig),
                 n._assignProperty(
                   e,
-                  a,
+                  GRichTooltipConfig,
                   GCore.GLocale.get(
                     new GCore.GLocaleKey('GSceneProperties', 'action.change-color-mode')
                   )
@@ -148276,7 +148693,7 @@ function (exports, module, require) {
                 clazz: 'unit-selector-column',
                 content: n(
                   'ut',
-                  a.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GSceneProperties', 'text.unit-tooltip-title')
                     ),
@@ -148305,7 +148722,7 @@ function (exports, module, require) {
                 clazz: 'color-mode-selector-column',
                 content: n(
                   'cm',
-                  a.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GSceneProperties', 'text.color-mode-tooltip-title')
                     ),
@@ -148337,7 +148754,7 @@ function (exports, module, require) {
                 clazz: 'dpi-selector-column',
                 content: n(
                   'dpi',
-                  a.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GSceneProperties', 'text.dpi-tooltip-title')
                     ),
@@ -148365,7 +148782,7 @@ function (exports, module, require) {
                 clazz: 'grid-mode-off-column',
                 content: n(
                   'gm-',
-                  a.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GSceneProperties', 'text.grid-tooltip-title')
                     ),
@@ -148380,7 +148797,7 @@ function (exports, module, require) {
                 clazz: 'grid-mode-box-column',
                 content: n(
                   'gm-' + GCore.GScene.GridMode.Boxed,
-                  a.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GSceneProperties', 'text.grid-tooltip-title')
                     ),
@@ -148395,7 +148812,7 @@ function (exports, module, require) {
                 clazz: 'grid-mode-axo-column',
                 content: n(
                   'gm-' + GCore.GScene.GridMode.Axonometric,
-                  a.GRichTooltipConfig.from({
+                  GRichTooltipConfig.GRichTooltipConfig.from({
                     title: GCore.GLocale.get(
                       new GCore.GLocaleKey('GSceneProperties', 'text.grid-tooltip-title')
                     ),
@@ -148709,13 +149126,15 @@ function (exports, module, require) {
         }),
         !y)
       ) {
-        var a = this._document.isCloudFile()
+        var GRichTooltipConfig = this._document.isCloudFile()
             ? !this._document.getScene().getProperty('cid')
             : !this._document.hasCloudReference(),
-          GProperties = !a && (this._document.isCloudFile() || this._document.hasCloudReference());
+          GProperties =
+            !GRichTooltipConfig &&
+            (this._document.isCloudFile() || this._document.hasCloudReference());
         (this._panel
           .find('[data-property="enable-cloud-sync"]')
-          .css('display', a ? '' : 'none')
+          .css('display', GRichTooltipConfig ? '' : 'none')
           .find('button')
           .prop('disabled', this._document.getStatus() === c.Loading),
           this._panel
@@ -148843,7 +149262,7 @@ function (exports, module, require) {
     require(13)) /* stub_requires_679 */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    a = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GProperties = require(123) /* GProperties */,
     s = (require(173) /* stub_requires_1 */, require(135)) /* GSettingChangedEvent */;
   require(1162) /* GBorderProperties */;
@@ -148953,7 +149372,7 @@ function (exports, module, require) {
             }.bind(this)
           )
           .appendTo(t));
-      const GTools = a.GRichTooltipConfig.from({
+      const GTools = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.move-tooltip-title')
           ),
@@ -148963,7 +149382,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        GProperties = a.GRichTooltipConfig.from({
+        GProperties = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.scale-tooltip-title')
           ),
@@ -148973,7 +149392,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        s = a.GRichTooltipConfig.from({
+        s = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.rotate-tooltip-title')
           ),
@@ -148983,7 +149402,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        l = a.GRichTooltipConfig.from({
+        l = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.rotate-axis-tooltip-title')
           ),
@@ -148993,7 +149412,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        c = a.GRichTooltipConfig.from({
+        c = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.skew-tooltip-title')
           ),
@@ -149003,7 +149422,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        d = a.GRichTooltipConfig.from({
+        d = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.copies-tooltip-title')
           ),
@@ -149013,7 +149432,7 @@ function (exports, module, require) {
           middle: false,
           learnMore: '',
         }),
-        u = a.GRichTooltipConfig.from({
+        u = GRichTooltipConfig.GRichTooltipConfig.from({
           title: GCore.GLocale.get(
             new GCore.GLocaleKey('GTransformProperties', 'text.transdorm-origin-tooltip-title')
           ),
@@ -149383,7 +149802,7 @@ function (exports, module, require) {
       var e = this._document.getScene(),
         t = gDesigner.isTouchEnabled() ? this._copiesAndApplyTouch : this._copiesAndApply,
         n = parseInt(t.find('[data-property="copies"]').gInputBox('value')),
-        a = t.find('[data-property="pivot"]').gPivot('value'),
+        GRichTooltipConfig = t.find('[data-property="pivot"]').gPivot('value'),
         GProperties =
           e.stringToPoint(this._panel.find('[data-property="move-x"]').gInputBox('value')) || 0,
         s = e.stringToPoint(this._panel.find('[data-property="move-y"]').gInputBox('value')) || 0,
@@ -149446,15 +149865,33 @@ function (exports, module, require) {
             0 !== g)
           ) {
             var GTools = Math.cos(g),
-              a = Math.sin(g);
+              GRichTooltipConfig = Math.sin(g);
             e % 2 &&
               h(
                 t,
                 new GCore.GTransform()
                   .translated(-n.getX(), -n.getY())
-                  .multiplied(new GCore.GTransform(GTools, -a, a, GTools, 0, 0))
+                  .multiplied(
+                    new GCore.GTransform(
+                      GTools,
+                      -GRichTooltipConfig,
+                      GRichTooltipConfig,
+                      GTools,
+                      0,
+                      0
+                    )
+                  )
                   .multiplied(new GCore.GTransform(1, 0, 0, -1, 0, 0))
-                  .multiplied(new GCore.GTransform(GTools, a, -a, GTools, 0, 0))
+                  .multiplied(
+                    new GCore.GTransform(
+                      GTools,
+                      GRichTooltipConfig,
+                      -GRichTooltipConfig,
+                      GTools,
+                      0,
+                      0
+                    )
+                  )
                   .translated(n.getX(), n.getY())
               );
           }
@@ -149471,7 +149908,9 @@ function (exports, module, require) {
             ++GProperties
           ) {
             var s = this._elements[GProperties];
-            a && (GTools = s.getGeometryBBox()) && (t = t ? t.united(GTools) : GTools);
+            GRichTooltipConfig &&
+              (GTools = s.getGeometryBBox()) &&
+              (t = t ? t.united(GTools) : GTools);
             var l = [s];
             if (n > 0)
               for (var c = s.getParent(), d = s.getNext() ? s.getNext() : null, u = 0; u < n; ++u) {
@@ -149484,7 +149923,7 @@ function (exports, module, require) {
             e.push(l);
           }
           var g = null;
-          if ((t && !t.isEmpty() && (g = t.getSide(a)), g))
+          if ((t && !t.isEmpty() && (g = t.getSide(GRichTooltipConfig)), g))
             for (GProperties = 0; GProperties < e.length; ++GProperties) {
               if ((l = e[GProperties]).length > 1) for (var h = 0; h < l.length; ++h) f(h, l[h], g);
               else 1 == l.length && f(1, l[0], g);
@@ -149535,7 +149974,7 @@ function (exports, module, require) {
     require(41)) /* stub_requires_682 */;
   var GCore = require(1) /* GCore */,
     GTools = require(53) /* GTools */,
-    r = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GTouchTool = _interopRequireDefault(require(340) /* GTouchTool */),
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GCreateSymbolAction = require(608) /* GCreateSymbolAction */,
@@ -149612,7 +150051,7 @@ function (exports, module, require) {
           .append($('<span></span>').addClass('gravit-icon-touch-trash'))
           .appendTo(this._symbolsToolbar)
           .gRichTooltip(
-            r.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GSymbolsSidebar', 'text.delete-symbol-tooltip-title')
               ),
@@ -149641,7 +150080,7 @@ function (exports, module, require) {
           .appendTo(this._symbolsToolbar)
           .addClass('g-disabled')
           .gRichTooltip(
-            r.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GSymbolsSidebar', 'text.create-symbol-tooltip-title')
               ),
@@ -149950,7 +150389,7 @@ function (exports, module, require) {
     r = require(15) /* GEditor */,
     AppSettings = require(10) /* AppSettings */,
     DataModule_1664 = _interopRequireDefault(require(1664) /* DataModule_1664 */),
-    c = require(219) /* GLocale */,
+    GLocale = require(219) /* GLocale */,
     GClipAction = require(809) /* GClipAction */,
     { debounce: u, stringToBase64String: p } = require(40); /* CollaborationMergeUtils */
   const g = DataModule_1664.default.getElements();
@@ -149983,7 +150422,7 @@ function (exports, module, require) {
         AppSettings = i ? [] : t.children || [],
         DataModule_1664 = e.find('.images');
       if (AppSettings.length > 0 && 0 === e.find('select').length) {
-        var c = $('<select/>')
+        var GLocale = $('<select/>')
           .addClass('selector')
           .on('change', function () {
             var n,
@@ -150014,21 +150453,21 @@ function (exports, module, require) {
               gDesigner.stats('librarypanel_change_category', n),
               r._loadAssets(e, r._CURRENT_CATEGORY, r._updateUI.bind(r)));
           });
-        'element.image' === t.path && c.addClass('full-width');
+        'element.image' === t.path && GLocale.addClass('full-width');
         var GClipAction = e.parent();
         GClipAction.find('.selector-container').remove();
         var u = GClipAction.find('.indicator');
-        ($('<div/>').addClass('selector-container').append(c).insertAfter(u),
+        ($('<div/>').addClass('selector-container').append(GLocale).insertAfter(u),
           $('<option/>')
             .text(GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'element.all')))
-            .appendTo(c));
+            .appendTo(GLocale));
         for (var p = 0; p < AppSettings.length; ++p) {
           var g =
             'element.child.name.' + AppSettings[p].name.toLowerCase().trim().replace(/\s+/g, '-');
           $('<option/>')
             .text(GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', g), AppSettings[p].name))
             .data('category', AppSettings[p])
-            .appendTo(c);
+            .appendTo(GLocale);
         }
       }
       !(function (t) {
@@ -150047,7 +150486,7 @@ function (exports, module, require) {
             var AppSettings = $('<div/>')
                 .addClass('asset-container')
                 .attr('data-title', i.name || ''),
-              c = $('<img/>')
+              GLocale = $('<img/>')
                 .on('dragstart', function () {
                   return false;
                 })
@@ -150057,7 +150496,7 @@ function (exports, module, require) {
                   r._onItemDragStartHandler(i, e);
                 })
                 .addClass('asset');
-            (AppSettings.append(c), e.append(AppSettings));
+            (AppSettings.append(GLocale), e.append(AppSettings));
           }
         }
         if (n) {
@@ -150084,9 +150523,9 @@ function (exports, module, require) {
       )
         GCore = e.find('.column').toArray();
       else
-        for (var c = 0; c < r; c++) {
+        for (var GLocale = 0; GLocale < r; GLocale++) {
           var GClipAction = $('<div/>').addClass('column').css('width', DataModule_1664);
-          (c > 0 && GClipAction.css('margin-left', '4px'), GCore.push(GClipAction));
+          (GLocale > 0 && GClipAction.css('margin-left', '4px'), GCore.push(GClipAction));
         }
       const u = GCore.map(this._getChildrenHeight.bind(this)),
         p = [];
@@ -150187,7 +150626,7 @@ function (exports, module, require) {
               });
             i.GBitmapImport.import(h, (e, _interopRequireDefault, i, r) => {
               if (e)
-                new c(
+                new GLocale(
                   GCore.GLocale.get(new GCore.GLocaleKey('GDocument', 'text.image-too-big'))
                 ).open();
               else {
@@ -150292,17 +150731,20 @@ function (exports, module, require) {
                           t
                             ? ((r = t.x - _ / 2), (AppSettings = t.y - b / 2))
                             : ((r = 0.3 * C), (AppSettings = (x - b) / 2)));
-                        var c = new GCore.GRectangle();
-                        (c.setProperty(
+                        var GLocale = new GCore.GRectangle();
+                        (GLocale.setProperty(
                           'trf',
                           new GCore.GTransform(_ / 2, 0, 0, b / 2, r + _ / 2, AppSettings + b / 2)
                         ),
-                          c.setProperty('isLine', true, true, false),
-                          v.appendChild(c),
-                          c
-                            .getPaintLayers()
-                            .insertChild(new GCore.GStylable.FillPaintLayer(DataModule_1664)),
-                          gDesigner.getActiveDocument().getEditor().updateSelection(false, [c]));
+                          GLocale.setProperty('isLine', true, true, false),
+                          v.appendChild(GLocale),
+                          GLocale.getPaintLayers().insertChild(
+                            new GCore.GStylable.FillPaintLayer(DataModule_1664)
+                          ),
+                          gDesigner
+                            .getActiveDocument()
+                            .getEditor()
+                            .updateSelection(false, [GLocale]));
                       } else (n._transformNode(i, t), m.insertElement(i, !t, true, false));
                     } finally {
                       y.commitTransaction('Add Element');
@@ -150487,19 +150929,19 @@ function (exports, module, require) {
               .find('.category')
               .removeClass('active'),
               n.addClass('active'));
-            var c = _interopRequireDefault
+            var GLocale = _interopRequireDefault
               .closest('.g-library-panel')
               .find('.assets')
               .not(_interopRequireDefault.next('.assets'));
-            (c.removeClass('first second third'),
+            (GLocale.removeClass('first second third'),
               $('.library-search').find('span').removeClass('gravit-icon-close'),
               $('.library-search').find('span').addClass('gravit-icon-search'),
-              c.css('display', 'none'));
+              GLocale.css('display', 'none'));
             var GClipAction = GCore.find('.assets-wrapper');
             ('auto' !== GClipAction.css('height') && GClipAction.css('height', 'auto'),
               GCore.find('.selector-container').remove(),
               GClipAction.empty(),
-              c.find('.assets-wrapper').empty());
+              GLocale.find('.assets-wrapper').empty());
             var u = function (e) {
               let module = GCore.hasClass(e);
               (GCore.removeClass('first second third'),
@@ -150552,7 +150994,7 @@ function (exports, module, require) {
     async _doLoadAssets(e, t, n, _interopRequireDefault, i) {
       let GCore = [],
         r = 0,
-        c = 0;
+        GLocale = 0;
       try {
         if (_interopRequireDefault) {
           let e = [];
@@ -150566,7 +151008,7 @@ function (exports, module, require) {
               } catch (e) {
                 console.warn('Unsplash search failed', e);
               }
-            ((c = (e || []).length), c || (this._IMAGE_ASSET_DRAINED = true));
+            ((GLocale = (e || []).length), GLocale || (this._IMAGE_ASSET_DRAINED = true));
           }
           ((GCore = []),
             -1 !== this._CURRENT_SKIP_COUNT &&
@@ -150589,7 +151031,7 @@ function (exports, module, require) {
               : await AppSettings.gApi.getUnsplashPhotos({
                   page: this._IMAGE_PAGE_COUNT,
                 })),
-            (c = (GCore || []).length));
+            (GLocale = (GCore || []).length));
         else {
           var GClipAction = t.path;
           ((GCore = await AppSettings.gApi.listMarket({
@@ -150601,7 +151043,7 @@ function (exports, module, require) {
           })),
             (r = (GCore || []).length));
         }
-        (r < 90 && 0 === c
+        (r < 90 && 0 === GLocale
           ? this._toggleShowMoreButton(false, false)
           : this._toggleShowMoreButton(true, false),
           GCore.length < 90
@@ -150643,17 +151085,17 @@ function (exports, module, require) {
       else {
         var AppSettings = r.getGeometryBBox(),
           DataModule_1664 = AppSettings && r.isFixedSized() ? AppSettings.getWidth() : 800,
-          c = AppSettings && r.isFixedSized() ? AppSettings.getHeight() : 800;
+          GLocale = AppSettings && r.isFixedSized() ? AppSettings.getHeight() : 800;
         if (!e.path.startsWith('element.ui') && !e.path.startsWith('element.icons')) {
           var GClipAction = i / GCore;
           if (
             ((i = DataModule_1664 / 3) > 300 && (i = 300),
             (GCore = i / GClipAction),
             (i = Math.round(i)),
-            (GCore = Math.round(GCore)) > c)
+            (GCore = Math.round(GCore)) > GLocale)
           ) {
             var u = GCore;
-            ((GCore = c / 3) > 300 && (GCore = 300),
+            ((GCore = GLocale / 3) > 300 && (GCore = 300),
               (i = (i / e.height) * u),
               (i = Math.round(i)),
               (GCore = Math.round(GCore)));
@@ -151148,7 +151590,7 @@ function (exports, module, require) {
     GEvent_notification = require(1321) /* GEvent_notification */,
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GEmbeddedLogin = require(860) /* GEmbeddedLogin */,
-    d = require(1667); /* Type */
+    Type = require(1667); /* Type */
   function u() {}
   (GCore.GObject.inherit(u, GPanel),
     (u.ID = 'notification-panel'),
@@ -151312,9 +151754,9 @@ function (exports, module, require) {
           });
         }
       } else
-        e.builder instanceof d
-          ? (e.builder.addEventListener(d.Event, (e) => {
-              e.type === d.Event.Type.Close && this._close();
+        e.builder instanceof Type
+          ? (e.builder.addEventListener(Type.Event, (e) => {
+              e.type === Type.Event.Type.Close && this._close();
             }),
             this._updateContent(
               $('<div></div>')
@@ -151382,7 +151824,7 @@ function (exports, module, require) {
     GDocumentEvent = require(78) /* GDocumentEvent */,
     GNetworkAvailabilityChangedEvent = require(291) /* GNetworkAvailabilityChangedEvent */,
     GUnloadEvent = require(1346) /* GUnloadEvent */,
-    u = require(1348) /* StatusChangedEvent */,
+    StatusChangedEvent = require(1348) /* StatusChangedEvent */,
     GSystemDialog = require(44) /* GSystemDialog */,
     GUserModel = require(177) /* GUserModel */,
     { DateAPI: h, ShareRoles: f } = require(10); /* AppSettings */
@@ -151402,8 +151844,16 @@ function (exports, module, require) {
           case GDocumentEvent.Type.Activated:
             (this._deactivate(),
               (this._document = e.document),
-              this._document.addEventListener(u.StatusChangedEvent, this._update, this),
-              this._document.addEventListener(u.LockUpdateEvent, this._update, this),
+              this._document.addEventListener(
+                StatusChangedEvent.StatusChangedEvent,
+                this._update,
+                this
+              ),
+              this._document.addEventListener(
+                StatusChangedEvent.LockUpdateEvent,
+                this._update,
+                this
+              ),
               this._document.addEventListener(GCollaborationEvent, this._collaborationEvent, this),
               gDesigner.addEventListener(
                 GNetworkAvailabilityChangedEvent,
@@ -151426,8 +151876,12 @@ function (exports, module, require) {
     }),
     (m.prototype._deactivate = function () {
       this._document &&
-        (this._document.removeEventListener(u.StatusChangedEvent, this._update, this),
-        this._document.removeEventListener(u.LockUpdateEvent, this._update, this),
+        (this._document.removeEventListener(
+          StatusChangedEvent.StatusChangedEvent,
+          this._update,
+          this
+        ),
+        this._document.removeEventListener(StatusChangedEvent.LockUpdateEvent, this._update, this),
         this._document.removeEventListener(GCollaborationEvent, this._collaborationEvent, this),
         gDesigner.removeEventListener(
           GNetworkAvailabilityChangedEvent,
@@ -151446,24 +151900,24 @@ function (exports, module, require) {
       if ((this._htmlElement.css('display', this.isEnabled() ? '' : 'none'), this.isEnabled())) {
         const e = this._document.getCollaborativeTextController();
         if (e)
-          if (e.getStatus() === u.Status.UpdateAvailable)
+          if (e.getStatus() === StatusChangedEvent.Status.UpdateAvailable)
             (this._document.lock(), this._showUpdatePanel());
-          else if (e.getStatus() === u.Status.Updating) this._showUpdatingPanel();
+          else if (e.getStatus() === StatusChangedEvent.Status.Updating) this._showUpdatingPanel();
           else if (gDesigner.getApplicationManager().hasRole(f.Owner)) this._showOwnerPanel();
           else if (await e.canLock())
             switch (e.getStatus()) {
-              case u.Status.Initial:
-              case u.Status.Editing:
+              case StatusChangedEvent.Status.Initial:
+              case StatusChangedEvent.Status.Editing:
                 this._showEditPanel();
                 break;
-              case u.Status.Finished:
-              case u.Status.Previewed:
+              case StatusChangedEvent.Status.Finished:
+              case StatusChangedEvent.Status.Previewed:
                 this._showFinishedPanel();
                 break;
-              case u.Status.Previewing:
+              case StatusChangedEvent.Status.Previewing:
                 this._showPreviewPanel();
                 break;
-              case u.Status.Sending:
+              case StatusChangedEvent.Status.Sending:
                 this._showSendingPanel();
             }
           else this._showRequestPanel();
@@ -151577,7 +152031,8 @@ function (exports, module, require) {
             $('<button/>')
               .prop(
                 'disabled',
-                this._document.getCollaborativeTextController().getStatus() === u.Status.Previewed
+                this._document.getCollaborativeTextController().getStatus() ===
+                  StatusChangedEvent.Status.Previewed
               )
               .addClass('g-highlight-button')
               .addClass('outlined')
@@ -155517,29 +155972,29 @@ function (exports, module, require) {
     require(26)) /* polyfill_DOMCollection_iterator */;
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
-    r = require(15) /* GEditor */,
+    GEditor = require(15) /* GEditor */,
     CollaborationMergeUtils = require(40) /* CollaborationMergeUtils */,
-    l = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GLayerItemUtils = require(1351) /* GLayerItemUtils */,
     d = _interopRequireDefault(require(565) /* module_565 */),
     GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
-    p = require(451) /* GVirtualTree */.GVirtualTree,
-    g = require(451) /* GVirtualTree */.GVirtualTreeNodeNamed,
+    GVirtualTree = require(451) /* GVirtualTree */.GVirtualTree,
+    GVirtualTree2 = require(451) /* GVirtualTree */.GVirtualTreeNodeNamed,
     { VTREE_FREE_HEIGHT: h, VTREE_FREE_HEIGHT_TOUCH: f } = require(10) /* AppSettings */,
     m = require(450) /* module_450 */,
     y = ['name'];
   function v() {}
   function _(e, t, n, _interopRequireDefault, GTools) {
     var GCore = true,
-      r = $(this).data('glayerpanel');
-    if (r.options.canDropCallback) {
+      GEditor = $(this).data('glayerpanel');
+    if (GEditor.options.canDropCallback) {
       for (
         var CollaborationMergeUtils = e.id
             ? T.call(this, e.id)
-            : r.scene
-              ? r.scene.getActivePage()
+            : GEditor.scene
+              ? GEditor.scene.getActivePage()
               : null,
-          l = n ? T.call(this, n.id) : null,
+          GRichTooltipConfig = n ? T.call(this, n.id) : null,
           GLayerItemUtils = [],
           d = 0;
         d < _interopRequireDefault.length;
@@ -155548,16 +156003,16 @@ function (exports, module, require) {
         GLayerItemUtils.push(T.call(this, _interopRequireDefault[d].id));
       var GSettingChangedEvent = [];
       if (
-        (GCore = r.options.canDropCallback(
+        (GCore = GEditor.options.canDropCallback(
           CollaborationMergeUtils,
-          l,
+          GRichTooltipConfig,
           GLayerItemUtils,
           GSettingChangedEvent
         ))
       )
         for (d = 0; d < GSettingChangedEvent.length; ++d) {
-          var p = GSettingChangedEvent[d];
-          GTools.push(_interopRequireDefault[p]);
+          var GVirtualTree = GSettingChangedEvent[d];
+          GTools.push(_interopRequireDefault[GVirtualTree]);
         }
     }
     return GCore;
@@ -155569,26 +156024,31 @@ function (exports, module, require) {
       if (n.some((e) => e instanceof GCore.GSymbol) && (0, CollaborationMergeUtils.isSymbol)(e))
         return false;
     }
-    for (var r = true, l = 0; l < n.length && r; ++l)
-      (r =
+    for (
+      var GEditor = true, GRichTooltipConfig = 0;
+      GRichTooltipConfig < n.length && GEditor;
+      ++GRichTooltipConfig
+    )
+      (GEditor =
         !e.isLocked() &&
-        n[l].validateInsertion(e, t) &&
-        GTools.GEditor.validateBlockInsertion(e, n[l], t)) && _interopRequireDefault.push[l];
-    return r;
+        n[GRichTooltipConfig].validateInsertion(e, t) &&
+        GTools.GEditor.validateBlockInsertion(e, n[GRichTooltipConfig], t)) &&
+        _interopRequireDefault.push[GRichTooltipConfig];
+    return GEditor;
   }
   function w(e, t, n, _interopRequireDefault) {
     var GTools = $(this).data('glayerpanel');
     if (GTools.options.moveCallback) {
       for (
         var GCore = e.id ? T.call(this, e.id) : GTools.scene ? GTools.scene.getActivePage() : null,
-          r = n ? T.call(this, n.id) : null,
+          GEditor = n ? T.call(this, n.id) : null,
           CollaborationMergeUtils = [],
-          l = 0;
-        l < _interopRequireDefault.length;
-        ++l
+          GRichTooltipConfig = 0;
+        GRichTooltipConfig < _interopRequireDefault.length;
+        ++GRichTooltipConfig
       )
-        CollaborationMergeUtils.push(T.call(this, _interopRequireDefault[l].id));
-      GTools.options.moveCallback(GCore, r, CollaborationMergeUtils);
+        CollaborationMergeUtils.push(T.call(this, _interopRequireDefault[GRichTooltipConfig].id));
+      GTools.options.moveCallback(GCore, GEditor, CollaborationMergeUtils);
     }
   }
   function C(e, t, n, _interopRequireDefault) {
@@ -155596,14 +156056,14 @@ function (exports, module, require) {
     if (GTools.options.duplicateCallback) {
       for (
         var GCore = e.id ? T.call(this, e.id) : GTools.scene ? GTools.scene.getActivePage() : null,
-          r = n ? T.call(this, n.id) : null,
+          GEditor = n ? T.call(this, n.id) : null,
           CollaborationMergeUtils = [],
-          l = 0;
-        l < _interopRequireDefault.length;
-        ++l
+          GRichTooltipConfig = 0;
+        GRichTooltipConfig < _interopRequireDefault.length;
+        ++GRichTooltipConfig
       )
-        CollaborationMergeUtils.push(T.call(this, _interopRequireDefault[l].id));
-      GTools.options.duplicateCallback(GCore, r, CollaborationMergeUtils);
+        CollaborationMergeUtils.push(T.call(this, _interopRequireDefault[GRichTooltipConfig].id));
+      GTools.options.duplicateCallback(GCore, GEditor, CollaborationMergeUtils);
     }
   }
   function x(e) {
@@ -155624,9 +156084,9 @@ function (exports, module, require) {
   }
   function A(e) {
     var t = $(this);
-    e.id === p.COLLAPSE_ID
+    e.id === GVirtualTree.COLLAPSE_ID
       ? $(e).addClass(t.data('glayerpanel').options.collapseStyle)
-      : e.id === p.EXPAND_ID && $(e).addClass(t.data('glayerpanel').options.expandStyle);
+      : e.id === GVirtualTree.EXPAND_ID && $(e).addClass(t.data('glayerpanel').options.expandStyle);
   }
   function T(e) {
     var t = $(this).data('glayerpanel').layersTreeNodeMap[e];
@@ -155657,13 +156117,13 @@ function (exports, module, require) {
   }
   function I(e, t, n) {
     var _interopRequireDefault = $(this).data('glayerpanel'),
-      r = G.call(this, e),
-      CollaborationMergeUtils = r ? r.node : null;
+      GEditor = G.call(this, e),
+      CollaborationMergeUtils = GEditor ? GEditor.node : null;
     if (CollaborationMergeUtils) {
       var {
           parentHidden: GSettingChangedEvent,
-          isHidden: p,
-          lockType: g,
+          isHidden: GVirtualTree,
+          lockType: GVirtualTree2,
           isOutlined: h,
           hasSelection: f,
         } = (0, GLayerItemUtils.getLayerOrItemStatus)(CollaborationMergeUtils),
@@ -155672,7 +156132,7 @@ function (exports, module, require) {
           title: v,
           titleGroup: _,
         } = (0, GLayerItemUtils.buildLayerItemContainer)(n, CollaborationMergeUtils, f, t);
-      r.element = _;
+      GEditor.element = _;
       var b = this;
       if (
         (CollaborationMergeUtils.hasFlag(GCore.GElement.Flag.PartialLocked) ||
@@ -155691,13 +156151,13 @@ function (exports, module, require) {
                       (GTools = t[GCore].getProperty('name')) ||
                       t[GCore].getNodeNameTranslated()) && (n += ', ' + GTools);
                   n.length && $(v).html(n);
-                  var r = _interopRequireDefault.vtree,
-                    l = [];
+                  var GEditor = _interopRequireDefault.vtree,
+                    GRichTooltipConfig = [];
                   for (GCore = 0; GCore < t.length; ++GCore) {
                     var GLayerItemUtils = D.call(b, t[GCore]);
-                    GLayerItemUtils && l.push(GLayerItemUtils);
+                    GLayerItemUtils && GRichTooltipConfig.push(GLayerItemUtils);
                   }
-                  (r.setDragNodes(l),
+                  (GEditor.setDragNodes(GRichTooltipConfig),
                     setTimeout(
                       function () {
                         $(v).html(GTools);
@@ -155722,7 +156182,7 @@ function (exports, module, require) {
           )),
           y.toggleClass('g-highlighted-row', w));
       }
-      !g &&
+      !GVirtualTree2 &&
         gDesigner.getActiveDocument() &&
         gDesigner.getApplicationManager().isEditingEnabled() &&
         $(_).gAutoEdit({
@@ -155763,11 +156223,11 @@ function (exports, module, require) {
               ));
           })
           .appendTo(y);
-      var x = g ? 'gravit-icon-lock' : 'gravit-icon-unlock';
+      var x = GVirtualTree2 ? 'gravit-icon-lock' : 'gravit-icon-unlock';
       ((x = gDesigner.isTouchEnabled() ? x + '-small' : x),
         $('<span></span>')
           .addClass('layer-action layer-lock ' + x)
-          .toggleClass('g-active', !!g)
+          .toggleClass('g-active', !!GVirtualTree2)
           .attr(
             'data-title',
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.toggle-lock'))
@@ -155777,7 +156237,7 @@ function (exports, module, require) {
           })
           .appendTo(y)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.layer-toggle-lock-tooltip-title')
               ),
@@ -155787,13 +156247,13 @@ function (exports, module, require) {
               learnMore: '',
             })
           ),
-        y.toggleClass('layer-hidden', p));
-      var S = p ? 'gravit-icon-hide' : 'gravit-icon-display';
+        y.toggleClass('layer-hidden', GVirtualTree));
+      var S = GVirtualTree ? 'gravit-icon-hide' : 'gravit-icon-display';
       if (
         ((S = gDesigner.isTouchEnabled() ? S + '-small' : S),
         $('<span></span>')
           .addClass('layer-action layer-visibility ' + S)
-          .toggleClass('g-active', p)
+          .toggleClass('g-active', GVirtualTree)
           .attr(
             'data-title',
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.toggle-visibility'))
@@ -155803,7 +156263,7 @@ function (exports, module, require) {
           })
           .appendTo(y)
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.layer-toggle-visibility-tooltip-title')
               ),
@@ -155849,7 +156309,7 @@ function (exports, module, require) {
               );
           })
           .gRichTooltip(
-            l.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.layer-toggle-outline-tooltip-title')
               ),
@@ -155909,7 +156369,7 @@ function (exports, module, require) {
     }
   }
   function k(e, t, n) {
-    var _interopRequireDefault = new g(e);
+    var _interopRequireDefault = new GVirtualTree2(e);
     return (
       n && (_interopRequireDefault.expanded = true),
       $(this).data('glayerpanel').vtree.insertNodeBefore(t, _interopRequireDefault),
@@ -155917,7 +156377,7 @@ function (exports, module, require) {
     );
   }
   function O(e, t, n) {
-    var _interopRequireDefault = new g(e);
+    var _interopRequireDefault = new GVirtualTree2(e);
     return (
       n && (_interopRequireDefault.expanded = true),
       $(this).data('glayerpanel').vtree.appendNode(t, _interopRequireDefault),
@@ -155948,14 +156408,20 @@ function (exports, module, require) {
     )
       return;
     GTools.beginUpdate();
-    const r = (function (e) {
+    const GEditor = (function (e) {
       let t = e.getPrevious();
       for (; t && !(t instanceof GCore.GElement); ) t = t.getPrevious();
       return t;
     })(e);
     var CollaborationMergeUtils,
-      l = r ? D.call(this, r) : null;
-    if (l) CollaborationMergeUtils = k.call(this, n, l, e.hasFlag(GCore.GNode.Flag.Expanded));
+      GRichTooltipConfig = GEditor ? D.call(this, GEditor) : null;
+    if (GRichTooltipConfig)
+      CollaborationMergeUtils = k.call(
+        this,
+        n,
+        GRichTooltipConfig,
+        e.hasFlag(GCore.GNode.Flag.Expanded)
+      );
     else {
       var GLayerItemUtils = e.getParent(),
         d =
@@ -156071,10 +156537,10 @@ function (exports, module, require) {
           e.flag === GCore.GNode.Flag.Selected ||
           e.flag === GCore.GNode.Flag.Active
         ) {
-          var r = e.node.getPage(),
+          var GEditor = e.node.getPage(),
             CollaborationMergeUtils = e.node.getScene(),
-            l = CollaborationMergeUtils && CollaborationMergeUtils.getActivePage();
-          (l && r && l !== r) ||
+            GRichTooltipConfig = CollaborationMergeUtils && CollaborationMergeUtils.getActivePage();
+          (GRichTooltipConfig && GEditor && GRichTooltipConfig !== GEditor) ||
             ((GTools = true),
             _interopRequireDefault ||
               (_interopRequireDefault = e.flag === GCore.GNode.Flag.Active));
@@ -156139,20 +156605,20 @@ function (exports, module, require) {
     if (!n) return null;
     var _interopRequireDefault = n.element,
       GTools = _interopRequireDefault.parent(),
-      r = false;
+      GEditor = false;
     if (e.hasMixin(GCore.GNode.Container))
       for (
         var CollaborationMergeUtils = e.getFirstChild();
-        null !== CollaborationMergeUtils && !r;
+        null !== CollaborationMergeUtils && !GEditor;
         CollaborationMergeUtils = CollaborationMergeUtils.getNext()
       )
         CollaborationMergeUtils instanceof GCore.GItem &&
           CollaborationMergeUtils.hasFlag(GCore.GNode.Flag.Selected) &&
-          (r = true);
+          (GEditor = true);
     (e.getParent() && e instanceof GCore.GItem && Q.call(this, e.getParent()),
       GTools.toggleClass('g-active', e.hasFlag(GCore.GNode.Flag.Active))
         .toggleClass('g-selected', e.hasFlag(GCore.GNode.Flag.Selected))
-        .toggleClass('g-has-selection', r),
+        .toggleClass('g-has-selection', GEditor),
       _interopRequireDefault.toggleClass('g-selected', e.hasFlag(GCore.GNode.Flag.Selected)));
   }
   GCore.GObject.inheritAndMix(v, GCore.GObject);
@@ -156187,7 +156653,7 @@ function (exports, module, require) {
           $(this)
             .addClass('g-layer-panel')
             .data('glayerpanel', {
-              vtree: new p(
+              vtree: new GVirtualTree(
                 this,
                 E.bind(this),
                 e.nodeStyle,
@@ -156366,7 +156832,7 @@ function (exports, module, require) {
           module !== GCore.GBlock.LockType.Partial || null !== n)
         ) {
           const t = [];
-          if (r.GPlatform.modifiers.optionKey) {
+          if (GEditor.GPlatform.modifiers.optionKey) {
             for (
               let _interopRequireDefault = e.getParent().getFirstChild();
               null != _interopRequireDefault;
@@ -156400,7 +156866,7 @@ function (exports, module, require) {
       if (!module) {
         const t = !e.getProperty('vis'),
           n = [];
-        if (r.GPlatform.modifiers.optionKey) {
+        if (GEditor.GPlatform.modifiers.optionKey) {
           for (
             let _interopRequireDefault = e.getParent().getFirstChild();
             null != _interopRequireDefault;
@@ -156705,7 +157171,7 @@ function (exports, module, require) {
       require(40) /* CollaborationMergeUtils */,
       require(67) /* GRichTooltipConfig */,
       require(1351)) /* GLayerItemUtils */,
-    a = require(451) /* GVirtualTree */.GVirtualTree,
+    GVirtualTree = require(451) /* GVirtualTree */.GVirtualTree,
     r =
       (require(451) /* GVirtualTree */.GVirtualTreeNode,
       require(451) /* GVirtualTree */.GVirtualTreeNodeNamed),
@@ -156732,9 +157198,10 @@ function (exports, module, require) {
   }
   function p(e) {
     var t = $(this);
-    e.id === a.COLLAPSE_ID
+    e.id === GVirtualTree.COLLAPSE_ID
       ? $(e).addClass(t.data('gselectedpanel').options.collapseStyle)
-      : e.id === a.EXPAND_ID && $(e).addClass(t.data('gselectedpanel').options.expandStyle);
+      : e.id === GVirtualTree.EXPAND_ID &&
+        $(e).addClass(t.data('gselectedpanel').options.expandStyle);
   }
   function g(e) {
     var t = h.call(this, e);
@@ -156746,10 +157213,10 @@ function (exports, module, require) {
   function f(e, t, n) {
     $(this).data('glayerpanel');
     var GCore = h.call(this, e),
-      a = GCore ? GCore.node : null;
-    if (a) {
-      var { hasSelection: r } = (0, i.getLayerOrItemStatus)(a),
-        { titleGroup: s } = (0, i.buildLayerItemContainer)(n, a, r, t);
+      GVirtualTree = GCore ? GCore.node : null;
+    if (GVirtualTree) {
+      var { hasSelection: r } = (0, i.getLayerOrItemStatus)(GVirtualTree),
+        { titleGroup: s } = (0, i.buildLayerItemContainer)(n, GVirtualTree, r, t);
       GCore.element = s;
     }
   }
@@ -156768,7 +157235,7 @@ function (exports, module, require) {
       t = e.vtree;
     t.beginUpdate();
     for (
-      var { elementHits: require, filteredElementHits: i, submenus: a } = e.selections,
+      var { elementHits: require, filteredElementHits: i, submenus: GVirtualTree } = e.selections,
         r = (t, n, GCore) => {
           ((e.layersTreeNodeMap[GCore] = { element: null, node: n, treeNode: t }),
             e.layersTreeNodeMapByNodes.set(n, {
@@ -156786,11 +157253,11 @@ function (exports, module, require) {
         d =
           (c instanceof GCore.GBlock ? c.getLabel() : c.getNodeNameTranslated(),
           'temp-' + require.indexOf(i[s]));
-      if (a[d]) {
+      if (GVirtualTree[d]) {
         r((p = m.call(this, l, null, true)), c, l);
-        for (let e = 0; e < a[d].length; e++) {
+        for (let e = 0; e < GVirtualTree[d].length; e++) {
           var u = GCore.GUtil.uuid();
-          r(m.call(this, u, p, false), a[d][e], u);
+          r(m.call(this, u, p, false), GVirtualTree[d][e], u);
         }
       } else {
         var p;
@@ -156836,7 +157303,7 @@ function (exports, module, require) {
           $(this)
             .addClass('g-selected-panel')
             .data('gselectedpanel', {
-              vtree: new a(
+              vtree: new GVirtualTree(
                 this,
                 u.bind(this),
                 e.nodeStyle,
@@ -156919,7 +157386,7 @@ function (exports, module, require) {
     GInvalidationOptions = _interopRequireDefault(require(1354) /* GInvalidationOptions */);
   const GSystemDialog = require(44) /* GSystemDialog */,
     GAnnotationsUtils = require(358) /* GAnnotationsUtils */,
-    u = require(1355) /* GSimpleTreeNodeNamed */,
+    GSimpleTreeNodeNamed = require(1355) /* GSimpleTreeNodeNamed */,
     p = require(1713) /* module_1713 */,
     GAnnotationReplyEditor = require(1357) /* GAnnotationReplyEditor */,
     GAnnotationRow = require(1356) /* GAnnotationRow */,
@@ -156943,9 +157410,10 @@ function (exports, module, require) {
   }
   function C(e) {
     var t = $(this);
-    e.id === u.COLLAPSE_ID
+    e.id === GSimpleTreeNodeNamed.COLLAPSE_ID
       ? $(e).addClass(t.data('gannotationpanel').options.collapseStyle)
-      : e.id === u.EXPAND_ID && $(e).addClass(t.data('gannotationpanel').options.expandStyle);
+      : e.id === GSimpleTreeNodeNamed.EXPAND_ID &&
+        $(e).addClass(t.data('gannotationpanel').options.expandStyle);
   }
   function x(e) {
     var t = $(this).data('gannotationpanel').annotTreeNodeMap[e];
@@ -157012,7 +157480,7 @@ function (exports, module, require) {
     var GCollaborationMentionsUtils = $(this).data('gannotationpanel'),
       AppSettings = S.call(this, e),
       GInvalidationOptions = AppSettings ? AppSettings.annot : null,
-      u = null;
+      GSimpleTreeNodeNamed = null;
     if (GInvalidationOptions) {
       var p = false,
         f = $(n);
@@ -157075,7 +157543,11 @@ function (exports, module, require) {
         v.annot.setFlag(GCore.GNode.Flag.Selected));
       var b = O.call(this, GInvalidationOptions);
       GInvalidationOptions.hasMixin(GCore.GAnnotation) &&
-        (u = I.call(this, GInvalidationOptions, GCollaborationMentionsUtils.showResolved));
+        (GSimpleTreeNodeNamed = I.call(
+          this,
+          GInvalidationOptions,
+          GCollaborationMentionsUtils.showResolved
+        ));
       var w = new GAnnotationRow({
         isCommentingEditingEnable: _interopRequireDefault,
         container: f,
@@ -157243,14 +157715,15 @@ function (exports, module, require) {
             let GSystemDialog = gDesigner.getSyncUser();
             if (GAnnotationsUtils.canUpdate(GSystemDialog)) {
               const GAnnotationsUtils = AppSettings.replyAnnot.getScene(),
-                u = GAnnotationsUtils && GTools.GEditor.getEditor(GAnnotationsUtils);
+                GSimpleTreeNodeNamed =
+                  GAnnotationsUtils && GTools.GEditor.getEditor(GAnnotationsUtils);
               let p, GAnnotationReplyEditor;
               ((p = t
                 ? GCore.GLocale.get(
                     new GCore.GLocaleKey('GAnnotationPanel', 'text.set-annotation-text')
                   )
                 : GCore.GLocale.get(new GCore.GLocaleKey('GAnnotationPanel', 'text.add-comment'))),
-                u && u.beginTransaction());
+                GSimpleTreeNodeNamed && GSimpleTreeNodeNamed.beginTransaction());
               try {
                 if (t) {
                   (AppSettings.replyAnnot.setProperty('text', e),
@@ -157289,7 +157762,8 @@ function (exports, module, require) {
               } catch (e) {
                 console.log(e);
               } finally {
-                u && u.commitTransaction(p, GAnnotationReplyEditor);
+                GSimpleTreeNodeNamed &&
+                  GSimpleTreeNodeNamed.commitTransaction(p, GAnnotationReplyEditor);
               }
             }
             H(this, AppSettings.replyAnnot);
@@ -157298,7 +157772,7 @@ function (exports, module, require) {
         GSystemDialog = () => {
           (H(this, AppSettings.replyAnnot), D.call(this));
         },
-        u = (e) => {
+        GSimpleTreeNodeNamed = (e) => {
           AppSettings.replyAnnot.setProperty('asgn', e);
         };
       var C = new GAnnotationReplyEditor({
@@ -157306,13 +157780,13 @@ function (exports, module, require) {
           annotation: AppSettings.replyAnnot,
           onSubmit: GInvalidationOptions,
           onCancel: GSystemDialog,
-          onAssignTo: u,
+          onAssignTo: GSimpleTreeNodeNamed,
           mentionData: GCollaborationMentionsUtils.vtree.getMentionData(),
         }),
         x = GCollaborationMentionsUtils.annotTreeNodeMapByNodes.get(AppSettings.replyAnnot);
       ((AppSettings.reply = C), GCollaborationMentionsUtils.vtree.addChild(C), x && (x.reply = C));
     }
-    return u;
+    return GSimpleTreeNodeNamed;
   }
   function I(e, t) {
     let require = e.getProperty('asgn');
@@ -157389,7 +157863,7 @@ function (exports, module, require) {
     return G.call($(this), e).length;
   }
   function F(e, t, n) {
-    var _interopRequireDefault = new u.GSimpleTreeNodeNamed(e);
+    var _interopRequireDefault = new GSimpleTreeNodeNamed.GSimpleTreeNodeNamed(e);
     return (
       n && (_interopRequireDefault.virtualNode = true),
       $(this).data('gannotationpanel').vtree.insertNodeAfter(t, _interopRequireDefault),
@@ -157397,7 +157871,7 @@ function (exports, module, require) {
     );
   }
   function R(e, t, n) {
-    var _interopRequireDefault = new u.GSimpleTreeNodeNamed(e);
+    var _interopRequireDefault = new GSimpleTreeNodeNamed.GSimpleTreeNodeNamed(e);
     return (
       n && (_interopRequireDefault.virtualNode = true),
       $(this).data('gannotationpanel').vtree.insertNodeBefore(t, _interopRequireDefault),
@@ -157405,7 +157879,7 @@ function (exports, module, require) {
     );
   }
   function M(e, t, n, _interopRequireDefault) {
-    var GTools = new u.GSimpleTreeNodeNamed(e);
+    var GTools = new GSimpleTreeNodeNamed.GSimpleTreeNodeNamed(e);
     return (
       n && (GTools.virtualNode = true),
       $(this).data('gannotationpanel').vtree.appendNode(t, GTools, _interopRequireDefault),
@@ -157463,8 +157937,8 @@ function (exports, module, require) {
       } else {
         var GAnnotationsUtils = e.getParent();
         V.call(this, GAnnotationsUtils);
-        var u = A.call(this, GAnnotationsUtils);
-        AppSettings = M.call(this, _interopRequireDefault, u, false, true);
+        var GSimpleTreeNodeNamed = A.call(this, GAnnotationsUtils);
+        AppSettings = M.call(this, _interopRequireDefault, GSimpleTreeNodeNamed, false, true);
       }
       var p = { element: null, annot: e, treeNode: AppSettings, treeId: _interopRequireDefault };
       if (
@@ -157790,13 +158264,14 @@ function (exports, module, require) {
                 }
               );
         } else if (!n.blockHighlight && e.flag === GCore.GNode.Flag.Highlighted) {
-          var u = e.node,
+          var GSimpleTreeNodeNamed = e.node,
             p = function (e) {
               var t = A.call(this, e);
               return t && t.isVisible();
             }.bind(this);
-          if (p(u) || u.findParent(p)) {
-            var GAnnotationReplyEditor = n.annotTreeNodeMapByNodes.get(u).component;
+          if (p(GSimpleTreeNodeNamed) || GSimpleTreeNodeNamed.findParent(p)) {
+            var GAnnotationReplyEditor =
+              n.annotTreeNodeMapByNodes.get(GSimpleTreeNodeNamed).component;
             GAnnotationReplyEditor
               ? GAnnotationReplyEditor.toggleHighlight(e.set)
               : console.warn('element parent was null');
@@ -158316,7 +158791,7 @@ function (exports, module, require) {
     require(38) /* stub_requires_680 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var DataModule_883 = _interopRequireDefault(require(883) /* DataModule_883 */),
-    a = require(263) /* Exports_GRegex */,
+    GRegex = require(263) /* Exports_GRegex */,
     r = 8,
     s = 9,
     l = 13,
@@ -158355,14 +158830,14 @@ function (exports, module, require) {
       return $('<div>').text(e).html();
     },
     v = function (e) {
-      return e.replace(a.GRegex.String.MentionInputRegexpEncode, '\\$1');
+      return e.replace(GRegex.GRegex.String.MentionInputRegexpEncode, '\\$1');
     },
     _ = function (e, t, n) {
       return !t || (t instanceof Array && !t.length) || !n
         ? e
         : e.replace(
             new RegExp(
-              a.GRegex.String.MentionInputHighlightRegString.replace('<%=term%>', t),
+              GRegex.GRegex.String.MentionInputHighlightRegString.replace('<%=term%>', t),
               'gi'
             ),
             '<b>$1</b>'
@@ -158375,7 +158850,7 @@ function (exports, module, require) {
       } else e.selectionStart ? (e.focus(), e.setSelectionRange(t, t)) : e.focus();
     },
     w = function (e) {
-      return e.replace(a.GRegex.String.MentionInputRtrim, '');
+      return e.replace(GRegex.GRegex.String.MentionInputRtrim, '');
     },
     C = function (e) {
       let module = ++m + '';
@@ -158393,7 +158868,7 @@ function (exports, module, require) {
       var t,
         n,
         _interopRequireDefault,
-        a,
+        GRegex,
         m,
         S,
         E = [],
@@ -158422,11 +158897,14 @@ function (exports, module, require) {
               { key: '<%=type%>', value: t.type },
               { key: '<%=id%>', value: t.getUID() },
             ]),
-            a = x(e.templates.mentionItemHighlight, [
+            GRegex = x(e.templates.mentionItemHighlight, [
               { key: '<%=value%>', value: n },
               { key: '<%=id%>', value: t.getUID() },
             ]);
-          DataModule_883 = DataModule_883.replace(new RegExp(v(_interopRequireDefault), 'g'), a);
+          DataModule_883 = DataModule_883.replace(
+            new RegExp(v(_interopRequireDefault), 'g'),
+            GRegex
+          );
         }),
           (DataModule_883 = (DataModule_883 = DataModule_883.replace(/\n/g, '<br />')).replace(
             / {2}/g,
@@ -158443,13 +158921,13 @@ function (exports, module, require) {
         for (
           var _interopRequireDefault = I(),
             DataModule_883 = t[0].selectionStart,
-            a = false,
+            GRegex = false,
             r = false,
             s = new RegExp('\\' + e.triggerChar + G, 'gi');
           s.exec(_interopRequireDefault);
         )
-          (false === a || Math.abs(s.lastIndex - DataModule_883) < a) &&
-            ((a = Math.abs(s.lastIndex - DataModule_883)), (r = s.lastIndex));
+          (false === GRegex || Math.abs(s.lastIndex - DataModule_883) < GRegex) &&
+            ((GRegex = Math.abs(s.lastIndex - DataModule_883)), (r = s.lastIndex));
         var l = r - G.length - 1,
           c = r,
           d = _interopRequireDefault.substr(0, l),
@@ -158546,7 +159024,7 @@ function (exports, module, require) {
         }
         if (DataModule_883.length) {
           _interopRequireDefault.empty();
-          var a = $('<ul>').appendTo(_interopRequireDefault).css('visibility', 'hidden');
+          var GRegex = $('<ul>').appendTo(_interopRequireDefault).css('visibility', 'hidden');
           (DataModule_883.forEach((t, _interopRequireDefault) => {
             let DataModule_883 = C('mention_');
             (t.setValue(t.showText), (A[DataModule_883] = t));
@@ -158604,7 +159082,7 @@ function (exports, module, require) {
                 )).css({ 'background-color': t.getUserColor() });
               s.prependTo(r);
             }
-            r = r.appendTo(a);
+            r = r.appendTo(GRegex);
           }),
             _interopRequireDefault.show(),
             e.onCaret &&
@@ -158613,7 +159091,7 @@ function (exports, module, require) {
                   _interopRequireDefault = e.css('position');
                 if ('absolute' === _interopRequireDefault) {
                   var DataModule_883 = (function (e) {
-                    var t, n, _interopRequireDefault, DataModule_883, a, r, s, l, c, d, u;
+                    var t, n, _interopRequireDefault, DataModule_883, GRegex, r, s, l, c, d, u;
                     if ((c = e[0]) && $(c).is('textarea') && null !== c.selectionEnd) {
                       for (
                         s = {
@@ -158649,7 +159127,7 @@ function (exports, module, require) {
                         d < u;
                         d++
                       )
-                        s[(a = l[d])] = $(c).css(a);
+                        s[(GRegex = l[d])] = $(c).css(GRegex);
                       return (
                         (_interopRequireDefault = document.createElement('div')),
                         $(_interopRequireDefault).css(s),
@@ -158671,12 +159149,12 @@ function (exports, module, require) {
                     e.css('width', '15em'),
                     e.css('left', DataModule_883.left),
                     e.css('top', n + DataModule_883.top));
-                  var a = t.offset().left + t.width(),
+                  var GRegex = t.offset().left + t.width(),
                     r = e.offset().left + e.width();
-                  a <= r && e.css('left', Math.abs(e.position().left - (r - a)));
+                  GRegex <= r && e.css('left', Math.abs(e.position().left - (r - GRegex)));
                 } else if ('fixed' === _interopRequireDefault) {
                   var s = (function (e) {
-                    var t, n, _interopRequireDefault, DataModule_883, a, r, s, l, c, d, u;
+                    var t, n, _interopRequireDefault, DataModule_883, GRegex, r, s, l, c, d, u;
                     if ((c = e[0]) && $(c).is('textarea') && null !== c.selectionEnd) {
                       for (
                         s = {
@@ -158712,7 +159190,7 @@ function (exports, module, require) {
                         d < u;
                         d++
                       )
-                        s[(a = l[d])] = $(c).css(a);
+                        s[(GRegex = l[d])] = $(c).css(GRegex);
                       return (
                         (_interopRequireDefault = document.createElement('div')),
                         $(_interopRequireDefault).css(s),
@@ -158736,7 +159214,7 @@ function (exports, module, require) {
                     e.css('top', n + s.top));
                 }
               })(_interopRequireDefault, t),
-            a.css('visibility', 'visible'));
+            GRegex.css('visibility', 'visible'));
         } else B();
       }
       function K(t) {
@@ -158750,10 +159228,10 @@ function (exports, module, require) {
         E = [];
         for (
           var _interopRequireDefault,
-            a = y(n),
+            GRegex = y(n),
             r = new RegExp('(' + e.triggerChar + ')\\[(.*?)\\]\\((.*?):(.*?)\\)', 'gi'),
-            s = a;
-          null !== (_interopRequireDefault = r.exec(a));
+            s = GRegex;
+          null !== (_interopRequireDefault = r.exec(GRegex));
         )
           ((s = s.replace(
             _interopRequireDefault[0],
@@ -158775,9 +159253,9 @@ function (exports, module, require) {
           init: function (DataModule_883) {
             ('true' !== (t = $(DataModule_883)).attr('data-mentions-input') &&
               ((n = t.parent()),
-              (a = $(e.templates.wrapper)),
-              t.wrapAll(a),
-              (a = n.find('> div.mentions-input-box')),
+              (GRegex = $(e.templates.wrapper)),
+              t.wrapAll(GRegex),
+              (GRegex = n.find('> div.mentions-input-box')),
               t.attr('data-mentions-input', 'true'),
               t.bind('keydown', N),
               t.bind('keypress', M),
@@ -158785,9 +159263,9 @@ function (exports, module, require) {
               t.bind('blur', F),
               t.bind('input', R),
               e.elastic && t.elastic()),
-              (_interopRequireDefault = $(e.templates.autocompleteList)).appendTo(a),
+              (_interopRequireDefault = $(e.templates.autocompleteList)).appendTo(GRegex),
               _interopRequireDefault.delegate('li', 'mousedown', k),
-              (m = $(e.templates.mentionsOverlay)).prependTo(a),
+              (m = $(e.templates.mentionsOverlay)).prependTo(GRegex),
               V(e.defaultValue),
               e.prefillMention && L(e.prefillMention));
           },
@@ -158838,9 +159316,9 @@ function (exports, module, require) {
   var GTools = require(53) /* GTools */,
     GCore = require(1) /* GCore */,
     r = (require(15) /* GEditor */, _interopRequireDefault(require(565) /* module_565 */)),
-    s = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GSettingChangedEvent = _interopRequireDefault(require(135) /* GSettingChangedEvent */),
-    c = require(451) /* GVirtualTree */.GVirtualTree,
+    GVirtualTree = require(451) /* GVirtualTree */.GVirtualTree,
     d =
       (require(451) /* GVirtualTree */.GVirtualTreeNode,
       require(451) /* GVirtualTree */.GVirtualTreeNodeNamed),
@@ -158852,16 +159330,23 @@ function (exports, module, require) {
       r = $(this).data('gpagepanel');
     if (r.options.canDropCallback) {
       for (
-        var s = e.id ? b.call(this, e.id) : $(this).data('gpagepanel').scene,
+        var GRichTooltipConfig = e.id ? b.call(this, e.id) : $(this).data('gpagepanel').scene,
           GSettingChangedEvent = t ? b.call(this, t.id) : null,
-          c = [],
+          GVirtualTree = [],
           d = 0;
         d < _interopRequireDefault.length;
         ++d
       )
-        c.push(b.call(this, _interopRequireDefault[d].id));
+        GVirtualTree.push(b.call(this, _interopRequireDefault[d].id));
       var u = [];
-      if ((GCore = r.options.canDropCallback(s, GSettingChangedEvent, c, u)))
+      if (
+        (GCore = r.options.canDropCallback(
+          GRichTooltipConfig,
+          GSettingChangedEvent,
+          GVirtualTree,
+          u
+        ))
+      )
         for (d = 0; d < u.length; ++d) {
           var p = u[d];
           GTools.push(_interopRequireDefault[p]);
@@ -158885,13 +159370,13 @@ function (exports, module, require) {
       for (
         var GCore = e.id ? b.call(this, e.id) : $(this).data('gpagepanel').scene,
           r = t ? b.call(this, t.id) : null,
-          s = [],
+          GRichTooltipConfig = [],
           GSettingChangedEvent = 0;
         GSettingChangedEvent < _interopRequireDefault.length;
         ++GSettingChangedEvent
       )
-        s.push(b.call(this, _interopRequireDefault[GSettingChangedEvent].id));
-      GTools.options.moveCallback(GCore, r, s);
+        GRichTooltipConfig.push(b.call(this, _interopRequireDefault[GSettingChangedEvent].id));
+      GTools.options.moveCallback(GCore, r, GRichTooltipConfig);
     }
   }
   function v(e) {
@@ -158934,7 +159419,7 @@ function (exports, module, require) {
       GSettingChangedEvent = _interopRequireDefault.node;
     if (GSettingChangedEvent) {
       if (!(GSettingChangedEvent instanceof GCore.GPage)) throw new Error('item not page');
-      var c = GSettingChangedEvent.getProperty('lkt'),
+      var GVirtualTree = GSettingChangedEvent.getProperty('lkt'),
         d = !!GSettingChangedEvent.getSlavePages().length,
         u =
           0 === GSettingChangedEvent.getProperty('w') &&
@@ -158978,12 +159463,12 @@ function (exports, module, require) {
                     (_interopRequireDefault += ', ' + GTools);
                 _interopRequireDefault.length && $(m).html(_interopRequireDefault);
                 var r = n.vtree,
-                  s = [];
+                  GRichTooltipConfig = [];
                 for (GCore = 0; GCore < t.length; ++GCore) {
-                  var c = C.call(y, t[GCore]);
-                  c && s.push(c);
+                  var GVirtualTree = C.call(y, t[GCore]);
+                  GVirtualTree && GRichTooltipConfig.push(GVirtualTree);
                 }
-                (r.setDragNodes(s),
+                (r.setDragNodes(GRichTooltipConfig),
                   setTimeout(
                     function () {
                       ($(this).removeClass('g-dragging'), $(m).html(f));
@@ -158999,7 +159484,7 @@ function (exports, module, require) {
             'g-highlighted-row',
             GSettingChangedEvent.hasFlag(GCore.GNode.Flag.Highlighted)
           ),
-        !c &&
+        !GVirtualTree &&
           gDesigner.getApplicationManager().isEditingEnabled() &&
           $(h).gAutoEdit({
             textSelector: '> .page-title',
@@ -159026,11 +159511,11 @@ function (exports, module, require) {
           : d &&
             (v.toggleClass('gravit-icon-page-master', true),
             v.toggleClass('gravit-icon-page', false)));
-      var _ = c ? 'gravit-icon-lock' : 'gravit-icon-unlock';
+      var _ = GVirtualTree ? 'gravit-icon-lock' : 'gravit-icon-unlock';
       ((_ = gDesigner.isTouchEnabled() ? _ + '-small' : _),
         $('<span></span>')
           .addClass('page-action page-lock ' + _)
-          .toggleClass('g-active', !!c)
+          .toggleClass('g-active', !!GVirtualTree)
           .attr(
             'data-title',
             GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'action.toggle-lock'))
@@ -159055,7 +159540,7 @@ function (exports, module, require) {
           })
           .appendTo(p)
           .gRichTooltip(
-            s.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.page-toggle-lock-tooltip-title')
               ),
@@ -159089,7 +159574,7 @@ function (exports, module, require) {
           })
           .appendTo(p)
           .gRichTooltip(
-            s.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.page-toggle-visibility-tooltip-title')
               ),
@@ -159129,8 +159614,10 @@ function (exports, module, require) {
       GTools = $(this).data('gpagepanel'),
       r = GTools.vtree;
     for (r.beginUpdate(), t = e.getNext(); t && !(t instanceof GCore.GPage); t = t.getNext());
-    var s = t ? C.call(this, t) : null;
-    ((n = s ? E.call(this, _interopRequireDefault, s) : A.call(this, _interopRequireDefault, null)),
+    var GRichTooltipConfig = t ? C.call(this, t) : null;
+    ((n = GRichTooltipConfig
+      ? E.call(this, _interopRequireDefault, GRichTooltipConfig)
+      : A.call(this, _interopRequireDefault, null)),
       (GTools.pagesTreeNodeMap[_interopRequireDefault] = { node: e, treeNode: n, element: null }),
       GTools.pagesTreeNodeMapByNodes.set(e, {
         element: null,
@@ -159233,7 +159720,7 @@ function (exports, module, require) {
           $(this)
             .addClass('g-page-panel')
             .data('gpagepanel', {
-              vtree: new c(
+              vtree: new GVirtualTree(
                 this,
                 _.bind(this),
                 e.nodeStyle,
@@ -159374,7 +159861,7 @@ function (exports, module, require) {
     require(32) /* stub_requires_670 */,
     require(33)) /* polyfill_DOMCollection_forEach */;
   var GCore = require(1) /* GCore */,
-    i = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     a = require(608); /* GCreateSymbolAction */
   function r(e) {
     var t = $(this).data('gsymbolspanel'),
@@ -159384,15 +159871,15 @@ function (exports, module, require) {
         !e.hasEventListeners(GCore.GSymbol.AfterThumbnailUpdate) &&
         e.addEventListener(GCore.GSymbol.AfterThumbnailUpdate, l.bind(this));
     else {
-      var i = c.call(this, e);
-      i && (i.appendTo($(this)), (t.symbolNodes[n] = e));
+      var GRichTooltipConfig = c.call(this, e);
+      GRichTooltipConfig && (GRichTooltipConfig.appendTo($(this)), (t.symbolNodes[n] = e));
     }
   }
   function s(e, t) {
     if (e.isMaster()) {
       var require = $(this).data('gsymbolspanel'),
-        i = e.getMultireferenceId(),
-        a = $(this).find('#symbol_' + i);
+        GRichTooltipConfig = e.getMultireferenceId(),
+        a = $(this).find('#symbol_' + GRichTooltipConfig);
       if (a.length) {
         if (require.scene) {
           var r = d.call(this, e);
@@ -159403,7 +159890,7 @@ function (exports, module, require) {
               (require.blockHandlers = s));
           }
         }
-        (delete require.symbolNodes[i],
+        (delete require.symbolNodes[GRichTooltipConfig],
           a.remove(),
           0 === Object.keys(require.symbolNodes).length && y.call(this));
       }
@@ -159414,8 +159901,8 @@ function (exports, module, require) {
       n = t.getFrame();
     if (n && t.getPaintBBox()) {
       $(this).data('gsymbolspanel');
-      var i = t.getMultireferenceId(),
-        a = $(this).find('#symbol_' + i),
+      var GRichTooltipConfig = t.getMultireferenceId(),
+        a = $(this).find('#symbol_' + GRichTooltipConfig),
         r = a.find('.symbol-image');
       r.empty();
       var s = n.getWidth(),
@@ -159440,7 +159927,7 @@ function (exports, module, require) {
           .attr('id', 'symbol_' + e.getMultireferenceId())
           .css({ display: 'inline' })
           .gRichTooltip(
-            i.GRichTooltipConfig.from({
+            GRichTooltipConfig.GRichTooltipConfig.from({
               title: e.getProperty('name'),
               description: GCore.GLocale.get(
                 new GCore.GLocaleKey('GCommonNames', 'text.symbol-panel-symbol-tooltip-description')
@@ -159525,9 +160012,9 @@ function (exports, module, require) {
     )
       require = require.getParent();
     if (!module.blockHandlers && require) {
-      var i = require.getMultireferenceId(),
+      var GRichTooltipConfig = require.getMultireferenceId(),
         a = $(this)
-          .find('#symbol_' + i)
+          .find('#symbol_' + GRichTooltipConfig)
           .find('.symbol-title-group');
       e.flag === GCore.GNode.Flag.Selected &&
         (e.set ? a.addClass('g-highlighted') : a.removeClass('g-highlighted'));
@@ -159669,9 +160156,9 @@ function (exports, module, require) {
             n.afterFlagChangeHandler,
             this
           ));
-        var i = n.scene.getSymbols();
-        i &&
-          i.forEach(
+        var GRichTooltipConfig = n.scene.getSymbols();
+        GRichTooltipConfig &&
+          GRichTooltipConfig.forEach(
             function (e) {
               r.call(this, e);
               var t = n.scene.getSymbolImage(e);
@@ -160658,12 +161145,13 @@ function (exports, module, require) {
     GCore = require(1) /* GCore */,
     GUtil = _interopRequireDefault(require(11) /* GUtil */),
     AppSettings = require(10) /* AppSettings */,
-    u = require(67) /* GRichTooltipConfig */,
+    GRichTooltipConfig = require(67) /* GRichTooltipConfig */,
     GEnhancedTooltipsAction = _interopRequireDefault(require(1342) /* GEnhancedTooltipsAction */),
     g = {
       init: function (e) {
         if (e) {
-          if (!(e instanceof u.GRichTooltipConfig)) throw new Error('Not a Tooltip Config');
+          if (!(e instanceof GRichTooltipConfig.GRichTooltipConfig))
+            throw new Error('Not a Tooltip Config');
           return (
             (e = $.extend(
               {
@@ -160778,15 +161266,15 @@ function (exports, module, require) {
           description: r,
           videoTimeout: GUtil,
           enhanced: AppSettings,
-          learnMore: u,
+          learnMore: GRichTooltipConfig,
           upgradeToProStatsValue: GEnhancedTooltipsAction,
         } = e;
         let g = r;
         const h = gDesigner.getLicense(),
           f = (h.isPro() || h.isTrial()) && h.isExpired(),
-          m = u
+          m = GRichTooltipConfig
             ? '<a href="'
-                .concat(u, '" target="_blank">')
+                .concat(GRichTooltipConfig, '" target="_blank">')
                 .concat(
                   GCore.GLocale.get(new GCore.GLocaleKey('GCommonNames', 'text.learn-more')),
                   '</a>'

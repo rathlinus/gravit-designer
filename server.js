@@ -176,11 +176,23 @@ app.put("/user", (req, res) => {
   res.json(mockUser(locale));
 });
 
-// i18n locale URL — app fetches translation JSON from CDN
+// i18n locale URL — serve translations locally instead of CloudFront
 app.get("/i18n-url/:locale/:app", (req, res) => {
   const { locale, app: appName } = req.params;
+  // Point to our local translation endpoint (same origin, no CORS)
   res.json({
-    url: `https://d2mocl49mz6ak6.cloudfront.net/production/locale/${locale}/${appName}.json`,
+    url: `http://localhost:${port}/locale/${locale}/${appName}.json`,
+  });
+});
+
+// Serve translation JSON locally (empty translations = fall back to embedded English)
+app.get("/locale/:locale/:app.json", (req, res) => {
+  res.json({
+    translations: {},
+    translationsExtended: {},
+    translationsExtendedTemporary: {},
+    translationsTemporary: {},
+    etag: "local-dev",
   });
 });
 
