@@ -1,0 +1,50 @@
+name: Thumbnail Provider
+
+# Builds the native Windows Explorer thumbnail provider (native/gvthumb) and,
+# when triggered by a published release, attaches the packaged DLL to it.
+on:
+  release:
+    types: [published]
+  push:
+    paths:
+      - 'native/gvthumb/**'
+      - '.github/workflows/thumbnail-provider.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure (CMake, x64, static CRT, static zlib)
+        run: cmake -B native/gvthumb/build -S native/gvthumb -A x64
+
+      - name: Build (Release)
+        run: cmake --build native/gvthumb/build --config Release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $stage = "native/gvthumb/dist/GravitThumbnail"
+          New-Item -ItemType Directory -Force -Path $stage | Out-Null
+          Copy-Item native/gvthumb/build/Release/GravitThumbnail.dll $stage
+          Copy-Item native/gvthumb/register.bat   $stage
+          Copy-Item native/gvthumb/unregister.bat $stage
+          Copy-Item native/gvthumb/README.md      $stage
+          Compress-Archive -Path "$stage/*" -DestinationPath native/gvthumb/dist/GravitThumbnail-win-x64.zip -Force
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GravitThumbnail-win-x64
+          path: native/gvthumb/dist/GravitThumbnail-win-x64.zip
+
+      - name: Attach to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: native/gvthumb/dist/GravitThumbnail-win-x64.zip

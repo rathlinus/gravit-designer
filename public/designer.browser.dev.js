@@ -7411,7 +7411,8 @@ function (e, t, n) {
           m = [N.JPEG.ext.toUpperCase(), N.JPG.ext.toUpperCase()];
         if (d === B.ext.toUpperCase()) {
           var y = this._scene,
-            b = 0;
+            b = 0,
+            _previewDoc = this;
           y.acceptChildren(function () {
             b++;
           }),
@@ -7440,11 +7441,72 @@ function (e, t, n) {
                     u.progress instanceof Function &&
                     u.progress(50),
                   W(function () {
-                    var t = new Uint8Array(f.gzip(e, { level: 9 }).buffer);
-                    u.progress &&
-                      u.progress instanceof Function &&
-                      u.progress(75),
-                      t.byteLength > 20 + b ? g(t) : r("GZIP compression fail");
+                    var finish = function (json) {
+                      var t = new Uint8Array(f.gzip(json, { level: 9 }).buffer);
+                      u.progress &&
+                        u.progress instanceof Function &&
+                        u.progress(75),
+                        t.byteLength > 20 + b
+                          ? g(t)
+                          : r("GZIP compression fail");
+                    };
+                    // Embed a JPEG preview (data URL) as the first JSON key so
+                    // Windows Explorer thumbnail providers can extract it. The
+                    // app/Gravit deserializer ignores this unknown root key.
+                    var inject = function (url) {
+                      try {
+                        if (
+                          url &&
+                          "string" == typeof e &&
+                          "{" === e.charAt(0)
+                        )
+                          return finish(
+                            "{" +
+                              '"_preview":' +
+                              JSON.stringify(url) +
+                              "," +
+                              e.slice(1)
+                          );
+                      } catch (x) {}
+                      return finish(e);
+                    };
+                    try {
+                      var _done = !1,
+                        _to = setTimeout(function () {
+                          _done || ((_done = !0), inject(null));
+                        }, 4e3);
+                      _previewDoc
+                        .buildPreview()
+                        .then(function (blob) {
+                          if (_done) return;
+                          if (
+                            !blob ||
+                            "undefined" == typeof FileReader
+                          ) {
+                            return (
+                              (_done = !0), clearTimeout(_to), inject(null)
+                            );
+                          }
+                          var fr = new FileReader();
+                          fr.onloadend = function () {
+                            _done ||
+                              ((_done = !0),
+                              clearTimeout(_to),
+                              inject(fr.result));
+                          };
+                          fr.onerror = function () {
+                            _done ||
+                              ((_done = !0), clearTimeout(_to), inject(null));
+                          };
+                          fr.readAsDataURL(blob);
+                        })
+                        .catch(function () {
+                          _done ||
+                            ((_done = !0), clearTimeout(_to), inject(null));
+                        });
+                    } catch (x) {
+                      inject(null);
+                    }
                   }));
             });
         } else if (U && U.find((e) => e.ext.toUpperCase() === d))
