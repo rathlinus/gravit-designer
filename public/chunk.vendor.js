@@ -87188,35 +87188,45 @@
           );
         }),
         (A.prototype.readVertex = function (e) {
-          return (
-            !!(this._pieces && this._pieces.length && this._readVertex(e)) ||
-            ((this._polyline = new A.PolySegmentContainer()),
-            (this._polyoutset = []),
-            (this._polyinset = []),
-            (this._pieces = []),
-            (this._pieceIdx = 0),
-            (this._startVertex = this.generatePolyLine(
+          if (this._pieces && this._pieces.length && this._readVertex(e))
+            return !0;
+          // Each pass through generatePolyLine consumes exactly one sub-path of
+          // the source. If that sub-path collapses under the offset (e.g. an
+          // inset wider than a small sub-path) it yields no pieces. When that
+          // happens we must keep advancing to the remaining sub-paths instead of
+          // reporting end-of-source, otherwise only part of a compound shape is
+          // vectorized. _startVertex holds the pending Move of the next sub-path
+          // (null once the source is exhausted), so loop while it is set.
+          for (;;) {
+            this._polyline = new A.PolySegmentContainer();
+            this._polyoutset = [];
+            this._polyinset = [];
+            this._pieces = [];
+            this._pieceIdx = 0;
+            this._startVertex = this.generatePolyLine(
               this._tolerance,
               this._startVertex,
-            )),
-            !!(
-              this._polyline.count &&
-              (this.generatePolyOffset(
+            );
+            if (this._polyline.count) {
+              this.generatePolyOffset(
                 Math.abs(this._offset),
                 this._makeInset,
                 this._makeOutset,
                 this._tolerance,
-              ),
+              );
               this.generateOffset(
                 this._makeInset,
                 this._makeOutset,
                 this._tolerance,
-              ),
-              this._pieces.length &&
-                (this._rewindVertices(), (this._pieceIdx = 0)),
-              this._pieces && this._pieces.length && this._readVertex(e))
-            ))
-          );
+              );
+              if (this._pieces.length) {
+                this._rewindVertices();
+                this._pieceIdx = 0;
+                if (this._readVertex(e)) return !0;
+              }
+            }
+            if (null == this._startVertex) return !1;
+          }
         }),
         (A.prototype.hasVertexForRead = function () {
           return !0;
