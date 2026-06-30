@@ -18109,7 +18109,7 @@ body.g-touch .g-pattern-chooser-context-menu .g-menu-item {
 }
 #header .more-button .moreTab {
   position: absolute;
-  z-index: 100;
+  z-index: 10002;
   top: 50%;
   visibility: hidden;
   background-color: white;
@@ -18158,6 +18158,11 @@ body.g-touch .g-pattern-chooser-context-menu .g-menu-item {
 }
 #header .more-button.active .moreTab {
   visibility: visible;
+}
+/* Let the open files-list dropdown escape the 36px header clip box so it
+   isn't cut off / hidden behind the toolbar and side panels. */
+#header:has(.more-button.active) {
+  overflow: visible;
 }
 
 body.g-touch #header {
