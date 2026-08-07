@@ -86,7 +86,7 @@
           ]
         }
       ],
-      "icon": "public/assets/prerendered",
+      "icon": "public/assets/prerendered/linux",
       "category": "Graphics"
     },
     "mac": {
