@@ -6096,29 +6096,44 @@ function (e, t, n) {
           });
         g("<div></div>")
           .addClass("header")
+          .css({ fontSize: "14px", fontWeight: "bold", marginBottom: "12px" })
           .append(
             g("<span></span>").text(
               e.isVertical ? "Edit Vertical Guide" : "Edit Horizontal Guide"
             )
           )
           .appendTo(d);
+        // Header alone says which axis this is -- a separate "X/Y position"
+        // sub-label under it was redundant, dropped per user feedback.
         var u = g("<input>")
           .attr("type", "text")
           .gInputBox({ postfix: c })
           .gInputBox("value", n.pointToString(s, l));
         g("<div></div>")
           .addClass("content")
-          .append(
-            g("<div></div>")
-              .addClass("text-description")
-              .append(
-                g("<div></div>")
-                  .addClass("label")
-                  .text(e.isVertical ? "X position" : "Y position")
-              )
-          )
           .append(g("<div></div>").addClass("editor").append(u))
           .appendTo(d);
+        var save = function () {
+          var a = n.stringToPoint(u.gInputBox("value"));
+          if ("number" == typeof a && isFinite(a)) {
+            var v = r.slice();
+            (e.guideIndex >= 0 ? (v[e.guideIndex] = a) : v.push(a)),
+              t._editor.beginTransaction();
+            try {
+              n.setProperties([o], [v]);
+            } finally {
+              // Plain string rather than i.GLocale.get(new i.GLocaleKey(...))
+              // like GEditorWidget's own drag-to-move-guide commit uses --
+              // unconfirmed whether GLocale/GLocaleKey are re-exported into
+              // this specific module's "i" import, not worth the risk here.
+              t._editor.commitTransaction("Change guide line");
+            }
+          }
+          d.gDialog("close");
+        };
+        u.on("keydown", function (e) {
+          "Enter" === e.key && (e.preventDefault(), save());
+        });
         g("<hr/>").appendTo(d);
         g("<div></div>")
           .addClass("footer")
@@ -6133,27 +6148,14 @@ function (e, t, n) {
             g("<button></button>")
               .addClass("highlight")
               .text("Save")
-              .on("click", function () {
-                var a = n.stringToPoint(u.gInputBox("value"));
-                if ("number" == typeof a && isFinite(a)) {
-                  var v = r.slice();
-                  (e.guideIndex >= 0 ? (v[e.guideIndex] = a) : v.push(a)),
-                    t._editor.beginTransaction();
-                  try {
-                    n.setProperties([o], [v]);
-                  } finally {
-                    // Plain string rather than i.GLocale.get(new i.GLocaleKey(...))
-                    // like GEditorWidget's own drag-to-move-guide commit uses --
-                    // unconfirmed whether GLocale/GLocaleKey are re-exported into
-                    // this specific module's "i" import, not worth the risk here.
-                    t._editor.commitTransaction("Change guide line");
-                  }
-                }
-                d.gDialog("close");
-              })
+              .on("click", save)
           )
           .appendTo(d);
         d.gDialog("open", !0);
+        // Focus/select after open, not before -- the input isn't attached to
+        // the document (and so isn't focusable) until gDialog("open") appends
+        // the dialog to <body>.
+        u.trigger("focus").trigger("select");
       }),
       (K.prototype._updateScene = function (e) {
         if (
