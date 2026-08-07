@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 bower_components/
+releases/
 
 # IDE and editor files
 .idea/

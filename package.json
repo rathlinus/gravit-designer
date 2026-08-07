@@ -1,9 +1,14 @@
 {
   "name": "gravit-designer-local",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Locally hosted Gravit Designer with reverse-engineered module system",
   "main": "electron-main.js",
+  "homepage": "https://github.com/rathlinus/gravit-designer",
+  "author": {
+    "name": "Gravit Designer Local",
+    "email": "noreply@localhost"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
@@ -22,7 +27,7 @@
     "ws": "^8.18.2"
   },
   "devDependencies": {
-    "electron": "^33.3.1",
+    "electron": "33.3.1",
     "electron-builder": "^25.1.8"
   },
   "engines": {

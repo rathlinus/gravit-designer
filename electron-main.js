@@ -1,9 +1,66 @@
-const { app, BrowserWindow, Menu, dialog } = require("electron");
+const { app, BrowserWindow, Menu, dialog, screen } = require("electron");
 const path = require("path");
 const http = require("http");
+const fs = require("fs");
 
 let mainWindow;
 let server;
+
+// Persisted window bounds (size/position/maximized state) so a maximized
+// window stays maximized, and a resized window keeps its size, across
+// launches. Stored outside the app bundle so it survives updates.
+const WINDOW_STATE_FILE = path.join(
+  app.getPath("userData"),
+  "window-state.json",
+);
+const DEFAULT_WINDOW_STATE = { width: 1400, height: 900 };
+
+function loadWindowState() {
+  try {
+    const raw = fs.readFileSync(WINDOW_STATE_FILE, "utf8");
+    const state = JSON.parse(raw);
+    if (typeof state.width !== "number" || typeof state.height !== "number") {
+      return { ...DEFAULT_WINDOW_STATE };
+    }
+
+    // Discard saved x/y if they'd place the window off any connected
+    // display (e.g. an external monitor was unplugged since last run).
+    if (typeof state.x === "number" && typeof state.y === "number") {
+      const onScreen = screen
+        .getAllDisplays()
+        .some((d) =>
+          state.x >= d.bounds.x &&
+          state.y >= d.bounds.y &&
+          state.x < d.bounds.x + d.bounds.width &&
+          state.y < d.bounds.y + d.bounds.height,
+        );
+      if (!onScreen) {
+        delete state.x;
+        delete state.y;
+      }
+    }
+
+    return state;
+  } catch {
+    return { ...DEFAULT_WINDOW_STATE };
+  }
+}
+
+function saveWindowState(win) {
+  if (!win || win.isDestroyed()) return;
+  const isMaximized = win.isMaximized();
+  // getNormalBounds() returns the un-maximized size/position even while
+  // maximized, so restoring later un-maximizes to the right size.
+  const bounds = win.getNormalBounds();
+  try {
+    fs.writeFileSync(
+      WINDOW_STATE_FILE,
+      JSON.stringify({ ...bounds, isMaximized }),
+    );
+  } catch (err) {
+    console.error("Failed to save window state:", err);
+  }
+}
 
 // Fixed port so the page origin (http://127.0.0.1:PORT) stays constant across
 // launches. localStorage — where Gravit Designer keeps the theme and other
@@ -97,9 +154,13 @@ function startServer() {
 }
 
 function createWindow(port) {
+  const state = loadWindowState();
+
   mainWindow = new BrowserWindow({
-    width: 1400,
-    height: 900,
+    width: state.width,
+    height: state.height,
+    x: state.x,
+    y: state.y,
     minWidth: 800,
     minHeight: 600,
     title: "Gravit Designer",
@@ -117,9 +178,17 @@ function createWindow(port) {
     autoHideMenuBar: true,
   });
 
+  if (state.isMaximized) {
+    mainWindow.maximize();
+  }
+
   Menu.setApplicationMenu(null);
 
   mainWindow.loadURL(`http://127.0.0.1:${port}`);
+
+  mainWindow.on("close", () => {
+    saveWindowState(mainWindow);
+  });
 
   mainWindow.on("closed", () => {
     mainWindow = null;
