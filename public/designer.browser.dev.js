@@ -6131,6 +6131,21 @@ function (e, t, n) {
           }
           d.gDialog("close");
         };
+        // Guide index is always >= 0 here: this dialog only opens via
+        // double-click on a guide already under the mouse, never for
+        // creating a new one (that stays ruler-drag-only), so a plain
+        // splice is always valid, no "am I editing or adding" check needed.
+        var del = function () {
+          var v = r.slice();
+          v.splice(e.guideIndex, 1);
+          t._editor.beginTransaction();
+          try {
+            n.setProperties([o], [v]);
+          } finally {
+            t._editor.commitTransaction("Delete guide line");
+          }
+          d.gDialog("close");
+        };
         u.on("keydown", function (e) {
           "Enter" === e.key && (e.preventDefault(), save());
         });
@@ -6141,6 +6156,7 @@ function (e, t, n) {
         // matches nothing, so the buttons fell back to bare browser defaults.
         g("<div></div>")
           .addClass("g-dialog-footer")
+          .append(g("<button></button>").text("Delete").on("click", del))
           .append(
             g("<button></button>")
               .text("Cancel")
