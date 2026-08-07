@@ -6135,8 +6135,12 @@ function (e, t, n) {
           "Enter" === e.key && (e.preventDefault(), save());
         });
         g("<hr/>").appendTo(d);
+        // "g-dialog-footer", not "footer" -- that's the class the app's real
+        // spacing rules (padding, margin-left between buttons) are scoped to,
+        // the same one GSettingsDialog's Save/Cancel row gets. Plain "footer"
+        // matches nothing, so the buttons fell back to bare browser defaults.
         g("<div></div>")
-          .addClass("footer")
+          .addClass("g-dialog-footer")
           .append(
             g("<button></button>")
               .text("Cancel")
@@ -6145,8 +6149,11 @@ function (e, t, n) {
               })
           )
           .append(
+            // "primary" (not "highlight" -- that class is unrelated menu-hover
+            // styling in this codebase) is what .g-dialog-footer button.primary
+            // actually targets for the pink "main action" button look.
             g("<button></button>")
-              .addClass("highlight")
+              .addClass("primary")
               .text("Save")
               .on("click", save)
           )
