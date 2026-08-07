@@ -6070,6 +6070,91 @@ function (e, t, n) {
           console.error(e);
         }
       }),
+      // Double-click-to-edit-guide popup. GSelectTool._mouseDblClick in
+      // chunk.vendor.js dispatches a window CustomEvent("gravit:guide-edit-request")
+      // rather than a typed GEditor event (see comment there for why), so this
+      // listens on window and ignores events from other open documents' editors.
+      // Built inline rather than as its own dialog class/module so it doesn't
+      // need a new webpack module slot (every existing module is referenced by
+      // other modules via a fixed numeric index; inserting one in the middle
+      // would shift and break them).
+      (K.prototype._guideEditRequestEvent = function (e) {
+        // window.$ (the real global jQuery), not the bare $ -- this module
+        // aliases its own local "$" to a different import (n(393)), which
+        // shadows the global and silently breaks jQuery construction here.
+        var g = window.$,
+          t = this,
+          n = this._scene,
+          o = e.isVertical ? "vgl" : "hgl",
+          r = n.getProperty(o) || [],
+          s = e.guideIndex >= 0 ? r[e.guideIndex] : 0,
+          l = n.getOptimalDecimalsCount(),
+          c = n.getProperty("ut"),
+          d = g("<div></div>").gDialog({
+            releaseOnClose: !0,
+            className: "g-guide-edit-dialog",
+          });
+        g("<div></div>")
+          .addClass("header")
+          .append(
+            g("<span></span>").text(
+              e.isVertical ? "Edit Vertical Guide" : "Edit Horizontal Guide"
+            )
+          )
+          .appendTo(d);
+        var u = g("<input>")
+          .attr("type", "text")
+          .gInputBox({ postfix: c })
+          .gInputBox("value", n.pointToString(s, l));
+        g("<div></div>")
+          .addClass("content")
+          .append(
+            g("<div></div>")
+              .addClass("text-description")
+              .append(
+                g("<div></div>")
+                  .addClass("label")
+                  .text(e.isVertical ? "X position" : "Y position")
+              )
+          )
+          .append(g("<div></div>").addClass("editor").append(u))
+          .appendTo(d);
+        g("<hr/>").appendTo(d);
+        g("<div></div>")
+          .addClass("footer")
+          .append(
+            g("<button></button>")
+              .text("Cancel")
+              .on("click", function () {
+                d.gDialog("close");
+              })
+          )
+          .append(
+            g("<button></button>")
+              .addClass("highlight")
+              .text("Save")
+              .on("click", function () {
+                var a = n.stringToPoint(u.gInputBox("value"));
+                if ("number" == typeof a && isFinite(a)) {
+                  var v = r.slice();
+                  (e.guideIndex >= 0 ? (v[e.guideIndex] = a) : v.push(a)),
+                    t._editor.beginTransaction();
+                  try {
+                    n.setProperties([o], [v]);
+                  } finally {
+                    // Plain string rather than i.GLocale.get(new i.GLocaleKey(...))
+                    // like GEditorWidget's own drag-to-move-guide commit uses --
+                    // unconfirmed whether GLocale/GLocaleKey are re-exported into
+                    // this specific module's "i" import, not worth the risk here.
+                    t._editor.commitTransaction("Change guide line");
+                  }
+                }
+                d.gDialog("close");
+              })
+          )
+          .appendTo(d);
+        d.gDialog("open", !0);
+      }),
       (K.prototype._updateScene = function (e) {
         if (
           (this._scene &&
@@ -6084,6 +6169,11 @@ function (e, t, n) {
               this._modifiedEvent,
               this
             ),
+            this._guideEditRequestDomListener &&
+              window.removeEventListener(
+                "gravit:guide-edit-request",
+                this._guideEditRequestDomListener
+              ),
             this._editor.removeAllEventListeners(),
             this._scene
               .getDictionary()
@@ -6172,6 +6262,16 @@ function (e, t, n) {
               void 0,
               void 0,
               !0
+            ),
+            (this._guideEditRequestDomListener ||
+              (this._guideEditRequestDomListener = (e) => {
+                e.detail &&
+                  e.detail.editor === this._editor &&
+                  this._guideEditRequestEvent(e.detail);
+              })),
+            window.addEventListener(
+              "gravit:guide-edit-request",
+              this._guideEditRequestDomListener
             ),
             this._scene
               .getDictionary()

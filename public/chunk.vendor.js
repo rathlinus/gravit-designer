@@ -59512,6 +59512,29 @@
           if (((this._mDownTime1 = null), (this._mDownTime2 = null), t))
             return !0;
           if (this._editor.getCurrentInlineEditorNode()) return !0;
+          // Double-clicking an existing guide (vs. empty ruler/canvas) opens its
+          // precise-value editor instead of the normal element/inline-edit flow.
+          // Dispatched as a plain DOM CustomEvent on window rather than through
+          // GObject's typed event system: that system hands out a sequential
+          // __gtype_id__ to every class at GObject.inherit() time from one
+          // shared counter, keyed on load order, and registering a new typed
+          // event class here shifts every class defined after it, which broke
+          // an unrelated listener elsewhere. A window CustomEvent is also the
+          // natural fit for an engine-layer (plain DOM) module signaling
+          // app-layer (jQuery) code to show a dialog.
+          if (this._guideLineUnderMouse)
+            return (
+              window.dispatchEvent(
+                new CustomEvent("gravit:guide-edit-request", {
+                  detail: {
+                    editor: this._editor,
+                    isVertical: this._guideLineUnderMouse.isVertical,
+                    guideIndex: this._guideLineUnderMouse.guideIndex,
+                  },
+                }),
+              ),
+              !0
+            );
           var i = !1;
           if (
             (this._clickedElement &&
