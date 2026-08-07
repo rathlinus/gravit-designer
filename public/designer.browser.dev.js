@@ -140098,6 +140098,21 @@ function (module, exports, __webpack_require__) {
               })
             )
             .appendTo(this._htmlElement),
+          // Not wired through gDesigner's GAction registry (unlike the buttons
+          // above) -- that registry is built from a "gravit.actions" list
+          // assembled elsewhere that wasn't worth the risk of touching blind,
+          // this button just owns its own click handler and state directly,
+          // the same way _shareButton/_collaboratorsDiv below do.
+          $("<div></div>")
+            .addClass("section compound-section guide-lock-section")
+            .append(
+              (this._guideLockButton = this._createLabelButton({
+                icon: "gravit-icon-unlock",
+                label: "Lock Guides",
+                click: () => this._toggleGuideLock(),
+              }))
+            )
+            .appendTo(this._htmlElement),
           (this._exportButton = this._createLabelButton({
             action: gDesigner.getAction(GExportAction.ID),
             split: !0,
@@ -140920,6 +140935,39 @@ function (module, exports, __webpack_require__) {
           }
         });
       }),
+      // Lock-guides toolbar button. Toggles the "gll" scene property (see
+      // chunk.vendor.js: GSelectTool's guide hover/hit-test now refuses to
+      // find a guide under the mouse at all when it's set, which covers
+      // drag-to-move, drag-to-delete, and the double-click editor uniformly
+      // since they all key off that same hit-test) through the normal
+      // transaction path, so it's a regular undoable step like everything
+      // else touching guides.
+      (GToolbar.prototype._toggleGuideLock = function () {
+        var e = gDesigner.getActiveDocument();
+        if (e) {
+          var t = e.getScene(),
+            n = e.getEditor();
+          n.beginTransaction();
+          try {
+            t.setProperties(["gll"], [!t.getProperty("gll")]);
+          } finally {
+            n.commitTransaction("Toggle guide lock");
+          }
+          this._updateGuideLockButton();
+        }
+      }),
+      (GToolbar.prototype._updateGuideLockButton = function () {
+        if (this._guideLockButton) {
+          var e = gDesigner.getActiveDocument(),
+            t = !!(e && e.getScene() && e.getScene().getProperty("gll")),
+            n = this._guideLockButton.find(".action-button");
+          n.toggleClass("g-active", t),
+            this._updateIcon(
+              n.find(".icon"),
+              t ? "gravit-icon-lock" : "gravit-icon-unlock"
+            );
+        }
+      }),
       (GToolbar.prototype._updateActions = function () {
         this._htmlElement
           .find(".toolbar-button[data-action]")
@@ -140940,7 +140988,8 @@ function (module, exports, __webpack_require__) {
               "g-disabled",
               !o || !o.isAvailable() || !o.isEnabled()
             );
-          });
+          }),
+          this._updateGuideLockButton();
       }),
       (GToolbar.prototype._selectionChangedEvent = function (e) {
         this._updateActions(), this._updateContextTools();

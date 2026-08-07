@@ -33531,6 +33531,7 @@
           ga2: null,
           hgl: null,
           vgl: null,
+          gll: null,
           name: null,
           _links: {},
           __ids: [],
@@ -60557,7 +60558,8 @@
             var r = null;
             if (
               (!this._mode || this._mode == pe._Mode.Transforming) &&
-              this._view.getViewConfiguration().guideLinesVisible
+              this._view.getViewConfiguration().guideLinesVisible &&
+              !this._scene.getProperty("gll")
             ) {
               var o = e.getX(),
                 a = e.getY(),
