@@ -23,8 +23,8 @@
     "dist:all": "electron-builder --win --linux --mac"
   },
   "dependencies": {
-    "express": "^5.1.0",
-    "ws": "^8.18.2"
+    "express": "^5.2.1",
+    "ws": "^8.20.1"
   },
   "devDependencies": {
     "electron": "33.3.1",

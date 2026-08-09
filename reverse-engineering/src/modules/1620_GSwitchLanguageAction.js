@@ -28,6 +28,16 @@ function (e, t, n) {
       "Português",
       "Español",
       "Français",
+      "Polski",
+      "Русский",
+      "Türkçe",
+      "Čeština",
+      "中文 Taiwan",
+      "Italiano",
+      "日本語",
+      "Nederlands",
+      "Svenska",
+      "System Default",
     ]),
       i.GObject.inherit(h, l),
       (h.ID = "language"),
@@ -40,7 +50,8 @@ function (e, t, n) {
         return !0;
       }),
       (h.prototype.isChecked = function () {
-        return i.GLocale.getLanguage() === this._locale;
+        const currentLang = gDesigner.getSetting("language", 15);
+        return currentLang === this._locale;
       }),
       (h.prototype.getTitle = function () {
         return this._title;
@@ -58,11 +69,11 @@ function (e, t, n) {
         return !g();
       }),
       (h.prototype.execute = function () {
-        if (i.GLocale.getLanguage() !== this._locale) {
+        if (gDesigner.getSetting("language", 15) !== this._locale) {
           let e = () => gDesigner.setSetting("language", this._locale),
             t = () =>
               r.gApi
-                .updateUser({ locale: i.GLocale.lookupLocale(this._locale) })
+                .updateUser({ locale: this._locale === 15 ? null : i.GLocale.lookupLocale(this._locale) })
                 .then(() => e())
                 .then(() => this._reloadApp())
                 .catch((e) => p.alert(r.gApi.formatError(e)));
@@ -91,4 +102,17 @@ function (e, t, n) {
         return "[Object GSwitchLanguageAction]";
       }),
       (e.exports = h);
+
+      // Inject language actions into help menu
+      if (typeof gravit !== 'undefined' && gravit.actions) {
+        h.Translations.forEach((_, index) => {
+           if (index > 5) {
+             const action = new h(index);
+             const exists = gravit.actions.some(a => a.getId && a.getId() === action.getId());
+             if (!exists) {
+               gravit.actions.push(action);
+             }
+           }
+        });
+      }
   }

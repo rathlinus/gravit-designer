@@ -382,6 +382,8 @@ function (e, t, n) {
             "language.11": "MainArea/Canvas/CanvasContextMenu/Italiano",
             "language.12": "MainArea/Canvas/CanvasContextMenu/日本語",
             "language.13": "MainArea/Canvas/CanvasContextMenu/Nederlands",
+            "language.14": "MainArea/Canvas/CanvasContextMenu/Svenska",
+            "language.15": "MainArea/Canvas/CanvasContextMenu/System Default",
             "open-welcome-screen":
               "MainArea/Canvas/CanvasContextMenu/ShowWelcomeScreen",
             "check-for-updates":
@@ -616,6 +618,8 @@ function (e, t, n) {
             "language.11": "MainArea/MenuBar/HelpLanguage/Italiano",
             "language.12": "MainArea/MenuBar/HelpLanguage/日本語",
             "language.13": "MainArea/MenuBar/HelpLanguage/Nederlands",
+            "language.14": "MainArea/MenuBar/HelpLanguage/Svenska",
+            "language.15": "MainArea/MenuBar/HelpLanguage/System Default",
             "open-welcome-screen": "MainArea/MenuBar/Help/ShowWelcomeScreen",
             "check-for-updates": "MainArea/MenuBar/Help/CheckForUpdates",
             "developer-details":
@@ -861,6 +865,8 @@ function (e, t, n) {
             "language.11": "MainArea/Shortcut/Italiano",
             "language.12": "MainArea/Shortcut/日本語",
             "language.13": "MainArea/Shortcut/Nederlands",
+            "language.14": "MainArea/Shortcut/Svenska",
+            "language.15": "MainArea/Shortcut/System Default",
             "open-welcome-screen": "MainArea/Shortcut/ShowWelcomeScreen",
             "check-for-updates": "MainArea/Shortcut/CheckForUpdates",
             "developer-details": "MainArea/Shortcut/SendDeveloperDetails",
@@ -1051,6 +1057,8 @@ function (e, t, n) {
             "language.11": "MainArea/Toolbar/Italiano",
             "language.12": "MainArea/Toolbar/日本語",
             "language.13": "MainArea/Toolbar/Nederlands",
+            "language.14": "MainArea/Toolbar/Svenska",
+            "language.15": "MainArea/Toolbar/System Default",
             "open-welcome-screen": "MainArea/Toolbar/ShowWelcomeScreen",
             "check-for-updates": "MainArea/Toolbar/CheckForUpdates",
             "developer-details": "MainArea/Toolbar/SendDeveloperDetails",
