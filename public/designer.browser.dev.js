@@ -6108,13 +6108,21 @@ function (e, t, n) {
         var u = g("<input>")
           .attr("type", "text")
           .gInputBox({ postfix: c })
-          .gInputBox("value", n.pointToString(s, l));
+          .gInputBox(
+            "value",
+            // pointToStringX/Y (not the axis-less pointToString) so a
+            // custom ruler origin (Feature 3) is reflected here too --
+            // e.isVertical tells us which axis this guide's value is on.
+            e.isVertical ? n.pointToStringX(s, l) : n.pointToStringY(s, l)
+          );
         g("<div></div>")
           .addClass("content")
           .append(g("<div></div>").addClass("editor").append(u))
           .appendTo(d);
         var save = function () {
-          var a = n.stringToPoint(u.gInputBox("value"));
+          var a = e.isVertical
+            ? n.stringToPointX(u.gInputBox("value"))
+            : n.stringToPointY(u.gInputBox("value"));
           if ("number" == typeof a && isFinite(a)) {
             var v = r.slice();
             (e.guideIndex >= 0 ? (v[e.guideIndex] = a) : v.push(a)),
