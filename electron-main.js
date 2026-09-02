@@ -1,10 +1,68 @@
-const { app, BrowserWindow, Menu, dialog, screen } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  dialog,
+  screen,
+  ipcMain,
+} = require("electron");
 const path = require("path");
 const http = require("http");
 const fs = require("fs");
+const { fileURLToPath } = require("url");
 
 let mainWindow;
 let server;
+
+// A .gvdesign path this process was launched/re-invoked with, waiting to be
+// picked up by the renderer once it's ready to receive it. Cleared once
+// read (see the "get-pending-open-file" handler below).
+let pendingOpenFile = null;
+
+// A .desktop file's "%U"/"%u" (which is what the AppImage's integrated
+// launcher uses) hands us a file:// URI, not a plain path — percent-encoded,
+// so a path with spaces arrives as "file:///.../My%20File.gvdesign". "%F"/"%f"
+// would give a plain path instead, and dev invocation ("electron . foo") does
+// too. Accept either.
+function argToFilePath(arg) {
+  if (/^file:\/\//i.test(arg)) {
+    try {
+      return fileURLToPath(arg);
+    } catch {
+      return null;
+    }
+  }
+  return arg;
+}
+
+// Command-line args (from process.argv or a second-instance's commandLine)
+// can carry Electron/Chromium flags and, in dev, "electron ." itself, so
+// don't rely on position — pick out whatever actually looks like a
+// .gvdesign file that exists on disk.
+function findOpenFilePath(argv) {
+  for (const arg of argv) {
+    const filePath = argToFilePath(arg);
+    if (
+      filePath &&
+      filePath.toLowerCase().endsWith(".gvdesign") &&
+      fs.existsSync(filePath)
+    ) {
+      return filePath;
+    }
+  }
+  return null;
+}
+
+function readOpenFilePayload(filePath) {
+  return {
+    filename: path.basename(filePath),
+    // Absolute path, kept alongside the bytes so the renderer can write back
+    // to the same file on Save instead of falling back to Save As (see the
+    // "write-open-file" handler below and public/index.html).
+    path: filePath,
+    data: new Uint8Array(fs.readFileSync(filePath)),
+  };
+}
 
 // Persisted window bounds (size/position/maximized state) so a maximized
 // window stays maximized, and a resized window keeps its size, across
@@ -174,9 +232,20 @@ function createWindow(port) {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
+      preload: path.join(__dirname, "preload.js"),
     },
     autoHideMenuBar: true,
   });
+
+  // TEMP DEBUG: forward renderer console output (including our open-file
+  // bootstrap script's logging) to this process's stdout, since it's
+  // otherwise only visible in DevTools.
+  mainWindow.webContents.on(
+    "console-message",
+    (_event, _level, message, line, sourceId) => {
+      console.log(`[renderer] ${message} (${sourceId}:${line})`);
+    },
+  );
 
   if (state.isMaximized) {
     mainWindow.maximize();
@@ -186,8 +255,46 @@ function createWindow(port) {
 
   mainWindow.loadURL(`http://127.0.0.1:${port}`);
 
-  mainWindow.on("close", () => {
+  // Closing a single document tab already asks "Save / Don't Save / Cancel"
+  // via Gravit's own dialog (GDesigner.canUnloadDocument) when it has
+  // unsaved changes. Closing the whole window used to skip that entirely —
+  // Electron destroyed the window immediately, so the renderer never even
+  // got a chance to react. Fix: preventDefault the native close, ask the
+  // renderer (reusing the same GDesigner.handleUnsavedDocuments() pipeline
+  // tab-close already exercises, just across every open document), and only
+  // let the close actually happen once that resolves true.
+  //
+  // Confirmed close uses destroy(), not close(): calling close() again from
+  // inside the executeJavaScript().then() callback (i.e. on a later tick,
+  // not synchronously within the original "close" handler) reliably
+  // re-fired "close" but never actually finished tearing the window down in
+  // this Electron version — "closed"/"window-all-closed" just never fired,
+  // confirmed by instrumenting every step. destroy() is also the more
+  // correct call here regardless: we've already done our own confirmation,
+  // so there's no reason to run the whole event cycle a second time.
+  let closeConfirmed = false;
+  mainWindow.on("close", (event) => {
     saveWindowState(mainWindow);
+    if (closeConfirmed) return;
+    event.preventDefault();
+    mainWindow.webContents
+      .executeJavaScript(
+        `(window.gDesigner && window.gDesigner.isInitialized()
+          ? window.gDesigner.handleUnsavedDocuments().then(() => true).catch(() => false)
+          : Promise.resolve(true))`,
+      )
+      .then((canClose) => {
+        if (canClose) {
+          closeConfirmed = true;
+          mainWindow.destroy();
+        }
+      })
+      .catch(() => {
+        // executeJavaScript itself threw (e.g. window already torn down) —
+        // don't leave the app permanently un-closable over it.
+        closeConfirmed = true;
+        mainWindow.destroy();
+      });
   });
 
   mainWindow.on("closed", () => {
@@ -200,14 +307,77 @@ function createWindow(port) {
 if (!app.requestSingleInstanceLock()) {
   app.quit();
 } else {
-  app.on("second-instance", () => {
+  app.on("second-instance", (_event, argv) => {
     if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();
+
+      const openPath = findOpenFilePath(argv);
+      if (openPath) {
+        mainWindow.webContents.send("open-file", readOpenFilePayload(openPath));
+      }
     }
   });
 
+  ipcMain.handle("get-pending-open-file", () => {
+    const payload = pendingOpenFile;
+    pendingOpenFile = null;
+    return payload;
+  });
+
+  // Writes back to the path a document was opened from (see
+  // public/index.html's use of this to give a real Item a working write()).
+  // The renderer is fully trusted first-party code here (this is the whole
+  // desktop app, not a sandboxed guest page), same trust level as reading
+  // process.argv paths above, so no extra path allowlisting is done.
+  ipcMain.handle("write-open-file", (_event, filePath, data) => {
+    fs.writeFileSync(filePath, Buffer.from(data));
+  });
+
+  // Backs "Save As" for a document that was opened from a known path (see
+  // public/index.html's savePrompt override). The browser's own
+  // showSaveFilePicker() can't be told to start in an arbitrary folder — it
+  // only accepts a well-known directory name or a FileSystemHandle the page
+  // already holds, and there's no way to turn a plain path into one of
+  // those without the user picking it first — so this uses Electron's own
+  // native dialog instead, which does accept a real starting path.
+  ipcMain.handle("show-save-dialog", async (_event, defaultDir, defaultName, filters) => {
+    const result = await dialog.showSaveDialog(mainWindow, {
+      defaultPath: path.join(defaultDir, defaultName),
+      filters,
+    });
+    return result.canceled ? null : result.filePath;
+  });
+
   app.on("ready", async () => {
+    const openPath = findOpenFilePath(process.argv);
+    if (openPath) {
+      pendingOpenFile = readOpenFilePayload(openPath);
+    }
+
+    // Self-register the .gvdesign MIME type + icon (see scripts/register-
+    // linux-mime.cjs). A packaged AppImage user never runs that script by
+    // hand, so a fresh install would otherwise stay unregistered forever —
+    // this makes it happen automatically, every launch, with no manual step.
+    // Fire-and-forget: never delay first paint over it, and never let it
+    // crash startup if e.g. update-mime-database isn't on PATH.
+    if (process.platform === "linux") {
+      Promise.resolve()
+        .then(() => {
+          const {
+            installMimePackage,
+            installIcons,
+            trySetDefaultApp,
+          } = require("./scripts/register-linux-mime.cjs");
+          installMimePackage();
+          installIcons();
+          trySetDefaultApp();
+        })
+        .catch((err) => {
+          console.warn("Linux MIME/icon self-registration failed:", err);
+        });
+    }
+
     const port = await startServer();
     createWindow(port);
   });

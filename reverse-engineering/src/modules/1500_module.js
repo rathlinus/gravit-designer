@@ -848,6 +848,7 @@ function (e, t, n) {
                 t
               );
             }
+            if (m && !gDesigner.getAction(r)) return;
             d
               ? (s = n.createAddItem(b, () => {
                   d.call(o, e, t);

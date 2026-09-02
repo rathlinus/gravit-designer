@@ -51,7 +51,7 @@ function (e, t, n) {
               (e) => {
                 gDesigner.openDocument(e), t && t();
               },
-              !1
+              !0
             );
           },
           () => {

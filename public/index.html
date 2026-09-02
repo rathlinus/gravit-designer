@@ -43,5 +43,179 @@
     <script src="jquery.js"></script>
     <script src="chunk.vendor.js"></script>
     <script src="designer.browser.dev.js"></script>
+    <script>
+      // Bridges a file opened externally (double-click / "Open with" on a
+      // .gvdesign file, delivered by electron-main.js via preload.js) into
+      // the app's normal document-open pipeline. No-op outside Electron,
+      // where window.gravitOpenFile is never exposed.
+      (function () {
+        console.log("gravitOpenFile: bootstrap running, bridge present =", !!window.gravitOpenFile);
+        if (!window.gravitOpenFile) return;
+
+        // Builds a real Item (the app's internal file-handle abstraction,
+        // GStorage.Item — see gDesigner.getDefaultStorage().constructor.Item)
+        // instead of a plain duck-typed object. This matters beyond just
+        // satisfying openDocument()'s method calls: GDocument's constructor
+        // does `this._storageItem = item instanceof <the internal abstract
+        // Item class> ? item : null`, and a plain object literal always
+        // fails that check. A null _storageItem is what made the doc report
+        // isNew() === true — hence "Untitled-1" in the title bar and Save
+        // falling back to a Save-As dialog (defaulting to the home
+        // directory) instead of writing back to the opened file. A real
+        // Item subclass instance passes the instanceof check for free, and
+        // inherits correct getExtension()/getName() (derived from
+        // getFullName()) and the file-too-small safety check for free too —
+        // only getStorage() (constructor arg) and write() (below) need to
+        // behave like the real file, since there's no way to get a native
+        // FileSystemFileHandle for an arbitrary path outside a picker.
+        function makeFileItem(filename, filePath, data) {
+          var storage = window.gDesigner.getDefaultStorage();
+          patchSavePromptOnce(storage);
+          var ItemCtor = storage && storage.constructor && storage.constructor.Item;
+          if (!ItemCtor) {
+            console.error(
+              "gravitOpenFile: no Item constructor on default storage, " +
+                "falling back to a duck-typed item (Save will act as Save As)",
+            );
+            return {
+              getName: function () {
+                return filename;
+              },
+              getFullName: function () {
+                return filename;
+              },
+              getExtension: function () {
+                return "GVDESIGN";
+              },
+              getUniqueId: function () {
+                return null;
+              },
+              read: function (onSuccess) {
+                onSuccess(data);
+              },
+            };
+          }
+
+          // storage = getStorage(), data = initial in-memory bytes,
+          // filename = getFullName(), fileHandle = null (no native
+          // FileSystemFileHandle available for a path we didn't get from a
+          // picker) — read() falls back to returning `data` directly when
+          // there's no fileHandle, which is exactly what we want.
+          var item = new ItemCtor(storage, data, filename, null);
+
+          // Stable id (the real absolute path) so re-opening the same file
+          // while it's already open focuses the existing document instead
+          // of opening a duplicate tab, same as openDocument()'s dedup for
+          // any other persistent item.
+          item.getUniqueId = function () {
+            return filePath;
+          };
+
+          // Read by the savePrompt patch above so a later "Save As" on this
+          // document starts in the folder it actually lives in.
+          var lastSlash = Math.max(filePath.lastIndexOf("/"), filePath.lastIndexOf("\\"));
+          item.__gvdesignDir = lastSlash >= 0 ? filePath.slice(0, lastSlash) : null;
+
+          // The inherited write() has no fileHandle to write through, so it
+          // falls back to triggering a browser download instead of writing
+          // to disk. Replace it with a real write via IPC (the renderer has
+          // no fs access under contextIsolation).
+          item.write = function (bytes, onSuccess, onError, _progress, doc) {
+            this._verifyFileNotTooSmall(bytes.length, doc);
+            window.gravitOpenFile
+              .writeFile(filePath, bytes)
+              .then(function () {
+                onSuccess && onSuccess();
+              })
+              .catch(function (err) {
+                console.error("gravitOpenFile: write-open-file failed:", err);
+                onError && onError(err);
+              });
+          };
+
+          return item;
+        }
+
+        // Save As always goes through the storage's savePrompt(), and the
+        // browser's own showSaveFilePicker() can't be told to start in an
+        // arbitrary folder (only a well-known name like "documents", or a
+        // FileSystemHandle the page already holds — which we don't have for
+        // a path that arrived via IPC, not a picker). So for a document
+        // that DOES have a known origin folder (one of ours, opened via
+        // double-click), route Save As through Electron's native dialog
+        // instead, which does accept a real starting path. Patched once on
+        // the shared storage instance; documents without a known folder
+        // (anything not opened through makeFileItem) fall through to the
+        // original browser-picker behavior unchanged.
+        function patchSavePromptOnce(storage) {
+          if (!storage || storage.__gvdesignSavePromptPatched) return;
+          storage.__gvdesignSavePromptPatched = true;
+          var originalSavePrompt = storage.savePrompt.bind(storage);
+          storage.savePrompt = function (suggestedName, fileTypes, onSuccess, onError) {
+            var activeDoc = window.gDesigner.getActiveDocument();
+            var activeItem = activeDoc && activeDoc.getStorageItem();
+            var dir = activeItem && activeItem.__gvdesignDir;
+            if (!dir) {
+              return originalSavePrompt(suggestedName, fileTypes, onSuccess, onError);
+            }
+            var filters = (fileTypes || []).map(function (ft) {
+              return { name: (ft.ext || "").toUpperCase(), extensions: [ft.ext] };
+            });
+            window.gravitOpenFile
+              .showSaveDialog(dir, suggestedName, filters)
+              .then(function (chosenPath) {
+                if (!chosenPath) {
+                  onError && onError();
+                  return;
+                }
+                var chosenName = chosenPath.split(/[\\/]/).pop();
+                onSuccess(makeFileItem(chosenName, chosenPath, null));
+              })
+              .catch(function (err) {
+                console.error("gravitOpenFile: showSaveDialog failed:", err);
+                onError && onError(err);
+              });
+          };
+        }
+
+        function openBytes(filename, filePath, data) {
+          console.log("gravitOpenFile: openBytes called for", filename, "bytes =", data && data.length);
+          var tries = 0;
+          (function wait() {
+            if (
+              window.gDesigner &&
+              typeof window.gDesigner.openDocument === "function" &&
+              typeof window.gDesigner.isInitialized === "function" &&
+              window.gDesigner.isInitialized()
+            ) {
+              console.log("gravitOpenFile: gDesigner ready after", tries, "tries, calling openDocument");
+              try {
+                window.gDesigner.openDocument(makeFileItem(filename, filePath, data));
+                console.log("gravitOpenFile: openDocument() returned without throwing");
+              } catch (err) {
+                console.error("gravitOpenFile: openDocument() threw:", err && err.stack || err);
+              }
+            } else if (tries++ < 200) {
+              setTimeout(wait, 100);
+            } else {
+              console.error(
+                "gravitOpenFile: gDesigner never became ready, gave up opening " +
+                  filename,
+              );
+            }
+          })();
+        }
+
+        window.gravitOpenFile.getPending().then(function (pending) {
+          console.log("gravitOpenFile: getPending() resolved with", pending ? pending.filename : null);
+          if (pending) openBytes(pending.filename, pending.path, pending.data);
+        }).catch(function (err) {
+          console.error("gravitOpenFile: getPending() rejected:", err && err.stack || err);
+        });
+        window.gravitOpenFile.onOpenFile(function (payload) {
+          openBytes(payload.filename, payload.path, payload.data);
+        });
+      })();
+    </script>
   </body>
 </html>
