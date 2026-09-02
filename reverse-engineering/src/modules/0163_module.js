@@ -455,17 +455,14 @@ function (e, t, n) {
         };
         var hCol = makeColumn("Horizontal Guides", !1, hgl),
           vCol = makeColumn("Vertical Guides", !0, vgl);
-        // Highlight the specific guide that was double-clicked, so it's
-        // obvious which one this dialog opened for -- e.guideIndex/
+        // Identify the specific guide that was double-clicked so it can be
+        // scrolled to and its value selected below -- e.guideIndex/
         // e.isVertical come straight from GSelectTool's double-click
         // dispatch (see this method's header comment); absent (undefined,
         // not >= 0) for any other way this dialog might open, in which
-        // case nothing is preselected. Styling alone is safe to apply here
-        // (inline styles survive being attached to the document later) --
-        // scrollIntoView/focus/select are NOT, and are done after
-        // gDialog("open") below instead, same reason the single-guide
-        // dialog this replaced already had to: elements aren't focusable
-        // (or reliably scrollable) until actually attached to <body>.
+        // case nothing is preselected. The text selection itself (below,
+        // after open) is the only visual indicator -- an outline on top of
+        // that was redundant per feedback, dropped.
         var targetRow = null;
         if (e && e.guideIndex >= 0) {
           var targetCol = e.isVertical ? vCol : hCol;
@@ -475,14 +472,6 @@ function (e, t, n) {
               return g(this).data("seedIndex") === e.guideIndex;
             })
             .first();
-          targetRow.length &&
-            targetRow.css({
-              // #d72e63 -- the app's real primary/accent pink, matching
-              // .g-dialog-footer button.primary (checked in designer.
-              // browser.dark.css, not guessed).
-              outline: "2px solid #d72e63",
-              outlineOffset: "-1px",
-            });
         }
         var closeDialog = function () {
             window.removeEventListener("keydown", globalKeydown, !0);
