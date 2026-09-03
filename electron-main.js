@@ -10,6 +10,7 @@ const path = require("path");
 const http = require("http");
 const fs = require("fs");
 const { fileURLToPath } = require("url");
+const { router: recentFilesRoutes, addRecentFile } = require("./routes/recent-files");
 
 let mainWindow;
 let server;
@@ -54,6 +55,10 @@ function findOpenFilePath(argv) {
 }
 
 function readOpenFilePayload(filePath) {
+  // Covers both cold-start (file-association launch) and a second instance
+  // re-invoked with a file — see the two call sites below. Feeds the "Open"
+  // dialog's Recent Files strip (routes/recent-files.js's GET /file).
+  addRecentFile(filePath);
   return {
     filename: path.basename(filePath),
     // Absolute path, kept alongside the bytes so the renderer can write back
@@ -154,6 +159,7 @@ function startServer() {
 
     expressApp.get("/connection/test", (_req, res) => res.send("OK"));
     expressApp.use(userRoutes);
+    expressApp.use(recentFilesRoutes);
 
     expressApp.get("/maintenance/status", (_req, res) => {
       res.json({ maintenance: false });
@@ -174,10 +180,6 @@ function startServer() {
 
     expressApp.get("/subscription/test", (_req, res) => {
       res.json({ active: true, plan: "pro" });
-    });
-
-    expressApp.get("/file", (_req, res) => {
-      res.json([]);
     });
 
     expressApp.get("/null", (_req, res) => {
@@ -332,6 +334,9 @@ if (!app.requestSingleInstanceLock()) {
   // process.argv paths above, so no extra path allowlisting is done.
   ipcMain.handle("write-open-file", (_event, filePath, data) => {
     fs.writeFileSync(filePath, Buffer.from(data));
+    // Covers both Save (existing path) and Save As's follow-up write (new
+    // path chosen via show-save-dialog below) — see routes/recent-files.js.
+    addRecentFile(filePath);
   });
 
   // Backs "Save As" for a document that was opened from a known path (see
