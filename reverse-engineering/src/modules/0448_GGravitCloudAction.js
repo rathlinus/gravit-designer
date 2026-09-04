@@ -45,10 +45,15 @@ function (e, t, n) {
         return s["gravit-cloud"];
       }),
       (g.prototype.getShortcut = function () {
+        // Cloud Save As gives up plain Shift+Ctrl/Cmd+S to GSaveAsAction's
+        // local Save As (reverse-engineering/src/modules/0445_GSaveAsAction.js)
+        // — that's the standard, cross-app combo, and cloud/Drive Save As
+        // isn't implemented in this self-hosted build yet anyway. Reserved
+        // here instead until it is.
         return this._type == g.Actions.Open
           ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "O"]
           : this._type == g.Actions.SaveAs
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "S"]
+          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, i.GKey.Constant.OPTION, "S"]
           : null;
       }),
       (g.prototype.isEnabled = function () {

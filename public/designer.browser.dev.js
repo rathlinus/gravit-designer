@@ -19410,13 +19410,13 @@ function (e, t, n) {
         );
       }),
       (w.prototype.getShortcut = function () {
+        // Standard cross-platform Save As (Ctrl/Cmd+Shift+S). Was
+        // SHIFT+META+OPTION+S until GGravitCloudAction's cloud Save As (see
+        // reverse-engineering/src/modules/0448_GGravitCloudAction.js) freed
+        // this combo up by moving to it instead — reserved for local Save As
+        // now, cloud/Drive Save As once that's actually implemented.
         return this._isNativeExt
-          ? [
-              r.GKey.Constant.SHIFT,
-              r.GKey.Constant.META,
-              r.GKey.Constant.OPTION,
-              "S",
-            ]
+          ? [r.GKey.Constant.SHIFT, r.GKey.Constant.META, "S"]
           : null;
       }),
       (w.prototype.isEnabled = function (e, t) {
@@ -19910,10 +19910,15 @@ function (e, t, n) {
         return s["gravit-cloud"];
       }),
       (g.prototype.getShortcut = function () {
+        // Cloud Save As gives up plain Shift+Ctrl/Cmd+S to GSaveAsAction's
+        // local Save As (reverse-engineering/src/modules/0445_GSaveAsAction.js)
+        // — that's the standard, cross-app combo, and cloud/Drive Save As
+        // isn't implemented in this self-hosted build yet anyway. Reserved
+        // here instead until it is.
         return this._type == g.Actions.Open
           ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "O"]
           : this._type == g.Actions.SaveAs
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "S"]
+          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, i.GKey.Constant.OPTION, "S"]
           : null;
       }),
       (g.prototype.isEnabled = function () {
@@ -128650,7 +128655,10 @@ function (e, t, n) {
         },
         {
           title: new i.GLocaleKey("GSaveAsAction", "title"),
-          shortcut: [a.GKey.Constant.SHIFT, a.GKey.Constant.META, "S"],
+          // Display-only hint text for this menu entry — must track
+          // GGravitCloudAction's actual getShortcut() for Actions.SaveAs
+          // (0448_GGravitCloudAction.js), which this entry's id points at.
+          shortcut: [a.GKey.Constant.SHIFT, a.GKey.Constant.META, a.GKey.Constant.OPTION, "S"],
           id: () =>
             "".concat(v.default.ID, ".").concat(v.default.Actions.SaveAs),
           needsAction: !0,

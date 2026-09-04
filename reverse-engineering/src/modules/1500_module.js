@@ -234,7 +234,10 @@ function (e, t, n) {
         },
         {
           title: new i.GLocaleKey("GSaveAsAction", "title"),
-          shortcut: [a.GKey.Constant.SHIFT, a.GKey.Constant.META, "S"],
+          // Display-only hint text for this menu entry — must track
+          // GGravitCloudAction's actual getShortcut() for Actions.SaveAs
+          // (0448_GGravitCloudAction.js), which this entry's id points at.
+          shortcut: [a.GKey.Constant.SHIFT, a.GKey.Constant.META, a.GKey.Constant.OPTION, "S"],
           id: () =>
             "".concat(v.default.ID, ".").concat(v.default.Actions.SaveAs),
           needsAction: !0,
