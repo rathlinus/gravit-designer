@@ -294,6 +294,251 @@ function (e, t, n) {
           console.error(e);
         }
       }),
+      // Double-click-to-edit-guide popup. GSelectTool._mouseDblClick in
+      // chunk.vendor.js dispatches a window CustomEvent("gravit:guide-edit-request")
+      // rather than a typed GEditor event (see comment there for why), so this
+      // listens on window and ignores events from other open documents' editors.
+      // Built inline rather than as its own dialog class/module so it doesn't
+      // need a new webpack module slot (every existing module is referenced by
+      // other modules via a fixed numeric index; inserting one in the middle
+      // would shift and break them).
+      //
+      // Opens the full bulk add/delete-multiple-guides dialog (all guides on
+      // both axes), not just the double-clicked one -- originally this
+      // opened a narrower single-field editor scoped to just that guide, and
+      // the bulk version was a separate dialog reachable only from a toolbar
+      // button. Consolidated into one dialog per user feedback: no separate
+      // toolbar entry point, and double-click should lead here directly. The
+      // double-click detail (e.isVertical/e.guideIndex) isn't used for
+      // scoping/highlighting yet -- deliberately kept simple pending
+      // feedback on how this should actually feel in use.
+      (K.prototype._guideEditRequestEvent = function (e) {
+        var g = window.$,
+          t = this,
+          n = this._scene,
+          l = n.getOptimalDecimalsCount(),
+          c = n.getProperty("ut"),
+          hgl = (n.getProperty("hgl") || []).slice(),
+          vgl = (n.getProperty("vgl") || []).slice(),
+          d = g("<div></div>").gDialog({
+            releaseOnClose: !0,
+            className: "g-guides-manage-dialog",
+          });
+        g("<div></div>")
+          .addClass("header")
+          .css({ fontSize: "14px", fontWeight: "bold", marginBottom: "12px" })
+          .append(g("<span></span>").text("Manage Guides"))
+          .appendTo(d);
+        var content = g("<div></div>")
+          .addClass("content")
+          .css({ display: "flex", gap: "16px" })
+          .appendTo(d);
+        // One column per axis: a scrollable list of value rows, each with its
+        // own remove button, plus an "add" button at the bottom. Deleting a
+        // row is just removing it from the DOM -- readAll() below only ever
+        // reads whatever rows are still there, so no separate tracking array
+        // is needed the way the single-guide dialog needs e.guideIndex.
+        var makeColumn = function (label, isVertical, arr) {
+          var col = g("<div></div>")
+              .addClass("g-guides-manage-column")
+              .css({ flex: "1 1 0" })
+              .appendTo(content),
+            list = g("<div></div>")
+              .addClass("g-guides-manage-list")
+              // overflow-x explicit, not left to default: setting only
+              // overflow-y non-visible makes browsers compute overflow-x as
+              // "auto" too (CSS spec), which was showing an unwanted
+              // horizontal scrollbar here. paddingRight reserves room for
+              // the vertical scrollbar itself so rows (input + × button,
+              // sized off the container's full width) don't overflow by
+              // the scrollbar's own width once enough rows exist to trigger
+              // it -- confirmed via screenshot with 8 guides, not guessed.
+              // maxHeight raised from an earlier, cramped 220px so the
+              // dialog opens roomy by default instead of only growing once
+              // it's already full of guides.
+              .css({
+                maxHeight: "360px",
+                overflowY: "auto",
+                overflowX: "hidden",
+                paddingRight: "4px",
+              })
+              .appendTo(
+                g("<div></div>")
+                  .css({ fontWeight: "bold", marginBottom: "6px" })
+                  .text(label)
+                  .appendTo(col)
+                  .parent()
+              ),
+            addRow = function (value) {
+              var row = g("<div></div>")
+                  .addClass("g-guides-manage-row")
+                  .css({
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "4px",
+                  })
+                  .appendTo(list),
+                input = g("<input>")
+                  .attr("type", "text")
+                  .gInputBox({ postfix: c })
+                  .gInputBox(
+                    "value",
+                    isVertical
+                      ? n.pointToStringX(value, l)
+                      : n.pointToStringY(value, l)
+                  )
+                  .css({ flex: "1 1 auto" })
+                  .appendTo(row);
+              // gInputBox evaluates a typed expression ("87+95") for min/
+              // max clamping purposes internally (GLength.parseEquationValue)
+              // but its own getter/setter never rewrites the field's
+              // displayed text to the evaluated result -- confirmed by
+              // reading its source, not assumed. That was invisible in the
+              // single-guide dialog this replaced because it closed
+              // immediately on Save; this dialog stays open while editing
+              // multiple rows, so a stale "87+95" sitting there after
+              // Enter (while the guide has already moved to 182 under it)
+              // reads as broken even though the value was applied
+              // correctly. Re-format to the evaluated number on commit,
+              // same stringToPointX/Y -> pointToStringX/Y round trip Save
+              // already does, so what's on screen always matches reality.
+              input.on("change", function () {
+                var raw = g(this).gInputBox("value"),
+                  v = isVertical ? n.stringToPointX(raw) : n.stringToPointY(raw);
+                "number" == typeof v &&
+                  isFinite(v) &&
+                  g(this).gInputBox(
+                    "value",
+                    isVertical
+                      ? n.pointToStringX(v, l)
+                      : n.pointToStringY(v, l)
+                  );
+              });
+              g("<button></button>")
+                .text("×")
+                .css({ marginLeft: "4px" })
+                .on("click", function () {
+                  row.remove();
+                })
+                .appendTo(row);
+              row.data("input", input);
+              return row;
+            };
+          // Tag each seeded row with its original array index so the
+          // double-clicked guide (e.guideIndex, below) can be found and
+          // highlighted after the list is built -- rows added later via
+          // "+ Add" don't get one, they're new and have nothing to match.
+          for (var i = 0; i < arr.length; i++)
+            addRow(arr[i]).data("seedIndex", i);
+          g("<button></button>")
+            .text("+ Add")
+            .css({ marginTop: "6px" })
+            .on("click", function () {
+              addRow(0);
+            })
+            .appendTo(col);
+          col.data("readAll", function () {
+            var out = [];
+            return (
+              list.children(".g-guides-manage-row").each(function () {
+                var input = g(this).data("input"),
+                  raw = input.gInputBox("value"),
+                  v = isVertical
+                    ? n.stringToPointX(raw)
+                    : n.stringToPointY(raw);
+                "number" == typeof v && isFinite(v) && out.push(v);
+              }),
+              out
+            );
+          });
+          return col;
+        };
+        var hCol = makeColumn("Horizontal Guides", !1, hgl),
+          vCol = makeColumn("Vertical Guides", !0, vgl);
+        // Identify the specific guide that was double-clicked so it can be
+        // scrolled to and its value selected below -- e.guideIndex/
+        // e.isVertical come straight from GSelectTool's double-click
+        // dispatch (see this method's header comment); absent (undefined,
+        // not >= 0) for any other way this dialog might open, in which
+        // case nothing is preselected. The text selection itself (below,
+        // after open) is the only visual indicator -- an outline on top of
+        // that was redundant per feedback, dropped.
+        var targetRow = null;
+        if (e && e.guideIndex >= 0) {
+          var targetCol = e.isVertical ? vCol : hCol;
+          targetRow = targetCol
+            .find(".g-guides-manage-row")
+            .filter(function () {
+              return g(this).data("seedIndex") === e.guideIndex;
+            })
+            .first();
+        }
+        var closeDialog = function () {
+            window.removeEventListener("keydown", globalKeydown, !0);
+            d.gDialog("close");
+          },
+          save = function () {
+            var newHgl = hCol.data("readAll")(),
+              newVgl = vCol.data("readAll")();
+            t._editor.beginTransaction();
+            try {
+              n.setProperties(["hgl", "vgl"], [newHgl, newVgl]);
+            } finally {
+              t._editor.commitTransaction("Change guides");
+            }
+            closeDialog();
+          };
+        // Enter twice to finish: the first Enter inside a row field commits
+        // that field (gInputBox's own triggerChangeOnEnter already blurs
+        // it, which is what runs the reformat-to-evaluated-value handler
+        // above) -- a second Enter right after, with focus no longer on
+        // any field, means "I'm done" and saves. Tracked via e.target (the
+        // element the key was actually pressed in) rather than
+        // document.activeElement, since blur() has already run by the time
+        // this listener runs even for the first Enter -- activeElement
+        // would already look the same ("nothing focused") for both
+        // presses, e.target doesn't.
+        //
+        // Registered on the CAPTURE phase, not bubble: confirmed via
+        // instrumented testing that a bare Enter keypress with nothing
+        // interactive focused (exactly the state right after the first
+        // Enter's blur) never reaches a bubble-phase window listener in
+        // this Electron build -- something upstream (most likely Electron's
+        // own menu-accelerator handling, given autoHideMenuBar's own
+        // keyboard involvement) intercepts it before bubble. The capture
+        // phase reliably sees every Enter press regardless, confirmed the
+        // same way.
+        var pendingCommitEnter = !1,
+          globalKeydown = function (e) {
+            if ("Enter" !== e.key) return void (pendingCommitEnter = !1);
+            var fromRowInput =
+              g(e.target).closest(".g-guides-manage-row").length > 0;
+            if (fromRowInput) return void (pendingCommitEnter = !0);
+            pendingCommitEnter && (e.preventDefault(), save()),
+              (pendingCommitEnter = !1);
+          };
+        window.addEventListener("keydown", globalKeydown, !0);
+        g("<hr/>").appendTo(d);
+        g("<div></div>")
+          .addClass("g-dialog-footer")
+          .append(
+            g("<button></button>")
+              .text("Cancel")
+              .on("click", closeDialog)
+          )
+          .append(
+            g("<button></button>")
+              .addClass("primary")
+              .text("Save")
+              .on("click", save)
+          )
+          .appendTo(d);
+        d.gDialog("open", !0);
+        targetRow &&
+          targetRow.length &&
+          (targetRow[0].scrollIntoView({ block: "center" }),
+          targetRow.data("input").trigger("focus").trigger("select"));
+      }),
       (K.prototype._updateScene = function (e) {
         if (
           (this._scene &&
@@ -308,6 +553,11 @@ function (e, t, n) {
               this._modifiedEvent,
               this
             ),
+            this._guideEditRequestDomListener &&
+              window.removeEventListener(
+                "gravit:guide-edit-request",
+                this._guideEditRequestDomListener
+              ),
             this._editor.removeAllEventListeners(),
             this._scene
               .getDictionary()
@@ -396,6 +646,16 @@ function (e, t, n) {
               void 0,
               void 0,
               !0
+            ),
+            (this._guideEditRequestDomListener ||
+              (this._guideEditRequestDomListener = (e) => {
+                e.detail &&
+                  e.detail.editor === this._editor &&
+                  this._guideEditRequestEvent(e.detail);
+              })),
+            window.addEventListener(
+              "gravit:guide-edit-request",
+              this._guideEditRequestDomListener
             ),
             this._scene
               .getDictionary()
@@ -1674,25 +1934,97 @@ function (e, t, n) {
                           ? g(t)
                           : r("GZIP compression fail");
                     };
-                    // Embed a JPEG preview (data URL) as the first JSON key so
-                    // Windows Explorer thumbnail providers can extract it. The
-                    // app/Gravit deserializer ignores this unknown root key.
-                    var inject = function (url) {
+                    // Author info (first/last name, email) from the local
+                    // profile — see routes/user.js. Same "unknown root key
+                    // the Gravit deserializer just ignores" trick as
+                    // _preview below; resolves null if no profile is set.
+                    //
+                    // gDesigner.getUser() returns a Promise (Je.prototype.
+                    // getUser, 1491_Je.js:2796 -- `return new Promise(async
+                    // (e, t) => {...})`), not the user object directly. An
+                    // earlier version of this called it synchronously and
+                    // read methods straight off the returned Promise, which
+                    // are of course undefined -- silently produced an
+                    // always-null author on every save, confirmed by
+                    // actually saving a file and inspecting it, not just
+                    // reading the code. Kicked off here (in parallel with
+                    // the preview build below, same as it) rather than
+                    // awaited inline, and given its own short timeout so a
+                    // slow/hanging user fetch can never delay or block a
+                    // save the way the preview's own 4s timeout guards that.
+                    var authorPromise = new Promise(function (resolve) {
                       try {
                         if (
-                          url &&
-                          "string" == typeof e &&
-                          "{" === e.charAt(0)
+                          "undefined" == typeof gDesigner ||
+                          !gDesigner.getUser
                         )
-                          return finish(
-                            "{" +
-                              '"_preview":' +
-                              JSON.stringify(url) +
-                              "," +
-                              e.slice(1)
-                          );
-                      } catch (x) {}
-                      return finish(e);
+                          return resolve(null);
+                        var done = !1,
+                          to = setTimeout(function () {
+                            done || ((done = !0), resolve(null));
+                          }, 2000);
+                        gDesigner
+                          .getUser()
+                          .then(function (u) {
+                            if (done) return;
+                            (done = !0), clearTimeout(to);
+                            try {
+                              if (!u) return resolve(null);
+                              var name = u.getFirstName
+                                  ? u.getFirstName()
+                                  : "",
+                                lastName = u.getLastName
+                                  ? u.getLastName()
+                                  : "",
+                                email = u.getEmail ? u.getEmail() : "";
+                              resolve(
+                                name || lastName || email
+                                  ? {
+                                      name: name,
+                                      lastName: lastName,
+                                      email: email,
+                                    }
+                                  : null
+                              );
+                            } catch (ax) {
+                              resolve(null);
+                            }
+                          })
+                          .catch(function () {
+                            done || ((done = !0), clearTimeout(to), resolve(null));
+                          });
+                      } catch (ex) {
+                        resolve(null);
+                      }
+                    });
+                    // Embed a JPEG preview (data URL) and the author's local
+                    // profile as the first JSON keys so Windows Explorer
+                    // thumbnail providers can extract the preview, and so a
+                    // document records who last saved it. The app/Gravit
+                    // deserializer ignores these unknown root keys.
+                    var inject = function (url) {
+                      authorPromise
+                        .then(function (author) {
+                          try {
+                            if ("string" == typeof e && "{" === e.charAt(0)) {
+                              var prefix = "";
+                              if (author)
+                                prefix +=
+                                  '"_author":' +
+                                  JSON.stringify(author) +
+                                  ",";
+                              if (url)
+                                prefix +=
+                                  '"_preview":' + JSON.stringify(url) + ",";
+                              if (prefix)
+                                return finish("{" + prefix + e.slice(1));
+                            }
+                          } catch (x) {}
+                          finish(e);
+                        })
+                        .catch(function () {
+                          finish(e);
+                        });
                     };
                     try {
                       var _done = !1,

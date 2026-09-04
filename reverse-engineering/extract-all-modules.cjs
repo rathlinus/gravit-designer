@@ -10,9 +10,17 @@ const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const OUTPUT_DIR = path.join(__dirname, 'src');
 const MODULES_DIR = path.join(OUTPUT_DIR, 'modules');
 
+// Defaults to designer.browser.js (the pristine reference bundle) as before.
+// Pass a filename in public/ (e.g. SOURCE_BUNDLE=designer.browser.dev.js) to
+// re-extract from whatever's actually live instead — needed when a module
+// was hand-patched directly into the compiled bundle rather than through
+// this src/modules/ -> npm run build pipeline, which leaves this pipeline's
+// own output stale relative to reality until re-run against the real source.
+const SOURCE_BUNDLE = process.env.SOURCE_BUNDLE || 'designer.browser.js';
+
 function parseBundle() {
-    console.log('Reading designer.browser.js...');
-    const code = fs.readFileSync(path.join(PUBLIC_DIR, 'designer.browser.js'), 'utf8');
+    console.log(`Reading ${SOURCE_BUNDLE}...`);
+    const code = fs.readFileSync(path.join(PUBLIC_DIR, SOURCE_BUNDLE), 'utf8');
     console.log(`Bundle size: ${(code.length / 1024 / 1024).toFixed(2)} MB\n`);
     
     console.log('Parsing with Acorn (this may take a moment)...');

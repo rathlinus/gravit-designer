@@ -1,6 +1,6 @@
 {
   "name": "gravit-designer-local",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Locally hosted Gravit Designer with reverse-engineered module system",
   "main": "electron-main.js",
@@ -20,15 +20,16 @@
     "dist:win": "electron-builder --win",
     "dist:linux": "electron-builder --linux",
     "dist:mac": "electron-builder --mac",
-    "dist:all": "electron-builder --win --linux --mac"
+    "dist:all": "electron-builder --win --linux --mac",
+    "linux:register-mime": "node scripts/register-linux-mime.cjs"
   },
   "dependencies": {
     "express": "^5.1.0",
     "ws": "^8.18.2"
   },
   "devDependencies": {
-    "electron": "33.3.1",
-    "electron-builder": "^25.1.8"
+    "electron": "^43.4.0",
+    "electron-builder": "^26.15.3"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -41,11 +42,22 @@
     },
     "files": [
       "electron-main.js",
+      "preload.js",
       "server.js",
       "routes/**/*",
       "public/**/*",
       "docs/**/*",
+      "packaging/**/*",
+      "scripts/register-linux-mime.cjs",
       "package.json"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "gvdesign",
+        "name": "Gravit Design",
+        "description": "Gravit Designer document",
+        "mimeType": "application/x-gravit-design"
+      }
     ],
     "win": {
       "target": [
@@ -78,15 +90,9 @@
           "arch": [
             "x64"
           ]
-        },
-        {
-          "target": "deb",
-          "arch": [
-            "x64"
-          ]
         }
       ],
-      "icon": "public/assets/prerendered",
+      "icon": "public/assets/prerendered/linux",
       "category": "Graphics"
     },
     "mac": {

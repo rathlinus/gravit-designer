@@ -44,3 +44,7 @@ releases/
 # Package manager locks
 package-lock.json
 
+# Claude Code
+.claude/
+CLAUDE.md
+

@@ -33531,6 +33531,14 @@
           ga2: null,
           hgl: null,
           vgl: null,
+          gll: null,
+          // Custom ruler origin (Feature 3): raw scene-space X/Y where the
+          // ruler's "0" is redefined to. null = "use page top-left" (the
+          // app's original default), not (0,0) literally -- everything that
+          // reads these goes through getRulerOriginX/Y below rather than the
+          // raw property, so the null-default is resolved in one place.
+          rox: null,
+          roy: null,
           name: null,
           _links: {},
           __ids: [],
@@ -34091,6 +34099,35 @@
         }),
         (Q.prototype.pointToString = function (e, t) {
           return this.lengthToString(new A(e, null), t);
+        }),
+        // Ruler-origin-aware variants (Feature 3). pointToString/stringToPoint
+        // above are also used for plain lengths (widths, radii, margins...)
+        // that have no absolute page position and must never be shifted by
+        // the origin, and they take no axis argument (rox and roy can
+        // differ), so the offset can't live inside them -- these wrappers
+        // exist instead for the specific call sites that display/parse an
+        // actual X or Y page coordinate (guide positions, ruler ticks).
+        (Q.prototype.getRulerOriginX = function () {
+          var e = this.getProperty("rox");
+          return "number" == typeof e ? e : 0;
+        }),
+        (Q.prototype.getRulerOriginY = function () {
+          var e = this.getProperty("roy");
+          return "number" == typeof e ? e : 0;
+        }),
+        (Q.prototype.pointToStringX = function (e, t) {
+          return this.pointToString(e - this.getRulerOriginX(), t);
+        }),
+        (Q.prototype.pointToStringY = function (e, t) {
+          return this.pointToString(e - this.getRulerOriginY(), t);
+        }),
+        (Q.prototype.stringToPointX = function (e) {
+          var t = this.stringToPoint(e);
+          return null === t ? null : t + this.getRulerOriginX();
+        }),
+        (Q.prototype.stringToPointY = function (e) {
+          var t = this.stringToPoint(e);
+          return null === t ? null : t + this.getRulerOriginY();
         }),
         (Q.prototype.getElementsByBBox = function (e, t) {
           var i = [];
@@ -59512,6 +59549,29 @@
           if (((this._mDownTime1 = null), (this._mDownTime2 = null), t))
             return !0;
           if (this._editor.getCurrentInlineEditorNode()) return !0;
+          // Double-clicking an existing guide (vs. empty ruler/canvas) opens its
+          // precise-value editor instead of the normal element/inline-edit flow.
+          // Dispatched as a plain DOM CustomEvent on window rather than through
+          // GObject's typed event system: that system hands out a sequential
+          // __gtype_id__ to every class at GObject.inherit() time from one
+          // shared counter, keyed on load order, and registering a new typed
+          // event class here shifts every class defined after it, which broke
+          // an unrelated listener elsewhere. A window CustomEvent is also the
+          // natural fit for an engine-layer (plain DOM) module signaling
+          // app-layer (jQuery) code to show a dialog.
+          if (this._guideLineUnderMouse)
+            return (
+              window.dispatchEvent(
+                new CustomEvent("gravit:guide-edit-request", {
+                  detail: {
+                    editor: this._editor,
+                    isVertical: this._guideLineUnderMouse.isVertical,
+                    guideIndex: this._guideLineUnderMouse.guideIndex,
+                  },
+                }),
+              ),
+              !0
+            );
           var i = !1;
           if (
             (this._clickedElement &&
@@ -60534,7 +60594,8 @@
             var r = null;
             if (
               (!this._mode || this._mode == pe._Mode.Transforming) &&
-              this._view.getViewConfiguration().guideLinesVisible
+              this._view.getViewConfiguration().guideLinesVisible &&
+              !this._scene.getProperty("gll")
             ) {
               var o = e.getX(),
                 a = e.getY(),
@@ -112864,18 +112925,34 @@
                       ? (_ = 10 * (v = Math.round(_ / 10)))
                       : (v = Math.round(_ / 10)),
               y && ((_ /= f), (v /= f)));
+            // Ruler-origin support (Feature 3): rox/roy (raw scene-space,
+            // read via the scene's getRulerOriginX/Y so a null/absent
+            // property still means "no shift") relabel which value reads as
+            // "0" without moving a single tick's pixel position. O is that
+            // origin converted into this loop's display-unit domain (divide
+            // the raw value by g, the same "1 unit -> raw points" factor
+            // everything else here already uses). The sweep (b/C/w/E/x) is
+            // done in that origin-relative domain so round-number major
+            // ticks land at nice numbers relative to the custom origin, then
+            // O is added back only when computing S, the actual screen
+            // pixel, so tick positions stay anchored to the true (absolute)
+            // page geometry regardless of where the origin marker is.
+            var O =
+              (this._orientation === h.Orientation.Vertical
+                ? this._scene.getRulerOriginY()
+                : this._scene.getRulerOriginX()) / g;
             for (
-              var b = (-this._offset * d) / g,
+              var b = (-this._offset * d) / g - O,
                 C = Math.ceil(b / v) * v,
                 w = Math.ceil(b / _) * _,
-                E = ((u - this._offset) * d) / g,
+                E = ((u - this._offset) * d) / g - O,
                 B = "",
                 x = C,
                 P = -9;
               x < E;
               x += v, ++P
             ) {
-              var S = Math.round((x / d) * g) + this._offset;
+              var S = Math.round(((x + O) / d) * g) + this._offset;
               (a.isEqualEps(x, w, 0.01 / f) && (P = Math.floor(10 * e)),
                 P % Math.floor(10 * e) == 0
                   ? ((B = a.round(x, !1, y ? m : 0)), (A = c))
@@ -112891,7 +112968,9 @@
         (h.prototype._afterPropertiesChangeEvent = function (e) {
           !e.temporary &&
             e.node === this._scene &&
-            e.properties.indexOf("ut") >= 0 &&
+            (e.properties.indexOf("ut") >= 0 ||
+              e.properties.indexOf("rox") >= 0 ||
+              e.properties.indexOf("roy") >= 0) &&
             (this._isUnitRuler ? this._updateUnitRuler() : this._paint());
         }),
         (h.prototype._createUnitRuler = function (e) {
@@ -236446,6 +236525,9 @@
         (D.prototype._guideLineViewPoint = null),
         (D.prototype._guideLinePosition = null),
         (D.prototype._guideLineInfo = null),
+        (D.prototype._originCrosshairV = null),
+        (D.prototype._originCrosshairH = null),
+        (D.prototype._originPosition = null),
         (D.prototype._lastFocus = null),
         (D.prototype._inputListener = null),
         (D.prototype._inputListenerCompStart = null),
@@ -236463,6 +236545,16 @@
                 o.Down,
                 this._rulerDownLister,
                 this,
+              ),
+              this._unitRuler.addEventListener(
+                o.Down,
+                this._cornerDownListener,
+                this,
+              ),
+              this._unitRuler.addEventListener(
+                o.DblClick,
+                this._cornerDblClickListener,
+                this,
               ))
             : !e &&
               this._horizontalRuler &&
@@ -236474,6 +236566,16 @@
               this._verticalRuler.removeEventListener(
                 o.Down,
                 this._rulerDownLister,
+                this,
+              ),
+              this._unitRuler.removeEventListener(
+                o.Down,
+                this._cornerDownListener,
+                this,
+              ),
+              this._unitRuler.removeEventListener(
+                o.DblClick,
+                this._cornerDblClickListener,
                 this,
               ),
               a.prototype.setRulers.call(this, e));
@@ -236528,7 +236630,7 @@
                   this._horizontalRuler.getHeight()
                 : this._viewOffset[1];
               this.updateInlineHint(
-                this._editor.getScene().pointToString(t.getX(), 1) +
+                this._editor.getScene().pointToStringX(t.getX(), 1) +
                   this._editor.getScene().getProperty("ut"),
                 new v(e.getX(), i * n + 3),
                 d.Side.TOP_CENTER,
@@ -236539,7 +236641,7 @@
                 ? this._verticalRuler.getX() + this._verticalRuler.getWidth()
                 : this._viewOffset[0];
               this.updateInlineHint(
-                this._editor.getScene().pointToString(t.getY(), 1) +
+                this._editor.getScene().pointToStringY(t.getY(), 1) +
                   this._editor.getScene().getProperty("ut"),
                 new v(i * r + 3, e.getY()),
                 d.Side.LEFT_CENTER,
@@ -236844,6 +236946,115 @@
         }),
         (D.prototype._guideMoveModifierChangeListener = function (e) {
           e.changed.metaKey && this.moveGuideLine(this._guideLineViewPoint);
+        }),
+        // Custom ruler origin (Feature 3): drag from the corner square
+        // between the two rulers (this._unitRuler, wired in setRulers above)
+        // to set a new (0,0); double-click the same corner to reset. This is
+        // new code -- that corner had no listeners before this feature.
+        (D.prototype._cornerDownListener = function (e) {
+          (e.stopPropagation(), this._startMoveRulerOrigin());
+          var t = function (e) {
+              this._moveRulerOrigin(e.client);
+            },
+            i = function (e) {
+              (this.removeEventListener(o.Move, t, this),
+                this.removeEventListener(o.Release, i, this),
+                this._finishMoveRulerOrigin());
+            };
+          (this.addEventListener(o.Move, t, this),
+            this.addEventListener(o.Release, i, this));
+        }),
+        (D.prototype._startMoveRulerOrigin = function () {
+          // Same drag-ghost div pattern startMoveGuideLine uses for a single
+          // guide, just two of them at once (a full crosshair, since an
+          // origin is a point, not a single-axis line).
+          ((this._originCrosshairV = document.createElement("div")),
+            (this._originCrosshairV.style.position = "absolute"),
+            (this._originCrosshairV.style.top = "0px"),
+            (this._originCrosshairV.style.bottom = "0px"),
+            (this._originCrosshairV.style.width = "1px"),
+            (this._originCrosshairV.style.backgroundColor =
+              c.guideLineHintColor),
+            (this._originCrosshairH = document.createElement("div")),
+            (this._originCrosshairH.style.position = "absolute"),
+            (this._originCrosshairH.style.left = "0px"),
+            (this._originCrosshairH.style.right = "0px"),
+            (this._originCrosshairH.style.height = "1px"),
+            (this._originCrosshairH.style.backgroundColor =
+              c.guideLineHintColor),
+            this._htmlElement.insertBefore(
+              this._originCrosshairV,
+              this._inlineHintDiv,
+            ),
+            this._htmlElement.insertBefore(
+              this._originCrosshairH,
+              this._inlineHintDiv,
+            ));
+        }),
+        (D.prototype._moveRulerOrigin = function (e) {
+          if (this._originCrosshairV && this._originCrosshairH) {
+            var t = this.getViewTransform().mapPoint(e);
+            // Verbatim the same guide-snapping call moveGuideLine makes --
+            // snaps the crosshair to nearby hgl/vgl guides on both axes at
+            // once, no new snapping math needed.
+            (this._editor.getGuides().beginMap(),
+              (t = this._editor.getGuides().mapPoint(t, null, [p.ID, y.ID])),
+              this._editor.getGuides().finishMap(),
+              (this._originPosition = t));
+            var i = this.getWorldTransform().mapPoint(t),
+              n = w.getScreenDPI();
+            ((this._originCrosshairV.style.left = i.getX() / n + "px"),
+              (this._originCrosshairH.style.top = i.getY() / n + "px"));
+            var r = this._editor.getScene();
+            this.updateInlineHint(
+              r.pointToString(t.getX(), 1) +
+                r.getProperty("ut") +
+                ", " +
+                r.pointToString(t.getY(), 1) +
+                r.getProperty("ut"),
+              new v(i.getX() + 3, i.getY() + 3),
+              d.Side.TOP_LEFT,
+            );
+          }
+        }),
+        (D.prototype._finishMoveRulerOrigin = function () {
+          if (this._originCrosshairV && this._originCrosshairH) {
+            var e = this._originPosition,
+              t = this._editor.getScene();
+            if (
+              e &&
+              (e.getX() !== t.getRulerOriginX() ||
+                e.getY() !== t.getRulerOriginY())
+            ) {
+              this._editor.beginTransaction();
+              try {
+                t.setProperties(["rox", "roy"], [e.getX(), e.getY()]);
+              } finally {
+                this._editor.commitTransaction("Change ruler origin");
+              }
+            }
+            (this._htmlElement.removeChild(this._originCrosshairV),
+              this._htmlElement.removeChild(this._originCrosshairH),
+              (this._originCrosshairV = null),
+              (this._originCrosshairH = null),
+              (this._originPosition = null),
+              this.updateInlineHint(null));
+          }
+        }),
+        (D.prototype._cornerDblClickListener = function (e) {
+          e.stopPropagation();
+          var t = this._editor.getScene();
+          if (
+            null !== t.getProperty("rox") ||
+            null !== t.getProperty("roy")
+          ) {
+            this._editor.beginTransaction();
+            try {
+              t.setProperties(["rox", "roy"], [null, null]);
+            } finally {
+              this._editor.commitTransaction("Reset ruler origin");
+            }
+          }
         }),
         (D.prototype._paintElement = function (e, t, i, n) {
           if (

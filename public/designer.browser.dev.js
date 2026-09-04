@@ -6070,6 +6070,251 @@ function (e, t, n) {
           console.error(e);
         }
       }),
+      // Double-click-to-edit-guide popup. GSelectTool._mouseDblClick in
+      // chunk.vendor.js dispatches a window CustomEvent("gravit:guide-edit-request")
+      // rather than a typed GEditor event (see comment there for why), so this
+      // listens on window and ignores events from other open documents' editors.
+      // Built inline rather than as its own dialog class/module so it doesn't
+      // need a new webpack module slot (every existing module is referenced by
+      // other modules via a fixed numeric index; inserting one in the middle
+      // would shift and break them).
+      //
+      // Opens the full bulk add/delete-multiple-guides dialog (all guides on
+      // both axes), not just the double-clicked one -- originally this
+      // opened a narrower single-field editor scoped to just that guide, and
+      // the bulk version was a separate dialog reachable only from a toolbar
+      // button. Consolidated into one dialog per user feedback: no separate
+      // toolbar entry point, and double-click should lead here directly. The
+      // double-click detail (e.isVertical/e.guideIndex) isn't used for
+      // scoping/highlighting yet -- deliberately kept simple pending
+      // feedback on how this should actually feel in use.
+      (K.prototype._guideEditRequestEvent = function (e) {
+        var g = window.$,
+          t = this,
+          n = this._scene,
+          l = n.getOptimalDecimalsCount(),
+          c = n.getProperty("ut"),
+          hgl = (n.getProperty("hgl") || []).slice(),
+          vgl = (n.getProperty("vgl") || []).slice(),
+          d = g("<div></div>").gDialog({
+            releaseOnClose: !0,
+            className: "g-guides-manage-dialog",
+          });
+        g("<div></div>")
+          .addClass("header")
+          .css({ fontSize: "14px", fontWeight: "bold", marginBottom: "12px" })
+          .append(g("<span></span>").text("Manage Guides"))
+          .appendTo(d);
+        var content = g("<div></div>")
+          .addClass("content")
+          .css({ display: "flex", gap: "16px" })
+          .appendTo(d);
+        // One column per axis: a scrollable list of value rows, each with its
+        // own remove button, plus an "add" button at the bottom. Deleting a
+        // row is just removing it from the DOM -- readAll() below only ever
+        // reads whatever rows are still there, so no separate tracking array
+        // is needed the way the single-guide dialog needs e.guideIndex.
+        var makeColumn = function (label, isVertical, arr) {
+          var col = g("<div></div>")
+              .addClass("g-guides-manage-column")
+              .css({ flex: "1 1 0" })
+              .appendTo(content),
+            list = g("<div></div>")
+              .addClass("g-guides-manage-list")
+              // overflow-x explicit, not left to default: setting only
+              // overflow-y non-visible makes browsers compute overflow-x as
+              // "auto" too (CSS spec), which was showing an unwanted
+              // horizontal scrollbar here. paddingRight reserves room for
+              // the vertical scrollbar itself so rows (input + × button,
+              // sized off the container's full width) don't overflow by
+              // the scrollbar's own width once enough rows exist to trigger
+              // it -- confirmed via screenshot with 8 guides, not guessed.
+              // maxHeight raised from an earlier, cramped 220px so the
+              // dialog opens roomy by default instead of only growing once
+              // it's already full of guides.
+              .css({
+                maxHeight: "360px",
+                overflowY: "auto",
+                overflowX: "hidden",
+                paddingRight: "4px",
+              })
+              .appendTo(
+                g("<div></div>")
+                  .css({ fontWeight: "bold", marginBottom: "6px" })
+                  .text(label)
+                  .appendTo(col)
+                  .parent()
+              ),
+            addRow = function (value) {
+              var row = g("<div></div>")
+                  .addClass("g-guides-manage-row")
+                  .css({
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "4px",
+                  })
+                  .appendTo(list),
+                input = g("<input>")
+                  .attr("type", "text")
+                  .gInputBox({ postfix: c })
+                  .gInputBox(
+                    "value",
+                    isVertical
+                      ? n.pointToStringX(value, l)
+                      : n.pointToStringY(value, l)
+                  )
+                  .css({ flex: "1 1 auto" })
+                  .appendTo(row);
+              // gInputBox evaluates a typed expression ("87+95") for min/
+              // max clamping purposes internally (GLength.parseEquationValue)
+              // but its own getter/setter never rewrites the field's
+              // displayed text to the evaluated result -- confirmed by
+              // reading its source, not assumed. That was invisible in the
+              // single-guide dialog this replaced because it closed
+              // immediately on Save; this dialog stays open while editing
+              // multiple rows, so a stale "87+95" sitting there after
+              // Enter (while the guide has already moved to 182 under it)
+              // reads as broken even though the value was applied
+              // correctly. Re-format to the evaluated number on commit,
+              // same stringToPointX/Y -> pointToStringX/Y round trip Save
+              // already does, so what's on screen always matches reality.
+              input.on("change", function () {
+                var raw = g(this).gInputBox("value"),
+                  v = isVertical ? n.stringToPointX(raw) : n.stringToPointY(raw);
+                "number" == typeof v &&
+                  isFinite(v) &&
+                  g(this).gInputBox(
+                    "value",
+                    isVertical
+                      ? n.pointToStringX(v, l)
+                      : n.pointToStringY(v, l)
+                  );
+              });
+              g("<button></button>")
+                .text("×")
+                .css({ marginLeft: "4px" })
+                .on("click", function () {
+                  row.remove();
+                })
+                .appendTo(row);
+              row.data("input", input);
+              return row;
+            };
+          // Tag each seeded row with its original array index so the
+          // double-clicked guide (e.guideIndex, below) can be found and
+          // highlighted after the list is built -- rows added later via
+          // "+ Add" don't get one, they're new and have nothing to match.
+          for (var i = 0; i < arr.length; i++)
+            addRow(arr[i]).data("seedIndex", i);
+          g("<button></button>")
+            .text("+ Add")
+            .css({ marginTop: "6px" })
+            .on("click", function () {
+              addRow(0);
+            })
+            .appendTo(col);
+          col.data("readAll", function () {
+            var out = [];
+            return (
+              list.children(".g-guides-manage-row").each(function () {
+                var input = g(this).data("input"),
+                  raw = input.gInputBox("value"),
+                  v = isVertical
+                    ? n.stringToPointX(raw)
+                    : n.stringToPointY(raw);
+                "number" == typeof v && isFinite(v) && out.push(v);
+              }),
+              out
+            );
+          });
+          return col;
+        };
+        var hCol = makeColumn("Horizontal Guides", !1, hgl),
+          vCol = makeColumn("Vertical Guides", !0, vgl);
+        // Identify the specific guide that was double-clicked so it can be
+        // scrolled to and its value selected below -- e.guideIndex/
+        // e.isVertical come straight from GSelectTool's double-click
+        // dispatch (see this method's header comment); absent (undefined,
+        // not >= 0) for any other way this dialog might open, in which
+        // case nothing is preselected. The text selection itself (below,
+        // after open) is the only visual indicator -- an outline on top of
+        // that was redundant per feedback, dropped.
+        var targetRow = null;
+        if (e && e.guideIndex >= 0) {
+          var targetCol = e.isVertical ? vCol : hCol;
+          targetRow = targetCol
+            .find(".g-guides-manage-row")
+            .filter(function () {
+              return g(this).data("seedIndex") === e.guideIndex;
+            })
+            .first();
+        }
+        var closeDialog = function () {
+            window.removeEventListener("keydown", globalKeydown, !0);
+            d.gDialog("close");
+          },
+          save = function () {
+            var newHgl = hCol.data("readAll")(),
+              newVgl = vCol.data("readAll")();
+            t._editor.beginTransaction();
+            try {
+              n.setProperties(["hgl", "vgl"], [newHgl, newVgl]);
+            } finally {
+              t._editor.commitTransaction("Change guides");
+            }
+            closeDialog();
+          };
+        // Enter twice to finish: the first Enter inside a row field commits
+        // that field (gInputBox's own triggerChangeOnEnter already blurs
+        // it, which is what runs the reformat-to-evaluated-value handler
+        // above) -- a second Enter right after, with focus no longer on
+        // any field, means "I'm done" and saves. Tracked via e.target (the
+        // element the key was actually pressed in) rather than
+        // document.activeElement, since blur() has already run by the time
+        // this listener runs even for the first Enter -- activeElement
+        // would already look the same ("nothing focused") for both
+        // presses, e.target doesn't.
+        //
+        // Registered on the CAPTURE phase, not bubble: confirmed via
+        // instrumented testing that a bare Enter keypress with nothing
+        // interactive focused (exactly the state right after the first
+        // Enter's blur) never reaches a bubble-phase window listener in
+        // this Electron build -- something upstream (most likely Electron's
+        // own menu-accelerator handling, given autoHideMenuBar's own
+        // keyboard involvement) intercepts it before bubble. The capture
+        // phase reliably sees every Enter press regardless, confirmed the
+        // same way.
+        var pendingCommitEnter = !1,
+          globalKeydown = function (e) {
+            if ("Enter" !== e.key) return void (pendingCommitEnter = !1);
+            var fromRowInput =
+              g(e.target).closest(".g-guides-manage-row").length > 0;
+            if (fromRowInput) return void (pendingCommitEnter = !0);
+            pendingCommitEnter && (e.preventDefault(), save()),
+              (pendingCommitEnter = !1);
+          };
+        window.addEventListener("keydown", globalKeydown, !0);
+        g("<hr/>").appendTo(d);
+        g("<div></div>")
+          .addClass("g-dialog-footer")
+          .append(
+            g("<button></button>")
+              .text("Cancel")
+              .on("click", closeDialog)
+          )
+          .append(
+            g("<button></button>")
+              .addClass("primary")
+              .text("Save")
+              .on("click", save)
+          )
+          .appendTo(d);
+        d.gDialog("open", !0);
+        targetRow &&
+          targetRow.length &&
+          (targetRow[0].scrollIntoView({ block: "center" }),
+          targetRow.data("input").trigger("focus").trigger("select"));
+      }),
       (K.prototype._updateScene = function (e) {
         if (
           (this._scene &&
@@ -6084,6 +6329,11 @@ function (e, t, n) {
               this._modifiedEvent,
               this
             ),
+            this._guideEditRequestDomListener &&
+              window.removeEventListener(
+                "gravit:guide-edit-request",
+                this._guideEditRequestDomListener
+              ),
             this._editor.removeAllEventListeners(),
             this._scene
               .getDictionary()
@@ -6172,6 +6422,16 @@ function (e, t, n) {
               void 0,
               void 0,
               !0
+            ),
+            (this._guideEditRequestDomListener ||
+              (this._guideEditRequestDomListener = (e) => {
+                e.detail &&
+                  e.detail.editor === this._editor &&
+                  this._guideEditRequestEvent(e.detail);
+              })),
+            window.addEventListener(
+              "gravit:guide-edit-request",
+              this._guideEditRequestDomListener
             ),
             this._scene
               .getDictionary()
@@ -7450,25 +7710,97 @@ function (e, t, n) {
                           ? g(t)
                           : r("GZIP compression fail");
                     };
-                    // Embed a JPEG preview (data URL) as the first JSON key so
-                    // Windows Explorer thumbnail providers can extract it. The
-                    // app/Gravit deserializer ignores this unknown root key.
-                    var inject = function (url) {
+                    // Author info (first/last name, email) from the local
+                    // profile — see routes/user.js. Same "unknown root key
+                    // the Gravit deserializer just ignores" trick as
+                    // _preview below; resolves null if no profile is set.
+                    //
+                    // gDesigner.getUser() returns a Promise (Je.prototype.
+                    // getUser, 1491_Je.js:2796 -- `return new Promise(async
+                    // (e, t) => {...})`), not the user object directly. An
+                    // earlier version of this called it synchronously and
+                    // read methods straight off the returned Promise, which
+                    // are of course undefined -- silently produced an
+                    // always-null author on every save, confirmed by
+                    // actually saving a file and inspecting it, not just
+                    // reading the code. Kicked off here (in parallel with
+                    // the preview build below, same as it) rather than
+                    // awaited inline, and given its own short timeout so a
+                    // slow/hanging user fetch can never delay or block a
+                    // save the way the preview's own 4s timeout guards that.
+                    var authorPromise = new Promise(function (resolve) {
                       try {
                         if (
-                          url &&
-                          "string" == typeof e &&
-                          "{" === e.charAt(0)
+                          "undefined" == typeof gDesigner ||
+                          !gDesigner.getUser
                         )
-                          return finish(
-                            "{" +
-                              '"_preview":' +
-                              JSON.stringify(url) +
-                              "," +
-                              e.slice(1)
-                          );
-                      } catch (x) {}
-                      return finish(e);
+                          return resolve(null);
+                        var done = !1,
+                          to = setTimeout(function () {
+                            done || ((done = !0), resolve(null));
+                          }, 2000);
+                        gDesigner
+                          .getUser()
+                          .then(function (u) {
+                            if (done) return;
+                            (done = !0), clearTimeout(to);
+                            try {
+                              if (!u) return resolve(null);
+                              var name = u.getFirstName
+                                  ? u.getFirstName()
+                                  : "",
+                                lastName = u.getLastName
+                                  ? u.getLastName()
+                                  : "",
+                                email = u.getEmail ? u.getEmail() : "";
+                              resolve(
+                                name || lastName || email
+                                  ? {
+                                      name: name,
+                                      lastName: lastName,
+                                      email: email,
+                                    }
+                                  : null
+                              );
+                            } catch (ax) {
+                              resolve(null);
+                            }
+                          })
+                          .catch(function () {
+                            done || ((done = !0), clearTimeout(to), resolve(null));
+                          });
+                      } catch (ex) {
+                        resolve(null);
+                      }
+                    });
+                    // Embed a JPEG preview (data URL) and the author's local
+                    // profile as the first JSON keys so Windows Explorer
+                    // thumbnail providers can extract the preview, and so a
+                    // document records who last saved it. The app/Gravit
+                    // deserializer ignores these unknown root keys.
+                    var inject = function (url) {
+                      authorPromise
+                        .then(function (author) {
+                          try {
+                            if ("string" == typeof e && "{" === e.charAt(0)) {
+                              var prefix = "";
+                              if (author)
+                                prefix +=
+                                  '"_author":' +
+                                  JSON.stringify(author) +
+                                  ",";
+                              if (url)
+                                prefix +=
+                                  '"_preview":' + JSON.stringify(url) + ",";
+                              if (prefix)
+                                return finish("{" + prefix + e.slice(1));
+                            }
+                          } catch (x) {}
+                          finish(e);
+                        })
+                        .catch(function () {
+                          finish(e);
+                        });
                     };
                     try {
                       var _done = !1,
@@ -19078,13 +19410,13 @@ function (e, t, n) {
         );
       }),
       (w.prototype.getShortcut = function () {
+        // Standard cross-platform Save As (Ctrl/Cmd+Shift+S). Was
+        // SHIFT+META+OPTION+S until GGravitCloudAction's cloud Save As (see
+        // reverse-engineering/src/modules/0448_GGravitCloudAction.js) freed
+        // this combo up by moving to it instead — reserved for local Save As
+        // now, cloud/Drive Save As once that's actually implemented.
         return this._isNativeExt
-          ? [
-              r.GKey.Constant.SHIFT,
-              r.GKey.Constant.META,
-              r.GKey.Constant.OPTION,
-              "S",
-            ]
+          ? [r.GKey.Constant.SHIFT, r.GKey.Constant.META, "S"]
           : null;
       }),
       (w.prototype.isEnabled = function (e, t) {
@@ -19578,10 +19910,18 @@ function (e, t, n) {
         return s["gravit-cloud"];
       }),
       (g.prototype.getShortcut = function () {
+        // Cloud Open/Save As both moved to the +Alt variant, freeing the
+        // plain combo for their local equivalents — GOpenAction
+        // (reverse-engineering/src/modules/0813_GOpenAction.js, Ctrl/Cmd+O)
+        // and GSaveAsAction's local Save As
+        // (reverse-engineering/src/modules/0445_GSaveAsAction.js,
+        // Shift+Ctrl/Cmd+S) — since neither cloud/Drive action is actually
+        // implemented in this self-hosted build yet. Reserved here instead
+        // until they are.
         return this._type == g.Actions.Open
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "O"]
+          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, i.GKey.Constant.OPTION, "O"]
           : this._type == g.Actions.SaveAs
-          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, "S"]
+          ? [i.GKey.Constant.SHIFT, i.GKey.Constant.META, i.GKey.Constant.OPTION, "S"]
           : null;
       }),
       (g.prototype.isEnabled = function () {
@@ -52366,6 +52706,15 @@ function (e, t, n) {
       (c.prototype.execute = function (e, t) {
         new l(
           () => {
+            // Under Electron, use the native OS Open dialog instead of the
+            // browser's File System Access picker below — real fs access
+            // means a real path, which feeds Recent Files (see
+            // public/index.html's window.__gravitOpenFromComputer); the FSA
+            // API never exposes one. Plain-browser/server.js builds (no
+            // window.gravitOpenFile) keep the original behavior unchanged.
+            if (window.gravitOpenFile && window.__gravitOpenFromComputer) {
+              return void window.__gravitOpenFromComputer(t);
+            }
             (e = e || gDesigner.getDefaultStorage()).openPrompt(
               s.FileTypes.filter((e) => e.load),
               (e) => {
@@ -97650,14 +97999,25 @@ function (e, t, n) {
         this._updateDimensions(!1, !0);
       }),
       (h.prototype._afterPropertiesChange = function (e) {
-        !e.temporary &&
+        if (!e.temporary) {
+          // rox/roy (Feature 3's custom ruler origin) live on the scene, not
+          // on the selected element(s), so the guard below (which only
+          // reacts to the elements themselves) never sees them -- without
+          // this, the X/Y fields go stale after a corner drag until the
+          // next unrelated geometry change forces a redraw.
+          this._document &&
+            e.node === this._document.getScene() &&
+            (e.properties.indexOf("rox") >= 0 ||
+              e.properties.indexOf("roy") >= 0) &&
+            this._updateDimensions();
           this._elements &&
-          this._elements.indexOf(e.node) >= 0 &&
-          this._showAnchor() &&
-          this._defineAnchorButtonState(
-            this._getVerticalAnchorValue(),
-            this._getHorizontalAnchorValue()
-          );
+            this._elements.indexOf(e.node) >= 0 &&
+            this._showAnchor() &&
+            this._defineAnchorButtonState(
+              this._getVerticalAnchorValue(),
+              this._getHorizontalAnchorValue()
+            );
+        }
       }),
       (h.prototype._settingChanged = function (e) {
         "decimals_num" === e.key && this._updateDimensions();
@@ -97722,6 +98082,26 @@ function (e, t, n) {
               switch (e) {
                 case "x":
                 case "y":
+                  // pointToStringX/Y (not the axis-less pointToString) so a
+                  // custom ruler origin (Feature 3) is reflected here too,
+                  // same as guide values already are -- w/h below are
+                  // lengths, not positions, and stay absolute regardless of
+                  // where the origin is.
+                  n =
+                    "x" === e
+                      ? this._document
+                          .getScene()
+                          .pointToStringX(
+                            t,
+                            this._document.getScene().getOptimalDecimalsCount()
+                          )
+                      : this._document
+                          .getScene()
+                          .pointToStringY(
+                            t,
+                            this._document.getScene().getOptimalDecimalsCount()
+                          );
+                  break;
                 case "w":
                 case "h":
                   n = this._document
@@ -97791,7 +98171,10 @@ function (e, t, n) {
             case "x":
             case "y":
               (r = "Move"),
-                (n = this._document.getScene().stringToPoint(t)),
+                (n =
+                  "x" === e
+                    ? this._document.getScene().stringToPointX(t)
+                    : this._document.getScene().stringToPointY(t)),
                 (o = s ? ("x" == e ? s.x : s.y) : null);
               break;
             case "w":
@@ -128284,7 +128667,10 @@ function (e, t, n) {
         },
         {
           title: new i.GLocaleKey("GSaveAsAction", "title"),
-          shortcut: [a.GKey.Constant.SHIFT, a.GKey.Constant.META, "S"],
+          // Display-only hint text for this menu entry — must track
+          // GGravitCloudAction's actual getShortcut() for Actions.SaveAs
+          // (0448_GGravitCloudAction.js), which this entry's id points at.
+          shortcut: [a.GKey.Constant.SHIFT, a.GKey.Constant.META, a.GKey.Constant.OPTION, "S"],
           id: () =>
             "".concat(v.default.ID, ".").concat(v.default.Actions.SaveAs),
           needsAction: !0,
@@ -139973,6 +140359,21 @@ function (module, exports, __webpack_require__) {
               })
             )
             .appendTo(this._htmlElement),
+          // Not wired through gDesigner's GAction registry (unlike the buttons
+          // above) -- that registry is built from a "gravit.actions" list
+          // assembled elsewhere that wasn't worth the risk of touching blind,
+          // this button just owns its own click handler and state directly,
+          // the same way _shareButton/_collaboratorsDiv below do.
+          $("<div></div>")
+            .addClass("section compound-section guide-lock-section")
+            .append(
+              (this._guideLockButton = this._createLabelButton({
+                icon: "gravit-icon-unlock",
+                label: "Lock Guides",
+                click: () => this._toggleGuideLock(),
+              }))
+            )
+            .appendTo(this._htmlElement),
           (this._exportButton = this._createLabelButton({
             action: gDesigner.getAction(GExportAction.ID),
             split: !0,
@@ -140795,6 +141196,39 @@ function (module, exports, __webpack_require__) {
           }
         });
       }),
+      // Lock-guides toolbar button. Toggles the "gll" scene property (see
+      // chunk.vendor.js: GSelectTool's guide hover/hit-test now refuses to
+      // find a guide under the mouse at all when it's set, which covers
+      // drag-to-move, drag-to-delete, and the double-click editor uniformly
+      // since they all key off that same hit-test) through the normal
+      // transaction path, so it's a regular undoable step like everything
+      // else touching guides.
+      (GToolbar.prototype._toggleGuideLock = function () {
+        var e = gDesigner.getActiveDocument();
+        if (e) {
+          var t = e.getScene(),
+            n = e.getEditor();
+          n.beginTransaction();
+          try {
+            t.setProperties(["gll"], [!t.getProperty("gll")]);
+          } finally {
+            n.commitTransaction("Toggle guide lock");
+          }
+          this._updateGuideLockButton();
+        }
+      }),
+      (GToolbar.prototype._updateGuideLockButton = function () {
+        if (this._guideLockButton) {
+          var e = gDesigner.getActiveDocument(),
+            t = !!(e && e.getScene() && e.getScene().getProperty("gll")),
+            n = this._guideLockButton.find(".action-button");
+          n.toggleClass("g-active", t),
+            this._updateIcon(
+              n.find(".icon"),
+              t ? "gravit-icon-lock" : "gravit-icon-unlock"
+            );
+        }
+      }),
       (GToolbar.prototype._updateActions = function () {
         this._htmlElement
           .find(".toolbar-button[data-action]")
@@ -140815,7 +141249,8 @@ function (module, exports, __webpack_require__) {
               "g-disabled",
               !o || !o.isAvailable() || !o.isEnabled()
             );
-          });
+          }),
+          this._updateGuideLockButton();
       }),
       (GToolbar.prototype._selectionChangedEvent = function (e) {
         this._updateActions(), this._updateContextTools();

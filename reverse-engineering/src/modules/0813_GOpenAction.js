@@ -46,12 +46,21 @@ function (e, t, n) {
       (c.prototype.execute = function (e, t) {
         new l(
           () => {
+            // Under Electron, use the native OS Open dialog instead of the
+            // browser's File System Access picker below — real fs access
+            // means a real path, which feeds Recent Files (see
+            // public/index.html's window.__gravitOpenFromComputer); the FSA
+            // API never exposes one. Plain-browser/server.js builds (no
+            // window.gravitOpenFile) keep the original behavior unchanged.
+            if (window.gravitOpenFile && window.__gravitOpenFromComputer) {
+              return void window.__gravitOpenFromComputer(t);
+            }
             (e = e || gDesigner.getDefaultStorage()).openPrompt(
               s.FileTypes.filter((e) => e.load),
               (e) => {
                 gDesigner.openDocument(e), t && t();
               },
-              !1
+              !0
             );
           },
           () => {

@@ -3,6 +3,7 @@ const path = require("path");
 const http = require("http");
 const { setupWebSocket } = require("./routes/ws");
 const userRoutes = require("./routes/user");
+const { router: recentFilesRoutes } = require("./routes/recent-files");
 
 const app = express();
 const port = process.env.PORT || 3100;
@@ -80,10 +81,11 @@ app.get("/pro/paywall/:page", (_req, res) => {
   res.send("");
 });
 
-// File listing
-app.get("/file", (_req, res) => {
-  res.json([]);
-});
+// File listing — powers the "Open" dialog's Recent Files strip. Nothing ever
+// calls addRecentFile() in this plain-Node entrypoint (no local file paths to
+// track here — see routes/recent-files.js), so this just serves an empty
+// list, same as before. electron-main.js populates and serves the real thing.
+app.use(recentFilesRoutes);
 
 // Catch /null requests (client bug sends null URL)
 app.get("/null", (_req, res) => {
