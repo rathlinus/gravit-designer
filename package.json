@@ -1,6 +1,6 @@
 {
   "name": "gravit-designer-local",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Locally hosted Gravit Designer with reverse-engineered module system",
   "main": "electron-main.js",
