@@ -354,6 +354,20 @@ if (!app.requestSingleInstanceLock()) {
     return result.canceled ? null : result.filePath;
   });
 
+  // Backs Ctrl/Cmd+O (GOpenAction, patched to call this instead of its
+  // original browser-native showOpenFilePicker() — see public/index.html's
+  // window.__gravitOpenFromComputer). Real fs access means a real path,
+  // unlike the File System Access API, so this is the one local-open path
+  // that can feed Recent Files — readOpenFilePayload() already does that.
+  ipcMain.handle("show-open-dialog", async () => {
+    const result = await dialog.showOpenDialog(mainWindow, {
+      properties: ["openFile"],
+      filters: [{ name: "Gravit Design", extensions: ["gvdesign"] }],
+    });
+    if (result.canceled || !result.filePaths[0]) return null;
+    return readOpenFilePayload(result.filePaths[0]);
+  });
+
   app.on("ready", async () => {
     const openPath = findOpenFilePath(process.argv);
     if (openPath) {

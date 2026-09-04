@@ -22,4 +22,8 @@ contextBridge.exposeInMainWorld("gravitOpenFile", {
   // — resolves to the chosen absolute path, or null if cancelled.
   showSaveDialog: (defaultDir, defaultName, filters) =>
     ipcRenderer.invoke("show-save-dialog", defaultDir, defaultName, filters),
+  // Native Open dialog (Ctrl/Cmd+O, see public/index.html's
+  // window.__gravitOpenFromComputer and GOpenAction's patched execute()) —
+  // resolves to {filename, path, data}, or null if cancelled.
+  showOpenDialog: () => ipcRenderer.invoke("show-open-dialog"),
 });

@@ -215,6 +215,31 @@
         window.gravitOpenFile.onOpenFile(function (payload) {
           openBytes(payload.filename, payload.path, payload.data);
         });
+
+        // Ctrl/Cmd+O (GOpenAction, see reverse-engineering/src/modules/
+        // 0813_GOpenAction.js) is patched to call this instead of its
+        // original browser-native showOpenFilePicker() flow, under
+        // Electron only (that patch checks for window.gravitOpenFile first,
+        // same guard as everywhere else here, so the plain-browser/server.js
+        // build keeps the original File System Access behavior unchanged).
+        // Reuses the exact same makeFileItem()/openBytes() a file-association
+        // open uses, so a document opened this way gets a real path, saves
+        // back to it on Ctrl+S, and — the actual point — registers in Recent
+        // Files, none of which the File System Access API can give us (it
+        // never exposes a real filesystem path to the page).
+        window.__gravitOpenFromComputer = function (onDone) {
+          window.gravitOpenFile
+            .showOpenDialog()
+            .then(function (result) {
+              if (result) openBytes(result.filename, result.path, result.data);
+            })
+            .catch(function (err) {
+              console.error("gravitOpenFile: showOpenDialog failed:", err);
+            })
+            .finally(function () {
+              onDone && onDone();
+            });
+        };
       })();
     </script>
   </body>
