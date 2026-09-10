@@ -3,20 +3,59 @@ const path = require("path");
 const http = require("http");
 const { setupWebSocket } = require("./routes/ws");
 const userRoutes = require("./routes/user");
+const fileRoutes = require("./routes/files");
 
 const app = express();
 const port = process.env.PORT || 3100;
 
+// Request logger (first, so every request is logged regardless of which
+// handler ends up serving it — most routes end the response without
+// calling next(), so a logger placed later would never see them)
+app.use((req, _res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
 // Body parsing
 app.use(express.json());
+
+// /.well-known (RFC 8615). Mounted separately because express.static
+// refuses to serve paths containing a dot-prefixed segment; with the
+// prefix stripped the remaining path is an ordinary filename. The service
+// worker precaches .well-known/assetlinks.json, and a single 404 fails
+// the whole precache install, so this has to actually resolve.
+app.use(
+  "/.well-known",
+  express.static(path.join(__dirname, "public", ".well-known")),
+);
 
 // Static files - public dir (main app)
 app.use(
   express.static(path.join(__dirname, "public"), {
     setHeaders: (res, filePath) => {
       const name = path.basename(filePath);
-      if (name === "chunk.vendor.js" || name === "designer.browser.js") {
+      // index.html loads designer.browser.dev.js, not designer.browser.js,
+      // so the immutable header was being applied to a file nothing
+      // requests while the 6.7MB bundle actually served got no caching
+      // policy at all.
+      if (
+        name === "chunk.vendor.js" ||
+        name === "designer.browser.js" ||
+        name === "designer.browser.dev.js"
+      ) {
         res.setHeader("Cache-Control", "public, max-age=2592000, immutable");
+      }
+      // These must always be revalidated (not cached at a CDN/browser
+      // level): index.html and cacher.js so a new deploy — and any future
+      // service-worker precache update — is actually seen, and
+      // save-to-server.js since it changes independently of the app bundle
+      // and has no cache-busting filename.
+      if (
+        name === "index.html" ||
+        name === "cacher.js" ||
+        name === "save-to-server.js"
+      ) {
+        res.setHeader("Cache-Control", "no-cache");
       }
     },
   }),
@@ -80,20 +119,12 @@ app.get("/pro/paywall/:page", (_req, res) => {
   res.send("");
 });
 
-// File listing
-app.get("/file", (_req, res) => {
-  res.json([]);
-});
+// File storage (list/create/read/update/delete projects, backed by PROJECTS_DIR)
+app.use(fileRoutes);
 
 // Catch /null requests (client bug sends null URL)
 app.get("/null", (_req, res) => {
   res.json({});
-});
-
-// Request logger (after static, so only API hits are logged)
-app.use((req, _res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  next();
 });
 
 // HTTP + WebSocket server

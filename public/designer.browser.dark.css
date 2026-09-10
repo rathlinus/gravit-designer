@@ -24611,6 +24611,14 @@ body.pro-license
   > .g-dialog-content
   > .sidebar
   > .sidebar-options
+  > .option.server-option
+  > .option-icon {
+  background-image: url("assets/icon/server-welcome.svg");
+}
+.g-dialog.g-new-document-dialog
+  > .g-dialog-content
+  > .sidebar
+  > .sidebar-options
   > .option
   > .option-icon {
   width: 35px;

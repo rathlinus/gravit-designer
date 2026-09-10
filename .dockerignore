@@ -1,0 +1,7 @@
+node_modules
+releases
+reverse-engineering
+.git
+.github
+projects
+*.log

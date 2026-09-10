@@ -248,13 +248,46 @@ Gravit Designer ships with two themes out of the box:
 
 ## Configuration
 
-| Variable | Default | Description                                |
-| -------- | ------- | ------------------------------------------ |
-| `PORT`   | `3100`  | Server port (set via environment variable) |
+| Variable      | Default      | Description                                |
+| ------------- | ------------ | ------------------------------------------- |
+| `PORT`        | `3100`       | Server port (set via environment variable) |
+| `PROJECTS_DIR`| `./projects` | Where design files are stored on disk      |
 
 ```bash
 # Run on a custom port
 PORT=8080 npm start
+```
+
+## Project Storage
+
+Documents you save are stored server-side under `PROJECTS_DIR` — one
+`<id>.meta.json` metadata file and one `<id>.gvdesign` content file per
+project (plus an optional `<id>.thumb.png`). This is a from-scratch,
+file-based implementation of the save/open REST protocol the client already
+ships with (`routes/files.js` + `lib/fileStore.js`); it's not backed by a
+database, so it's meant for personal, single-server use rather than a
+multi-user hosted product. There's no nested folders, sharing, or version
+history in this version — every project lives in one flat list.
+
+## Docker
+
+Run it as a container with your projects persisted to a folder on the host:
+
+```bash
+docker compose up -d --build
+```
+
+This builds the image, starts the server on **http://localhost:3100**, and
+bind-mounts `./projects` (created next to `docker-compose.yml`) to
+`/data/projects` inside the container — so your designs live on the host
+and survive container rebuilds/updates, and are reachable from any device
+on your network that can reach the host.
+
+Without Compose:
+
+```bash
+docker build -t gravit-designer .
+docker run -d -p 3100:3100 -v "$(pwd)/projects:/data/projects" gravit-designer
 ```
 
 ## Building Desktop Apps

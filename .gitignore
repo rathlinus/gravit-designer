@@ -37,6 +37,9 @@ coverage/
 .npm/
 .eslintcache
 
+# Local project storage (see PROJECTS_DIR)
+/projects/
+
 
 # Build output
 releases/

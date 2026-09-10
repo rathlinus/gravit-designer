@@ -1,0 +1,11 @@
+services:
+  gravit-designer:
+    build: .
+    ports:
+      - "3100:3100"
+    environment:
+      - PORT=3100
+      - PROJECTS_DIR=/data/projects
+    volumes:
+      - ./projects:/data/projects
+    restart: unless-stopped
