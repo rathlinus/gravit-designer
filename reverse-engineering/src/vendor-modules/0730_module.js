@@ -1,0 +1,55 @@
+/**
+ * chunk.vendor.js Module #730
+ * Type: unknown
+ */
+
+function (e, t, i) {
+      var n = i(2),
+        r = i(51),
+        o = i(14),
+        a = i(12),
+        s = i(9);
+
+      function l() {
+        (r.call(this), this._setDefaultProperties(l.GeometryProperties));
+      }
+      (n.inherit("GGLBrightnessContrastEffect", l, r),
+        (l.GeometryProperties = {
+          shp: {
+            brightness: 0,
+            contrast: 0,
+          },
+          sh: "GGLBrightnessContrastShader",
+        }),
+        (l.prototype.getNodeNameTranslated = function () {
+          return s.getValue(
+            "GGLBrightnessContrastEffect",
+            "name",
+            this.getNodeName(),
+          );
+        }),
+        (l.RANGES = {
+          brightness: [-1, 1],
+          contrast: [-1, 1],
+        }),
+        (l.prototype.getEffectPadding = function () {
+          return 0;
+        }),
+        (l.prototype.canApplyNativeEffect = function () {
+          return !!o.hasFilters() && 0 == this.$shp.brightness;
+        }),
+        (l.prototype.applyNativeEffect = function (e, t, i, n) {
+          var r = a.clamp(-1, this.$shp.brightness, 1) + 1,
+            s = this.$shp.contrast;
+          (s > 0
+            ? (s > 1 && (s = 1), (s = 1 + s / (1.001 - s)))
+            : (s = 1 + a.clamp(-1, s, 0)),
+            e.setFilter(o.Filter.Brightness, r),
+            e.setFilter(o.Filter.Contrast, s));
+        }),
+        (l.prototype.removeNativeEffect = function (e, t, i) {
+          (e.setFilter(o.Filter.Brightness, null),
+            e.setFilter(o.Filter.Contrast, null));
+        }),
+        (e.exports = l));
+    }

@@ -972,14 +972,25 @@ function (e, t, n) {
         this._updateDimensions(!1, !0);
       }),
       (h.prototype._afterPropertiesChange = function (e) {
-        !e.temporary &&
+        if (!e.temporary) {
+          // rox/roy (Feature 3's custom ruler origin) live on the scene, not
+          // on the selected element(s), so the guard below (which only
+          // reacts to the elements themselves) never sees them -- without
+          // this, the X/Y fields go stale after a corner drag until the
+          // next unrelated geometry change forces a redraw.
+          this._document &&
+            e.node === this._document.getScene() &&
+            (e.properties.indexOf("rox") >= 0 ||
+              e.properties.indexOf("roy") >= 0) &&
+            this._updateDimensions();
           this._elements &&
-          this._elements.indexOf(e.node) >= 0 &&
-          this._showAnchor() &&
-          this._defineAnchorButtonState(
-            this._getVerticalAnchorValue(),
-            this._getHorizontalAnchorValue()
-          );
+            this._elements.indexOf(e.node) >= 0 &&
+            this._showAnchor() &&
+            this._defineAnchorButtonState(
+              this._getVerticalAnchorValue(),
+              this._getHorizontalAnchorValue()
+            );
+        }
       }),
       (h.prototype._settingChanged = function (e) {
         "decimals_num" === e.key && this._updateDimensions();
@@ -1044,6 +1055,26 @@ function (e, t, n) {
               switch (e) {
                 case "x":
                 case "y":
+                  // pointToStringX/Y (not the axis-less pointToString) so a
+                  // custom ruler origin (Feature 3) is reflected here too,
+                  // same as guide values already are -- w/h below are
+                  // lengths, not positions, and stay absolute regardless of
+                  // where the origin is.
+                  n =
+                    "x" === e
+                      ? this._document
+                          .getScene()
+                          .pointToStringX(
+                            t,
+                            this._document.getScene().getOptimalDecimalsCount()
+                          )
+                      : this._document
+                          .getScene()
+                          .pointToStringY(
+                            t,
+                            this._document.getScene().getOptimalDecimalsCount()
+                          );
+                  break;
                 case "w":
                 case "h":
                   n = this._document
@@ -1113,7 +1144,10 @@ function (e, t, n) {
             case "x":
             case "y":
               (r = "Move"),
-                (n = this._document.getScene().stringToPoint(t)),
+                (n =
+                  "x" === e
+                    ? this._document.getScene().stringToPointX(t)
+                    : this._document.getScene().stringToPointY(t)),
                 (o = s ? ("x" == e ? s.x : s.y) : null);
               break;
             case "w":

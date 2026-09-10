@@ -1,5 +1,27 @@
 const { Router } = require("express");
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
 const router = Router();
+
+// Plain os.homedir(), not Electron's app.getPath() — this file is require()d
+// by both server.js (plain Node, no Electron API available) and
+// electron-main.js, so it needs a path that works in both.
+const PROFILE_DIR = path.join(os.homedir(), ".gravit-designer-local");
+const PROFILE_FILE = path.join(PROFILE_DIR, "profile.json");
+
+function loadProfileOverrides() {
+  try {
+    return JSON.parse(fs.readFileSync(PROFILE_FILE, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+function saveProfileOverrides(overrides) {
+  fs.mkdirSync(PROFILE_DIR, { recursive: true });
+  fs.writeFileSync(PROFILE_FILE, JSON.stringify(overrides, null, 2));
+}
 
 const LANGUAGES = {
   0: "de-DE",
@@ -103,18 +125,31 @@ router.get("/user/settings", (_req, res) => {
 
 router.get("/user", (req, res) => {
   const locale = resolveLocale(req.query.lang);
-  res.json({ ...USER_PROFILE, locale, settings: SETTINGS });
+  const profile = { ...USER_PROFILE, ...loadProfileOverrides() };
+  res.json({ ...profile, locale, settings: SETTINGS });
 });
 
 router.put("/user", (req, res) => {
   const locale = resolveLocale(req.body?.locale);
+  const overrides = loadProfileOverrides();
+  // GAccountPanel (the client's real Account Settings form) submits these
+  // three fields; only persist what it actually sends.
+  for (const key of ["name", "last_name", "email"]) {
+    if (typeof req.body?.[key] === "string") {
+      overrides[key] = req.body[key];
+    }
+  }
+  saveProfileOverrides(overrides);
+
+  const profile = { ...USER_PROFILE, ...overrides };
   res.json({
-    id: USER_PROFILE.id,
-    name: USER_PROFILE.name,
+    id: profile.id,
+    name: profile.name,
+    last_name: profile.last_name,
     locale,
-    email: USER_PROFILE.email,
-    version: USER_PROFILE.version,
-    runtime: USER_PROFILE.runtime,
+    email: profile.email,
+    version: profile.version,
+    runtime: profile.runtime,
     settings: { notifications_disabled: false },
   });
 });

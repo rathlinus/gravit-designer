@@ -169,13 +169,13 @@ function (e, t, n) {
         );
       }),
       (w.prototype.getShortcut = function () {
+        // Standard cross-platform Save As (Ctrl/Cmd+Shift+S). Was
+        // SHIFT+META+OPTION+S until GGravitCloudAction's cloud Save As (see
+        // reverse-engineering/src/modules/0448_GGravitCloudAction.js) freed
+        // this combo up by moving to it instead — reserved for local Save As
+        // now, cloud/Drive Save As once that's actually implemented.
         return this._isNativeExt
-          ? [
-              r.GKey.Constant.SHIFT,
-              r.GKey.Constant.META,
-              r.GKey.Constant.OPTION,
-              "S",
-            ]
+          ? [r.GKey.Constant.SHIFT, r.GKey.Constant.META, "S"]
           : null;
       }),
       (w.prototype.isEnabled = function (e, t) {

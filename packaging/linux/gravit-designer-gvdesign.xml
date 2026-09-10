@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Registers .gvdesign as its own MIME type.
+
+  Installed by scripts/register-linux-mime.cjs (npm run linux:register-mime)
+  into ~/.local/share/mime/packages/, since AppImage installs (unlike
+  .deb/.rpm) have no postinstall step to do this automatically.
+
+  Icon is wired via <generic-icon>, not <icon>: Nemo's file-list view does
+  not render an icon reached only through an <icon> override on a custom
+  third-party type, even though GIO/GTK resolve and decode it correctly at
+  every layer (gio info, xdg-mime, icon-theme lookup, icon-chooser search
+  all worked before this change) — confirmed empirically 2026-08-28. Routing
+  the same icon through <generic-icon> instead is what actually makes Nemo's
+  list view pick it up.
+-->
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-gravit-design">
+    <comment>Gravit Designer document</comment>
+    <generic-icon name="application-x-gvdesign"/>
+    <glob pattern="*.gvdesign"/>
+  </mime-type>
+</mime-info>
