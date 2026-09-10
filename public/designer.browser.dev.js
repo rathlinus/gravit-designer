@@ -3227,20 +3227,26 @@ function (e, t, n) {
       (y.prototype.initLanguage = function (e, t) {
         const n = () =>
           this.getProperty("designer.settings").then(async (e) => {
+            let lang = 15;
             if (e && e.hasOwnProperty("language")) {
-              const t = e.language;
-              if (y.GravitLanguages.indexOf(t) >= 0)
-                await l.default.setLanguage(t);
-              else {
-                let e =
-                  i.GSystem.language &&
-                  i.GLocale.lookupLanguage(i.GSystem.language);
-                e && y.GravitLanguages.includes(e)
-                  ? await l.default.setLanguage(e)
-                  : await l.default.setLanguage(i.GLocaleLanguage.English);
+              lang = e.language;
+            }
+
+            if (lang === 15) {
+              const systemLang = navigator.language || (i.GSystem && i.GSystem.language);
+              const mappedLang = i.GLocale.lookupLanguage(systemLang);
+              if (mappedLang !== null && y.GravitLanguages.indexOf(mappedLang) >= 0) {
+                await l.default.setLanguage(mappedLang);
+              } else {
+                await l.default.setLanguage(i.GLocaleLanguage.English);
               }
+            } else if (y.GravitLanguages.indexOf(lang) >= 0) {
+              await l.default.setLanguage(lang);
+            } else {
+              await l.default.setLanguage(i.GLocaleLanguage.English);
             }
           });
+
         if (t)
           return new Promise(async (i) => {
             try {
@@ -3249,6 +3255,7 @@ function (e, t, n) {
               await n(), e && e(), i();
             }
           });
+
         async function o(e) {
           const t = i.GLocale.lookupLanguage(e);
           null !== t &&
@@ -3258,6 +3265,7 @@ function (e, t, n) {
                 await l.default.setLanguage(t))
               : await l.default.setLanguage(i.GLocaleLanguage.English));
         }
+
         r.gApi
           .getUser()
           .then(async (t) => {
@@ -125903,6 +125911,8 @@ function (e, t, n) {
             "language.11": "MainArea/Canvas/CanvasContextMenu/Italiano",
             "language.12": "MainArea/Canvas/CanvasContextMenu/日本語",
             "language.13": "MainArea/Canvas/CanvasContextMenu/Nederlands",
+            "language.14": "MainArea/Canvas/CanvasContextMenu/Svenska",
+            "language.15": "MainArea/Canvas/CanvasContextMenu/System Default",
             "open-welcome-screen":
               "MainArea/Canvas/CanvasContextMenu/ShowWelcomeScreen",
             "check-for-updates":
@@ -126137,6 +126147,8 @@ function (e, t, n) {
             "language.11": "MainArea/MenuBar/HelpLanguage/Italiano",
             "language.12": "MainArea/MenuBar/HelpLanguage/日本語",
             "language.13": "MainArea/MenuBar/HelpLanguage/Nederlands",
+            "language.14": "MainArea/MenuBar/HelpLanguage/Svenska",
+            "language.15": "MainArea/MenuBar/HelpLanguage/System Default",
             "open-welcome-screen": "MainArea/MenuBar/Help/ShowWelcomeScreen",
             "check-for-updates": "MainArea/MenuBar/Help/CheckForUpdates",
             "developer-details":
@@ -126382,6 +126394,8 @@ function (e, t, n) {
             "language.11": "MainArea/Shortcut/Italiano",
             "language.12": "MainArea/Shortcut/日本語",
             "language.13": "MainArea/Shortcut/Nederlands",
+            "language.14": "MainArea/Shortcut/Svenska",
+            "language.15": "MainArea/Shortcut/System Default",
             "open-welcome-screen": "MainArea/Shortcut/ShowWelcomeScreen",
             "check-for-updates": "MainArea/Shortcut/CheckForUpdates",
             "developer-details": "MainArea/Shortcut/SendDeveloperDetails",
@@ -126572,6 +126586,8 @@ function (e, t, n) {
             "language.11": "MainArea/Toolbar/Italiano",
             "language.12": "MainArea/Toolbar/日本語",
             "language.13": "MainArea/Toolbar/Nederlands",
+            "language.14": "MainArea/Toolbar/Svenska",
+            "language.15": "MainArea/Toolbar/System Default",
             "open-welcome-screen": "MainArea/Toolbar/ShowWelcomeScreen",
             "check-for-updates": "MainArea/Toolbar/CheckForUpdates",
             "developer-details": "MainArea/Toolbar/SendDeveloperDetails",
@@ -156024,6 +156040,16 @@ function (e, t, n) {
       "Português",
       "Español",
       "Français",
+      "Polski",
+      "Русский",
+      "Türkçe",
+      "Čeština",
+      "中文 Taiwan",
+      "Italiano",
+      "日本語",
+      "Nederlands",
+      "Svenska",
+      "System Default",
     ]),
       i.GObject.inherit(h, l),
       (h.ID = "language"),
@@ -156036,7 +156062,8 @@ function (e, t, n) {
         return !0;
       }),
       (h.prototype.isChecked = function () {
-        return i.GLocale.getLanguage() === this._locale;
+        const currentLang = gDesigner.getSetting("language", 15);
+        return currentLang === this._locale;
       }),
       (h.prototype.getTitle = function () {
         return this._title;
@@ -156054,11 +156081,11 @@ function (e, t, n) {
         return !g();
       }),
       (h.prototype.execute = function () {
-        if (i.GLocale.getLanguage() !== this._locale) {
+        if (gDesigner.getSetting("language", 15) !== this._locale) {
           let e = () => gDesigner.setSetting("language", this._locale),
             t = () =>
               r.gApi
-                .updateUser({ locale: i.GLocale.lookupLocale(this._locale) })
+                .updateUser({ locale: this._locale === 15 ? null : i.GLocale.lookupLocale(this._locale) })
                 .then(() => e())
                 .then(() => this._reloadApp())
                 .catch((e) => p.alert(r.gApi.formatError(e)));
@@ -156087,7 +156114,21 @@ function (e, t, n) {
         return "[Object GSwitchLanguageAction]";
       }),
       (e.exports = h);
-  },
+
+      // Inject language actions into help menu
+      if (typeof gravit !== 'undefined' && gravit.actions) {
+        h.Translations.forEach((_, index) => {
+           if (index > 5) {
+             const action = new h(index);
+             const exists = gravit.actions.some(a => a.getId && a.getId() === action.getId());
+             if (!exists) {
+               gravit.actions.push(action);
+             }
+           }
+        });
+      }
+  }
+,
 function (e, t, n) {
     "use strict";
     n(3);

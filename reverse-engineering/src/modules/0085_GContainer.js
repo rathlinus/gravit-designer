@@ -191,20 +191,26 @@ function (e, t, n) {
       (y.prototype.initLanguage = function (e, t) {
         const n = () =>
           this.getProperty("designer.settings").then(async (e) => {
+            let lang = 15;
             if (e && e.hasOwnProperty("language")) {
-              const t = e.language;
-              if (y.GravitLanguages.indexOf(t) >= 0)
-                await l.default.setLanguage(t);
-              else {
-                let e =
-                  i.GSystem.language &&
-                  i.GLocale.lookupLanguage(i.GSystem.language);
-                e && y.GravitLanguages.includes(e)
-                  ? await l.default.setLanguage(e)
-                  : await l.default.setLanguage(i.GLocaleLanguage.English);
+              lang = e.language;
+            }
+
+            if (lang === 15) {
+              const systemLang = navigator.language || (i.GSystem && i.GSystem.language);
+              const mappedLang = i.GLocale.lookupLanguage(systemLang);
+              if (mappedLang !== null && y.GravitLanguages.indexOf(mappedLang) >= 0) {
+                await l.default.setLanguage(mappedLang);
+              } else {
+                await l.default.setLanguage(i.GLocaleLanguage.English);
               }
+            } else if (y.GravitLanguages.indexOf(lang) >= 0) {
+              await l.default.setLanguage(lang);
+            } else {
+              await l.default.setLanguage(i.GLocaleLanguage.English);
             }
           });
+
         if (t)
           return new Promise(async (i) => {
             try {
@@ -213,6 +219,7 @@ function (e, t, n) {
               await n(), e && e(), i();
             }
           });
+
         async function o(e) {
           const t = i.GLocale.lookupLanguage(e);
           null !== t &&
@@ -222,6 +229,7 @@ function (e, t, n) {
                 await l.default.setLanguage(t))
               : await l.default.setLanguage(i.GLocaleLanguage.English));
         }
+
         r.gApi
           .getUser()
           .then(async (t) => {
